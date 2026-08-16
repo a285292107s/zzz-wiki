@@ -2,9 +2,12 @@
 import { computed, ref, watchEffect } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import { api, iconUrl } from '@/data/api'
+import { stripRichText } from '@/utils/text'
+import type { AttrCode, SpecCode } from '@/data/types'
 import type { CharacterDetail } from '@/data/types'
 import Tags from '@/components/Tags.vue'
-import RarityStars from '@/components/RarityStars.vue'
+import Rarity from '@/components/Rarity.vue'
+import HollowImage from '@/components/HollowImage.vue'
 
 const route = useRoute()
 const detail = ref<CharacterDetail | null>(null)
@@ -25,23 +28,92 @@ watchEffect(async () => {
   }
 })
 
-const stats = computed(() => {
-  const d = detail.value
-  if (!d) return []
-  const rows: Array<[string, number | undefined]> = [
-    ['生命值 HP', d.HP],
-    ['攻击力 ATK', d.ATK],
-    ['防御力 DEF', d.DEF],
-    ['冲击力', d.Impact],
-    ['暴击率', d.CritRate],
-    ['暴击伤害', d.CritDMG],
-    ['穿透率', d.PenRatio],
-    ['异常掌控', d.AnomalyMastery],
-    ['异常精通', d.AnomalyProficiency],
-    ['能量自动回复', d.EnergyRegen],
-  ]
-  return rows.filter(([, v]) => v != null) as Array<[string, number]>
+const attrCode = computed<AttrCode | null>(() => {
+  const el = detail.value?.element_type
+  if (!el) return null
+  const key = Object.keys(el)[0]
+  return key ? (Number(key) as AttrCode) : null
 })
+
+const specCode = computed<SpecCode | null>(() => {
+  const w = detail.value?.weapon_type
+  if (!w) return null
+  const key = Object.keys(w)[0]
+  return key ? (Number(key) as SpecCode) : null
+})
+
+const info = computed(() => detail.value?.partner_info ?? null)
+
+/* stats: raw ints, percentage fields are /100 */
+const STAT_DEFS: Array<[string, (s: Record<string, number>) => number | null]> = [
+  ['生命值', (s) => s.hp_max],
+  ['攻击力', (s) => s.attack],
+  ['防御力', (s) => s.defence],
+  ['冲击力', (s) => s.break_stun],
+  ['暴击率', (s) => (s.crit != null ? s.crit / 100 : null)],
+  ['暴击伤害', (s) => (s.crit_damage != null ? s.crit_damage / 100 : null)],
+  ['穿透率', (s) => (s.pen_rate != null ? s.pen_rate / 100 : null)],
+  ['异常掌控', (s) => s.element_mystery],
+  ['异常精通', (s) => s.element_abnormal_power],
+  ['能量回复', (s) => s.sp_recover],
+]
+
+const stats = computed(() => {
+  const s = detail.value?.stats
+  if (!s) return []
+  return STAT_DEFS.map(([label, fn]) => ({ label, value: fn(s) })).filter(
+    (r) => r.value != null,
+  )
+})
+
+/** skill dict is keyed by type; display order follows game UI */
+const SKILL_ORDER = ['basic', 'dodge', 'special', 'chain', 'assist', 'core'] as const
+
+const SKILL_ZH: Record<string, string> = {
+  basic: '普通攻击',
+  dodge: '闪避',
+  special: '特殊技',
+  chain: '连携技',
+  assist: '支援技',
+  core: '核心技',
+}
+
+const skills = computed(() => {
+  const sk = detail.value?.skill
+  if (!sk) return []
+  return SKILL_ORDER.filter((k) => sk[k] != null).map((k) => ({
+    key: k,
+    zh: SKILL_ZH[k] ?? k,
+    descriptions: (sk[k] as { description?: unknown })?.description as
+      | Array<{ name?: string; desc?: string }>
+      | undefined,
+  }))
+})
+
+const talents = computed<TalentRow[]>(() => {
+  const t = detail.value?.talent
+  if (!t) return []
+  return Object.entries(t)
+    .sort((a, b) => Number(a[0]) - Number(b[0]))
+    .map(([k, v]) => ({
+      no: Number(k),
+      name: (v as { name?: string }).name,
+      desc: (v as { desc?: string }).desc,
+    }))
+})
+
+const campName = computed(() => {
+  const c = detail.value?.camp
+  if (!c) return null
+  const key = Object.keys(c)[0]
+  return key ? String(c[key]) : null
+})
+
+interface TalentRow {
+  no: number
+  name?: string
+  desc?: string
+}
 </script>
 
 <template>
@@ -55,63 +127,70 @@ const stats = computed(() => {
       <header class="head">
         <div class="id-block">
           <p class="eyebrow mono">Agent · {{ String(id).padStart(4, '0') }}</p>
-          <h1 class="page-title">{{ detail.Name }}</h1>
-          <div class="meta mono">
-            <RarityStars :value="detail.Rarity" />
-            <Tags :attribute="detail.Attribute" :profession="detail.Profession" />
-            <span v-if="detail.Camp" class="camp">{{ detail.Camp }}</span>
+          <h1 class="page-title">{{ detail.name }}</h1>
+          <div class="meta">
+            <Rarity :rank="detail.rarity" />
+            <Tags :element="attrCode" :specialty="specCode" />
+            <span v-if="campName" class="camp">{{ campName }}</span>
           </div>
+          <p v-if="info?.profile_desc" class="profile">{{ stripRichText(info.profile_desc) }}</p>
         </div>
 
-        <div v-if="detail.Icon" class="portrait">
-          <img :src="iconUrl(String(detail.Icon)) ?? ''" :alt="detail.Name" loading="lazy" />
+        <div class="portrait">
+          <HollowImage
+            :src="iconUrl(String(detail.icon ?? ''))"
+            :alt="detail.name"
+            :fallback="detail.name"
+          />
         </div>
       </header>
 
-      <section v-if="stats.length" class="block">
+      <section class="block">
         <div class="section-head">
           <span class="no mono">01</span>
           <h2>基础数值</h2>
           <span class="rule" />
         </div>
         <div class="stat-grid">
-          <div v-for="[label, value] in stats" :key="label" class="stat">
-            <span class="k">{{ label }}</span>
-            <span class="v mono">{{ value }}</span>
+          <div v-for="row in stats" :key="row.label" class="stat">
+            <span class="k">{{ row.label }}</span>
+            <span class="v mono">{{ row.value }}</span>
           </div>
         </div>
       </section>
 
-      <section v-if="detail.SkillList?.length" class="block">
+      <section v-if="skills.length" class="block">
         <div class="section-head">
           <span class="no mono">02</span>
           <h2>技能</h2>
           <span class="rule" />
         </div>
-        <ul class="skill-list">
-          <li v-for="(s, i) in detail.SkillList" :key="s.Id ?? i" class="skill">
-            <span class="skill-no mono">{{ String(i + 1).padStart(2, '0') }}</span>
-            <div class="skill-body">
-              <h3 class="serif">{{ s.Name ?? '未命名' }}</h3>
-              <p class="skill-type mono">{{ s.Type ?? '' }}</p>
-              <p v-if="s.Desc" class="desc">{{ s.Desc }}</p>
-            </div>
-          </li>
-        </ul>
+        <div v-for="sk in skills" :key="sk.key" class="skill-group">
+          <h3 class="skill-kind serif">{{ sk.zh }}</h3>
+          <ul v-if="sk.descriptions?.length" class="skill-list">
+            <li v-for="(d, i) in sk.descriptions" :key="i" class="skill">
+              <span class="skill-no mono">{{ String(i + 1).padStart(2, '0') }}</span>
+              <div class="skill-body">
+                <h4 class="skill-name">{{ d.name ?? '—' }}</h4>
+                <p v-if="d.desc" class="desc">{{ stripRichText(d.desc) }}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
       </section>
 
-      <section v-if="detail.TalentList?.length" class="block">
+      <section v-if="talents.length" class="block">
         <div class="section-head">
           <span class="no mono">03</span>
-          <h2>天赋</h2>
+          <h2>影画</h2>
           <span class="rule" />
         </div>
         <ul class="talent-list">
-          <li v-for="(t, i) in detail.TalentList" :key="t.Id ?? i" class="talent">
-            <span class="talent-no mono">{{ String(i + 1).padStart(2, '0') }}</span>
+          <li v-for="t in talents" :key="t.no" class="talent">
+            <span class="talent-no mono">{{ String(t.no).padStart(2, '0') }}</span>
             <div>
-              <h3 class="serif">{{ t.Name ?? '未命名' }}</h3>
-              <p v-if="t.Desc" class="desc">{{ t.Desc }}</p>
+              <h3 class="serif">{{ t.name ?? '未命名' }}</h3>
+              <p v-if="t.desc" class="desc">{{ stripRichText(t.desc) }}</p>
             </div>
           </li>
         </ul>
@@ -142,9 +221,9 @@ const stats = computed(() => {
 
 .head {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 32px;
+  gap: 40px;
   margin-bottom: calc(var(--pad-section) * 0.8);
 }
 
@@ -158,20 +237,24 @@ const stats = computed(() => {
 
 .camp {
   font-size: 12px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.1em;
   color: var(--ink-1);
-  border: 1px solid var(--line-1);
-  padding: 3px 9px;
-  border-radius: 2px;
+}
+
+.profile {
+  margin-top: 22px;
+  color: var(--ink-1);
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 56ch;
 }
 
 .portrait {
   flex: none;
-  width: min(300px, 38vw);
+  width: min(280px, 34vw);
 }
 
-.portrait img {
-  width: 100%;
+.portrait :deep(.frame) {
   border: var(--rule);
   background: var(--bg-1);
 }
@@ -184,7 +267,7 @@ const stats = computed(() => {
 
 .stat-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 1px;
   background: var(--line-1);
   border: var(--rule);
@@ -205,11 +288,22 @@ const stats = computed(() => {
 }
 
 .stat .v {
-  font-size: 19px;
+  font-size: 18px;
   color: var(--ink-0);
 }
 
 /* ---------- skills ---------- */
+
+.skill-group {
+  margin-bottom: 26px;
+}
+
+.skill-kind {
+  font-size: 16.5px;
+  font-weight: 500;
+  color: var(--amber);
+  margin-bottom: 6px;
+}
 
 .skill-list {
   list-style: none;
@@ -217,9 +311,9 @@ const stats = computed(() => {
 
 .skill {
   display: grid;
-  grid-template-columns: 40px 1fr;
-  gap: 16px;
-  padding: 18px 4px;
+  grid-template-columns: 36px 1fr;
+  gap: 14px;
+  padding: 14px 4px;
   border-bottom: var(--rule);
 }
 
@@ -229,22 +323,18 @@ const stats = computed(() => {
   padding-top: 4px;
 }
 
-.skill-body h3 {
-  font-size: 18px;
+.skill-name {
+  font-size: 15.5px;
   font-weight: 500;
-}
-
-.skill-type {
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: var(--amber);
-  margin: 2px 0 8px;
+  margin-bottom: 6px;
 }
 
 .desc {
   color: var(--ink-1);
-  font-size: 14px;
-  max-width: 72ch;
+  font-size: 13.5px;
+  line-height: 1.8;
+  max-width: 76ch;
+  white-space: pre-line;
 }
 
 /* ---------- talents ---------- */
@@ -255,9 +345,9 @@ const stats = computed(() => {
 
 .talent {
   display: grid;
-  grid-template-columns: 40px 1fr;
-  gap: 16px;
-  padding: 16px 4px;
+  grid-template-columns: 36px 1fr;
+  gap: 14px;
+  padding: 14px 4px;
   border-bottom: var(--rule);
 }
 
@@ -268,7 +358,7 @@ const stats = computed(() => {
 }
 
 .talent h3 {
-  font-size: 16.5px;
+  font-size: 16px;
   font-weight: 500;
   margin-bottom: 6px;
 }
@@ -287,10 +377,9 @@ const stats = computed(() => {
 @media (max-width: 860px) {
   .head {
     flex-direction: column-reverse;
-    align-items: flex-start;
   }
   .portrait {
-    width: 60vw;
+    width: 56vw;
   }
 }
 </style>

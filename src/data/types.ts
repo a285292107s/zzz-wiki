@@ -1,152 +1,224 @@
 /* ============================================================
-   Data model types — mirror hakush.in ZZZ JSON payloads.
-   Field presence is defensive: upstream payloads vary across
-   versions, so almost everything is optional save for ids/names.
+   Data model types — static.nanoka.cc (hakush.in successor) ZZZ.
+   Numeric element/specialty ids are decoded by ELEMENTS / PROFESSIONS
+   maps below. List payloads are dicts keyed by id; detail payloads
+   are single objects. Fields are defensive.
    ============================================================ */
 
-export type Attribute =
-  | 'Physical'
-  | 'Fire'
-  | 'Ice'
-  | 'Electric'
-  | 'Ether'
+/* ---------- element / specialty decoding ---------- */
 
-export type AttributeZh = '物理' | '火' | '冰' | '电' | '以太'
+export type AttrCode = 200 | 201 | 202 | 203 | 204 | 205
 
-export const ATTRIBUTES: Record<Attribute, { zh: string; color: string }> = {
-  Physical: { zh: '物理', color: '#c8a35c' },
-  Fire: { zh: '火', color: '#d4653f' },
-  Ice: { zh: '冰', color: '#5d9bc2' },
-  Electric: { zh: '电', color: '#a06fc4' },
-  Ether: { zh: '以太', color: '#4bb8a0' },
+export const ELEMENTS: Record<AttrCode, { en: string; zh: string; color: string }> = {
+  200: { en: 'Physical', zh: '物理', color: '#c8a35c' },
+  201: { en: 'Fire', zh: '火', color: '#d4653f' },
+  202: { en: 'Ice', zh: '冰', color: '#5d9bc2' },
+  203: { en: 'Electric', zh: '电', color: '#a06fc4' },
+  204: { en: 'Wind', zh: '风', color: '#6fbfa0' },
+  205: { en: 'Ether', zh: '以太', color: '#4bb8a0' },
 }
 
-export type Profession = 'Attack' | 'Defense' | 'Anomaly' | 'Stun' | 'Support'
+export type SpecCode = 1 | 2 | 3 | 4 | 5 | 6
 
-export const PROFESSIONS: Record<Profession, string> = {
-  Attack: '强攻',
-  Defense: '防护',
-  Anomaly: '异常',
-  Stun: '击破',
-  Support: '支援',
+export const PROFESSIONS: Record<SpecCode, { en: string; zh: string }> = {
+  1: { en: 'Attack', zh: '强攻' },
+  2: { en: 'Stun', zh: '击破' },
+  3: { en: 'Anomaly', zh: '异常' },
+  4: { en: 'Support', zh: '支援' },
+  5: { en: 'Defense', zh: '防护' },
+  6: { en: 'Rupture', zh: '命破' },
+}
+
+export type RarityChar = 3 | 4
+export type RarityAll = 2 | 3 | 4
+
+/** Rank → displayed tier: characters/bangboos use 3=A, 4=S;
+ *  weapons also have B at rank 2. */
+export const RANK_TO_TIER: Record<number, 'S' | 'A' | 'B'> = {
+  2: 'B',
+  3: 'A',
+  4: 'S',
 }
 
 /* ---------- list payloads ---------- */
 
 export interface CharacterListItem {
   Id: number
-  Name: string
-  Rarity: 1 | 2 | 3 | 4 | 5
-  Attribute?: Attribute
-  Profession?: Profession
-  Camp?: string
-  Sex?: string
-  Release?: string | number
-  Icon?: string
-  OtherName?: string
+  code?: string
+  rank?: RarityChar
+  type?: SpecCode
+  element?: AttrCode
+  hit?: number
+  camp?: number
+  icon?: string
+  en?: string
+  zh?: string
+  ja?: string
+  ko?: string
+  desc?: string
   [k: string]: unknown
 }
 
 export interface WEngineListItem {
   Id: number
-  Name: string
-  Rarity: 1 | 2 | 3 | 4 | 5
-  Attribute?: Attribute
-  Specialty?: Profession
-  Icon?: string
+  icon?: string
+  rank?: RarityAll
+  type?: SpecCode
+  en?: string
+  zh?: string
+  ja?: string
+  ko?: string
   [k: string]: unknown
 }
 
 export interface BangbooListItem {
   Id: number
-  Name: string
-  Rarity: 1 | 2 | 3 | 4 | 5
-  Attribute?: Attribute
-  Icon?: string
+  icon?: string
+  rank?: RarityChar
+  codename?: string
+  en?: string
+  zh?: string
+  ja?: string
+  ko?: string
+  desc?: string
+  [k: string]: unknown
+}
+
+export interface LocaleInfo {
+  name?: string
+  desc2?: string
+  desc4?: string
   [k: string]: unknown
 }
 
 export interface DiskDriveListItem {
   Id: number
-  Name: string
-  Rarity?: number[]
-  Icon?: string
+  icon?: string
+  en?: LocaleInfo
+  zh?: LocaleInfo
+  ja?: LocaleInfo
+  ko?: LocaleInfo
   [k: string]: unknown
 }
-
-export type ListRecord =
-  | CharacterListItem
-  | WEngineListItem
-  | BangbooListItem
-  | DiskDriveListItem
 
 /* ---------- detail payloads ---------- */
 
-export interface SkillEntry {
-  Id?: number
-  Name?: string
-  Type?: string
-  Desc?: string
-  LevelData?: Array<Record<string, unknown>>
-  [k: string]: unknown
-}
-
-export interface TalentEntry {
-  Id?: number
-  Name?: string
-  Desc?: string
-  [k: string]: unknown
+export interface PropMap {
+  [id: string]: string | number
 }
 
 export interface CharacterDetail {
-  Id?: number
-  Name?: string
-  Rarity?: number
-  Attribute?: Attribute
-  Profession?: Profession
-  Camp?: string
-  HP?: number
-  ATK?: number
-  DEF?: number
-  Impact?: number
-  CritRate?: number
-  CritDMG?: number
-  PenRatio?: number
-  AnomalyMastery?: number
-  AnomalyProficiency?: number
-  EnergyRegen?: number
-  CoreSkill?: Record<string, unknown>
-  SkillList?: SkillEntry[]
-  TalentList?: TalentEntry[]
+  Id: number
+  icon?: string
+  name?: string
+  code_name?: string
+  rarity?: number
+  weapon_type?: PropMap
+  element_type?: PropMap
+  hit_type?: PropMap
+  camp?: PropMap
+  gender?: number
+  partner_info?: {
+    birthday?: string
+    full_name?: string
+    gender?: string
+    stature?: string
+    profile_desc?: string
+    impressions?: string[]
+    impression_f?: string
+    impression_m?: string
+    [k: string]: unknown
+  } | null
+  stats?: Record<string, number>
+  level?: Record<string, {
+    hp_max?: number
+    attack?: number
+    defence?: number
+    level_max?: number
+    level_min?: number
+    materials?: Record<string, number>
+    [k: string]: unknown
+  }>
+  extra_level?: Record<string, {
+    max_level?: number
+    extra?: Record<string, {
+      prop?: number
+      name?: string
+      format?: string
+      value?: number
+    }>
+    [k: string]: unknown
+  }>
+  skill?: Record<string, {
+    description?: Array<{
+      name?: string
+      desc?: string
+      param?: unknown
+      [k: string]: unknown
+    }>
+    [k: string]: unknown
+  }>
+  talent?: Record<string, {
+    name?: string
+    desc?: string
+    desc2?: string
+    [k: string]: unknown
+  }>
+  passive?: Record<string, unknown>
+  potential_detail?: Record<string, unknown>
+  skin?: Record<string, unknown>
   [k: string]: unknown
 }
 
 export interface WEngineDetail {
-  Id?: number
-  Name?: string
-  Rarity?: number
-  Specialty?: Profession
-  Icon?: string
+  Id: number
+  code_name?: string
+  name?: string
+  desc?: string
+  desc2?: string
+  desc3?: string
+  rarity?: number
+  icon?: string
+  weapon_type?: PropMap
+  base_property?: {
+    name?: string
+    name2?: string
+    format?: string
+    value?: number
+  }
+  rand_property?: {
+    name?: string
+    name2?: string
+    format?: string
+    value?: number
+  }
+  talents?: Record<string, {
+    name?: string
+    desc?: string
+    [k: string]: unknown
+  }>
   [k: string]: unknown
 }
 
 export interface BangbooDetail {
-  Id?: number
-  Name?: string
-  Rarity?: number
-  Icon?: string
+  Id: number
+  code_name?: string
+  name?: string
+  desc?: string
+  rarity?: number
+  icon?: string
+  stats?: Record<string, number>
+  level?: Record<string, unknown>
+  skill?: Record<string, unknown>
   [k: string]: unknown
 }
 
 export interface DiskDriveDetail {
-  Id?: number
-  Name?: string
-  Rarity?: number
+  Id: number
+  name?: string
+  desc2?: string
+  desc4?: string
+  story?: string
+  icon?: string
   [k: string]: unknown
 }
-
-export type DetailRecord =
-  | CharacterDetail
-  | WEngineDetail
-  | BangbooDetail
-  | DiskDriveDetail

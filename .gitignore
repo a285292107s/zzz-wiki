@@ -5,3 +5,7 @@ dist
 .env
 .env.*
 !.env.example
+
+# ephemeral research artifacts (kept on disk, not in repo)
+_research_*
+shots

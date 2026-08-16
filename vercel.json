@@ -13,10 +13,6 @@
   ],
   "rewrites": [
     {
-      "source": "/api/zzz/(.*)",
-      "destination": "https://api.hakush.in/zzz/$1"
-    },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

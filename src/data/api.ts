@@ -1,7 +1,14 @@
 /* ============================================================
-   hakush.in data client.
-   All upstream endpoints are table-driven so the exact URL
-   scheme can be reviewed/adjusted in one place.
+   static.nanoka.cc data client — the hakush.in successor API.
+   Endpoints confirmed from hakushin-py source:
+
+     GET /manifest.json                       → { zzz: { latest, ... } }
+     GET /zzz/{ver}/character.json            → { [id]: {...} }   (list, no lang)
+     GET /zzz/{ver}/{lang}/character/{id}.json→ detail (lang: zh|en|ja|ko)
+     … same for weapon / bangboo / equipment
+
+   CORS is fully open (access-control-allow-origin: *).
+   Icons: https://static.nanoka.cc/zzz/UI/{basename}.webp
    ============================================================ */
 
 import type {
@@ -15,24 +22,18 @@ import type {
   WEngineListItem,
 } from './types'
 
-/** Same-origin path the site itself is served from.
- *  In dev, Vite proxies /api → https://api.hakush.in
- *  In prod, vercel.json rewrites /api → https://api.hakush.in
- */
-const BASE = '/api/zzz'
+const BASE = 'https://static.nanoka.cc'
+export const UI_BASE = `${BASE}/zzz/UI`
+export const LANG = 'zh' as const
 
-export const IMG_BASE = 'https://api.hakush.in/zzz/UI'
-
-const ENDPOINTS = {
-  characters: `${BASE}/data/character.json`,
-  charDetail: (id: number | string) => `${BASE}/data/char/${id}.json`,
-  wengines: `${BASE}/data/weapon.json`,
-  wengineDetail: (id: number | string) => `${BASE}/data/weapon/${id}.json`,
-  bangboos: `${BASE}/data/bangboo.json`,
-  bangbooDetail: (id: number | string) => `${BASE}/data/bangboo/${id}.json`,
-  disks: `${BASE}/data/diskdrive.json`,
-  diskDetail: (id: number | string) => `${BASE}/data/diskdrive/${id}.json`,
-} as const
+interface Manifest {
+  zzz?: {
+    latest?: string
+    live?: string
+    available?: string[]
+  }
+  [k: string]: unknown
+}
 
 /* ---------- tiny cache ---------- */
 
@@ -54,45 +55,84 @@ function getJson<T>(url: string): Promise<T> {
   return p
 }
 
-/* ---------- list fetchers ----------
-   hakush.in list payloads are dicts keyed by numeric id;
-   we normalise to arrays, oldest-first per upstream order. */
+/* ---------- version ---------- */
 
-function toArray<T>(payload: unknown): T[] {
-  if (!payload || typeof payload !== 'object') return []
-  return Object.values(payload) as T[]
+let versionPromise: Promise<string> | null = null
+
+export function gameVersion(): Promise<string> {
+  versionPromise ??= getJson<Manifest>(`${BASE}/manifest.json`).then((m) => {
+    const v = m.zzz?.latest
+    if (!v) throw new Error('manifest missing zzz.latest')
+    return v
+  })
+  return versionPromise
 }
+
+async function listPath<T extends Record<string, unknown>>(file: string): Promise<T[]> {
+  const ver = await gameVersion()
+  const data = await getJson<Record<string, T>>(`${BASE}/zzz/${ver}/${file}.json`)
+  return normalize<T>(data)
+}
+
+async function detailPath<T>(kind: string, id: number | string): Promise<T> {
+  const ver = await gameVersion()
+  return getJson<T>(`${BASE}/zzz/${ver}/${LANG}/${kind}/${id}.json`)
+}
+
+/** list payloads are { [numericId]: item } — return array with Id attached */
+function normalize<T extends Record<string, unknown>>(dict: Record<string, T>): T[] {
+  return Object.entries(dict).map(([k, v]) => ({ ...v, Id: Number(k) }))
+}
+
+/* ---------- icon url ---------- */
+
+/** Icons arrive as bare names ("IconRole01") or full asset paths;
+ *  only the basename (minus extension) is used. */
+export function iconUrl(path?: string | null): string | null {
+  if (!path) return null
+  if (/^https?:/.test(path)) return path
+  const basename = path.split('/').pop() ?? path
+  const stem = basename.replace(/\.[^.]+$/, '')
+  return `${UI_BASE}/${stem}.webp`
+}
+
+/* ---------- fetchers ---------- */
 
 export const api = {
   async characters(): Promise<CharacterListItem[]> {
-    return toArray(await getJson<Record<string, CharacterListItem>>(ENDPOINTS.characters))
+    return listPath<CharacterListItem>('character')
   },
-  async character(id: number | string): Promise<CharacterDetail> {
-    return getJson<CharacterDetail>(ENDPOINTS.charDetail(id))
+  character(id: number | string): Promise<CharacterDetail> {
+    return detailPath<CharacterDetail>('character', id)
   },
   async wengines(): Promise<WEngineListItem[]> {
-    return toArray(await getJson<Record<string, WEngineListItem>>(ENDPOINTS.wengines))
+    return listPath<WEngineListItem>('weapon')
   },
-  async wengine(id: number | string): Promise<WEngineDetail> {
-    return getJson<WEngineDetail>(ENDPOINTS.wengineDetail(id))
+  wengine(id: number | string): Promise<WEngineDetail> {
+    return detailPath<WEngineDetail>('weapon', id)
   },
   async bangboos(): Promise<BangbooListItem[]> {
-    return toArray(await getJson<Record<string, BangbooListItem>>(ENDPOINTS.bangboos))
+    return listPath<BangbooListItem>('bangboo')
   },
-  async bangboo(id: number | string): Promise<BangbooDetail> {
-    return getJson<BangbooDetail>(ENDPOINTS.bangbooDetail(id))
+  bangboo(id: number | string): Promise<BangbooDetail> {
+    return detailPath<BangbooDetail>('bangboo', id)
   },
   async disks(): Promise<DiskDriveListItem[]> {
-    return toArray(await getJson<Record<string, DiskDriveListItem>>(ENDPOINTS.disks))
+    return listPath<DiskDriveListItem>('equipment')
   },
-  async disk(id: number | string): Promise<DiskDriveDetail> {
-    return getJson<DiskDriveDetail>(ENDPOINTS.diskDetail(id))
+  disk(id: number | string): Promise<DiskDriveDetail> {
+    return detailPath<DiskDriveDetail>('equipment', id)
   },
 }
 
-/** Build an icon URL from an upstream raw path (e.g. "SpriteOutput/..."). */
-export function iconUrl(path?: string): string | null {
-  if (!path) return null
-  if (/^https?:/.test(path)) return path
-  return `${IMG_BASE}/${path}`
+/** Localised display name helper — list items carry en/zh/ja/ko. */
+export function locName(item: {
+  en?: string
+  zh?: string
+  ja?: string
+  ko?: string
+  code?: string
+  codename?: string
+}): string {
+  return item.zh || item.en || item.ja || item.ko || item.code || item.codename || '—'
 }

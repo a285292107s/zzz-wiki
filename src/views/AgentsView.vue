@@ -1,17 +1,19 @@
 <script setup lang="ts">
 import { computed, ref, watchEffect } from 'vue'
-import { api } from '@/data/api'
+import { api, locName } from '@/data/api'
+import { ELEMENTS, PROFESSIONS, type AttrCode, type SpecCode } from '@/data/types'
 import type { CharacterListItem } from '@/data/types'
-import { ATTRIBUTES, PROFESSIONS, type Attribute, type Profession } from '@/data/types'
 import Tags from '@/components/Tags.vue'
-import RarityStars from '@/components/RarityStars.vue'
+import Rarity from '@/components/Rarity.vue'
+import HollowImage from '@/components/HollowImage.vue'
+import { iconUrl } from '@/data/api'
 
 const items = ref<CharacterListItem[]>([])
 const loaded = ref(false)
 const error = ref<string | null>(null)
 
-const attrFilter = ref<'all' | Attribute>('all')
-const profFilter = ref<'all' | Profession>('all')
+const attrFilter = ref<'all' | AttrCode>('all')
+const profFilter = ref<'all' | SpecCode>('all')
 const query = ref('')
 
 watchEffect(async () => {
@@ -28,26 +30,22 @@ watchEffect(async () => {
 const filtered = computed(() => {
   let list = items.value
   if (attrFilter.value !== 'all') {
-    list = list.filter((c) => c.Attribute === attrFilter.value)
+    list = list.filter((c) => c.element === attrFilter.value)
   }
   if (profFilter.value !== 'all') {
-    list = list.filter((c) => c.Profession === profFilter.value)
+    list = list.filter((c) => c.type === profFilter.value)
   }
   const q = query.value.trim().toLowerCase()
   if (q) {
-    list = list.filter((c) => (c.Name ?? '').toLowerCase().includes(q))
+    list = list.filter((c) => locName(c).toLowerCase().includes(q))
   }
   return list
 })
 
-const showFilters = computed(
-  () =>
-    items.value.some((c) => c.Attribute != null) ||
-    items.value.some((c) => c.Profession != null),
-)
+const showFilters = computed(() => items.value.length > 0)
 
-const attrs = Object.entries(ATTRIBUTES) as Array<[Attribute, { zh: string }]>
-const profs = Object.entries(PROFESSIONS) as Array<[Profession, string]>
+const attrs = Object.entries(ELEMENTS) as Array<[string, { zh: string; color: string }]>
+const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
 </script>
 
 <template>
@@ -73,9 +71,9 @@ const profs = Object.entries(PROFESSIONS) as Array<[Profession, string]>
           v-for="[key, a] in attrs"
           :key="key"
           class="chip attr"
-          :class="{ on: attrFilter === key }"
-          :style="{ '--chip-color': a.zh ? ATTRIBUTES[key].color : '' }"
-          @click="attrFilter = attrFilter === key ? 'all' : key"
+          :class="{ on: attrFilter === Number(key) }"
+          :style="{ '--chip-color': a.color }"
+          @click="attrFilter = attrFilter === Number(key) ? 'all' : (Number(key) as AttrCode)"
         >
           <span class="swatch" />
           {{ a.zh }}
@@ -91,13 +89,13 @@ const profs = Object.entries(PROFESSIONS) as Array<[Profession, string]>
           全部职业
         </button>
         <button
-          v-for="[key, zh] in profs"
+          v-for="[key, p] in profs"
           :key="key"
           class="chip"
-          :class="{ on: profFilter === key }"
-          @click="profFilter = profFilter === key ? 'all' : key"
+          :class="{ on: profFilter === Number(key) }"
+          @click="profFilter = profFilter === Number(key) ? 'all' : (Number(key) as SpecCode)"
         >
-          {{ zh }}
+          {{ p.zh }}
         </button>
       </div>
 
@@ -133,14 +131,21 @@ const profs = Object.entries(PROFESSIONS) as Array<[Profession, string]>
           <tr v-for="(c, i) in filtered" :key="c.Id">
             <td class="mono idx">{{ String(i + 1).padStart(2, '0') }}</td>
             <td>
-              <RouterLink :to="`/agents/${c.Id}`" class="name-link">
-                {{ c.Name }}
+              <RouterLink :to="`/agents/${c.Id}`" class="name-cell">
+                <span class="mini-icon">
+                  <HollowImage
+                    :src="iconUrl(String(c.icon ?? ''))"
+                    :alt="locName(c)"
+                    :fallback="locName(c)"
+                  />
+                </span>
+                <span class="name-link">{{ locName(c) }}</span>
               </RouterLink>
             </td>
-            <td><Tags :attribute="c.Attribute" show-zh /></td>
-            <td><Tags :profession="c.Profession" /></td>
-            <td class="camp">{{ c.Camp ?? '—' }}</td>
-            <td class="r"><RarityStars :value="c.Rarity" /></td>
+            <td><Tags :element="c.element" /></td>
+            <td><Tags :specialty="c.type" /></td>
+            <td class="camp mono">C{{ String(c.camp ?? '—').padStart(2, '0') }}</td>
+            <td class="r"><Rarity :rank="c.rank" /></td>
           </tr>
         </tbody>
       </table>
@@ -207,7 +212,6 @@ const profs = Object.entries(PROFESSIONS) as Array<[Profession, string]>
 .chip.attr.on {
   border-color: var(--chip-color);
   color: var(--chip-color);
-  background: rgba(0, 0, 0, 0);
 }
 
 .swatch {
@@ -268,6 +272,23 @@ const profs = Object.entries(PROFESSIONS) as Array<[Profession, string]>
   font-size: 12px;
 }
 
+.name-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mini-icon {
+  width: 34px;
+  height: 34px;
+  flex: none;
+  display: block;
+}
+
+.mini-icon :deep(.frame) {
+  border-radius: 2px;
+}
+
 .name-link {
   font-size: 15px;
   letter-spacing: 0.02em;
@@ -279,8 +300,9 @@ const profs = Object.entries(PROFESSIONS) as Array<[Profession, string]>
 }
 
 .camp {
-  color: var(--ink-1);
-  font-size: 13.5px;
+  color: var(--ink-2);
+  font-size: 12px;
+  letter-spacing: 0.12em;
 }
 
 .r {

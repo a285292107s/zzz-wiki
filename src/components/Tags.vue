@@ -1,36 +1,32 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { ATTRIBUTES, PROFESSIONS, type Attribute, type Profession } from '@/data/types'
+import { ELEMENTS, PROFESSIONS, type AttrCode, type SpecCode } from '@/data/types'
 
 const props = defineProps<{
-  attribute?: Attribute | string
-  profession?: Profession | string
-  showZh?: boolean
+  element?: AttrCode | number | null
+  specialty?: SpecCode | number | null
 }>()
 
-const attr = computed(() => {
-  if (!props.attribute) return null
-  const a = ATTRIBUTES[props.attribute as Attribute]
-  return a ?? null
-})
+const el = computed(() =>
+  props.element != null ? ELEMENTS[props.element as AttrCode] : null,
+)
 
-const prof = computed(() => {
-  if (!props.profession) return null
-  return PROFESSIONS[props.profession as Profession] ?? props.profession
-})
+const spec = computed(() =>
+  props.specialty != null ? PROFESSIONS[props.specialty as SpecCode] : null,
+)
 </script>
 
 <template>
   <span class="tags">
     <span
-      v-if="attr"
+      v-if="el"
       class="tag attr"
-      :style="{ '--tag-color': attr.color }"
+      :style="{ '--tag-color': el.color }"
     >
       <span class="swatch" />
-      {{ props.showZh === false ? attribute : attr.zh }}
+      {{ el.zh }}
     </span>
-    <span v-if="prof" class="tag prof">{{ prof }}</span>
+    <span v-if="spec" class="tag prof">{{ spec.zh }}</span>
   </span>
 </template>
 

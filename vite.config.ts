@@ -11,13 +11,5 @@ export default defineConfig({
   },
   server: {
     port: 5173,
-    // Dev proxy for the upstream data API (avoids CORS in dev).
-    proxy: {
-      '/api': {
-        target: 'https://api.hakush.in',
-        changeOrigin: true,
-        rewrite: (p) => p.replace(/^\/api/, ''),
-      },
-    },
   },
 })

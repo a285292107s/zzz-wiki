@@ -1,18 +1,17 @@
 <script setup lang="ts">
 import { computed, ref, watchEffect } from 'vue'
-import { api } from '@/data/api'
-import { ATTRIBUTES, PROFESSIONS, type Attribute, type Profession } from '@/data/types'
+import { api, locName } from '@/data/api'
+import { PROFESSIONS, type SpecCode } from '@/data/types'
 import type { WEngineListItem } from '@/data/types'
 import Tags from '@/components/Tags.vue'
-import RarityStars from '@/components/RarityStars.vue'
+import Rarity from '@/components/Rarity.vue'
 
 const items = ref<WEngineListItem[]>([])
 const loaded = ref(false)
 const error = ref<string | null>(null)
 
-const rarityFilter = ref<'all' | 4 | 5>('all')
-const attrFilter = ref<'all' | Attribute>('all')
-const specFilter = ref<'all' | Profession>('all')
+const rarityFilter = ref<'all' | 3 | 4>('all')
+const specFilter = ref<'all' | SpecCode>('all')
 const query = ref('')
 
 watchEffect(async () => {
@@ -28,16 +27,14 @@ watchEffect(async () => {
 
 const filtered = computed(() => {
   let list = items.value
-  if (rarityFilter.value !== 'all') list = list.filter((w) => w.Rarity === rarityFilter.value)
-  if (attrFilter.value !== 'all') list = list.filter((w) => w.Attribute === attrFilter.value)
-  if (specFilter.value !== 'all') list = list.filter((w) => w.Specialty === specFilter.value)
+  if (rarityFilter.value !== 'all') list = list.filter((w) => w.rank === rarityFilter.value)
+  if (specFilter.value !== 'all') list = list.filter((w) => w.type === specFilter.value)
   const q = query.value.trim().toLowerCase()
-  if (q) list = list.filter((w) => (w.Name ?? '').toLowerCase().includes(q))
+  if (q) list = list.filter((w) => locName(w).toLowerCase().includes(q))
   return list
 })
 
-const attrs = Object.entries(ATTRIBUTES) as Array<[Attribute, { zh: string }]>
-const profs = Object.entries(PROFESSIONS) as Array<[Profession, string]>
+const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
 </script>
 
 <template>
@@ -46,41 +43,27 @@ const profs = Object.entries(PROFESSIONS) as Array<[Profession, string]>
       <p class="eyebrow mono">W-Engines</p>
       <h1 class="page-title">音擎</h1>
       <p class="page-sub">
-        与代理人配对的战斗终端。按稀有度、属性与职业定位筛选。
+        与代理人配对的战斗终端。按稀有度与职业定位筛选。
       </p>
     </header>
 
     <section class="toolbar">
       <div class="filters">
         <button class="chip" :class="{ on: rarityFilter === 'all' }" @click="rarityFilter = 'all'">全部稀有度</button>
-        <button class="chip" :class="{ on: rarityFilter === 5 }" @click="rarityFilter = rarityFilter === 5 ? 'all' : 5">S</button>
-        <button class="chip" :class="{ on: rarityFilter === 4 }" @click="rarityFilter = rarityFilter === 4 ? 'all' : 4">A</button>
-
-        <span class="sep" />
-
-        <button class="chip" :class="{ on: attrFilter === 'all' }" @click="attrFilter = 'all'">全部属性</button>
-        <button
-          v-for="[key, a] in attrs"
-          :key="key"
-          class="chip attr"
-          :class="{ on: attrFilter === key }"
-          :style="{ '--chip-color': ATTRIBUTES[key].color }"
-          @click="attrFilter = attrFilter === key ? 'all' : key"
-        >
-          <span class="swatch" />{{ a.zh }}
-        </button>
+        <button class="chip" :class="{ on: rarityFilter === 4 }" @click="rarityFilter = rarityFilter === 4 ? 'all' : 4">S</button>
+        <button class="chip" :class="{ on: rarityFilter === 3 }" @click="rarityFilter = rarityFilter === 3 ? 'all' : 3">A</button>
 
         <span class="sep" />
 
         <button class="chip" :class="{ on: specFilter === 'all' }" @click="specFilter = 'all'">全部定位</button>
         <button
-          v-for="[key, zh] in profs"
+          v-for="[key, p] in profs"
           :key="key"
           class="chip"
-          :class="{ on: specFilter === key }"
-          @click="specFilter = specFilter === key ? 'all' : key"
+          :class="{ on: specFilter === Number(key) }"
+          @click="specFilter = specFilter === Number(key) ? 'all' : (Number(key) as SpecCode)"
         >
-          {{ zh }}
+          {{ p.zh }}
         </button>
       </div>
 
@@ -100,17 +83,15 @@ const profs = Object.entries(PROFESSIONS) as Array<[Profession, string]>
             <th>#</th>
             <th>名称</th>
             <th>稀有度</th>
-            <th>属性</th>
             <th>职业定位</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(w, i) in filtered" :key="w.Id">
             <td class="mono idx">{{ String(i + 1).padStart(2, '0') }}</td>
-            <td class="name">{{ w.Name ?? '—' }}</td>
-            <td><RarityStars :value="w.Rarity" /></td>
-            <td><Tags :attribute="w.Attribute" show-zh /></td>
-            <td><Tags :profession="w.Specialty" /></td>
+            <td class="name">{{ locName(w) }}</td>
+            <td><Rarity :rank="w.rank" /></td>
+            <td><Tags :specialty="w.type" /></td>
           </tr>
         </tbody>
       </table>
@@ -162,10 +143,6 @@ const profs = Object.entries(PROFESSIONS) as Array<[Profession, string]>
   border-color: var(--amber);
   color: var(--ink-0);
   background: var(--amber-dim);
-}
-.chip.attr.on {
-  border-color: var(--chip-color);
-  color: var(--chip-color);
 }
 .swatch {
   width: 7px;
