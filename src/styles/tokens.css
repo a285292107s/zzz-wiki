@@ -1,0 +1,56 @@
+/* ============================================================
+   空洞档案 · 设计变量
+   A design that reads like a classified hollow data terminal:
+   ink-dark surfaces, warm paper-white type, one amber accent,
+   hairline rules, tabular data numerals. No gradients, no glow.
+   ============================================================ */
+
+:root {
+  /* surfaces */
+  --bg-0: #0d0f11;          /* page ground */
+  --bg-1: #121518;          /* raised panel */
+  --bg-2: #171b1f;          /* card */
+  --bg-3: #1d2227;          /* hover */
+
+  /* lines */
+  --line-0: #1e2327;
+  --line-1: #2a3137;
+  --line-2: #3d454c;
+
+  /* ink */
+  --ink-0: #e8e4da;         /* warm paper white */
+  --ink-1: #a9a49a;         /* body grey */
+  --ink-2: #6d6a63;         /* muted */
+  --ink-3: #45423d;         /* faint */
+
+  /* accent — signal amber */
+  --amber: #d8a35c;
+  --amber-hi: #eec28a;
+  --amber-dim: rgba(216, 163, 92, 0.14);
+
+  /* status */
+  --danger: #c2554b;
+  --ok: #7ba05b;
+
+  /* type */
+  --serif: "Iowan Old Style", "Source Serif 4", "Noto Serif SC",
+    "Songti SC", "STSong", "SimSun", Georgia, serif;
+  --sans: "Inter", "HarmonyOS Sans SC", "MiSans", "PingFang SC",
+    "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+  --mono: "JetBrains Mono", "SFMono-Regular", "Cascadia Code",
+    Consolas, "Roboto Mono", monospace;
+
+  /* rhythm */
+  --pad-page: clamp(20px, 4vw, 56px);
+  --pad-section: clamp(40px, 6vw, 96px);
+  --rule: 1px solid var(--line-1);
+
+  /* motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-fast: 140ms;
+  --t-med: 260ms;
+
+  /* z */
+  --z-nav: 100;
+  --z-overlay: 200;
+}
