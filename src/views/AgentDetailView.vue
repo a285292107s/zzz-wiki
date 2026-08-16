@@ -44,18 +44,18 @@ const specCode = computed<SpecCode | null>(() => {
 
 const info = computed(() => detail.value?.partner_info ?? null)
 
-/* stats: raw ints, percentage fields are /100 */
-const STAT_DEFS: Array<[string, (s: Record<string, number>) => number | null]> = [
-  ['生命值', (s) => s.hp_max],
-  ['攻击力', (s) => s.attack],
-  ['防御力', (s) => s.defence],
-  ['冲击力', (s) => s.break_stun],
-  ['暴击率', (s) => (s.crit != null ? s.crit / 100 : null)],
-  ['暴击伤害', (s) => (s.crit_damage != null ? s.crit_damage / 100 : null)],
-  ['穿透率', (s) => (s.pen_rate != null ? s.pen_rate / 100 : null)],
-  ['异常掌控', (s) => s.element_mystery],
-  ['异常精通', (s) => s.element_abnormal_power],
-  ['能量回复', (s) => s.sp_recover],
+/* stats: raw ints, percentage fields are raw-value/100 → percent */
+const STAT_DEFS: Array<[string, (s: Record<string, number>) => string | null]> = [
+  ['生命值', (s) => (s.hp_max != null ? String(s.hp_max) : null)],
+  ['攻击力', (s) => (s.attack != null ? String(s.attack) : null)],
+  ['防御力', (s) => (s.defence != null ? String(s.defence) : null)],
+  ['冲击力', (s) => (s.break_stun != null ? String(s.break_stun) : null)],
+  ['暴击率', (s) => (s.crit != null ? `${(s.crit / 100).toFixed(2)}%` : null)],
+  ['暴击伤害', (s) => (s.crit_damage != null ? `${(s.crit_damage / 100).toFixed(2)}%` : null)],
+  ['穿透率', (s) => (s.pen_rate != null ? `${(s.pen_rate / 100).toFixed(2)}%` : null)],
+  ['异常掌控', (s) => (s.element_mystery != null ? String(s.element_mystery) : null)],
+  ['异常精通', (s) => (s.element_abnormal_power != null ? String(s.element_abnormal_power) : null)],
+  ['能量回复', (s) => (s.sp_recover != null ? String(s.sp_recover) : null)],
 ]
 
 const stats = computed(() => {

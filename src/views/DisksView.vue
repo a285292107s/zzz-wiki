@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, watchEffect } from 'vue'
 import { api } from '@/data/api'
+import { stripRichText } from '@/utils/text'
 import type { DiskDriveListItem } from '@/data/types'
 
 const items = ref<DiskDriveListItem[]>([])
@@ -60,8 +61,8 @@ const filtered = computed(() => {
           <tr v-for="(d, i) in filtered" :key="d.Id">
             <td class="mono idx">{{ String(i + 1).padStart(2, '0') }}</td>
             <td class="name">{{ d.zh?.name ?? '—' }}</td>
-            <td class="effect">{{ d.zh?.desc2 ?? '—' }}</td>
-            <td class="effect">{{ d.zh?.desc4 ?? '—' }}</td>
+            <td class="effect">{{ stripRichText(d.zh?.desc2) }}</td>
+            <td class="effect">{{ stripRichText(d.zh?.desc4) }}</td>
           </tr>
         </tbody>
       </table>
