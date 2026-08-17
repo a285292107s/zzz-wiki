@@ -28,20 +28,37 @@ export const SKIN_IMAGE_FALLBACK: Record<string, string> = {
 }
 
 /**
- * 头像覆盖表（角色 id → 覆盖资产名）。
- * 手动指定个别角色的列表头像/立绘资源（构建期落地为 icon 字段，前端零改动，
- * 运行时零外部请求）。新增条目：编辑此处 + 重跑 npm run data。
- * 键为名录/详情载荷里的数字 id。
+ * 角色头像统一采用「IconRoleGeneral 系列横幅图」（DESIGN.md 扩展决策）。
+ * 规则：角色默认立绘 IconRole{N} → 头像用同号段 IconRoleGeneral{N}。
+ * 覆盖表 AVATAR_OVERRIDE 可显式指定个别角色（键=数字 id，值=资产名）。
+ * 列表 icon 字段在构建期落地为最终头像名，前端 icons.ts / HollowImage 零改动，
+ * 运行时零外部请求。前端候选链仍保留 IconRole 兜底，个别资源 404 时自动回退原头像。
  */
 export const AVATAR_OVERRIDE: Record<number, string> = {
-  // 蕾米埃尔：官方默认头像 IconRole67 视觉不理想，改用 IconRoleGeneral67
+  // 无号段/需特判的角色在此显式指定：蕾米埃尔（默认 IconRole67）→ General67
   1581: 'IconRoleGeneral67',
 }
 
-/** 应用头像覆盖：给定角色 id 与原始资产名，返回覆盖后的资产名（无覆盖则原样）。 */
+/** 数字 id → 默认矢量图标号段（IconRole{N} 的 N）；无则 null。 */
+export function roleIconNumber(id: number | undefined, asset: string | undefined): number | null {
+  if (id == null) return null
+  // 覆盖表优先
+  if (AVATAR_OVERRIDE[id]) return null // 由 override 全量接管（含 General 名）
+  const m = (asset ?? '').match(/IconRole(\d+)/)
+  if (m && m[1] && AVATAR_OVERRIDE[id] === undefined) return Number(m[1])
+  return null
+}
+
+/**
+ * 应用头像名：给定时角色 id 与原始列表 icon，返回最终头像资产名。
+ * 优先级：显式覆盖 > 号段自动 General > 原资产（原样）。
+ */
 export function applyAvatarOverride(id: number | undefined, asset: string | undefined): string {
   const override = id != null ? AVATAR_OVERRIDE[id] : undefined
-  return override ?? (asset ?? '')
+  if (override) return override
+  const n = roleIconNumber(id, asset)
+  if (n != null) return `IconRoleGeneral${String(n).padStart(2, '0')}`
+  return asset ?? ''
 }
 
 /** 详情规整：键名与旧 Dimbreath 管线输出契约一致；值规整 + 透传。 */

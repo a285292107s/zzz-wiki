@@ -46,12 +46,13 @@ export function iconSources(
   item: IconItem,
   kind: IconKind = 'list',
   category: IconCategory = 'character',
+  opts?: { excludeHoney?: boolean },
 ): string[] {
   const id = item.Id
   const b = basename(item.icon ?? '')
   const out: string[] = []
 
-  if (id != null && String(id) !== '') {
+  if (id != null && String(id) !== '' && !opts?.excludeHoney) {
     const guess = honeyGuess(category, id)
     if (category === 'character' && kind === 'portrait') {
       out.push(`${HONEY}/character/${id}-char_role_icon.webp`)

@@ -61,10 +61,9 @@ const columns: CatalogColumn[] = [
           <RouterLink :to="`/agents/${row.Id}`" class="name-cell">
             <span class="mini-icon">
               <HollowImage
-                :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'list', 'character')"
+                :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'list', 'character', { excludeHoney: true })"
                 :alt="pickName(row)"
-                :fallback="pickName(row)"
-              />
+                :fallback="pickName(row)" fit="contain" />
             </span>
             <span class="name-link">{{ pickName(row) }}</span>
           </RouterLink>
@@ -111,8 +110,8 @@ const columns: CatalogColumn[] = [
 }
 
 .mini-icon {
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 16px; /* 横幅头像 180x64 ≈ 2.8:1，contain 完整显示 */
   flex: none;
   display: block;
 }

@@ -13,6 +13,8 @@ const props = defineProps<{
   position?: 'center' | 'top' | 'bottom'
   /** 容器高宽比（CSS aspect-ratio）。默认 1（方形） */
   ratio?: string | number
+  /** 图片适应方式：cover 裁切填充（默认）/ contain 整图等比完整显示（不裁切） */
+  fit?: 'cover' | 'contain'
 }>()
 
 const candidates = computed(() => {
@@ -52,7 +54,10 @@ function onError() {
       :alt="alt ?? ''"
       loading="lazy"
       decoding="async"
-      :class="{ 'pos-top': position === 'top', 'pos-bottom': position === 'bottom' }"
+      :class="[
+        fit !== 'contain' ? 'fit-cover' : 'fit-contain',
+        { 'pos-top': position === 'top', 'pos-bottom': position === 'bottom' },
+      ]"
       @error="onError"
     />
     <span v-else class="ph" aria-hidden="true">
@@ -77,9 +82,17 @@ function onError() {
 .frame img {
   width: 100%;
   height: 100%;
+  display: block;
+}
+
+.frame img.fit-cover {
   object-fit: cover;
   object-position: center;
-  display: block;
+}
+
+.frame img.fit-contain {
+  object-fit: contain;
+  object-position: center;
 }
 
 .frame img.pos-top {

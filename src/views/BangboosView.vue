@@ -49,8 +49,7 @@ const columns: CatalogColumn[] = [
               <HollowImage
                 :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'list', 'bangboo')"
                 :alt="pickName(row)"
-                :fallback="pickName(row)"
-              />
+                :fallback="pickName(row)" fit="contain" />
             </span>
             <span class="name">{{ pickName(row) }}</span>
           </span>
@@ -88,8 +87,8 @@ const columns: CatalogColumn[] = [
 }
 
 .mini-icon {
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 16px; /* 横幅头像 180x64 ≈ 2.8:1，contain 完整显示 */
   flex: none;
   display: block;
 }
