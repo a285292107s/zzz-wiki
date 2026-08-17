@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ELEMENTS, PROFESSIONS, type AttrCode, type SpecCode } from '@/domain/enums'
+import { elementIconUrl, professionIconUrl } from '@/domain/filterIcons'
 
 const props = withDefaults(
   defineProps<{
@@ -36,6 +37,7 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
         :style="{ '--chip-color': a.color }"
         @click="emit('update:attr', attr === Number(key) ? 'all' : (Number(key) as AttrCode))"
       >
+        <img class="chip-ic" :src="elementIconUrl(Number(key) as AttrCode)" :alt="a.zh" loading="lazy" />
         <span class="swatch" />
         {{ a.zh }}
       </button>
@@ -54,6 +56,7 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
         :class="{ on: prof === Number(key) }"
         @click="emit('update:prof', prof === Number(key) ? 'all' : (Number(key) as SpecCode))"
       >
+        <img class="chip-ic" :src="professionIconUrl(Number(key) as SpecCode)" :alt="p.zh" loading="lazy" />
         {{ p.zh }}
       </button>
     </template>
@@ -91,6 +94,13 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
 .chip.attr.on {
   border-color: var(--chip-color);
   color: var(--chip-color);
+}
+.chip-ic {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+  flex: none;
+  display: block;
 }
 .swatch {
   width: 7px;
