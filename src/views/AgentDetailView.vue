@@ -2,7 +2,7 @@
 import { computed, ref, watchEffect } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import { api } from '@/data/api'
-import { iconSources, skillIconSources, type SkillSlot } from '@/data/icons'
+import { iconSources } from '@/data/icons'
 import { stripRichText } from '@/utils/text'
 import { richDesc } from '@/utils/rich'
 import type { AttrCode, SpecCode } from '@/data/types'
@@ -10,6 +10,7 @@ import type { CharacterDetail } from '@/data/types'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
 import HollowImage from '@/components/HollowImage.vue'
+import SkillIcon from '@/components/SkillIcon.vue'
 
 const route = useRoute()
 const detail = ref<CharacterDetail | null>(null)
@@ -80,14 +81,14 @@ const SKILL_ZH: Record<string, string> = {
   core: '核心技',
 }
 
-/** 技能键位纹章：排印几何符号 + 等宽键名（无图片依赖，与档案风格同构） */
-const SKILL_KEYS: Record<string, { glyph: string; en: string }> = {
-  basic: { glyph: '□', en: 'NORMAL' },
-  dodge: { glyph: '◇', en: 'DODGE' },
-  special: { glyph: '△', en: 'SPECIAL' },
-  chain: { glyph: '✕', en: 'CHAIN' },
-  assist: { glyph: '○', en: 'ASSIST' },
-  core: { glyph: '◒', en: 'CORE' },
+/** 技能键位纹章：等宽键名 */
+const SKILL_KEYS: Record<string, { en: string }> = {
+  basic:   { en: 'NORMAL' },
+  dodge:   { en: 'DODGE' },
+  special: { en: 'SPECIAL' },
+  chain:   { en: 'CHAIN' },
+  assist:  { en: 'ASSIST' },
+  core:    { en: 'CORE' },
 }
 
 const skills = computed(() => {
@@ -96,9 +97,7 @@ const skills = computed(() => {
   return SKILL_ORDER.filter((k) => sk[k] != null).map((k) => ({
     key: k,
     zh: SKILL_ZH[k] ?? k,
-    glyph: SKILL_KEYS[k]?.glyph ?? '□',
     keyEn: SKILL_KEYS[k]?.en ?? k.toUpperCase(),
-    srcs: skillIconSources(k as SkillSlot),
     descriptions: (sk[k] as { description?: unknown })?.description as
       | Array<{ name?: string; desc?: string }>
       | undefined,
@@ -199,7 +198,7 @@ interface TalentRow {
         <div v-for="sk in skills" :key="sk.key" class="skill-group">
           <div class="skill-kind-row">
             <span class="key-glyph">
-              <HollowImage :srcs="sk.srcs" :alt="sk.zh" :fallback="sk.glyph" />
+              <SkillIcon :slot="sk.key" :size="38" />
               <em class="mono">{{ sk.keyEn }}</em>
             </span>
             <h3 class="skill-kind serif">{{ sk.zh }}</h3>
@@ -375,12 +374,6 @@ interface TalentRow {
   gap: 3px;
 }
 
-.key-glyph :deep(.frame) {
-  width: 38px;
-  height: 38px;
-  border-radius: 2px;
-}
-
 .key-glyph em {
   font-style: normal;
   font-size: 8px;
@@ -426,7 +419,7 @@ interface TalentRow {
   white-space: pre-line;
 }
 
-/* 描述内联技能键位图标（<IconMap:Icon_XXX>） */
+/* 描述内联技能键位图标（<IconMap:Icon_XXX>，本地 SVG 字形） */
 .desc :deep(.rich-key) {
   display: inline-block;
   width: 1.15em;
@@ -434,6 +427,13 @@ interface TalentRow {
   margin: 0 0.1em;
   vertical-align: -0.22em;
   border-radius: 1px;
+  line-height: 0;
+}
+
+.desc :deep(.rich-key svg) {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 /* ---------- talents ---------- */

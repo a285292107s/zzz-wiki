@@ -137,19 +137,25 @@ public/data/
 > honeyhunterworld 站点**前端整体当前 521**（Cloudflare 源站故障），仅角色图可用。无论其是否恢复，
 > 前端第三级（文字）兜底始终生效。
 
-### 技能键位图标（独立来源）
-资产名**取自描述文本的 `<IconMap:Icon_XXX>` 标记**，位于 nanoka 素材 CDN：
+### 技能键位图标（本地矢量字形，优先）
+描述文本的 `<IconMap:Icon_XXX>` 标记对应游戏键位图标，**页面展示默认走本地 SVG 重绘**
+（`src/data/skillGlyphs.ts`，零外部请求）：
 
-| 槽位 | 资产名（实测 200） | 兜底 |
+| 槽位/标记 | 资产名 | 字形（本地 SVG 重绘，参照 temp/ 原版图标逐像素分析） |
 |---|---|---|
-| basic | `Icon_Normal` | — |
-| dodge | `Icon_Evade` | — |
-| special | `Icon_Special`（404） | `Icon_SpecialReady`（200） |
-| chain | `Icon_UltimateReady` | `Icon_QTE`（200） |
-| assist | `Icon_Switch` | — |
+| 普通攻击 | `Icon_Normal` | 三爪（顶帽 + 三斜爪 + 横档 + 底汇） |
+| 闪避 | `Icon_Evade` | 双层 ∧ chevron（弧臂外鼓） |
+| 特殊技 | `Icon_Special`（nanoka 404） | 沿用同族 `Icon_SpecialReady` 字形：紫色菱形 + 四角斜条 |
+| 强化特殊技 | `Icon_SpecialReady` | 同上（紫色） |
+| 连携触发 | `Icon_QTE` | X 斜条 + 中央横六边形 |
+| 终结技 | `Icon_UltimateReady` | 橙色四芒爆星（上下尖锥 + 左右弧臂） |
+| 支援/切换 | `Icon_Switch` | 拱顶三柱 + 交叉斜撑 |
+| 核心技 | `Icon_CoreSkill` | 细外环 + 六辐 + 独立中心盘 |
 
-- 组头图标：`skillIconSources(slot)` 经 `<HollowImage>` 加载，兜底为几何字符（`□◇△✕○`）
-- 描述内联图标：`<IconMap:Icon_XXX>` 由 `src/utils/rich.ts` 渲染为内联 `<img>`
+- `SkillIcon.vue`（详情页技能组头）与 `richDesc` 内联图标均由 `renderSkillGlyph()`
+  渲染同一套本地 SVG；非键位名（如 `Icon_JoyStick`）回退到 nanoka 素材直链。
+- 重绘规格与迭代工具在 `temp/icon_proto.py`（IoU 比对）、`temp/icon_components.py`
+  （连通域/主轴向分析）、`temp/icon_grid.py`（像素坐标网格）。
 
 **皮肤图回退**：`scripts/build-data.mjs` 的 `SKIN_IMAGE_FALLBACK` 将 nanoka 未上传的
 主角第 3 套皮肤立绘（`IconRole34_03`/`IconRole33_03`）回退到默认立绘，杜绝死链字段。
@@ -162,9 +168,11 @@ public/data/
 |---|---|
 | `src/data/api.ts` | 读本地 `/data`，内存缓存；`locName()` 取本地化名 |
 | `src/data/types.ts` | 数据类型 + 枚举映射常量（含 300 流明、职业 7 锋御） |
-| `src/data/icons.ts` | 图标候选链 + 技能图标资产映射 |
+| `src/data/icons.ts` | 图标候选链 + 技能图标资产名映射（页面内技能键位用本地字形，见下） |
+| `src/data/skillGlyphs.ts` | 技能键位本地 SVG 字形 + `renderSkillGlyph()`（零外部请求） |
 | `src/components/HollowImage.vue` | 多候选图 + `position`/`ratio` 裁切 + 文字降级 |
-| `src/utils/rich.ts` | 富文本：`<IconMap>`→内联图、`<color=#…>`→带色 span，其余 HTML 转义防注入 |
+| `src/components/SkillIcon.vue` | 详情页技能组头键位图标（v-html 渲染本地 SVG 字形） |
+| `src/utils/rich.ts` | 富文本：`<IconMap>`→内联键位 SVG（未知键位回退 CDN）、`<color=#…>`→带色 span，其余 HTML 转义防注入 |
 | `src/utils/text.ts` | `stripRichText`（纯文本剥标记） |
 
 ---

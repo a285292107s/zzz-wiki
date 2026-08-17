@@ -72,6 +72,8 @@ export function nanokaAssetUrl(basenamePart: string): string {
  * 技能键位图标 — 资产名取自游戏富文本标记 <IconMap:Icon_XXX>
  * （nanoka 素材 CDN 已实测）。候选链依序尝试，若全 404 由调用方
  * 显示文字/纹章兜底。
+ * 页面内展示走本地 SVG 字形（src/data/skillGlyphs.ts，零外部请求）；
+ * 本表仅用于 CDN 兜底导出与资产名映射。
  * ============================================================ */
 
 export type SkillSlot = 'basic' | 'dodge' | 'special' | 'chain' | 'assist' | 'core'
@@ -80,10 +82,10 @@ export type SkillSlot = 'basic' | 'dodge' | 'special' | 'chain' | 'assist' | 'co
 export const SKILL_ICON_ASSETS: Record<SkillSlot, string[]> = {
   basic: ['Icon_Normal'],
   dodge: ['Icon_Evade'],
-  special: ['Icon_Special', 'Icon_SpecialReady'],
+  special: ['Icon_SpecialReady'],     // 无 Icon_Special 素材，用蓄满变体
   chain: ['Icon_UltimateReady', 'Icon_QTE'],
   assist: ['Icon_Switch'],
-  core: ['Icon_Core', 'Icon_Normal'], // Icon_Core 暂无资产，兜底普通键
+  core: ['Icon_CoreSkill', 'Icon_Normal'], // Icon_CoreSkill 已实测可用
 }
 
 /** 生成技能键位图标的候选 URL 数组（直接走 nanoka 素材 CDN） */

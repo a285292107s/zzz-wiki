@@ -1,11 +1,13 @@
 /* ============================================================
  * 富文本渲染 — 技能/影画描述中的游戏标记：
- *   <IconMap:Icon_Normal>  →  内联小按钮图标（nanoka 素材 CDN）
+ *   <IconMap:Icon_XXX>  →  内联键位图标（本地 SVG 字形，见 skillGlyphs.ts；
+ *                           零外部请求；非键位名（如 Icon_JoyStick）走 CDN 兜底）
  *   <color=#FFFFFF>…</color> →  保留颜色的 <span>
  * 其余全部 HTML 转义（数据源为游戏文本表，防注入）。
  * 纯展示渲染，配合 v-html 使用。
  * ============================================================ */
 
+import { renderSkillGlyph } from '@/data/skillGlyphs'
 import { skillAssetSources } from '@/data/icons'
 
 function esc(s: string): string {
@@ -26,8 +28,10 @@ export function richDesc(desc?: string): string {
     (_, c: string, inner: string) => `<span style="color:#${c}">${inner}</span>`,
   )
 
-  // <IconMap:Icon_XXX> → 内联键位图标
+  // <IconMap:Icon_XXX> → 内联键位图标（本地 SVG 优先，未知名回退 CDN）
   out = out.replace(/&lt;IconMap:Icon_(\w+)&gt;/g, (_m, name: string) => {
+    const svg = renderSkillGlyph(name, '100%')
+    if (svg) return `<span class="rich-key">${svg}</span>`
     const src = skillAssetSources(name)[0]
     return src ? `<img class="rich-key" src="${src}" alt="" loading="lazy" decoding="async">` : ''
   })
