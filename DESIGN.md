@@ -218,11 +218,16 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
       —— **实际发现**：pickName 在 text.ts 中无任何调用方（死代码），视图全部使用 locName
 - [x] 枚举从 types.ts 迁入 domain/enums.ts（新增 HIT_TYPES），types.ts 再导出（零调用方改动）
 
-### P1 数据层与列表一致化
+### P1 数据层与列表一致化 —— ✅ 已完成
 
-- domain/catalog.ts + data/resources.ts + api.ts 重构（timeout/错误归一化/baseUrl/lang 参数）
-- useAsyncResource / useCatalogList / AsyncState / SearchField / FilterChips / CatalogTable
-- 4 个列表页迁移（行为不变，代码量减半），HomeView 目录改用 catalog
+- [x] domain/catalog.ts（4 类目唯一元信息）+ data/resources.ts（类别表驱动）+ api.ts 重构
+      （kind 式 list/detail + DataError 归一化 + 10s 超时 + BASE_URL 派生 + lang 参数预留；
+      旧 characters() 等兼容接口保留，新代码走 api.list / api.detail）
+- [x] composables：useAsyncResource（状态机收编三件套）、useCatalogList（筛选/搜索/计数通用化）、useRouteParam
+- [x] 组件：AsyncState / SearchField / FilterChips（showAttr/showProf 开关）/ CatalogTable（列配置驱动 + 行插槽）
+- [x] 4 个列表页迁移（行为不变，代码量减半以上；样式组件化后 CSS 由 21.95kB 降至 19.04kB）
+- [x] App.vue 导航与 HomeView 目录改由 catalog 派生（删除手写双份）
+- [x] tests/api.test.ts（mock fetch：normalize/路径/缓存/错误归一化三分支 + resources 表驱动），39 用例全绿
 
 ### P2 详情页拆分
 

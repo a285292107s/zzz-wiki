@@ -1,49 +1,18 @@
 <script setup lang="ts">
 import { iconSources } from '@/data/icons'
+import { CATALOG } from '@/domain/catalog'
 import HollowImage from '@/components/HollowImage.vue'
 
-const sections = [
-  {
-    no: '01',
-    label: '代理人',
-    en: 'AGENTS',
-    to: '/agents',
-    desc: '新艾利都的代理人档案：属性、职业、阵营与战斗数据。',
-    count: '全部角色',
-    icon: { Id: 1011, icon: 'IconRole01' },
-    cat: 'character' as const,
-  },
-  {
-    no: '02',
-    label: '音擎',
-    en: 'W-ENGINES',
-    to: '/w-engines',
-    desc: '驱动代理人的武装终端，按职业与稀有度编目。',
-    count: '全部武器',
-    icon: { Id: 12001, icon: 'Weapon_B_Common_01' },
-    cat: 'weapon' as const,
-  },
-  {
-    no: '03',
-    label: '邦布',
-    en: 'BANGBOO',
-    to: '/bangboos',
-    desc: '空洞探索的忠实伙伴，收录全部型号与数据。',
-    count: '全部邦布',
-    icon: { Id: 53001, icon: 'IconBangbooPiece12' },
-    cat: 'bangboo' as const,
-  },
-  {
-    no: '04',
-    label: '驱动盘',
-    en: 'DISK DRIVES',
-    to: '/disks',
-    desc: '驱动盘的套装效果与词条一览。',
-    count: '全部套装',
-    icon: { Id: 31000, icon: 'SuitWoodpeckerElectro' },
-    cat: 'disc' as const,
-  },
-]
+// 目录由 catalog.ts 派生（DESIGN.md §5.3 单一事实源）
+const sections = CATALOG.map((c) => ({
+  no: c.no,
+  label: c.label,
+  en: c.en,
+  to: c.path,
+  desc: c.desc,
+  icon: c.icon,
+  cat: c.iconCategory,
+}))
 </script>
 
 <template>

@@ -1,32 +1,25 @@
 <script setup lang="ts">
-import { computed, ref, watchEffect } from 'vue'
+import { useAsyncResource } from '@/composables/useAsyncResource'
+import { useCatalogList } from '@/composables/useCatalogList'
 import { api } from '@/data/api'
 import { iconSources } from '@/data/icons'
 import { stripRichText } from '@/utils/text'
 import type { DiskDriveListItem } from '@/data/types'
+import { AsyncState, CatalogTable, SearchField, type CatalogColumn } from '@/components'
 import HollowImage from '@/components/HollowImage.vue'
 
-const items = ref<DiskDriveListItem[]>([])
-const loaded = ref(false)
-const error = ref<string | null>(null)
-const query = ref('')
+const { data, status, error } = useAsyncResource(() => api.disks())
 
-watchEffect(async () => {
-  try {
-    error.value = null
-    items.value = await api.disks()
-  } catch (e) {
-    error.value = e instanceof Error ? e.message : String(e)
-  } finally {
-    loaded.value = true
-  }
+const { query, filtered, count } = useCatalogList<DiskDriveListItem>({
+  items: () => data.value ?? [],
+  name: (d) => d.zh?.name ?? '',
 })
 
-const filtered = computed(() => {
-  const q = query.value.trim().toLowerCase()
-  if (!q) return items.value
-  return items.value.filter((d) => (d.zh?.name ?? '').toLowerCase().includes(q))
-})
+const columns: CatalogColumn[] = [
+  { key: 'name', label: '套装' },
+  { key: 'desc2', label: '2 件套' },
+  { key: 'desc4', label: '4 件套' },
+]
 </script>
 
 <template>
@@ -40,48 +33,35 @@ const filtered = computed(() => {
     </header>
 
     <div class="toolbar">
-      <div class="search">
-        <span class="mono q-mark">⌕</span>
-        <input v-model="query" type="search" placeholder="检索套装…" aria-label="检索套装" />
-        <span class="mono count">{{ filtered.length }}</span>
-      </div>
+      <SearchField v-model="query" :count="count" placeholder="检索套装…" />
     </div>
 
-    <p v-if="error" class="err mono">⚠ 数据加载失败：{{ error }}</p>
-
-    <section v-if="loaded" class="list">
-      <table class="hairline-table disc-table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>套装</th>
-            <th>2 件套</th>
-            <th>4 件套</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(d, i) in filtered" :key="d.Id">
-            <td class="mono idx">{{ String(i + 1).padStart(2, '0') }}</td>
-            <td>
-              <span class="name-cell">
-                <span class="mini-icon">
-                  <HollowImage
-                    :srcs="iconSources({ Id: d.Id, icon: d.icon }, 'list', 'disc')"
-                    :alt="d.zh?.name ?? '—'"
-                    :fallback="d.zh?.name ?? '—'"
-                  />
-                </span>
-                <span class="name">{{ d.zh?.name ?? '—' }}</span>
-              </span>
-            </td>
-            <td class="effect">{{ stripRichText(d.zh?.desc2) }}</td>
-            <td class="effect">{{ stripRichText(d.zh?.desc4) }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <p v-if="!filtered.length" class="empty mono">NO RECORDS</p>
-    </section>
-    <p v-else class="loading mono">LOADING…</p>
+    <AsyncState
+      :status="status"
+      :error="error"
+      :empty="status === 'success' && filtered.length === 0"
+    >
+      <CatalogTable :columns="columns" :items="filtered">
+        <template #cell-name="{ row }">
+          <span class="name-cell">
+            <span class="mini-icon">
+              <HollowImage
+                :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'list', 'disc')"
+                :alt="row.zh?.name ?? '—'"
+                :fallback="row.zh?.name ?? '—'"
+              />
+            </span>
+            <span class="name">{{ row.zh?.name ?? '—' }}</span>
+          </span>
+        </template>
+        <template #cell-desc2="{ row }">
+          <span class="effect">{{ stripRichText(row.zh?.desc2) }}</span>
+        </template>
+        <template #cell-desc4="{ row }">
+          <span class="effect">{{ stripRichText(row.zh?.desc4) }}</span>
+        </template>
+      </CatalogTable>
+    </AsyncState>
   </div>
 </template>
 
@@ -89,6 +69,7 @@ const filtered = computed(() => {
 .page {
   padding-top: calc(var(--pad-section) * 0.9);
 }
+
 .page-head {
   margin-bottom: var(--pad-section);
 }
@@ -97,41 +78,6 @@ const filtered = computed(() => {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 20px;
-}
-.search {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid var(--line-1);
-  padding: 6px 12px;
-  border-radius: 2px;
-  min-width: 240px;
-}
-.search:focus-within {
-  border-color: var(--line-2);
-}
-.q-mark {
-  color: var(--ink-2);
-}
-.search input {
-  background: none;
-  border: none;
-  outline: none;
-  width: 100%;
-  font-size: 14px;
-  color: var(--ink-0);
-}
-.search input::placeholder {
-  color: var(--ink-3);
-}
-.count {
-  font-size: 12px;
-  color: var(--ink-2);
-}
-
-.idx {
-  color: var(--ink-3);
-  font-size: 12px;
 }
 
 .name-cell {
@@ -156,25 +102,12 @@ const filtered = computed(() => {
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
+
 .effect {
   color: var(--ink-1);
   font-size: 13px;
   line-height: 1.6;
-}
-.disc-table td.effect {
   max-width: 46ch;
-}
-
-.err {
-  color: var(--danger);
-  font-size: 12.5px;
-  margin-bottom: 18px;
-}
-.empty,
-.loading {
-  color: var(--ink-2);
-  font-size: 12.5px;
-  letter-spacing: 0.2em;
-  padding: 40px 0;
+  display: inline-block;
 }
 </style>

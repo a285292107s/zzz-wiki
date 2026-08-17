@@ -1,51 +1,31 @@
 <script setup lang="ts">
-import { computed, ref, watchEffect } from 'vue'
-import { api, locName } from '@/data/api'
+import { useAsyncResource } from '@/composables/useAsyncResource'
+import { useCatalogList } from '@/composables/useCatalogList'
+import { api } from '@/data/api'
 import { iconSources } from '@/data/icons'
-import { ELEMENTS, PROFESSIONS, type AttrCode, type SpecCode } from '@/data/types'
 import type { CharacterListItem } from '@/data/types'
+import { pickName } from '@/utils/names'
+import { AsyncState, CatalogTable, FilterChips, SearchField, type CatalogColumn } from '@/components'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
 import HollowImage from '@/components/HollowImage.vue'
 
-const items = ref<CharacterListItem[]>([])
-const loaded = ref(false)
-const error = ref<string | null>(null)
+const { data, status, error } = useAsyncResource(() => api.characters())
 
-const attrFilter = ref<'all' | AttrCode>('all')
-const profFilter = ref<'all' | SpecCode>('all')
-const query = ref('')
+const { attrFilter, profFilter, query, filtered, count } =
+  useCatalogList<CharacterListItem>({
+    items: () => data.value ?? [],
+    withAttrs: true,
+    withProfs: true,
+  })
 
-watchEffect(async () => {
-  try {
-    error.value = null
-    items.value = await api.characters()
-  } catch (e) {
-    error.value = e instanceof Error ? e.message : String(e)
-  } finally {
-    loaded.value = true
-  }
-})
-
-const filtered = computed(() => {
-  let list = items.value
-  if (attrFilter.value !== 'all') {
-    list = list.filter((c) => c.element === attrFilter.value)
-  }
-  if (profFilter.value !== 'all') {
-    list = list.filter((c) => c.type === profFilter.value)
-  }
-  const q = query.value.trim().toLowerCase()
-  if (q) {
-    list = list.filter((c) => locName(c).toLowerCase().includes(q))
-  }
-  return list
-})
-
-const showFilters = computed(() => items.value.length > 0)
-
-const attrs = Object.entries(ELEMENTS) as Array<[string, { zh: string; color: string }]>
-const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
+const columns: CatalogColumn[] = [
+  { key: 'name', label: '代号' },
+  { key: 'attr', label: '属性' },
+  { key: 'prof', label: '职业' },
+  { key: 'camp', label: '阵营', cls: 'camp mono' },
+  { key: 'rarity', label: '稀有度', align: 'right' },
+]
 </script>
 
 <template>
@@ -59,102 +39,47 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
     </header>
 
     <section class="toolbar">
-      <div class="filters">
-        <button
-          class="chip"
-          :class="{ on: attrFilter === 'all' }"
-          @click="attrFilter = 'all'"
-        >
-          全部属性
-        </button>
-        <button
-          v-for="[key, a] in attrs"
-          :key="key"
-          class="chip attr"
-          :class="{ on: attrFilter === Number(key) }"
-          :style="{ '--chip-color': a.color }"
-          @click="attrFilter = attrFilter === Number(key) ? 'all' : (Number(key) as AttrCode)"
-        >
-          <span class="swatch" />
-          {{ a.zh }}
-        </button>
-
-        <span class="sep" />
-
-        <button
-          class="chip"
-          :class="{ on: profFilter === 'all' }"
-          @click="profFilter = 'all'"
-        >
-          全部职业
-        </button>
-        <button
-          v-for="[key, p] in profs"
-          :key="key"
-          class="chip"
-          :class="{ on: profFilter === Number(key) }"
-          @click="profFilter = profFilter === Number(key) ? 'all' : (Number(key) as SpecCode)"
-        >
-          {{ p.zh }}
-        </button>
-      </div>
-
-      <div class="search">
-        <span class="mono q-mark">⌕</span>
-        <input
-          v-model="query"
-          type="search"
-          placeholder="检索姓名…"
-          aria-label="检索姓名"
-        />
-        <span class="mono count">{{ filtered.length }}</span>
-      </div>
+      <FilterChips
+        :attr="attrFilter"
+        :prof="profFilter"
+        @update:attr="attrFilter = $event"
+        @update:prof="profFilter = $event"
+      />
+      <SearchField v-model="query" :count="count" placeholder="检索姓名…" />
     </section>
 
-    <p v-if="error" class="err mono">
-      ⚠ 数据加载失败：{{ error }}
-    </p>
-
-    <section v-if="loaded && showFilters" class="list">
-      <table class="hairline-table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>代号</th>
-            <th>属性</th>
-            <th>职业</th>
-            <th>阵营</th>
-            <th class="r">稀有度</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(c, i) in filtered" :key="c.Id">
-            <td class="mono idx">{{ String(i + 1).padStart(2, '0') }}</td>
-            <td>
-              <RouterLink :to="`/agents/${c.Id}`" class="name-cell">
-                <span class="mini-icon">
-                  <HollowImage
-                    :srcs="iconSources({ Id: c.Id, icon: c.icon }, 'list', 'character')"
-                    :alt="locName(c)"
-                    :fallback="locName(c)"
-                  />
-                </span>
-                <span class="name-link">{{ locName(c) }}</span>
-              </RouterLink>
-            </td>
-            <td><Tags :element="c.element" /></td>
-            <td><Tags :specialty="c.type" /></td>
-            <td class="camp mono">C{{ String(c.camp ?? '—').padStart(2, '0') }}</td>
-            <td class="r"><Rarity :rank="c.rank" /></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p v-if="!filtered.length" class="empty mono">NO RECORDS</p>
-    </section>
-
-    <p v-else-if="loaded" class="empty mono">正在整理条目…</p>
-    <p v-else class="loading mono">LOADING…</p>
+    <AsyncState
+      :status="status"
+      :error="error"
+      :empty="status === 'success' && filtered.length === 0"
+    >
+      <CatalogTable :columns="columns" :items="filtered">
+        <template #cell-name="{ row }">
+          <RouterLink :to="`/agents/${row.Id}`" class="name-cell">
+            <span class="mini-icon">
+              <HollowImage
+                :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'list', 'character')"
+                :alt="pickName(row)"
+                :fallback="pickName(row)"
+              />
+            </span>
+            <span class="name-link">{{ pickName(row) }}</span>
+          </RouterLink>
+        </template>
+        <template #cell-attr="{ row }">
+          <Tags :element="row.element" />
+        </template>
+        <template #cell-prof="{ row }">
+          <Tags :specialty="row.type" />
+        </template>
+        <template #cell-camp="{ row }">
+          <span class="camp mono">C{{ String(row.camp ?? '—').padStart(2, '0') }}</span>
+        </template>
+        <template #cell-rarity="{ row }">
+          <Rarity :rank="row.rank" />
+        </template>
+      </CatalogTable>
+    </AsyncState>
   </div>
 </template>
 
@@ -167,8 +92,6 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
   margin-bottom: var(--pad-section);
 }
 
-/* ---------- toolbar ---------- */
-
 .toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -176,100 +99,6 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
   gap: 18px;
   justify-content: space-between;
   margin-bottom: 20px;
-}
-
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px;
-}
-
-.chip {
-  font-size: 12.5px;
-  letter-spacing: 0.08em;
-  padding: 5px 12px;
-  border: 1px solid var(--line-1);
-  border-radius: 2px;
-  color: var(--ink-1);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: all var(--t-fast) var(--ease);
-}
-
-.chip:hover {
-  border-color: var(--line-2);
-  color: var(--ink-0);
-}
-
-.chip.on {
-  border-color: var(--amber);
-  color: var(--ink-0);
-  background: var(--amber-dim);
-}
-
-.chip.attr.on {
-  border-color: var(--chip-color);
-  color: var(--chip-color);
-}
-
-.swatch {
-  width: 7px;
-  height: 7px;
-  background: var(--chip-color, var(--ink-2));
-  flex: none;
-}
-
-.sep {
-  width: 1px;
-  height: 18px;
-  background: var(--line-1);
-  margin-inline: 6px;
-}
-
-.search {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid var(--line-1);
-  padding: 6px 12px;
-  border-radius: 2px;
-  min-width: 240px;
-}
-
-.search:focus-within {
-  border-color: var(--line-2);
-}
-
-.q-mark {
-  color: var(--ink-2);
-  font-size: 15px;
-}
-
-.search input {
-  background: none;
-  border: none;
-  outline: none;
-  width: 100%;
-  font-size: 14px;
-  color: var(--ink-0);
-}
-
-.search input::placeholder {
-  color: var(--ink-3);
-}
-
-.count {
-  font-size: 12px;
-  color: var(--ink-2);
-}
-
-/* ---------- table ---------- */
-
-.idx {
-  color: var(--ink-3);
-  font-size: 12px;
 }
 
 .name-cell {
@@ -299,27 +128,10 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
   color: var(--amber-hi);
 }
 
-.camp {
+/* 由 CatalogTable 列 cls 应用（子组件作用域，用 :deep 穿透） */
+:deep(.camp) {
   color: var(--ink-2);
   font-size: 12px;
   letter-spacing: 0.12em;
-}
-
-.r {
-  text-align: right;
-}
-
-.err {
-  color: var(--danger);
-  font-size: 12.5px;
-  margin-bottom: 18px;
-}
-
-.empty,
-.loading {
-  color: var(--ink-2);
-  font-size: 12.5px;
-  letter-spacing: 0.2em;
-  padding: 40px 0;
 }
 </style>

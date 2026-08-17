@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import { RouterLink, RouterView, useRoute } from 'vue-router'
+import { CATALOG } from '@/domain/catalog'
 
 const route = useRoute()
 
-const nav = [
-  { no: '01', label: '代理人', to: '/agents' },
-  { no: '02', label: '音擎', to: '/w-engines' },
-  { no: '03', label: '邦布', to: '/bangboos' },
-  { no: '04', label: '驱动盘', to: '/disks' },
-]
+// 导航由 catalog.ts 派生（DESIGN.md §5.3 单一事实源）
+const nav = CATALOG.map((c) => ({ no: c.no, label: c.label, to: c.path }))
 
 const isActive = (to: string) =>
   route.path === to || (to !== '/' && route.path.startsWith(to))
