@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
-import { iconSources } from '@/data/icons'
+import { iconSources, skillIconSources, type SkillSlot } from '@/data/icons'
 import { richDesc } from '@/utils/rich'
 import { stripRichText } from '@/utils/text'
 import { useRouteParam } from '@/composables/useRouteParam'
@@ -11,18 +11,23 @@ import {
   buildSkillRows,
   buildSkinRows,
   dictToRows,
+  SKILL_KEYS,
   type DetailRow,
   type SkillRow,
   type SkinRow,
   type StatItem,
 } from '@/domain/sections'
+
+interface SkillDisplay extends SkillRow {
+  glyph: string
+  srcs: string[]
+}
 import type { AttrCode, SpecCode } from '@/data/types'
 import type { CharacterDetail } from '@/data/types'
 import { AsyncState, DescRow, DetailHead, DetailSection, KeyValueGrid } from '@/components'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
 import HollowImage from '@/components/HollowImage.vue'
-import SkillIcon from '@/components/SkillIcon.vue'
 
 const id = useRouteParam('id')
 const { data: detail, status, error } = useDetailResource<CharacterDetail>('character', id)
@@ -78,7 +83,13 @@ const stats = computed<StatItem[]>(() => {
   )
 })
 
-const skills = computed<SkillRow[]>(() => buildSkillRows(detail.value?.skill))
+const skills = computed<SkillDisplay[]>(() =>
+  buildSkillRows(detail.value?.skill).map((sk) => ({
+    ...sk,
+    glyph: SKILL_KEYS[sk.key]?.glyph ?? '□',
+    srcs: skillIconSources(sk.key as SkillSlot),
+  })),
+)
 const talents = computed<DetailRow[]>(() => dictToRows(detail.value?.talent))
 const skinList = computed<SkinRow[]>(() => buildSkinRows(detail.value?.skin))
 
@@ -120,7 +131,7 @@ const portraitSrcs = computed(() =>
           <div v-for="sk in skills" :key="sk.key" class="skill-group">
             <div class="skill-kind-row">
               <span class="key-glyph">
-                <SkillIcon :slot="sk.key" :size="38" />
+                <HollowImage :srcs="sk.srcs" :alt="sk.zh" :fallback="sk.glyph" />
                 <em class="mono">{{ sk.keyEn }}</em>
               </span>
               <h3 class="skill-kind serif">{{ sk.zh }}</h3>
@@ -226,6 +237,12 @@ const portraitSrcs = computed(() =>
   flex-direction: column;
   align-items: center;
   gap: 3px;
+}
+
+.key-glyph :deep(.frame) {
+  width: 38px;
+  height: 38px;
+  border-radius: 2px;
 }
 
 .key-glyph em {

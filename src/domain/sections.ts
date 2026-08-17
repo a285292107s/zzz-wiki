@@ -65,14 +65,14 @@ export const SKILL_ZH: Record<SkillSlotKey, string> = {
   core: '核心技',
 }
 
-/** 技能键位纹章：等宽键名 */
-export const SKILL_KEYS: Record<SkillSlotKey, { en: string }> = {
-  basic: { en: 'NORMAL' },
-  dodge: { en: 'DODGE' },
-  special: { en: 'SPECIAL' },
-  chain: { en: 'CHAIN' },
-  assist: { en: 'ASSIST' },
-  core: { en: 'CORE' },
+/** 技能键位纹章：排印几何符号 + 等宽键名（无图片依赖，与档案风格同构） */
+export const SKILL_KEYS: Record<SkillSlotKey, { glyph: string; en: string }> = {
+  basic: { glyph: '□', en: 'NORMAL' },
+  dodge: { glyph: '◇', en: 'DODGE' },
+  special: { glyph: '△', en: 'SPECIAL' },
+  chain: { glyph: '✕', en: 'CHAIN' },
+  assist: { glyph: '○', en: 'ASSIST' },
+  core: { glyph: '◒', en: 'CORE' },
 }
 
 /** 从角色详情的 skill 字典构建有序 SkillRow[]（按游戏 UI 顺序） */

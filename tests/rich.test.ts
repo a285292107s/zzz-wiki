@@ -19,21 +19,20 @@ describe('richDesc', () => {
     )
   })
 
-  // 修复后（DESIGN.md §12 发现1）：本地 SVG 字形优先，零外部请求；
-  // 未知名资产回退 CDN 且保留完整资产名（Icon_ 前缀）。
-  it('converts known <IconMap> marks to local inline SVG glyphs (zero external requests)', () => {
+  // 回退方案（用户确认，DESIGN.md §12 发现1 关联）：技能图标回 dbc0c72 CDN 官方图形态。
+  // 捕获组保留完整资产名（Icon_ 前缀），避免请求丢前缀的 404 URL。
+  it('converts <IconMap> marks to inline CDN key images (full asset name)', () => {
     const out = richDesc('攻击键 <IconMap:Icon_Normal>')
-    expect(out).toContain('<span class="rich-key">')
-    expect(out).toContain('<svg')
-    expect(out).toContain('aria-label="Icon_Normal"')
-    expect(out).not.toContain('<img')
+    expect(out).toContain('<img class="rich-key"')
+    expect(out).toContain('/Icon_Normal.webp')
+    expect(out).not.toContain('/Normal.webp')
+    expect(out).toContain('alt=""')
+    expect(out).toContain('loading="lazy"')
   })
 
-  it('falls back to CDN image for unknown <IconMap> assets (full asset name kept)', () => {
+  it('uses full asset name for unknown <IconMap> assets too', () => {
     const out = richDesc('摇杆 <IconMap:Icon_JoyStick>')
-    expect(out).toContain('<img class="rich-key"')
     expect(out).toContain('/Icon_JoyStick.webp')
-    expect(out).not.toContain('/JoyStick.webp')
   })
 
   it('converts 6-digit color values', () => {

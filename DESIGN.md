@@ -272,10 +272,11 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 
 ### P0 测试锁定的两个真实行为（待修复决策）
 
-1. **rich.ts 的 IconMap 捕获组丢前缀**：`<IconMap:Icon_Normal>` 渲染为 `…/Normal.webp`
-   而非 `…/Icon_Normal.webp`（捕获组取了 `Icon_` 之后的字段）——**✅ P0 已修复**。
-   修复：捕获组改为 `(Icon_\w+)` 保留完整资产名，本地 SVG 字形（skillGlyphs.ts）得以命中；
-   未知名资产走 CDN 时 URL 也恢复带前缀。tests/rich.test.ts 已锁定「本地 SVG 优先 + CDN 兜底」两个分支。
+1. **rich.ts 的 IconMap 捕获组丢前缀**：`<IconMap:Icon_Normal>` 曾渲染为 `…/Normal.webp`
+   而非 `…/Icon_Normal.webp`。**已处理（用户决策）**：技能图标整体回退至 `dbc0c72` 的
+   CDN 官方图方案（删除 SkillIcon.vue / skillGlyphs.ts 本地 SVG；rich.ts 恢复 CDN img），
+   但捕获组保留 `(Icon_\w+)` 全名修正——不再请求丢前缀的 404 URL。
+   tests/rich.test.ts 锁定「CDN key image + 全资产名」行为。
 2. **stripRichText 放行带数字的 LAYOUT 标记**：正则 `LAYOUT_[A-Z]+#` 无法跨越数字
    （如 `{LAYOUT_PS5#O}` 原样保留）。若真实数据出现 `PS5` 等标记会漏洗，多为无害残留，
    修复时把 `[A-Z]+` 扩为 `[A-Z0-9]+` 并补用例。
