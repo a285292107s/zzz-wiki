@@ -1,15 +1,12 @@
 /* ============================================================
-   static.nanoka.cc data client — the hakush.in successor API.
-   Endpoints confirmed from hakushin-py source:
-
-     GET /manifest.json                       → { zzz: { latest, ... } }
-     GET /zzz/{ver}/character.json            → { [id]: {...} }   (list, no lang)
-     GET /zzz/{ver}/{lang}/character/{id}.json→ detail (lang: zh|en|ja|ko)
-     … same for weapon / bangboo / equipment
-
-   CORS is fully open (access-control-allow-origin: *).
-   Icons: https://static.nanoka.cc/zzz/UI/{basename}.webp
-   ============================================================ */
+ * 本地静态数据客户端 — 数据由 scripts/build-data.mjs 生成：
+ *   - 来源：git.mero.moe/dimbreath/ZenlessData（Dimbreath 解包数据）
+ *   - 输出：public/data/（契约与旧 nanoka.cc 一致）
+ * 运行时零外部依赖、零 CORS 问题。
+ *
+ *   manifest.json / character.json / weapon.json / bangboo.json / equipment.json
+ *   zh/character/{id}.json
+ * ============================================================ */
 
 import type {
   BangbooDetail,
@@ -22,16 +19,15 @@ import type {
   WEngineListItem,
 } from './types'
 
-const BASE = 'https://static.nanoka.cc'
-export const UI_BASE = `${BASE}/zzz/UI`
+const BASE = '/data'
 export const LANG = 'zh' as const
 
 interface Manifest {
   zzz?: {
     latest?: string
-    live?: string
-    available?: string[]
+    [k: string]: unknown
   }
+  generated?: string
   [k: string]: unknown
 }
 
@@ -69,31 +65,19 @@ export function gameVersion(): Promise<string> {
 }
 
 async function listPath<T extends Record<string, unknown>>(file: string): Promise<T[]> {
-  const ver = await gameVersion()
-  const data = await getJson<Record<string, T>>(`${BASE}/zzz/${ver}/${file}.json`)
+  await gameVersion() // 存在性检查：本地 manifest 缺失时报错更早
+  const data = await getJson<Record<string, T>>(`${BASE}/${file}.json`)
   return normalize<T>(data)
 }
 
 async function detailPath<T>(kind: string, id: number | string): Promise<T> {
-  const ver = await gameVersion()
-  return getJson<T>(`${BASE}/zzz/${ver}/${LANG}/${kind}/${id}.json`)
+  await gameVersion()
+  return getJson<T>(`${BASE}/${LANG}/${kind}/${id}.json`)
 }
 
 /** list payloads are { [numericId]: item } — return array with Id attached */
 function normalize<T extends Record<string, unknown>>(dict: Record<string, T>): T[] {
   return Object.entries(dict).map(([k, v]) => ({ ...v, Id: Number(k) }))
-}
-
-/* ---------- icon url ---------- */
-
-/** Icons arrive as bare names ("IconRole01") or full asset paths;
- *  only the basename (minus extension) is used. */
-export function iconUrl(path?: string | null): string | null {
-  if (!path) return null
-  if (/^https?:/.test(path)) return path
-  const basename = path.split('/').pop() ?? path
-  const stem = basename.replace(/\.[^.]+$/, '')
-  return `${UI_BASE}/${stem}.webp`
 }
 
 /* ---------- fetchers ---------- */

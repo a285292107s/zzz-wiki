@@ -3,6 +3,7 @@ import HomeView from '@/views/HomeView.vue'
 import AgentsView from '@/views/AgentsView.vue'
 import AgentDetailView from '@/views/AgentDetailView.vue'
 import WEnginesView from '@/views/WEnginesView.vue'
+import WEngineDetailView from '@/views/WEngineDetailView.vue'
 import BangboosView from '@/views/BangboosView.vue'
 import DisksView from '@/views/DisksView.vue'
 
@@ -14,6 +15,7 @@ export const router = createRouter({
     { path: '/agents', name: 'agents', component: AgentsView },
     { path: '/agents/:id', name: 'agent-detail', component: AgentDetailView, props: true },
     { path: '/w-engines', name: 'w-engines', component: WEnginesView },
+    { path: '/w-engines/:id', name: 'w-engine-detail', component: WEngineDetailView, props: true },
     { path: '/bangboos', name: 'bangboos', component: BangboosView },
     { path: '/disks', name: 'disks', component: DisksView },
     { path: '/:pathMatch(.*)*', redirect: '/' },

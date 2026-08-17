@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { computed, ref, watchEffect } from 'vue'
 import { api, locName } from '@/data/api'
+import { iconSources } from '@/data/icons'
 import { ELEMENTS, PROFESSIONS, type AttrCode, type SpecCode } from '@/data/types'
 import type { CharacterListItem } from '@/data/types'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
 import HollowImage from '@/components/HollowImage.vue'
-import { iconUrl } from '@/data/api'
 
 const items = ref<CharacterListItem[]>([])
 const loaded = ref(false)
@@ -134,7 +134,7 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
               <RouterLink :to="`/agents/${c.Id}`" class="name-cell">
                 <span class="mini-icon">
                   <HollowImage
-                    :src="iconUrl(String(c.icon ?? ''))"
+                    :srcs="iconSources({ Id: c.Id, icon: c.icon }, 'list', 'character')"
                     :alt="locName(c)"
                     :fallback="locName(c)"
                   />

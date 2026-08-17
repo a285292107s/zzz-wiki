@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { computed, ref, watchEffect } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
-import { api, iconUrl } from '@/data/api'
+import { api } from '@/data/api'
+import { iconSources, skillIconSources, type SkillSlot } from '@/data/icons'
 import { stripRichText } from '@/utils/text'
+import { richDesc } from '@/utils/rich'
 import type { AttrCode, SpecCode } from '@/data/types'
 import type { CharacterDetail } from '@/data/types'
 import Tags from '@/components/Tags.vue'
@@ -78,12 +80,25 @@ const SKILL_ZH: Record<string, string> = {
   core: '核心技',
 }
 
+/** 技能键位纹章：排印几何符号 + 等宽键名（无图片依赖，与档案风格同构） */
+const SKILL_KEYS: Record<string, { glyph: string; en: string }> = {
+  basic: { glyph: '□', en: 'NORMAL' },
+  dodge: { glyph: '◇', en: 'DODGE' },
+  special: { glyph: '△', en: 'SPECIAL' },
+  chain: { glyph: '✕', en: 'CHAIN' },
+  assist: { glyph: '○', en: 'ASSIST' },
+  core: { glyph: '◒', en: 'CORE' },
+}
+
 const skills = computed(() => {
   const sk = detail.value?.skill
   if (!sk) return []
   return SKILL_ORDER.filter((k) => sk[k] != null).map((k) => ({
     key: k,
     zh: SKILL_ZH[k] ?? k,
+    glyph: SKILL_KEYS[k]?.glyph ?? '□',
+    keyEn: SKILL_KEYS[k]?.en ?? k.toUpperCase(),
+    srcs: skillIconSources(k as SkillSlot),
     descriptions: (sk[k] as { description?: unknown })?.description as
       | Array<{ name?: string; desc?: string }>
       | undefined,
@@ -107,6 +122,20 @@ const campName = computed(() => {
   if (!c) return null
   const key = Object.keys(c)[0]
   return key ? String(c[key]) : null
+})
+
+/** 皮肤：按 skinId 排序，含默认与替换时装 */
+const skinList = computed(() => {
+  const m = detail.value?.skin
+  if (!m) return []
+  return Object.entries(m)
+    .sort((a, b) => Number(a[0]) - Number(b[0]))
+    .map(([k, v]) => ({
+      id: k,
+      name: (v as { name?: string }).name ?? '',
+      desc: (v as { desc?: string }).desc ?? '',
+      img: (v as { image?: string }).image ?? '',
+    }))
 })
 
 interface TalentRow {
@@ -138,9 +167,11 @@ interface TalentRow {
 
         <div class="portrait">
           <HollowImage
-            :src="iconUrl(String(detail.icon ?? ''))"
+            :srcs="iconSources({ Id: detail.id, icon: detail.icon }, 'portrait', 'character')"
             :alt="detail.name"
             :fallback="detail.name"
+            position="top"
+            :ratio="'3 / 4'"
           />
         </div>
       </header>
@@ -166,13 +197,19 @@ interface TalentRow {
           <span class="rule" />
         </div>
         <div v-for="sk in skills" :key="sk.key" class="skill-group">
-          <h3 class="skill-kind serif">{{ sk.zh }}</h3>
+          <div class="skill-kind-row">
+            <span class="key-glyph">
+              <HollowImage :srcs="sk.srcs" :alt="sk.zh" :fallback="sk.glyph" />
+              <em class="mono">{{ sk.keyEn }}</em>
+            </span>
+            <h3 class="skill-kind serif">{{ sk.zh }}</h3>
+          </div>
           <ul v-if="sk.descriptions?.length" class="skill-list">
             <li v-for="(d, i) in sk.descriptions" :key="i" class="skill">
               <span class="skill-no mono">{{ String(i + 1).padStart(2, '0') }}</span>
               <div class="skill-body">
                 <h4 class="skill-name">{{ d.name ?? '—' }}</h4>
-                <p v-if="d.desc" class="desc">{{ stripRichText(d.desc) }}</p>
+                <p v-if="d.desc" class="desc" v-html="richDesc(d.desc)"></p>
               </div>
             </li>
           </ul>
@@ -191,6 +228,30 @@ interface TalentRow {
             <div>
               <h3 class="serif">{{ t.name ?? '未命名' }}</h3>
               <p v-if="t.desc" class="desc">{{ stripRichText(t.desc) }}</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section v-if="skinList.length > 1" class="block">
+        <div class="section-head">
+          <span class="no mono">04</span>
+          <h2>皮肤</h2>
+          <span class="rule" />
+        </div>
+        <ul class="skin-list">
+          <li v-for="s in skinList" :key="s.id" class="skin">
+            <span class="skin-thumb">
+              <HollowImage
+                :srcs="iconSources({ icon: s.img }, 'list', 'character')"
+                :alt="s.name"
+                :fallback="s.name"
+                position="top"
+              />
+            </span>
+            <div class="skin-info">
+              <h3 class="skin-name serif">{{ s.name || '—' }}</h3>
+              <p v-if="s.desc" class="skin-desc">{{ stripRichText(s.desc) }}</p>
             </div>
           </li>
         </ul>
@@ -298,11 +359,39 @@ interface TalentRow {
   margin-bottom: 26px;
 }
 
+.skill-kind-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 6px;
+}
+
+.key-glyph {
+  width: 40px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.key-glyph :deep(.frame) {
+  width: 38px;
+  height: 38px;
+  border-radius: 2px;
+}
+
+.key-glyph em {
+  font-style: normal;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  color: var(--ink-3);
+}
+
 .skill-kind {
   font-size: 16.5px;
   font-weight: 500;
   color: var(--amber);
-  margin-bottom: 6px;
 }
 
 .skill-list {
@@ -337,6 +426,16 @@ interface TalentRow {
   white-space: pre-line;
 }
 
+/* 描述内联技能键位图标（<IconMap:Icon_XXX>） */
+.desc :deep(.rich-key) {
+  display: inline-block;
+  width: 1.15em;
+  height: 1.15em;
+  margin: 0 0.1em;
+  vertical-align: -0.22em;
+  border-radius: 1px;
+}
+
 /* ---------- talents ---------- */
 
 .talent-list {
@@ -361,6 +460,51 @@ interface TalentRow {
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 6px;
+}
+
+/* ---------- skins ---------- */
+
+/* 一行一个皮肤：与 skill / talent 行同一视觉节奏 */
+.skin-list {
+  list-style: none;
+}
+
+.skin {
+  display: grid;
+  grid-template-columns: 104px 1fr;
+  align-items: start;
+  gap: 16px;
+  padding: 14px 4px;
+  border-bottom: var(--rule);
+}
+
+.skin-thumb {
+  width: 96px;
+  height: 96px;
+  display: block;
+}
+
+.skin-thumb :deep(.frame) {
+  border-radius: 2px;
+}
+
+.skin-info {
+  min-width: 0;
+}
+
+.skin-name {
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--ink-0);
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.skin-desc {
+  font-size: 12.5px;
+  color: var(--ink-2);
+  line-height: 1.7;
+  max-width: 76ch;
 }
 
 .err,

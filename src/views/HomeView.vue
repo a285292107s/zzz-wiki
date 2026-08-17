@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { iconSources } from '@/data/icons'
+import HollowImage from '@/components/HollowImage.vue'
+
 const sections = [
   {
     no: '01',
@@ -7,6 +10,8 @@ const sections = [
     to: '/agents',
     desc: '新艾利都的代理人档案：属性、职业、阵营与战斗数据。',
     count: '全部角色',
+    icon: { Id: 1011, icon: 'IconRole01' },
+    cat: 'character' as const,
   },
   {
     no: '02',
@@ -15,6 +20,8 @@ const sections = [
     to: '/w-engines',
     desc: '驱动代理人的武装终端，按职业与稀有度编目。',
     count: '全部武器',
+    icon: { Id: 12001, icon: 'Weapon_B_Common_01' },
+    cat: 'weapon' as const,
   },
   {
     no: '03',
@@ -23,6 +30,8 @@ const sections = [
     to: '/bangboos',
     desc: '空洞探索的忠实伙伴，收录全部型号与数据。',
     count: '全部邦布',
+    icon: { Id: 53001, icon: 'IconBangbooPiece12' },
+    cat: 'bangboo' as const,
   },
   {
     no: '04',
@@ -31,6 +40,8 @@ const sections = [
     to: '/disks',
     desc: '驱动盘的套装效果与词条一览。',
     count: '全部套装',
+    icon: { Id: 31000, icon: 'SuitWoodpeckerElectro' },
+    cat: 'disc' as const,
   },
 ]
 </script>
@@ -48,7 +59,7 @@ const sections = [
       </p>
 
       <div class="hero-meta mono">
-        <span>数据源 · hakush.in</span>
+        <span>数据源 · Dimbreath ZenlessData</span>
         <span class="dot">·</span>
         <span>持续更新</span>
         <span class="dot">·</span>
@@ -66,6 +77,13 @@ const sections = [
       <ol class="index-list">
         <li v-for="(s, i) in sections" :key="s.to">
           <RouterLink :to="s.to" class="index-row">
+            <span class="specimen">
+              <HollowImage
+                :srcs="iconSources(s.icon, 'list', s.cat)"
+                :alt="s.label"
+                :fallback="s.en"
+              />
+            </span>
             <span class="idx mono">{{ String(i + 1).padStart(2, '0') }}</span>
             <span class="name">
               <span class="zh">{{ s.label }}</span>
@@ -124,16 +142,26 @@ const sections = [
 
 .index-row {
   display: grid;
-  grid-template-columns: 56px 220px 1fr auto;
+  grid-template-columns: 44px 56px 220px 1fr auto;
   align-items: center;
   gap: 20px;
-  padding: 26px 8px;
+  padding: 22px 8px;
   border-bottom: var(--rule);
   transition: background var(--t-fast) var(--ease);
 }
 
 .index-row:hover {
   background: var(--bg-1);
+}
+
+.specimen {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+.specimen :deep(.frame) {
+  border-radius: 2px;
 }
 
 .idx {
@@ -179,10 +207,10 @@ const sections = [
 
 @media (max-width: 860px) {
   .index-row {
-    grid-template-columns: 40px 1fr auto;
+    grid-template-columns: 40px 40px 1fr auto;
   }
   .desc {
-    grid-column: 2 / -1;
+    grid-column: 3 / -1;
     grid-row: 2;
   }
 }

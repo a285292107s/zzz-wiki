@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { computed, ref, watchEffect } from 'vue'
 import { api, locName } from '@/data/api'
+import { iconSources } from '@/data/icons'
 import type { BangbooListItem } from '@/data/types'
 import Rarity from '@/components/Rarity.vue'
+import HollowImage from '@/components/HollowImage.vue'
 
 const items = ref<BangbooListItem[]>([])
 const loaded = ref(false)
@@ -58,7 +60,18 @@ const filtered = computed(() => {
         <tbody>
           <tr v-for="(b, i) in filtered" :key="b.Id">
             <td class="mono idx">{{ String(i + 1).padStart(2, '0') }}</td>
-            <td class="name">{{ locName(b) }}</td>
+            <td>
+              <span class="name-cell">
+                <span class="mini-icon">
+                  <HollowImage
+                    :srcs="iconSources({ Id: b.Id, icon: b.icon }, 'list', 'bangboo')"
+                    :alt="locName(b)"
+                    :fallback="locName(b)"
+                  />
+                </span>
+                <span class="name">{{ locName(b) }}</span>
+              </span>
+            </td>
             <td class="code mono">{{ b.codename ?? '—' }}</td>
             <td><Rarity :rank="b.rank" /></td>
           </tr>
@@ -118,6 +131,24 @@ const filtered = computed(() => {
   color: var(--ink-3);
   font-size: 12px;
 }
+
+.name-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mini-icon {
+  width: 34px;
+  height: 34px;
+  flex: none;
+  display: block;
+}
+
+.mini-icon :deep(.frame) {
+  border-radius: 2px;
+}
+
 .name {
   letter-spacing: 0.02em;
 }

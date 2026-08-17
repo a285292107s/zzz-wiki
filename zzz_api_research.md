@@ -1,5 +1,7 @@
 # 绝区零 (ZZZ) 数据 API 研究报告 — hakush.in / nanoka.cc / hakushin-py
 
+> ⚠️ **本站已于 2025-02 迁移**：运行时不再依赖 nanoka.cc/hakush 系接口。改为与 [Hoyo Buddy](https://github.com/seriaati/hoyo-buddy) 同款方案——构建期从 **Dimbreath 解包数据**（`git.mero.moe/dimbreath/ZenlessData`）生成静态 JSON（`scripts/build-data.mjs` → `public/data/`）。本文档保留仅作历史调研参考（nanoka 契约即生成 JSON 的契约蓝本）。
+
 > 研究时间：2026-08（以"当下"为准）；所有端点均在本机沙箱内通过代理 **实测验证**（HTTP 200 + 响应头/JSON 字段实抓），非仅凭文档转述。
 > 核心结论先行：**hakush.in 已死（DNS NXDOMAIN），现役数据源是迁移后的 nanoka.cc 家族（`static.nanoka.cc` 提供 JSON，`zzz.nanoka.cc` 提供网页），CORS 全开（`access-control-allow-origin: *`），Vue 站点可浏览器直接 fetch，无需代理。**
 

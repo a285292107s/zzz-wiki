@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { computed, ref, watchEffect } from 'vue'
+import { RouterLink } from 'vue-router'
 import { api, locName } from '@/data/api'
+import { iconSources } from '@/data/icons'
 import { PROFESSIONS, type SpecCode } from '@/data/types'
 import type { WEngineListItem } from '@/data/types'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
+import HollowImage from '@/components/HollowImage.vue'
 
 const items = ref<WEngineListItem[]>([])
 const loaded = ref(false)
@@ -81,7 +84,7 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
         <thead>
           <tr>
             <th>#</th>
-            <th>名称</th>
+            <th>音擎</th>
             <th>稀有度</th>
             <th>职业定位</th>
           </tr>
@@ -89,7 +92,18 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
         <tbody>
           <tr v-for="(w, i) in filtered" :key="w.Id">
             <td class="mono idx">{{ String(i + 1).padStart(2, '0') }}</td>
-            <td class="name">{{ locName(w) }}</td>
+            <td>
+              <RouterLink :to="`/w-engines/${w.Id}`" class="name-cell">
+                <span class="mini-icon">
+                  <HollowImage
+                    :srcs="iconSources({ Id: w.Id, icon: w.icon }, 'list', 'weapon')"
+                    :alt="locName(w)"
+                    :fallback="locName(w)"
+                  />
+                </span>
+                <span class="name">{{ locName(w) }}</span>
+              </RouterLink>
+            </td>
             <td><Rarity :rank="w.rank" /></td>
             <td><Tags :specialty="w.type" /></td>
           </tr>
@@ -191,6 +205,34 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
   color: var(--ink-3);
   font-size: 12px;
 }
+
+.name-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  text-decoration: none;
+}
+
+a.name-cell:hover .name {
+  color: var(--amber-hi);
+}
+
+a.name-cell .name {
+  transition: color var(--t-fast) var(--ease);
+}
+
+.mini-icon {
+  width: 34px;
+  height: 34px;
+  flex: none;
+  display: block;
+}
+
+.mini-icon :deep(.frame) {
+  border-radius: 2px;
+}
+
 .name {
   letter-spacing: 0.02em;
 }

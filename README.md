@@ -2,23 +2,28 @@
 
 绝区零（Zenless Zone Zero）数据展示型 wiki。以「空洞数据终端」的档案化视觉呈现代理人、音擎、邦布与驱动盘数据。设计取向：**约束、排印、纸墨质感**——拒绝渐变霓虹与圆角卡片堆叠的模板感。
 
+> 📄 给后续 AI / 协作者的**数据交接文档**见 [`DATA_GUIDE.md`](./DATA_GUIDE.md)——数据来源、表结构、反混淆锚点、图标兜底、已知缺口与失效信号都在这里，无需从头探测。
+
 ## 技术栈
 
 - **Vue 3** + **TypeScript** + **Vite 6**
 - **vue-router 4**
 - 零 UI 框架：纯手写设计系统（CSS 变量 + 细线 + 等宽数据数字）
-- 数据直连 `static.nanoka.cc`（hakush.in 继任者，CORS 全开，无需代理）
+- 数据为**构建期生成的静态 JSON**（`public/data/`），运行时零外部请求
 
 ## 本地开发
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173
+npm run data         # 生成静态数据（拉取 Dimbreath ZenlessData → 反混淆 → 拼装）
+npm run verify:icons # （可选）校验全部图标资源可达性，失败非零退出
+npm run dev          # http://localhost:5173
 npm run build
 npm run preview
 ```
 
-> 注：`static.nanoka.cc` 域名在海内外可达性不同，如本地无法直连（墙内环境），请配置代理访问 dev server，或部署后由 Vercel 边缘网络访问。
+> `npm run data` 需要网络访问 `git.mero.moe`（有代理时设 `NODE_USE_ENV_PROXY=1`）；
+> 数据已提交在 `public/data/`，日常开发/部署无需重跑。更新数据：重跑该脚本。
 
 ## 部署（Vercel）
 
@@ -29,35 +34,58 @@ npm run preview
 
 ## 数据源
 
-**基址 `https://static.nanoka.cc`**（hakush.in 已下线，改名迁移至 nanoka.cc）。先 `GET /manifest.json` 取 `zzz.latest` 版本号，再按版本 + 语言（`zh`）请求：
+构建期从 **hakushin raw**（`https://static.nanoka.cc`，zzz.nanoka.cc / hakush.in 站底层 CDN）拉取，
+解析层直取 + 规整（v2，2026-08 切换；v1 为 Dimbreath ZenlessData 反混淆管线，已弃用，见 `DATA_GUIDE.md` §9）。
 
-| 端点 | 说明 |
+- `scripts/build-data.mjs` 负责：读取 `manifest.json` 取版本 → 抓取角色/音擎/邦布/驱动盘名录与中文详情 → 规整（icon 裸名、枚举英文值、皮肤回退）→ 输出到 `public/data/`。
+- 产出（`public/data/`，运行时本地 fetch，无 CORS）：
+
+| 文件 | 说明 |
 | --- | --- |
-| `/manifest.json` | 各游戏版本清单（`zzz.latest`） |
-| `/zzz/{ver}/character.json` | 代理人名录（id→对象 map，含四语言名） |
-| `/zzz/{ver}/zh/character/{id}.json` | 代理人详情（技能/影画/数值/档案） |
-| `/zzz/{ver}/weapon.json` | 音擎名录 |
-| `/zzz/{ver}/zh/weapon/{id}.json` | 音擎详情 |
-| `/zzz/{ver}/bangboo.json` | 邦布名录 |
-| `/zzz/{ver}/zh/bangboo/{id}.json` | 邦布详情 |
-| `/zzz/{ver}/equipment.json` | 驱动盘名录（套装效果在 `zh.desc2/desc4`） |
-| `/zzz/{ver}/zh/equipment/{id}.json` | 驱动盘详情 |
+| `/data/manifest.json` | 版本/来源元信息 |
+| `/data/character.json` | 代理人名录（60 名，含 1581 蕾米埃尔/1611 克拉蕾/1621 洛克茜） |
+| `/data/zh/character/{id}.json` | 代理人详情（数值/技能/影画/档案/皮肤/特殊属性/策略/潜能） |
+| `/data/weapon.json` | 音擎名录（100 件） |
+| `/data/zh/weapon/{id}.json` | 音擎详情（主/副属性/精炼/材料） |
+| `/data/bangboo.json` | 邦布名录（42 只） |
+| `/data/zh/bangboo/{id}.json` | 邦布详情（v2 新增） |
+| `/data/equipment.json` | 驱动盘套装名录（30 套） |
+| `/data/zh/equipment/{id}.json` | 驱动盘详情（v2 新增） |
 
-**字段约定（实测）**：属性 `200物理 201火 202冰 203电 204风 205以太`；职业 `1强攻 2击破 3异常 4支援 5防护 6命破`；稀有度 `角色/邦布: 3=A 4=S，音擎: 2=B 3=A 4=S`。技能文本含 `<color=#…>` 等游戏标记，站点已做剥离清洗。
+**字段约定**：属性 `200物理 201火 202冰 203电 204风 205以太 300流明(Lumiflux)`；职业 `1强攻 2击破 3异常 4支援 5防护 6命破 7锋御(Armorer)`；稀有度 `角色/邦布: 3=A 4=S，音擎: 2=B 3=A 4=S`。技能/影画/档案文本含 `<color=#…>` 等游戏标记，站点已做剥离清洗。
 
-### 图片素材现状（重要）
+> 数据版本说明：随 `manifest.json` 的 `zzz.latest` 动态获取（2026-08 为 3.2.3+18259966）；重跑 `npm run data` 即跟随站点最新数据。
 
-`static.nanoka.cc/zzz/UI/{basename}.webp` 模板当前**全部 404**（素材 CDN 迁移未就绪）。站点已内置优雅降级——图片缺失时显示档案式文字占位（代号首两字），不产生破图；素材恢复后无需改代码自动显示。详见研究文档 `zzz_api_research.md`。
+### 图片素材（三级兜底）
+
+按优先级依次尝试，全部失败后显示档案式文字占位（代号首两字）：
+
+1. **honeyhunterworld**：`https://zzz.honeyhunterworld.com/img/…`（角色头像/立绘路径已实测可用）
+2. **static.nanoka.cc** 素材 CDN：`https://static.nanoka.cc/assets/zzz/{basename}.webp`（全品类已实测可用）
+3. 文字占位（`<HollowImage>` 内置）
+
+**素材 CDN 解析（与 zzz.nanoka.cc 同源）**：该站页面数据全部来自 `static.nanoka.cc/zzz/{ver}/{lang}/…` JSON；图片素材另有独立的 `static.nanoka.cc/assets/zzz/` CDN——命名规则为**取游戏资源路径的裸文件名**（如 `UI/Sprite/A1DynamicLoad/IconSuit/UnPacker/SuitWoodpeckerElectro.png` → `SuitWoodpeckerElectro.webp`），角色头像 `IconRole01` 等即直接可用，角色立绘走 honeyhunterworld 的 `{id}-char_role_icon.webp`。本项目 `src/data/icons.ts` 完全复刻这套规则。
+
+**可用性现状（2026-02 实测）**：
+- nanoka 素材 CDN：项目全部 313 个图标资源 **100% 可达**（`npm run verify:icons` 可复核，失败即非零退出，可挂 CI）
+- 技能键位图标：资产名取自描述文本的 `<IconMap:Icon_XXX>` 标记（`Icon_Normal`/`Icon_Evade`/`Icon_SpecialReady`/`Icon_UltimateReady`/`Icon_QTE`/`Icon_Switch` 均 200），由前端 `icons.ts` + `rich.ts` 渲染——技能组头图标经 `<HollowImage>` 加载（含几何字符兜底），描述内联键位图（`<IconMap>`）直接嵌入富文本
+- honeyhunterworld：角色头像 55/60 可达，其余 5 名（如露西/伊芙琳）与站点整体当前返回 Cloudflare 521（源站故障），自动走 nanoka 兜底
+- 已知提供方缺口：主角「哲/铃」第 3 套皮肤的立绘（`IconRole34_03` / `IconRole33_03`）nanoka 未上传，构建管线已将其回退到默认立绘（`scripts/build-data.mjs` 的 `SKIN_IMAGE_FALLBACK`），杜绝死链字段
 
 ## 目录结构
 
 ```
 src/
-  data/          # API 客户端 + 类型（int 枚举映射）
-  components/    # Rarity / Tags / HollowImage（图片降级）
+  data/          # 本地静态数据客户端 + 类型（int 枚举映射）+ 图标候选源
+  components/    # Rarity / Tags / HollowImage（多候选图片 + 文字降级）
   views/         # 首页、代理人列表/详情、音擎、邦布、驱动盘
   styles/        # 设计 token + 基样式
   utils/         # 富文本清洗等
+scripts/
+  build-data.mjs # hakushin raw（static.nanoka.cc）→ public/data 数据管线（v2）
+  verify-icons.mjs # 图标资源可达性校验（nanoka CDN + honeyhunterworld）
+public/
+  data/          # 生成的静态 JSON（提交入库）
 ```
 
-> 项目为社区爱好者制作，与米哈游 / HoYoverse 无关；数据版权归原作者所有。
+> 项目为社区爱好者制作，与米哈游 / HoYoverse 无关；数据版权归原作者（Dimbreath 解包数据 / miHoYo）所有。

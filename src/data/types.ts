@@ -1,13 +1,14 @@
 /* ============================================================
-   Data model types — static.nanoka.cc (hakush.in successor) ZZZ.
-   Numeric element/specialty ids are decoded by ELEMENTS / PROFESSIONS
-   maps below. List payloads are dicts keyed by id; detail payloads
-   are single objects. Fields are defensive.
+   Data model types — 本地静态数据（scripts/build-data.mjs 生成，
+   契约蓝本为旧 static.nanoka.cc ZZZ 数据）。Numeric element/
+   specialty ids are decoded by ELEMENTS / PROFESSIONS maps below.
+   List payloads are dicts keyed by id; detail payloads are single
+   objects. Fields are defensive.
    ============================================================ */
 
 /* ---------- element / specialty decoding ---------- */
 
-export type AttrCode = 200 | 201 | 202 | 203 | 204 | 205
+export type AttrCode = 200 | 201 | 202 | 203 | 204 | 205 | 300
 
 export const ELEMENTS: Record<AttrCode, { en: string; zh: string; color: string }> = {
   200: { en: 'Physical', zh: '物理', color: '#c8a35c' },
@@ -16,9 +17,11 @@ export const ELEMENTS: Record<AttrCode, { en: string; zh: string; color: string 
   203: { en: 'Electric', zh: '电', color: '#a06fc4' },
   204: { en: 'Wind', zh: '风', color: '#6fbfa0' },
   205: { en: 'Ether', zh: '以太', color: '#4bb8a0' },
+  // 300 = Lumen / 流明：蕾米埃尔的特殊属性（非标准五属性）
+  300: { en: 'Lumiflux', zh: '流明', color: '#c98ad8' },
 }
 
-export type SpecCode = 1 | 2 | 3 | 4 | 5 | 6
+export type SpecCode = 1 | 2 | 3 | 4 | 5 | 6 | 7
 
 export const PROFESSIONS: Record<SpecCode, { en: string; zh: string }> = {
   1: { en: 'Attack', zh: '强攻' },
@@ -27,6 +30,8 @@ export const PROFESSIONS: Record<SpecCode, { en: string; zh: string }> = {
   4: { en: 'Support', zh: '支援' },
   5: { en: 'Defense', zh: '防护' },
   6: { en: 'Rupture', zh: '命破' },
+  // 7 = Armorer / 锋御（hakushin raw 3.2.3：1611 克拉蕾；ZenlessData 职业表暂未收录）
+  7: { en: 'Armorer', zh: '锋御' },
 }
 
 export type RarityChar = 3 | 4
@@ -109,6 +114,8 @@ export interface PropMap {
 
 export interface CharacterDetail {
   Id: number
+  /** 详情载荷用 `id`（小写），名录用 `Id`（大写） */
+  id?: number
   icon?: string
   name?: string
   code_name?: string
@@ -172,6 +179,8 @@ export interface CharacterDetail {
 
 export interface WEngineDetail {
   Id: number
+  /** 详情载荷用 `id`（小写）、code_name 为英文名 */
+  id?: number
   code_name?: string
   name?: string
   desc?: string

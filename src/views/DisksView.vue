@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { computed, ref, watchEffect } from 'vue'
 import { api } from '@/data/api'
+import { iconSources } from '@/data/icons'
 import { stripRichText } from '@/utils/text'
 import type { DiskDriveListItem } from '@/data/types'
+import HollowImage from '@/components/HollowImage.vue'
 
 const items = ref<DiskDriveListItem[]>([])
 const loaded = ref(false)
@@ -60,7 +62,18 @@ const filtered = computed(() => {
         <tbody>
           <tr v-for="(d, i) in filtered" :key="d.Id">
             <td class="mono idx">{{ String(i + 1).padStart(2, '0') }}</td>
-            <td class="name">{{ d.zh?.name ?? '—' }}</td>
+            <td>
+              <span class="name-cell">
+                <span class="mini-icon">
+                  <HollowImage
+                    :srcs="iconSources({ Id: d.Id, icon: d.icon }, 'list', 'disc')"
+                    :alt="d.zh?.name ?? '—'"
+                    :fallback="d.zh?.name ?? '—'"
+                  />
+                </span>
+                <span class="name">{{ d.zh?.name ?? '—' }}</span>
+              </span>
+            </td>
             <td class="effect">{{ stripRichText(d.zh?.desc2) }}</td>
             <td class="effect">{{ stripRichText(d.zh?.desc4) }}</td>
           </tr>
@@ -120,6 +133,24 @@ const filtered = computed(() => {
   color: var(--ink-3);
   font-size: 12px;
 }
+
+.name-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mini-icon {
+  width: 34px;
+  height: 34px;
+  flex: none;
+  display: block;
+}
+
+.mini-icon :deep(.frame) {
+  border-radius: 2px;
+}
+
 .name {
   font-size: 15px;
   letter-spacing: 0.02em;

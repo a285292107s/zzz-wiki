@@ -9,3 +9,8 @@ dist
 # ephemeral research artifacts (kept on disk, not in repo)
 _research_*
 shots
+
+# build-data.mjs 下载缓存（Dimbreath ZenlessData 原始表）
+.cache/
+# preview 冒烟日志
+preview.log

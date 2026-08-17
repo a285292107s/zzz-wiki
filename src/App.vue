@@ -50,7 +50,7 @@ const isActive = (to: string) =>
       <div class="wrap foot-inner">
         <p class="mono">HOLLOW://ARCHIVE · v0.1</p>
         <p>
-          数据源 <a href="https://hakush.in" target="_blank" rel="noopener">hakush.in</a>
+          数据源 <a href="https://git.mero.moe/dimbreath/ZenlessData" target="_blank" rel="noopener">Dimbreath ZenlessData</a>
           · 非官方项目 · 与米哈游 / HoYoverse 无关
         </p>
       </div>
