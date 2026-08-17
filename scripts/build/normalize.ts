@@ -71,7 +71,8 @@ export function normalizeCharacterDetail(d: Record<string, unknown>): Record<str
   }
   const out: Record<string, unknown> = {
     id: d.id,
-    icon: applyAvatarOverride(Number(d.id), d.icon as string | undefined),
+    // 详情立绘保持源站原始立绘名（IconRole{N}），不套用列表头像的 General 横幅覆写
+    icon: d.icon,
     name: d.name,
     code_name: d.code_name,
     rarity: d.rarity,
