@@ -78,16 +78,23 @@ npm run preview
 
 ```
 src/
-  data/          # 本地静态数据客户端 + 类型（int 枚举映射）+ 图标候选源
-  components/    # Rarity / Tags / HollowImage（多候选图片 + 文字降级）
-  views/         # 首页、代理人列表/详情、音擎、邦布、驱动盘
+  domain/        # 单一事实源：枚举 / 类目元信息 / zod 契约 / 详情区块类型
+  data/          # 请求层（api）+ 类别表驱动（resources）+ 类型派生（types）+ 图标候选（icons）
+  composables/   # useAsyncResource / useCatalogList / useRouteParam / usePageMeta / useDetailResource
+  components/    # layout / list / state / detail 区块 + Rarity / Tags / HollowImage / SkillIcon
+  views/         # 页面（薄组装层）
   styles/        # 设计 token + 基样式
-  utils/         # 富文本清洗等
+  router/        # 懒加载路由 + meta
 scripts/
-  build-data.mjs # hakushin raw（static.nanoka.cc）→ public/data 数据管线（v2）
-  verify-icons.mjs # 图标资源可达性校验（nanoka CDN + honeyhunterworld）
+  build/         # 数据管线模块（io / normalize / domains / index，tsx 运行）
+  build-data.ts  # 数据管线入口（npm run data）
+  verify-data.ts # zod 契约校验（npm run verify:data，可挂 CI）
+  verify-icons.mjs # 图标资源可达性校验
+tests/           # vitest 单元/组件测试
 public/
   data/          # 生成的静态 JSON（提交入库）
 ```
+
+> 架构分层、依赖规则与重构路线见 `DESIGN.md`；组件/设计 token 速查见站内 `/style` 设计系统页。
 
 > 项目为社区爱好者制作，与米哈游 / HoYoverse 无关；数据版权归原作者（Dimbreath 解包数据 / miHoYo）所有。
