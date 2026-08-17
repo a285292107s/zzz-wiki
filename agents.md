@@ -2,6 +2,8 @@
 
 > 本文档是**工作约定**，不是数据文档。数据细节（来源、表结构、图标兜底、失效信号）在
 > [`DATA_GUIDE.md`](./DATA_GUIDE.md)；本文档只约束**怎么干活**。发现本文档与实际不符时，就地修正。
+>
+> 架构愿景、分层与目录约定见 [`DESIGN.md`](./DESIGN.md)——重构实施以该文档为唯一依据，结构落地后就地修正它。
 
 ## 1. 临时文件：只放 `temp/`，禁止到处塞
 
@@ -34,7 +36,8 @@
 ## 4. 修改数据管线时
 
 - 跑 `npm run data`（需外网；有代理时设 `NODE_USE_ENV_PROXY=1`）→ 检查 `public/data/` 产出
-  数量与字段 → 跑 `npm run build`（含 vue-tsc 类型检查）→ 可选 `npm run verify:icons`。
+  数量与字段 → 跑 `npm test`（vitest 单元测试）→ 跑 `npm run build`（含 vue-tsc 类型检查）
+  → 可选 `npm run verify:icons`。
 - 名录/详情数量为 0 或 404 时：先查 `DATA_GUIDE.md` §8 失效信号，别急着改前端。
 
 ## 5. 环境

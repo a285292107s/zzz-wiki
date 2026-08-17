@@ -109,14 +109,5 @@ export const api = {
   },
 }
 
-/** Localised display name helper — list items carry en/zh/ja/ko. */
-export function locName(item: {
-  en?: string
-  zh?: string
-  ja?: string
-  ko?: string
-  code?: string
-  codename?: string
-}): string {
-  return item.zh || item.en || item.ja || item.ko || item.code || item.codename || '—'
-}
+/** Localised display name — 唯一实现在 utils/names.ts（DESIGN.md P0）。 */
+export { locName } from '@/utils/names'

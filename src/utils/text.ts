@@ -20,14 +20,3 @@ export function stripRichText(input: string | undefined | null): string {
     .replace(/[ \t]+\n/g, '\n')
     .trim()
 }
-
-const FALLBACK_ORDER = ['zh', 'en', 'ja', 'ko', 'code', 'codename'] as const
-
-/** Localised display name for list items carrying 4-lang fields. */
-export function pickName<T extends Record<string, unknown>>(item: T): string {
-  for (const key of FALLBACK_ORDER) {
-    const v = item[key]
-    if (typeof v === 'string' && v.length) return v
-  }
-  return '—'
-}
