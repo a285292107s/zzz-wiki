@@ -27,6 +27,23 @@ export const SKIN_IMAGE_FALLBACK: Record<string, string> = {
   'IconRole33_03': 'IconRole33', // 铃 第 3 套皮肤
 }
 
+/**
+ * 头像覆盖表（角色 id → 覆盖资产名）。
+ * 手动指定个别角色的列表头像/立绘资源（构建期落地为 icon 字段，前端零改动，
+ * 运行时零外部请求）。新增条目：编辑此处 + 重跑 npm run data。
+ * 键为名录/详情载荷里的数字 id。
+ */
+export const AVATAR_OVERRIDE: Record<number, string> = {
+  // 蕾米埃尔：官方默认头像 IconRole67 视觉不理想，改用 IconRoleGeneral67
+  1581: 'IconRoleGeneral67',
+}
+
+/** 应用头像覆盖：给定角色 id 与原始资产名，返回覆盖后的资产名（无覆盖则原样）。 */
+export function applyAvatarOverride(id: number | undefined, asset: string | undefined): string {
+  const override = id != null ? AVATAR_OVERRIDE[id] : undefined
+  return override ?? (asset ?? '')
+}
+
 /** 详情规整：键名与旧 Dimbreath 管线输出契约一致；值规整 + 透传。 */
 export function normalizeCharacterDetail(d: Record<string, unknown>): Record<string, unknown> {
   const enVal = (m: Record<string, unknown> | undefined): Record<string, unknown> => {
@@ -37,7 +54,7 @@ export function normalizeCharacterDetail(d: Record<string, unknown>): Record<str
   }
   const out: Record<string, unknown> = {
     id: d.id,
-    icon: d.icon,
+    icon: applyAvatarOverride(Number(d.id), d.icon as string | undefined),
     name: d.name,
     code_name: d.code_name,
     rarity: d.rarity,
@@ -87,7 +104,11 @@ export function toListDict(
   for (const [k, v] of Object.entries(listRaw)) {
     const id = Number(k)
     if (!Number.isFinite(id)) continue
-    dict[k] = { ...v, Id: id, icon: basename(v.icon as string | null | undefined) }
+    dict[k] = {
+      ...v,
+      Id: id,
+      icon: applyAvatarOverride(id, basename(v.icon as string | null | undefined)),
+    }
   }
   return dict
 }
