@@ -19,15 +19,21 @@ describe('richDesc', () => {
     )
   })
 
-  // 已知现状：捕获组取了 Icon_ 之后的字段，实际请求 Normal.webp 而非
-  // Icon_Normal.webp —— P0 锁定现状，修复列为开放问题（DESIGN.md §12）。
-  it('converts <IconMap> marks to inline key images (drops Icon_ prefix)', () => {
+  // 修复后（DESIGN.md §12 发现1）：本地 SVG 字形优先，零外部请求；
+  // 未知名资产回退 CDN 且保留完整资产名（Icon_ 前缀）。
+  it('converts known <IconMap> marks to local inline SVG glyphs (zero external requests)', () => {
     const out = richDesc('攻击键 <IconMap:Icon_Normal>')
+    expect(out).toContain('<span class="rich-key">')
+    expect(out).toContain('<svg')
+    expect(out).toContain('aria-label="Icon_Normal"')
+    expect(out).not.toContain('<img')
+  })
+
+  it('falls back to CDN image for unknown <IconMap> assets (full asset name kept)', () => {
+    const out = richDesc('摇杆 <IconMap:Icon_JoyStick>')
     expect(out).toContain('<img class="rich-key"')
-    expect(out).toContain('/Normal.webp')
-    expect(out).not.toContain('Icon_Normal.webp')
-    expect(out).toContain('alt=""')
-    expect(out).toContain('loading="lazy"')
+    expect(out).toContain('/Icon_JoyStick.webp')
+    expect(out).not.toContain('/JoyStick.webp')
   })
 
   it('converts 6-digit color values', () => {

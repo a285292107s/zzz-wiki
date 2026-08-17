@@ -251,9 +251,9 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 ### P0 测试锁定的两个真实行为（待修复决策）
 
 1. **rich.ts 的 IconMap 捕获组丢前缀**：`<IconMap:Icon_Normal>` 渲染为 `…/Normal.webp`
-   而非 `…/Icon_Normal.webp`（捕获组取了 `Icon_` 之后的字段）。技能组头（skillIconSources）
-   是带前缀的正确 URL，描述内联键位图可能一直是 broken image。修复归属：P3 富文本组件化时，
-   改捕获组为全名并同步更新 tests/rich.test.ts 断言。
+   而非 `…/Icon_Normal.webp`（捕获组取了 `Icon_` 之后的字段）——**✅ P0 已修复**。
+   修复：捕获组改为 `(Icon_\w+)` 保留完整资产名，本地 SVG 字形（skillGlyphs.ts）得以命中；
+   未知名资产走 CDN 时 URL 也恢复带前缀。tests/rich.test.ts 已锁定「本地 SVG 优先 + CDN 兜底」两个分支。
 2. **stripRichText 放行带数字的 LAYOUT 标记**：正则 `LAYOUT_[A-Z]+#` 无法跨越数字
    （如 `{LAYOUT_PS5#O}` 原样保留）。若真实数据出现 `PS5` 等标记会漏洗，多为无害残留，
    修复时把 `[A-Z]+` 扩为 `[A-Z0-9]+` 并补用例。

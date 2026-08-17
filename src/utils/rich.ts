@@ -29,7 +29,9 @@ export function richDesc(desc?: string): string {
   )
 
   // <IconMap:Icon_XXX> → 内联键位图标（本地 SVG 优先，未知名回退 CDN）
-  out = out.replace(/&lt;IconMap:Icon_(\w+)&gt;/g, (_m, name: string) => {
+  // 注意：捕获完整资产名（含 Icon_ 前缀）——skillGlyphs 键带前缀，
+  // 旧实现只取后缀导致本地 SVG 永命中不了、CDN 兜底 URL 也丢前缀（DESIGN.md §12 发现1）。
+  out = out.replace(/&lt;IconMap:(Icon_\w+)&gt;/g, (_m, name: string) => {
     const svg = renderSkillGlyph(name, '100%')
     if (svg) return `<span class="rich-key">${svg}</span>`
     const src = skillAssetSources(name)[0]
