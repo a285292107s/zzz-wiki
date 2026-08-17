@@ -37,8 +37,22 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
         :style="{ '--chip-color': a.color }"
         @click="emit('update:attr', attr === Number(key) ? 'all' : (Number(key) as AttrCode))"
       >
-        <img class="chip-ic" :src="elementIconUrl(Number(key) as AttrCode)" :alt="a.zh" loading="lazy" />
-        <span class="swatch" />
+        <img
+          v-if="elementIconUrl(Number(key) as AttrCode)"
+          class="chip-ic"
+          :src="elementIconUrl(Number(key) as AttrCode)!"
+          :alt="a.zh"
+          loading="lazy"
+        />
+        <svg
+          v-else
+          class="chip-ic chip-fallback"
+          viewBox="0 0 16 16"
+          :style="{ '--ph-color': a.color }"
+          aria-hidden="true"
+        >
+          <circle cx="8" cy="8" r="6" fill="none" stroke="var(--ph-color)" stroke-width="2" />
+        </svg>
         {{ a.zh }}
       </button>
     </template>
@@ -56,7 +70,16 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
         :class="{ on: prof === Number(key) }"
         @click="emit('update:prof', prof === Number(key) ? 'all' : (Number(key) as SpecCode))"
       >
-        <img class="chip-ic" :src="professionIconUrl(Number(key) as SpecCode)" :alt="p.zh" loading="lazy" />
+        <img
+          v-if="professionIconUrl(Number(key) as SpecCode)"
+          class="chip-ic"
+          :src="professionIconUrl(Number(key) as SpecCode)!"
+          :alt="p.zh"
+          loading="lazy"
+        />
+        <svg v-else class="chip-ic chip-fallback" viewBox="0 0 16 16" aria-hidden="true">
+          <circle cx="8" cy="8" r="6" fill="none" stroke="var(--ink-2)" stroke-width="2" />
+        </svg>
         {{ p.zh }}
       </button>
     </template>
@@ -102,11 +125,8 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
   flex: none;
   display: block;
 }
-.swatch {
-  width: 7px;
-  height: 7px;
-  background: var(--chip-color, var(--ink-2));
-  flex: none;
+.chip-fallback {
+  stroke-width: 2;
 }
 .sep {
   width: 1px;
