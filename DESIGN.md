@@ -229,10 +229,17 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 - [x] App.vue 导航与 HomeView 目录改由 catalog 派生（删除手写双份）
 - [x] tests/api.test.ts（mock fetch：normalize/路径/缓存/错误归一化三分支 + resources 表驱动），39 用例全绿
 
-### P2 详情页拆分
+### P2 详情页拆分 —— ✅ 已完成
 
-- DetailSection / KeyValueGrid / DescRow
-- AgentDetailView / WEngineDetailView 瘦身；TalentRow 等类型迁入 domain 单一定义
+- [x] 组件：DetailHead（页头：eyebrow/标题/meta slot/画像）/ DetailSection（编号区块）/
+      KeyValueGrid（数值网格）/ DescRow（序号+标题+正文行，variant 保视觉差异）
+- [x] composables：useDetailResource（kind + 响应式 id，连续导航自动 reload）
+- [x] domain/sections.ts：DetailRow / SkillRow / StatItem / SkinRow + dictToRows /
+      buildSkillRows / buildSkinRows / SKILL_* 常量（TalentRow 等重复类型收敛于此）
+- [x] AgentDetailView 529→~290 行（含样式；组装层 ≤160 行），WEngineDetailView 338→~168 行
+- [x] 视觉/行为不变：技能本地 SVG 图标、富文本渲染、皮肤缩略图全部保留
+- [x] tests/sections.test.ts（8 用例）+ tests/descrow.test.ts（4 组件用例，jsdom）；
+      vitest.config 接入 @vitejs/plugin-vue。51 用例全绿 + build 通过（CSS 降至 17.64kB）
 
 ### P3 契约落地
 
