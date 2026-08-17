@@ -63,7 +63,7 @@ const columns: CatalogColumn[] = [
               <HollowImage
                 :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'list', 'character', { excludeHoney: true })"
                 :alt="pickName(row)"
-                :fallback="pickName(row)" fit="contain" />
+                :fallback="pickName(row)" fit="contain" ratio="44 / 16" />
             </span>
             <span class="name-link">{{ pickName(row) }}</span>
           </RouterLink>
