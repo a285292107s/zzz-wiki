@@ -1,23 +1,64 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
-import AgentsView from '@/views/AgentsView.vue'
-import AgentDetailView from '@/views/AgentDetailView.vue'
-import WEnginesView from '@/views/WEnginesView.vue'
-import WEngineDetailView from '@/views/WEngineDetailView.vue'
-import BangboosView from '@/views/BangboosView.vue'
-import DisksView from '@/views/DisksView.vue'
 
 export const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   scrollBehavior: () => ({ top: 0 }),
   routes: [
-    { path: '/', name: 'home', component: HomeView },
-    { path: '/agents', name: 'agents', component: AgentsView },
-    { path: '/agents/:id', name: 'agent-detail', component: AgentDetailView, props: true },
-    { path: '/w-engines', name: 'w-engines', component: WEnginesView },
-    { path: '/w-engines/:id', name: 'w-engine-detail', component: WEngineDetailView, props: true },
-    { path: '/bangboos', name: 'bangboos', component: BangboosView },
-    { path: '/disks', name: 'disks', component: DisksView },
-    { path: '/:pathMatch(.*)*', redirect: '/' },
+    {
+      path: '/',
+      name: 'home',
+      component: () => import('@/views/HomeView.vue'),
+      meta: { title: '首页' },
+    },
+    {
+      path: '/agents',
+      name: 'agents',
+      component: () => import('@/views/AgentsView.vue'),
+      meta: { title: '代理人' },
+    },
+    {
+      path: '/agents/:id',
+      name: 'agent-detail',
+      component: () => import('@/views/AgentDetailView.vue'),
+      props: true,
+      meta: { title: '代理人详情' },
+    },
+    {
+      path: '/w-engines',
+      name: 'w-engines',
+      component: () => import('@/views/WEnginesView.vue'),
+      meta: { title: '音擎' },
+    },
+    {
+      path: '/w-engines/:id',
+      name: 'w-engine-detail',
+      component: () => import('@/views/WEngineDetailView.vue'),
+      props: true,
+      meta: { title: '音擎详情' },
+    },
+    {
+      path: '/bangboos',
+      name: 'bangboos',
+      component: () => import('@/views/BangboosView.vue'),
+      meta: { title: '邦布' },
+    },
+    {
+      path: '/disks',
+      name: 'disks',
+      component: () => import('@/views/DisksView.vue'),
+      meta: { title: '驱动盘' },
+    },
+    {
+      path: '/style',
+      name: 'style-guide',
+      component: () => import('@/views/StyleGuideView.vue'),
+      meta: { title: '设计系统' },
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: () => import('@/views/NotFoundView.vue'),
+      meta: { title: '404' },
+    },
   ],
 })

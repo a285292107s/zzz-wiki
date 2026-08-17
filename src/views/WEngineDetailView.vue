@@ -6,6 +6,7 @@ import { richDesc } from '@/utils/rich'
 import { stripRichText } from '@/utils/text'
 import { useRouteParam } from '@/composables/useRouteParam'
 import { useDetailResource } from '@/composables/useDetailResource'
+import { usePageMeta } from '@/composables/usePageMeta'
 import { dictToRows, type DetailRow, type StatItem } from '@/domain/sections'
 import { PROFESSIONS, type SpecCode } from '@/data/types'
 import type { WEngineDetail } from '@/data/types'
@@ -15,6 +16,8 @@ import Tags from '@/components/Tags.vue'
 
 const id = useRouteParam('id')
 const { data: detail, status, error } = useDetailResource<WEngineDetail>('weapon', id)
+
+usePageMeta(() => detail.value?.name ?? undefined)
 
 const specCode = computed<SpecCode | null>(() => {
   const wd = detail.value?.weapon_type

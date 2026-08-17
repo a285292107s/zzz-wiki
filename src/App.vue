@@ -50,6 +50,7 @@ const isActive = (to: string) =>
           数据源 <a href="https://git.mero.moe/dimbreath/ZenlessData" target="_blank" rel="noopener">Dimbreath ZenlessData</a>
           · 非官方项目 · 与米哈游 / HoYoverse 无关
         </p>
+        <RouterLink to="/style" class="style-link mono">DESIGN SYSTEM</RouterLink>
       </div>
     </footer>
   </div>
@@ -177,6 +178,20 @@ const isActive = (to: string) =>
   color: var(--ink-1);
   border-bottom: 1px solid var(--line-1);
   transition: color var(--t-fast) var(--ease);
+}
+
+.style-link {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--ink-2) !important;
+  border: 1px solid var(--line-1) !important;
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+.style-link:hover {
+  color: var(--amber-hi) !important;
+  border-color: var(--amber) !important;
 }
 
 .foot a:hover {

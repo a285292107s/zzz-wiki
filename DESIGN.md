@@ -255,11 +255,13 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 > P3 发现：角色 stats 存在数组字段（stats.tags）——schema 由 Record<number> 放宽为
 > number|string|array，前端 STAT_DEFS 加 typeof 守卫（AgentDetailView）。
 
-### P4 体验与文档
+### P4 体验与文档 —— ✅ 已完成
 
-- 路由懒加载 + route meta + usePageMeta + 404 页
-- 设计系统页 /style（StyleGuideView）
-- AGENTS.md 验证链补 test / verify:data 步骤；README 补架构指针
+- [x] 路由全量懒加载（每视图独立 chunk；主包 134KB→103KB，gzip 49.99→40.78KB）
+- [x] route meta（title）+ usePageMeta（三级：组件标题覆盖 → route meta → 站名；description 注入）
+- [x] NotFoundView（档案式 404，替代 redirect 到首页）
+- [x] StyleGuideView（/style）：真实组件陈列 + 运行时读取 CSS 变量（token 零二次维护）
+- [x] footer 增设计系统入口；AGENTS.md 验证链已补 test/verify:data；README 补架构指针（P0 时已完成）
 
 ## 12. 开放问题（后续轮次可讨论）
 

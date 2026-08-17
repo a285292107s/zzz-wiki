@@ -5,7 +5,10 @@ import { api } from '@/data/api'
 import { iconSources } from '@/data/icons'
 import type { CharacterListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
+import { usePageMeta } from '@/composables/usePageMeta'
 import { AsyncState, CatalogTable, FilterChips, SearchField, type CatalogColumn } from '@/components'
+
+usePageMeta()
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
 import HollowImage from '@/components/HollowImage.vue'

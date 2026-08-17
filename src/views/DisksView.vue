@@ -5,7 +5,10 @@ import { api } from '@/data/api'
 import { iconSources } from '@/data/icons'
 import { stripRichText } from '@/utils/text'
 import type { DiskDriveListItem } from '@/data/types'
+import { usePageMeta } from '@/composables/usePageMeta'
 import { AsyncState, CatalogTable, SearchField, type CatalogColumn } from '@/components'
+
+usePageMeta()
 import HollowImage from '@/components/HollowImage.vue'
 
 const { data, status, error } = useAsyncResource(() => api.disks())

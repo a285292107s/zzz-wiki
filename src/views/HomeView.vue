@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { iconSources } from '@/data/icons'
 import { CATALOG } from '@/domain/catalog'
+import { usePageMeta } from '@/composables/usePageMeta'
 import HollowImage from '@/components/HollowImage.vue'
+
+usePageMeta()
 
 // 目录由 catalog.ts 派生（DESIGN.md §5.3 单一事实源）
 const sections = CATALOG.map((c) => ({

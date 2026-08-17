@@ -6,6 +6,7 @@ import { richDesc } from '@/utils/rich'
 import { stripRichText } from '@/utils/text'
 import { useRouteParam } from '@/composables/useRouteParam'
 import { useDetailResource } from '@/composables/useDetailResource'
+import { usePageMeta } from '@/composables/usePageMeta'
 import {
   buildSkillRows,
   buildSkinRows,
@@ -25,6 +26,8 @@ import SkillIcon from '@/components/SkillIcon.vue'
 
 const id = useRouteParam('id')
 const { data: detail, status, error } = useDetailResource<CharacterDetail>('character', id)
+
+usePageMeta(() => detail.value?.name ?? undefined)
 
 const attrCode = computed<AttrCode | null>(() => {
   const el = detail.value?.element_type
