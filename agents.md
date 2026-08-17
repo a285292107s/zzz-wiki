@@ -35,9 +35,9 @@
 
 ## 4. 修改数据管线时
 
-- 跑 `npm run data`（需外网；有代理时设 `NODE_USE_ENV_PROXY=1`）→ 检查 `public/data/` 产出
-  数量与字段 → 跑 `npm test`（vitest 单元测试）→ 跑 `npm run build`（含 vue-tsc 类型检查）
-  → 可选 `npm run verify:icons`。
+- 跑 `npm run data`（需外网；有代理时设 `NODE_USE_ENV_PROXY=1`）→ 跑 `npm run verify:data`
+  （zod 契约校验 public/data 全部产出）→ 跑 `npm test`（vitest 单元测试）→ 跑 `npm run build`
+  （含 vue-tsc 类型检查）→ 可选 `npm run verify:icons`。
 - 名录/详情数量为 0 或 404 时：先查 `DATA_GUIDE.md` §8 失效信号，别急着改前端。
 
 ## 5. 环境

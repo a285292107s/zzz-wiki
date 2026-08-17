@@ -241,11 +241,19 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 - [x] tests/sections.test.ts（8 用例）+ tests/descrow.test.ts（4 组件用例，jsdom）；
       vitest.config 接入 @vitejs/plugin-vue。51 用例全绿 + build 通过（CSS 降至 17.64kB）
 
-### P3 契约落地
+### P3 契约落地 —— ✅ 已完成
 
-- schema.ts（zod）定义全部产出；types.ts 改为 z.infer 派生并删除 as 断言与 unknown 兜底
-- build 脚本拆模块 + 复用 enums + 规整纯函数化
-- verify-data.mjs + npm script + 验证链（含 CI 顺序）
+- [x] src/domain/schema.ts（zod 3.24）：全部产出 schema（名录/详情/manifest），.catchall 保留未知字段
+- [x] src/data/types.ts 改为纯派生（z.infer + type-only import；zod 未进前端 bundle，134KB 不变）
+- [x] build 管线拆模块（scripts/build/{io,normalize,domains,index}）经 tsx 运行；
+      英文枚举从 domain/enums 复用——**修复历史漂移：1611 克拉蕾/4 音擎的 weapon_type
+      从 fallback 中文「锋御」修正为规范英文 Armorer**（5 个数据文件语义修正）
+- [x] scripts/verify-data.ts：manifest + 4 名录 + 232 详情全量 zod 校验，失败非零退出
+- [x] 验证链：npm run data → verify:data → npm test → npm run build（AGENTS.md 已更新）
+- [x] 新增 tests/schema.test.ts（契约通过/失败用例）
+
+> P3 发现：角色 stats 存在数组字段（stats.tags）——schema 由 Record<number> 放宽为
+> number|string|array，前端 STAT_DEFS 加 typeof 守卫（AgentDetailView）。
 
 ### P4 体验与文档
 

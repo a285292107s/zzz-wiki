@@ -46,18 +46,25 @@ const campName = computed(() => {
 
 const info = computed(() => detail.value?.partner_info ?? null)
 
+type StatCell = number | string | unknown[]
+
+function num(s: Record<string, StatCell>, key: string): number | null {
+  const v = s[key]
+  return typeof v === 'number' ? v : null
+}
+
 /* stats: raw ints, percentage fields are raw-value/100 → percent */
-const STAT_DEFS: Array<[string, (s: Record<string, number>) => string | null]> = [
-  ['生命值', (s) => (s.hp_max != null ? String(s.hp_max) : null)],
-  ['攻击力', (s) => (s.attack != null ? String(s.attack) : null)],
-  ['防御力', (s) => (s.defence != null ? String(s.defence) : null)],
-  ['冲击力', (s) => (s.break_stun != null ? String(s.break_stun) : null)],
-  ['暴击率', (s) => (s.crit != null ? `${(s.crit / 100).toFixed(2)}%` : null)],
-  ['暴击伤害', (s) => (s.crit_damage != null ? `${(s.crit_damage / 100).toFixed(2)}%` : null)],
-  ['穿透率', (s) => (s.pen_rate != null ? `${(s.pen_rate / 100).toFixed(2)}%` : null)],
-  ['异常掌控', (s) => (s.element_mystery != null ? String(s.element_mystery) : null)],
-  ['异常精通', (s) => (s.element_abnormal_power != null ? String(s.element_abnormal_power) : null)],
-  ['能量回复', (s) => (s.sp_recover != null ? String(s.sp_recover) : null)],
+const STAT_DEFS: Array<[string, (s: Record<string, StatCell>) => string | null]> = [
+  ['生命值', (s) => (num(s, 'hp_max') != null ? String(num(s, 'hp_max')) : null)],
+  ['攻击力', (s) => (num(s, 'attack') != null ? String(num(s, 'attack')) : null)],
+  ['防御力', (s) => (num(s, 'defence') != null ? String(num(s, 'defence')) : null)],
+  ['冲击力', (s) => (num(s, 'break_stun') != null ? String(num(s, 'break_stun')) : null)],
+  ['暴击率', (s) => (num(s, 'crit') != null ? `${(num(s, 'crit')! / 100).toFixed(2)}%` : null)],
+  ['暴击伤害', (s) => (num(s, 'crit_damage') != null ? `${(num(s, 'crit_damage')! / 100).toFixed(2)}%` : null)],
+  ['穿透率', (s) => (num(s, 'pen_rate') != null ? `${(num(s, 'pen_rate')! / 100).toFixed(2)}%` : null)],
+  ['异常掌控', (s) => (num(s, 'element_mystery') != null ? String(num(s, 'element_mystery')) : null)],
+  ['异常精通', (s) => (num(s, 'element_abnormal_power') != null ? String(num(s, 'element_abnormal_power')) : null)],
+  ['能量回复', (s) => (num(s, 'sp_recover') != null ? String(num(s, 'sp_recover')) : null)],
 ]
 
 const stats = computed<StatItem[]>(() => {
