@@ -54,6 +54,7 @@
   - `weapon_type`/`element_type`/`hit_type` 的值统一为**英文**（`{202:"Ice"}`），与旧契约一致（前端只用 key 解码，值文本不参与显示；`camp` 值保留中文）。
   - 皮肤 `image` 应用 `SKIN_IMAGE_FALLBACK`（见 §5）。
 - 新增透传字段（v2 增值，前端 index signature 兼容）：`special_element_type`、`strategy`、`fairy_recommend`、`skill_list`、`skill_priority`、`passive`、`potential_detail`、`level`、`extra_level`、`level_exp`、`live2_d`。
+- **特殊属性展示**：详情 `special_element_type.name`（如 星见雅→「烈霜」）在构建期同步注入名录为 `special_element` 字段；前端 `Tags` 展示属性时优先显示特殊名，无则退回 `ELEMENTS[element].zh` 基础属性。
 - 详情并发抓取上限 8；磁盘缓存 `.cache/hakushin-raw/`（`--force` 强制刷新）。
 
 **当前版本号易变**：`manifest.zzz.available` 含历史版本，URL 一律用 `latest`（数据最全）；
@@ -79,7 +80,9 @@ public/data/
 ```
 
 ### 名录字段
-- **CharacterListItem**：`Id, code, rank, type(职业int), element(属性int), hit(攻击int), camp(阵营id), icon(裸文件名), potential, skin, desc, en, zh, ja, ko`
+- **CharacterListItem**：`Id, code, rank, type(职业int), element(属性int), special_element(特殊属性展示名,可选), hit(攻击int), camp(阵营id), camp_name(阵营展示名,可选), icon(裸文件名), potential, skin, desc, en, zh, ja, ko`
+  - `special_element`：构建期由详情 `special_element_type.name` 注入（如 星见雅→`烈霜`、仪玄→`玄墨`、叶瞬光→`凛刃`）。前端展示属性时优先显示它，无则为 `element` 基础属性。
+  - `camp_name`：构建期由详情 `camp` 映射（如 `{"1":"狡兔屋"}`）注入阵营中文名。前端名录阵营列优先显示它，无则退回 `C##` 代码。
 - **WEngineListItem**：`Id, icon, rank, type, atk, sub, desc, en, zh, ja, ko`
 - **BangbooListItem**：`Id, icon, rank, codename, desc, en, zh, ja, ko`
 - **DiskDriveListItem**：`Id, icon, en{name,desc2,desc4}, ko{…}, zh{…}, ja{…}`

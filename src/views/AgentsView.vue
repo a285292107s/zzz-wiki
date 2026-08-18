@@ -41,14 +41,23 @@ const columns: CatalogColumn[] = [
       </p>
     </header>
 
-    <section class="toolbar">
-      <FilterChips
-        :attr="attrFilter"
-        :prof="profFilter"
-        @update:attr="attrFilter = $event"
-        @update:prof="profFilter = $event"
-      />
+    <div class="search-row">
       <SearchField v-model="query" :count="count" placeholder="检索姓名…" />
+    </div>
+
+    <section class="filter-panel">
+      <div class="panel-head">
+        <span class="panel-label mono">筛选 / FILTER</span>
+        <span class="panel-rule" />
+      </div>
+      <div class="panel-body">
+        <FilterChips
+          :attr="attrFilter"
+          :prof="profFilter"
+          @update:attr="attrFilter = $event"
+          @update:prof="profFilter = $event"
+        />
+      </div>
     </section>
 
     <AsyncState
@@ -69,13 +78,15 @@ const columns: CatalogColumn[] = [
           </RouterLink>
         </template>
         <template #cell-attr="{ row }">
-          <Tags :element="row.element" />
+          <Tags :element="row.element" :element-label="row.special_element" />
         </template>
         <template #cell-prof="{ row }">
           <Tags :specialty="row.type" />
         </template>
         <template #cell-camp="{ row }">
-          <span class="camp mono">C{{ String(row.camp ?? '—').padStart(2, '0') }}</span>
+          <span class="camp">
+            {{ row.camp_name ?? `C${String(row.camp ?? '—').padStart(2, '0')}` }}
+          </span>
         </template>
         <template #cell-rarity="{ row }">
           <Rarity :rank="row.rank" />
@@ -94,13 +105,50 @@ const columns: CatalogColumn[] = [
   margin-bottom: var(--pad-section);
 }
 
-.toolbar {
+.search-row {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.search-row :deep(.search) {
+  width: auto;
+  min-width: 300px;
+}
+
+.filter-panel {
+  padding: 12px 0 14px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.panel-head {
+  display: flex;
   align-items: center;
-  gap: 18px;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  gap: 14px;
+}
+
+.panel-label {
+  flex: none;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.panel-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--line-0);
+}
+
+.panel-body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
 }
 
 .name-cell {

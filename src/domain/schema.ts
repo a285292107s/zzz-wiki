@@ -36,6 +36,16 @@ export const LocaleFieldsSchema = z.object({
   ko: z.string().optional(),
 })
 
+/** 特殊属性展示块（烈霜/玄墨/凛刃 等，见 DATA_GUIDE §3） */
+export const SpecialElementSchema = z
+  .object({
+    name: z.string().optional(),
+    title: z.string().optional(),
+    desc: z.string().optional(),
+    icon: z.string().optional(),
+  })
+  .catchall(z.unknown())
+
 /* ---------- 名录 payloads ---------- */
 
 export const CharacterListItemSchema = z
@@ -45,8 +55,12 @@ export const CharacterListItemSchema = z
     rank: RarityCharSchema.optional(),
     type: SpecCodeSchema.optional(),
     element: AttrCodeSchema.optional(),
+    /** 特殊属性展示名（构建期由详情 special_element_type.name 注入，如「烈霜」） */
+    special_element: z.string().optional(),
     hit: z.number().optional(),
     camp: z.number().optional(),
+    /** 阵营展示名（构建期由详情 camp 注入，如「狡兔屋」） */
+    camp_name: z.string().optional(),
     icon: z.string().optional(),
     en: z.string().optional(),
     zh: z.string().optional(),
@@ -132,6 +146,7 @@ export const CharacterDetailSchema = z
     rarity: z.number().optional(),
     weapon_type: PropMapSchema.optional(),
     element_type: PropMapSchema.optional(),
+    special_element_type: SpecialElementSchema.optional(),
     hit_type: PropMapSchema.optional(),
     camp: PropMapSchema.optional(),
     gender: z.number().optional(),
@@ -216,6 +231,7 @@ export const ManifestSchema = z.object({
 /* ---------- 类型导出（前端经 src/data/types.ts 二次导出使用） ---------- */
 
 export type PropMap = z.infer<typeof PropMapSchema>
+export type SpecialElement = z.infer<typeof SpecialElementSchema>
 export type CharacterListItem = z.infer<typeof CharacterListItemSchema>
 export type WEngineListItem = z.infer<typeof WEngineListItemSchema>
 export type BangbooListItem = z.infer<typeof BangbooListItemSchema>

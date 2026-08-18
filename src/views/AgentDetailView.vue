@@ -40,6 +40,12 @@ const attrCode = computed<AttrCode | null>(() => {
   return key ? (Number(key) as AttrCode) : null
 })
 
+/** 特殊属性展示名：有 special_element_type（如 星见雅→烈霜）时优先展示 */
+const specialElementName = computed<string | null>(() => {
+  const sp = detail.value?.special_element_type
+  return sp?.name ? String(sp.name) : null
+})
+
 const specCode = computed<SpecCode | null>(() => {
   const w = detail.value?.weapon_type
   const key = w ? Object.keys(w)[0] : null
@@ -115,7 +121,7 @@ const portraitSrcs = computed(() =>
         >
           <template #meta>
             <Rarity :rank="detail.rarity" />
-            <Tags :element="attrCode" :specialty="specCode" />
+            <Tags :element="attrCode" :element-label="specialElementName" :specialty="specCode" />
             <span v-if="campName" class="camp">{{ campName }}</span>
           </template>
           <template #sub>

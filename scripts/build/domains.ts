@@ -23,6 +23,22 @@ export async function buildCharacters(ver: string): Promise<{ list: Dict; detail
   )
 
   const list = toListDict(listRaw)
+  // 名录注入特殊属性展示名：详情 special_element_type.name（如 星见雅→烈霜）
+  for (let i = 0; i < ids.length; i++) {
+    const id = ids[i]
+    const raw = detailsRaw[i] as Record<string, unknown> | undefined
+    const sp = raw?.['special_element_type'] as
+      | Record<string, unknown>
+      | undefined
+    const name = sp ? String(sp['name'] ?? '') : ''
+    if (name && list[id]) list[id]['special_element'] = name
+
+    // 名录注入阵营展示名：详情 camp 形如 {"1":"狡兔屋"}，取首个值
+    const camp = raw?.['camp'] as Record<string, unknown> | undefined
+    const campName = camp ? String(Object.values(camp)[0] ?? '') : ''
+    if (campName && list[id]) list[id]['camp_name'] = campName
+  }
+
   const details: Dict = {}
   for (let i = 0; i < ids.length; i++) {
     details[ids[i]] = normalizeCharacterDetail(detailsRaw[i] as Record<string, unknown>)

@@ -4,12 +4,18 @@ import { ELEMENTS, PROFESSIONS, type AttrCode, type SpecCode } from '@/data/type
 
 const props = defineProps<{
   element?: AttrCode | number | null
+  /** 属性展示名覆盖：有特殊属性（如 烈霜）时传入，优先于基础 element 名 */
+  elementLabel?: string | null
   specialty?: SpecCode | number | null
 }>()
 
-const el = computed(() =>
-  props.element != null ? ELEMENTS[props.element as AttrCode] : null,
-)
+const el = computed(() => {
+  if (props.element == null) return null
+  const base = ELEMENTS[props.element as AttrCode]
+  if (!base) return null
+  const label = props.elementLabel ?? base.zh
+  return { ...base, zh: label }
+})
 
 const spec = computed(() =>
   props.specialty != null ? PROFESSIONS[props.specialty as SpecCode] : null,

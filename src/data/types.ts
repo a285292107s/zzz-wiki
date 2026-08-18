@@ -19,6 +19,7 @@ export type {
   LocaleInfoSchema,
   DiskDriveListItemSchema,
   PropMapSchema,
+  SpecialElementSchema,
   PartnerInfoSchema,
   CharacterDetailSchema,
   WEngineDetailSchema,
@@ -29,6 +30,7 @@ export type {
 
 export type {
   PropMap,
+  SpecialElement,
   CharacterListItem,
   WEngineListItem,
   BangbooListItem,

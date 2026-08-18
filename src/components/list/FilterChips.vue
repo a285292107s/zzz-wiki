@@ -25,7 +25,8 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
 
 <template>
   <div class="filters">
-    <template v-if="props.showAttr">
+    <div v-if="props.showAttr" class="group" data-group="attr">
+      <span class="group-label mono">属性</span>
       <button class="chip" :class="{ on: attr === 'all' }" @click="emit('update:attr', 'all')">
         全部属性
       </button>
@@ -55,11 +56,10 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
         </svg>
         {{ a.zh }}
       </button>
-    </template>
+    </div>
 
-    <span v-if="props.showAttr && props.showProf" class="sep" />
-
-    <template v-if="props.showProf">
+    <div v-if="props.showProf" class="group" data-group="prof">
+      <span class="group-label mono">职业</span>
       <button class="chip" :class="{ on: prof === 'all' }" @click="emit('update:prof', 'all')">
         全部职业
       </button>
@@ -82,16 +82,29 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
         </svg>
         {{ p.zh }}
       </button>
-    </template>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .filters {
   display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+.group {
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 6px;
+}
+.group-label {
+  flex: none;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--ink-2);
+  margin-right: 4px;
 }
 .chip {
   font-size: 12.5px;
@@ -127,11 +140,5 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
 }
 .chip-fallback {
   stroke-width: 2;
-}
-.sep {
-  width: 1px;
-  height: 18px;
-  background: var(--line-1);
-  margin-inline: 6px;
 }
 </style>
