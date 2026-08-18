@@ -9,6 +9,9 @@
 const HONEY = 'https://zzz.honeyhunterworld.com/img'
 const NANOKA_ASSETS = 'https://static.nanoka.cc/assets/zzz'
 
+/** 本地图标根（Q4b：download-icons.mjs 落地到 public/data/img） */
+const LOCAL_IMG = `${import.meta.env.BASE_URL ?? '/'}data/img`
+
 export type IconCategory = 'character' | 'weapon' | 'bangboo' | 'disc'
 export type IconKind = 'list' | 'portrait'
 
@@ -52,6 +55,9 @@ export function iconSources(
   const b = basename(item.icon ?? '')
   const out: string[] = []
 
+  // 本地化优先（Q4b）：/data/img/{cat}/{base}.webp
+  if (b) out.push(`${LOCAL_IMG}/${category}/${b}.webp`)
+
   if (id != null && String(id) !== '' && !opts?.excludeHoney) {
     const guess = honeyGuess(category, id)
     if (category === 'character' && kind === 'portrait') {
@@ -88,13 +94,17 @@ export const SKILL_ICON_ASSETS: Record<SkillSlot, string[]> = {
   core: ['Icon_Core', 'Icon_Normal'], // Icon_Core 暂无资产，兜底普通键
 }
 
-/** 生成技能键位图标的候选 URL 数组（直接走 nanoka 素材 CDN） */
+/** 生成技能键位图标的候选 URL 数组（本地优先，走 /data/img/skill） */
 export function skillIconSources(slot: SkillSlot): string[] {
-  return (SKILL_ICON_ASSETS[slot] ?? []).map((a) => `${NANOKA_ASSETS}/${a}.webp`)
+  return (SKILL_ICON_ASSETS[slot] ?? []).map((a) =>
+    `${LOCAL_IMG}/skill/${a}.webp`,
+  ).concat(
+    (SKILL_ICON_ASSETS[slot] ?? []).map((a) => `${NANOKA_ASSETS}/${a}.webp`),
+  )
 }
 
 /** 单个技能键资产名 → 候选 URL（描述内 <IconMap:Icon_XXX> 用） */
 export function skillAssetSources(asset: string): string[] {
   const name = asset.replace(/\.(png|webp)$/i, '')
-  return [`${NANOKA_ASSETS}/${name}.webp`]
+  return [`${LOCAL_IMG}/skill/${name}.webp`, `${NANOKA_ASSETS}/${name}.webp`]
 }
