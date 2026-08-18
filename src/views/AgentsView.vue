@@ -92,7 +92,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
               <HollowImage
                 :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'list', 'character', { excludeHoney: true })"
                 :alt="pickName(row)"
-                :fallback="pickName(row)" fit="contain" ratio="88 / 32" />
+                :fallback="pickName(row)" fit="contain" />
             </span>
             <span class="name-link">{{ pickName(row) }}</span>
           </RouterLink>

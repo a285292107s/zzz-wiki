@@ -11,7 +11,8 @@ const props = defineProps<{
   fallback?: string
   /** cover 裁切时对齐方向，默认居中；竖长图请用 'top' 保住头部 */
   position?: 'center' | 'top' | 'bottom'
-  /** 容器高宽比（CSS aspect-ratio）。默认 1（方形） */
+  /** 容器的自撑宽高比（CSS aspect-ratio）。仅当父容器未固定高度（如画像等宽-only 盒子）、需组件按宽推算高时传；
+   *  若父容器已定宽高，frame 会自动填满父盒，无需传此值（单一数据源=父样式）。默认 1（方形） */
   ratio?: string | number
   /** 图片适应方式：cover 裁切填充（默认）/ contain 整图等比完整显示（不裁切） */
   fit?: 'cover' | 'contain'
@@ -72,6 +73,10 @@ function onError() {
   align-items: center;
   justify-content: center;
   width: 100%;
+  /* 默认填满父容器盒子 —— 盒子尺寸只在一处（父样式）定义，避免与 ratio 重复写死。
+     父容器高度为 auto 时，百分比高度回退为 auto，退化为下方 aspect-ratio 自撑。 */
+  height: 100%;
+  /* 无固定父盒（占位/自撑）时的方形兜底；显式 ratio prop 会以内联样式覆盖它 */
   aspect-ratio: 1;
   background: var(--bg-1);
   border: 1px solid var(--line-0);

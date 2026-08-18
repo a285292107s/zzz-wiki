@@ -182,8 +182,8 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
 }
 
 .thumb {
-  width: 56px;
-  height: 28px;
+  width: 40px;
+  height: 40px; /* 驱动盘图标 151×151 方形，contain 完整显示 */
   flex: none;
   display: block;
 }
@@ -250,8 +250,8 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
 }
 
 .skel .thumb-bar {
-  width: 56px;
-  height: 28px;
+  width: 40px;
+  height: 40px;
 }
 
 .skel .name-bar {

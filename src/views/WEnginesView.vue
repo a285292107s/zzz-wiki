@@ -126,8 +126,8 @@ a.name-cell .name {
 }
 
 .mini-icon {
-  width: 44px;
-  height: 16px; /* 横幅头像 180x64 ≈ 2.8:1，contain 完整显示 */
+  width: 40px;
+  height: 40px; /* 音擎图标 143×143 方形，contain 完整显示 */
   flex: none;
   display: block;
 }
