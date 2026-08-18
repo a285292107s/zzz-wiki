@@ -7,12 +7,19 @@ import {
   SKILL_ZH,
   buildSkillRows,
   buildSkinRows,
+  CHAR_LEVEL_DEFAULT,
+  CHAR_LEVEL_MAX,
+  CHAR_LEVEL_MIN,
+  charBreakSegment,
+  charExtraBonus,
+  characterStatsAtLevel,
   dictToRows,
   evaluateSkillFormula,
   formatSkillScalar,
   skillDetailValue,
   skillParamValue,
   SKILL_LEVEL_DEFAULT,
+  statAtLevel,
   type SkillParamEntry,
 } from '../src/domain/sections'
 
@@ -211,5 +218,109 @@ describe('buildBangbooSkills', () => {
 
   it('BANGBOO_SKILL_ORDER is a/b/c', () => {
     expect(BANGBOO_SKILL_ORDER).toEqual(['a', 'b', 'c'])
+  })
+})
+
+/* ---------- 角色等级属性（「11号」1041 真实数据，锚点对照游戏内面板） ---------- */
+
+const lvl11 = {
+  stats: {
+    hp_max: 617,
+    hp_growth: 837238,
+    attack: 128,
+    attack_growth: 77554,
+    defence: 49,
+    defence_growth: 66882,
+    break_stun: 93,
+    crit: 500,
+    crit_damage: 5000,
+    pen_rate: 0,
+    element_mystery: 93,
+    element_abnormal_power: 94,
+    sp_recover: 120,
+  },
+  level: {
+    '1': { hp_max: 0, attack: 0, defence: 0, level_max: 10, level_min: 0 },
+    '2': { hp_max: 423, attack: 46, defence: 34, level_max: 20, level_min: 10 },
+    '3': { hp_max: 847, attack: 91, defence: 68, level_max: 30, level_min: 20 },
+    '4': { hp_max: 1270, attack: 137, defence: 101, level_max: 40, level_min: 30 },
+    '5': { hp_max: 1694, attack: 183, defence: 135, level_max: 50, level_min: 40 },
+    '6': { hp_max: 2117, attack: 228, defence: 169, level_max: 60, level_min: 50 },
+  },
+  extra_level: {
+    '1': { max_level: 15, extra: { '12101': { prop: 12101, value: 0 }, '20101': { prop: 20101, value: 480 } } },
+    '2': { max_level: 25, extra: { '12101': { prop: 12101, value: 25 }, '20101': { prop: 20101, value: 480 } } },
+    '3': { max_level: 35, extra: { '12101': { prop: 12101, value: 25 }, '20101': { prop: 20101, value: 960 } } },
+    '4': { max_level: 45, extra: { '12101': { prop: 12101, value: 50 }, '20101': { prop: 20101, value: 960 } } },
+    '5': { max_level: 55, extra: { '12101': { prop: 12101, value: 50 }, '20101': { prop: 20101, value: 1440 } } },
+    '6': { max_level: 60, extra: { '12101': { prop: 12101, value: 75 }, '20101': { prop: 20101, value: 1440 } } },
+  },
+}
+
+describe('character level stats', () => {
+  it('CHAR_LEVEL range is 1–60 with default at max', () => {
+    expect(CHAR_LEVEL_MIN).toBe(1)
+    expect(CHAR_LEVEL_MAX).toBe(60)
+    expect(CHAR_LEVEL_DEFAULT).toBe(60)
+  })
+
+  it('statAtLevel floors base + break bonus + growth/10000 × (lv-1)', () => {
+    expect(statAtLevel(617, 837238, 0, 1)).toBe(617)
+    expect(statAtLevel(617, 837238, 0, 10)).toBe(1370)
+    expect(statAtLevel(617, 837238, 423, 20)).toBe(2630)
+    expect(statAtLevel(617, 837238, 2117, 60)).toBe(7673)
+  })
+
+  it('statAtLevel clamps lv below 1 to avoid negative growth', () => {
+    expect(statAtLevel(617, 837238, 0, 0)).toBe(617)
+    expect(statAtLevel(617, 837238, 0, -5)).toBe(617)
+  })
+
+  it('charBreakSegment picks the phase by (min, max]', () => {
+    expect(charBreakSegment(lvl11.level, 1)?.phase).toBe(1)
+    expect(charBreakSegment(lvl11.level, 10)?.phase).toBe(1)
+    expect(charBreakSegment(lvl11.level, 11)?.phase).toBe(2)
+    expect(charBreakSegment(lvl11.level, 60)?.phase).toBe(6)
+    expect(charBreakSegment(undefined, 30)).toBeNull()
+  })
+
+  it('charExtraBonus picks accumulated potential up to max_level', () => {
+    expect(charExtraBonus(lvl11.extra_level, 1)).toEqual({ attack: 0, crit: 0 })
+    expect(charExtraBonus(lvl11.extra_level, 15)).toEqual({ attack: 0, crit: 480 })
+    expect(charExtraBonus(lvl11.extra_level, 25)).toEqual({ attack: 25, crit: 480 })
+    expect(charExtraBonus(lvl11.extra_level, 60)).toEqual({ attack: 75, crit: 1440 })
+    expect(charExtraBonus(undefined, 60)).toEqual({ attack: 0, crit: 0 })
+  })
+
+  it('matches the in-game panel at every 10-level anchor', () => {
+    const at = (lv: number) => {
+      const rows = characterStatsAtLevel(lvl11.stats, lvl11.level, lv)
+      const get = (label: string) => rows.find((r) => r.label === label)?.value
+      return { hp: get('生命值'), atk: get('攻击力'), def: get('防御力') }
+    }
+    expect(at(1)).toEqual({ hp: '617', atk: '128', def: '49' })
+    expect(at(10)).toEqual({ hp: '1370', atk: '197', def: '109' })
+    expect(at(20)).toEqual({ hp: '2630', atk: '321', def: '210' })
+    expect(at(30)).toEqual({ hp: '3891', atk: '443', def: '310' })
+    expect(at(40)).toEqual({ hp: '5152', atk: '567', def: '410' })
+    expect(at(50)).toEqual({ hp: '6413', atk: '691', def: '511' })
+    expect(at(60)).toEqual({ hp: '7673', atk: '813', def: '612' })
+  })
+
+  it('keeps non-scaling stats and percent formatting stable', () => {
+    const rows = characterStatsAtLevel(lvl11.stats, lvl11.level, 60)
+    const get = (label: string) => rows.find((r) => r.label === label)?.value
+    expect(get('暴击率')).toBe('5.00%')
+    expect(get('暴击伤害')).toBe('50.00%')
+    expect(get('穿透率')).toBe('0.00%')
+    expect(get('冲击力')).toBe('93')
+    expect(get('异常掌控')).toBe('93')
+    expect(get('异常精通')).toBe('94')
+    expect(get('能量回复')).toBe('120')
+  })
+
+  it('returns [] for missing stats and null breaks for empty level', () => {
+    expect(characterStatsAtLevel(undefined, lvl11.level, 60)).toEqual([])
+    expect(charBreakSegment({}, 30)).toBeNull()
   })
 })

@@ -358,3 +358,178 @@ export function buildBangbooSkills(
     }
   })
 }
+
+/* ============================================================
+ * 角色基础数值随等级成长（DESIGN.md P2：纯函数、无 Vue 依赖、可单测）。
+ * 模型（已用游戏内 Lv.1/10/20/30/40/50/60 锚点验证）：
+ *   属性(L) = floor( 1 级基础 + 该段累计突破加成 + growth/10000 × (L-1) )
+ *   突破段取自 level 字典（hakushin ascension）。
+ *   注意：潜能（extra_level / 潜能影像）是独立养成系统，等级仅是升级门槛，
+ *   不随等级自动生效，故不并入基础面板（见 charExtraBonus 注释）。
+ * ============================================================ */
+
+/** 角色等级范围（绝区零 1–60 级） */
+export const CHAR_LEVEL_MIN = 1
+export const CHAR_LEVEL_MAX = 60
+export const CHAR_LEVEL_DEFAULT = CHAR_LEVEL_MAX
+
+/** 突破段信息：level 字典中的一段（如 {1..6}） */
+export interface CharBreakSegment {
+  /** 突破段号（1-6，对应第几次突破后的段） */
+  phase: number
+  /** 段内等级下限（不含；段 1 为 0） */
+  min: number
+  /** 段内等级上限（含） */
+  max: number
+  /** 至该段为止的累计突破加成（生命值） */
+  hp: number
+  /** 至该段为止的累计突破加成（攻击力） */
+  attack: number
+  /** 至该段为止的累计突破加成（防御力） */
+  defence: number
+}
+
+/** 潜能（extra_level）累计加成 */
+export interface CharExtraBonus {
+  /** 基础攻击力固定加成（prop 12101，累计值） */
+  attack: number
+  /** 暴击率加成（prop 20101，万分比单位，如 1440 = 14.40%） */
+  crit: number
+}
+
+/** 从 level 字典解析出按段号排序的突破段（升序） */
+export function parseCharBreaks(
+  levelDict: Record<string, unknown> | undefined | null,
+): CharBreakSegment[] {
+  if (!levelDict) return []
+  return Object.entries(levelDict)
+    .filter(([, v]) => v && typeof v === 'object')
+    .map(([, v]) => {
+      const o = v as Record<string, unknown>
+      return {
+        min: Number(o.level_min) || 0,
+        max: Number(o.level_max) || 0,
+        hp: Number(o.hp_max) || 0,
+        attack: Number(o.attack) || 0,
+        defence: Number(o.defence) || 0,
+      }
+    })
+    .sort((a, b) => a.min - b.min)
+    .map((s, i) => ({ ...s, phase: i + 1 }))
+}
+
+/** 指定等级所属的突破段；无数据时返回 null */
+export function charBreakSegment(
+  levelDict: Record<string, unknown> | undefined | null,
+  lv: number,
+): CharBreakSegment | null {
+  const segs = parseCharBreaks(levelDict)
+  // 段判定：(min, max]（段 1 的 min=0），lv=60 落最后一段
+  return segs.find((s) => lv > s.min && lv <= s.max) ?? null
+}
+
+/**
+ * 指定等级已解锁的潜能累计加成；无数据时返回全 0。
+ * 注意：潜能（extra_level）是独立养成系统，等级只是升级门槛（max_level），
+ * 不随等级自动生效——基础面板不使用本函数；此函数供未来独立的
+ * 「潜能」展示区块使用（解析逻辑与口径已在此固化、可单测）。
+ */
+export function charExtraBonus(
+  extraDict: Record<string, unknown> | undefined | null,
+  lv: number,
+): CharExtraBonus {
+  const out: CharExtraBonus = { attack: 0, crit: 0 }
+  if (!extraDict) return out
+  // 取最后一个 max_level <= lv 的档位（extra 字典内已是累计值）
+  let best: { maxLevel: number; extra: Record<string, unknown> } | null = null
+  for (const [, v] of Object.entries(extraDict)) {
+    const o = (v ?? {}) as Record<string, unknown>
+    const maxLevel = Number(o.max_level) || 0
+    if (maxLevel > lv) continue
+    if (!best || maxLevel > best.maxLevel) {
+      best = { maxLevel, extra: ((o.extra ?? {}) as Record<string, unknown>) }
+    }
+  }
+  if (!best) return out
+  for (const e of Object.values(best.extra)) {
+    const o = (e ?? {}) as Record<string, unknown>
+    const prop = Number(o.prop)
+    const value = Number(o.value) || 0
+    if (prop === 12101) out.attack = value
+    else if (prop === 20101) out.crit = value
+  }
+  return out
+}
+
+/** 单属性成长：floor(基础 + 突破加成 + growth/10000 × (L-1))；L 钳制 ≥ 1（防越界负成长） */
+export function statAtLevel(
+  base: number,
+  growth: number,
+  breakBonus: number,
+  lv: number,
+): number {
+  const L = Math.max(1, lv)
+  return Math.floor(base + breakBonus + (growth / 10000) * (L - 1))
+}
+
+/* ---------- 完整面板（KeyValueGrid 数据源） ---------- */
+
+/** 面板字段访问器：stats 字典取数值（非数字视为缺） */
+type StatCell = number | string | unknown[]
+function cell(s: Record<string, StatCell> | undefined, key: string): number | null {
+  const v = s?.[key]
+  return typeof v === 'number' && Number.isFinite(v) ? v : null
+}
+
+/** 百分比展示：万分比数值 /100 保留 2 位（与旧 STAT_DEFS 一致） */
+function pct(v: number): string {
+  return `${(v / 100).toFixed(2)}%`
+}
+
+/**
+ * 角色在指定等级下的基础面板（含突破加成；潜能为独立系统，不并入本表）。
+ * 输出与 KeyValueGrid 直接兼容的 StatItem[]；stats 缺失时返回 []。
+ */
+export function characterStatsAtLevel(
+  stats: Record<string, StatCell> | undefined,
+  levelDict: Record<string, unknown> | undefined | null,
+  lv: number,
+): StatItem[] {
+  if (!stats) return []
+  const seg = charBreakSegment(levelDict, lv)
+  const segHp = seg?.hp ?? 0
+  const segAtk = seg?.attack ?? 0
+  const segDef = seg?.defence ?? 0
+  const rows: Array<[string, string | null]> = [
+    ['生命值', numStr(cell(stats, 'hp_max'), cell(stats, 'hp_growth'), segHp, lv)],
+    ['攻击力', numStr(cell(stats, 'attack'), cell(stats, 'attack_growth'), segAtk, lv)],
+    ['防御力', numStr(cell(stats, 'defence'), cell(stats, 'defence_growth'), segDef, lv)],
+    ['冲击力', cell(stats, 'break_stun') != null ? String(cell(stats, 'break_stun')) : null],
+    ['暴击率', pctOrNull(cell(stats, 'crit'))],
+    ['暴击伤害', pctOrNull(cell(stats, 'crit_damage'))],
+    ['穿透率', pctOrNull(cell(stats, 'pen_rate'))],
+    ['异常掌控', cell(stats, 'element_mystery') != null ? String(cell(stats, 'element_mystery')) : null],
+    ['异常精通', cell(stats, 'element_abnormal_power') != null ? String(cell(stats, 'element_abnormal_power')) : null],
+    ['能量回复', cell(stats, 'sp_recover') != null ? String(cell(stats, 'sp_recover')) : null],
+  ]
+  return rows
+    .filter((r): r is [string, string] => r[1] != null)
+    .map(([label, value]) => ({ label, value }))
+}
+
+/** 成长属性的面板值（整数） */
+function numStr(
+  base: number | null,
+  growth: number | null,
+  bonus: number,
+  lv: number,
+): string | null {
+  if (base == null) return null
+  return String(statAtLevel(base, growth ?? 0, bonus, lv))
+}
+
+/** 百分比属性的面板值 */
+function pctOrNull(v: number | null): string | null {
+  if (v == null) return null
+  return pct(v)
+}

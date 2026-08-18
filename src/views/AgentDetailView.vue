@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, watch } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import { iconSources, skillIconSources, type SkillSlot } from '@/data/icons'
 import { stripRichText } from '@/utils/text'
@@ -10,6 +10,11 @@ import { usePageMeta } from '@/composables/usePageMeta'
 import {
   buildSkillRows,
   buildSkinRows,
+  CHAR_LEVEL_DEFAULT,
+  CHAR_LEVEL_MAX,
+  CHAR_LEVEL_MIN,
+  charBreakSegment,
+  characterStatsAtLevel,
   dictToRows,
   SKILL_KEYS,
   type DetailRow,
@@ -23,7 +28,8 @@ interface SkillDisplay extends SkillRow {
   srcs: string[]
 }
 import type { CharacterDetail } from '@/data/types'
-import { AsyncState, AgentHead, DescRow, DetailSection, KeyValueGrid, SkillGroup } from '@/components'
+import { AsyncState, AgentHead, DescRow, DetailSection, KeyValueGrid, LevelSlider, SkillGroup } from '@/components'
+import type { LevelMark } from '@/components/detail/LevelSlider.vue'
 import BackToTop from '@/components/BackToTop.vue'
 import HollowImage from '@/components/HollowImage.vue'
 
@@ -32,33 +38,41 @@ const { data: detail, status, error } = useDetailResource<CharacterDetail>('char
 
 usePageMeta(() => detail.value?.name ?? undefined)
 
-type StatCell = number | string | unknown[]
+/* ---------- 基础数值：等级滑条 ---------- */
 
-function num(s: Record<string, StatCell>, key: string): number | null {
-  const v = s[key]
-  return typeof v === 'number' ? v : null
-}
+/** 当前查看等级（默认满级，与技能滑块默认一致）；切换角色时重置 */
+const charLevel = ref(CHAR_LEVEL_DEFAULT)
 
-/* stats: raw ints, percentage fields are raw-value/100 → percent */
-const STAT_DEFS: Array<[string, (s: Record<string, StatCell>) => string | null]> = [
-  ['生命值', (s) => (num(s, 'hp_max') != null ? String(num(s, 'hp_max')) : null)],
-  ['攻击力', (s) => (num(s, 'attack') != null ? String(num(s, 'attack')) : null)],
-  ['防御力', (s) => (num(s, 'defence') != null ? String(num(s, 'defence')) : null)],
-  ['冲击力', (s) => (num(s, 'break_stun') != null ? String(num(s, 'break_stun')) : null)],
-  ['暴击率', (s) => (num(s, 'crit') != null ? `${(num(s, 'crit')! / 100).toFixed(2)}%` : null)],
-  ['暴击伤害', (s) => (num(s, 'crit_damage') != null ? `${(num(s, 'crit_damage')! / 100).toFixed(2)}%` : null)],
-  ['穿透率', (s) => (num(s, 'pen_rate') != null ? `${(num(s, 'pen_rate')! / 100).toFixed(2)}%` : null)],
-  ['异常掌控', (s) => (num(s, 'element_mystery') != null ? String(num(s, 'element_mystery')) : null)],
-  ['异常精通', (s) => (num(s, 'element_abnormal_power') != null ? String(num(s, 'element_abnormal_power')) : null)],
-  ['能量回复', (s) => (num(s, 'sp_recover') != null ? String(num(s, 'sp_recover')) : null)],
-]
+watch(id, () => {
+  charLevel.value = CHAR_LEVEL_DEFAULT
+})
 
-const stats = computed<StatItem[]>(() => {
-  const s = detail.value?.stats
-  if (!s) return []
-  return STAT_DEFS.map(([label, fn]) => ({ label, value: fn(s) })).filter(
-    (r): r is StatItem => r.value != null,
-  )
+/** 该等级下的基础面板（等级 + 突破成长；潜能为独立养成系统，不随等级并入） */
+const stats = computed<StatItem[]>(() =>
+  characterStatsAtLevel(
+    detail.value?.stats,
+    detail.value?.level,
+    charLevel.value,
+  ),
+)
+
+/** 当前等级所属突破段（meta 行） */
+const breakPhase = computed(() =>
+  charBreakSegment(detail.value?.level, charLevel.value),
+)
+
+/** 突破计数（段号-1）：段 1 = 未突破，段 6 = 突破 5 次满 */
+const breakCount = computed(() =>
+  breakPhase.value ? Math.max(0, breakPhase.value.phase - 1) : null,
+)
+
+/** 突破刻度：1 起点 + 10/20/30/40/50 突破点（amber）+ 60 上限（灰） */
+const levelMarks = computed<LevelMark[]>(() => {
+  const marks: LevelMark[] = [{ at: 1, label: '1' }]
+  for (let lv = 10; lv <= 60; lv += 10) {
+    marks.push({ at: lv, label: String(lv), break: lv < 60 })
+  }
+  return marks
 })
 
 const skills = computed<SkillDisplay[]>(() =>
@@ -134,6 +148,23 @@ watch(status, (s) => {
         <AgentHead :detail="detail" />
 
         <DetailSection id="stats" no="01" title="基础数值" en="Vitals">
+          <div class="stat-level">
+            <div class="stat-level-head">
+              <span class="stat-level-lv mono">Lv.{{ charLevel }}</span>
+              <LevelSlider
+                v-model="charLevel"
+                :min="CHAR_LEVEL_MIN"
+                :max="CHAR_LEVEL_MAX"
+                label="角色等级"
+                :marks="levelMarks"
+              />
+            </div>
+            <p v-if="breakCount != null" class="stat-level-meta mono">
+              <span>
+                {{ breakCount === 0 ? '未突破' : `突破 ${breakCount} 阶` }}
+              </span>
+            </p>
+          </div>
           <KeyValueGrid :items="stats" variant="ledger" />
         </DetailSection>
 
@@ -223,6 +254,41 @@ watch(status, (s) => {
 
 .back:hover {
   color: var(--amber-hi);
+}
+
+/* ---------- 基础数值：等级滑条 ---------- */
+
+.stat-level {
+  border: var(--rule);
+  padding: 14px clamp(16px, 2vw, 28px) 12px;
+  margin-bottom: var(--space-2);
+}
+
+.stat-level-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.stat-level-lv {
+  flex: none;
+  font-size: 22px;
+  color: var(--amber);
+  letter-spacing: 0.04em;
+  min-width: 3.2em;
+}
+
+.stat-level-meta {
+  display: flex;
+  gap: 14px;
+  margin-top: 8px;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  color: var(--ink-2);
+}
+
+.stat-level-meta span:first-child {
+  color: var(--amber);
 }
 
 /* ---------- talents ---------- */

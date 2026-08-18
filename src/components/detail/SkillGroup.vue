@@ -9,6 +9,7 @@ import {
   type SkillRow,
 } from '@/domain/sections'
 import HollowImage from '../HollowImage.vue'
+import LevelSlider from './LevelSlider.vue'
 
 const props = defineProps<{
   row: SkillRow
@@ -30,14 +31,11 @@ const level = ref(SKILL_LEVEL_DEFAULT)
       <h3 class="skill-kind serif">{{ row.zh }}</h3>
       <!-- 等级滑块与技能名同条，靠右对齐；窄屏允许换行 -->
       <div v-if="row.hasNumbers" class="level-row">
-        <input
-          v-model.number="level"
-          class="level-range"
-          type="range"
+        <LevelSlider
+          v-model="level"
           :min="SKILL_LEVEL_MIN"
           :max="SKILL_LEVEL_MAX"
-          :aria-label="`${row.zh}等级`"
-          :aria-valuetext="`等级 ${level}`"
+          :label="`${row.zh}等级`"
         />
         <span class="level-val mono">Lv.{{ level }}</span>
       </div>
@@ -194,67 +192,11 @@ const level = ref(SKILL_LEVEL_DEFAULT)
   min-width: 200px;
   max-width: 420px;
 }
-.level-range {
-  flex: 1;
-  appearance: none;
-  -webkit-appearance: none;
-  margin: 0;
-  padding: 6px 0;
-  background: transparent;
-  cursor: pointer;
-  min-width: 0;
-}
-/* 细线轨道（2px 发丝线），避免原生高亮粗条的视觉侵占 */
-.level-range::-webkit-slider-runnable-track {
-  height: 2px;
-  background: var(--line-2);
-  border-radius: 1px;
-}
-.level-range::-moz-range-track {
-  height: 2px;
-  background: var(--line-2);
-  border-radius: 1px;
-}
-/* 小方钮：2px 圆角，与"档案标本"的细线框语言一致 */
-.level-range::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 11px;
-  height: 11px;
-  margin-top: -4.5px;
-  background: var(--amber);
-  border: 1px solid var(--bg-0);
-  border-radius: 2px;
-  transition: background var(--t-fast) var(--ease);
-}
-.level-range::-moz-range-thumb {
-  width: 11px;
-  height: 11px;
-  background: var(--amber);
-  border: 1px solid var(--bg-0);
-  border-radius: 2px;
-  transition: background var(--t-fast) var(--ease);
-}
-.level-range:hover::-webkit-slider-thumb,
-.level-range:active::-webkit-slider-thumb {
-  background: var(--amber-hi);
-}
-.level-range:hover::-moz-range-thumb,
-.level-range:active::-moz-range-thumb {
-  background: var(--amber-hi);
-}
-.level-range:hover::-webkit-slider-runnable-track,
-.level-range:hover::-moz-range-track {
-  background: var(--line-1);
-}
-.level-range:focus-visible {
-  outline: 1px solid var(--amber);
-  outline-offset: 4px;
-  border-radius: 2px;
-}
+/* 滑条本体样式见 LevelSlider.vue（发丝线轨道 + 方形钮），两处共用 */
 .level-val {
   font-size: 12px;
   color: var(--amber);
   min-width: 3.4em;
+  text-align: right;
 }
 </style>
