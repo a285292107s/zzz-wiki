@@ -14,10 +14,12 @@ const showEmpty = computed(() => props.empty === true)
 </script>
 
 <template>
-  <p v-if="status === 'loading' || status === 'idle'" class="state loading mono">
-    {{ loadingText ?? 'LOADING…' }}
+  <p v-if="status === 'loading' || status === 'idle'" class="state loading mono" role="status">
+    <slot name="skeleton">
+      {{ loadingText ?? 'LOADING…' }}
+    </slot>
   </p>
-  <p v-else-if="status === 'error'" class="state err mono">
+  <p v-else-if="status === 'error'" class="state err mono" role="alert">
     ⚠ 数据加载失败：{{ error }}
   </p>
   <p v-else-if="showEmpty" class="state empty mono">

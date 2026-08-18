@@ -25,6 +25,7 @@ interface SkillDisplay extends SkillRow {
 import type { AttrCode, SpecCode } from '@/data/types'
 import type { CharacterDetail } from '@/data/types'
 import { AsyncState, DescRow, DetailHead, DetailSection, KeyValueGrid } from '@/components'
+import BackToTop from '@/components/BackToTop.vue'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
 import HollowImage from '@/components/HollowImage.vue'
@@ -102,11 +103,23 @@ const skinList = computed<SkinRow[]>(() => buildSkinRows(detail.value?.skin))
 const portraitSrcs = computed(() =>
   iconSources({ Id: detail.value?.id, icon: detail.value?.icon }, 'portrait', 'character'),
 )
+
+/** 平滑滚动到区块锚点 */
+function goTo(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
 </script>
 
 <template>
   <div class="wrap page">
     <RouterLink to="/agents" class="back mono">← 返回名录</RouterLink>
+
+    <nav v-if="detail" class="section-nav" aria-label="页面区块">
+      <a class="sn-item mono" href="#stats" @click.prevent="goTo('stats')">01 基础数值</a>
+      <a v-if="skills.length" class="sn-item mono" href="#skills" @click.prevent="goTo('skills')">02 技能</a>
+      <a v-if="talents.length" class="sn-item mono" href="#talents" @click.prevent="goTo('talents')">03 影画</a>
+      <a v-if="skinList.length > 1" class="sn-item mono" href="#skins" @click.prevent="goTo('skins')">04 皮肤</a>
+    </nav>
 
     <AsyncState :status="status" :error="error">
       <template v-if="detail">
@@ -129,11 +142,11 @@ const portraitSrcs = computed(() =>
           </template>
         </DetailHead>
 
-        <DetailSection no="01" title="基础数值">
+        <DetailSection id="stats" no="01" title="基础数值">
           <KeyValueGrid :items="stats" />
         </DetailSection>
 
-        <DetailSection v-if="skills.length" no="02" title="技能">
+        <DetailSection v-if="skills.length" id="skills" no="02" title="技能">
           <div v-for="sk in skills" :key="sk.key" class="skill-group">
             <div class="skill-kind-row">
               <span class="key-glyph">
@@ -155,7 +168,7 @@ const portraitSrcs = computed(() =>
           </div>
         </DetailSection>
 
-        <DetailSection v-if="talents.length" no="03" title="影画">
+        <DetailSection v-if="talents.length" id="talents" no="03" title="影画">
           <ul class="desc-list">
             <DescRow
               v-for="t in talents"
@@ -168,7 +181,7 @@ const portraitSrcs = computed(() =>
           </ul>
         </DetailSection>
 
-        <DetailSection v-if="skinList.length > 1" no="04" title="皮肤">
+        <DetailSection v-if="skinList.length > 1" id="skins" no="04" title="皮肤">
           <ul class="skin-list">
             <li v-for="s in skinList" :key="s.id" class="skin">
               <span class="skin-thumb">
@@ -188,6 +201,8 @@ const portraitSrcs = computed(() =>
         </DetailSection>
       </template>
     </AsyncState>
+
+    <BackToTop />
   </div>
 </template>
 

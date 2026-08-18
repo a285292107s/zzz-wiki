@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { RouterLink, RouterView, useRoute } from 'vue-router'
 import { CATALOG } from '@/domain/catalog'
 
@@ -9,6 +10,12 @@ const nav = CATALOG.map((c) => ({ no: c.no, label: c.label, to: c.path }))
 
 const isActive = (to: string) =>
   route.path === to || (to !== '/' && route.path.startsWith(to))
+
+// 移动端菜单（Q3a）
+const menuOpen = ref(false)
+function closeMenu() {
+  menuOpen.value = false
+}
 </script>
 
 <template>
@@ -32,7 +39,36 @@ const isActive = (to: string) =>
             <span class="label">{{ item.label }}</span>
           </RouterLink>
         </nav>
+
+        <button
+          type="button"
+          class="menu-toggle mono"
+          :class="{ open: menuOpen }"
+          :aria-expanded="menuOpen"
+          aria-controls="mobile-nav"
+          aria-label="切换导航菜单"
+          @click="menuOpen = !menuOpen"
+        >
+          <span class="burger" aria-hidden="true">
+            <i /><i /><i />
+          </span>
+          <span class="menu-word">{{ menuOpen ? 'CLOSE' : 'MENU' }}</span>
+        </button>
       </div>
+
+      <nav id="mobile-nav" v-show="menuOpen" class="mobile-nav" aria-label="移动端导航">
+        <RouterLink
+          v-for="item in nav"
+          :key="item.to"
+          :to="item.to"
+          class="mobile-item"
+          :class="{ active: isActive(item.to) }"
+          @click="closeMenu"
+        >
+          <span class="no mono">{{ item.no }}</span>
+          <span class="label">{{ item.label }}</span>
+        </RouterLink>
+      </nav>
     </header>
 
     <main class="main">
@@ -199,6 +235,93 @@ const isActive = (to: string) =>
   border-color: var(--amber);
 }
 
+/* ---------- mobile menu (Q3a) ---------- */
+
+.menu-toggle {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--ink-2);
+  padding: 6px 10px;
+  border: 1px solid var(--line-1);
+  border-radius: 2px;
+  transition: color var(--t-fast) var(--ease),
+    border-color var(--t-fast) var(--ease);
+}
+
+.menu-toggle:hover {
+  color: var(--ink-0);
+  border-color: var(--line-2);
+}
+
+.menu-toggle.open {
+  color: var(--amber-hi);
+  border-color: var(--amber);
+}
+
+.burger {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.burger i {
+  display: block;
+  width: 14px;
+  height: 1px;
+  background: currentColor;
+  transition: transform var(--t-fast) var(--ease), opacity var(--t-fast) var(--ease);
+}
+
+.menu-toggle.open .burger i:nth-child(1) {
+  transform: translateY(4px) rotate(45deg);
+}
+.menu-toggle.open .burger i:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open .burger i:nth-child(3) {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+.mobile-nav {
+  display: none;
+  border-top: var(--rule);
+  background: var(--bg-0);
+  padding: 8px var(--pad-page) 14px;
+  flex-direction: column;
+}
+
+.mobile-item {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 12px 2px;
+  border-bottom: 1px solid var(--line-0);
+  color: var(--ink-1);
+  transition: color var(--t-fast) var(--ease);
+}
+
+.mobile-item .no {
+  font-size: 11px;
+  color: var(--ink-3);
+}
+
+.mobile-item .label {
+  font-size: 15px;
+  letter-spacing: 0.06em;
+}
+
+.mobile-item:hover,
+.mobile-item.active {
+  color: var(--ink-0);
+}
+
+.mobile-item.active .no {
+  color: var(--amber);
+}
+
 /* ---------- page transition ---------- */
 
 .page-enter-active,
@@ -219,17 +342,22 @@ const isActive = (to: string) =>
 
 @media (max-width: 720px) {
   .masthead-inner {
-    height: auto;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    padding-block: 14px;
+    height: 62px;
+    flex-direction: row;
+    gap: 12px;
+    padding-block: 0;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
   }
 
   .nav {
-    width: 100%;
-    overflow-x: auto;
-    padding-bottom: 4px;
+    display: none;
+  }
+
+  .mobile-nav {
+    display: flex;
   }
 
   .foot-inner {

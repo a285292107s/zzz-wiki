@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useCatalogList } from '@/composables/useCatalogList'
+import { useCatalogSort } from '@/composables/useCatalogSort'
 import { api } from '@/data/api'
 import { iconSources } from '@/data/icons'
 import type { BangbooListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { AsyncState, CatalogTable, SearchField, type CatalogColumn } from '@/components'
+import { AsyncState, CatalogTable, CatalogTableSkeleton, SearchField, type CatalogColumn } from '@/components'
 
 usePageMeta()
 import Rarity from '@/components/Rarity.vue'
@@ -16,13 +17,23 @@ const { data, status, error } = useAsyncResource(() => api.bangboos())
 
 const { query, filtered, count } = useCatalogList<BangbooListItem>({
   items: () => data.value ?? [],
+  syncRoute: true,
+  keywords: (row) => [row.codename ?? ''],
 })
 
 const columns: CatalogColumn[] = [
-  { key: 'name', label: '型号' },
+  { key: 'name', label: '型号', sortable: true },
   { key: 'code', label: '代号' },
-  { key: 'rarity', label: '稀有度' },
+  { key: 'rarity', label: '稀有度', sortable: true },
 ]
+
+const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
+  filtered,
+  [
+    { key: 'name', value: (r) => pickName(r) },
+    { key: 'rarity', value: (r) => r.rank ?? -1 },
+  ],
+)
 </script>
 
 <template>
@@ -42,9 +53,18 @@ const columns: CatalogColumn[] = [
       :error="error"
       :empty="status === 'success' && filtered.length === 0"
     >
-      <CatalogTable :columns="columns" :items="filtered">
+      <template #skeleton>
+        <CatalogTableSkeleton :cols="3" />
+      </template>
+      <CatalogTable
+        :columns="columns"
+        :items="sorted"
+        :sort="sortKey"
+        :sort-dir="sortDir"
+        @update:sort="toggle"
+      >
         <template #cell-name="{ row }">
-          <span class="name-cell">
+          <RouterLink :to="`/bangboos/${row.Id}`" class="name-cell">
             <span class="mini-icon">
               <HollowImage
                 :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'list', 'bangboo')"
@@ -52,7 +72,7 @@ const columns: CatalogColumn[] = [
                 :fallback="pickName(row)" fit="contain" />
             </span>
             <span class="name">{{ pickName(row) }}</span>
-          </span>
+          </RouterLink>
         </template>
         <template #cell-code="{ row }">
           <span class="code mono">{{ row.codename ?? '—' }}</span>
@@ -84,6 +104,16 @@ const columns: CatalogColumn[] = [
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  color: inherit;
+  text-decoration: none;
+}
+
+a.name-cell:hover .name {
+  color: var(--amber-hi);
+}
+
+a.name-cell .name {
+  transition: color var(--t-fast) var(--ease);
 }
 
 .mini-icon {

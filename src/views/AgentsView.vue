@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useCatalogList } from '@/composables/useCatalogList'
+import { useCatalogSort } from '@/composables/useCatalogSort'
 import { api } from '@/data/api'
 import { iconSources } from '@/data/icons'
 import type { CharacterListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { AsyncState, CatalogTable, FilterChips, SearchField, type CatalogColumn } from '@/components'
+import { AsyncState, CatalogTable, CatalogTableSkeleton, FilterChips, SearchField, type CatalogColumn } from '@/components'
 
 usePageMeta()
 import Tags from '@/components/Tags.vue'
@@ -20,15 +21,25 @@ const { attrFilter, profFilter, query, filtered, count } =
     items: () => data.value ?? [],
     withAttrs: true,
     withProfs: true,
+    syncRoute: true,
+    keywords: (row) => [row.camp_name ?? ''],
   })
 
 const columns: CatalogColumn[] = [
-  { key: 'name', label: '代号' },
+  { key: 'name', label: '代号', sortable: true },
   { key: 'attr', label: '属性' },
   { key: 'prof', label: '职业' },
   { key: 'camp', label: '阵营', cls: 'camp mono' },
-  { key: 'rarity', label: '稀有度', align: 'right' },
+  { key: 'rarity', label: '稀有度', align: 'right', sortable: true },
 ]
+
+const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
+  filtered,
+  [
+    { key: 'name', value: (r) => pickName(r) },
+    { key: 'rarity', value: (r) => r.rank ?? -1 },
+  ],
+)
 </script>
 
 <template>
@@ -65,7 +76,16 @@ const columns: CatalogColumn[] = [
       :error="error"
       :empty="status === 'success' && filtered.length === 0"
     >
-      <CatalogTable :columns="columns" :items="filtered">
+      <template #skeleton>
+        <CatalogTableSkeleton :cols="5" with-index />
+      </template>
+      <CatalogTable
+        :columns="columns"
+        :items="sorted"
+        :sort="sortKey"
+        :sort-dir="sortDir"
+        @update:sort="toggle"
+      >
         <template #cell-name="{ row }">
           <RouterLink :to="`/agents/${row.Id}`" class="name-cell">
             <span class="mini-icon">

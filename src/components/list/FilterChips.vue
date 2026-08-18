@@ -27,7 +27,12 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
   <div class="filters">
     <div v-if="props.showAttr" class="group" data-group="attr">
       <span class="group-label mono">属性</span>
-      <button class="chip" :class="{ on: attr === 'all' }" @click="emit('update:attr', 'all')">
+      <button
+        class="chip"
+        :class="{ on: attr === 'all' }"
+        :aria-pressed="attr === 'all'"
+        @click="emit('update:attr', 'all')"
+      >
         全部属性
       </button>
       <button
@@ -35,6 +40,7 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
         :key="key"
         class="chip attr"
         :class="{ on: attr === Number(key) }"
+        :aria-pressed="attr === Number(key)"
         :style="{ '--chip-color': a.color }"
         @click="emit('update:attr', attr === Number(key) ? 'all' : (Number(key) as AttrCode))"
       >
@@ -60,7 +66,12 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
 
     <div v-if="props.showProf" class="group" data-group="prof">
       <span class="group-label mono">职业</span>
-      <button class="chip" :class="{ on: prof === 'all' }" @click="emit('update:prof', 'all')">
+      <button
+        class="chip"
+        :class="{ on: prof === 'all' }"
+        :aria-pressed="prof === 'all'"
+        @click="emit('update:prof', 'all')"
+      >
         全部职业
       </button>
       <button
@@ -68,6 +79,7 @@ const profs = Object.entries(PROFESSIONS) as Array<[string, { zh: string }]>
         :key="key"
         class="chip"
         :class="{ on: prof === Number(key) }"
+        :aria-pressed="prof === Number(key)"
         @click="emit('update:prof', prof === Number(key) ? 'all' : (Number(key) as SpecCode))"
       >
         <img

@@ -2,11 +2,13 @@
 defineProps<{
   no: string
   title: string
+  /** 锚点 id；详情页用于区块直达/深链 */
+  id?: string
 }>()
 </script>
 
 <template>
-  <section class="block">
+  <section class="block" :id="id">
     <div class="section-head">
       <span class="no mono">{{ no }}</span>
       <h2>{{ title }}</h2>

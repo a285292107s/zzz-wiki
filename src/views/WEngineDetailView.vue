@@ -11,6 +11,7 @@ import { dictToRows, type DetailRow, type StatItem } from '@/domain/sections'
 import { PROFESSIONS, type SpecCode } from '@/data/types'
 import type { WEngineDetail } from '@/data/types'
 import { AsyncState, DescRow, DetailHead, DetailSection, KeyValueGrid } from '@/components'
+import BackToTop from '@/components/BackToTop.vue'
 import Rarity from '@/components/Rarity.vue'
 import Tags from '@/components/Tags.vue'
 
@@ -74,11 +75,22 @@ const bodyText = computed<string>(() => {
 const portraitSrcs = computed(() =>
   iconSources({ Id: detail.value?.id, icon: detail.value?.icon }, 'portrait', 'weapon'),
 )
+
+/** 平滑滚动到区块锚点 */
+function goTo(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
 </script>
 
 <template>
   <div class="wrap page">
     <RouterLink to="/w-engines" class="back mono">← 返回音擎图鉴</RouterLink>
+
+    <nav v-if="detail" class="section-nav" aria-label="页面区块">
+      <a v-if="hasBody" class="sn-item mono" href="#overview" @click.prevent="goTo('overview')">01 概述</a>
+      <a class="sn-item mono" href="#props" @click.prevent="goTo('props')">02 基础属性</a>
+      <a class="sn-item mono" href="#talents" @click.prevent="goTo('talents')">03 精炼效果</a>
+    </nav>
 
     <AsyncState :status="status" :error="error">
       <template v-if="detail">
@@ -100,15 +112,15 @@ const portraitSrcs = computed(() =>
           </template>
         </DetailHead>
 
-        <DetailSection v-if="hasBody" no="01" title="概述">
+        <DetailSection v-if="hasBody" id="overview" no="01" title="概述">
           <p class="story">{{ bodyText }}</p>
         </DetailSection>
 
-        <DetailSection no="02" title="基础属性">
+        <DetailSection id="props" no="02" title="基础属性">
           <KeyValueGrid :items="propItems" />
         </DetailSection>
 
-        <DetailSection no="03" title="精炼效果">
+        <DetailSection id="talents" no="03" title="精炼效果">
           <ul v-if="talents.length" class="desc-list">
             <DescRow
               v-for="t in talents"
@@ -123,6 +135,8 @@ const portraitSrcs = computed(() =>
         </DetailSection>
       </template>
     </AsyncState>
+
+    <BackToTop />
   </div>
 </template>
 
