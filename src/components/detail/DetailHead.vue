@@ -52,7 +52,7 @@ defineProps<{
 .meta {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   margin-top: 18px;
   flex-wrap: wrap;
 }

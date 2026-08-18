@@ -23,13 +23,15 @@ const tier = computed(() =>
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
+  /* 与 meta 标签行其他标签统一高度（24px 方框，2px 圆角） */
+  width: 24px;
+  height: 24px;
   font-family: var(--mono);
   font-size: 12px;
   font-weight: 600;
   border-radius: 2px;
   line-height: 1;
+  flex: none;
 }
 
 .t-s {

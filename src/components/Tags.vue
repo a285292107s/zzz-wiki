@@ -47,9 +47,12 @@ const spec = computed(() =>
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  /* 与 meta 标签行其他标签统一高度（24px，2px 圆角） */
+  height: 24px;
+  padding: 0 9px;
+  box-sizing: border-box;
   font-size: 12px;
   letter-spacing: 0.1em;
-  padding: 3px 9px;
   border: 1px solid var(--line-1);
   border-radius: 2px;
   color: var(--ink-1);

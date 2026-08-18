@@ -180,9 +180,17 @@ watch(status, (s) => {
   color: var(--amber-hi);
 }
 
+/* 音擎类型名：标签化与 meta 行其他标签统一（24px 高，2px 圆角） */
 .spec {
-  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 9px;
+  box-sizing: border-box;
+  font-size: 12px;
   letter-spacing: 0.06em;
+  border: 1px solid var(--line-1);
+  border-radius: 2px;
   color: var(--ink-1);
 }
 

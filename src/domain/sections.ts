@@ -360,12 +360,201 @@ export function buildBangbooSkills(
 }
 
 /* ============================================================
+ * 核心技（passive）：核心被动 + 额外能力，随等级强化。
+ * 数据源：角色详情的 passive.level 等级字典，每条记录含
+ *   level（核心技等级，1-7）、name[2]（核心被动名 / 额外能力名）、
+ *   desc[2]（对应描述，富文本）。
+ * 结构：7 条 = 基础 7 级；14 条 = 两轮 1-7（第 2 轮为「强化」版：
+ *   核心被动/额外能力效果更强，如猫又核心被动持续 6s→40s）。
+ * ============================================================ */
+
+/** 核心技单级记录 */
+export interface CoreSkillLevel {
+  /** 展示序号（1-based，按数据记录序） */
+  no: number
+  /** 核心技等级（数据 level 字段；两轮结构时 1-7 循环） */
+  level: number
+  /** 是否为「强化」版（两轮结构的第 2 轮起） */
+  enhanced: boolean
+  /** 核心被动名 */
+  coreName: string
+  /** 额外能力名 */
+  extraName: string
+  /** [核心被动 desc, 额外能力 desc]（原始富文本，展示层经 rich.ts 处理） */
+  desc: [string, string]
+}
+
+/** 核心技聚合数据 */
+export interface CoreSkill {
+  /** 核心被动名（各级一致） */
+  coreName: string
+  /** 额外能力名（各级一致） */
+  extraName: string
+  /** 核心技等级数（去重后，7；两轮结构仍为 7） */
+  levelCount: number
+  /** 是否存在「强化」版（14 条结构时 true） */
+  hasEnhance: boolean
+  /** 各级记录（按序） */
+  levels: CoreSkillLevel[]
+}
+
+/** 从 passive 字典构建核心技数据；无数据时返回 null */
+export function buildCoreSkill(
+  passive: Record<string, unknown> | undefined | null,
+): CoreSkill | null {
+  const level = (passive as { level?: Record<string, unknown> } | undefined)?.level
+  if (!level) return null
+  const records = Object.values(level)
+    .map((v) => v as Record<string, unknown>)
+    .filter((v) => Array.isArray(v?.name) && Array.isArray(v?.desc))
+    .map((v) => ({
+      level: Number(v?.level) || 0,
+      coreName: String((v.name as string[])[0] ?? '核心被动'),
+      extraName: String((v.name as string[])[1] ?? '额外能力'),
+      desc: [(v.desc as string[])[0] ?? '', (v.desc as string[])[1] ?? ''] as [string, string],
+    }))
+  if (!records.length) return null
+  // 两轮结构检测：level 字段去重后数量 < 记录数（如 7 < 14）→ 第 2 轮起为强化版
+  const levelCount = new Set(records.map((r) => r.level)).size
+  const hasEnhance = levelCount > 0 && levelCount < records.length
+  return {
+    coreName: records[0].coreName,
+    extraName: records[0].extraName,
+    levelCount,
+    hasEnhance,
+    levels: records.map((r, i) => ({
+      no: i + 1,
+      level: r.level,
+      enhanced: hasEnhance && i >= levelCount,
+      coreName: r.coreName,
+      extraName: r.extraName,
+      desc: r.desc,
+    })),
+  }
+}
+
+/* ============================================================
+ * 核心技强化（extra_level）：核心技的独立强化条目。
+ * 每档有解锁等级门槛（max_level: 15/25/35/45/55/60）与属性加成
+ * （extra 字典：prop/name/format/value，value 为累计值）。
+ * 与「潜能影画」（potential_detail，V2.5 激发潜能）是不同系统。
+ * ============================================================ */
+
+/** 核心技强化单条属性加成 */
+export interface CoreEnhanceBonus {
+  /** 属性名（如「暴击率」「基础攻击力」） */
+  name: string
+  /** 原始值（百分比字段为万分比，如 480 = 4.8%） */
+  value: number
+  /** hakushin 格式串（{0:0.#%} 等） */
+  format?: string
+  /** 格式化显示串（如「4.8%」「25」） */
+  text: string
+}
+
+/** 核心技强化档位（A-F） */
+export interface CoreEnhanceLevel {
+  /** 档位编号（A-F） */
+  no: string
+  /** 解锁等级门槛（max_level） */
+  unlockAt: number
+  /** 该档属性加成（累计值，0 加成已过滤） */
+  bonus: CoreEnhanceBonus[]
+}
+
+/** 按 hakushin format 串格式化强化值 */
+export function formatCoreEnhance(value: number, format?: string): string {
+  const f = format ?? '{0:0.#}'
+  if (f.includes('%')) {
+    return `${(value / 100).toFixed(1).replace(/\.0$/, '')}%`
+  }
+  if (f.includes('##')) return value.toFixed(2).replace(/\.?0+$/, '')
+  if (f.includes('.#')) return value.toFixed(1).replace(/\.0$/, '')
+  return String(Math.round(value))
+}
+
+/** 核心技强化档位编号（A-F，与游戏内核心技 A/B/C 等级口径一致） */
+const ENHANCE_LABELS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+
+/** 从 extra_level 字典构建核心技强化档位列表（按档序）；无数据时返回 [] */
+export function buildCoreEnhance(
+  extraDict: Record<string, unknown> | undefined | null,
+): CoreEnhanceLevel[] {
+  if (!extraDict) return []
+  return Object.entries(extraDict)
+    .sort((a, b) => Number(a[0]) - Number(b[0]))
+    .map(([k, v]) => {
+      const o = (v ?? {}) as Record<string, unknown>
+      const bonus = Object.values((o.extra ?? {}) as Record<string, unknown>)
+        .map((e) => {
+          const p = (e ?? {}) as { name?: string; format?: string; value?: number }
+          const value = Number(p.value) || 0
+          return {
+            name: String(p.name ?? ''),
+            value,
+            format: p.format,
+            text: formatCoreEnhance(value, p.format),
+          }
+        })
+        .filter((b) => b.value !== 0)
+      return {
+        no: ENHANCE_LABELS[Number(k) - 1] ?? String(k),
+        unlockAt: Number(o.max_level) || 0,
+        bonus,
+      }
+    })
+    .filter((l) => l.unlockAt > 0)
+}
+
+/* ============================================================
+ * 潜能影画（potential_detail，V2.5「激发潜能」）：老角色加强系统。
+ * 6 档（level_show_name 如「炽焰行歌 I」），档 I 为机制补强（无文字），
+ * 档 II-VI 为数值补强（name 效果名 + desc 富文本）。
+ * 与核心技强化（extra_level）是不同系统。
+ * ============================================================ */
+
+/** 潜能影画单档 */
+export interface PotentialCinema {
+  /** 档位号（I-VI，从 level_show_name 提取；无则用 id） */
+  no: string
+  /** 档位全名（如「炽焰行歌 I」） */
+  label: string
+  /** 效果名（如「潜能觉醒：绝焰」；档 I 通常为空） */
+  name: string
+  /** 效果描述（富文本；档 I 通常为空） */
+  desc: string
+}
+
+const ROMAN_RE = /[IVXLCDM]+$/
+
+/** 从 potential_detail 字典构建潜能影画档位列表（按档序）；无数据时返回 [] */
+export function buildPotentialCinema(
+  detail: Record<string, unknown> | undefined | null,
+): PotentialCinema[] {
+  if (!detail) return []
+  return Object.entries(detail)
+    .sort((a, b) => Number(a[0]) - Number(b[0]))
+    .map(([k, v]) => {
+      const o = (v ?? {}) as Record<string, unknown>
+      const label = String(o.level_show_name ?? '')
+      const m = label.match(ROMAN_RE)
+      return {
+        no: m?.[0] ?? String(k),
+        label,
+        name: String(o.name ?? ''),
+        desc: String(o.desc ?? ''),
+      }
+    })
+    .filter((p) => p.label || p.name || p.desc)
+}
+
+/* ============================================================
  * 角色基础数值随等级成长（DESIGN.md P2：纯函数、无 Vue 依赖、可单测）。
  * 模型（已用游戏内 Lv.1/10/20/30/40/50/60 锚点验证）：
  *   属性(L) = floor( 1 级基础 + 该段累计突破加成 + growth/10000 × (L-1) )
  *   突破段取自 level 字典（hakushin ascension）。
- *   注意：潜能（extra_level / 潜能影像）是独立养成系统，等级仅是升级门槛，
- *   不随等级自动生效，故不并入基础面板（见 charExtraBonus 注释）。
+ *   注意：核心技强化（extra_level）/ 潜能影画（potential_detail）均为独立
+ *   养成系统，不随等级自动并入基础面板。
  * ============================================================ */
 
 /** 角色等级范围（绝区零 1–60 级） */
@@ -387,14 +576,6 @@ export interface CharBreakSegment {
   attack: number
   /** 至该段为止的累计突破加成（防御力） */
   defence: number
-}
-
-/** 潜能（extra_level）累计加成 */
-export interface CharExtraBonus {
-  /** 基础攻击力固定加成（prop 12101，累计值） */
-  attack: number
-  /** 暴击率加成（prop 20101，万分比单位，如 1440 = 14.40%） */
-  crit: number
 }
 
 /** 从 level 字典解析出按段号排序的突破段（升序） */
@@ -426,39 +607,6 @@ export function charBreakSegment(
   const segs = parseCharBreaks(levelDict)
   // 段判定：(min, max]（段 1 的 min=0），lv=60 落最后一段
   return segs.find((s) => lv > s.min && lv <= s.max) ?? null
-}
-
-/**
- * 指定等级已解锁的潜能累计加成；无数据时返回全 0。
- * 注意：潜能（extra_level）是独立养成系统，等级只是升级门槛（max_level），
- * 不随等级自动生效——基础面板不使用本函数；此函数供未来独立的
- * 「潜能」展示区块使用（解析逻辑与口径已在此固化、可单测）。
- */
-export function charExtraBonus(
-  extraDict: Record<string, unknown> | undefined | null,
-  lv: number,
-): CharExtraBonus {
-  const out: CharExtraBonus = { attack: 0, crit: 0 }
-  if (!extraDict) return out
-  // 取最后一个 max_level <= lv 的档位（extra 字典内已是累计值）
-  let best: { maxLevel: number; extra: Record<string, unknown> } | null = null
-  for (const [, v] of Object.entries(extraDict)) {
-    const o = (v ?? {}) as Record<string, unknown>
-    const maxLevel = Number(o.max_level) || 0
-    if (maxLevel > lv) continue
-    if (!best || maxLevel > best.maxLevel) {
-      best = { maxLevel, extra: ((o.extra ?? {}) as Record<string, unknown>) }
-    }
-  }
-  if (!best) return out
-  for (const e of Object.values(best.extra)) {
-    const o = (e ?? {}) as Record<string, unknown>
-    const prop = Number(o.prop)
-    const value = Number(o.value) || 0
-    if (prop === 12101) out.attack = value
-    else if (prop === 20101) out.crit = value
-  }
-  return out
 }
 
 /** 单属性成长：floor(基础 + 突破加成 + growth/10000 × (L-1))；L 钳制 ≥ 1（防越界负成长） */

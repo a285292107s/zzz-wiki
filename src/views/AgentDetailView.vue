@@ -8,6 +8,9 @@ import { useDetailResource } from '@/composables/useDetailResource'
 import { useDetailNavigation } from '@/composables/useDetailNavigation'
 import { usePageMeta } from '@/composables/usePageMeta'
 import {
+  buildCoreEnhance,
+  buildCoreSkill,
+  buildPotentialCinema,
   buildSkillRows,
   buildSkinRows,
   CHAR_LEVEL_DEFAULT,
@@ -17,7 +20,10 @@ import {
   characterStatsAtLevel,
   dictToRows,
   SKILL_KEYS,
+  type CoreEnhanceLevel,
+  type CoreSkill,
   type DetailRow,
+  type PotentialCinema,
   type SkillRow,
   type SkinRow,
   type StatItem,
@@ -28,7 +34,7 @@ interface SkillDisplay extends SkillRow {
   srcs: string[]
 }
 import type { CharacterDetail } from '@/data/types'
-import { AsyncState, AgentHead, DescRow, DetailSection, KeyValueGrid, LevelSlider, SkillGroup } from '@/components'
+import { AsyncState, AgentHead, CoreSkillGroup, DescRow, DetailSection, KeyValueGrid, LevelSlider, SkillGroup } from '@/components'
 import type { LevelMark } from '@/components/detail/LevelSlider.vue'
 import BackToTop from '@/components/BackToTop.vue'
 import HollowImage from '@/components/HollowImage.vue'
@@ -86,6 +92,19 @@ const skills = computed<SkillDisplay[]>(() =>
 const talents = computed<DetailRow[]>(() => dictToRows(detail.value?.talent))
 const skinList = computed<SkinRow[]>(() => buildSkinRows(detail.value?.skin))
 
+/** 核心技（核心被动 + 额外能力，passive 数据源） */
+const coreSkill = computed<CoreSkill | null>(() => buildCoreSkill(detail.value?.passive))
+
+/** 核心技强化档位（extra_level 数据源，A-F） */
+const coreEnhance = computed<CoreEnhanceLevel[]>(() =>
+  buildCoreEnhance(detail.value?.extra_level),
+)
+
+/** 潜能影画档位（potential_detail 数据源，V2.5 激发潜能） */
+const potentialCinema = computed<PotentialCinema[]>(() =>
+  buildPotentialCinema(detail.value?.potential_detail),
+)
+
 /* ---------- 绳网印象（partner_info 网络引语） ---------- */
 
 const impressions = computed<string[]>(() =>
@@ -112,8 +131,10 @@ const navItems = computed(() => {
   const items = [{ id: 'stats', no: '01', label: '基础数值' }]
   if (skills.value.length) items.push({ id: 'skills', no: '02', label: '技能' })
   if (talents.value.length) items.push({ id: 'talents', no: '03', label: '影画' })
-  if (skinList.value.length > 1) items.push({ id: 'skins', no: '04', label: '皮肤' })
-  if (hasImpressions.value) items.push({ id: 'impressions', no: '05', label: '绳网印象' })
+  if (potentialCinema.value.length) items.push({ id: 'potential', no: '04', label: '潜能影画' })
+  let no = 5
+  if (skinList.value.length > 1) items.push({ id: 'skins', no: String(no++), label: '皮肤' })
+  if (hasImpressions.value) items.push({ id: 'impressions', no: String(no), label: '绳网印象' })
   return items
 })
 
@@ -168,7 +189,7 @@ watch(status, (s) => {
           <KeyValueGrid :items="stats" variant="ledger" />
         </DetailSection>
 
-        <DetailSection v-if="skills.length" v-reveal id="skills" no="02" title="技能" en="Skills">
+        <DetailSection v-if="skills.length || coreSkill" v-reveal id="skills" no="02" title="技能" en="Skills">
           <SkillGroup
             v-for="sk in skills"
             :key="sk.key"
@@ -176,6 +197,8 @@ watch(status, (s) => {
             :glyph="sk.glyph"
             :srcs="sk.srcs"
           />
+          <!-- 核心技（核心被动 + 额外能力）：passive 数据源，等级滑条切换 -->
+          <CoreSkillGroup v-if="coreSkill" :row="coreSkill" :enhance="coreEnhance" />
         </DetailSection>
 
         <DetailSection v-if="talents.length" v-reveal id="talents" no="03" title="影画" en="Mindscape">
@@ -191,7 +214,27 @@ watch(status, (s) => {
           </ul>
         </DetailSection>
 
-        <DetailSection v-if="skinList.length > 1" v-reveal id="skins" no="04" title="皮肤" en="Outfits">
+        <DetailSection
+          v-if="potentialCinema.length"
+          v-reveal
+          id="potential"
+          no="04"
+          title="潜能影画"
+          en="Potential"
+        >
+          <ul class="talents-list">
+            <DescRow
+              v-for="p in potentialCinema"
+              :key="p.no"
+              :no="p.no"
+              :title="p.label"
+              :text="p.desc ? stripRichText(p.desc) : undefined"
+              variant="talent"
+            />
+          </ul>
+        </DetailSection>
+
+        <DetailSection v-if="skinList.length > 1" v-reveal id="skins" no="05" title="皮肤" en="Outfits">
           <ul class="skin-list">
             <li v-for="s in skinList" :key="s.id" class="skin">
               <span class="skin-thumb">
@@ -214,7 +257,7 @@ watch(status, (s) => {
           v-if="hasImpressions"
           v-reveal
           id="impressions"
-          no="05"
+          no="06"
           title="绳网印象"
           en="Inter-Knot"
         >
