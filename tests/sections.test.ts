@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
+  BANGBOO_SKILL_ORDER,
+  buildBangbooSkills,
   SKILL_KEYS,
   SKILL_ORDER,
   SKILL_ZH,
@@ -63,5 +65,31 @@ describe('buildSkinRows', () => {
 
   it('returns [] for empty input', () => {
     expect(buildSkinRows(null)).toEqual([])
+  })
+})
+
+describe('buildBangbooSkills', () => {
+  it('keeps a/b/c order and collapses levels to name + base desc', () => {
+    const rows = buildBangbooSkills({
+      c: { level: { '1': { name: '冰暴回旋', desc: 'dc' } } },
+      a: {
+        level: {
+          '1': { name: '冰刀舞', desc: 'da1' },
+          '2': { name: '冰刀舞', desc: 'da2' },
+        },
+      },
+    })
+    expect(rows.map((r) => r.key)).toEqual(['a', 'c'])
+    expect(rows[0]).toMatchObject({ key: 'a', zh: '主动技', names: ['冰刀舞'], desc: 'da1' })
+    expect(rows[1].zh).toBe('邦布连携技')
+  })
+
+  it('returns [] for empty/missing input', () => {
+    expect(buildBangbooSkills(null)).toEqual([])
+    expect(buildBangbooSkills({})).toEqual([])
+  })
+
+  it('BANGBOO_SKILL_ORDER is a/b/c', () => {
+    expect(BANGBOO_SKILL_ORDER).toEqual(['a', 'b', 'c'])
   })
 })

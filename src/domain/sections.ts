@@ -104,3 +104,43 @@ export function buildSkinRows(
       img: (v as { image?: string }).image ?? '',
     }))
 }
+
+/* ---------- 邦布技能槽位（邦布详情页） ---------- */
+
+export const BANGBOO_SKILL_ORDER = ['a', 'b', 'c'] as const
+export type BangbooSkillKey = (typeof BANGBOO_SKILL_ORDER)[number]
+
+export const BANGBOO_SKILL_ZH: Record<BangbooSkillKey, string> = {
+  a: '主动技',
+  b: '额外能力',
+  c: '邦布连携技',
+}
+
+export interface BangbooSkillRow {
+  key: BangbooSkillKey
+  zh: string
+  names: string[]
+  /** 各级描述去重（不同级仅数值变化，取原文） */
+  desc: string
+}
+
+/** 从邦布详情的 skill 字典构建有序技能行（按 a/b/c 顺序） */
+export function buildBangbooSkills(
+  skill: Record<string, unknown> | undefined | null,
+): BangbooSkillRow[] {
+  if (!skill) return []
+  return BANGBOO_SKILL_ORDER.filter((k) => skill[k] != null).map((k) => {
+    const levels = ((skill[k] as { level?: Record<string, unknown> })?.level ??
+      {}) as Record<string, { name?: string; desc?: string }>
+    const first = levels[Object.keys(levels)[0]]
+    const names = [...new Set(
+      Object.values(levels).map((l) => l?.name ?? '').filter(Boolean),
+    )]
+    return {
+      key: k,
+      zh: BANGBOO_SKILL_ZH[k] ?? k.toUpperCase(),
+      names,
+      desc: first?.desc ?? '',
+    }
+  })
+}

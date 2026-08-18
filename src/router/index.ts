@@ -43,10 +43,24 @@ export const router = createRouter({
       meta: { title: '邦布' },
     },
     {
+      path: '/bangboos/:id',
+      name: 'bangboo-detail',
+      component: () => import('@/views/BangbooDetailView.vue'),
+      props: true,
+      meta: { title: '邦布详情' },
+    },
+    {
       path: '/disks',
       name: 'disks',
       component: () => import('@/views/DisksView.vue'),
       meta: { title: '驱动盘' },
+    },
+    {
+      path: '/disks/:id',
+      name: 'disk-detail',
+      component: () => import('@/views/DiskDetailView.vue'),
+      props: true,
+      meta: { title: '驱动盘详情' },
     },
     {
       path: '/style',
