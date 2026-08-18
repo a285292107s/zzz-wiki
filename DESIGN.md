@@ -1,4 +1,4 @@
-# DESIGN.md · 空洞档案架构设计
+# DESIGN.md · 绳网档案架构设计
 
 > 本文档是项目**架构设计**（愿景、分层、契约、路线图），与 [DATA_GUIDE.md](./DATA_GUIDE.md)（数据事实）和 [AGENTS.md](./AGENTS.md)（工作约定）并列。
 > 实施过程中本文件保持更新：结构落地后就地修正，不许让文档与代码漂移。
@@ -7,7 +7,7 @@
 
 ## 1. 背景与目标
 
-「空洞档案」是绝区零数据展示型 wiki：Vue 3 + TS + Vite 6，零 UI 框架，构建期生成静态 JSON（public/data/），运行时零外部请求。
+「绳网档案」是绝区零数据展示型 wiki：Vue 3 + TS + Vite 6，零 UI 框架，构建期生成静态 JSON（public/data/），运行时零外部请求。
 项目当前功能完整、视觉成立，但结构层存在**契约漂移、视图重复、零测试、单文件管线**四类问题，阻碍新增内容类型与长期维护。
 
 本次重构目标（与用户多轮对齐后确认）：
@@ -82,7 +82,7 @@ src/
     usePageMeta.ts       # per-route title/eyebrow/description
   components/
     layout/              # SiteHeader / SiteFooter（从 App.vue 抽出）
-    list/                # CatalogTable / SearchField / FilterChips
+    list/                # CatalogTable / SearchField / FilterDropdown
     state/               # AsyncState（loading/error/empty 统一呈现）
     detail/              # DetailSection / KeyValueGrid / DescRow（技能/影画/皮肤共用行）
     HollowImage.vue      # 保留
@@ -124,7 +124,7 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 ### 6.1 composables
 
 - useAsyncResource(fetcher) → { data, status, error, reload }：状态机收编 views 里手写的 loaded/error/loading 三件套；配合 watchEffect 支持路由参数变化自动 refetch。
-- useCatalogList(config) → 输入 attrs/profession/query，输出 filtered/count：把 AgentsView 的筛选逻辑通用化；各列表页只需声明可筛字段。
+- useCatalogList(config) → 输入 attrs/profession/camp/query，输出 filtered/count：把 AgentsView 的筛选逻辑通用化；各列表页只需声明可筛字段（阵营为数据动态提取，见 AgentsView）。
 - useRouteParam(name) → 响应式 param（连续导航同一组件时正确切换）。
 - usePageMeta(meta) → 写 document.title 与 meta description（三级：路由 meta 默认 → 页面覆盖 → 数据名覆盖）。
 
@@ -135,7 +135,7 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 | SiteHeader / SiteFooter | 布局 | App.vue 的结构+样式 |
 | AsyncState | loading/error/empty 呈现 | 各列表页三件套 |
 | SearchField | 搜索框 + 计数 | 4 处复制 |
-| FilterChips | 筛选按钮组 | AgentsView 的 chips 区块 |
+| FilterDropdown | 筛选下拉（属性/职业/阵营，图标 + 自定义面板） | 各列表页的筛选区块 |
 | CatalogTable | 列配置驱动表格 | 4 张手写表格；列配置声明渲染/格式化/插槽 |
 | DetailSection | 编号 section-head 容器 | 详情页 01/02/03 头部 |
 | KeyValueGrid | 数值网格 | 角色/音擎 stat-grid |
@@ -224,7 +224,7 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
       （kind 式 list/detail + DataError 归一化 + 10s 超时 + BASE_URL 派生 + lang 参数预留；
       旧 characters() 等兼容接口保留，新代码走 api.list / api.detail）
 - [x] composables：useAsyncResource（状态机收编三件套）、useCatalogList（筛选/搜索/计数通用化）、useRouteParam
-- [x] 组件：AsyncState / SearchField / FilterChips（showAttr/showProf 开关）/ CatalogTable（列配置驱动 + 行插槽）
+- [x] 组件：AsyncState / SearchField / FilterDropdown（属性/职业/阵营下拉，showAttr/showProf/showCamp 开关 + 数据驱动 camps）/ CatalogTable（列配置驱动 + 行插槽）
 - [x] 4 个列表页迁移（行为不变，代码量减半以上；样式组件化后 CSS 由 21.95kB 降至 19.04kB）
 - [x] App.vue 导航与 HomeView 目录改由 catalog 派生（删除手写双份）
 - [x] tests/api.test.ts（mock fetch：normalize/路径/缓存/错误归一化三分支 + resources 表驱动），39 用例全绿

@@ -27,6 +27,20 @@ const N = 'https://static.nanoka.cc/assets/zzz'
 /** 皮肤缩略图是否本地化（默认否：多为大图，避免仓库膨胀） */
 const SKIN_LOCAL = process.env.SKIN_LOCAL === '1'
 
+/** 从 zh 数据中动态收集富文本 <IconMap:Icon_XXX> 资产名（描述内键位图标） */
+function collectRichIconRefs() {
+  const refs = new Set()
+  for (const dir of ['character', 'bangboo', 'weapon']) {
+    const base = path.join(DATA, 'zh', dir)
+    if (!fs.existsSync(base)) continue
+    for (const f of fs.readdirSync(base)) {
+      const raw = fs.readFileSync(path.join(base, f), 'utf8')
+      for (const m of raw.matchAll(/IconMap:(Icon_\w+)/g)) refs.add(m[1])
+    }
+  }
+  return refs
+}
+
 const SKILL_ASSETS = [
   'Icon_Normal',
   'Icon_Evade',
@@ -36,6 +50,46 @@ const SKILL_ASSETS = [
   'Icon_QTE',
   'Icon_Switch',
   'Icon_Core',
+  // 动态补齐富文本引用的键位资产（如 Icon_GeneralBuff_*、Icon_JoyStick 等），
+  // 避免手写清单漏项导致描述内图标本地缺失（Q: 1041 特殊技 Icon_Special 丢失）
+  ...collectRichIconRefs(),
+]
+
+/**
+ * 资产名 → nanoka CDN 真实文件名 的别名映射。
+ * nanoka 资产集中部分图标文件名与游戏标记名不同（skillAssetSources 直接按资产名
+ * 请求会 404），下载时按此表换用真实文件名；本地落盘仍用资产名，前端无需感知。
+ * 来源：nanoka 站点 chunk 的 IconMap 映射表 + 角色数据 IconGeneralBuff/*.png 交叉验证。
+ */
+const SKILL_ASSET_ALIAS = {
+  Icon_Special: 'IconRoleSkillKeySpecial',
+  Icon_SpecialReady_Rp: 'IconRoleSkillKeySpecialV3_02',
+  Icon_GeneralBuff_Fire: 'IconFire',
+  Icon_GeneralBuff_Frost: 'IconFrost',
+  Icon_GeneralBuff_Ice: 'IconIce',
+  Icon_GeneralBuff_Thunder: 'IconThunder',
+  Icon_GeneralBuff_PhysDmg: 'IconPhysDmg',
+  Icon_GeneralBuff_HonedEdge: 'IconHonedEdge',
+  Icon_GeneralBuff_AuricInk: 'IconAuricInk',
+  Icon_GeneralBuff_DungeonBuffEther: 'IconDungeonBuffEther',
+}
+
+/**
+ * 筛选图标（属性/职业/阵营）资产清单 → 落地 /data/img/filter/。
+ * 与 src/domain/filterIcons.ts 的 ELEMENT_ICONS / PROFESSION_ICONS / CAMP_ICONS
+ * 保持一致（该文件在基线中即直连 nanoka CDN，Q: GeneralBuff 属性图标核对时发现
+ * 未本地化，违反"运行时零外部请求"铁律，故纳入构建期本地化清单）。
+ */
+const FILTER_ASSETS = [
+  // 属性
+  'IconPhysical', 'IconFire', 'IconIce', 'IconElectric', 'IconWind', 'IconEther', 'IconLumen',
+  // 职业
+  'IconAttack', 'IconStun', 'IconAnomaly', 'IconSupport', 'IconDefense', 'IconRupture',
+  // 阵营
+  'IconCampGentleHouse', 'IconCampVictoriaHousekeepingCo.', 'IconCampBelobogIndustries',
+  'IconCampSonsOfCalydon', 'IconCampObols', 'IconCampH.S.O-S6', 'IconCampN.E.P.S.',
+  'IconCampStarsOfLyra', 'IconCampMockingBird', 'IconCampSuibian', 'IconCampSpookShack',
+  'IconCampBlackRoot', 'IconCampAngelsOfDelusion',
 ]
 
 /* ---------- 收集 {category: Set<base>} ---------- */
@@ -54,6 +108,7 @@ const byCat = {
   disc: listBasenames('equipment.json', 'disc'),
   skin: SKIN_LOCAL ? new Set() : null,
   skill: new Set(SKILL_ASSETS),
+  filter: new Set(FILTER_ASSETS),
 }
 
 if (SKIN_LOCAL) {
@@ -95,7 +150,9 @@ for (const [cat, bases] of Object.entries(byCat)) {
   for (const base of bases) {
     const dest = path.join(IMG, cat, `${base}.webp`)
     if (fs.existsSync(dest)) continue // 幂等
-    queue.push({ url: `${N}/${base}.webp`, dest })
+    // skill 资产按别名映射取真实 CDN 文件名（asset 名与文件不同的场景）
+    const remote = cat === 'skill' ? (SKILL_ASSET_ALIAS[base] ?? base) : base
+    queue.push({ url: `${N}/${remote}.webp`, dest })
   }
 }
 

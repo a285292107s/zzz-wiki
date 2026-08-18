@@ -9,21 +9,23 @@ interface Item {
   Id: number
   element?: number
   type?: number
+  camp?: number
   zh?: string
   en?: string
   camp_name?: string
 }
 
 const ITEMS: Item[] = [
-  { Id: 1, element: 201, type: 1, zh: '朱鸢', camp_name: '刑侦特勤组' },
-  { Id: 2, element: 202, type: 2, zh: '苍角', camp_name: '狡兔屋' },
-  { Id: 3, element: 201, type: 3, zh: '星见雅', camp_name: '虚狩' },
+  { Id: 1, element: 201, type: 1, camp: 1, zh: '朱鸢', camp_name: '刑侦特勤组' },
+  { Id: 2, element: 202, type: 2, camp: 2, zh: '苍角', camp_name: '狡兔屋' },
+  { Id: 3, element: 201, type: 3, camp: 3, zh: '星见雅', camp_name: '虚狩' },
 ]
 
 const OPTS = {
   items: () => ITEMS,
   withAttrs: true,
   withProfs: true,
+  withCamps: true,
   keywords: (row: Item) => [row.camp_name ?? ''],
 }
 
@@ -51,6 +53,27 @@ describe('useCatalogList · 过滤逻辑', () => {
     r.attrFilter.value = 201
     r.query.value = '星见'
     expect(r.filtered.value.map((x) => x.Id)).toEqual([3])
+  })
+
+  it('camp 筛选', () => {
+    const r = useCatalogListNoRouter()
+    r.campFilter.value = 1
+    expect(r.filtered.value.map((x) => x.Id)).toEqual([1])
+  })
+
+  it('camp 与 attr 组合过滤', () => {
+    const r = useCatalogListNoRouter()
+    r.campFilter.value = 1
+    r.attrFilter.value = 201
+    expect(r.filtered.value.map((x) => x.Id)).toEqual([1])
+  })
+
+  it('camp 重置回 all 后返回全部', () => {
+    const r = useCatalogListNoRouter()
+    r.campFilter.value = 2
+    expect(r.filtered.value.map((x) => x.Id)).toEqual([2])
+    r.campFilter.value = 'all'
+    expect(r.filtered.value).toHaveLength(3)
   })
 })
 
@@ -91,6 +114,26 @@ describe('useCatalogList · URL query 双向同步', () => {
     await new Promise((r) => setTimeout(r, 0)) // 让 fire-and-forget replace 落地
     expect(hh.router.currentRoute.value.query.attr).toBe('202')
     expect(hh.api()!.filtered.value.map((x) => x.Id)).toEqual([2])
+    hh.wrap.unmount()
+  })
+
+  it('从初始 query 恢复 camp', async () => {
+    const hh = await makeHarness({ camp: '2' })
+    await flushPromises()
+    expect(hh.api()!.campFilter.value).toBe(2)
+    expect(hh.api()!.filtered.value.map((x) => x.Id)).toEqual([2])
+    hh.wrap.unmount()
+  })
+
+  it('camp 变化写回 URL query', async () => {
+    const hh = await makeHarness({})
+    await flushPromises()
+    hh.api()!.campFilter.value = 1
+    await flushPromises()
+    await hh.router.isReady()
+    await new Promise((r) => setTimeout(r, 0))
+    expect(hh.router.currentRoute.value.query.camp).toBe('1')
+    expect(hh.api()!.filtered.value.map((x) => x.Id)).toEqual([1])
     hh.wrap.unmount()
   })
 })

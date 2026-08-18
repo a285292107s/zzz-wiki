@@ -7,7 +7,7 @@
 import { toValue, watchEffect, type MaybeRefOrGetter } from 'vue'
 import { useRoute } from 'vue-router'
 
-const SITE = '空洞档案 · Hollow Archive'
+const SITE = '绳网档案 · Ropeweb Archive'
 
 export function usePageMeta(
   title?: MaybeRefOrGetter<string | undefined>,
@@ -19,7 +19,7 @@ export function usePageMeta(
     const explicit = toValue(title)?.trim()
     const metaTitle = typeof route.meta.title === 'string' ? route.meta.title : undefined
     const page = explicit || metaTitle
-    document.title = page ? `${page} · 空洞档案` : SITE
+    document.title = page ? `${page} · 绳网档案` : SITE
 
     const desc = description ? toValue(description)?.trim() : undefined
     if (desc) {

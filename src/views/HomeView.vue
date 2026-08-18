@@ -7,6 +7,9 @@ import HollowImage from '@/components/HollowImage.vue'
 usePageMeta()
 
 // 目录由 catalog.ts 派生（DESIGN.md §5.3 单一事实源）
+// 代理人类目图标：用户指定改用 nanoka 圆形头像（优先），其余沿用候选链兜底
+const AGENT_CIRCLE_ICON = 'https://static.nanoka.cc/assets/zzz/IconRoleCircle01.webp'
+
 const sections = CATALOG.map((c) => ({
   no: c.no,
   label: c.label,
@@ -15,6 +18,10 @@ const sections = CATALOG.map((c) => ({
   desc: c.desc,
   icon: c.icon,
   cat: c.iconCategory,
+  iconSrcs:
+    c.no === '01'
+      ? [AGENT_CIRCLE_ICON, ...iconSources(c.icon, 'list', c.iconCategory)]
+      : iconSources(c.icon, 'list', c.iconCategory),
 }))
 </script>
 
@@ -23,8 +30,8 @@ const sections = CATALOG.map((c) => ({
     <section class="hero">
       <p class="eyebrow mono">NEW Eridu · Data Terminal</p>
       <h1 class="page-title">
-        空洞档案
-        <span class="title-en">Hollow Archive</span>
+        绳网档案
+        <span class="title-en">Ropeweb Archive</span>
       </h1>
       <p class="page-sub">
         基于开放数据源整理的绝区零资料库。以档案编号为纲，收录代理人、音擎、邦布与驱动盘的结构化数据——不含任何主观评述，只做客观陈列。
@@ -51,7 +58,7 @@ const sections = CATALOG.map((c) => ({
           <RouterLink :to="s.to" class="index-row">
             <span class="specimen">
               <HollowImage
-                :srcs="iconSources(s.icon, 'list', s.cat)"
+                :srcs="s.iconSrcs"
                 :alt="s.label"
                 :fallback="s.en"
               />

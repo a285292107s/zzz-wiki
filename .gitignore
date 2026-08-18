@@ -20,3 +20,6 @@ temp/
 
 # vue-tsc / tsc 增量构建缓存
 *.tsbuildinfo
+
+# WorkBuddy 工作区数据（memory 日志、身份文件等，不入库）
+.workbuddy/

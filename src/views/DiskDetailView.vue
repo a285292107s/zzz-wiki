@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, nextTick, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import { iconSources } from '@/data/icons'
 import { richDesc } from '@/utils/rich'
 import { stripRichText } from '@/utils/text'
 import { useRouteParam } from '@/composables/useRouteParam'
 import { useDetailResource } from '@/composables/useDetailResource'
+import { useDetailNavigation } from '@/composables/useDetailNavigation'
 import { usePageMeta } from '@/composables/usePageMeta'
 import type { DiskDriveDetail } from '@/data/types'
 import { AsyncState, DetailHead, DetailSection } from '@/components'
@@ -20,10 +21,24 @@ const portraitSrcs = computed(() =>
   iconSources({ Id: id.value, icon: detail.value?.icon }, 'portrait', 'disc'),
 )
 
-/** 平滑滚动到区块锚点 */
-function goTo(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-}
+/* ---------- 区块导航 + scrollspy + reveal ---------- */
+
+const navItems = computed(() => [
+  { id: 'set2', no: '01', label: '2 件套' },
+  { id: 'set4', no: '02', label: '4 件套' },
+])
+
+const { activeSection, revealDir, activate } = useDetailNavigation()
+const vReveal = revealDir
+const noOf = (id: string) => navItems.value.find((n) => n.id === id)?.no
+
+/** 404 时返回驱动盘总览 */
+const backTo = computed(() => (detail.value ? undefined : '/disks'))
+
+watch(status, (s) => {
+  if (s !== 'success') return
+  nextTick(() => activate(navItems.value.map((n) => n.id)))
+})
 </script>
 
 <template>
@@ -31,11 +46,16 @@ function goTo(id: string) {
     <RouterLink to="/disks" class="back mono">← 返回驱动盘总览</RouterLink>
 
     <nav v-if="detail" class="section-nav" aria-label="页面区块">
-      <a class="sn-item mono" href="#set2" @click.prevent="goTo('set2')">01 2 件套</a>
-      <a class="sn-item mono" href="#set4" @click.prevent="goTo('set4')">02 4 件套</a>
+      <RouterLink
+        v-for="n in navItems"
+        :key="n.id"
+        class="sn-item mono"
+        :class="{ active: activeSection === n.id }"
+        :to="{ hash: '#' + n.id }"
+      >{{ n.no }} {{ n.label }}</RouterLink>
     </nav>
 
-    <AsyncState :status="status" :error="error">
+    <AsyncState :status="status" :error="error" :back-to="backTo">
       <template v-if="detail">
         <DetailHead
           :eyebrow="`Disk Drive · ${String(id).padStart(5, '0')}`"
@@ -51,11 +71,11 @@ function goTo(id: string) {
           </template>
         </DetailHead>
 
-        <DetailSection id="set2" no="01" title="2 件套">
+        <DetailSection id="set2" :no="noOf('set2') ?? '01'" title="2 件套" en="Set II">
           <p class="effect" v-html="richDesc(detail.desc2)" />
         </DetailSection>
 
-        <DetailSection id="set4" no="02" title="4 件套">
+        <DetailSection v-reveal id="set4" :no="noOf('set4') ?? '01'" title="4 件套" en="Set IV">
           <p class="effect" v-html="richDesc(detail.desc4)" />
         </DetailSection>
       </template>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useCatalogList } from '@/composables/useCatalogList'
 import { useCatalogSort } from '@/composables/useCatalogSort'
@@ -7,7 +8,7 @@ import { iconSources } from '@/data/icons'
 import type { CharacterListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { AsyncState, CatalogTable, CatalogTableSkeleton, FilterChips, SearchField, type CatalogColumn } from '@/components'
+import { AsyncState, CatalogTable, CatalogTableSkeleton, FilterDropdown, SearchField, type CatalogColumn } from '@/components'
 
 usePageMeta()
 import Tags from '@/components/Tags.vue'
@@ -16,14 +17,26 @@ import HollowImage from '@/components/HollowImage.vue'
 
 const { data, status, error } = useAsyncResource(() => api.characters())
 
-const { attrFilter, profFilter, query, filtered, count } =
+const { attrFilter, profFilter, campFilter, query, filtered, count } =
   useCatalogList<CharacterListItem>({
     items: () => data.value ?? [],
     withAttrs: true,
     withProfs: true,
+    withCamps: true,
     syncRoute: true,
     keywords: (row) => [row.camp_name ?? ''],
   })
+
+/** 阵营候选项：由数据动态提取（数字码 + 展示名），按码排序 */
+const camps = computed(() => {
+  const map = new Map<number, string>()
+  for (const row of data.value ?? []) {
+    if (row.camp !== undefined && row.camp_name) map.set(row.camp, row.camp_name)
+  }
+  return [...map.entries()]
+    .sort((a, b) => a[0] - b[0])
+    .map(([code, name]) => ({ code, name }))
+})
 
 const columns: CatalogColumn[] = [
   { key: 'name', label: '代号', sortable: true },
@@ -48,28 +61,22 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
       <p class="eyebrow mono">Agents</p>
       <h1 class="page-title">代理人</h1>
       <p class="page-sub">
-        新艾利都登记在册的代理人名录。可按属性、职业筛选，或输入姓名检索。
+        新艾利都登记在册的代理人名录。可按属性、职业、阵营筛选，或输入姓名检索。
       </p>
     </header>
 
-    <div class="search-row">
+    <div class="toolbar">
+      <FilterDropdown
+        :attr="attrFilter"
+        :prof="profFilter"
+        :camp="campFilter"
+        :camps="camps"
+        @update:attr="attrFilter = $event"
+        @update:prof="profFilter = $event"
+        @update:camp="campFilter = $event"
+      />
       <SearchField v-model="query" :count="count" placeholder="检索姓名…" />
     </div>
-
-    <section class="filter-panel">
-      <div class="panel-head">
-        <span class="panel-label mono">筛选 / FILTER</span>
-        <span class="panel-rule" />
-      </div>
-      <div class="panel-body">
-        <FilterChips
-          :attr="attrFilter"
-          :prof="profFilter"
-          @update:attr="attrFilter = $event"
-          @update:prof="profFilter = $event"
-        />
-      </div>
-    </section>
 
     <AsyncState
       :status="status"
@@ -125,50 +132,20 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
   margin-bottom: var(--pad-section);
 }
 
-.search-row {
+.toolbar {
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: 12px;
-}
-
-.search-row :deep(.search) {
-  width: auto;
-  min-width: 300px;
-}
-
-.filter-panel {
-  padding: 12px 0 14px;
-  margin-bottom: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.panel-head {
-  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 14px;
-}
-
-.panel-label {
-  flex: none;
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-}
-
-.panel-rule {
-  flex: 1;
-  height: 1px;
-  background: var(--line-0);
-}
-
-.panel-body {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  justify-content: space-between;
   gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: var(--rule);
+}
+
+.toolbar :deep(.search) {
+  width: auto;
+  min-width: 280px;
 }
 
 .name-cell {

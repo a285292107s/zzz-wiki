@@ -79,6 +79,12 @@ async function getJson<T>(path: string): Promise<T> {
       if (!r.ok) {
         throw new DataError('http', `HTTP ${r.status} · ${url}`, { status: r.status, url })
       }
+      // Vite dev 等环境对缺失 JSON 回退为 SPA 的 index.html（200+HTML）。
+      // 数据端点不会返回 HTML，命中即视为“不存在”，让 404 语义在 dev/prod 一致。
+      const ctype = typeof r.headers?.get === 'function' ? r.headers.get('content-type') ?? '' : ''
+      if (ctype.includes('text/html')) {
+        throw new DataError('http', `HTTP 404 · ${url}`, { status: 404, url })
+      }
       return r.json() as Promise<T>
     })
     .catch((e) => {

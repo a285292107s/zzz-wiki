@@ -64,6 +64,19 @@ select {
   font-feature-settings: 'tnum' 1, 'zero' 1;
 }
 
+/* 富文本键位图标降级占位（main.ts 全局 error 捕获生成）：资产全部缺失时
+   显示的虚线细线方框，与 .rich-key 同尺寸，保持"档案标本"的克制语言 */
+.rich-key.rich-key-broken {
+  display: inline-block;
+  width: 1.15em;
+  height: 1.15em;
+  margin: 0 0.1em;
+  vertical-align: -0.22em;
+  border: 1px dashed var(--line-1);
+  border-radius: 1px;
+  line-height: 0;
+}
+
 /* Eyebrow label: tiny, tracked, uppercase-ish */
 .eyebrow {
   font-family: var(--mono);
@@ -150,7 +163,7 @@ select {
 .hairline-table th,
 .hairline-table td {
   text-align: left;
-  padding: 12px 14px;
+  padding: var(--space-2);
   border-bottom: var(--rule);
   vertical-align: middle;
 }
@@ -162,8 +175,6 @@ select {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-2);
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
 .hairline-table tbody tr {
@@ -174,14 +185,21 @@ select {
   background: var(--bg-1);
 }
 
-/* ---------- 详情页区块内导航（Q3b） ---------- */
+/* ---------- 详情页区块内导航（Q3b；粘性 + 当前区块高亮） ---------- */
 
 .section-nav {
+  position: sticky;
+  top: 61px; /* 站头 62px - 1px 边线重叠 */
+  z-index: 90;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: calc(var(--pad-section) * 0.55);
-  margin-top: calc(-1 * var(--pad-section) * 0.25);
+  padding-block: 10px;
+  margin-bottom: calc(var(--pad-section) * 0.4);
+  background: color-mix(in srgb, var(--bg-0) 92%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: var(--rule);
 }
 
 .sn-item {
@@ -191,13 +209,40 @@ select {
   border: 1px solid var(--line-1);
   border-radius: 2px;
   padding: 4px 10px;
+  background: transparent;
   transition: color var(--t-fast) var(--ease),
-    border-color var(--t-fast) var(--ease);
+    border-color var(--t-fast) var(--ease),
+    background var(--t-fast) var(--ease);
 }
 
 .sn-item:hover {
   color: var(--amber-hi);
   border-color: var(--amber);
+}
+
+.sn-item.active {
+  color: var(--amber-hi);
+  border-color: var(--amber);
+  background: var(--amber-dim);
+}
+
+/* ---------- 滚动进入显示（视图 v-reveal 指令挂类） ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 480ms var(--ease), transform 480ms var(--ease);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- 锚点滚动避让：粘性站头 + 区块导航 ---------- */
+
+section[id] {
+  scroll-margin-top: 118px;
 }
 
 /* ---------- focus & motion ---------- */

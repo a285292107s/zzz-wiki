@@ -1,5 +1,5 @@
 /* ============================================================
-   空洞档案 · 设计变量
+   绳网档案 · 设计变量
    A design that reads like a classified hollow data terminal:
    ink-dark surfaces, warm paper-white type, one amber accent,
    hairline rules, tabular data numerals. No gradients, no glow.
@@ -44,6 +44,12 @@
   --pad-page: clamp(20px, 4vw, 56px);
   --pad-section: clamp(40px, 6vw, 96px);
   --rule: 1px solid var(--line-1);
+
+  /* 纵向节奏标尺：详情页区块间与区块内子组用同一份尺度，避免散落 calc() */
+  --space-1: 8px;
+  --space-2: 14px;
+  --space-group: clamp(26px, 3vw, 42px);          /* 同一区块内子组之间的间距（如技能组） */
+  --space-section: calc(var(--pad-section) * 0.72); /* 详情页区块与区块之间的间距 */
 
   /* motion */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);

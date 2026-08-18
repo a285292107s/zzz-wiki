@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, nextTick, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import { iconSources } from '@/data/icons'
 import { richDesc } from '@/utils/rich'
 import { stripRichText } from '@/utils/text'
 import { useRouteParam } from '@/composables/useRouteParam'
 import { useDetailResource } from '@/composables/useDetailResource'
+import { useDetailNavigation } from '@/composables/useDetailNavigation'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { dictToRows, type DetailRow, type StatItem } from '@/domain/sections'
 import { PROFESSIONS, type SpecCode } from '@/data/types'
@@ -76,10 +77,27 @@ const portraitSrcs = computed(() =>
   iconSources({ Id: detail.value?.id, icon: detail.value?.icon }, 'portrait', 'weapon'),
 )
 
-/** 平滑滚动到区块锚点 */
-function goTo(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-}
+/* ---------- 区块导航（条件区块）+ scrollspy + reveal ---------- */
+
+const navItems = computed(() => {
+  const items: Array<{ id: string; no: string; label: string }> = []
+  if (hasBody.value) items.push({ id: 'overview', no: '01', label: '概述' })
+  items.push({ id: 'props', no: hasBody.value ? '02' : '01', label: '基础属性' })
+  items.push({ id: 'talents', no: hasBody.value ? '03' : '02', label: '精炼效果' })
+  return items
+})
+
+const { activeSection, revealDir, activate } = useDetailNavigation()
+const vReveal = revealDir
+const noOf = (id: string) => navItems.value.find((n) => n.id === id)?.no
+
+/** 404 时返回音擎图鉴 */
+const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
+
+watch(status, (s) => {
+  if (s !== 'success') return
+  nextTick(() => activate(navItems.value.map((n) => n.id)))
+})
 </script>
 
 <template>
@@ -87,12 +105,16 @@ function goTo(id: string) {
     <RouterLink to="/w-engines" class="back mono">← 返回音擎图鉴</RouterLink>
 
     <nav v-if="detail" class="section-nav" aria-label="页面区块">
-      <a v-if="hasBody" class="sn-item mono" href="#overview" @click.prevent="goTo('overview')">01 概述</a>
-      <a class="sn-item mono" href="#props" @click.prevent="goTo('props')">02 基础属性</a>
-      <a class="sn-item mono" href="#talents" @click.prevent="goTo('talents')">03 精炼效果</a>
+      <RouterLink
+        v-for="n in navItems"
+        :key="n.id"
+        class="sn-item mono"
+        :class="{ active: activeSection === n.id }"
+        :to="{ hash: '#' + n.id }"
+      >{{ n.no }} {{ n.label }}</RouterLink>
     </nav>
 
-    <AsyncState :status="status" :error="error">
+    <AsyncState :status="status" :error="error" :back-to="backTo">
       <template v-if="detail">
         <DetailHead
           :eyebrow="`W-Engine · ${String(id).padStart(4, '0')}`"
@@ -112,15 +134,15 @@ function goTo(id: string) {
           </template>
         </DetailHead>
 
-        <DetailSection v-if="hasBody" id="overview" no="01" title="概述">
+        <DetailSection v-if="hasBody" id="overview" :no="noOf('overview') ?? '01'" title="概述" en="Lore">
           <p class="story">{{ bodyText }}</p>
         </DetailSection>
 
-        <DetailSection id="props" no="02" title="基础属性">
+        <DetailSection v-reveal id="props" :no="noOf('props') ?? '01'" title="基础属性" en="Specs">
           <KeyValueGrid :items="propItems" />
         </DetailSection>
 
-        <DetailSection id="talents" no="03" title="精炼效果">
+        <DetailSection v-reveal id="talents" :no="noOf('talents') ?? '01'" title="精炼效果" en="Refine">
           <ul v-if="talents.length" class="desc-list">
             <DescRow
               v-for="t in talents"

@@ -6,7 +6,7 @@ import {
   CatalogTable,
   DescRow,
   DetailSection,
-  FilterChips,
+  FilterDropdown,
   KeyValueGrid,
   SearchField,
   type CatalogColumn,
@@ -92,7 +92,7 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
       <p class="eyebrow mono">Style Guide</p>
       <h1 class="page-title">设计系统</h1>
       <p class="page-sub">
-        空洞档案的组件速查与设计 token 实况。所有视觉均来自
+        绳网档案的组件速查与设计 token 实况。所有视觉均来自
         <code>tokens.css</code> 与组件库，本页不额外定义任何新样式。
       </p>
     </header>
@@ -127,7 +127,7 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
         <div v-for="t in typeTokens" :key="t.name" class="type-row">
           <span class="type-name mono">{{ t.name }}</span>
           <span class="type-preview" :style="{ fontFamily: t.value }">
-            空洞档案 Hollow Archive 0123456789
+            绳网档案 Ropeweb Archive 0123456789
           </span>
           <span class="val mono">{{ t.value }}</span>
         </div>
@@ -142,7 +142,7 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
     <DetailSection no="03" title="检索与筛选">
       <div class="demo-col">
         <SearchField v-model="query" :count="4" placeholder="检索示例…" />
-        <FilterChips v-model:attr="attr" v-model:prof="prof" />
+        <FilterDropdown v-model:attr="attr" v-model:prof="prof" />
       </div>
     </DetailSection>
 

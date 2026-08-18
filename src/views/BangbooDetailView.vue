@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, nextTick, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import { iconSources } from '@/data/icons'
 import { richDesc } from '@/utils/rich'
 import { stripRichText } from '@/utils/text'
 import { useRouteParam } from '@/composables/useRouteParam'
 import { useDetailResource } from '@/composables/useDetailResource'
+import { useDetailNavigation } from '@/composables/useDetailNavigation'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { buildBangbooSkills, type StatItem } from '@/domain/sections'
 import type { BangbooDetail } from '@/data/types'
@@ -47,10 +48,25 @@ const stats = computed<StatItem[]>(() => {
 
 const skills = computed(() => buildBangbooSkills(detail.value?.skill))
 
-/** 平滑滚动到区块锚点 */
-function goTo(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-}
+/* ---------- 区块导航 + scrollspy + reveal ---------- */
+
+const navItems = computed(() => {
+  const items = [{ id: 'stats', no: '01', label: '基础数值' }]
+  if (skills.value.length) items.push({ id: 'skills', no: '02', label: '技能' })
+  return items
+})
+
+const { activeSection, revealDir, activate } = useDetailNavigation()
+const vReveal = revealDir
+const noOf = (id: string) => navItems.value.find((n) => n.id === id)?.no
+
+/** 404 时返回邦布名录 */
+const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
+
+watch(status, (s) => {
+  if (s !== 'success') return
+  nextTick(() => activate(navItems.value.map((n) => n.id)))
+})
 </script>
 
 <template>
@@ -58,11 +74,16 @@ function goTo(id: string) {
     <RouterLink to="/bangboos" class="back mono">← 返回邦布名录</RouterLink>
 
     <nav v-if="detail" class="section-nav" aria-label="页面区块">
-      <a class="sn-item mono" href="#stats" @click.prevent="goTo('stats')">01 基础数值</a>
-      <a v-if="skills.length" class="sn-item mono" href="#skills" @click.prevent="goTo('skills')">02 技能</a>
+      <RouterLink
+        v-for="n in navItems"
+        :key="n.id"
+        class="sn-item mono"
+        :class="{ active: activeSection === n.id }"
+        :to="{ hash: '#' + n.id }"
+      >{{ n.no }} {{ n.label }}</RouterLink>
     </nav>
 
-    <AsyncState :status="status" :error="error">
+    <AsyncState :status="status" :error="error" :back-to="backTo">
       <template v-if="detail">
         <DetailHead
           :eyebrow="`Bangboo · ${String(id).padStart(5, '0')}`"
@@ -82,11 +103,11 @@ function goTo(id: string) {
           </template>
         </DetailHead>
 
-        <DetailSection id="stats" no="01" title="基础数值">
+        <DetailSection id="stats" :no="noOf('stats') ?? '01'" title="基础数值" en="Vitals">
           <KeyValueGrid :items="stats" />
         </DetailSection>
 
-        <DetailSection v-if="skills.length" id="skills" no="02" title="技能">
+        <DetailSection v-if="skills.length" v-reveal id="skills" :no="noOf('skills') ?? '01'" title="技能" en="Skills">
           <div v-for="sk in skills" :key="sk.key" class="skill-group">
             <div class="skill-kind-row">
               <span class="slot mono">{{ sk.key.toUpperCase() }}</span>
@@ -142,14 +163,14 @@ function goTo(id: string) {
 }
 
 .skill-group {
-  margin-bottom: 26px;
+  margin-bottom: var(--space-group);
 }
 
 .skill-kind-row {
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-bottom: 6px;
+  margin-bottom: var(--space-1);
 }
 
 .slot {

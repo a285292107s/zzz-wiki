@@ -15,6 +15,7 @@ import type { AttrCode, SpecCode } from '@/domain/enums'
 
 export type AttrFilter = 'all' | AttrCode
 export type ProfFilter = 'all' | SpecCode
+export type CampFilter = 'all' | number
 
 export interface CatalogListOptions<T> {
   /** 条目源：Ref 或返回数组的函数（函数会被 computed 包装） */
@@ -27,12 +28,14 @@ export interface CatalogListOptions<T> {
   withAttrs?: boolean
   /** 启用职业筛选（默认 false） */
   withProfs?: boolean
+  /** 启用阵营筛选（默认 false；阵营码为动态数据，见 withCamps） */
+  withCamps?: boolean
   /** 是否支持空查询返回全部（默认 true） */
   skipEmptyQuery?: boolean
   /** 是否与 URL query 双向同步（默认 false；每页只应启用一次） */
   syncRoute?: boolean
-  /** URL query 的键名（仅在 syncRoute 时生效），默认 q/attr/prof */
-  queryKeys?: { q?: string; attr?: string; prof?: string }
+  /** URL query 的键名（仅在 syncRoute 时生效），默认 q/attr/prof/camp */
+  queryKeys?: { q?: string; attr?: string; prof?: string; camp?: string }
 }
 
 type Filter = 'all' | number
@@ -47,6 +50,13 @@ function parseFilter(raw: string | null, allowed: readonly number[]): Filter {
   return allowed.includes(n) ? n : 'all'
 }
 
+/** 阵营码是动态数据，无法预置白名单：仅接受正整数，非法回退到 all。 */
+function parseCampFilter(raw: string | null): Filter {
+  if (!raw || raw === 'all') return 'all'
+  const n = Number(raw)
+  return Number.isInteger(n) && n > 0 ? n : 'all'
+}
+
 export function useCatalogList<T extends Record<string, unknown>>(
   opts: CatalogListOptions<T>,
 ) {
@@ -55,12 +65,14 @@ export function useCatalogList<T extends Record<string, unknown>>(
 
   const attrFilter = ref<AttrFilter>('all')
   const profFilter = ref<ProfFilter>('all')
+  const campFilter = ref<CampFilter>('all')
   const query = ref('')
   const nameOf = opts.name ?? ((x: T) => pickName(x))
   const keywordsOf = opts.keywords ?? (() => [])
 
   const withAttrs = opts.withAttrs ?? false
   const withProfs = opts.withProfs ?? false
+  const withCamps = opts.withCamps ?? false
   const skipEmptyQuery = opts.skipEmptyQuery ?? true
 
   /* ---------- URL query 双向同步（Q1a） ---------- */
@@ -72,6 +84,7 @@ export function useCatalogList<T extends Record<string, unknown>>(
       q: opts.queryKeys?.q ?? 'q',
       attr: opts.queryKeys?.attr ?? 'attr',
       prof: opts.queryKeys?.prof ?? 'prof',
+      camp: opts.queryKeys?.camp ?? 'camp',
     }
 
     /** 正在从 URL 回写状态（抑制 refs→URL 的 echo） */
@@ -79,13 +92,14 @@ export function useCatalogList<T extends Record<string, unknown>>(
 
     // 状态变化 → 写回 query（replace，不压历史）
     watch(
-      [query, attrFilter, profFilter],
-      ([q, attr, prof]) => {
+      [query, attrFilter, profFilter, campFilter],
+      ([q, attr, prof, camp]) => {
         if (syncing) return
         const next: Record<string, string> = {}
         if (q) next[keys.q] = q
         if (withAttrs && attr !== 'all') next[keys.attr] = String(attr)
         if (withProfs && prof !== 'all') next[keys.prof] = String(prof)
+        if (withCamps && camp !== 'all') next[keys.camp] = String(camp)
         void router.replace({ query: next })
       },
       { flush: 'sync' },
@@ -100,10 +114,14 @@ export function useCatalogList<T extends Record<string, unknown>>(
       const p = withProfs
         ? parseFilter(String(route.query[keys.prof] ?? ''), SPEC_CODES)
         : 'all'
+      const c = withCamps
+        ? parseCampFilter(String(route.query[keys.camp] ?? ''))
+        : 'all'
       syncing = true
       if (q !== query.value) query.value = q
       if (a !== attrFilter.value) attrFilter.value = a as AttrFilter
       if (p !== profFilter.value) profFilter.value = p as ProfFilter
+      if (c !== campFilter.value) campFilter.value = c as CampFilter
       syncing = false
     })
   }
@@ -118,6 +136,9 @@ export function useCatalogList<T extends Record<string, unknown>>(
     if (withProfs && profFilter.value !== 'all') {
       list = list.filter((i) => i.type === profFilter.value)
     }
+    if (withCamps && campFilter.value !== 'all') {
+      list = list.filter((i) => i.camp === campFilter.value)
+    }
     const q = query.value.trim().toLowerCase()
     if (q || !skipEmptyQuery) {
       list = list.filter((i) => {
@@ -130,7 +151,7 @@ export function useCatalogList<T extends Record<string, unknown>>(
 
   const count = computed(() => filtered.value.length)
 
-  return { attrFilter, profFilter, query, filtered, count, nameOf }
+  return { attrFilter, profFilter, campFilter, query, filtered, count, nameOf }
 }
 
 export type { ComputedRef }

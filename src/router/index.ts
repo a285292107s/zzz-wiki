@@ -2,7 +2,15 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 export const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  scrollBehavior: () => ({ top: 0 }),
+  /* 深链：前进/后退还原，hash 锚点平滑直达（元素未就绪时由视图层兜底滚动） */
+  scrollBehavior(to, _from, savedPosition) {
+    if (savedPosition) return savedPosition
+    if (to.hash) {
+      const id = to.hash.slice(1)
+      if (document.getElementById(id)) return { el: to.hash, top: 0, behavior: 'smooth' }
+    }
+    return { top: 0 }
+  },
   routes: [
     {
       path: '/',

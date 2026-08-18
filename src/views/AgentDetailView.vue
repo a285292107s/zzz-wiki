@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, nextTick, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import { iconSources, skillIconSources, type SkillSlot } from '@/data/icons'
-import { richDesc } from '@/utils/rich'
 import { stripRichText } from '@/utils/text'
 import { useRouteParam } from '@/composables/useRouteParam'
 import { useDetailResource } from '@/composables/useDetailResource'
+import { useDetailNavigation } from '@/composables/useDetailNavigation'
 import { usePageMeta } from '@/composables/usePageMeta'
 import {
   buildSkillRows,
@@ -22,44 +22,15 @@ interface SkillDisplay extends SkillRow {
   glyph: string
   srcs: string[]
 }
-import type { AttrCode, SpecCode } from '@/data/types'
 import type { CharacterDetail } from '@/data/types'
-import { AsyncState, DescRow, DetailHead, DetailSection, KeyValueGrid } from '@/components'
+import { AsyncState, AgentHead, DescRow, DetailSection, KeyValueGrid, SkillGroup } from '@/components'
 import BackToTop from '@/components/BackToTop.vue'
-import Tags from '@/components/Tags.vue'
-import Rarity from '@/components/Rarity.vue'
 import HollowImage from '@/components/HollowImage.vue'
 
 const id = useRouteParam('id')
 const { data: detail, status, error } = useDetailResource<CharacterDetail>('character', id)
 
 usePageMeta(() => detail.value?.name ?? undefined)
-
-const attrCode = computed<AttrCode | null>(() => {
-  const el = detail.value?.element_type
-  const key = el ? Object.keys(el)[0] : null
-  return key ? (Number(key) as AttrCode) : null
-})
-
-/** 特殊属性展示名：有 special_element_type（如 星见雅→烈霜）时优先展示 */
-const specialElementName = computed<string | null>(() => {
-  const sp = detail.value?.special_element_type
-  return sp?.name ? String(sp.name) : null
-})
-
-const specCode = computed<SpecCode | null>(() => {
-  const w = detail.value?.weapon_type
-  const key = w ? Object.keys(w)[0] : null
-  return key ? (Number(key) as SpecCode) : null
-})
-
-const campName = computed(() => {
-  const c = detail.value?.camp
-  const key = c ? Object.keys(c)[0] : null
-  return key && c ? String(c[key]) : null
-})
-
-const info = computed(() => detail.value?.partner_info ?? null)
 
 type StatCell = number | string | unknown[]
 
@@ -97,17 +68,51 @@ const skills = computed<SkillDisplay[]>(() =>
     srcs: skillIconSources(sk.key as SkillSlot),
   })),
 )
+
 const talents = computed<DetailRow[]>(() => dictToRows(detail.value?.talent))
 const skinList = computed<SkinRow[]>(() => buildSkinRows(detail.value?.skin))
 
-const portraitSrcs = computed(() =>
-  iconSources({ Id: detail.value?.id, icon: detail.value?.icon }, 'portrait', 'character'),
+/* ---------- 绳网印象（partner_info 网络引语） ---------- */
+
+const impressions = computed<string[]>(() =>
+  (detail.value?.partner_info?.impressions ?? [])
+    .map((t) => stripRichText(t))
+    .filter(Boolean),
 )
 
-/** 平滑滚动到区块锚点 */
-function goTo(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-}
+const voices = computed<string[]>(() => {
+  const i = detail.value?.partner_info
+  if (!i) return []
+  return [i.impression_f, i.impression_m]
+    .filter((t): t is string => !!t)
+    .map((t) => stripRichText(t))
+})
+
+const hasImpressions = computed(
+  () => impressions.value.length > 0 || voices.value.length > 0,
+)
+
+/* ---------- 区块导航（条件区块）+ scrollspy + reveal ---------- */
+
+const navItems = computed(() => {
+  const items = [{ id: 'stats', no: '01', label: '基础数值' }]
+  if (skills.value.length) items.push({ id: 'skills', no: '02', label: '技能' })
+  if (talents.value.length) items.push({ id: 'talents', no: '03', label: '影画' })
+  if (skinList.value.length > 1) items.push({ id: 'skins', no: '04', label: '皮肤' })
+  if (hasImpressions.value) items.push({ id: 'impressions', no: '05', label: '绳网印象' })
+  return items
+})
+
+const { activeSection, revealDir, activate } = useDetailNavigation()
+const vReveal = revealDir
+
+/** 404 时返回名录 */
+const backTo = computed(() => (detail.value ? undefined : '/agents'))
+
+watch(status, (s) => {
+  if (s !== 'success') return
+  nextTick(() => activate(navItems.value.map((n) => n.id)))
+})
 </script>
 
 <template>
@@ -115,61 +120,35 @@ function goTo(id: string) {
     <RouterLink to="/agents" class="back mono">← 返回名录</RouterLink>
 
     <nav v-if="detail" class="section-nav" aria-label="页面区块">
-      <a class="sn-item mono" href="#stats" @click.prevent="goTo('stats')">01 基础数值</a>
-      <a v-if="skills.length" class="sn-item mono" href="#skills" @click.prevent="goTo('skills')">02 技能</a>
-      <a v-if="talents.length" class="sn-item mono" href="#talents" @click.prevent="goTo('talents')">03 影画</a>
-      <a v-if="skinList.length > 1" class="sn-item mono" href="#skins" @click.prevent="goTo('skins')">04 皮肤</a>
+      <RouterLink
+        v-for="n in navItems"
+        :key="n.id"
+        class="sn-item mono"
+        :class="{ active: activeSection === n.id }"
+        :to="{ hash: '#' + n.id }"
+      >{{ n.no }} {{ n.label }}</RouterLink>
     </nav>
 
-    <AsyncState :status="status" :error="error">
+    <AsyncState :status="status" :error="error" :back-to="backTo">
       <template v-if="detail">
-        <DetailHead
-          :eyebrow="`Agent · ${String(id).padStart(4, '0')}`"
-          :title="detail.name ?? '—'"
-          :portrait-srcs="portraitSrcs"
-          :alt="detail.name ?? ''"
-          :fallback="detail.name ?? '—'"
-          position="top"
-          ratio="3 / 4"
-        >
-          <template #meta>
-            <Rarity :rank="detail.rarity" />
-            <Tags :element="attrCode" :element-label="specialElementName" :specialty="specCode" />
-            <span v-if="campName" class="camp">{{ campName }}</span>
-          </template>
-          <template #sub>
-            <p v-if="info?.profile_desc" class="profile">{{ stripRichText(info.profile_desc) }}</p>
-          </template>
-        </DetailHead>
+        <AgentHead :detail="detail" />
 
-        <DetailSection id="stats" no="01" title="基础数值">
-          <KeyValueGrid :items="stats" />
+        <DetailSection id="stats" no="01" title="基础数值" en="Vitals">
+          <KeyValueGrid :items="stats" variant="ledger" />
         </DetailSection>
 
-        <DetailSection v-if="skills.length" id="skills" no="02" title="技能">
-          <div v-for="sk in skills" :key="sk.key" class="skill-group">
-            <div class="skill-kind-row">
-              <span class="key-glyph">
-                <HollowImage :srcs="sk.srcs" :alt="sk.zh" :fallback="sk.glyph" />
-                <em class="mono">{{ sk.keyEn }}</em>
-              </span>
-              <h3 class="skill-kind serif">{{ sk.zh }}</h3>
-            </div>
-            <ul v-if="sk.descriptions?.length" class="desc-list">
-              <DescRow
-                v-for="(d, i) in sk.descriptions"
-                :key="i"
-                :no="String(i + 1).padStart(2, '0')"
-                :title="d.name ?? '—'"
-                :html="richDesc(d.desc)"
-                variant="skill"
-              />
-            </ul>
-          </div>
+        <DetailSection v-if="skills.length" v-reveal id="skills" no="02" title="技能" en="Skills">
+          <SkillGroup
+            v-for="sk in skills"
+            :key="sk.key"
+            :row="sk"
+            :glyph="sk.glyph"
+            :srcs="sk.srcs"
+          />
         </DetailSection>
 
-        <DetailSection v-if="talents.length" id="talents" no="03" title="影画">
-          <ul class="desc-list">
+        <DetailSection v-if="talents.length" v-reveal id="talents" no="03" title="影画" en="Mindscape">
+          <ul class="talents-list">
             <DescRow
               v-for="t in talents"
               :key="t.no"
@@ -181,7 +160,7 @@ function goTo(id: string) {
           </ul>
         </DetailSection>
 
-        <DetailSection v-if="skinList.length > 1" id="skins" no="04" title="皮肤">
+        <DetailSection v-if="skinList.length > 1" v-reveal id="skins" no="04" title="皮肤" en="Outfits">
           <ul class="skin-list">
             <li v-for="s in skinList" :key="s.id" class="skin">
               <span class="skin-thumb">
@@ -198,6 +177,28 @@ function goTo(id: string) {
               </div>
             </li>
           </ul>
+        </DetailSection>
+
+        <DetailSection
+          v-if="hasImpressions"
+          v-reveal
+          id="impressions"
+          no="05"
+          title="绳网印象"
+          en="Inter-Knot"
+        >
+          <ul class="im-list">
+            <li v-for="(t, i) in impressions" :key="i" class="im-row">
+              <span class="no mono">{{ String(i + 1).padStart(2, '0') }}</span>
+              <p class="im-text">{{ t }}</p>
+            </li>
+          </ul>
+          <div v-if="voices.length" class="voices">
+            <figure v-for="(v, i) in voices" :key="i" class="voice">
+              <blockquote class="serif">「{{ v }}」</blockquote>
+              <figcaption class="mono">VOICE · {{ String(i + 1).padStart(2, '0') }}</figcaption>
+            </figure>
+          </div>
         </DetailSection>
       </template>
     </AsyncState>
@@ -224,62 +225,9 @@ function goTo(id: string) {
   color: var(--amber-hi);
 }
 
-.camp {
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  color: var(--ink-1);
-}
+/* ---------- talents ---------- */
 
-.profile {
-  margin-top: 8px;
-  color: var(--ink-1);
-  font-size: 14px;
-  line-height: 1.8;
-  max-width: 56ch;
-}
-
-/* ---------- skills ---------- */
-
-.skill-group {
-  margin-bottom: 26px;
-}
-
-.skill-kind-row {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 6px;
-}
-
-.key-glyph {
-  width: 40px;
-  flex: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-}
-
-.key-glyph :deep(.frame) {
-  width: 38px;
-  height: 38px;
-  border-radius: 2px;
-}
-
-.key-glyph em {
-  font-style: normal;
-  font-size: 8px;
-  letter-spacing: 0.14em;
-  color: var(--ink-3);
-}
-
-.skill-kind {
-  font-size: 16.5px;
-  font-weight: 500;
-  color: var(--amber);
-}
-
-.desc-list {
+.talents-list {
   list-style: none;
 }
 
@@ -327,9 +275,56 @@ function goTo(id: string) {
   max-width: 76ch;
 }
 
-@media (max-width: 860px) {
-  .head {
-    flex-direction: column-reverse;
-  }
+/* ---------- 绳网印象 ---------- */
+
+.im-list {
+  list-style: none;
+}
+
+.im-row {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 14px;
+  padding: 14px 4px;
+  border-bottom: var(--rule);
+}
+
+.im-row .no {
+  color: var(--ink-3);
+  font-size: 12px;
+  padding-top: 3px;
+}
+
+.im-text {
+  color: var(--ink-1);
+  font-size: 13.5px;
+  line-height: 1.85;
+  max-width: 76ch;
+  white-space: pre-line;
+}
+
+.voices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.voice {
+  border-left: 1px solid var(--line-2);
+  padding-left: 18px;
+}
+
+.voice blockquote {
+  font-size: 15px;
+  color: var(--ink-0);
+  line-height: 1.9;
+}
+
+.voice figcaption {
+  margin-top: 10px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--amber);
 }
 </style>

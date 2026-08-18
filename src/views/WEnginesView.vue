@@ -7,7 +7,7 @@ import { iconSources } from '@/data/icons'
 import type { WEngineListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { AsyncState, CatalogTable, CatalogTableSkeleton, FilterChips, SearchField, type CatalogColumn } from '@/components'
+import { AsyncState, CatalogTable, CatalogTableSkeleton, FilterDropdown, SearchField, type CatalogColumn } from '@/components'
 
 usePageMeta()
 import Tags from '@/components/Tags.vue'
@@ -46,7 +46,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
     </header>
 
     <section class="toolbar">
-      <FilterChips
+      <FilterDropdown
         :show-attr="false"
         :prof="profFilter"
         @update:prof="profFilter = $event"
