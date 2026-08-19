@@ -45,3 +45,6 @@
 
 - 包管理：仓库同时有 `package-lock.json` 与 `pnpm-lock.yaml`，新依赖请保持两把锁一致。
 - 开发：`npm run dev`（http://localhost:5173）；构建：`npm run build`。
+- **部署构建入口**：`npm run build:ci`（Vercel buildCommand 已指向它）——先经 `scripts/ci-data.ts`
+  同步数据（版本探测 → 有更新才构建 → 失败回退既有产物 → 契约校验告警），再 `npm run build`。
+  本地模拟 CI 数据同步：`npm run data -- --check`（仅探测）或 `npx tsx scripts/ci-data.ts`。

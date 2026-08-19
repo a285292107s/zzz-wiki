@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
+    "build:ci": "tsx scripts/ci-data.ts && npm run build",
     "preview": "vite preview",
     "data": "tsx scripts/build-data.ts",
     "download:icons": "node scripts/build/download-icons.mjs",

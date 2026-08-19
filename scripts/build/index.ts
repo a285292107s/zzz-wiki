@@ -77,3 +77,28 @@ export async function main(): Promise<void> {
 
   console.log('[4/4] 完成 →', OUT)
 }
+
+/**
+ * 版本探测（--check / ci-data 用）：实时拉取源站 manifest，
+ * 对比本地产物 manifest.json 的 latest；本地缺失或版本不同 → true。
+ * 源站不可达时抛错（由调用方决定回退策略）。
+ */
+export async function needUpdate(): Promise<boolean> {
+  const remote = (await fetchJson(
+    'https://static.nanoka.cc/manifest.json',
+    'manifest.json',
+  )) as { zzz?: { latest?: string } }
+  let localLatest: string | undefined
+  try {
+    const local = JSON.parse(
+      await fs.readFile(path.join(OUT, 'manifest.json'), 'utf8'),
+    ) as { zzz?: { latest?: string } }
+    localLatest = local.zzz?.latest
+  } catch (e) {
+    // 仅本地产物缺失（ENOENT）视为需要更新；其余错误（含编程错误）如实上抛，
+    // 避免被静默吞掉导致误判（曾因 fsp 未定义被 catch 吞掉而恒判有更新）
+    if ((e as NodeJS.ErrnoException)?.code !== 'ENOENT') throw e
+    localLatest = undefined
+  }
+  return localLatest !== remote.zzz?.latest
+}
