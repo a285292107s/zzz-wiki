@@ -185,30 +185,29 @@ select {
   background: var(--bg-1);
 }
 
-/* ---------- 详情页区块内导航（Q3b；粘性 + 当前区块高亮） ---------- */
+/* ---------- 详情页区块内导航：宽屏左侧目录（档案侧脊）/ 窄屏吸顶横条 ---------- */
 
 .section-nav {
-  position: sticky;
-  top: 61px; /* 站头 62px - 1px 边线重叠 */
+  /* 宽屏：固定于内容区左侧留白，垂直居中（脱离文档流，不占版心） */
+  position: fixed;
   z-index: 90;
+  top: 50%;
+  transform: translateY(-50%);
+  left: max(14px, calc((100vw - 1280px) / 2 - 130px));
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding-block: 10px;
-  margin-bottom: calc(var(--pad-section) * 0.4);
-  background: color-mix(in srgb, var(--bg-0) 92%, transparent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: var(--rule);
+  flex-direction: column;
+  gap: 5px;
+  padding: 0;
+  margin: 0;
 }
 
 .sn-item {
-  font-size: 11px;
-  letter-spacing: 0.14em;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
   color: var(--ink-2);
   border: 1px solid var(--line-1);
   border-radius: 2px;
-  padding: 4px 10px;
+  padding: 3px 8px;
   background: transparent;
   transition: color var(--t-fast) var(--ease),
     border-color var(--t-fast) var(--ease),
@@ -226,6 +225,30 @@ select {
   background: var(--amber-dim);
 }
 
+/* 窄屏：左侧留白不足，恢复为站头下的吸顶横条 */
+@media (max-width: 1520px) {
+  .section-nav {
+    position: sticky;
+    top: 61px; /* 站头 62px - 1px 边线重叠 */
+    transform: none;
+    left: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-block: 10px;
+    margin-bottom: calc(var(--pad-section) * 0.4);
+    background: color-mix(in srgb, var(--bg-0) 92%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: var(--rule);
+  }
+
+  .sn-item {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+}
+
 /* ---------- 滚动进入显示（视图 v-reveal 指令挂类） ---------- */
 
 .reveal {
@@ -239,10 +262,24 @@ select {
   transform: none;
 }
 
-/* ---------- 锚点滚动避让：粘性站头 + 区块导航 ---------- */
+/* ---------- 锚点滚动避让：响应式（站头 + 吸顶横条） ----------
+   --anchor-offset 是单一来源：CSS 侧栏断点（1520）与 router scrollBehavior 共用 */
+
+:root {
+  /* 宽屏侧栏模式（>1520）：只避让站头 62px + 14px 间隙 */
+  --anchor-offset: 76px;
+}
+
+@media (max-width: 1520px) {
+  :root {
+    /* 窄屏吸顶横条模式：站头 62 + 横条 56 + 14 间隙 = 132 */
+    --anchor-offset: 132px;
+  }
+}
 
 section[id] {
-  scroll-margin-top: 118px;
+  /* 原生 hash 跳转兜底；Vue Router 跳转在 scrollBehavior 中读取同一变量 */
+  scroll-margin-top: var(--anchor-offset);
 }
 
 /* ---------- focus & motion ---------- */

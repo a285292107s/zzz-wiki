@@ -20,12 +20,12 @@ describe('DescRow', () => {
       props: { no: '1', title: '技能', html: '<span style="color:#fff">金</span>', variant: 'skill' },
     })
     expect(w.find('p.desc').html()).toContain('<span style="color:#fff">金</span>')
-    expect(w.find('h4').classes()).toContain('title-skill')
+    expect(w.find('h3').classes()).toContain('title-skill')
   })
 
   it('defaults variant to title-default styling', () => {
     const w = mount(DescRow, { props: { no: '1', title: 'x' } })
-    expect(w.find('h4').classes()).toContain('title-default')
+    expect(w.find('h3').classes()).toContain('title-default')
   })
 })
 

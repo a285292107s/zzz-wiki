@@ -38,8 +38,19 @@ export function useDetailNavigation() {
     }
 
     const hashId = route.hash ? route.hash.slice(1) : ''
-    if (hashId && document.getElementById(hashId)) {
-      document.getElementById(hashId)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    const hashEl = hashId ? document.getElementById(hashId) : null
+    if (hashEl) {
+      // 与 router scrollBehavior 一致：offsetTop 链求文档流位置（不受 reveal transform 影响），
+      // 减去站头避让偏移 --anchor-offset，再平滑滚动
+      let y = 0
+      let node: HTMLElement | null = hashEl
+      while (node && node !== document.body && node !== document.documentElement) {
+        y += node.offsetTop
+        node = node.offsetParent as HTMLElement | null
+      }
+      const offset =
+        parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--anchor-offset')) || 76
+      window.scrollTo({ top: y - offset, behavior: 'smooth' })
     }
   }
 

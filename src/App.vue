@@ -20,7 +20,8 @@ function closeMenu() {
 
 <template>
   <div class="shell">
-    <header class="masthead">
+    <!-- 全站站头：显式 banner landmark（Vue 根挂载于 #app，隐式 banner 不生效） -->
+    <header class="masthead" role="banner">
       <div class="wrap masthead-inner">
         <RouterLink to="/" class="brand">
           <span class="brand-mark mono">ROPEWEB://ARCHIVE</span>

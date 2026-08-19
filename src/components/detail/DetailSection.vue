@@ -10,10 +10,11 @@ defineProps<{
 </script>
 
 <template>
-  <section class="block" :id="id">
+  <!-- aria-labelledby：区块 landmark 与标题显式关联（id 缺失时跳过） -->
+  <section class="block" :id="id" :aria-labelledby="id ? 'h-' + id : undefined">
     <div class="section-head">
       <span class="no mono">{{ no }}</span>
-      <h2>{{ title }}</h2>
+      <h2 :id="id ? 'h-' + id : undefined">{{ title }}</h2>
       <span class="rule" />
       <span v-if="en" class="en mono">{{ en }}</span>
     </div>

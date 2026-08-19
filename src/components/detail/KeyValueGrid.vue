@@ -12,22 +12,23 @@ withDefaults(
 </script>
 
 <template>
-  <div v-if="items.length" :class="['stat-grid', `v-${variant}`]">
+  <!-- 键值规格数据用 dl（dt=键 / dd=值）表达语义，非 div 网格 -->
+  <dl v-if="items.length" :class="['stat-grid', `v-${variant}`]">
     <template v-if="variant === 'ledger'">
       <div v-for="it in items" :key="it.label" class="ledger-row">
-        <span class="k">{{ it.label }}</span>
+        <dt class="k">{{ it.label }}</dt>
         <span class="leader" aria-hidden="true" />
-        <span class="v mono">{{ it.value }}</span>
+        <dd class="v mono">{{ it.value }}</dd>
       </div>
     </template>
     <template v-else>
       <div v-for="it in items" :key="it.label" class="stat">
-        <span class="k">{{ it.label }}</span>
-        <span class="v mono">{{ it.value }}</span>
+        <dt class="k">{{ it.label }}</dt>
+        <dd class="v mono">{{ it.value }}</dd>
         <span v-if="it.tag" class="tag-lbl">{{ it.tag }}</span>
       </div>
     </template>
-  </div>
+  </dl>
 </template>
 
 <style scoped>
@@ -47,6 +48,10 @@ withDefaults(
   display: flex;
   flex-direction: column;
   gap: 4px;
+}
+
+.stat dd {
+  margin: 0;
 }
 
 .tag-lbl {

@@ -20,7 +20,9 @@ const titleClass = computed(() => 'title title-' + (props.variant ?? 'default'))
   <li class="row">
     <span class="no mono">{{ no }}</span>
     <div class="body">
-      <h4 :class="titleClass">{{ title }}</h4>
+      <!-- h3：DescRow 用于影画/精炼/潜能影画等区块（h2 下直接子级），
+           用 h3 保证大纲连续（避免 h2→h4 跳级）；区块内更深层级由调用方处理 -->
+      <h3 :class="titleClass">{{ title }}</h3>
       <p v-if="html" class="desc" v-html="html"></p>
       <p v-else-if="text" class="desc">{{ text }}</p>
     </div>
