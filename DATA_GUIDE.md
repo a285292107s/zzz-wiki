@@ -44,7 +44,7 @@
 
 ---
 
-## 2. 解析层要点（scripts/build-data.mjs）
+## 2. 解析层要点（scripts/build/，入口 build-data.ts）
 
 数据源字段名已是可读英文，**无键名反混淆**。解析层只做规整：
 
@@ -170,7 +170,7 @@ public/data/
 - 重绘规格与迭代工具在 `temp/icon_proto.py`（IoU 比对）、`temp/icon_components.py`
   （连通域/主轴向分析）、`temp/icon_grid.py`（像素坐标网格）。
 
-**皮肤图回退**：`scripts/build-data.mjs` 的 `SKIN_IMAGE_FALLBACK` 将 nanoka 未上传的
+**皮肤图回退**：`scripts/build/normalize.ts` 的 `SKIN_IMAGE_FALLBACK` 将 nanoka 未上传的
 主角第 3 套皮肤立绘（`IconRole34_03`/`IconRole33_03`）回退到默认立绘，杜绝死链字段。
 
 ---
@@ -191,6 +191,9 @@ public/data/
 ---
 
 ## 7. 运维命令
+
+改动数据管线的建议顺序：`npm run data` → `npm run verify:data` →（可选）`npm run download:icons`
+→ `npm test` → `npm run build`（→ 可选 `npm run verify:icons`）。各命令如下：
 
 ```bash
 npm install             # 依赖（首次或变更后）

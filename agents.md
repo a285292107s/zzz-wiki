@@ -1,50 +1,38 @@
 # agents.md · 工程约定（给 AI / 协作者）
 
-> 本文档是**工作约定**，不是数据文档。数据细节（来源、表结构、图标兜底、失效信号）在
-> [`DATA_GUIDE.md`](./DATA_GUIDE.md)；本文档只约束**怎么干活**。发现本文档与实际不符时，就地修正。
+绳网档案 —— 绝区零（ZZZ）资料档案站：Vue 3 + TS + Vite 静态站，数据在构建期拉取落地到
+`public/data/`，运行时零外部请求。
+
+> 本文档是**工作约定**，只收录「每个任务都相关」的内容；领域细节一律渐进式披露，按需取用，
+> 发现与实际不符时就地修正：
 >
-> 架构愿景、分层与目录约定见 [`DESIGN.md`](./DESIGN.md)——重构实施以该文档为唯一依据，结构落地后就地修正它。
+> - 数据来源 / 表结构 / 图标兜底 / 失效信号 / 运维命令 → [`DATA_GUIDE.md`](./DATA_GUIDE.md)
+> - 架构愿景、分层与目录约定 → [`DESIGN.md`](./DESIGN.md)
 
-## 1. 临时文件：只放 `temp/`，禁止到处塞
+## 1. 临时文件：只放 `temp/`
 
-- 项目根目录有 `temp/` 文件夹，**已加入 `.gitignore`（`temp/` 规则），内容不入库**。
-- 一切项目需要的临时文件 —— 调试脚本、一次性导出/下载、截图、验证产物、缓存中间件等 ——
-  **统一放 `temp/`**，不要丢到项目根目录、`src/`、`public/` 或别处。
-- `temp/` 内的东西随时可清空，不影响仓库；临时验证用的文件用完即删。
-- 例外：`npm run data` 的下载缓存走约定的 `.cache/`（同样已忽略）。
+- 一切临时产物（调试脚本、一次性导出/下载、截图、验证中间件）统一放 `temp/`（已 gitignore、
+  随时可清空、用完即删）；下载缓存走 `.cache/`。禁止丢进根目录、`src/`、`public/`。
 
 ## 2. Git 提交约定
 
-- 提交前先 `git status` 检查：**误带入的临时产物不要 stage**（参考 §1）。
-- `preview.log`、`_research_*`、`shots`、`.cache/`、`temp/`、`node_modules`、`dist` 均不入库
-  （见 `.gitignore`；发现新类型的临时产物时，优先加 ignore 规则而不是硬提交）。
-- 提交信息用仓库既有风格：`<type>: <中文摘要>`（type 如 `feat`/`fix`/`chore`/`refactor`），
-  重要变更带正文要点列表。
-- 数据文件 `public/data/**` 是**生成物但提交入库**（约定如此，勿删勿忽略）；改动它们时检查
-  是否伴随 `scripts/build-data.mjs` 的对应升级。
+- 提交前 `git status` 检查：临时产物不入库；发现新类型临时产物时**优先加 `.gitignore` 规则**。
+- 提交信息用仓库既有风格：`<type>: <中文摘要>`（feat/fix/chore/refactor），重要变更带正文要点。
+- `public/data/**` 是生成物但**约定入库**（勿删勿忽略）；改动数据文件时检查是否伴随构建脚本升级。
 
 ## 3. 数据与前端铁律
 
-- **运行时零外部请求**：前端只读本地 `/data`，一切数据构建期落地（`npm run data`）。
-- 不要硬编码数据版本号（从 `manifest.json` 的 `zzz.latest` 动态取）。
-- 图标必须走 `<HollowImage>` / `src/data/icons.ts` 候选链，**禁止直连单一外部图源**。
-- 文本含 `<color=#…>`、`<IconMap:…>` 等游戏标记，展示层一律经 `src/utils/rich.ts` /
-  `stripRichText` 处理，禁止裸插值。
-- 设计语言："档案标本"质感 —— 1px 细线框、2px 圆角、等宽编号、纸墨配色；
-  **禁止圆角卡片堆叠、渐变霓虹、投影**。
+- **运行时零外部请求**：前端只读本地 `/data`；数据版本号从 `manifest.json` 动态取，禁止硬编码。
+- 图标一律经 `<HollowImage>` 图标候选链，**禁止直连单一外部图源**（工具清单见 DATA_GUIDE §6）。
+- 游戏标记文本（`<color=#…>`、`<IconMap:…>`）展示层一律经富文本工具处理，禁止裸插值（见 DATA_GUIDE §6）。
+- 设计语言："档案标本"质感 —— 1px 细线框、2px 圆角、等宽编号、纸墨配色；**禁止圆角卡片堆叠、
+  渐变霓虹、投影**（速记见 DATA_GUIDE §10）。
 
-## 4. 修改数据管线时
+## 4. 环境与命令
 
-- 跑 `npm run data`（需外网；有代理时设 `NODE_USE_ENV_PROXY=1`）→ 跑 `npm run verify:data`
-  （zod 契约校验 public/data 全部产出）→ 可跑 `npm run download:icons`（图标本地化到
-  `public/data/img/`，使运行时零外部请求）→ 跑 `npm test`（vitest 单元测试）→ 跑 `npm run build`
-  （含 vue-tsc 类型检查）→ 可选 `npm run verify:icons`。
-- 名录/详情数量为 0 或 404 时：先查 `DATA_GUIDE.md` §8 失效信号，别急着改前端。
-
-## 5. 环境
-
-- 包管理：仓库同时有 `package-lock.json` 与 `pnpm-lock.yaml`，新依赖请保持两把锁一致。
-- 开发：`npm run dev`（http://localhost:5173）；构建：`npm run build`。
-- **部署构建入口**：`npm run build:ci`（Vercel buildCommand 已指向它）——先经 `scripts/ci-data.ts`
-  同步数据（版本探测 → 有更新才构建 → 失败回退既有产物 → 契约校验告警），再 `npm run build`。
-  本地模拟 CI 数据同步：`npm run data -- --check`（仅探测）或 `npx tsx scripts/ci-data.ts`。
+- 依赖：同时维护 `package-lock.json` 与 `pnpm-lock.yaml`，新依赖两把锁保持一致。
+- 开发 `npm run dev`（http://localhost:5173）；构建 `npm run build`（含 vue-tsc）；单测 `npm test`。
+- 部署构建入口 `npm run build:ci`（Vercel 已指向）：`scripts/ci-data.ts` 数据同步（版本探测 →
+  有更新才构建 → 失败回退既有产物 → 契约校验告警），再 `npm run build`。
+- 改动数据管线按 DATA_GUIDE §7 顺序执行；名录/详情数量为 0 或 404 时先查 DATA_GUIDE §8
+  失效信号，别急着改前端。

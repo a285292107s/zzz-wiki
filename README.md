@@ -39,7 +39,7 @@ npm run preview
 构建期从 **hakushin raw**（`https://static.nanoka.cc`，zzz.nanoka.cc / hakush.in 站底层 CDN）拉取，
 解析层直取 + 规整（v2，2026-08 切换；v1 为 Dimbreath ZenlessData 反混淆管线，已弃用，见 `DATA_GUIDE.md` §9）。
 
-- `scripts/build-data.mjs` 负责：读取 `manifest.json` 取版本 → 抓取角色/音擎/邦布/驱动盘名录与中文详情 → 规整（icon 裸名、枚举英文值、皮肤回退）→ 输出到 `public/data/`。
+- `scripts/build/`（入口 `scripts/build-data.ts`）负责：读取 `manifest.json` 取版本 → 抓取角色/音擎/邦布/驱动盘名录与中文详情 → 规整（icon 裸名、枚举英文值、皮肤回退）→ 输出到 `public/data/`。
 - 产出（`public/data/`，运行时本地 fetch，无 CORS）：
 
 | 文件 | 说明 |
@@ -72,7 +72,7 @@ npm run preview
 - nanoka 素材 CDN：项目全部 313 个图标资源 **100% 可达**（`npm run verify:icons` 可复核，失败即非零退出，可挂 CI）
 - 技能键位图标：资产名取自描述文本的 `<IconMap:Icon_XXX>` 标记（`Icon_Normal`/`Icon_Evade`/`Icon_SpecialReady`/`Icon_UltimateReady`/`Icon_QTE`/`Icon_Switch` 均 200），由前端 `icons.ts` + `rich.ts` 渲染——技能组头图标经 `<HollowImage>` 加载（含几何字符兜底），描述内联键位图（`<IconMap>`）直接嵌入富文本
 - honeyhunterworld：角色头像 55/60 可达，其余 5 名（如露西/伊芙琳）与站点整体当前返回 Cloudflare 521（源站故障），自动走 nanoka 兜底
-- 已知提供方缺口：主角「哲/铃」第 3 套皮肤的立绘（`IconRole34_03` / `IconRole33_03`）nanoka 未上传，构建管线已将其回退到默认立绘（`scripts/build-data.mjs` 的 `SKIN_IMAGE_FALLBACK`），杜绝死链字段
+- 已知提供方缺口：主角「哲/铃」第 3 套皮肤的立绘（`IconRole34_03` / `IconRole33_03`）nanoka 未上传，构建管线已将其回退到默认立绘（`scripts/build/normalize.ts` 的 `SKIN_IMAGE_FALLBACK`），杜绝死链字段
 
 ## 目录结构
 
