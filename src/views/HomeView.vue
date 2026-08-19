@@ -41,8 +41,8 @@ const sections = CATALOG.map((c) => ({
   cat: c.iconCategory,
   iconSrcs:
     c.no === '01'
-      ? [AGENT_CIRCLE_ICON, ...iconSources(c.icon, 'list', c.iconCategory)]
-      : iconSources(c.icon, 'list', c.iconCategory),
+      ? [AGENT_CIRCLE_ICON, ...iconSources(c.icon, c.iconCategory)]
+      : iconSources(c.icon, c.iconCategory),
 }))
 </script>
 

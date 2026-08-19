@@ -62,7 +62,7 @@ const profile = computed(() => {
 })
 
 const portraitSrcs = computed(() =>
-  iconSources({ Id: props.detail.id, icon: props.detail.icon }, 'portrait', 'character'),
+  iconSources({ Id: props.detail.id, icon: props.detail.icon }, 'character'),
 )
 </script>
 

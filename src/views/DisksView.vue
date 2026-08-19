@@ -80,7 +80,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
           <RouterLink :to="`/disks/${d.Id}`" class="card-head">
             <span class="thumb">
               <HollowImage
-                :srcs="iconSources({ Id: d.Id, icon: d.icon }, 'list', 'disc')"
+                :srcs="iconSources({ Id: d.Id, icon: d.icon }, 'disc')"
                 :alt="d.zh?.name ?? '—'"
                 :fallback="d.zh?.name ?? '—'"
                 fit="contain"

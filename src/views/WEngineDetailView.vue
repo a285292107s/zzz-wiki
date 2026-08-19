@@ -88,7 +88,7 @@ const bodyText = computed<string>(() => {
 })
 
 const portraitSrcs = computed(() =>
-  iconSources({ Id: detail.value?.id, icon: detail.value?.icon }, 'portrait', 'weapon'),
+  iconSources({ Id: detail.value?.id, icon: detail.value?.icon }, 'weapon'),
 )
 
 /* ---------- 区块导航（条件区块）+ scrollspy + reveal ---------- */

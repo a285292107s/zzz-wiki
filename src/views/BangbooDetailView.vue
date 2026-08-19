@@ -32,7 +32,7 @@ const { data: detail, status, error } = useAsyncResource(() => api.detail<Bangbo
 usePageMeta(() => detail.value?.name ?? undefined)
 
 const portraitSrcs = computed(() =>
-  iconSources({ Id: id.value, icon: detail.value?.icon }, 'portrait', 'bangboo'),
+  iconSources({ Id: id.value, icon: detail.value?.icon }, 'bangboo'),
 )
 
 /* ---------- 基础数值：等级滑条（默认满级；切换邦布时重置） ---------- */

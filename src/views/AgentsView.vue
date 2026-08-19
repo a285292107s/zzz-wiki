@@ -99,7 +99,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
           <RouterLink :to="`/agents/${row.Id}`" class="name-cell">
             <span class="mini-icon">
               <HollowImage
-                :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'list', 'character')"
+                :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'character')"
                 :alt="pickName(row)"
                 :fallback="pickName(row)" fit="contain" />
             </span>

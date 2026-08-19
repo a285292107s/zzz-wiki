@@ -12,7 +12,6 @@ const NANOKA_ASSETS = 'https://static.nanoka.cc/assets/zzz'
 const LOCAL_IMG = `${import.meta.env.BASE_URL ?? '/'}data/img`
 
 export type IconCategory = 'character' | 'weapon' | 'bangboo' | 'disc'
-export type IconKind = 'list' | 'portrait'
 
 export interface IconItem {
   Id?: number | string | null
@@ -31,13 +30,9 @@ function basename(p: string | null | undefined): string {
  * - 本地优先（/data/img/{category}/{basename}.webp）
  * - nanoka CDN 兜底（static.nanoka.cc/assets/zzz/{basename}.webp）
  * - 全部失败由 <HollowImage> 降为文字占位
- *
- * @param kind 兼容旧调用（'portrait'/'list'），当前本地+nanoka 均按 basename，
- *            不再按 kind 区分 URL 路径；保留参数以免破坏已有调用方。
  */
 export function iconSources(
   item: IconItem,
-  kind: IconKind = 'list',
   category: IconCategory = 'character',
 ): string[] {
   const b = basename(item.icon ?? '')

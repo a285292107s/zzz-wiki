@@ -240,7 +240,7 @@ watch(status, (s) => {
             <li v-for="s in skinList" :key="s.id" class="skin">
               <span class="skin-thumb">
                 <HollowImage
-                  :srcs="iconSources({ icon: s.img }, 'list', 'character')"
+                  :srcs="iconSources({ icon: s.img }, 'character')"
                   :alt="s.name"
                   :fallback="s.name"
                   position="top"

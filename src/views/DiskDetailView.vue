@@ -19,7 +19,7 @@ const { data: detail, status, error } = useAsyncResource(() => api.detail<DiskDr
 usePageMeta(() => detail.value?.name ?? undefined)
 
 const portraitSrcs = computed(() =>
-  iconSources({ Id: id.value, icon: detail.value?.icon }, 'portrait', 'disc'),
+  iconSources({ Id: id.value, icon: detail.value?.icon }, 'disc'),
 )
 
 /* ---------- 区块导航 + scrollspy + reveal ---------- */
