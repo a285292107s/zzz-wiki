@@ -75,7 +75,7 @@ npm run preview
 src/
   domain/        # 单一事实源：枚举 / 类目元信息 / zod 契约 / 详情区块类型
   data/          # 请求层（api）+ 类别表驱动（resources）+ 类型派生（types）+ 图标候选（icons）
-  composables/   # useAsyncResource / useCatalogList / useRouteParam / usePageMeta / useDetailResource
+  composables/   # useAsyncResource / useCatalogList / useRouteParam / usePageMeta
   components/    # layout / list / state / detail 区块 + Rarity / Tags / HollowImage / SkillIcon
   views/         # 页面（薄组装层）
   styles/        # 设计 token + 基样式

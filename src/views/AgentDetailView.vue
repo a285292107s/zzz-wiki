@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { computed, nextTick, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
+import { api } from '@/data/api'
 import { iconSources, skillIconSources, type SkillSlot } from '@/data/icons'
 import { stripRichText } from '@/utils/text'
 import { useRouteParam } from '@/composables/useRouteParam'
-import { useDetailResource } from '@/composables/useDetailResource'
+import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useDetailNavigation } from '@/composables/useDetailNavigation'
 import { usePageMeta } from '@/composables/usePageMeta'
 import {
@@ -40,7 +41,7 @@ import BackToTop from '@/components/BackToTop.vue'
 import HollowImage from '@/components/HollowImage.vue'
 
 const id = useRouteParam('id')
-const { data: detail, status, error } = useDetailResource<CharacterDetail>('character', id)
+const { data: detail, status, error } = useAsyncResource(() => api.detail<CharacterDetail>('character', id.value))
 
 usePageMeta(() => detail.value?.name ?? undefined)
 

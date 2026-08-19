@@ -7,7 +7,7 @@ import { iconSources } from '@/data/icons'
 import type { BangbooListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { AsyncState, CatalogTable, CatalogTableSkeleton, SearchField, type CatalogColumn } from '@/components'
+import { AsyncState, CatalogTable, CatalogTableSkeleton, ListPage, SearchField, type CatalogColumn } from '@/components'
 
 usePageMeta()
 import Rarity from '@/components/Rarity.vue'
@@ -37,7 +37,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
 </script>
 
 <template>
-  <div class="wrap page">
+  <ListPage>
     <header class="page-head">
       <p class="eyebrow mono">Bangboo</p>
       <h1 class="page-title">邦布</h1>
@@ -82,18 +82,10 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
         </template>
       </CatalogTable>
     </AsyncState>
-  </div>
+  </ListPage>
 </template>
 
 <style scoped>
-.page {
-  padding-top: calc(var(--pad-section) * 0.9);
-}
-
-.page-head {
-  margin-bottom: var(--pad-section);
-}
-
 .toolbar {
   display: flex;
   justify-content: flex-end;

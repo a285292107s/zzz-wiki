@@ -1,7 +1,13 @@
 /* ============================================================
  * normalize.ts — 规整纯函数（原 build-data.mjs 迁出）。
- * 英文枚举值改从 src/domain/enums.ts 复用（DESIGN.md §5.2）：
+ *
+ * 英文枚举值从 src/domain/enums.ts 复用（DESIGN.md §5.2）：
  * 前端 domain 与 build 管线共享同一事实源，杜绝 PROFESSIONS 漂移。
+ *
+ * 依赖方向：build 管线 → src/domain（单向，禁止反向）。
+ * src/domain 是纯数据模块（不依赖 Vue / api / 组件），
+ * build 脚本经 tsx 运行可直接 import。若重构 src/domain 的文件位置，
+ * 同步更新此处 import 路径即可，不影响前端运行时。
  * ============================================================ */
 
 import { ELEMENTS, HIT_TYPES, PROFESSIONS } from '../../src/domain/enums'

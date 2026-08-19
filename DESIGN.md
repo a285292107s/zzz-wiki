@@ -82,20 +82,20 @@ src/
     usePageMeta.ts       # per-route title/eyebrow/description
   components/
     layout/              # SiteHeader / SiteFooter（从 App.vue 抽出）
-    list/                # CatalogTable / SearchField / FilterDropdown
-    state/               # AsyncState（loading/error/empty 统一呈现）
-    detail/              # DetailSection / KeyValueGrid / DescRow（技能/影画/皮肤共用行）
-    HollowImage.vue      # 保留
+    list/                # CatalogTable / SearchField / FilterDropdown / ListPage
+    state/               # AsyncState / CatalogTableSkeleton / ErrorBoundary
+    detail/              # DetailSection / KeyValueGrid / DescRow / DetailHead / AgentHead / SkillGroup / CoreSkillGroup / LevelSlider
+    BackToTop.vue / Rarity.vue / Tags.vue / HollowImage.vue
   views/                 # 变薄：每个 view 只用 composables + 组件拼装
   styles/                # 维持 token 方案；CSS 变量为唯一设计事实
   router/index.ts        # lazy 路由 + route meta（title/eyebrow/desc）
 scripts/
-  build/                 # 拆模块：manifest / domains / normalize / io / index 等
-  build-data.mjs         # 变薄：入口（顺序编排）
-  verify-data.mjs        # 新增：对 public/data/ 做 zod 校验（可独立跑、可挂 CI）
+  build-data.ts          # 入口（顺序编排）
+  ci-data.ts             # 部署环境数据同步
+  build/                 # 拆模块：io / normalize / domains / index
+  verify-data.ts         # 对 public/data/ 做 zod 校验（可独立跑、可挂 CI）
   verify-icons.mjs       # 保留
 tests/                   # 测试（vitest；见 §8）
-docs/DESIGN.md           # 本文档（或仓库根）
 ```
 
 ## 5. 数据契约（核心机制）
@@ -133,13 +133,18 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 | 组件 | 职责 | 吸收的重复 |
 |---|---|---|
 | SiteHeader / SiteFooter | 布局 | App.vue 的结构+样式 |
+| ListPage | 列表页容器（.page / .page-head 样式） | 4 个列表页的重复定义 |
 | AsyncState | loading/error/empty 呈现 | 各列表页三件套 |
+| CatalogTableSkeleton | 表格骨架屏 | 各列表页加载态 |
+| ErrorBoundary | 渲染异常捕获 + 友好回退 | 避免白屏 |
 | SearchField | 搜索框 + 计数 | 4 处复制 |
 | FilterDropdown | 筛选下拉（属性/职业/阵营，图标 + 自定义面板） | 各列表页的筛选区块 |
 | CatalogTable | 列配置驱动表格 | 4 张手写表格；列配置声明渲染/格式化/插槽 |
 | DetailSection | 编号 section-head 容器 | 详情页 01/02/03 头部 |
 | KeyValueGrid | 数值网格 | 角色/音擎 stat-grid |
 | DescRow | 序号+标题+富文本行 | skill/talent/skin 行 |
+| Rarity / Tags | 稀有度 / 属性职业标签 | 各列表/详情页重复 |
+| HollowImage | 多候选图 + 文字降级 | 全站图标统一入口 |
 
 ### 6.3 视图瘦身目标（验收指标）
 
@@ -156,16 +161,14 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 
 ## 7. 数据管线重构
 
-scripts/build-data.mjs（237 行）拆为：
+scripts/build-data.ts 拆为：
 
 ```
 scripts/build/
-  manifest.mjs      # 版本读取
-  io.mjs            # 下载缓存 + 写盘（现有 fetchJson/dump 迁入）
-  normalize.mjs     # 规整纯函数（normalizeCharacterDetail 等，可单测）
-  domains/
-    character.mjs / weapon.mjs / bangboo.mjs / equipment.mjs
-  index.mjs         # 编排（现状 main() 的逻辑）
+  io.ts              # 下载缓存 + 写盘（fetchJson / dump / mapConcurrent / resetOut）
+  normalize.ts       # 规整纯函数（normalizeCharacterDetail 等，可单测）
+  domains.ts        # 角色/音擎/邦布/驱动盘 名录+详情构建
+  index.ts           # 编排（版本探测 → 抓取 → 写盘）
 ```
 
 - 规整函数全部改为纯函数（输入 raw detail → 输出规整 detail），纳入测试。
@@ -179,14 +182,13 @@ scripts/build/
 |---|---|
 | utils/text.ts | stripRichText 全部标记分支（color/IconMap/LAYOUT/BR/残留标签） |
 | utils/rich.ts | 转义 + 两类定向还原 + 注入安全（<script> 被转义） |
+| utils/names.ts | pickName 四语回退顺序 + 空值边界 |
 | domain/schema.ts | zod 契约通过/失败用例（list/detail/manifest） |
+| domain/sections.ts | 全部转换函数（stats/skills/talents/skins/core/potential） |
 | data/api.ts | mock fetch：缓存命中、错误归一化、lang/baseUrl 拼接 |
 | data/resources.ts | 类别表驱动：listPath/detailPath 的 URL 正确性 |
-| scripts/build/normalize.mjs | 用 fixture JSON 验证规整（含皮肤回退、英文值） |
-| scripts/verify-data.mjs | 对 mock 数据目录的通过/失败用例 |
 | 组件（@vue/test-utils） | CatalogTable 排序交互、FilterDropdown 弹层/选择行为 |
 | composables | useCatalogList 过滤组合 + URL 同步、useCatalogSort 排序切换 |
-| 视图冒烟 | 每个 view mount 后（mock 数据层）正常渲染关键节点 |
 
 > 精简原则（2026-08 评估后）：不写「事实快照」——枚举映射内容（enums.ts）
 > 由数据类型 + 数据管道校验兜底，游戏更新时不产生假红；不写纯模板冒烟
@@ -220,8 +222,12 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 
 - [x] 引入 vitest + @vue/test-utils + jsdom（vitest ^3.2.7，pnpm-workspace.yaml 需允 esbuild 构建）
 - [x] 为 utils/text.ts、utils/rich.ts、domain/enums.ts、utils/names.ts 写测试（29 用例，全部锁定当前行为）
+      —— 扩展后：utils/text(10) + utils/rich(8) + utils/names(5) + utils/icons(6) +
+        domain/schema(7) + domain/sections(55) + data/api(12) + composables(16) +
+        components(12) = **131 用例全绿**
 - [x] 合并 locName/pickName → utils/names.ts（唯一实现）；api.ts 旧 export 改为转发
       —— **实际发现**：pickName 在 text.ts 中无任何调用方（死代码），视图全部使用 locName
+      —— **后续清理**：locName 别名已完全移除（api.ts 不再转发），所有调用方改用 pickName
 - [x] 枚举从 types.ts 迁入 domain/enums.ts（新增 HIT_TYPES），types.ts 再导出（零调用方改动）
 
 ### P1 数据层与列表一致化 —— ✅ 已完成
@@ -233,19 +239,21 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 - [x] 组件：AsyncState / SearchField / FilterDropdown（属性/职业/阵营下拉，showAttr/showProf/showCamp 开关 + 数据驱动 camps）/ CatalogTable（列配置驱动 + 行插槽）
 - [x] 4 个列表页迁移（行为不变，代码量减半以上；样式组件化后 CSS 由 21.95kB 降至 19.04kB）
 - [x] App.vue 导航与 HomeView 目录改由 catalog 派生（删除手写双份）
-- [x] tests/api.test.ts（mock fetch：normalize/路径/缓存/错误归一化三分支 + resources 表驱动），39 用例全绿
+- [x] App.vue 拆分：抽出 SiteHeader / SiteFooter（布局组件），App.vue 降至 51 行薄壳
+- [x] 新建 ListPage 组件：吸收 4 个列表页共享的 .page / .page-head 样式，消除 8 处重复定义
+- [x] tests/api.test.ts（mock fetch：normalize/路径/缓存/错误归一化三分支 + resources 表驱动），12 用例全绿
 
 ### P2 详情页拆分 —— ✅ 已完成
 
 - [x] 组件：DetailHead（页头：eyebrow/标题/meta slot/画像）/ DetailSection（编号区块）/
       KeyValueGrid（数值网格）/ DescRow（序号+标题+正文行，variant 保视觉差异）
-- [x] composables：useDetailResource（kind + 响应式 id，连续导航自动 reload）
+- [x] composables：useAsyncResource 直接驱动详情页（kind + id.value，连续导航自动 reload；useDetailResource 薄包装已移除）
 - [x] domain/sections.ts：DetailRow / SkillRow / StatItem / SkinRow + dictToRows /
       buildSkillRows / buildSkinRows / SKILL_* 常量（TalentRow 等重复类型收敛于此）
 - [x] AgentDetailView 529→~290 行（含样式；组装层 ≤160 行），WEngineDetailView 338→~168 行
 - [x] 视觉/行为不变：技能本地 SVG 图标、富文本渲染、皮肤缩略图全部保留
-- [x] tests/sections.test.ts（8 用例）+ tests/descrow.test.ts（4 组件用例，jsdom）；
-      vitest.config 接入 @vitejs/plugin-vue。51 用例全绿 + build 通过（CSS 降至 17.64kB）
+- [x] tests/sections.test.ts（55 用例）+ tests/catalogtable.test.ts（3 用例）+ tests/filterdropdown.test.ts（9 用例，jsdom）；
+      vitest.config 接入 @vitejs/plugin-vue。build 通过（CSS 降至 17.64kB）
 
 ### P3 契约落地 —— ✅ 已完成
 
@@ -268,6 +276,14 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 - [x] NotFoundView（档案式 404，替代 redirect 到首页）
 - [x] StyleGuideView（/style）：真实组件陈列 + 运行时读取 CSS 变量（token 零二次维护）
 - [x] footer 增设计系统入口；AGENTS.md 验证链已补 test/verify:data；README 补架构指针（P0 时已完成）
+- [x] 全局错误边界 ErrorBoundary：包裹 RouterView，渲染异常时捕获并显示友好回退（避免白屏）；
+      `:key="dataVersion"` 挂在 ErrorBoundary 上，切换版本时自动重置错误状态
+- [x] App.vue 拆分：抽出 SiteHeader / SiteFooter，App.vue 降至 51 行薄壳
+- [x] 新建 ListPage 组件：吸收 4 个列表页共享的 .page / .page-head 样式，消除 8 处重复定义
+- [x] 移除 useDetailResource 薄包装：4 个详情页直接用 useAsyncResource + api.detail
+- [x] 移除 locName 别名死代码：全站统一使用 pickName
+- [x] ATTR_CODES / SPEC_CODES 从 domain/enums 派生：消除 useCatalogList 中的硬编码枚举漂移
+- [x] schema.ts / normalize.ts / verify-data.ts 补充依赖方向与设计取舍文档
 
 ## 12. 开放问题（后续轮次可讨论）
 

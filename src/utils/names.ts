@@ -18,6 +18,3 @@ export function pickName(
   }
   return '—'
 }
-
-/** 兼容旧名（api.locName）——语义一致，调用方可二选一引入。 */
-export const locName: typeof pickName = pickName

@@ -4,7 +4,7 @@
    所在关系：schema（定义）→ 本文件（派生导出）→ api/resources（消费）。
    ============================================================ */
 
-export { ELEMENTS, PROFESSIONS, RANK_TO_TIER } from '@/domain/enums'
+export { ELEMENTS, PROFESSIONS, RANK_TO_TIER, ATTR_CODES, SPEC_CODES } from '@/domain/enums'
 export type { AttrCode, SpecCode, RarityChar, RarityAll } from '@/domain/enums'
 
 export type {

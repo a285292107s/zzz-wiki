@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { computed, nextTick, watch } from 'vue'
 import { RouterLink } from 'vue-router'
+import { api } from '@/data/api'
 import { iconSources } from '@/data/icons'
 import { richDesc } from '@/utils/rich'
 import { stripRichText } from '@/utils/text'
 import { useRouteParam } from '@/composables/useRouteParam'
-import { useDetailResource } from '@/composables/useDetailResource'
+import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useDetailNavigation } from '@/composables/useDetailNavigation'
 import { usePageMeta } from '@/composables/usePageMeta'
 import type { DiskDriveDetail } from '@/data/types'
@@ -13,7 +14,7 @@ import { AsyncState, DetailHead, DetailSection } from '@/components'
 import BackToTop from '@/components/BackToTop.vue'
 
 const id = useRouteParam('id')
-const { data: detail, status, error } = useDetailResource<DiskDriveDetail>('equipment', id)
+const { data: detail, status, error } = useAsyncResource(() => api.detail<DiskDriveDetail>('equipment', id.value))
 
 usePageMeta(() => detail.value?.name ?? undefined)
 

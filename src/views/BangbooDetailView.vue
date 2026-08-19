@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { computed, nextTick, reactive, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
+import { api } from '@/data/api'
 import { iconSources } from '@/data/icons'
 import { richDesc } from '@/utils/rich'
 import { stripRichText } from '@/utils/text'
 import { useRouteParam } from '@/composables/useRouteParam'
-import { useDetailResource } from '@/composables/useDetailResource'
+import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useDetailNavigation } from '@/composables/useDetailNavigation'
 import { usePageMeta } from '@/composables/usePageMeta'
 import {
@@ -26,7 +27,7 @@ import BackToTop from '@/components/BackToTop.vue'
 import Rarity from '@/components/Rarity.vue'
 
 const id = useRouteParam('id')
-const { data: detail, status, error } = useDetailResource<BangbooDetail>('bangboo', id)
+const { data: detail, status, error } = useAsyncResource(() => api.detail<BangbooDetail>('bangboo', id.value))
 
 usePageMeta(() => detail.value?.name ?? undefined)
 

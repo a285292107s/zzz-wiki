@@ -39,6 +39,20 @@ export const HIT_TYPES: Record<HitCode, { en: string; zh: string }> = {
   103: { en: 'Pierce', zh: '贯穿' },
 }
 
+/**
+ * 合法属性码白名单 —— 由 ELEMENTS 派生，禁止手写。
+ * 用途：useCatalogList 的 URL query 参数校验（非法 attr → 回退 all）。
+ * 新增属性（如 300 流明）只需改 ELEMENTS，白名单自动同步。
+ */
+export const ATTR_CODES: AttrCode[] = Object.keys(ELEMENTS).map(Number) as AttrCode[]
+
+/**
+ * 合法职业码白名单 —— 由 PROFESSIONS 派生，禁止手写。
+ * 用途：useCatalogList 的 URL query 参数校验（非法 prof → 回退 all）。
+ * 新增职业（如 7 锋御）只需改 PROFESSIONS，白名单自动同步。
+ */
+export const SPEC_CODES: SpecCode[] = Object.keys(PROFESSIONS).map(Number) as SpecCode[]
+
 export type RarityChar = 3 | 4
 export type RarityAll = 2 | 3 | 4
 

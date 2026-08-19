@@ -7,7 +7,7 @@ import { iconSources } from '@/data/icons'
 import { stripRichText } from '@/utils/text'
 import type { DiskDriveListItem } from '@/data/types'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { AsyncState } from '@/components'
+import { AsyncState, ListPage } from '@/components'
 import HollowImage from '@/components/HollowImage.vue'
 
 usePageMeta()
@@ -28,7 +28,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
 </script>
 
 <template>
-  <div class="wrap page">
+  <ListPage>
     <header class="page-head">
       <p class="eyebrow mono">Disk Drives</p>
       <h1 class="page-title">驱动盘</h1>
@@ -96,17 +96,10 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
         </li>
       </ul>
     </AsyncState>
-  </div>
+  </ListPage>
 </template>
 
 <style scoped>
-.page {
-  padding-top: calc(var(--pad-section) * 0.9);
-}
-
-.page-head {
-  margin-bottom: var(--pad-section);
-}
 
 .toolbar {
   display: flex;

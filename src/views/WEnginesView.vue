@@ -7,7 +7,7 @@ import { iconSources } from '@/data/icons'
 import type { WEngineListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { AsyncState, CatalogTable, CatalogTableSkeleton, FilterDropdown, SearchField, type CatalogColumn } from '@/components'
+import { AsyncState, CatalogTable, CatalogTableSkeleton, FilterDropdown, ListPage, SearchField, type CatalogColumn } from '@/components'
 
 usePageMeta()
 import Tags from '@/components/Tags.vue'
@@ -38,7 +38,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
 </script>
 
 <template>
-  <div class="wrap page">
+  <ListPage>
     <header class="page-head">
       <p class="eyebrow mono">W-Engines</p>
       <h1 class="page-title">音擎</h1>
@@ -88,18 +88,10 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
         </template>
       </CatalogTable>
     </AsyncState>
-  </div>
+  </ListPage>
 </template>
 
 <style scoped>
-.page {
-  padding-top: calc(var(--pad-section) * 0.9);
-}
-
-.page-head {
-  margin-bottom: var(--pad-section);
-}
-
 .toolbar {
   display: flex;
   flex-wrap: wrap;

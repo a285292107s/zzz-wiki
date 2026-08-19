@@ -11,7 +11,7 @@
 import { computed, ref, watch, watchEffect, type ComputedRef, type Ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { pickName } from '@/utils/names'
-import type { AttrCode, SpecCode } from '@/domain/enums'
+import { ATTR_CODES, SPEC_CODES, type AttrCode, type SpecCode } from '@/domain/enums'
 
 export type AttrFilter = 'all' | AttrCode
 export type ProfFilter = 'all' | SpecCode
@@ -39,10 +39,6 @@ export interface CatalogListOptions<T> {
 }
 
 type Filter = 'all' | number
-
-/** 合法属性/职业数值码（与 domain/enums 同源） */
-const ATTR_CODES: readonly number[] = [200, 201, 202, 203, 204, 205, 300]
-const SPEC_CODES: readonly number[] = [1, 2, 3, 4, 5, 6, 7]
 
 function parseFilter(raw: string | null, allowed: readonly number[]): Filter {
   if (!raw || raw === 'all') return 'all'

@@ -1,6 +1,10 @@
 /* ============================================================
  * verify-data.ts — 对 public/data/ 全量跑 zod 契约校验（DESIGN.md §5.1）。
  * 失败非零退出，可挂 CI。用法：npm run verify:data
+ *
+ * 依赖方向：校验脚本 → src/domain/schema（单向，禁止反向）。
+ * schema 是 build 管线与前端的唯一契约事实源，此处直接 import
+ * 保证校验的不是一份"过时的副本"。经 tsx 运行，无 bundle 开销。
  * ============================================================ */
 
 import fs from 'node:fs/promises'

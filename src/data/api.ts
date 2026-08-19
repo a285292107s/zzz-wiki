@@ -233,4 +233,4 @@ export const api: Api = {
 }
 
 /** Localised display name — 唯一实现在 utils/names.ts（DESIGN.md P0）。 */
-export { locName } from '@/utils/names'
+// locName 别名已移除；请直接使用 pickName。
