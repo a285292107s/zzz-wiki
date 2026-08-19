@@ -1,11 +1,7 @@
 import { describe, expect, it } from 'vitest'
-import { locName, pickName } from '../src/utils/names'
+import { pickName } from '../src/utils/names'
 
 describe('pickName / locName', () => {
-  it('locName is the same implementation as pickName', () => {
-    expect(locName).toBe(pickName)
-  })
-
   it('prefers zh over other locales', () => {
     expect(pickName({ en: 'Anby', zh: '安比', ja: 'アンビー' })).toBe('安比')
   })

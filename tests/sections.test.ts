@@ -1,18 +1,11 @@
 import { describe, expect, it } from 'vitest'
 import {
-  BANGBOO_SKILL_ORDER,
   buildBangbooSkills,
   buildCoreEnhance,
   buildCoreSkill,
   buildPotentialCinema,
-  SKILL_KEYS,
-  SKILL_ORDER,
-  SKILL_ZH,
   buildSkillRows,
   buildSkinRows,
-  CHAR_LEVEL_DEFAULT,
-  CHAR_LEVEL_MAX,
-  CHAR_LEVEL_MIN,
   charBreakSegment,
   characterStatsAtLevel,
   dictToRows,
@@ -21,7 +14,6 @@ import {
   formatSkillScalar,
   skillDetailValue,
   skillParamValue,
-  SKILL_LEVEL_DEFAULT,
   statAtLevel,
   type SkillParamEntry,
 } from '../src/domain/sections'
@@ -49,12 +41,6 @@ describe('dictToRows', () => {
 })
 
 describe('skill helpers', () => {
-  it('SKILL_ORDER covers the six core slots in game UI order', () => {
-    expect(SKILL_ORDER).toEqual(['basic', 'dodge', 'special', 'chain', 'assist', 'core'])
-    expect(SKILL_ZH.basic).toBe('普通攻击')
-    expect(SKILL_KEYS.core.en).toBe('CORE')
-  })
-
   it('buildSkillRows filters missing slots and keeps order', () => {
     const rows = buildSkillRows({
       special: { description: [{ name: 'X' }] },
@@ -177,10 +163,6 @@ describe('skill formula evaluation', () => {
     expect(skillDetailValue(detail, 1)).toBe('38.9%')
     expect(skillDetailValue(detail, 12)).toBe('78.5%')
   })
-
-  it('defaults to highest level', () => {
-    expect(SKILL_LEVEL_DEFAULT).toBe(12)
-  })
 })
 
 describe('buildSkinRows', () => {
@@ -217,10 +199,6 @@ describe('buildBangbooSkills', () => {
   it('returns [] for empty/missing input', () => {
     expect(buildBangbooSkills(null)).toEqual([])
     expect(buildBangbooSkills({})).toEqual([])
-  })
-
-  it('BANGBOO_SKILL_ORDER is a/b/c', () => {
-    expect(BANGBOO_SKILL_ORDER).toEqual(['a', 'b', 'c'])
   })
 })
 
@@ -261,12 +239,6 @@ const lvl11 = {
 }
 
 describe('character level stats', () => {
-  it('CHAR_LEVEL range is 1–60 with default at max', () => {
-    expect(CHAR_LEVEL_MIN).toBe(1)
-    expect(CHAR_LEVEL_MAX).toBe(60)
-    expect(CHAR_LEVEL_DEFAULT).toBe(60)
-  })
-
   it('statAtLevel floors base + break bonus + growth/10000 × (lv-1)', () => {
     expect(statAtLevel(617, 837238, 0, 1)).toBe(617)
     expect(statAtLevel(617, 837238, 0, 10)).toBe(1370)

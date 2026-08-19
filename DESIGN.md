@@ -179,13 +179,19 @@ scripts/build/
 |---|---|
 | utils/text.ts | stripRichText 全部标记分支（color/IconMap/LAYOUT/BR/残留标签） |
 | utils/rich.ts | 转义 + 两类定向还原 + 注入安全（<script> 被转义） |
-| domain/enums.ts | 枚举全集、Tier 映射 |
+| domain/schema.ts | zod 契约通过/失败用例（list/detail/manifest） |
 | data/api.ts | mock fetch：缓存命中、错误归一化、lang/baseUrl 拼接 |
 | data/resources.ts | 类别表驱动：listPath/detailPath 的 URL 正确性 |
 | scripts/build/normalize.mjs | 用 fixture JSON 验证规整（含皮肤回退、英文值） |
 | scripts/verify-data.mjs | 对 mock 数据目录的通过/失败用例 |
-| 组件（@vue/test-utils） | HollowImage 候选回退、AsyncState 三态、SearchField v-model、CatalogTable 列渲染 |
+| 组件（@vue/test-utils） | CatalogTable 排序交互、FilterDropdown 弹层/选择行为 |
+| composables | useCatalogList 过滤组合 + URL 同步、useCatalogSort 排序切换 |
 | 视图冒烟 | 每个 view mount 后（mock 数据层）正常渲染关键节点 |
+
+> 精简原则（2026-08 评估后）：不写「事实快照」——枚举映射内容（enums.ts）
+> 由数据类型 + 数据管道校验兜底，游戏更新时不产生假红；不写纯模板冒烟
+> （DescRow/HollowImage 等无算法分支的渲染存在性断言）；不写「实现复制」
+> 断言（组件渲染 src 与被测模块同一函数比对，恒真且阻重构）。
 
 vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件；aliases 与 vite.config 共用。
 
