@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, watch } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import { iconSources } from '@/data/icons'
 import { richDesc } from '@/utils/rich'
@@ -8,10 +8,20 @@ import { useRouteParam } from '@/composables/useRouteParam'
 import { useDetailResource } from '@/composables/useDetailResource'
 import { useDetailNavigation } from '@/composables/useDetailNavigation'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { dictToRows, type DetailRow, type StatItem } from '@/domain/sections'
+import {
+  dictToRows,
+  wEngineBreakCount,
+  wEnginePropsAtLevel,
+  W_ENGINE_LEVEL_DEFAULT,
+  W_ENGINE_LEVEL_MAX,
+  W_ENGINE_LEVEL_MIN,
+  type DetailRow,
+  type StatItem,
+} from '@/domain/sections'
 import { PROFESSIONS, type SpecCode } from '@/data/types'
 import type { WEngineDetail } from '@/data/types'
-import { AsyncState, DescRow, DetailHead, DetailSection, KeyValueGrid } from '@/components'
+import { AsyncState, DescRow, DetailHead, DetailSection, KeyValueGrid, LevelSlider } from '@/components'
+import type { LevelMark } from '@/components/detail/LevelSlider.vue'
 import BackToTop from '@/components/BackToTop.vue'
 import Rarity from '@/components/Rarity.vue'
 import Tags from '@/components/Tags.vue'
@@ -31,31 +41,34 @@ const specName = computed(() =>
   (specCode.value != null ? PROFESSIONS[specCode.value]?.zh : null) ?? null,
 )
 
-/** 副属性/主属性显示值：% 格式按 0-100 整数显示百分号，其余平值原样 */
-function formatValue(p: { value?: number; format?: string } | null | undefined): string | null {
-  if (!p || p.value == null) return null
-  const fmt = p.format ?? ''
-  return fmt.includes('%') ? `${p.value}%` : String(p.value)
-}
+/** 基础属性：等级滑条（默认满级；切换音擎时重置） */
+const wLevel = ref(W_ENGINE_LEVEL_DEFAULT)
 
-const propItems = computed<StatItem[]>(() => {
-  const d = detail.value
-  const items: StatItem[] = []
-  if (d?.base_property?.name && formatValue(d.base_property)) {
-    items.push({
-      label: d.base_property.name,
-      value: formatValue(d.base_property)!,
-      tag: '主属性',
-    })
+watch(id, () => {
+  wLevel.value = W_ENGINE_LEVEL_DEFAULT
+})
+
+/** 满级主属性由构建期注入（名录 atk）；缺失时降级为 Lv.1 静态值 */
+const hasLevels = computed(() => detail.value?.atk_max != null)
+
+const propItems = computed<StatItem[]>(() =>
+  wEnginePropsAtLevel(
+    wLevel.value,
+    detail.value?.base_property,
+    detail.value?.rand_property,
+    detail.value?.atk_max,
+  ),
+)
+
+const breakCount = computed(() => wEngineBreakCount(wLevel.value))
+
+/** 突破刻度：1 起点 + 10/20/30/40/50 突破点（amber）+ 60 上限（灰） */
+const levelMarks = computed<LevelMark[]>(() => {
+  const marks: LevelMark[] = [{ at: W_ENGINE_LEVEL_MIN, label: String(W_ENGINE_LEVEL_MIN) }]
+  for (let lv = 10; lv <= W_ENGINE_LEVEL_MAX; lv += 10) {
+    marks.push({ at: lv, label: String(lv), break: lv < W_ENGINE_LEVEL_MAX })
   }
-  if (d?.rand_property?.name && formatValue(d.rand_property)) {
-    items.push({
-      label: d.rand_property.name,
-      value: formatValue(d.rand_property)!,
-      tag: '副属性',
-    })
-  }
-  return items
+  return marks
 })
 
 const talents = computed<DetailRow[]>(() => dictToRows(detail.value?.talents))
@@ -139,7 +152,22 @@ watch(status, (s) => {
         </DetailSection>
 
         <DetailSection v-reveal id="props" :no="noOf('props') ?? '01'" title="基础属性" en="Specs">
-          <KeyValueGrid :items="propItems" />
+          <div class="stat-level">
+            <div v-if="hasLevels" class="stat-level-head">
+              <span class="stat-level-lv mono">Lv.{{ wLevel }}</span>
+              <LevelSlider
+                v-model="wLevel"
+                :min="W_ENGINE_LEVEL_MIN"
+                :max="W_ENGINE_LEVEL_MAX"
+                label="音擎等级"
+                :marks="levelMarks"
+              />
+            </div>
+            <p v-if="hasLevels" class="stat-level-meta mono">
+              <span>{{ breakCount === 0 ? '未突破' : `突破 ${breakCount} 阶` }}</span>
+            </p>
+            <KeyValueGrid :items="propItems" variant="ledger" />
+          </div>
         </DetailSection>
 
         <DetailSection v-reveal id="talents" :no="noOf('talents') ?? '01'" title="精炼效果" en="Refine">
@@ -211,6 +239,41 @@ watch(status, (s) => {
 
 .desc-list {
   list-style: none;
+}
+
+/* ---------- 等级滑条（与 AgentDetailView 基础数值同构） ---------- */
+
+.stat-level {
+  border: var(--rule);
+  padding: 14px clamp(16px, 2vw, 28px) 12px;
+  margin-bottom: var(--space-2);
+}
+
+.stat-level-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.stat-level-lv {
+  flex: none;
+  font-size: 22px;
+  color: var(--amber);
+  letter-spacing: 0.04em;
+  min-width: 3.2em;
+}
+
+.stat-level-meta {
+  display: flex;
+  gap: 14px;
+  margin-top: 8px;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  color: var(--ink-2);
+}
+
+.stat-level-meta span:first-child {
+  color: var(--amber);
 }
 
 .empty {

@@ -63,9 +63,12 @@ export async function buildWeapons(ver: string): Promise<{ list: Dict; details: 
     // 与旧契约一致：weapon_type 值英文；其余字段透传
     const w = (d.weapon_type ?? {}) as Record<string, unknown>
     const k = Object.keys(w)[0]
+    // 注入满级主属性（名录 atk = Lv.60 基础攻击力），供详情页等级滑条插值
+    const atkMax = (listRaw[ids[i]] as Record<string, unknown> | undefined)?.['atk']
+    const withAtkMax = atkMax != null ? { ...d, atk_max: atkMax } : d
     details[ids[i]] = k
-      ? { ...d, weapon_type: { [k]: specialEn(k, String(w[k])) } }
-      : d
+      ? { ...withAtkMax, weapon_type: { [k]: specialEn(k, String(w[k])) } }
+      : withAtkMax
   }
   return { list, details }
 }

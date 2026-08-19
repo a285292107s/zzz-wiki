@@ -15,6 +15,10 @@ import {
   skillDetailValue,
   skillParamValue,
   statAtLevel,
+  wEngineBreakCount,
+  wEngineMainAt,
+  wEnginePropsAtLevel,
+  wEngineRandAt,
   type SkillParamEntry,
 } from '../src/domain/sections'
 
@@ -461,5 +465,90 @@ describe('buildPotentialCinema', () => {
     expect(buildPotentialCinema(undefined)).toEqual([])
     expect(buildPotentialCinema(null)).toEqual([])
     expect(buildPotentialCinema({})).toEqual([])
+  })
+})
+
+/* ---------- 音擎基础属性（等级滑条） ---------- */
+
+/** BWIKI 详细面板断点（突破后口径）：残心青囊 S 48→713、霰落星殿 S 50→743、星徽引擎 A 40→594、月相-朔 B 32→475 */
+const ENGINE_CASES = [
+  { base: 48, max: 713, breakpoints: [166, 284, 402, 520, 638] },
+  { base: 50, max: 743, breakpoints: [173, 296, 418, 542, 665] },
+  { base: 40, max: 594, breakpoints: [138, 236, 335, 433, 532] },
+  { base: 32, max: 475, breakpoints: [110, 189, 268, 346, 425] },
+]
+
+/** 副属性断点：暴击率 9.6→24、冲击力 6→15、能量回复 20→50（万分数） */
+const RAND_CASES: Array<[number, number[]]> = [
+  [960, [960, 1248, 1536, 1824, 2112, 2400]],
+  [600, [600, 780, 960, 1140, 1320, 1500]],
+  [2000, [2000, 2600, 3200, 3800, 4400, 5000]],
+]
+
+describe('wEngineMainAt', () => {
+  it('matches BWIKI breakpoints within ±1 (game-internal rounding)', () => {
+    for (const c of ENGINE_CASES) {
+      c.breakpoints.forEach((v, i) => {
+        const got = wEngineMainAt(10 * (i + 1), c.base, c.max)
+        expect(Math.abs(got - v)).toBeLessThanOrEqual(1)
+      })
+    }
+  })
+
+  it('clamps at level 1 and max level', () => {
+    expect(wEngineMainAt(0, 50, 743)).toBe(50)
+    expect(wEngineMainAt(1, 50, 743)).toBe(50)
+    expect(wEngineMainAt(60, 50, 743)).toBe(743)
+    expect(wEngineMainAt(99, 50, 743)).toBe(743)
+  })
+
+  it('monotonically grows inside a segment', () => {
+    const lv10 = wEngineMainAt(10, 50, 743)
+    const lv19 = wEngineMainAt(19, 50, 743)
+    const lv20 = wEngineMainAt(20, 50, 743)
+    expect(lv10).toBeLessThan(lv19)
+    expect(lv19).toBeLessThan(lv20)
+    expect(lv20).toBe(296)
+  })
+})
+
+describe('wEngineRandAt', () => {
+  it('scales by 1.3 per break stage, capped at 2.5x', () => {
+    for (const [base, ladder] of RAND_CASES) {
+      ladder.forEach((v, seg) => {
+        expect(wEngineRandAt(seg < 2 ? seg * 5 + 9 : seg * 10, base)).toBe(v)
+      })
+    }
+  })
+
+  it('keeps Lv.50-60 at final stage', () => {
+    expect(wEngineRandAt(50, 960)).toBe(2400)
+    expect(wEngineRandAt(60, 960)).toBe(2400)
+  })
+})
+
+describe('wEngineBreakCount', () => {
+  it('counts breaks per 10 levels', () => {
+    expect([1, 9, 10, 19, 20, 49, 50, 60].map(wEngineBreakCount)).toEqual([0, 0, 1, 1, 2, 4, 5, 5])
+  })
+})
+
+describe('wEnginePropsAtLevel', () => {
+  it('builds main + sub stat items at level', () => {
+    const items = wEnginePropsAtLevel(60, { name: '基础攻击力', value: 50 }, { name: '暴击率', value: 960, format: '{0:0.#%}' }, 743)
+    expect(items).toEqual([
+      { label: '基础攻击力', value: '743', tag: '主属性' },
+      { label: '暴击率', value: '24.00%', tag: '副属性' },
+    ])
+  })
+
+  it('falls back to static Lv.1 values when atk_max missing', () => {
+    const items = wEnginePropsAtLevel(60, { name: '基础攻击力', value: 50 }, { name: '暴击率', value: 960, format: '{0:0.#%}' }, undefined)
+    expect(items[0].value).toBe('50')
+    expect(items[1].value).toBe('24.00%')
+  })
+
+  it('returns [] when properties are missing', () => {
+    expect(wEnginePropsAtLevel(1, null, null, 743)).toEqual([])
   })
 })

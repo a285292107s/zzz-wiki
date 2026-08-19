@@ -681,3 +681,71 @@ function pctOrNull(v: number | null): string | null {
   if (v == null) return null
   return pct(v)
 }
+
+/* ---------- 音擎基础属性（等级滑条） ---------- */
+
+/** 音擎等级范围（1-60，10 级一突破） */
+export const W_ENGINE_LEVEL_MIN = 1
+export const W_ENGINE_LEVEL_MAX = 60
+export const W_ENGINE_LEVEL_DEFAULT = W_ENGINE_LEVEL_MAX
+
+/**
+ * 音擎主属性（基础攻击力）成长曲线，已突破口径（10/20/30/40/50 显示突破后）：
+ * - Lv.1 = base，Lv.60 = max；M = max − base
+ * - 段 1（Lv.1→Lv.10）走 11.25% M（9 步），随后每 10 级段走 11.25% M，
+ *   每次突破瞬间 +6.5% M；与 BWIKI 详细面板断点吻合（±1 取整误差）。
+ */
+export function wEngineMainAt(lv: number, base: number, max: number): number {
+  if (lv >= W_ENGINE_LEVEL_MAX) return max
+  if (lv <= W_ENGINE_LEVEL_MIN) return base
+  const M = max - base
+  if (M <= 0) return base
+  const seg = Math.floor(lv / 10) // 0..5（突破后段起点：Lv.10k = base + 17.75% M × k）
+  if (seg === 0) {
+    return Math.floor(base + M * 0.1125 * ((lv - 1) / 9))
+  }
+  return Math.floor(base + M * (0.1775 * seg + 0.01125 * (lv - 10 * seg)))
+}
+
+/**
+ * 音擎副属性随等级成长：每 10 级突破 ×1.3（1 → 1.3 → 1.6 → 1.9 → 2.2 → 2.5 封顶）。
+ * base 为万分比整数（如 960 = 9.6%），返回同量纲。
+ */
+export function wEngineRandAt(lv: number, base: number): number {
+  const seg = Math.min(Math.floor(lv / 10), 5)
+  return Math.round(base * (1 + 0.3 * seg))
+}
+
+/** 音擎当前等级的突破次数（0-5；Lv.10k 视为已突破） */
+export function wEngineBreakCount(lv: number): number {
+  return Math.min(Math.max(Math.floor(lv / 10), 0), 5)
+}
+
+/**
+ * 音擎在指定等级下的基础属性（主属性 + 副属性），输出与 KeyValueGrid 兼容。
+ * 缺满级值（atk_max 未注入）时回退 Lv.1 静态值；% 格式按万分比 /100 显示。
+ */
+export function wEnginePropsAtLevel(
+  lv: number,
+  base: { name?: string; value?: number } | undefined | null,
+  rand: { name?: string; value?: number; format?: string } | undefined | null,
+  max: number | undefined,
+): StatItem[] {
+  const items: StatItem[] = []
+  const mainName = base?.name
+  const randName = rand?.name
+  if (mainName && base?.value != null) {
+    const v = max != null ? wEngineMainAt(lv, base.value, max) : base.value
+    items.push({ label: mainName, value: String(v), tag: '主属性' })
+  }
+  if (randName && rand?.value != null) {
+    const v = wEngineRandAt(lv, rand.value)
+    const fmt = rand.format ?? ''
+    items.push({
+      label: randName,
+      value: fmt.includes('%') ? `${(v / 100).toFixed(2)}%` : String(v),
+      tag: '副属性',
+    })
+  }
+  return items
+}

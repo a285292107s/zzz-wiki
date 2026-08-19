@@ -175,6 +175,8 @@ export const WEngineDetailSchema = z
     desc3: z.string().optional(),
     rarity: z.number().optional(),
     icon: z.string().optional(),
+    /** 满级（Lv.60）主属性值，构建期由名录 atk 注入，供等级滑条插值 */
+    atk_max: z.number().optional(),
     weapon_type: PropMapSchema.optional(),
     base_property: z
       .object({ name: z.string().optional(), name2: z.string().optional(), format: z.string().optional(), value: z.number().optional() })
