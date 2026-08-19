@@ -49,9 +49,11 @@ const columns: CatalogColumn[] = [
 const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
   filtered,
   [
+    { key: 'id', value: (r) => r.Id },
     { key: 'name', value: (r) => pickName(r) },
     { key: 'rarity', value: (r) => r.rank ?? -1 },
   ],
+  { defaultKey: 'id', defaultDir: 'desc' },
 )
 </script>
 

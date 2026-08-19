@@ -23,7 +23,11 @@ const { query, filtered, count } = useCatalogList<DiskDriveListItem>({
 
 const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
   filtered,
-  [{ key: 'name', value: (d) => d.zh?.name ?? '' }],
+  [
+    { key: 'id', value: (d) => d.Id },
+    { key: 'name', value: (d) => d.zh?.name ?? '' },
+  ],
+  { defaultKey: 'id', defaultDir: 'desc' },
 )
 </script>
 

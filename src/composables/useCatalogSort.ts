@@ -16,12 +16,20 @@ export interface SortColumn<T> {
   value: (item: T) => number | string | null | undefined
 }
 
+export interface CatalogSortOptions {
+  /** 列表的默认排序键（需在 columns 中存在）；缺省为 null（不排序，保持原始顺序） */
+  defaultKey?: string
+  /** 默认排序方向；缺省 'asc' */
+  defaultDir?: SortDir
+}
+
 export function useCatalogSort<T>(
   items: MaybeRefOrGetter<T[]>,
   columns: MaybeRefOrGetter<SortColumn<T>[]>,
+  options: CatalogSortOptions = {},
 ) {
-  const sortKey = ref<string | null>(null)
-  const sortDir = ref<SortDir>('asc')
+  const sortKey = ref<string | null>(options.defaultKey ?? null)
+  const sortDir = ref<SortDir>(options.defaultDir ?? 'asc')
 
   /** 点击列头：同键翻转方向，否则切键并默认升序 */
   function toggle(key: string) {
