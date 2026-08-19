@@ -30,7 +30,7 @@
 
 ## 4. 环境与命令
 
-- 依赖：同时维护 `package-lock.json` 与 `pnpm-lock.yaml`，新依赖两把锁保持一致。
+- 依赖：包管理器为 npm，锁文件只维护 `package-lock.json`（勿再引入 pnpm 锁文件）；新增依赖用 `npm install <pkg>`。
 - 开发 `npm run dev`（http://localhost:5173）；构建 `npm run build`（含 vue-tsc）；单测 `npm test`。
 - 部署构建入口 `npm run build:ci`（Vercel 已指向）：`scripts/ci-data.ts` 数据同步（版本探测 →
   有更新才构建 → 失败回退既有产物 → 契约校验告警），再 `npm run build`。
