@@ -13,12 +13,12 @@ describe('iconSources · 本地优先（Q4b）', () => {
     expect(urls[0]).toBe(`${LOCAL}/character/IconRoleGeneral01.webp`)
   })
 
-  it('keeps honey and nanoka candidates as fallback after local', () => {
+  it('keeps nanoka candidate as fallback after local', () => {
     const urls = iconSources({ Id: 1011, icon: 'IconRoleGeneral01' }, 'list', 'character')
     expect(urls[0]).toContain('/data/img/')
-    // 本地 + honey + nanoka，去重后至少两条
+    // 本地 + nanoka，去重后至少两条
     expect(urls.length).toBeGreaterThanOrEqual(2)
-    expect(urls.some((u) => u.includes('honeyhunterworld'))).toBe(true)
+    expect(urls.some((u) => u.includes('static.nanoka.cc'))).toBe(true)
   })
 
   it('uses category-specific local path', () => {

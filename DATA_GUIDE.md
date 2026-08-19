@@ -20,7 +20,7 @@
 - **主数据**：构建期从 **hakushin raw**（`static.nanoka.cc`，zzz.nanoka.cc / hakush.in 站底层 CDN）
   拉取列表 + 详情 → 解析层规整 → 生成**本地静态 JSON**（`public/data/`）提交入仓。
 - **运行时**：前端只读本地 `/data`，**零外部接口、零 CORS**。
-- **图标**：三级 CDN 兜底（honeyhunterworld → nanoka `/assets/zzz/` → 文字占位），永不破图。
+- **图标**：两级 CDN 兜底（本地 `/data/img/` → nanoka `/assets/zzz/` → 文字占位），永不破图。
 
 > 历史：v1 主源为 Dimbreath ZenlessData（git.mero.moe），自研键名反混淆管线；
 > v2（2026-08）切换至 hakushin raw 并重写解析层（直取 + 规整），前端契约零改动。
@@ -137,8 +137,7 @@ public/data/
 | 优先级 | 来源 | URL 模板 | 覆盖/实测 |
 |---|---|---|---|
 | ① | **本地化图标** | `{BASE}/data/img/{category}/{basename}.webp`（`npm run download:icons` 落地） | 角色/音擎/邦布/驱动盘/技能键位全量（缺 npm run data 后运行） |
-| ② | honeyhunterworld | 角色 `https://zzz.honeyhunterworld.com/img/character/{id}-char_icon.webp`；立绘 `{id}-char_role_icon.webp` | 角色头像/立绘 55/60 |
-| ③ | nanoka 素材 CDN | `https://static.nanoka.cc/assets/zzz/{basename}.webp` | **全品类图标 100%（除空缺 icon）** |
+| ② | nanoka 素材 CDN | `https://static.nanoka.cc/assets/zzz/{basename}.webp` | **全品类图标 100%（除空缺 icon）** |
 
 **nanoka 命名规则**：取游戏资源路径的**裸文件名**（去目录、去扩展名）+ `.webp`。
 例：`UI/Sprite/A1DynamicLoad/IconSuit/UnPacker/SuitWoodpeckerElectro.png` → `SuitWoodpeckerElectro.webp`。
@@ -152,13 +151,13 @@ public/data/
 > **已知图标空缺（v2 实测）**：1611 克拉蕾 / 1621 洛克茜 的名录 icon 与详情 icon 均为**空串**
 > （hakushin raw 未含），其皮肤立绘名存在（`IconRole1611` 等）但主头像素材未上传；
 > 前端自动降级为文字占位，不破图。
-> honeyhunterworld 站点**前端整体当前 521**（Cloudflare 源站故障），仅角色图可用。无论其是否恢复，
-> 前端第三级（文字）兜底始终生效。
+> honeyhunterworld 站点已从候选链移除（曾整体 521，仅角色图可用），当前唯一 CDN 兜底为 nanoka；
+> 无论 nanoka 是否恢复，前端第三级（文字）兜底始终生效。
 
 ### 技能键位图标（CDN 图，经 rich.ts）
 描述文本的 `<IconMap:Icon_XXX>` 标记对应游戏键位图标，由 `src/utils/rich.ts` 的
 `richDesc()` 渲染为 CDN `<img>`（经 `src/data/icons.ts` 的 `skillAssetSources()` 生成候选 URL，
-`<HollowImage>` 风格的三级兜底：本地 → honeyhunterworld → nanoka CDN → 文字占位）。
+`<HollowImage>` 风格的两级兜底：本地 → nanoka CDN → 文字占位）。
 非键位名（如 `Icon_JoyStick`）同样走 CDN 直链。
 
 **皮肤图回退**：`scripts/build/normalize.ts` 的 `SKIN_IMAGE_FALLBACK` 将 nanoka 未上传的
@@ -172,7 +171,7 @@ public/data/
 |---|---|
 | `src/data/api.ts` | 读本地 `/data`，内存缓存；本地化名统一由 `utils/names.ts` 的 `pickName()` 提供 |
 | `src/data/types.ts` | 数据类型 + 枚举映射常量（含 300 流明、职业 7 锋御） |
-| `src/data/icons.ts` | 图标候选链（本地 → honeyhunterworld → nanoka CDN 三级兜底）+ 技能键位资产名映射 |
+| `src/data/icons.ts` | 图标候选链（本地 → nanoka CDN 两级兜底）+ 技能键位资产名映射 |
 | `src/components/HollowImage.vue` | 多候选图 + `position`/`ratio` 裁切 + 文字降级 |
 | `src/utils/rich.ts` | 富文本：`<IconMap:Icon_XXX>`→CDN 图（经 `skillAssetSources`）、`<color=#…>`→带色 span，其余 HTML 转义防注入 |
 | `src/utils/text.ts` | `stripRichText`（纯文本剥标记） |
@@ -218,7 +217,7 @@ npm run preview         # 预演产物
 - 不要把 hakushin raw 提为**运行时**数据源（§0 铁律：运行时零外部请求）；仅构建期拉取。
 - 不要硬编码版本号 `3.2.3+18259966`——每次构建从 manifest 动态取 `latest`。
 - 不要依赖 `static.nanoka.cc/zzz/UI/`（旧路径）——那是 404 残留，素材在 `/assets/zzz/`。
-- 不要热链 honeyhunterworld 作为唯一来源（会 521 / 限速）。
+- 不要重新引入 honeyhunterworld 作为 CDN 来源（曾整体 521，仅角色图可用，已从候选链移除）。
 - 不要假设名录 `icon` 永远非空（1611/1621 为空串，前端必须走兜底）。
 
 ---
