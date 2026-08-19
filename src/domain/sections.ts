@@ -749,3 +749,68 @@ export function wEnginePropsAtLevel(
   }
   return items
 }
+
+/* ---------- 邦布基础数值（等级滑条） ---------- */
+
+/** 邦布等级范围（1-60，10 级一突破，与角色/音擎一致） */
+export const BANGBOO_LEVEL_MIN = 1
+export const BANGBOO_LEVEL_MAX = 60
+export const BANGBOO_LEVEL_DEFAULT = BANGBOO_LEVEL_MAX
+
+/** 邦布当前等级的突破次数（0-5；Lv.10k 视为已突破） */
+export function bangbooBreakCount(lv: number): number {
+  return Math.min(Math.max(Math.floor(lv / 10), 0), 5)
+}
+
+/**
+ * 邦布在指定等级下的面板（已突破口径，与角色/音擎一致）：
+ * - 生命/攻击/防御：floor(基础 + 段累计突破加成 + 成长/10000 × (L-1))，段判定按突破后
+ * - 暴击率/暴击伤害：Lv.1 基础 + 当前段 extra（万分数），突破时随段提升
+ * - 冲击力/异常掌控/能量回复：不随等级变化
+ * 输出与 KeyValueGrid 兼容；stats 缺失时返回 []。
+ */
+export function bangbooStatsAtLevel(
+  stats: Record<string, StatCell> | undefined,
+  levelDict: Record<string, unknown> | undefined | null,
+  lv: number,
+): StatItem[] {
+  if (!stats) return []
+  const L = Math.min(Math.max(lv, BANGBOO_LEVEL_MIN), BANGBOO_LEVEL_MAX)
+  const segs = parseCharBreaks(levelDict)
+  // 已突破口径段号：Lv.10k 落入其突破后的段（10→段2 … 50→段6），无数据按段1
+  const seg = segs[Math.min(Math.floor(L / 10) + 1, Math.max(segs.length, 1)) - 1]
+  const segHp = seg?.hp ?? 0
+  const segAtk = seg?.attack ?? 0
+  const segDef = seg?.defence ?? 0
+
+  // 段 extra（暴击率/暴击伤害追加）：entries 按段号排序，取当前口径段
+  const entries = Object.entries(levelDict ?? {})
+    .filter(([, v]) => v && typeof v === 'object')
+    .sort((a, b) => Number(a[0]) - Number(b[0]))
+  const segIdx = Math.min(Math.floor(L / 10) + 1, Math.max(entries.length, 1)) - 1
+  const extra = (entries[segIdx]?.[1] as { extra?: Record<string, { value?: number }> } | undefined)
+    ?.extra ?? {}
+  const extraCrit = typeof extra['20101']?.value === 'number' ? (extra['20101'] as { value: number }).value : 0
+  const extraCritDmg = typeof extra['21101']?.value === 'number' ? (extra['21101'] as { value: number }).value : 0
+
+  const hp = cell(stats, 'hp_max')
+  const atk = cell(stats, 'attack')
+  const def = cell(stats, 'defence')
+  const grow = (key: string) => cell(stats, key) ?? 0
+  const num = (v: number) => String(v)
+  const pct2 = (v: number) => `${(v / 100).toFixed(2)}%`
+
+  const rows: Array<[string, string | null]> = [
+    ['生命值', hp != null ? num(statAtLevel(hp, grow('hpupgrade'), segHp, L)) : null],
+    ['攻击力', atk != null ? num(statAtLevel(atk, grow('attack_upgrade'), segAtk, L)) : null],
+    ['防御力', def != null ? num(statAtLevel(def, grow('def_upgrade'), segDef, L)) : null],
+    ['冲击力', cell(stats, 'break_stun') != null ? num(cell(stats, 'break_stun')!) : null],
+    ['暴击率', cell(stats, 'crit') != null ? pct2(cell(stats, 'crit')! + extraCrit) : null],
+    ['暴击伤害', cell(stats, 'crit_dmg') != null ? pct2(cell(stats, 'crit_dmg')! + extraCritDmg) : null],
+    ['异常掌控', cell(stats, 'element_abnormal_power') != null ? num(cell(stats, 'element_abnormal_power')!) : null],
+    ['能量回复', cell(stats, 'endurance') != null ? num(cell(stats, 'endurance')!) : null],
+  ]
+  return rows
+    .filter((r): r is [string, string] => r[1] != null)
+    .map(([label, value]) => ({ label, value }))
+}

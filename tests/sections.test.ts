@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
+  bangbooBreakCount,
+  bangbooStatsAtLevel,
   buildBangbooSkills,
   buildCoreEnhance,
   buildCoreSkill,
@@ -550,5 +552,81 @@ describe('wEnginePropsAtLevel', () => {
 
   it('returns [] when properties are missing', () => {
     expect(wEnginePropsAtLevel(1, null, null, 743)).toEqual([])
+  })
+})
+
+/* ---------- 邦布基础数值（等级滑条） ---------- */
+
+/** 企鹅布（53001，A）stats + level 字面量（与 public/data 一致） */
+const PENGUIN_STATS = {
+  endurance: 180,
+  hp_max: 360,
+  hpupgrade: 428397,
+  attack: 50,
+  attack_upgrade: 252034,
+  break_stun: 90,
+  element_abnormal_power: 120,
+  defence: 30,
+  def_upgrade: 85729,
+  crit: 500,
+  crit_dmg: 5000,
+}
+
+const PENGUIN_LEVEL: Record<string, unknown> = {
+  '1': { hp_max: 0, attack: 0, defence: 0, level_min: 0, level_max: 10, extra: { '20101': { value: 0 }, '21101': { value: 0 } } },
+  '2': { hp_max: 188, attack: 47, defence: 38, level_min: 10, level_max: 20, extra: { '20101': { value: 450 }, '21101': { value: 0 } } },
+  '3': { hp_max: 376, attack: 233, defence: 75, level_min: 20, level_max: 30, extra: { '20101': { value: 2250 }, '21101': { value: 0 } } },
+  '4': { hp_max: 564, attack: 699, defence: 113, level_min: 30, level_max: 40, extra: { '20101': { value: 2250 }, '21101': { value: 2500 } } },
+  '5': { hp_max: 752, attack: 1864, defence: 151, level_min: 40, level_max: 50, extra: { '20101': { value: 4500 }, '21101': { value: 2500 } } },
+  '6': { hp_max: 940, attack: 4661, defence: 188, level_min: 50, level_max: 60, extra: { '20101': { value: 4500 }, '21101': { value: 5000 } } },
+}
+
+const valueOf = (items: ReturnType<typeof bangbooStatsAtLevel>, label: string) =>
+  items.find((i) => i.label === label)?.value
+
+describe('bangbooStatsAtLevel', () => {
+  it('matches BWIKI panel for 企鹅布 across all break breakpoints', () => {
+    // [lv, 生命值, 攻击力, 防御力, 暴击率, 暴击伤害]（突破后口径）
+    const expected: Array<[number, string, string, string, string, string]> = [
+      [1, '360', '50', '30', '5.00%', '50.00%'],
+      [10, '933', '323', '145', '9.50%', '50.00%'],
+      [20, '1549', '761', '267', '27.50%', '50.00%'],
+      [30, '2166', '1479', '391', '27.50%', '75.00%'],
+      [40, '2782', '2896', '515', '50.00%', '75.00%'],
+      [50, '3399', '5945', '638', '50.00%', '100.00%'],
+      [60, '3827', '6198', '723', '50.00%', '100.00%'],
+    ]
+    for (const [lv, hp, atk, def, crit, critDmg] of expected) {
+      const items = bangbooStatsAtLevel(PENGUIN_STATS, PENGUIN_LEVEL, lv)
+      expect(valueOf(items, '生命值'), `Lv.${lv} 生命值`).toBe(hp)
+      expect(valueOf(items, '攻击力'), `Lv.${lv} 攻击力`).toBe(atk)
+      expect(valueOf(items, '防御力'), `Lv.${lv} 防御力`).toBe(def)
+      expect(valueOf(items, '暴击率'), `Lv.${lv} 暴击率`).toBe(crit)
+      expect(valueOf(items, '暴击伤害'), `Lv.${lv} 暴击伤害`).toBe(critDmg)
+    }
+  })
+
+  it('keeps static stats constant across levels', () => {
+    const items1 = bangbooStatsAtLevel(PENGUIN_STATS, PENGUIN_LEVEL, 1)
+    const items60 = bangbooStatsAtLevel(PENGUIN_STATS, PENGUIN_LEVEL, 60)
+    for (const label of ['冲击力', '异常掌控', '能量回复']) {
+      expect(valueOf(items60, label)).toBe(valueOf(items1, label))
+    }
+    expect(valueOf(items60, '冲击力')).toBe('90')
+    expect(valueOf(items60, '异常掌控')).toBe('120')
+  })
+
+  it('handles stats without extra and missing level dict', () => {
+    const noExtra = bangbooStatsAtLevel(PENGUIN_STATS, undefined, 60)
+    // 无突破段时仅按成长推算（growth/10000 × (L-1)），不叠加段加成
+    expect(valueOf(noExtra, '生命值')).toBe('2887')
+    expect(valueOf(noExtra, '暴击率')).toBe('5.00%')
+    expect(bangbooStatsAtLevel(undefined, PENGUIN_LEVEL, 60)).toEqual([])
+  })
+})
+
+describe('bangbooBreakCount', () => {
+  it('counts breaks per 10 levels', () => {
+    expect([1, 9, 10, 19, 20, 49, 50, 60].map(bangbooBreakCount)).toEqual([0, 0, 1, 1, 2, 4, 5, 5])
   })
 })

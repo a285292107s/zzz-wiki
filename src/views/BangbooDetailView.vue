@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, watch } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import { iconSources } from '@/data/icons'
 import { richDesc } from '@/utils/rich'
@@ -8,9 +8,18 @@ import { useRouteParam } from '@/composables/useRouteParam'
 import { useDetailResource } from '@/composables/useDetailResource'
 import { useDetailNavigation } from '@/composables/useDetailNavigation'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { buildBangbooSkills, type StatItem } from '@/domain/sections'
+import {
+  bangbooBreakCount,
+  bangbooStatsAtLevel,
+  BANGBOO_LEVEL_DEFAULT,
+  BANGBOO_LEVEL_MAX,
+  BANGBOO_LEVEL_MIN,
+  buildBangbooSkills,
+  type StatItem,
+} from '@/domain/sections'
 import type { BangbooDetail } from '@/data/types'
-import { AsyncState, DescRow, DetailHead, DetailSection, KeyValueGrid } from '@/components'
+import { AsyncState, DescRow, DetailHead, DetailSection, KeyValueGrid, LevelSlider } from '@/components'
+import type { LevelMark } from '@/components/detail/LevelSlider.vue'
 import BackToTop from '@/components/BackToTop.vue'
 import Rarity from '@/components/Rarity.vue'
 
@@ -23,25 +32,31 @@ const portraitSrcs = computed(() =>
   iconSources({ Id: id.value, icon: detail.value?.icon }, 'portrait', 'bangboo'),
 )
 
-/* ---------- 基础数值 ---------- */
+/* ---------- 基础数值：等级滑条（默认满级；切换邦布时重置） ---------- */
 
-const STAT_DEFS: Array<[string, (s: Record<string, unknown>) => string | null]> = [
-  ['生命值', (s) => (typeof s.hp_max === 'number' ? String(s.hp_max) : null)],
-  ['攻击力', (s) => (typeof s.attack === 'number' ? String(s.attack) : null)],
-  ['防御力', (s) => (typeof s.defence === 'number' ? String(s.defence) : null)],
-  ['冲击力', (s) => (typeof s.break_stun === 'number' ? String(s.break_stun) : null)],
-  ['暴击率', (s) => (typeof s.crit === 'number' ? `${(s.crit / 100).toFixed(2)}%` : null)],
-  ['暴击伤害', (s) => (typeof s.crit_dmg === 'number' ? `${(s.crit_dmg / 100).toFixed(2)}%` : null)],
-  ['异常精通', (s) => (typeof s.element_abnormal_power === 'number' ? String(s.element_abnormal_power) : null)],
-  ['能量回复', (s) => (typeof s.endurance === 'number' ? String(s.endurance) : null)],
-]
+const bLevel = ref(BANGBOO_LEVEL_DEFAULT)
 
-const stats = computed<StatItem[]>(() => {
-  const s = detail.value?.stats as Record<string, unknown> | undefined
-  if (!s) return []
-  return STAT_DEFS.map(([label, fn]) => ({ label, value: fn(s) })).filter(
-    (r): r is StatItem => r.value != null,
-  )
+watch(id, () => {
+  bLevel.value = BANGBOO_LEVEL_DEFAULT
+})
+
+const stats = computed<StatItem[]>(() =>
+  bangbooStatsAtLevel(
+    detail.value?.stats,
+    detail.value?.level,
+    bLevel.value,
+  ),
+)
+
+const breakCount = computed(() => bangbooBreakCount(bLevel.value))
+
+/** 突破刻度：1 起点 + 10/20/30/40/50 突破点（amber）+ 60 上限（灰） */
+const levelMarks = computed<LevelMark[]>(() => {
+  const marks: LevelMark[] = [{ at: BANGBOO_LEVEL_MIN, label: String(BANGBOO_LEVEL_MIN) }]
+  for (let lv = 10; lv <= BANGBOO_LEVEL_MAX; lv += 10) {
+    marks.push({ at: lv, label: String(lv), break: lv < BANGBOO_LEVEL_MAX })
+  }
+  return marks
 })
 
 /* ---------- 技能 ---------- */
@@ -104,7 +119,22 @@ watch(status, (s) => {
         </DetailHead>
 
         <DetailSection id="stats" :no="noOf('stats') ?? '01'" title="基础数值" en="Vitals">
-          <KeyValueGrid :items="stats" />
+          <div class="stat-level">
+            <div class="stat-level-head">
+              <span class="stat-level-lv mono">Lv.{{ bLevel }}</span>
+              <LevelSlider
+                v-model="bLevel"
+                :min="BANGBOO_LEVEL_MIN"
+                :max="BANGBOO_LEVEL_MAX"
+                label="邦布等级"
+                :marks="levelMarks"
+              />
+            </div>
+            <p class="stat-level-meta mono">
+              <span>{{ breakCount === 0 ? '未突破' : `突破 ${breakCount} 阶` }}</span>
+            </p>
+            <KeyValueGrid :items="stats" variant="ledger" />
+          </div>
         </DetailSection>
 
         <DetailSection v-if="skills.length" v-reveal id="skills" :no="noOf('skills') ?? '01'" title="技能" en="Skills">
@@ -190,5 +220,40 @@ watch(status, (s) => {
 
 .desc-list {
   list-style: none;
+}
+
+/* ---------- 等级滑条（与 WEngineDetailView / AgentDetailView 同构） ---------- */
+
+.stat-level {
+  border: var(--rule);
+  padding: 14px clamp(16px, 2vw, 28px) 12px;
+  margin-bottom: var(--space-2);
+}
+
+.stat-level-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.stat-level-lv {
+  flex: none;
+  font-size: 22px;
+  color: var(--amber);
+  letter-spacing: 0.04em;
+  min-width: 3.2em;
+}
+
+.stat-level-meta {
+  display: flex;
+  gap: 14px;
+  margin-top: 8px;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  color: var(--ink-2);
+}
+
+.stat-level-meta span:first-child {
+  color: var(--amber);
 }
 </style>
