@@ -1,10 +1,31 @@
 <script setup lang="ts">
+import { computed, onMounted, ref } from 'vue'
 import { iconSources } from '@/data/icons'
 import { CATALOG } from '@/domain/catalog'
 import { usePageMeta } from '@/composables/usePageMeta'
+import { dataVersion, dataVersions } from '@/data/api'
 import HollowImage from '@/components/HollowImage.vue'
 
 usePageMeta()
+
+// 数据版本元信息（live/latest 版本号，来自根 manifest.json；切换入口在全站站头）
+const versions = ref<{ live: string; latest: string; liveAvailable: boolean } | null>(null)
+onMounted(() => {
+  dataVersions()
+    .then((v) => {
+      versions.value = v
+    })
+    .catch(() => {
+      // manifest 缺失时版本信息静默隐藏，不阻断页面
+    })
+})
+
+const currentVersionLabel = computed(() => {
+  if (!versions.value) return ''
+  return dataVersion.value === 'live'
+    ? `LIVE ${versions.value.live}`
+    : `LATEST ${versions.value.latest}`
+})
 
 // 目录由 catalog.ts 派生（DESIGN.md §5.3 单一事实源）
 // 代理人类目图标：用户指定改用 nanoka 圆形头像（优先），其余沿用候选链兜底
@@ -38,11 +59,15 @@ const sections = CATALOG.map((c) => ({
       </p>
 
       <div class="hero-meta mono">
-        <span>数据源 · Dimbreath ZenlessData</span>
+        <span>游戏客户端数据</span>
         <span class="dot">·</span>
         <span>持续更新</span>
         <span class="dot">·</span>
         <span>非官方项目</span>
+        <template v-if="currentVersionLabel">
+          <span class="dot">·</span>
+          <span class="hero-ver">{{ currentVersionLabel }}</span>
+        </template>
       </div>
     </section>
 
@@ -110,6 +135,10 @@ const sections = CATALOG.map((c) => ({
 }
 
 .hero-meta .dot {
+  color: var(--amber);
+}
+
+.hero-meta .hero-ver {
   color: var(--amber);
 }
 

@@ -24,18 +24,23 @@ const DATA = path.resolve('public/data')
 const IMG = path.join(DATA, 'img')
 const N = 'https://static.nanoka.cc/assets/zzz'
 
+/** 数据版本目录（双版本：live 与 latest 名录/详情各自收集，图标落地 img/ 共用） */
+const VERSIONS = ['live', 'latest']
+
 /** 皮肤缩略图是否本地化（默认否：多为大图，避免仓库膨胀） */
 const SKIN_LOCAL = process.env.SKIN_LOCAL === '1'
 
 /** 从 zh 数据中动态收集富文本 <IconMap:Icon_XXX> 资产名（描述内键位图标） */
 function collectRichIconRefs() {
   const refs = new Set()
-  for (const dir of ['character', 'bangboo', 'weapon']) {
-    const base = path.join(DATA, 'zh', dir)
-    if (!fs.existsSync(base)) continue
-    for (const f of fs.readdirSync(base)) {
-      const raw = fs.readFileSync(path.join(base, f), 'utf8')
-      for (const m of raw.matchAll(/IconMap:(Icon_\w+)/g)) refs.add(m[1])
+  for (const ver of VERSIONS) {
+    for (const dir of ['character', 'bangboo', 'weapon']) {
+      const base = path.join(DATA, ver, 'zh', dir)
+      if (!fs.existsSync(base)) continue
+      for (const f of fs.readdirSync(base)) {
+        const raw = fs.readFileSync(path.join(base, f), 'utf8')
+        for (const m of raw.matchAll(/IconMap:(Icon_\w+)/g)) refs.add(m[1])
+      }
     }
   }
   return refs
@@ -96,8 +101,12 @@ const FILTER_ASSETS = [
 
 function listBasenames(file, cat) {
   const set = new Set()
-  const obj = JSON.parse(fs.readFileSync(path.join(DATA, file), 'utf8'))
-  for (const v of Object.values(obj)) if (v?.icon) set.add(String(v.icon).replace(/\.(png|webp)$/i, ''))
+  for (const ver of VERSIONS) {
+    const p = path.join(DATA, ver, file)
+    if (!fs.existsSync(p)) continue
+    const obj = JSON.parse(fs.readFileSync(p, 'utf8'))
+    for (const v of Object.values(obj)) if (v?.icon) set.add(String(v.icon).replace(/\.(png|webp)$/i, ''))
+  }
   return set
 }
 
@@ -112,10 +121,14 @@ const byCat = {
 }
 
 if (SKIN_LOCAL) {
-  for (const f of fs.readdirSync(path.join(DATA, 'zh', 'character'))) {
-    const d = JSON.parse(fs.readFileSync(path.join(DATA, 'zh', 'character', f), 'utf8'))
-    for (const s of Object.values(d.skin || {})) {
-      if (s?.image) byCat.skin.add(String(s.image).replace(/\.(png|webp)$/i, ''))
+  for (const ver of VERSIONS) {
+    const base = path.join(DATA, ver, 'zh', 'character')
+    if (!fs.existsSync(base)) continue
+    for (const f of fs.readdirSync(base)) {
+      const d = JSON.parse(fs.readFileSync(path.join(base, f), 'utf8'))
+      for (const s of Object.values(d.skin || {})) {
+        if (s?.image) byCat.skin.add(String(s.image).replace(/\.(png|webp)$/i, ''))
+      }
     }
   }
 }

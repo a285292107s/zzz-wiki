@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { CATALOG } from '../src/domain/catalog'
 
-const MANIFEST = { zzz: { latest: '2.0.0' }, generated: '' }
+const MANIFEST = { zzz: { latest: '2.0.0', live: '3.1' }, generated: '' }
 
 function mockFetch(impl: (url: string) => unknown) {
   vi.stubGlobal(
@@ -65,7 +65,7 @@ describe('api.list / api.detail', () => {
     })
     const detail = await api.detail<{ name?: string }>('character', 1011)
     expect(detail.name).toBe('安比')
-    expect(seen.some((u) => u.endsWith('/data/zh/character/1011.json'))).toBe(true)
+    expect(seen.some((u) => u.endsWith('/data/live/zh/character/1011.json'))).toBe(true)
   })
 
   it('caches repeated requests (single manifest fetch)', async () => {
@@ -107,6 +107,44 @@ describe('api.list / api.detail', () => {
       kind: 'manifest',
     })
   })
+
+  it('defaults to live version; setDataVersion reroutes to latest', async () => {
+    const { api, dataVersion, setDataVersion } = await import('../src/data/api')
+    expect(dataVersion.value).toBe('live')
+    const seen: string[] = []
+    mockFetch((url) => {
+      seen.push(url)
+      if (url.endsWith('/manifest.json')) return MANIFEST
+      return { 1: { zh: 'a' } }
+    })
+    await api.list('character')
+    expect(seen.some((u) => u.endsWith('/data/live/character.json'))).toBe(true)
+
+    setDataVersion('latest')
+    expect(dataVersion.value).toBe('latest')
+    await api.list('character')
+    expect(seen.some((u) => u.endsWith('/data/latest/character.json'))).toBe(true)
+
+    // 切回 live：缓存按版本隔离，各自命中，无跨版本复用
+    setDataVersion('live')
+    await api.list('character')
+    expect(seen.filter((u) => u.endsWith('/data/live/character.json'))).toHaveLength(1)
+  })
+
+  it('dataVersions exposes live/latest numbers from root manifest', async () => {
+    const { dataVersions } = await import('../src/data/api')
+    mockFetch(() => MANIFEST)
+    const v = await dataVersions()
+    expect(v.live).toBe('3.1')
+    expect(v.latest).toBe('2.0.0')
+    expect(v.liveAvailable).toBe(true)
+  })
+
+  it('dataVersions marks unavailable live when manifest says so', async () => {
+    const { dataVersions } = await import('../src/data/api')
+    mockFetch(() => ({ zzz: { latest: '2.0.0', live: '3.1', liveAvailable: false } }))
+    expect((await dataVersions()).liveAvailable).toBe(false)
+  })
 })
 
 describe('resources (catalog-driven)', () => {
@@ -140,7 +178,7 @@ describe('resources (catalog-driven)', () => {
     })
     const entry = CATALOG.find((c) => c.path === '/agents')!
     await detailFor<{ name?: string }>(entry, 1011)
-    expect(seen.some((u) => u.endsWith('/zh/character/1011.json'))).toBe(true)
+    expect(seen.some((u) => u.endsWith('/live/zh/character/1011.json'))).toBe(true)
     expect(fetchMock().mock.calls.length).toBeLessThanOrEqual(2)
   })
 })

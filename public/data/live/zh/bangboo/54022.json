@@ -1,0 +1,448 @@
+{
+ "id": 54022,
+ "code_name": "Ultra Jake",
+ "name": "超极杰克",
+ "desc": "超规级别嗯呢技术结晶。",
+ "rarity": 4,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole47.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 396,
+  "hpupgrade": 471237,
+  "attack": 72,
+  "attack_upgrade": 360408,
+  "break_stun": 103,
+  "element_abnormal_power": 110,
+  "defence": 28,
+  "def_upgrade": 78871,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "暴击率",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "暴击伤害",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 207,
+   "attack": 67,
+   "defence": 35,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "暴击率",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "暴击伤害",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 414,
+   "attack": 333,
+   "defence": 69,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "暴击率",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "暴击伤害",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 621,
+   "attack": 1000,
+   "defence": 104,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "暴击率",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "暴击伤害",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 828,
+   "attack": 2666,
+   "defence": 139,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "暴击率",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "暴击伤害",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 1034,
+   "attack": 6665,
+   "defence": 173,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "暴击率",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "暴击伤害",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "超极火力压制",
+     "desc": "<color=#FFFFFF>[主动技]</color>\n招式发动时，进入飞行状态，连续射击目标敌人，造成<color=#FF5521>火属性伤害</color>并累积<color=#FF5521>火属性异常积蓄值</color>。",
+     "property": [
+      "伤害倍率",
+      "失衡倍率",
+      "冷却时间"
+     ],
+     "param": "{Skill:5402201, Prop:1001}*3|{Skill:5402201, Prop:1002}*3|30秒"
+    },
+    "2": {
+     "name": "超极火力压制",
+     "desc": "<color=#FFFFFF>[主动技]</color>\n招式发动时，进入飞行状态，连续射击目标敌人，造成<color=#FF5521>火属性伤害</color>并累积<color=#FF5521>火属性异常积蓄值</color>。",
+     "property": [
+      "伤害倍率",
+      "失衡倍率",
+      "冷却时间"
+     ],
+     "param": "{Skill:5402201, Prop:1001}*3|{Skill:5402201, Prop:1002}*3|30秒"
+    },
+    "3": {
+     "name": "超极火力压制",
+     "desc": "<color=#FFFFFF>[主动技]</color>\n招式发动时，进入飞行状态，连续射击目标敌人，造成<color=#FF5521>火属性伤害</color>并累积<color=#FF5521>火属性异常积蓄值</color>。",
+     "property": [
+      "伤害倍率",
+      "失衡倍率",
+      "冷却时间"
+     ],
+     "param": "{Skill:5402201, Prop:1001}*3|{Skill:5402201, Prop:1002}*3|30秒"
+    },
+    "4": {
+     "name": "超极火力压制",
+     "desc": "<color=#FFFFFF>[主动技]</color>\n招式发动时，进入飞行状态，连续射击目标敌人，造成<color=#FF5521>火属性伤害</color>并累积<color=#FF5521>火属性异常积蓄值</color>。",
+     "property": [
+      "伤害倍率",
+      "失衡倍率",
+      "冷却时间"
+     ],
+     "param": "{Skill:5402201, Prop:1001}*3|{Skill:5402201, Prop:1002}*3|30秒"
+    },
+    "5": {
+     "name": "超极火力压制",
+     "desc": "<color=#FFFFFF>[主动技]</color>\n招式发动时，进入飞行状态，连续射击目标敌人，造成<color=#FF5521>火属性伤害</color>并累积<color=#FF5521>火属性异常积蓄值</color>。",
+     "property": [
+      "伤害倍率",
+      "失衡倍率",
+      "冷却时间"
+     ],
+     "param": "{Skill:5402201, Prop:1001}*3|{Skill:5402201, Prop:1002}*3|30秒"
+    },
+    "6": {
+     "name": "超极火力压制",
+     "desc": "<color=#FFFFFF>[主动技]</color>\n招式发动时，进入飞行状态，连续射击目标敌人，造成<color=#FF5521>火属性伤害</color>并累积<color=#FF5521>火属性异常积蓄值</color>。",
+     "property": [
+      "伤害倍率",
+      "失衡倍率",
+      "冷却时间"
+     ],
+     "param": "{Skill:5402201, Prop:1001}*3|{Skill:5402201, Prop:1002}*3|30秒"
+    },
+    "7": {
+     "name": "超极火力压制",
+     "desc": "<color=#FFFFFF>[主动技]</color>\n招式发动时，进入飞行状态，连续射击目标敌人，造成<color=#FF5521>火属性伤害</color>并累积<color=#FF5521>火属性异常积蓄值</color>。",
+     "property": [
+      "伤害倍率",
+      "失衡倍率",
+      "冷却时间"
+     ],
+     "param": "{Skill:5402201, Prop:1001}*3|{Skill:5402201, Prop:1002}*3|30秒"
+    },
+    "8": {
+     "name": "超极火力压制",
+     "desc": "<color=#FFFFFF>[主动技]</color>\n招式发动时，进入飞行状态，连续射击目标敌人，造成<color=#FF5521>火属性伤害</color>并累积<color=#FF5521>火属性异常积蓄值</color>。",
+     "property": [
+      "伤害倍率",
+      "失衡倍率",
+      "冷却时间"
+     ],
+     "param": "{Skill:5402201, Prop:1001}*3|{Skill:5402201, Prop:1002}*3|30秒"
+    },
+    "9": {
+     "name": "超极火力压制",
+     "desc": "<color=#FFFFFF>[主动技]</color>\n招式发动时，进入飞行状态，连续射击目标敌人，造成<color=#FF5521>火属性伤害</color>并累积<color=#FF5521>火属性异常积蓄值</color>。",
+     "property": [
+      "伤害倍率",
+      "失衡倍率",
+      "冷却时间"
+     ],
+     "param": "{Skill:5402201, Prop:1001}*3|{Skill:5402201, Prop:1002}*3|30秒"
+    },
+    "10": {
+     "name": "超极火力压制",
+     "desc": "<color=#FFFFFF>[主动技]</color>\n招式发动时，进入飞行状态，连续射击目标敌人，造成<color=#FF5521>火属性伤害</color>并累积<color=#FF5521>火属性异常积蓄值</color>。",
+     "property": [
+      "伤害倍率",
+      "失衡倍率",
+      "冷却时间"
+     ],
+     "param": "{Skill:5402201, Prop:1001}*3|{Skill:5402201, Prop:1002}*3|30秒"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "超极增压模块",
+     "desc": "<color=#FFFFFF>[额外能力]</color>\n队伍中存在1名或以上<color=#FFFFFF>[罗斯凯利法]</color>阵营角色时触发：全队代理人触发<color=#FFFFFF>[乱流]</color>、或发动<color=#FFFFFF>[连携技]</color>时，为全队代理人回复2点能量，并使超极杰克<color=#FFFFFF>[主动技]</color>造成的伤害提升25%，持续45秒，30秒内最多触发1次。",
+     "property": [
+      "能量回复",
+      "伤害提升"
+     ],
+     "param": "2|25%"
+    },
+    "2": {
+     "name": "超极增压模块",
+     "desc": "<color=#FFFFFF>[额外能力]</color>\n队伍中存在1名或以上<color=#FFFFFF>[罗斯凯利法]</color>阵营角色时触发：全队代理人触发<color=#FFFFFF>[乱流]</color>、或发动<color=#FFFFFF>[连携技]</color>时，为全队代理人回复2.5点能量，并使超极杰克<color=#FFFFFF>[主动技]</color>造成的伤害提升31%，持续45秒，30秒内最多触发1次。",
+     "property": [
+      "能量回复",
+      "伤害提升"
+     ],
+     "param": "2.5|31%"
+    },
+    "3": {
+     "name": "超极增压模块",
+     "desc": "<color=#FFFFFF>[额外能力]</color>\n队伍中存在1名或以上<color=#FFFFFF>[罗斯凯利法]</color>阵营角色时触发：全队代理人触发<color=#FFFFFF>[乱流]</color>、或发动<color=#FFFFFF>[连携技]</color>时，为全队代理人回复3点能量，并使超极杰克<color=#FFFFFF>[主动技]</color>造成的伤害提升37%，持续45秒，30秒内最多触发1次。",
+     "property": [
+      "能量回复",
+      "伤害提升"
+     ],
+     "param": "3|37%"
+    },
+    "4": {
+     "name": "超极增压模块",
+     "desc": "<color=#FFFFFF>[额外能力]</color>\n队伍中存在1名或以上<color=#FFFFFF>[罗斯凯利法]</color>阵营角色时触发：全队代理人触发<color=#FFFFFF>[乱流]</color>、或发动<color=#FFFFFF>[连携技]</color>时，为全队代理人回复3.5点能量，并使超极杰克<color=#FFFFFF>[主动技]</color>造成的伤害提升43%，持续45秒，30秒内最多触发1次。",
+     "property": [
+      "能量回复",
+      "伤害提升"
+     ],
+     "param": "3.5|43%"
+    },
+    "5": {
+     "name": "超极增压模块",
+     "desc": "<color=#FFFFFF>[额外能力]</color>\n队伍中存在1名或以上<color=#FFFFFF>[罗斯凯利法]</color>阵营角色时触发：全队代理人触发<color=#FFFFFF>[乱流]</color>、或发动<color=#FFFFFF>[连携技]</color>时，为全队代理人回复4点能量，并使超极杰克<color=#FFFFFF>[主动技]</color>造成的伤害提升50%，持续45秒，30秒内最多触发1次。",
+     "property": [
+      "能量回复",
+      "伤害提升"
+     ],
+     "param": "4|50%"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "超级超极炮",
+     "desc": "<color=#FFFFFF>[邦布连携技]</color>\n发射蓄力手炮，对前方范围内敌人造成大量<color=#FF5521>火属性伤害</color>并累积<color=#FF5521>火属性异常积蓄值</color>。",
+     "property": [
+      "伤害倍率",
+      "失衡倍率"
+     ],
+     "param": "{Skill:5402202, Prop:1001}|{Skill:5402202, Prop:1002}"
+    },
+    "2": {
+     "name": "超级超极炮",
+     "desc": "<color=#FFFFFF>[邦布连携技]</color>\n发射蓄力手炮，对前方范围内敌人造成大量<color=#FF5521>火属性伤害</color>并累积<color=#FF5521>火属性异常积蓄值</color>。",
+     "property": [
+      "伤害倍率",
+      "失衡倍率"
+     ],
+     "param": "{Skill:5402202, Prop:1001}|{Skill:5402202, Prop:1002}"
+    },
+    "3": {
+     "name": "超级超极炮",
+     "desc": "<color=#FFFFFF>[邦布连携技]</color>\n发射蓄力手炮，对前方范围内敌人造成大量<color=#FF5521>火属性伤害</color>并累积<color=#FF5521>火属性异常积蓄值</color>。",
+     "property": [
+      "伤害倍率",
+      "失衡倍率"
+     ],
+     "param": "{Skill:5402202, Prop:1001}|{Skill:5402202, Prop:1002}"
+    },
+    "4": {
+     "name": "超级超极炮",
+     "desc": "<color=#FFFFFF>[邦布连携技]</color>\n发射蓄力手炮，对前方范围内敌人造成大量<color=#FF5521>火属性伤害</color>并累积<color=#FF5521>火属性异常积蓄值</color>。",
+     "property": [
+      "伤害倍率",
+      "失衡倍率"
+     ],
+     "param": "{Skill:5402202, Prop:1001}|{Skill:5402202, Prop:1002}"
+    },
+    "5": {
+     "name": "超级超极炮",
+     "desc": "<color=#FFFFFF>[邦布连携技]</color>\n发射蓄力手炮，对前方范围内敌人造成大量<color=#FF5521>火属性伤害</color>并累积<color=#FF5521>火属性异常积蓄值</color>。",
+     "property": [
+      "伤害倍率",
+      "失衡倍率"
+     ],
+     "param": "{Skill:5402202, Prop:1001}|{Skill:5402202, Prop:1002}"
+    },
+    "6": {
+     "name": "超级超极炮",
+     "desc": "<color=#FFFFFF>[邦布连携技]</color>\n发射蓄力手炮，对前方范围内敌人造成大量<color=#FF5521>火属性伤害</color>并累积<color=#FF5521>火属性异常积蓄值</color>。",
+     "property": [
+      "伤害倍率",
+      "失衡倍率"
+     ],
+     "param": "{Skill:5402202, Prop:1001}|{Skill:5402202, Prop:1002}"
+    },
+    "7": {
+     "name": "超级超极炮",
+     "desc": "<color=#FFFFFF>[邦布连携技]</color>\n发射蓄力手炮，对前方范围内敌人造成大量<color=#FF5521>火属性伤害</color>并累积<color=#FF5521>火属性异常积蓄值</color>。",
+     "property": [
+      "伤害倍率",
+      "失衡倍率"
+     ],
+     "param": "{Skill:5402202, Prop:1001}|{Skill:5402202, Prop:1002}"
+    },
+    "8": {
+     "name": "超级超极炮",
+     "desc": "<color=#FFFFFF>[邦布连携技]</color>\n发射蓄力手炮，对前方范围内敌人造成大量<color=#FF5521>火属性伤害</color>并累积<color=#FF5521>火属性异常积蓄值</color>。",
+     "property": [
+      "伤害倍率",
+      "失衡倍率"
+     ],
+     "param": "{Skill:5402202, Prop:1001}|{Skill:5402202, Prop:1002}"
+    },
+    "9": {
+     "name": "超级超极炮",
+     "desc": "<color=#FFFFFF>[邦布连携技]</color>\n发射蓄力手炮，对前方范围内敌人造成大量<color=#FF5521>火属性伤害</color>并累积<color=#FF5521>火属性异常积蓄值</color>。",
+     "property": [
+      "伤害倍率",
+      "失衡倍率"
+     ],
+     "param": "{Skill:5402202, Prop:1001}|{Skill:5402202, Prop:1002}"
+    },
+    "10": {
+     "name": "超级超极炮",
+     "desc": "<color=#FFFFFF>[邦布连携技]</color>\n发射蓄力手炮，对前方范围内敌人造成大量<color=#FF5521>火属性伤害</color>并累积<color=#FF5521>火属性异常积蓄值</color>。",
+     "property": [
+      "伤害倍率",
+      "失衡倍率"
+     ],
+     "param": "{Skill:5402202, Prop:1001}|{Skill:5402202, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5402201": {
+   "1001": {
+    "main": 32000,
+    "growth": 3200,
+    "format": "%"
+   },
+   "1002": {
+    "main": 11700,
+    "growth": 1170,
+    "format": "%"
+   },
+   "element_accumulation_value": 15000
+  },
+  "5402202": {
+   "1001": {
+    "main": 90400,
+    "growth": 9040,
+    "format": "%"
+   },
+   "1002": {
+    "main": 12900,
+    "growth": 1290,
+    "format": "%"
+   },
+   "element_accumulation_value": 38800
+  }
+ }
+}

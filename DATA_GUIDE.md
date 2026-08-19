@@ -33,11 +33,17 @@
 | 项 | 值 |
 |---|---|
 | 源 | `https://static.nanoka.cc`（zzz.nanoka.cc / hakush.in 底层静态 CDN） |
-| 版本清单 | `GET /manifest.json` → `zzz.latest`（当前 3.2.3+18259966）即数据版本；`zzz.live` 为在线版本 |
+| 版本清单 | `GET /manifest.json` → `zzz.latest`（当前 3.2.3+18283617）即数据版本；`zzz.live`（3.1）为游戏在线版本 |
 | 列表（无语言） | `/zzz/{ver}/character.json` `/weapon.json` `/bangboo.json` `/equipment.json` |
 | 详情（带语言） | `/zzz/{ver}/zh/character/{id}.json` `/weapon/{id}` `/bangboo/{id}` `/equipment/{id}` |
 | 语言 | `zh`/`en`/`ja`/`ko`；本项目只取 `zh`（名录保留四语名） |
 | 数据性质 | 与 Dimbreath 解包数据**同源**（nanoka 亦从之加工），但字段名已可读、多语言内嵌、更新更快（新角色/音擎/职业已收录） |
+
+**双数据版本（2026-08 新增）**：全站站头提供 live / latest 切换（默认 **live**，localStorage 记忆，任何页面可见可切）。
+- `latest` = 源站最新数据版本（含前瞻/测试服内容，2026-08 为 3.2.3+18283617，角色 60）；
+- `live` = 游戏在线版本数据（2026-08 为 3.1，角色 58），与玩家正式服内容对齐。
+- 构建时两版本各自落地 `public/data/latest/`、`public/data/live/`（目录名固定，不随版本号变）；
+  live 不在源站 `available` 列表时降级沿用 latest 数据并在 manifest 写 `liveAvailable:false`，前端隐藏 live 档。
 
 **注意**：`item.json` 只在带语言路径（`/zzz/{ver}/zh/item.json`）存在；`monster/boss/shiyu/simul/hard`
 等端点站方亦有（见 §8 扩展域），本项目当前未消费。
@@ -58,8 +64,8 @@
 - 详情并发抓取上限 8；磁盘缓存 `.cache/hakushin-raw/`（缓存路径含版本号，同版本重复构建秒级跳过、跨版本自动全量刷新；`--force` 强制忽略缓存重拉）。
 - **manifest.json 永不读缓存**：每次 `npm run data` 都实时拉取源站清单，保证版本探测不固着。
 
-**当前版本号易变**：`manifest.zzz.available` 含历史版本，URL 一律用 `latest`（数据最全）；
-若站点回滚 latest，`npm run data` 重建即可。
+**当前版本号易变**：`manifest.zzz.available` 含历史版本；构建分别取 `latest` 与 `live`（live 不在
+available 时降级，见 §1 双版本说明）。若站点回滚 latest，`npm run data` 重建即可。
 
 ---
 
@@ -69,19 +75,18 @@
 
 ```
 public/data/
-  manifest.json              版本/来源元信息 { zzz: { latest, live, source } } + generated
-  character.json             { [Id]: CharacterListItem }    （60 名，含 1581/1611/1621，不含主角）
-  zh/character/{id}.json     角色详情 CharacterDetail        （60 份）
-  weapon.json                { [Id]: WEngineListItem }      （100 件）
-  zh/weapon/{id}.json        音擎详情 WEngineDetail          （100 份）
-  bangboo.json               { [Id]: BangbooListItem }      （42 只）
-  zh/bangboo/{id}.json       邦布详情 BangbooDetail          （42 份，v2 新增）
-  equipment.json             { [Id]: DiskDriveListItem }    （30 套）
-  zh/equipment/{id}.json     驱动盘详情 DiskDriveDetail       （30 份，v2 新增）
+  manifest.json              版本/来源元信息 { zzz: { latest, live, liveAvailable, source } } + generated
+  live/                       在线版本数据（游戏正式服，如 3.1）
+    character.json weapon.json bangboo.json equipment.json
+    zh/character/{id}.json …（同 latest 结构）
+  latest/                     数据源最新数据（含前瞻，如 3.2.3+18283617）
+    …同上结构
+  img/                        图标本地化（download:icons 产物，双版本共用）
 ```
 
-> `img/` 为 `npm run download:icons` 的本地化图标（独立管理）；`npm run data`
-> 的 resetOut **只清理 manifest/名录/zh 详情**，不触碰 img/（曾有整体删除 OUT 目录连坐清空图标的教训）。
+> `img/` 为 `npm run download:icons` 的本地化图标（独立管理，双版本共用）；`npm run data`
+> 的 resetOut **只清理根 manifest 与 live/latest 两目录**，不触碰 img/（曾有整体删除 OUT 目录连坐清空图标的教训）。
+> 名录/详情数据量：latest 角色 60/音擎 100/邦布 42/驱动盘 30；live（3.1）角色 58/音擎 95/邦布 42/驱动盘 30。
 
 ### 名录字段
 - **CharacterListItem**：`Id, code, rank, type(职业int), element(属性int), special_element(特殊属性展示名,可选), hit(攻击int), camp(阵营id), camp_name(阵营展示名,可选), icon(裸文件名), potential, skin, desc, en, zh, ja, ko`
@@ -197,7 +202,7 @@ public/data/
 
 ```bash
 npm install             # 依赖（首次或变更后）
-npm run data            # 拉取 hakushin raw → 规整 → 生成 public/data/（需外网）
+npm run data            # 拉取 hakushin raw（latest + live 双版本）→ 规整 → 生成 public/data/{live,latest}/（需外网）
                         #   有代理时：set NODE_USE_ENV_PROXY=1
 npm run data -- --check # 仅版本探测：输出 UPDATE_AVAILABLE / UP_TO_DATE，不构建（CI/定时哨兵）
 npm run build:ci        # Vercel 部署构建入口：版本探测→（有更新则构建）→契约校验→npm run build；
@@ -222,6 +227,8 @@ npm run preview         # 预演产物
 2. **请求 404** → 站点 schema 变更（端点改名/移动），检查 `manifest.json` 的 `available` 列表与旧端点对比。
 3. **图标全文字** → `verify:icons` 能看到哪个 CDN 挂；nanoka `/assets/zzz/` 是主兜底，若它也挂则所有图降文字。
 4. **多语言名异常** → 名录 `en`/`ja`/`ko` 对极新角色可能是原始资源键（`zh` 不受影响）；若大面积如此说明站点本地化未完成。
+5. **live 档消失（主页切换器只剩 LATEST）** → 构建 log 有「live 不在可用列表」告警，manifest `liveAvailable:false`；
+   源站下架了 live 版本，属预期降级，勿改前端（恢复后重建数据即可）。
 
 ### 不要做的事
 - 不要把 hakushin raw 提为**运行时**数据源（§0 铁律：运行时零外部请求）；仅构建期拉取。

@@ -19,6 +19,9 @@ import {
 
 const OUT = path.resolve(import.meta.dirname ?? process.cwd(), '..', 'public', 'data')
 
+/** 数据版本目录（双版本：live 与 latest，manifest 在根） */
+const VERSIONS = ['live', 'latest']
+
 interface ErrorReport {
   file: string
   issues: string[]
@@ -41,7 +44,7 @@ async function readJson(rel: string): Promise<unknown> {
 }
 
 async function main(): Promise<void> {
-  // manifest + 名录
+  // manifest（根） + 双版本名录/详情
   check('manifest.json', await readJson('manifest.json'), ManifestSchema)
 
   const listFiles: Array<[string, typeof CharacterListItemSchema]> = [
@@ -50,17 +53,6 @@ async function main(): Promise<void> {
     ['bangboo.json', BangbooListItemSchema],
     ['equipment.json', DiskDriveListItemSchema],
   ]
-  for (const [file, schema] of listFiles) {
-    const dict = (await readJson(file)) as Record<string, unknown>
-    const values = Object.values(dict)
-    if (!values.length) {
-      errors.push({ file, issues: ['名单为空'] })
-      continue
-    }
-    for (const v of values) check(file, v, schema)
-  }
-
-  // 详情（全量）
   const detailDirs: Array<[string, typeof CharacterDetailSchema]> = [
     ['zh/character', CharacterDetailSchema],
     ['zh/weapon', WEngineDetailSchema],
@@ -68,12 +60,23 @@ async function main(): Promise<void> {
     ['zh/equipment', DiskDriveDetailSchema],
   ]
   let detailCount = 0
-  for (const [dir, schema] of detailDirs) {
-    const files = await fs.readdir(path.join(OUT, dir))
-    for (const f of files) {
-      if (!f.endsWith('.json')) continue
-      detailCount++
-      check(path.join(dir, f), await readJson(path.join(dir, f)), schema)
+  for (const ver of VERSIONS) {
+    for (const [file, schema] of listFiles) {
+      const dict = (await readJson(path.join(ver, file))) as Record<string, unknown>
+      const values = Object.values(dict)
+      if (!values.length) {
+        errors.push({ file: `${ver}/${file}`, issues: ['名单为空'] })
+        continue
+      }
+      for (const v of values) check(path.join(ver, file), v, schema)
+    }
+    for (const [dir, schema] of detailDirs) {
+      const files = await fs.readdir(path.join(OUT, ver, dir))
+      for (const f of files) {
+        if (!f.endsWith('.json')) continue
+        detailCount++
+        check(path.join(ver, dir, f), await readJson(path.join(ver, dir, f)), schema)
+      }
     }
   }
 
@@ -85,7 +88,7 @@ async function main(): Promise<void> {
     }
     process.exit(1)
   }
-  console.log(`✓ verify-data 通过：manifest + 4 名录 + ${detailCount} 详情 全部符合契约`)
+  console.log(`✓ verify-data 通过：manifest + ${VERSIONS.length} 版本名录 + ${detailCount} 详情 全部符合契约`)
 }
 
 main().catch((e: unknown) => {

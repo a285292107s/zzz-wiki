@@ -4,13 +4,18 @@
  *   - 输出：public/data/（契约与旧 nanoka.cc 一致）
  * 运行时零外部依赖、零 CORS 问题。
  *
- *   manifest.json / character.json / weapon.json / bangboo.json / equipment.json
- *   zh/character/{id}.json
+ *   manifest.json（根，版本元信息）
+ *   {live,latest}/character.json / weapon.json / bangboo.json / equipment.json
+ *   {live,latest}/zh/character/{id}.json …
+ *
+ * 双数据版本：live = 游戏在线版本数据；latest = 源站最新数据（含前瞻/测试服内容）。
+ * 默认 live；切版本经 dataVersion（localStorage 持久化）→ App 层以 key 重挂视图。
  *
  * P1 重构（DESIGN.md §6）：kind 式接口（list/detail）+ DataError 错误归一化
  * + 请求超时 + BASE_URL 派生 + lang 参数预留；旧的 api.characters() 等保持兼容。
  * ============================================================ */
 
+import { ref, type Ref } from 'vue'
 import type {
   BangbooDetail,
   BangbooListItem,
@@ -24,13 +29,42 @@ import type {
 
 /* ---------- 领域类型 ---------- */
 
-/** 数据类别（与 public/data/{file}.json 及 catalog.listFile 同键） */
+/** 数据类别（与 {version}/{file}.json 及 catalog.listFile 同键） */
 export type DataKind = 'character' | 'weapon' | 'bangboo' | 'equipment'
 
 /** 支持的语言（预留；当前站点只渲染 zh） */
 export type Lang = 'zh' | 'en' | 'ja' | 'ko'
 
 export const DEFAULT_LANG: Lang = 'zh'
+
+/* ---------- 数据版本 ---------- */
+
+/** 数据版本：live = 游戏在线版本数据；latest = 源站最新数据（含前瞻/测试服内容） */
+export type DataVersion = 'live' | 'latest'
+
+export const DEFAULT_DATA_VERSION: DataVersion = 'live'
+const DATA_VERSION_KEY = 'zzz-wiki:data-version'
+
+function loadVersion(): DataVersion {
+  if (typeof localStorage !== 'undefined') {
+    const v = localStorage.getItem(DATA_VERSION_KEY)
+    if (v === 'live' || v === 'latest') return v
+  }
+  return DEFAULT_DATA_VERSION
+}
+
+/** 全局数据版本（模块级响应式，localStorage 持久化）。切换后由 App 层重挂视图刷新全部数据 */
+export const dataVersion: Ref<DataVersion> = ref(loadVersion())
+
+export function setDataVersion(v: DataVersion): void {
+  if (v === dataVersion.value) return
+  dataVersion.value = v
+  try {
+    localStorage.setItem(DATA_VERSION_KEY, v)
+  } catch {
+    // 隐私模式等不可写场景忽略（本次会话内仍生效）
+  }
+}
 
 /* ---------- 错误归一化 ---------- */
 
@@ -59,10 +93,12 @@ export class DataError extends Error {
 
 const REQUEST_TIMEOUT_MS = 10_000
 
-/** 数据根路径：尊重 BASE_URL（子路径部署时不再 404）。 */
+/** 数据根路径：尊重 BASE_URL（子路径部署时不再 404）。
+ * manifest 位于数据根；其余数据端点按当前数据版本分目录（/data/{version}/…）。 */
 function toDataUrl(path: string): string {
   const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '')
-  return `${base}/data/${path}`
+  const segmented = path === 'manifest.json' ? path : `${dataVersion.value}/${path}`
+  return `${base}/data/${segmented}`
 }
 
 const cache = new Map<string, Promise<unknown>>()
@@ -103,24 +139,45 @@ async function getJson<T>(path: string): Promise<T> {
 
 /* ---------- 版本 ---------- */
 
-let versionPromise: Promise<string> | null = null
+let versionsPromise: Promise<DataVersions> | null = null
 
 interface Manifest {
   zzz?: {
     latest?: string
+    live?: string
+    liveAvailable?: boolean
     [k: string]: unknown
   }
   generated?: string
   [k: string]: unknown
 }
 
-export function gameVersion(): Promise<string> {
-  versionPromise ??= getJson<Manifest>('manifest.json').then((m) => {
-    const v = m.zzz?.latest
-    if (!v) throw new DataError('manifest', 'manifest missing zzz.latest')
-    return v
+/** 双数据版本的版本号元信息（来自根 manifest.json，永不硬编码） */
+export interface DataVersions {
+  latest: string
+  live: string
+  /** live 目录是否独立数据（false = 构建期降级沿用 latest，前端不提供 live 档） */
+  liveAvailable: boolean
+  generated?: string
+}
+
+export function dataVersions(): Promise<DataVersions> {
+  versionsPromise ??= getJson<Manifest>('manifest.json').then((m) => {
+    const latest = m.zzz?.latest
+    if (!latest) throw new DataError('manifest', 'manifest missing zzz.latest')
+    return {
+      latest,
+      live: m.zzz?.live ?? latest,
+      liveAvailable: m.zzz?.liveAvailable !== false,
+      generated: m.generated,
+    }
   })
-  return versionPromise
+  return versionsPromise
+}
+
+/** 兼容别名：latest 版本号（旧接口，新代码请用 dataVersions()） */
+export function gameVersion(): Promise<string> {
+  return dataVersions().then((v) => v.latest)
 }
 
 /* ---------- list / detail ---------- */
@@ -131,13 +188,13 @@ function normalize<T extends Record<string, unknown>>(dict: Record<string, T>): 
 }
 
 async function listRaw<T extends Record<string, unknown>>(kind: DataKind): Promise<T[]> {
-  await gameVersion() // 存在性检查：本地 manifest 缺失时报错更早
+  await dataVersions() // 存在性检查：本地 manifest 缺失时报错更早
   const data = await getJson<Record<string, T>>(`${kind}.json`)
   return normalize<T>(data)
 }
 
 async function detailRaw<T>(kind: DataKind, id: number | string, lang: Lang): Promise<T> {
-  await gameVersion()
+  await dataVersions()
   return getJson<T>(`${lang}/${kind}/${id}.json`)
 }
 

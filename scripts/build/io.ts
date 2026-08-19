@@ -10,6 +10,11 @@ export const ROOT = path.resolve(import.meta.dirname ?? process.cwd(), '..', '..
 export const CACHE = path.join(ROOT, '.cache', 'hakushin-raw')
 export const OUT = path.join(ROOT, 'public', 'data')
 
+/** 版本输出目录：public/data/{ver}/（live 与 latest 双版本分目录落地） */
+export function outDir(ver: string): string {
+  return path.join(OUT, ver)
+}
+
 export const BASE = 'https://static.nanoka.cc'
 export const CONCURRENCY = 8 // 详情并发抓取上限
 
@@ -49,25 +54,35 @@ export async function mapConcurrent<T, R>(
   return results
 }
 
-export async function resetOut(): Promise<void> {
-  // 精确清理本管线产物（manifest/名录/zh 详情），保留 img/（download:icons 的本地化图标，
-  // 曾因整体 rm OUT 被连带删除导致 272 个已跟踪图标消失）
-  for (const f of ['manifest.json', 'character.json', 'weapon.json', 'bangboo.json', 'equipment.json']) {
+export async function resetOut(vers: readonly string[]): Promise<void> {
+  // 精确清理本管线产物：根 manifest + 根目录旧版名录/zh（历史单版本布局，双版本迁移后不再产出）
+  // + 各版本名录/zh 详情；保留 img/（download:icons 的本地化图标，曾因整体 rm OUT
+  // 被连带删除导致 272 个已跟踪图标消失）
+  await fsp.rm(path.join(OUT, 'manifest.json'), { force: true })
+  for (const f of ['character.json', 'weapon.json', 'bangboo.json', 'equipment.json']) {
     await fsp.rm(path.join(OUT, f), { force: true })
   }
   await fsp.rm(path.join(OUT, 'zh'), { recursive: true, force: true })
-  const dirs = ['zh/character', 'zh/weapon', 'zh/bangboo', 'zh/equipment']
-  await Promise.all(dirs.map((d) => fsp.mkdir(path.join(OUT, d), { recursive: true })))
+  for (const ver of vers) {
+    await fsp.rm(outDir(ver), { recursive: true, force: true })
+    await fsp.mkdir(outDir(ver), { recursive: true })
+  }
 }
 
-export function dump(name: string, dict: unknown): Promise<void> {
-  return fsp.writeFile(path.join(OUT, name), JSON.stringify(dict, null, 1))
+export function dump(ver: string, name: string, dict: unknown): Promise<void> {
+  return fsp.writeFile(path.join(outDir(ver), name), JSON.stringify(dict, null, 1))
 }
 
-export async function writeDetails(dir: string, details: Record<string, unknown>): Promise<void> {
+export async function writeDetails(
+  ver: string,
+  dir: string,
+  details: Record<string, unknown>,
+): Promise<void> {
+  const target = path.join(outDir(ver), dir)
+  await fsp.mkdir(target, { recursive: true })
   await Promise.all(
     Object.entries(details).map(([id, d]) =>
-      fsp.writeFile(path.join(OUT, dir, `${id}.json`), JSON.stringify(d, null, 1)),
+      fsp.writeFile(path.join(target, `${id}.json`), JSON.stringify(d, null, 1)),
     ),
   )
 }
