@@ -214,11 +214,12 @@ export function skillParamValue(
 /**
  * 解析并求值详细倍率公式（含等级代入）。
  * 语法：整数、{Skill:ID, Prop:P} 数值占位、{…} 分组、()、+ - * /。
+ * props：{skillId: entry} 单层（角色）或 {skillId: {propId: entry}} 双层（邦布）。
  * 例："{Skill:1031001, Prop:1001} + {{Skill:1031002, Prop:1001}/3}*3"
  */
 export function evaluateSkillFormula(
   formula: string,
-  props: Record<string, SkillParamEntry>,
+  props: Record<string, SkillParamEntry | Record<string, SkillParamEntry>>,
   level: number,
 ): number {
   let i = 0
@@ -255,7 +256,15 @@ export function evaluateSkillFormula(
       const inner = text.slice(i + 1, end).trim()
       i = end + 1
       const ref = inner.match(/^Skill:(\d+),\s*Prop:(\d+)$/)
-      if (ref) return skillParamValue(props[ref[1]], level)
+      if (ref) {
+        // props 支持两层：{skillId: entry}（角色）或 {skillId: {propId: entry}}（邦布）
+        const p = props[ref[1]] as SkillParamEntry | Record<string, SkillParamEntry> | undefined
+        const entry =
+          p != null && typeof p === 'object' && 'main' in (p as object)
+            ? (p as SkillParamEntry)
+            : (p as Record<string, SkillParamEntry> | undefined)?.[ref[2]]
+        return skillParamValue(entry, level)
+      }
       return evaluateSkillFormula(inner, props, level)
     }
     if (c === '(') {
@@ -336,27 +345,88 @@ export interface BangbooSkillRow {
   names: string[]
   /** 各级描述去重（不同级仅数值变化，取原文） */
   desc: string
+  /** 各级原始描述（与等级一一对应，含富文本；随所选等级展示） */
+  descs: string[]
+  /** 技能等级上限（a/c=10、b=5；无 level 数据为 0） */
+  levelCount: number
+  /** 每级 param 按 | 分割的 token（与 stats 条目一一对应） */
+  tokens: string[][]
+  /** 数值条目（属性名 + 是否含 skill_prop 引用） */
+  stats: BangbooSkillStat[]
+  /** skill_prop 数值表（skillId → propId → entry），供引用条目随等级求值 */
+  propMap: Record<string, Record<string, SkillParamEntry>>
 }
 
-/** 从邦布详情的 skill 字典构建有序技能行（按 a/b/c 顺序） */
+/** 邦布技能数值条目（param 分割，与 property 列对齐） */
+export interface BangbooSkillStat {
+  /** 属性名（property 列缺失时按序号兜底） */
+  name: string
+  /** 是否含 {Skill:…} 引用（可随等级计算；否则为静态文本如 20秒） */
+  referenced: boolean
+}
+
+/**
+ * 从邦布详情的 skill + skill_prop 构建有序技能行（按 a/b/c 顺序）。
+ * param 为每级独立的「|」分隔串：{Skill:ID, Prop:P} 引用（或嵌套公式）对应 skill_prop
+ * 数值，其余为静态文本（如冷却时间/生命回复）。
+ */
 export function buildBangbooSkills(
   skill: Record<string, unknown> | undefined | null,
+  skillProp?: unknown,
 ): BangbooSkillRow[] {
   if (!skill) return []
+  const propMap = (skillProp ?? {}) as Record<string, Record<string, SkillParamEntry>>
   return BANGBOO_SKILL_ORDER.filter((k) => skill[k] != null).map((k) => {
     const levels = ((skill[k] as { level?: Record<string, unknown> })?.level ??
-      {}) as Record<string, { name?: string; desc?: string }>
-    const first = levels[Object.keys(levels)[0]]
+      {}) as Record<string, { name?: string; desc?: string; property?: string[]; param?: string }>
+    const ordered = Object.keys(levels)
+      .sort((a, b) => Number(a) - Number(b))
+      .map((o) => levels[o])
+      .filter(Boolean)
     const names = [...new Set(
-      Object.values(levels).map((l) => l?.name ?? '').filter(Boolean),
+      ordered.map((l) => l?.name ?? '').filter(Boolean),
     )]
+    const tokens = ordered.map((l) => String(l?.param ?? '').split('|'))
+    const tokenCount = Math.max(0, ...tokens.map((t) => t.length))
+    const stats: BangbooSkillStat[] = []
+    for (let i = 0; i < tokenCount; i++) {
+      const prop = ordered[0]?.property?.[i]
+      stats.push({
+        name: prop && prop.trim() ? prop : `属性 ${i + 1}`,
+        referenced: tokens.some((t) => t[i]?.includes('{Skill:')),
+      })
+    }
     return {
       key: k,
       zh: BANGBOO_SKILL_ZH[k] ?? k.toUpperCase(),
       names,
-      desc: first?.desc ?? '',
+      desc: ordered[0]?.desc ?? '',
+      descs: ordered.map((l) => l?.desc ?? ''),
+      levelCount: ordered.length,
+      tokens,
+      stats,
+      propMap,
     }
   })
+}
+
+/**
+ * 邦布技能条目的展示值（代入所选等级）：
+ * - {Skill:…} 引用/嵌套公式 → 经 skill_prop 求值并按 format 格式化
+ * - 静态文本（20秒/8%生命值…）→ 取该等级原文
+ */
+export function bangbooSkillStatValue(
+  row: BangbooSkillRow,
+  index: number,
+  level: number,
+): string {
+  const L = Math.min(Math.max(level, 1), Math.max(row.levelCount, 1))
+  const token = row.tokens[L - 1]?.[index]
+  if (!token) return '—'
+  if (!token.includes('{Skill:')) return token
+  const ref = token.match(/Skill:(\d+),\s*Prop:(\d+)/)
+  const format = ref ? row.propMap[ref[1]]?.[ref[2]]?.format : undefined
+  return formatSkillScalar(evaluateSkillFormula(token, row.propMap, L), format)
 }
 
 /* ============================================================

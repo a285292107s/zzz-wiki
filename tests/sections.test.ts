@@ -21,6 +21,7 @@ import {
   wEngineMainAt,
   wEnginePropsAtLevel,
   wEngineRandAt,
+  bangbooSkillStatValue,
   type SkillParamEntry,
 } from '../src/domain/sections'
 
@@ -628,5 +629,122 @@ describe('bangbooStatsAtLevel', () => {
 describe('bangbooBreakCount', () => {
   it('counts breaks per 10 levels', () => {
     expect([1, 9, 10, 19, 20, 49, 50, 60].map(bangbooBreakCount)).toEqual([0, 0, 1, 1, 2, 4, 5, 5])
+  })
+})
+
+/* ---------- 邦布技能数值（skill param + skill_prop） ---------- */
+
+/** 企鹅布（53001）技能 a/b/c 字面量（与 public/data 一致，仅保留关键字段） */
+const PENGUIN_SKILL = {
+  a: {
+    level: {
+      '1': { name: '冰刀舞', desc: '招式发动时…', property: ['伤害倍率', '失衡倍率', '冷却时间'], param: '{Skill:5300101, Prop:1001}|{Skill:5300101, Prop:1002}|20秒' },
+      '2': { name: '冰刀舞', desc: '招式发动时…', property: ['伤害倍率', '失衡倍率', '冷却时间'], param: '{Skill:5300101, Prop:1001}|{Skill:5300101, Prop:1002}|20秒' },
+    },
+  },
+  b: {
+    level: {
+      '1': { name: '干冰场地', desc: '…提升60%。', property: ['属性异常积蓄值提升'], param: '60%' },
+      '2': { name: '干冰场地', desc: '…提升75%。', property: ['属性异常积蓄值提升'], param: '75%' },
+      '3': { name: '干冰场地', desc: '…提升90%。', property: ['属性异常积蓄值提升'], param: '90%' },
+      '4': { name: '干冰场地', desc: '…提升105%。', property: ['属性异常积蓄值提升'], param: '105%' },
+      '5': { name: '干冰场地', desc: '…提升120%。', property: ['属性异常积蓄值提升'], param: '120%' },
+    },
+  },
+  c: {
+    level: {
+      '1': { name: '冰暴回旋', desc: '冰属性伤害…', property: ['伤害倍率', '失衡倍率'], param: '{Skill:5300102, Prop:1001}|{Skill:5300102, Prop:1002}' },
+    },
+  },
+}
+
+const PENGUIN_SKILL_PROP = {
+  '5300101': {
+    '1001': { main: 46200, growth: 4620, format: '%' },
+    '1002': { main: 27000, growth: 2700, format: '%' },
+  },
+  '5300102': {
+    '1001': { main: 95700, growth: 9570, format: '%' },
+    '1002': { main: 13700, growth: 1370, format: '%' },
+  },
+}
+
+/** 招财布（53002）嵌套公式（与 public/data 一致，a 技能 10 级同参） */
+const LUCKY_SKILL_A = {
+  a: {
+    level: Object.fromEntries(
+      Array.from({ length: 10 }, (_, i) => [
+        String(i + 1),
+        { name: '灵运连接', property: ['伤害倍率', '失衡倍率', '冷却时间'], param: '{{Skill:5300201, Prop:1001}/100}*140|{{Skill:5300201, Prop:1002}/100}*140|22秒' },
+      ]),
+    ),
+  },
+}
+
+const LUCKY_SKILL_PROP = {
+  '5300201': {
+    '1001': { main: 44000, growth: 4400, format: '%' },
+    '1002': { main: 25700, growth: 2570, format: '%' },
+  },
+}
+
+describe('buildBangbooSkills (with skill_prop)', () => {
+  it('parses stats per | token with property names', () => {
+    const rows = buildBangbooSkills(PENGUIN_SKILL, PENGUIN_SKILL_PROP)
+    expect(rows.map((r) => r.key)).toEqual(['a', 'b', 'c'])
+    expect(rows[0].levelCount).toBe(2)
+    expect(rows[1].levelCount).toBe(5)
+    expect(rows[0].stats.map((s) => s.name)).toEqual(['伤害倍率', '失衡倍率', '冷却时间'])
+    expect(rows[0].stats.map((s) => s.referenced)).toEqual([true, true, false])
+    expect(rows[1].stats).toEqual([{ name: '属性异常积蓄值提升', referenced: false }])
+  })
+
+  it('keeps per-level descs and tokens', () => {
+    const rows = buildBangbooSkills(PENGUIN_SKILL, PENGUIN_SKILL_PROP)
+    expect(rows[1].descs).toHaveLength(5)
+    expect(rows[1].tokens[4]).toEqual(['120%'])
+    expect(rows[0].desc).toBe('招式发动时…')
+  })
+
+  it('falls back to index names when param count is missing', () => {
+    const rows = buildBangbooSkills(
+      { a: { level: { '1': { name: 'X', property: [], param: 'a|b|c' } } } },
+      undefined,
+    )
+    expect(rows[0].stats.map((s) => s.name)).toEqual(['属性 1', '属性 2', '属性 3'])
+  })
+})
+
+describe('bangbooSkillStatValue', () => {
+  it('evaluates referenced tokens via skill_prop with level growth', () => {
+    const rows = buildBangbooSkills(PENGUIN_SKILL, PENGUIN_SKILL_PROP)
+    const a = rows[0]
+    expect(bangbooSkillStatValue(a, 0, 1)).toBe('462%')
+    expect(bangbooSkillStatValue(a, 0, 2)).toBe('508.2%')
+    expect(bangbooSkillStatValue(a, 1, 1)).toBe('270%')
+    expect(bangbooSkillStatValue(a, 1, 2)).toBe('297%')
+    expect(bangbooSkillStatValue(a, 2, 9)).toBe('20秒')
+    expect(bangbooSkillStatValue(rows[2], 0, 1)).toBe('957%')
+  })
+
+  it('uses per-level static text for extra ability', () => {
+    const rows = buildBangbooSkills(PENGUIN_SKILL, PENGUIN_SKILL_PROP)
+    const b = rows[1]
+    expect(bangbooSkillStatValue(b, 0, 1)).toBe('60%')
+    expect(bangbooSkillStatValue(b, 0, 5)).toBe('120%')
+  })
+
+  it('handles nested formulas ({{Skill…}/100}*140)', () => {
+    const rows = buildBangbooSkills(LUCKY_SKILL_A, LUCKY_SKILL_PROP)
+    const a = rows[0]
+    expect(a.stats[0].referenced).toBe(true)
+    expect(bangbooSkillStatValue(a, 0, 1)).toBe('616%')
+    expect(bangbooSkillStatValue(a, 0, 10)).toBe('1170.4%')
+    expect(bangbooSkillStatValue(a, 2, 1)).toBe('22秒')
+  })
+
+  it('returns placeholder for out-of-bound index', () => {
+    const rows = buildBangbooSkills(PENGUIN_SKILL, PENGUIN_SKILL_PROP)
+    expect(bangbooSkillStatValue(rows[0], 9, 1)).toBe('—')
   })
 })

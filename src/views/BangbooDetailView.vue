@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, ref, watch } from 'vue'
+import { computed, nextTick, reactive, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import { iconSources } from '@/data/icons'
 import { richDesc } from '@/utils/rich'
@@ -10,15 +10,17 @@ import { useDetailNavigation } from '@/composables/useDetailNavigation'
 import { usePageMeta } from '@/composables/usePageMeta'
 import {
   bangbooBreakCount,
+  bangbooSkillStatValue,
   bangbooStatsAtLevel,
   BANGBOO_LEVEL_DEFAULT,
   BANGBOO_LEVEL_MAX,
   BANGBOO_LEVEL_MIN,
   buildBangbooSkills,
+  type BangbooSkillRow,
   type StatItem,
 } from '@/domain/sections'
 import type { BangbooDetail } from '@/data/types'
-import { AsyncState, DescRow, DetailHead, DetailSection, KeyValueGrid, LevelSlider } from '@/components'
+import { AsyncState, DetailHead, DetailSection, KeyValueGrid, LevelSlider } from '@/components'
 import type { LevelMark } from '@/components/detail/LevelSlider.vue'
 import BackToTop from '@/components/BackToTop.vue'
 import Rarity from '@/components/Rarity.vue'
@@ -59,9 +61,26 @@ const levelMarks = computed<LevelMark[]>(() => {
   return marks
 })
 
-/* ---------- 技能 ---------- */
+/* ---------- 技能（含 skill_prop 数值，随技能等级展示） ---------- */
 
-const skills = computed(() => buildBangbooSkills(detail.value?.skill))
+const skills = computed<BangbooSkillRow[]>(() =>
+  buildBangbooSkills(detail.value?.skill, detail.value?.skill_prop),
+)
+
+/** 各技能独立的查看等级（默认满级；切换邦布时重置） */
+const skillLevels = reactive<Record<string, number>>({})
+
+watch(skills, (rows) => {
+  for (const r of rows) if (skillLevels[r.key] == null) skillLevels[r.key] = r.levelCount
+}, { immediate: true })
+
+watch(id, () => {
+  for (const k of Object.keys(skillLevels)) delete skillLevels[k]
+})
+
+const skillLevel = (k: string) => skillLevels[k] ?? 1
+const skillDesc = (sk: BangbooSkillRow) =>
+  sk.descs[skillLevel(sk.key) - 1] ?? sk.descs[0] ?? ''
 
 /* ---------- 区块导航 + scrollspy + reveal ---------- */
 
@@ -140,17 +159,36 @@ watch(status, (s) => {
         <DetailSection v-if="skills.length" v-reveal id="skills" :no="noOf('skills') ?? '01'" title="技能" en="Skills">
           <div v-for="sk in skills" :key="sk.key" class="skill-group">
             <div class="skill-kind-row">
-              <span class="slot mono">{{ sk.key.toUpperCase() }}</span>
+              <span class="key-glyph" aria-hidden="true">
+                <i class="glyph mono">{{ sk.key.toUpperCase() }}</i>
+              </span>
               <h3 class="skill-kind serif">{{ sk.zh }}</h3>
+              <div v-if="sk.stats.length" class="level-row">
+                <LevelSlider
+                  :model-value="skillLevel(sk.key)"
+                  :min="1"
+                  :max="sk.levelCount"
+                  :label="`${sk.zh}等级`"
+                  @update:model-value="skillLevels[sk.key] = $event"
+                />
+                <span class="level-val mono">Lv.{{ skillLevel(sk.key) }}</span>
+              </div>
             </div>
-            <div class="desc-list">
-              <DescRow
-                :no="'01'"
-                :title="sk.names[0] || sk.zh"
-                :html="richDesc(sk.desc)"
-                variant="skill"
-              />
-            </div>
+            <ul class="action-list">
+              <li class="row">
+                <span class="no mono">01</span>
+                <div class="body">
+                  <h4 class="title title-skill">{{ sk.names[0] || sk.zh }}</h4>
+                  <p class="desc" v-html="richDesc(skillDesc(sk))"></p>
+                  <ul v-if="sk.stats.length" class="stat-list">
+                    <li v-for="(st, si) in sk.stats" :key="si" class="stat-item">
+                      <span class="stat-name">{{ st.name }}</span>
+                      <span class="stat-val mono">{{ bangbooSkillStatValue(sk, si, skillLevel(sk.key)) }}</span>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
           </div>
         </DetailSection>
       </template>
@@ -193,23 +231,44 @@ watch(status, (s) => {
 }
 
 .skill-group {
+  /* 招式行标签列宽度 + 间距 = 正文缩进，供水平对齐统一使用（与角色详情 SkillGroup 同构） */
+  --label-col: 36px;
+  --row-gap: 14px;
+  --body-left: calc(var(--label-col) + var(--row-gap));
   margin-bottom: var(--space-group);
 }
 
 .skill-kind-row {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-bottom: var(--space-1);
+  gap: var(--row-gap);
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  row-gap: 10px;
 }
 
-.slot {
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: var(--ink-3);
+.key-glyph {
+  width: 40px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+/* 槽位方框（邦布无技能图标素材，以等宽字母占位；与角色页 38px 图标位同尺寸） */
+.glyph {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
   border: 1px solid var(--line-1);
   border-radius: 2px;
-  padding: 2px 8px;
+  font-size: 16px;
+  font-style: normal;
+  color: var(--amber);
 }
 
 .skill-kind {
@@ -218,8 +277,116 @@ watch(status, (s) => {
   color: var(--amber);
 }
 
-.desc-list {
+/* 招式明细行：序号列 + 正文（与角色详情 SkillGroup 同构） */
+
+.action-list {
   list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: var(--label-col) 1fr;
+  gap: var(--row-gap);
+  padding: var(--space-2) 4px;
+  border-bottom: var(--rule);
+}
+
+.no {
+  color: var(--ink-3);
+  font-size: 12px;
+  padding-top: 2px;
+}
+
+.body {
+  min-width: 0;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 15.5px;
+  line-height: 1.4;
+  margin-bottom: 6px;
+  color: var(--ink-0);
+}
+
+.desc {
+  color: var(--ink-1);
+  font-size: 13.5px;
+  line-height: 1.8;
+  max-width: 76ch;
+  white-space: pre-line;
+  margin-bottom: 10px;
+}
+
+.desc :deep(.rich-key) {
+  display: inline-block;
+  width: 1.15em;
+  height: 1.15em;
+  margin: 0 0.1em;
+  vertical-align: -0.22em;
+  border-radius: 1px;
+  line-height: 0;
+}
+
+.desc :deep(.rich-key svg) {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- 技能数值（与 SkillGroup 同构：等级滑条 + 点线条目） ---------- */
+
+.level-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  flex: 1 1 240px;
+  min-width: 200px;
+  max-width: 420px;
+}
+/* 滑条本体样式见 LevelSlider.vue（发丝线轨道 + 方形钮），共用 */
+
+.level-val {
+  font-size: 12px;
+  color: var(--amber);
+  min-width: 3.4em;
+  text-align: right;
+}
+
+.stat-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 420px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 6px 0;
+  color: var(--ink-1);
+  font-size: 13.5px;
+  border-top: 1px dashed var(--line-0);
+}
+
+.stat-item:first-child {
+  border-top: none;
+  padding-top: 2px;
+}
+
+.stat-name {
+  min-width: 0;
+}
+
+.stat-val {
+  flex: none;
+  color: var(--amber);
+  font-size: 13px;
 }
 
 /* ---------- 等级滑条（与 WEngineDetailView / AgentDetailView 同构） ---------- */

@@ -203,6 +203,8 @@ export const BangbooDetailSchema = z
       .optional(),
     level: z.record(z.unknown()).optional(),
     skill: z.record(z.unknown()).optional(),
+    /** 技能数值表（skillId → propId → {main, growth, format}），供技能条目随等级求值 */
+    skill_prop: z.record(z.unknown()).optional(),
   })
   .catchall(z.unknown())
 
