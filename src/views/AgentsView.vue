@@ -171,7 +171,8 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
   transition: color var(--t-fast) var(--ease);
 }
 
-.name-link:hover {
+/* 变色挂在整条链接上（头像+名字），与其他名录页一致 */
+a.name-cell:hover .name-link {
   color: var(--amber-hi);
 }
 

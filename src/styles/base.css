@@ -177,13 +177,8 @@ select {
   color: var(--ink-2);
 }
 
-.hairline-table tbody tr {
-  transition: background var(--t-fast) var(--ease);
-}
-
-.hairline-table tbody tr:hover {
-  background: var(--bg-1);
-}
+/* 名录表行不做整行 hover：可点性仅由行内名称链接自身的 hover 变色表达，
+   避免视觉暗示（整行可点）与实际可点击区域（仅头像+名字）不一致 */
 
 /* ---------- 详情页区块内导航：宽屏左侧目录（档案侧脊）/ 窄屏吸顶横条 ---------- */
 
