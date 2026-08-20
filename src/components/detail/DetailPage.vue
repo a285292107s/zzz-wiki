@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import AsyncState from '@/components/state/AsyncState.vue'
 import BackToTop from '@/components/BackToTop.vue'
 import type { AsyncStatus } from '@/composables/useAsyncResource'
 import type { DetailSectionItem } from '@/composables/useDetailSections'
 
-defineProps<{
+const props = defineProps<{
   /** 返回名录链接 */
   backTo: string
   backLabel?: string
@@ -19,21 +20,39 @@ defineProps<{
   fallbackTo?: string
   fallbackText?: string
 }>()
+
+/** 当前位置编号（侧栏底行计数；未命中任何区块时显示 —） */
+const activeIndex = computed(() => {
+  const i = props.nav?.findIndex((n) => n.id === props.active) ?? -1
+  return i >= 0 ? String(i + 1).padStart(2, '0') : '—'
+})
 </script>
 
 <template>
   <div class="wrap page">
     <RouterLink :to="backTo" class="back mono">← {{ backLabel ?? '返回' }}</RouterLink>
 
-    <!-- 区块导航：宽屏左侧目录 / 窄屏吸顶横条（样式见 base.css .section-nav） -->
+    <!-- 区块导航：宽屏左侧档案索引 / 窄屏吸顶横条（样式见 base.css .section-nav） -->
     <nav v-if="nav?.length" class="section-nav" aria-label="页面区块">
-      <RouterLink
-        v-for="n in nav"
-        :key="n.id"
-        class="sn-item mono"
-        :class="{ active: active === n.id }"
-        :to="{ hash: '#' + n.id }"
-      >{{ n.no }} {{ n.label }}</RouterLink>
+      <p class="sn-meta mono" aria-hidden="true">Index</p>
+      <div class="sn-list">
+        <RouterLink
+          v-for="n in nav"
+          :key="n.id"
+          class="sn-item mono"
+          :class="{ active: active === n.id }"
+          :aria-current="active === n.id ? 'true' : undefined"
+          :to="{ hash: '#' + n.id }"
+        >
+          <span class="no">{{ n.no }}</span>
+          <span>{{ n.label }}</span>
+        </RouterLink>
+      </div>
+      <p class="sn-progress mono" aria-hidden="true">
+        <span class="sn-cur">{{ activeIndex }}</span>
+        <span>/</span>
+        <span>{{ nav.length }}</span>
+      </p>
     </nav>
 
     <AsyncState :status="status" :error="error" :back-to="fallbackTo" :back-text="fallbackText">

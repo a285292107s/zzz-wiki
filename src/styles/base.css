@@ -196,7 +196,9 @@ select {
 /* 名录表行不做整行 hover：可点性仅由行内名称链接自身的 hover 变色表达，
    避免视觉暗示（整行可点）与实际可点击区域（仅头像+名字）不一致 */
 
-/* ---------- 详情页区块内导航：宽屏左侧目录（档案侧脊）/ 窄屏吸顶横条 ---------- */
+/* ---------- 详情页区块内导航：宽屏左侧档案索引 / 窄屏吸顶横条 ----------
+   目录式排版（无盒）：眉标 + 上下细线装订 + 左缘纵向标尺，
+   激活项以琥珀刻度点亮标尺，编号/眉标/计数全部等宽字。 */
 
 .section-nav {
   /* 宽屏：固定于内容区左侧留白，垂直居中（脱离文档流，不占版心） */
@@ -204,39 +206,120 @@ select {
   z-index: 90;
   top: 50%;
   transform: translateY(-50%);
-  left: max(14px, calc((100vw - 1280px) / 2 - 130px));
+  left: max(14px, calc((100vw - 1280px) / 2 - 166px));
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  width: 136px;
   padding: 0;
   margin: 0;
 }
 
+/* 眉标：与全站 .eyebrow 同语系（mono + 大字距），右端细线延伸收束 */
+.sn-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 8px;
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.sn-meta::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line-1);
+}
+
+/* 条目组：上下细线装订，左缘一条贯穿纵线作为标尺 */
+.sn-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 6px 0 6px 16px;
+  border-top: var(--rule);
+  border-bottom: var(--rule);
+}
+
+.sn-list::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 4px;
+  width: 1px;
+  background: var(--line-1);
+}
+
 .sn-item {
-  font-size: 10.5px;
-  letter-spacing: 0.12em;
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 4px 0;
+  font-size: 11px;
+  letter-spacing: 0.1em;
   color: var(--ink-2);
-  border: 1px solid var(--line-1);
-  border-radius: 2px;
-  padding: 3px 8px;
-  background: transparent;
-  transition: color var(--t-fast) var(--ease),
-    border-color var(--t-fast) var(--ease),
-    background var(--t-fast) var(--ease);
+  transition: color var(--t-fast) var(--ease);
+}
+
+/* 琥珀刻度：常态缩至 0，hover/激活时从左缘标尺上点亮 */
+.sn-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -12px; /* 与 .sn-list 的 padding-left 呼应：恰好落在纵线上 */
+  width: 13px;
+  height: 2px;
+  background: var(--amber);
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--t-med) var(--ease);
 }
 
 .sn-item:hover {
-  color: var(--amber-hi);
-  border-color: var(--amber);
+  color: var(--ink-0);
+}
+
+.sn-item:hover::before,
+.sn-item.active::before {
+  transform: translateY(-50%) scaleX(1);
+}
+
+.sn-item .no {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+  transition: color var(--t-fast) var(--ease);
+}
+
+.sn-item:hover .no,
+.sn-item.active .no {
+  color: var(--amber);
 }
 
 .sn-item.active {
   color: var(--amber-hi);
-  border-color: var(--amber);
-  background: var(--amber-dim);
 }
 
-/* 窄屏：左侧留白不足，恢复为站头下的吸顶横条 */
+/* 位置计数：底行一排，当前编号以琥珀点亮 */
+.sn-progress {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin-top: 9px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--ink-3);
+}
+
+.sn-progress .sn-cur {
+  color: var(--amber);
+}
+
+/* 窄屏：左侧留白不足，恢复为站头下的吸顶横条（无盒：激活以下刻线表达） */
 @media (max-width: 1520px) {
   .section-nav {
     position: sticky;
@@ -245,8 +328,9 @@ select {
     left: auto;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 8px;
-    padding-block: 10px;
+    gap: 6px 20px;
+    width: auto;
+    padding-block: 11px;
     margin-bottom: calc(var(--pad-section) * 0.4);
     background: color-mix(in srgb, var(--bg-0) 92%, transparent);
     backdrop-filter: blur(10px);
@@ -254,9 +338,41 @@ select {
     border-bottom: var(--rule);
   }
 
+  .sn-meta,
+  .sn-progress {
+    display: none;
+  }
+
+  .sn-list {
+    display: contents;
+    padding: 0;
+    border: none;
+  }
+
+  .sn-list::before {
+    display: none;
+  }
+
   .sn-item {
-    font-size: 11px;
-    padding: 4px 10px;
+    gap: 8px;
+    padding: 0;
+    font-size: 11.5px;
+  }
+
+  /* 刻度移至底部并横贯整项：覆于横条下缘细线上，形成点亮的下刻线 */
+  .sn-item::before {
+    top: auto;
+    left: 0;
+    bottom: -11px; /* 与 .section-nav padding-block 联动：贴住下边框 */
+    width: 100%;
+    height: 2px;
+    transform: scaleY(0);
+    transform-origin: top center;
+  }
+
+  .sn-item:hover::before,
+  .sn-item.active::before {
+    transform: scaleY(1);
   }
 }
 
