@@ -22,9 +22,12 @@ export interface SkillParamEntry {
 export interface SkillDetail {
   name: string
   formula: string
-  props: Record<string, SkillParamEntry>
+  /** 数值表：单层 {skillId: entry}（角色）或双层 {skillId: {propId: entry}}（邦布），与 evaluateSkillFormula 兼容 */
+  props: Record<string, SkillParamEntry | Record<string, SkillParamEntry>>
   /** 由公式首个引用技能解析出的展示格式（如 '%'） */
   format?: string
+  /** 静态文本条目（邦布：token 无 {Skill:} 引用），各级原文按序；存在时优先于公式求值 */
+  values?: string[]
 }
 
 /**
@@ -35,15 +38,15 @@ export interface SkillDetail {
 export interface SkillGroup {
   /** 招式名 */
   name: string
-  /** 招式说明文字（富文本）；纯数值组无文字时为 undefined */
-  desc?: string
+  /** 招式说明文字（富文本）；或是随所选等级变化的文本函数（邦布技能描述按级取）；纯数值组无文字时为 undefined */
+  desc?: string | ((level: number) => string)
   /** 该招式下的数值条目；纯文本招式无数值时为 undefined */
   entries?: SkillDetail[]
 }
 
 /** 技能行（键位、中文名、有序展示组） */
 export interface SkillRow {
-  key: SkillSlotKey
+  key: string
   zh: string
   keyEn: string
   groups?: SkillGroup[]
@@ -310,6 +313,11 @@ export function formatSkillScalar(value: number, format?: string): string {
 
 /** 详细行的最终展示值（代入所选等级后格式化） */
 export function skillDetailValue(detail: SkillDetail, level: number): string {
+  // 静态文本条目（邦布）：直接取该级原文，无公式求值
+  if (detail.values?.length) {
+    const L = Math.min(Math.max(level, 1), detail.values.length)
+    return detail.values[L - 1] ?? '—'
+  }
   return formatSkillScalar(evaluateSkillFormula(detail.formula, detail.props, level), detail.format)
 }
 

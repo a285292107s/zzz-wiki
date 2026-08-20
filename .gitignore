@@ -23,3 +23,12 @@ temp/
 
 # WorkBuddy 工作区数据（memory 日志、身份文件等，不入库）
 .workbuddy/
+
+# DeepSeek Harness Agent 工作区（notes、skills 等运行时数据，不入库）
+.agents/
+
+# VS Code 个人编辑器设置
+.vscode/
+
+# 历史调研报告（仅作参考，不入库）
+zzz_api_research.md

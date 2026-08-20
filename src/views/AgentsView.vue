@@ -8,12 +8,15 @@ import { iconSources } from '@/data/icons'
 import type { CharacterListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { AsyncState, CatalogTable, CatalogTableSkeleton, FilterDropdown, ListPage, SearchField, type CatalogColumn } from '@/components'
-
-usePageMeta()
+import { catalogByPath } from '@/domain/catalog'
+import { AsyncState, CatalogTable, CatalogTableSkeleton, FilterDropdown, ListPage, NameCell, SearchField, type CatalogColumn } from '@/components'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
-import HollowImage from '@/components/HollowImage.vue'
+
+usePageMeta()
+
+/** 详情路由前缀由 catalog 派生（单一事实源，禁止手写第二份类目路径） */
+const base = catalogByPath('/agents')?.path ?? '/agents'
 
 const { data, status, error } = useAsyncResource(() => api.characters())
 
@@ -96,15 +99,14 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
         @update:sort="toggle"
       >
         <template #cell-name="{ row }">
-          <RouterLink :to="`/agents/${row.Id}`" class="name-cell">
-            <span class="mini-icon">
-              <HollowImage
-                :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'character')"
-                :alt="pickName(row)"
-                :fallback="pickName(row)" fit="contain" />
-            </span>
-            <span class="name-link">{{ pickName(row) }}</span>
-          </RouterLink>
+          <NameCell
+            :to="`${base}/${row.Id}`"
+            :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'character')"
+            :alt="pickName(row)"
+            :fallback="pickName(row)"
+            :name="pickName(row)"
+            thumb="banner"
+          />
         </template>
         <template #cell-attr="{ row }">
           <Tags :element="row.element" :element-label="row.special_element" />
@@ -133,41 +135,11 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 20px;
-  padding-bottom: 16px;
-  border-bottom: var(--rule);
 }
 
 .toolbar :deep(.search) {
   width: auto;
   min-width: 280px;
-}
-
-.name-cell {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.mini-icon {
-  width: 88px;
-  height: 32px; /* 横幅头像 180x64 ≈ 2.8:1，放大 2x，contain 完整显示 */
-  flex: none;
-  display: block;
-}
-
-.mini-icon :deep(.frame) {
-  border-radius: 2px;
-}
-
-.name-link {
-  font-size: 15px;
-  letter-spacing: 0.02em;
-  transition: color var(--t-fast) var(--ease);
-}
-
-/* 变色挂在整条链接上（头像+名字），与其他名录页一致 */
-a.name-cell:hover .name-link {
-  color: var(--amber-hi);
 }
 
 /* 由 CatalogTable 列 cls 应用（子组件作用域，用 :deep 穿透） */

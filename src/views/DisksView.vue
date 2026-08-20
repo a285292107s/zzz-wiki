@@ -7,10 +7,14 @@ import { iconSources } from '@/data/icons'
 import { stripRichText } from '@/utils/text'
 import type { DiskDriveListItem } from '@/data/types'
 import { usePageMeta } from '@/composables/usePageMeta'
+import { catalogByPath } from '@/domain/catalog'
 import { AsyncState, ListPage } from '@/components'
 import HollowImage from '@/components/HollowImage.vue'
 
 usePageMeta()
+
+/** 详情路由前缀由 catalog 派生（单一事实源） */
+const base = catalogByPath('/disks')?.path ?? '/disks'
 
 const { data, status, error } = useAsyncResource(() => api.disks())
 
@@ -77,7 +81,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
 
       <ul class="disk-grid">
         <li v-for="d in sorted" :key="d.Id" class="disk-card">
-          <RouterLink :to="`/disks/${d.Id}`" class="card-head">
+          <RouterLink :to="`${base}/${d.Id}`" class="card-head">
             <span class="thumb">
               <HollowImage
                 :srcs="iconSources({ Id: d.Id, icon: d.icon }, 'disc')"
@@ -110,8 +114,8 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
-  margin-bottom: 24px;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .toolbar-left {
@@ -243,7 +247,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
     var(--bg-1) 100%
   );
   background-size: 200% 100%;
-  animation: pulse 1.4s ease-in-out infinite;
+  animation: skel-pulse 1.4s ease-in-out infinite;
 }
 
 .skel .thumb-bar {
@@ -260,15 +264,6 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
   width: 100%;
   height: 12px;
   margin-top: 10px;
-}
-
-@keyframes pulse {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

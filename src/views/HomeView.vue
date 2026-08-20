@@ -47,31 +47,35 @@ const sections = CATALOG.map((c) => ({
 </script>
 
 <template>
-  <div class="wrap home">
+  <div class="home">
+    <!-- hero：满宽背景，紧贴站头下缘，文字内容随 .wrap 对齐版心 -->
     <section class="hero">
-      <p class="eyebrow mono">NEW Eridu · Data Terminal</p>
-      <h1 class="page-title">
-        绳网档案
-        <span class="title-en">Ropeweb Archive</span>
-      </h1>
-      <p class="page-sub">
-        基于开放数据源整理的绝区零资料库。以档案编号为纲，收录代理人、音擎、邦布与驱动盘的结构化数据——不含任何主观评述，只做客观陈列。
-      </p>
+      <div class="wrap">
+        <p class="eyebrow mono">NEW Eridu · Data Terminal</p>
+        <h1 class="page-title">
+          绳网档案
+          <span class="title-en">Ropeweb Archive</span>
+        </h1>
+        <p class="page-sub">
+          基于开放数据源整理的绝区零资料库。以档案编号为纲，收录代理人、音擎、邦布与驱动盘的结构化数据——不含任何主观评述，只做客观陈列。
+        </p>
 
-      <div class="hero-meta mono">
-        <span>游戏客户端数据</span>
-        <span class="dot">·</span>
-        <span>持续更新</span>
-        <span class="dot">·</span>
-        <span>非官方项目</span>
-        <template v-if="currentVersionLabel">
+        <div class="hero-meta mono">
+          <span>游戏客户端数据</span>
           <span class="dot">·</span>
-          <span class="hero-ver">{{ currentVersionLabel }}</span>
-        </template>
+          <span>持续更新</span>
+          <span class="dot">·</span>
+          <span>非官方项目</span>
+          <template v-if="currentVersionLabel">
+            <span class="dot">·</span>
+            <span class="hero-ver">{{ currentVersionLabel }}</span>
+          </template>
+        </div>
       </div>
     </section>
 
-    <section class="index">
+    <div class="wrap">
+      <section class="index">
       <div class="section-head">
         <span class="no mono">00</span>
         <h2>目录</h2>
@@ -98,19 +102,27 @@ const sections = CATALOG.map((c) => ({
           </RouterLink>
         </li>
       </ol>
-    </section>
+      </section>
+    </div>
   </div>
 </template>
 
 <style scoped>
-.home {
-  padding-top: calc(var(--pad-section) * 1.1);
-}
-
 /* ---------- hero ---------- */
 
 .hero {
+  position: relative;
+  /* 满宽横幅：padding 落在背景图之上，顶部不留纯背景空隙 */
+  padding-top: calc(var(--pad-section) * 0.9);
   padding-bottom: var(--pad-section);
+  /* Mindscape 场景图作背景：顶部极透露出场景，底部深遮罩确保文字可读 */
+  background:
+    linear-gradient(180deg,
+      rgba(13, 15, 17, 0.16) 0%,
+      rgba(13, 15, 17, 0.42) 28%,
+      rgba(13, 15, 17, 0.72) 60%,
+      rgba(13, 15, 17, 0.90) 100%),
+    url('/data/img/hero/Mindscape_1311_2.webp') no-repeat center/cover;
 }
 
 .title-en {

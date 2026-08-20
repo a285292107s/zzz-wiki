@@ -8,6 +8,7 @@ import {
   DetailSection,
   FilterDropdown,
   KeyValueGrid,
+  ListPage,
   SearchField,
   type CatalogColumn,
 } from '@/components'
@@ -15,7 +16,7 @@ import HollowImage from '@/components/HollowImage.vue'
 import Rarity from '@/components/Rarity.vue'
 import Tags from '@/components/Tags.vue'
 
-usePageMeta('设计系统')
+usePageMeta()
 
 /* ---------- token 采集（运行时读取，杜绝二次维护） ---------- */
 
@@ -87,7 +88,7 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
 </script>
 
 <template>
-  <div class="wrap page">
+  <ListPage>
     <header class="page-head">
       <p class="eyebrow mono">Style Guide</p>
       <h1 class="page-title">设计系统</h1>
@@ -191,18 +192,10 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
         <li>视觉：1px 细线、2px 圆角、等宽数据、纸墨配色；禁止渐变霓虹与圆角卡片堆叠。</li>
       </ul>
     </DetailSection>
-  </div>
+  </ListPage>
 </template>
 
 <style scoped>
-.page {
-  padding-top: calc(var(--pad-section) * 0.9);
-}
-
-.page-head {
-  margin-bottom: var(--pad-section);
-}
-
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

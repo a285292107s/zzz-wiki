@@ -7,11 +7,14 @@ import { iconSources } from '@/data/icons'
 import type { BangbooListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { AsyncState, CatalogTable, CatalogTableSkeleton, ListPage, SearchField, type CatalogColumn } from '@/components'
+import { catalogByPath } from '@/domain/catalog'
+import { AsyncState, CatalogTable, CatalogTableSkeleton, ListPage, NameCell, SearchField, type CatalogColumn } from '@/components'
+import Rarity from '@/components/Rarity.vue'
 
 usePageMeta()
-import Rarity from '@/components/Rarity.vue'
-import HollowImage from '@/components/HollowImage.vue'
+
+/** 详情路由前缀由 catalog 派生（单一事实源） */
+const base = catalogByPath('/bangboos')?.path ?? '/bangboos'
 
 const { data, status, error } = useAsyncResource(() => api.bangboos())
 
@@ -66,15 +69,13 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
         @update:sort="toggle"
       >
         <template #cell-name="{ row }">
-          <RouterLink :to="`/bangboos/${row.Id}`" class="name-cell">
-            <span class="mini-icon">
-              <HollowImage
-                :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'bangboo')"
-                :alt="pickName(row)"
-                :fallback="pickName(row)" fit="contain" />
-            </span>
-            <span class="name">{{ pickName(row) }}</span>
-          </RouterLink>
+          <NameCell
+            :to="`${base}/${row.Id}`"
+            :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'bangboo')"
+            :alt="pickName(row)"
+            :fallback="pickName(row)"
+            :name="pickName(row)"
+          />
         </template>
         <template #cell-code="{ row }">
           <span class="code mono">{{ row.codename ?? '—' }}</span>
@@ -89,40 +90,10 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
 
 <style scoped>
 .toolbar {
+  /* 唯一控件（搜索框）时右对齐，与其他名录页搜索框位置一致 */
   display: flex;
   justify-content: flex-end;
   margin-bottom: 20px;
-}
-
-.name-cell {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  color: inherit;
-  text-decoration: none;
-}
-
-a.name-cell:hover .name {
-  color: var(--amber-hi);
-}
-
-a.name-cell .name {
-  transition: color var(--t-fast) var(--ease);
-}
-
-.mini-icon {
-  width: 40px;
-  height: 40px; /* 邦布图标 255×255 方形，contain 完整显示 */
-  flex: none;
-  display: block;
-}
-
-.mini-icon :deep(.frame) {
-  border-radius: 2px;
-}
-
-.name {
-  letter-spacing: 0.02em;
 }
 
 .code {

@@ -1,4 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { CATALOG } from '@/domain/catalog'
+
+/** 类目中文名（页面标题文案由 catalog 单一事实源派生；详情页拼接「详情」） */
+const catTitle = (path: string, suffix = '') => {
+  const c = CATALOG.find((x) => x.path === path)
+  return `${c?.label ?? path}${suffix}`
+}
 
 export const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -39,53 +46,53 @@ export const router = createRouter({
       path: '/agents',
       name: 'agents',
       component: () => import('@/views/AgentsView.vue'),
-      meta: { title: '代理人' },
+      meta: { title: catTitle('/agents') },
     },
     {
       path: '/agents/:id',
       name: 'agent-detail',
       component: () => import('@/views/AgentDetailView.vue'),
       props: true,
-      meta: { title: '代理人详情' },
+      meta: { title: catTitle('/agents', '详情') },
     },
     {
       path: '/w-engines',
       name: 'w-engines',
       component: () => import('@/views/WEnginesView.vue'),
-      meta: { title: '音擎' },
+      meta: { title: catTitle('/w-engines') },
     },
     {
       path: '/w-engines/:id',
       name: 'w-engine-detail',
       component: () => import('@/views/WEngineDetailView.vue'),
       props: true,
-      meta: { title: '音擎详情' },
+      meta: { title: catTitle('/w-engines', '详情') },
     },
     {
       path: '/bangboos',
       name: 'bangboos',
       component: () => import('@/views/BangboosView.vue'),
-      meta: { title: '邦布' },
+      meta: { title: catTitle('/bangboos') },
     },
     {
       path: '/bangboos/:id',
       name: 'bangboo-detail',
       component: () => import('@/views/BangbooDetailView.vue'),
       props: true,
-      meta: { title: '邦布详情' },
+      meta: { title: catTitle('/bangboos', '详情') },
     },
     {
       path: '/disks',
       name: 'disks',
       component: () => import('@/views/DisksView.vue'),
-      meta: { title: '驱动盘' },
+      meta: { title: catTitle('/disks') },
     },
     {
       path: '/disks/:id',
       name: 'disk-detail',
       component: () => import('@/views/DiskDetailView.vue'),
       props: true,
-      meta: { title: '驱动盘详情' },
+      meta: { title: catTitle('/disks', '详情') },
     },
     {
       path: '/style',

@@ -97,6 +97,22 @@ select {
   flex: none;
 }
 
+/* meta 标签行通用标签：Tags 组件 / 详情头攻击方式 / 音擎类型共用（24px 高，2px 圆角） */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  padding: 0 9px;
+  box-sizing: border-box;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  border: 1px solid var(--line-1);
+  border-radius: 2px;
+  color: var(--ink-1);
+  white-space: nowrap;
+}
+
 /* Page heading */
 .page-title {
   font-family: var(--serif);
@@ -275,6 +291,16 @@ select {
 section[id] {
   /* 原生 hash 跳转兜底；Vue Router 跳转在 scrollBehavior 中读取同一变量 */
   scroll-margin-top: var(--anchor-offset);
+}
+
+/* 骨架屏扫光动画（CatalogTableSkeleton / DisksView 共用，消除同名异义） */
+@keyframes skel-pulse {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* ---------- focus & motion ---------- */

@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { computed, nextTick, ref, watch } from 'vue'
-import { RouterLink } from 'vue-router'
+import { computed, ref, watch } from 'vue'
 import { api } from '@/data/api'
 import { iconSources, skillIconSources, type SkillSlot } from '@/data/icons'
 import { stripRichText } from '@/utils/text'
 import { useRouteParam } from '@/composables/useRouteParam'
 import { useAsyncResource } from '@/composables/useAsyncResource'
-import { useDetailNavigation } from '@/composables/useDetailNavigation'
+import { useDetailSections, type DetailSectionItem } from '@/composables/useDetailSections'
 import { usePageMeta } from '@/composables/usePageMeta'
 import {
   buildCoreEnhance,
@@ -26,6 +25,7 @@ import {
   type DetailRow,
   type PotentialCinema,
   type SkillRow,
+  type SkillSlotKey,
   type SkinRow,
   type StatItem,
 } from '@/domain/sections'
@@ -35,9 +35,8 @@ interface SkillDisplay extends SkillRow {
   srcs: string[]
 }
 import type { CharacterDetail } from '@/data/types'
-import { AsyncState, AgentHead, CoreSkillGroup, DescRow, DetailSection, KeyValueGrid, LevelSlider, SkillGroup } from '@/components'
+import { AgentHead, CoreSkillGroup, DescRow, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel } from '@/components'
 import type { LevelMark } from '@/components/detail/LevelSlider.vue'
-import BackToTop from '@/components/BackToTop.vue'
 import HollowImage from '@/components/HollowImage.vue'
 
 const id = useRouteParam('id')
@@ -85,7 +84,7 @@ const levelMarks = computed<LevelMark[]>(() => {
 const skills = computed<SkillDisplay[]>(() =>
   buildSkillRows(detail.value?.skill).map((sk) => ({
     ...sk,
-    glyph: SKILL_KEYS[sk.key]?.glyph ?? '□',
+    glyph: SKILL_KEYS[sk.key as SkillSlotKey]?.glyph ?? '□',
     srcs: skillIconSources(sk.key as SkillSlot),
   })),
 )
@@ -128,69 +127,58 @@ const hasImpressions = computed(
 
 /* ---------- 区块导航（条件区块）+ scrollspy + reveal ---------- */
 
+/** 区块导航：连续编号由添加序派生（与 DetailSection :no 同源，杜绝编号双份事实漂移） */
 const navItems = computed(() => {
-  const items = [{ id: 'stats', no: '01', label: '基础数值' }]
-  if (skills.value.length) items.push({ id: 'skills', no: '02', label: '技能' })
-  if (talents.value.length) items.push({ id: 'talents', no: '03', label: '影画' })
-  if (potentialCinema.value.length) items.push({ id: 'potential', no: '04', label: '潜能影画' })
-  let no = 5
-  if (skinList.value.length > 1) items.push({ id: 'skins', no: String(no++), label: '皮肤' })
-  if (hasImpressions.value) items.push({ id: 'impressions', no: String(no), label: '绳网印象' })
+  const items: DetailSectionItem[] = [{ id: 'stats', no: '01', label: '基础数值' }]
+  let n = 1
+  const add = (id: string, label: string) =>
+    items.push({ id, no: String(++n).padStart(2, '0'), label })
+  if (skills.value.length) add('skills', '技能')
+  if (talents.value.length) add('talents', '影画')
+  if (potentialCinema.value.length) add('potential', '潜能影画')
+  if (skinList.value.length > 1) add('skins', '皮肤')
+  if (hasImpressions.value) add('impressions', '绳网印象')
   return items
 })
 
-const { activeSection, revealDir, activate } = useDetailNavigation()
-const vReveal = revealDir
+const { activeSection, revealDir: vReveal, noOf } = useDetailSections(navItems, status)
 
 /** 404 时返回名录 */
 const backTo = computed(() => (detail.value ? undefined : '/agents'))
-
-watch(status, (s) => {
-  if (s !== 'success') return
-  nextTick(() => activate(navItems.value.map((n) => n.id)))
-})
 </script>
 
 <template>
-  <div class="wrap page">
-    <RouterLink to="/agents" class="back mono">← 返回名录</RouterLink>
+  <DetailPage
+    back-to="/agents"
+    back-label="返回名录"
+    :nav="detail ? navItems : []"
+    :active="activeSection"
+    :status="status"
+    :error="error"
+    :fallback-to="backTo"
+  >
+    <template v-if="detail">
+      <AgentHead :detail="detail" />
 
-    <nav v-if="detail" class="section-nav" aria-label="页面区块">
-      <RouterLink
-        v-for="n in navItems"
-        :key="n.id"
-        class="sn-item mono"
-        :class="{ active: activeSection === n.id }"
-        :to="{ hash: '#' + n.id }"
-      >{{ n.no }} {{ n.label }}</RouterLink>
-    </nav>
-
-    <AsyncState :status="status" :error="error" :back-to="backTo">
-      <template v-if="detail">
-        <AgentHead :detail="detail" />
-
-        <DetailSection id="stats" no="01" title="基础数值" en="Vitals">
-          <div class="stat-level">
-            <div class="stat-level-head">
-              <span class="stat-level-lv mono">Lv.{{ charLevel }}</span>
-              <LevelSlider
-                v-model="charLevel"
-                :min="CHAR_LEVEL_MIN"
-                :max="CHAR_LEVEL_MAX"
-                label="角色等级"
-                :marks="levelMarks"
-              />
-            </div>
-            <p v-if="breakCount != null" class="stat-level-meta mono">
-              <span>
-                {{ breakCount === 0 ? '未突破' : `突破 ${breakCount} 阶` }}
-              </span>
-            </p>
-          </div>
+      <DetailSection id="stats" :no="noOf('stats') ?? '01'" title="基础数值" en="Vitals">
+        <StatLevelPanel
+          :lv-label="`Lv.${charLevel}`"
+          :meta="breakCount == null ? undefined : breakCount === 0 ? '未突破' : `突破 ${breakCount} 阶`"
+        >
+          <template #control>
+            <LevelSlider
+              v-model="charLevel"
+              :min="CHAR_LEVEL_MIN"
+              :max="CHAR_LEVEL_MAX"
+              label="角色等级"
+              :marks="levelMarks"
+            />
+          </template>
           <KeyValueGrid :items="stats" variant="ledger" />
-        </DetailSection>
+        </StatLevelPanel>
+      </DetailSection>
 
-        <DetailSection v-if="skills.length || coreSkill" v-reveal id="skills" no="02" title="技能" en="Skills">
+      <DetailSection v-if="skills.length || coreSkill" v-reveal id="skills" :no="noOf('skills') ?? '02'" title="技能" en="Skills">
           <SkillGroup
             v-for="sk in skills"
             :key="sk.key"
@@ -202,7 +190,7 @@ watch(status, (s) => {
           <CoreSkillGroup v-if="coreSkill" :row="coreSkill" :enhance="coreEnhance" />
         </DetailSection>
 
-        <DetailSection v-if="talents.length" v-reveal id="talents" no="03" title="影画" en="Mindscape">
+        <DetailSection v-if="talents.length" v-reveal id="talents" :no="noOf('talents') ?? '03'" title="影画" en="Mindscape">
           <ul class="talents-list">
             <DescRow
               v-for="t in talents"
@@ -219,7 +207,7 @@ watch(status, (s) => {
           v-if="potentialCinema.length"
           v-reveal
           id="potential"
-          no="04"
+          :no="noOf('potential') ?? '04'"
           title="潜能影画"
           en="Potential"
         >
@@ -235,7 +223,7 @@ watch(status, (s) => {
           </ul>
         </DetailSection>
 
-        <DetailSection v-if="skinList.length > 1" v-reveal id="skins" no="05" title="皮肤" en="Outfits">
+        <DetailSection v-if="skinList.length > 1" v-reveal id="skins" :no="noOf('skins') ?? '05'" title="皮肤" en="Outfits">
           <ul class="skin-list">
             <li v-for="s in skinList" :key="s.id" class="skin">
               <span class="skin-thumb">
@@ -258,7 +246,7 @@ watch(status, (s) => {
           v-if="hasImpressions"
           v-reveal
           id="impressions"
-          no="06"
+          :no="noOf('impressions') ?? '06'"
           title="绳网印象"
           en="Inter-Knot"
         >
@@ -276,65 +264,10 @@ watch(status, (s) => {
           </div>
         </DetailSection>
       </template>
-    </AsyncState>
-
-    <BackToTop />
-  </div>
+    </DetailPage>
 </template>
 
 <style scoped>
-.page {
-  padding-top: calc(var(--pad-section) * 0.8);
-}
-
-.back {
-  font-size: 12.5px;
-  color: var(--ink-2);
-  letter-spacing: 0.12em;
-  transition: color var(--t-fast) var(--ease);
-  display: inline-block;
-  margin-bottom: calc(var(--pad-section) * 0.6);
-}
-
-.back:hover {
-  color: var(--amber-hi);
-}
-
-/* ---------- 基础数值：等级滑条 ---------- */
-
-.stat-level {
-  border: var(--rule);
-  padding: 14px clamp(16px, 2vw, 28px) 12px;
-  margin-bottom: var(--space-2);
-}
-
-.stat-level-head {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.stat-level-lv {
-  flex: none;
-  font-size: 22px;
-  color: var(--amber);
-  letter-spacing: 0.04em;
-  min-width: 3.2em;
-}
-
-.stat-level-meta {
-  display: flex;
-  gap: 14px;
-  margin-top: 8px;
-  font-size: 10.5px;
-  letter-spacing: 0.14em;
-  color: var(--ink-2);
-}
-
-.stat-level-meta span:first-child {
-  color: var(--amber);
-}
-
 /* ---------- talents ---------- */
 
 .talents-list {

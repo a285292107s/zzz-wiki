@@ -7,12 +7,15 @@ import { iconSources } from '@/data/icons'
 import type { WEngineListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { AsyncState, CatalogTable, CatalogTableSkeleton, FilterDropdown, ListPage, SearchField, type CatalogColumn } from '@/components'
-
-usePageMeta()
+import { catalogByPath } from '@/domain/catalog'
+import { AsyncState, CatalogTable, CatalogTableSkeleton, FilterDropdown, ListPage, NameCell, SearchField, type CatalogColumn } from '@/components'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
-import HollowImage from '@/components/HollowImage.vue'
+
+usePageMeta()
+
+/** 详情路由前缀由 catalog 派生（单一事实源） */
+const base = catalogByPath('/w-engines')?.path ?? '/w-engines'
 
 const { data, status, error } = useAsyncResource(() => api.wengines())
 
@@ -72,15 +75,13 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
         @update:sort="toggle"
       >
         <template #cell-name="{ row }">
-          <RouterLink :to="`/w-engines/${row.Id}`" class="name-cell">
-            <span class="mini-icon">
-              <HollowImage
-                :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'weapon')"
-                :alt="pickName(row)"
-                :fallback="pickName(row)" fit="contain" />
-            </span>
-            <span class="name">{{ pickName(row) }}</span>
-          </RouterLink>
+          <NameCell
+            :to="`${base}/${row.Id}`"
+            :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'weapon')"
+            :alt="pickName(row)"
+            :fallback="pickName(row)"
+            :name="pickName(row)"
+          />
         </template>
         <template #cell-rarity="{ row }">
           <Rarity :rank="row.rank" />
@@ -98,39 +99,8 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 18px;
+  gap: 12px;
   justify-content: space-between;
   margin-bottom: 20px;
-}
-
-.name-cell {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  color: inherit;
-  text-decoration: none;
-}
-
-a.name-cell:hover .name {
-  color: var(--amber-hi);
-}
-
-a.name-cell .name {
-  transition: color var(--t-fast) var(--ease);
-}
-
-.mini-icon {
-  width: 40px;
-  height: 40px; /* 音擎图标 143×143 方形，contain 完整显示 */
-  flex: none;
-  display: block;
-}
-
-.mini-icon :deep(.frame) {
-  border-radius: 2px;
-}
-
-.name {
-  letter-spacing: 0.02em;
 }
 </style>

@@ -48,7 +48,7 @@ withDefaults(
     var(--bg-2) 100%
   );
   background-size: 200% 100%;
-  animation: pulse 1.4s ease-in-out infinite;
+  animation: skel-pulse 1.4s ease-in-out infinite;
 }
 
 .head-bar {
@@ -66,15 +66,6 @@ withDefaults(
 
 .cell-bar.wide {
   width: 60%;
-}
-
-@keyframes pulse {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

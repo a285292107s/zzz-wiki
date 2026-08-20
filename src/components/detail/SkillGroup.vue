@@ -6,6 +6,7 @@ import {
   SKILL_LEVEL_MAX,
   SKILL_LEVEL_MIN,
   skillDetailValue,
+  type SkillGroup,
   type SkillRow,
 } from '@/domain/sections'
 import HollowImage from '../HollowImage.vue'
@@ -15,18 +16,28 @@ const props = defineProps<{
   row: SkillRow
   glyph: string
   srcs: string[]
+  /** 等级上限（默认 12 级）；邦布等上限不同的槽位传入 skill.levelCount。上限即默认满级 */
+  levelCount?: number
 }>()
 
-/** 每个技能槽独立的提升等级，默认最高级 */
-const level = ref(SKILL_LEVEL_DEFAULT)
+/** 每个技能槽独立的提升等级，默认最高级（= levelCount，如邦布 10/5 级） */
+const level = ref(props.levelCount ?? SKILL_LEVEL_DEFAULT)
+
+/** 招式说明文字：支持函数形式（随所选等级取文本，如邦布按级描述） */
+function groupDesc(grp: SkillGroup, lv: number): string | undefined {
+  return typeof grp.desc === 'function' ? grp.desc(lv) : grp.desc
+}
 </script>
 
 <template>
   <div class="skill-group">
     <div class="skill-kind-row">
       <span class="key-glyph">
-        <HollowImage :srcs="props.srcs" :alt="row.zh" :fallback="props.glyph" />
-        <em class="mono">{{ row.keyEn }}</em>
+        <!-- 图标位：默认 HollowImage 候选链；邦布等可经 #glyph 插槽替换（如字母占位框） -->
+        <slot name="glyph">
+          <HollowImage :srcs="props.srcs" :alt="row.zh" :fallback="props.glyph" />
+        </slot>
+        <em v-if="row.keyEn" class="mono">{{ row.keyEn }}</em>
       </span>
       <h3 class="skill-kind serif">{{ row.zh }}</h3>
       <!-- 等级滑块与技能名同条，靠右对齐；窄屏允许换行 -->
@@ -34,7 +45,7 @@ const level = ref(SKILL_LEVEL_DEFAULT)
         <LevelSlider
           v-model="level"
           :min="SKILL_LEVEL_MIN"
-          :max="SKILL_LEVEL_MAX"
+          :max="levelCount ?? SKILL_LEVEL_MAX"
           :label="`${row.zh}等级`"
         />
         <span class="level-val mono">Lv.{{ level }}</span>
@@ -50,7 +61,7 @@ const level = ref(SKILL_LEVEL_DEFAULT)
         <span class="no mono">{{ String(gi + 1).padStart(2, '0') }}</span>
         <div class="body">
           <h4 class="title title-skill">{{ grp.name }}</h4>
-          <p v-if="grp.desc" class="desc" v-html="richDesc(grp.desc)"></p>
+          <p v-if="grp.desc != null" class="desc" v-html="richDesc(groupDesc(grp, level) ?? '')"></p>
           <ul v-if="grp.entries?.length" class="stat-list">
             <li v-for="(en, ei) in grp.entries" :key="en.name || 'e' + ei" class="stat-item">
               <span class="stat-name">{{ en.name }}</span>

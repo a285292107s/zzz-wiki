@@ -170,6 +170,18 @@ describe('skill formula evaluation', () => {
     expect(skillDetailValue(detail, 1)).toBe('38.9%')
     expect(skillDetailValue(detail, 12)).toBe('78.5%')
   })
+
+  it('skillDetailValue prefers per-level static text values (bangboo tokens)', () => {
+    const detail = {
+      name: '冷却时间',
+      formula: '',
+      props: {},
+      values: ['20秒', '18秒', '16秒'],
+    }
+    expect(skillDetailValue(detail, 1)).toBe('20秒')
+    expect(skillDetailValue(detail, 2)).toBe('18秒')
+    expect(skillDetailValue(detail, 5)).toBe('16秒') // 越界钳制到末级
+  })
 })
 
 describe('buildSkinRows', () => {

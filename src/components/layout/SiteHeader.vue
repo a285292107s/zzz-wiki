@@ -3,8 +3,12 @@
   <header class="masthead" role="banner">
     <div class="wrap masthead-inner">
       <RouterLink to="/" class="brand">
-        <span class="brand-mark mono">ROPEWEB://ARCHIVE</span>
-        <span class="brand-sub">新艾利都数据终端</span>
+        <!-- 品牌符号：黑色线稿反色为纸白；文字已由 brand-mark 提供，纯装饰 -->
+        <img class="brand-logo" src="/logo.png" alt="" width="24" height="26" aria-hidden="true" />
+        <span class="brand-text">
+          <span class="brand-mark mono">ROPEWEB://ARCHIVE</span>
+          <span class="brand-sub">新艾利都数据终端</span>
+        </span>
       </RouterLink>
 
       <nav class="nav" aria-label="主导航">
@@ -205,8 +209,21 @@ function pickVersion(v: 'live' | 'latest') {
 
 .brand {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
   line-height: 1.15;
+}
+
+.brand-logo {
+  flex: none;
+  /* 黑色线稿反色为纸白，契合纸墨配色（同首页 hero 处理） */
+  filter: invert(1) opacity(0.9);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
 }
 
 .brand-mark {

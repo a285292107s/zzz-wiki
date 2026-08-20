@@ -1,5 +1,5 @@
 <template>
-  <div class="eb-root">
+  <div class="eb-root" :class="{ 'eb-root--error': hasError }">
     <template v-if="hasError">
       <div class="eb-card">
         <p class="eb-eyebrow mono">ARCHIVE · ERROR</p>
@@ -49,7 +49,12 @@ onErrorCaptured((err, _instance, info) => {
 </script>
 
 <style scoped>
+/* 正常状态：透明包装，不加 padding，由页面组件自己控制布局 */
 .eb-root {
+}
+
+/* 错误状态：居中展示错误卡片，留出呼吸空间 */
+.eb-root--error {
   min-height: 60vh;
   display: flex;
   align-items: center;

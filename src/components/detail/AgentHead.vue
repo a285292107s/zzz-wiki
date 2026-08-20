@@ -80,7 +80,7 @@ const portraitSrcs = computed(() =>
           <!-- 稀有度置于标签组首位：与属性/职业并列，避免档案行右侧孤悬 -->
           <Rarity :rank="detail.rarity" />
           <Tags :element="attrCode" :element-label="specialElementName" :specialty="specCode" />
-          <span v-if="hitZh" class="hit-tag">{{ hitZh }}</span>
+          <span v-if="hitZh" class="tag mono">{{ hitZh }}</span>
         </div>
       </div>
 
@@ -158,22 +158,7 @@ const portraitSrcs = computed(() =>
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 20px;
-}
-
-/* 攻击方式标签：与 Tags 内 .tag 同构（统一 24px 高，2px 圆角） */
-.hit-tag {
-  display: inline-flex;
-  align-items: center;
-  height: 24px;
-  padding: 0 9px;
-  box-sizing: border-box;
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  border: 1px solid var(--line-1);
-  border-radius: 2px;
-  color: var(--ink-1);
-  white-space: nowrap;
+  margin-top: 18px;
 }
 
 /* ---------- 画像：细线框 + 四角对位标记 ---------- */

@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { computed, nextTick, ref, watch } from 'vue'
-import { RouterLink } from 'vue-router'
+import { computed, ref, watch } from 'vue'
 import { api } from '@/data/api'
 import { iconSources } from '@/data/icons'
 import { richDesc } from '@/utils/rich'
 import { stripRichText } from '@/utils/text'
 import { useRouteParam } from '@/composables/useRouteParam'
 import { useAsyncResource } from '@/composables/useAsyncResource'
-import { useDetailNavigation } from '@/composables/useDetailNavigation'
+import { useDetailSections, type DetailSectionItem } from '@/composables/useDetailSections'
 import { usePageMeta } from '@/composables/usePageMeta'
 import {
   dictToRows,
@@ -21,9 +20,8 @@ import {
 } from '@/domain/sections'
 import { PROFESSIONS, type SpecCode } from '@/data/types'
 import type { WEngineDetail } from '@/data/types'
-import { AsyncState, DescRow, DetailHead, DetailSection, KeyValueGrid, LevelSlider } from '@/components'
+import { DescRow, DetailHead, DetailPage, DetailSection, KeyValueGrid, LevelSlider, StatLevelPanel } from '@/components'
 import type { LevelMark } from '@/components/detail/LevelSlider.vue'
-import BackToTop from '@/components/BackToTop.vue'
 import Rarity from '@/components/Rarity.vue'
 import Tags from '@/components/Tags.vue'
 
@@ -90,136 +88,93 @@ const portraitSrcs = computed(() =>
 /* ---------- 区块导航（条件区块）+ scrollspy + reveal ---------- */
 
 const navItems = computed(() => {
-  const items: Array<{ id: string; no: string; label: string }> = []
-  if (hasBody.value) items.push({ id: 'overview', no: '01', label: '概述' })
-  items.push({ id: 'props', no: hasBody.value ? '02' : '01', label: '基础属性' })
-  items.push({ id: 'talents', no: hasBody.value ? '03' : '02', label: '精炼效果' })
+  const items: DetailSectionItem[] = []
+  let n = 0
+  const add = (id: string, label: string) =>
+    items.push({ id, no: String(++n).padStart(2, '0'), label })
+  if (hasBody.value) add('overview', '概述')
+  add('props', '基础属性')
+  add('talents', '精炼效果')
   return items
 })
 
-const { activeSection, revealDir, activate } = useDetailNavigation()
-const vReveal = revealDir
-const noOf = (id: string) => navItems.value.find((n) => n.id === id)?.no
+const { activeSection, revealDir: vReveal, noOf } = useDetailSections(navItems, status)
 
 /** 404 时返回音擎图鉴 */
 const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
-
-watch(status, (s) => {
-  if (s !== 'success') return
-  nextTick(() => activate(navItems.value.map((n) => n.id)))
-})
 </script>
 
 <template>
-  <div class="wrap page">
-    <RouterLink to="/w-engines" class="back mono">← 返回音擎图鉴</RouterLink>
+  <DetailPage
+    back-to="/w-engines"
+    back-label="返回音擎图鉴"
+    :nav="detail ? navItems : []"
+    :active="activeSection"
+    :status="status"
+    :error="error"
+    :fallback-to="backTo"
+  >
+    <template v-if="detail">
+      <DetailHead
+        :eyebrow="`W-Engine · ${String(id).padStart(4, '0')}`"
+        :title="detail.name ?? '—'"
+        :portrait-srcs="portraitSrcs"
+        :alt="detail.name ?? ''"
+        :fallback="detail.name ?? '—'"
+        ratio="1 / 1"
+      >
+        <template #meta>
+          <Rarity :rank="detail.rarity" />
+          <Tags :specialty="specCode" />
+          <span v-if="specName" class="tag serif">{{ specName }}</span>
+        </template>
+        <template #sub>
+          <p v-if="detail?.desc3" class="tagline">{{ detail.desc3 }}</p>
+          <p v-if="detail?.desc2" class="sub-info">{{ detail.desc2 }}</p>
+        </template>
+      </DetailHead>
 
-    <nav v-if="detail" class="section-nav" aria-label="页面区块">
-      <RouterLink
-        v-for="n in navItems"
-        :key="n.id"
-        class="sn-item mono"
-        :class="{ active: activeSection === n.id }"
-        :to="{ hash: '#' + n.id }"
-      >{{ n.no }} {{ n.label }}</RouterLink>
-    </nav>
+      <DetailSection v-if="hasBody" id="overview" :no="noOf('overview') ?? '01'" title="概述" en="Lore">
+        <p class="story">{{ bodyText }}</p>
+      </DetailSection>
 
-    <AsyncState :status="status" :error="error" :back-to="backTo">
-      <template v-if="detail">
-        <DetailHead
-          :eyebrow="`W-Engine · ${String(id).padStart(4, '0')}`"
-          :title="detail.name ?? '—'"
-          :portrait-srcs="portraitSrcs"
-          :alt="detail.name ?? ''"
-          :fallback="detail.name ?? '—'"
-          ratio="1 / 1"
+      <DetailSection v-reveal id="props" :no="noOf('props') ?? '01'" title="基础属性" en="Specs">
+        <StatLevelPanel
+          :lv-label="`Lv.${wLevel}`"
+          :meta="hasLevels ? (breakCount === 0 ? '未突破' : `突破 ${breakCount} 阶`) : undefined"
         >
-          <template #meta>
-            <Rarity :rank="detail.rarity" />
-            <Tags :specialty="specCode" />
-            <span v-if="specName" class="spec serif">{{ specName }}</span>
-          </template>
-          <template #sub>
-            <p v-if="detail?.desc3" class="tagline">{{ detail.desc3 }}</p>
-            <p v-if="detail?.desc2" class="sub-info">{{ detail.desc2 }}</p>
-          </template>
-        </DetailHead>
-
-        <DetailSection v-if="hasBody" id="overview" :no="noOf('overview') ?? '01'" title="概述" en="Lore">
-          <p class="story">{{ bodyText }}</p>
-        </DetailSection>
-
-        <DetailSection v-reveal id="props" :no="noOf('props') ?? '01'" title="基础属性" en="Specs">
-          <div class="stat-level">
-            <div v-if="hasLevels" class="stat-level-head">
-              <span class="stat-level-lv mono">Lv.{{ wLevel }}</span>
-              <LevelSlider
-                v-model="wLevel"
-                :min="W_ENGINE_LEVEL_MIN"
-                :max="W_ENGINE_LEVEL_MAX"
-                label="音擎等级"
-                :marks="levelMarks"
-              />
-            </div>
-            <p v-if="hasLevels" class="stat-level-meta mono">
-              <span>{{ breakCount === 0 ? '未突破' : `突破 ${breakCount} 阶` }}</span>
-            </p>
-            <KeyValueGrid :items="propItems" variant="ledger" />
-          </div>
-        </DetailSection>
-
-        <DetailSection v-reveal id="talents" :no="noOf('talents') ?? '01'" title="精炼效果" en="Refine">
-          <ul v-if="talents.length" class="desc-list">
-            <DescRow
-              v-for="t in talents"
-              :key="t.no"
-              :no="String(t.no).padStart(2, '0')"
-              :title="t.name ?? '未命名'"
-              :html="richDesc(t.desc)"
-              variant="talent"
+          <template #control>
+            <LevelSlider
+              v-if="hasLevels"
+              v-model="wLevel"
+              :min="W_ENGINE_LEVEL_MIN"
+              :max="W_ENGINE_LEVEL_MAX"
+              label="音擎等级"
+              :marks="levelMarks"
             />
-          </ul>
-          <p v-else class="empty mono">—</p>
-        </DetailSection>
-      </template>
-    </AsyncState>
+          </template>
+          <KeyValueGrid :items="propItems" variant="ledger" />
+        </StatLevelPanel>
+      </DetailSection>
 
-    <BackToTop />
-  </div>
+      <DetailSection v-reveal id="talents" :no="noOf('talents') ?? '01'" title="精炼效果" en="Refine">
+        <ul v-if="talents.length" class="desc-list">
+          <DescRow
+            v-for="t in talents"
+            :key="t.no"
+            :no="String(t.no).padStart(2, '0')"
+            :title="t.name ?? '未命名'"
+            :html="richDesc(t.desc)"
+            variant="talent"
+          />
+        </ul>
+        <p v-else class="empty mono">—</p>
+      </DetailSection>
+    </template>
+  </DetailPage>
 </template>
 
 <style scoped>
-.page {
-  padding-top: calc(var(--pad-section) * 0.8);
-}
-
-.back {
-  font-size: 12.5px;
-  color: var(--ink-2);
-  letter-spacing: 0.12em;
-  transition: color var(--t-fast) var(--ease);
-  display: inline-block;
-  margin-bottom: calc(var(--pad-section) * 0.6);
-}
-
-.back:hover {
-  color: var(--amber-hi);
-}
-
-/* 音擎类型名：标签化与 meta 行其他标签统一（24px 高，2px 圆角） */
-.spec {
-  display: inline-flex;
-  align-items: center;
-  height: 24px;
-  padding: 0 9px;
-  box-sizing: border-box;
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  border: 1px solid var(--line-1);
-  border-radius: 2px;
-  color: var(--ink-1);
-}
-
 /* 头部主题句（desc3）：诗意的引句感 */
 .tagline {
   margin-top: 0;
@@ -248,41 +203,6 @@ watch(status, (s) => {
 
 .desc-list {
   list-style: none;
-}
-
-/* ---------- 等级滑条（与 AgentDetailView 基础数值同构） ---------- */
-
-.stat-level {
-  border: var(--rule);
-  padding: 14px clamp(16px, 2vw, 28px) 12px;
-  margin-bottom: var(--space-2);
-}
-
-.stat-level-head {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.stat-level-lv {
-  flex: none;
-  font-size: 22px;
-  color: var(--amber);
-  letter-spacing: 0.04em;
-  min-width: 3.2em;
-}
-
-.stat-level-meta {
-  display: flex;
-  gap: 14px;
-  margin-top: 8px;
-  font-size: 10.5px;
-  letter-spacing: 0.14em;
-  color: var(--ink-2);
-}
-
-.stat-level-meta span:first-child {
-  color: var(--amber);
 }
 
 .empty {
