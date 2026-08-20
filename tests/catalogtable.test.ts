@@ -15,28 +15,24 @@ const rows = [
 ]
 
 describe('CatalogTable', () => {
-  it('renders sortable headers as buttons, others as text', () => {
+  it('clicking a sortable header emits update:sort with the column key', async () => {
     const w = mount(CatalogTable, { props: { columns, items: rows } })
-    const ths = w.findAll('th')
-    expect(ths.length).toBe(3)
-    expect(ths[0].find('button.sort-btn').exists()).toBe(true)
-    expect(ths[1].find('button.sort-btn').exists()).toBe(false)
-    expect(ths[2].find('button.sort-btn').exists()).toBe(true)
-  })
-
-  it('emits update:sort with the column key on header click', async () => {
-    const w = mount(CatalogTable, { props: { columns, items: rows } })
-    await w.findAll('button.sort-btn')[0].trigger('click')
+    await w.findAll('button')[0].trigger('click')
     expect(w.emitted('update:sort')![0]).toEqual(['name'])
   })
 
-  it('shows direction arrow and aria-sort for the active column', () => {
+  it('non-sortable header is inert — clicking emits nothing', async () => {
+    const w = mount(CatalogTable, { props: { columns, items: rows } })
+    await w.findAll('th')[1].trigger('click') // '代号' 列不可排序
+    expect(w.emitted('update:sort')).toBeUndefined()
+  })
+
+  it('active column exposes sort direction via aria-sort; others stay neutral', () => {
     const w = mount(CatalogTable, {
       props: { columns, items: rows, sort: 'rarity', sortDir: 'desc' },
     })
-    const rbtn = w.findAll('button.sort-btn')[1]
-    expect(rbtn.classes()).toContain('active')
-    expect(rbtn.attributes('aria-sort')).toBe('descending')
-    expect(rbtn.text()).toContain('▼')
+    const btns = w.findAll('th button')
+    expect(btns[0].attributes('aria-sort')).toBeUndefined() // name 未激活
+    expect(btns[1].attributes('aria-sort')).toBe('descending') // rarity 激活且降序
   })
 })

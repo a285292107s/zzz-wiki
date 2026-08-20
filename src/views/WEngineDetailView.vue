@@ -74,17 +74,13 @@ const levelMarks = computed<LevelMark[]>(() => {
 
 const talents = computed<DetailRow[]>(() => dictToRows(detail.value?.talents))
 
-const hasBody = computed(
-  () => detail.value?.desc || detail.value?.desc2 || detail.value?.desc3,
-)
+/** 概述仅承载 lore 正文（desc）；desc3 为主题句、desc2 为功能提示，均已上移至头部 sub 区 */
+const hasBody = computed(() => !!detail.value?.desc)
 
 const bodyText = computed<string>(() => {
   const d = detail.value
-  if (!d) return ''
-  return [d.desc, d.desc2, d.desc3]
-    .map((x) => stripRichText(x))
-    .filter((x) => x && x.trim())
-    .join('\n\n')
+  if (!d?.desc) return ''
+  return stripRichText(d.desc)
 })
 
 const portraitSrcs = computed(() =>
@@ -144,7 +140,8 @@ watch(status, (s) => {
             <span v-if="specName" class="spec serif">{{ specName }}</span>
           </template>
           <template #sub>
-            <p v-if="detail.code_name" class="codename mono">{{ detail.code_name }}</p>
+            <p v-if="detail?.desc3" class="tagline">{{ detail.desc3 }}</p>
+            <p v-if="detail?.desc2" class="sub-info">{{ detail.desc2 }}</p>
           </template>
         </DetailHead>
 
@@ -223,10 +220,21 @@ watch(status, (s) => {
   color: var(--ink-1);
 }
 
-.codename {
+/* 头部主题句（desc3）：诗意的引句感 */
+.tagline {
   margin-top: 0;
+  font-size: 15px;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  font-style: italic;
+  color: var(--ink-1);
+}
+
+/* 头部功能提示（desc2）：适用职业说明的小字 */
+.sub-info {
+  margin-top: 8px;
   font-size: 12px;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   color: var(--ink-2);
 }
 

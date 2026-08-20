@@ -46,11 +46,6 @@ export function iconSources(
   return [...new Set(out.filter(Boolean))]
 }
 
-/** nanoka.cc 素材直链（备用导出） */
-export function nanokaAssetUrl(basenamePart: string): string {
-  return `${NANOKA_ASSETS}/${basenamePart.replace(/\.(png|webp)$/i, '')}.webp`
-}
-
 /* ============================================================
  * 技能键位图标 — 资产名取自游戏富文本标记 <IconMap:Icon_XXX>
  * （nanoka 素材 CDN 已实测）。候选链依序尝试，若全 404 由调用方
