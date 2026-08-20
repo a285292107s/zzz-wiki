@@ -196,9 +196,9 @@ select {
 /* 名录表行不做整行 hover：可点性仅由行内名称链接自身的 hover 变色表达，
    避免视觉暗示（整行可点）与实际可点击区域（仅头像+名字）不一致 */
 
-/* ---------- 详情页区块内导航：宽屏左侧档案索引 / 窄屏吸顶横条 ----------
-   目录式排版（无盒）：眉标 + 上下细线装订 + 左缘纵向标尺，
-   激活项以琥珀刻度点亮标尺，编号/眉标/计数全部等宽字。 */
+/* ---------- 详情页区块内导航：宽屏左侧页面索引 / 窄屏吸顶横条 ----------
+   极致寡淡：无盒无框无轨道，只剩编号 + 标签；激活项以一条琥珀下划线
+   表达（hover 只动文字，线与变色不同时示警）。 */
 
 .section-nav {
   /* 宽屏：固定于内容区左侧留白，垂直居中（脱离文档流，不占版心） */
@@ -206,51 +206,18 @@ select {
   z-index: 90;
   top: 50%;
   transform: translateY(-50%);
-  left: max(14px, calc((100vw - 1280px) / 2 - 166px));
+  left: max(14px, calc((100vw - 1280px) / 2 - 126px));
   display: flex;
   flex-direction: column;
-  width: 136px;
+  width: 96px;
   padding: 0;
   margin: 0;
 }
 
-/* 眉标：与全站 .eyebrow 同语系（mono + 大字距），右端细线延伸收束 */
-.sn-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 0 0 8px;
-  font-size: 10px;
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-}
-
-.sn-meta::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--line-1);
-}
-
-/* 条目组：上下细线装订，左缘一条贯穿纵线作为标尺 */
 .sn-list {
-  position: relative;
   display: flex;
   flex-direction: column;
-  padding: 6px 0 6px 16px;
-  border-top: var(--rule);
-  border-bottom: var(--rule);
-}
-
-.sn-list::before {
-  content: '';
-  position: absolute;
-  top: 8px;
-  bottom: 8px;
-  left: 4px;
-  width: 1px;
-  background: var(--line-1);
+  padding: 0;
 }
 
 .sn-item {
@@ -265,16 +232,17 @@ select {
   transition: color var(--t-fast) var(--ease);
 }
 
-/* 琥珀刻度：常态缩至 0，hover/激活时从左缘标尺上点亮 */
-.sn-item::before {
+/* 激活下划线：常态缩至 0，仅激活时从左缘展开（hover 不动线，
+   保证活动项信号不被划过状态稀释） */
+.sn-item::after {
   content: '';
   position: absolute;
-  top: 50%;
-  left: -12px; /* 与 .sn-list 的 padding-left 呼应：恰好落在纵线上 */
-  width: 13px;
-  height: 2px;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  height: 1px;
   background: var(--amber);
-  transform: translateY(-50%) scaleX(0);
+  transform: scaleX(0);
   transform-origin: left center;
   transition: transform var(--t-med) var(--ease);
 }
@@ -283,9 +251,8 @@ select {
   color: var(--ink-0);
 }
 
-.sn-item:hover::before,
-.sn-item.active::before {
-  transform: translateY(-50%) scaleX(1);
+.sn-item.active::after {
+  transform: scaleX(1);
 }
 
 .sn-item .no {
@@ -304,22 +271,7 @@ select {
   color: var(--amber-hi);
 }
 
-/* 位置计数：底行一排，当前编号以琥珀点亮 */
-.sn-progress {
-  display: flex;
-  align-items: baseline;
-  gap: 7px;
-  margin-top: 9px;
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  color: var(--ink-3);
-}
-
-.sn-progress .sn-cur {
-  color: var(--amber);
-}
-
-/* 窄屏：左侧留白不足，恢复为站头下的吸顶横条（无盒：激活以下刻线表达） */
+/* 窄屏：左侧留白不足，恢复为站头下的吸顶横条（激活以同一条下刻线表达） */
 @media (max-width: 1520px) {
   .section-nav {
     position: sticky;
@@ -338,19 +290,9 @@ select {
     border-bottom: var(--rule);
   }
 
-  .sn-meta,
-  .sn-progress {
-    display: none;
-  }
-
   .sn-list {
     display: contents;
     padding: 0;
-    border: none;
-  }
-
-  .sn-list::before {
-    display: none;
   }
 
   .sn-item {
@@ -359,10 +301,10 @@ select {
     font-size: 11.5px;
   }
 
-  /* 刻度移至底部并横贯整项：覆于横条下缘细线上，形成点亮的下刻线 */
-  .sn-item::before {
-    top: auto;
+  /* 下划线移至底部并横贯整项：覆于横条下缘细线上，形成点亮的下刻线 */
+  .sn-item::after {
     left: 0;
+    right: auto;
     bottom: -11px; /* 与 .section-nav padding-block 联动：贴住下边框 */
     width: 100%;
     height: 2px;
@@ -370,8 +312,7 @@ select {
     transform-origin: top center;
   }
 
-  .sn-item:hover::before,
-  .sn-item.active::before {
+  .sn-item.active::after {
     transform: scaleY(1);
   }
 }
