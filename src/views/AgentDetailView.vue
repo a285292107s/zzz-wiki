@@ -174,8 +174,8 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
               :marks="levelMarks"
             />
           </template>
-          <KeyValueGrid :items="stats" variant="ledger" />
         </StatLevelPanel>
+        <KeyValueGrid :items="stats" variant="ledger" />
       </DetailSection>
 
       <DetailSection v-if="skills.length || coreSkill" v-reveal id="skills" :no="noOf('skills') ?? '02'" title="技能" en="Skills">
