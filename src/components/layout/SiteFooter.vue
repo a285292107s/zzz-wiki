@@ -1,18 +1,40 @@
 <template>
   <footer class="foot">
     <div class="wrap foot-inner">
-      <p class="mono">ROPEWEB://ARCHIVE</p>
-      <p>
-        数据源 <a href="https://zzz.nanoka.cc" target="_blank" rel="noopener">zzz.nanoka.cc</a>
-        · 与米哈游 / HoYoverse 无关
-      </p>
+      <div class="foot-side foot-info">
+        <p class="meta">
+          数据源 <a href="https://zzz.nanoka.cc" target="_blank" rel="noopener">zzz.nanoka.cc</a>
+        </p>
+        <span class="sep" aria-hidden="true">/</span>
+        <p class="updated mono">数据更新 · {{ updatedAt || '···' }}</p>
+        <span class="sep" aria-hidden="true">/</span>
+        <p class="disclaimer">游戏资产版权与商标归 HoYoverse 所有</p>
+      </div>
       <RouterLink to="/style" class="style-link mono">DESIGN SYSTEM</RouterLink>
     </div>
   </footer>
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
+import { dataVersions } from '@/data/api'
+
+// 数据抓取/更新时间（构建期落地在 manifest 的 generated，动态取，勿硬编码）
+const updatedAt = ref('')
+onMounted(() => {
+  dataVersions()
+    .then((v) => {
+      const t = v.generated ? new Date(v.generated) : null
+      if (t && !Number.isNaN(t.getTime()))
+        updatedAt.value = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(
+          t.getDate(),
+        ).padStart(2, '0')}`
+    })
+    .catch(() => {
+      // manifest 缺失时不展示时间，不阻断站点
+    })
+})
 </script>
 
 <style scoped>
@@ -36,6 +58,31 @@ import { RouterLink } from 'vue-router'
   border-bottom: 1px solid var(--line-1);
   transition: color var(--t-fast) var(--ease),
     border-color var(--t-fast) var(--ease);
+}
+
+.foot-side {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sep {
+  color: var(--line-2);
+  font-size: 11px;
+}
+
+.foot-info .meta,
+.updated,
+.disclaimer {
+  margin: 0;
+}
+
+.updated,
+.disclaimer,
+.meta {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--ink-2);
 }
 
 .style-link {

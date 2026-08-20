@@ -6,8 +6,8 @@
         <!-- 品牌符号：黑色线稿反色为纸白；文字已由 brand-mark 提供，纯装饰 -->
         <img class="brand-logo" src="/logo.png" alt="" width="24" height="26" aria-hidden="true" />
         <span class="brand-text">
-          <span class="brand-mark mono">ROPEWEB://ARCHIVE</span>
-          <span class="brand-sub">新艾利都数据终端</span>
+          <span class="brand-mark">新艾利都数据终端</span>
+          <span class="brand-sub mono">NEW ERIDU · DATA TERMINAL</span>
         </span>
       </RouterLink>
 
@@ -227,16 +227,16 @@ function pickVersion(v: 'live' | 'latest') {
 }
 
 .brand-mark {
-  font-size: 14px;
-  letter-spacing: 0.14em;
+  font-size: 15px;
+  letter-spacing: 0.22em;
   color: var(--ink-0);
 }
 
 .brand-sub {
-  font-size: 10px;
-  letter-spacing: 0.32em;
+  font-size: 9px;
+  letter-spacing: 0.22em;
   color: var(--ink-2);
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
 .nav {
