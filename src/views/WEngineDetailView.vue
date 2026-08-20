@@ -153,8 +153,8 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
               :marks="levelMarks"
             />
           </template>
-          <KeyValueGrid :items="propItems" variant="ledger" />
         </StatLevelPanel>
+        <KeyValueGrid :items="propItems" variant="ledger" />
       </DetailSection>
 
       <DetailSection v-reveal id="talents" :no="noOf('talents') ?? '01'" title="精炼效果" en="Refine">

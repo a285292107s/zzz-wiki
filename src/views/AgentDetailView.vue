@@ -44,7 +44,7 @@ const { data: detail, status, error } = useAsyncResource(() => api.detail<Charac
 
 usePageMeta(() => detail.value?.name ?? undefined)
 
-/* ---------- 基础数值：等级滑条 ---------- */
+/* ---------- 基础属性：等级滑条 ---------- */
 
 /** 当前查看等级（默认满级，与技能滑块默认一致）；切换角色时重置 */
 const charLevel = ref(CHAR_LEVEL_DEFAULT)
@@ -129,7 +129,7 @@ const hasImpressions = computed(
 
 /** 区块导航：连续编号由添加序派生（与 DetailSection :no 同源，杜绝编号双份事实漂移） */
 const navItems = computed(() => {
-  const items: DetailSectionItem[] = [{ id: 'stats', no: '01', label: '基础数值' }]
+  const items: DetailSectionItem[] = [{ id: 'stats', no: '01', label: '基础属性' }]
   let n = 1
   const add = (id: string, label: string) =>
     items.push({ id, no: String(++n).padStart(2, '0'), label })
@@ -160,7 +160,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
     <template v-if="detail">
       <AgentHead :detail="detail" />
 
-      <DetailSection id="stats" :no="noOf('stats') ?? '01'" title="基础数值" en="Vitals">
+      <DetailSection id="stats" :no="noOf('stats') ?? '01'" title="基础属性" en="Vitals">
         <StatLevelPanel
           :lv-label="`Lv.${charLevel}`"
           :meta="breakCount == null ? undefined : breakCount === 0 ? '未突破' : `突破 ${breakCount} 阶`"

@@ -31,7 +31,7 @@ const portraitSrcs = computed(() =>
   iconSources({ Id: id.value, icon: detail.value?.icon }, 'bangboo'),
 )
 
-/* ---------- 基础数值：等级滑条（默认满级；切换邦布时重置） ---------- */
+/* ---------- 基础属性：等级滑条（默认满级；切换邦布时重置） ---------- */
 
 const bLevel = ref(BANGBOO_LEVEL_DEFAULT)
 
@@ -97,7 +97,7 @@ const skillRows = computed<BangbooSkillDisplay[]>(() =>
 /* ---------- 区块导航 + scrollspy + reveal ---------- */
 
 const navItems = computed<DetailSectionItem[]>(() => {
-  const items: DetailSectionItem[] = [{ id: 'stats', no: '01', label: '基础数值' }]
+  const items: DetailSectionItem[] = [{ id: 'stats', no: '01', label: '基础属性' }]
   if (skillRows.value.length) items.push({ id: 'skills', no: '02', label: '技能' })
   return items
 })
@@ -137,7 +137,7 @@ const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
         </template>
       </DetailHead>
 
-      <DetailSection id="stats" :no="noOf('stats') ?? '01'" title="基础数值" en="Vitals">
+      <DetailSection id="stats" :no="noOf('stats') ?? '01'" title="基础属性" en="Vitals">
         <StatLevelPanel
           :lv-label="`Lv.${bLevel}`"
           :meta="breakCount === 0 ? '未突破' : `突破 ${breakCount} 阶`"
@@ -151,8 +151,8 @@ const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
               :marks="levelMarks"
             />
           </template>
-          <KeyValueGrid :items="stats" variant="ledger" />
         </StatLevelPanel>
+        <KeyValueGrid :items="stats" variant="ledger" />
       </DetailSection>
 
       <DetailSection v-if="skillRows.length" v-reveal id="skills" :no="noOf('skills') ?? '01'" title="技能" en="Skills">

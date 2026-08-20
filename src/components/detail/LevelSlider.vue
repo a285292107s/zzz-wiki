@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /** 等级滑条：发丝线轨道 + 方形钮（与"档案标本"细线框语言一致），
- *  可选突破刻度（marks）。供技能/基础数值等按等级查看数值的区块复用。 */
+ *  可选突破刻度（marks）。供技能/基础属性等按等级查看数值的区块复用。 */
 
 export interface LevelMark {
   /** 刻度对应的数值（input value） */

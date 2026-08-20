@@ -627,7 +627,7 @@ export function buildPotentialCinema(
 }
 
 /* ============================================================
- * 角色基础数值随等级成长（DESIGN.md P2：纯函数、无 Vue 依赖、可单测）。
+ * 角色基础属性随等级成长（DESIGN.md P2：纯函数、无 Vue 依赖、可单测）。
  * 模型（已用游戏内 Lv.1/10/20/30/40/50/60 锚点验证）：
  *   属性(L) = floor( 1 级基础 + 该段累计突破加成 + growth/10000 × (L-1) )
  *   突破段取自 level 字典（hakushin ascension）。
@@ -828,7 +828,7 @@ export function wEnginePropsAtLevel(
   return items
 }
 
-/* ---------- 邦布基础数值（等级滑条） ---------- */
+/* ---------- 邦布基础属性（等级滑条） ---------- */
 
 /** 邦布等级范围（1-60，10 级一突破，与角色/音擎一致） */
 export const BANGBOO_LEVEL_MIN = 1
