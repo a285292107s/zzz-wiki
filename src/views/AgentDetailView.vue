@@ -225,19 +225,21 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
 
         <DetailSection v-if="skinList.length > 1" v-reveal id="skins" :no="noOf('skins') ?? '05'" title="皮肤" en="Outfits">
           <ul class="skin-list">
-            <li v-for="s in skinList" :key="s.id" class="skin">
-              <span class="skin-thumb">
+            <li v-for="(s, i) in skinList" :key="s.id" class="skin">
+              <figure class="skin-figure">
                 <HollowImage
                   :srcs="iconSources({ icon: s.img }, 'character')"
                   :alt="s.name"
                   :fallback="s.name"
-                  position="top"
+                  fit="contain"
+                  ratio="3 / 4"
                 />
-              </span>
-              <div class="skin-info">
+              </figure>
+              <figcaption class="skin-info">
+                <span class="skin-index mono">着装 · {{ String(i + 1).padStart(2, '0') }}</span>
                 <h3 class="skin-name serif">{{ s.name || '—' }}</h3>
                 <p v-if="s.desc" class="skin-desc">{{ stripRichText(s.desc) }}</p>
-              </div>
+              </figcaption>
             </li>
           </ul>
         </DetailSection>
@@ -282,40 +284,59 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
 
 .skin {
   display: grid;
-  grid-template-columns: 104px 1fr;
+  grid-template-columns: 132px 1fr;
   align-items: start;
-  gap: 16px;
-  padding: 14px 4px;
+  gap: 20px;
+  padding: 18px 4px;
   border-bottom: var(--rule);
 }
 
-.skin-thumb {
-  width: 96px;
-  height: 96px;
-  display: block;
+.skin:last-child {
+  border-bottom: none;
 }
 
-.skin-thumb :deep(.frame) {
-  border-radius: 2px;
+/* 立绘主位：直立画幅，完整呈现全身皮肤照 */
+.skin-figure {
+  width: 132px;
+  margin: 0;
 }
 
 .skin-info {
   min-width: 0;
+  padding-top: 2px;
+}
+
+.skin-index {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--ink-3);
+  margin-bottom: 7px;
 }
 
 .skin-name {
-  font-size: 15.5px;
+  font-size: 16.5px;
   font-weight: 500;
   color: var(--ink-0);
   line-height: 1.4;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .skin-desc {
   font-size: 12.5px;
   color: var(--ink-2);
-  line-height: 1.7;
-  max-width: 76ch;
+  line-height: 1.75;
+  max-width: 72ch;
+}
+
+@media (max-width: 560px) {
+  .skin {
+    grid-template-columns: 96px 1fr;
+    gap: 14px;
+  }
+  .skin-figure {
+    width: 96px;
+  }
 }
 
 /* ---------- 绳网印象 ---------- */
