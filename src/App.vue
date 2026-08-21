@@ -3,6 +3,7 @@ import { RouterView } from 'vue-router'
 import { dataVersion } from '@/data/api'
 import SiteHeader from '@/components/layout/SiteHeader.vue'
 import SiteFooter from '@/components/layout/SiteFooter.vue'
+import TermTip from '@/components/detail/TermTip.vue'
 import { ErrorBoundary } from '@/components'
 </script>
 
@@ -26,6 +27,9 @@ import { ErrorBoundary } from '@/components'
     <!-- 站尾（SiteFooter） -->
     <SiteFooter />
   </div>
+
+  <!-- 术语悬停浮层：全局委托监听，随 dataVersion 读本地名词表 -->
+  <TermTip />
 </template>
 
 <style scoped>

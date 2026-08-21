@@ -136,3 +136,42 @@ export function toListDict(
   }
   return dict
 }
+
+/** 术语名表：ID → 带括号名（如 "[虚曜]"），取自源站 noun.json（同域数据源）。 */
+export type TermNames = Record<string, string>
+
+/**
+ * 递归解析数据中的 <Term:N></Term> 标签（数据源仅给术语 ID，中文名取名词表）。
+ * 解析后**保留 ID 外壳** `<Term:N>…</Term>`，显示名以既有富文本「色 + 名」形态内嵌：
+ *  - `<color=#…><Term:N></Term></color>`：保留外层色 → `<Term:N><color=#…>[名]</color>`
+ *  - 裸 `<Term:N></Term>`：补白字 → `<Term:N><color=#FFFFFF>[名]</color>`
+ * 保留 ID 供前端把术语渲染成可悬停节点（data-term-id → 名词表 desc 弹窗）；
+ * 即便前端暂未接浮层，内嵌 <color> 也能直接显示名（不回归）。
+ * 名词表缺失的 ID 退化为空（等同历史剥离行为）。
+ */
+export function resolveTerms(value: unknown, terms: TermNames): unknown {
+  if (typeof value === 'string') {
+    if (!value.includes('<Term:')) return value
+    return value
+      .replace(
+        /<color=#([0-9a-fA-F]{6,8})><Term:(\d+)><\/Term><\/color>/g,
+        (_m, c: string, id: string) => {
+          const name = terms[id] ?? ''
+          return name ? `<Term:${id}><color=#${c}>${name}</color></Term>` : ''
+        },
+      )
+      .replace(/<Term:(\d+)><\/Term>/g, (_m, id: string) => {
+        const name = terms[id] ?? ''
+        return name ? `<Term:${id}><color=#FFFFFF>${name}</color></Term>` : ''
+      })
+  }
+  if (Array.isArray(value)) return value.map((v) => resolveTerms(v, terms))
+  if (value !== null && typeof value === 'object') {
+    const out: Record<string, unknown> = {}
+    for (const k of Object.keys(value as Record<string, unknown>)) {
+      out[k] = resolveTerms((value as Record<string, unknown>)[k], terms)
+    }
+    return out
+  }
+  return value
+}

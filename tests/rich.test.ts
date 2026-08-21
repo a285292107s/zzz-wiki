@@ -33,8 +33,26 @@ describe('richDesc', () => {
     expect(out).toMatch(/<img class="rich-key" src="\/data\/img\/skill\/Icon_Special\.webp"/)
   })
 
-  it('strips empty Term tags', () => {
-    expect(richDesc('<Term:1000024></Term>测试')).toBe('测试')
+  it('renders build-resolved Term tags as hoverable anchors keeping the inner color span', () => {
+    // 构建期 resolveTerms 产出 <Term:N><color=#…>[名]</color>；richDesc 包锚点并保留内嵌色。
+    // 锚点不带 href：TermTip 悬停/聚焦即可弹浮层，点击不产生无目标跳转/URL 噪音。
+    expect(richDesc('当蕾米埃尔身上储存有<Term:1000033><color=#FFFFFF>[虚曜]</color></Term>时')).toBe(
+      '当蕾米埃尔身上储存有<a class="rich-term" data-term-id="1000033" tabindex="0"><span style="color:#FFFFFF">[虚曜]</span></a>时',
+    )
+  })
+
+  it('keeps the color a Term tag was wrapped in at build time', () => {
+    // 源站 <color=#FFFFFF><Term:1000010></Term></color> → 构建期扁平化为 <Term:1000010><color…>[名]</color>
+    expect(richDesc('<Term:1000010><color=#FFFFFF>[随行礼帽]</color></Term>会自动攻击')).toBe(
+      '<a class="rich-term" data-term-id="1000010" tabindex="0"><span style="color:#FFFFFF">[随行礼帽]</span></a>会自动攻击',
+    )
+  })
+
+  it('does not leak raw Term markup when the name is missing (stripped at build)', () => {
+    const out = richDesc('a<Term:9999999></Term>b')
+    expect(out).not.toContain('<Term')
+    expect(out).toContain('a')
+    expect(out).toContain('b')
   })
 
   it('does not leak unknown <...> or {...} markup as raw text', () => {

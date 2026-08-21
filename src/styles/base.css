@@ -97,6 +97,21 @@ select {
   line-height: 0;
 }
 
+/* 富文本术语锚点（rich.ts 生成）：细点线 + 助手指针，悬停/聚焦浮层（TermTip）。
+   保持与内文同字号同色，仅用底线提示可交互，不喧宾夺主。 */
+a.rich-term {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  cursor: help;
+  border-radius: 1px;
+}
+a.rich-term:hover {
+  color: var(--amber);
+}
+
 /* Eyebrow label: tiny, tracked, uppercase-ish */
 .eyebrow {
   font-family: var(--mono);

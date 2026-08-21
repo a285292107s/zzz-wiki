@@ -8,11 +8,43 @@ import {
   fetchJson,
   mapConcurrent,
 } from './io'
-import { normalizeCharacterDetail, toListDict } from './normalize'
+import { normalizeCharacterDetail, resolveTerms, toListDict, type TermNames } from './normalize'
 
 type Dict = Record<string, Record<string, unknown>>
 
-export async function buildCharacters(ver: string): Promise<{ list: Dict; details: Dict }> {
+/**
+ * 名词表原始全量（源站同域 JSON zh/noun.json）：
+ * `{ 术语ID → { name, title, desc, skill } }`。
+ * 全量下沉到 /data/{ver}/noun.json，供前端浮层展示 title/desc；解析名称不依赖此全量。
+ */
+export type NounEntry = { name?: string; title?: string; desc?: string; skill?: string }
+export type NounDict = Record<string, NounEntry>
+
+/** 拉取名词表全量（fetchJson 按版本缓存，供 resolveTerms 名称 + 前端词典两用）。 */
+export async function loadNoun(ver: string): Promise<NounDict> {
+  return (await fetchJson(
+    `${BASE}/zzz/${ver}/zh/noun.json`,
+    `${ver}/zh/noun.json`,
+  )) as NounDict
+}
+
+/** 名词表全量 → 仅取 name（带括号，如 "[虚曜]"）供 resolveTerms 内嵌显示名。 */
+export function nounToTerms(noun: NounDict): TermNames {
+  const terms: TermNames = {}
+  for (const [id, v] of Object.entries(noun)) terms[id] = v?.name ?? ''
+  return terms
+}
+
+/**
+ * 名词表：加载全量并按 name 归纳为 TermNames（历史签名，index 用 loadNoun + nounToTerms）。
+ * 仅取 name（如 "[虚曜]"），与数据内既有 <color=#FFFFFF>[虚曜]</color> 富文本形态一致。
+ */
+export async function loadTerms(ver: string): Promise<TermNames> {
+  const dict = await loadNoun(ver)
+  return nounToTerms(dict)
+}
+
+export async function buildCharacters(ver: string, terms: TermNames): Promise<{ list: Dict; details: Dict }> {
   const listRaw = (await fetchJson(
     `${BASE}/zzz/${ver}/character.json`,
     `${ver}/character.json`,
@@ -41,12 +73,15 @@ export async function buildCharacters(ver: string): Promise<{ list: Dict; detail
 
   const details: Dict = {}
   for (let i = 0; i < ids.length; i++) {
-    details[ids[i]] = normalizeCharacterDetail(detailsRaw[i] as Record<string, unknown>)
+    details[ids[i]] = resolveTerms(
+      normalizeCharacterDetail(detailsRaw[i] as Record<string, unknown>),
+      terms,
+    )
   }
   return { list, details }
 }
 
-export async function buildWeapons(ver: string): Promise<{ list: Dict; details: Dict }> {
+export async function buildWeapons(ver: string, terms: TermNames): Promise<{ list: Dict; details: Dict }> {
   const listRaw = (await fetchJson(
     `${BASE}/zzz/${ver}/weapon.json`,
     `${ver}/weapon.json`,
@@ -67,13 +102,13 @@ export async function buildWeapons(ver: string): Promise<{ list: Dict; details: 
     const atkMax = (listRaw[ids[i]] as Record<string, unknown> | undefined)?.['atk']
     const withAtkMax = atkMax != null ? { ...d, atk_max: atkMax } : d
     details[ids[i]] = k
-      ? { ...withAtkMax, weapon_type: { [k]: specialEn(k, String(w[k])) } }
-      : withAtkMax
+      ? resolveTerms({ ...withAtkMax, weapon_type: { [k]: specialEn(k, String(w[k])) } }, terms)
+      : resolveTerms(withAtkMax, terms)
   }
   return { list, details }
 }
 
-export async function buildBangboos(ver: string): Promise<{ list: Dict; details: Dict }> {
+export async function buildBangboos(ver: string, terms: TermNames): Promise<{ list: Dict; details: Dict }> {
   const listRaw = (await fetchJson(
     `${BASE}/zzz/${ver}/bangboo.json`,
     `${ver}/bangboo.json`,
@@ -86,12 +121,12 @@ export async function buildBangboos(ver: string): Promise<{ list: Dict; details:
   const list = toListDict(listRaw)
   const details: Dict = {}
   for (let i = 0; i < ids.length; i++) {
-    details[ids[i]] = detailsRaw[i] as Record<string, unknown>
+    details[ids[i]] = resolveTerms(detailsRaw[i] as Record<string, unknown>, terms)
   }
   return { list, details }
 }
 
-export async function buildDiscs(ver: string): Promise<{ list: Dict; details: Dict }> {
+export async function buildDiscs(ver: string, terms: TermNames): Promise<{ list: Dict; details: Dict }> {
   const listRaw = (await fetchJson(
     `${BASE}/zzz/${ver}/equipment.json`,
     `${ver}/equipment.json`,
@@ -104,7 +139,7 @@ export async function buildDiscs(ver: string): Promise<{ list: Dict; details: Di
   const list = toListDict(listRaw)
   const details: Dict = {}
   for (let i = 0; i < ids.length; i++) {
-    details[ids[i]] = detailsRaw[i] as Record<string, unknown>
+    details[ids[i]] = resolveTerms(detailsRaw[i] as Record<string, unknown>, terms)
   }
   return { list, details }
 }

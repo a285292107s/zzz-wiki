@@ -12,7 +12,8 @@ import {
   resetOut,
   writeDetails,
 } from './io'
-import { buildBangboos, buildCharacters, buildDiscs, buildWeapons } from './domains'
+import { buildBangboos, buildCharacters, buildDiscs, buildWeapons, loadNoun, nounToTerms } from './domains'
+import { resolveTerms } from './normalize'
 import { fetchJson } from './io'
 
 /** 名录 schema 校验：失败收集错误并抛错 */
@@ -45,18 +46,22 @@ export async function main(): Promise<void> {
   )
 
   console.log('[2/4] 抓取名录（缓存命中跳过）')
-  type Built = { char: Dict; weapon: Dict; bangboo: Dict; disc: Dict; charDetails: Dict; weaponDetails: Dict; bangbooDetails: Dict; discDetails: Dict }
+  type Built = { char: Dict; weapon: Dict; bangboo: Dict; disc: Dict; noun: Record<string, Record<string, unknown>>; charDetails: Dict; weaponDetails: Dict; bangbooDetails: Dict; discDetails: Dict }
   const built = new Map<'live' | 'latest', Built>()
   for (const t of targets) {
     console.log(`  ― ${t.dir}（${t.ver}）`)
+    const noun = await loadNoun(t.ver)
+    const terms = nounToTerms(noun)
     const [char, weapon, bangboo, disc] = await Promise.all([
-      buildCharacters(t.ver),
-      buildWeapons(t.ver),
-      buildBangboos(t.ver),
-      buildDiscs(t.ver),
+      buildCharacters(t.ver, terms),
+      buildWeapons(t.ver, terms),
+      buildBangboos(t.ver, terms),
+      buildDiscs(t.ver, terms),
     ])
     built.set(t.dir, {
       char: char.list, weapon: weapon.list, bangboo: bangboo.list, disc: disc.list,
+      // 名词表 desc 同样解析 <Term:N>（保留 ID 外壳），浮层内引用的其他术语也显示名
+      noun: resolveTerms(noun, terms) as Record<string, Record<string, unknown>>,
       charDetails: char.details, weaponDetails: weapon.details,
       bangbooDetails: bangboo.details, discDetails: disc.details,
     })
@@ -93,6 +98,7 @@ export async function main(): Promise<void> {
     await dump(t.dir, 'weapon.json', b.weapon)
     await dump(t.dir, 'bangboo.json', b.bangboo)
     await dump(t.dir, 'equipment.json', b.disc)
+    await dump(t.dir, 'noun.json', b.noun)
     await writeDetails(t.dir, 'zh/character', b.charDetails)
     await writeDetails(t.dir, 'zh/weapon', b.weaponDetails)
     await writeDetails(t.dir, 'zh/bangboo', b.bangbooDetails)
