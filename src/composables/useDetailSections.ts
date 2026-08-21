@@ -9,11 +9,24 @@ import { nextTick, toValue, watch, type MaybeRefOrGetter, type Ref } from 'vue'
 import { useDetailNavigation } from './useDetailNavigation'
 import type { AsyncStatus } from './useAsyncResource'
 
+/** 区块导航子条目：指向区块内局部锚点（如技能下的普通攻击/闪避/特殊技） */
+export interface DetailSectionChild {
+  id: string
+  label: string
+}
+
 /** 区块导航条目（详情页 navItems 的公共形状） */
 export interface DetailSectionItem {
   id: string
   no: string
   label: string
+  /** 子条目：区块内局部定位，不参与顶层编号 */
+  children?: DetailSectionChild[]
+}
+
+/** 展平顶层编号 + 全部子锚点 id（scrollspy 观察 / 深链兜底共用） */
+function sectionIds(items: DetailSectionItem[]): string[] {
+  return items.flatMap((n) => [n.id, ...(n.children?.map((c) => c.id) ?? [])])
 }
 
 export function useDetailSections(
@@ -25,7 +38,7 @@ export function useDetailSections(
   /** 数据就绪 + DOM 渲染后建立区块观察与深链兜底 */
   watch(status, (s) => {
     if (s !== 'success') return
-    nextTick(() => activate(toValue(navItems).map((n) => n.id)))
+    nextTick(() => activate(sectionIds(toValue(navItems))))
   })
 
   /** 按区块 id 查编号（DdetailSection :no 单一来源） */

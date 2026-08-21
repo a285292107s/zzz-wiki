@@ -5,7 +5,7 @@ import { iconSources, skillIconSources, type SkillSlot } from '@/data/icons'
 import { stripRichText } from '@/utils/text'
 import { useRouteParam } from '@/composables/useRouteParam'
 import { useAsyncResource } from '@/composables/useAsyncResource'
-import { useDetailSections, type DetailSectionItem } from '@/composables/useDetailSections'
+import { useDetailSections, type DetailSectionChild, type DetailSectionItem } from '@/composables/useDetailSections'
 import { usePageMeta } from '@/composables/usePageMeta'
 import {
   buildCoreEnhance,
@@ -153,16 +153,23 @@ const dossier = computed(() => {
 
 /* ---------- 区块导航（条件区块）+ scrollspy + reveal ---------- */
 
+/** 技能子导航：各键位招式 + 核心技，映射为技能区块内锚点（skill-<key>） */
+const skillChildren = computed<DetailSectionChild[]>(() => {
+  const list = skills.value.map((sk) => ({ id: `skill-${sk.key}`, label: sk.zh }))
+  if (coreSkill.value) list.push({ id: 'skill-core', label: '核心技' })
+  return list
+})
+
 /** 区块导航：连续编号由添加序派生（与 DetailSection :no 同源，杜绝编号双份事实漂移） */
 const navItems = computed(() => {
   const items: DetailSectionItem[] = []
   let n = 0
-  const add = (id: string, label: string) =>
-    items.push({ id, no: String(++n).padStart(2, '0'), label })
+  const add = (id: string, label: string, children?: DetailSectionChild[]) =>
+    items.push({ id, no: String(++n).padStart(2, '0'), label, children })
   if (dossier.value.length) add('dossier', '档案详情')
   if (profile.value) add('profile', '角色介绍')
   add('stats', '基础属性')
-  if (skills.value.length) add('skills', '技能')
+  if (skills.value.length) add('skills', '技能', skillChildren.value)
   if (talents.value.length) add('talents', '影画')
   if (potentialCinema.value.length) add('potential', '潜能影画')
   if (skinList.value.length > 1) add('skins', '皮肤')
@@ -221,16 +228,18 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
       </DetailSection>
 
       <DetailSection v-if="skills.length || coreSkill" v-reveal id="skills" :no="noOf('skills') ?? '03'" title="技能" en="Skills">
+        <div class="skill-anchor" v-for="sk in skills" :key="sk.key" :id="`skill-${sk.key}`">
           <SkillGroup
-            v-for="sk in skills"
-            :key="sk.key"
             :row="sk"
             :glyph="sk.glyph"
             :srcs="sk.srcs"
           />
-          <!-- 核心技（核心被动 + 额外能力）：passive 数据源，等级滑条切换 -->
-          <CoreSkillGroup v-if="coreSkill" :row="coreSkill" :enhance="coreEnhance" />
-        </DetailSection>
+        </div>
+        <!-- 核心技（核心被动 + 额外能力）：passive 数据源，等级滑条切换 -->
+        <div v-if="coreSkill" class="skill-anchor" id="skill-core">
+          <CoreSkillGroup :row="coreSkill" :enhance="coreEnhance" />
+        </div>
+      </DetailSection>
 
         <DetailSection v-if="talents.length" v-reveal id="talents" :no="noOf('talents') ?? '04'" title="影画" en="Mindscape">
           <ul class="talents-list">
