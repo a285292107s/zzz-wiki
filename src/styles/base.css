@@ -24,6 +24,26 @@ body {
   font-feature-settings: 'kern' 1, 'liga' 1;
 }
 
+/* #app 建立堆叠上下文（z-index:1），使全站共享底纹压在内容之下，
+   文字与琥珀点缀保持锐利，纸纹不浮在 UI 上 */
+#app {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- 全站共享底纹：极淡档案纸纹（B 方案） ----------
+   内页无 hero 时，用一片低存在感的灰阶纸纹统一所有页，替代"缺 hero"的空白；
+   数据 URI 内联，运行时零外部请求；去色颗粒、无渐变/无辉光，恪守纸墨铁律。 */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='148' height='148'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.07'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
 ::selection {
   background: var(--amber-dim);
   color: var(--amber-hi);
