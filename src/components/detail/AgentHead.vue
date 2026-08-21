@@ -1,11 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { iconSources } from '@/data/icons'
 import { HIT_TYPES } from '@/domain/enums'
 import type { AttrCode, HitCode, SpecCode } from '@/domain/enums'
 import type { CharacterDetail } from '@/data/types'
-import { stripRichText } from '@/utils/text'
-import HollowImage from '@/components/HollowImage.vue'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
 
@@ -39,43 +36,31 @@ const hitZh = computed<string | null>(() => {
 
 const codeName = computed(() => props.detail.code_name?.toUpperCase() ?? '')
 
-/** 护照式数据条：传记字段（机构/游戏机制标签之外的部分） */
-const dossier = computed(() => {
-  const d = props.detail
-  const i = d.partner_info
-  const campEntry = d.camp
-  const campKey = campEntry ? Object.keys(campEntry)[0] : null
-  const camp = campKey && campEntry ? String(campEntry[campKey]) : null
-
-  const items: Array<{ k: string; v: string }> = []
-  if (i?.full_name) items.push({ k: '全名', v: i.full_name })
-  if (i?.gender) items.push({ k: '性别', v: i.gender })
-  if (i?.birthday) items.push({ k: '生日', v: i.birthday })
-  if (i?.stature) items.push({ k: '身高', v: `${i.stature}cm` })
-  if (camp) items.push({ k: '阵营', v: camp })
-  return items
-})
-
-const profile = computed(() => {
-  const t = props.detail.partner_info?.profile_desc
-  return t ? stripRichText(t) : ''
-})
-
-const portraitSrcs = computed(() =>
-  iconSources({ Id: props.detail.id, icon: props.detail.icon }, 'character'),
-)
+/** Mindscape 场景图：以角色编号（id）命名的背景立绘，作整栏 hero 底图 */
+const heroSrcs = computed(() => [
+  `https://static.nanoka.cc/assets/zzz/Mindscape_${props.detail.id}_2.webp`,
+])
 </script>
 
 <template>
   <header class="ahead">
+    <!-- hero 底图：Mindscape_{id}_2.webp 满栏铺底（object-cover 保人物头部），置右微移，留出左侧信息呼吸感 -->
+    <span class="hero-bg" aria-hidden="true">
+      <img :src="heroSrcs[0]" alt="" loading="lazy" decoding="async" />
+    </span>
+    <!-- 存档面：底部深掩埋保证文字可读；右上渐淡露出场景，避免整面压黑 -->
+    <span class="scrim" aria-hidden="true" />
+    <!-- 四角琥珀定位标：档案标本的对位框，非投影非霓虹，纯线框语言 -->
+    <span class="marks" aria-hidden="true"><i /><i /><i /><i /></span>
+
     <div class="file-row">
       <p class="eyebrow">AGENT FILE · NO.{{ String(detail.id ?? '').padStart(4, '0') }}</p>
     </div>
 
     <div class="main">
       <div class="id-block">
-        <h1 class="page-title">{{ detail.name ?? '—' }}</h1>
         <p v-if="codeName" class="ghost mono">{{ codeName }}</p>
+        <h1 class="page-title">{{ detail.name ?? '—' }}</h1>
         <div class="meta">
           <!-- 稀有度置于标签组首位：与属性/职业并列，避免档案行右侧孤悬 -->
           <Rarity :rank="detail.rarity" />
@@ -83,99 +68,60 @@ const portraitSrcs = computed(() =>
           <span v-if="hitZh" class="tag mono">{{ hitZh }}</span>
         </div>
       </div>
-
-      <div class="portrait">
-        <span class="marks" aria-hidden="true"><i /><i /><i /><i /></span>
-        <HollowImage
-          :srcs="portraitSrcs"
-          :alt="detail.name ?? ''"
-          :fallback="detail.name ?? '—'"
-          position="top"
-          ratio="3 / 4"
-        />
-      </div>
-
-      <dl v-if="dossier.length" class="dossier mono">
-        <div v-for="d in dossier" :key="d.k" class="d-item">
-          <dt>{{ d.k }}</dt>
-          <dd>{{ d.v }}</dd>
-        </div>
-      </dl>
-
-      <div v-if="profile" class="profile-wrap">
-        <p class="profile">{{ profile }}</p>
-      </div>
     </div>
   </header>
 </template>
 
 <style scoped>
 .ahead {
+  position: relative;
+  overflow: hidden;
+  /* 与主页 hero 同一横幅图式：不堆超高柱，文字块在曝光区内纵向居中 */
+  min-height: clamp(360px, 46vh, 560px);
+  background: var(--bg-0); /* 图片缺失/加载前也保有存档底色 */
   margin-bottom: calc(var(--pad-section) * 0.8);
-}
-
-/* ---------- 档案编号行 ---------- */
-
-.file-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding-bottom: 14px;
   border-bottom: var(--rule);
 }
 
-/* ---------- 主体栅格：左档案 / 右画像 ---------- */
+/* ---------- 底图 ---------- */
 
-.main {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(220px, 26vw, 300px);
-  grid-template-areas:
-    'id portrait'
-    'dossier portrait'
-    'profile portrait';
-  column-gap: clamp(32px, 5vw, 64px);
-  margin-top: clamp(26px, 3.4vw, 44px);
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
 }
 
-.id-block {
-  grid-area: id;
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  /* 与主页一致：居中取景，场景横幅完整占据版面 */
+  object-position: center;
 }
 
-.ghost {
-  margin-top: 8px;
-  font-size: clamp(17px, 2.4vw, 28px);
-  font-weight: 400;
-  letter-spacing: 0.38em;
-  color: var(--ink-3);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+/* ---------- 存档面：与主页同一向纵向曝光｜顶部透出场景，底部深掩埋保障可读 ---------- */
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg,
+      rgba(10, 12, 14, 0.12) 0%,
+      rgba(10, 12, 14, 0.30) 30%,
+      rgba(10, 12, 14, 0.66) 60%,
+      rgba(10, 12, 14, 0.92) 100%);
+  pointer-events: none;
 }
 
-.meta {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 18px;
-}
-
-/* ---------- 画像：细线框 + 四角对位标记 ---------- */
-
-.portrait {
-  grid-area: portrait;
-  position: relative;
-}
-
-.portrait :deep(.frame) {
-  border: var(--rule);
-  background: var(--bg-1);
-}
+/* ---------- 四角定位标（纯线框：无圆角、无发光、无投影） ---------- */
 
 .marks {
   position: absolute;
-  inset: -8px;
+  inset: 16px;
+  z-index: 1;
   pointer-events: none;
 }
 
@@ -184,6 +130,7 @@ const portraitSrcs = computed(() =>
   width: 14px;
   height: 14px;
   border: 0 solid var(--amber);
+  opacity: 0.85;
 }
 
 .marks i:nth-child(1) { top: 0; left: 0; border-top-width: 1px; border-left-width: 1px; }
@@ -191,83 +138,79 @@ const portraitSrcs = computed(() =>
 .marks i:nth-child(3) { bottom: 0; left: 0; border-bottom-width: 1px; border-left-width: 1px; }
 .marks i:nth-child(4) { bottom: 0; right: 0; border-bottom-width: 1px; border-right-width: 1px; }
 
-/* ---------- 护照数据条 ---------- */
+/* ---------- 档案编号行 ---------- */
 
-.dossier {
-  grid-area: dossier;
+.file-row {
+  position: relative;
+  z-index: 2;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  /* 与下方详情区版心同对齐；顶留一份呼吸空间，配合四角定位标内框 */
+  padding: 18px var(--pad-page) 15px;
+}
+
+/* ---------- 主体：沉底单栏，置于暗面保障可读 ---------- */
+
+.main {
+  position: relative;
+  z-index: 2;
+  /* 纵向上居中：不吃满下缘，与主页 hero 的横幅图式呼应 */
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: clamp(30px, 4vw, 54px) var(--pad-page);
+  max-width: 64ch;
+}
+
+/* hero 专属标题尺度：比全局 page-title 更果断，字距微收以衬 CID 衬线气质 */
+.main .page-title {
+  font-size: clamp(34px, 5.6vw, 64px);
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+}
+
+/* 代号作标题上方 kicker：mono + 琥珀细线引导，与顶部 eyebrow 同属档案语言 */
+.ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-size: clamp(12px, 1.4vw, 15px);
+  font-weight: 400;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--amber);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ghost::before {
+  content: '';
+  flex: none;
+  width: 22px;
+  height: 1px;
+  background: var(--amber);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
   flex-wrap: wrap;
-  align-items: baseline;
-  column-gap: 0;
-  row-gap: 10px;
-  margin-top: clamp(24px, 3vw, 36px);
-  padding-block: 12px 14px;
-  border-top: var(--rule);
-  border-bottom: var(--rule);
-}
-
-.d-item {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  padding-inline: 18px;
-  border-left: 1px solid var(--line-1);
-}
-
-.d-item:first-child {
-  padding-left: 0;
-  border-left: none;
-}
-
-.d-item dt {
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  color: var(--ink-3);
-}
-
-.d-item dd {
-  font-size: 12.5px;
-  letter-spacing: 0.04em;
-  color: var(--ink-0);
-}
-
-/* ---------- 档案摘录 ---------- */
-
-.profile-wrap {
-  grid-area: profile;
-}
-
-.profile {
+  gap: 12px;
   margin-top: 22px;
-  color: var(--ink-1);
-  font-size: 14px;
-  line-height: 1.9;
-  max-width: 58ch;
 }
 
-/* ---------- 移动端：单列，画像紧随标识区 ---------- */
+/* ---------- 移动端：场景面让位，信息沉底更清爽 ---------- */
 
 @media (max-width: 860px) {
-  .main {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-areas:
-      'id'
-      'portrait'
-      'dossier'
-      'profile';
-    row-gap: 8px;
+  .ahead {
+    min-height: clamp(340px, 46vh, 520px);
   }
 
-  .portrait {
-    width: min(300px, 78vw);
-  }
-
-  .dossier {
-    margin-top: 10px;
-  }
-
-  .d-item {
-    padding-inline: 14px;
+  .marks {
+    inset: 12px;
   }
 }
 </style>

@@ -125,14 +125,43 @@ const hasImpressions = computed(
   () => impressions.value.length > 0 || voices.value.length > 0,
 )
 
+/* ---------- 角色介绍（profile_desc 摘要；过长故独立成块） ---------- */
+
+const profile = computed(() => {
+  const t = detail.value?.partner_info?.profile_desc
+  return t ? stripRichText(t) : ''
+})
+
+/* ---------- 档案详情（护照式身份字段：全名/性别/生日/身高/阵营） ---------- */
+
+const dossier = computed(() => {
+  const d = detail.value
+  if (!d) return []
+  const i = d.partner_info
+  const campEntry = d.camp
+  const campKey = campEntry ? Object.keys(campEntry)[0] : null
+  const camp = campKey && campEntry ? String(campEntry[campKey]) : null
+
+  const items: Array<{ k: string; v: string }> = []
+  if (i?.full_name) items.push({ k: '全名', v: i.full_name })
+  if (i?.gender) items.push({ k: '性别', v: i.gender })
+  if (i?.birthday) items.push({ k: '生日', v: i.birthday })
+  if (i?.stature) items.push({ k: '身高', v: `${i.stature}cm` })
+  if (camp) items.push({ k: '阵营', v: camp })
+  return items
+})
+
 /* ---------- 区块导航（条件区块）+ scrollspy + reveal ---------- */
 
 /** 区块导航：连续编号由添加序派生（与 DetailSection :no 同源，杜绝编号双份事实漂移） */
 const navItems = computed(() => {
-  const items: DetailSectionItem[] = [{ id: 'stats', no: '01', label: '基础属性' }]
-  let n = 1
+  const items: DetailSectionItem[] = []
+  let n = 0
   const add = (id: string, label: string) =>
     items.push({ id, no: String(++n).padStart(2, '0'), label })
+  if (dossier.value.length) add('dossier', '档案详情')
+  if (profile.value) add('profile', '角色介绍')
+  add('stats', '基础属性')
   if (skills.value.length) add('skills', '技能')
   if (talents.value.length) add('talents', '影画')
   if (potentialCinema.value.length) add('potential', '潜能影画')
@@ -160,7 +189,20 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
     <template v-if="detail">
       <AgentHead :detail="detail" />
 
-      <DetailSection id="stats" :no="noOf('stats') ?? '01'" title="基础属性" en="Vitals">
+      <DetailSection v-if="dossier.length" v-reveal id="dossier" :no="noOf('dossier') ?? '01'" title="档案详情" en="Dossier">
+        <dl class="dossier mono">
+          <div v-for="d in dossier" :key="d.k" class="d-item">
+            <dt>{{ d.k }}</dt>
+            <dd>{{ d.v }}</dd>
+          </div>
+        </dl>
+      </DetailSection>
+
+      <DetailSection v-if="profile" v-reveal id="profile" :no="noOf('profile') ?? '02'" title="角色介绍" en="Profile">
+        <p class="profile-desc">{{ profile }}</p>
+      </DetailSection>
+
+      <DetailSection id="stats" :no="noOf('stats') ?? '02'" title="基础属性" en="Vitals">
         <StatLevelPanel
           :lv-label="`Lv.${charLevel}`"
           :meta="breakCount == null ? undefined : breakCount === 0 ? '未突破' : `突破 ${breakCount} 阶`"
@@ -178,7 +220,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
         <KeyValueGrid :items="stats" variant="ledger" />
       </DetailSection>
 
-      <DetailSection v-if="skills.length || coreSkill" v-reveal id="skills" :no="noOf('skills') ?? '02'" title="技能" en="Skills">
+      <DetailSection v-if="skills.length || coreSkill" v-reveal id="skills" :no="noOf('skills') ?? '03'" title="技能" en="Skills">
           <SkillGroup
             v-for="sk in skills"
             :key="sk.key"
@@ -190,7 +232,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
           <CoreSkillGroup v-if="coreSkill" :row="coreSkill" :enhance="coreEnhance" />
         </DetailSection>
 
-        <DetailSection v-if="talents.length" v-reveal id="talents" :no="noOf('talents') ?? '03'" title="影画" en="Mindscape">
+        <DetailSection v-if="talents.length" v-reveal id="talents" :no="noOf('talents') ?? '04'" title="影画" en="Mindscape">
           <ul class="talents-list">
             <DescRow
               v-for="t in talents"
@@ -207,7 +249,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
           v-if="potentialCinema.length"
           v-reveal
           id="potential"
-          :no="noOf('potential') ?? '04'"
+          :no="noOf('potential') ?? '05'"
           title="潜能影画"
           en="Potential"
         >
@@ -223,7 +265,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
           </ul>
         </DetailSection>
 
-        <DetailSection v-if="skinList.length > 1" v-reveal id="skins" :no="noOf('skins') ?? '05'" title="皮肤" en="Outfits">
+        <DetailSection v-if="skinList.length > 1" v-reveal id="skins" :no="noOf('skins') ?? '06'" title="皮肤" en="Outfits">
           <ul class="skin-list">
             <li v-for="(s, i) in skinList" :key="s.id" class="skin">
               <!-- figcaption 必须是 figure 的子元素（HTML 规范）；两栏栅格设在 figure 上 -->
@@ -249,7 +291,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
           v-if="hasImpressions"
           v-reveal
           id="impressions"
-          :no="noOf('impressions') ?? '06'"
+          :no="noOf('impressions') ?? '07'"
           title="绳网印象"
           en="Inter-Knot"
         >
@@ -271,6 +313,97 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
 </template>
 
 <style scoped>
+/* ---------- 档案详情：hairline 网格小表，键浅值深、等宽数字 ---------- */
+
+.dossier {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  gap: 1px;
+  background: var(--line-1); /* 网格线：gap + 底色充当 hairline */
+  border: 1px solid var(--line-1);
+  border-radius: 2px;
+  overflow: hidden;
+  font-variant-numeric: tabular-nums;
+}
+
+.d-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 14px 16px;
+  background: var(--bg-1);
+}
+
+.d-item dt {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--ink-2);
+}
+
+.d-item dd {
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  color: var(--ink-0);
+}
+
+/* ---------- 角色介绍：整篇双栏 + 标准 initial-letter 首字下沉
+   用 CSS 标准属性 initial-letter（而非 float）：
+   - 首字下沉天然与多栏 columns 协作，右栏顶行永远不空，零 artifact
+   - 整篇持续双栏，不再切分为 lede/body，双栏结构不丢失
+   - 不支持 initial-letter 的旧浏览器退化为 inline-block 放大（不 float） ---------- */
+
+.profile-desc {
+  font-family: var(--serif);
+  color: var(--ink-0);
+  font-size: 15px;
+  line-height: 2;
+  letter-spacing: 0.012em;
+  column-count: 2;
+  column-gap: 3em;
+  column-rule: 1px solid var(--line-1);
+  max-width: none;
+  white-space: pre-line;
+  text-wrap: pretty;
+  orphans: 3;
+  widows: 3;
+  /* 顶栏：琥珀发丝线接 DetailSection 标题，作编辑札记栏注 */
+  padding-top: 22px;
+  border-top: 1px solid var(--amber-dim);
+}
+
+/* 标准首字下沉：放大 2.2 倍视觉尺寸，向下沉 2 行，琥珀色 */
+.profile-desc::first-letter {
+  font-family: inherit;
+  color: var(--amber);
+  font-weight: 500;
+  initial-letter: 2.2 2;
+  -webkit-initial-letter: 2.2 2;
+  margin-right: 0.12em;
+  /* 浏览器无 initial-letter 时的回退：大字号 inline，不使用 float 避免 columns artifact */
+  @supports not ((initial-letter: 2 2) or (-webkit-initial-letter: 2 2)) {
+    display: inline-block;
+    font-size: 2.4em;
+    line-height: 0.85;
+    padding: 0.05em 0.08em 0 0;
+    vertical-align: baseline;
+  }
+}
+
+/* 窄屏回落：双栏并单栏，字号略调，首字下沉缩小 */
+@media (max-width: 820px) {
+  .profile-desc {
+    column-count: 1;
+    column-gap: 0;
+    column-rule: none;
+    font-size: 14.5px;
+    line-height: 2;
+  }
+  .profile-desc::first-letter {
+    initial-letter: 2.5 2;
+    -webkit-initial-letter: 2.5 2;
+  }
+}
+
 /* ---------- talents ---------- */
 
 .talents-list {
