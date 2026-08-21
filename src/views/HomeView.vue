@@ -28,8 +28,8 @@ const currentVersionLabel = computed(() => {
 })
 
 // 目录由 catalog.ts 派生（DESIGN.md §5.3 单一事实源）
-// 代理人类目图标：用户指定改用 nanoka 圆形头像（优先），其余沿用候选链兜底
-const AGENT_CIRCLE_ICON = 'https://static.nanoka.cc/assets/zzz/IconRoleCircle01.webp'
+// 代理人类目图标：圆形头像已本地化（public/data/img/character/），其余沿用候选链兜底
+const AGENT_CIRCLE_ICON = `${import.meta.env.BASE_URL ?? '/'}data/img/character/IconRoleCircle01.webp`
 
 const sections = [
   ...CATALOG.map((c) => ({

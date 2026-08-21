@@ -197,8 +197,9 @@ function pickVersion(v: 'live' | 'latest') {
   position: sticky;
   top: 0;
   z-index: var(--z-nav);
-  background: color-mix(in srgb, var(--bg-0) 88%, transparent);
-  backdrop-filter: blur(10px);
+  /* 不透明白底：去掉 backdrop-filter，避免首帧在 hero 大图上做昂贵合成分层，
+     显著降低冷载首帧 LCP 成本；纸墨质感不变 */
+  background: var(--bg-0);
   border-bottom: var(--rule);
 }
 

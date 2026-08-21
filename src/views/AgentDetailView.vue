@@ -226,6 +226,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
         <DetailSection v-if="skinList.length > 1" v-reveal id="skins" :no="noOf('skins') ?? '05'" title="皮肤" en="Outfits">
           <ul class="skin-list">
             <li v-for="(s, i) in skinList" :key="s.id" class="skin">
+              <!-- figcaption 必须是 figure 的子元素（HTML 规范）；两栏栅格设在 figure 上 -->
               <figure class="skin-figure">
                 <HollowImage
                   :srcs="iconSources({ icon: s.img }, 'character')"
@@ -234,12 +235,12 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
                   fit="contain"
                   ratio="3 / 4"
                 />
+                <figcaption class="skin-info">
+                  <span class="skin-index mono">着装 · {{ String(i + 1).padStart(2, '0') }}</span>
+                  <h3 class="skin-name serif">{{ s.name || '—' }}</h3>
+                  <p v-if="s.desc" class="skin-desc">{{ stripRichText(s.desc) }}</p>
+                </figcaption>
               </figure>
-              <figcaption class="skin-info">
-                <span class="skin-index mono">着装 · {{ String(i + 1).padStart(2, '0') }}</span>
-                <h3 class="skin-name serif">{{ s.name || '—' }}</h3>
-                <p v-if="s.desc" class="skin-desc">{{ stripRichText(s.desc) }}</p>
-              </figcaption>
             </li>
           </ul>
         </DetailSection>
@@ -283,10 +284,6 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
 }
 
 .skin {
-  display: grid;
-  grid-template-columns: 132px 1fr;
-  align-items: start;
-  gap: 20px;
   padding: 18px 4px;
   border-bottom: var(--rule);
 }
@@ -295,9 +292,13 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
   border-bottom: none;
 }
 
-/* 立绘主位：直立画幅，完整呈现全身皮肤照 */
+/* 立绘主位 + 说明两栏：直立画幅完整呈现全身皮肤照（figcaption 是 figure 子元素，
+   故两栏栅格/间距设在 figure 上，li 只负责列表分隔） */
 .skin-figure {
-  width: 132px;
+  display: grid;
+  grid-template-columns: 132px 1fr;
+  align-items: start;
+  gap: 20px;
   margin: 0;
 }
 
@@ -331,11 +332,11 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
 
 @media (max-width: 560px) {
   .skin {
-    grid-template-columns: 96px 1fr;
-    gap: 14px;
+    padding-block: 14px;
   }
   .skin-figure {
-    width: 96px;
+    grid-template-columns: 96px 1fr;
+    gap: 14px;
   }
 }
 
