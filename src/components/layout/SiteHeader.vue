@@ -133,12 +133,15 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
-import { CATALOG } from '@/domain/catalog'
+import { CATALOG, GUIDE_ENTRY } from '@/domain/catalog'
 import { dataVersion, dataVersions, setDataVersion, type DataVersions } from '@/data/api'
 
-// 导航由 catalog.ts 派生（DESIGN.md §5.3 单一事实源）
+// 导航由 catalog.ts 派生（DESIGN.md §5.3 单一事实源）：数据类目 + 图文板块入口
 const route = useRoute()
-const nav = CATALOG.map((c) => ({ no: c.no, label: c.label, to: c.path }))
+const nav = [
+  ...CATALOG.map((c) => ({ no: c.no, label: c.label, to: c.path })),
+  { no: GUIDE_ENTRY.no, label: GUIDE_ENTRY.label, to: GUIDE_ENTRY.path },
+]
 
 const isActive = (to: string) =>
   route.path === to || (to !== '/' && route.path.startsWith(to))

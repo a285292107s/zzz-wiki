@@ -75,6 +75,19 @@ export const CATALOG: readonly CatalogEntry[] = [
   },
 ]
 
+/**
+ * 图文板块入口（战斗公式）。
+ * 独立于 CATALOG：它没有数据类目的 listFile/detailDir/icon 契约，
+ * 因此不进 CATALOG 数组，专供站头导航与首页目录追加展示。
+ */
+export const GUIDE_ENTRY = {
+  no: '05',
+  label: '战斗公式',
+  en: 'FORMULAS',
+  path: '/formulas',
+  desc: '从伤害乘区到失衡、属性异常与命破，逐段拆解战斗数值构成。',
+} as const
+
 /** 按路由路径查找类目（导航/页面用），找不到返回 undefined。 */
 export function catalogByPath(path: string): CatalogEntry | undefined {
   return CATALOG.find((c) => c.path === path)

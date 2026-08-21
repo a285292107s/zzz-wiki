@@ -95,6 +95,12 @@ export const router = createRouter({
       meta: { title: catTitle('/disks', '详情') },
     },
     {
+      path: '/formulas',
+      name: 'formulas',
+      component: () => import('@/views/FormulasView.vue'),
+      meta: { title: '战斗公式' },
+    },
+    {
       path: '/style',
       name: 'style-guide',
       component: () => import('@/views/StyleGuideView.vue'),

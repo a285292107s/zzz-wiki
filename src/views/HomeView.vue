@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { iconSources } from '@/data/icons'
-import { CATALOG } from '@/domain/catalog'
+import { CATALOG, GUIDE_ENTRY } from '@/domain/catalog'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { dataVersion, dataVersions } from '@/data/api'
 import HollowImage from '@/components/HollowImage.vue'
@@ -31,19 +31,32 @@ const currentVersionLabel = computed(() => {
 // 代理人类目图标：用户指定改用 nanoka 圆形头像（优先），其余沿用候选链兜底
 const AGENT_CIRCLE_ICON = 'https://static.nanoka.cc/assets/zzz/IconRoleCircle01.webp'
 
-const sections = CATALOG.map((c) => ({
-  no: c.no,
-  label: c.label,
-  en: c.en,
-  to: c.path,
-  desc: c.desc,
-  icon: c.icon,
-  cat: c.iconCategory,
-  iconSrcs:
-    c.no === '01'
-      ? [AGENT_CIRCLE_ICON, ...iconSources(c.icon, c.iconCategory)]
-      : iconSources(c.icon, c.iconCategory),
-}))
+const sections = [
+  ...CATALOG.map((c) => ({
+    no: c.no,
+    label: c.label,
+    en: c.en,
+    to: c.path,
+    desc: c.desc,
+    icon: c.icon,
+    cat: c.iconCategory,
+    iconSrcs:
+      c.no === '01'
+        ? [AGENT_CIRCLE_ICON, ...iconSources(c.icon, c.iconCategory)]
+        : iconSources(c.icon, c.iconCategory),
+    guide: false as boolean,
+  })),
+  {
+    // 图文板块：无游戏图标，用主题符号「×」作标本占位
+    no: GUIDE_ENTRY.no,
+    label: GUIDE_ENTRY.label,
+    en: GUIDE_ENTRY.en,
+    to: GUIDE_ENTRY.path,
+    desc: GUIDE_ENTRY.desc,
+    iconSrcs: [] as string[],
+    guide: true as boolean,
+  },
+]
 </script>
 
 <template>
@@ -87,10 +100,12 @@ const sections = CATALOG.map((c) => ({
           <RouterLink :to="s.to" class="index-row">
             <span class="specimen">
               <HollowImage
+                v-if="!s.guide"
                 :srcs="s.iconSrcs"
                 :alt="s.label"
                 :fallback="s.en"
               />
+              <span v-else class="specimen-guide" aria-hidden="true">×</span>
             </span>
             <span class="idx mono">{{ String(i + 1).padStart(2, '0') }}</span>
             <span class="name">
@@ -182,6 +197,21 @@ const sections = CATALOG.map((c) => ({
 
 .specimen :deep(.frame) {
   border-radius: 2px;
+}
+
+/* 图文板块标本：主题符号「×」，与 HollowImage 框体同尺寸边框保持对齐 */
+.specimen-guide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--bg-1);
+  border: 1px solid var(--line-0);
+  border-radius: 2px;
+  color: var(--amber);
+  font-size: 20px;
+  line-height: 1;
 }
 
 .idx {
