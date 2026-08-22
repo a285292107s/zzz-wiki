@@ -33,7 +33,7 @@ let nextId = 1
 
 /** 卡片列表容器：整体 fixed 定位，卡片在其内部文档流堆叠 */
 const listEl = ref<HTMLElement | null>(null)
-/** 容器 left/top/maxHeight（由 layoutList 写入，max-height 令超高时内部滚动） */
+/** 容器 left/top/maxHeight（由 layoutList 写入；滚动条在 CSS 层隐藏，文字行宽恒定） */
 const listStyle = ref<{ left: string; top: string; maxHeight: string } | undefined>(undefined)
 /** 容器当前视口矩形，用于保护区与过渡桥判定 */
 const listRect = ref<Box | null>(null)
@@ -110,7 +110,7 @@ function layoutList(): void {
   const maxH = Math.max(40, innerHeight - top - pad)
   listStyle.value = { left: `${left}px`, top: `${top}px`, maxHeight: `${maxH}px` }
   // 底界取可见范围（受 maxHeight 约束的最小值）：内容超高时 bottom 停在视口内，避免把保护区/桥画到视口之外
-  const bottom = Math.min(top + t.height, top + maxH)
+  const bottom = Math.min(top + el.scrollHeight, top + maxH)
   listRect.value = { left, top, right: left + t.width, bottom }
 }
 
@@ -166,7 +166,8 @@ function isPointerInCardList(x: number, y: number): boolean {
     if (x >= a.left && x <= a.left + a.width && y >= a.top && y <= a.top + a.height) return true
   }
   // 3) 衔接首卡的名词→容器过渡桥
-  return pointInPolygon(x, y, listBridgePolygon() ?? [])
+  const bridge = listBridgePolygon()
+  return bridge ? pointInPolygon(x, y, bridge) : false
 }
 
 /* ---------- 全局事件（委托，富文本经 v-html 注入） ---------- */
@@ -295,11 +296,13 @@ onBeforeUnmount(() => {
       @pointerenter="cancelHide"
     >
       <div v-for="tip in tips" :key="tip.id" class="term-tip" role="status">
-        <header v-if="tip.entry?.skill || tip.entry?.title" class="tip-head">
-          <p v-if="tip.entry?.skill" class="tip-eyebrow mono">{{ tip.entry.skill }}</p>
-          <p v-if="tip.entry?.title" class="tip-title serif">{{ tip.entry.title }}</p>
+        <header v-if="tip.entry?.title" class="tip-head">
+          <p class="tip-title serif">{{ tip.entry.title }}</p>
         </header>
         <p v-if="tip.entry?.desc" class="tip-desc" v-html="richDesc(tip.entry.desc)"></p>
+        <footer v-if="tip.entry?.skill" class="tip-foot">
+          <p class="tip-eyebrow mono">{{ tip.entry.skill }}</p>
+        </footer>
       </div>
     </div>
   </Teleport>
@@ -314,30 +317,42 @@ onBeforeUnmount(() => {
   /* 由 layoutList 写入 left/top；宽由卡片撑起，与 .term-tip 定宽一致 */
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  /* max-height 由 layoutList 内联写入：超高时容器内部滚动 */
+  gap: 8px;
+  /* 宽度固定在容器层：滚动条隐藏，文字行宽恒定不重排 */
+  width: min(340px, calc(100vw - 32px));
+  /* 内容超高仍可用滚轮/键盘滚动，但隐藏滚动条（Firefox scrollbar-width；Blink 用伪元素） */
   overflow-y: auto;
   overflow-x: hidden;
+  scrollbar-width: none; /* Firefox */
   /* 防止滚动穿透：滚到列表边界时，滚轮不会继续传给页面（不误触发起页面滚动收起卡片） */
   overscroll-behavior: contain;
   pointer-events: auto;
 }
-/* 单张卡片：在容器内文档流排布，不再各自 fixed */
+/* Blink/WebKit 隐藏滚动条：display:none 让 Chrome/Edge 也不渲染滚动条 */
+.term-tip-list::-webkit-scrollbar {
+  display: none;
+}
+/* 单张卡片：在容器内文档流排布，填满容器宽（宽度已在容器层固定） */
 .term-tip {
-  /* 窄屏也不溢出视口 */
-  width: min(340px, calc(100vw - 32px));
+  width: 100%;
   flex: none;
-  padding: 10px 14px 12px;
-  background: var(--bg-1);
-  border: 1px solid var(--line-2);
-  border-radius: 2px;
-  /* 克制纸感：仅极淡投影用于与正文分离，无明显立体感 */
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+  padding: 12px 16px 13px;
+  /* 浮层取更亮的卡片色，与页面面板形成清晰分层 */
+  background: var(--bg-2);
+  /* 顶部一根琥珀发丝——档案标签识别，克制点缀而非装饰 */
+  border-top: 2px solid var(--amber);
+  border-left: 1px solid var(--line-1);
+  border-bottom: 1px solid var(--line-1);
+  border-right: 1px solid var(--line-1);
+  border-radius: 1px;
+  /* 克制纸感：单一柔和投影用于与正文分离，无立体感 */
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.38);
   /* 克制进场：极短淡入 + 4px 上浮（自锚点一侧长出）；reduced-motion 由全局规则归零 */
   animation: term-tip-in var(--t-fast) var(--ease);
   /* 允许鼠标进入卡片进行选中/复制等操作 */
   pointer-events: auto;
   user-select: auto;
+  cursor: default;
 }
 @keyframes term-tip-in {
   from {
@@ -349,37 +364,57 @@ onBeforeUnmount(() => {
     transform: none;
   }
 }
-/* 标本档案页眉：来源技能 mono 眉标 + serif 标题，下衬细线分隔正文 */
+/* 标本档案页眉：serif 名词标题，下衬发丝细线分隔正文 */
 .tip-head {
-  margin-bottom: 10px;
-  padding-bottom: 10px;
+  margin-bottom: 11px;
+  padding-bottom: 11px;
   border-bottom: 1px solid var(--line-1);
-}
-.tip-eyebrow {
-  margin: 0 0 4px;
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.08em;
-  color: var(--ink-2);
 }
 .tip-title {
   margin: 0;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--amber);
-  line-height: 1.4;
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--amber-hi);
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+}
+/* 底部来源行：来源技能（如“核心被动：天空骑士”）衬在正文之下，上衬发丝细线分隔 */
+.tip-foot {
+  margin-top: 11px;
+  padding-top: 11px;
+  border-top: 1px solid var(--line-1);
+}
+/* 来源眉标与键名共用的 mono 小标签 */
+.tip-eyebrow {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--ink-0);
+  opacity: 0.72;
 }
 .tip-desc {
   margin: 0;
+  /* 正文用灰调 ink-1；可点名词用暖纸白 ink-0，两色明度差明显，互不混淆 */
   color: var(--ink-1);
-  font-size: 12.5px;
-  line-height: 1.75;
+  font-size: 13px;
+  line-height: 1.8;
   max-height: 60vh;
   overflow: auto;
-  white-space: pre-line;
+  scrollbar-width: none; /* 隐藏滚动条（Firefox），超高仍可滚轮滚动 */
 }
+/* Blink/WebKit 隐藏 .tip-desc 滚动条 */
+.tip-desc::-webkit-scrollbar {
+  display: none;
+}
+/* 卡片内可点名词：暖纸白 ink-0，与灰调 ink-1 正文形成明度对比即醒目之处；虚线用灰 ink-1、悬停转琥珀亮起 */
 .tip-desc :deep(.rich-term) {
   color: var(--ink-0);
+  text-decoration-color: var(--ink-1);
+}
+.tip-desc :deep(.rich-term:hover) {
+  text-decoration-color: var(--amber);
 }
 /* 键位图标内嵌为小键帽（与技能详情 .rich-key 同套样式），不单独成行 */
 .tip-desc :deep(.rich-key) {
