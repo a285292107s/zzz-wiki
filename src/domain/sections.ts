@@ -117,6 +117,9 @@ export const SKILL_KEYS: Record<SkillSlotKey, { glyph: string; en: string }> = {
 
 const SKILL_REF_RE = /\{Skill:(\d+),\s*Prop:\d+\}/
 
+/** 转置分组用：同时捕获 Skill ID 与 Prop（Prop 为指标维度键） */
+const SKILL_REF_FULL_RE = /\{Skill:(\d+),\s*Prop:(\d+)\}/
+
 /** 详细倍率块内单个条目（含公式与数值表） */
 type DetailParam = {
   name?: string
@@ -319,6 +322,230 @@ export function skillDetailValue(detail: SkillDetail, level: number): string {
     return detail.values[L - 1] ?? '—'
   }
   return formatSkillScalar(evaluateSkillFormula(detail.formula, detail.props, level), detail.format)
+}
+
+/* ---------- 技能段×指标转置表 ---------- */
+
+/** 段×指标转置表：行=共享 Skill 的段次，列=指标（Prop），值=该级展示串 */
+export interface SkillMetricTable {
+  /** 行标签列头（转置行标签为段名等，无统一列名时留空） */
+  rowLabel: string
+  /** 列（指标）：label + propId；仅收录全体招式共享的指标（矩阵保持稠密，无空位） */
+  columns: Array<{ label: string; propId: number }>
+  /** 行（段次）：label + 按 propId 索引的展示值 */
+  rows: Array<{ label: string; values: Record<string, string> }>
+  /** 组内不属共享矩阵的条目（静态文本如充能计数、或仅部分招式拥有的指标），独立成补充行 */
+  extras?: SkillDetail[]
+}
+
+/** 条目名共享前缀（转置行标签/列头的切分依据）；无共享时为 '' */
+function commonPrefix(names: string[]): string {
+  let p = names[0] ?? ''
+  for (const n of names.slice(1)) {
+    let i = 0
+    while (i < p.length && i < n.length && p[i] === n[i]) i++
+    p = p.slice(0, i)
+    if (!p) break
+  }
+  return p
+}
+
+/** 条目名共享后缀（从尾部向前比；用于区分重复行标签，如「一段（物理）」补「（物理）」） */
+function commonSuffix(strs: string[]): string {
+  if (!strs.length) return ''
+  let s = strs[0] ?? ''
+  for (const n of strs.slice(1)) {
+    let i = 0
+    while (i < s.length && i < n.length && s[s.length - 1 - i] === n[n.length - 1 - i]) i++
+    s = s.slice(s.length - i)
+    if (!s) break
+  }
+  return s
+}
+
+/** 公式引用的全部 Skill ID 集合（tiebreaker 配对依据） */
+function formulaSkillIds(formula: string): Set<string> {
+  const s = new Set<string>()
+  const re = /\{Skill:(\d+)/g
+  let m: RegExpExecArray | null
+  while ((m = re.exec(formula))) s.add(m[1])
+  return s
+}
+
+/**
+ * 把技能组转置为「段×指标」表：行 = 名称共享同一主体前缀的招式（一段/二段/三段、
+ * 对小体型/中体型/大体型敌人、回旋斩击/快速剪击…），列 = 指标（Prop，伤害倍率/失衡倍率…）。
+ * 行分组按名称 LCP 配对（而非 Skill 引用，因「霜锋」等按体型拆分时公式共用一个 Skill）；
+ * LCP 平局时用公式的 Skill 集合 Jaccard 相似度（交集/并集）最大者裁决（如
+ * 「一段失衡倍率（物理）」归属 Skill 完全相同的「一段伤害倍率（物理）」行，而非「（以太）」行；
+ * 「三段（协同）」行因多引用一个 Skill 而得分更低，得以与「三段」行区分）。
+ * 行标签 = 该行条目名公共前缀，重复时补「去列标签后的公共后缀」（如 一段/一段（物理）/一段（以太））；
+ * 列头 = 每行同名条目「去行主题后缀」的公共前缀（不要求全一致，容忍「（物理）」类行后缀）。
+ * 矩阵只收「每行都有条目」的稠密指标列（≥2 列才构成真正的表），保证矩阵无空位；
+ * 静态文本条目（无 Skill 引用，如「1点」充能计数）与仅部分招式拥有的指标归入 extras
+ * 独立成补充行。无法构成合理矩阵时返回 null，由调用方退回原纵向列表。
+ */
+export function buildSkillMetricTable(
+  group: SkillGroup,
+  level: number,
+): SkillMetricTable | null {
+  const entries = group.entries ?? []
+  if (!entries.length) return null
+
+  // 拆解：含 Skill 引用的条目参与矩阵；静态文本条目直接归入补充行
+  const refs: Array<{ detail: SkillDetail; propId: number }> = []
+  for (const en of entries) {
+    const m = en.formula.match(SKILL_REF_FULL_RE)
+    if (m) refs.push({ detail: en, propId: Number(m[2]) })
+  }
+  if (!refs.length) return null
+
+  /** 最长公共前缀长度 */
+  const lcpLen = (a: string, b: string): number => {
+    let n = 0
+    while (n < a.length && n < b.length && a[n] === b[n]) n++
+    return n
+  }
+
+  // 按指标（Prop）分列，列序 = 首现序
+  const columns: Array<{ propId: number; items: SkillDetail[] }> = []
+  const colIndex = new Map<number, number>()
+  for (const r of refs) {
+    let i = colIndex.get(r.propId)
+    if (i == null) {
+      i = columns.length
+      colIndex.set(r.propId, i)
+      columns.push({ propId: r.propId, items: [] })
+    }
+    columns[i].items.push(r.detail)
+  }
+  if (columns.length < 2) return null
+
+  // 参考列 = 条目最多者（行数来源；并列取先出现）
+  let refIdx = 0
+  for (let i = 1; i < columns.length; i++) {
+    if (columns[i].items.length > columns[refIdx].items.length) refIdx = i
+  }
+  const refCol = columns[refIdx]
+  const refNames = refCol.items.map((d) => d.name ?? '')
+  const refSkills = refCol.items.map((d) => formulaSkillIds(d.formula))
+
+  // 行配对：非参考列条目分配到 LCP 最长的参考条目所在行；
+  // LCP 平局时以公式 Skill 集合 Jaccard 相似度最大者裁决（交集为 0 或仍并列 → 无法配对）；
+  // 无法配对者经下方 extras 收集归入补充行，不阻断矩阵
+  const rowMap: Array<Map<number, SkillDetail>> = refCol.items.map(() => new Map())
+  for (let c = 0; c < columns.length; c++) {
+    if (c === refIdx) continue
+    for (const en of columns[c].items) {
+      const name = en.name ?? ''
+      let bestLen = 0
+      let ties: number[] = []
+      for (let r = 0; r < refNames.length; r++) {
+        const len = lcpLen(refNames[r], name)
+        if (len > bestLen) { bestLen = len; ties = [r] }
+        else if (len === bestLen && len > 0) ties.push(r)
+      }
+      if (bestLen === 0) continue
+      let target = -1
+      if (ties.length === 1) {
+        target = ties[0]
+      } else {
+        // tiebreaker：与参考行公式的 Skill 集合 Jaccard 相似度最大者
+        // （交集/并集；完全相等的集合得 1.0，部分共享的「（协同）」行得分更低，如
+        //   {1511006} vs {1511006} = 1.0 vs {1511006,1511018} = 0.5）
+        const es = formulaSkillIds(en.formula)
+        const esArr = [...es]
+        let bestSim = -1, bestRow = -1, tie2 = false
+        for (const r of ties) {
+          let ov = 0
+          for (const id of esArr) if (refSkills[r].has(id)) ov++
+          const union = new Set([...esArr, ...refSkills[r]]).size
+          const sim = union ? ov / union : 0
+          if (sim > bestSim) { bestSim = sim; bestRow = r; tie2 = false }
+          else if (sim === bestSim && sim > 0) tie2 = true
+        }
+        if (bestRow < 0 || bestSim === 0 || tie2) continue
+        target = bestRow
+      }
+      rowMap[target].set(columns[c].propId, en)
+    }
+  }
+
+  // 稠密列 = 条目数与行数一致、且每行都配对上（参考列天然稠密）
+  const complete: number[] = [refCol.propId]
+  for (const col of columns) {
+    if (col.propId === refCol.propId) continue
+    if (col.items.length === refCol.items.length && rowMap.every((m) => m.has(col.propId))) {
+      complete.push(col.propId)
+    }
+  }
+  if (complete.length < 2) return null
+  const completeSet = new Set(complete)
+
+  // 行主题初值 = 该行稠密列条目名的公共前缀；任一为空则退回列表
+  const subjects: string[] = []
+  for (let r = 0; r < refCol.items.length; r++) {
+    const names = [refCol.items[r].name ?? '']
+    for (const [p, d] of rowMap[r]) {
+      if (completeSet.has(p)) names.push(d.name ?? '')
+    }
+    const subject = commonPrefix(names)
+    if (!subject) return null
+    subjects.push(subject)
+  }
+
+  // 列标签 = 该列所有条目「去行主题后缀」的公共前缀（不要求全一致）；
+  // 公共前缀若止于全角开括号「（」，说明吸入了行后缀的起始（如「一段伤害倍率（物理）」列
+  // 无裸「伤害倍率」行夹住前缀），剔除该括号
+  const colLabel = new Map<number, string>()
+  for (const p of complete) {
+    const pre: string[] = []
+    for (let r = 0; r < refCol.items.length; r++) {
+      const entry = p === refCol.propId ? refCol.items[r] : rowMap[r].get(p)!
+      pre.push((entry.name ?? '').slice(subjects[r].length))
+    }
+    const raw = commonPrefix(pre)
+    const label = raw.endsWith('（') ? raw.slice(0, -1) : raw
+    if (!label) return null
+    colLabel.set(p, label)
+  }
+
+  // 行标签 = 行主题 + 该行条目「去行主题、再去列标签」后的公共后缀（区分重复行）；
+  // 补全后仍重复 → 无法构成可读矩阵，退回列表
+  const rows: SkillMetricTable['rows'] = []
+  for (let r = 0; r < refCol.items.length; r++) {
+    const leftovers: string[] = []
+    for (const p of complete) {
+      const entry = p === refCol.propId ? refCol.items[r] : rowMap[r].get(p)!
+      const s = (entry.name ?? '').slice(subjects[r].length)
+      const label = colLabel.get(p)!
+      leftovers.push(s.startsWith(label) ? s.slice(label.length) : s)
+    }
+    rows.push({ label: subjects[r] + commonSuffix(leftovers), values: {} })
+  }
+  if (new Set(rows.map((x) => x.label)).size < rows.length) return null
+
+  // 填充矩阵值（代入所选等级）
+  for (let r = 0; r < rows.length; r++) {
+    for (const p of complete) {
+      const entry = p === refCol.propId ? refCol.items[r] : rowMap[r].get(p)!
+      rows[r].values[String(p)] = skillDetailValue(entry, level)
+    }
+  }
+
+  // 补充行：静态文本条目 + 非稠密列（未配对/仅部分行拥有）的引用条目，按组内原序
+  const extras: SkillDetail[] = []
+  for (const en of entries) {
+    const m = en.formula.match(SKILL_REF_FULL_RE)
+    if (!m || !completeSet.has(Number(m[2]))) extras.push(en)
+  }
+
+  return {
+    rowLabel: '',
+    columns: complete.map((p) => ({ label: colLabel.get(p)!, propId: p })),
+    rows,
+    extras,
+  }
 }
 
 /** 从皮肤字典构建有序 SkinRow[]（按皮肤 id 排序） */

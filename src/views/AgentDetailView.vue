@@ -233,6 +233,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
             :row="sk"
             :glyph="sk.glyph"
             :srcs="sk.srcs"
+            transpose
           />
         </div>
         <!-- 核心技（核心被动 + 额外能力）：passive 数据源，等级滑条切换 -->

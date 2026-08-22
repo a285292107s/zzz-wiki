@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { richDesc } from '@/utils/rich'
 import {
   SKILL_LEVEL_DEFAULT,
   SKILL_LEVEL_MAX,
   SKILL_LEVEL_MIN,
+  buildSkillMetricTable,
   skillDetailValue,
+  type SkillDetail,
   type SkillGroup,
   type SkillRow,
 } from '@/domain/sections'
@@ -18,6 +20,8 @@ const props = defineProps<{
   srcs: string[]
   /** 等级上限（默认 12 级）；邦布等上限不同的槽位传入 skill.levelCount。上限即默认满级 */
   levelCount?: number
+  /** 角色技能组启用「段×指标」转置表：多段招式压缩为一行一段（邦布保持纵向列表） */
+  transpose?: boolean
 }>()
 
 /** 每个技能槽独立的提升等级，默认最高级（= levelCount，如邦布 10/5 级） */
@@ -27,6 +31,23 @@ const level = ref(props.levelCount ?? SKILL_LEVEL_DEFAULT)
 function groupDesc(grp: SkillGroup, lv: number): string | undefined {
   return typeof grp.desc === 'function' ? grp.desc(lv) : grp.desc
 }
+
+/** 补充行展示值：无 Skill 引用的静态文本（如「1点」充能计数）直接展示原文，其余按等级求值 */
+function extraValue(en: SkillDetail): string {
+  if (!en.formula.includes('{Skill:') && !en.values?.length) return en.formula || '—'
+  return skillDetailValue(en, level.value)
+}
+
+/** 展示组：转置表（transpose 开启且组内存在可转置条目时）或原纵向列表 */
+const displayGroups = computed(() =>
+  (props.row.groups ?? []).map((grp) => ({
+    grp,
+    table:
+      props.transpose && grp.entries?.length
+        ? buildSkillMetricTable(grp, level.value)
+        : null,
+  })),
+)
 </script>
 
 <template>
@@ -54,7 +75,7 @@ function groupDesc(grp: SkillGroup, lv: number): string | undefined {
 
     <ul class="action-list">
       <li
-        v-for="(grp, gi) in row.groups"
+        v-for="({ grp, table }, gi) in displayGroups"
         :key="grp.name || 'g' + gi"
         class="row"
       >
@@ -62,7 +83,45 @@ function groupDesc(grp: SkillGroup, lv: number): string | undefined {
         <div class="body">
           <h4 class="title title-skill">{{ grp.name }}</h4>
           <p v-if="grp.desc != null" class="desc" v-html="richDesc(groupDesc(grp, level) ?? '')"></p>
-          <ul v-if="grp.entries?.length" class="stat-list">
+          <!-- 转置表：行=段次，列=指标（如 伤害倍率/失衡倍率），随所选等级取值；
+               补充行（充能计数等）紧随表格，仅当可转置时出现，列表用 v-else 保证互斥 -->
+          <template v-if="table">
+            <table class="metric-table">
+              <thead>
+                <tr>
+                  <th class="metric-row-head" scope="col">{{ table.rowLabel }}</th>
+                  <th
+                    v-for="c in table.columns"
+                    :key="c.propId"
+                    class="metric-col-head mono"
+                    scope="col"
+                  >
+                    {{ c.label }}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(r, ri) in table.rows" :key="ri">
+                  <th class="metric-row-label" scope="row">{{ r.label || '—' }}</th>
+                  <td
+                    v-for="c in table.columns"
+                    :key="c.propId"
+                    class="metric-val mono"
+                  >
+                    {{ r.values[String(c.propId)] ?? '—' }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <ul v-if="table.extras?.length" class="metric-extras">
+              <li v-for="(en, ei) in table.extras" :key="en.name || 'x' + ei" class="extra-item">
+                <span class="extra-name">{{ en.name }}</span>
+                <span class="extra-leader" aria-hidden="true"></span>
+                <span class="extra-val mono">{{ extraValue(en) }}</span>
+              </li>
+            </ul>
+          </template>
+          <ul v-else-if="grp.entries?.length" class="stat-list">
             <li v-for="(en, ei) in grp.entries" :key="en.name || 'e' + ei" class="stat-item">
               <span class="stat-name">{{ en.name }}</span>
               <span class="stat-val mono">{{ skillDetailValue(en, level) }}</span>
@@ -192,6 +251,84 @@ function groupDesc(grp: SkillGroup, lv: number): string | undefined {
   flex: none;
   color: var(--amber);
   font-size: 13px;
+}
+
+/* ---------- 段×指标转置表（无边框：纯间距分层，无任何表格线） ---------- */
+
+.metric-table {
+  width: 100%;
+  max-width: 560px;
+  font-variant-numeric: tabular-nums;
+  font-kerning: normal;
+}
+.metric-table :is(th, td) {
+  padding: 10px 14px;
+  text-align: right;
+  font-size: 13.5px;
+}
+/* 轴列（段次）：width:1% 收缩至内容宽；指标列自动均分剩余空间 */
+.metric-table :is(th, td):first-child {
+  width: 1%;
+  white-space: nowrap;
+  text-align: left;
+  padding-left: 0;
+  padding-right: 24px;
+}
+/* 列头：无下缘线，靠字距/弱色/下方留白与数据行分层 */
+.metric-table thead th {
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+  padding-top: 0;
+  padding-bottom: 12px;
+}
+/* 行标签（段次）：次级墨色 */
+.metric-table .metric-row-label {
+  font-weight: 400;
+  color: var(--ink-1);
+}
+/* 数值：琥珀等宽，右对齐逐列对齐 */
+.metric-table .metric-val {
+  color: var(--amber);
+}
+/* 补充行：不属共享矩阵的条目（如充能计数），数值紧随名称、不撑满到矩阵列右缘 */
+.metric-extras {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  max-width: 560px;
+}
+.extra-item {
+  display: flex;
+  align-items: baseline;
+  padding: 6px 0;
+  color: var(--ink-1);
+  font-size: 13.5px;
+}
+.extra-name {
+  min-width: 0;
+  flex: none;
+}
+/* 点线引导：名称与数值之间以「·」填充，对齐基线（dot leader，与 KeyValueGrid 同源弱化墨色） */
+.extra-leader {
+  flex: 1;
+  min-width: 16px;
+  margin: 0 8px;
+  height: 1em;
+  border-bottom: 1px dotted color-mix(in srgb, var(--ink-2) 72%, transparent);
+  transform: translateY(-0.35em);
+}
+.extra-val {
+  flex: none;
+  color: var(--amber);
+}
+/* 行悬停：极浅抬升（bg-1）——无表格线时是唯一行跟随线索，便于跨列对照 */
+.metric-table tbody tr {
+  transition: background var(--t-fast) var(--ease);
+}
+.metric-table tbody tr:hover {
+  background: var(--bg-1);
 }
 
 .level-row {

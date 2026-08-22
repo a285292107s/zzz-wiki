@@ -6,6 +6,7 @@ import {
   buildCoreEnhance,
   buildCoreSkill,
   buildPotentialCinema,
+  buildSkillMetricTable,
   buildSkillRows,
   buildSkinRows,
   charBreakSegment,
@@ -22,6 +23,7 @@ import {
   wEnginePropsAtLevel,
   wEngineRandAt,
   bangbooSkillStatValue,
+  type SkillGroup,
   type SkillParamEntry,
 } from '../src/domain/sections'
 
@@ -133,6 +135,245 @@ describe('skill detail rows', () => {
     // 无数值对应的强攻组 desc 为空
     expect(row.groups?.[1]).toMatchObject({ name: '强攻', desc: undefined })
     expect(row.groups?.[1].entries).toHaveLength(1)
+  })
+})
+
+describe('buildSkillMetricTable', () => {
+  /** 构造单 Skill 引用条目：skill 共享、prop 区分指标（1001=伤害 / 1002=失衡） */
+  const entry = (
+    name: string,
+    skill: number,
+    prop: number,
+    main: number,
+    growth = 0,
+    format = '%',
+  ): SkillGroup['entries'][number] => ({
+    name,
+    formula: `{Skill:${skill}, Prop:${prop}}`,
+    props: { [skill]: { main, growth, format } },
+    format,
+  })
+
+  it('transposes same-skill damage+stun entries into a hit×metric table', () => {
+    const group: SkillGroup = {
+      name: '普通攻击：伏特速攻',
+      desc: '点按发动。',
+      entries: [
+        entry('一段伤害倍率', 1401001, 1001, 3120),
+        entry('一段失衡倍率', 1401001, 1002, 3970),
+        entry('二段伤害倍率', 1401002, 1001, 3370),
+        entry('二段失衡倍率', 1401002, 1002, 6980),
+      ],
+    }
+    const table = buildSkillMetricTable(group, 1)
+    expect(table).not.toBeNull()
+    expect(table?.columns).toEqual([
+      { label: '伤害倍率', propId: 1001 },
+      { label: '失衡倍率', propId: 1002 },
+    ])
+    expect(table?.rows).toEqual([
+      { label: '一段', values: { '1001': '31.2%', '1002': '39.7%' } },
+      { label: '二段', values: { '1001': '33.7%', '1002': '69.8%' } },
+    ])
+  })
+
+  it('computes values at the selected level with growth', () => {
+    const group: SkillGroup = {
+      name: '普攻',
+      entries: [
+        entry('一段伤害倍率', 1401001, 1001, 3120, 290),
+        entry('一段失衡倍率', 1401001, 1002, 3970, 190),
+        entry('二段伤害倍率', 1401002, 1001, 5000, 100),
+        entry('二段失衡倍率', 1401002, 1002, 6000, 50),
+      ],
+    }
+    const table = buildSkillMetricTable(group, 12)
+    expect(table?.rows[0].values).toEqual({ '1001': '63.1%', '1002': '60.6%' })
+    expect(table?.rows[1].values).toEqual({ '1001': '61%', '1002': '65.5%' })
+  })
+
+  it('transposes by name subject for shared-skill groups (Ellen 霜锋: 体型×倍率)', () => {
+    // 霜锋按小/中/大体型拆分倍率，公式共用同一 Skill——行分组按名称 LCP 配对，
+    // 应拆成 3 行 × 2 列
+    const group: SkillGroup = {
+      name: '普通攻击：霜锋',
+      entries: [
+        entry('对小体型敌人伤害倍率', 1191027, 1001, 6040, 550),
+        entry('对中体型敌人伤害倍率', 1191027, 1001, 6040, 550),
+        entry('对大体型敌人伤害倍率', 1191027, 1001, 6040, 550),
+        entry('对小体型敌人失衡倍率', 1191027, 1002, 2580, 120),
+        entry('对中体型敌人失衡倍率', 1191027, 1002, 2580, 120),
+        entry('对大体型敌人失衡倍率', 1191027, 1002, 2580, 120),
+      ],
+    }
+    const table = buildSkillMetricTable(group, 12)
+    expect(table).not.toBeNull()
+    expect(table?.columns.map((c) => c.label)).toEqual(['伤害倍率', '失衡倍率'])
+    expect(table?.rows.map((r) => r.label)).toEqual([
+      '对小体型敌人',
+      '对中体型敌人',
+      '对大体型敌人',
+    ])
+    // 测试用简化公式（无 ×3）：主值 + 成长代入 Lv.12
+    expect(table?.rows[0].values).toEqual({ '1001': '120.9%', '1002': '39%' })
+  })
+
+  it('strips shared name prefix as row label and suffix as column header', () => {
+    const group: SkillGroup = {
+      name: '普攻',
+      entries: [
+        entry('斩击伤害倍率', 1291001, 1001, 5000),
+        entry('斩击失衡倍率', 1291001, 1002, 6000),
+        entry('射击伤害倍率', 1291002, 1001, 7000),
+        entry('射击失衡倍率', 1291002, 1002, 8000),
+      ],
+    }
+    const table = buildSkillMetricTable(group, 1)
+    expect(table?.columns.map((c) => c.label)).toEqual(['伤害倍率', '失衡倍率'])
+    expect(table?.rows.map((r) => r.label)).toEqual(['斩击', '射击'])
+  })
+
+  it('breaks LCP ties via Skill-set overlap and disambiguates duplicate row labels with suffix (南宫羽 请勿抵抗)', () => {
+    // 「一段失衡倍率（物理）」对「一段伤害倍率（物理）」与「一段伤害倍率（以太）」LCP 均为「一段」，
+    // 靠 Skill 集合交集裁决归属；行标签再补「（物理）/（以太）」区分
+    const group: SkillGroup = {
+      name: '普通攻击：请勿抵抗',
+      entries: [
+        entry('一段伤害倍率（物理）', 1241004, 1001, 10400),
+        entry('二段伤害倍率（物理）', 1241005, 1001, 20400),
+        entry('三段伤害倍率（物理）', 1241006, 1001, 30400),
+        entry('一段伤害倍率（以太）', 1241007, 1001, 11400),
+        entry('二段伤害倍率（以太）', 1241008, 1001, 21400),
+        entry('三段伤害倍率（以太）', 1241009, 1001, 31400),
+        entry('一段失衡倍率（物理）', 1241004, 1002, 4400),
+        entry('二段失衡倍率（物理）', 1241005, 1002, 5400),
+        entry('三段失衡倍率（物理）', 1241006, 1002, 6400),
+        entry('一段失衡倍率（以太）', 1241007, 1002, 11400),
+        entry('二段失衡倍率（以太）', 1241008, 1002, 12400),
+        entry('三段失衡倍率（以太）', 1241009, 1002, 13400),
+      ],
+    }
+    const table = buildSkillMetricTable(group, 1)
+    expect(table).not.toBeNull()
+    expect(table?.columns.map((c) => c.label)).toEqual(['伤害倍率', '失衡倍率'])
+    expect(table?.rows.map((r) => r.label)).toEqual([
+      '一段（物理）',
+      '二段（物理）',
+      '三段（物理）',
+      '一段（以太）',
+      '二段（以太）',
+      '三段（以太）',
+    ])
+    // 物理行与以太行数值归属正确（物理一段伤害 = 104%）
+    expect(table?.rows[0].values['1001']).toBe('104%')
+    expect(table?.rows[3].values['1001']).toBe('114%')
+  })
+
+  it('returns null when row labels still collide after suffix completion', () => {
+    // 两行仅 Skill 不同、名称完全相同：tiebreaker 交集并列 → 无法配对 → 退回列表
+    const group: SkillGroup = {
+      name: '同名双形态',
+      entries: [
+        entry('一段伤害倍率', 1501001, 1001, 5000),
+        entry('一段失衡倍率', 1501001, 1002, 6000),
+        entry('一段伤害倍率', 1501002, 1001, 7000),
+        entry('一段失衡倍率', 1501002, 1002, 8000),
+      ],
+    }
+    expect(buildSkillMetricTable(group, 1)).toBeNull()
+  })
+
+  it('breaks subset-tie via Jaccard: 三段（协同） row scores lower than exact-match 三段 (南宫羽 可爱地雷飞天撞)', () => {
+    // 三段失衡倍率 {1511006} 与「三段」行 {1511006} Jaccard=1.0、与「三段（协同）」行
+    // {1511006,1511018} Jaccard=0.5 → 归「三段」行；overlap 版会因交集都是 1 判平局而退回
+    const mk = (
+      name: string,
+      prop: number,
+      skills: Array<[number, number]>, // [skillId, main]
+      growth = 0,
+      format = '%',
+    ): SkillGroup['entries'][number] => ({
+      name,
+      formula: skills.map(([s]) => `{Skill:${s}, Prop:${prop}}`).join(' + '),
+      props: Object.fromEntries(skills.map(([s, main]) => [s, { main, growth, format }])),
+      format,
+    })
+    const group: SkillGroup = {
+      name: '普通攻击：可爱地雷飞天撞',
+      entries: [
+        mk('一段伤害倍率', 1001, [[1511004, 10400]]),
+        mk('二段伤害倍率', 1001, [[1511005, 30440]]),
+        mk('三段伤害倍率', 1001, [[1511006, 51080]]),
+        mk('三段伤害倍率（协同）', 1001, [[1511006, 51080], [1511018, 7670]]),
+        mk('一段失衡倍率', 1002, [[1511004, 4400]]),
+        mk('二段失衡倍率', 1002, [[1511005, 21080]]),
+        mk('三段失衡倍率', 1002, [[1511006, 41080]]),
+        mk('三段失衡倍率（协同）', 1002, [[1511006, 41080], [1511018, 2060]]),
+      ],
+    }
+    const table = buildSkillMetricTable(group, 1)
+    expect(table).not.toBeNull()
+    expect(table?.columns.map((c) => c.label)).toEqual(['伤害倍率', '失衡倍率'])
+    expect(table?.rows.map((r) => r.label)).toEqual(['一段', '二段', '三段', '三段（协同）'])
+    // 三段失衡只引用 1511006 → 归「三段」行（410.8%），不带协同加成
+    expect(table?.rows[2].values['1002']).toBe('410.8%')
+    // 三段（协同）失衡 = 410.8% + 20.6% = 431.4%
+    expect(table?.rows[3].values['1002']).toBe('431.4%')
+  })
+
+  it('returns null for groups where each skill has only one entry (no metric dimension)', () => {
+    const group: SkillGroup = {
+      name: '闪避',
+      entries: [
+        entry('轻招架失衡倍率', 1401001, 1002, 3970),
+        entry('重招架失衡倍率', 1401002, 1002, 6980),
+      ],
+    }
+    expect(buildSkillMetricTable(group, 1)).toBeNull()
+  })
+
+  it('keeps shared multiplier metrics in the matrix and moves static/partial metrics to extras (Ellen)', () => {
+    const group: SkillGroup = {
+      name: '冲刺攻击：冰渊潜袭',
+      entries: [
+        entry('回旋斩击伤害倍率', 1191007, 1001, 6230, 570),
+        entry('快速剪击伤害倍率', 1191008, 1001, 12760, 1160),
+        entry('蓄力剪击伤害倍率', 1191009, 1001, 15820, 1440),
+        entry('回旋斩击失衡倍率', 1191007, 1002, 6230, 290),
+        entry('快速剪击失衡倍率', 1191008, 1002, 9820, 450),
+        entry('蓄力剪击失衡倍率', 1191009, 1002, 12170, 560),
+        { name: '快速剪击获得急冻充能', formula: '1点', props: {} },
+        { name: '蓄力剪击获得急冻充能', formula: '3点', props: {} },
+      ],
+    }
+    const table = buildSkillMetricTable(group, 12)
+    expect(table).not.toBeNull()
+    expect(table?.columns.map((c) => c.label)).toEqual(['伤害倍率', '失衡倍率'])
+    expect(table?.rows.map((r) => r.label)).toEqual(['回旋斩击', '快速剪击', '蓄力剪击'])
+    // 与游戏内 Lv.12 锚点一致（用户提供的数值）
+    expect(table?.rows[0].values).toEqual({ '1001': '125%', '1002': '94.2%' })
+    expect(table?.rows[1].values).toEqual({ '1001': '255.2%', '1002': '147.7%' })
+    expect(table?.rows[2].values).toEqual({ '1001': '316.6%', '1002': '183.3%' })
+    expect(table?.extras?.map((e) => e.name)).toEqual([
+      '快速剪击获得急冻充能',
+      '蓄力剪击获得急冻充能',
+    ])
+  })
+
+  it('returns null when no entry has a skill ref (pure static group, e.g. bangboo)', () => {
+    const group: SkillGroup = {
+      name: '邦布技能',
+      entries: [
+        { name: '冷却时间', formula: '20秒', props: {} },
+        { name: '额外能力', formula: '60%', props: {} },
+      ],
+    }
+    expect(buildSkillMetricTable(group, 1)).toBeNull()
+  })
+
+  it('returns null for empty/missing entries', () => {
+    expect(buildSkillMetricTable({ name: 'x' }, 1)).toBeNull()
+    expect(buildSkillMetricTable({ name: 'x', entries: [] }, 1)).toBeNull()
   })
 })
 
