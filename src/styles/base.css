@@ -148,6 +148,72 @@ a.rich-term:hover {
   white-space: nowrap;
 }
 
+/* 潜能影像门控徽标（「潜能I·新增」「潜能I·强化」「潜能I·扩展」等）：随技能名展示，细线小签。
+   三个徽章样式完全一致（统一琥珀，无底色）。SkillGroup / CoreSkillGroup 共用。 */
+.pot-badge {
+  display: inline-block;
+  margin-left: 8px;
+  font-style: normal;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  padding: 2px 5px;
+  border: 1px solid var(--amber);
+  color: var(--amber);
+  background: transparent;
+  vertical-align: 2px;
+}
+
+/* 「潜能激发」切换开关：细线轨道 + 方形钮，开启态琥珀（随技能/核心技大类名称右侧）。 */
+.pot-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 2px 4px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  flex: none;
+}
+.pot-switch .sw-track {
+  position: relative;
+  width: 30px;
+  height: 14px;
+  border: 1px solid var(--line-2);
+  border-radius: 2px;
+  background: transparent;
+  transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+  flex: none;
+}
+.pot-switch .sw-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 8px;
+  height: 8px;
+  background: var(--ink-3);
+  transition: left var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
+}
+.pot-switch .sw-track.on {
+  background: var(--amber);
+  border-color: var(--amber);
+}
+.pot-switch .sw-track.on .sw-thumb {
+  left: 18px;
+  background: var(--bg-0);
+}
+.pot-switch .sw-label {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--ink-2);
+  font-style: normal;
+}
+.pot-switch:focus-visible {
+  outline: 1px solid var(--amber);
+  outline-offset: 1px;
+}
+
 /* Page heading */
 .page-title {
   font-family: var(--serif);

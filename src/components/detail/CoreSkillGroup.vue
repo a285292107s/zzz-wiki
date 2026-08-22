@@ -38,9 +38,10 @@ const current = computed(() => {
   return props.row.levels[offset + lv - 1] ?? props.row.levels[props.row.levels.length - 1]
 })
 
-/** 徽标文本：潜能档「潜能I·强化」，或非潜能的双轮「强化」；基础版为空 */
-const currentTag = computed(() => {
-  if (current.value.potentialTag) return `潜能${current.value.potentialTag}·强化`
+/** 徽标：潜能激发门控的核心技 → 「潜能I·扩展」（扩展核心被动/额外能力）；
+ *  非潜能的双轮 → 「强化」；基础版为空 */
+const currentBadge = computed<string>(() => {
+  if (current.value.potentialTag) return `潜能${current.value.potentialTag}·扩展`
   if (current.value.enhanced) return '强化'
   return ''
 })
@@ -54,23 +55,19 @@ const currentTag = computed(() => {
         <em class="mono">CORE</em>
       </span>
       <h3 class="skill-kind serif">核心技</h3>
-      <!-- 两轮核心或存在潜能影像强化时，在名称旁显示版本切换 -->
-      <span v-if="canVary" class="variant-seg mono" role="group" aria-label="核心技版本">
-        <button
-          type="button"
-          class="seg"
-          :class="{ on: variant === 'base' }"
-          :aria-pressed="variant === 'base'"
-          @click="variant = 'base'"
-        >基础</button>
-        <button
-          type="button"
-          class="seg"
-          :class="{ on: variant === 'pot' }"
-          :aria-pressed="variant === 'pot'"
-          @click="variant = 'pot'"
-        >潜能</button>
-      </span>
+      <!-- 两轮核心或存在潜能影像强化时，显示「潜能激发」切换开关（默认打开） -->
+      <button
+        v-if="canVary"
+        type="button"
+        class="pot-switch mono"
+        role="switch"
+        aria-label="潜能激发"
+        :aria-checked="variant === 'pot'"
+        @click="variant = variant === 'pot' ? 'base' : 'pot'"
+      >
+        <span class="sw-track" :class="{ on: variant === 'pot' }"><span class="sw-thumb"></span></span>
+        <span class="sw-label">潜能激发</span>
+      </button>
       <!-- 等级滑块与技能名同条，靠右对齐；窄屏允许换行 -->
       <div class="level-row">
         <LevelSlider
@@ -89,7 +86,7 @@ const currentTag = computed(() => {
         <span class="no mono">01</span>
         <div class="body">
           <h4 class="title title-skill">
-            {{ current.coreName }}<span v-if="currentTag" class="pot-tag mono">{{ currentTag }}</span>
+            {{ current.coreName }}<span v-if="currentBadge" class="pot-badge mono">{{ currentBadge }}</span>
           </h4>
           <p v-if="current.desc[0]" class="desc" v-html="richDesc(current.desc[0])"></p>
         </div>
@@ -98,7 +95,7 @@ const currentTag = computed(() => {
         <span class="no mono">02</span>
         <div class="body">
           <h4 class="title title-skill">
-            {{ current.extraName }}<span v-if="currentTag" class="pot-tag mono">{{ currentTag }}</span>
+            {{ current.extraName }}<span v-if="currentBadge" class="pot-badge mono">{{ currentBadge }}</span>
           </h4>
           <p v-if="current.desc[1]" class="desc" v-html="richDesc(current.desc[1])"></p>
         </div>
@@ -206,51 +203,6 @@ const currentTag = computed(() => {
   min-width: 3.4em;
   text-align: right;
   justify-content: flex-end;
-}
-
-/* 「潜能·强化」版本徽标：随技能名展示，细线小标签（强化为弱墨） */
-.pot-tag {
-  display: inline-block;
-  margin-left: 8px;
-  font-style: normal;
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  padding: 1px 5px;
-  border: 1px solid var(--line-2);
-  color: var(--ink-2);
-  vertical-align: 2px;
-}
-
-/* 版本切换：细线分段控件，随「核心技」名称右侧，选中态琥珀 */
-.variant-seg {
-  display: inline-flex;
-  border: 1px solid var(--line-2);
-  border-radius: 2px;
-  overflow: hidden;
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  line-height: 1;
-  flex: none;
-}
-.variant-seg .seg {
-  padding: 5px 8px;
-  border: none;
-  background: transparent;
-  color: var(--ink-3);
-  cursor: pointer;
-  font: inherit;
-  letter-spacing: inherit;
-}
-.variant-seg .seg + .seg {
-  border-left: 1px solid var(--line-2);
-}
-.variant-seg .seg.on {
-  color: var(--amber);
-  background: var(--bg-1);
-}
-.variant-seg .seg:focus-visible {
-  outline: 1px solid var(--amber);
-  outline-offset: -1px;
 }
 
 .action-list {

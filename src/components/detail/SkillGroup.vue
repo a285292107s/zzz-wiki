@@ -84,23 +84,19 @@ function potTag(grp: SkillGroup): string | null {
         <em v-if="row.keyEn" class="mono">{{ row.keyEn }}</em>
       </span>
       <h3 class="skill-kind serif">{{ row.zh }}</h3>
-      <!-- 大类含受潜能影像影响的技能时显示版本切换（基础/激发潜能，随大类名称） -->
-      <span v-if="hasPot" class="variant-seg mono" role="group" :aria-label="`${row.zh}版本`">
-        <button
-          type="button"
-          class="seg"
-          :class="{ on: variant === 'base' }"
-          :aria-pressed="variant === 'base'"
-          @click="variant = 'base'"
-        >基础</button>
-        <button
-          type="button"
-          class="seg"
-          :class="{ on: variant === 'pot' }"
-          :aria-pressed="variant === 'pot'"
-          @click="variant = 'pot'"
-        >潜能</button>
-      </span>
+      <!-- 大类含受潜能影像影响的技能时，显示「潜能激发」切换开关（默认打开） -->
+      <button
+        v-if="hasPot"
+        type="button"
+        class="pot-switch mono"
+        role="switch"
+        aria-label="潜能激发"
+        :aria-checked="variant === 'pot'"
+        @click="variant = variant === 'pot' ? 'base' : 'pot'"
+      >
+        <span class="sw-track" :class="{ on: variant === 'pot' }"><span class="sw-thumb"></span></span>
+        <span class="sw-label">潜能激发</span>
+      </button>
       <!-- 等级滑块与技能名同条，靠右对齐；窄屏允许换行 -->
       <div v-if="row.hasNumbers" class="level-row">
         <LevelSlider
@@ -126,7 +122,6 @@ function potTag(grp: SkillGroup): string | null {
             <span
               v-if="potTag(grp)"
               class="pot-badge mono"
-              :class="{ 'is-new': grp.potentialType === 'new' }"
             >{{ potTag(grp) }}</span>
           </h4>
           <p v-if="grp.desc != null" class="desc" v-html="richDesc(groupDesc(grp, level) ?? '')"></p>
@@ -248,54 +243,6 @@ function potTag(grp: SkillGroup): string | null {
   line-height: 1.4;
   margin-bottom: 6px;
   color: var(--ink-0);
-}
-/* 潜能影像门控徽标：细线小签，与档案标本语言一致（新增为琥珀、强化为弱墨） */
-.pot-badge {
-  display: inline-block;
-  margin-left: 8px;
-  font-style: normal;
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  padding: 1px 5px;
-  border: 1px solid var(--line-2);
-  color: var(--ink-2);
-  vertical-align: 2px;
-}
-.pot-badge.is-new {
-  border-color: var(--amber);
-  color: var(--amber);
-}
-
-/* 「基础/潜能」版本切换：细线分段控件，选中态琥珀（随大类名称右侧，间距由 flex gap 提供） */
-.variant-seg {
-  display: inline-flex;
-  border: 1px solid var(--line-2);
-  border-radius: 2px;
-  overflow: hidden;
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  line-height: 1;
-  flex: none;
-}
-.variant-seg .seg {
-  padding: 5px 8px;
-  border: none;
-  background: transparent;
-  color: var(--ink-3);
-  cursor: pointer;
-  font: inherit;
-  letter-spacing: inherit;
-}
-.variant-seg .seg + .seg {
-  border-left: 1px solid var(--line-2);
-}
-.variant-seg .seg.on {
-  color: var(--amber);
-  background: var(--bg-1);
-}
-.variant-seg .seg:focus-visible {
-  outline: 1px solid var(--amber);
-  outline-offset: -1px;
 }
 .desc {
   color: var(--ink-1);
