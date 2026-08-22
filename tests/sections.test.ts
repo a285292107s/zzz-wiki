@@ -15,9 +15,12 @@ import {
   evaluateSkillFormula,
   formatCoreEnhance,
   formatSkillScalar,
+  isPotentialGated,
+  potentialStartLevel,
   skillDetailValue,
   skillParamValue,
   statAtLevel,
+  synthesizePotentialCinema,
   wEngineBreakCount,
   wEngineMainAt,
   wEnginePropsAtLevel,
@@ -135,6 +138,145 @@ describe('skill detail rows', () => {
     // 无数值对应的强攻组 desc 为空
     expect(row.groups?.[1]).toMatchObject({ name: '强攻', desc: undefined })
     expect(row.groups?.[1].entries).toHaveLength(1)
+  })
+})
+
+describe('potential-gated skills（潜能影像门控招式）', () => {
+  it('isPotentialGated 区分真实档位 id 与基础标记 [0]', () => {
+    expect(isPotentialGated([])).toBe(false)
+    expect(isPotentialGated([0])).toBe(false)
+    expect(isPotentialGated([119100, 119101])).toBe(true)
+    expect(isPotentialGated(undefined)).toBe(false)
+  })
+
+  it('potentialStartLevel 映射档位 I-VI（取最早档）', () => {
+    expect(potentialStartLevel([0])).toBeUndefined()
+    expect(potentialStartLevel([])).toBeUndefined()
+    expect(potentialStartLevel([119100, 119101, 119105])).toBe('I')
+    expect(potentialStartLevel([119102])).toBe('III')
+  })
+
+  it('buildSkillRows 将门控招式标记为新增，并保留同名强化版原文', () => {
+    const rows = buildSkillRows({
+      basic: {
+        description: [
+          { name: '普通攻击：利齿修剪法', desc: '基础招式。', potential: [] },
+          { name: '普通攻击：冰刃浪', desc: '新招式一。', potential: [119100, 119101] },
+          { name: '普通攻击：霜锋', desc: '新招式二。', potential: [119100] },
+        ],
+      },
+      dodge: {
+        description: [
+          { name: '冲刺攻击：潜袭', desc: '基础潜袭。', potential: [0] },
+          { name: '冲刺攻击：潜袭', desc: '强化可免疫伤害。', potential: [119100] },
+        ],
+      },
+    })
+    const basicGroup = rows.find((r) => r.key === 'basic')
+    const newG = basicGroup?.groups?.find((g) => g.name === '普通攻击：冰刃浪')
+    expect(newG?.potentialType).toBe('new')
+    expect(potentialStartLevel(newG?.potential)).toBe('I')
+    // 同名强化版：门控分支被判定为强化，且原文与基础版并列保留
+    const dodgeGroup = rows.find((r) => r.key === 'dodge')
+    const dash = dodgeGroup?.groups?.find((g) => g.name === '冲刺攻击：潜袭')
+    expect(dash?.potentialType).toBe('enhance')
+    expect(dash?.desc).toBe('基础潜袭。')
+    expect(dash?.strongDesc).toBe('强化可免疫伤害。')
+  })
+
+  it('带 potential 的纯数值子块按机制名关联到招式参数列表，而非独立招式行', () => {
+    const rows = buildSkillRows({
+      special: {
+        description: [
+          { name: '强化特殊技：超规工程清障', desc: '投掷手雷，额外投掷一枚[涡流集束手雷]。', potential: [0] },
+          { name: '强化特殊技：超规工程清障', desc: '投掷手雷，额外投掷一枚[涡流集束手雷]，牵引敌人。', potential: [119100] },
+          {
+            name: '涡流集束手雷基础倍率',
+            param: [{ name: '伤害倍率', desc: '{Skill:2, Prop:1001}', param: { '2': { main: 8750, growth: 800, format: '%' } } }],
+            potential: [119100],
+          },
+        ],
+      },
+    })
+    const gs = rows[0]?.groups ?? []
+    // 子块不单独立行，按机制名「涡流集束手雷」关联进「强化特殊技：超规工程清障」
+    expect(gs.map((g) => g.name)).toEqual(['强化特殊技：超规工程清障'])
+    expect(gs[0].entries?.map((e) => e.name)).toContain('涡流集束手雷基础倍率·伤害倍率')
+  })
+
+  it('无法唯一命中父招式时，数值子块不做特殊处理，保持独立成行', () => {
+    const rows = buildSkillRows({
+      special: {
+        description: [
+          { name: '特殊技：工程清障', desc: '基础描述，不含该机制名。', potential: [] },
+          {
+            name: '涡流集束手雷基础倍率',
+            param: [{ name: '伤害倍率', desc: '{Skill:2, Prop:1001}', param: { '2': { main: 8750, growth: 800, format: '%' } } }],
+            potential: [119100],
+          },
+        ],
+      },
+    })
+    const gs = rows[0]?.groups ?? []
+    // 机制名「涡流集束手雷」在现有招式中无命中 → 不折叠，独立成行且条目不冠名前缀
+    expect(gs.map((g) => g.name)).toEqual(['特殊技：工程清障', '涡流集束手雷基础倍率'])
+    expect(gs[1].entries?.map((e) => e.name)).toEqual(['伤害倍率'])
+  })
+
+  it('同名「基础+强化」两形态分别存入 desc 与 strongDesc，供前端切换', () => {
+    const rows = buildSkillRows({
+      dodge: {
+        description: [
+          { name: '冲刺攻击：冰渊潜袭', desc: '点按快速剪击。蓄力剪击命中获充能；蓄力期间减伤40%。', potential: [0] },
+          { name: '冲刺攻击：冰渊潜袭', desc: '点按快速剪击。蓄力剪击命中获充能；蓄力期间减伤40%。受击时可免疫伤害并立即蓄力。', potential: [119100] },
+        ],
+      },
+    })
+    const dash = rows[0]?.groups?.find((g) => g.name === '冲刺攻击：冰渊潜袭')
+    expect(dash?.potentialType).toBe('enhance')
+    expect(dash?.desc).toContain('减伤40%。')
+    expect(dash?.strongDesc).toContain('免疫伤害并立即蓄力')
+  })
+
+  it('synthesizePotentialCinema 为 description 为空的档位（档 I）生成概述', () => {
+    const rows = buildSkillRows({
+      basic: {
+        description: [
+          { name: '普通攻击：冰刃浪', desc: '新招式。', potential: [119100] },
+          { name: '普通攻击：霜锋', desc: '新招式。', potential: [119100] },
+        ],
+      },
+      dodge: {
+        description: [
+          { name: '冲刺攻击：潜袭', desc: '基础。', potential: [] },
+          { name: '冲刺攻击：潜袭', desc: '强化。', potential: [119100] },
+        ],
+      },
+    })
+    const cinema = synthesizePotentialCinema(rows, [
+      { no: 'I', label: '鲨气汹汹 I', name: '', desc: '' },
+      { no: 'II', label: '鲨气汹汹 II', name: '潜能觉醒：极冰带', desc: '已有描述，保持不变。' },
+    ])
+    expect(cinema[0].desc).toContain('新增：普通攻击：冰刃浪、普通攻击：霜锋')
+    expect(cinema[0].desc).toContain('强化：冲刺攻击：潜袭')
+    expect(cinema[1].desc).toBe('已有描述，保持不变。')
+  })
+
+  it('synthesizePotentialCinema 档 I 概述含「扩展：核心被动、额外能力」（核心技潜能）', () => {
+    const rows = buildSkillRows({
+      basic: { description: [{ name: '普通攻击：冰刃浪', desc: '新招式。', potential: [119100] }] },
+    })
+    const core = buildCoreSkill({
+      level: {
+        '1': { level: 1, name: ['凌牙厉齿', '风暴潮'], desc: ['基础', '旧'], potential: [0] },
+        '8': { level: 1, name: ['凌牙厉齿', '风暴潮'], desc: ['扩', '新'], potential: [119100] },
+      },
+    })
+    const cinema = synthesizePotentialCinema(rows, [
+      { no: 'I', label: '鲨气汹汹 I', name: '', desc: '' },
+    ], core)
+    expect(cinema[0].desc).toContain('新增：普通攻击：冰刃浪')
+    expect(cinema[0].desc).toContain('扩展：核心被动、额外能力')
   })
 })
 
@@ -665,6 +807,18 @@ describe('buildCoreSkill', () => {
     expect(core?.levels[7].desc[0]).toContain('强化')
   })
 
+  it('carries 潜能影像档位（potentialTag）到强化版核心技', () => {
+    const core = buildCoreSkill({
+      level: {
+        '1191501': { level: 1, name: ['凌牙厉齿', '风暴潮'], desc: ['基础', '旧'], potential: [0] },
+        '1191508': { level: 1, name: ['凌牙厉齿', '风暴潮'], desc: ['带潜能', '新'], potential: [119100, 119101] },
+      },
+    })
+    expect(core).not.toBeNull()
+    expect(core?.levels[0].potentialTag).toBeUndefined()
+    expect(core?.levels[1].potentialTag).toBe('I')
+  })
+
   it('keeps enhanced=false for a single 7-record round', () => {
     const core = buildCoreSkill(lvl11Passive)
     expect(core?.levelCount).toBe(3)
@@ -673,7 +827,7 @@ describe('buildCoreSkill', () => {
   })
 })
 
-/* ---------- 潜能影画（potential_detail，V2.5 激发潜能） ---------- */
+/* ---------- 潜能影像（potential_detail，V2.5 激发潜能） ---------- */
 
 const lvl11Potential = {
   '104100': {

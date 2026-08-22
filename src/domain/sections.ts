@@ -42,6 +42,12 @@ export interface SkillGroup {
   desc?: string | ((level: number) => string)
   /** 该招式下的数值条目；纯文本招式无数值时为 undefined */
   entries?: SkillDetail[]
+  /** 该招式为潜能影像门控时携带的档位 id（如 119100…）；[0] 表示基础版，不含此字段 */
+  potential?: number[]
+  /** 门控类型：'new' 为潜能新增招式，'enhance' 为对既有招式（同名基础版）的强化 */
+  potentialType?: 'new' | 'enhance'
+  /** 同名「基础 + 强化」双形态时，强化版文案（desc 保留基础版）；供基础/潜能切换使用 */
+  strongDesc?: string
 }
 
 /** 技能行（键位、中文名、有序展示组） */
@@ -127,26 +133,59 @@ type DetailParam = {
   param?: Record<string, SkillParamEntry | undefined>
 }
 
+/** 潜能档位 id 的下界（如 119100、118100）；低于此值视为基础标记 [0] */
+export const POTENTIAL_ID_MIN = 100000
+
+/** 招式是否由潜能影像门控（potential 含真实档位 id，如 119100…；[0] 表示基础版） */
+export function isPotentialGated(potential: unknown): boolean {
+  return (
+    Array.isArray(potential) &&
+    potential.some((id) => typeof id === 'number' && id >= POTENTIAL_ID_MIN)
+  )
+}
+
+const POTENTIAL_ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'] as const
+
+/** 由潜能 id 得到起始档案位（I-VI，取最早档，id 末两位 00-08 映射）；未门控返回 undefined */
+export function potentialStartLevel(potential: unknown): string | undefined {
+  if (!isPotentialGated(potential)) return undefined
+  const min = Math.min(...(potential as number[]).filter((id) => id >= POTENTIAL_ID_MIN))
+  const idx = min % 100
+  return idx < POTENTIAL_ROMAN.length ? POTENTIAL_ROMAN[idx] : undefined
+}
+
 /**
  * description 数组里技能以「成对」出现：简单描述块（含真实 desc 文本）与详细/倍率块
  * （同名，含 param 数据、desc 为 {Skill:…} 占位符）。此函数把二者按 name 合并为有序
  * SkillGroup[]：说明文字取自同名简单块，数值取自详细块；纯文本招式只保留说明。
+ * 潜能影像（potential）门控的招式会带上 potential/potentialType；
+ * 同名下同时存在「基础版 + 强化版」时：基础版保留在 desc，强化版存入 strongDesc，供基础/潜能切换。
  */
 function buildSkillGroups(
-  descriptions?: Array<{ name?: string; desc?: string; param?: unknown }>,
+  descriptions?: Array<{ name?: string; desc?: string; param?: unknown; potential?: unknown }>,
 ): SkillGroup[] | undefined {
   if (!descriptions) return undefined
   /** 简单描述块的 name→desc 映射（说明文字源） */
   const descBy = new Map<string, string>()
+  /** 出现过非门控（基础）描述的招式名：用于判定同名门控变体为「强化」而非「新增」 */
+  const baseNames = new Set<string>()
   for (const block of descriptions) {
     if (block.param == null && typeof block.name === 'string' && typeof block.desc === 'string') {
+      if (!isPotentialGated(block.potential)) baseNames.add(block.name)
       descBy.set(block.name, block.desc)
     }
+  }
+  /** 合并：创建/吸收组时记录门控信息 */
+  const markGated = (g: SkillGroup, potential?: unknown) => {
+    if (!isPotentialGated(potential) || g.potential) return
+    g.potential = [...((potential as number[]) ?? [])]
+    g.potentialType = baseNames.has(g.name) ? 'enhance' : 'new'
   }
   /** 按 name 合并、保持首次出现顺序 */
   const groups: SkillGroup[] = []
   const indexBy = new Map<string, number>()
   for (const block of descriptions) {
+    if (typeof block?.name !== 'string') continue
     if (Array.isArray(block.param) && block.param.length) {
       // 详细倍率块：追加数值条目
       const entries: SkillDetail[] = []
@@ -164,22 +203,61 @@ function buildSkillGroups(
       if (!entries.length) continue
       const gname = block?.name ?? ''
       let gi = indexBy.get(gname)
+      let folded = false
       if (gi == null) {
-        gi = groups.length
-        indexBy.set(gname, gi)
-        groups.push({ name: gname, desc: descBy.get(gname) })
+        // 带 potential 的「纯数值子块」（无同名描述、独立命名，如「涡流集束手雷基础倍率」）：
+        // 按机制名关联；仅当**唯一**命中某招式文本（组名/描述/强化描述）时，数值回落其参数列表；
+        // 否则（无命中或歧义）不做特殊处理，维持原样独立成行。
+        const bare = isPotentialGated(block.potential) && !descBy.has(gname)
+        if (bare) {
+          const term = gname.replace(/基础倍率$/, '').replace(/倍率$/, '')
+          const matched = term
+            ? groups
+                .map((g, i) => {
+                  const hay = [g.name, typeof g.desc === 'string' ? g.desc : '', g.strongDesc ?? ''].join('\n')
+                  return hay.includes(term) ? i : -1
+                })
+                .filter((i) => i >= 0)
+            : []
+          if (matched.length === 1) {
+            gi = matched[0]
+            folded = true
+          }
+        }
+        if (gi == null) {
+          gi = groups.length
+          indexBy.set(gname, gi)
+          groups.push({ name: gname, desc: descBy.get(gname) })
+        }
       }
-      const entryArr = groups[gi].entries ?? (groups[gi].entries = [])
-      entryArr.push(...entries)
-    } else if (block.param == null && typeof block?.name === 'string' && typeof block?.desc === 'string') {
+      const g = groups[gi]
+      // 说明：数值子块折叠进父招式后，父级会因 markGated 被标记为潜能门控——
+      // 该副作用为预期（涌现、数值子块从属于潜能手法，父招式理应与潜能关联）。
+      markGated(g, block.potential)
+      const entryArr = g.entries ?? (g.entries = [])
+      // 回落子块条目冠以子块名，避免与父招式同名指标混淆（如多个「伤害倍率」）
+      for (const en of folded ? entries.map((e) => ({ ...e, name: `${gname}·${e.name}` })) : entries) {
+        entryArr.push(en)
+      }
+    } else if (block.param == null && typeof block.desc === 'string') {
       // 简单描述块：保留说明文字（若已被数值组占用则补上 desc）
       const gname = block.name
       const gi = indexBy.get(gname)
-      if (gi != null) {
-        if (groups[gi].desc == null) groups[gi].desc = block.desc
-      } else {
+      if (gi == null) {
+        const g: SkillGroup = { name: gname, desc: block.desc }
+        markGated(g, block.potential)
         indexBy.set(gname, groups.length)
-        groups.push({ name: gname, desc: block.desc })
+        groups.push(g)
+      } else {
+        const g = groups[gi]
+        if (isPotentialGated(block.potential)) {
+          // 门控（强化版）：补上潜在标签；基础版保留在 desc，强化版存入 strongDesc，供基础/潜能切换
+          markGated(g, block.potential)
+          if (g.strongDesc == null) g.strongDesc = block.desc
+          if (g.desc == null) g.desc = block.desc
+        } else if (g.desc == null) {
+          g.desc = block.desc
+        }
       }
     }
   }
@@ -681,6 +759,8 @@ export interface CoreSkillLevel {
   level: number
   /** 是否为「强化」版（两轮结构的第 2 轮起） */
   enhanced: boolean
+  /** 强化版来源档位（潜能影像，如 'I'）；基础版为 undefined */
+  potentialTag?: string
   /** 核心被动名 */
   coreName: string
   /** 额外能力名 */
@@ -714,6 +794,7 @@ export function buildCoreSkill(
     .filter((v) => Array.isArray(v?.name) && Array.isArray(v?.desc))
     .map((v) => ({
       level: Number(v?.level) || 0,
+      potential: v?.potential,
       coreName: String((v.name as string[])[0] ?? '核心被动'),
       extraName: String((v.name as string[])[1] ?? '额外能力'),
       desc: [(v.desc as string[])[0] ?? '', (v.desc as string[])[1] ?? ''] as [string, string],
@@ -731,6 +812,7 @@ export function buildCoreSkill(
       no: i + 1,
       level: r.level,
       enhanced: hasEnhance && i >= levelCount,
+      potentialTag: potentialStartLevel(r.potential),
       coreName: r.coreName,
       extraName: r.extraName,
       desc: r.desc,
@@ -742,7 +824,7 @@ export function buildCoreSkill(
  * 核心技强化（extra_level）：核心技的独立强化条目。
  * 每档有解锁等级门槛（max_level: 15/25/35/45/55/60）与属性加成
  * （extra 字典：prop/name/format/value，value 为累计值）。
- * 与「潜能影画」（potential_detail，V2.5 激发潜能）是不同系统。
+ * 与「潜能影像」（potential_detail，V2.5 激发潜能）是不同系统。
  * ============================================================ */
 
 /** 核心技强化单条属性加成 */
@@ -812,13 +894,13 @@ export function buildCoreEnhance(
 }
 
 /* ============================================================
- * 潜能影画（potential_detail，V2.5「激发潜能」）：老角色加强系统。
+ * 潜能影像（potential_detail，V2.5「激发潜能」）：老角色加强系统。
  * 6 档（level_show_name 如「炽焰行歌 I」），档 I 为机制补强（无文字），
  * 档 II-VI 为数值补强（name 效果名 + desc 富文本）。
  * 与核心技强化（extra_level）是不同系统。
  * ============================================================ */
 
-/** 潜能影画单档 */
+/** 潜能影像单档 */
 export interface PotentialCinema {
   /** 档位号（I-VI，从 level_show_name 提取；无则用 id） */
   no: string
@@ -832,7 +914,7 @@ export interface PotentialCinema {
 
 const ROMAN_RE = /[IVXLCDM]+$/
 
-/** 从 potential_detail 字典构建潜能影画档位列表（按档序）；无数据时返回 [] */
+/** 从 potential_detail 字典构建潜能影像档位列表（按档序）；无数据时返回 [] */
 export function buildPotentialCinema(
   detail: Record<string, unknown> | undefined | null,
 ): PotentialCinema[] {
@@ -853,12 +935,51 @@ export function buildPotentialCinema(
     .filter((p) => p.label || p.name || p.desc)
 }
 
+/**
+ * 从技能门控信息反推档位概述：对 description 为空的潜能影像档位（如档 I，
+ * 源数据 name/desc 为空），用其门控招式生成一句话概述（新增 X…；强化 Y…）。
+ * 有原生描述（II-VI 档）的档位原样保留。
+ */
+export function synthesizePotentialCinema(
+  skills: readonly SkillRow[],
+  cinema: readonly PotentialCinema[],
+  core?: CoreSkill | null,
+): PotentialCinema[] {
+  if (!cinema.length) return [...cinema]
+  const added = new Map<string, string[]>()
+  const enhanced = new Map<string, string[]>()
+  for (const row of skills) {
+    for (const g of row.groups ?? []) {
+      const lv = potentialStartLevel(g.potential)
+      if (!lv) continue
+      const map = g.potentialType === 'new' ? added : enhanced
+      const list = map.get(lv) ?? []
+      list.push(g.name)
+      map.set(lv, list)
+    }
+  }
+  // 核心技的潜能「强化」版起档（如两轮结构第二轮自档 I），用于「核心被动/额外能力扩展」概述
+  const coreStart = core?.hasEnhance
+    ? core.levels[core.levelCount]?.potentialTag
+    : undefined
+  return cinema.map((p) => {
+    if (p.desc) return p
+    const parts: string[] = []
+    const a = added.get(p.no)
+    if (a?.length) parts.push(`新增：${a.join('、')}`)
+    const e = enhanced.get(p.no)
+    if (e?.length) parts.push(`强化：${e.join('、')}`)
+    if (coreStart === p.no) parts.push('扩展：核心被动、额外能力')
+    return parts.length ? { ...p, desc: parts.join('；') } : p
+  })
+}
+
 /* ============================================================
  * 角色基础属性随等级成长（DESIGN.md P2：纯函数、无 Vue 依赖、可单测）。
  * 模型（已用游戏内 Lv.1/10/20/30/40/50/60 锚点验证）：
  *   属性(L) = floor( 1 级基础 + 该段累计突破加成 + growth/10000 × (L-1) )
  *   突破段取自 level 字典（hakushin ascension）。
- *   注意：核心技强化（extra_level）/ 潜能影画（potential_detail）均为独立
+ *   注意：核心技强化（extra_level）/ 潜能影像（potential_detail）均为独立
  *   养成系统，不随等级自动并入基础面板。
  * ============================================================ */
 

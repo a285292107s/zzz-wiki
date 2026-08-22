@@ -6,6 +6,7 @@ import {
   SKILL_LEVEL_MAX,
   SKILL_LEVEL_MIN,
   buildSkillMetricTable,
+  potentialStartLevel,
   skillDetailValue,
   type SkillDetail,
   type SkillGroup,
@@ -27,9 +28,19 @@ const props = defineProps<{
 /** 每个技能槽独立的提升等级，默认最高级（= levelCount，如邦布 10/5 级） */
 const level = ref(props.levelCount ?? SKILL_LEVEL_DEFAULT)
 
-/** 招式说明文字：支持函数形式（随所选等级取文本，如邦布按级描述） */
+/** 展示版本：潜能（激发后，默认态）或基础（未激发）；大类无潜能技能时恒为潜能 */
+const variant = ref<'pot' | 'base'>('pot')
+
+/** 大类是否受潜能影像影响（存在任一门控/新增/双形态招式），决定是否显示切换 */
+const hasPot = computed(() =>
+  (props.row.groups ?? []).some((g) => (g.potential?.length ?? 0) > 0),
+)
+
+/** 招式说明文字：同名双形态按当前版本取（潜能取强化版，否则基础版）；支持函数形式（邦布按级描述） */
 function groupDesc(grp: SkillGroup, lv: number): string | undefined {
-  return typeof grp.desc === 'function' ? grp.desc(lv) : grp.desc
+  const raw =
+    variant.value === 'pot' && grp.strongDesc ? grp.strongDesc : grp.desc
+  return typeof raw === 'function' ? raw(lv) : raw
 }
 
 /** 补充行展示值：无 Skill 引用的静态文本（如「1点」充能计数）直接展示原文，其余按等级求值 */
@@ -38,16 +49,28 @@ function extraValue(en: SkillDetail): string {
   return skillDetailValue(en, level.value)
 }
 
-/** 展示组：转置表（transpose 开启且组内存在可转置条目时）或原纵向列表 */
+/** 展示组：潜能模式下含全部招式；基础模式下隐藏「新增」招式（激发潜能前不存在） */
 const displayGroups = computed(() =>
-  (props.row.groups ?? []).map((grp) => ({
-    grp,
-    table:
-      props.transpose && grp.entries?.length
-        ? buildSkillMetricTable(grp, level.value)
-        : null,
-  })),
+  (props.row.groups ?? [])
+    .filter((grp) => variant.value === 'pot' || grp.potentialType !== 'new')
+    .map((grp) => ({
+      grp,
+      table:
+        props.transpose && grp.entries?.length
+          ? buildSkillMetricTable(grp, level.value)
+          : null,
+    })),
 )
+
+/** 潜能影像门控标记：由招式档位 + 类型得到徽标文本（新增/强化）；
+ *  同名双形态（enhance）仅在潜能版显示；非门控返回 null */
+function potTag(grp: SkillGroup): string | null {
+  const lv = potentialStartLevel(grp.potential)
+  if (!lv) return null
+  if (grp.potentialType === 'enhance' && variant.value !== 'pot') return null
+  const kind = grp.potentialType === 'new' ? '新增' : '强化'
+  return `潜能${lv}·${kind}`
+}
 </script>
 
 <template>
@@ -61,6 +84,23 @@ const displayGroups = computed(() =>
         <em v-if="row.keyEn" class="mono">{{ row.keyEn }}</em>
       </span>
       <h3 class="skill-kind serif">{{ row.zh }}</h3>
+      <!-- 大类含受潜能影像影响的技能时显示版本切换（基础/激发潜能，随大类名称） -->
+      <span v-if="hasPot" class="variant-seg mono" role="group" :aria-label="`${row.zh}版本`">
+        <button
+          type="button"
+          class="seg"
+          :class="{ on: variant === 'base' }"
+          :aria-pressed="variant === 'base'"
+          @click="variant = 'base'"
+        >基础</button>
+        <button
+          type="button"
+          class="seg"
+          :class="{ on: variant === 'pot' }"
+          :aria-pressed="variant === 'pot'"
+          @click="variant = 'pot'"
+        >潜能</button>
+      </span>
       <!-- 等级滑块与技能名同条，靠右对齐；窄屏允许换行 -->
       <div v-if="row.hasNumbers" class="level-row">
         <LevelSlider
@@ -81,7 +121,14 @@ const displayGroups = computed(() =>
       >
         <span class="no mono">{{ String(gi + 1).padStart(2, '0') }}</span>
         <div class="body">
-          <h4 class="title title-skill">{{ grp.name }}</h4>
+          <h4 class="title title-skill">
+            {{ grp.name }}
+            <span
+              v-if="potTag(grp)"
+              class="pot-badge mono"
+              :class="{ 'is-new': grp.potentialType === 'new' }"
+            >{{ potTag(grp) }}</span>
+          </h4>
           <p v-if="grp.desc != null" class="desc" v-html="richDesc(groupDesc(grp, level) ?? '')"></p>
           <!-- 转置表：行=段次，列=指标（如 伤害倍率/失衡倍率），随所选等级取值；
                补充行（充能计数等）紧随表格，仅当可转置时出现，列表用 v-else 保证互斥 -->
@@ -201,6 +248,54 @@ const displayGroups = computed(() =>
   line-height: 1.4;
   margin-bottom: 6px;
   color: var(--ink-0);
+}
+/* 潜能影像门控徽标：细线小签，与档案标本语言一致（新增为琥珀、强化为弱墨） */
+.pot-badge {
+  display: inline-block;
+  margin-left: 8px;
+  font-style: normal;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  padding: 1px 5px;
+  border: 1px solid var(--line-2);
+  color: var(--ink-2);
+  vertical-align: 2px;
+}
+.pot-badge.is-new {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+/* 「基础/潜能」版本切换：细线分段控件，选中态琥珀（随大类名称右侧，间距由 flex gap 提供） */
+.variant-seg {
+  display: inline-flex;
+  border: 1px solid var(--line-2);
+  border-radius: 2px;
+  overflow: hidden;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  flex: none;
+}
+.variant-seg .seg {
+  padding: 5px 8px;
+  border: none;
+  background: transparent;
+  color: var(--ink-3);
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: inherit;
+}
+.variant-seg .seg + .seg {
+  border-left: 1px solid var(--line-2);
+}
+.variant-seg .seg.on {
+  color: var(--amber);
+  background: var(--bg-1);
+}
+.variant-seg .seg:focus-visible {
+  outline: 1px solid var(--amber);
+  outline-offset: -1px;
 }
 .desc {
   color: var(--ink-1);

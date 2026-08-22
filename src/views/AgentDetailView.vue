@@ -19,6 +19,7 @@ import {
   charBreakSegment,
   characterStatsAtLevel,
   dictToRows,
+  synthesizePotentialCinema,
   SKILL_KEYS,
   type CoreEnhanceLevel,
   type CoreSkill,
@@ -100,9 +101,14 @@ const coreEnhance = computed<CoreEnhanceLevel[]>(() =>
   buildCoreEnhance(detail.value?.extra_level),
 )
 
-/** 潜能影画档位（potential_detail 数据源，V2.5 激发潜能） */
+/** 潜能影像档位（potential_detail 数据源，V2.5 激发潜能）；
+ *  对 description 为空的档位（如档 I）用技能门控信息反推一句话概述 */
 const potentialCinema = computed<PotentialCinema[]>(() =>
-  buildPotentialCinema(detail.value?.potential_detail),
+  synthesizePotentialCinema(
+    skills.value,
+    buildPotentialCinema(detail.value?.potential_detail),
+    coreSkill.value,
+  ),
 )
 
 /* ---------- 绳网印象（partner_info 网络引语） ---------- */
@@ -153,12 +159,10 @@ const dossier = computed(() => {
 
 /* ---------- 区块导航（条件区块）+ scrollspy + reveal ---------- */
 
-/** 技能子导航：各键位招式 + 核心技，映射为技能区块内锚点（skill-<key>） */
-const skillChildren = computed<DetailSectionChild[]>(() => {
-  const list = skills.value.map((sk) => ({ id: `skill-${sk.key}`, label: sk.zh }))
-  if (coreSkill.value) list.push({ id: 'skill-core', label: '核心技' })
-  return list
-})
+/** 技能子导航：各键位招式，映射为技能区块内锚点（skill-<key>） */
+const skillChildren = computed<DetailSectionChild[]>(() =>
+  skills.value.map((sk) => ({ id: `skill-${sk.key}`, label: sk.zh })),
+)
 
 /** 区块导航：连续编号由添加序派生（与 DetailSection :no 同源，杜绝编号双份事实漂移） */
 const navItems = computed(() => {
@@ -169,9 +173,10 @@ const navItems = computed(() => {
   if (dossier.value.length) add('dossier', '档案详情')
   if (profile.value) add('profile', '角色介绍')
   add('stats', '基础属性')
-  if (skills.value.length) add('skills', '技能', skillChildren.value)
+  if (skills.value.length) add('skills', '技能招式', skillChildren.value)
+  if (coreSkill.value) add('core', '核心技')
   if (talents.value.length) add('talents', '影画')
-  if (potentialCinema.value.length) add('potential', '潜能影画')
+  if (potentialCinema.value.length) add('potential', '潜能影像')
   if (skinList.value.length > 1) add('skins', '皮肤')
   if (hasImpressions.value) add('impressions', '绳网印象')
   return items
@@ -227,7 +232,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
         <KeyValueGrid :items="stats" variant="ledger" />
       </DetailSection>
 
-      <DetailSection v-if="skills.length || coreSkill" v-reveal id="skills" :no="noOf('skills') ?? '03'" title="技能" en="Skills">
+      <DetailSection v-if="skills.length" v-reveal id="skills" :no="noOf('skills') ?? '03'" title="技能招式" en="Skills">
         <div class="skill-anchor" v-for="sk in skills" :key="sk.key" :id="`skill-${sk.key}`">
           <SkillGroup
             :row="sk"
@@ -236,13 +241,21 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
             transpose
           />
         </div>
-        <!-- 核心技（核心被动 + 额外能力）：passive 数据源，等级滑条切换 -->
-        <div v-if="coreSkill" class="skill-anchor" id="skill-core">
-          <CoreSkillGroup :row="coreSkill" :enhance="coreEnhance" />
-        </div>
       </DetailSection>
 
-        <DetailSection v-if="talents.length" v-reveal id="talents" :no="noOf('talents') ?? '04'" title="影画" en="Mindscape">
+      <!-- 核心技：passive 数据源，独立区块（含基础/潜能版本与核心技强化档） -->
+      <DetailSection
+        v-if="coreSkill"
+        v-reveal
+        id="core"
+        :no="noOf('core') ?? '04'"
+        title="核心技"
+        en="Core"
+      >
+        <CoreSkillGroup :row="coreSkill" :enhance="coreEnhance" :cinema="potentialCinema" />
+      </DetailSection>
+
+        <DetailSection v-if="talents.length" v-reveal id="talents" :no="noOf('talents') ?? '05'" title="影画" en="Mindscape">
           <ul class="talents-list">
             <DescRow
               v-for="t in talents"
@@ -259,8 +272,8 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
           v-if="potentialCinema.length"
           v-reveal
           id="potential"
-          :no="noOf('potential') ?? '05'"
-          title="潜能影画"
+          :no="noOf('potential') ?? '06'"
+          title="潜能影像"
           en="Potential"
         >
           <ul class="talents-list">
@@ -275,7 +288,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
           </ul>
         </DetailSection>
 
-        <DetailSection v-if="skinList.length > 1" v-reveal id="skins" :no="noOf('skins') ?? '06'" title="皮肤" en="Outfits">
+        <DetailSection v-if="skinList.length > 1" v-reveal id="skins" :no="noOf('skins') ?? '07'" title="皮肤" en="Outfits">
           <ul class="skin-list">
             <li v-for="(s, i) in skinList" :key="s.id" class="skin">
               <!-- figcaption 必须是 figure 的子元素（HTML 规范）；两栏栅格设在 figure 上 -->
@@ -301,7 +314,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
           v-if="hasImpressions"
           v-reveal
           id="impressions"
-          :no="noOf('impressions') ?? '07'"
+          :no="noOf('impressions') ?? '08'"
           title="绳网印象"
           en="Inter-Knot"
         >
