@@ -151,7 +151,7 @@ function onChange(e: Event) {
 }
 
 .mark b {
-  font-size: 9px;
+  font-size: var(--fs-badge);
   font-weight: 400;
   letter-spacing: 0.06em;
   color: var(--ink-3);

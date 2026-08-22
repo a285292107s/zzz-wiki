@@ -243,7 +243,7 @@ onUnmounted(() => {
   border-radius: 2px;
   background: none;
   color: var(--ink-1);
-  font-size: 13px;
+  font-size: var(--fs-small);
   letter-spacing: 0.06em;
   cursor: pointer;
   transition: all var(--t-fast) var(--ease);
@@ -318,7 +318,7 @@ onUnmounted(() => {
   border: none;
   background: none;
   color: var(--ink-1);
-  font-size: 13px;
+  font-size: var(--fs-small);
   text-align: left;
   cursor: pointer;
   transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease);

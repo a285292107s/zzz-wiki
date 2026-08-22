@@ -49,7 +49,7 @@ onMounted(() => {
   justify-content: space-between;
   gap: 16px;
   padding-block: 26px;
-  font-size: 12.5px;
+  font-size: var(--fs-caption);
   color: var(--ink-2);
 }
 
@@ -68,7 +68,7 @@ onMounted(() => {
 
 .sep {
   color: var(--line-2);
-  font-size: 11px;
+  font-size: var(--fs-micro);
 }
 
 .foot-info .meta,
@@ -80,13 +80,13 @@ onMounted(() => {
 .updated,
 .disclaimer,
 .meta {
-  font-size: 12px;
+  font-size: var(--fs-caption);
   letter-spacing: 0.04em;
   color: var(--ink-2);
 }
 
 .style-link {
-  font-size: 11px;
+  font-size: var(--fs-micro);
   letter-spacing: 0.18em;
   color: var(--ink-2) !important;
   border: 1px solid var(--line-1) !important;

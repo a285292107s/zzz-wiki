@@ -39,7 +39,7 @@ a.name-cell:hover .name {
 }
 
 a.name-cell .name {
-  font-size: 15px;
+  font-size: var(--fs-body);
   letter-spacing: 0.02em;
   transition: color var(--t-fast) var(--ease);
 }

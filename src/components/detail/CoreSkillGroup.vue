@@ -163,7 +163,7 @@ const currentBadge = computed<string>(() => {
   justify-content: center;
   width: 38px;
   height: 38px;
-  font-size: 17px;
+  font-size: var(--fs-subhead);
   color: var(--amber);
   border: 1px solid var(--line-1);
   border-radius: 2px;
@@ -172,14 +172,14 @@ const currentBadge = computed<string>(() => {
 
 .key-glyph em {
   font-style: normal;
-  font-size: 8px;
+  font-size: var(--fs-badge);
   letter-spacing: 0.14em;
   color: var(--ink-3);
 }
 
 .skill-kind {
   font-family: var(--serif);
-  font-size: 16.5px;
+  font-size: var(--fs-lead);
   font-weight: 500;
   color: var(--amber);
 }
@@ -198,7 +198,7 @@ const currentBadge = computed<string>(() => {
   display: flex;
   align-items: baseline;
   gap: 6px;
-  font-size: 12px;
+  font-size: var(--fs-caption);
   color: var(--amber);
   min-width: 3.4em;
   text-align: right;
@@ -221,7 +221,7 @@ const currentBadge = computed<string>(() => {
 
 .no {
   color: var(--ink-3);
-  font-size: 12px;
+  font-size: var(--fs-caption);
   padding-top: 2px;
 }
 
@@ -231,7 +231,7 @@ const currentBadge = computed<string>(() => {
 
 .title {
   font-weight: 500;
-  font-size: 15.5px;
+  font-size: var(--fs-lead);
   line-height: 1.4;
   margin-bottom: 6px;
   color: var(--ink-0);
@@ -239,7 +239,7 @@ const currentBadge = computed<string>(() => {
 
 .desc {
   color: var(--ink-1);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   line-height: 1.8;
   max-width: 76ch;
   white-space: pre-line;
@@ -259,7 +259,7 @@ const currentBadge = computed<string>(() => {
 }
 
 .enhance-title {
-  font-size: 11px;
+  font-size: var(--fs-micro);
   font-weight: 400;
   letter-spacing: 0.22em;
   color: var(--ink-2);
@@ -290,12 +290,12 @@ const currentBadge = computed<string>(() => {
 }
 
 .enhance-row .unlock {
-  font-size: 11px;
+  font-size: var(--fs-micro);
   color: var(--ink-3);
 }
 
 .enhance-row .bonus {
-  font-size: 12.5px;
+  font-size: var(--fs-caption);
   color: var(--ink-0);
 }
 

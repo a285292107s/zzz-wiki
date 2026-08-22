@@ -27,7 +27,7 @@ const tier = computed(() =>
   width: 24px;
   height: 24px;
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: var(--fs-caption);
   font-weight: 600;
   border-radius: 2px;
   line-height: 1;
@@ -35,20 +35,20 @@ const tier = computed(() =>
 }
 
 .t-s {
-  color: #f5d67b;
-  border: 1px solid color-mix(in srgb, #f5d67b 45%, transparent);
-  background: rgba(245, 214, 123, 0.08);
+  color: var(--rank-s);
+  border: 1px solid color-mix(in srgb, var(--rank-s) 45%, transparent);
+  background: color-mix(in srgb, var(--rank-s) 8%, transparent);
 }
 
 .t-a {
-  color: #b98ad4;
-  border: 1px solid color-mix(in srgb, #b98ad4 45%, transparent);
-  background: rgba(185, 138, 212, 0.08);
+  color: var(--rank-a);
+  border: 1px solid color-mix(in srgb, var(--rank-a) 45%, transparent);
+  background: color-mix(in srgb, var(--rank-a) 8%, transparent);
 }
 
 .t-b {
-  color: #7dae7a;
-  border: 1px solid color-mix(in srgb, #7dae7a 45%, transparent);
-  background: rgba(125, 174, 122, 0.08);
+  color: var(--rank-b);
+  border: 1px solid color-mix(in srgb, var(--rank-b) 45%, transparent);
+  background: color-mix(in srgb, var(--rank-b) 8%, transparent);
 }
 </style>

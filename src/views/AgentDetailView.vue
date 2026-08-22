@@ -358,13 +358,13 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
 }
 
 .d-item dt {
-  font-size: 10px;
+  font-size: var(--fs-nano);
   letter-spacing: 0.2em;
   color: var(--ink-2);
 }
 
 .d-item dd {
-  font-size: 14px;
+  font-size: var(--fs-md);
   letter-spacing: 0.03em;
   color: var(--ink-0);
 }
@@ -378,7 +378,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
 .profile-desc {
   font-family: var(--serif);
   color: var(--ink-0);
-  font-size: 15px;
+  font-size: var(--fs-body);
   line-height: 2;
   letter-spacing: 0.012em;
   column-count: 2;
@@ -418,7 +418,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
     column-count: 1;
     column-gap: 0;
     column-rule: none;
-    font-size: 14.5px;
+    font-size: var(--fs-md);
     line-height: 2;
   }
   .profile-desc::first-letter {
@@ -465,14 +465,14 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
 
 .skin-index {
   display: block;
-  font-size: 11px;
+  font-size: var(--fs-micro);
   letter-spacing: 0.14em;
   color: var(--ink-3);
   margin-bottom: 7px;
 }
 
 .skin-name {
-  font-size: 16.5px;
+  font-size: var(--fs-lead);
   font-weight: 500;
   color: var(--ink-0);
   line-height: 1.4;
@@ -480,7 +480,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
 }
 
 .skin-desc {
-  font-size: 12.5px;
+  font-size: var(--fs-caption);
   color: var(--ink-2);
   line-height: 1.75;
   max-width: 72ch;
@@ -512,13 +512,13 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
 
 .im-row .no {
   color: var(--ink-3);
-  font-size: 12px;
+  font-size: var(--fs-caption);
   padding-top: 3px;
 }
 
 .im-text {
   color: var(--ink-1);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   line-height: 1.85;
   max-width: 76ch;
   white-space: pre-line;
@@ -537,14 +537,14 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
 }
 
 .voice blockquote {
-  font-size: 15px;
+  font-size: var(--fs-body);
   color: var(--ink-0);
   line-height: 1.9;
 }
 
 .voice figcaption {
   margin-top: 10px;
-  font-size: 10px;
+  font-size: var(--fs-nano);
   letter-spacing: 0.2em;
   color: var(--amber);
 }

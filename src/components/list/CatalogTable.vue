@@ -83,7 +83,7 @@ function onHeadClick(c: CatalogColumn) {
 <style scoped>
 .idx {
   color: var(--ink-3);
-  font-size: 12px;
+  font-size: var(--fs-caption);
 }
 .r {
   text-align: right;
@@ -109,11 +109,11 @@ function onHeadClick(c: CatalogColumn) {
   color: var(--amber-hi);
 }
 .sort-btn:focus-visible {
-  outline: 1px solid var(--amber);
+  outline: 1px solid var(--focus);
   outline-offset: 2px;
 }
 .sort-arrow {
-  font-size: 10px;
+  font-size: var(--fs-nano);
 }
 th.sortable {
   white-space: nowrap;

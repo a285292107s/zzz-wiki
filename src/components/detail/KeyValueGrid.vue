@@ -55,7 +55,7 @@ withDefaults(
 }
 
 .tag-lbl {
-  font-size: 11px;
+  font-size: var(--fs-micro);
   letter-spacing: 0.14em;
   color: var(--ink-3);
 }
@@ -87,13 +87,13 @@ withDefaults(
 /* ---------- shared ---------- */
 
 .k {
-  font-size: 12px;
+  font-size: var(--fs-caption);
   color: var(--ink-2);
   letter-spacing: 0.1em;
 }
 
 .v {
-  font-size: 18px;
+  font-size: var(--fs-subhead);
   color: var(--ink-0);
 }
 
@@ -103,6 +103,6 @@ withDefaults(
 
 .v-ledger .v {
   flex: none;
-  font-size: 15px;
+  font-size: var(--fs-body);
 }
 </style>

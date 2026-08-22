@@ -72,14 +72,14 @@ const backTo = computed(() => (detail.value ? undefined : '/disks'))
 <style scoped>
 .story {
   color: var(--ink-1);
-  font-size: 14px;
+  font-size: var(--fs-md);
   line-height: 1.8;
   max-width: 60ch;
 }
 
 .effect {
   color: var(--ink-1);
-  font-size: 14px;
+  font-size: var(--fs-md);
   line-height: 1.9;
   max-width: 76ch;
 }

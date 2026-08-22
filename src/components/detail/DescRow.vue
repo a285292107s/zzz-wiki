@@ -39,7 +39,7 @@ const titleClass = computed(() => 'title title-' + (props.variant ?? 'default'))
 }
 .no {
   color: var(--ink-3);
-  font-size: 12px;
+  font-size: var(--fs-caption);
   padding-top: 2px;
 }
 .body {
@@ -51,18 +51,18 @@ const titleClass = computed(() => 'title title-' + (props.variant ?? 'default'))
   margin-bottom: 6px;
   color: var(--ink-0);
 }
-/* 与旧页面像素一致：skill 名 15.5px sans；影画/精炼 16px serif */
+/* 统一走 --fs-lead（16px）：skill 名 sans；影画/精炼 serif */
 .title-skill {
-  font-size: 15.5px;
+  font-size: var(--fs-lead);
 }
 .title-talent,
 .title-default {
   font-family: var(--serif);
-  font-size: 16px;
+  font-size: var(--fs-lead);
 }
 .desc {
   color: var(--ink-1);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   line-height: 1.8;
   max-width: 76ch;
   white-space: pre-line;

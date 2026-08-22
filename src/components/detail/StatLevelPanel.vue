@@ -39,7 +39,7 @@ defineProps<{
 
 .stat-level-lv {
   flex: none;
-  font-size: 22px;
+  font-size: var(--fs-title);
   color: var(--amber);
   letter-spacing: 0.04em;
   min-width: 3.2em;
@@ -49,7 +49,7 @@ defineProps<{
   display: flex;
   gap: 14px;
   margin-top: 8px;
-  font-size: 10.5px;
+  font-size: var(--fs-nano);
   letter-spacing: 0.14em;
   color: var(--ink-2);
 }

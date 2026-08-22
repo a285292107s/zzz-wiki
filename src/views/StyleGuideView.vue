@@ -58,10 +58,33 @@ const accents = readTokens([
   ['--ok', '通过'],
 ])
 
+const semantic = readTokens([
+  ['--focus', '焦点环'],
+  ['--rank-s', '稀有度 S 金'],
+  ['--rank-a', '稀有度 A 紫'],
+  ['--rank-b', '稀有度 B 绿'],
+])
+
 const typeTokens = readTokens([
   ['--serif', '衬线（标题族）'],
   ['--sans', '无衬线（正文族）'],
   ['--mono', '等宽（数据族）'],
+])
+
+/* 字号排版阶梯：全站唯一字号来源（组件不写裸 px） */
+const typeScale = readTokens([
+  ['--fs-badge', '徽标 / 键位角标'],
+  ['--fs-nano', '微注释 / 编号'],
+  ['--fs-micro', 'eyebrow / 表头 / 导航'],
+  ['--fs-caption', '标签 / 元数据 / 表格行'],
+  ['--fs-small', '辅助正文 / 筛选'],
+  ['--fs-md', '次级正文 / 数值'],
+  ['--fs-body', '正文基准'],
+  ['--fs-lead', '强调值 / 行内标题'],
+  ['--fs-subhead', '小节标题 / 卡片名'],
+  ['--fs-title', '区块标题'],
+  ['--fs-hero', '大数字'],
+  ['--fs-display', '页面标题'],
 ])
 
 const rhythm = readTokens([
@@ -120,10 +143,15 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
           <span class="meta mono"><b>{{ c.name }}</b> · {{ c.desc }}</span>
           <span class="val mono">{{ c.value }}</span>
         </div>
+        <div v-for="c in semantic" :key="c.name" class="swatch">
+          <span class="chip-color" :style="{ background: c.value }" />
+          <span class="meta mono"><b>{{ c.name }}</b> · {{ c.desc }}</span>
+          <span class="val mono">{{ c.value }}</span>
+        </div>
       </div>
     </DetailSection>
 
-    <DetailSection no="02" title="字体与节奏">
+    <DetailSection no="02" title="字体与排版阶梯">
       <div class="type-block">
         <div v-for="t in typeTokens" :key="t.name" class="type-row">
           <span class="type-name mono">{{ t.name }}</span>
@@ -131,6 +159,20 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
             绳网档案 Ropeweb Archive 0123456789
           </span>
           <span class="val mono">{{ t.value }}</span>
+        </div>
+      </div>
+      <p class="scale-note">
+        字号一律取自 <code>--fs-*</code> 排版阶梯，组件禁止写裸 px；相邻档位语义不可混用。
+      </p>
+      <div class="type-scale">
+        <div v-for="s in typeScale" :key="s.name" class="scale-row">
+          <span class="scale-name mono">{{ s.name }}</span>
+          <span
+            class="scale-preview"
+            :style="{ fontSize: s.value, lineHeight: 1.4 }"
+          >绳网档案 0123456789</span>
+          <span class="val mono">{{ s.value }}</span>
+          <span class="scale-desc">{{ s.desc }}</span>
         </div>
       </div>
       <ul class="rhythm">
@@ -190,6 +232,7 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
         <li>组合函数：<code>useXxx</code>（异步状态机 / 列表筛选 / 路由参数 / 页面元信息）。</li>
         <li>领域：<code>domain/</code> 只放枚举、schema、类目元信息（无 Vue 依赖）。</li>
         <li>视觉：1px 细线、2px 圆角、等宽数据、纸墨配色；禁止渐变霓虹与圆角卡片堆叠。</li>
+        <li>字号：一律取 <code>--fs-*</code> 排版阶梯；配色一律取 <code>--bg-* / --ink-* / --amber*</code> 语义 token。</li>
       </ul>
     </DetailSection>
   </ListPage>
@@ -220,7 +263,7 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
 
 .meta,
 .val {
-  font-size: 11.5px;
+  font-size: var(--fs-micro);
 }
 
 .meta b {
@@ -246,12 +289,63 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
 
 .type-name {
   color: var(--ink-2);
-  font-size: 12px;
+  font-size: var(--fs-caption);
 }
 
 .type-preview {
-  font-size: 15px;
+  font-size: var(--fs-body);
   color: var(--ink-0);
+}
+
+/* 排版阶梯陈列：token 名 / 真实字号预览 / 值 / 用途 */
+.scale-note {
+  margin-top: 18px;
+  font-size: var(--fs-small);
+  color: var(--ink-2);
+  line-height: 1.7;
+}
+
+.scale-note code {
+  font-family: var(--mono);
+  font-size: var(--fs-caption);
+  color: var(--amber);
+}
+
+.type-scale {
+  margin-top: 14px;
+  border: var(--rule);
+}
+
+.scale-row {
+  display: grid;
+  grid-template-columns: 96px 1fr auto 130px;
+  gap: 16px;
+  align-items: baseline;
+  padding: 10px 16px;
+  border-bottom: var(--rule);
+}
+
+.scale-row:last-child {
+  border-bottom: none;
+}
+
+.scale-name {
+  color: var(--ink-2);
+  font-size: var(--fs-caption);
+}
+
+.scale-preview {
+  font-family: var(--sans);
+  color: var(--ink-0);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.scale-desc {
+  font-size: var(--fs-caption);
+  color: var(--ink-3);
+  text-align: right;
 }
 
 .rhythm {
@@ -260,7 +354,7 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
   display: flex;
   flex-direction: column;
   gap: 6px;
-  font-size: 12.5px;
+  font-size: var(--fs-caption);
   color: var(--ink-2);
 }
 
@@ -277,7 +371,7 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
 
 .name-link {
   color: var(--amber-hi);
-  font-size: 15px;
+  font-size: var(--fs-body);
 }
 
 .inline-row {
@@ -298,14 +392,14 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   color: var(--ink-1);
   line-height: 1.7;
 }
 
 .norms code {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: var(--fs-caption);
   color: var(--amber);
 }
 </style>

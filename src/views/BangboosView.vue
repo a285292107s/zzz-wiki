@@ -98,7 +98,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
 
 .code {
   color: var(--ink-2);
-  font-size: 12px;
+  font-size: var(--fs-caption);
   letter-spacing: 0.08em;
 }
 </style>

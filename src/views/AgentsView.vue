@@ -145,7 +145,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
 /* 由 CatalogTable 列 cls 应用（子组件作用域，用 :deep 穿透） */
 :deep(.camp) {
   color: var(--ink-2);
-  font-size: 12px;
+  font-size: var(--fs-caption);
   letter-spacing: 0.12em;
 }
 </style>

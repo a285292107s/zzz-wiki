@@ -176,7 +176,7 @@ const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
 
 <style scoped>
 .codename {
-  font-size: 12px;
+  font-size: var(--fs-caption);
   letter-spacing: 0.14em;
   color: var(--ink-2);
   margin-bottom: 6px;
@@ -184,7 +184,7 @@ const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
 
 .tagline {
   color: var(--ink-1);
-  font-size: 14px;
+  font-size: var(--fs-md);
   line-height: 1.8;
   max-width: 56ch;
 }
@@ -199,7 +199,7 @@ const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
   box-sizing: border-box;
   border: 1px solid var(--line-1);
   border-radius: 2px;
-  font-size: 16px;
+  font-size: var(--fs-lead);
   font-style: normal;
   color: var(--amber);
 }

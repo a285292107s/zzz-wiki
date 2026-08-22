@@ -37,7 +37,7 @@ defineProps<{ formula: GuideFormula }>()
 
 .eq-label {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--fs-micro);
   letter-spacing: 0.18em;
   color: var(--amber);
 }
@@ -48,7 +48,7 @@ defineProps<{ formula: GuideFormula }>()
   align-items: baseline;
   gap: 0 12px;
   font-family: var(--mono);
-  font-size: 15px;
+  font-size: var(--fs-body);
   letter-spacing: 0.01em;
   color: var(--ink-0);
   line-height: 1.7;
@@ -61,7 +61,7 @@ defineProps<{ formula: GuideFormula }>()
 
 .eq-note {
   max-width: 68ch;
-  font-size: 13px;
+  font-size: var(--fs-small);
   color: var(--ink-2);
   line-height: 1.7;
 }

@@ -128,7 +128,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
+  font-size: var(--fs-caption);
   letter-spacing: 0.14em;
   color: var(--ink-2);
   border: 1px solid var(--line-1);
@@ -151,7 +151,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
 }
 
 .sort-arrow {
-  font-size: 10px;
+  font-size: var(--fs-nano);
 }
 
 /* ---------- card grid ---------- */
@@ -195,7 +195,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
 
 .name {
   font-family: var(--serif);
-  font-size: 17px;
+  font-size: var(--fs-subhead);
   font-weight: 500;
   letter-spacing: 0.02em;
   transition: color var(--t-fast) var(--ease);
@@ -218,14 +218,14 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
 }
 
 .set-lbl {
-  font-size: 10px;
+  font-size: var(--fs-nano);
   letter-spacing: 0.2em;
   color: var(--ink-3);
 }
 
 .set-txt {
   margin-top: 6px;
-  font-size: 12.5px;
+  font-size: var(--fs-caption);
   line-height: 1.7;
   color: var(--ink-1);
   max-width: 46ch;

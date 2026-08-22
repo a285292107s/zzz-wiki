@@ -50,7 +50,7 @@ const isNotFound = computed(
 
 <style scoped>
 .state {
-  font-size: 12.5px;
+  font-size: var(--fs-caption);
   letter-spacing: 0.2em;
   padding: 40px 0;
 }

@@ -32,6 +32,12 @@
   --danger: #c2554b;
   --ok: #7ba05b;
 
+  /* semantic roles */
+  --focus: var(--amber);       /* :focus-visible 焦点环 */
+  --rank-s: #f5d67b;           /* 稀有度 S — 金 */
+  --rank-a: #b98ad4;           /* 稀有度 A — 紫 */
+  --rank-b: #7dae7a;           /* 稀有度 B — 绿 */
+
   /* type */
   --serif: "Iowan Old Style", "Source Serif 4", "Noto Serif SC",
     "Songti SC", "STSong", "SimSun", Georgia, serif;
@@ -39,6 +45,20 @@
     "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
   --mono: "JetBrains Mono", "SFMono-Regular", "Cascadia Code",
     Consolas, "Roboto Mono", monospace;
+
+  /* 字号排版阶梯（type scale）——全站唯一字号来源，组件不再写裸 px */
+  --fs-badge: 9px;                     /* 徽标：潜能徽标 / 键位角标 */
+  --fs-nano: 10px;                     /* 微注释：键位小字 / 编号 / set 标签 */
+  --fs-micro: 11px;                    /* eyebrow / 表头 / 侧栏导航 / 键位标签 */
+  --fs-caption: 12px;                  /* tag / 元数据 / 表格行 / footer */
+  --fs-small: 13px;                    /* 辅助正文 / 筛选选项 / 弱化说明 */
+  --fs-md: 14px;                       /* 次级正文 / 数值 / 列表描述 */
+  --fs-body: 15px;                     /* 正文基准（body 默认） */
+  --fs-lead: 16px;                     /* 强调值 / 技能·核心技名 / 行内标题 */
+  --fs-subhead: 18px;                  /* 小节标题 / 大数值 / 卡片名 */
+  --fs-title: 22px;                    /* 区块标题（section-head） */
+  --fs-hero: 24px;                     /* 大数字 / 首页人名 */
+  --fs-display: clamp(30px, 5vw, 52px);/* 页面标题 */
 
   /* rhythm */
   --pad-page: clamp(20px, 4vw, 56px);

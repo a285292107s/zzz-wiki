@@ -373,7 +373,7 @@ onBeforeUnmount(() => {
 .tip-title {
   margin: 0;
   font-family: var(--serif);
-  font-size: 15px;
+  font-size: var(--fs-body);
   font-weight: 600;
   color: var(--amber-hi);
   line-height: 1.45;
@@ -389,7 +389,7 @@ onBeforeUnmount(() => {
 .tip-eyebrow {
   margin: 0;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--fs-micro);
   letter-spacing: 0.14em;
   color: var(--ink-0);
   opacity: 0.72;
@@ -398,7 +398,7 @@ onBeforeUnmount(() => {
   margin: 0;
   /* 正文用灰调 ink-1；可点名词用暖纸白 ink-0，两色明度差明显，互不混淆 */
   color: var(--ink-1);
-  font-size: 13px;
+  font-size: var(--fs-small);
   line-height: 1.8;
   max-height: 60vh;
   overflow: auto;

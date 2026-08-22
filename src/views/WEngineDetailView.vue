@@ -178,7 +178,7 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
 /* 头部主题句（desc3）：诗意的引句感 */
 .tagline {
   margin-top: 0;
-  font-size: 15px;
+  font-size: var(--fs-body);
   line-height: 1.7;
   letter-spacing: 0.04em;
   font-style: italic;
@@ -188,14 +188,14 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
 /* 头部功能提示（desc2）：适用职业说明的小字 */
 .sub-info {
   margin-top: 8px;
-  font-size: 12px;
+  font-size: var(--fs-caption);
   letter-spacing: 0.08em;
   color: var(--ink-2);
 }
 
 .story {
   color: var(--ink-1);
-  font-size: 14px;
+  font-size: var(--fs-md);
   line-height: 1.9;
   max-width: 72ch;
   white-space: pre-line;
@@ -206,7 +206,7 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
 }
 
 .empty {
-  font-size: 12.5px;
+  font-size: var(--fs-caption);
   letter-spacing: 0.2em;
   color: var(--ink-2);
 }

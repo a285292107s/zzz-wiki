@@ -80,7 +80,7 @@ defineProps<{
 }
 
 .back {
-  font-size: 12.5px;
+  font-size: var(--fs-caption);
   color: var(--ink-2);
   letter-spacing: 0.12em;
   transition: color var(--t-fast) var(--ease);

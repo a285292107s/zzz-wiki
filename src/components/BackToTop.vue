@@ -46,7 +46,7 @@ onUnmounted(() => {
   align-items: center;
   gap: 6px;
   padding: 8px 12px;
-  font-size: 11px;
+  font-size: var(--fs-micro);
   letter-spacing: 0.18em;
   color: var(--ink-2);
   background: color-mix(in srgb, var(--bg-1) 90%, transparent);
@@ -73,7 +73,7 @@ onUnmounted(() => {
 }
 
 .back-top .arrow {
-  font-size: 14px;
+  font-size: var(--fs-md);
   line-height: 1;
 }
 

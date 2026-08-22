@@ -36,14 +36,14 @@ defineProps<{
 }
 .no {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: var(--fs-caption);
   color: var(--amber);
   letter-spacing: 0.08em;
 }
 h2 {
   font-family: var(--serif);
   font-weight: 500;
-  font-size: 22px;
+  font-size: var(--fs-title);
   letter-spacing: 0.02em;
 }
 .rule {
@@ -53,7 +53,7 @@ h2 {
 }
 .en {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--fs-micro);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--ink-3);

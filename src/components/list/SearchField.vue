@@ -37,21 +37,21 @@ const emit = defineEmits<{ (e: 'update:modelValue', v: string): void }>()
 }
 .q-mark {
   color: var(--ink-2);
-  font-size: 15px;
+  font-size: var(--fs-body);
 }
 .search input {
   background: none;
   border: none;
   outline: none;
   width: 100%;
-  font-size: 14px;
+  font-size: var(--fs-md);
   color: var(--ink-0);
 }
 .search input::placeholder {
   color: var(--ink-3);
 }
 .count {
-  font-size: 12px;
+  font-size: var(--fs-caption);
   color: var(--ink-2);
 }
 </style>

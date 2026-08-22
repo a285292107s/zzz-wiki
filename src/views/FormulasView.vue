@@ -124,13 +124,13 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: baseline;
   gap: 12px;
-  font-size: 13px;
+  font-size: var(--fs-small);
   color: var(--ink-1);
   line-height: 1.6;
 }
 
 .notice-tag {
-  font-size: 10px;
+  font-size: var(--fs-nano);
   letter-spacing: 0.22em;
   color: var(--ink-3);
   flex: none;
@@ -153,7 +153,7 @@ onBeforeUnmount(() => {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  font-size: 12.5px;
+  font-size: var(--fs-caption);
   color: var(--ink-2);
   line-height: 1.65;
 }
@@ -166,7 +166,7 @@ onBeforeUnmount(() => {
 
 .part-lead {
   color: var(--ink-1);
-  font-size: 15px;
+  font-size: var(--fs-body);
   max-width: 66ch;
   line-height: 1.85;
   margin-bottom: 30px;
@@ -190,7 +190,7 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 11px;
+  font-size: var(--fs-micro);
   font-weight: 400;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -207,7 +207,7 @@ onBeforeUnmount(() => {
 }
 
 .group-note {
-  font-size: 14.5px;
+  font-size: var(--fs-md);
   color: var(--ink-1);
   line-height: 1.85;
   margin: -6px 0 20px;
@@ -229,7 +229,7 @@ onBeforeUnmount(() => {
 
 .it-no {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--fs-micro);
   letter-spacing: 0.1em;
   color: var(--ink-3);
   padding-top: 4px;
@@ -238,14 +238,14 @@ onBeforeUnmount(() => {
 .it-title {
   font-family: var(--serif);
   font-weight: 500;
-  font-size: 18px;
+  font-size: var(--fs-subhead);
   letter-spacing: 0.01em;
   color: var(--ink-0);
 }
 
 .it-desc {
   margin-top: 9px;
-  font-size: 14.5px;
+  font-size: var(--fs-md);
   color: var(--ink-1);
   line-height: 1.85;
   max-width: 68ch;

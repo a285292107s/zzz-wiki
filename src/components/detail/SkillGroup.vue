@@ -206,13 +206,13 @@ function potTag(grp: SkillGroup): string | null {
 }
 .key-glyph em {
   font-style: normal;
-  font-size: 8px;
+  font-size: var(--fs-badge);
   letter-spacing: 0.14em;
   color: var(--ink-3);
 }
 .skill-kind {
   font-family: var(--serif);
-  font-size: 16.5px;
+  font-size: var(--fs-lead);
   font-weight: 500;
   color: var(--amber);
 }
@@ -231,7 +231,7 @@ function potTag(grp: SkillGroup): string | null {
 }
 .no {
   color: var(--ink-3);
-  font-size: 12px;
+  font-size: var(--fs-caption);
   padding-top: 2px;
 }
 .body {
@@ -239,14 +239,14 @@ function potTag(grp: SkillGroup): string | null {
 }
 .title {
   font-weight: 500;
-  font-size: 15.5px;
+  font-size: var(--fs-lead);
   line-height: 1.4;
   margin-bottom: 6px;
   color: var(--ink-0);
 }
 .desc {
   color: var(--ink-1);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   line-height: 1.8;
   max-width: 76ch;
   white-space: pre-line;
@@ -279,7 +279,7 @@ function potTag(grp: SkillGroup): string | null {
   gap: 16px;
   padding: 6px 0;
   color: var(--ink-1);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   border-top: 1px dashed var(--line-0);
 }
 .stat-item:first-child {
@@ -292,7 +292,7 @@ function potTag(grp: SkillGroup): string | null {
 .stat-val {
   flex: none;
   color: var(--amber);
-  font-size: 13px;
+  font-size: var(--fs-small);
 }
 
 /* ---------- 段×指标转置表（无边框：纯间距分层，无任何表格线） ---------- */
@@ -306,7 +306,7 @@ function potTag(grp: SkillGroup): string | null {
 .metric-table :is(th, td) {
   padding: 10px 14px;
   text-align: right;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 /* 轴列（段次）：width:1% 收缩至内容宽；指标列自动均分剩余空间 */
 .metric-table :is(th, td):first-child {
@@ -319,7 +319,7 @@ function potTag(grp: SkillGroup): string | null {
 /* 列头：无下缘线，靠字距/弱色/下方留白与数据行分层 */
 .metric-table thead th {
   font-weight: 500;
-  font-size: 11px;
+  font-size: var(--fs-micro);
   letter-spacing: 0.1em;
   color: var(--ink-3);
   padding-top: 0;
@@ -346,7 +346,7 @@ function potTag(grp: SkillGroup): string | null {
   align-items: baseline;
   padding: 6px 0;
   color: var(--ink-1);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 .extra-name {
   min-width: 0;
@@ -384,7 +384,7 @@ function potTag(grp: SkillGroup): string | null {
 }
 /* 滑条本体样式见 LevelSlider.vue（发丝线轨道 + 方形钮），两处共用 */
 .level-val {
-  font-size: 12px;
+  font-size: var(--fs-caption);
   color: var(--amber);
   min-width: 3.4em;
   text-align: right;

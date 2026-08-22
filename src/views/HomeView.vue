@@ -156,7 +156,7 @@ const sections = [
   display: flex;
   align-items: center;
   gap: 14px;
-  font-size: 12px;
+  font-size: var(--fs-caption);
   letter-spacing: 0.1em;
   color: var(--ink-2);
 }
@@ -210,12 +210,12 @@ const sections = [
   border: 1px solid var(--line-0);
   border-radius: 2px;
   color: var(--amber);
-  font-size: 20px;
+  font-size: var(--fs-subhead);
   line-height: 1;
 }
 
 .idx {
-  font-size: 15px;
+  font-size: var(--fs-body);
   color: var(--ink-3);
 }
 
@@ -227,25 +227,25 @@ const sections = [
 
 .name .zh {
   font-family: var(--serif);
-  font-size: 24px;
+  font-size: var(--fs-hero);
   line-height: 1.1;
 }
 
 .name .en {
-  font-size: 10px;
+  font-size: var(--fs-nano);
   letter-spacing: 0.24em;
   color: var(--ink-2);
 }
 
 .desc {
   color: var(--ink-1);
-  font-size: 14px;
+  font-size: var(--fs-md);
   max-width: 52ch;
 }
 
 .go {
   color: var(--ink-3);
-  font-size: 18px;
+  font-size: var(--fs-subhead);
   transition: color var(--t-fast) var(--ease),
     transform var(--t-fast) var(--ease);
 }

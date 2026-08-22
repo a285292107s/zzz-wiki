@@ -74,20 +74,20 @@ onErrorCaptured((err, _instance, info) => {
 }
 
 .eb-eyebrow {
-  font-size: 10px;
+  font-size: var(--fs-nano);
   letter-spacing: 0.26em;
   color: var(--amber);
 }
 
 .eb-title {
-  font-size: 22px;
+  font-size: var(--fs-title);
   font-weight: 500;
   color: var(--ink-0);
   line-height: 1.35;
 }
 
 .eb-desc {
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   line-height: 1.75;
   color: var(--ink-2);
 }
@@ -103,7 +103,7 @@ onErrorCaptured((err, _instance, info) => {
   align-items: center;
   gap: 5px;
   padding: 8px 16px;
-  font-size: 12px;
+  font-size: var(--fs-caption);
   letter-spacing: 0.14em;
   color: var(--ink-0);
   background: var(--amber);
@@ -134,7 +134,7 @@ onErrorCaptured((err, _instance, info) => {
 }
 
 .eb-detail-sum {
-  font-size: 11px;
+  font-size: var(--fs-micro);
   letter-spacing: 0.1em;
   color: var(--ink-3);
   cursor: pointer;
@@ -146,7 +146,7 @@ onErrorCaptured((err, _instance, info) => {
   background: var(--bg-2);
   border: 1px solid var(--line-0);
   border-radius: 2px;
-  font-size: 11.5px;
+  font-size: var(--fs-micro);
   line-height: 1.6;
   color: var(--ink-2);
   overflow-x: auto;
