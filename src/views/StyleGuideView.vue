@@ -201,7 +201,7 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
       <DescRow
         no="01"
         title="普通攻击"
-        :html="'<span class=\'rich-key\'>本地 SVG 键位</span> 三连击'"
+        :html="'<svg class=\'rich-key\' viewBox=\'0 0 24 24\' aria-hidden=\'true\'><rect x=\'1.5\' y=\'1.5\' width=\'21\' height=\'21\' rx=\'1\' fill=\'none\' stroke=\'currentColor\'/><path d=\'M8 8h8v3l-2 2v3h-4v-3l-2-2z\' fill=\'currentColor\'/></svg> 三连击'"
         variant="skill"
       />
       <DescRow no="02" title="影画一" text="纯文本描述示例" variant="talent" />
