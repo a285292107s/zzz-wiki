@@ -4,11 +4,12 @@
  * 技能槽位常量与字典→行转换。无 Vue 依赖，可单测。
  * ============================================================ */
 
-/** 序号行（影画/精炼/技能描述共用） */
+/** 序号行（影画/精炼/技能描述共用）；desc2 为影画附带的剧情札记（lore）文本 */
 export interface DetailRow {
   no: number
   name?: string
   desc?: string
+  desc2?: string
 }
 
 /** 技能详细倍率的单个数值条目（param.skillId 下的主值/成长/格式） */
@@ -94,8 +95,8 @@ export function dictToRows(
   return Object.entries(dict)
     .sort((a, b) => Number(a[0]) - Number(b[0]))
     .map(([k, v]) => {
-      const o = (v ?? {}) as { name?: string; desc?: string }
-      return { no: Number(k), name: o.name, desc: o.desc }
+      const o = (v ?? {}) as { name?: string; desc?: string; desc2?: string }
+      return { no: Number(k), name: o.name, desc: o.desc, desc2: o.desc2 }
     })
 }
 

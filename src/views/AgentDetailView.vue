@@ -269,81 +269,82 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
       </DetailSection>
 
       <DetailSection v-if="talents.length" v-reveal id="talents" :no="noOf('talents') ?? '05'" title="影画" en="Mindscape">
-          <ul class="talents-list">
-            <DescRow
-              v-for="t in talents"
-              :key="t.no"
-              :no="String(t.no).padStart(2, '0')"
-              :title="t.name ?? '未命名'"
-              :text="stripRichText(t.desc)"
-              variant="talent"
-            />
-          </ul>
-        </DetailSection>
+        <ul class="talents-list">
+          <DescRow
+            v-for="t in talents"
+            :key="t.no"
+            :no="String(t.no).padStart(2, '0')"
+            :title="t.name ?? '未命名'"
+            :text="stripRichText(t.desc)"
+            :text2="stripRichText(t.desc2)"
+            variant="talent"
+          />
+        </ul>
+      </DetailSection>
 
-        <DetailSection
-          v-if="potentialCinema.length"
-          v-reveal
-          id="potential"
-          :no="noOf('potential') ?? '06'"
-          title="潜能影像"
-          en="Potential"
-        >
-          <ul class="talents-list">
-            <DescRow
-              v-for="p in potentialCinema"
-              :key="p.no"
-              :no="p.no"
-              :title="p.label"
-              :text="p.desc ? stripRichText(p.desc) : undefined"
-              variant="talent"
-            />
-          </ul>
-        </DetailSection>
+      <DetailSection
+        v-if="potentialCinema.length"
+        v-reveal
+        id="potential"
+        :no="noOf('potential') ?? '06'"
+        title="潜能影像"
+        en="Potential"
+      >
+        <ul class="talents-list">
+          <DescRow
+            v-for="p in potentialCinema"
+            :key="p.no"
+            :no="p.no"
+            :title="p.label"
+            :text="p.desc ? stripRichText(p.desc) : undefined"
+            variant="talent"
+          />
+        </ul>
+      </DetailSection>
 
-        <DetailSection v-if="skinList.length > 1" v-reveal id="skins" :no="noOf('skins') ?? '07'" title="皮肤" en="Outfits">
-          <ul class="skin-list">
-            <li v-for="(s, i) in skinList" :key="s.id" class="skin">
-              <!-- figcaption 必须是 figure 的子元素（HTML 规范）；两栏栅格设在 figure 上 -->
-              <figure class="skin-figure">
-                <HollowImage
-                  :srcs="iconSources({ icon: s.img }, 'character')"
-                  :alt="s.name"
-                  :fallback="s.name"
-                  fit="contain"
-                  ratio="3 / 4"
-                />
-                <figcaption class="skin-info">
-                  <span class="skin-index mono">着装 · {{ String(i + 1).padStart(2, '0') }}</span>
-                  <h3 class="skin-name serif">{{ s.name || '—' }}</h3>
-                  <p v-if="s.desc" class="skin-desc">{{ stripRichText(s.desc) }}</p>
-                </figcaption>
-              </figure>
-            </li>
-          </ul>
-        </DetailSection>
-
-        <DetailSection
-          v-if="hasImpressions"
-          v-reveal
-          id="impressions"
-          :no="noOf('impressions') ?? '08'"
-          title="绳网印象"
-          en="Inter-Knot"
-        >
-          <ul class="im-list">
-            <li v-for="(t, i) in impressions" :key="i" class="im-row">
-              <span class="no mono">{{ String(i + 1).padStart(2, '0') }}</span>
-              <p class="im-text">{{ t }}</p>
-            </li>
-          </ul>
-          <div v-if="voices.length" class="voices">
-            <figure v-for="(v, i) in voices" :key="i" class="voice">
-              <blockquote class="serif">「{{ v }}」</blockquote>
-              <figcaption class="mono">VOICE · {{ String(i + 1).padStart(2, '0') }}</figcaption>
+      <DetailSection v-if="skinList.length > 1" v-reveal id="skins" :no="noOf('skins') ?? '07'" title="皮肤" en="Outfits">
+        <ul class="skin-list">
+          <li v-for="(s, i) in skinList" :key="s.id" class="skin">
+            <!-- figcaption 必须是 figure 的子元素（HTML 规范）；两栏栅格设在 figure 上 -->
+            <figure class="skin-figure">
+              <HollowImage
+                :srcs="iconSources({ icon: s.img }, 'character')"
+                :alt="s.name"
+                :fallback="s.name"
+                fit="contain"
+                ratio="3 / 4"
+              />
+              <figcaption class="skin-info">
+                <span class="skin-index mono">着装 · {{ String(i + 1).padStart(2, '0') }}</span>
+                <h3 class="skin-name serif">{{ s.name || '—' }}</h3>
+                <p v-if="s.desc" class="skin-desc">{{ stripRichText(s.desc) }}</p>
+              </figcaption>
             </figure>
-          </div>
-        </DetailSection>
+          </li>
+        </ul>
+      </DetailSection>
+
+      <DetailSection
+        v-if="hasImpressions"
+        v-reveal
+        id="impressions"
+        :no="noOf('impressions') ?? '08'"
+        title="绳网印象"
+        en="Inter-Knot"
+      >
+        <ul class="im-list">
+          <li v-for="(t, i) in impressions" :key="i" class="im-row">
+            <span class="no mono">{{ String(i + 1).padStart(2, '0') }}</span>
+            <p class="im-text">{{ t }}</p>
+          </li>
+        </ul>
+        <div v-if="voices.length" class="voices">
+          <figure v-for="(v, i) in voices" :key="i" class="voice">
+            <blockquote class="serif">「{{ v }}」</blockquote>
+            <figcaption class="mono">VOICE · {{ String(i + 1).padStart(2, '0') }}</figcaption>
+          </figure>
+        </div>
+      </DetailSection>
       </template>
     </DetailPage>
 </template>

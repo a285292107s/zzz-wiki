@@ -46,6 +46,13 @@ describe('dictToRows', () => {
     expect(rows[0]).toMatchObject({ no: 1, name: '影画1', desc: 'd1' })
   })
 
+  it('maps desc2 lore text passthrough', () => {
+    const rows = dictToRows({ '1': { name: '影画1', desc: 'd1', desc2: '寒风是凛冬的前兆。' } })
+    expect(rows[0].desc2).toBe('寒风是凛冬的前兆。')
+    const rows2 = dictToRows({ '1': { name: '影画1' } })
+    expect(rows2[0].desc2).toBeUndefined()
+  })
+
   it('tolerates entries without name/desc', () => {
     const rows = dictToRows({ '1': { other: true } })
     expect(rows[0]).toMatchObject({ no: 1 })

@@ -9,6 +9,8 @@ const props = defineProps<{
   html?: string
   /** 纯文本模式：stripRichText 处理后传入（影画描述） */
   text?: string
+  /** 剧情札记（lore）纯文本：影画 desc2，serif 小字衬于影画描述之下 */
+  text2?: string
   /** 标题视觉变体：skill=技能名（sans 15.5）/ talent=影画精炼（serif 16） */
   variant?: 'skill' | 'talent' | 'default'
 }>()
@@ -25,6 +27,11 @@ const titleClass = computed(() => 'title title-' + (props.variant ?? 'default'))
       <h3 :class="titleClass">{{ title }}</h3>
       <p v-if="html" class="desc" v-html="html"></p>
       <p v-else-if="text" class="desc">{{ text }}</p>
+      <!-- 影画剧情札记（desc2）：发丝线 + serif 小字的档案注记质感 -->
+      <p v-if="text2" class="desc note">
+        <span class="note-rule" aria-hidden="true" />
+        {{ text2 }}
+      </p>
     </div>
   </li>
 </template>
@@ -66,6 +73,20 @@ const titleClass = computed(() => 'title title-' + (props.variant ?? 'default'))
   line-height: 1.8;
   max-width: 76ch;
   white-space: pre-line;
+}
+/* 剧情札记（lore）：发丝线分隔 + serif 小字，与机制描述在层级上区分 */
+.note {
+  margin-top: 12px;
+  font-family: var(--serif);
+  font-size: var(--fs-caption);
+  color: var(--ink-2);
+}
+.note-rule {
+  display: block;
+  width: 28px;
+  height: 1px;
+  margin-bottom: 10px;
+  background: var(--line-2);
 }
 .desc :deep(.rich-key) {
   display: inline-block;
