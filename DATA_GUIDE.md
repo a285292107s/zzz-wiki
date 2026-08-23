@@ -83,7 +83,7 @@ public/data/
     zh/character/{id}.json …（同 latest 结构）
   latest/                     数据源最新数据（含前瞻，如 3.2.3+18283617）
     …同上结构（含 noun.json，术语词典）
-  img/                        图标本地化（download:icons 产物，双版本共用）
+  img/                        图标本地化 + hero 头图（download:icons 产物，双版本共用）
 ```
 
 > `img/` 为 `npm run download:icons` 的本地化图标（独立管理，双版本共用）；`npm run data`
@@ -139,7 +139,7 @@ public/data/
 
 | 优先级 | 来源 | URL 模板 | 覆盖/实测 |
 |---|---|---|---|
-| ① | **本地化图标** | `{BASE}/data/img/{category}/{basename}.webp`（`npm run download:icons` 落地） | 角色/音擎/邦布/驱动盘/技能键位全量（缺 npm run data 后运行） |
+| ① | **本地化图标** | `{BASE}/data/img/{category}/{basename}.webp`（`npm run download:icons` 落地） | 角色/音擎/邦布/驱动盘/技能键位/hero 头图全量（缺 npm run data 后运行） |
 | ② | nanoka 素材 CDN | `https://static.nanoka.cc/assets/zzz/{basename}.webp` | **全品类图标 100%（除空缺 icon）** |
 
 **nanoka 命名规则**：取游戏资源路径的**裸文件名**（去目录、去扩展名）+ `.webp`。
@@ -148,8 +148,12 @@ public/data/
 
 > **本地化（Q4b）**：`npm run download:icons` 把运行时图标从 nanoka 下载到
 > `public/data/img/{category}/`，使站点**运行时零外部请求**。本地文件缺失时自动落到
-> ②③ 的 CDN 兜底，不破图。皮肤多为此类**大图**（28MB+），默认**不本地化**（`SKIN_LOCAL=1` 可开），
+> ② 的 CDN 兜底，不破图。皮肤多为此类**大图**（28MB+），默认**不本地化**（`SKIN_LOCAL=1` 可开），
 > 皮肤缩略图仍走 CDN→文字兜底。
+
+> **hero 头图（AgentHead）**：角色详情页 head 的 Mindscape_{id}_2.webp 已全量本地化到
+> `public/data/img/hero/`（57/60；1551/1611/1621 源站未上传，下载脚本仅告警不置失败码）
+> ——前端 `AgentHead.vue` 本地优先 + nanoka CDN 兜底，两级均缺时降为 --bg-0 底色，不破版。
 
 > **已知图标空缺（v2 实测）**：1611 克拉蕾 / 1621 洛克茜 的名录 icon 与详情 icon 均为**空串**
 > （hakushin raw 未含），其皮肤立绘名存在（`IconRole1611` 等）但主头像素材未上传；

@@ -7,6 +7,8 @@
  * 覆盖：
  *   - character / weapon / bangboo / disc 名录 icon（对象 key = 名录 id）
  *   - skill 键位图标（Icon_Normal 等）+ 富文本 <IconMap:Icon_XXX>
+ *   - hero 头图（Mindscape_{id}_2.webp，角色详情页 AgentHead 本地优先，
+ *     源站缺口仅告警——前端底色兜底不破图）
  *   - 角色皮肤缩略图（skin）——默认关闭（多为大图，会显著增大仓库，
  *     仅当 SKIN_LOCAL 环境变量为 1 时开启）
  *
@@ -110,6 +112,18 @@ function listBasenames(file, cat) {
   return set
 }
 
+/** 收集名录 id（hero 头图以 Mindscape_{id}_2 命名） */
+function listIds(file) {
+  const set = new Set()
+  for (const ver of VERSIONS) {
+    const p = path.join(DATA, ver, file)
+    if (!fs.existsSync(p)) continue
+    const obj = JSON.parse(fs.readFileSync(p, 'utf8'))
+    for (const k of Object.keys(obj)) set.add(k)
+  }
+  return set
+}
+
 const byCat = {
   character: listBasenames('character.json', 'character'),
   weapon: listBasenames('weapon.json', 'weapon'),
@@ -118,6 +132,7 @@ const byCat = {
   skin: SKIN_LOCAL ? new Set() : null,
   skill: new Set(SKILL_ASSETS),
   filter: new Set(FILTER_ASSETS),
+  hero: listIds('character.json'),
 }
 
 if (SKIN_LOCAL) {
@@ -147,12 +162,12 @@ async function download(url, dest) {
 
 async function worker(queue, ok, fail) {
   while (queue.length) {
-    const { url, dest } = queue.shift()
+    const { url, dest, cat } = queue.shift()
     try {
       await download(url, dest)
       ok(dest)
     } catch (e) {
-      fail(url, e.message)
+      fail(url, e.message, cat)
     }
   }
 }
@@ -161,28 +176,38 @@ const queue = []
 for (const [cat, bases] of Object.entries(byCat)) {
   if (!bases) continue // 皮肤默认跳过
   for (const base of bases) {
-    const dest = path.join(IMG, cat, `${base}.webp`)
+    // hero 头图落地名与前端引用一致：Mindscape_{id}_2.webp
+    const file = cat === 'hero' ? `Mindscape_${base}_2` : base
+    const dest = path.join(IMG, cat, `${file}.webp`)
     if (fs.existsSync(dest)) continue // 幂等
-    // skill 资产按别名映射取真实 CDN 文件名（asset 名与文件不同的场景）
-    const remote = cat === 'skill' ? (SKILL_ASSET_ALIAS[base] ?? base) : base
-    queue.push({ url: `${N}/${remote}.webp`, dest })
+    // skill 资产按别名映射取真实 CDN 文件名（asset 名与文件不同的场景）；
+    // hero 头图按 Mindscape_{id}_2 命名规则
+    const remote =
+      cat === 'skill' ? (SKILL_ASSET_ALIAS[base] ?? base)
+      : cat === 'hero' ? `Mindscape_${base}_2`
+      : base
+    queue.push({ url: `${N}/${remote}.webp`, dest, cat })
   }
 }
 
 let ok = 0
 const failed = []
+const heroMissing = [] // hero 头图源站缺口（如 1551/1611/1621 未上传）：仅告警，不置失败码
 const report = () => {
   ok++
   if (ok % 25 === 0) console.log(`  ✓ ${ok}/${queue.length + ok}…`)
 }
 
 const workers = Array.from({ length: Math.min(CONCURRENCY, Math.max(1, queue.length)) }, () =>
-  worker(queue, report, (url, msg) => failed.push({ url, msg })),
+  worker(queue, report, (url, msg, cat) =>
+    cat === 'hero' ? heroMissing.push({ url, msg }) : failed.push({ url, msg }),
+  ),
 )
 await Promise.all(workers)
 
-const total = Object.values(byCat).reduce((n, s) => n + s.size, 0)
+const total = Object.values(byCat).reduce((n, s) => n + (s?.size ?? 0), 0)
 console.log(`\n== 图标本地化 ==`)
-console.log(`目标资源：${total}，本次下载：${ok}，本地已存在跳过：${total - ok - failed.length}，失败：${failed.length}`)
+console.log(`目标资源：${total}，本次下载：${ok}，本地已存在跳过：${total - ok - failed.length - heroMissing.length}，失败：${failed.length + heroMissing.length}`)
 for (const f of failed) console.log(`  ✖ ${f.url} → ${f.msg}`)
+for (const f of heroMissing) console.log(`  ⚠ ${f.url} → ${f.msg}（源站未上传；本地/前端底色兜底不破图）`)
 if (failed.length) process.exitCode = 1

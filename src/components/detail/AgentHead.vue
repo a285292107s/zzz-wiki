@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { HIT_TYPES } from '@/domain/enums'
 import type { AttrCode, HitCode, SpecCode } from '@/domain/enums'
 import type { CharacterDetail } from '@/data/types'
@@ -36,17 +36,35 @@ const hitZh = computed<string | null>(() => {
 
 const codeName = computed(() => props.detail.code_name?.toUpperCase() ?? '')
 
-/** Mindscape 场景图：以角色编号（id）命名的背景立绘，作整栏 hero 底图 */
+/** 本地 hero 头图根（download:icons 落地 public/data/img/hero） */
+const LOCAL_HERO = `${import.meta.env.BASE_URL ?? '/'}data/img/hero`
+
+/** Mindscape 场景图：以角色编号（id）命名的背景立绘，作整栏 hero 底图。
+ *  本地化优先（img/hero，运行时零外部请求），CDN 兜底；两级均缺时降为 --bg-0 底色 */
 const heroSrcs = computed(() => [
+  `${LOCAL_HERO}/Mindscape_${props.detail.id}_2.webp`,
   `https://static.nanoka.cc/assets/zzz/Mindscape_${props.detail.id}_2.webp`,
 ])
+
+/** 当前候选游标：本地 404 时切换到 CDN 兜底，耗尽后隐藏底图 */
+const heroIdx = ref(0)
+watch(heroSrcs, () => {
+  heroIdx.value = 0
+})
 </script>
 
 <template>
   <header class="ahead">
     <!-- hero 底图：Mindscape_{id}_2.webp 满栏铺底（object-cover 保人物头部），置右微移，留出左侧信息呼吸感 -->
     <span class="hero-bg" aria-hidden="true">
-      <img :src="heroSrcs[0]" alt="" loading="lazy" decoding="async" />
+      <img
+        v-if="heroIdx < heroSrcs.length"
+        :src="heroSrcs[heroIdx]"
+        alt=""
+        loading="lazy"
+        decoding="async"
+        @error="heroIdx += 1"
+      />
     </span>
     <!-- 存档面：底部深掩埋保证文字可读；右上渐淡露出场景，避免整面压黑 -->
     <span class="scrim" aria-hidden="true" />
