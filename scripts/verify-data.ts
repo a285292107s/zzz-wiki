@@ -70,6 +70,25 @@ function checkEnhanceMonotonic(rel: string, detail: Record<string, unknown>): vo
   }
 }
 
+/** 语义校验：角色出招表（skill_list）键必须为严格递增的规范数字 id（展示顺序 = 游戏出招表顺序）。
+ *  前端 buildMoveRows（src/domain/sections.ts）按 id 数值升序展示；
+ *  非规范数字键（前导零/小数等）的迭代顺序与数值序不一致，会导致前端静默乱序，故前置为构建告警。 */
+function checkSkillListKeyOrder(rel: string, detail: Record<string, unknown>): void {
+  const sl = detail.skill_list
+  if (!sl || typeof sl !== 'object') return
+  let prev = 0
+  for (const k of Object.keys(sl as Record<string, unknown>)) {
+    if (!/^\d+$/.test(k) || String(Number(k)) !== k || Number(k) <= prev) {
+      errors.push({
+        file: rel,
+        issues: [`skill_list 键序损坏：检出键「${k}」（键必须为严格递增的规范数字 id，展示顺序即出招表顺序）`],
+      })
+      return
+    }
+    prev = Number(k)
+  }
+}
+
 async function readJson(rel: string): Promise<unknown> {
   return JSON.parse(await fs.readFile(path.join(OUT, rel), 'utf8'))
 }
@@ -109,7 +128,10 @@ async function main(): Promise<void> {
         const rel = path.join(ver, dir, f)
         const detail = (await readJson(rel)) as Record<string, unknown>
         check(rel, detail, schema)
-        if (dir.endsWith('character')) checkEnhanceMonotonic(rel, detail)
+        if (dir.endsWith('character')) {
+          checkEnhanceMonotonic(rel, detail)
+          checkSkillListKeyOrder(rel, detail)
+        }
       }
     }
   }

@@ -176,6 +176,9 @@ export const CharacterDetailSchema = z
     level: z.record(z.unknown()).optional(),
     extra_level: z.record(z.unknown()).optional(),
     skill: z.record(z.unknown()).optional(),
+    /** 出招表（skillId → {name, desc, element_type, hit_type, potential}），
+     *  键为严格递增的规范数字 id（顺序契约，scripts/verify-data.ts 校验），结构由 domain/sections.ts 的 buildMoveRows 解析 */
+    skill_list: z.record(z.unknown()).optional(),
     talent: z.record(z.unknown()).optional(),
     passive: z.record(z.unknown()).optional(),
     potential_detail: z.record(z.unknown()).optional(),

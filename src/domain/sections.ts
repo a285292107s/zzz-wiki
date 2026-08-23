@@ -100,6 +100,34 @@ export function dictToRows(
     })
 }
 
+/* ---------- 出招表（skill_list：招式名 + 操作键位说明） ---------- */
+
+/** 出招表行（skill_list 条目）：招式名 + 操作说明（富文本，含 <IconMap:…> 键位标记） */
+export interface MoveRow {
+  /** 招式 id（如 1201001），作行 key */
+  id: string
+  /** 招式名（如「普通攻击：穿云（一、二、三段）」） */
+  name: string
+  /** 操作说明（如「<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>（极限）」） */
+  desc: string
+}
+
+/** 从角色详情的 skill_list 字典构建有序出招表行：id 数值升序（游戏按招式顺序分配 id，
+ *  顺序契约由 scripts/verify-data.ts 的键序校验守护——键必须是严格递增的规范数字串）；
+ *  跳过无名称或操作说明的条目（无展示价值）；潜能门控招式保留（出招表是纯操作参考） */
+export function buildMoveRows(
+  skillList: Record<string, unknown> | undefined | null,
+): MoveRow[] {
+  if (!skillList) return []
+  return Object.entries(skillList)
+    .sort((a, b) => Number(a[0]) - Number(b[0]))
+    .flatMap(([id, v]) => {
+      const o = (v ?? {}) as { name?: unknown; desc?: unknown }
+      if (typeof o.name !== 'string' || typeof o.desc !== 'string') return []
+      return [{ id, name: o.name, desc: o.desc }]
+    })
+}
+
 /* ---------- 技能槽位（角色详情） ---------- */
 
 export const SKILL_ORDER = ['basic', 'dodge', 'special', 'chain', 'assist', 'core'] as const

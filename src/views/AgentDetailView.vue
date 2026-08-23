@@ -2,6 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { api } from '@/data/api'
 import { iconSources, skillIconSources, type SkillSlot } from '@/data/icons'
+import { richDesc } from '@/utils/rich'
 import { stripRichText } from '@/utils/text'
 import { useRouteParam } from '@/composables/useRouteParam'
 import { useAsyncResource } from '@/composables/useAsyncResource'
@@ -10,6 +11,7 @@ import { usePageMeta } from '@/composables/usePageMeta'
 import {
   buildCoreEnhance,
   buildCoreSkill,
+  buildMoveRows,
   buildPotentialCinema,
   buildSkillRows,
   buildSkinRows,
@@ -24,6 +26,7 @@ import {
   type CoreEnhanceLevel,
   type CoreSkill,
   type DetailRow,
+  type MoveRow,
   type PotentialCinema,
   type SkillRow,
   type SkillSlotKey,
@@ -92,6 +95,9 @@ const skills = computed<SkillDisplay[]>(() =>
 
 const talents = computed<DetailRow[]>(() => dictToRows(detail.value?.talent))
 const skinList = computed<SkinRow[]>(() => buildSkinRows(detail.value?.skin))
+
+/** 出招表（skill_list 数据源）：按 id 顺序列出招式名与操作键位说明，紧跟技能招式区块后 */
+const moveList = computed<MoveRow[]>(() => buildMoveRows(detail.value?.skill_list))
 
 /** 核心技（核心被动 + 额外能力，passive 数据源） */
 const coreSkill = computed<CoreSkill | null>(() => buildCoreSkill(detail.value?.passive))
@@ -177,6 +183,7 @@ const navItems = computed(() => {
   if (profile.value) add('profile', '角色介绍')
   add('stats', '基础属性')
   if (skills.value.length) add('skills', '技能招式', skillChildren.value)
+  if (moveList.value.length) add('movelist', '出招表')
   if (coreSkill.value) add('core', '核心技')
   if (talents.value.length) add('talents', '影画')
   if (potentialCinema.value.length) add('potential', '潜能影像')
@@ -248,6 +255,19 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
           :srcs="sk.srcs"
           transpose
         />
+      </DetailSection>
+
+      <!-- 出招表：skill_list 数据源（招式名 + 操作键位说明），紧随技能招式区块 -->
+      <DetailSection v-if="moveList.length" v-reveal id="movelist" :no="noOf('movelist') ?? '04'" title="出招表" en="Combos">
+        <ul class="move-list">
+          <li v-for="(m, i) in moveList" :key="m.id" class="move-row">
+            <span class="no mono">{{ String(i + 1).padStart(2, '0') }}</span>
+            <div class="body">
+              <h3 class="move-name serif">{{ m.name }}</h3>
+              <p class="move-desc" v-html="richDesc(m.desc)"></p>
+            </div>
+          </li>
+        </ul>
       </DetailSection>
 
       <!-- 核心技：passive 数据源，独立区块（含基础/潜能版本与核心技强化档）；
@@ -445,6 +465,69 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
 
 .talents-list {
   list-style: none;
+}
+
+/* ---------- 出招表（skill_list：招式名 + 操作键位说明） ---------- */
+
+.move-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.move-row {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 14px;
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--line-0);
+}
+
+.move-row:last-child {
+  border-bottom: none;
+}
+
+.move-row .no {
+  color: var(--ink-3);
+  font-size: var(--fs-caption);
+  padding-top: 3px;
+}
+
+.move-row .body {
+  min-width: 0;
+}
+
+.move-name {
+  font-family: var(--serif);
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink-0);
+  margin-bottom: 5px;
+}
+
+.move-desc {
+  color: var(--ink-1);
+  font-size: var(--fs-small);
+  line-height: 1.9;
+  max-width: 76ch;
+}
+
+/* 键位图标：出招表的操作序列是信息主体，略大于正文内联图标（基座样式见 base.css .rich-key） */
+.move-desc :deep(.rich-key) {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  margin: 0 0.12em;
+  vertical-align: -0.24em;
+  border-radius: 1px;
+  line-height: 0;
+}
+
+.move-desc :deep(.rich-key svg) {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 /* ---------- skins ---------- */
