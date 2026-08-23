@@ -71,6 +71,8 @@ src/
     enums.ts             # 从 types.ts 迁出 ELEMENTS/PROFESSIONS/HIT/RANK_TO_TIER 等
     catalog.ts           # 4 类目唯一元信息（导航/首页/路由共用一份）
     schema.ts            # zod 数据契约（build 与前端共享）
+    sections.ts          # 详情区块行构建（SkillRow/StatItem/SkinRow/潜能合成）
+    filterIcons.ts       # 属性/职业筛选图标键（FilterDropdown 用）
   data/
     api.ts               # 瘦身：请求层（timeout/错误归一化/baseUrl/lang）
     resources.ts         # 新增：类别驱动表，消除 4 组 list/detail 重复
@@ -84,7 +86,7 @@ src/
     layout/              # SiteHeader / SiteFooter（从 App.vue 抽出）
     list/                # CatalogTable / SearchField / FilterDropdown / ListPage
     state/               # AsyncState / CatalogTableSkeleton / ErrorBoundary
-    detail/              # DetailSection / KeyValueGrid / DescRow / DetailHead / AgentHead / SkillGroup / CoreSkillGroup / LevelSlider
+    detail/              # DetailPage / DetailSection / KeyValueGrid / DescRow / DetailHead / AgentHead / SkillGroup / CoreSkillGroup / LevelSlider / StatLevelPanel / TermTip
     BackToTop.vue / Rarity.vue / Tags.vue / HollowImage.vue
   views/                 # 变薄：每个 view 只用 composables + 组件拼装
   styles/                # 维持 token 方案；CSS 变量为唯一设计事实
@@ -127,6 +129,9 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 - useCatalogList(config) → 输入 attrs/profession/camp/query，输出 filtered/count：把 AgentsView 的筛选逻辑通用化；各列表页只需声明可筛字段（阵营为数据动态提取，见 AgentsView）。
 - useRouteParam(name) → 响应式 param（连续导航同一组件时正确切换）。
 - usePageMeta(meta) → 写 document.title 与 meta description（三级：路由 meta 默认 → 页面覆盖 → 数据名覆盖）。
+- useCatalogSort → 列表排序状态（列键/方向）与 URL 同步。
+- useDetailNavigation → 详情页相邻条目的前后翻页。
+- useDetailSections → 详情区块行构建（复用 domain/sections.ts）。
 
 ### 6.2 组件
 
@@ -145,11 +150,15 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 | DescRow | 序号+标题+富文本行 | skill/talent/skin 行 |
 | Rarity / Tags | 稀有度 / 属性职业标签 | 各列表/详情页重复 |
 | HollowImage | 多候选图 + 文字降级 | 全站图标统一入口 |
+| DetailPage | 详情页容器（页头/区块编排） | 4 个详情页共享结构 |
+| StatLevelPanel | 属性等级滑条面板（1–60、突破刻度） | 角色详情等级展示 |
+| TermTip | 术语悬停浮层（读本地 noun.json） | 富文本术语锚点交互 |
+| NameCell | 名录名单元格（四语名/阵营） | 4 张表格的名列 |
 
 ### 6.3 视图瘦身目标（验收指标）
 
-- 各列表页 ≤ 120 行 template 声明 + 少量逻辑。
-- AgentDetailView ≤ 180 行（区块拆到 detail/ 组件，或拆为局部 section 组件）。
+- 各列表页 ≤ 120 行 template 声明 + 少量逻辑（AgentsView total 151 行，template ≈65 行）。
+- AgentDetailView 组装层（template + script）≤ 160 行（实测 template ≈155 行；含样式与后续新增展示块的总行数不作硬指标）。
 - 行为不变：现有路由、筛选、搜索、图标链、富文本渲染全部保持。
 
 ### 6.4 路由
@@ -212,7 +221,7 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 5. **视觉语言不变**：1px 细线框、2px 圆角、等宽编号、纸墨配色；无圆角卡片堆叠/渐变霓虹/投影。
 6. **临时文件只进 temp/**；测试 fixture 属仓库内容，进 tests/fixtures 或各模块旁 fixture 目录。
 7. **git 约定**：<type>: <中文摘要>；数据文件改动伴随 scripts 升级；不入库 dist/temp/.cache/_research_*。
-8. **新增依赖需两把锁一致**（package-lock.json + pnpm-lock.yaml）。
+8. **依赖单锁**：只维护 `package-lock.json`（npm），勿再引入 pnpm/yarn 锁文件（AGENTS.md §4）。
 
 ## 11. 分阶段路线图
 
@@ -220,11 +229,12 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 
 ### P0 基线加固（安全网优先）—— ✅ 已完成
 
-- [x] 引入 vitest + @vue/test-utils + jsdom（vitest ^3.2.7，pnpm-workspace.yaml 需允 esbuild 构建）
+- [x] 引入 vitest + @vue/test-utils + jsdom（vitest ^3.2.4，锁内解析 3.2.7）
 - [x] 为 utils/text.ts、utils/rich.ts、domain/enums.ts、utils/names.ts 写测试（29 用例，全部锁定当前行为）
-      —— 扩展后：utils/text(10) + utils/rich(8) + utils/names(5) + utils/icons(6) +
-        domain/schema(7) + domain/sections(55) + data/api(12) + composables(16) +
-        components(12) = **131 用例全绿**
+      —— 现覆盖 14 个测试文件：text(10) + rich(10) + names(5) + icons(6) + schema(7) +
+        sections(91) + api(12) + catalog-list(10) + catalog-sort(6) + catalogtable(3) +
+        filterdropdown(7) + core-skill-group(6) + contrast(6) + styleguide-colors(4)
+        = **183 用例全绿**
 - [x] 合并 locName/pickName → utils/names.ts（唯一实现）；api.ts 旧 export 改为转发
       —— **实际发现**：pickName 在 text.ts 中无任何调用方（死代码），视图全部使用 locName
       —— **后续清理**：locName 别名已完全移除（api.ts 不再转发），所有调用方改用 pickName
@@ -251,8 +261,11 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 - [x] domain/sections.ts：DetailRow / SkillRow / StatItem / SkinRow + dictToRows /
       buildSkillRows / buildSkinRows / SKILL_* 常量（TalentRow 等重复类型收敛于此）
 - [x] AgentDetailView 529→~290 行（含样式；组装层 ≤160 行），WEngineDetailView 338→~168 行
+      —— 后续新增潜能/核心技/等级滑条（StatLevelPanel 等）后：AgentDetailView 562 行（template ≈155 行，
+        组装层仍 ≤160），WEngineDetailView 213 行
 - [x] 视觉/行为不变：技能本地 SVG 图标、富文本渲染、皮肤缩略图全部保留
-- [x] tests/sections.test.ts（55 用例）+ tests/catalogtable.test.ts（3 用例）+ tests/filterdropdown.test.ts（9 用例，jsdom）；
+      —— 技能图标方案后续已回退 CDN 图（删 SkillIcon.vue/skillGlyphs.ts，见 §12 开放问题 1）
+- [x] tests/sections.test.ts（91 用例）+ tests/catalogtable.test.ts（3 用例）+ tests/filterdropdown.test.ts（7 用例，jsdom）；
       vitest.config 接入 @vitejs/plugin-vue。build 通过（CSS 降至 17.64kB）
 
 ### P3 契约落地 —— ✅ 已完成
@@ -278,8 +291,7 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 - [x] footer 增设计系统入口；AGENTS.md 验证链已补 test/verify:data；README 补架构指针（P0 时已完成）
 - [x] 全局错误边界 ErrorBoundary：包裹 RouterView，渲染异常时捕获并显示友好回退（避免白屏）；
       `:key="dataVersion"` 挂在 ErrorBoundary 上，切换版本时自动重置错误状态
-- [x] App.vue 拆分：抽出 SiteHeader / SiteFooter，App.vue 降至 51 行薄壳
-- [x] 新建 ListPage 组件：吸收 4 个列表页共享的 .page / .page-head 样式，消除 8 处重复定义
+- [x] 术语系统：`<Term:N>` 富文本锚点（rich.ts）+ TermTip 悬停浮层 + terms.ts 读本地 noun.json（构建期下沉，双版本各一份）
 - [x] 移除 useDetailResource 薄包装：4 个详情页直接用 useAsyncResource + api.detail
 - [x] 移除 locName 别名死代码：全站统一使用 pickName
 - [x] ATTR_CODES / SPEC_CODES 从 domain/enums 派生：消除 useCatalogList 中的硬编码枚举漂移

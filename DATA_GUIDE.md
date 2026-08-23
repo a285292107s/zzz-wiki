@@ -36,6 +36,7 @@
 | 版本清单 | `GET /manifest.json` → `zzz.latest`（当前 3.2.3+18283617）即数据版本；`zzz.live`（3.1）为游戏在线版本 |
 | 列表（无语言） | `/zzz/{ver}/character.json` `/weapon.json` `/bangboo.json` `/equipment.json` |
 | 详情（带语言） | `/zzz/{ver}/zh/character/{id}.json` `/weapon/{id}` `/bangboo/{id}` `/equipment/{id}` |
+| 名词表 | `/zzz/{ver}/zh/noun.json` — 术语词典（游戏名词 title/desc），构建期全量下沉为 `noun.json`（§3/§4），供前端 TermTip 浮层 |
 | 语言 | `zh`/`en`/`ja`/`ko`；本项目只取 `zh`（名录保留四语名） |
 | 数据性质 | 与 Dimbreath 解包数据**同源**（nanoka 亦从之加工），但字段名已可读、多语言内嵌、更新更快（新角色/音擎/职业已收录） |
 
@@ -46,7 +47,7 @@
   live 不在源站 `available` 列表时降级沿用 latest 数据并在 manifest 写 `liveAvailable:false`，前端隐藏 live 档。
 
 **注意**：`item.json` 只在带语言路径（`/zzz/{ver}/zh/item.json`）存在；`monster/boss/shiyu/simul/hard`
-等端点站方亦有（见 §8 扩展域），本项目当前未消费。
+等端点站方亦有（见 §8 扩展域），本项目当前未消费；`zh/noun.json` 名词表**已消费**（→ 各版本 `noun.json`）。
 
 ---
 
@@ -61,6 +62,7 @@
   - 皮肤 `image` 应用 `SKIN_IMAGE_FALLBACK`（见 §5）。
 - 新增透传字段（v2 增值，前端 index signature 兼容）：`special_element_type`、`strategy`、`fairy_recommend`、`skill_list`、`skill_priority`、`passive`、`potential_detail`、`level`、`extra_level`、`level_exp`、`live2_d`。
 - **特殊属性展示**：详情 `special_element_type.name`（如 星见雅→「烈霜」）在构建期同步注入名录为 `special_element` 字段；前端 `Tags` 展示属性时优先显示特殊名，无则退回 `ELEMENTS[element].zh` 基础属性。
+- **名词表**：源站 `zh/noun.json` 全量下沉为 `noun.json`（双版本各一份）；术语名规整为带括号风格（如 `[虚曜]`）注入名录/详情，名词表自身 desc 经 `resolveTerms` 解析（`<Term:N>` 保留 ID 外壳，前端渲染为术语锚点）。
 - 详情并发抓取上限 8；磁盘缓存 `.cache/hakushin-raw/`（缓存路径含版本号，同版本重复构建秒级跳过、跨版本自动全量刷新；`--force` 强制忽略缓存重拉）。
 - **manifest.json 永不读缓存**：每次 `npm run data` 都实时拉取源站清单，保证版本探测不固着。
 
@@ -77,10 +79,10 @@ available 时降级，见 §1 双版本说明）。若站点回滚 latest，`npm
 public/data/
   manifest.json              版本/来源元信息 { zzz: { latest, live, liveAvailable, source } } + generated
   live/                       在线版本数据（游戏正式服，如 3.1）
-    character.json weapon.json bangboo.json equipment.json
+    character.json weapon.json bangboo.json equipment.json noun.json
     zh/character/{id}.json …（同 latest 结构）
   latest/                     数据源最新数据（含前瞻，如 3.2.3+18283617）
-    …同上结构
+    …同上结构（含 noun.json，术语词典）
   img/                        图标本地化（download:icons 产物，双版本共用）
 ```
 
@@ -123,6 +125,7 @@ public/data/
 | `zh/bangboo/{id}.json` | 邦布详情（数值/晋升/技能 a/b/c） |
 | `equipment.json` | 驱动盘套装名录（四语套装名与 2/4 件套效果） |
 | `zh/equipment/{id}.json` | 驱动盘详情（背景故事 story、icon2） |
+| `zh/noun.json` | 名词表（术语 title/desc → `noun.json`，供详情页 TermTip 浮层） |
 
 **注意**：名录的 `en` 字段对未完全本地化的新角色（1611/1621）可能是原始资源键（如
 `Avatar_Female_Size02_Claret`），`zh` 名正常；前端名录主显示 `zh`，不受影响。
@@ -154,11 +157,11 @@ public/data/
 > honeyhunterworld 站点已从候选链移除（曾整体 521，仅角色图可用），当前唯一 CDN 兜底为 nanoka；
 > 无论 nanoka 是否恢复，前端第三级（文字）兜底始终生效。
 
-### 技能键位图标（CDN 图，经 rich.ts）
+### 技能键位图标（经 rich.ts，本地 img/skill → nanoka CDN 两级兜底）
 描述文本的 `<IconMap:Icon_XXX>` 标记对应游戏键位图标，由 `src/utils/rich.ts` 的
-`richDesc()` 渲染为 CDN `<img>`（经 `src/data/icons.ts` 的 `skillAssetSources()` 生成候选 URL，
+`richDesc()` 渲染为 `<img>`（经 `src/data/icons.ts` 的 `skillAssetSources()` 生成候选 URL，
 `<HollowImage>` 风格的两级兜底：本地 → nanoka CDN → 文字占位）。
-非键位名（如 `Icon_JoyStick`）同样走 CDN 直链。
+非键位名（如 `Icon_JoyStick`）同样进 `skillAssetSources` 候选链（本地 → nanoka CDN）。
 
 **皮肤图回退**：`scripts/build/normalize.ts` 的 `SKIN_IMAGE_FALLBACK` 将 nanoka 未上传的
 主角第 3 套皮肤立绘（`IconRole34_03`/`IconRole33_03`）回退到默认立绘，杜绝死链字段。
@@ -173,7 +176,9 @@ public/data/
 | `src/data/types.ts` | 数据类型 + 枚举映射常量（含 300 流明、职业 7 锋御） |
 | `src/data/icons.ts` | 图标候选链（本地 → nanoka CDN 两级兜底）+ 技能键位资产名映射 |
 | `src/components/HollowImage.vue` | 多候选图 + `position`/`ratio` 裁切 + 文字降级 |
-| `src/utils/rich.ts` | 富文本：`<IconMap:Icon_XXX>`→CDN 图（经 `skillAssetSources`）、`<color=#…>`→带色 span，其余 HTML 转义防注入 |
+| `src/utils/rich.ts` | 富文本：`<IconMap:Icon_XXX>`→键位图（本地优先，`data-cdn` 属性供 main.ts 全局 error 降级）、`<color=#…>`→带色 span、`<Term:N>`→术语锚点（供 TermTip）、LAYOUT 与 `{Skill:N,Prop:N}` 占位剥离，其余 HTML 转义防注入 |
+| `src/data/terms.ts` | 术语词典：读本地 `/data/{ver}/noun.json`（按 dataVersion 键控缓存），词典缺失时浮层安静隐藏 |
+| `src/components/detail/TermTip.vue` | 术语悬停浮层：全局委托监听 `.rich-term`，展示名词表 title/desc |
 | `src/utils/text.ts` | `stripRichText`（纯文本剥标记） |
 
 ---
@@ -188,8 +193,8 @@ npm install             # 依赖（首次或变更后）
 npm run data            # 拉取 hakushin raw（latest + live 双版本）→ 规整 → 生成 public/data/{live,latest}/（需外网）
                         #   有代理时：set NODE_USE_ENV_PROXY=1
 npm run data -- --check # 仅版本探测：输出 UPDATE_AVAILABLE / UP_TO_DATE，不构建（CI/定时哨兵）
-npm run build:ci        # Vercel 部署构建入口：版本探测→（有更新则构建）→契约校验→npm run build；
-                        #   源站不可达/构建失败时回退仓库内既有数据，绝不让站点因数据源故障而挂
+npm run build:ci        # Vercel 部署构建入口：npm test → ci-data（版本探测→有更新则构建→失败回退既有数据
+                        #   →verify:data 契约校验仅告警）→ npm run build；源站不可达时沿用旧数据，绝不让站点因数据源故障而挂
 npm run verify:icons    # 校验全部图标可达性，失败非零退出（可挂 CI）
 npm run dev             # 开发 http://localhost:5173（占用自动换端口）
 npm run build           # vue-tsc 类型检查 + vite 构建
@@ -215,7 +220,7 @@ npm run preview         # 预演产物
 
 ### 不要做的事
 - 不要把 hakushin raw 提为**运行时**数据源（§0 铁律：运行时零外部请求）；仅构建期拉取。
-- 不要硬编码版本号 `3.2.3+18259966`——每次构建从 manifest 动态取 `latest`。
+- 不要硬编码版本号（manifest 当前为 `3.2.3+18283617`，随时会变）——每次构建从 manifest 动态取 `latest`。
 - 不要依赖 `static.nanoka.cc/zzz/UI/`（旧路径）——那是 404 残留，素材在 `/assets/zzz/`。
 - 不要重新引入 honeyhunterworld 作为 CDN 来源（曾整体 521，仅角色图可用，已从候选链移除）。
 - 不要假设名录 `icon` 永远非空（1611/1621 为空串，前端必须走兜底）。
