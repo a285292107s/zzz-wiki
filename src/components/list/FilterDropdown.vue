@@ -303,7 +303,8 @@ onUnmounted(() => {
   background: var(--bg-2);
   border: 1px solid var(--line-1);
   border-radius: 2px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  /* 浮层投影统一取 --shadow-pop（与术语浮层同一份，禁止另写值） */
+  box-shadow: var(--shadow-pop);
   display: flex;
   flex-direction: column;
   gap: 2px;

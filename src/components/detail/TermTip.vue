@@ -345,8 +345,8 @@ onBeforeUnmount(() => {
   border-bottom: 1px solid var(--line-1);
   border-right: 1px solid var(--line-1);
   border-radius: 1px;
-  /* 克制纸感：单一柔和投影用于与正文分离，无立体感 */
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.38);
+  /* 克制纸感：单一柔和投影用于与正文分离，无立体感（取 --shadow-pop 唯一来源） */
+  box-shadow: var(--shadow-pop);
   /* 克制进场：极短淡入 + 4px 上浮（自锚点一侧长出）；reduced-motion 由全局规则归零 */
   animation: term-tip-in var(--t-fast) var(--ease);
   /* 允许鼠标进入卡片进行选中/复制等操作 */

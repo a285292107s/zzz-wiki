@@ -130,13 +130,14 @@ const sections = [
   /* 满宽横幅：padding 落在背景图之上，顶部不留纯背景空隙 */
   padding-top: calc(var(--pad-section) * 0.9);
   padding-bottom: var(--pad-section);
-  /* Mindscape 场景图作背景：顶部极透露出场景，底部深遮罩确保文字可读 */
+  /* Mindscape 场景图作背景：顶部极透露出场景，底部深遮罩确保文字可读；
+     色阶统一取 --scrim-*（以 bg-0 为基色，与详情页 AgentHead 同一份），禁止手写 rgba */
   background:
     linear-gradient(180deg,
-      rgba(13, 15, 17, 0.16) 0%,
-      rgba(13, 15, 17, 0.42) 28%,
-      rgba(13, 15, 17, 0.72) 60%,
-      rgba(13, 15, 17, 0.90) 100%),
+      var(--scrim-1) 0%,
+      var(--scrim-2) 30%,
+      var(--scrim-3) 60%,
+      var(--scrim-4) 100%),
     url('/data/img/hero/Mindscape_1311_2.webp') no-repeat center/cover;
 }
 

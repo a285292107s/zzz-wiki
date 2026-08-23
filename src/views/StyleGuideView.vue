@@ -15,6 +15,7 @@ import {
 import HollowImage from '@/components/HollowImage.vue'
 import Rarity from '@/components/Rarity.vue'
 import Tags from '@/components/Tags.vue'
+import { contrastRatio } from '@/utils/contrast'
 
 usePageMeta()
 
@@ -26,44 +27,76 @@ interface TokenRow {
   value: string
 }
 
+/* ---------- WCAG 对比度标尺（运行时计算，token 零二次维护） ----------
+   评测底从 token 实读：背景类评 ink-0 可读性，前景类评对 bg-0 的对比。
+   token 读取惰性化：模块求值阶段不触碰 document（import 即执行的
+   SSR/预渲染场景下不至于立即崩溃；当前为纯 SPA，setup 期完成采集） */
+
+/** 惰性读取 :root 自定义属性（trim + 小写归一） */
+function tokenOf(name: string): string {
+  return getComputedStyle(document.documentElement).getPropertyValue(name).trim().toLowerCase()
+}
+
+type Graded = TokenRow & { cr: number | null }
+
+function withCr(rows: TokenRow[], ground: string): Graded[] {
+  return rows.map((r) => ({ ...r, cr: contrastRatio(r.value, tokenOf(ground)) }))
+}
+
+const surfaces = withCr(
+  readTokens([
+    ['--bg-0', '页面底色'],
+    ['--bg-1', '抬升面板'],
+    ['--bg-2', '卡面'],
+    ['--bg-3', '悬停'],
+  ]),
+  '--ink-0', // 评 ink-0 在此底上的可读性
+)
+
+const lines = withCr(
+  readTokens([
+    ['--line-0', '细分隔'],
+    ['--line-1', '主分隔'],
+    ['--line-2', '强调分隔'],
+  ]),
+  '--bg-0', // 线色对页面底的可见性
+)
+
+const inks = withCr(
+  readTokens([
+    ['--ink-0', '正文'],
+    ['--ink-1', '次级正文'],
+    ['--ink-2', '弱化'],
+    ['--ink-3', '最弱（装饰层）'],
+  ]),
+  '--bg-0',
+)
+
+const accents = withCr(
+  readTokens([
+    ['--amber', '信号琥珀'],
+    ['--amber-hi', '琥珀高亮'],
+    ['--amber-dim', '琥珀低透底'],
+    ['--danger', '危险'],
+    ['--ok', '通过'],
+  ]),
+  '--bg-0',
+)
+
+const semantic = withCr(
+  readTokens([
+    ['--focus', '焦点环'],
+    ['--rank-s', '稀有度 S 金'],
+    ['--rank-a', '稀有度 A 紫'],
+    ['--rank-b', '稀有度 B 绿'],
+  ]),
+  '--bg-0',
+)
+
 function readTokens(keys: Array<[string, string]>): TokenRow[] {
   const cs = getComputedStyle(document.documentElement)
   return keys.map(([name, desc]) => ({ name, desc, value: cs.getPropertyValue(name).trim() }))
 }
-
-const surfaces = readTokens([
-  ['--bg-0', '页面底色'],
-  ['--bg-1', '抬升面板'],
-  ['--bg-2', '卡面'],
-  ['--bg-3', '悬停'],
-])
-
-const lines = readTokens([
-  ['--line-0', '细分隔'],
-  ['--line-1', '主分隔'],
-  ['--line-2', '强调分隔'],
-])
-
-const inks = readTokens([
-  ['--ink-0', '正文'],
-  ['--ink-1', '次级正文'],
-  ['--ink-2', '弱化'],
-  ['--ink-3', '最弱'],
-])
-
-const accents = readTokens([
-  ['--amber', '信号琥珀'],
-  ['--amber-hi', '琥珀高亮'],
-  ['--danger', '危险'],
-  ['--ok', '通过'],
-])
-
-const semantic = readTokens([
-  ['--focus', '焦点环'],
-  ['--rank-s', '稀有度 S 金'],
-  ['--rank-a', '稀有度 A 紫'],
-  ['--rank-b', '稀有度 B 绿'],
-])
 
 const typeTokens = readTokens([
   ['--serif', '衬线（标题族）'],
@@ -94,6 +127,17 @@ const rhythm = readTokens([
   ['--t-fast', '快速动效'],
   ['--t-med', '常规动效'],
 ])
+
+/* ---------- 色彩对比度徽标 ---------- */
+
+function crText(t: Graded): string {
+  if (t.cr == null) return '—'
+  return `${t.cr} · ${t.cr >= 7 ? 'AAA' : t.cr >= 4.5 ? 'AA' : 'LOW'}`
+}
+
+function crLow(t: Graded): boolean {
+  return t.cr != null && t.cr < 4.5
+}
 
 /* ---------- 组件交互示例 ---------- */
 
@@ -127,28 +171,39 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
           <span class="chip-color" :style="{ background: c.value }" />
           <span class="meta mono"><b>{{ c.name }}</b> · {{ c.desc }}</span>
           <span class="val mono">{{ c.value }}</span>
+          <span class="cr mono" :class="{ low: crLow(c) }">{{ crText(c) }}</span>
         </div>
         <div v-for="c in lines" :key="c.name" class="swatch">
           <span class="chip-color" :style="{ background: c.value }" />
           <span class="meta mono"><b>{{ c.name }}</b> · {{ c.desc }}</span>
           <span class="val mono">{{ c.value }}</span>
+          <span class="cr mono" :class="{ low: crLow(c) }">{{ crText(c) }}</span>
         </div>
         <div v-for="c in inks" :key="c.name" class="swatch">
           <span class="chip-color" :style="{ background: c.value }" />
           <span class="meta mono"><b>{{ c.name }}</b> · {{ c.desc }}</span>
           <span class="val mono">{{ c.value }}</span>
+          <span class="cr mono" :class="{ low: crLow(c) }">{{ crText(c) }}</span>
         </div>
         <div v-for="c in accents" :key="c.name" class="swatch">
           <span class="chip-color" :style="{ background: c.value }" />
           <span class="meta mono"><b>{{ c.name }}</b> · {{ c.desc }}</span>
           <span class="val mono">{{ c.value }}</span>
+          <span class="cr mono" :class="{ low: crLow(c) }">{{ crText(c) }}</span>
         </div>
         <div v-for="c in semantic" :key="c.name" class="swatch">
           <span class="chip-color" :style="{ background: c.value }" />
           <span class="meta mono"><b>{{ c.name }}</b> · {{ c.desc }}</span>
           <span class="val mono">{{ c.value }}</span>
+          <span class="cr mono" :class="{ low: crLow(c) }">{{ crText(c) }}</span>
         </div>
       </div>
+      <p class="scale-note">
+        对比度标尺按 WCAG：<code>AAA ≥ 7:1</code>、<code>AA ≥ 4.5:1</code>（正文基准，背景类评
+        <code>ink-0</code> 可读性，其余评对 <code>bg-0</code> 的对比）；<code>LOW</code> 仅允许
+        装饰性最弱层或非 hex 展示。属性元素色与稀有度色属 <code>domain/enums.ts</code> 数据契约
+        （游戏语义色），不在样式 token 之列、不做此表裁剪。
+      </p>
     </DetailSection>
 
     <DetailSection no="02" title="字体与排版阶梯">
@@ -272,6 +327,17 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
 
 .val {
   color: var(--ink-2);
+}
+
+/* WCAG 对比度徽标：达标 ink-3，不达标 danger（runtime 计算，改动 token 即时反映） */
+.cr {
+  font-size: var(--fs-nano);
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+}
+
+.cr.low {
+  color: var(--danger);
 }
 
 .type-block {

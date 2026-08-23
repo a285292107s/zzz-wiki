@@ -13,15 +13,15 @@
   --bg-3: #1d2227;          /* hover */
 
   /* lines */
-  --line-0: #1e2327;
-  --line-1: #2a3137;
-  --line-2: #3d454c;
+  --line-0: #262b30;        /* 细分隔（微逾纸底，仅作层次提示） */
+  --line-1: #2a3137;        /* 主分隔 */
+  --line-2: #3d454c;        /* 强调分隔 */
 
   /* ink */
   --ink-0: #e8e4da;         /* warm paper white */
   --ink-1: #a9a49a;         /* body grey */
-  --ink-2: #6d6a63;         /* muted */
-  --ink-3: #45423d;         /* faint */
+  --ink-2: #848076;         /* muted（对 bg-0/bg-1 均 ≥4.5:1，正文底色 AA） */
+  --ink-3: #514d47;         /* faint（装饰性最弱层，不承载信息，不要求 AA） */
 
   /* accent — signal amber */
   --amber: #d8a35c;
@@ -29,8 +29,15 @@
   --amber-dim: rgba(216, 163, 92, 0.14);
 
   /* status */
-  --danger: #c2554b;
+  --danger: #c96155;        /* 对 bg-0 ≥4.5:1 */
   --ok: #7ba05b;
+
+  /* 图片遮罩色阶：以页面底色为基的纵向递暗（AgentHead / HomeView 共用，
+     禁止组件手写 rgba —— 手写底色是历史漂移源） */
+  --scrim-1: color-mix(in srgb, var(--bg-0) 16%, transparent);
+  --scrim-2: color-mix(in srgb, var(--bg-0) 42%, transparent);
+  --scrim-3: color-mix(in srgb, var(--bg-0) 72%, transparent);
+  --scrim-4: color-mix(in srgb, var(--bg-0) 90%, transparent);
 
   /* semantic roles */
   --focus: var(--amber);       /* :focus-visible 焦点环 */
@@ -70,6 +77,9 @@
   --space-2: 14px;
   --space-group: clamp(26px, 3vw, 42px);          /* 同一区块内子组之间的间距（如技能组） */
   --space-section: calc(var(--pad-section) * 0.72); /* 详情页区块与区块之间的间距 */
+
+  /* 浮层阴影：唯一来源，仅用于脱离文档层的浮层（术语浮层 / 下拉面板），克制 · 无立体感 */
+  --shadow-pop: 0 10px 28px rgba(0, 0, 0, 0.40);
 
   /* motion */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);

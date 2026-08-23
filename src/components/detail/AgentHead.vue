@@ -101,7 +101,8 @@ const heroSrcs = computed(() => [
   object-position: center;
 }
 
-/* ---------- 存档面：与主页同一向纵向曝光｜顶部透出场景，底部深掩埋保障可读 ---------- */
+/* ---------- 存档面：与主页同一向纵向曝光｜顶部透出场景，底部深掩埋保障可读 ----------
+   色阶统一取 --scrim-*（以 bg-0 为基色），禁止手写 rgba */
 
 .scrim {
   position: absolute;
@@ -109,10 +110,10 @@ const heroSrcs = computed(() => [
   z-index: 1;
   background:
     linear-gradient(180deg,
-      rgba(10, 12, 14, 0.12) 0%,
-      rgba(10, 12, 14, 0.30) 30%,
-      rgba(10, 12, 14, 0.66) 60%,
-      rgba(10, 12, 14, 0.92) 100%);
+      var(--scrim-1) 0%,
+      var(--scrim-2) 30%,
+      var(--scrim-3) 60%,
+      var(--scrim-4) 100%);
   pointer-events: none;
 }
 
