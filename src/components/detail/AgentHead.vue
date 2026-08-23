@@ -179,14 +179,19 @@ watch(heroSrcs, () => {
   margin-top: auto;
   margin-bottom: auto;
   padding: clamp(30px, 4vw, 54px) var(--pad-page);
-  max-width: 64ch;
+  /* 标题行宽：64ch 下内容区仅 ~451px，最大字号（64px）时 8 字符名
+     （如「奥菲丝&「鬼火」」）恰好溢出 1px 被挤成两行；放宽到 76ch
+     可容 8~9 字符单行，更长名仍由 text-wrap: balance 均衡断行 */
+  max-width: 76ch;
 }
 
-/* hero 专属标题尺度：比全局 page-title 更果断，字距微收以衬 CID 衬线气质 */
+/* hero 专属标题尺度：比全局 page-title 更果断，字距微收以衬 CID 衬线气质；
+   极端长名必须断行时 balance 均衡两行，避免孤字 */
 .main .page-title {
   font-size: clamp(34px, 5.6vw, 64px);
   line-height: 1.04;
   letter-spacing: -0.01em;
+  text-wrap: balance;
 }
 
 /* 代号作标题上方 kicker：mono + 琥珀细线引导，与顶部 eyebrow 同属档案语言 */

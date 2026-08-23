@@ -333,6 +333,15 @@ a.rich-term:hover {
   transition: color var(--t-fast) var(--ease);
 }
 
+/* 标签行：超宽不换行、省略号收尾（极长名如「奥菲丝&「鬼火」」在 96px 侧栏放不下时
+   保持单行等高，完整名经 title 查看）；不截断的名不受影响 */
+.sn-item > span:last-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* 激活下划线：常态缩至 0，仅激活时从左缘展开（hover 不动线，
    保证活动项信号不被划过状态稀释） */
 .sn-item::after {

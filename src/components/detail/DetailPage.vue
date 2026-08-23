@@ -35,6 +35,7 @@ defineProps<{
               :class="{ active: active === n.id || n.children.some((c) => c.id === active) }"
               :aria-current="active === n.id || n.children.some((c) => c.id === active) ? 'true' : undefined"
               :to="{ hash: '#' + n.id }"
+              :title="n.label"
             >
               <span class="no">{{ n.no }}</span>
               <span>{{ n.label }}</span>
@@ -58,6 +59,7 @@ defineProps<{
             :class="{ active: active === n.id }"
             :aria-current="active === n.id ? 'true' : undefined"
             :to="{ hash: '#' + n.id }"
+            :title="n.label"
           >
             <span class="no">{{ n.no }}</span>
             <span>{{ n.label }}</span>

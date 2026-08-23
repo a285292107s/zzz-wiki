@@ -1,6 +1,7 @@
 import { onBeforeUnmount, ref } from 'vue'
 import type { Directive } from 'vue'
 import { useRoute } from 'vue-router'
+import { NAV_SLOP, resolveActiveSection } from '@/domain/scrollspy'
 
 /**
  * 详情页通用区块导航：
@@ -17,25 +18,36 @@ import { useRoute } from 'vue-router'
 export function useDetailNavigation() {
   const route = useRoute()
   const activeSection = ref('')
-  let spy: IntersectionObserver | null = null
+  let ids: string[] = []
 
-  /** 建立区块观察 + 处理直达 hash。需在数据就绪、DOM 已渲染后调用。 */
-  function activate(ids: string[]) {
-    spy?.disconnect()
-    const els = ids
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => !!el)
-    if (els.length) {
-      spy = new IntersectionObserver(
-        (entries) => {
-          for (const e of entries) {
-            if (e.isIntersecting) activeSection.value = e.target.id
-          }
-        },
-        { rootMargin: '-35% 0px -55% 0px' },
-      )
-      els.forEach((el) => spy!.observe(el))
-    }
+  /** 判定松弛：区块顶 ≤ 锚点停靠位 + 此值 才视为「当前区块」（与 FormulasView 同语义） */
+  const NAV_SLOP = 80
+
+  /** 滚动判定当前区块：视口上部最近的区块为高亮目标。
+   *  不用 IO 固定观察带（-35%/-55%）——小区块（如档案详情）按 hash 跳转后
+   *  顶部恰停在锚点停靠位（--anchor-offset，76/132px），远在 35%~45% 视口带之上，
+   *  IO 永不命中，高亮会顺延到下一区块（点击 01 却亮 02）。
+   *  偏移读 CSS 变量，与 router scrollBehavior 同源（宽/窄屏断点自动适配）。
+   *  判定规则本体在 domain/scrollspy（纯函数，单测见 tests/scrollspy.test.ts）。 */
+  function onScroll() {
+    const offset =
+      parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--anchor-offset')) || 76
+    const tops = ids.map((id) => {
+      const el = document.getElementById(id)
+      return { id, top: el ? el.getBoundingClientRect().top : null }
+    })
+    const atBottom =
+      window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2
+    activeSection.value = resolveActiveSection(tops, atBottom, offset + NAV_SLOP) ?? ''
+  }
+
+  /** 建立区块滚动判定 + 处理直达 hash。需在数据就绪、DOM 已渲染后调用。 */
+  function activate(ids_: string[]) {
+    // 幂等：重复调用先摘旧监听，避免累积
+    document.removeEventListener('scroll', onScroll)
+    ids = ids_
+    onScroll()
+    document.addEventListener('scroll', onScroll, { passive: true })
 
     const hashId = route.hash ? route.hash.slice(1) : ''
     const hashEl = hashId ? document.getElementById(hashId) : null
@@ -54,7 +66,9 @@ export function useDetailNavigation() {
     }
   }
 
-  onBeforeUnmount(() => spy?.disconnect())
+  onBeforeUnmount(() => {
+    document.removeEventListener('scroll', onScroll)
+  })
 
   /** 区块滚动显现指令；系统减动效时直接跳过（保持可见） */
   const revealDir: Directive<HTMLElement> = {

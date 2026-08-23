@@ -164,9 +164,12 @@ const skillChildren = computed<DetailSectionChild[]>(() =>
   skills.value.map((sk) => ({ id: `skill-${sk.key}`, label: sk.zh })),
 )
 
-/** 区块导航：连续编号由添加序派生（与 DetailSection :no 同源，杜绝编号双份事实漂移） */
+/** 区块导航：00 固定为封面锚点（AgentHead 根，标签仅角色名，省导航宽度），其余连续编号
+ * 由添加序派生（与 DetailSection :no 同源，杜绝编号双份事实漂移） */
 const navItems = computed(() => {
-  const items: DetailSectionItem[] = []
+  const items: DetailSectionItem[] = [
+    { id: 'head', no: '00', label: detail.value?.name ?? '' },
+  ]
   let n = 0
   const add = (id: string, label: string, children?: DetailSectionChild[]) =>
     items.push({ id, no: String(++n).padStart(2, '0'), label, children })
@@ -199,7 +202,8 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
     :fallback-to="backTo"
   >
     <template v-if="detail">
-      <AgentHead :detail="detail" />
+      <!-- 封面锚点：00 导航直达；scrollspy 亦观察此 id（滚动回顶时高亮 00） -->
+      <AgentHead id="head" :detail="detail" />
 
       <DetailSection v-if="dossier.length" v-reveal id="dossier" :no="noOf('dossier') ?? '01'" title="档案详情" en="Dossier">
         <dl class="dossier mono">
