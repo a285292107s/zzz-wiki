@@ -5,7 +5,8 @@
  *
  * syncRoute（Q1a）：开启后筛选/搜索状态与 URL query 双向同步——
  *   - 刷新 / 复制链接 / 前进后退均可恢复筛选条件；
- *   - 状态变化时写回 query（router.replace），不产生历史记录噪声。
+ *   - 状态变化时写回 query（router.replace），不产生历史记录噪声；
+ *   - 写回只管理本组键（q/attr/prof/camp），保留无关参数（如全局 ?ver=）。
  * ============================================================ */
 
 import { computed, ref, watch, watchEffect, type ComputedRef, type Ref } from 'vue'
@@ -96,7 +97,13 @@ export function useCatalogList<T extends Record<string, unknown>>(
         if (withAttrs && attr !== 'all') next[keys.attr] = String(attr)
         if (withProfs && prof !== 'all') next[keys.prof] = String(prof)
         if (withCamps && camp !== 'all') next[keys.camp] = String(camp)
-        void router.replace({ query: next })
+        // 保留与筛选无关的全局参数（如数据版本 ?ver=）；本组键未出现在 next 中
+        // 视为已复位，需从 query 清除残留值，避免清空筛选后 URL 仍挂旧条件
+        const nextQuery = { ...route.query, ...next }
+        for (const k of Object.values(keys)) {
+          if (!(k in next)) delete nextQuery[k]
+        }
+        void router.replace({ query: nextQuery })
       },
       { flush: 'sync' },
     )

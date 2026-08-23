@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import { dataVersion } from '@/data/api'
+import { useVersionSync } from '@/composables/useVersionSync'
 import SiteHeader from '@/components/layout/SiteHeader.vue'
 import SiteFooter from '@/components/layout/SiteFooter.vue'
 import TermTip from '@/components/detail/TermTip.vue'
 import { ErrorBoundary } from '@/components'
+
+// 数据版本与 URL 双向同步：?ver=live|latest 可分享直达，站内导航后自动补回参数
+useVersionSync()
 </script>
 
 <template>

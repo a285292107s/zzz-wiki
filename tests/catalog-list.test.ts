@@ -136,6 +136,31 @@ describe('useCatalogList · URL query 双向同步', () => {
     expect(hh.api()!.filtered.value.map((x) => x.Id)).toEqual([1])
     hh.wrap.unmount()
   })
+
+  it('写回保留无关 query 参数（如全局 ?ver=）', async () => {
+    const hh = await makeHarness({ attr: '201', ver: 'latest' })
+    await flushPromises()
+    hh.api()!.attrFilter.value = 202
+    await flushPromises()
+    await hh.router.isReady()
+    await new Promise((r) => setTimeout(r, 0))
+    expect(hh.router.currentRoute.value.query.attr).toBe('202')
+    expect(hh.router.currentRoute.value.query.ver).toBe('latest')
+    hh.wrap.unmount()
+  })
+
+  it('清空筛选后本组旧参数从 query 清除，无关参数保留', async () => {
+    const hh = await makeHarness({ attr: '201', ver: 'latest' })
+    await flushPromises()
+    hh.api()!.attrFilter.value = 'all'
+    await flushPromises()
+    await hh.router.isReady()
+    await new Promise((r) => setTimeout(r, 0))
+    const q = hh.router.currentRoute.value.query
+    expect(q.attr).toBeUndefined()
+    expect(q.ver).toBe('latest')
+    hh.wrap.unmount()
+  })
 })
 
 /** 裸调用（不启用 syncRoute），便于测过滤/搜索逻辑 */

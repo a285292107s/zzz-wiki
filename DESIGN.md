@@ -130,6 +130,7 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 - useRouteParam(name) → 响应式 param（连续导航同一组件时正确切换）。
 - usePageMeta(meta) → 写 document.title 与 meta description（三级：路由 meta 默认 → 页面覆盖 → 数据名覆盖）。
 - useCatalogSort → 列表排序状态（列键/方向）与 URL 同步。
+- useVersionSync → 数据版本（live/latest）与 URL query 双向同步（?ver=…）：分享链接直达、前进/后退还原、站内导航后补回版本参数，地址栏任意时刻可分享当前档位数据。
 - useDetailNavigation → 详情页相邻条目的前后翻页。
 - useDetailSections → 详情区块行构建（复用 domain/sections.ts）。
 

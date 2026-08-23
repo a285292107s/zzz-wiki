@@ -9,7 +9,8 @@
  *   {live,latest}/zh/character/{id}.json …
  *
  * 双数据版本：live = 游戏在线版本数据；latest = 源站最新数据（含前瞻/测试服内容）。
- * 默认 live；切版本经 dataVersion（localStorage 持久化）→ App 层以 key 重挂视图。
+ * 默认 live；切版本经 dataVersion（localStorage 持久化，URL ?ver= 参数优先，双向同步见
+ * composables/useVersionSync）→ App 层以 key 重挂视图。
  *
  * P1 重构（DESIGN.md §6）：kind 式接口（list/detail）+ DataError 错误归一化
  * + 请求超时 + BASE_URL 派生 + lang 参数预留；旧的 api.characters() 等保持兼容。
