@@ -180,7 +180,7 @@ const navItems = computed(() => {
   if (coreSkill.value) add('core', '核心技')
   if (talents.value.length) add('talents', '影画')
   if (potentialCinema.value.length) add('potential', '潜能影像')
-  if (skinList.value.length > 1) add('skins', '皮肤')
+  if (skinList.value.length) add('skins', '皮肤')
   if (hasImpressions.value) add('impressions', '绳网印象')
   return items
 })
@@ -302,7 +302,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
         </ul>
       </DetailSection>
 
-      <DetailSection v-if="skinList.length > 1" v-reveal id="skins" :no="noOf('skins') ?? '07'" title="皮肤" en="Outfits">
+      <DetailSection v-if="skinList.length" v-reveal id="skins" :no="noOf('skins') ?? '07'" title="皮肤" en="Outfits">
         <ul class="skin-list">
           <li v-for="(s, i) in skinList" :key="s.id" class="skin">
             <!-- figcaption 必须是 figure 的子元素（HTML 规范）；两栏栅格设在 figure 上 -->

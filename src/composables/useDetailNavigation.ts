@@ -20,9 +20,6 @@ export function useDetailNavigation() {
   const activeSection = ref('')
   let ids: string[] = []
 
-  /** 判定松弛：区块顶 ≤ 锚点停靠位 + 此值 才视为「当前区块」（与 FormulasView 同语义） */
-  const NAV_SLOP = 80
-
   /** 滚动判定当前区块：视口上部最近的区块为高亮目标。
    *  不用 IO 固定观察带（-35%/-55%）——小区块（如档案详情）按 hash 跳转后
    *  顶部恰停在锚点停靠位（--anchor-offset，76/132px），远在 35%~45% 视口带之上，
