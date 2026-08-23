@@ -273,7 +273,7 @@ function pickVersion(v: 'live' | 'latest') {
 
 .nav-item:hover {
   color: var(--ink-0);
-  background: var(--bg-1);
+  background: var(--bg-3);
 }
 
 .nav-item.active {
@@ -379,13 +379,17 @@ function pickVersion(v: 'live' | 'latest') {
 }
 
 .ver-opt:hover {
-  background: var(--bg-1);
+  background: var(--bg-3);
   color: var(--ink-0);
 }
 
 .ver-opt.selected {
   background: var(--bg-1);
   color: var(--ink-0);
+}
+/* 选中行悬停亦有反馈：:hover 伪类提高特异性（(0,3,0) > (0,2,0)），不受声明顺序影响 */
+.ver-opt.selected:hover {
+  background: var(--bg-3);
 }
 
 .ver-opt-name {

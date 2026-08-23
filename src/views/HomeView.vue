@@ -187,7 +187,7 @@ const sections = [
 }
 
 .index-row:hover {
-  background: var(--bg-1);
+  background: var(--bg-3);
 }
 
 .specimen {

@@ -196,13 +196,16 @@ const unlockCount = computed(() =>
   display: flex;
   align-items: center;
   gap: var(--row-gap);
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  /* 与招式行同款 4px 左右内边：纹章列与 01/02 编号列同一纵向轴线 */
+  padding: 0 4px;
   flex-wrap: wrap;
   row-gap: 10px;
 }
 
 .key-glyph {
-  width: 40px;
+  /* 与招式行编号列同宽：纹章与 01/02 编号纵向同一轴线 */
+  width: var(--label-col);
   flex: none;
   display: flex;
   flex-direction: column;
@@ -215,8 +218,8 @@ const unlockCount = computed(() =>
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: var(--label-col);
+  height: var(--label-col);
   font-size: var(--fs-subhead);
   color: var(--amber);
   border: 1px solid var(--line-1);
@@ -270,7 +273,8 @@ const unlockCount = computed(() =>
   grid-template-columns: var(--label-col) 1fr;
   gap: var(--row-gap);
   padding: var(--space-2) 4px;
-  border-bottom: var(--rule);
+  /* 与 SkillGroup 同源：行内细分隔线（串读单元不带 hover，避免假可点击暗示） */
+  border-bottom: 1px solid var(--line-0);
 }
 
 .no {
@@ -405,9 +409,9 @@ const unlockCount = computed(() =>
   color: inherit;
 }
 
-/* 行悬停：极浅抬升 */
+/* 行悬停：bg-3（token 预置 hover 层级），与转置表行同力道；bg-1 仅差 5 色阶不可辨 */
 .tier:hover {
-  background: var(--bg-1);
+  background: var(--bg-3);
 }
 
 /* 满级累计：全部档位新增量合计，实线与清单区隔 */

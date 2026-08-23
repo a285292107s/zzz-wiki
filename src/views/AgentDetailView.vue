@@ -233,14 +233,17 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
       </DetailSection>
 
       <DetailSection v-if="skills.length" v-reveal id="skills" :no="noOf('skills') ?? '03'" title="技能招式" en="Skills">
-        <div class="skill-anchor" v-for="sk in skills" :key="sk.key" :id="`skill-${sk.key}`">
-          <SkillGroup
-            :row="sk"
-            :glyph="sk.glyph"
-            :srcs="sk.srcs"
-            transpose
-          />
-        </div>
+        <!-- 锚点 id 直接挂在 SkillGroup 根上（Vue 属性继承）：技能组必须互为兄弟，
+             组件内的 .skill-group + .skill-group 分隔规则才生效（勿再套包裹层） -->
+        <SkillGroup
+          v-for="sk in skills"
+          :key="sk.key"
+          :id="`skill-${sk.key}`"
+          :row="sk"
+          :glyph="sk.glyph"
+          :srcs="sk.srcs"
+          transpose
+        />
       </DetailSection>
 
       <!-- 核心技：passive 数据源，独立区块（含基础/潜能版本与核心技强化档）；
@@ -555,3 +558,4 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
   color: var(--amber);
 }
 </style>
+

@@ -189,10 +189,10 @@ const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
   max-width: 56ch;
 }
 
-/* 槽位方框（邦布无技能图标素材，以等宽字母占位；与角色页 38px 图标位同尺寸） */
+/* 槽位方框（邦布无技能图标素材，以等宽字母占位；随 SkillGroup 的 --label-col，与编号列同轴线） */
 .glyph {
-  width: 38px;
-  height: 38px;
+  width: var(--label-col);
+  height: var(--label-col);
   display: flex;
   align-items: center;
   justify-content: center;

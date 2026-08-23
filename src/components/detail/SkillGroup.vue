@@ -181,18 +181,25 @@ function potTag(grp: SkillGroup): string | null {
   --label-col: 36px;
   --row-gap: 14px;
   --body-left: calc(var(--label-col) + var(--row-gap));
-  margin-bottom: calc(var(--pad-section) * 0.5);
+}
+/* 组间分隔：大类之间用主分隔线 + 组距（父级强于行间细线，修复层级倒挂） */
+.skill-group + .skill-group {
+  border-top: var(--rule);
+  padding-top: var(--space-group);
 }
 .skill-kind-row {
   display: flex;
   align-items: center;
   gap: var(--row-gap);
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  /* 与招式行同款 4px 左右内边：图标列与 01/02 编号列同一纵向轴线 */
+  padding: 0 4px;
   flex-wrap: wrap;
   row-gap: 10px;
 }
 .key-glyph {
-  width: 40px;
+  /* 与招式行编号列同宽：图标与 01/02 编号纵向同一轴线 */
+  width: var(--label-col);
   flex: none;
   display: flex;
   flex-direction: column;
@@ -200,8 +207,8 @@ function potTag(grp: SkillGroup): string | null {
   gap: 3px;
 }
 .key-glyph :deep(.frame) {
-  width: 38px;
-  height: 38px;
+  width: var(--label-col);
+  height: var(--label-col);
   border-radius: 2px;
 }
 .key-glyph em {
@@ -227,7 +234,9 @@ function potTag(grp: SkillGroup): string | null {
   grid-template-columns: var(--label-col) 1fr;
   gap: var(--row-gap);
   padding: var(--space-2) 4px;
-  border-bottom: var(--rule);
+  /* 招式行（同大类内子项）用细分隔线；大类间分隔见 .skill-group + .skill-group。
+     不带 hover：行是垂直串读单元，无跨行对照需求，背景反馈只会暗示可点击 */
+  border-bottom: 1px solid var(--line-0);
 }
 .no {
   color: var(--ink-3);
@@ -270,7 +279,8 @@ function potTag(grp: SkillGroup): string | null {
   list-style: none;
   margin: 0;
   padding: 0;
-  max-width: 420px;
+  /* 与转置表同宽：同一技能块内的数值区右缘一致 */
+  max-width: 560px;
 }
 .stat-item {
   display: flex;
@@ -300,6 +310,9 @@ function potTag(grp: SkillGroup): string | null {
 .metric-table {
   width: 100%;
   max-width: 560px;
+  /* collapse：无边框亦生效——separate 模型下 cell 间默认 2px 间隙会露出页面底色，
+     hover 行背景被切割成数段；collapse 让行背景跨 cell 连续 */
+  border-collapse: collapse;
   font-variant-numeric: tabular-nums;
   font-kerning: normal;
 }
@@ -308,12 +321,13 @@ function potTag(grp: SkillGroup): string | null {
   text-align: right;
   font-size: var(--fs-small);
 }
-/* 轴列（段次）：width:1% 收缩至内容宽；指标列自动均分剩余空间 */
+/* 轴列（段次）：width:1% 收缩至内容宽；指标列自动均分剩余空间。
+   左留 8px 避让行悬停时行首的琥珀标注（2px 条 + 6px 间距） */
 .metric-table :is(th, td):first-child {
   width: 1%;
   white-space: nowrap;
   text-align: left;
-  padding-left: 0;
+  padding-left: 8px;
   padding-right: 24px;
 }
 /* 列头：无下缘线，靠字距/弱色/下方留白与数据行分层 */
@@ -365,12 +379,29 @@ function potTag(grp: SkillGroup): string | null {
   flex: none;
   color: var(--amber);
 }
-/* 行悬停：极浅抬升（bg-1）——无表格线时是唯一行跟随线索，便于跨列对照 */
+/* 行悬停：无表格线时唯一的行跟随线索，便于跨列对照 ——
+   面锚定用 bg-3（token 预置的 hover 层级，明显可感知而不刺眼），
+   行首加 2px 琥珀竖条作定向标注（内缩式，非边框线，不破坏无表格线承诺），避免扫视看岔 */
 .metric-table tbody tr {
+  position: relative;
   transition: background var(--t-fast) var(--ease);
 }
+.metric-table tbody tr::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: var(--amber);
+  opacity: 0;
+  transition: opacity var(--t-fast) var(--ease);
+}
 .metric-table tbody tr:hover {
-  background: var(--bg-1);
+  background: var(--bg-3);
+}
+.metric-table tbody tr:hover::before {
+  opacity: 1;
 }
 
 .level-row {
