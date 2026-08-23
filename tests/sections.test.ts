@@ -11,6 +11,7 @@ import {
   buildSkinRows,
   charBreakSegment,
   characterStatsAtLevel,
+  coreEnhanceTotal,
   dictToRows,
   evaluateSkillFormula,
   formatCoreEnhance,
@@ -661,19 +662,72 @@ describe('character level stats', () => {
     expect(charBreakSegment(undefined, 30)).toBeNull()
   })
 
-  it('buildCoreEnhance parses extra_level into A-F levels with formatted bonuses', () => {
+  it('buildCoreEnhance parses extra_level into per-rank increments (A-F)', () => {
     const enhance = buildCoreEnhance(lvl11.extra_level)
     expect(enhance).toHaveLength(6)
     expect(enhance.map((l) => l.no)).toEqual(['A', 'B', 'C', 'D', 'E', 'F'])
     expect(enhance.map((l) => l.unlockAt)).toEqual([15, 25, 35, 45, 55, 60])
-    // 档 A：暴击率 +4.8%（0 加成的基础攻击力被过滤）
+    // 档 A：暴击率 +4.8%（0 增量的基础攻击力被过滤）；增量携带属性码（prop）
     expect(enhance[0].bonus).toEqual([
-      { name: '暴击率', value: 480, format: '{0:0.#%}', text: '4.8%' },
+      { prop: 20101, name: '暴击率', value: 480, format: '{0:0.#%}', text: '4.8%' },
     ])
-    // 档 F：攻击力 +75 · 暴击率 +14.4%
+    // 两属性交替递增：每档只有一项新增（与游戏面板一致，而非累计值）
+    expect(enhance.map((l) => l.bonus.map((b) => b.name))).toEqual([
+      ['暴击率'],
+      ['基础攻击力'],
+      ['暴击率'],
+      ['基础攻击力'],
+      ['暴击率'],
+      ['基础攻击力'],
+    ])
+    // 档 F：基础攻击力 +25（暴击率本档无新增，已过滤）
     expect(enhance[5].bonus.map((b) => `${b.name}+${b.text}`)).toEqual([
-      '基础攻击力+75',
+      '基础攻击力+25',
+    ])
+  })
+
+  it('coreEnhanceTotal sums per-rank increments to max-level totals', () => {
+    const enhance = buildCoreEnhance(lvl11.extra_level)
+    // 顺序 = 首次出现序（档 A 先出暴击率，档 B 再出基础攻击力）
+    expect(coreEnhanceTotal(enhance).map((b) => `${b.name}+${b.text}`)).toEqual([
       '暴击率+14.4%',
+      '基础攻击力+75',
+    ])
+    expect(coreEnhanceTotal([])).toEqual([])
+  })
+
+  it('coreEnhanceTotal merges by prop code: same-name different-prop stay separate rows', () => {
+    // 同名异码（如 11101/11102 生命值）分行展示，不因中文名相同而互相累加
+    const levels = [
+      { no: 'A', unlockAt: 15, bonus: [{ prop: 11101, name: '生命值', value: 100, format: '{0:0}', text: '100' }] },
+      { no: 'B', unlockAt: 25, bonus: [{ prop: 11102, name: '生命值', value: 50, format: '{0:0}', text: '50' }] },
+      { no: 'C', unlockAt: 35, bonus: [{ prop: 11101, name: '生命值', value: 100, format: '{0:0}', text: '100' }] },
+    ]
+    expect(coreEnhanceTotal(levels).map((b) => `${b.name}+${b.value}`)).toEqual([
+      '生命值+200',
+      '生命值+50',
+    ])
+  })
+
+  it('buildCoreEnhance scales base energy regen by 1/100 (raw 12 → 0.12/s)', () => {
+    const enhance = buildCoreEnhance({
+      '1': { max_level: 15, extra: { '30501': { prop: 30501, name: '基础能量自动回复', format: '{0:0.##}', value: 12 } } },
+      '2': { max_level: 25, extra: { '30501': { prop: 30501, name: '基础能量自动回复', format: '{0:0.##}', value: 12 } } },
+      '3': { max_level: 35, extra: { '30501': { prop: 30501, name: '基础能量自动回复', format: '{0:0.##}', value: 24 } } },
+      '4': { max_level: 45, extra: { '30501': { prop: 30501, name: '基础能量自动回复', format: '{0:0.##}', value: 24 } } },
+      '5': { max_level: 55, extra: { '30501': { prop: 30501, name: '基础能量自动回复', format: '{0:0.##}', value: 36 } } },
+      '6': { max_level: 60, extra: { '30501': { prop: 30501, name: '基础能量自动回复', format: '{0:0.##}', value: 36 } } },
+    })
+    expect(enhance.map((l) => `${l.no}:${l.bonus.map((b) => b.text).join(',')}`)).toEqual([
+      'A:0.12',
+      'B:',
+      'C:0.12',
+      'D:',
+      'E:0.12',
+      'F:',
+    ])
+    expect(coreEnhanceTotal(enhance).map((b) => `${b.name}+${b.text}`)).toEqual([
+      '基础能量自动回复+0.36',
     ])
   })
 

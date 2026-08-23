@@ -823,19 +823,24 @@ export function buildCoreSkill(
 /* ============================================================
  * 核心技强化（extra_level）：核心技的独立强化条目。
  * 每档有解锁等级门槛（max_level: 15/25/35/45/55/60）与属性加成
- * （extra 字典：prop/name/format/value，value 为累计值）。
+ * （extra 字典：prop/name/format/value）。
+ * 注意 value 语义为「截至该档的累计值」；游戏面板按「本档新增量」
+ * 展示（两属性交替递增：冲击力+6 → 基础攻击力+25 → 冲击力+6 …），
+ * 故 buildCoreEnhance 输出为每档与上一档的差值（新增量）。
  * 与「潜能影像」（potential_detail，V2.5 激发潜能）是不同系统。
  * ============================================================ */
 
-/** 核心技强化单条属性加成 */
+/** 核心技强化单条属性加成（value 为本档新增量，raw 数据单位） */
 export interface CoreEnhanceBonus {
+  /** 属性码（hakushin prop 码，如 30501；比中文名稳定，改名不失效） */
+  prop?: number
   /** 属性名（如「暴击率」「基础攻击力」） */
   name: string
-  /** 原始值（百分比字段为万分比，如 480 = 4.8%） */
+  /** 本档新增量（raw 数据单位；百分比字段为万分比，如 480 = 4.8%） */
   value: number
   /** hakushin 格式串（{0:0.#%} 等） */
   format?: string
-  /** 格式化显示串（如「4.8%」「25」） */
+  /** 格式化显示串（如「4.8%」「25」「0.12」） */
   text: string
 }
 
@@ -845,7 +850,7 @@ export interface CoreEnhanceLevel {
   no: string
   /** 解锁等级门槛（max_level） */
   unlockAt: number
-  /** 该档属性加成（累计值，0 加成已过滤） */
+  /** 该档新增属性加成（与上一档的差值，0 新增已过滤） */
   bonus: CoreEnhanceBonus[]
 }
 
@@ -863,27 +868,57 @@ export function formatCoreEnhance(value: number, format?: string): string {
 /** 核心技强化档位编号（A-F，与游戏内核心技 A/B/C 等级口径一致） */
 const ENHANCE_LABELS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
 
-/** 从 extra_level 字典构建核心技强化档位列表（按档序）；无数据时返回 [] */
+/** 属性显示缩放：raw 值除以该系数得到游戏展示值。
+ *  key 用属性码而非中文名（文案改名不失效）；数据验证 prop 码 100% 覆盖。
+ *  基础能量自动回复（30501）以「百分位每秒」存储（12 = 0.12 点/秒），
+ *  format 串 {0:0.##} 不含该缩放，需在此补齐（否则会误显为「+12」）。
+ *  新增属性时先用探针扫描 format={0:0.##} 的属性集，确认是否需补缩放。 */
+const ENHANCE_SCALE: Record<number, number> = {
+  30501: 100,
+}
+
+/** raw 值 → 游戏展示值（按属性码缩放） */
+function scaleEnhance(prop: number, raw: number): number {
+  return raw / (ENHANCE_SCALE[prop] ?? 1)
+}
+
+/** 生成展示串：raw 值先按属性缩放，再按 format 格式化 */
+function enhanceText(prop: number, raw: number, format?: string): string {
+  return formatCoreEnhance(scaleEnhance(prop, raw), format)
+}
+
+/** 从 extra_level 字典构建核心技强化档位列表（按档序）；
+ *  value 语义为「累计值」，此处输出每档新增量（与上一档差值）；无数据时返回 [] */
 export function buildCoreEnhance(
   extraDict: Record<string, unknown> | undefined | null,
 ): CoreEnhanceLevel[] {
   if (!extraDict) return []
+  // 按属性码追踪累计值（数据验证 prop 100% 存在；缺位时退回属性名保持合并语义）
+  let prev = new Map<number | string, { value: number; format?: string }>()
   return Object.entries(extraDict)
     .sort((a, b) => Number(a[0]) - Number(b[0]))
     .map(([k, v]) => {
       const o = (v ?? {}) as Record<string, unknown>
-      const bonus = Object.values((o.extra ?? {}) as Record<string, unknown>)
-        .map((e) => {
-          const p = (e ?? {}) as { name?: string; format?: string; value?: number }
-          const value = Number(p.value) || 0
-          return {
-            name: String(p.name ?? ''),
-            value,
-            format: p.format,
-            text: formatCoreEnhance(value, p.format),
-          }
+      const bonus: CoreEnhanceBonus[] = []
+      const next = new Map<number | string, { value: number; format?: string }>()
+      for (const e of Object.values((o.extra ?? {}) as Record<string, unknown>)) {
+        const p = (e ?? {}) as { name?: string; format?: string; value?: number; prop?: unknown }
+        const name = String(p.name ?? '')
+        const prop = Number(p.prop) || 0
+        const key = prop || name
+        const value = Number(p.value) || 0
+        const delta = value - (prev.get(key)?.value ?? 0)
+        next.set(key, { value, format: p.format })
+        if (delta <= 0) continue
+        bonus.push({
+          prop: prop || undefined,
+          name,
+          value: delta,
+          format: p.format,
+          text: enhanceText(prop, delta, p.format),
         })
-        .filter((b) => b.value !== 0)
+      }
+      prev = next
       return {
         no: ENHANCE_LABELS[Number(k) - 1] ?? String(k),
         unlockAt: Number(o.max_level) || 0,
@@ -891,6 +926,29 @@ export function buildCoreEnhance(
       }
     })
     .filter((l) => l.unlockAt > 0)
+}
+
+/** 核心技强化满级累计（各档新增量之和，与 buildCoreEnhance 同源缩放）；
+ *  按属性码合并（真实数据同名异码不并现；未来出现时分行展示，语义更精确），
+ *  format 取该属性末档（数据验证同属性跨档恒定；变化时总量以末档为准） */
+export function coreEnhanceTotal(
+  levels: readonly CoreEnhanceLevel[],
+): CoreEnhanceBonus[] {
+  const acc = new Map<number | string, CoreEnhanceBonus>()
+  for (const lv of levels) {
+    for (const b of lv.bonus) {
+      const key = b.prop ?? b.name
+      const value = (acc.get(key)?.value ?? 0) + b.value
+      acc.set(key, {
+        prop: b.prop,
+        name: b.name,
+        value,
+        format: b.format,
+        text: enhanceText(b.prop ?? 0, value, b.format),
+      })
+    }
+  }
+  return [...acc.values()]
 }
 
 /* ============================================================

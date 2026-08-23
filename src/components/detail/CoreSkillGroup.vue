@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { richDesc } from '@/utils/rich'
-import type { CoreEnhanceLevel, CoreSkill, PotentialCinema } from '@/domain/sections'
+import {
+  CHAR_LEVEL_MAX,
+  coreEnhanceTotal,
+  type CoreEnhanceBonus,
+  type CoreEnhanceLevel,
+  type CoreSkill,
+  type PotentialCinema,
+} from '@/domain/sections'
 import LevelSlider from './LevelSlider.vue'
 
 const props = defineProps<{
@@ -10,6 +17,8 @@ const props = defineProps<{
   enhance?: CoreEnhanceLevel[]
   /** 潜能影像档位（potential_detail）：潜能模式下补一行「潜能觉醒：极冰带」等强化效果 */
   cinema?: PotentialCinema[]
+  /** 角色等级（1-60）：核心技强化档按此解锁（对比 unlockAt 门槛）；缺省视为满级（全部解锁） */
+  charLevel?: number
 }>()
 
 /** 真实核心技等级（1..levelCount；两轮结构去重后仍为 7，而非 14 条记录数），默认满级 */
@@ -45,6 +54,24 @@ const currentBadge = computed<string>(() => {
   if (current.value.enhanced) return '强化'
   return ''
 })
+
+/** 核心技强化满级累计（各档新增量合计，随每档增量展示补回总量信息） */
+const enhanceTotal = computed<CoreEnhanceBonus[]>(() =>
+  coreEnhanceTotal(props.enhance ?? []),
+)
+
+/** 对照用角色等级：未传入时按满级处理（保持旧行为：全解锁、末档即当前档） */
+const charLv = computed(() => props.charLevel ?? CHAR_LEVEL_MAX)
+
+/** 档位是否已解锁：角色等级 ≥ 该档解锁门槛 */
+function isUnlocked(lv: CoreEnhanceLevel): boolean {
+  return charLv.value >= lv.unlockAt
+}
+
+/** 已解锁档位数（标题行进度计数，随角色等级实时联动） */
+const unlockCount = computed(() =>
+  (props.enhance ?? []).filter((lv) => isUnlocked(lv)).length,
+)
 </script>
 
 <template>
@@ -110,21 +137,48 @@ const currentBadge = computed<string>(() => {
       </li>
     </ul>
 
-    <!-- 核心技强化：extra_level 档位（I-VI），属性加成累计值 -->
-    <section v-if="enhance?.length" class="enhance">
-      <h4 class="enhance-title mono">核心技强化</h4>
-      <ul class="enhance-list">
-        <li v-for="lv in enhance" :key="lv.no" class="enhance-row">
-          <span class="no mono">{{ lv.no }}</span>
-          <span class="unlock mono">Lv.{{ lv.unlockAt }}</span>
-          <span class="bonus mono">
-            <template v-for="(b, i) in lv.bonus" :key="b.name">
-              <span v-if="i" class="sep" aria-hidden="true">·</span>
-              {{ b.name }} +{{ b.text }}
+    <!-- 核心技强化：extra_level 档位（A-F），本档新增属性加成（累计值已换算为每档增量） -->
+    <section v-if="enhance?.length" class="enhance" aria-label="核心技强化">
+      <!-- 标题行：eyebrow + 已解锁进度计数（随角色等级实时联动） -->
+      <div class="enhance-head">
+        <h4 class="enhance-title mono">核心技强化</h4>
+        <span
+          class="enhance-count mono"
+          :class="{ 'is-full': unlockCount === enhance.length }"
+          :aria-label="`已解锁 ${unlockCount} 档，共 ${enhance.length} 档`"
+        >{{ unlockCount }}/{{ enhance.length }}</span>
+      </div>
+      <!-- 档位清单：纵向一行一档（无卡片堆叠）；两态 = 已解锁（琥珀档号）/ 未解锁（弱化） -->
+      <ul class="enhance-track">
+        <li
+          v-for="lv in enhance"
+          :key="lv.no"
+          class="tier"
+          :class="{
+            'is-unlocked': isUnlocked(lv),
+            'is-locked': !isUnlocked(lv),
+          }"
+        >
+          <span class="tier-no mono">{{ lv.no }}</span>
+          <span class="tier-gate mono">Lv.{{ lv.unlockAt }}</span>
+          <span class="tier-bonus">
+            <template v-for="(b, bi) in lv.bonus" :key="b.name">
+              <span v-if="bi" class="sep" aria-hidden="true">·</span>
+              <span class="bn">{{ b.name }}</span>
+              <span class="bv mono">+{{ b.text }}</span>
             </template>
           </span>
         </li>
       </ul>
+      <!-- 满级累计：全部档位新增量之和，独立一行置于清单之下 -->
+      <p v-if="enhanceTotal.length" class="enhance-total mono">
+        <span class="total-label">满级累计</span>
+        <template v-for="(t, i) in enhanceTotal" :key="t.name">
+          <span v-if="i" class="sep" aria-hidden="true">·</span>
+          <span class="bn">{{ t.name }}</span>
+          <span class="bv mono">+{{ t.text }}</span>
+        </template>
+      </p>
     </section>
   </div>
 </template>
@@ -250,7 +304,7 @@ const currentBadge = computed<string>(() => {
   margin-bottom: 0;
 }
 
-/* ---------- 核心技强化（extra_level 档位） ---------- */
+/* ---------- 核心技强化（extra_level 解锁档位） ---------- */
 
 .enhance {
   margin-top: var(--space-group);
@@ -258,50 +312,147 @@ const currentBadge = computed<string>(() => {
   border-top: var(--rule);
 }
 
+/* 标题行：eyebrow 与解锁进度计数两端对齐 */
+.enhance-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 2px;
+}
+
 .enhance-title {
   font-size: var(--fs-micro);
   font-weight: 400;
   letter-spacing: 0.22em;
   color: var(--ink-2);
-  margin-bottom: 4px;
 }
 
-.enhance-list {
+/* 进度计数：n/总档数，随角色等级实时联动；全部解锁时转琥珀 */
+.enhance-count {
+  font-size: var(--fs-nano);
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+}
+
+.enhance-count.is-full {
+  color: var(--amber);
+}
+
+/* ---------- 档位清单：纵向一行一档，无卡片堆叠 ---------- */
+
+.enhance-track {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.enhance-row {
+.tier {
   display: grid;
-  grid-template-columns: var(--label-col) 3.2em 1fr;
-  gap: var(--row-gap);
+  grid-template-columns: 40px 52px 1fr;
+  gap: 14px;
   align-items: baseline;
-  padding: 9px 4px;
-  border-bottom: var(--rule);
+  padding: 10px 4px;
+  transition: background var(--t-fast) var(--ease);
 }
 
-.enhance-row:last-child {
-  border-bottom: none;
+/* 档号：等宽大字；已解锁转琥珀，未解锁维持弱墨 */
+.tier-no {
+  font-size: var(--fs-subhead);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--ink-3);
+  transition: color var(--t-fast) var(--ease);
 }
 
-.enhance-row .no {
+.tier.is-unlocked .tier-no {
   color: var(--amber);
 }
 
-.enhance-row .unlock {
-  font-size: var(--fs-micro);
+/* 解锁门槛刻度（角色等级） */
+.tier-gate {
+  font-size: var(--fs-nano);
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
+}
+
+.tier.is-locked .tier-gate {
   color: var(--ink-3);
 }
 
-.enhance-row .bonus {
+/* 档位加成：属性名弱墨 + 数值琥珀 */
+.tier-bonus {
   font-size: var(--fs-caption);
-  color: var(--ink-0);
+  line-height: 1.65;
+  color: var(--ink-1);
 }
 
-.enhance-row .sep {
-  margin: 0 0.6em;
+.tier-bonus .bv {
+  color: var(--amber);
+}
+
+.enhance .sep {
+  margin: 0 0.5em;
   color: var(--ink-3);
+}
+
+/* 未解锁档：整体弱化，加成内容保留作为升级预告，数值并入弱墨 */
+.tier.is-locked .tier-bonus {
+  color: var(--ink-3);
+}
+
+.tier.is-locked .bv {
+  color: inherit;
+}
+
+/* 行悬停：极浅抬升 */
+.tier:hover {
+  background: var(--bg-1);
+}
+
+/* 满级累计：全部档位新增量合计，实线与清单区隔 */
+.enhance-total {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  row-gap: 4px;
+  margin: var(--space-2) 0 0;
+  padding: var(--space-2) 4px 0;
+  border-top: 1px solid var(--line-1);
+  font-size: var(--fs-caption);
+  color: var(--ink-1);
+}
+
+.enhance-total .total-label {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.18em;
+  color: var(--ink-2);
+  margin-right: 1em;
+}
+
+/* 窄屏：档号 + 解锁刻度合成首列，加成列并排居中 */
+@media (max-width: 560px) {
+  .tier {
+    grid-template-columns: 40px 1fr;
+    column-gap: 12px;
+    row-gap: 2px;
+  }
+
+  .tier-no {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .tier-gate {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .tier-bonus {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+  }
 }
 
 .desc :deep(.rich-key) {

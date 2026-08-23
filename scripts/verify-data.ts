@@ -43,6 +43,33 @@ function check(file: string, data: unknown, schema: { safeParse: (v: unknown) =>
   }
 }
 
+/** 语义校验：角色核心技强化（extra_level）累计值必须单调不减（回退 = 数据异常）。
+ *  与前端 buildCoreEnhance（src/domain/sections.ts）的差值口径一致：
+ *  同值（无新增）允许，回退会导致前端静默丢档，故前置为构建告警。 */
+function checkEnhanceMonotonic(rel: string, detail: Record<string, unknown>): void {
+  const ed = detail.extra_level
+  if (!ed || typeof ed !== 'object') return
+  const prev = new Map<number, number>() // 属性码 → 上一档累计值
+  for (const [rank, raw] of Object.entries(ed as Record<string, unknown>)) {
+    const o = (raw ?? {}) as Record<string, unknown>
+    for (const e of Object.values((o.extra ?? {}) as Record<string, unknown>)) {
+      const p = (e ?? {}) as { prop?: unknown; name?: unknown; value?: unknown }
+      const prop = Number(p.prop)
+      if (!Number.isFinite(prop)) continue // 缺属性码的条目不判级（由 zod 契约面把控）
+      const value = Number(p.value) || 0
+      const last = prev.get(prop)
+      if (last != null && value < last) {
+        errors.push({
+          file: rel,
+          issues: [`extra_level 回退：prop ${prop}（${String(p.name ?? '')}）第 ${rank} 档 ${value} < 上一档 ${last}（累计值必须单调不减）`],
+        })
+        return
+      }
+      prev.set(prop, value)
+    }
+  }
+}
+
 async function readJson(rel: string): Promise<unknown> {
   return JSON.parse(await fs.readFile(path.join(OUT, rel), 'utf8'))
 }
@@ -79,7 +106,10 @@ async function main(): Promise<void> {
       for (const f of files) {
         if (!f.endsWith('.json')) continue
         detailCount++
-        check(path.join(ver, dir, f), await readJson(path.join(ver, dir, f)), schema)
+        const rel = path.join(ver, dir, f)
+        const detail = (await readJson(rel)) as Record<string, unknown>
+        check(rel, detail, schema)
+        if (dir.endsWith('character')) checkEnhanceMonotonic(rel, detail)
       }
     }
   }

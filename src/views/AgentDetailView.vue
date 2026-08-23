@@ -243,7 +243,8 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
         </div>
       </DetailSection>
 
-      <!-- 核心技：passive 数据源，独立区块（含基础/潜能版本与核心技强化档） -->
+      <!-- 核心技：passive 数据源，独立区块（含基础/潜能版本与核心技强化档）；
+      char-level 同步角色等级滑块，核心技强化档位按角色等级门槛解锁 -->
       <DetailSection
         v-if="coreSkill"
         v-reveal
@@ -252,10 +253,15 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
         title="核心技"
         en="Core"
       >
-        <CoreSkillGroup :row="coreSkill" :enhance="coreEnhance" :cinema="potentialCinema" />
+        <CoreSkillGroup
+          :row="coreSkill"
+          :enhance="coreEnhance"
+          :cinema="potentialCinema"
+          :char-level="charLevel"
+        />
       </DetailSection>
 
-        <DetailSection v-if="talents.length" v-reveal id="talents" :no="noOf('talents') ?? '05'" title="影画" en="Mindscape">
+      <DetailSection v-if="talents.length" v-reveal id="talents" :no="noOf('talents') ?? '05'" title="影画" en="Mindscape">
           <ul class="talents-list">
             <DescRow
               v-for="t in talents"
