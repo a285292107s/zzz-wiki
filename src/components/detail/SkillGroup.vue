@@ -381,12 +381,16 @@ function potTag(grp: SkillGroup): string | null {
 }
 /* 行悬停：无表格线时唯一的行跟随线索，便于跨列对照 ——
    面锚定用 bg-3（token 预置的 hover 层级，明显可感知而不刺眼），
-   行首加 2px 琥珀竖条作定向标注（内缩式，非边框线，不破坏无表格线承诺），避免扫视看岔 */
+   行首加 2px 琥珀竖条作定向标注（内缩式，非边框线，不破坏无表格线承诺），避免扫视看岔。
+   竖条挂首个 cell 而非 tr：table-row 上的 absolute 伪元素会破坏 Chrome 列轨道计算
+   （thead/tbody 列错位一格），挂 table-cell 是安全用法 */
 .metric-table tbody tr {
-  position: relative;
   transition: background var(--t-fast) var(--ease);
 }
-.metric-table tbody tr::before {
+.metric-table tbody :is(th, td):first-child {
+  position: relative;
+}
+.metric-table tbody :is(th, td):first-child::before {
   content: '';
   position: absolute;
   left: 0;
@@ -400,7 +404,7 @@ function potTag(grp: SkillGroup): string | null {
 .metric-table tbody tr:hover {
   background: var(--bg-3);
 }
-.metric-table tbody tr:hover::before {
+.metric-table tbody tr:hover :is(th, td):first-child::before {
   opacity: 1;
 }
 
