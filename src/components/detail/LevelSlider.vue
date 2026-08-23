@@ -49,6 +49,7 @@ function onChange(e: Event) {
         :key="m.at"
         class="mark"
         :class="{ 'is-break': m.break }"
+        :style="{ '--norm': (m.at - min) / (max - min) }"
       >
         <i class="tick" />
         <b class="mono">{{ m.label }}</b>
@@ -59,6 +60,9 @@ function onChange(e: Event) {
 
 <style scoped>
 .level-slider {
+  /* thumb 边长：滑钮尺寸与刻度定位共用同一行程模型（刻度中心 = thumb 中心公式），
+     改尺寸只需改这一处 */
+  --thumb-size: 11px;
   flex: 1;
   min-width: 0;
   display: flex;
@@ -95,17 +99,18 @@ function onChange(e: Event) {
 .level-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 11px;
-  height: 11px;
-  margin-top: -4.5px;
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  /* 垂直居中于 2px 轨道：-(track 2px - thumb) × 0.5 */
+  margin-top: calc((2px - var(--thumb-size)) * 0.5);
   background: var(--amber);
   border: 1px solid var(--bg-0);
   border-radius: 2px;
   transition: background var(--t-fast) var(--ease);
 }
 .level-range::-moz-range-thumb {
-  width: 11px;
-  height: 11px;
+  width: var(--thumb-size);
+  height: var(--thumb-size);
   background: var(--amber);
   border: 1px solid var(--bg-0);
   border-radius: 2px;
@@ -131,13 +136,18 @@ function onChange(e: Event) {
 
 /* ---------- 突破刻度 ---------- */
 
+/* 刻度绝对定位于滑轨：中心 = thumb 中心（left 公式与滑钮行程严格一致），
+   两端与滑钮端点重合、中间线性同轨。不可用 flex space-between——
+   各刻度盒子随标签宽度（'1' 窄 / '10' 宽）变化，中心非线性偏移（60 级区间 10 级处可偏 ~13px） */
 .slider-marks {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 5px; /* 与 11px 方钮中心对齐两端刻度 */
+  position: relative;
+  height: 22px; /* tick 5px + gap 3px + 标签行高 */
 }
 
 .mark {
+  position: absolute;
+  left: calc(var(--norm) * (100% - var(--thumb-size)) + var(--thumb-size) * 0.5);
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -160,6 +170,8 @@ function onChange(e: Event) {
 .mark.is-break .tick {
   background: var(--amber);
   height: 7px;
+  /* 主刻度向刻度带方向延伸（上伸 2px）：线底与普通刻度同基线，数字不被推低 */
+  margin-top: -2px;
 }
 
 .mark.is-break b {
