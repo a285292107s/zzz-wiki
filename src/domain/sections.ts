@@ -539,7 +539,8 @@ function formulaSkillIds(formula: string): Set<string> {
  * 「三段（协同）」行因多引用一个 Skill 而得分更低，得以与「三段」行区分）。
  * 行标签 = 该行条目名公共前缀，重复时补「去列标签后的公共后缀」（如 一段/一段（物理）/一段（以太））；
  * 列头 = 每行同名条目「去行主题后缀」的公共前缀（不要求全一致，容忍「（物理）」类行后缀）。
- * 矩阵只收「每行都有条目」的稠密指标列（≥2 列才构成真正的表），保证矩阵无空位；
+ * 矩阵只收「每行都有条目」的稠密指标列（≥2 列且≥2 行才构成真正的表：1×M 退化形态
+ * 无纵向对比、退回列表），保证矩阵无空位；
  * 静态文本条目（无 Skill 引用，如「1点」充能计数）与仅部分招式拥有的指标归入 extras
  * 独立成补充行。无法构成合理矩阵时返回 null，由调用方退回原纵向列表。
  */
@@ -585,6 +586,9 @@ export function buildSkillMetricTable(
     if (columns[i].items.length > columns[refIdx].items.length) refIdx = i
   }
   const refCol = columns[refIdx]
+  // 转置价值门槛：≥2 行才有「段次×指标」的交叉对比（行=段次/主体、列=指标）；
+  // 单行矩阵无段次对比维度，退回列表（当前单行均双指标，如妮可「冲刺攻击：为所欲为」）
+  if (refCol.items.length < 2) return null
   const refNames = refCol.items.map((d) => d.name ?? '')
   const refSkills = refCol.items.map((d) => formulaSkillIds(d.formula))
 

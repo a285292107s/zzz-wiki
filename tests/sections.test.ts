@@ -766,6 +766,18 @@ describe('buildSkillMetricTable', () => {
     expect(buildSkillMetricTable(group, 1)).toBeNull()
   })
 
+  it('returns null for 1×M degenerate matrix (single row: no segment comparison)', () => {
+    // 妮可「冲刺攻击：为所欲为」真实形态的回归：单行双指标必须退回列表
+    const group: SkillGroup = {
+      name: '冲刺攻击：为所欲为',
+      entries: [
+        entry('前闪攻击伤害倍率', 1031201, 1001, 4120, 380),
+        entry('前闪攻击失衡倍率', 1031201, 1002, 2900, 140),
+      ],
+    }
+    expect(buildSkillMetricTable(group, 12)).toBeNull()
+  })
+
   it('keeps shared multiplier metrics in the matrix and moves static/partial metrics to extras (Ellen)', () => {
     const group: SkillGroup = {
       name: '冲刺攻击：冰渊潜袭',
