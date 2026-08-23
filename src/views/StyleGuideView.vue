@@ -89,6 +89,7 @@ const semantic = withCr(
     ['--rank-s', '稀有度 S 金'],
     ['--rank-a', '稀有度 A 紫'],
     ['--rank-b', '稀有度 B 绿'],
+    ['--violet', '派生技能徽标'],
   ]),
   '--bg-0',
 )

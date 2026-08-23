@@ -30,6 +30,7 @@ const TOKENS: Record<string, string> = {
   '--rank-s': '#f5d67b',
   '--rank-a': '#b98ad4',
   '--rank-b': '#7dae7a',
+  '--violet': 'var(--rank-a)',
 }
 
 let swatchCrs: string[]
@@ -60,8 +61,8 @@ beforeAll(async () => {
 })
 
 describe('StyleGuideView · 色彩对比度标尺', () => {
-  it('每枚 swatch 都带对比度徽标（面 4 + 线 3 + 墨 4 + 强调 5 + 语义 4 = 20 枚）', () => {
-    expect(swatchCrs).toHaveLength(20)
+  it('每枚 swatch 都带对比度徽标（面 4 + 线 3 + 墨 4 + 强调 5 + 语义 5 = 21 枚）', () => {
+    expect(swatchCrs).toHaveLength(21)
   })
 
   it('正文级前景达标：ink-0 AAA、ink-1 / ink-2 / danger AA', () => {
@@ -75,8 +76,8 @@ describe('StyleGuideView · 色彩对比度标尺', () => {
     expect(swatchCrs).toContain('2.29 · LOW')
   })
 
-  it('非 hex 展示不判级：amber-dim（rgba）与 focus（var 引用）为 —', () => {
+  it('非 hex 展示不判级：amber-dim（rgba）与 focus / violet（var 引用）为 —', () => {
     const dashes = swatchCrs.filter((t) => t === '—')
-    expect(dashes).toHaveLength(2)
+    expect(dashes).toHaveLength(3)
   })
 })

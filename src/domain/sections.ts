@@ -46,6 +46,9 @@ export interface SkillGroup {
   potential?: number[]
   /** 门控类型：'new' 为潜能新增招式，'enhance' 为对既有招式（同名基础版）的强化 */
   potentialType?: 'new' | 'enhance'
+  /** 派生技能子块（纯数值、吸附在父招式之下，如「涡流集束手雷基础倍率」）：
+   *  门控语义保留（基础模式随潜能隐藏），但不悬挂「潜能×·新增」徽标 */
+  derived?: boolean
   /** 同名「基础 + 强化」双形态时，强化版文案（desc 保留基础版）；供基础/潜能切换使用 */
   strongDesc?: string
 }
@@ -123,6 +126,25 @@ export const SKILL_KEYS: Record<SkillSlotKey, { glyph: string; en: string }> = {
 
 const SKILL_REF_RE = /\{Skill:(\d+),\s*Prop:\d+\}/
 
+/** 纯数值子块的机制名：去「基础倍率/倍率」后缀（如「涡流集束手雷基础倍率」→「涡流集束手雷」）；
+ *  既用于按机制名关联父招式，也用于潜能概述中代指派生技能子块 */
+function mechanismName(name: string): string {
+  return name.replace(/基础倍率$/, '').replace(/倍率$/, '')
+}
+
+/** 吸附退化匹配的文本归一化：剥富文本标记与装饰标点（term 与父文本同归一，保证 includes 一致） */
+function normalizeDerivedText(text: string): string {
+  return text
+    .replace(/<[^>]+>/g, '')
+    .replace(/\{[^}]*\}/g, '')
+    .replace(/[「」『』“”‘’[\]]/g, '')
+    .replace(/[：:\s·・]+/g, '')
+}
+
+/** 尾 token 段次后缀（如「第一段」）：吸附退化时整体剔除，避免阻断尾词命中（仅「段」字结尾，
+ *  不认「式」——「恶虎七式」等系列名中的期数不是段次） */
+const DERIVED_SEG_SUFFIX = /^(?:第?[一二三四五六七八九十百\d]+段)$/
+
 /** 转置分组用：同时捕获 Skill ID 与 Prop（Prop 为指标维度键） */
 const SKILL_REF_FULL_RE = /\{Skill:(\d+),\s*Prop:(\d+)\}/
 
@@ -184,6 +206,8 @@ function buildSkillGroups(
   /** 按 name 合并、保持首次出现顺序 */
   const groups: SkillGroup[] = []
   const indexBy = new Map<string, number>()
+  /** 派生技能子块的吸附关系：{子组下标, 父招式下标}，循环后统一重排让子组紧跟父级 */
+  const attach: Array<{ parent: number; child: number }> = []
   for (const block of descriptions) {
     if (typeof block?.name !== 'string') continue
     if (Array.isArray(block.param) && block.param.length) {
@@ -203,42 +227,85 @@ function buildSkillGroups(
       if (!entries.length) continue
       const gname = block?.name ?? ''
       let gi = indexBy.get(gname)
-      let folded = false
+      /** 派生技能子块：无同名说明文字的独立命名纯数值块（如「涡流集束手雷基础倍率」）。
+       *  与潜能无关——无论是否由潜能影像提供，一律标记并悬挂「派生技能」标签；
+       *  机制名唯一命中父招式文本时再吸附其下 */
+      const derived = !descBy.has(gname)
       if (gi == null) {
-        // 带 potential 的「纯数值子块」（无同名描述、独立命名，如「涡流集束手雷基础倍率」）：
-        // 按机制名关联；仅当**唯一**命中某招式文本（组名/描述/强化描述）时，数值回落其参数列表；
-        // 否则（无命中或歧义）不做特殊处理，维持原样独立成行。
-        const bare = isPotentialGated(block.potential) && !descBy.has(gname)
-        if (bare) {
-          const term = gname.replace(/基础倍率$/, '').replace(/倍率$/, '')
-          const matched = term
-            ? groups
-                .map((g, i) => {
-                  const hay = [g.name, typeof g.desc === 'string' ? g.desc : '', g.strongDesc ?? ''].join('\n')
-                  return hay.includes(term) ? i : -1
-                })
-                .filter((i) => i >= 0)
-            : []
+        // 吸附判定（逐级退化，唯一命中即采纳）：
+        // 1) 完整机制名（去「基础倍率/倍率」后缀）——唯一命中即吸附；歧义（>1）直接维持
+        //    独立，不继续退化（歧义护栏：文本提及多个招式时不以短词强行归并）；
+        // 2) 0 命中 → 逐级退化：归一化完整名 → 去段次后缀（「第一段」等）→ 尾 token
+        //    递进（「…·威势」「…·「虎威」」以最后词汇命中）。候选首个产生命中的即定案：
+        //    唯一 → 吸附；歧义 → 终止（跨族候选无子串单调性，更短词唯一只是“碰巧”，
+        //    不继续尝试）；
+        // 3) 仍 0 → Skill ID 共享兜底：与某有说明的 param 组引用同一数值节点（派生公式
+        //    复用父级数值，如「为所欲为」复用「惊喜开箱」的前闪攻击）。
+        // 父候选仅限有说明文字的招式组（派生块自身不参与）。
+        // 吸附关系先记录，循环末尾统一重排（期间组序索引不可变动，故不做即时插入）。
+        if (derived) {
+          const hit = (t: string): number[] => {
+            const nt = normalizeDerivedText(t)
+            if (!nt) return []
+            const out: number[] = []
+            groups.forEach((g, i) => {
+              if (g.derived) return
+              const hay = normalizeDerivedText(
+                [g.name, typeof g.desc === 'string' ? g.desc : '', g.strongDesc ?? ''].join('\n'),
+              )
+              if (hay.includes(nt)) out.push(i)
+            })
+            return out
+          }
+          let matched = hit(mechanismName(gname))
           if (matched.length === 1) {
-            gi = matched[0]
-            folded = true
+            attach.push({ parent: matched[0], child: groups.length })
+          } else if (matched.length === 0) {
+            const cands: string[] = []
+            const add = (t?: string) => {
+              if (t && !cands.includes(t)) cands.push(t)
+            }
+            add(normalizeDerivedText(gname))
+            const tokens = gname.split(/[：·・\s]+/).filter(Boolean)
+            if (tokens.length > 1) {
+              const last = tokens[tokens.length - 1]
+              if (DERIVED_SEG_SUFFIX.test(last)) add(tokens.slice(0, -1).join(''))
+              for (let i = 1; i < tokens.length; i++) add(tokens.slice(i).join(''))
+            }
+            for (const cand of cands) {
+              matched = hit(cand)
+              if (matched.length > 0) break
+            }
+            if (matched.length === 1) {
+              attach.push({ parent: matched[0], child: groups.length })
+            } else if (matched.length === 0) {
+              // Skill ID 共享兜底（仅剩无任何文本信号的情形）
+              const own = new Set(entries.flatMap((e) => [...e.formula.matchAll(/Skill:(\d+)/g)].map((m) => m[1])))
+              if (own.size) {
+                const shared: number[] = []
+                groups.forEach((g, i) => {
+                  if (g.derived) return
+                  if (
+                    (g.entries ?? []).some((en) =>
+                      [...en.formula.matchAll(/Skill:(\d+)/g)].some((m) => own.has(m[1])),
+                    )
+                  )
+                    shared.push(i)
+                })
+                if (shared.length === 1) attach.push({ parent: shared[0], child: groups.length })
+              }
+            }
           }
         }
-        if (gi == null) {
-          gi = groups.length
-          indexBy.set(gname, gi)
-          groups.push({ name: gname, desc: descBy.get(gname) })
-        }
+        gi = groups.length
+        indexBy.set(gname, gi)
+        groups.push({ name: gname, desc: descBy.get(gname) })
       }
       const g = groups[gi]
-      // 说明：数值子块折叠进父招式后，父级会因 markGated 被标记为潜能门控——
-      // 该副作用为预期（涌现、数值子块从属于潜能手法，父招式理应与潜能关联）。
+      if (derived) g.derived = true
       markGated(g, block.potential)
       const entryArr = g.entries ?? (g.entries = [])
-      // 回落子块条目冠以子块名，避免与父招式同名指标混淆（如多个「伤害倍率」）
-      for (const en of folded ? entries.map((e) => ({ ...e, name: `${gname}·${e.name}` })) : entries) {
-        entryArr.push(en)
-      }
+      entryArr.push(...entries)
     } else if (block.param == null && typeof block.desc === 'string') {
       // 简单描述块：保留说明文字（若已被数值组占用则补上 desc）
       const gname = block.name
@@ -260,6 +327,19 @@ function buildSkillGroups(
         }
       }
     }
+  }
+  // 吸附重排：派生技能子块（数据中常位于槽位整体末尾）移到父招式之后，紧跟其下
+  if (attach.length) {
+    const moved = new Set(attach.map((a) => a.child))
+    const ordered: SkillGroup[] = []
+    const append = (i: number) => {
+      ordered.push(groups[i])
+      for (const a of attach) if (a.parent === i) append(a.child)
+    }
+    groups.forEach((_, i) => {
+      if (!moved.has(i)) append(i)
+    })
+    return ordered.length ? ordered : undefined
   }
   return groups.length ? groups : undefined
 }
@@ -1012,7 +1092,8 @@ export function synthesizePotentialCinema(
       if (!lv) continue
       const map = g.potentialType === 'new' ? added : enhanced
       const list = map.get(lv) ?? []
-      list.push(g.name)
+      // 纯数值门控子块（派生技能）以机制名入概述，不暴露「…基础倍率」类伪名
+      list.push(g.derived && g.potentialType === 'new' ? mechanismName(g.name) : g.name)
       map.set(lv, list)
     }
   }

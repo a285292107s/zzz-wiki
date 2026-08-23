@@ -28,6 +28,9 @@
   --amber-hi: #eec28a;
   --amber-dim: rgba(216, 163, 92, 0.14);
 
+  /* 派生技能徽标 — 紫（派生自稀有度 A 紫，别名防色值漂移） */
+  --violet: var(--rank-a);
+
   /* status */
   --danger: #c96155;        /* 对 bg-0 ≥4.5:1 */
   --ok: #7ba05b;

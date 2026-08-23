@@ -63,8 +63,10 @@ const displayGroups = computed(() =>
 )
 
 /** 潜能影像门控标记：由招式档位 + 类型得到徽标文本（新增/强化）；
- *  同名双形态（enhance）仅在潜能版显示；非门控返回 null */
+ *  派生技能子块（derived）不悬挂徽标（非真实招式，仅为数值展示）；同名双形态（enhance）
+ *  仅在潜能版显示；非门控返回 null */
 function potTag(grp: SkillGroup): string | null {
+  if (grp.derived) return null
   const lv = potentialStartLevel(grp.potential)
   if (!lv) return null
   if (grp.potentialType === 'enhance' && variant.value !== 'pot') return null
@@ -119,6 +121,7 @@ function potTag(grp: SkillGroup): string | null {
         <div class="body">
           <h4 class="title title-skill">
             {{ grp.name }}
+            <span v-if="grp.derived" class="pot-badge derived-badge mono">派生技能</span>
             <span
               v-if="potTag(grp)"
               class="pot-badge mono"
@@ -252,6 +255,12 @@ function potTag(grp: SkillGroup): string | null {
   line-height: 1.4;
   margin-bottom: 6px;
   color: var(--ink-0);
+}
+/* 派生技能徽标（「派生技能」）：复用 pot-badge 基座（base.css 细线小签），仅覆盖颜色为紫色——
+   派生技能不是可操作招式，仅为数值面板（如「涡流集束手雷基础倍率」） */
+.derived-badge {
+  border-color: var(--violet);
+  color: var(--violet);
 }
 .desc {
   color: var(--ink-1);
