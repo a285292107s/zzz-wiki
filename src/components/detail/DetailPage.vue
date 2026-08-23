@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import { nextTick, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import AsyncState from '@/components/state/AsyncState.vue'
 import BackToTop from '@/components/BackToTop.vue'
+import { useNavScrollable } from '@/composables/useNavScrollable'
 import type { AsyncStatus } from '@/composables/useAsyncResource'
 import type { DetailSectionItem } from '@/composables/useDetailSections'
 
-defineProps<{
+const props = defineProps<{
   /** 返回名录链接 */
   backTo: string
   backLabel?: string
@@ -19,6 +21,14 @@ defineProps<{
   fallbackTo?: string
   fallbackText?: string
 }>()
+
+/** 移动端吸顶横条的「可横滑」提示：条目随数据就绪（nav prop 变化）后重测 */
+const { navEl, refresh } = useNavScrollable()
+watch(
+  () => props.nav,
+  () => nextTick(refresh),
+  { flush: 'post' },
+)
 </script>
 
 <template>
@@ -26,7 +36,7 @@ defineProps<{
     <RouterLink :to="backTo" class="back mono">← {{ backLabel ?? '返回' }}</RouterLink>
 
     <!-- 区块导航：宽屏左侧档案索引 / 窄屏吸顶横条（样式见 base.css .section-nav） -->
-    <nav v-if="nav?.length" class="section-nav" aria-label="页面区块">
+    <nav v-if="nav?.length" ref="navEl" class="section-nav" aria-label="页面区块">
       <div class="sn-list">
         <template v-for="n in nav" :key="n.id">
           <div v-if="n.children?.length" class="sn-group">

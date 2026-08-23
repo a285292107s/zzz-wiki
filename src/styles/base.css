@@ -518,6 +518,57 @@ a.rich-term:hover {
   }
 }
 
+/* 手机端：条目过多（代理人 9 区块 + 技能子锚点）时 wrap 成多行会顶掉大半个首屏，
+   锚点偏移也随之失效；改为单行横向滚动（触屏惯性，隐藏滚动条），高度恒定，
+   --anchor-offset 的 132px 估算保持成立 */
+@media (max-width: 720px) {
+  .section-nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-inline: 2px; /* 首尾项不贴边，滚动到头仍留呼吸 */
+  }
+
+  .section-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sn-item,
+  .sn-child {
+    flex: none;
+    white-space: nowrap;
+  }
+
+  /* 可横滑提示：细线小方钮「→」sticky 钉住右缘不随内容滚走；
+     仅当内容超宽（useNavScrollable 加 .scrollable）时显示，滚到底（.at-end）淡出 */
+  .section-nav.scrollable::after {
+    content: '→';
+    position: sticky;
+    right: 0;
+    margin-left: auto;
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 22px;
+    height: 22px;
+    background: var(--bg-0);
+    border: 1px solid var(--line-1);
+    border-radius: 2px;
+    font-size: var(--fs-micro);
+    color: var(--ink-2);
+    pointer-events: none;
+    transition: opacity var(--t-fast) var(--ease);
+  }
+
+  .section-nav.scrollable.at-end::after {
+    opacity: 0;
+  }
+}
+
 /* ---------- 滚动进入显示（视图 v-reveal 指令挂类） ---------- */
 
 .reveal {

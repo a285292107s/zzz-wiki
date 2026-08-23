@@ -2,6 +2,8 @@
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { usePageMeta } from '@/composables/usePageMeta'
+import { resolveAnchorOffset } from '@/composables/anchorOffset'
+import { useNavScrollable } from '@/composables/useNavScrollable'
 import { FORMULA_GUIDE } from '@/data/formulaGuide'
 import { ListPage, DetailSection } from '@/components'
 import FormulaEq from '@/components/FormulaEq.vue'
@@ -15,12 +17,14 @@ const nav = computed(() =>
   parts.value.map((p) => ({ id: p.id, no: p.no, label: p.title })),
 )
 
-// 轻量滚动高亮：依据 --anchor-offset（与 router scrollBehavior 同源）判定当前段
+// 移动端吸顶横条的「可横滑」提示（nav 静态，onMounted 内首次量测即可）
+const { navEl } = useNavScrollable()
+
+// 轻量滚动高亮：依据吸顶横条实际高度（anchorOffset，与 router scrollBehavior 同源）判定当前段
 const active = ref<string | null>(null)
 const NAV_SLOP = 80
 function onScroll() {
-  const offset =
-    parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--anchor-offset')) || 76
+  const offset = resolveAnchorOffset()
   let cur: string | null = parts.value[0]?.id ?? null
   for (const p of parts.value) {
     const el = document.getElementById(p.id)
@@ -41,7 +45,7 @@ onBeforeUnmount(() => {
 <template>
   <ListPage>
     <!-- 段导航：宽屏左侧索引 / 窄屏吸顶横条 -->
-    <nav v-if="nav.length" class="section-nav" aria-label="战斗公式段落">
+    <nav v-if="nav.length" ref="navEl" class="section-nav" aria-label="战斗公式段落">
       <div class="sn-list">
         <RouterLink
           v-for="n in nav"

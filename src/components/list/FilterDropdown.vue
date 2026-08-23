@@ -336,4 +336,17 @@ onUnmounted(() => {
   flex: 1;
   white-space: nowrap;
 }
+
+/* 窄屏：多个下拉并排时最右侧弹层会伸出视口右缘（popover 自 trigger 左缘展开）；
+   非首组改右对齐展开（右缘贴齐 trigger），宽度亦受视口约束 */
+@media (max-width: 720px) {
+  .popover {
+    max-width: calc(100vw - 28px);
+  }
+
+  .group:not(:first-child) .popover {
+    left: auto;
+    right: 0;
+  }
+}
 </style>

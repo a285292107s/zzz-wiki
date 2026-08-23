@@ -50,6 +50,15 @@ const emit = defineEmits<{ (e: 'update:modelValue', v: string): void }>()
 .search input::placeholder {
   color: var(--ink-3);
 }
+
+/* 移动端：iOS Safari 对字号 <16px 的 input 聚焦时会强制缩放页面，
+   搜索框是高频交互，须保持在 16px 以上（桌面继续 14px 紧凑排布）。
+   断点取 860：iPad 竖屏（768px）同样属 iOS，会触发聚焦缩放 */
+@media (max-width: 860px) {
+  .search input {
+    font-size: 16px;
+  }
+}
 .count {
   font-size: var(--fs-caption);
   color: var(--ink-2);

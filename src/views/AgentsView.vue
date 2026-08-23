@@ -89,7 +89,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
       :empty="status === 'success' && filtered.length === 0"
     >
       <template #skeleton>
-        <CatalogTableSkeleton :cols="5" with-index />
+        <CatalogTableSkeleton :cols="5" />
       </template>
       <CatalogTable
         :columns="columns"

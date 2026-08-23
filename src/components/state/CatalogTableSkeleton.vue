@@ -6,10 +6,8 @@ withDefaults(
     cols?: number
     /** 占位行数 */
     rows?: number
-    /** 前导序号列（v-if withIndex） */
-    withIndex?: boolean
   }>(),
-  { cols: 5, rows: 6, withIndex: false },
+  { cols: 5, rows: 6 },
 )
 </script>
 
@@ -17,7 +15,6 @@ withDefaults(
   <table class="hairline-table skel" aria-hidden="true">
     <thead>
       <tr>
-        <th v-if="withIndex" />
         <th v-for="c in cols" :key="c">
           <span class="bar head-bar" />
         </th>
@@ -25,9 +22,6 @@ withDefaults(
     </thead>
     <tbody>
       <tr v-for="r in rows" :key="r">
-        <td v-if="withIndex" class="mono idx">
-          <span class="bar idx-bar" />
-        </td>
         <td v-for="c in cols" :key="c">
           <span class="bar cell-bar" :class="{ wide: c === 1 }" />
         </td>
@@ -56,10 +50,6 @@ withDefaults(
   height: 10px;
 }
 
-.idx-bar {
-  width: 22px;
-}
-
 .cell-bar {
   width: 44%;
 }
@@ -72,6 +62,19 @@ withDefaults(
   .skel .bar {
     animation: none;
     background: var(--bg-2);
+  }
+}
+
+/* 移动端：与 CatalogTable 堆叠行同构 —— 只保留序号 + 首列条块，其余列隐藏 */
+@media (max-width: 720px) {
+  .skel thead {
+    display: none;
+  }
+  .skel tbody tr td:nth-child(n + 3) {
+    display: none;
+  }
+  .skel tbody tr {
+    padding: 12px 4px;
   }
 }
 </style>

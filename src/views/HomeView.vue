@@ -156,6 +156,8 @@ const sections = [
   margin-top: 32px;
   display: flex;
   align-items: center;
+  flex-wrap: wrap; /* 手机宽度不足时换行，避免挤出视口 */
+  row-gap: 10px;
   gap: 14px;
   font-size: var(--fs-caption);
   letter-spacing: 0.1em;

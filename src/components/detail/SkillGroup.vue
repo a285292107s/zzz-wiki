@@ -433,4 +433,18 @@ function potTag(grp: SkillGroup): string | null {
   min-width: 3.4em;
   text-align: right;
 }
+
+/* 窄屏：转置表列距收紧（多列指标并列时不挤压，保持可读） */
+@media (max-width: 560px) {
+  .metric-table :is(th, td) {
+    padding: 9px 8px;
+  }
+  .metric-table :is(th, td):first-child {
+    padding-left: 6px;
+    padding-right: 14px;
+  }
+  .metric-table thead th {
+    padding-bottom: 10px;
+  }
+}
 </style>
