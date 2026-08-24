@@ -31,6 +31,19 @@ const currentVersionLabel = computed(() => {
 // 代理人类目图标：圆形头像已本地化（public/data/img/character/），其余沿用候选链兜底
 const AGENT_CIRCLE_ICON = `${import.meta.env.BASE_URL ?? '/'}data/img/character/IconRoleCircle01.webp`
 
+// 活动横幅区块：本地 banner 资源，5 张并列、独立成区（运行时零外部请求）
+const BANNER_FILES = [
+  'thumb.webp',
+  'thumb-1.webp',
+  'thumb-2.webp',
+  'thumb-3.webp',
+  'thumb-4.webp',
+]
+const banners = BANNER_FILES.map((f) => ({
+  src: `${import.meta.env.BASE_URL ?? '/'}data/img/banner/${f}`,
+  alt: '',
+}))
+
 const sections = [
   ...CATALOG.map((c) => ({
     no: c.no,
@@ -61,7 +74,7 @@ const sections = [
 
 <template>
   <div class="home">
-    <!-- hero：满宽背景，紧贴站头下缘，文字内容随 .wrap 对齐版心 -->
+    <!-- hero：文字陈列（横幅已移至下方独立区块） -->
     <section class="hero">
       <div class="wrap">
         <p class="eyebrow mono">NEW Eridu · Data Terminal</p>
@@ -88,6 +101,19 @@ const sections = [
     </section>
 
     <div class="wrap">
+      <!-- 活动横幅：独立区块，5 张并列、零间隙 -->
+      <section class="banners">
+        <div class="section-head">
+          <h2>今日角色</h2>
+          <span class="rule" />
+        </div>
+        <div class="banner-row">
+          <span v-for="b in banners" :key="b.src" class="banner-cell">
+            <img :src="b.src" :alt="b.alt" />
+          </span>
+        </div>
+      </section>
+
       <section class="index">
       <div class="section-head">
         <span class="no mono">00</span>
@@ -126,10 +152,6 @@ const sections = [
 /* ---------- hero ---------- */
 
 .hero {
-  position: relative;
-  /* 满宽横幅：padding 落在背景图之上，顶部不留纯背景空隙 */
-  padding-top: calc(var(--pad-section) * 0.9);
-  padding-bottom: var(--pad-section);
   /* Mindscape 场景图作背景：顶部极透露出场景，底部深遮罩确保文字可读；
      色阶统一取 --scrim-*（以 bg-0 为基色，与详情页 AgentHead 同一份），禁止手写 rgba */
   background:
@@ -139,6 +161,50 @@ const sections = [
       var(--scrim-3) 60%,
       var(--scrim-4) 100%),
     url('/data/img/hero/Mindscape_1311_2.webp') no-repeat center/cover;
+  padding-top: calc(var(--pad-section) * 0.9);
+  padding-bottom: var(--pad-section);
+}
+
+/* ---------- 活动横幅区块 ---------- */
+
+.banners {
+  /* 顶部直接承接 hero 底 padding；底部节奏复用 --space-section 标尺 */
+  padding-bottom: var(--space-section);
+}
+
+/* 5 张并列：flex 均分宽度、零间隙，1px 细线框标本陈列；
+   遮罩层统一压暗亮度（色阶取 --scrim-*，禁止手写 rgba） */
+.banner-row {
+  display: flex;
+  align-items: stretch;
+}
+
+.banner-cell {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: clamp(180px, 26vw, 340px);
+  border: 1px solid var(--line-1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.banner-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 亮度蒙版：自上而下递暗的 scrim 色阶，顶部适度压暗、底部更深 */
+.banner-cell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    var(--scrim-1) 0%,
+    var(--scrim-2) 50%,
+    var(--scrim-3) 100%);
+  pointer-events: none;
 }
 
 .title-en {
@@ -259,6 +325,17 @@ const sections = [
 }
 
 @media (max-width: 860px) {
+  .banner-row {
+    flex-wrap: wrap;
+  }
+  .banner-cell {
+    flex: 1 1 calc(50% - 1px);
+    height: clamp(120px, 30vw, 200px);
+  }
+  /* 末张独占一行：避免单图被 grow 拉满全宽放大失真 */
+  .banner-cell:last-child {
+    flex-basis: 100%;
+  }
   .index-row {
     grid-template-columns: 40px 40px 1fr auto;
   }

@@ -88,6 +88,8 @@ public/data/
 
 > `img/` 为 `npm run download:icons` 的本地化图标（独立管理，双版本共用）；`npm run data`
 > 的 resetOut **只清理根 manifest 与 live/latest 两目录**，不触碰 img/（曾有整体删除 OUT 目录连坐清空图标的教训）。
+> `img/banner/` 为首页「今日角色」区块的手工维护内容资产（非 download:icons 产物），
+> 增删/重命名后需同步 `src/views/HomeView.vue` 的 `BANNER_FILES`；构建管线不会清除该目录。
 > 名录/详情数据量：latest 角色 60/音擎 100/邦布 42/驱动盘 30；live（3.1）角色 58/音擎 95/邦布 42/驱动盘 30。
 
 ### 名录字段
