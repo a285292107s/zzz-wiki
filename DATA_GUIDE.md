@@ -171,10 +171,12 @@ public/data/
 > `img/hero/`。**单一事实源**：`src/data/hero-gender-variants.json` 以 `{ id: { variants, defaultFile } }`
 > 列出全部双形态——`download-icons.mjs` 按 `variants` 逐个下载；`src/data/heroGenderVariants.ts` 的
 > `heroVariantFile(id, form)` 取当前形态（**女性**= `defaultFile`，**男性**= `variants` 中非 `defaultFile`
-> 的项，缺位回退 `defaultFile`）；`useHeroForm` 持形态状态 + `localStorage` 持久化，供 `HomeView` `.hero`
-> 与 1551 详情页 `AgentHead.vue` 共用，切换即时一致。`CalibrateView.vue` 据此把这些 id 排除出
-> 「裸名可渲染列」。后续新增双形态角色，`variants` 按「女性(默认)/男性」顺序填、`defaultFile` 填女性即可，
-> **只改这份 JSON**，勿再四处手写。
+> 的项，缺位回退 `defaultFile`）；`useHeroForm` 持形态状态 + `localStorage` 持久化，供
+> 1551 详情页 `AgentHead.vue` 跟随用户所选形态，切换即时一致。`CalibrateView.vue`（图库校准）与
+> `useFeaturedAgents`（今日角色池）经 `heroImageFile(id)` 取**默认展示（女性）版**来定档，故双形态角色
+> （当前为 1551）也会出现在校准网格 / 可取图列表，无需手写 `Mindscape_…` 文件名字符串。后续新增双形态
+> 角色，`variants` 按「女性(默认)/男性」顺序填、`defaultFile` 填女性即可，**只改这份 JSON** 即自动生效，
+> 勿再四处手写。
 
 > **已知图标空缺（v2 实测）**：1611 克拉蕾 / 1621 洛克茜 的名录 icon 与详情 icon 均为**空串**
 > （hakushin raw 未含），其皮肤立绘名存在（`IconRole1611` 等）但主头像素材未上传；

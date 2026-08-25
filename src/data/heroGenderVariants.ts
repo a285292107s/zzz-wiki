@@ -29,3 +29,11 @@ export function heroVariantFile(id: number | undefined, form: HeroForm): string 
   if (form === 'female') return entry.defaultFile
   return entry.variants.find((v) => v !== entry.defaultFile) ?? entry.defaultFile
 }
+
+/** 取角色 hero 头图的「默认展示」文件名（不含 .webp）：双形态角色取默认（女性）版，其余取裸名
+ *  Mindscape_{id}_2。供校准工具（CalibrateView）/ 今日角色池（useFeaturedAgents）引用默认形态，
+ *  避免裸名/变体名散落各处漂移。详情页 AgentHead 不经过本函数：它按 heroVariantFile(id, heroForm)
+ *  跟随用户所选形态（见 useHeroForm），与「默认展示」无关。 */
+export function heroImageFile(id: number | undefined): string {
+  return heroVariantFile(id, 'female') ?? `Mindscape_${id}_2`
+}

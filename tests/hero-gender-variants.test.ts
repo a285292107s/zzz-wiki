@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { heroVariantFile } from '../src/data/heroGenderVariants'
+import { heroVariantFile, heroImageFile } from '../src/data/heroGenderVariants'
 
 describe('heroVariantFile', () => {
   it('1551 女性形态取 defaultFile（默认展示版）', () => {
@@ -17,5 +17,19 @@ describe('heroVariantFile', () => {
 
   it('id 缺失返回 null', () => {
     expect(heroVariantFile(undefined, 'female')).toBeNull()
+  })
+})
+
+describe('heroImageFile', () => {
+  it('双形态角色取默认（女性）版文件名', () => {
+    expect(heroImageFile(1551)).toBe('Mindscape_1551_Female_2')
+  })
+
+  it('非双形态角色回落裸名（可直连 img/hero）', () => {
+    expect(heroImageFile(1011)).toBe('Mindscape_1011_2')
+  })
+
+  it('id 缺失回落裸名规则', () => {
+    expect(heroImageFile(undefined)).toBe('Mindscape_undefined_2')
   })
 })

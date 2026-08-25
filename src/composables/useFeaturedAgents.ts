@@ -10,6 +10,7 @@ import type { CharacterListItem } from '@/data/types'
 import { ELEMENTS } from '@/domain/enums'
 import { api } from '@/data/api'
 import { useAsyncResource } from '@/composables/useAsyncResource'
+import { heroImageFile } from '@/data/heroGenderVariants'
 import type { FeaturedPool, PoolItem } from '@/domain/featuredPool'
 import poolJson from '@/data/featured-pool.json'
 
@@ -66,8 +67,8 @@ export function buildFeaturedCards(seed: PoolItem[], list: CharacterListItem[]):
       // 特殊属性（如 玄墨）无专属色，不套基础元素色，落回标签默认 ink
       elementColor: hasSpecial ? '' : (el?.color ?? ''),
       srcs: [
-        `${LOCAL_HERO}/Mindscape_${n.id}_2.webp`,
-        `https://static.nanoka.cc/assets/zzz/Mindscape_${n.id}_2.webp`,
+        `${LOCAL_HERO}/${heroImageFile(n.id)}.webp`,
+        `https://static.nanoka.cc/assets/zzz/${heroImageFile(n.id)}.webp`,
       ],
       idx: 0,
       pos: n.pos,
@@ -90,7 +91,7 @@ export function useFeaturedAgents() {
   for (const p of picks) {
     const img = new Image()
     img.decoding = 'async'
-    img.src = `${LOCAL_HERO}/Mindscape_${p.id}_2.webp`
+    img.src = `${LOCAL_HERO}/${heroImageFile(p.id)}.webp`
     // decode() 把解码放工作线程，不阻塞主线程；失败（池内本地图理应齐全）静默，留 <img @error> CDN 兜底
     img.decode().catch(() => {
       /* noop：留给 <img @error> 的 CDN 兜底 */

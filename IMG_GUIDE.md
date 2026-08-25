@@ -95,5 +95,8 @@
 - 角色详情页 `AgentHead` 移动端头图：`src/data/heroCalibration.ts` 读 `featured-pool.json` 的 `calibrated` 全表
   （`{ pos, zoom, originY }`），移动断点（≤860px）下套到 `.hero-bg img`（CSS 自定义属性透传，见该组件样式）。
   三者是源图相对构参数（水平焦点 / 放满消透明边 / 内容垂直居中），可直接复用；移动端 hero 比 9:16 卡更宽，
-  横向上下文更多，非逐帧等价。未校准（双形态 1551 / 无 hero 图）回落居中取景。
+  横向上下文更多，非逐帧等价。未校准（无 hero 图角色）回落居中取景；双形态 1551 现可经
+  `heroImageFile` 取默认（女性）版校准，移动端头图按 `heroVariantFile(id, heroForm)` 跟随用户所选形态，
+  视图共用同一套 `{ pos, zoom, originY }` 于两形态（校准在默认版上校准，切换形态后构图可能略有偏移，
+  形态选择见 `useHeroForm`）。
 - 素材：`img/hero/Mindscape_{id}_2.webp`（本地化、双版本共用；nanoka CDN 兜底见 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §5）。

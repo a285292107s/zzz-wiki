@@ -2,20 +2,20 @@
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { rectFromParams, paramsFromRect, formatPos, ZOOM_MIN, ZOOM_MAX, type CameraRect } from '@/utils/cameraRect'
 import type { CalibratedEntry, FeaturedPool, PoolItem } from '@/domain/featuredPool'
-import heroGenderVariants from '@/data/hero-gender-variants.json'
+import { heroImageFile } from '@/data/heroGenderVariants'
 
 // 开发环境专属校准页：路由仅在 DEV 分支注册（见 router/index.ts），生产构建不可达。
 const LOCAL_HERO = `${import.meta.env.BASE_URL ?? '/'}data/img/hero`
 
-/** img/hero 下可直接按 Mindscape_{id}_2 裸名规则加载的角色号（与 download:icons 落地清单一致）。
- *  单一事实源 src/data/hero-gender-variants.json 的双形态角色（无裸名，如 1551）与无 hero 图的
- *  1611/1621 均不入列；其中双形态 id 由下方 filter 兜底排除，避免后续新增角色时各处漂移。 */
+/** img/hero 下可直接加载的角色号（与 download:icons 落地清单一致）。
+ *  单一事实源 src/data/hero-gender-variants.json 的双形态角色（无裸名，如 1551）由 heroSrc 经
+ *  heroImageFile 取默认（女性）版；无 hero 图的 1611/1621 不在本列。 */
 const HERO_IDS = [
   1011, 1021, 1031, 1041, 1051, 1061, 1071, 1081, 1091, 1101, 1111, 1121, 1131, 1141, 1151, 1161, 1171, 1181,
   1191, 1201, 1211, 1221, 1241, 1251, 1261, 1271, 1281, 1291, 1301, 1311, 1321, 1331, 1341, 1351, 1361, 1371,
-  1381, 1391, 1401, 1411, 1421, 1431, 1441, 1451, 1461, 1471, 1481, 1491, 1501, 1511, 1521, 1531, 1541, 1561,
+  1381, 1391, 1401, 1411, 1421, 1431, 1441, 1451, 1461, 1471, 1481, 1491, 1501, 1511, 1521, 1531, 1541, 1551, 1561,
   1571, 1581, 1591,
-].filter((id) => !(String(id) in heroGenderVariants))
+]
 
 const pool = ref<FeaturedPool>({ pool: [], calibrated: {} })
 const currentId = ref<number | null>(null)
@@ -33,7 +33,7 @@ const dragMode = ref<'move' | 'resize' | null>(null)
 const dragStart = ref({ x: 0, y: 0, cx: 0, cy: 0, w: 0, h: 0 })
 
 const currentSrc = computed(() => imgSrc.value)
-const heroSrc = (id: number) => `${LOCAL_HERO}/Mindscape_${id}_2.webp`
+const heroSrc = (id: number) => `${LOCAL_HERO}/${heroImageFile(id)}.webp`
 
 const rect = computed<CameraRect | null>(() =>
   imgNat.value.W ? rectFromParams(params.value.pos, params.value.zoom, params.value.originY, imgNat.value.W, imgNat.value.H) : null,
