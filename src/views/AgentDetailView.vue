@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, ref, watch, type Ref } from 'vue'
 import { api } from '@/data/api'
 import { iconSources, skillIconSources, type SkillSlot } from '@/data/icons'
 import { richDesc } from '@/utils/rich'
@@ -19,6 +19,7 @@ import {
   CHAR_LEVEL_MAX,
   CHAR_LEVEL_MIN,
   charBreakSegment,
+  SKILL_LEVEL_DEFAULT,
   characterStatsAtLevel,
   dictToRows,
   synthesizePotentialCinema,
@@ -37,6 +38,8 @@ import {
 interface SkillDisplay extends SkillRow {
   glyph: string
   srcs: string[]
+  /** 等级源：连携技/终结技共享同一槽位等级（== 游戏内链技/终结技共用一份升级），其余各自独立 */
+  level: Ref<number>
 }
 import type { CharacterDetail } from '@/data/types'
 import { AgentHead, CoreSkillGroup, DescRow, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel } from '@/components'
@@ -53,8 +56,13 @@ usePageMeta(() => detail.value?.name ?? undefined)
 /** 当前查看等级（默认满级，与技能滑块默认一致）；切换角色时重置 */
 const charLevel = ref(CHAR_LEVEL_DEFAULT)
 
+/** 连携技/终结技共享的技能等级（同处 game 的 chain 槽，共用一个 material/12 级）；
+ *  父级持有以便两个技能组同步，切换角色时重置 */
+const chainLevel = ref(SKILL_LEVEL_DEFAULT)
+
 watch(id, () => {
   charLevel.value = CHAR_LEVEL_DEFAULT
+  chainLevel.value = SKILL_LEVEL_DEFAULT
 })
 
 /** 该等级下的基础面板（等级 + 突破成长；潜能为独立养成系统，不随等级并入） */
@@ -90,6 +98,8 @@ const skills = computed<SkillDisplay[]>(() =>
     ...sk,
     glyph: SKILL_KEYS[sk.key as SkillSlotKey]?.glyph ?? '□',
     srcs: skillIconSources(sk.key as SkillSlot),
+    // chain/ultimate 共享 chainLevel（同一槽位等级）；其余槽位各自独立（切换角色时随 computed 重建重置）
+    level: sk.key === 'chain' || sk.key === 'ultimate' ? chainLevel : ref(SKILL_LEVEL_DEFAULT),
   })),
 )
 
@@ -253,7 +263,9 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
           :row="sk"
           :glyph="sk.glyph"
           :srcs="sk.srcs"
+          :level="sk.level.value"
           transpose
+          @update:level="sk.level.value = $event ?? sk.level.value"
         />
       </DetailSection>
 

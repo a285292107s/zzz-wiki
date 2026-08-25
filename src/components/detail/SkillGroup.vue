@@ -25,8 +25,19 @@ const props = defineProps<{
   transpose?: boolean
 }>()
 
-/** 每个技能槽独立的提升等级，默认最高级（= levelCount，如邦布 10/5 级） */
-const level = ref(props.levelCount ?? SKILL_LEVEL_DEFAULT)
+/** 技能等级：支持外部 v-model:level（连携技/终结技共享同一槽位等级时由父级注入）；
+ *  未绑定时内部自管，默认最高级（= levelCount，如邦布 10/5 级） */
+const levelModel = defineModel<number>('level')
+const internalLevel = ref(props.levelCount ?? SKILL_LEVEL_DEFAULT)
+
+/** 生效等级：外部绑定优先（共享源），否则用内部自管等级 */
+const level = computed<number>({
+  get: () => levelModel.value ?? internalLevel.value,
+  set: (v) => {
+    if (levelModel.value != null) levelModel.value = v
+    else internalLevel.value = v
+  },
+})
 
 /** 展示版本：潜能（激发后，默认态）或基础（未激发）；大类无潜能技能时恒为潜能 */
 const variant = ref<'pot' | 'base'>('pot')

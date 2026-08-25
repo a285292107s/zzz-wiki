@@ -156,6 +156,59 @@ describe('skill helpers', () => {
     expect(rows[0].groups).toBeUndefined()
     expect(rows[0].hasNumbers).toBe(false)
   })
+
+  it('buildSkillRows 把 chain 槽内的终结技拆分为独立「终结技」行（与连携技分列）', () => {
+    const rows = buildSkillRows({
+      chain: {
+        description: [
+          { name: '连携技：行军仪仗', desc: '配合协攻。', potential: [] },
+          { name: '终结技：万军诛绝', desc: '上分支终结技。', potential: [] },
+          { name: '终结技：凯旋坦途', desc: '下分支终结技。', potential: [] },
+          {
+            name: '连携技：行军仪仗',
+            param: [
+              {
+                name: '伤害倍率',
+                desc: '{Skill:1551012, Prop:1001}',
+                param: { '1551012': { main: 105830, growth: 9630, format: '%' } },
+              },
+            ],
+            potential: [],
+          },
+        ],
+      },
+    })
+    expect(rows.map((r) => r.key)).toEqual(['chain', 'ultimate'])
+    expect(rows[0].zh).toBe('连携技')
+    expect(rows[0].groups?.map((g) => g.name)).toEqual(['连携技：行军仪仗'])
+    expect(rows[0].hasNumbers).toBe(true)
+    expect(rows[1].zh).toBe('终结技')
+    expect(rows[1].groups?.map((g) => g.name)).toEqual(['终结技：万军诛绝', '终结技：凯旋坦途'])
+  })
+
+  it('buildSkillRows 的 chain 槽无终结技时仍只输出一行连携技', () => {
+    const rows = buildSkillRows({
+      chain: { description: [{ name: '连携技：行军仪仗', desc: '说明。', potential: [] }] },
+    })
+    expect(rows.map((r) => r.key)).toEqual(['chain'])
+    expect(rows[0].zh).toBe('连携技')
+  })
+
+  it('buildSkillRows 把描述中引用「[终结技：…]」的派生招式并入终结技行', () => {
+    const rows = buildSkillRows({
+      chain: {
+        description: [
+          { name: '连携技：会·御', desc: '连携攻击。', potential: [] },
+          { name: '终结技：残心', desc: '终极一击。', potential: [] },
+          { name: '残心·散华', desc: '[终结技：残心]发动后自动派生：大范围穿透攻击。', potential: [] },
+        ],
+      },
+    })
+    const chain = rows.find((r) => r.key === 'chain')
+    const ultimate = rows.find((r) => r.key === 'ultimate')
+    expect(chain?.groups?.map((g) => g.name)).toEqual(['连携技：会·御'])
+    expect(ultimate?.groups?.map((g) => g.name)).toEqual(['终结技：残心', '残心·散华'])
+  })
 })
 
 describe('skill detail rows', () => {

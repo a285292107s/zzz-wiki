@@ -53,14 +53,15 @@ export function iconSources(
  * 页面展示直接走 nanoka 素材 CDN。
  * ============================================================ */
 
-export type SkillSlot = 'basic' | 'dodge' | 'special' | 'chain' | 'assist' | 'core'
+export type SkillSlot = 'basic' | 'dodge' | 'special' | 'chain' | 'ultimate' | 'assist' | 'core'
 
 /** 各技能槽位的主图标资产名（首个）+ 候选兜底 */
 export const SKILL_ICON_ASSETS: Record<SkillSlot, string[]> = {
   basic: ['Icon_Normal'],
   dodge: ['Icon_Evade'],
   special: ['Icon_Special', 'Icon_SpecialReady'],
-  chain: ['Icon_UltimateReady', 'Icon_QTE'],
+  chain: ['Icon_QTE'], // 连携技为 QTE
+  ultimate: ['Icon_UltimateReady'], // 终结技
   assist: ['Icon_Switch'],
   core: ['Icon_Core', 'Icon_Normal'], // Icon_Core 暂无资产，兜底普通键
 }

@@ -130,7 +130,7 @@ export function buildMoveRows(
 
 /* ---------- 技能槽位（角色详情） ---------- */
 
-export const SKILL_ORDER = ['basic', 'dodge', 'special', 'chain', 'assist', 'core'] as const
+export const SKILL_ORDER = ['basic', 'dodge', 'special', 'chain', 'ultimate', 'assist', 'core'] as const
 export type SkillSlotKey = (typeof SKILL_ORDER)[number]
 
 
@@ -139,6 +139,7 @@ export const SKILL_ZH: Record<SkillSlotKey, string> = {
   dodge: '闪避',
   special: '特殊技',
   chain: '连携技',
+  ultimate: '终结技',
   assist: '支援技',
   core: '核心技',
 }
@@ -149,6 +150,7 @@ export const SKILL_KEYS: Record<SkillSlotKey, { glyph: string; en: string }> = {
   dodge: { glyph: '◇', en: 'DODGE' },
   special: { glyph: '△', en: 'SPECIAL' },
   chain: { glyph: '✕', en: 'CHAIN' },
+  ultimate: { glyph: '◈', en: 'ULTIMATE' },
   assist: { glyph: '○', en: 'ASSIST' },
   core: { glyph: '◒', en: 'CORE' },
 }
@@ -373,24 +375,51 @@ function buildSkillGroups(
   return groups.length ? groups : undefined
 }
 
+/** 明确引用某个具名终结技的文本（如「[终结技：残心]发动后自动派生」）：视为终结技的派生/关联招式 */
+const ULTIMATE_NAMED_REF_RE = /\[终结技[：:]/
+
+/** 是否为终结技及其派生/关联招式（与连携技同处 game 的 chain 槽，需拆分为独立行）。
+ *  招式名以「终结技：」开头，或描述里明确引用某个具名终结技（如自动派生招）都归入终结技行。 */
+function isUltimateGroup(g: SkillGroup): boolean {
+  if (g.name.startsWith('终结技')) return true
+  return ULTIMATE_NAMED_REF_RE.test(`${g.desc ?? ''}\n${g.strongDesc ?? ''}`)
+}
+
+/** 由槽位 key + 语义组构建一行技能（供 buildSkillRows 复用） */
+function makeSkillRow(k: SkillSlotKey, groups: SkillGroup[] | undefined): SkillRow {
+  return {
+    key: k,
+    zh: SKILL_ZH[k] ?? k,
+    keyEn: SKILL_KEYS[k]?.en ?? k.toUpperCase(),
+    groups,
+    hasNumbers: !!groups?.some((g) => g.entries?.length),
+  }
+}
+
 /** 从角色详情的 skill 字典构建有序 SkillRow[]（按游戏 UI 顺序） */
 export function buildSkillRows(
   skill: Record<string, unknown> | undefined | null,
 ): SkillRow[] {
   if (!skill) return []
-  return SKILL_ORDER.filter((k) => skill[k] != null).map((k) => {
+  const rows: SkillRow[] = []
+  for (const k of SKILL_ORDER) {
+    if (skill[k] == null) continue
     const desc = (skill[k] as
       | { description?: Array<{ name?: string; desc?: string; param?: unknown }> }
       | undefined)?.description
     const groups = buildSkillGroups(desc)
-    return {
-      key: k,
-      zh: SKILL_ZH[k] ?? k,
-      keyEn: SKILL_KEYS[k]?.en ?? k.toUpperCase(),
-      groups,
-      hasNumbers: !!groups?.some((g) => g.entries?.length),
+    // 终结技与连携技在数据里合并为一个 chain 槽，但语义不同：按名称前缀拆成
+    // 「连携技（CHAIN）」与「终结技（ULTIMATE）」两行，终结技独立成组。
+    if (k === 'chain' && groups) {
+      const chain = groups.filter((g) => !isUltimateGroup(g))
+      const ultimate = groups.filter((g) => isUltimateGroup(g))
+      if (chain.length) rows.push(makeSkillRow('chain', chain))
+      if (ultimate.length) rows.push(makeSkillRow('ultimate', ultimate))
+    } else {
+      rows.push(makeSkillRow(k, groups))
     }
-  })
+  }
+  return rows
 }
 
 /* ---------- 技能详细倍率计算 ---------- */
