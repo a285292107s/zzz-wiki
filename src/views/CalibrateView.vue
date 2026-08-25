@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { rectFromParams, paramsFromRect, formatPos, ZOOM_MIN, ZOOM_MAX, type CameraRect } from '@/utils/cameraRect'
-import type { CalibratedStatus, FeaturedPool } from '@/domain/featuredPool'
+import type { CalibratedEntry, FeaturedPool, PoolItem } from '@/domain/featuredPool'
 
 // —— 仅在开发环境可用：生产构建下路由被守卫重定向，这里再兜底显示提示 ——
 const isDev = import.meta.env.DEV
@@ -19,13 +19,13 @@ const HERO_IDS = [
 const pool = ref<FeaturedPool>({ pool: [], calibrated: {} })
 const currentId = ref<number | null>(null)
 const params = ref({ pos: 50, zoom: 1, originY: 50 })
-const status = ref<CalibratedStatus>('calibrated')
+const inPool = ref(false)
 const imgNat = ref({ W: 0, H: 0 })
 const imgSrc = ref('')
-const dirty = ref(false)
 const saving = ref(false)
-const msg = ref('')
+const msg = ref('改动自动保存')
 const panorEl = ref<HTMLDivElement | null>(null)
+let saveTimer: number | undefined
 
 // 拖拽 / 缩放
 const dragMode = ref<'move' | 'resize' | null>(null)
@@ -34,13 +34,28 @@ const dragStart = ref({ x: 0, y: 0, cx: 0, cy: 0, w: 0, h: 0 })
 const currentSrc = computed(() => imgSrc.value)
 const heroSrc = (id: number) => `${LOCAL_HERO}/Mindscape_${id}_2.webp`
 
-const currentEntry = computed(() =>
-  currentId.value != null ? pool.value.calibrated[String(currentId.value)] : undefined,
-)
-
 const rect = computed<CameraRect | null>(() =>
   imgNat.value.W ? rectFromParams(params.value.pos, params.value.zoom, params.value.originY, imgNat.value.W, imgNat.value.H) : null,
 )
+
+/** 水平滑杆可达范围（随缩放变化）：min/max = 左/右缘可达的 pos，拉到顶即贴到图片边缘。 */
+const posBounds = computed(() => {
+  const { W, H } = imgNat.value
+  if (!W || !H) return { min: 0, max: 100 }
+  const z = Math.max(params.value.zoom, ZOOM_MIN)
+  const w = (9 / 16) * (H / z)
+  const denom = W - (9 / 16) * H
+  const c = (9 / 16) * 0.5 * H
+  return {
+    min: Math.round(((w / 2 - c) / denom) * 1000) / 10,
+    max: Math.round(((W - w / 2 - c) / denom) * 1000) / 10,
+  }
+})
+
+// 缩放/载图变化会让 pos 可达范围收窄，钳回范围内避免滑杆显示越界
+watch(posBounds, (b) => {
+  params.value.pos = Math.round(Math.min(Math.max(params.value.pos, b.min), b.max) * 10) / 10
+})
 
 async function loadPool() {
   try {
@@ -103,21 +118,20 @@ async function autoInit(id: number, W: number, H: number): Promise<{ pos: number
 async function selectId(id: number) {
   if (currentId.value === id) return
   currentId.value = id
-  imgSrc.value = heroSrc(id)
-  const size = await loadImage(id)
+  const size = await loadImage(id) // 预热缓存并取尺寸
   if (currentId.value !== id) return // await 期间已切到别的图，丢弃
-  imgNat.value = size
+  imgNat.value = size // 先更新容器比例，避免切图瞬间按旧比例跳动
   const entry = pool.value.calibrated[String(id)]
   if (entry) {
     params.value = { pos: parseFloat(entry.pos) || 50, zoom: entry.zoom, originY: entry.originY }
-    status.value = entry.status
+    inPool.value = entry.inPool
   } else {
     params.value = await autoInit(id, size.W, size.H)
-    if (currentId.value !== id) return // autoInit 期间已切换
-    status.value = 'calibrated'
+    if (currentId.value !== id) return
+    inPool.value = false
   }
-  dirty.value = false
-  msg.value = ''
+  imgSrc.value = heroSrc(id) // 尺寸/参数就绪后再切显示图（已缓存，无闪）
+  msg.value = '改动自动保存'
 }
 
 /** 拖框移动 / 缩放：把显示像素增量换算成源图像素。 */
@@ -149,7 +163,6 @@ function onPointerMove(e: PointerEvent) {
   if (!dragMode.value) return
   const dx = toSourceDelta(e.clientX - dragStart.value.x)
   const dy = toSourceDelta(e.clientY - dragStart.value.y)
-  // 始终用捕获时刻的 dragStart 计算，避免依赖滚动中的实时 rect（防止首拖后失稳）
   let target: CameraRect
   if (dragMode.value === 'move') {
     target = { cx: dragStart.value.cx + dx, cy: dragStart.value.cy + dy, w: dragStart.value.w, h: dragStart.value.h }
@@ -159,59 +172,100 @@ function onPointerMove(e: PointerEvent) {
   const c = clampRect(target)
   const next = paramsFromRect(c, imgNat.value.W, imgNat.value.H)
   params.value = next
-  dirty.value = true
+  scheduleAutosave()
 }
 
 function onPointerUp(e: PointerEvent) {
   if (dragMode.value) panorEl.value?.releasePointerCapture?.(e.pointerId)
   dragMode.value = null
+  window.clearTimeout(saveTimer)
+  save() // 拖拽落定后立即落盘
 }
 
-function setStatus(s: CalibratedStatus) {
-  status.value = s
-  dirty.value = true
+function setInPool(v: boolean) {
+  inPool.value = v
+  scheduleAutosave()
 }
 
-function resetParams() {
-  if (currentId.value == null) return
-  params.value = currentEntry.value
-    ? { pos: parseFloat(currentEntry.value.pos) || 50, zoom: currentEntry.value.zoom, originY: currentEntry.value.originY }
-    : { pos: 50, zoom: 1, originY: 50 }
-  dirty.value = false
+/** 防抖自动保存：调整"落定"后写盘，避免拖拽每帧写文件。 */
+function scheduleAutosave() {
+  window.clearTimeout(saveTimer)
+  saveTimer = window.setTimeout(() => save(), 500)
 }
 
-async function save() {
-  const id = currentId.value
-  if (id == null) return
-  const key = String(id)
-  const calibrated = {
-    ...pool.value.calibrated,
-    [key]: { pos: formatPos(params.value.pos), zoom: params.value.zoom, originY: params.value.originY, status: status.value },
-  }
-  const poolArr = Object.entries(calibrated)
-    .filter(([, v]) => v.status === 'pool')
+/** 由 calibrated 派生 pool 数组（入池 = inPool）。 */
+function derivePool(calibrated: Record<string, CalibratedEntry>): PoolItem[] {
+  return Object.entries(calibrated)
+    .filter(([, v]) => v.inPool)
     .map(([k, v]) => ({ id: Number(k), pos: v.pos, zoom: v.zoom, originY: v.originY }))
     .sort((a, b) => a.id - b.id)
-  const next: FeaturedPool = { pool: poolArr, calibrated }
-  saving.value = true
-  try {
-    const res = await fetch('/__calibrate', {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(next),
+}
+
+/** 写盘：串行化（队列 + 单飞）。每次写从**当前** pool.value 计算目标再 PUT，杜绝并发 PUT 互相覆盖丢改动。 */
+let writing = Promise.resolve()
+let pendingWrites = 0
+
+function queueWrite(mutate: (cal: Record<string, CalibratedEntry>) => Record<string, CalibratedEntry>) {
+  pendingWrites++
+  writing = writing
+    .then(async () => {
+      saving.value = true
+      const calibrated = mutate(pool.value.calibrated)
+      const next: FeaturedPool = { pool: derivePool(calibrated), calibrated }
+      try {
+        const res = await fetch('/__calibrate', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(next),
+        })
+        if (res.ok) {
+          pool.value = next
+          msg.value = '已自动保存'
+        } else {
+          msg.value = '保存失败'
+        }
+      } catch {
+        msg.value = '保存失败'
+      }
     })
-    if (res.ok) {
-      pool.value = next
-      dirty.value = false
-      msg.value = '已保存'
-    } else {
-      msg.value = '保存失败'
-    }
-  } catch {
-    msg.value = '保存失败'
-  } finally {
-    saving.value = false
+    .finally(() => {
+      pendingWrites--
+      if (pendingWrites === 0) saving.value = false
+    })
+}
+
+/** 保存当前选中图的构图/入池（读最新 params/inPool，串行入队）。 */
+function save() {
+  const id = currentId.value
+  if (id == null) return
+  queueWrite((cal) => ({
+    ...cal,
+    [String(id)]: { pos: formatPos(params.value.pos), zoom: params.value.zoom, originY: params.value.originY, inPool: inPool.value },
+  }))
+}
+
+/** 未校准图在列表直接入池时：自动给一个内容包围盒的起点构图。 */
+async function autoInitForId(id: number): Promise<{ pos: number; zoom: number; originY: number }> {
+  const size = await loadImage(id)
+  return autoInit(id, size.W, size.H)
+}
+
+/** 列表里逐图切换"入池"：当前图走实时 inPool，其余改已保存条目（未校准则自动给起点构图）。 */
+async function togglePool(id: number) {
+  if (id === currentId.value) {
+    setInPool(!inPool.value)
+    return
   }
+  const key = String(id)
+  const entry = pool.value.calibrated[key]
+  let entryNew: CalibratedEntry
+  if (entry) {
+    entryNew = { ...entry, inPool: !entry.inPool }
+  } else {
+    const p = await autoInitForId(id)
+    entryNew = { pos: formatPos(p.pos), zoom: p.zoom, originY: p.originY, inPool: true }
+  }
+  queueWrite((cal) => ({ ...cal, [key]: entryNew }))
 }
 
 onMounted(async () => {
@@ -221,11 +275,23 @@ onMounted(async () => {
   else if (HERO_IDS.length) await selectId(HERO_IDS[0]!)
 })
 
-function statusLabel(s: CalibratedStatus | undefined): string {
-  if (s === 'pool') return '已入池'
-  if (s === 'calibrated') return '已校准'
-  if (s === 'unsuitable') return '不合适'
-  return '未校准'
+onUnmounted(() => {
+  window.clearTimeout(saveTimer)
+})
+
+/** 某图当前应显示的构图/状态：当前选中图实时取 params/inPool，其余取已保存。 */
+function entryFor(id: number): { pos: string; zoom: number; originY: number; inPool: boolean } | undefined {
+  if (id === currentId.value) {
+    return { pos: formatPos(params.value.pos), zoom: params.value.zoom, originY: params.value.originY, inPool: inPool.value }
+  }
+  return pool.value.calibrated[String(id)]
+}
+
+/** 缩略图套用与成品卡一致的取景（对象渲染匹配），调整时网格即时同步。 */
+function thumbStyle(id: number): Record<string, string> | undefined {
+  const e = entryFor(id)
+  if (!e) return undefined
+  return { objectPosition: e.pos, transformOrigin: `50% ${e.originY}%`, transform: `scale(${e.zoom})` }
 }
 </script>
 
@@ -237,83 +303,83 @@ function statusLabel(s: CalibratedStatus | undefined): string {
     <div class="wrap">
       <header class="calib-head">
         <h1>图库校准 · 今日角色</h1>
-        <div class="head-actions">
-          <span class="hint">拖动全景图上的取景框定位，拖右下角缩放；右侧为该图最终 9:16 效果</span>
-          <button :disabled="saving || !dirty" @click="save">保存</button>
-        </div>
       </header>
 
       <div class="calib-main">
-        <!-- 示意取景框 (tone) -->
-        <div
-          ref="panorEl"
-          class="panorama"
-          :style="{ aspectRatio: `${imgNat.W} / ${imgNat.H}` }"
-          @pointermove="onPointerMove"
-          @pointerup="onPointerUp"
-          @pointercancel="onPointerUp"
-        >
-          <img v-if="currentSrc" :src="currentSrc" alt="" draggable="false" @dragstart.prevent />
+        <!-- 示意取景框 + 滑动条（左列） -->
+        <div class="pan-col">
           <div
-            v-if="rect && imgNat.W"
-            class="cam-rect"
-            :style="{
-              left: `${((rect.cx - rect.w / 2) / imgNat.W) * 100}%`,
-              top: `${((rect.cy - rect.h / 2) / imgNat.H) * 100}%`,
-              width: `${(rect.w / imgNat.W) * 100}%`,
-              height: `${(rect.h / imgNat.H) * 100}%`,
-            }"
-            @pointerdown="onPointerDown($event, 'move')"
+            ref="panorEl"
+            class="panorama"
+            :style="{ aspectRatio: `${imgNat.W} / ${imgNat.H}` }"
+            @pointermove="onPointerMove"
+            @pointerup="onPointerUp"
+            @pointercancel="onPointerUp"
           >
-            <span class="cam-handle" @pointerdown.stop="onPointerDown($event, 'resize')" />
+            <img v-if="currentSrc" :src="currentSrc" alt="" draggable="false" @dragstart.prevent />
+            <p class="save-note mono">{{ saving ? '保存中…' : msg }}</p>
+            <div
+              v-if="rect && imgNat.W"
+              class="cam-rect"
+              :style="{
+                left: `${((rect.cx - rect.w / 2) / imgNat.W) * 100}%`,
+                top: `${((rect.cy - rect.h / 2) / imgNat.H) * 100}%`,
+                width: `${(rect.w / imgNat.W) * 100}%`,
+                height: `${(rect.h / imgNat.H) * 100}%`,
+              }"
+              @pointerdown="onPointerDown($event, 'move')"
+            >
+              <span class="cam-handle" @pointerdown.stop="onPointerDown($event, 'resize')" />
+            </div>
           </div>
-        </div>
 
-        <!-- 成品预览 + 控制 -->
-        <div class="side">
-          <div class="preview-figure">
-            <img
-              v-if="currentSrc"
-              :src="currentSrc"
-              alt=""
-              :style="{ objectPosition: `${params.pos}%`, transformOrigin: `50% ${params.originY}%`, transform: `scale(${params.zoom})` }"
-            />
-          </div>
-
+          <!-- 滑动条：置于全景图下方，填满该列剩余高度 -->
           <div class="controls">
             <label>
-              <span class="ctl-label mono">pos</span>
-              <input v-model.number="params.pos" type="range" min="0" max="100" step="0.5" @input="dirty = true" />
+              <span class="ctl-label">水平</span>
+              <input v-model.number="params.pos" type="range" :min="posBounds.min" :max="posBounds.max" step="0.5" @change="scheduleAutosave" />
               <span class="ctl-val mono">{{ params.pos }}</span>
             </label>
             <label>
-              <span class="ctl-label mono">zoom</span>
-              <input v-model.number="params.zoom" type="range" :min="ZOOM_MIN" :max="ZOOM_MAX" step="0.01" @input="dirty = true" />
-              <span class="ctl-val mono">{{ params.zoom.toFixed(2) }}</span>
-            </label>
-            <label>
-              <span class="ctl-label mono">originY</span>
-              <input v-model.number="params.originY" type="range" min="0" max="100" step="0.5" @input="dirty = true" />
+              <span class="ctl-label">垂直</span>
+              <input v-model.number="params.originY" type="range" min="0" max="100" step="0.5" @change="scheduleAutosave" />
               <span class="ctl-val mono">{{ params.originY }}</span>
             </label>
-            <div class="status-row">
-              <button :class="{ active: status === 'unsuitable' }" @click="setStatus('unsuitable')">不合适</button>
-              <button :class="{ active: status === 'calibrated' }" @click="setStatus('calibrated')">已校准</button>
-              <button :class="{ active: status === 'pool' }" @click="setStatus('pool')">入池</button>
-              <button @click="resetParams">复位</button>
-            </div>
-            <p class="msg mono">{{ msg }}</p>
+            <label>
+              <span class="ctl-label">大小</span>
+              <input v-model.number="params.zoom" type="range" :min="ZOOM_MIN" :max="ZOOM_MAX" step="0.01" @change="scheduleAutosave" />
+              <span class="ctl-val mono">{{ params.zoom.toFixed(2) }}</span>
+            </label>
           </div>
+        </div>
+
+        <!-- 成品预览（右列） -->
+        <div class="preview-figure">
+          <img
+            v-if="currentSrc"
+            :src="currentSrc"
+            alt=""
+            :style="{ objectPosition: `${params.pos}%`, transformOrigin: `50% ${params.originY}%`, transform: `scale(${params.zoom})` }"
+          />
         </div>
       </div>
 
       <!-- 网格 -->
       <ol class="grid">
-        <li v-for="id in HERO_IDS" :key="id" :class="{ 'is-current': id === currentId }">
+        <li v-for="id in HERO_IDS" :key="id" class="grid-item" :class="{ 'is-current': id === currentId }">
           <button class="grid-cell" @click="selectId(id)">
-            <img :src="heroSrc(id)" :alt="`${id}`" loading="lazy" />
-            <span class="badge mono">{{ statusLabel(pool.calibrated[String(id)]?.status) }}</span>
+            <img :src="heroSrc(id)" :alt="`${id}`" loading="lazy" :style="thumbStyle(id)" />
             <span class="gid mono">{{ id }}</span>
+          </button>
+          <button
+            class="cell-toggle"
+            :class="{ on: entryFor(id)?.inPool }"
+            role="switch"
+            :aria-checked="entryFor(id)?.inPool"
+            @click.stop="togglePool(id)"
+          >
+            <span class="track"><span class="thumb" /></span>
+            <span class="switch-label">入池</span>
           </button>
         </li>
       </ol>
@@ -325,37 +391,39 @@ function statusLabel(s: CalibratedStatus | undefined): string {
 .calib { padding-bottom: var(--space-section); }
 .calib-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; padding: 22px 0 18px; }
 .calib-head h1 { font-family: var(--serif); font-size: var(--fs-display); margin: 0; }
-.head-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
-.hint { font-size: var(--fs-caption); color: var(--ink-2); max-width: 46ch; text-align: right; }
-.calib-main { display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; }
+.calib-main { display: grid; grid-template-columns: 1fr minmax(230px, 330px); gap: 12px; }
+
+.pan-col { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 
 .panorama { position: relative; overflow: hidden; border: 1px solid var(--line-1); border-radius: 2px; background: var(--bg-0); touch-action: none; }
 .panorama > img { width: 100%; height: 100%; object-fit: contain; display: block; user-select: none; }
 .cam-rect { position: absolute; border: 1px solid var(--amber); box-shadow: 0 0 0 1px rgba(0,0,0,.35); cursor: move; }
 .cam-handle { position: absolute; right: -6px; bottom: -6px; width: 12px; height: 12px; background: var(--amber); border: 1px solid var(--bg-0); cursor: nwse-resize; }
 
-.side { display: flex; flex-direction: column; gap: 14px; }
-.preview-figure { width: 100%; aspect-ratio: 9 / 16; overflow: hidden; border: 1px solid var(--line-1); border-radius: 2px; background: var(--bg-0); }
+.preview-figure { width: 100%; align-self: start; aspect-ratio: 9 / 16; overflow: hidden; border: 1px solid var(--line-1); border-radius: 2px; background: var(--bg-0); }
 .preview-figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.controls { display: flex; flex-direction: column; gap: 10px; border: 1px solid var(--line-1); border-radius: 2px; padding: 14px; }
+.controls { flex: 1; display: flex; flex-direction: column; gap: 10px; border: 1px solid var(--line-1); border-radius: 2px; padding: 14px; }
 .controls label { display: grid; grid-template-columns: 60px 1fr 50px; align-items: center; gap: 10px; font-size: var(--fs-caption); }
 .ctl-label { color: var(--ink-2); letter-spacing: .1em; }
 .ctl-val { color: var(--ink-1); text-align: right; }
 .controls input[type='range'] { width: 100%; }
-.status-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
-.status-row button, .head-actions button { background: var(--bg-1); color: var(--ink-1); border: 1px solid var(--line-1); border-radius: 2px; padding: 5px 10px; font-size: var(--fs-caption); cursor: pointer; font-family: var(--sans); }
-.status-row button:hover, .head-actions button:hover { border-color: var(--line-2); color: var(--ink-0); }
-.status-row button.active { border-color: var(--amber); color: var(--amber-hi); }
-.head-actions button:disabled { opacity: .4; cursor: default; }
-.msg { color: var(--ink-2); font-size: var(--fs-caption); margin: 0; }
+.save-note { position: absolute; top: 8px; left: 10px; z-index: 2; margin: 0; font-size: var(--fs-nano); letter-spacing: .04em; color: var(--ink-0); background: rgba(0,0,0,.45); padding: 2px 6px; border-radius: 2px; pointer-events: none; }
 
-.grid { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; margin-top: 20px; padding: 0; }
-.grid-cell { position: relative; width: 100%; aspect-ratio: 9 / 18; overflow: hidden; border: 1px solid var(--line-1); border-radius: 2px; background: var(--bg-0); cursor: pointer; padding: 0; }
+.grid { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px 10px; margin-top: 20px; padding: 0; }
+.grid-item { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.grid-cell { position: relative; width: 100%; aspect-ratio: 9 / 16; overflow: hidden; border: 1px solid var(--line-1); border-radius: 2px; background: var(--bg-0); cursor: pointer; padding: 0; }
+.grid-item.is-current .grid-cell { outline: 1px solid var(--amber); }
 .grid-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.grid-cell.is-current { outline: 1px solid var(--amber); }
-.badge { position: absolute; left: 4px; top: 4px; font-size: var(--fs-nano); color: var(--ink-0); background: rgba(0,0,0,.55); padding: 1px 4px; border-radius: 2px; }
 .gid { position: absolute; left: 4px; bottom: 2px; font-size: var(--fs-nano); color: var(--ink-2); }
+/* 每格下方的小号"入池"开关 */
+.cell-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 6px; width: 100%; background: none; border: 0; padding: 0; cursor: pointer; font-family: var(--sans); font-size: var(--fs-nano); color: var(--ink-2); }
+.cell-toggle:hover { color: var(--ink-0); }
+.cell-toggle .track { position: relative; width: 28px; height: 15px; border: 1px solid var(--line-1); border-radius: 2px; background: var(--bg-1); transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease); }
+.cell-toggle .thumb { position: absolute; top: 1px; left: 1px; width: 11px; height: 11px; border-radius: 2px; background: var(--ink-2); transition: left var(--t-fast) var(--ease), background var(--t-fast) var(--ease); }
+.cell-toggle.on .track { border-color: var(--amber); background: var(--amber-dim); }
+.cell-toggle.on .thumb { left: 14px; background: var(--amber); }
+.cell-toggle.on .switch-label { color: var(--amber-hi); }
 
 @media (max-width: 860px) {
   .calib-main { grid-template-columns: 1fr; }

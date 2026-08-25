@@ -47,4 +47,17 @@ describe('cameraRect 双向映射', () => {
     expect(formatPos(50)).toBe('50%')
     expect(formatPos(62)).toBe('62%')
   })
+
+  it('originY 偏离 50 时矩形仍在图内且反向一致（修取景框与预览错位）', () => {
+    const r = rectFromParams(55, 1.25, 72, W, H)
+    // 矩形应完全落在图内（否则取景框会与预览错位）
+    expect(r.cx - r.w / 2).toBeGreaterThanOrEqual(0)
+    expect(r.cx + r.w / 2).toBeLessThanOrEqual(W)
+    expect(r.cy - r.h / 2).toBeGreaterThanOrEqual(0)
+    expect(r.cy + r.h / 2).toBeLessThanOrEqual(H)
+    const back = paramsFromRect(r, W, H)
+    expect(back.pos).toBe(55)
+    expect(back.zoom).toBeCloseTo(1.25, 4)
+    expect(back.originY).toBeCloseTo(72, 1)
+  })
 })
