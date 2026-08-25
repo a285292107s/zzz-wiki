@@ -1,7 +1,7 @@
 /* ============================================================
  * useFeaturedAgents — 首页「今日角色」精选池（DESIGN.md §6.1 走 useAsyncResource）。
- * 精选来自 img/hero/Mindscape_{id}_2.webp 的手工校准池，每次挂载随机取 4 张轮换。
- * 构图参数 pos/zoom/originY（对脸/放大填满/纵向中心）含义见 IMG_GUIDE.md。
+ * 池结构与逐张校准参数存于 src/data/featured-pool.json（校准工具 dev 中间件读写），
+ * 这里是唯一消费方之一；构图参数 pos/zoom/originY 含义见 IMG_GUIDE.md。
  * 视图只消费 { featured }（响应式），不写 fetch/异步状态机（DESIGN.md §4.1）。
  * ============================================================ */
 
@@ -10,13 +10,13 @@ import type { CharacterListItem } from '@/data/types'
 import { ELEMENTS } from '@/domain/enums'
 import { api } from '@/data/api'
 import { useAsyncResource } from '@/composables/useAsyncResource'
+import type { FeaturedPool, PoolItem } from '@/domain/featuredPool'
+import poolJson from '@/data/featured-pool.json'
 
-export interface FeaturedSeed {
-  id: number
-  pos: string
-  zoom: number
-  originY: number
-}
+/** 精选池（来自数据文件；结构防御性检查，非法/缺失则空池）。 */
+export const FEATURED_POOL: PoolItem[] = Array.isArray((poolJson as FeaturedPool)?.pool)
+  ? (poolJson as FeaturedPool).pool
+  : []
 
 export interface FeaturedCard {
   id: number
@@ -36,22 +36,6 @@ export interface FeaturedCard {
 /** 本地 hero 头图根（download:icons 落地 public/data/img/hero，运行时零外部请求） */
 const LOCAL_HERO = `${import.meta.env.BASE_URL ?? '/'}data/img/hero`
 
-/** 精选池（逐张手工校准过构图；换角色/扩池只增删一行）。 */
-export const FEATURED_POOL: FeaturedSeed[] = [
-  { id: 1011, pos: '50%', zoom: 1.3, originY: 49.8 },
-  { id: 1331, pos: '40%', zoom: 1.2, originY: 47 },
-  { id: 1371, pos: '40%', zoom: 1.2, originY: 30.2 },
-  { id: 1051, pos: '64%', zoom: 1.22, originY: 61.4 },
-  { id: 1281, pos: '54%', zoom: 1.29, originY: 49.6 },
-  { id: 1291, pos: '70%', zoom: 1.22, originY: 59.4 },
-  { id: 1391, pos: '36%', zoom: 1.25, originY: 41.9 },
-  { id: 1441, pos: '62%', zoom: 1.21, originY: 64.0 },
-  { id: 1491, pos: '40%', zoom: 1.18, originY: 55.1 },
-  { id: 1501, pos: '45%', zoom: 1.2, originY: 56.9 },
-  { id: 1511, pos: '42%', zoom: 1.06, originY: 52.5 },
-  { id: 1561, pos: '42%', zoom: 1.25, originY: 48.6 },
-]
-
 /** Fisher–Yates 洗牌：不修改入参，返回新的随机排列（用于每次挂载换一批）。 */
 export function shuffle<T>(arr: readonly T[]): T[] {
   const a = arr.slice()
@@ -64,8 +48,8 @@ export function shuffle<T>(arr: readonly T[]): T[] {
   return a
 }
 
-/** 由精选种子 + 名录解析卡片：名字/元素/特殊属性/头图候选。缺失 id 丢弃并紧凑重排编号。 */
-export function buildFeaturedCards(seed: FeaturedSeed[], list: CharacterListItem[]): FeaturedCard[] {
+/** 由池条目 + 名录解析卡片：名字/元素/特殊属性/头图候选。缺失 id 丢弃并紧凑重排编号。 */
+export function buildFeaturedCards(seed: PoolItem[], list: CharacterListItem[]): FeaturedCard[] {
   const byId = new Map(list.map((x) => [x.Id, x]))
   const cards: FeaturedCard[] = []
   for (const n of seed) {

@@ -88,7 +88,8 @@
 
 ## 当前使用
 
-- 「今日角色」卡：精选池 `FEATURED_POOL` 在 `src/composables/useFeaturedAgents.ts`（12 张，逐张手工校准过
-  `pos/zoom/originY`，`pos` 按上节核验流程目检选定），`useFeaturedAgents()` **每次挂载随机取 4 张轮换**；
-  `src/views/HomeView.vue` 只消费响应式 `{ featured }`。
+- 「今日角色」卡：精选池存于 `src/data/featured-pool.json`（`{ pool, calibrated }`；`useFeaturedAgents.ts` 读
+  `pool`，**每次挂载随机取 4 张轮换**）。参数不再手写进代码，而是用开发的**校准工具路由 `/calibrate`**
+  逐张调整并保存（仅开发环境；页面拖全景图上的 9:16 取景框 + 滑杆，经 `vite.config.ts` 的 dev 中间件
+  `GET/PUT /__calibrate` 读写该 JSON，`src/utils/cameraRect.ts` 负责取景框与参数的映射）。
 - 素材：`img/hero/Mindscape_{id}_2.webp`（本地化、双版本共用；nanoka CDN 兜底见 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §5）。

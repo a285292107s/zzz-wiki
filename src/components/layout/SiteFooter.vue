@@ -11,6 +11,7 @@
         <p class="disclaimer">游戏资产版权与商标归 HoYoverse 所有</p>
       </div>
       <RouterLink to="/style" class="style-link mono">DESIGN SYSTEM</RouterLink>
+      <RouterLink v-if="isDev" to="/calibrate" class="style-link mono">CALIBRATE</RouterLink>
     </div>
   </footer>
 </template>
@@ -19,6 +20,9 @@
 import { onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { dataVersions } from '@/data/api'
+
+// 校准工具仅开发环境可见
+const isDev = import.meta.env.DEV
 
 // 数据抓取/更新时间（构建期落地在 manifest 的 generated，动态取，勿硬编码）
 const updatedAt = ref('')

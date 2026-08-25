@@ -16,6 +16,16 @@ describe('shuffle', () => {
     expect(out).not.toBe(src) // 新数组
     expect([...out].sort((a, b) => a - b)).toEqual([1, 2, 3, 4, 5]) // 同集合（排列）
   })
+
+  it('FEATURED_POOL 从 featured-pool.json 读入且每项结构完整', () => {
+    expect(FEATURED_POOL.length).toBeGreaterThan(0)
+    for (const p of FEATURED_POOL) {
+      expect(typeof p.id).toBe('number')
+      expect(typeof p.pos).toBe('string')
+      expect(typeof p.zoom).toBe('number')
+      expect(typeof p.originY).toBe('number')
+    }
+  })
 })
 
 describe('buildFeaturedCards', () => {

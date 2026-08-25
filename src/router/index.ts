@@ -106,6 +106,14 @@ export const router = createRouter({
       meta: { title: '设计系统' },
     },
     {
+      // 图库校准工具：仅开发环境可用（生产构建下重定向回首页；组件内再兜底 DEV 守卫）
+      path: '/calibrate',
+      name: 'calibrate',
+      component: () => import('@/views/CalibrateView.vue'),
+      meta: { title: '图库校准' },
+      beforeEnter: () => (import.meta.env.DEV ? true : { path: '/' }),
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
       component: () => import('@/views/NotFoundView.vue'),
