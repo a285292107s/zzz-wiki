@@ -10,8 +10,14 @@
         <span class="sep" aria-hidden="true">/</span>
         <p class="disclaimer">游戏资产版权与商标归 HoYoverse 所有</p>
       </div>
-      <RouterLink to="/style" class="style-link mono">DESIGN SYSTEM</RouterLink>
-      <RouterLink v-if="isDev" to="/calibrate" class="style-link mono">CALIBRATE</RouterLink>
+      <div v-if="isDev" class="foot-actions">
+        <RouterLink
+          v-for="r in DEV_FOOTER_ROUTES"
+          :key="r.path"
+          :to="r.path"
+          class="style-link mono"
+        >{{ r.footerLabel }}</RouterLink>
+      </div>
     </div>
   </footer>
 </template>
@@ -20,9 +26,10 @@
 import { onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { dataVersions } from '@/data/api'
+import { IS_DEV, DEV_FOOTER_ROUTES } from '@/domain/devRoutes'
 
-// 校准工具仅开发环境可见
-const isDev = import.meta.env.DEV
+// 开发环境专属入口：仅 DEV 显示，且由 DEV_ROUTES 单一事实源派生（新增页自动出现）
+const isDev = IS_DEV
 
 // 数据抓取/更新时间（构建期落地在 manifest 的 generated，动态取，勿硬编码）
 const updatedAt = ref('')
@@ -96,6 +103,12 @@ onMounted(() => {
   border: 1px solid var(--line-1) !important;
   padding: 4px 10px;
   border-radius: 2px;
+}
+
+.foot-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .style-link:hover {

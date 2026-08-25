@@ -1,5 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import { CATALOG } from '@/domain/catalog'
+import { DEV_ROUTES } from '@/domain/devRoutes'
 import { resolveAnchorOffset } from '@/composables/anchorOffset'
 
 /** 类目中文名（页面标题文案由 catalog 单一事实源派生；详情页拼接「详情」） */
@@ -100,20 +101,6 @@ export const router = createRouter({
       meta: { title: '战斗公式' },
     },
     {
-      path: '/style',
-      name: 'style-guide',
-      component: () => import('@/views/StyleGuideView.vue'),
-      meta: { title: '设计系统' },
-    },
-    {
-      // 图库校准工具：仅开发环境可用（生产构建下重定向回首页；组件内再兜底 DEV 守卫）
-      path: '/calibrate',
-      name: 'calibrate',
-      component: () => import('@/views/CalibrateView.vue'),
-      meta: { title: '图库校准' },
-      beforeEnter: () => (import.meta.env.DEV ? true : { path: '/' }),
-    },
-    {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
       component: () => import('@/views/NotFoundView.vue'),
@@ -121,3 +108,29 @@ export const router = createRouter({
     },
   ],
 })
+
+/* 开发环境专属页面：仅在开发环境注册（构建级排除）。
+   生产构建下 import.meta.env.DEV 被编译为 false，整块连同 dev 视图的懒加载 chunk 一并被摇树移除，
+   这些路由在 prod 根本不存在——直接访问会落到 404，运行时零打包、无任何可触达入口。
+   dev 视图的懒加载只放这里（不放 devRoutes.ts，避免页脚共享元数据时把 chunk 拖进生产包）。
+   新增 dev 页：devRoutes.ts 的 DEV_ROUTES 登记元数据 + 此处 views 补一条视图映射。 */
+if (import.meta.env.DEV) {
+  /** key 与 DEV_ROUTES 的 name 对齐。 */
+  const views: Record<string, () => Promise<unknown>> = {
+    'style-guide': () => import('@/views/StyleGuideView.vue'),
+    calibrate: () => import('@/views/CalibrateView.vue'),
+  }
+  for (const r of DEV_ROUTES) {
+    const view = views[r.name]
+    if (!view) {
+      console.warn(`[dev] 缺少 dev 路由视图：${r.name}`)
+      continue
+    }
+    router.addRoute({
+      path: r.path,
+      name: r.name,
+      component: view as RouteRecordRaw['component'],
+      meta: { title: r.title },
+    } as RouteRecordRaw)
+  }
+}

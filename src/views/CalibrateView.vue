@@ -4,9 +4,7 @@ import { rectFromParams, paramsFromRect, formatPos, ZOOM_MIN, ZOOM_MAX, type Cam
 import type { CalibratedEntry, FeaturedPool, PoolItem } from '@/domain/featuredPool'
 import heroGenderVariants from '@/data/hero-gender-variants.json'
 
-// —— 仅在开发环境可用：生产构建下路由被守卫重定向，这里再兜底显示提示 ——
-const isDev = import.meta.env.DEV
-
+// 开发环境专属校准页：路由仅在 DEV 分支注册（见 router/index.ts），生产构建不可达。
 const LOCAL_HERO = `${import.meta.env.BASE_URL ?? '/'}data/img/hero`
 
 /** img/hero 下可直接按 Mindscape_{id}_2 裸名规则加载的角色号（与 download:icons 落地清单一致）。
@@ -272,7 +270,6 @@ async function togglePool(id: number) {
 }
 
 onMounted(async () => {
-  if (!isDev) return
   await loadPool()
   if (pool.value.pool.length) await selectId(pool.value.pool[0]!.id)
   else if (HERO_IDS.length) await selectId(HERO_IDS[0]!)
@@ -299,10 +296,7 @@ function thumbStyle(id: number): Record<string, string> | undefined {
 </script>
 
 <template>
-  <div v-if="!isDev" class="calib">
-    <div class="wrap"><p>校准工具仅开发环境可用。</p></div>
-  </div>
-  <div v-else class="calib">
+  <div class="calib">
     <div class="wrap">
       <header class="calib-head">
         <h1>图库校准 · 今日角色</h1>
