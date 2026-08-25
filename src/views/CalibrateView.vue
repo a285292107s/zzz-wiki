@@ -29,7 +29,7 @@ const panorEl = ref<HTMLDivElement | null>(null)
 
 // 拖拽 / 缩放
 const dragMode = ref<'move' | 'resize' | null>(null)
-const dragStart = ref({ x: 0, y: 0, cx: 0, cy: 0, w: 0 })
+const dragStart = ref({ x: 0, y: 0, cx: 0, cy: 0, w: 0, h: 0 })
 
 const currentSrc = computed(() => imgSrc.value)
 const heroSrc = (id: number) => `${LOCAL_HERO}/Mindscape_${id}_2.webp`
@@ -139,21 +139,22 @@ function clampRect(target: CameraRect): CameraRect {
 
 function onPointerDown(e: PointerEvent, mode: 'move' | 'resize') {
   if (!rect.value) return
+  e.preventDefault()
   dragMode.value = mode
-  dragStart.value = { x: e.clientX, y: e.clientY, cx: rect.value.cx, cy: rect.value.cy, w: rect.value.w }
-  const el = panorEl.value
-  el?.setPointerCapture?.(e.pointerId)
+  dragStart.value = { x: e.clientX, y: e.clientY, cx: rect.value.cx, cy: rect.value.cy, w: rect.value.w, h: rect.value.h }
+  panorEl.value?.setPointerCapture?.(e.pointerId)
 }
 
 function onPointerMove(e: PointerEvent) {
-  if (!dragMode.value || !rect.value) return
+  if (!dragMode.value) return
   const dx = toSourceDelta(e.clientX - dragStart.value.x)
   const dy = toSourceDelta(e.clientY - dragStart.value.y)
+  // 始终用捕获时刻的 dragStart 计算，避免依赖滚动中的实时 rect（防止首拖后失稳）
   let target: CameraRect
   if (dragMode.value === 'move') {
-    target = { cx: dragStart.value.cx + dx, cy: dragStart.value.cy + dy, w: rect.value.w, h: rect.value.h }
+    target = { cx: dragStart.value.cx + dx, cy: dragStart.value.cy + dy, w: dragStart.value.w, h: dragStart.value.h }
   } else {
-    target = { cx: dragStart.value.cx, cy: dragStart.value.cy, w: dragStart.value.w + dx * (9 / 16), h: rect.value.h }
+    target = { cx: dragStart.value.cx, cy: dragStart.value.cy, w: dragStart.value.w + dx, h: dragStart.value.h }
   }
   const c = clampRect(target)
   const next = paramsFromRect(c, imgNat.value.W, imgNat.value.H)
@@ -161,7 +162,8 @@ function onPointerMove(e: PointerEvent) {
   dirty.value = true
 }
 
-function onPointerUp() {
+function onPointerUp(e: PointerEvent) {
+  if (dragMode.value) panorEl.value?.releasePointerCapture?.(e.pointerId)
   dragMode.value = null
 }
 
@@ -249,7 +251,7 @@ function statusLabel(s: CalibratedStatus | undefined): string {
           :style="{ aspectRatio: `${imgNat.W} / ${imgNat.H}` }"
           @pointermove="onPointerMove"
           @pointerup="onPointerUp"
-          @pointerleave="onPointerUp"
+          @pointercancel="onPointerUp"
         >
           <img v-if="currentSrc" :src="currentSrc" alt="" draggable="false" @dragstart.prevent />
           <div
