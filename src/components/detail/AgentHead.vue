@@ -4,6 +4,7 @@ import { HIT_TYPES } from '@/domain/enums'
 import type { AttrCode, HitCode, SpecCode } from '@/domain/enums'
 import type { CharacterDetail } from '@/data/types'
 import { heroVariantFile } from '@/data/heroGenderVariants'
+import { getHeroCalibration, type HeroCalibration } from '@/data/heroCalibration'
 import { useHeroForm } from '@/composables/useHeroForm'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
@@ -71,6 +72,21 @@ const heroIdx = ref(0)
 watch(heroSrcs, () => {
   heroIdx.value = 0
 })
+
+/** 复用「今日角色」校准构图（featured-pool.json calibrated 表）：水平脸对焦 + 放大消透明边。
+ *  仅移动端应用；未校准（如双形态 1551 / 无 hero 图角色）回落 null，保持居中取景。 */
+const heroCal = computed<HeroCalibration | null>(() => getHeroCalibration(props.detail.id))
+
+/** 把校准参数以 CSS 自定义属性透传给移动端构图（desktop 不消费，保持满栏横幅）。 */
+const heroCalStyle = computed<Record<string, string> | undefined>(() =>
+  heroCal.value
+    ? {
+        '--hero-pos': heroCal.value.pos,
+        '--hero-zoom': String(heroCal.value.zoom),
+        '--hero-originY': `${heroCal.value.originY}%`,
+      }
+    : undefined,
+)
 </script>
 
 <template>
@@ -83,6 +99,7 @@ watch(heroSrcs, () => {
         alt=""
         loading="lazy"
         decoding="async"
+        :style="heroCalStyle"
         @error="heroIdx += 1"
       />
     </span>
@@ -297,6 +314,14 @@ watch(heroSrcs, () => {
 
   .marks {
     inset: 12px;
+  }
+
+  /* 复用「今日角色」校准构图：水平脸对焦（pos）+ 放大消透明边（zoom/originY），
+     与 9:16 卡同一套相对构参数（见 IMG_GUIDE.md）；未校准（--hero-* 缺失）回落居中取景 */
+  .hero-bg img {
+    object-position: var(--hero-pos, center);
+    transform-origin: 50% var(--hero-originY, 50%);
+    transform: scale(var(--hero-zoom, 1));
   }
 }
 </style>

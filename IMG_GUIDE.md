@@ -92,4 +92,8 @@
   `pool`，**每次挂载随机取 4 张轮换**）。参数不再手写进代码，而是用开发的**校准工具路由 `/calibrate`**
   逐张调整并保存（仅开发环境；页面拖全景图上的 9:16 取景框 + 滑杆，经 `vite.config.ts` 的 dev 中间件
   `GET/PUT /__calibrate` 读写该 JSON，`src/utils/cameraRect.ts` 负责取景框与参数的映射）。
+- 角色详情页 `AgentHead` 移动端头图：`src/data/heroCalibration.ts` 读 `featured-pool.json` 的 `calibrated` 全表
+  （`{ pos, zoom, originY }`），移动断点（≤860px）下套到 `.hero-bg img`（CSS 自定义属性透传，见该组件样式）。
+  三者是源图相对构参数（水平焦点 / 放满消透明边 / 内容垂直居中），可直接复用；移动端 hero 比 9:16 卡更宽，
+  横向上下文更多，非逐帧等价。未校准（双形态 1551 / 无 hero 图）回落居中取景。
 - 素材：`img/hero/Mindscape_{id}_2.webp`（本地化、双版本共用；nanoka CDN 兜底见 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §5）。

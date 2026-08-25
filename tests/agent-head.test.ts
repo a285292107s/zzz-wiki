@@ -26,6 +26,14 @@ describe('AgentHead hero 底图（本地优先 + CDN 兜底）', () => {
     expect(heroImg(w).attributes('src')).toBe('/data/img/hero/Mindscape_1011_2.webp')
   })
 
+  it('已校准角色（1011）在 img 上注入移动端构图自定义属性（来源 featured-pool.json calibrated）', () => {
+    const w = mount(AgentHead, { props: { detail } })
+    const el = heroImg(w).element as HTMLElement
+    expect(el.style.getPropertyValue('--hero-pos')).toBe('44%')
+    expect(el.style.getPropertyValue('--hero-zoom')).toBe('1.32')
+    expect(el.style.getPropertyValue('--hero-originY')).toBe('47.5%')
+  })
+
   it('本地图加载失败时切换到 nanoka CDN 兜底，不破暗', async () => {
     const w = mount(AgentHead, { props: { detail } })
     await heroImg(w).trigger('error')
