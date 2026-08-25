@@ -108,6 +108,9 @@ const sections = [
         <div class="specimen-row">
           <RouterLink v-for="card in featured" :key="card.id" :to="card.to" class="specimen-card">
             <span class="specimen-figure">
+              <!-- 首屏重点头图，勿 lazy：懒加载会把它降为低优先级，且带 transform:scale 的
+                   img 会升级为独立合成层，合成器按 DOM 顺序逐个绘制，最右一格最后上屏
+                   （网络其实并行，见 DevTools）。故用 eager 并行、常规优先级加载。 -->
               <img
                 v-if="card.idx < card.srcs.length"
                 :src="card.srcs[card.idx]"
@@ -117,7 +120,6 @@ const sections = [
                   transformOrigin: `50% ${card.originY}%`,
                   transform: `scale(${card.zoom})`,
                 }"
-                loading="lazy"
                 decoding="async"
                 @error="onImgError(card)"
               />

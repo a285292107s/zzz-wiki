@@ -82,6 +82,21 @@ export function buildFeaturedCards(seed: PoolItem[], list: CharacterListItem[]):
 /** 首页「今日角色」：每次挂载随机取 4 张 + 解析，返回响应式 featured。 */
 export function useFeaturedAgents() {
   const picks = shuffle(FEATURED_POOL).slice(0, 4)
+
+  // 首屏头图预热：卡片区要等角色清单 JSON 返回后才 v-if 渲染；且带 transform:scale 的 img
+  // 会升级为独立合成层，合成器按 DOM 顺序解码/栅格化，最右一张总最后上屏（网络其实并行）。
+  // 故在 picks 定下后立刻并行预取+预解码本地图，与清单 fetch 重叠，使卡片渲染时已解码、
+  // 4 张可同帧合成，消除「第 4 张慢半拍」。
+  for (const p of picks) {
+    const img = new Image()
+    img.decoding = 'async'
+    img.src = `${LOCAL_HERO}/Mindscape_${p.id}_2.webp`
+    // decode() 把解码放工作线程，不阻塞主线程；失败（池内本地图理应齐全）静默，留 <img @error> CDN 兜底
+    img.decode().catch(() => {
+      /* noop：留给 <img @error> 的 CDN 兜底 */
+    })
+  }
+
   const { data: list } = useAsyncResource<CharacterListItem[]>(() => api.list<CharacterListItem>('character'))
   const featured = computed(() => (list.value ? buildFeaturedCards(picks, list.value) : []))
   return { featured }
