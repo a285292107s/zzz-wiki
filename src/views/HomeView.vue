@@ -4,6 +4,7 @@ import { iconSources } from '@/data/icons'
 import { CATALOG, GUIDE_ENTRY } from '@/domain/catalog'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { dataVersion, dataVersions } from '@/data/api'
+import { useFeaturedAgents, type FeaturedCard } from '@/composables/useFeaturedAgents'
 import HollowImage from '@/components/HollowImage.vue'
 
 usePageMeta()
@@ -31,18 +32,15 @@ const currentVersionLabel = computed(() => {
 // 代理人类目图标：圆形头像已本地化（public/data/img/character/），其余沿用候选链兜底
 const AGENT_CIRCLE_ICON = `${import.meta.env.BASE_URL ?? '/'}data/img/character/IconRoleCircle01.webp`
 
-// 活动横幅区块：本地 banner 资源，5 张并列、独立成区（运行时零外部请求）
-const BANNER_FILES = [
-  'thumb.webp',
-  'thumb-1.webp',
-  'thumb-2.webp',
-  'thumb-3.webp',
-  'thumb-4.webp',
-]
-const banners = BANNER_FILES.map((f) => ({
-  src: `${import.meta.env.BASE_URL ?? '/'}data/img/banner/${f}`,
-  alt: '',
-}))
+// 今日角色：精选池 + 每次挂载随机取 4 张（取数与解析收敛在 useFeaturedAgents composable，
+// 构图参数 pos/zoom/originY 含义见 IMG_GUIDE.md）
+const { featured } = useFeaturedAgents()
+
+/** 图源候选链：本地 404 切 CDN；耗竭后隐藏底图（与 AgentHead 同源兜底，落回 --bg-0） */
+function onImgError(card: FeaturedCard): void {
+  if (card.idx < card.srcs.length - 1) card.idx += 1
+  else card.idx = card.srcs.length
+}
 
 const sections = [
   ...CATALOG.map((c) => ({
@@ -101,16 +99,42 @@ const sections = [
     </section>
 
     <div class="wrap">
-      <!-- 活动横幅：独立区块，5 张并列、零间隙 -->
-      <section class="banners">
+      <!-- 今日角色：精选角色 9:16 标本卡（Mindscape 全景局部遮罩），4 张并列；无损无卡时不渲染 -->
+      <section v-if="featured.length" class="banners">
         <div class="section-head">
           <h2>今日角色</h2>
           <span class="rule" />
         </div>
-        <div class="banner-row">
-          <span v-for="b in banners" :key="b.src" class="banner-cell">
-            <img :src="b.src" :alt="b.alt" />
-          </span>
+        <div class="specimen-row">
+          <RouterLink v-for="card in featured" :key="card.id" :to="card.to" class="specimen-card">
+            <span class="specimen-figure">
+              <img
+                v-if="card.idx < card.srcs.length"
+                :src="card.srcs[card.idx]"
+                :alt="card.zh || card.en"
+                :style="{
+                  objectPosition: card.pos,
+                  transformOrigin: `50% ${card.originY}%`,
+                  transform: `scale(${card.zoom})`,
+                }"
+                loading="lazy"
+                decoding="async"
+                @error="onImgError(card)"
+              />
+            </span>
+            <span class="specimen-plate">
+              <span class="plate-top">
+                <span class="no mono">{{ card.no }}</span>
+                <span
+                  v-if="card.elementZh"
+                  class="el mono"
+                  :style="card.elementColor ? { color: card.elementColor } : undefined"
+                >{{ card.elementZh }}</span>
+              </span>
+              <span class="zh">{{ card.zh }}</span>
+              <span class="en mono">{{ card.en }}</span>
+            </span>
+          </RouterLink>
         </div>
       </section>
 
@@ -165,46 +189,98 @@ const sections = [
   padding-bottom: var(--pad-section);
 }
 
-/* ---------- 活动横幅区块 ---------- */
+/* ---------- 今日角色标本卡 ---------- */
 
 .banners {
-  /* 顶部直接承接 hero 底 padding；底部节奏复用 --space-section 标尺 */
+  /* 底部节奏复用 --space-section 标尺 */
   padding-bottom: var(--space-section);
 }
 
-/* 5 张并列：flex 均分宽度、零间隙，1px 细线框标本陈列；
-   遮罩层统一压暗亮度（色阶取 --scrim-*，禁止手写 rgba） */
-.banner-row {
+/* 4 张并列：flex 均分宽度、hairline 间隙；整卡一框，细线框标本陈列 */
+.specimen-row {
   display: flex;
   align-items: stretch;
+  gap: 1px;
 }
 
-.banner-cell {
-  position: relative;
+.specimen-card {
   flex: 1;
   min-width: 0;
-  height: clamp(180px, 26vw, 340px);
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--line-1);
   border-radius: 2px;
   overflow: hidden;
+  background: var(--bg-1);
+  transition: background var(--t-fast) var(--ease),
+    border-color var(--t-fast) var(--ease);
 }
 
-.banner-cell img {
+.specimen-card:hover {
+  background: var(--bg-2);
+  border-color: var(--line-2);
+}
+
+/* 9:16 竖视口：遮罩住超宽全景图只露局部（object-fit:cover + object-position）。
+   底图透明区透出页面深底色，形成浮空立绘；不加遮罩色阶，避免发糊 */
+.specimen-figure {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: var(--bg-0);
+}
+
+.specimen-figure img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* 逐图放大（FEATURED_POOL.zoom）配合逐图变换原点（FEATURED_POOL.originY，内容纵向中心，内联设置）
+     把角色放大到填满，让上下透明边滚出视口（overflow:hidden 裁掉）；水平焦点由 object-position 控制 */
+  transform-origin: 50% 50%;
 }
 
-/* 亮度蒙版：自上而下递暗的 scrim 色阶，顶部适度压暗、底部更深 */
-.banner-cell::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg,
-    var(--scrim-1) 0%,
-    var(--scrim-2) 50%,
-    var(--scrim-3) 100%);
-  pointer-events: none;
+/* 标本标签牌：编号 + 中英名 + 元素 */
+.specimen-plate {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 12px 14px;
+  border-top: 1px solid var(--line-0);
+}
+
+.plate-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.plate-top .no {
+  font-size: var(--fs-caption);
+  letter-spacing: 0.12em;
+  color: var(--ink-2);
+}
+
+.plate-top .el {
+  font-size: var(--fs-caption);
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
+}
+
+.specimen-plate .zh {
+  font-family: var(--serif);
+  font-size: var(--fs-subhead);
+  line-height: 1.15;
+  color: var(--ink-0);
+}
+
+.specimen-plate .en {
+  font-size: var(--fs-nano);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-2);
 }
 
 .title-en {
@@ -325,17 +401,22 @@ const sections = [
 }
 
 @media (max-width: 860px) {
-  .banner-row {
-    flex-wrap: wrap;
+  /* 今日角色：手机转横向胶片条（保留 9:16 比例、不拖高页面） */
+  .specimen-row {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+    padding-bottom: 8px;
+    scrollbar-width: none;
   }
-  .banner-cell {
-    flex: 1 1 calc(50% - 1px);
-    height: clamp(120px, 30vw, 200px);
+  .specimen-row::-webkit-scrollbar {
+    display: none;
   }
-  /* 末张独占一行：避免单图被 grow 拉满全宽放大失真 */
-  .banner-cell:last-child {
-    flex-basis: 100%;
+  .specimen-card {
+    flex: 0 0 62vw;
+    scroll-snap-align: start;
   }
+
   .index-row {
     grid-template-columns: 40px 40px 1fr auto;
   }

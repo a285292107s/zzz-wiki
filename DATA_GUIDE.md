@@ -88,8 +88,13 @@ public/data/
 
 > `img/` 为 `npm run download:icons` 的本地化图标（独立管理，双版本共用）；`npm run data`
 > 的 resetOut **只清理根 manifest 与 live/latest 两目录**，不触碰 img/（曾有整体删除 OUT 目录连坐清空图标的教训）。
-> `img/banner/` 为首页「今日角色」区块的手工维护内容资产（非 download:icons 产物），
-> 增删/重命名后需同步 `src/views/HomeView.vue` 的 `BANNER_FILES`；构建管线不会清除该目录。
+> `img/hero/Mindscape_{id}_2.webp` 除作角色详情页 AgentHead / 首页 hero 底图外，也驱动首页「今日角色」
+> 区块：用超宽全景图在 9:16 竖视口内做**局部遮罩**展示（纯 CSS，不产出裁切图）。选角由
+> `src/composables/useFeaturedAgents.ts` 的 `FEATURED_POOL` 精选池维护：每项 `{ id, pos, zoom, originY }`
+> （`id` 角色号；`pos` 水平脸对焦；`zoom` 放大填满；`originY` 变换原点 Y），名字/属性运行时从名录解析；
+> `useFeaturedAgents()` **每次挂载随机取 4 张轮换**。该图源带透明边（上下为 alpha 透明区）；
+> `img/banner/` 下的旧宣发海报当前已不再被引用（可留作素材，构建管线不会清除该目录）。
+> 展示技法与公式（视口遮罩 / 放大填满 / 脸对焦 / 核验流程）总纲见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)。
 > 名录/详情数据量：latest 角色 60/音擎 100/邦布 42/驱动盘 30；live（3.1）角色 58/音擎 95/邦布 42/驱动盘 30。
 
 ### 名录字段

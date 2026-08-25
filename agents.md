@@ -8,6 +8,7 @@
 >
 > - 数据来源 / 表结构 / 图标兜底 / 失效信号 / 运维命令 → [`DATA_GUIDE.md`](./DATA_GUIDE.md)
 > - 架构愿景、分层与目录约定 → [`DESIGN.md`](./DESIGN.md)
+> - 图片/媒体展示技法（超宽/透明底/人像立绘如何展示得好 → 公式与核验流程）→ [`IMG_GUIDE.md`](./IMG_GUIDE.md)
 
 ## 1. 临时文件：只放 `temp/`
 
