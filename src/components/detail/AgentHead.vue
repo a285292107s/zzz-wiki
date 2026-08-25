@@ -44,9 +44,16 @@ const LOCAL_HERO = `${import.meta.env.BASE_URL ?? '/'}data/img/hero`
 /**
  * 双形态角色 hero 头图：源站未提供裸名 Mindscape_{id}_2.webp，而是按性别后缀区分
  * （Mindscape_{id}_Female_2 / _Male_2）。单一事实源在 src/data/hero-gender-variants.json；
- * 当前形态经 useHeroForm 选中（与首页 hero 切换钮联动 + localStorage 持久化），其余 id 仍按裸名规则。
+ * 当前形态经 useHeroForm 选中（详情页形态切换钮 + localStorage 持久化），其余 id 仍按裸名规则。
  */
-const { heroForm } = useHeroForm()
+const { heroForm, toggleHeroForm } = useHeroForm()
+
+/** 双形态角色（hero-gender-variants.json 登记且确有异于默认的另一形态；当前为 1551 佩洛伊斯）才显示形态切换钮 */
+const isDualForm = computed(() => {
+  const female = heroVariantFile(props.detail.id, 'female')
+  const male = heroVariantFile(props.detail.id, 'male')
+  return female != null && male != null && female !== male
+})
 
 /** Mindscape 场景图：以角色编号（id）命名的背景立绘，作整栏 hero 底图。
  *  本地化优先（img/hero，运行时零外部请求），CDN 兜底；两级均缺时降为 --bg-0 底色 */
@@ -86,6 +93,17 @@ watch(heroSrcs, () => {
 
     <div class="file-row">
       <p class="eyebrow">AGENT FILE · NO.{{ String(detail.id ?? '').padStart(4, '0') }}</p>
+      <!-- 双形态切换钮：仅双形态角色（当前为 1551 佩洛伊斯）显示；切换 hero 头图形态，localStorage 持久化 -->
+      <button
+        v-if="isDualForm"
+        class="form-toggle mono"
+        type="button"
+        :aria-label="`切换角色形态，当前${heroForm === 'female' ? '女性' : '男性'}`"
+        @click="toggleHeroForm"
+      >
+        <span class="t-label">形态</span>
+        <span class="t-val">{{ heroForm === 'female' ? 'Female' : 'Male' }}</span>
+      </button>
     </div>
 
     <div class="main">
@@ -181,6 +199,37 @@ watch(heroSrcs, () => {
   gap: 16px;
   /* 与下方详情区版心同对齐；顶留一份呼吸空间，配合四角定位标内框 */
   padding: 18px var(--pad-page) 15px;
+}
+
+/* 双形态切换钮（档案标本：1px 细线框、2px 圆角、等宽字形） */
+.form-toggle {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--bg-0);
+  border: 1px solid var(--line-1);
+  border-radius: 2px;
+  font-size: var(--fs-caption);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+
+.form-toggle:hover {
+  border-color: var(--line-2);
+  color: var(--amber);
+}
+
+.form-toggle .t-label {
+  color: var(--ink-3);
+}
+
+.form-toggle .t-val {
+  color: var(--amber);
 }
 
 /* ---------- 主体：沉底单栏，置于暗面保障可读 ---------- */

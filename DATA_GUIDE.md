@@ -88,15 +88,16 @@ public/data/
 
 > `img/` 为 `npm run download:icons` 的本地化图标（独立管理，双版本共用）；`npm run data`
 > 的 resetOut **只清理根 manifest 与 live/latest 两目录**，不触碰 img/（曾有整体删除 OUT 目录连坐清空图标的教训）。
-> `img/hero/Mindscape_{id}_2.webp` 除作角色详情页 AgentHead / 首页 hero 底图外，也驱动首页「今日角色」
+> `img/hero/Mindscape_{id}_2.webp` 除作角色详情页 AgentHead 头图外，也驱动首页「今日角色」
 > 区块：用超宽全景图在 9:16 竖视口内做**局部遮罩**展示（纯 CSS，不产出裁切图）。选角由
 > `src/data/featured-pool.json` 精选池维护（`useFeaturedAgents` 读取 `pool`；用开发校准工具 `/calibrate`
 > 逐张调整并保存，见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)）：每项 `{ id, pos, zoom, originY }`（`id` 角色号；
 > `pos` 水平脸对焦；`zoom` 放大填满；`originY` 变换原点 Y），名字/属性运行时从名录解析；
 > `useFeaturedAgents()` **每次挂载随机取 4 张轮换**。该图源带透明边（上下为 alpha 透明区）；
-> **首页 hero 底图**（`HomeView` `.hero`）现默认展示为 1551 佩洛伊斯·**女性形态**（`Mindscape_1551_Female_2.webp`），
-> 右上切换钮可在女性/男性双形态间切换；选择经 `useHeroForm` 全局共享 + `localStorage` 持久化
-> （键 `zzz-wiki:hero-form`，默认女性），并同步 1551 详情页 `AgentHead.vue` 的头图，两处切换即时一致。
+> **首页 hero 底图已移除**（`HomeView` `.hero` 只作文字陈列，不再加载 Mindscape 头图）。双形态切换钮改挂到
+> 1551 佩洛伊斯详情页 `AgentHead.vue` 的右上档案行：仅双形态角色（`hero-gender-variants.json` 登记，当前为 1551）
+> 显示，可在女性/男性双形态间切换；选择经 `useHeroForm` 全局共享 + `localStorage` 持久化
+> （键 `zzz-wiki:hero-form`，默认女性），跨刷新 / 跨页保持一致。
 > `img/banner/` 下的旧宣发海报当前已不再被引用（可留作素材，构建管线不会清除该目录）。
 > 展示技法与公式（视口遮罩 / 放大填满 / 脸对焦 / 核验流程）总纲见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)。
 > 名录/详情数据量：latest 角色 60/音擎 100/邦布 42/驱动盘 30；live（3.1）角色 58/音擎 95/邦布 42/驱动盘 30。
