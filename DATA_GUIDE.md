@@ -94,6 +94,9 @@ public/data/
 > 逐张调整并保存，见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)）：每项 `{ id, pos, zoom, originY }`（`id` 角色号；
 > `pos` 水平脸对焦；`zoom` 放大填满；`originY` 变换原点 Y），名字/属性运行时从名录解析；
 > `useFeaturedAgents()` **每次挂载随机取 4 张轮换**。该图源带透明边（上下为 alpha 透明区）；
+> **首页 hero 底图**（`HomeView` `.hero`）现默认展示为 1551 佩洛伊斯·**女性形态**（`Mindscape_1551_Female_2.webp`），
+> 右上切换钮可在女性/男性双形态间切换；选择经 `useHeroForm` 全局共享 + `localStorage` 持久化
+> （键 `zzz-wiki:hero-form`，默认女性），并同步 1551 详情页 `AgentHead.vue` 的头图，两处切换即时一致。
 > `img/banner/` 下的旧宣发海报当前已不再被引用（可留作素材，构建管线不会清除该目录）。
 > 展示技法与公式（视口遮罩 / 放大填满 / 脸对焦 / 核验流程）总纲见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)。
 > 名录/详情数据量：latest 角色 60/音擎 100/邦布 42/驱动盘 30；live（3.1）角色 58/音擎 95/邦布 42/驱动盘 30。
@@ -165,9 +168,12 @@ public/data/
 > **双形态角色例外**：1551 佩洛伊斯（Pyrois）源站无裸名 `Mindscape_1551_2.webp`，而是按性别后缀
 > 区分（`Mindscape_1551_Female_2.webp` / `Mindscape_1551_Male_2.webp`），两形态均已本地化到
 > `img/hero/`。**单一事实源**：`src/data/hero-gender-variants.json` 以 `{ id: { variants, defaultFile } }`
-> 列出全部双形态——`download-icons.mjs` 按 `variants` 逐个下载；`AgentHead.vue` 取 `defaultFile`
-> （本站默认**女性**版）；`CalibrateView.vue` 据此把这些 id 排除出「裸名可渲染列」。后续新增双形态
-> 角色**只改这份 JSON**，勿再四处手写。
+> 列出全部双形态——`download-icons.mjs` 按 `variants` 逐个下载；`src/data/heroGenderVariants.ts` 的
+> `heroVariantFile(id, form)` 取当前形态（**女性**= `defaultFile`，**男性**= `variants` 中非 `defaultFile`
+> 的项，缺位回退 `defaultFile`）；`useHeroForm` 持形态状态 + `localStorage` 持久化，供 `HomeView` `.hero`
+> 与 1551 详情页 `AgentHead.vue` 共用，切换即时一致。`CalibrateView.vue` 据此把这些 id 排除出
+> 「裸名可渲染列」。后续新增双形态角色，`variants` 按「女性(默认)/男性」顺序填、`defaultFile` 填女性即可，
+> **只改这份 JSON**，勿再四处手写。
 
 > **已知图标空缺（v2 实测）**：1611 克拉蕾 / 1621 洛克茜 的名录 icon 与详情 icon 均为**空串**
 > （hakushin raw 未含），其皮肤立绘名存在（`IconRole1611` 等）但主头像素材未上传；

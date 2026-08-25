@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, type CSSProperties } from 'vue'
 import { iconSources } from '@/data/icons'
 import { CATALOG, GUIDE_ENTRY } from '@/domain/catalog'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { dataVersion, dataVersions } from '@/data/api'
 import { useFeaturedAgents, type FeaturedCard } from '@/composables/useFeaturedAgents'
+import { useHeroForm } from '@/composables/useHeroForm'
+import { heroVariantFile } from '@/data/heroGenderVariants'
 import HollowImage from '@/components/HollowImage.vue'
 
 usePageMeta()
@@ -35,6 +37,15 @@ const AGENT_CIRCLE_ICON = `${import.meta.env.BASE_URL ?? '/'}data/img/character/
 // 今日角色：精选池 + 每次挂载随机取 4 张（取数与解析收敛在 useFeaturedAgents composable，
 // 构图参数 pos/zoom/originY 含义见 IMG_GUIDE.md）
 const { featured } = useFeaturedAgents()
+
+/** 首页 hero 底图：佩洛伊斯（1551）双形态 Mindscape 全景。默认女性形态，可经切换钮换双形态。
+ *  形态选择经 useHeroForm 全局共享 + localStorage 持久化，与 1551 详情页 AgentHead 联动。 */
+const LOCAL_HERO = `${import.meta.env.BASE_URL ?? '/'}data/img/hero`
+const { heroForm, toggleHeroForm } = useHeroForm()
+const heroImage = computed(() =>
+  `${LOCAL_HERO}/${heroVariantFile(1551, heroForm.value) ?? heroVariantFile(1551, 'female')}.webp`,
+)
+const heroStyle = computed<CSSProperties>(() => ({ '--hero-img': `url('${heroImage.value}')` }))
 
 /** 图源候选链：本地 404 切 CDN；耗竭后隐藏底图（与 AgentHead 同源兜底，落回 --bg-0） */
 function onImgError(card: FeaturedCard): void {
@@ -72,8 +83,16 @@ const sections = [
 
 <template>
   <div class="home">
-    <!-- hero：文字陈列（横幅已移至下方独立区块） -->
-    <section class="hero">
+    <!-- hero：文字陈列（横幅已移至下方独立区块）；底图双形态可切换 -->
+    <section class="hero" :style="heroStyle">
+      <button
+        class="hero-toggle mono"
+        type="button"
+        @click="toggleHeroForm"
+      >
+        <span class="t-label">形态</span>
+        <span class="t-val">{{ heroForm === 'female' ? 'Female' : 'Male' }}</span>
+      </button>
       <div class="wrap">
         <p class="eyebrow mono">NEW Eridu · Data Terminal</p>
         <h1 class="page-title">
@@ -178,17 +197,56 @@ const sections = [
 /* ---------- hero ---------- */
 
 .hero {
+  position: relative;
   /* Mindscape 场景图作背景：顶部极透露出场景，底部深遮罩确保文字可读；
-     色阶统一取 --scrim-*（以 bg-0 为基色，与详情页 AgentHead 同一份），禁止手写 rgba */
+     色阶统一取 --scrim-*（以 bg-0 为基色，与详情页 AgentHead 同一份），禁止手写 rgba。
+     底图 URL 由 --hero-img 提供（默认 1551 佩洛伊斯·女性形态，可经右上切换钮换双形态） */
   background:
     linear-gradient(180deg,
       var(--scrim-1) 0%,
       var(--scrim-2) 30%,
       var(--scrim-3) 60%,
       var(--scrim-4) 100%),
-    url('/data/img/hero/Mindscape_1311_2.webp') no-repeat center/cover;
+    var(--hero-img, url('/data/img/hero/Mindscape_1551_Female_2.webp')) no-repeat center/cover;
   padding-top: calc(var(--pad-section) * 0.9);
   padding-bottom: var(--pad-section);
+}
+
+/* ---------- hero 双形态切换钮（档案标本：1px 细线框、2px 圆角、等宽字形） ---------- */
+
+.hero-toggle {
+  position: absolute;
+  top: 16px;
+  /* 对视口宽度 > .wrap max-width(1280px) 时，.wrap 居中留白，按钮若用右缘 inset 会偏离内容列；
+     故右缘锚定到内容列右边缘（与 .wrap 的 max-width:1280 一致），≤1280 时回落到 --pad-page */
+  right: max(var(--pad-page), calc((100% - 1280px) / 2 + var(--pad-page)));
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--bg-0);
+  border: 1px solid var(--line-1);
+  border-radius: 2px;
+  font-size: var(--fs-caption);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+
+.hero-toggle:hover {
+  border-color: var(--line-2);
+  color: var(--amber);
+}
+
+.hero-toggle .t-label {
+  color: var(--ink-3);
+}
+
+.hero-toggle .t-val {
+  color: var(--amber);
 }
 
 /* ---------- 今日角色标本卡 ---------- */
@@ -403,6 +461,12 @@ const sections = [
 }
 
 @media (max-width: 860px) {
+  /* 双形态切换钮：窄屏收拢上缘，避免顶格贴边 */
+  .hero-toggle {
+    top: 12px;
+    padding: 5px 10px;
+  }
+
   /* 今日角色：手机转横向胶片条（保留 9:16 比例、不拖高页面） */
   .specimen-row {
     overflow-x: auto;

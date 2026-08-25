@@ -106,7 +106,8 @@ const FILTER_ASSETS = [
  * 双形态角色 hero 头图：源站未提供裸名 Mindscape_{id}_2.webp，而是按性别后缀区分
  * （Mindscape_{id}_Female_2 / Mindscape_{id}_Male_2）。
  * 单一事实源在 src/data/hero-gender-variants.json：value = { variants, defaultFile }。
- * 本脚本按 variants 逐个下载；前端 AgentHead.vue 取 defaultFile（默认女性版）、
+ * 本脚本按 variants 逐个下载；前端 src/data/heroGenderVariants.ts 的 heroVariantFile(id, form)
+ * 经 useHeroForm 形态状态取当前版（女性=defaultFile，男性=variants 中非 defaultFile 项）；
  * CalibrateView 据此把这些 id 排除出「裸名可渲染列」。返回 { [id]: string[] }（下载顺序）。
  */
 const HERO_GENDER_VARIANTS = (() => {
