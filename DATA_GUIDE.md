@@ -160,8 +160,14 @@ public/data/
 > 皮肤缩略图仍走 CDN→文字兜底。
 
 > **hero 头图（AgentHead）**：角色详情页 head 的 Mindscape_{id}_2.webp 已全量本地化到
-> `public/data/img/hero/`（57/60；1551/1611/1621 源站未上传，下载脚本仅告警不置失败码）
+> `public/data/img/hero/`（58/60；1611/1621 源站未上传，下载脚本仅告警不置失败码）
 > ——前端 `AgentHead.vue` 本地优先 + nanoka CDN 兜底，两级均缺时降为 --bg-0 底色，不破版。
+> **双形态角色例外**：1551 佩洛伊斯（Pyrois）源站无裸名 `Mindscape_1551_2.webp`，而是按性别后缀
+> 区分（`Mindscape_1551_Female_2.webp` / `Mindscape_1551_Male_2.webp`），两形态均已本地化到
+> `img/hero/`。**单一事实源**：`src/data/hero-gender-variants.json` 以 `{ id: { variants, defaultFile } }`
+> 列出全部双形态——`download-icons.mjs` 按 `variants` 逐个下载；`AgentHead.vue` 取 `defaultFile`
+> （本站默认**女性**版）；`CalibrateView.vue` 据此把这些 id 排除出「裸名可渲染列」。后续新增双形态
+> 角色**只改这份 JSON**，勿再四处手写。
 
 > **已知图标空缺（v2 实测）**：1611 克拉蕾 / 1621 洛克茜 的名录 icon 与详情 icon 均为**空串**
 > （hakushin raw 未含），其皮肤立绘名存在（`IconRole1611` 等）但主头像素材未上传；

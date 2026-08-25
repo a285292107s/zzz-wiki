@@ -3,6 +3,7 @@ import { computed, ref, watch } from 'vue'
 import { HIT_TYPES } from '@/domain/enums'
 import type { AttrCode, HitCode, SpecCode } from '@/domain/enums'
 import type { CharacterDetail } from '@/data/types'
+import heroGenderVariants from '@/data/hero-gender-variants.json'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
 
@@ -39,11 +40,24 @@ const codeName = computed(() => props.detail.code_name?.toUpperCase() ?? '')
 /** 本地 hero 头图根（download:icons 落地 public/data/img/hero） */
 const LOCAL_HERO = `${import.meta.env.BASE_URL ?? '/'}data/img/hero`
 
+/**
+ * 双形态角色 hero 头图：源站未提供裸名 Mindscape_{id}_2.webp，而是按性别后缀区分
+ * （Mindscape_{id}_Female_2 / _Male_2）。单一事实源在 src/data/hero-gender-variants.json
+ * （value.defaultFile = 缺省展示的那张，本站为女性版）；本组件据此取默认版，其余 id 仍按裸名规则。
+ */
+type GenderVariantEntry = { variants: string[]; defaultFile: string }
+
 /** Mindscape 场景图：以角色编号（id）命名的背景立绘，作整栏 hero 底图。
  *  本地化优先（img/hero，运行时零外部请求），CDN 兜底；两级均缺时降为 --bg-0 底色 */
+const heroBase = computed(() => {
+  const id = props.detail.id
+  const variant = (heroGenderVariants as Record<string, GenderVariantEntry>)[String(id)]
+  if (id != null && variant?.defaultFile) return variant.defaultFile
+  return `Mindscape_${id}_2`
+})
 const heroSrcs = computed(() => [
-  `${LOCAL_HERO}/Mindscape_${props.detail.id}_2.webp`,
-  `https://static.nanoka.cc/assets/zzz/Mindscape_${props.detail.id}_2.webp`,
+  `${LOCAL_HERO}/${heroBase.value}.webp`,
+  `https://static.nanoka.cc/assets/zzz/${heroBase.value}.webp`,
 ])
 
 /** 当前候选游标：本地 404 时切换到 CDN 兜底，耗尽后隐藏底图 */

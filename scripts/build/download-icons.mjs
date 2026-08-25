@@ -79,6 +79,9 @@ const SKILL_ASSET_ALIAS = {
   Icon_GeneralBuff_HonedEdge: 'IconHonedEdge',
   Icon_GeneralBuff_AuricInk: 'IconAuricInk',
   Icon_GeneralBuff_DungeonBuffEther: 'IconDungeonBuffEther',
+  // 1551 佩洛伊斯「支援突击：重睹天目」的源站标记 Icon_Pyroisl 为占位/拼写名（CDN 无此文件），
+  // 语义上即通用招架键 Icon_Switch（同招式另两个槽位 快速支援/招架支援 亦用之）→ 按此映射兜底
+  Icon_Pyroisl: 'Icon_Switch',
 }
 
 /**
@@ -98,6 +101,20 @@ const FILTER_ASSETS = [
   'IconCampStarsOfLyra', 'IconCampMockingBird', 'IconCampSuibian', 'IconCampSpookShack',
   'IconCampBlackRoot', 'IconCampAngelsOfDelusion',
 ]
+
+/**
+ * 双形态角色 hero 头图：源站未提供裸名 Mindscape_{id}_2.webp，而是按性别后缀区分
+ * （Mindscape_{id}_Female_2 / Mindscape_{id}_Male_2）。
+ * 单一事实源在 src/data/hero-gender-variants.json：value = { variants, defaultFile }。
+ * 本脚本按 variants 逐个下载；前端 AgentHead.vue 取 defaultFile（默认女性版）、
+ * CalibrateView 据此把这些 id 排除出「裸名可渲染列」。返回 { [id]: string[] }（下载顺序）。
+ */
+const HERO_GENDER_VARIANTS = (() => {
+  const p = path.resolve('src/data/hero-gender-variants.json')
+  if (!fs.existsSync(p)) return {}
+  const raw = JSON.parse(fs.readFileSync(p, 'utf8'))
+  return Object.fromEntries(Object.entries(raw).map(([id, v]) => [id, v.variants]))
+})()
 
 /* ---------- 收集 {category: Set<base>} ---------- */
 
@@ -173,26 +190,30 @@ async function worker(queue, ok, fail) {
 }
 
 const queue = []
+let planned = 0 // 计划处理的资源文件数（hero 双形态角色按实际文件数计）
 for (const [cat, bases] of Object.entries(byCat)) {
   if (!bases) continue // 皮肤默认跳过
   for (const base of bases) {
-    // hero 头图落地名与前端引用一致：Mindscape_{id}_2.webp
-    const file = cat === 'hero' ? `Mindscape_${base}_2` : base
-    const dest = path.join(IMG, cat, `${file}.webp`)
-    if (fs.existsSync(dest)) continue // 幂等
-    // skill 资产按别名映射取真实 CDN 文件名（asset 名与文件不同的场景）；
-    // hero 头图按 Mindscape_{id}_2 命名规则
-    const remote =
-      cat === 'skill' ? (SKILL_ASSET_ALIAS[base] ?? base)
-      : cat === 'hero' ? `Mindscape_${base}_2`
-      : base
-    queue.push({ url: `${N}/${remote}.webp`, dest, cat })
+    // hero 头图落地名与前端引用一致：默认 Mindscape_{id}_2.webp；
+    // 双形态角色（如 1551 佩洛伊斯）源站以性别后缀区分，按 HERO_GENDER_VARIANTS 列全量形态
+    const files =
+      cat === 'hero' ? (HERO_GENDER_VARIANTS[base] ?? [`Mindscape_${base}_2`])
+      : [base]
+    for (const file of files) {
+      planned++
+      const dest = path.join(IMG, cat, `${file}.webp`)
+      if (fs.existsSync(dest)) continue // 幂等
+      // skill 资产按别名映射取真实 CDN 文件名（asset 名与文件不同的场景）；
+      // 其余类别落地名即 CDN 文件名；hero 头图按 Mindscape_{id}（[Gender]_）2 命名规则
+      const remote = cat === 'skill' ? (SKILL_ASSET_ALIAS[base] ?? base) : file
+      queue.push({ url: `${N}/${remote}.webp`, dest, cat })
+    }
   }
 }
 
 let ok = 0
 const failed = []
-const heroMissing = [] // hero 头图源站缺口（如 1551/1611/1621 未上传）：仅告警，不置失败码
+const heroMissing = [] // hero 头图源站缺口（如 1611/1621 未上传）：仅告警，不置失败码
 const report = () => {
   ok++
   if (ok % 25 === 0) console.log(`  ✓ ${ok}/${queue.length + ok}…`)
@@ -205,9 +226,8 @@ const workers = Array.from({ length: Math.min(CONCURRENCY, Math.max(1, queue.len
 )
 await Promise.all(workers)
 
-const total = Object.values(byCat).reduce((n, s) => n + (s?.size ?? 0), 0)
 console.log(`\n== 图标本地化 ==`)
-console.log(`目标资源：${total}，本次下载：${ok}，本地已存在跳过：${total - ok - failed.length - heroMissing.length}，失败：${failed.length + heroMissing.length}`)
+console.log(`目标资源：${planned}，本次下载：${ok}，本地已存在跳过：${planned - ok - failed.length - heroMissing.length}，失败：${failed.length + heroMissing.length}`)
 for (const f of failed) console.log(`  ✖ ${f.url} → ${f.msg}`)
 for (const f of heroMissing) console.log(`  ⚠ ${f.url} → ${f.msg}（源站未上传；本地/前端底色兜底不破图）`)
 if (failed.length) process.exitCode = 1
