@@ -66,7 +66,7 @@ async function openTip(el: Element): Promise<void> {
     if (my !== session) return
     const e = dict[termId]
     if (!e?.title && !e?.desc) return
-    // 词典已按 dataVersion 取档；若在等待期内切了版本，跳过本次陈旧显示
+    // 词典为单版本（正式服）固定路径；等待期间若已 hide 或命中别的术语，丢弃本次陈旧请求
     const rect = (el as HTMLElement).getBoundingClientRect()
     if (rect.width === 0 && rect.height === 0) return // 术语已随路由卸载，避免浮层钉在原点
     const hostCard = el.closest?.('.term-tip') as HTMLElement | null

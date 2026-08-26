@@ -23,8 +23,8 @@ import {
 
 const OUT = path.resolve(import.meta.dirname ?? process.cwd(), '..', 'public', 'data')
 
-/** 数据版本目录（双版本：live 与 latest，manifest 在根） */
-const VERSIONS = ['live', 'latest']
+/** 数据版本目录（单版本：live = 正式服，manifest 在根） */
+const VERSIONS = ['live']
 
 interface ErrorReport {
   file: string
@@ -94,7 +94,7 @@ async function readJson(rel: string): Promise<unknown> {
 }
 
 async function main(): Promise<void> {
-  // manifest（根） + 双版本名录/详情
+  // manifest（根） + live（正式服）名录/详情
   check('manifest.json', await readJson('manifest.json'), ManifestSchema)
 
   const listFiles: Array<[string, typeof CharacterListItemSchema]> = [

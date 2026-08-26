@@ -23,7 +23,7 @@
 
 ## 1. 端点清单（现役，全部实测 200）
 
-`BASE = https://static.nanoka.cc`；`{version}` 从 manifest 取 `zzz.latest`（当前实测值 `3.2.3+18244196`，注意版本串含 `+`）；`{lang} ∈ en | zh | ko | ja`。
+`BASE = https://static.nanoka.cc`；`{version}` 从 manifest 取 `zzz.live`（当前实测值 `3.1`——本项目合规只取**正式服**版本，见 DATA_GUIDE §1；`zzz.latest` 如 `3.2.4+…` 含前瞻/测试服内容，不消费）；`{lang} ∈ en | zh | ko | ja`。
 
 | # | 端点 | 用途 | 实测状态/规模 |
 |---|---|---|---|
@@ -147,7 +147,7 @@ access-control-allow-headers: *      (manifest 上实测)
 
 ## 7. 给 Vue+TS wiki 的落地建议（要点）
 
-1. 基址常量：`const HAKUSH_BASE = 'https://static.nanoka.cc'`；版本发现：先 `GET /manifest.json` 取 `zzz.latest`，或直接写死当前版本号做**构建期预取 + 本地静态化**（推荐：版本化 URL 不可变，非常适合构建期打包成站点内置 JSON）。
+1. 基址常量：`const HAKUSH_BASE = 'https://static.nanoka.cc'`；版本发现：先 `GET /manifest.json` 取 `zzz.live`（正式服版本；勿取 `latest`——含前瞻/测试服内容），或直接写死当前版本号做**构建期预取 + 本地静态化**（推荐：版本化 URL 不可变，非常适合构建期打包成站点内置 JSON）。
 2. 直接 fetch（CORS `*` 已证实）；中文内容用 `zh` 语言路径（如 `/zzz/{v}/zh/item.json`）或 en 列表 + names.zh。
 3. TS 类型：按第 2/4 节字段手写 interface（或由 hakushin-py 的 Pydantic 模型转译），注意 **int 枚举**（职业/属性/攻击类型/稀有度）映射表。
 4. 富文本清洗：剥离 `<color=#...>`、`<IconMap:...>` 标记。

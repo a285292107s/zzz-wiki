@@ -18,7 +18,8 @@
 本项目是一个**构建期静态化**的绝区零数据 wiki：
 
 - **主数据**：构建期从 **hakushin raw**（`static.nanoka.cc`，zzz.nanoka.cc / hakush.in 站底层 CDN）
-  拉取列表 + 详情 → 解析层规整 → 生成**本地静态 JSON**（`public/data/`）提交入仓。
+  拉取**正式服（live）**列表 + 详情 → 解析层规整 → 生成**本地静态 JSON**（`public/data/`）提交入仓。
+  （合规约定 2026-08：站点只展示游戏正式服数据，不产出源站 latest——后者含前瞻/测试服内容。）
 - **运行时**：前端只读本地 `/data`，**零外部接口、零 CORS**。
 - **图标**：两级 CDN 兜底（本地 `/data/img/` → nanoka `/assets/zzz/` → 文字占位），永不破图。
 
@@ -33,18 +34,18 @@
 | 项 | 值 |
 |---|---|
 | 源 | `https://static.nanoka.cc`（zzz.nanoka.cc / hakush.in 底层静态 CDN） |
-| 版本清单 | `GET /manifest.json` → `zzz.latest`（当前 3.2.3+18283617）即数据版本；`zzz.live`（3.1）为游戏在线版本 |
+| 版本清单 | `GET /manifest.json` → `zzz.live`（当前 3.1）即数据版本（游戏正式服在线版本）；`zzz.latest`（3.2.3+…）为源站最新（含前瞻/测试服内容，**本项目不再消费**） |
 | 列表（无语言） | `/zzz/{ver}/character.json` `/weapon.json` `/bangboo.json` `/equipment.json` |
 | 详情（带语言） | `/zzz/{ver}/zh/character/{id}.json` `/weapon/{id}` `/bangboo/{id}` `/equipment/{id}` |
 | 名词表 | `/zzz/{ver}/zh/noun.json` — 术语词典（游戏名词 title/desc），构建期全量下沉为 `noun.json`（§3/§4），供前端 TermTip 浮层 |
 | 语言 | `zh`/`en`/`ja`/`ko`；本项目只取 `zh`（名录保留四语名） |
 | 数据性质 | 与 Dimbreath 解包数据**同源**（nanoka 亦从之加工），但字段名已可读、多语言内嵌、更新更快（新角色/音擎/职业已收录） |
 
-**双数据版本（2026-08 新增）**：全站站头提供 live / latest 切换（默认 **live**，localStorage 记忆，任何页面可见可切）。
-- `latest` = 源站最新数据版本（含前瞻/测试服内容，2026-08 为 3.2.3+18283617，角色 60）；
+**单数据版本（合规约定 2026-08 起）**：站点只展示**正式服（live）**数据。
 - `live` = 游戏在线版本数据（2026-08 为 3.1，角色 58），与玩家正式服内容对齐。
-- 构建时两版本各自落地 `public/data/latest/`、`public/data/live/`（目录名固定，不随版本号变）；
-  live 不在源站 `available` 列表时降级沿用 latest 数据并在 manifest 写 `liveAvailable:false`，前端隐藏 live 档。
+- 构建期只落地 `public/data/live/`（目录名固定，不随版本号变）；
+  **不再产出 latest**——`zzz.latest` 含前瞻/测试服内容，为合规绝不拉取/降级/补位。
+- live 不在源站 `available` 列表时构建**直接失败**（由 ci-data 回退仓库内既有正式服数据），拒绝用 latest 顶替。
 
 **注意**：`item.json` 只在带语言路径（`/zzz/{ver}/zh/item.json`）存在；`monster/boss/shiyu/simul/hard`
 等端点站方亦有（见 §8 扩展域），本项目当前未消费；`zh/noun.json` 名词表**已消费**（→ 各版本 `noun.json`）。
@@ -62,12 +63,12 @@
   - 皮肤 `image` 应用 `SKIN_IMAGE_FALLBACK`（见 §5）。
 - 新增透传字段（v2 增值，前端 index signature 兼容）：`special_element_type`、`strategy`、`fairy_recommend`、`skill_list`、`skill_priority`、`passive`、`potential_detail`、`level`、`extra_level`、`level_exp`、`live2_d`。
 - **特殊属性展示**：详情 `special_element_type.name`（如 星见雅→「烈霜」）在构建期同步注入名录为 `special_element` 字段；前端 `Tags` 展示属性时优先显示特殊名，无则退回 `ELEMENTS[element].zh` 基础属性。
-- **名词表**：源站 `zh/noun.json` 全量下沉为 `noun.json`（双版本各一份）；术语名规整为带括号风格（如 `[虚曜]`）注入名录/详情，名词表自身 desc 经 `resolveTerms` 解析（`<Term:N>` 保留 ID 外壳，前端渲染为术语锚点）。
+- **名词表**：源站 `zh/noun.json` 全量下沉为 `live/noun.json`；术语名规整为带括号风格（如 `[虚曜]`）注入名录/详情，名词表自身 desc 经 `resolveTerms` 解析（`<Term:N>` 保留 ID 外壳，前端渲染为术语锚点）。
 - 详情并发抓取上限 8；磁盘缓存 `.cache/hakushin-raw/`（缓存路径含版本号，同版本重复构建秒级跳过、跨版本自动全量刷新；`--force` 强制忽略缓存重拉）。
 - **manifest.json 永不读缓存**：每次 `npm run data` 都实时拉取源站清单，保证版本探测不固着。
 
-**当前版本号易变**：`manifest.zzz.available` 含历史版本；构建分别取 `latest` 与 `live`（live 不在
-available 时降级，见 §1 双版本说明）。若站点回滚 latest，`npm run data` 重建即可。
+**当前版本号易变**：`manifest.zzz.available` 含历史版本；构建只取 `live`（正式服，见 §1 单版本说明）。
+live 不在 available 时构建失败（ci-data 回退仓库内既有正式服数据），`npm run data` 重建即可。
 
 ---
 
@@ -77,17 +78,15 @@ available 时降级，见 §1 双版本说明）。若站点回滚 latest，`npm
 
 ```
 public/data/
-  manifest.json              版本/来源元信息 { zzz: { latest, live, liveAvailable, source } } + generated
-  live/                       在线版本数据（游戏正式服，如 3.1）
+  manifest.json              版本/来源元信息 { zzz: { live, source } } + generated
+  live/                       正式服数据（游戏在线版本，如 3.1；目录名固定，不随版本号变）
     character.json weapon.json bangboo.json equipment.json noun.json
-    zh/character/{id}.json …（同 latest 结构）
-  latest/                     数据源最新数据（含前瞻，如 3.2.3+18283617）
-    …同上结构（含 noun.json，术语词典）
-  img/                        图标本地化 + hero 头图（download:icons 产物，双版本共用）
+    zh/character/{id}.json …（契约见下）
+  img/                        图标本地化 + hero 头图（download:icons 产物）
 ```
 
-> `img/` 为 `npm run download:icons` 的本地化图标（独立管理，双版本共用）；`npm run data`
-> 的 resetOut **只清理根 manifest 与 live/latest 两目录**，不触碰 img/（曾有整体删除 OUT 目录连坐清空图标的教训）。
+> `img/` 为 `npm run download:icons` 的本地化图标（独立管理）；`npm run data`
+> 的 resetOut **只清理根 manifest 与 live 目录**，不触碰 img/（曾有整体删除 OUT 目录连坐清空图标的教训）。
 > `img/hero/Mindscape_{id}_2.webp` 除作角色详情页 AgentHead 头图外，也驱动首页「今日角色」
 > 区块：用超宽全景图在 9:16 竖视口内做**局部遮罩**展示（纯 CSS，不产出裁切图）。选角由
 > `src/data/featured-pool.json` 精选池维护（`useFeaturedAgents` 读取 `pool`；用开发校准工具 `/calibrate`
@@ -100,7 +99,8 @@ public/data/
 > （键 `zzz-wiki:hero-form`，默认女性），跨刷新 / 跨页保持一致。
 > `img/banner/` 下的旧宣发海报当前已不再被引用（可留作素材，构建管线不会清除该目录）。
 > 展示技法与公式（视口遮罩 / 放大填满 / 脸对焦 / 核验流程）总纲见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)。
-> 名录/详情数据量：latest 角色 60/音擎 100/邦布 42/驱动盘 30；live（3.1）角色 58/音擎 95/邦布 42/驱动盘 30。
+> 名录/详情数据量：live（3.1）角色 58/音擎 95/邦布 42/驱动盘 30。（源站 latest 的角色 60/音擎 100 含
+> 前瞻/测试服内容，按合规约定不产出、不展示。）
 
 ### 名录字段
 - **CharacterListItem**：`Id, code, rank, type(职业int), element(属性int), special_element(特殊属性展示名,可选), hit(攻击int), camp(阵营id), camp_name(阵营展示名,可选), icon(裸文件名), potential, skin, desc, en, zh, ja, ko`
@@ -128,7 +128,7 @@ public/data/
 
 | hakushin raw 端点 | 用于产出 |
 |---|---|
-| `/manifest.json` | 版本号（latest）、live、new 新内容 ID 清单 |
+| `/manifest.json` | 版本号（live = 正式服）、new 新内容 ID 清单（latest 仅作参考，不消费） |
 | `character.json` | 角色名录（code/rank/type/element/hit/camp/icon/四语名） |
 | `zh/character/{id}.json` | 角色详情（数值/技能/影画/档案/皮肤/特殊属性/策略/潜能…） |
 | `weapon.json` | 音擎名录（含 atk/sub/desc） |
@@ -137,7 +137,7 @@ public/data/
 | `zh/bangboo/{id}.json` | 邦布详情（数值/晋升/技能 a/b/c） |
 | `equipment.json` | 驱动盘套装名录（四语套装名与 2/4 件套效果） |
 | `zh/equipment/{id}.json` | 驱动盘详情（背景故事 story、icon2） |
-| `zh/noun.json` | 名词表（术语 title/desc → `noun.json`，供详情页 TermTip 浮层） |
+| `zh/noun.json` | 名词表（术语 title/desc → `live/noun.json`，供详情页 TermTip 浮层） |
 
 **注意**：名录的 `en` 字段对未完全本地化的新角色（1611/1621）可能是原始资源键（如
 `Avatar_Female_Size02_Claret`），`zh` 名正常；前端名录主显示 `zh`，不受影响。
@@ -164,7 +164,7 @@ public/data/
 > 皮肤缩略图仍走 CDN→文字兜底。
 
 > **hero 头图（AgentHead）**：角色详情页 head 的 Mindscape_{id}_2.webp 已全量本地化到
-> `public/data/img/hero/`（58/60；1611/1621 源站未上传，下载脚本仅告警不置失败码）
+> `public/data/img/hero/`（live 58/58，正式服角色源站均已上传；下载脚本遇缺仅告警不置失败码）
 > ——前端 `AgentHead.vue` 本地优先 + nanoka CDN 兜底，两级均缺时降为 --bg-0 底色，不破版。
 > **双形态角色例外**：1551 佩洛伊斯（Pyrois）源站无裸名 `Mindscape_1551_2.webp`，而是按性别后缀
 > 区分（`Mindscape_1551_Female_2.webp` / `Mindscape_1551_Male_2.webp`），两形态均已本地化到
@@ -204,7 +204,7 @@ public/data/
 | `src/data/icons.ts` | 图标候选链（本地 → nanoka CDN 两级兜底）+ 技能键位资产名映射 |
 | `src/components/HollowImage.vue` | 多候选图 + `position`/`ratio` 裁切 + 文字降级 |
 | `src/utils/rich.ts` | 富文本：`<IconMap:Icon_XXX>`→键位图（本地优先，`data-cdn` 属性供 main.ts 全局 error 降级）、`<color=#…>`→带色 span、`<Term:N>`→术语锚点（供 TermTip）、`{CAL:expr,scale,decimals}`→按技能等级代入求值（技能/核心技描述与数值条目，如「伤害提升18%」；需调用方传入等级，否则剥离；scale 语义按游戏实机核实：小数式 ×100 转百分比，如 月城柳 极性紊乱 满级 3200%）、LAYOUT 与 `{Skill:N,Prop:N}` 占位剥离，其余 HTML 转义防注入 |
-| `src/data/terms.ts` | 术语词典：读本地 `/data/{ver}/noun.json`（按 dataVersion 键控缓存），词典缺失时浮层安静隐藏 |
+| `src/data/terms.ts` | 术语词典：读本地 `/data/noun.json`（固定路径，单版本 live），词典缺失时浮层安静隐藏 |
 | `src/components/detail/TermTip.vue` | 术语悬停浮层：全局委托监听 `.rich-term`，展示名词表 title/desc |
 | `src/utils/text.ts` | `stripRichText`（纯文本剥标记） |
 
@@ -217,7 +217,7 @@ public/data/
 
 ```bash
 npm install             # 依赖（首次或变更后）
-npm run data            # 拉取 hakushin raw（latest + live 双版本）→ 规整 → 生成 public/data/{live,latest}/（需外网）
+npm run data            # 拉取 hakushin raw（live = 正式服单版本）→ 规整 → 生成 public/data/live/ + manifest（需外网）
                         #   有代理时：set NODE_USE_ENV_PROXY=1
 npm run data -- --check # 仅版本探测：输出 UPDATE_AVAILABLE / UP_TO_DATE，不构建（CI/定时哨兵）
 npm run build:ci        # Vercel 部署构建入口：npm test → ci-data（版本探测→有更新则构建→失败回退既有数据
@@ -233,24 +233,24 @@ npm run preview         # 预演产物
 ## 8. 已知缺口与失效信号（务必注意）
 
 ### 当前状态（2026-08，v2 实测）
-- 名录 60 角色（**含 1581 蕾米埃尔 / 1611 克拉蕾 / 1621 洛克茜**，不含主角 2011/2021——与 hakushin 名录口径一致，前端零引用主角，无影响）／100 音擎 / 42 邦布 / 30 驱动盘。
-- 1611/1621 的 icon 为空串（上文 §5）。
+- 正式服（live 3.1）名录 58 角色／95 音擎 / 42 邦布 / 30 驱动盘（不含主角 2011/2021——与 hakushin 名录口径一致，前端零引用主角，无影响）。
+- **源站 latest（3.2.4+…，角色 60）含前瞻/测试服内容（1581 蕾米埃尔 / 1611 克拉蕾 / 1621 洛克茜），按合规约定不产出、不展示。**
 - **站方扩展域未消费**：`monster.json`(306) / `boss.json`(47) / `shiyu.json`(62) / `simul.json`(3) / `hard.json`(1) / `zh/item.json`(5771) 全部实测 200，做怪物图鉴/式舆/以骸卡牌页时可扩展（同源 schema 见各端点返回）。
 
 ### 失效信号
-1. **名录/详情数量为 0** → 版本号变更或端点改名：先看 `.cache/hakushin-raw/manifest.json` 的 `latest` 是否仍可用（请求 `https://static.nanoka.cc/zzz/{latest}/character.json` 必须 200）。
+1. **名录/详情数量为 0** → 版本号变更或端点改名：先看 `.cache/hakushin-raw/manifest.json` 的 `live` 是否仍可用（请求 `https://static.nanoka.cc/zzz/{live}/character.json` 必须 200）。
 2. **请求 404** → 站点 schema 变更（端点改名/移动），检查 `manifest.json` 的 `available` 列表与旧端点对比。
 3. **图标全文字** → `verify:icons` 能看到哪个 CDN 挂；nanoka `/assets/zzz/` 是主兜底，若它也挂则所有图降文字。
 4. **多语言名异常** → 名录 `en`/`ja`/`ko` 对极新角色可能是原始资源键（`zh` 不受影响）；若大面积如此说明站点本地化未完成。
-5. **live 档消失（主页切换器只剩 LATEST）** → 构建 log 有「live 不在可用列表」告警，manifest `liveAvailable:false`；
-   源站下架了 live 版本，属预期降级，勿改前端（恢复后重建数据即可）。
+5. **构建失败：「live 不在可用列表」** → `npm run data` 抛错（为合规拒绝降级 latest）；源站下架/改名 live 版本时需人工确认。ci-data 会回退仓库内既有正式服数据，站点不挂。
 
 ### 不要做的事
 - 不要把 hakushin raw 提为**运行时**数据源（§0 铁律：运行时零外部请求）；仅构建期拉取。
-- 不要硬编码版本号（manifest 当前为 `3.2.3+18283617`，随时会变）——每次构建从 manifest 动态取 `latest`。
+- 不要硬编码版本号（live 当前为 `3.1`，随时会变）——每次构建从 manifest 动态取 `zzz.live`。
+- **不要把 latest（源站最新/含前瞻·测试服内容）引入构建或展示**——合规红线：不拉取、不降级、不补位。
 - 不要依赖 `static.nanoka.cc/zzz/UI/`（旧路径）——那是 404 残留，素材在 `/assets/zzz/`。
 - 不要重新引入 honeyhunterworld 作为 CDN 来源（曾整体 521，仅角色图可用，已从候选链移除）。
-- 不要假设名录 `icon` 永远非空（1611/1621 为空串，前端必须走兜底）。
+- 不要假设名录 `icon` 永远非空（源站个别新角色可能为空串，前端必须走兜底）。
 
 ---
 

@@ -1,11 +1,10 @@
 /* ============================================================
- * 术语词典 — 运行时零外部请求，读本地 /data/{version}/noun.json。
- * 构建期把源站名词表全量下沉到 public/data/{version}/noun.json，
+ * 术语词典 — 运行时零外部请求，读本地 /data/noun.json。
+ * 构建期把源站名词表全量下沉到 public/data/live/noun.json，
  * 前端浮层据此展示术语 title / desc（desc 仍含 <Term:N> 时经 richDesc 递归渲染）。
- * 按 dataVersion 取值做 URL，缓存按 URL 键控；切版本自然命中新词典。
+ *
+ * 站点只展示正式服（live）数据，词典路径固定，无版本切换。
  * ============================================================ */
-
-import { dataVersion } from './api'
 
 export interface NounEntry {
   name?: string
@@ -16,13 +15,13 @@ export interface NounEntry {
 
 const cache = new Map<string, Promise<Record<string, NounEntry>>>()
 
-/** 当前数据版本的术语词典 URL（尊重 BASE_URL 子路径部署） */
+/** 术语词典 URL（尊重 BASE_URL 子路径部署；单版本 live 布局，路径固定） */
 function toUrl(): string {
   const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '')
-  return `${base}/data/${dataVersion.value}/noun.json`
+  return `${base}/data/noun.json`
 }
 
-/** 拉取（带缓存）当前版本术语词典。词典缺失/加载失败返回空表，浮层安静地不显示。 */
+/** 拉取（带缓存）术语词典。词典缺失/加载失败返回空表，浮层安静地不显示。 */
 export function nounDict(): Promise<Record<string, NounEntry>> {
   const url = toUrl()
   let p = cache.get(url)

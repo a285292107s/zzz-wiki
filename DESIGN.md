@@ -130,7 +130,6 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 - useRouteParam(name) → 响应式 param（连续导航同一组件时正确切换）。
 - usePageMeta(meta) → 写 document.title 与 meta description（三级：路由 meta 默认 → 页面覆盖 → 数据名覆盖）。
 - useCatalogSort → 列表排序状态（列键/方向）与 URL 同步。
-- useVersionSync → 数据版本（live/latest）与 URL query 双向同步（?ver=…）：分享链接直达、前进/后退还原、站内导航后补回版本参数，地址栏任意时刻可分享当前档位数据。
 - useDetailNavigation → 详情页相邻条目的前后翻页。
 - useDetailSections → 详情区块行构建（复用 domain/sections.ts）。
 
@@ -216,7 +215,7 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 ## 10. 铁律（重构不得违反）
 
 1. **运行时零外部请求**：前端只读本地 /data；数据构建期落地（npm run data）。
-2. **版本号不硬编码**：一律从 manifest 的 zzz.latest 动态取。
+2. **版本号不硬编码**：一律从 manifest 的 zzz.live 动态取（站点只展示正式服数据，见 DATA_GUIDE §1）。
 3. **图标走 <HollowImage> + src/data/icons.ts 候选链**，禁止直连单一外部图源。
 4. **富文本经 rich.ts / stripRichText**，禁止裸插值；v-html 只在白名单渲染函数后使用。
 5. **视觉语言不变**：1px 细线框、2px 圆角、等宽编号、纸墨配色；无圆角卡片堆叠/渐变霓虹/投影。
@@ -292,7 +291,7 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 - [x] footer 增设计系统入口；AGENTS.md 验证链已补 test/verify:data；README 补架构指针（P0 时已完成）
 - [x] 全局错误边界 ErrorBoundary：包裹 RouterView，渲染异常时捕获并显示友好回退（避免白屏）；
       `:key="dataVersion"` 挂在 ErrorBoundary 上，切换版本时自动重置错误状态
-- [x] 术语系统：`<Term:N>` 富文本锚点（rich.ts）+ TermTip 悬停浮层 + terms.ts 读本地 noun.json（构建期下沉，双版本各一份）
+- [x] 术语系统：`<Term:N>` 富文本锚点（rich.ts）+ TermTip 悬停浮层 + terms.ts 读本地 noun.json（构建期下沉 live 单版本）
 - [x] 移除 useDetailResource 薄包装：4 个详情页直接用 useAsyncResource + api.detail
 - [x] 移除 locName 别名死代码：全站统一使用 pickName
 - [x] ATTR_CODES / SPEC_CODES 从 domain/enums 派生：消除 useCatalogList 中的硬编码枚举漂移

@@ -10,7 +10,7 @@ export const ROOT = path.resolve(import.meta.dirname ?? process.cwd(), '..', '..
 export const CACHE = path.join(ROOT, '.cache', 'hakushin-raw')
 export const OUT = path.join(ROOT, 'public', 'data')
 
-/** 版本输出目录：public/data/{ver}/（live 与 latest 双版本分目录落地） */
+/** 版本输出目录：public/data/{ver}/（当前唯一产出 live = 正式服版本目录） */
 export function outDir(ver: string): string {
   return path.join(OUT, ver)
 }
@@ -55,7 +55,7 @@ export async function mapConcurrent<T, R>(
 }
 
 export async function resetOut(vers: readonly string[]): Promise<void> {
-  // 精确清理本管线产物：根 manifest + 根目录旧版名录/zh（历史单版本布局，双版本迁移后不再产出）
+  // 精确清理本管线产物：根 manifest + 根目录旧版名录/zh（历史单版本布局遗留，当前只产出 live 版本目录）
   // + 各版本名录/zh 详情；保留 img/（download:icons 的本地化图标，曾因整体 rm OUT
   // 被连带删除导致 272 个已跟踪图标消失）
   await fsp.rm(path.join(OUT, 'manifest.json'), { force: true })

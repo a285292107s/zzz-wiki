@@ -48,8 +48,8 @@ describe('detail schemas', () => {
 })
 
 describe('manifest schema', () => {
-  it('requires zzz.latest', () => {
-    expect(ManifestSchema.safeParse({ zzz: { latest: '3.2.3' } }).success).toBe(true)
+  it('requires zzz.live (正式服版本号)', () => {
+    expect(ManifestSchema.safeParse({ zzz: { live: '3.1' } }).success).toBe(true)
     expect(ManifestSchema.safeParse({ zzz: {} }).success).toBe(false)
   })
 })

@@ -1,22 +1,20 @@
 /* ============================================================
- * 本地静态数据客户端 — 数据由 scripts/build-data.mjs 生成：
- *   - 来源：git.mero.moe/dimbreath/ZenlessData（Dimbreath 解包数据）
- *   - 输出：public/data/（契约与旧 nanoka.cc 一致）
+ * 本地静态数据客户端 — 数据由 scripts/build 管线生成：
+ *   - 来源：static.nanoka.cc（hakushin raw / zzz.nanoka.cc）
+ *   - 输出：public/data/（契约见 DATA_GUIDE.md §3）
  * 运行时零外部依赖、零 CORS 问题。
  *
  *   manifest.json（根，版本元信息）
- *   {live,latest}/character.json / weapon.json / bangboo.json / equipment.json
- *   {live,latest}/zh/character/{id}.json …
+ *   character.json / weapon.json / bangboo.json / equipment.json
+ *   zh/character/{id}.json …
  *
- * 双数据版本：live = 游戏在线版本数据；latest = 源站最新数据（含前瞻/测试服内容）。
- * 默认 live；切版本经 dataVersion（localStorage 持久化，URL ?ver= 参数优先，双向同步见
- * composables/useVersionSync）→ App 层以 key 重挂视图。
+ * 单数据版本（合规约定 2026-08）：站点只展示**正式服（live）**数据，
+ * 数据版本号从根 manifest.json 的 zzz.live 动态取，永不硬编码。
  *
  * P1 重构（DESIGN.md §6）：kind 式接口（list/detail）+ DataError 错误归一化
  * + 请求超时 + BASE_URL 派生 + lang 参数预留；旧的 api.characters() 等保持兼容。
  * ============================================================ */
 
-import { ref, type Ref } from 'vue'
 import type {
   BangbooDetail,
   BangbooListItem,
@@ -30,42 +28,13 @@ import type {
 
 /* ---------- 领域类型 ---------- */
 
-/** 数据类别（与 {version}/{file}.json 及 catalog.listFile 同键） */
+/** 数据类别（与 {file}.json 及 catalog.listFile 同键） */
 export type DataKind = 'character' | 'weapon' | 'bangboo' | 'equipment'
 
 /** 支持的语言（预留；当前站点只渲染 zh） */
 export type Lang = 'zh' | 'en' | 'ja' | 'ko'
 
 export const DEFAULT_LANG: Lang = 'zh'
-
-/* ---------- 数据版本 ---------- */
-
-/** 数据版本：live = 游戏在线版本数据；latest = 源站最新数据（含前瞻/测试服内容） */
-export type DataVersion = 'live' | 'latest'
-
-export const DEFAULT_DATA_VERSION: DataVersion = 'live'
-const DATA_VERSION_KEY = 'zzz-wiki:data-version'
-
-function loadVersion(): DataVersion {
-  if (typeof localStorage !== 'undefined') {
-    const v = localStorage.getItem(DATA_VERSION_KEY)
-    if (v === 'live' || v === 'latest') return v
-  }
-  return DEFAULT_DATA_VERSION
-}
-
-/** 全局数据版本（模块级响应式，localStorage 持久化）。切换后由 App 层重挂视图刷新全部数据 */
-export const dataVersion: Ref<DataVersion> = ref(loadVersion())
-
-export function setDataVersion(v: DataVersion): void {
-  if (v === dataVersion.value) return
-  dataVersion.value = v
-  try {
-    localStorage.setItem(DATA_VERSION_KEY, v)
-  } catch {
-    // 隐私模式等不可写场景忽略（本次会话内仍生效）
-  }
-}
 
 /* ---------- 错误归一化 ---------- */
 
@@ -95,11 +64,10 @@ export class DataError extends Error {
 const REQUEST_TIMEOUT_MS = 10_000
 
 /** 数据根路径：尊重 BASE_URL（子路径部署时不再 404）。
- * manifest 位于数据根；其余数据端点按当前数据版本分目录（/data/{version}/…）。 */
+ * manifest 位于数据根；名录/详情直接位于 /data 之下（单版本 live 布局）。 */
 function toDataUrl(path: string): string {
   const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '')
-  const segmented = path === 'manifest.json' ? path : `${dataVersion.value}/${path}`
-  return `${base}/data/${segmented}`
+  return `${base}/data/${path}`
 }
 
 const cache = new Map<string, Promise<unknown>>()
@@ -144,41 +112,36 @@ let versionsPromise: Promise<DataVersions> | null = null
 
 interface Manifest {
   zzz?: {
-    latest?: string
     live?: string
-    liveAvailable?: boolean
+    source?: string
     [k: string]: unknown
   }
   generated?: string
   [k: string]: unknown
 }
 
-/** 双数据版本的版本号元信息（来自根 manifest.json，永不硬编码） */
+/** 数据版本元信息（来自根 manifest.json，永不硬编码）：
+ * live = 游戏正式服数据版本号（构建期从源站 zzz.live 落地）。 */
 export interface DataVersions {
-  latest: string
   live: string
-  /** live 目录是否独立数据（false = 构建期降级沿用 latest，前端不提供 live 档） */
-  liveAvailable: boolean
   generated?: string
 }
 
 export function dataVersions(): Promise<DataVersions> {
   versionsPromise ??= getJson<Manifest>('manifest.json').then((m) => {
-    const latest = m.zzz?.latest
-    if (!latest) throw new DataError('manifest', 'manifest missing zzz.latest')
+    const live = m.zzz?.live
+    if (!live) throw new DataError('manifest', 'manifest missing zzz.live')
     return {
-      latest,
-      live: m.zzz?.live ?? latest,
-      liveAvailable: m.zzz?.liveAvailable !== false,
+      live,
       generated: m.generated,
     }
   })
   return versionsPromise
 }
 
-/** 兼容别名：latest 版本号（旧接口，新代码请用 dataVersions()） */
+/** 兼容别名：正式服版本号（旧接口，新代码请用 dataVersions()） */
 export function gameVersion(): Promise<string> {
-  return dataVersions().then((v) => v.latest)
+  return dataVersions().then((v) => v.live)
 }
 
 /* ---------- list / detail ---------- */

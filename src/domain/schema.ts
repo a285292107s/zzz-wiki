@@ -246,8 +246,7 @@ export const DiskDriveDetailSchema = z
 export const ManifestSchema = z.object({
   zzz: z
     .object({
-      latest: z.string(),
-      live: z.string().optional(),
+      live: z.string(),
       source: z.string().optional(),
     })
     .catchall(z.unknown()),

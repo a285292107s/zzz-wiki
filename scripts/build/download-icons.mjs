@@ -26,8 +26,8 @@ const DATA = path.resolve('public/data')
 const IMG = path.join(DATA, 'img')
 const N = 'https://static.nanoka.cc/assets/zzz'
 
-/** 数据版本目录（双版本：live 与 latest 名录/详情各自收集，图标落地 img/ 共用） */
-const VERSIONS = ['live', 'latest']
+/** 数据版本目录（仅 live = 正式服；名录/详情收集从此目录，图标落地 img/） */
+const VERSIONS = ['live']
 
 /** 皮肤缩略图是否本地化（默认否：多为大图，避免仓库膨胀） */
 const SKIN_LOCAL = process.env.SKIN_LOCAL === '1'

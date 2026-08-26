@@ -41,19 +41,19 @@ npm run preview
 构建期从 **hakushin raw**（`https://static.nanoka.cc`，zzz.nanoka.cc / hakush.in 站底层 CDN）拉取，
 解析层直取 + 规整（v2，2026-08 切换；v1 为 Dimbreath ZenlessData 反混淆管线，已弃用，见 `DATA_GUIDE.md` §9）。
 
-- `scripts/build/`（入口 `scripts/build-data.ts`）负责：读取 `manifest.json` 取版本（latest + live 双版本）→ 抓取角色/音擎/邦布/驱动盘名录与中文详情 → 规整（icon 裸名、枚举英文值、皮肤回退）→ 输出到 `public/data/{live,latest}/`。
-- 产出（`public/data/`，运行时本地 fetch，无 CORS；live 与 latest 双版本目录结构相同）：
+- `scripts/build/`（入口 `scripts/build-data.ts`）负责：读取 `manifest.json` 取版本（`zzz.live` = 正式服）→ 抓取角色/音擎/邦布/驱动盘名录与中文详情 → 规整（icon 裸名、枚举英文值、皮肤回退）→ 输出到 `public/data/live/`。
+- 产出（`public/data/`，运行时本地 fetch，无 CORS）：
 
 | 路径 | 说明 |
 | --- | --- |
-| `/data/manifest.json` | 版本/来源元信息（`zzz.latest` / `zzz.live` / `liveAvailable`） |
-| `/data/live/…`、`/data/latest/…` | 双版本名录与详情：`character.json`（latest 60/live 58 名，含 1581 蕾米埃尔/1611 克拉蕾/1621 洛克茜）、`zh/character/{id}.json`（数值/技能/影画/档案/皮肤/特殊属性/策略/潜能）、`weapon.json`（latest 100/live 95 件）、`zh/weapon/{id}.json`、`bangboo.json`（42 只）、`zh/bangboo/{id}.json`、`equipment.json`（30 套）、`zh/equipment/{id}.json` |
+| `/data/manifest.json` | 版本/来源元信息（`zzz.live` / `source`） |
+| `/data/live/…` | 正式服名录与详情：`character.json`（58 名）、`zh/character/{id}.json`（数值/技能/影画/档案/皮肤/特殊属性/策略/潜能）、`weapon.json`（95 件）、`zh/weapon/{id}.json`、`bangboo.json`（42 只）、`zh/bangboo/{id}.json`、`equipment.json`（30 套）、`zh/equipment/{id}.json` |
 
 **字段约定**：属性 `200物理 201火 202冰 203电 204风 205以太 300流明(Lumiflux)`；职业 `1强攻 2击破 3异常 4支援 5防护 6命破 7锋御(Armorer)`；稀有度 `角色/邦布: 3=A 4=S，音擎: 2=B 3=A 4=S`。技能/影画/档案文本含 `<color=#…>` 等游戏标记，站点已做剥离清洗。
 
-> 数据版本说明：站点提供 **live / latest 双版本切换**（全站站头切换器，默认 live，localStorage 记忆所选）。
-> live = 游戏在线版本数据（2026-08 为 3.1，与正式服内容对齐）；latest = 数据源最新数据（2026-08 为 3.2.3+18283617，含前瞻/测试服内容）。
-> 版本号均从 `manifest.json` 动态获取，重跑 `npm run data` 即跟随站点最新数据。
+> 数据版本说明：站点**只展示正式服（live）数据**（合规约定 2026-08 起，此前曾有 live/latest 双版本切换，已移除）。
+> live = 游戏在线版本数据（2026-08 为 3.1，与正式服内容对齐）；源站最新 latest（含前瞻/测试服内容）不产出、不展示。
+> 版本号从 `manifest.json` 的 `zzz.live` 动态获取，重跑 `npm run data` 即跟随站点最新正式服数据。
 
 ### 图片素材（两级兜底）
 

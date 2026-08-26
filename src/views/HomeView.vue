@@ -3,14 +3,14 @@ import { computed, onMounted, ref } from 'vue'
 import { iconSources } from '@/data/icons'
 import { CATALOG, GUIDE_ENTRY } from '@/domain/catalog'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { dataVersion, dataVersions } from '@/data/api'
+import { dataVersions } from '@/data/api'
 import { useFeaturedAgents, type FeaturedCard } from '@/composables/useFeaturedAgents'
 import HollowImage from '@/components/HollowImage.vue'
 
 usePageMeta()
 
-// 数据版本元信息（live/latest 版本号，来自根 manifest.json；切换入口在全站站头）
-const versions = ref<{ live: string; latest: string; liveAvailable: boolean } | null>(null)
+// 数据版本元信息（正式服版本号，来自根 manifest.json；站点只展示正式服数据）
+const versions = ref<{ live: string } | null>(null)
 onMounted(() => {
   dataVersions()
     .then((v) => {
@@ -23,9 +23,7 @@ onMounted(() => {
 
 const currentVersionLabel = computed(() => {
   if (!versions.value) return ''
-  return dataVersion.value === 'live'
-    ? `LIVE ${versions.value.live}`
-    : `LATEST ${versions.value.latest}`
+  return `VER ${versions.value.live}`
 })
 
 // 目录由 catalog.ts 派生（DESIGN.md §5.3 单一事实源）

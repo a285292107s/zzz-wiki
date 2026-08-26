@@ -15,6 +15,8 @@ import path from 'node:path'
 
 const DATA = path.resolve('public/data')
 const N = 'https://static.nanoka.cc/assets/zzz'
+/** 单数据版本：live = 正式服（名录/详情位于 public/data/live/） */
+const VER = 'live'
 
 const head = async (u) => {
   try {
@@ -32,20 +34,20 @@ const add = (cat, id, base) => {
   if (base) items.push({ cat, id, base })
 }
 
-for (const [id, c] of Object.entries(JSON.parse(fs.readFileSync(path.join(DATA, 'character.json'), 'utf8')))) {
+for (const [id, c] of Object.entries(JSON.parse(fs.readFileSync(path.join(DATA, VER, 'character.json'), 'utf8')))) {
   add('character', id, c.icon)
 }
-for (const [id, w] of Object.entries(JSON.parse(fs.readFileSync(path.join(DATA, 'weapon.json'), 'utf8')))) {
+for (const [id, w] of Object.entries(JSON.parse(fs.readFileSync(path.join(DATA, VER, 'weapon.json'), 'utf8')))) {
   add('weapon', id, w.icon)
 }
-for (const [id, b] of Object.entries(JSON.parse(fs.readFileSync(path.join(DATA, 'bangboo.json'), 'utf8')))) {
+for (const [id, b] of Object.entries(JSON.parse(fs.readFileSync(path.join(DATA, VER, 'bangboo.json'), 'utf8')))) {
   add('bangboo', id, b.icon)
 }
-for (const [id, d] of Object.entries(JSON.parse(fs.readFileSync(path.join(DATA, 'equipment.json'), 'utf8')))) {
+for (const [id, d] of Object.entries(JSON.parse(fs.readFileSync(path.join(DATA, VER, 'equipment.json'), 'utf8')))) {
   add('disc', id, d.icon)
 }
-for (const f of fs.readdirSync(path.join(DATA, 'zh', 'character'))) {
-  const d = JSON.parse(fs.readFileSync(path.join(DATA, 'zh', 'character', f), 'utf8'))
+for (const f of fs.readdirSync(path.join(DATA, VER, 'zh', 'character'))) {
+  const d = JSON.parse(fs.readFileSync(path.join(DATA, VER, 'zh', 'character', f), 'utf8'))
   for (const s of Object.values(d.skin || {})) add('skin', d.id, s.image)
 }
 
