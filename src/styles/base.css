@@ -24,24 +24,27 @@ body {
   font-feature-settings: 'kern' 1, 'liga' 1;
 }
 
-/* #app 建立堆叠上下文（z-index:1），使全站共享底纹压在内容之下，
-   文字与琥珀点缀保持锐利，纸纹不浮在 UI 上 */
+/* #app：建立堆叠上下文（z-index:1），把站点内部 z 层级（页头/吸顶横条/浮层）收拢起来，
+   使其与 body 级 teleport 浮层（如术语浮层）在根层的堆叠关系保持可预期 */
 #app {
   position: relative;
   z-index: 1;
 }
 
-/* ---------- 全站共享底纹：极淡档案纸纹（B 方案） ----------
-   内页无 hero 时，用一片低存在感的灰阶纸纹统一所有页，替代"缺 hero"的空白；
-   数据 URI 内联，运行时零外部请求；去色颗粒、无渐变/无辉光，恪守纸墨铁律。 */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='148' height='148'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.07'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+/* ---------- 页面内容区块纸纹 ----------
+   极淡灰阶档案纸纹，仅铺在内容胶囊（.wrap.page）之下：名录/详情/404 等内容页统一。
+   纸纹数据源与原子约束见 tokens.css 的 --paper-noise。 */
+.wrap.page {
+  /* BFC：阻止末区块 margin-bottom 与父盒塌陷，纸纹铺满内容胶囊到底，不留裸底条 */
+  display: flow-root;
+  /* 抬升面色：用 --bg-1（raised panel）让内容胶囊比四周 --bg-0 页面地面亮一档，
+     左右缘形成清晰面色分界——内容层「浮」在纯色背景之上，两侧纯色退为背景 */
+  background-color: var(--bg-1);
+  background-image: var(--paper-noise);
   background-repeat: repeat;
+  /* 底部细线收口：让「内容标本板」上下都由发丝线框边（顶=站头 border-bottom，
+     底=本线），纸纹面不悬空被裁，页脚呼吸间距明确成为标本板之外的区域 */
+  border-bottom: var(--rule);
 }
 
 ::selection {

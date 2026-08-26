@@ -57,7 +57,7 @@ withDefaults(
 .tag-lbl {
   font-size: var(--fs-micro);
   letter-spacing: 0.14em;
-  color: var(--ink-3);
+  color: var(--ink-2);
 }
 
 /* ---------- ledger：点线规格表 ---------- */

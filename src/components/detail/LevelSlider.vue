@@ -164,7 +164,7 @@ function onChange(e: Event) {
   font-size: var(--fs-badge);
   font-weight: 400;
   letter-spacing: 0.06em;
-  color: var(--ink-3);
+  color: var(--ink-2);
 }
 
 .mark.is-break .tick {

@@ -56,6 +56,6 @@ h2 {
   font-size: var(--fs-micro);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--ink-3);
+  color: var(--ink-2);
 }
 </style>

@@ -11,7 +11,7 @@ const props = defineProps<{
   text?: string
   /** 剧情札记（lore）纯文本：影画 desc2，serif 小字衬于影画描述之下 */
   text2?: string
-  /** 标题视觉变体：skill=技能名（sans 15.5）/ talent=影画精炼（serif 16） */
+  /** 标题视觉变体：skill=技能名（sans）/ talent=影画·精炼（serif）；字号统一 --fs-lead（16px） */
   variant?: 'skill' | 'talent' | 'default'
 }>()
 
@@ -45,7 +45,7 @@ const titleClass = computed(() => 'title title-' + (props.variant ?? 'default'))
   border-bottom: var(--rule);
 }
 .no {
-  color: var(--ink-3);
+  color: var(--ink-2);
   font-size: var(--fs-caption);
   padding-top: 2px;
 }

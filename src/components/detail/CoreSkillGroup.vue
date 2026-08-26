@@ -281,7 +281,7 @@ const unlockCount = computed(() =>
 }
 
 .no {
-  color: var(--ink-3);
+  color: var(--ink-2);
   font-size: var(--fs-caption);
   padding-top: 2px;
 }
@@ -339,7 +339,7 @@ const unlockCount = computed(() =>
 .enhance-count {
   font-size: var(--fs-nano);
   letter-spacing: 0.08em;
-  color: var(--ink-3);
+  color: var(--ink-2);
 }
 
 .enhance-count.is-full {

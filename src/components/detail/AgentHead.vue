@@ -242,7 +242,7 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
 }
 
 .form-toggle .t-label {
-  color: var(--ink-3);
+  color: var(--ink-2);
 }
 
 .form-toggle .t-val {

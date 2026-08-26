@@ -500,7 +500,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
 }
 
 .move-row .no {
-  color: var(--ink-3);
+  color: var(--ink-2);
   font-size: var(--fs-caption);
   padding-top: 3px;
 }
@@ -576,7 +576,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
   display: block;
   font-size: var(--fs-micro);
   letter-spacing: 0.14em;
-  color: var(--ink-3);
+  color: var(--ink-2);
   margin-bottom: 7px;
 }
 
@@ -620,7 +620,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
 }
 
 .im-row .no {
-  color: var(--ink-3);
+  color: var(--ink-2);
   font-size: var(--fs-caption);
   padding-top: 3px;
 }

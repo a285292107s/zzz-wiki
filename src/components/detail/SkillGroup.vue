@@ -253,7 +253,7 @@ function potTag(grp: SkillGroup): string | null {
   border-bottom: 1px solid var(--line-0);
 }
 .no {
-  color: var(--ink-3);
+  color: var(--ink-2);
   font-size: var(--fs-caption);
   padding-top: 2px;
 }
@@ -355,7 +355,7 @@ function potTag(grp: SkillGroup): string | null {
   font-weight: 500;
   font-size: var(--fs-micro);
   letter-spacing: 0.1em;
-  color: var(--ink-3);
+  color: var(--ink-2);
   padding-top: 0;
   padding-bottom: 12px;
 }
