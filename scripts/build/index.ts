@@ -18,6 +18,7 @@ import {
 import { buildBangboos, buildCharacters, buildDiscs, buildWeapons, loadNoun, nounToTerms } from './domains'
 import { resolveTerms } from './normalize'
 import { fetchJson } from './io'
+import { resolveLiveTarget } from './live-target'
 
 /** 名录 schema 校验：失败收集错误并抛错 */
 type Dict = Record<string, Record<string, unknown>>
@@ -31,21 +32,10 @@ export async function main(): Promise<void> {
     zzz: { latest: string; live: string; available: string[]; new?: { character: string[]; weapon: string[]; monster: string[] } }
   }
   const zzz = manifest.zzz
-  const ver = zzz.live
-
   // 单版本：live = 游戏在线版本（正式服内容）。输出目录名固定为 live（不随版本号变，前端路径稳定）。
-  // 合规约束：绝不以 latest（含前瞻/测试服内容）补位或降级——live 不在源站可用列表时直接失败，
-  // 由调用方（ci-data）回退仓库内既有合规模数据，保证测试服数据永不流入站点。
-  if (!ver) throw new Error('manifest.json 缺 zzz.live（源站 schema 变更？），拒绝构建')
-  if (!Array.isArray(zzz.available)) {
-    throw new Error('manifest.json 缺 zzz.available 列表（源站 schema 变更？），拒绝构建')
-  }
-  if (!zzz.available.includes(ver)) {
-    throw new Error(
-      `live=${ver} 不在源站可用列表（available: ${zzz.available.join(', ')}）；` +
-        '为合规不降级取 latest，请人工确认源站 live 版本后重试',
-    )
-  }
+  // 合规约束（resolveLiveTarget，见 live-target.ts 单测）：绝不以 latest（含前瞻/测试服内容）补位或
+  // 降级——live 缺失/不在源站可用列表时直接失败，由调用方（ci-data）回退仓库内既有合规模数据。
+  const ver = resolveLiveTarget(zzz)
   console.log(`  zzz live（正式服）版本：${ver}（latest=${zzz.latest} 仅作源站参考，不产出）`)
   console.log(
     `  源站 new 内容（本次不消费）：角色 ${(zzz.new?.character ?? []).length} / 音擎 ${(zzz.new?.weapon ?? []).length} / 怪物 ${(zzz.new?.monster ?? []).length}`,

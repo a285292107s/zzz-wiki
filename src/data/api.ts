@@ -26,6 +26,17 @@ import type {
   WEngineListItem,
 } from './types'
 
+/* ---------- 合规清理 ---------- */
+
+// 2026-08 移除 live/latest 双版本切换后，旧 localStorage 偏好键已无代码读取，
+// 但用户浏览器可能残留 'latest'（测试服）档位。载入时清除，避免后续误读。
+const STALE_VERSION_KEY = 'zzz-wiki:data-version'
+try {
+  if (typeof localStorage !== 'undefined') localStorage.removeItem(STALE_VERSION_KEY)
+} catch {
+  // 隐私模式等不可写场景忽略
+}
+
 /* ---------- 领域类型 ---------- */
 
 /** 数据类别（与 {file}.json 及 catalog.listFile 同键） */

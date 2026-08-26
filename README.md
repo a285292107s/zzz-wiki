@@ -65,8 +65,8 @@ npm run preview
 
 **素材 CDN 解析（与 zzz.nanoka.cc 同源）**：该站页面数据全部来自 `static.nanoka.cc/zzz/{ver}/{lang}/…` JSON；图片素材另有独立的 `static.nanoka.cc/assets/zzz/` CDN——命名规则为**取游戏资源路径的裸文件名**（如 `UI/Sprite/A1DynamicLoad/IconSuit/UnPacker/SuitWoodpeckerElectro.png` → `SuitWoodpeckerElectro.webp`），角色头像 `IconRole01` 等即直接可用。本项目 `src/data/icons.ts` 完全复刻这套规则。
 
-**可用性现状（2026-02 实测）**：
-- nanoka 素材 CDN：项目全部 313 个图标资源 **100% 可达**（`npm run verify:icons` 可复核，失败即非零退出，可挂 CI）
+**可用性现状（2026-08 实测）**：
+- nanoka 素材 CDN：项目全部 **303 个图标资源**（live 名录 224 + 皮肤立绘 79）**100% 可达**（`npm run verify:icons` 可复核，失败即非零退出，可挂 CI）
 - 技能键位图标：资产名取自描述文本的 `<IconMap:Icon_XXX>` 标记（`Icon_Normal`/`Icon_Evade`/`Icon_SpecialReady`/`Icon_UltimateReady`/`Icon_QTE`/`Icon_Switch` 均 200），由前端 `icons.ts` + `rich.ts` 渲染——技能组头图标经 `<HollowImage>` 加载（含几何字符兜底），描述内联键位图（`<IconMap>`）直接嵌入富文本
 - honeyhunterworld：已从候选链移除（曾整体返回 Cloudflare 521，仅角色图可用），当前唯一 CDN 兜底为 nanoka
 - 已知提供方缺口：主角「哲/铃」第 3 套皮肤的立绘（`IconRole34_03` / `IconRole33_03`）nanoka 未上传，构建管线已将其回退到默认立绘（`scripts/build/normalize.ts` 的 `SKIN_IMAGE_FALLBACK`），杜绝死链字段
