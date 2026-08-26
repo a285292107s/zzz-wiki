@@ -61,4 +61,24 @@ describe('richDesc', () => {
     expect(out).not.toContain('{Skill')
     expect(out).toContain('a')
   })
+
+  it('resolves {CAL:…} tokens against the given skill level inside kept color spans', () => {
+    const out = richDesc(
+      '蕾米埃尔会使全队角色造成的伤害提升<color=#2BAD00>{CAL:0+AvatarSkillLevel(1)*1.5,1,2}%</color>，持续60秒',
+      12,
+    )
+    expect(out).toContain('伤害提升<span style="color:#2BAD00">18%</span>，持续60秒')
+    expect(out).not.toContain('{CAL')
+  })
+
+  it('substitutes a lower skill level into {CAL:…} tokens', () => {
+    const out = richDesc('伤害提升<color=#2BAD00>{CAL:0+AvatarSkillLevel(1)*1.5,1,2}%</color>', 1)
+    expect(out).toContain('伤害提升<span style="color:#2BAD00">1.5%</span>')
+  })
+
+  it('strips {CAL:…} tokens when no level context is given (no raw leak)', () => {
+    const out = richDesc('伤害提升{CAL:0+AvatarSkillLevel(1)*1.5,1,2}%')
+    expect(out).not.toContain('{CAL')
+    expect(out).toContain('伤害提升')
+  })
 })

@@ -8,6 +8,7 @@
  * ============================================================ */
 
 import { skillAssetSources } from '@/data/icons'
+import { calTokenValue, parseCalToken } from '@/domain/sections'
 
 function esc(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -16,8 +17,10 @@ function esc(s: string): string {
 /**
  * 将带游戏标记的描述文本渲染为可控 HTML 字符串。
  * 标记在文本表中以原始 `<…>` 出现，先整体转义，再定向还原两类标记。
+ * @param level 可选技能等级：提供时把 {CAL:…} 内嵌公式占位（如 伤害提升18%）按该级
+ *  求值；缺省时数据中不含 CAL 的调用方（出招表/术语浮层等）继续走通用 {…} 兜底剥离。
  */
-export function richDesc(desc?: string): string {
+export function richDesc(desc?: string, level?: number): string {
   if (!desc) return ''
   let out = esc(desc)
 
@@ -64,6 +67,16 @@ export function richDesc(desc?: string): string {
     (_m, id: string, inner: string) =>
       `<a class="rich-term" data-term-id="${id}" tabindex="0">${inner}</a>`,
   )
+
+  // {CAL:expr,scale,decimals} → 按等级代入求值（技能描述中随等级变化的数值，
+  // 如「全队角色造成的伤害提升18%」；token 后的 %/点/秒 等单位为普通文案，留在原地）。
+  // 需等级上下文：SkillGroup 传当前滑条等级；无等级的调用方不含此类标记，照旧剥离。
+  if (level != null) {
+    out = out.replace(/\{CAL:[^{}]*\}/g, (m) => {
+      const cal = parseCalToken(m)
+      return cal ? calTokenValue(cal, level) : ''
+    })
+  }
 
   // 兜底：始终不向 DOM 泄露任何游戏标记
   // - {Skill:N, Prop:N} 详细倍率占位（倍率表渲染前先隐藏）

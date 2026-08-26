@@ -56,7 +56,9 @@ function groupDesc(grp: SkillGroup, lv: number): string | undefined {
 
 /** 补充行展示值：无 Skill 引用的静态文本（如「1点」充能计数）直接展示原文，其余按等级求值 */
 function extraValue(en: SkillDetail): string {
-  if (!en.formula.includes('{Skill:') && !en.values?.length) return en.formula || '—'
+  if (!en.formula.includes('{Skill:') && !en.formula.includes('{CAL:') && !en.values?.length) {
+    return en.formula || '—'
+  }
   return skillDetailValue(en, level.value)
 }
 
@@ -138,7 +140,7 @@ function potTag(grp: SkillGroup): string | null {
               class="pot-badge mono"
             >{{ potTag(grp) }}</span>
           </h4>
-          <p v-if="grp.desc != null" class="desc" v-html="richDesc(groupDesc(grp, level) ?? '')"></p>
+          <p v-if="grp.desc != null" class="desc" v-html="richDesc(groupDesc(grp, level) ?? '', level)"></p>
           <!-- 转置表：行=段次，列=指标（如 伤害倍率/失衡倍率），随所选等级取值；
                补充行（充能计数等）紧随表格，仅当可转置时出现，列表用 v-else 保证互斥 -->
           <template v-if="table">
