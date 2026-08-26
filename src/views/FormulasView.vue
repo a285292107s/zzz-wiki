@@ -17,8 +17,8 @@ const nav = computed(() =>
   parts.value.map((p) => ({ id: p.id, no: p.no, label: p.title })),
 )
 
-// 移动端吸顶横条的「可横滑」提示（nav 静态，onMounted 内首次量测即可）
-const { navEl } = useNavScrollable()
+// 窄屏吸顶横条的「可横滑」提示与交互（nav 静态，onMounted 内首次量测即可）
+const { navEl, scrollRight } = useNavScrollable()
 
 // 轻量滚动高亮：依据吸顶横条实际高度（anchorOffset，与 router scrollBehavior 同源）判定当前段
 const active = ref<string | null>(null)
@@ -59,6 +59,7 @@ onBeforeUnmount(() => {
           <span>{{ n.label }}</span>
         </RouterLink>
       </div>
+      <button class="sn-scroll-btn" aria-label="向右滚动" @click="scrollRight">→</button>
     </nav>
 
     <header class="page-head">

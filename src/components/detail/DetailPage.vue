@@ -22,8 +22,8 @@ const props = defineProps<{
   fallbackText?: string
 }>()
 
-/** 移动端吸顶横条的「可横滑」提示：条目随数据就绪（nav prop 变化）后重测 */
-const { navEl, refresh } = useNavScrollable()
+/** 窄屏吸顶横条的「可横滑」提示与交互：条目随数据就绪（nav prop 变化）后重测 */
+const { navEl, scrollRight, refresh } = useNavScrollable()
 watch(
   () => props.nav,
   () => nextTick(refresh),
@@ -76,6 +76,7 @@ watch(
           </RouterLink>
         </template>
       </div>
+      <button class="sn-scroll-btn" aria-label="向右滚动" @click="scrollRight">→</button>
     </nav>
 
     <AsyncState :status="status" :error="error" :back-to="fallbackTo" :back-text="fallbackText">

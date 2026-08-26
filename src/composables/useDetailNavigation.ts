@@ -25,7 +25,7 @@ export function useDetailNavigation() {
    *  不用 IO 固定观察带（-35%/-55%）——小区块（如档案详情）按 hash 跳转后
    *  顶部恰停在锚点停靠位（--anchor-offset，76/132px），远在 35%~45% 视口带之上，
    *  IO 永不命中，高亮会顺延到下一区块（点击 01 却亮 02）。
-   *  偏移取吸顶横条实际高度（anchorOffset，wrap 多行亦准），与 router scrollBehavior 同源。
+   *  偏移取吸顶横条实际高度（anchorOffset，单行恒定），与 router scrollBehavior 同源。
    *  判定规则本体在 domain/scrollspy（纯函数，单测见 tests/scrollspy.test.ts）。 */
   function onScroll() {
     const offset = resolveAnchorOffset()
@@ -52,7 +52,7 @@ export function useDetailNavigation() {
     const hashEl = hashId ? document.getElementById(hashId) : null
     if (hashEl) {
       // 与 router scrollBehavior 一致：offsetTop 链求文档流位置（不受 reveal transform 影响），
-      // 减去横条实际高度（anchorOffset，wrap 多行亦准），再平滑滚动
+      // 减去横条实际高度（anchorOffset，单行恒定），再平滑滚动
       let y = 0
       let node: HTMLElement | null = hashEl
       while (node && node !== document.body && node !== document.documentElement) {

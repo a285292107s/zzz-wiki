@@ -442,7 +442,10 @@ a.rich-term:hover {
   transform: scaleX(1);
 }
 
-/* 窄屏：左侧留白不足，恢复为站头下的吸顶横条（激活以同一条下刻线表达） */
+/* 窄屏：左侧留白不足，恢复为站头下的吸顶横条（激活以同一条下刻线表达）。
+   统一为单行横向滚动：条目过多时横滑（触屏惯性、隐藏滚动条），不换行——
+   换行会顶掉大半个首屏且锚点偏移失效。高度恒定，--anchor-offset 的 132px 估算保持成立。
+   内容超宽时右缘 sticky 显示「→」提示，滚到底淡出。 */
 @media (max-width: 1520px) {
   .section-nav {
     position: sticky;
@@ -450,10 +453,15 @@ a.rich-term:hover {
     transform: none;
     left: auto;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
     gap: 6px 20px;
     width: auto;
     padding-block: 11px;
+    padding-inline: 2px; /* 首尾项不贴边，滚动到头仍留呼吸 */
     margin-bottom: calc(var(--pad-section) * 0.4);
     background: color-mix(in srgb, var(--bg-0) 92%, transparent);
     backdrop-filter: blur(10px);
@@ -461,9 +469,19 @@ a.rich-term:hover {
     border-bottom: var(--rule);
   }
 
+  .section-nav::-webkit-scrollbar {
+    display: none;
+  }
+
   .sn-list {
     display: contents;
     padding: 0;
+  }
+
+  .sn-item,
+  .sn-child {
+    flex: none;
+    white-space: nowrap;
   }
 
   .sn-item {
@@ -519,43 +537,19 @@ a.rich-term:hover {
   .sn-child.active::after {
     transform: scaleY(1);
   }
-}
-
-/* 手机端：条目过多（代理人 9 区块 + 技能子锚点）时 wrap 成多行会顶掉大半个首屏，
-   锚点偏移也随之失效；改为单行横向滚动（触屏惯性，隐藏滚动条），高度恒定，
-   --anchor-offset 的 132px 估算保持成立 */
-@media (max-width: 720px) {
-  .section-nav {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-inline: 2px; /* 首尾项不贴边，滚动到头仍留呼吸 */
-  }
-
-  .section-nav::-webkit-scrollbar {
-    display: none;
-  }
-
-  .sn-item,
-  .sn-child {
-    flex: none;
-    white-space: nowrap;
-  }
 
   /* 可横滑提示：细线小方钮「→」sticky 钉住右缘不随内容滚走；
-     仅当内容超宽（useNavScrollable 加 .scrollable）时显示，滚到底（.at-end）淡出 */
-  .section-nav.scrollable::after {
-    content: '→';
+     仅当内容超宽（useNavScrollable 加 .scrollable）时显示，滚到底（.at-end）淡出。
+     是真实按钮：桌面端点击滚屏，同时作为「可横滑」的视觉信号。 */
+  .sn-scroll-btn {
     position: sticky;
     right: 0;
     margin-left: auto;
     flex: none;
-    display: inline-flex;
+    display: none;
+    align-self: center;
     align-items: center;
     justify-content: center;
-    align-self: center;
     width: 22px;
     height: 22px;
     background: var(--bg-0);
@@ -563,12 +557,17 @@ a.rich-term:hover {
     border-radius: 2px;
     font-size: var(--fs-micro);
     color: var(--ink-2);
-    pointer-events: none;
+    cursor: pointer;
     transition: opacity var(--t-fast) var(--ease);
   }
 
-  .section-nav.scrollable.at-end::after {
+  .section-nav.scrollable .sn-scroll-btn {
+    display: inline-flex;
+  }
+
+  .section-nav.at-end .sn-scroll-btn {
     opacity: 0;
+    pointer-events: none;
   }
 }
 

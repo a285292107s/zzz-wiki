@@ -23,7 +23,7 @@ export const router = createRouter({
       if (el) {
         // v-reveal 初始 translateY(14px) + 480ms transition 会污染 getBoundingClientRect；
         // 改用 offsetTop 链求文档流绝对位置（transform/transition 不影响），
-        // 避免滚动后目标漂移。偏移取横条实际高度（anchorOffset，含 wrap 多行）
+        // 避免滚动后目标漂移。偏移取横条实际高度（anchorOffset，单行恒定）
         let y = 0
         let node: HTMLElement | null = el
         while (node && node !== document.body && node !== document.documentElement) {
