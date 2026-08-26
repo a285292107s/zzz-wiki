@@ -1,6 +1,9 @@
 # 绝区零 (ZZZ) 数据 API 研究报告 — hakush.in / nanoka.cc / hakushin-py
 
-> ⚠️ **本站已于 2025-02 迁移**：运行时不再依赖 nanoka.cc/hakush 系接口。改为与 [Hoyo Buddy](https://github.com/seriaati/hoyo-buddy) 同款方案——构建期从 **Dimbreath 解包数据**（`git.mero.moe/dimbreath/ZenlessData`）生成静态 JSON（`scripts/build-data.mjs` → `public/data/`）。本文档保留仅作历史调研参考（nanoka 契约即生成 JSON 的契约蓝本）。
+> ⚠️ **本站数据管线已于 2026-08 再切换（v2）**：构建期从 **hakushin raw**（`static.nanoka.cc/zzz/…`，即本报告研究的 nanoka 家族契约）拉取
+> **正式服（live）**数据 → 规整 → 生成静态 JSON（`scripts/build-data.ts` → `public/data/`），运行时零外部请求；
+> 仅 live 单版本（2026-08 合规约定，`zzz.latest` 含前瞻/测试服内容不消费），入口/表结构与失效信号见 [`DATA_GUIDE.md`](./DATA_GUIDE.md)。
+> 本文档保留主要作**端点契约研究参考**（v1 曾采用 Dimbreath ZenlessData 反混淆管线，已弃用；当时结论与 v2 同源，字段名以 v2 实测为准）。
 
 > 研究时间：2026-08（以"当下"为准）；所有端点均在本机沙箱内通过代理 **实测验证**（HTTP 200 + 响应头/JSON 字段实抓），非仅凭文档转述。
 > 核心结论先行：**hakush.in 已死（DNS NXDOMAIN），现役数据源是迁移后的 nanoka.cc 家族（`static.nanoka.cc` 提供 JSON，`zzz.nanoka.cc` 提供网页），CORS 全开（`access-control-allow-origin: *`），Vue 站点可浏览器直接 fetch，无需代理。**

@@ -54,7 +54,7 @@ domain（单一事实源：枚举、目录元信息、zod schema）
   ↓
 data（请求实现：只依赖 domain 的 schema 推导类型）
   ↑
-utils（纯函数：text / rich / names / urls —— 无组件、无状态，可单测；data 与其平级互不依赖）
+utils（纯函数：text / rich / names / contrast / cameraRect —— 无组件、无状态，可单测；data 与其平级互不依赖）
 ```
 
 规则：
@@ -71,12 +71,21 @@ src/
     enums.ts             # 从 types.ts 迁出 ELEMENTS/PROFESSIONS/HIT/RANK_TO_TIER 等
     catalog.ts           # 4 类目唯一元信息（导航/首页/路由共用一份）
     schema.ts            # zod 数据契约（build 与前端共享）
-    sections.ts          # 详情区块行构建（SkillRow/StatItem/SkinRow/潜能合成）
+    sections.ts          # 详情区块行构建（SkillRow/StatItem/SkinRow/潜能合成/出招表/段×指标转置表）
     filterIcons.ts       # 属性/职业筛选图标键（FilterDropdown 用）
+    devRoutes.ts         # dev-only 页面元数据（/style、/calibrate；路由 DEV 分支 + 页脚派生）
+    featuredPool.ts      # 今日角色精选池 zod schema（featured-pool.json 读写共用）
+    scrollspy.ts         # 详情页/公式页吸顶导航滚动监听（active 区段判定）
   data/
     api.ts               # 瘦身：请求层（timeout/错误归一化/baseUrl/lang）
     resources.ts         # 新增：类别驱动表，消除 4 组 list/detail 重复
     types.ts             # 保留：由 schema 推导的类型别名（向后兼容 import 面）
+    icons.ts             # 图标候选链（本地 img/* → nanoka CDN 两级兜底）+ 技能键位资产名映射
+    terms.ts             # 术语词典（读 /data/live/noun.json，供 TermTip）
+    heroCalibration.ts   # AgentHead 移动端头图构图参数访问器（featured-pool calibrated 表）
+    heroGenderVariants.ts / hero-gender-variants.json # 双形态 hero 文件（单一事实源，见 IMG_GUIDE）
+    featured-pool.json   # 今日角色精选池（校准工具 dev 中间件读写）
+    formulaGuide.ts      # 战斗公式图文内容（/formulas 页面数据源）
   composables/           # 新增
     useAsyncResource.ts  # 统一异步状态机（idle/loading/success/error/refetch）
     useCatalogList.ts    # 列表 + 筛选 + 搜索 + 计数（通用化）
@@ -87,14 +96,14 @@ src/
     list/                # CatalogTable / SearchField / FilterDropdown / ListPage
     state/               # AsyncState / CatalogTableSkeleton / ErrorBoundary
     detail/              # DetailPage / DetailSection / KeyValueGrid / DescRow / DetailHead / AgentHead / SkillGroup / CoreSkillGroup / LevelSlider / StatLevelPanel / TermTip
-    BackToTop.vue / Rarity.vue / Tags.vue / HollowImage.vue
+    BackToTop.vue / Rarity.vue / Tags.vue / HollowImage.vue / FormulaEq.vue
   views/                 # 变薄：每个 view 只用 composables + 组件拼装
   styles/                # 维持 token 方案；CSS 变量为唯一设计事实
   router/index.ts        # lazy 路由 + route meta（title/eyebrow/desc）
 scripts/
   build-data.ts          # 入口（顺序编排）
   ci-data.ts             # 部署环境数据同步
-  build/                 # 拆模块：io / normalize / domains / index
+  build/                 # 拆模块：io / normalize / domains / live-target / index（+ download-icons.mjs）
   verify-data.ts         # 对 public/data/ 做 zod 校验（可独立跑、可挂 CI）
   verify-icons.mjs       # 保留
 tests/                   # 测试（vitest；见 §8）
@@ -107,7 +116,7 @@ tests/                   # 测试（vitest；见 §8）
 - src/domain/schema.ts 用 zod 定义全部产出形状：CharacterListItem、CharacterDetail、WEngineListItem、WEngineDetail、Bangboo…、DiskDrive…、Manifest。
 - 前端类型：src/data/types.ts 改为 z.infer 导出，删掉手写防御类型与 [k: string]: unknown 兜底（删除后逐页过 vue-tsc，消灭全部 as 断言）。
 - 构建管线：scripts/build/ 直接 import 同一份 schema（zod 是运行时校验器，Node 天然可用；若工具链要求，build 侧经编译产物或 tsx 运行，保持单一 import 面）。
-- 校验门禁：scripts/verify-data.mjs 对 public/data/ 全部文件跑 safeParse；名录数量、详情字段缺失、未知键都会非零退出。
+- 校验门禁：scripts/verify-data.ts 对 public/data/ 全部文件跑 safeParse；名录数量、详情字段缺失、未知键都会非零退出。
 
 ### 5.2 枚举同步
 
@@ -132,6 +141,10 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 - useCatalogSort → 列表排序状态（列键/方向）与 URL 同步。
 - useDetailNavigation → 详情页相邻条目的前后翻页。
 - useDetailSections → 详情区块行构建（复用 domain/sections.ts）。
+- useNavScrollable → 详情页/公式页导航条横滑（窄屏单行 scroll-snap + 桌面滚轮/按钮）。
+- useFeaturedAgents → 首页「今日角色」精选池（读 featured-pool.json，每次挂载随机取 4 张）。
+- useHeroForm → 双形态角色（1551 佩洛伊斯）形态选择，模块级状态 + localStorage 持久化（详见 IMG_GUIDE）。
+- anchorOffset → 锚点避让偏移计算（router scrollBehavior 与吸顶横条同源，读 CSS 变量 --anchor-offset）。
 
 ### 6.2 组件
 
@@ -154,6 +167,7 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 | StatLevelPanel | 属性等级滑条面板（1–60、突破刻度） | 角色详情等级展示 |
 | TermTip | 术语悬停浮层（读本地 noun.json） | 富文本术语锚点交互 |
 | NameCell | 名录名单元格（四语名/阵营） | 4 张表格的名列 |
+| FormulaEq | 战斗公式条目排版（/formulas 页） | 公式图文统一渲染 |
 
 ### 6.3 视图瘦身目标（验收指标）
 
@@ -166,7 +180,11 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 - 全部 route 改 () => import(...) 懒加载（首屏只加载当前页）。
 - route meta：title / eyebrow / description；usePageMeta 消费。
 - 新增 404 视图（/:pathMatch(.*)* 不再是 redirect 到 /，显示档案式 404）。
-- 新增设计系统文档路由（见 §9）。
+- 新增设计系统文档路由（/style；见 §9）。
+- 新增战斗公式页（/formulas，FormulasView + FormulaEq 组件 + formulaGuide.ts 单一事实源）。
+- dev-only 页面机制（2026-08 集中）：route 的 DEV 分支按 `domain/devRoutes.ts` 登记注册（/style、/calibrate），
+  生产构建 `import.meta.env.DEV=false` 整块摇树移除——dev 页在 prod 不可达、零打包。
+  router scrollBehavior 统一处理 hash 锚点避让（读 --anchor-offset，见 composables/anchorOffset）。
 
 ## 7. 数据管线重构
 
@@ -177,6 +195,7 @@ scripts/build/
   io.ts              # 下载缓存 + 写盘（fetchJson / dump / mapConcurrent / resetOut）
   normalize.ts       # 规整纯函数（normalizeCharacterDetail 等，可单测）
   domains.ts        # 角色/音擎/邦布/驱动盘 名录+详情构建
+  live-target.ts     # 合规版本选择（resolveLiveTarget：live 缺失/不在 available 即抛错，纯函数可单测）
   index.ts           # 编排（版本探测 → 抓取 → 写盘）
 ```
 
@@ -209,6 +228,7 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 ## 9. 设计系统文档（ADR-006）
 
 - 新增 /style 路由 → StyleGuideView.vue：陈列 tokens（色彩/字号/间距/圆角/边框）、chips、search、table、按钮、HollowImage 占位态、富文本行——全部用真实组件渲染，带使用说明与命名规范。
+  （2026-08 起 /style 与 /calibrate 均为 **dev-only** 页面：经 devRoutes.ts 登记、生产构建排除，见 §6.4。）
 - 样式层保持 tokens.css + base.css + 组件 scoped，不改变任何像素。
 - 该页同时充当开发者的组件速查手册，组件命名规范（PascalCase，职责单一）自此书面化。
 
@@ -231,10 +251,10 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 
 - [x] 引入 vitest + @vue/test-utils + jsdom（vitest ^3.2.4，锁内解析 3.2.7）
 - [x] 为 utils/text.ts、utils/rich.ts、domain/enums.ts、utils/names.ts 写测试（29 用例，全部锁定当前行为）
-      —— 现覆盖 14 个测试文件：text(10) + rich(10) + names(5) + icons(6) + schema(7) +
+      —— **P0 时点**覆盖 14 个测试文件：text(10) + rich(10) + names(5) + icons(6) + schema(7) +
         sections(91) + api(12) + catalog-list(10) + catalog-sort(6) + catalogtable(3) +
         filterdropdown(7) + core-skill-group(6) + contrast(6) + styleguide-colors(4)
-        = **183 用例全绿**
+        = **183 用例全绿**（此后随新功能持续扩充，见 tests/，当前 27 个测试文件）
 - [x] 合并 locName/pickName → utils/names.ts（唯一实现）；api.ts 旧 export 改为转发
       —— **实际发现**：pickName 在 text.ts 中无任何调用方（死代码），视图全部使用 locName
       —— **后续清理**：locName 别名已完全移除（api.ts 不再转发），所有调用方改用 pickName
@@ -275,7 +295,7 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 - [x] build 管线拆模块（scripts/build/{io,normalize,domains,index}）经 tsx 运行；
       英文枚举从 domain/enums 复用——**修复历史漂移：1611 克拉蕾/4 音擎的 weapon_type
       从 fallback 中文「锋御」修正为规范英文 Armorer**（5 个数据文件语义修正）
-- [x] scripts/verify-data.ts：manifest + 4 名录 + 232 详情全量 zod 校验，失败非零退出
+- [x] scripts/verify-data.ts：manifest + 4 名录 + live 全量详情（225：58 角色 / 95 音擎 / 42 邦布 / 30 驱动盘）zod 校验，失败非零退出
 - [x] 验证链：npm run data → verify:data → npm test → npm run build（AGENTS.md 已更新）
 - [x] 新增 tests/schema.test.ts（契约通过/失败用例）
 
@@ -289,8 +309,8 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 - [x] NotFoundView（档案式 404，替代 redirect 到首页）
 - [x] StyleGuideView（/style）：真实组件陈列 + 运行时读取 CSS 变量（token 零二次维护）
 - [x] footer 增设计系统入口；AGENTS.md 验证链已补 test/verify:data；README 补架构指针（P0 时已完成）
-- [x] 全局错误边界 ErrorBoundary：包裹 RouterView，渲染异常时捕获并显示友好回退（避免白屏）；
-      `:key="dataVersion"` 挂在 ErrorBoundary 上，切换版本时自动重置错误状态
+- [x] 全局错误边界 ErrorBoundary：包裹 RouterView，渲染异常时捕获并显示友好回退（避免白屏）
+      —— 2026-08 移除 live/latest 双版本后，`:key="dataVersion"` 重置机制已随版本切换一并删除
 - [x] 术语系统：`<Term:N>` 富文本锚点（rich.ts）+ TermTip 悬停浮层 + terms.ts 读本地 noun.json（构建期下沉 live 单版本）
 - [x] 移除 useDetailResource 薄包装：4 个详情页直接用 useAsyncResource + api.detail
 - [x] 移除 locName 别名死代码：全站统一使用 pickName
@@ -307,10 +327,12 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 ### P0 测试锁定的两个真实行为（待修复决策）
 
 1. **rich.ts 的 IconMap 捕获组丢前缀**：`<IconMap:Icon_Normal>` 曾渲染为 `…/Normal.webp`
-   而非 `…/Icon_Normal.webp`。**已处理（用户决策）**：技能图标整体回退至 `dbc0c72` 的
+   而非 `…/Icon_Normal.webp`。**已处理（用户决策）**：技能图标先整体回退至 `dbc0c72` 的
    CDN 官方图方案（删除 SkillIcon.vue / skillGlyphs.ts 本地 SVG；rich.ts 恢复 CDN img），
-   但捕获组保留 `(Icon_\w+)` 全名修正——不再请求丢前缀的 404 URL。
-   tests/rich.test.ts 锁定「CDN key image + 全资产名」行为。
+   但捕获组保留 `(Icon_\w+)` 全名修正——不再请求丢前缀的 404 URL；
+   随后（2026-08）技能键位图标随 `download-icons.mjs` 再次本地化到 `img/skill/`，
+   现候选链为「本地 img/skill → nanoka CDN → .rich-key-broken 占位」，见 DATA_GUIDE §5。
+   tests/rich.test.ts 锁定「本地 key image + data-cdn + 全资产名」行为。
 2. **stripRichText 放行带数字的 LAYOUT 标记**：正则 `LAYOUT_[A-Z]+#` 无法跨越数字
    （如 `{LAYOUT_PS5#O}` 原样保留）。若真实数据出现 `PS5` 等标记会漏洗，多为无害残留，
    修复时把 `[A-Z]+` 扩为 `[A-Z0-9]+` 并补用例。

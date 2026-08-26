@@ -34,7 +34,7 @@
 | 项 | 值 |
 |---|---|
 | 源 | `https://static.nanoka.cc`（zzz.nanoka.cc / hakush.in 底层静态 CDN） |
-| 版本清单 | `GET /manifest.json` → `zzz.live`（当前 3.1）即数据版本（游戏正式服在线版本）；`zzz.latest`（3.2.3+…）为源站最新（含前瞻/测试服内容，**本项目不再消费**） |
+| 版本清单 | `GET /manifest.json` → `zzz.live`（当前 3.1）即数据版本（游戏正式服在线版本）；`zzz.latest`（3.2.4+…）为源站最新（含前瞻/测试服内容，**本项目不再消费**） |
 | 列表（无语言） | `/zzz/{ver}/character.json` `/weapon.json` `/bangboo.json` `/equipment.json` |
 | 详情（带语言） | `/zzz/{ver}/zh/character/{id}.json` `/weapon/{id}` `/bangboo/{id}` `/equipment/{id}` |
 | 名词表 | `/zzz/{ver}/zh/noun.json` — 术语词典（游戏名词 title/desc），构建期全量下沉为 `noun.json`（§3/§4），供前端 TermTip 浮层 |
@@ -68,7 +68,8 @@
 - **manifest.json 永不读缓存**：每次 `npm run data` 都实时拉取源站清单，保证版本探测不固着。
 
 **当前版本号易变**：`manifest.zzz.available` 含历史版本；构建只取 `live`（正式服，见 §1 单版本说明）。
-live 不在 available 时构建失败（ci-data 回退仓库内既有正式服数据），`npm run data` 重建即可。
+合规判定集中在 `scripts/build/live-target.ts` 的 `resolveLiveTarget()`（纯函数，有单测）：live 缺失 / available 缺失 /
+live 不在 available 时**直接抛错**（ci-data 回退仓库内既有正式服数据），`npm run data` 重建即可。
 
 ---
 

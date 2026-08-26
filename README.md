@@ -19,21 +19,21 @@
 
 ```bash
 npm install
-npm run data         # 生成静态数据（拉取 Dimbreath ZenlessData → 反混淆 → 拼装）
+npm run data         # 生成静态数据（拉取 hakushin raw 正式服 → 规整 → 拼装，见下方「数据源」）
 npm run verify:icons # （可选）校验全部图标资源可达性，失败非零退出
 npm run dev          # http://localhost:5173
 npm run build
 npm run preview
 ```
 
-> `npm run data` 需要网络访问 `git.mero.moe`（有代理时设 `NODE_USE_ENV_PROXY=1`）；
+> `npm run data` 需要网络访问 `static.nanoka.cc`（有代理时设 `NODE_USE_ENV_PROXY=1`）；
 > 数据已提交在 `public/data/`，日常开发/部署无需重跑。更新数据：重跑该脚本。
 
 ## 部署（Vercel）
 
 1. 将本仓库推送到 GitHub。
 2. 在 [vercel.com/new](https://vercel.com/new) 导入该仓库。
-3. 无需任何配置——`vercel.json` 已声明 Vite 框架与输出目录，仅含 SPA 路由 rewrite。
+3. 无需任何配置——`vercel.json` 已声明 Vite 框架、构建命令（`npm run build:ci`：测试 + 数据同步 + 构建，见 DATA_GUIDE §7）与产物目录；headers 含数据/图片缓存策略，rewrites 含 SPA 路由回退。
 4. 部署后访问 `https://<你的项目>.vercel.app`。
 
 ## 数据源
@@ -67,7 +67,9 @@ npm run preview
 
 **可用性现状（2026-08 实测）**：
 - nanoka 素材 CDN：项目全部 **303 个图标资源**（live 名录 224 + 皮肤立绘 79）**100% 可达**（`npm run verify:icons` 可复核，失败即非零退出，可挂 CI）
-- 技能键位图标：资产名取自描述文本的 `<IconMap:Icon_XXX>` 标记（`Icon_Normal`/`Icon_Evade`/`Icon_SpecialReady`/`Icon_UltimateReady`/`Icon_QTE`/`Icon_Switch` 均 200），由前端 `icons.ts` + `rich.ts` 渲染——技能组头图标经 `<HollowImage>` 加载（含几何字符兜底），描述内联键位图（`<IconMap>`）直接嵌入富文本
+- 技能键位图标：资产名取自描述文本的 `<IconMap:Icon_XXX>` 标记（`Icon_Normal`/`Icon_Evade`/`Icon_SpecialReady`/`Icon_UltimateReady`/`Icon_QTE`/`Icon_Switch` 均 200），
+  已随 `npm run download:icons` 本地化到 `img/skill/`（icons.ts `skillAssetSources`/`skillIconSources` 本地优先 + nanoka CDN 兜底 + 占位），
+  由前端 `icons.ts` + `rich.ts` 渲染——技能组头图标经 `<HollowImage>` 加载（含几何字符兜底），描述内联键位图（`<IconMap>`）直接嵌入富文本
 - honeyhunterworld：已从候选链移除（曾整体返回 Cloudflare 521，仅角色图可用），当前唯一 CDN 兜底为 nanoka
 - 已知提供方缺口：主角「哲/铃」第 3 套皮肤的立绘（`IconRole34_03` / `IconRole33_03`）nanoka 未上传，构建管线已将其回退到默认立绘（`scripts/build/normalize.ts` 的 `SKIN_IMAGE_FALLBACK`），杜绝死链字段
 
@@ -75,16 +77,20 @@ npm run preview
 
 ```
 src/
-  domain/        # 单一事实源：枚举 / 类目元信息 / zod 契约 / 详情区块类型
+  domain/        # 单一事实源：枚举 / 类目元信息 / zod 契约 / 详情区块类型 / dev 页面元数据（devRoutes）
   data/          # 请求层（api）+ 类别表驱动（resources）+ 类型派生（types）+ 图标候选（icons）
-  composables/   # useAsyncResource / useCatalogList / useRouteParam / usePageMeta
-  components/    # layout / list / state / detail 区块 + Rarity / Tags / HollowImage / SkillIcon
-  views/         # 页面（薄组装层）
+                 # + 校准数据（featured-pool / heroCalibration / heroGenderVariants / hero-gender-variants.json）
+                 # + 战斗公式图文源（formulaGuide）
+  composables/   # useAsyncResource / useCatalogList / useCatalogSort / useRouteParam / usePageMeta
+                 # / useDetailNavigation / useDetailSections / useFeaturedAgents / useHeroForm / useNavScrollable
+  components/    # layout / list / state / detail 区块 + Rarity / Tags / HollowImage / FormulaEq / TermTip
+  views/         # 页面（薄组装层；含 /formulas 战斗公式、dev-only /style /calibrate）
   styles/        # 设计 token + 基样式
-  router/        # 懒加载路由 + meta
+  router/        # 懒加载路由 + meta（dev-only 路由由 devRoutes 派生，构建级排除）
 scripts/
-  build/         # 数据管线模块（io / normalize / domains / index，tsx 运行）
+  build/         # 数据管线模块（io / normalize / domains / live-target / index + download-icons.mjs，tsx/node 运行）
   build-data.ts  # 数据管线入口（npm run data）
+  ci-data.ts     # 部署数据同步（npm run build:ci 前置）
   verify-data.ts # zod 契约校验（npm run verify:data，可挂 CI）
   verify-icons.mjs # 图标资源可达性校验
 tests/           # vitest 单元/组件测试
@@ -92,6 +98,6 @@ public/
   data/          # 生成的静态 JSON（提交入库）
 ```
 
-> 架构分层、依赖规则与重构路线见 `DESIGN.md`；组件/设计 token 速查见站内 `/style` 设计系统页。
+> 架构分层、依赖规则与重构路线见 `DESIGN.md`；组件/设计 token 速查见站内 `/style` 设计系统页（**dev-only**，生产构建不打包，`/calibrate` 同理）。
 
 > 项目为社区爱好者制作，与米哈游 / HoYoverse 无关；数据版权归原作者（Dimbreath 解包数据 / miHoYo）所有。
