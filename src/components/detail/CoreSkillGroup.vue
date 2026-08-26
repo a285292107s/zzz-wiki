@@ -246,8 +246,11 @@ const unlockCount = computed(() =>
   align-items: center;
   gap: 12px;
   margin-left: auto;
-  flex: 1 1 240px;
-  min-width: 200px;
+  /* flex-basis 只决定 .skill-kind-row 的 flex-wrap 换行阈值（flex-grow 会把它拉伸至填满剩余、
+     受 max-width 封顶，故不影响桌面最终宽度）：收紧到 150px 让窄屏滑条与核心技名同排，
+     而非整条被挤到下一行。min-width 同步下调，避免把换行阈值抬回 200px。 */
+  flex: 1 1 150px;
+  min-width: 140px;
   max-width: 420px;
 }
 
