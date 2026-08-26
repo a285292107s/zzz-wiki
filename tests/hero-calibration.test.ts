@@ -14,8 +14,15 @@ describe('getHeroCalibration', () => {
     })
   })
 
+  it('已校准双形态角色（默认女性版）同样返回构图参数', () => {
+    expect(getHeroCalibration(1551)).toEqual({
+      pos: '49%',
+      zoom: 1.296518607442977,
+      originY: 50,
+    }) // 双形态角色按默认（女性）版校准，两形态共用同一套参数
+  })
+
   it('未校准角色返回 null（调用方回落居中取景）', () => {
-    expect(getHeroCalibration(1551)).toBeNull() // 双形态角色，无裸名校准
     expect(getHeroCalibration(9999)).toBeNull() // 不在校准表
   })
 

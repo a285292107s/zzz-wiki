@@ -74,7 +74,8 @@ watch(heroSrcs, () => {
 })
 
 /** 复用「今日角色」校准构图（featured-pool.json calibrated 表）：水平脸对焦 + 放大消透明边。
- *  仅移动端应用；未校准（如双形态 1551 / 无 hero 图角色）回落 null，保持居中取景。 */
+ *  仅移动端应用；未校准（如无 hero 图角色）回落 null，保持居中取景。
+ *  双形态角色（如 1551）按默认（女性）版校准，两形态共用同一套参数。 */
 const heroCal = computed<HeroCalibration | null>(() => getHeroCalibration(props.detail.id))
 
 /** 把校准参数以 CSS 自定义属性透传给移动端构图（desktop 不消费，保持满栏横幅）。 */
