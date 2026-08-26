@@ -37,6 +37,9 @@ export async function main(): Promise<void> {
   // 合规约束：绝不以 latest（含前瞻/测试服内容）补位或降级——live 不在源站可用列表时直接失败，
   // 由调用方（ci-data）回退仓库内既有合规模数据，保证测试服数据永不流入站点。
   if (!ver) throw new Error('manifest.json 缺 zzz.live（源站 schema 变更？），拒绝构建')
+  if (!Array.isArray(zzz.available)) {
+    throw new Error('manifest.json 缺 zzz.available 列表（源站 schema 变更？），拒绝构建')
+  }
   if (!zzz.available.includes(ver)) {
     throw new Error(
       `live=${ver} 不在源站可用列表（available: ${zzz.available.join(', ')}）；` +
