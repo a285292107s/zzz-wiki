@@ -203,7 +203,7 @@ public/data/
 | `src/data/types.ts` | 数据类型 + 枚举映射常量（含 300 流明、职业 7 锋御） |
 | `src/data/icons.ts` | 图标候选链（本地 → nanoka CDN 两级兜底）+ 技能键位资产名映射 |
 | `src/components/HollowImage.vue` | 多候选图 + `position`/`ratio` 裁切 + 文字降级 |
-| `src/utils/rich.ts` | 富文本：`<IconMap:Icon_XXX>`→键位图（本地优先，`data-cdn` 属性供 main.ts 全局 error 降级）、`<color=#…>`→带色 span、`<Term:N>`→术语锚点（供 TermTip）、`{CAL:expr,scale,decimals}`→按技能等级代入求值（技能/核心技描述与数值条目，如「伤害提升18%」；需调用方传入等级，否则剥离）、LAYOUT 与 `{Skill:N,Prop:N}` 占位剥离，其余 HTML 转义防注入 |
+| `src/utils/rich.ts` | 富文本：`<IconMap:Icon_XXX>`→键位图（本地优先，`data-cdn` 属性供 main.ts 全局 error 降级）、`<color=#…>`→带色 span、`<Term:N>`→术语锚点（供 TermTip）、`{CAL:expr,scale,decimals}`→按技能等级代入求值（技能/核心技描述与数值条目，如「伤害提升18%」；需调用方传入等级，否则剥离；scale 语义按游戏实机核实：小数式 ×100 转百分比，如 月城柳 极性紊乱 满级 3200%）、LAYOUT 与 `{Skill:N,Prop:N}` 占位剥离，其余 HTML 转义防注入 |
 | `src/data/terms.ts` | 术语词典：读本地 `/data/{ver}/noun.json`（按 dataVersion 键控缓存），词典缺失时浮层安静隐藏 |
 | `src/components/detail/TermTip.vue` | 术语悬停浮层：全局委托监听 `.rich-term`，展示名词表 title/desc |
 | `src/utils/text.ts` | `stripRichText`（纯文本剥标记） |
