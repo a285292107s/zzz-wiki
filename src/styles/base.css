@@ -318,6 +318,13 @@ a.rich-term:hover {
   margin: 0;
 }
 
+/* → 横滑提示按钮：全局默认隐藏。
+   放在媒体查询外——宽屏侧栏模式下横条不可横滑，按钮必须始终不渲染；
+   窄屏媒体查询内 .section-nav.scrollable .sn-scroll-btn 覆盖为 inline-flex。 */
+.sn-scroll-btn {
+  display: none;
+}
+
 .sn-list {
   display: flex;
   flex-direction: column;
@@ -538,15 +545,11 @@ a.rich-term:hover {
     transform: scaleY(1);
   }
 
-  /* 可横滑提示：细线小方钮「→」sticky 钉住右缘不随内容滚走；
-     仅当内容超宽（useNavScrollable 加 .scrollable）时显示，滚到底（.at-end）淡出。
-     是真实按钮：桌面端点击滚屏，同时作为「可横滑」的视觉信号。 */
   .sn-scroll-btn {
     position: sticky;
     right: 0;
     margin-left: auto;
     flex: none;
-    display: none;
     align-self: center;
     align-items: center;
     justify-content: center;
