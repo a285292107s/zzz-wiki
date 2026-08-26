@@ -115,7 +115,7 @@ const unlockCount = computed(() =>
           <h4 class="title title-skill">
             {{ current.coreName }}<span v-if="currentBadge" class="pot-badge mono">{{ currentBadge }}</span>
           </h4>
-          <p v-if="current.desc[0]" class="desc" v-html="richDesc(current.desc[0])"></p>
+          <p v-if="current.desc[0]" class="desc" v-html="richDesc(current.desc[0], level)"></p>
         </div>
       </li>
       <li class="row">
@@ -124,7 +124,7 @@ const unlockCount = computed(() =>
           <h4 class="title title-skill">
             {{ current.extraName }}<span v-if="currentBadge" class="pot-badge mono">{{ currentBadge }}</span>
           </h4>
-          <p v-if="current.desc[1]" class="desc" v-html="richDesc(current.desc[1])"></p>
+          <p v-if="current.desc[1]" class="desc" v-html="richDesc(current.desc[1], level)"></p>
         </div>
       </li>
       <!-- 潜能模式：追加「潜能觉醒：极冰带」等潜能影像强化效果行 -->
@@ -132,7 +132,7 @@ const unlockCount = computed(() =>
         <span class="no mono">03</span>
         <div class="body">
           <h4 class="title title-skill">{{ potBoost.name || '潜能觉醒' }}</h4>
-          <p class="desc" v-html="richDesc(potBoost.desc)"></p>
+          <p class="desc" v-html="richDesc(potBoost.desc, level)"></p>
         </div>
       </li>
     </ul>

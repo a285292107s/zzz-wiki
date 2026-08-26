@@ -986,12 +986,11 @@ describe('skill formula evaluation', () => {
     expect(skillDetailValue(detail, 5)).toBe('16秒') // 越界钳制到末级
   })
 
-  it('parses {CAL:…} tokens into expr/scale/decimals/tail', () => {
+  it('parses {CAL:…} tokens into expr/scale/decimals (units live outside the token)', () => {
     expect(parseCalToken('{CAL:0+AvatarSkillLevel(1)*1.5,1,2}%')).toEqual({
       expr: '0+AvatarSkillLevel(1)*1.5',
       scale: 1,
       decimals: 2,
-      tail: '%',
     })
     expect(parseCalToken('{CAL:0.08+AvatarSkillLevel(1)*0.01,100,2}%')).toMatchObject({
       expr: '0.08+AvatarSkillLevel(1)*0.01',
@@ -1000,28 +999,40 @@ describe('skill formula evaluation', () => {
     expect(parseCalToken('{Skill:1031001, Prop:1001}')).toBeUndefined()
   })
 
-  it('calTokenValue substitutes the slot level into AvatarSkillLevel', () => {
+  it('calTokenValue substitutes the slot level into AvatarSkillLevel (value only)', () => {
     const cal = parseCalToken('{CAL:0+AvatarSkillLevel(1)*1.5,1,2}%')!
-    expect(calTokenValue(cal, 1)).toBe('1.5%')
-    expect(calTokenValue(cal, 12)).toBe('18%')
+    expect(calTokenValue(cal, 1)).toBe('1.5')
+    expect(calTokenValue(cal, 12)).toBe('18')
   })
 
   it('calTokenValue applies the ×100 scale to fraction-form exprs and trims decimals', () => {
     const cal = parseCalToken('{CAL:0.08+AvatarSkillLevel(1)*0.01,100,2}%')!
-    expect(calTokenValue(cal, 1)).toBe('9%')
-    expect(calTokenValue(cal, 12)).toBe('20%')
+    expect(calTokenValue(cal, 1)).toBe('9')
+    expect(calTokenValue(cal, 12)).toBe('20')
   })
 
-  it('calTokenValue handles constant exprs with non-%-units', () => {
+  it('calTokenValue handles constant exprs', () => {
     const cal = parseCalToken('{CAL:16+AvatarSkillLevel(1)*2,1,2}秒')!
-    expect(calTokenValue(cal, 1)).toBe('18秒')
-    expect(calTokenValue(cal, 12)).toBe('40秒')
+    expect(calTokenValue(cal, 1)).toBe('18')
+    expect(calTokenValue(cal, 12)).toBe('40')
   })
 
   it('skillDetailValue resolves {CAL:…} formulas without a {Skill:} prop table', () => {
     const detail = { name: '伤害提升', formula: '{CAL:0+AvatarSkillLevel(1)*1.5,1,2}%', props: {}, format: undefined }
     expect(skillDetailValue(detail, 1)).toBe('1.5%')
     expect(skillDetailValue(detail, 12)).toBe('18%')
+  })
+
+  it('skillDetailValue resolves every {CAL:…} token in text-bearing entries (露西 加油！)', () => {
+    const detail = {
+      name: '攻击力提升',
+      formula: '露西攻击力{CAL:13+AvatarSkillLevel(1)*0.8,1,2}%+{CAL:40+AvatarSkillLevel(1)*4,1,2}',
+      props: {},
+    }
+    expect(skillDetailValue(detail, 1)).toBe('露西攻击力13.8%+44')
+    expect(skillDetailValue(detail, 12)).toBe('露西攻击力22.6%+88')
+    // 不向 DOM 泄漏原始标记（上一条目曾把第二个 {CAL:…} 原文带出）
+    expect(skillDetailValue(detail, 12)).not.toContain('{CAL')
   })
 })
 

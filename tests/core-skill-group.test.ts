@@ -89,3 +89,31 @@ describe('CoreSkillGroup 核心技强化（解锁档位）', () => {
     expect(w.find('.enhance').exists()).toBe(false)
   })
 })
+
+describe('CoreSkillGroup {CAL:…} 内嵌公式（核心被动路径）', () => {
+  /** 青衣核心被动同款：常量公式占位（{CAL:5+5,1,2} → 10），随等级不变 */
+  const calRow: CoreSkill = {
+    coreName: '旋劲入斗',
+    extraName: '蓄魂',
+    levelCount: 7,
+    hasEnhance: false,
+    levels: Array.from({ length: 7 }, () => ({
+      no: 1,
+      level: 1,
+      enhanced: false,
+      coreName: '旋劲入斗',
+      extraName: '蓄魂',
+      desc: [
+        '在发动终结一击时，若触发[极限闪避]，可以直接施加{CAL:5+5,1,2}层[羁服]',
+        '额外能力描述',
+      ],
+    })),
+  }
+
+  it('描述中的 {CAL:} 常量公式按数值渲染，不回显原始标记', () => {
+    const w = mount(CoreSkillGroup, { props: { row: calRow } })
+    const desc = w.findAll('.desc')[0].text()
+    expect(desc).toContain('可以直接施加10层[羁服]')
+    expect(desc).not.toContain('{CAL')
+  })
+})

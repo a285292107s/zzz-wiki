@@ -533,41 +533,39 @@ export function formatSkillScalar(value: number, format?: string): string {
 /* ---------- {CAL:…} 内嵌公式占位（技能描述/数值条目中的等级代入数值） ---------- */
 
 /** {CAL:expr,scale,decimals} 解析结果：expr 为算术式（可含 AvatarSkillLevel(n) 等级引用）；
- *  scale=展示倍率（1 或 100：小数形式 ×100 转百分比）；decimals=保留小数位（展示时去尾零）；
- *  tail=token 之外的尾缀文本（数值条目的单位，如 %/点/秒；描述文本中单位为普通文案，此处为空） */
+ *  scale=展示倍率（1 或 100：小数形式 ×100 转百分比）；decimals=保留小数位（展示时去尾零）。
+ *  单位（%/点/秒）是占位之外的普通文案，不在占位内 */
 export interface CalToken {
   expr: string
   scale: number
   decimals: number
-  tail: string
 }
 
-const CAL_TOKEN_ONCE_RE = /\{CAL:([^{}]*)\}/
+const CAL_TOKEN_RE = /\{CAL:([^{}]*)\}/
+const CAL_TOKEN_GLOBAL_RE = /\{CAL:[^{}]*\}/g
 
-/** 解析首个 {CAL:…} 占位；非 CAL 公式返回 undefined。
- *  例："{CAL:0+AvatarSkillLevel(1)*1.5,1,2}%" → expr="0+AvatarSkillLevel(1)*1.5"、
- *      scale=1、decimals=2、tail="%" */
+/** 解析单个 {CAL:…} 占位；非 CAL 公式返回 undefined。
+ *  例："{CAL:0+AvatarSkillLevel(1)*1.5,1,2}%" → expr="0+AvatarSkillLevel(1)*1.5"、scale=1、decimals=2 */
 export function parseCalToken(formula: string): CalToken | undefined {
-  const m = formula.match(CAL_TOKEN_ONCE_RE)
+  const m = formula.match(CAL_TOKEN_RE)
   if (!m) return undefined
   const [expr = '', scaleRaw = '1', decimalsRaw = '1'] = m[1].split(',')
   return {
     expr: expr.trim(),
     scale: Number(scaleRaw) || 1,
     decimals: Number(decimalsRaw) || 1,
-    tail: formula.slice((m.index ?? 0) + m[0].length),
   }
 }
 
-/** 计算 {CAL:…} 占位在指定技能等级下的展示值：AvatarSkillLevel(n) 代入该级 →
- *  求值 ×scale → 按 decimals 保留（去尾零）→ 附单位尾缀。
- *  例（12 级）："{CAL:0+AvatarSkillLevel(1)*1.5,1,2}%" → "18%" */
+/** 计算 {CAL:…} 占位在指定技能等级下的数值展示：AvatarSkillLevel(n) 代入该级 →
+ *  求值 ×scale → 按 decimals 保留（去尾零）。不含占位外的单位（% 等为普通文案）。
+ *  例（12 级）："{CAL:0+AvatarSkillLevel(1)*1.5,1,2}" → "18" */
 export function calTokenValue(cal: CalToken, level: number): string {
   const expr = cal.expr.replace(/AvatarSkillLevel\(\d+\)/g, String(level))
   const raw = evaluateSkillFormula(expr, {}, level) * cal.scale
   let s = raw.toFixed(cal.decimals)
   if (s.includes('.')) s = s.replace(/0+$/, '').replace(/\.$/, '')
-  return s + cal.tail
+  return s
 }
 
 /** 详细行的最终展示值（代入所选等级后格式化） */
@@ -577,9 +575,15 @@ export function skillDetailValue(detail: SkillDetail, level: number): string {
     const L = Math.min(Math.max(level, 1), detail.values.length)
     return detail.values[L - 1] ?? '—'
   }
-  // {CAL:…} 内嵌公式占位（如 蕾米埃尔 相变时流「伤害提升」，无 {Skill:} 数值表）
-  const cal = parseCalToken(detail.formula)
-  if (cal) return calTokenValue(cal, level)
+  // {CAL:…} 内嵌公式占位（如 蕾米埃尔 相变时流「伤害提升」，无 {Skill:} 数值表）：
+  // 全量替换——一条内可同时含文本与多个占位（如 露西「加油！」攻击力提升），
+  // 单位/缀词为占位外的普通文案，原样保留，绝不让原始标记外泄。
+  if (detail.formula.includes('{CAL:')) {
+    return detail.formula.replace(CAL_TOKEN_GLOBAL_RE, (tok) => {
+      const cal = parseCalToken(tok)
+      return cal ? calTokenValue(cal, level) : ''
+    })
+  }
   return formatSkillScalar(evaluateSkillFormula(detail.formula, detail.props, level), detail.format)
 }
 
