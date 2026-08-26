@@ -22,9 +22,9 @@ export interface CatalogEntry {
   icon: { Id: number; icon: string }
   /** 图标分类（icons.ts 候选规则用） */
   iconCategory: IconCategory
-  /** 名录文件名（public/data/{file}.json） */
+  /** 名录文件名（public/data/live/{file}.json） */
   listFile: string
-  /** 详情目录（public/data/zh/{dir}/{id}.json） */
+  /** 详情目录（public/data/live/zh/{dir}/{id}.json） */
   detailDir: string
 }
 

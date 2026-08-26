@@ -65,7 +65,7 @@ describe('api.list / api.detail', () => {
     })
     const detail = await api.detail<{ name?: string }>('character', 1011)
     expect(detail.name).toBe('安比')
-    expect(seen.some((u) => u.endsWith('/data/zh/character/1011.json'))).toBe(true)
+    expect(seen.some((u) => u.endsWith('/data/live/zh/character/1011.json'))).toBe(true)
   })
 
   it('caches repeated requests (single manifest fetch)', async () => {
@@ -108,7 +108,7 @@ describe('api.list / api.detail', () => {
     })
   })
 
-  it('serves the single live layout: list at /data/{kind}.json', async () => {
+  it('serves the single live layout: list at /data/live/{kind}.json', async () => {
     const { api } = await import('../src/data/api')
     const seen: string[] = []
     mockFetch((url) => {
@@ -118,9 +118,9 @@ describe('api.list / api.detail', () => {
     })
     await api.list('character')
     await api.list('character')
-    expect(seen.some((u) => u.endsWith('/data/character.json'))).toBe(true)
+    expect(seen.some((u) => u.endsWith('/data/live/character.json'))).toBe(true)
     // 单版本固定路径 + 模块级缓存：名录只请求一次
-    expect(seen.filter((u) => u.endsWith('/data/character.json'))).toHaveLength(1)
+    expect(seen.filter((u) => u.endsWith('/data/live/character.json'))).toHaveLength(1)
   })
 
   it('dataVersions exposes live version number from root manifest', async () => {
@@ -163,7 +163,7 @@ describe('resources (catalog-driven)', () => {
     })
     const entry = CATALOG.find((c) => c.path === '/agents')!
     await detailFor<{ name?: string }>(entry, 1011)
-    expect(seen.some((u) => u.endsWith('/data/zh/character/1011.json'))).toBe(true)
+    expect(seen.some((u) => u.endsWith('/data/live/zh/character/1011.json'))).toBe(true)
     expect(fetchMock().mock.calls.length).toBeLessThanOrEqual(2)
   })
 })

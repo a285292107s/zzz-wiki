@@ -5,8 +5,8 @@
  * 运行时零外部依赖、零 CORS 问题。
  *
  *   manifest.json（根，版本元信息）
- *   character.json / weapon.json / bangboo.json / equipment.json
- *   zh/character/{id}.json …
+ *   live/character.json / weapon.json / bangboo.json / equipment.json / noun.json
+ *   live/zh/character/{id}.json …
  *
  * 单数据版本（合规约定 2026-08）：站点只展示**正式服（live）**数据，
  * 数据版本号从根 manifest.json 的 zzz.live 动态取，永不硬编码。
@@ -64,10 +64,11 @@ export class DataError extends Error {
 const REQUEST_TIMEOUT_MS = 10_000
 
 /** 数据根路径：尊重 BASE_URL（子路径部署时不再 404）。
- * manifest 位于数据根；名录/详情直接位于 /data 之下（单版本 live 布局）。 */
+ * manifest 位于数据根；名录/详情位于 /data/live/ 之下（单版本正式服目录，见 DATA_GUIDE §3）。 */
 function toDataUrl(path: string): string {
   const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '')
-  return `${base}/data/${path}`
+  const segmented = path === 'manifest.json' ? path : `live/${path}`
+  return `${base}/data/${segmented}`
 }
 
 const cache = new Map<string, Promise<unknown>>()
