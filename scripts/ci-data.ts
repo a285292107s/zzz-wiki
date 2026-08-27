@@ -9,14 +9,13 @@
  * 源站不可达（探测抛错）→ 告警并沿用旧数据，exit 0。
  * ============================================================ */
 
-import { execFileSync } from 'node:child_process'
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { main as buildAll, needUpdate } from './build'
 import { OUT } from './build/io'
+import { verifyDataMain } from './verify-data'
 
-const ROOT = path.resolve(import.meta.dirname ?? process.cwd(), '..')
 /** 构建前备份目录（临时），失败时回退 */
 const BACKUP = path.join(os.tmpdir(), `zzz-wiki-data-${process.pid}`)
 
@@ -68,20 +67,22 @@ async function main(): Promise<void> {
   }
   fs.rmSync(BACKUP, { recursive: true, force: true })
 
-  // 契约校验：失败仅告警（数据已入库，由后续人工/提交流程跟进）
+  // 契约校验（进程内执行，不经 npx 子进程）：失败仅告警（数据已入库，由后续人工/提交流程跟进）
   try {
-    const npxBin = process.platform === 'win32' ? 'npx.cmd' : 'npx'
-    execFileSync(npxBin, ['tsx', 'scripts/verify-data.ts'], {
-      cwd: ROOT,
-      stdio: 'inherit',
-    })
-    console.log('[ci-data] verify:data 契约校验通过')
-  } catch {
-    console.warn('[ci-data] ⚠ verify:data 未通过（请人工检查 public/data 后提交）')
+    const code = await verifyDataMain()
+    if (code === 0) {
+      console.log('[ci-data] verify:data 契约校验通过')
+    } else {
+      console.warn('[ci-data] ⚠ verify:data 未通过（请人工检查 public/data 后提交）')
+    }
+  } catch (e) {
+    console.warn('[ci-data] ⚠ verify:data 执行异常（请人工检查 public/data 后提交）：', e)
   }
 }
 
 main().catch((e: unknown) => {
-  console.error('[ci-data] 异常：', e)
-  process.exit(0)
+  // 能走到这里的都是预期路径之外的程序错误：显式失败让部署红灯，
+  // 绝不静默 exit 0 把意外当"源站不可达沿用旧数据"
+  console.error('[ci-data] 意外异常：', e)
+  process.exit(1)
 })

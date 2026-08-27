@@ -6,18 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="绝区零（Zenless Zone Zero）数据档案 · 代理人、音擎、邦布与驱动盘结构化图鉴" />
     <title>绳网档案 · 绝区零数据图鉴</title>
-    <script>
-      // 首页 LCP：hero 是 CSS background-image，浏览器默认不会提前加载；
-      // 在此按首页路径条件预取并标记高优先级，其它页面落地时不白下载。
-      if (location.pathname === '/') {
-        const l = document.createElement('link')
-        l.rel = 'preload'
-        l.as = 'image'
-        l.href = '/data/img/hero/Mindscape_1311_2.webp'
-        l.fetchPriority = 'high'
-        document.head.appendChild(l)
-      }
-    </script>
+    <!-- 首页 LCP 预取（hero 是 CSS background-image，浏览器默认不会提前加载）：
+         预取图由构建期 vite.config.ts 的 hero-preload 插件按 src/data/featured-pool.json
+         首张入池角色动态注入，此处不写死素材路径（池变更后自动跟随）。 -->
   </head>
   <body>
     <div id="app"></div>

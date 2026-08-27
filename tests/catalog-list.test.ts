@@ -6,6 +6,9 @@ import { createMemoryHistory, createRouter } from 'vue-router'
 import { useCatalogList } from '../src/composables/useCatalogList'
 
 interface Item {
+  // useCatalogList 约束条目可按字段名过滤（i.element / i.type / i.camp），
+  // 故要求索引签名；测试条目显式字段之外保持 unknown
+  [k: string]: unknown
   Id: number
   element?: number
   type?: number

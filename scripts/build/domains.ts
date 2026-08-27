@@ -12,6 +12,29 @@ import { normalizeCharacterDetail, resolveTerms, toListDict, type TermNames } fr
 
 type Dict = Record<string, Record<string, unknown>>
 
+/** 拉取整类详情；单个 id 失败仅告警并跳过（名录仍产出）。
+ *  源站单文件瞬时故障不应让整次构建失败 → ci-data 全量回退旧数据。 */
+async function fetchDetails(
+  ver: string,
+  dir: string,
+  ids: readonly string[],
+): Promise<Array<Record<string, unknown> | undefined>> {
+  const skipped: Array<{ id: string; msg: string }> = []
+  const raw = await mapConcurrent(ids, CONCURRENCY, async (id) => {
+    try {
+      return (await fetchJson(`${BASE}/zzz/${ver}/${dir}/${id}.json`, `${ver}/${dir}/${id}.json`)) as Record<string, unknown>
+    } catch (e) {
+      skipped.push({ id, msg: e instanceof Error ? e.message : String(e) })
+      return undefined
+    }
+  })
+  if (skipped.length) {
+    console.warn(`⚠ [${dir}] ${skipped.length} 个详情拉取失败，已跳过（名录仍产出，请人工复核）：`)
+    for (const s of skipped) console.warn(`  ✖ id=${s.id} → ${s.msg}`)
+  }
+  return raw
+}
+
 /**
  * 名词表原始全量（源站同域 JSON zh/noun.json）：
  * `{ 术语ID → { name, title, desc, skill } }`。
@@ -50,9 +73,7 @@ export async function buildCharacters(ver: string, terms: TermNames): Promise<{ 
     `${ver}/character.json`,
   )) as Dict
   const ids = Object.keys(listRaw)
-  const detailsRaw = await mapConcurrent(ids, CONCURRENCY, (id) =>
-    fetchJson(`${BASE}/zzz/${ver}/zh/character/${id}.json`, `${ver}/zh/character/${id}.json`),
-  )
+  const detailsRaw = await fetchDetails(ver, 'zh/character', ids)
 
   const list = toListDict(listRaw)
   // 名录注入特殊属性展示名：详情 special_element_type.name（如 星见雅→烈霜）
@@ -73,10 +94,11 @@ export async function buildCharacters(ver: string, terms: TermNames): Promise<{ 
 
   const details: Dict = {}
   for (let i = 0; i < ids.length; i++) {
+    if (!detailsRaw[i]) continue
     details[ids[i]] = resolveTerms(
       normalizeCharacterDetail(detailsRaw[i] as Record<string, unknown>),
       terms,
-    )
+    ) as Record<string, unknown>
   }
   return { list, details }
 }
@@ -87,13 +109,12 @@ export async function buildWeapons(ver: string, terms: TermNames): Promise<{ lis
     `${ver}/weapon.json`,
   )) as Dict
   const ids = Object.keys(listRaw)
-  const detailsRaw = await mapConcurrent(ids, CONCURRENCY, (id) =>
-    fetchJson(`${BASE}/zzz/${ver}/zh/weapon/${id}.json`, `${ver}/zh/weapon/${id}.json`),
-  )
+  const detailsRaw = await fetchDetails(ver, 'zh/weapon', ids)
 
   const list = toListDict(listRaw)
   const details: Dict = {}
   for (let i = 0; i < ids.length; i++) {
+    if (!detailsRaw[i]) continue
     const d = detailsRaw[i] as Record<string, unknown>
     // 与旧契约一致：weapon_type 值英文；其余字段透传
     const w = (d.weapon_type ?? {}) as Record<string, unknown>
@@ -101,9 +122,9 @@ export async function buildWeapons(ver: string, terms: TermNames): Promise<{ lis
     // 注入满级主属性（名录 atk = Lv.60 基础攻击力），供详情页等级滑条插值
     const atkMax = (listRaw[ids[i]] as Record<string, unknown> | undefined)?.['atk']
     const withAtkMax = atkMax != null ? { ...d, atk_max: atkMax } : d
-    details[ids[i]] = k
+    details[ids[i]] = (k
       ? resolveTerms({ ...withAtkMax, weapon_type: { [k]: specialEn(k, String(w[k])) } }, terms)
-      : resolveTerms(withAtkMax, terms)
+      : resolveTerms(withAtkMax, terms)) as Record<string, unknown>
   }
   return { list, details }
 }
@@ -114,14 +135,13 @@ export async function buildBangboos(ver: string, terms: TermNames): Promise<{ li
     `${ver}/bangboo.json`,
   )) as Dict
   const ids = Object.keys(listRaw)
-  const detailsRaw = await mapConcurrent(ids, CONCURRENCY, (id) =>
-    fetchJson(`${BASE}/zzz/${ver}/zh/bangboo/${id}.json`, `${ver}/zh/bangboo/${id}.json`),
-  )
+  const detailsRaw = await fetchDetails(ver, 'zh/bangboo', ids)
 
   const list = toListDict(listRaw)
   const details: Dict = {}
   for (let i = 0; i < ids.length; i++) {
-    details[ids[i]] = resolveTerms(detailsRaw[i] as Record<string, unknown>, terms)
+    if (!detailsRaw[i]) continue
+    details[ids[i]] = resolveTerms(detailsRaw[i] as Record<string, unknown>, terms) as Record<string, unknown>
   }
   return { list, details }
 }
@@ -132,14 +152,13 @@ export async function buildDiscs(ver: string, terms: TermNames): Promise<{ list:
     `${ver}/equipment.json`,
   )) as Dict
   const ids = Object.keys(listRaw)
-  const detailsRaw = await mapConcurrent(ids, CONCURRENCY, (id) =>
-    fetchJson(`${BASE}/zzz/${ver}/zh/equipment/${id}.json`, `${ver}/zh/equipment/${id}.json`),
-  )
+  const detailsRaw = await fetchDetails(ver, 'zh/equipment', ids)
 
   const list = toListDict(listRaw)
   const details: Dict = {}
   for (let i = 0; i < ids.length; i++) {
-    details[ids[i]] = resolveTerms(detailsRaw[i] as Record<string, unknown>, terms)
+    if (!detailsRaw[i]) continue
+    details[ids[i]] = resolveTerms(detailsRaw[i] as Record<string, unknown>, terms) as Record<string, unknown>
   }
   return { list, details }
 }

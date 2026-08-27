@@ -2,21 +2,22 @@
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useCatalogList } from '@/composables/useCatalogList'
 import { useCatalogSort } from '@/composables/useCatalogSort'
-import { api } from '@/data/api'
+import { listFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
 import type { BangbooListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { catalogByPath } from '@/domain/catalog'
+import { catalogEntry } from '@/domain/catalog'
 import { AsyncState, CatalogTable, CatalogTableSkeleton, ListPage, NameCell, SearchField, type CatalogColumn } from '@/components'
 import Rarity from '@/components/Rarity.vue'
 
 usePageMeta()
 
-/** 详情路由前缀由 catalog 派生（单一事实源） */
-const base = catalogByPath('/bangboos')?.path ?? '/bangboos'
+/** 详情路由前缀与名录取数均由 catalog 派生（单一事实源） */
+const cat = catalogEntry('/bangboos')
+const base = cat.path
 
-const { data, status, error } = useAsyncResource(() => api.bangboos())
+const { data, status, error } = useAsyncResource(() => listFor<BangbooListItem>(cat))
 
 const { query, filtered, count } = useCatalogList<BangbooListItem>({
   items: () => data.value ?? [],

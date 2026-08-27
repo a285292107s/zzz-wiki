@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
-import { api } from '@/data/api'
+import { computed } from 'vue'
+import { detailFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
 import { richDesc } from '@/utils/rich'
 import { stripRichText } from '@/utils/text'
@@ -8,11 +8,12 @@ import { useRouteParam } from '@/composables/useRouteParam'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useDetailSections, type DetailSectionItem } from '@/composables/useDetailSections'
 import { usePageMeta } from '@/composables/usePageMeta'
+import { useEntityLevel } from '@/composables/useEntityLevel'
+import { catalogEntry } from '@/domain/catalog'
 import {
   dictToRows,
   wEngineBreakCount,
   wEnginePropsAtLevel,
-  W_ENGINE_LEVEL_DEFAULT,
   W_ENGINE_LEVEL_MAX,
   W_ENGINE_LEVEL_MIN,
   type DetailRow,
@@ -21,12 +22,11 @@ import {
 import { PROFESSIONS, type SpecCode } from '@/data/types'
 import type { WEngineDetail } from '@/data/types'
 import { DescRow, DetailHead, DetailPage, DetailSection, KeyValueGrid, LevelSlider, StatLevelPanel } from '@/components'
-import type { LevelMark } from '@/components/detail/LevelSlider.vue'
 import Rarity from '@/components/Rarity.vue'
 import Tags from '@/components/Tags.vue'
 
 const id = useRouteParam('id')
-const { data: detail, status, error } = useAsyncResource(() => api.detail<WEngineDetail>('weapon', id.value))
+const { data: detail, status, error } = useAsyncResource(() => detailFor<WEngineDetail>(catalogEntry('/w-engines'), id.value))
 
 usePageMeta(() => detail.value?.name ?? undefined)
 
@@ -40,11 +40,10 @@ const specName = computed(() =>
   (specCode.value != null ? PROFESSIONS[specCode.value]?.zh : null) ?? null,
 )
 
-/** 基础属性：等级滑条（默认满级；切换音擎时重置） */
-const wLevel = ref(W_ENGINE_LEVEL_DEFAULT)
-
-watch(id, () => {
-  wLevel.value = W_ENGINE_LEVEL_DEFAULT
+/** 基础属性：等级滑条（默认满级；切换音擎时重置）与突破刻度 */
+const { level: wLevel, levelMarks } = useEntityLevel({
+  min: W_ENGINE_LEVEL_MIN,
+  max: W_ENGINE_LEVEL_MAX,
 })
 
 /** 满级主属性由构建期注入（名录 atk）；缺失时降级为 Lv.1 静态值 */
@@ -60,15 +59,6 @@ const propItems = computed<StatItem[]>(() =>
 )
 
 const breakCount = computed(() => wEngineBreakCount(wLevel.value))
-
-/** 突破刻度：1 起点 + 10/20/30/40/50 突破点（amber）+ 60 上限（灰） */
-const levelMarks = computed<LevelMark[]>(() => {
-  const marks: LevelMark[] = [{ at: W_ENGINE_LEVEL_MIN, label: String(W_ENGINE_LEVEL_MIN) }]
-  for (let lv = 10; lv <= W_ENGINE_LEVEL_MAX; lv += 10) {
-    marks.push({ at: lv, label: String(lv), break: lv < W_ENGINE_LEVEL_MAX })
-  }
-  return marks
-})
 
 const talents = computed<DetailRow[]>(() => dictToRows(detail.value?.talents))
 

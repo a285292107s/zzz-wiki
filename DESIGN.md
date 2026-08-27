@@ -72,6 +72,7 @@ src/
     catalog.ts           # 4 类目唯一元信息（导航/首页/路由共用一份）
     schema.ts            # zod 数据契约（build 与前端共享）
     sections.ts          # 详情区块行构建（SkillRow/StatItem/SkinRow/潜能合成/出招表/段×指标转置表）
+    skillFormula.ts      # 技能公式求值引擎（{Skill:}/{CAL:} 解析与等级代入，独立单测）
     filterIcons.ts       # 属性/职业筛选图标键（FilterDropdown 用）
     devRoutes.ts         # dev-only 页面元数据（/style、/calibrate；路由 DEV 分支 + 页脚派生）
     featuredPool.ts      # 今日角色精选池 zod schema（featured-pool.json 读写共用）
@@ -210,9 +211,11 @@ scripts/build/
 |---|---|
 | utils/text.ts | stripRichText 全部标记分支（color/IconMap/LAYOUT/BR/残留标签） |
 | utils/rich.ts | 转义 + 两类定向还原 + 注入安全（<script> 被转义） |
+| utils/gameMarkup.ts | 标记词法流：rich/text 共享的 tokenizeGameText 单一事实源 |
 | utils/names.ts | pickName 四语回退顺序 + 空值边界 |
 | domain/schema.ts | zod 契约通过/失败用例（list/detail/manifest） |
-| domain/sections.ts | 全部转换函数（stats/skills/talents/skins/core/potential） |
+| domain/sections*.test.ts | 按域拆分：rows/skills/formula/levels/core 五文件 + 常量契约哨兵 |
+| domain/skillFormula.ts | 公式求值引擎（{Skill:} 四则 / {CAL:} 等级代入） |
 | data/api.ts | mock fetch：缓存命中、错误归一化、lang/baseUrl 拼接 |
 | data/resources.ts | 类别表驱动：listPath/detailPath 的 URL 正确性 |
 | 组件（@vue/test-utils） | CatalogTable 排序交互、FilterDropdown 弹层/选择行为 |

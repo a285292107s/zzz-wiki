@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, ref, watch, type Ref } from 'vue'
-import { api } from '@/data/api'
+import { computed, ref, type Ref } from 'vue'
+import { detailFor } from '@/data/resources'
 import { iconSources, skillIconSources, type SkillSlot } from '@/data/icons'
 import { richDesc } from '@/utils/rich'
 import { stripRichText } from '@/utils/text'
@@ -8,6 +8,8 @@ import { useRouteParam } from '@/composables/useRouteParam'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useDetailSections, type DetailSectionChild, type DetailSectionItem } from '@/composables/useDetailSections'
 import { usePageMeta } from '@/composables/usePageMeta'
+import { useEntityLevel } from '@/composables/useEntityLevel'
+import { catalogEntry } from '@/domain/catalog'
 import {
   buildCoreEnhance,
   buildCoreSkill,
@@ -15,7 +17,6 @@ import {
   buildPotentialCinema,
   buildSkillRows,
   buildSkinRows,
-  CHAR_LEVEL_DEFAULT,
   CHAR_LEVEL_MAX,
   CHAR_LEVEL_MIN,
   charBreakSegment,
@@ -43,26 +44,26 @@ interface SkillDisplay extends SkillRow {
 }
 import type { CharacterDetail } from '@/data/types'
 import { AgentHead, CoreSkillGroup, DescRow, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel } from '@/components'
-import type { LevelMark } from '@/components/detail/LevelSlider.vue'
 import HollowImage from '@/components/HollowImage.vue'
 
 const id = useRouteParam('id')
-const { data: detail, status, error } = useAsyncResource(() => api.detail<CharacterDetail>('character', id.value))
+const { data: detail, status, error } = useAsyncResource(() => detailFor<CharacterDetail>(catalogEntry('/agents'), id.value))
 
 usePageMeta(() => detail.value?.name ?? undefined)
 
 /* ---------- 基础属性：等级滑条 ---------- */
 
-/** 当前查看等级（默认满级，与技能滑块默认一致）；切换角色时重置 */
-const charLevel = ref(CHAR_LEVEL_DEFAULT)
-
 /** 连携技/终结技共享的技能等级（同处 game 的 chain 槽，共用一个 material/12 级）；
  *  父级持有以便两个技能组同步，切换角色时重置 */
 const chainLevel = ref(SKILL_LEVEL_DEFAULT)
 
-watch(id, () => {
-  charLevel.value = CHAR_LEVEL_DEFAULT
-  chainLevel.value = SKILL_LEVEL_DEFAULT
+/** 当前查看等级（默认满级，与技能滑块默认一致；切换角色时重置连携共享等级）+ 突破刻度 */
+const { level: charLevel, levelMarks } = useEntityLevel({
+  min: CHAR_LEVEL_MIN,
+  max: CHAR_LEVEL_MAX,
+  onReset: () => {
+    chainLevel.value = SKILL_LEVEL_DEFAULT
+  },
 })
 
 /** 该等级下的基础面板（等级 + 突破成长；潜能为独立养成系统，不随等级并入） */
@@ -83,15 +84,6 @@ const breakPhase = computed(() =>
 const breakCount = computed(() =>
   breakPhase.value ? Math.max(0, breakPhase.value.phase - 1) : null,
 )
-
-/** 突破刻度：1 起点 + 10/20/30/40/50 突破点（amber）+ 60 上限（灰） */
-const levelMarks = computed<LevelMark[]>(() => {
-  const marks: LevelMark[] = [{ at: 1, label: '1' }]
-  for (let lv = 10; lv <= 60; lv += 10) {
-    marks.push({ at: lv, label: String(lv), break: lv < 60 })
-  }
-  return marks
-})
 
 const skills = computed<SkillDisplay[]>(() =>
   buildSkillRows(detail.value?.skill).map((sk) => ({

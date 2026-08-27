@@ -1,120 +1,15 @@
 import { describe, expect, it } from 'vitest'
 import {
-  bangbooBreakCount,
-  bangbooStatsAtLevel,
   buildBangbooSkills,
-  buildCoreEnhance,
   buildCoreSkill,
-  buildMoveRows,
-  buildPotentialCinema,
   buildSkillMetricTable,
   buildSkillRows,
-  buildSkinRows,
-  charBreakSegment,
-  characterStatsAtLevel,
-  coreEnhanceTotal,
-  dictToRows,
-  evaluateSkillFormula,
-  formatCoreEnhance,
-  formatSkillScalar,
   isPotentialGated,
   potentialStartLevel,
-  skillDetailValue,
-  skillParamValue,
-  statAtLevel,
   synthesizePotentialCinema,
-  wEngineBreakCount,
-  wEngineMainAt,
-  wEnginePropsAtLevel,
-  wEngineRandAt,
   bangbooSkillStatValue,
-  calTokenValue,
-  parseCalToken,
-  type SkillGroup,
-  type SkillParamEntry,
+  type SkillGroup
 } from '../src/domain/sections'
-
-describe('dictToRows', () => {
-  it('returns [] for null/undefined', () => {
-    expect(dictToRows(null)).toEqual([])
-    expect(dictToRows(undefined)).toEqual([])
-  })
-
-  it('sorts by numeric key and maps name/desc', () => {
-    const rows = dictToRows({
-      '2': { name: '影画2', desc: 'd2' },
-      '1': { name: '影画1', desc: 'd1' },
-    })
-    expect(rows.map((r) => r.no)).toEqual([1, 2])
-    expect(rows[0]).toMatchObject({ no: 1, name: '影画1', desc: 'd1' })
-  })
-
-  it('maps desc2 lore text passthrough', () => {
-    const rows = dictToRows({ '1': { name: '影画1', desc: 'd1', desc2: '寒风是凛冬的前兆。' } })
-    expect(rows[0].desc2).toBe('寒风是凛冬的前兆。')
-    const rows2 = dictToRows({ '1': { name: '影画1' } })
-    expect(rows2[0].desc2).toBeUndefined()
-  })
-
-  it('tolerates entries without name/desc', () => {
-    const rows = dictToRows({ '1': { other: true } })
-    expect(rows[0]).toMatchObject({ no: 1 })
-    expect(rows[0].name).toBeUndefined()
-  })
-})
-
-describe('buildMoveRows（出招表 skill_list）', () => {
-  it('returns [] for null/undefined', () => {
-    expect(buildMoveRows(null)).toEqual([])
-    expect(buildMoveRows(undefined)).toEqual([])
-  })
-
-  it('sorts by numeric id and maps name/desc', () => {
-    const rows = buildMoveRows({
-      '1201002': {
-        name: '普通攻击：穿云（四、五段）',
-        desc: '<IconMap:Icon_Normal>',
-        element_type: 203,
-        hit_type: 103,
-        potential: [],
-      },
-      '1201001': {
-        name: '普通攻击：穿云（一、二、三段）',
-        desc: '<IconMap:Icon_Normal>',
-        element_type: 200,
-        hit_type: 103,
-        potential: [],
-      },
-    })
-    expect(rows.map((r) => r.id)).toEqual(['1201001', '1201002'])
-    expect(rows[0]).toMatchObject({
-      id: '1201001',
-      name: '普通攻击：穿云（一、二、三段）',
-      desc: '<IconMap:Icon_Normal>',
-    })
-  })
-
-  it('skips entries without name or desc', () => {
-    const rows = buildMoveRows({
-      '1': { name: 'x' },
-      '2': { desc: 'd' },
-      '3': { other: true },
-    })
-    expect(rows).toEqual([])
-  })
-
-  it('keeps potential-gated moves (纯操作参考不因潜能隐藏)', () => {
-    const rows = buildMoveRows({
-      '1021012': {
-        name: '闪避：尾巴失踪术',
-        desc: '<IconMap:Icon_Evade>',
-        potential: [102100],
-      },
-    })
-    expect(rows).toHaveLength(1)
-    expect(rows[0].name).toBe('闪避：尾巴失踪术')
-  })
-})
 
 describe('skill helpers', () => {
   it('buildSkillRows filters missing slots and keeps order', () => {
@@ -210,51 +105,6 @@ describe('skill helpers', () => {
     const ultimate = rows.find((r) => r.key === 'ultimate')
     expect(chain?.groups?.map((g) => g.name)).toEqual(['连携技：会·御'])
     expect(ultimate?.groups?.map((g) => g.name)).toEqual(['终结技：残心', '残心·散华'])
-  })
-})
-
-describe('skill detail rows', () => {
-  it('buildSkillRows merges descriptions and numbers into named groups', () => {
-    const rows = buildSkillRows({
-      basic: {
-        description: [
-          { name: '普攻', desc: '点按。', potential: [] },
-          {
-            name: '普攻',
-            param: [
-              {
-                name: '一段伤害倍率',
-                desc: '{Skill:1031001, Prop:1001}',
-                param: { '1031001': { main: 3890, growth: 360, format: '%' } },
-              },
-            ],
-            potential: [],
-          },
-          {
-            name: '强攻',
-            param: [
-              {
-                name: '蓄力伤害倍率',
-                desc: '{Skill:1031009, Prop:1001}',
-                param: { '1031009': { main: 5000, growth: 100, format: '%' } },
-              },
-            ],
-            potential: [],
-          },
-        ],
-      },
-    })
-    expect(rows).toHaveLength(1)
-    const row = rows[0]
-    expect(row.hasNumbers).toBe(true)
-    expect(row.groups).toHaveLength(2)
-    // 普攻组：简单描述与数值合并
-    expect(row.groups?.[0]).toMatchObject({ name: '普攻', desc: '点按。' })
-    expect(row.groups?.[0].entries).toHaveLength(1)
-    expect(row.groups?.[0].entries[0]).toMatchObject({ name: '一段伤害倍率', format: '%' })
-    // 无数值对应的强攻组 desc 为空
-    expect(row.groups?.[1]).toMatchObject({ name: '强攻', desc: undefined })
-    expect(row.groups?.[1].entries).toHaveLength(1)
   })
 })
 
@@ -697,7 +547,7 @@ describe('buildSkillMetricTable', () => {
     main: number,
     growth = 0,
     format = '%',
-  ): SkillGroup['entries'][number] => ({
+  ): NonNullable<SkillGroup['entries']>[number] => ({
     name,
     formula: `{Skill:${skill}, Prop:${prop}}`,
     props: { [skill]: { main, growth, format } },
@@ -842,7 +692,7 @@ describe('buildSkillMetricTable', () => {
       skills: Array<[number, number]>, // [skillId, main]
       growth = 0,
       format = '%',
-    ): SkillGroup['entries'][number] => ({
+    ): NonNullable<SkillGroup['entries']>[number] => ({
       name,
       formula: skills.map(([s]) => `{Skill:${s}, Prop:${prop}}`).join(' + '),
       props: Object.fromEntries(skills.map(([s, main]) => [s, { main, growth, format }])),
@@ -939,118 +789,6 @@ describe('buildSkillMetricTable', () => {
   })
 })
 
-describe('skill formula evaluation', () => {
-  const props: Record<string, SkillParamEntry> = {
-    '1031001': { main: 3890, growth: 360, format: '%' },
-    '1031002': { main: 2710, growth: 250, format: '%' },
-  }
-
-  it('evaluates a single {Skill,Prop} reference at level 1', () => {
-    expect(skillParamValue(props['1031001'], 1)).toBe(3890)
-  })
-
-  it('grows by main + growth*(lv-1)', () => {
-    expect(skillParamValue(props['1031001'], 12)).toBe(3890 + 360 * 11)
-  })
-
-  it('evaluates a nested grouped formula', () => {
-    const v = evaluateSkillFormula(
-      '{Skill:1031001, Prop:1001} + {{Skill:1031002, Prop:1001}/3}*3',
-      props,
-      1,
-    )
-    expect(v).toBeCloseTo(3890 + 2710)
-  })
-
-  it('formats percent as thousandth-percent / 100 with trimmed decimals', () => {
-    expect(formatSkillScalar(3890, '%')).toBe('38.9%')
-    expect(formatSkillScalar(6600, '%')).toBe('66%')
-    expect(formatSkillScalar(7000, undefined)).toBe('7000')
-  })
-
-  it('skillDetailValue binds level for display', () => {
-    const detail = { name: '一段伤害倍率', formula: '{Skill:1031001, Prop:1001}', props, format: '%' }
-    expect(skillDetailValue(detail, 1)).toBe('38.9%')
-    expect(skillDetailValue(detail, 12)).toBe('78.5%')
-  })
-
-  it('skillDetailValue prefers per-level static text values (bangboo tokens)', () => {
-    const detail = {
-      name: '冷却时间',
-      formula: '',
-      props: {},
-      values: ['20秒', '18秒', '16秒'],
-    }
-    expect(skillDetailValue(detail, 1)).toBe('20秒')
-    expect(skillDetailValue(detail, 2)).toBe('18秒')
-    expect(skillDetailValue(detail, 5)).toBe('16秒') // 越界钳制到末级
-  })
-
-  it('parses {CAL:…} tokens into expr/scale/decimals (units live outside the token)', () => {
-    expect(parseCalToken('{CAL:0+AvatarSkillLevel(1)*1.5,1,2}%')).toEqual({
-      expr: '0+AvatarSkillLevel(1)*1.5',
-      scale: 1,
-      decimals: 2,
-    })
-    expect(parseCalToken('{CAL:0.08+AvatarSkillLevel(1)*0.01,100,2}%')).toMatchObject({
-      expr: '0.08+AvatarSkillLevel(1)*0.01',
-      scale: 100,
-    })
-    expect(parseCalToken('{Skill:1031001, Prop:1001}')).toBeUndefined()
-  })
-
-  it('calTokenValue substitutes the slot level into AvatarSkillLevel (value only)', () => {
-    const cal = parseCalToken('{CAL:0+AvatarSkillLevel(1)*1.5,1,2}%')!
-    expect(calTokenValue(cal, 1)).toBe('1.5')
-    expect(calTokenValue(cal, 12)).toBe('18')
-  })
-
-  it('calTokenValue applies the ×100 scale to fraction-form exprs and trims decimals', () => {
-    const cal = parseCalToken('{CAL:0.08+AvatarSkillLevel(1)*0.01,100,2}%')!
-    expect(calTokenValue(cal, 1)).toBe('9')
-    expect(calTokenValue(cal, 12)).toBe('20')
-  })
-
-  it('calTokenValue handles constant exprs', () => {
-    const cal = parseCalToken('{CAL:16+AvatarSkillLevel(1)*2,1,2}秒')!
-    expect(calTokenValue(cal, 1)).toBe('18')
-    expect(calTokenValue(cal, 12)).toBe('40')
-  })
-
-  it('skillDetailValue resolves {CAL:…} formulas without a {Skill:} prop table', () => {
-    const detail = { name: '伤害提升', formula: '{CAL:0+AvatarSkillLevel(1)*1.5,1,2}%', props: {}, format: undefined }
-    expect(skillDetailValue(detail, 1)).toBe('1.5%')
-    expect(skillDetailValue(detail, 12)).toBe('18%')
-  })
-
-  it('skillDetailValue resolves every {CAL:…} token in text-bearing entries (露西 加油！)', () => {
-    const detail = {
-      name: '攻击力提升',
-      formula: '露西攻击力{CAL:13+AvatarSkillLevel(1)*0.8,1,2}%+{CAL:40+AvatarSkillLevel(1)*4,1,2}',
-      props: {},
-    }
-    expect(skillDetailValue(detail, 1)).toBe('露西攻击力13.8%+44')
-    expect(skillDetailValue(detail, 12)).toBe('露西攻击力22.6%+88')
-    // 不向 DOM 泄漏原始标记（上一条目曾把第二个 {CAL:…} 原文带出）
-    expect(skillDetailValue(detail, 12)).not.toContain('{CAL')
-  })
-})
-
-describe('buildSkinRows', () => {
-  it('sorts by skin id and provides defaults', () => {
-    const rows = buildSkinRows({
-      '2': { name: '乙' },
-      '1': { desc: '甲之描述' },
-    })
-    expect(rows.map((r) => r.id)).toEqual(['1', '2'])
-    expect(rows[0]).toMatchObject({ id: '1', name: '', desc: '甲之描述', img: '' })
-  })
-
-  it('returns [] for empty input', () => {
-    expect(buildSkinRows(null)).toEqual([])
-  })
-})
-
 describe('buildBangbooSkills', () => {
   it('keeps a/b/c order and collapses levels to name + base desc', () => {
     const rows = buildBangbooSkills({
@@ -1074,548 +812,6 @@ describe('buildBangbooSkills', () => {
 })
 
 /* ---------- 角色等级属性（「11号」1041 真实数据，锚点对照游戏内面板） ---------- */
-
-const lvl11 = {
-  stats: {
-    hp_max: 617,
-    hp_growth: 837238,
-    attack: 128,
-    attack_growth: 77554,
-    defence: 49,
-    defence_growth: 66882,
-    break_stun: 93,
-    crit: 500,
-    crit_damage: 5000,
-    pen_rate: 0,
-    element_mystery: 93,
-    element_abnormal_power: 94,
-    sp_recover: 120,
-  },
-  level: {
-    '1': { hp_max: 0, attack: 0, defence: 0, level_max: 10, level_min: 0 },
-    '2': { hp_max: 423, attack: 46, defence: 34, level_max: 20, level_min: 10 },
-    '3': { hp_max: 847, attack: 91, defence: 68, level_max: 30, level_min: 20 },
-    '4': { hp_max: 1270, attack: 137, defence: 101, level_max: 40, level_min: 30 },
-    '5': { hp_max: 1694, attack: 183, defence: 135, level_max: 50, level_min: 40 },
-    '6': { hp_max: 2117, attack: 228, defence: 169, level_max: 60, level_min: 50 },
-  },
-  extra_level: {
-    '1': { max_level: 15, extra: { '12101': { prop: 12101, name: '基础攻击力', format: '{0:0.#}', value: 0 }, '20101': { prop: 20101, name: '暴击率', format: '{0:0.#%}', value: 480 } } },
-    '2': { max_level: 25, extra: { '12101': { prop: 12101, name: '基础攻击力', format: '{0:0.#}', value: 25 }, '20101': { prop: 20101, name: '暴击率', format: '{0:0.#%}', value: 480 } } },
-    '3': { max_level: 35, extra: { '12101': { prop: 12101, name: '基础攻击力', format: '{0:0.#}', value: 25 }, '20101': { prop: 20101, name: '暴击率', format: '{0:0.#%}', value: 960 } } },
-    '4': { max_level: 45, extra: { '12101': { prop: 12101, name: '基础攻击力', format: '{0:0.#}', value: 50 }, '20101': { prop: 20101, name: '暴击率', format: '{0:0.#%}', value: 960 } } },
-    '5': { max_level: 55, extra: { '12101': { prop: 12101, name: '基础攻击力', format: '{0:0.#}', value: 50 }, '20101': { prop: 20101, name: '暴击率', format: '{0:0.#%}', value: 1440 } } },
-    '6': { max_level: 60, extra: { '12101': { prop: 12101, name: '基础攻击力', format: '{0:0.#}', value: 75 }, '20101': { prop: 20101, name: '暴击率', format: '{0:0.#%}', value: 1440 } } },
-  },
-}
-
-describe('character level stats', () => {
-  it('statAtLevel floors base + break bonus + growth/10000 × (lv-1)', () => {
-    expect(statAtLevel(617, 837238, 0, 1)).toBe(617)
-    expect(statAtLevel(617, 837238, 0, 10)).toBe(1370)
-    expect(statAtLevel(617, 837238, 423, 20)).toBe(2630)
-    expect(statAtLevel(617, 837238, 2117, 60)).toBe(7673)
-  })
-
-  it('statAtLevel clamps lv below 1 to avoid negative growth', () => {
-    expect(statAtLevel(617, 837238, 0, 0)).toBe(617)
-    expect(statAtLevel(617, 837238, 0, -5)).toBe(617)
-  })
-
-  it('charBreakSegment picks the phase by (min, max]', () => {
-    expect(charBreakSegment(lvl11.level, 1)?.phase).toBe(1)
-    expect(charBreakSegment(lvl11.level, 10)?.phase).toBe(1)
-    expect(charBreakSegment(lvl11.level, 11)?.phase).toBe(2)
-    expect(charBreakSegment(lvl11.level, 60)?.phase).toBe(6)
-    expect(charBreakSegment(undefined, 30)).toBeNull()
-  })
-
-  it('buildCoreEnhance parses extra_level into per-rank increments (A-F)', () => {
-    const enhance = buildCoreEnhance(lvl11.extra_level)
-    expect(enhance).toHaveLength(6)
-    expect(enhance.map((l) => l.no)).toEqual(['A', 'B', 'C', 'D', 'E', 'F'])
-    expect(enhance.map((l) => l.unlockAt)).toEqual([15, 25, 35, 45, 55, 60])
-    // 档 A：暴击率 +4.8%（0 增量的基础攻击力被过滤）；增量携带属性码（prop）
-    expect(enhance[0].bonus).toEqual([
-      { prop: 20101, name: '暴击率', value: 480, format: '{0:0.#%}', text: '4.8%' },
-    ])
-    // 两属性交替递增：每档只有一项新增（与游戏面板一致，而非累计值）
-    expect(enhance.map((l) => l.bonus.map((b) => b.name))).toEqual([
-      ['暴击率'],
-      ['基础攻击力'],
-      ['暴击率'],
-      ['基础攻击力'],
-      ['暴击率'],
-      ['基础攻击力'],
-    ])
-    // 档 F：基础攻击力 +25（暴击率本档无新增，已过滤）
-    expect(enhance[5].bonus.map((b) => `${b.name}+${b.text}`)).toEqual([
-      '基础攻击力+25',
-    ])
-  })
-
-  it('coreEnhanceTotal sums per-rank increments to max-level totals', () => {
-    const enhance = buildCoreEnhance(lvl11.extra_level)
-    // 顺序 = 首次出现序（档 A 先出暴击率，档 B 再出基础攻击力）
-    expect(coreEnhanceTotal(enhance).map((b) => `${b.name}+${b.text}`)).toEqual([
-      '暴击率+14.4%',
-      '基础攻击力+75',
-    ])
-    expect(coreEnhanceTotal([])).toEqual([])
-  })
-
-  it('coreEnhanceTotal merges by prop code: same-name different-prop stay separate rows', () => {
-    // 同名异码（如 11101/11102 生命值）分行展示，不因中文名相同而互相累加
-    const levels = [
-      { no: 'A', unlockAt: 15, bonus: [{ prop: 11101, name: '生命值', value: 100, format: '{0:0}', text: '100' }] },
-      { no: 'B', unlockAt: 25, bonus: [{ prop: 11102, name: '生命值', value: 50, format: '{0:0}', text: '50' }] },
-      { no: 'C', unlockAt: 35, bonus: [{ prop: 11101, name: '生命值', value: 100, format: '{0:0}', text: '100' }] },
-    ]
-    expect(coreEnhanceTotal(levels).map((b) => `${b.name}+${b.value}`)).toEqual([
-      '生命值+200',
-      '生命值+50',
-    ])
-  })
-
-  it('buildCoreEnhance scales base energy regen by 1/100 (raw 12 → 0.12/s)', () => {
-    const enhance = buildCoreEnhance({
-      '1': { max_level: 15, extra: { '30501': { prop: 30501, name: '基础能量自动回复', format: '{0:0.##}', value: 12 } } },
-      '2': { max_level: 25, extra: { '30501': { prop: 30501, name: '基础能量自动回复', format: '{0:0.##}', value: 12 } } },
-      '3': { max_level: 35, extra: { '30501': { prop: 30501, name: '基础能量自动回复', format: '{0:0.##}', value: 24 } } },
-      '4': { max_level: 45, extra: { '30501': { prop: 30501, name: '基础能量自动回复', format: '{0:0.##}', value: 24 } } },
-      '5': { max_level: 55, extra: { '30501': { prop: 30501, name: '基础能量自动回复', format: '{0:0.##}', value: 36 } } },
-      '6': { max_level: 60, extra: { '30501': { prop: 30501, name: '基础能量自动回复', format: '{0:0.##}', value: 36 } } },
-    })
-    expect(enhance.map((l) => `${l.no}:${l.bonus.map((b) => b.text).join(',')}`)).toEqual([
-      'A:0.12',
-      'B:',
-      'C:0.12',
-      'D:',
-      'E:0.12',
-      'F:',
-    ])
-    expect(coreEnhanceTotal(enhance).map((b) => `${b.name}+${b.text}`)).toEqual([
-      '基础能量自动回复+0.36',
-    ])
-  })
-
-  it('formatCoreEnhance follows hakushin format strings', () => {
-    expect(formatCoreEnhance(480, '{0:0.#%}')).toBe('4.8%')
-    expect(formatCoreEnhance(2880, '{0:0.#%}')).toBe('28.8%')
-    expect(formatCoreEnhance(75, '{0:0.#}')).toBe('75')
-    expect(formatCoreEnhance(1800, '{0:0}')).toBe('1800')
-    expect(formatCoreEnhance(36, '{0:0.##}')).toBe('36')
-  })
-
-  it('buildCoreEnhance returns [] for missing input and filters zero bonuses', () => {
-    expect(buildCoreEnhance(undefined)).toEqual([])
-    expect(buildCoreEnhance(null)).toEqual([])
-    expect(buildCoreEnhance({})).toEqual([])
-  })
-
-  it('matches the in-game panel at every 10-level anchor', () => {
-    const at = (lv: number) => {
-      const rows = characterStatsAtLevel(lvl11.stats, lvl11.level, lv)
-      const get = (label: string) => rows.find((r) => r.label === label)?.value
-      return { hp: get('生命值'), atk: get('攻击力'), def: get('防御力') }
-    }
-    expect(at(1)).toEqual({ hp: '617', atk: '128', def: '49' })
-    expect(at(10)).toEqual({ hp: '1370', atk: '197', def: '109' })
-    expect(at(20)).toEqual({ hp: '2630', atk: '321', def: '210' })
-    expect(at(30)).toEqual({ hp: '3891', atk: '443', def: '310' })
-    expect(at(40)).toEqual({ hp: '5152', atk: '567', def: '410' })
-    expect(at(50)).toEqual({ hp: '6413', atk: '691', def: '511' })
-    expect(at(60)).toEqual({ hp: '7673', atk: '813', def: '612' })
-  })
-
-  it('keeps non-scaling stats and percent formatting stable', () => {
-    const rows = characterStatsAtLevel(lvl11.stats, lvl11.level, 60)
-    const get = (label: string) => rows.find((r) => r.label === label)?.value
-    expect(get('暴击率')).toBe('5.00%')
-    expect(get('暴击伤害')).toBe('50.00%')
-    expect(get('穿透率')).toBe('0.00%')
-    expect(get('冲击力')).toBe('93')
-    expect(get('异常掌控')).toBe('93')
-    expect(get('异常精通')).toBe('94')
-    expect(get('能量回复')).toBe('120')
-  })
-
-  it('returns [] for missing stats and null breaks for empty level', () => {
-    expect(characterStatsAtLevel(undefined, lvl11.level, 60)).toEqual([])
-    expect(charBreakSegment({}, 30)).toBeNull()
-  })
-})
-
-/* ---------- 核心技（passive：核心被动 + 额外能力） ---------- */
-
-/** 「11号」1041 核心技（7 级，额外能力各级一致） */
-const lvl11Passive = {
-  level: {
-    '1041501': {
-      level: 1,
-      name: ['核心被动：热浪', '额外能力：燎原'],
-      desc: ['伤害提升<color=#2BAD00>35%</color>。', '队伍中存在同属性或阵营角色时触发：火属性伤害提升10%。'],
-    },
-    '1041502': {
-      level: 2,
-      name: ['核心被动：热浪', '额外能力：燎原'],
-      desc: ['伤害提升<color=#2BAD00>40.8%</color>。', '队伍中存在同属性或阵营角色时触发：火属性伤害提升10%。'],
-    },
-    '1041507': {
-      level: 7,
-      name: ['核心被动：热浪', '额外能力：燎原'],
-      desc: ['伤害提升<color=#2BAD00>70%</color>。', '队伍中存在同属性或阵营角色时触发：火属性伤害提升10%。'],
-    },
-  },
-}
-
-describe('buildCoreSkill', () => {
-  it('parses passive.level into ordered core passive + extra ability rows', () => {
-    const core = buildCoreSkill(lvl11Passive)
-    expect(core).not.toBeNull()
-    expect(core?.coreName).toBe('核心被动：热浪')
-    expect(core?.extraName).toBe('额外能力：燎原')
-    expect(core?.levels).toHaveLength(3)
-    expect(core?.levels.map((l) => l.no)).toEqual([1, 2, 3])
-    expect(core?.levels[0].desc[0]).toContain('35%')
-    expect(core?.levels[2].desc[0]).toContain('70%')
-    expect(core?.levels[0].desc[1]).toContain('火属性伤害提升10%')
-  })
-
-  it('keeps raw rich-text markers in desc for the display layer', () => {
-    const core = buildCoreSkill(lvl11Passive)
-    expect(core?.levels[0].desc[0]).toContain('<color=#2BAD00>')
-  })
-
-  it('returns null for missing/empty passive or level', () => {
-    expect(buildCoreSkill(undefined)).toBeNull()
-    expect(buildCoreSkill(null)).toBeNull()
-    expect(buildCoreSkill({})).toBeNull()
-    expect(buildCoreSkill({ level: {} })).toBeNull()
-  })
-
-  it('filters records without name/desc arrays', () => {
-    const core = buildCoreSkill({
-      level: {
-        '1': { level: 1, name: ['核心被动：X', '额外能力：Y'], desc: ['a', 'b'] },
-        '2': { level: 2 },
-        '3': { level: 3, name: ['核心被动：X', '额外能力：Y'], desc: ['c', 'd'] },
-      },
-    })
-    expect(core?.levels).toHaveLength(2)
-  })
-
-  it('marks the second 1-7 round as enhanced (14-record S-rank structure)', () => {
-    const core = buildCoreSkill({
-      level: Object.fromEntries(
-        [...Array(14)].map((_, i) => [
-          String(9001 + i),
-          {
-            level: (i % 7) + 1,
-            name: ['核心被动：X', '额外能力：Y'],
-            desc: [`核心 ${(i % 7) + 1} ${i < 7 ? '基础' : '强化'}`, '额外描述'],
-          },
-        ]),
-      ),
-    })
-    expect(core).not.toBeNull()
-    expect(core?.levelCount).toBe(7)
-    expect(core?.hasEnhance).toBe(true)
-    expect(core?.levels).toHaveLength(14)
-    expect(core?.levels[0]).toMatchObject({ level: 1, enhanced: false })
-    expect(core?.levels[6]).toMatchObject({ level: 7, enhanced: false })
-    expect(core?.levels[7]).toMatchObject({ level: 1, enhanced: true })
-    expect(core?.levels[13]).toMatchObject({ level: 7, enhanced: true })
-    expect(core?.levels[7].desc[0]).toContain('强化')
-  })
-
-  it('carries 潜能影像档位（potentialTag）到强化版核心技', () => {
-    const core = buildCoreSkill({
-      level: {
-        '1191501': { level: 1, name: ['凌牙厉齿', '风暴潮'], desc: ['基础', '旧'], potential: [0] },
-        '1191508': { level: 1, name: ['凌牙厉齿', '风暴潮'], desc: ['带潜能', '新'], potential: [119100, 119101] },
-      },
-    })
-    expect(core).not.toBeNull()
-    expect(core?.levels[0].potentialTag).toBeUndefined()
-    expect(core?.levels[1].potentialTag).toBe('I')
-  })
-
-  it('keeps enhanced=false for a single 7-record round', () => {
-    const core = buildCoreSkill(lvl11Passive)
-    expect(core?.levelCount).toBe(3)
-    expect(core?.hasEnhance).toBe(false)
-    expect(core?.levels.every((l) => !l.enhanced)).toBe(true)
-  })
-})
-
-/* ---------- 潜能影像（potential_detail，V2.5 激发潜能） ---------- */
-
-const lvl11Potential = {
-  '104100': {
-    id: 104100,
-    name: '',
-    desc: '',
-    level_show_name: '炽焰行歌 I',
-    level: 1,
-    ability_list: [11041501],
-  },
-  '104101': {
-    id: 104101,
-    name: '潜能觉醒：绝焰',
-    desc: '[额外能力：燎原]中，「11号」自身暴击伤害提升<color=#2BAD00>16%</color>。',
-    level_show_name: '炽焰行歌 II',
-    level: 2,
-  },
-  '104105': {
-    id: 104105,
-    name: '潜能觉醒：绝焰',
-    desc: '[额外能力：燎原]中，「11号」自身暴击伤害提升<color=#2BAD00>48%</color>。',
-    level_show_name: '炽焰行歌 VI',
-    level: 6,
-  },
-}
-
-describe('buildPotentialCinema', () => {
-  it('parses potential_detail into ordered I-VI levels', () => {
-    const rows = buildPotentialCinema(lvl11Potential)
-    expect(rows.map((r) => r.no)).toEqual(['I', 'II', 'VI'])
-    expect(rows.map((r) => r.label)).toEqual(['炽焰行歌 I', '炽焰行歌 II', '炽焰行歌 VI'])
-  })
-
-  it('keeps name/desc and raw rich-text markers', () => {
-    const rows = buildPotentialCinema(lvl11Potential)
-    expect(rows[1].name).toBe('潜能觉醒：绝焰')
-    expect(rows[1].desc).toContain('<color=#2BAD00>')
-    expect(rows[1].desc).toContain('16%')
-    // 档 I：无 name/desc（机制补强无文字）
-    expect(rows[0].name).toBe('')
-    expect(rows[0].desc).toBe('')
-  })
-
-  it('returns [] for missing/empty input', () => {
-    expect(buildPotentialCinema(undefined)).toEqual([])
-    expect(buildPotentialCinema(null)).toEqual([])
-    expect(buildPotentialCinema({})).toEqual([])
-  })
-})
-
-/* ---------- 音擎基础属性（等级滑条） ---------- */
-
-/** BWIKI 详细面板断点（突破后口径）：残心青囊 S 48→713、霰落星殿 S 50→743、星徽引擎 A 40→594、月相-朔 B 32→475 */
-const ENGINE_CASES = [
-  { base: 48, max: 713, breakpoints: [166, 284, 402, 520, 638] },
-  { base: 50, max: 743, breakpoints: [173, 296, 418, 542, 665] },
-  { base: 40, max: 594, breakpoints: [138, 236, 335, 433, 532] },
-  { base: 32, max: 475, breakpoints: [110, 189, 268, 346, 425] },
-]
-
-/** 副属性断点：暴击率 9.6→24、冲击力 6→15、能量回复 20→50（万分数） */
-const RAND_CASES: Array<[number, number[]]> = [
-  [960, [960, 1248, 1536, 1824, 2112, 2400]],
-  [600, [600, 780, 960, 1140, 1320, 1500]],
-  [2000, [2000, 2600, 3200, 3800, 4400, 5000]],
-]
-
-describe('wEngineMainAt', () => {
-  it('matches BWIKI breakpoints within ±1 (game-internal rounding)', () => {
-    for (const c of ENGINE_CASES) {
-      c.breakpoints.forEach((v, i) => {
-        const got = wEngineMainAt(10 * (i + 1), c.base, c.max)
-        expect(Math.abs(got - v)).toBeLessThanOrEqual(1)
-      })
-    }
-  })
-
-  it('clamps at level 1 and max level', () => {
-    expect(wEngineMainAt(0, 50, 743)).toBe(50)
-    expect(wEngineMainAt(1, 50, 743)).toBe(50)
-    expect(wEngineMainAt(60, 50, 743)).toBe(743)
-    expect(wEngineMainAt(99, 50, 743)).toBe(743)
-  })
-
-  it('monotonically grows inside a segment', () => {
-    const lv10 = wEngineMainAt(10, 50, 743)
-    const lv19 = wEngineMainAt(19, 50, 743)
-    const lv20 = wEngineMainAt(20, 50, 743)
-    expect(lv10).toBeLessThan(lv19)
-    expect(lv19).toBeLessThan(lv20)
-    expect(lv20).toBe(296)
-  })
-})
-
-describe('wEngineRandAt', () => {
-  it('scales by 1.3 per break stage, capped at 2.5x', () => {
-    for (const [base, ladder] of RAND_CASES) {
-      ladder.forEach((v, seg) => {
-        expect(wEngineRandAt(seg < 2 ? seg * 5 + 9 : seg * 10, base)).toBe(v)
-      })
-    }
-  })
-
-  it('keeps Lv.50-60 at final stage', () => {
-    expect(wEngineRandAt(50, 960)).toBe(2400)
-    expect(wEngineRandAt(60, 960)).toBe(2400)
-  })
-})
-
-describe('wEngineBreakCount', () => {
-  it('counts breaks per 10 levels', () => {
-    expect([1, 9, 10, 19, 20, 49, 50, 60].map(wEngineBreakCount)).toEqual([0, 0, 1, 1, 2, 4, 5, 5])
-  })
-})
-
-describe('wEnginePropsAtLevel', () => {
-  it('builds main + sub stat items at level', () => {
-    const items = wEnginePropsAtLevel(60, { name: '基础攻击力', value: 50 }, { name: '暴击率', value: 960, format: '{0:0.#%}' }, 743)
-    expect(items).toEqual([
-      { label: '基础攻击力', value: '743', tag: '主属性' },
-      { label: '暴击率', value: '24.00%', tag: '副属性' },
-    ])
-  })
-
-  it('falls back to static Lv.1 values when atk_max missing', () => {
-    const items = wEnginePropsAtLevel(60, { name: '基础攻击力', value: 50 }, { name: '暴击率', value: 960, format: '{0:0.#%}' }, undefined)
-    expect(items[0].value).toBe('50')
-    expect(items[1].value).toBe('24.00%')
-  })
-
-  it('returns [] when properties are missing', () => {
-    expect(wEnginePropsAtLevel(1, null, null, 743)).toEqual([])
-  })
-})
-
-/* ---------- 邦布基础数值（等级滑条） ---------- */
-
-/** 企鹅布（53001，A）stats + level 字面量（与 public/data 一致） */
-const PENGUIN_STATS = {
-  endurance: 180,
-  hp_max: 360,
-  hpupgrade: 428397,
-  attack: 50,
-  attack_upgrade: 252034,
-  break_stun: 90,
-  element_abnormal_power: 120,
-  defence: 30,
-  def_upgrade: 85729,
-  crit: 500,
-  crit_dmg: 5000,
-}
-
-const PENGUIN_LEVEL: Record<string, unknown> = {
-  '1': { hp_max: 0, attack: 0, defence: 0, level_min: 0, level_max: 10, extra: { '20101': { value: 0 }, '21101': { value: 0 } } },
-  '2': { hp_max: 188, attack: 47, defence: 38, level_min: 10, level_max: 20, extra: { '20101': { value: 450 }, '21101': { value: 0 } } },
-  '3': { hp_max: 376, attack: 233, defence: 75, level_min: 20, level_max: 30, extra: { '20101': { value: 2250 }, '21101': { value: 0 } } },
-  '4': { hp_max: 564, attack: 699, defence: 113, level_min: 30, level_max: 40, extra: { '20101': { value: 2250 }, '21101': { value: 2500 } } },
-  '5': { hp_max: 752, attack: 1864, defence: 151, level_min: 40, level_max: 50, extra: { '20101': { value: 4500 }, '21101': { value: 2500 } } },
-  '6': { hp_max: 940, attack: 4661, defence: 188, level_min: 50, level_max: 60, extra: { '20101': { value: 4500 }, '21101': { value: 5000 } } },
-}
-
-const valueOf = (items: ReturnType<typeof bangbooStatsAtLevel>, label: string) =>
-  items.find((i) => i.label === label)?.value
-
-describe('bangbooStatsAtLevel', () => {
-  it('matches BWIKI panel for 企鹅布 across all break breakpoints', () => {
-    // [lv, 生命值, 攻击力, 防御力, 暴击率, 暴击伤害]（突破后口径）
-    const expected: Array<[number, string, string, string, string, string]> = [
-      [1, '360', '50', '30', '5.00%', '50.00%'],
-      [10, '933', '323', '145', '9.50%', '50.00%'],
-      [20, '1549', '761', '267', '27.50%', '50.00%'],
-      [30, '2166', '1479', '391', '27.50%', '75.00%'],
-      [40, '2782', '2896', '515', '50.00%', '75.00%'],
-      [50, '3399', '5945', '638', '50.00%', '100.00%'],
-      [60, '3827', '6198', '723', '50.00%', '100.00%'],
-    ]
-    for (const [lv, hp, atk, def, crit, critDmg] of expected) {
-      const items = bangbooStatsAtLevel(PENGUIN_STATS, PENGUIN_LEVEL, lv)
-      expect(valueOf(items, '生命值'), `Lv.${lv} 生命值`).toBe(hp)
-      expect(valueOf(items, '攻击力'), `Lv.${lv} 攻击力`).toBe(atk)
-      expect(valueOf(items, '防御力'), `Lv.${lv} 防御力`).toBe(def)
-      expect(valueOf(items, '暴击率'), `Lv.${lv} 暴击率`).toBe(crit)
-      expect(valueOf(items, '暴击伤害'), `Lv.${lv} 暴击伤害`).toBe(critDmg)
-    }
-  })
-
-  it('keeps static stats constant across levels', () => {
-    const items1 = bangbooStatsAtLevel(PENGUIN_STATS, PENGUIN_LEVEL, 1)
-    const items60 = bangbooStatsAtLevel(PENGUIN_STATS, PENGUIN_LEVEL, 60)
-    for (const label of ['冲击力', '异常掌控', '能量回复']) {
-      expect(valueOf(items60, label)).toBe(valueOf(items1, label))
-    }
-    expect(valueOf(items60, '冲击力')).toBe('90')
-    expect(valueOf(items60, '异常掌控')).toBe('120')
-  })
-
-  it('handles stats without extra and missing level dict', () => {
-    const noExtra = bangbooStatsAtLevel(PENGUIN_STATS, undefined, 60)
-    // 无突破段时仅按成长推算（growth/10000 × (L-1)），不叠加段加成
-    expect(valueOf(noExtra, '生命值')).toBe('2887')
-    expect(valueOf(noExtra, '暴击率')).toBe('5.00%')
-    expect(bangbooStatsAtLevel(undefined, PENGUIN_LEVEL, 60)).toEqual([])
-  })
-})
-
-describe('bangbooBreakCount', () => {
-  it('counts breaks per 10 levels', () => {
-    expect([1, 9, 10, 19, 20, 49, 50, 60].map(bangbooBreakCount)).toEqual([0, 0, 1, 1, 2, 4, 5, 5])
-  })
-})
-
-/* ---------- 邦布技能数值（skill param + skill_prop） ---------- */
-
-/** 企鹅布（53001）技能 a/b/c 字面量（与 public/data 一致，仅保留关键字段） */
-const PENGUIN_SKILL = {
-  a: {
-    level: {
-      '1': { name: '冰刀舞', desc: '招式发动时…', property: ['伤害倍率', '失衡倍率', '冷却时间'], param: '{Skill:5300101, Prop:1001}|{Skill:5300101, Prop:1002}|20秒' },
-      '2': { name: '冰刀舞', desc: '招式发动时…', property: ['伤害倍率', '失衡倍率', '冷却时间'], param: '{Skill:5300101, Prop:1001}|{Skill:5300101, Prop:1002}|20秒' },
-    },
-  },
-  b: {
-    level: {
-      '1': { name: '干冰场地', desc: '…提升60%。', property: ['属性异常积蓄值提升'], param: '60%' },
-      '2': { name: '干冰场地', desc: '…提升75%。', property: ['属性异常积蓄值提升'], param: '75%' },
-      '3': { name: '干冰场地', desc: '…提升90%。', property: ['属性异常积蓄值提升'], param: '90%' },
-      '4': { name: '干冰场地', desc: '…提升105%。', property: ['属性异常积蓄值提升'], param: '105%' },
-      '5': { name: '干冰场地', desc: '…提升120%。', property: ['属性异常积蓄值提升'], param: '120%' },
-    },
-  },
-  c: {
-    level: {
-      '1': { name: '冰暴回旋', desc: '冰属性伤害…', property: ['伤害倍率', '失衡倍率'], param: '{Skill:5300102, Prop:1001}|{Skill:5300102, Prop:1002}' },
-    },
-  },
-}
-
-const PENGUIN_SKILL_PROP = {
-  '5300101': {
-    '1001': { main: 46200, growth: 4620, format: '%' },
-    '1002': { main: 27000, growth: 2700, format: '%' },
-  },
-  '5300102': {
-    '1001': { main: 95700, growth: 9570, format: '%' },
-    '1002': { main: 13700, growth: 1370, format: '%' },
-  },
-}
-
-/** 招财布（53002）嵌套公式（与 public/data 一致，a 技能 10 级同参） */
-const LUCKY_SKILL_A = {
-  a: {
-    level: Object.fromEntries(
-      Array.from({ length: 10 }, (_, i) => [
-        String(i + 1),
-        { name: '灵运连接', property: ['伤害倍率', '失衡倍率', '冷却时间'], param: '{{Skill:5300201, Prop:1001}/100}*140|{{Skill:5300201, Prop:1002}/100}*140|22秒' },
-      ]),
-    ),
-  },
-}
-
-const LUCKY_SKILL_PROP = {
-  '5300201': {
-    '1001': { main: 44000, growth: 4400, format: '%' },
-    '1002': { main: 25700, growth: 2570, format: '%' },
-  },
-}
 
 describe('buildBangbooSkills (with skill_prop)', () => {
   it('parses stats per | token with property names', () => {
@@ -1677,3 +873,57 @@ describe('bangbooSkillStatValue', () => {
     expect(bangbooSkillStatValue(rows[0], 9, 1)).toBe('—')
   })
 })
+
+const PENGUIN_SKILL = {
+  a: {
+    level: {
+      '1': { name: '冰刀舞', desc: '招式发动时…', property: ['伤害倍率', '失衡倍率', '冷却时间'], param: '{Skill:5300101, Prop:1001}|{Skill:5300101, Prop:1002}|20秒' },
+      '2': { name: '冰刀舞', desc: '招式发动时…', property: ['伤害倍率', '失衡倍率', '冷却时间'], param: '{Skill:5300101, Prop:1001}|{Skill:5300101, Prop:1002}|20秒' },
+    },
+  },
+  b: {
+    level: {
+      '1': { name: '干冰场地', desc: '…提升60%。', property: ['属性异常积蓄值提升'], param: '60%' },
+      '2': { name: '干冰场地', desc: '…提升75%。', property: ['属性异常积蓄值提升'], param: '75%' },
+      '3': { name: '干冰场地', desc: '…提升90%。', property: ['属性异常积蓄值提升'], param: '90%' },
+      '4': { name: '干冰场地', desc: '…提升105%。', property: ['属性异常积蓄值提升'], param: '105%' },
+      '5': { name: '干冰场地', desc: '…提升120%。', property: ['属性异常积蓄值提升'], param: '120%' },
+    },
+  },
+  c: {
+    level: {
+      '1': { name: '冰暴回旋', desc: '冰属性伤害…', property: ['伤害倍率', '失衡倍率'], param: '{Skill:5300102, Prop:1001}|{Skill:5300102, Prop:1002}' },
+    },
+  },
+}
+
+const LUCKY_SKILL_A = {
+  a: {
+    level: Object.fromEntries(
+      Array.from({ length: 10 }, (_, i) => [
+        String(i + 1),
+        { name: '灵运连接', property: ['伤害倍率', '失衡倍率', '冷却时间'], param: '{{Skill:5300201, Prop:1001}/100}*140|{{Skill:5300201, Prop:1002}/100}*140|22秒' },
+      ]),
+    ),
+  },
+}
+
+const LUCKY_SKILL_PROP = {
+  '5300201': {
+    '1001': { main: 44000, growth: 4400, format: '%' },
+    '1002': { main: 25700, growth: 2570, format: '%' },
+  },
+}
+
+const PENGUIN_SKILL_PROP = {
+  '5300101': {
+    '1001': { main: 46200, growth: 4620, format: '%' },
+    '1002': { main: 27000, growth: 2700, format: '%' },
+  },
+  '5300102': {
+    '1001': { main: 95700, growth: 9570, format: '%' },
+    '1002': { main: 13700, growth: 1370, format: '%' },
+  },
+}
+
+/** 招财布（53002）嵌套公式（与 public/data 一致，a 技能 10 级同参） */

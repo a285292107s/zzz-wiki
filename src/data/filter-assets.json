@@ -1,0 +1,35 @@
+{
+  "_comment": "筛选图标（属性/职业/阵营）code → 资产名单一事实源。前端 src/domain/filterIcons.ts 由此派生映射；构建期 scripts/build/icon-inventory.mjs 读取 values 作为下载清单（落地 /data/img/filter/）。新增图标只改本文件。",
+  "elements": {
+    "200": "IconPhysical",
+    "201": "IconFire",
+    "202": "IconIce",
+    "203": "IconElectric",
+    "204": "IconWind",
+    "205": "IconEther",
+    "300": "IconLumen"
+  },
+  "professions": {
+    "1": "IconAttack",
+    "2": "IconStun",
+    "3": "IconAnomaly",
+    "4": "IconSupport",
+    "5": "IconDefense",
+    "6": "IconRupture"
+  },
+  "camps": {
+    "1": "IconCampGentleHouse",
+    "2": "IconCampVictoriaHousekeepingCo.",
+    "3": "IconCampBelobogIndustries",
+    "4": "IconCampSonsOfCalydon",
+    "5": "IconCampObols",
+    "6": "IconCampH.S.O-S6",
+    "7": "IconCampN.E.P.S.",
+    "8": "IconCampStarsOfLyra",
+    "9": "IconCampMockingBird",
+    "10": "IconCampSuibian",
+    "11": "IconCampSpookShack",
+    "12": "IconCampBlackRoot",
+    "13": "IconCampAngelsOfDelusion"
+  }
+}

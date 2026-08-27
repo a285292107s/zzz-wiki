@@ -222,7 +222,8 @@ npm run data            # 拉取 hakushin raw（live = 正式服单版本）→ 
 npm run data -- --check # 仅版本探测：输出 UPDATE_AVAILABLE / UP_TO_DATE，不构建（CI/定时哨兵）
 npm run build:ci        # Vercel 部署构建入口：npm test → ci-data（版本探测→有更新则构建→失败回退既有数据
                         #   →verify:data 契约校验仅告警）→ npm run build；源站不可达时沿用旧数据，绝不让站点因数据源故障而挂
-npm run verify:icons    # 校验全部图标可达性，失败非零退出（可挂 CI）
+npm run verify:icons    # 图标校准：本地 img 差集（核心）+ nanoka 远程审计；缺失非零退出
+                        #   --local 仅查本地（离线可用）；网络异常按"无法确认"以码 2 退出
 npm run dev             # 开发 http://localhost:5173（占用自动换端口）
 npm run build           # vue-tsc 类型检查 + vite 构建
 npm run preview         # 预演产物
@@ -240,7 +241,7 @@ npm run preview         # 预演产物
 ### 失效信号
 1. **名录/详情数量为 0** → 版本号变更或端点改名：先看 `.cache/hakushin-raw/manifest.json` 的 `live` 是否仍可用（请求 `https://static.nanoka.cc/zzz/{live}/character.json` 必须 200）。
 2. **请求 404** → 站点 schema 变更（端点改名/移动），检查 `manifest.json` 的 `available` 列表与旧端点对比。
-3. **图标全文字** → `verify:icons` 能看到哪个 CDN 挂；nanoka `/assets/zzz/` 是主兜底，若它也挂则所有图降文字。
+3. **图标全文字** → `verify:icons` 先看本地 img 差集（运行时消费的是本地文件，缺失才会静默落 CDN）；nanoka `/assets/zzz/` 是主兜底，若它也挂则所有图降文字（`--local` 之外的审计会标出源站缺口）。
 4. **多语言名异常** → 名录 `en`/`ja`/`ko` 对极新角色可能是原始资源键（`zh` 不受影响）；若大面积如此说明站点本地化未完成。
 5. **构建失败：「live 不在可用列表」** → `npm run data` 抛错（为合规拒绝降级 latest）；源站下架/改名 live 版本时需人工确认。ci-data 会回退仓库内既有正式服数据，站点不挂。
 

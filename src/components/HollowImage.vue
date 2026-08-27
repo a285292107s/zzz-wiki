@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 
+/** 会话级候选失败缓存（模块级单例）：某地址本会话 404 过的，后续挂载直接跳到下一候选。
+ *  列表页几十个图标 × 每次进入都重打一遍 404 是纯浪费；会话内不重复尝试。 */
+const sessionFailed = new Set<string>()
+
 const props = defineProps<{
   /** 依序尝试的图片候选；全部失败后显示文字占位 */
   srcs?: Array<string | null | undefined>
@@ -16,34 +20,63 @@ const props = defineProps<{
   ratio?: string | number
   /** 图片适应方式：cover 裁切填充（默认）/ contain 整图等比完整显示（不裁切） */
   fit?: 'cover' | 'contain'
+  /** 加载优先级：默认 lazy；首屏大图请显式传 eager（LCP 动机） */
+  loading?: 'lazy' | 'eager'
+  /** 无框模式：只渲染 <img> 本体（全栏底图 / 标本卡等自带定位容器的场景），
+   *  不渲染边框与文字占位——候选耗尽后整体隐藏，由父容器兜底样式接管 */
+  unframed?: boolean
+  /** 透传到 <img> 的内联样式（构图参数：object-position / transform 等） */
+  imgStyle?: Record<string, string>
 }>()
 
 const candidates = computed(() => {
-  const list = props.srcs?.filter(Boolean) ?? []
+  const list = props.srcs?.filter((s): s is string => Boolean(s)) ?? []
   if (!list.length && props.src) return [props.src]
   return list
 })
+
+/** 首个未在会话中失败的候选下标；全败过则返回 length（直接耗尽态） */
+function firstAliveIdx(): number {
+  const list = candidates.value
+  const i = list.findIndex((u) => !sessionFailed.has(u))
+  return i === -1 ? list.length : i
+}
 
 const idx = ref(0)
 
 watch(
   candidates,
   () => {
-    idx.value = 0
+    idx.value = firstAliveIdx()
   },
+  { immediate: true },
 )
 
 const current = computed(() => candidates.value[idx.value] ?? null)
-/** 是否已耗尽所有候选（显示文字占位） */
+/** 是否已耗尽所有候选（显示文字占位；unframed 时隐藏图片本体） */
 const exhausted = computed(() => !candidates.value.length || idx.value >= candidates.value.length)
 
 function onError() {
+  const cur = current.value
+  if (cur) sessionFailed.add(cur)
   idx.value += 1
 }
 </script>
 
 <template>
+  <!-- 无框模式：img 本体即组件输出（样式/定位完全交给父容器与 img-style） -->
+  <img
+    v-if="unframed && !exhausted && current"
+    :key="current"
+    :src="current"
+    :alt="alt ?? ''"
+    :loading="loading ?? 'lazy'"
+    decoding="async"
+    :style="imgStyle"
+    @error="onError"
+  />
   <span
+    v-else-if="!unframed"
     class="frame"
     :class="{ broken: exhausted }"
     :style="ratio != null ? { 'aspect-ratio': ratio } : undefined"
@@ -53,7 +86,7 @@ function onError() {
       :key="current"
       :src="current"
       :alt="alt ?? ''"
-      loading="lazy"
+      :loading="loading ?? 'lazy'"
       decoding="async"
       :class="[
         fit !== 'contain' ? 'fit-cover' : 'fit-contain',

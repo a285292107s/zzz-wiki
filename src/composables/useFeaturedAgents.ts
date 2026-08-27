@@ -8,7 +8,8 @@
 import { computed } from 'vue'
 import type { CharacterListItem } from '@/data/types'
 import { ELEMENTS } from '@/domain/enums'
-import { api } from '@/data/api'
+import { listFor } from '@/data/resources'
+import { catalogEntry } from '@/domain/catalog'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { heroImageFile } from '@/data/heroGenderVariants'
 import type { FeaturedPool, PoolItem } from '@/domain/featuredPool'
@@ -27,7 +28,6 @@ export interface FeaturedCard {
   elementZh: string
   elementColor: string
   srcs: string[]
-  idx: number
   pos: string
   zoom: number
   originY: number
@@ -70,7 +70,6 @@ export function buildFeaturedCards(seed: PoolItem[], list: CharacterListItem[]):
         `${LOCAL_HERO}/${heroImageFile(n.id)}.webp`,
         `https://static.nanoka.cc/assets/zzz/${heroImageFile(n.id)}.webp`,
       ],
-      idx: 0,
       pos: n.pos,
       zoom: n.zoom,
       originY: n.originY,
@@ -98,7 +97,7 @@ export function useFeaturedAgents() {
     })
   }
 
-  const { data: list } = useAsyncResource<CharacterListItem[]>(() => api.list<CharacterListItem>('character'))
+  const { data: list } = useAsyncResource<CharacterListItem[]>(() => listFor<CharacterListItem>(catalogEntry('/agents')))
   const featured = computed(() => (list.value ? buildFeaturedCards(picks, list.value) : []))
   return { featured }
 }

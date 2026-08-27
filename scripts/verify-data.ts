@@ -9,6 +9,7 @@
 
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 import {
   BangbooDetailSchema,
   BangbooListItemSchema,
@@ -33,7 +34,15 @@ interface ErrorReport {
 
 const errors: ErrorReport[] = []
 
-function check(file: string, data: unknown, schema: { safeParse: (v: unknown) => { success: boolean; error?: { issues: Array<{ path: (string | number)[]; message: string }> } } }): void {
+/** 各名录/详情 schema 的最小结构面（具体 zod schema 形状各异，校验只依赖 safeParse） */
+interface SchemaLike {
+  safeParse: (v: unknown) => {
+    success: boolean
+    error?: { issues: Array<{ path: (string | number)[]; message: string }> }
+  }
+}
+
+function check(file: string, data: unknown, schema: SchemaLike): void {
   const result = schema.safeParse(data)
   if (!result.success) {
     errors.push({
@@ -93,17 +102,19 @@ async function readJson(rel: string): Promise<unknown> {
   return JSON.parse(await fs.readFile(path.join(OUT, rel), 'utf8'))
 }
 
-async function main(): Promise<void> {
+/** 校验入口，返回退出码（0 通过）：CI 调用方（ci-data）可进程内 await，
+ *  不再经 npx tsx 子进程（npx 本身故障会被误报成"契约未通过"）。 */
+export async function verifyDataMain(): Promise<number> {
   // manifest（根） + live（正式服）名录/详情
   check('manifest.json', await readJson('manifest.json'), ManifestSchema)
 
-  const listFiles: Array<[string, typeof CharacterListItemSchema]> = [
+  const listFiles: Array<[string, SchemaLike]> = [
     ['character.json', CharacterListItemSchema],
     ['weapon.json', WEngineListItemSchema],
     ['bangboo.json', BangbooListItemSchema],
     ['equipment.json', DiskDriveListItemSchema],
   ]
-  const detailDirs: Array<[string, typeof CharacterDetailSchema]> = [
+  const detailDirs: Array<[string, SchemaLike]> = [
     ['zh/character', CharacterDetailSchema],
     ['zh/weapon', WEngineDetailSchema],
     ['zh/bangboo', BangbooDetailSchema],
@@ -142,12 +153,20 @@ async function main(): Promise<void> {
       console.error(`  - ${e.file}`)
       for (const i of e.issues.slice(0, 5)) console.error(`      · ${i}`)
     }
-    process.exit(1)
+    return 1
   }
   console.log(`✓ verify-data 通过：manifest + ${VERSIONS.length} 版本名录 + ${detailCount} 详情 全部符合契约`)
+  return 0
 }
 
-main().catch((e: unknown) => {
-  console.error('✖ verify-data 异常：', e)
-  process.exit(1)
-})
+/** 直接以 CLI 运行时才自动执行并设退出码；被 ci-data import 时由调用方决定流程。 */
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  verifyDataMain()
+    .then((code) => {
+      if (code) process.exit(code)
+    })
+    .catch((e: unknown) => {
+      console.error('✖ verify-data 异常：', e)
+      process.exit(1)
+    })
+}

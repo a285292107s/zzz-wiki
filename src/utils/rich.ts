@@ -1,92 +1,109 @@
 /* ============================================================
- * 富文本渲染 — 技能/影画描述中的游戏标记：
- *   <IconMap:Icon_XXX>  →  内联小按钮图标（nanoka 素材 CDN）
- *   <color=#FFFFFF>…</color> →  保留颜色的 <span>
- *   <Term:N>…</Term>     →  术语锚点（data-term-id，供 TermTip 浮层），保留内嵌色
- * 其余全部 HTML 转义（数据源为游戏文本表，防注入）。
- * 纯展示渲染，配合 v-html 使用。
+ * 富文本渲染 — 技能/影画/描述中的游戏标记 → 可控 HTML。
+ *
+ * 语法分析统一在 ./gameMarkup（tokenizeGameText 单一事实源）；
+ * 本文件只承载「渲染策略」：
+ *   COLOR(hex)→彩色 span · ICONMAP→内联键位图标 · TERM→术语锚点
+ *   CAL(level)→按等级代入求值；未识别标记与占位一律清除，绝不裸露。
+ * 纯展示渲染，配合 v-html 使用；数据源为游戏文本表，防注入靠
+ * 「白名单 token 定向还原 + 普通文本段 HTML 转义」双保险。
  * ============================================================ */
 
 import { skillAssetSources } from '@/data/icons'
-import { calTokenValue, parseCalToken } from '@/domain/sections'
+import { calTokenValue, parseCalToken } from '@/domain/skillFormula'
+import { tokenizeGameText } from './gameMarkup'
 
 function esc(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 }
 
+const HEX_COLOR = /^[0-9a-fA-F]{6,8}$/
+
 /**
  * 将带游戏标记的描述文本渲染为可控 HTML 字符串。
- * 标记在文本表中以原始 `<…>` 出现，先整体转义，再定向还原两类标记。
  * @param level 可选技能等级：提供时把 {CAL:…} 内嵌公式占位（如 伤害提升18%）按该级
- *  求值；缺省时数据中不含 CAL 的调用方（出招表/术语浮层等）继续走通用 {…} 兜底剥离。
+ *  求值；缺省时此类调用方（出招表/术语浮层等）不含 CAL，token 同样被清除不外泄。
  */
 export function richDesc(desc?: string, level?: number): string {
   if (!desc) return ''
-  let out = esc(desc)
+  const lexemes = tokenizeGameText(desc)
+  let out = ''
+  let spanDepth = 0 // 已打开且待闭合的彩色 span 数
+  let anchorDepth = 0 // 已打开且待闭合的术语锚点数
 
-  // <color=#RRGGBB>…</color> → <span style="color:#…">…</span>（仅十六进制）
-  out = out.replace(
-    /&lt;color=#([0-9a-fA-F]{6,8})&gt;(.*?)&lt;\/color&gt;/gs,
-    (_, c: string, inner: string) => `<span style="color:#${c}">${inner}</span>`,
-  )
-
-  // <color=#KEYWORD>…</color>（非十六进制，如 #POSITIVE_WITH_GREYITE）→ 保留内文、丢弃颜色标记
-  out = out.replace(
-    /&lt;color=#[0-9a-zA-Z_]+&gt;(.*?)&lt;\/color&gt;/gs,
-    (_m, inner: string) => inner,
-  )
-
-  // 防护：剥离任何残留的残缺 color 标签（避免裸标签外泄）
-  out = out.replace(/&lt;\/?color[^&]*&gt;/gi, '')
-
-  // <IconMap:Icon_XXX> → 内联键位图标（nanoka 素材 CDN）
-  // 捕获完整资产名（含 Icon_ 前缀），避免请求丢前缀的 URL（DESIGN.md §12 发现1）。
-  // 本地候选优先；本地缺失时由 main.ts 的全局 error 捕获降级到 data-cdn，
-  // 全部失败后替换为 .rich-key-broken 占位方框（与 HollowImage 文字兜底同语言）。
-  out = out.replace(/&lt;IconMap:(Icon_\w+)&gt;/g, (_m, name: string) => {
-    const [local, cdn] = skillAssetSources(name)
-    const src = local ?? cdn
-    if (!src) return ''
-    const data = local && cdn ? ` data-cdn="${cdn}"` : ''
-    return `<img class="rich-key" src="${src}" alt="" loading="lazy" decoding="async"${data}>`
-  })
-
-  // {LAYOUT_CONSOLECONTROLLER#手柄文案}{LAYOUT_FALLBACK#默认文案} → 只取 fallback（网页端默认输入）
-  out = out.replace(
-    /\{LAYOUT_CONSOLECONTROLLER#([^}]*)\}\{LAYOUT_FALLBACK#([^}]*)\}/g,
-    (_m, _consoleLabel: string, fallbackLabel: string) => fallbackLabel,
-  )
-  // 其余单出现 LAYOUT 变体：同样取 # 后文案
-  out = out.replace(/\{LAYOUT_[A-Z]+#([^}]*)\}/g, (_m, label: string) => label)
-
-  // <Term:N>…</Term>（构建期已保留术语 ID、内嵌 <color> 名已还原成上方 <span>）→
-  // 术语锚点：光标/焦点悬停时 TermTip 浮层读取 data-term-id 展示名词表 desc。
-  // 内嵌 span 保留原名，未接浮层也不丢信息；不带 href，点击不产生无目标跳转/URL 噪音。
-  out = out.replace(
-    /&lt;Term:(\d+)&gt;(.*?)&lt;\/Term&gt;/gs,
-    (_m, id: string, inner: string) =>
-      `<a class="rich-term" data-term-id="${id}" tabindex="0">${inner}</a>`,
-  )
-
-  // {CAL:expr,scale,decimals} → 按等级代入求值（技能描述中随等级变化的数值，
-  // 如「全队角色造成的伤害提升18%」；token 后的 %/点/秒 等单位为普通文案，留在原地）。
-  // 需等级上下文：SkillGroup 传当前滑条等级；无等级的调用方不含此类标记，照旧剥离。
-  if (level != null) {
-    out = out.replace(/\{CAL:[^{}]*\}/g, (m) => {
-      const cal = parseCalToken(m)
-      return cal ? calTokenValue(cal, level) : ''
-    })
+  for (let i = 0; i < lexemes.length; i++) {
+    const { tok } = lexemes[i] ?? {}
+    switch (tok?.kind) {
+      case 'text': {
+        // 未识别的 <…> 标签与 {…} 占位：先剥离再转义——与既有兜底一致，绝不裸露
+        out += esc(tok.value.replace(/<[^>]*>/g, '').replace(/\{[^{}]*\}/g, ''))
+        break
+      }
+      case 'color-open': {
+        if (HEX_COLOR.test(tok.code)) {
+          out += `<span style="color:#${tok.code}">`
+          spanDepth++
+        }
+        break
+      }
+      case 'color-close': {
+        if (spanDepth > 0) {
+          out += '</span>'
+          spanDepth--
+        }
+        break
+      }
+      case 'iconmap': {
+        // 内联键位图标：本地候选优先；本地缺失时由 main.ts 的全局 error 捕获降级到
+        // data-cdn；全部失败后替换为 .rich-key-broken 占位方框（HollowImage 同语言）
+        const [local, cdn] = skillAssetSources(tok.name)
+        const src = local ?? cdn
+        if (!src) break
+        const data = local && cdn ? ` data-cdn="${cdn}"` : ''
+        out += `<img class="rich-key" src="${src}" alt="" loading="lazy" decoding="async"${data}>`
+        break
+      }
+      case 'term-open': {
+        // 术语锚点：TermTip 悬停/聚焦读 data-term-id；不带 href，点击无跳转噪音
+        out += `<a class="rich-term" data-term-id="${tok.id}" tabindex="0">`
+        anchorDepth++
+        break
+      }
+      case 'term-close': {
+        if (anchorDepth > 0) {
+          out += '</a>'
+          anchorDepth--
+        }
+        break
+      }
+      case 'br':
+        break // 渲染层维持既有行为：换行交给容器布局，不作 <br>
+      case 'cal': {
+        // 需等级上下文：SkillGroup 传当前滑条等级；token 后的 %/点/秒 为普通文案留在原地
+        const cal = parseCalToken(`{CAL:${tok.body}}`)
+        out += cal && level != null ? esc(calTokenValue(cal, level)) : ''
+        break
+      }
+      case 'skill-ref':
+        break // 详细倍率引用由倍率表渲染，此处永不外泄
+      case 'layout': {
+        // 控制器+回退成对出现 → 只留回退文案；孤立变体 → 保留其 # 后文案
+        const next = lexemes[i + 1]?.tok
+        if (tok.key === 'CONSOLECONTROLLER' && next?.kind === 'layout' && next.key === 'FALLBACK') {
+          out += esc(next.label)
+          i++
+        } else {
+          out += esc(tok.label)
+        }
+        break
+      }
+      default:
+        break
+    }
   }
 
-  // 兜底：始终不向 DOM 泄露任何游戏标记
-  // - {Skill:N, Prop:N} 详细倍率占位（倍率表渲染前先隐藏）
-  out = out.replace(/\{Skill:\d+,\s*Prop:\d+\}/g, '')
-  // - 残留的孤零 LAYOUT 标记
-  out = out.replace(/\{LAYOUT_[^}]*\}/g, '')
-  // - 其余任意 {…} 占位符
-  out = out.replace(/\{[^{}]*\}/g, '')
-  // - 其余未识别的孤零标签（我们生成的 <span>/<img>/<a> 均为字面 <，不在此列）
-  out = out.replace(/&lt;[^&]*&gt;/gi, '')
-
+  // 防残缺数据破坏文档结构：未闭合的锚点/span 补齐闭合
+  while (anchorDepth-- > 0) out += '</a>'
+  while (spanDepth-- > 0) out += '</span>'
   return out
 }

@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
-import { api } from '@/data/api'
+import { computed } from 'vue'
+import { detailFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
 import { stripRichText } from '@/utils/text'
 import { useRouteParam } from '@/composables/useRouteParam'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useDetailSections, type DetailSectionItem } from '@/composables/useDetailSections'
 import { usePageMeta } from '@/composables/usePageMeta'
+import { useEntityLevel } from '@/composables/useEntityLevel'
+import { catalogEntry } from '@/domain/catalog'
 import {
   bangbooBreakCount,
   bangbooStatsAtLevel,
-  BANGBOO_LEVEL_DEFAULT,
   BANGBOO_LEVEL_MAX,
   BANGBOO_LEVEL_MIN,
   buildBangbooSkills,
@@ -19,11 +20,10 @@ import {
 } from '@/domain/sections'
 import type { BangbooDetail } from '@/data/types'
 import { DetailHead, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel } from '@/components'
-import type { LevelMark } from '@/components/detail/LevelSlider.vue'
 import Rarity from '@/components/Rarity.vue'
 
 const id = useRouteParam('id')
-const { data: detail, status, error } = useAsyncResource(() => api.detail<BangbooDetail>('bangboo', id.value))
+const { data: detail, status, error } = useAsyncResource(() => detailFor<BangbooDetail>(catalogEntry('/bangboos'), id.value))
 
 usePageMeta(() => detail.value?.name ?? undefined)
 
@@ -33,10 +33,9 @@ const portraitSrcs = computed(() =>
 
 /* ---------- 基础属性：等级滑条（默认满级；切换邦布时重置） ---------- */
 
-const bLevel = ref(BANGBOO_LEVEL_DEFAULT)
-
-watch(id, () => {
-  bLevel.value = BANGBOO_LEVEL_DEFAULT
+const { level: bLevel, levelMarks } = useEntityLevel({
+  min: BANGBOO_LEVEL_MIN,
+  max: BANGBOO_LEVEL_MAX,
 })
 
 const stats = computed<StatItem[]>(() =>
@@ -48,15 +47,6 @@ const stats = computed<StatItem[]>(() =>
 )
 
 const breakCount = computed(() => bangbooBreakCount(bLevel.value))
-
-/** 突破刻度：1 起点 + 10/20/30/40/50 突破点（amber）+ 60 上限（灰） */
-const levelMarks = computed<LevelMark[]>(() => {
-  const marks: LevelMark[] = [{ at: BANGBOO_LEVEL_MIN, label: String(BANGBOO_LEVEL_MIN) }]
-  for (let lv = 10; lv <= BANGBOO_LEVEL_MAX; lv += 10) {
-    marks.push({ at: lv, label: String(lv), break: lv < BANGBOO_LEVEL_MAX })
-  }
-  return marks
-})
 
 /* ---------- 技能（映射为通用 SkillRow 复用 SkillGroup；描述与数值随所选等级联动） ---------- */
 

@@ -4,7 +4,7 @@ import { iconSources } from '@/data/icons'
 import { CATALOG, GUIDE_ENTRY } from '@/domain/catalog'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { dataVersions } from '@/data/api'
-import { useFeaturedAgents, type FeaturedCard } from '@/composables/useFeaturedAgents'
+import { useFeaturedAgents } from '@/composables/useFeaturedAgents'
 import HollowImage from '@/components/HollowImage.vue'
 
 usePageMeta()
@@ -33,12 +33,6 @@ const AGENT_CIRCLE_ICON = `${import.meta.env.BASE_URL ?? '/'}data/img/character/
 // 今日角色：精选池 + 每次挂载随机取 4 张（取数与解析收敛在 useFeaturedAgents composable，
 // 构图参数 pos/zoom/originY 含义见 IMG_GUIDE.md）
 const { featured } = useFeaturedAgents()
-
-/** 图源候选链：本地 404 切 CDN；耗竭后隐藏底图（与 AgentHead 同源兜底，落回 --bg-0） */
-function onImgError(card: FeaturedCard): void {
-  if (card.idx < card.srcs.length - 1) card.idx += 1
-  else card.idx = card.srcs.length
-}
 
 const sections = [
   ...CATALOG.map((c) => ({
@@ -109,17 +103,16 @@ const sections = [
               <!-- 首屏重点头图，勿 lazy：懒加载会把它降为低优先级，且带 transform:scale 的
                    img 会升级为独立合成层，合成器按 DOM 顺序逐个绘制，最右一格最后上屏
                    （网络其实并行，见 DevTools）。故用 eager 并行、常规优先级加载。 -->
-              <img
-                v-if="card.idx < card.srcs.length"
-                :src="card.srcs[card.idx]"
+              <HollowImage
+                unframed
+                loading="eager"
+                :srcs="card.srcs"
                 :alt="card.zh || card.en"
-                :style="{
+                :img-style="{
                   objectPosition: card.pos,
                   transformOrigin: `50% ${card.originY}%`,
                   transform: `scale(${card.zoom})`,
                 }"
-                decoding="async"
-                @error="onImgError(card)"
               />
             </span>
             <span class="specimen-plate">

@@ -93,6 +93,14 @@ export function catalogByPath(path: string): CatalogEntry | undefined {
   return CATALOG.find((c) => c.path === path)
 }
 
+/** 按路由路径取类目，缺失即抛错——调用处的路径是代码内常量，
+ *  写错属于编程错误，应尽早失败而不是静默回退。视图取数一律经此。 */
+export function catalogEntry(path: string): CatalogEntry {
+  const c = catalogByPath(path)
+  if (!c) throw new Error(`[catalog] 未登记的类目路径：${path}`)
+  return c
+}
+
 /** 页面标题文案（页面头 eyebrow 用，如 'AGENTS'）。 */
 export function catalogEyebrow(path: string): string {
   return catalogByPath(path)?.en ?? 'ARCHIVE'

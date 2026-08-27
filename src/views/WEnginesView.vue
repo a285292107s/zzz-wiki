@@ -2,22 +2,23 @@
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useCatalogList } from '@/composables/useCatalogList'
 import { useCatalogSort } from '@/composables/useCatalogSort'
-import { api } from '@/data/api'
+import { listFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
 import type { WEngineListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { catalogByPath } from '@/domain/catalog'
+import { catalogEntry } from '@/domain/catalog'
 import { AsyncState, CatalogTable, CatalogTableSkeleton, FilterDropdown, ListPage, NameCell, SearchField, type CatalogColumn } from '@/components'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
 
 usePageMeta()
 
-/** 详情路由前缀由 catalog 派生（单一事实源） */
-const base = catalogByPath('/w-engines')?.path ?? '/w-engines'
+/** 详情路由前缀与名录取数均由 catalog 派生（单一事实源） */
+const cat = catalogEntry('/w-engines')
+const base = cat.path
 
-const { data, status, error } = useAsyncResource(() => api.wengines())
+const { data, status, error } = useAsyncResource(() => listFor<WEngineListItem>(cat))
 
 const { profFilter, query, filtered, count } = useCatalogList<WEngineListItem>({
   items: () => data.value ?? [],

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { api } from '@/data/api'
+import { detailFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
 import { richDesc } from '@/utils/rich'
 import { stripRichText } from '@/utils/text'
@@ -8,11 +8,12 @@ import { useRouteParam } from '@/composables/useRouteParam'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useDetailSections, type DetailSectionItem } from '@/composables/useDetailSections'
 import { usePageMeta } from '@/composables/usePageMeta'
+import { catalogEntry } from '@/domain/catalog'
 import type { DiskDriveDetail } from '@/data/types'
 import { DetailHead, DetailPage, DetailSection } from '@/components'
 
 const id = useRouteParam('id')
-const { data: detail, status, error } = useAsyncResource(() => api.detail<DiskDriveDetail>('equipment', id.value))
+const { data: detail, status, error } = useAsyncResource(() => detailFor<DiskDriveDetail>(catalogEntry('/disks'), id.value))
 
 usePageMeta(() => detail.value?.name ?? undefined)
 

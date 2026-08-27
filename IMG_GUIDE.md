@@ -100,3 +100,25 @@
   视图共用同一套 `{ pos, zoom, originY }` 于两形态（校准在默认版上校准，切换形态后构图可能略有偏移，
   形态选择见 `useHeroForm`）。
 - 素材：`img/hero/Mindscape_{id}_2.webp`（本地化；nanoka CDN 兜底见 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §5）。
+
+## 体积预算与压缩分级（2026-09 实测）
+
+`public/data/img/` 全量 26.3MB，其中 hero 一类占 20.0MB（59 张、均值 348KB、峰值 570KB），
+是仓库历史 blob 与克隆体积的主导项（`.git` ≈29MB）。数据 JSON 仅 ~5MB。首次 LCP 只取
+`index.html` 注入的**一张**预取图（构建期按 `featured-pool.json` 池首推导，见 `vite.config.ts`
+的 `hero-preload-inject` 插件），运行时按需加载其余——带宽侧无问题；压力在**仓库增长**：
+每次换图/新增角色都把整张 webp 沉入 git 历史。
+
+处理分级（按投入产出排序）：
+
+1. **维持现状可接受**：当前年增量约数 MB（每版本新增角色 + 偶发重校准），且
+   `verify:icons --local` 已守住「清单内零缺失」，不会无声劣化。
+2. **若决定压缩**：只压 hero 一级即可回收 ~80% 收益——目标质量 q≈80（webp 有损）
+   或限宽 ≤1600px，预期均值降至 ~120KB（总量 20→7MB）。校准参数是相对构图
+   （pos/zoom/originY），压缩不破坏既有校准；但**已入库文件被覆盖会产生新的全量
+   blob**（老版本仍在历史里），一次性收缩只影响未来。
+3. **不建议现在做**：Git LFS（需先验证 Vercel 构建兼容）、有损转 avif（收益相近但
+   生态与校准工具截图流程多一层转换）。
+
+压缩落地路径：在 `scripts/build/download-icons.mjs` 落盘前接 sharp 处理 hero 类别 +
+`npm run download:icons` 幂等重跑；执行后跑一轮 `/calibrate` 目检每张构图的透明边/眼部位置。

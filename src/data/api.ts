@@ -39,8 +39,11 @@ try {
 
 /* ---------- 领域类型 ---------- */
 
-/** 数据类别（与 {file}.json 及 catalog.listFile 同键） */
-export type DataKind = 'character' | 'weapon' | 'bangboo' | 'equipment'
+import { CATALOG } from '@/domain/catalog'
+
+/** 数据类别——由 catalog 名录文件名派生（单一事实源；catalog 不反向依赖本模块，无环）。
+ *  新增类别先在 domain/catalog.ts 登记，此处自动跟随。 */
+export type DataKind = (typeof CATALOG)[number]['listFile']
 
 /** 支持的语言（预留；当前站点只渲染 zh） */
 export type Lang = 'zh' | 'en' | 'ja' | 'ko'

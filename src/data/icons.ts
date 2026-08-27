@@ -63,7 +63,7 @@ export const SKILL_ICON_ASSETS: Record<SkillSlot, string[]> = {
   chain: ['Icon_QTE'], // 连携技为 QTE
   ultimate: ['Icon_UltimateReady'], // 终结技
   assist: ['Icon_Switch'],
-  core: ['Icon_Core', 'Icon_Normal'], // Icon_Core 暂无资产，兜底普通键
+  core: ['Icon_Normal'], // 核心技复用普通攻击键位图标（Icon_Core 在 CDN 无资产，曾是必然 404 的死候选，已移除）
 }
 
 /** 生成技能键位图标的候选 URL 数组（本地优先，走 /data/img/skill） */

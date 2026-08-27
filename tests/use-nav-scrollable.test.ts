@@ -133,7 +133,7 @@ describe('useNavScrollable', () => {
     const el = w.find('.section-nav').element as HTMLElement
     mockScroll(el, 500, 200, 0)
 
-    await w.vm.scrollRight()
+    await (w.vm as unknown as { scrollRight: () => unknown }).scrollRight()
     await nextTick()
     expect(el.scrollLeft).toBe(200)
     w.unmount()
@@ -145,7 +145,7 @@ describe('useNavScrollable', () => {
     const el = w.find('.section-nav').element as HTMLElement
     mockScroll(el, 100, 200, 0) // scrollWidth < clientWidth → max=0
 
-    await w.vm.scrollRight()
+    await (w.vm as unknown as { scrollRight: () => unknown }).scrollRight()
     await nextTick()
     expect(el.scrollLeft).toBe(0)
     w.unmount()

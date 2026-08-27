@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed } from 'vue'
 import { HIT_TYPES } from '@/domain/enums'
 import type { AttrCode, HitCode, SpecCode } from '@/domain/enums'
 import type { CharacterDetail } from '@/data/types'
 import { heroVariantFile } from '@/data/heroGenderVariants'
 import { getHeroCalibration, type HeroCalibration } from '@/data/heroCalibration'
 import { useHeroForm } from '@/composables/useHeroForm'
+import HollowImage from '@/components/HollowImage.vue'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
 
@@ -67,12 +68,6 @@ const heroSrcs = computed(() => [
   `https://static.nanoka.cc/assets/zzz/${heroBase.value}.webp`,
 ])
 
-/** 当前候选游标：本地 404 时切换到 CDN 兜底，耗尽后隐藏底图 */
-const heroIdx = ref(0)
-watch(heroSrcs, () => {
-  heroIdx.value = 0
-})
-
 /** 复用「今日角色」校准构图（featured-pool.json calibrated 表）：水平脸对焦 + 放大消透明边。
  *  仅移动端应用；未校准（如无 hero 图角色）回落 null，保持居中取景。
  *  双形态角色（如 1551）按默认（女性）版校准，两形态共用同一套参数。 */
@@ -92,16 +87,15 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
 
 <template>
   <header class="ahead">
-    <!-- hero 底图：Mindscape_{id}_2.webp 满栏铺底（object-cover 保人物头部），置右微移，留出左侧信息呼吸感 -->
+    <!-- hero 底图：Mindscape_{id}_2.webp 满栏铺底（object-cover 保人物头部），置右微移，留出左侧信息呼吸感。
+         候选链与失败缓存收口在 HollowImage（unframed 纯图模式，耗尽后整体隐藏落 --bg-0 底色）；
+         满栏大图 eager 加载，构图校准参数经 img-style 透传。 -->
     <span class="hero-bg" aria-hidden="true">
-      <img
-        v-if="heroIdx < heroSrcs.length"
-        :src="heroSrcs[heroIdx]"
-        alt=""
-        loading="lazy"
-        decoding="async"
-        :style="heroCalStyle"
-        @error="heroIdx += 1"
+      <HollowImage
+        unframed
+        loading="eager"
+        :srcs="heroSrcs"
+        :img-style="heroCalStyle"
       />
     </span>
     <!-- 存档面：底部深掩埋保证文字可读；右上渐淡露出场景，避免整面压黑 -->

@@ -48,6 +48,7 @@ npm run preview
 | --- | --- |
 | `/data/manifest.json` | 版本/来源元信息（`zzz.live` / `source`） |
 | `/data/live/…` | 正式服名录与详情：`character.json`（58 名）、`zh/character/{id}.json`（数值/技能/影画/档案/皮肤/特殊属性/策略/潜能）、`weapon.json`（95 件）、`zh/weapon/{id}.json`、`bangboo.json`（42 只）、`zh/bangboo/{id}.json`、`equipment.json`（30 套）、`zh/equipment/{id}.json` |
+| `/data/live/noun.json` | 名词表（术语 ID → 中文名，供描述 `<Term:N>` 浮层，`src/data/terms.ts` 消费） |
 
 **字段约定**：属性 `200物理 201火 202冰 203电 204风 205以太 300流明(Lumiflux)`；职业 `1强攻 2击破 3异常 4支援 5防护 6命破 7锋御(Armorer)`；稀有度 `角色/邦布: 3=A 4=S，音擎: 2=B 3=A 4=S`。技能/影画/档案文本含 `<color=#…>` 等游戏标记，站点已做剥离清洗。
 
@@ -66,7 +67,9 @@ npm run preview
 **素材 CDN 解析（与 zzz.nanoka.cc 同源）**：该站页面数据全部来自 `static.nanoka.cc/zzz/{ver}/{lang}/…` JSON；图片素材另有独立的 `static.nanoka.cc/assets/zzz/` CDN——命名规则为**取游戏资源路径的裸文件名**（如 `UI/Sprite/A1DynamicLoad/IconSuit/UnPacker/SuitWoodpeckerElectro.png` → `SuitWoodpeckerElectro.webp`），角色头像 `IconRole01` 等即直接可用。本项目 `src/data/icons.ts` 完全复刻这套规则。
 
 **可用性现状（2026-08 实测）**：
-- nanoka 素材 CDN：项目全部 **303 个图标资源**（live 名录 224 + 皮肤立绘 79）**100% 可达**（`npm run verify:icons` 可复核，失败即非零退出，可挂 CI）
+- 本地图标（`img/`）：运行时实际消费层，由 `download-icons.mjs` 按 `icon-inventory.mjs` 清单本地化；
+  `npm run verify:icons -- --local` 校验「必须项零缺失」（离线可用，失败非零退出）
+- nanoka 素材 CDN：候选链第二级兜底，`npm run verify:icons` 附带远程审计；源站缺口但本地已兜住时仅告警（如 `IconLumen` 源站已 404、本地现存），两端皆缺才硬失败
 - 技能键位图标：资产名取自描述文本的 `<IconMap:Icon_XXX>` 标记（`Icon_Normal`/`Icon_Evade`/`Icon_SpecialReady`/`Icon_UltimateReady`/`Icon_QTE`/`Icon_Switch` 均 200），
   已随 `npm run download:icons` 本地化到 `img/skill/`（icons.ts `skillAssetSources`/`skillIconSources` 本地优先 + nanoka CDN 兜底 + 占位），
   由前端 `icons.ts` + `rich.ts` 渲染——技能组头图标经 `<HollowImage>` 加载（含几何字符兜底），描述内联键位图（`<IconMap>`）直接嵌入富文本

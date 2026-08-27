@@ -5,11 +5,11 @@
  * ============================================================ */
 
 import { type CatalogEntry } from '@/domain/catalog'
-import { api, type DataKind, type Lang } from './api'
+import { api, type Lang } from './api'
 
 /** 按类目取名录（泛型 T 由调用方声明） */
 export function listFor<T extends Record<string, unknown>>(entry: CatalogEntry): Promise<T[]> {
-  return api.list<T>(entry.listFile as DataKind)
+  return api.list<T>(entry.listFile)
 }
 
 /** 按类目取详情（id + 可选语言，默认 zh） */
@@ -18,5 +18,5 @@ export function detailFor<T>(
   id: number | string,
   lang?: Lang,
 ): Promise<T> {
-  return api.detail(entry.detailDir as DataKind, id, lang)
+  return api.detail(entry.detailDir, id, lang)
 }

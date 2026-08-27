@@ -3,10 +3,38 @@ import { CATALOG } from '@/domain/catalog'
 import { DEV_ROUTES } from '@/domain/devRoutes'
 import { resolveAnchorOffset } from '@/composables/anchorOffset'
 
-/** 类目中文名（页面标题文案由 catalog 单一事实源派生；详情页拼接「详情」） */
-const catTitle = (path: string, suffix = '') => {
-  const c = CATALOG.find((x) => x.path === path)
-  return `${c?.label ?? path}${suffix}`
+/** 类目视图懒加载映射：catalog 条目 → [名录页, 详情页]。
+ *  路径/名称/标题全部由 CATALOG 派生（单一事实源），此处只登记组件文件。 */
+const catalogViews: Record<string, [() => Promise<unknown>, () => Promise<unknown>]> = {
+  '/agents': [() => import('@/views/AgentsView.vue'), () => import('@/views/AgentDetailView.vue')],
+  '/w-engines': [() => import('@/views/WEnginesView.vue'), () => import('@/views/WEngineDetailView.vue')],
+  '/bangboos': [() => import('@/views/BangboosView.vue'), () => import('@/views/BangbooDetailView.vue')],
+  '/disks': [() => import('@/views/DisksView.vue'), () => import('@/views/DiskDetailView.vue')],
+}
+
+/** 由 catalog 条目生成「名录 + 详情」两条路由 */
+function catalogRoutes(): RouteRecordRaw[] {
+  return CATALOG.flatMap((c): RouteRecordRaw[] => {
+    const pair = catalogViews[c.path]
+    if (!pair) throw new Error(`[router] 缺少类目视图映射：${c.path}`)
+    const name = c.path.slice(1) // 'agents' / 'w-engines' …
+    // 单一断言点：懒加载函数返回 Promise<unknown>，vue-router 判别联合无法窄化，边界处集中收口
+    return [
+      {
+        path: c.path,
+        name,
+        component: pair[0],
+        meta: { title: c.label },
+      },
+      {
+        path: `${c.path}/:id`,
+        name: `${name}-detail`,
+        component: pair[1],
+        props: true,
+        meta: { title: `${c.label}详情` },
+      },
+    ] as unknown as RouteRecordRaw[]
+  })
 }
 
 export const router = createRouter({
@@ -42,58 +70,7 @@ export const router = createRouter({
       component: () => import('@/views/HomeView.vue'),
       meta: { title: '首页' },
     },
-    {
-      path: '/agents',
-      name: 'agents',
-      component: () => import('@/views/AgentsView.vue'),
-      meta: { title: catTitle('/agents') },
-    },
-    {
-      path: '/agents/:id',
-      name: 'agent-detail',
-      component: () => import('@/views/AgentDetailView.vue'),
-      props: true,
-      meta: { title: catTitle('/agents', '详情') },
-    },
-    {
-      path: '/w-engines',
-      name: 'w-engines',
-      component: () => import('@/views/WEnginesView.vue'),
-      meta: { title: catTitle('/w-engines') },
-    },
-    {
-      path: '/w-engines/:id',
-      name: 'w-engine-detail',
-      component: () => import('@/views/WEngineDetailView.vue'),
-      props: true,
-      meta: { title: catTitle('/w-engines', '详情') },
-    },
-    {
-      path: '/bangboos',
-      name: 'bangboos',
-      component: () => import('@/views/BangboosView.vue'),
-      meta: { title: catTitle('/bangboos') },
-    },
-    {
-      path: '/bangboos/:id',
-      name: 'bangboo-detail',
-      component: () => import('@/views/BangbooDetailView.vue'),
-      props: true,
-      meta: { title: catTitle('/bangboos', '详情') },
-    },
-    {
-      path: '/disks',
-      name: 'disks',
-      component: () => import('@/views/DisksView.vue'),
-      meta: { title: catTitle('/disks') },
-    },
-    {
-      path: '/disks/:id',
-      name: 'disk-detail',
-      component: () => import('@/views/DiskDetailView.vue'),
-      props: true,
-      meta: { title: catTitle('/disks', '详情') },
-    },
+    ...catalogRoutes(),
     {
       path: '/formulas',
       name: 'formulas',

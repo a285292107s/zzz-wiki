@@ -1,22 +1,27 @@
 <script setup lang="ts">
+/* 陈列形态决策（架构评审 2026-09）：驱动盘刻意保留卡片栅格、不并入 CatalogTable——
+ * 2/4 件套效果是长文本（stripRichText 后仍数行），表格行的信息密度不适配；
+ * 与其它名录共享的部分（筛选/排序/取数）已分别经 useCatalogList/useCatalogSort/resources 收敛，
+ * 未共享的仅剩排序按钮与骨架的视觉外壳，强行抽公共 grid-list 的收益低于接口成本。 */
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useCatalogList } from '@/composables/useCatalogList'
 import { useCatalogSort } from '@/composables/useCatalogSort'
-import { api } from '@/data/api'
+import { listFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
 import { stripRichText } from '@/utils/text'
 import type { DiskDriveListItem } from '@/data/types'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { catalogByPath } from '@/domain/catalog'
+import { catalogEntry } from '@/domain/catalog'
 import { AsyncState, ListPage } from '@/components'
 import HollowImage from '@/components/HollowImage.vue'
 
 usePageMeta()
 
-/** 详情路由前缀由 catalog 派生（单一事实源） */
-const base = catalogByPath('/disks')?.path ?? '/disks'
+/** 详情路由前缀与名录取数均由 catalog 派生（单一事实源） */
+const cat = catalogEntry('/disks')
+const base = cat.path
 
-const { data, status, error } = useAsyncResource(() => api.disks())
+const { data, status, error } = useAsyncResource(() => listFor<DiskDriveListItem>(cat))
 
 const { query, filtered, count } = useCatalogList<DiskDriveListItem>({
   items: () => data.value ?? [],
