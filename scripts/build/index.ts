@@ -14,6 +14,7 @@ import {
   dump,
   resetOut,
   writeDetails,
+  pruneStaleCache,
 } from './io'
 import { buildBangboos, buildCharacters, buildDiscs, buildWeapons, loadNoun, nounToTerms } from './domains'
 import { resolveTerms } from './normalize'
@@ -96,6 +97,7 @@ export async function main(): Promise<void> {
   )
 
   console.log('[4/4] 完成 →', OUT)
+  await pruneStaleCache(ver)
 }
 
 /**

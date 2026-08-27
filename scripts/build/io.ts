@@ -72,6 +72,22 @@ export async function mapConcurrent<T, R>(
   return results
 }
 
+/** 构建成功后清理 .cache 中非当前版本的下载缓存（缓存键含版本号，旧版目录不再命中，
+ *  留着只会无界膨胀——曾积到三个版本 704 文件）。开放项：按内容哈希跨版本复用未变详情。 */
+export async function pruneStaleCache(currentVer: string): Promise<void> {
+  let entries: string[] = []
+  try {
+    entries = await fsp.readdir(CACHE)
+  } catch {
+    return
+  }
+  for (const name of entries) {
+    if (name === currentVer || name === 'manifest.json') continue
+    await fsp.rm(path.join(CACHE, name), { recursive: true, force: true })
+    console.log(`  🧹 清理旧版缓存：${name}`)
+  }
+}
+
 export async function resetOut(vers: readonly string[]): Promise<void> {
   // 精确清理本管线产物：根 manifest + 根目录旧版名录/zh（历史单版本布局遗留，当前只产出 live 版本目录）
   // + 各版本名录/zh 详情；保留 img/（download:icons 的本地化图标，曾因整体 rm OUT
