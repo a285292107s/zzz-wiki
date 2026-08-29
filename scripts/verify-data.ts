@@ -1,6 +1,10 @@
 /* ============================================================
- * verify-data.ts — 对 public/data/ 全量跑 zod 契约校验（DESIGN.md §5.1）。
+ * verify-data.ts — 对 public/data/ 全量做「契约 + 完整性」校验（DESIGN.md §5.1）。
  * 失败非零退出，可挂 CI。用法：npm run verify:data
+ *
+ * 契约：对 manifest + 各版本名录/详情跑 zod schema（src/domain/schema）；
+ * 完整性：名录 id ↔ 详情文件一一对应（防「单详情拉取失败被静默带上 → 名录有、详情 404」）。
+ * 兼容说明：契约失败视为错误（阻断）；详情孤儿（无名录对应）仅告警不阻断。
  *
  * 依赖方向：校验脚本 → src/domain/schema（单向，禁止反向）。
  * schema 是 build 管线与前端的唯一契约事实源，此处直接 import
@@ -83,7 +87,36 @@ async function readJson(rel: string): Promise<unknown> {
   return JSON.parse(await fs.readFile(path.join(OUT, rel), 'utf8'))
 }
 
-/** 校验入口，返回退出码（0 通过）：CI 调用方（ci-data）可进程内 await，
+/** 名录文件名 → 详情目录（显式映射，单一事实源；不做隐式命名约定，避免「键错位 → 完整性校验被静默跳过」） */
+const LIST_TO_DETAIL: Record<string, string> = {
+  'character.json': 'zh/character',
+  'weapon.json': 'zh/weapon',
+  'bangboo.json': 'zh/bangboo',
+  'equipment.json': 'zh/equipment',
+}
+
+/** 断言 listFiles / detailDirs 与 LIST_TO_DETAIL 完全一一对应；不一致即抛错（宁可失败也不静默漏校验）。 */
+function assertCategoryPairs(
+  listFiles: Array<[string, SchemaLike]>,
+  detailDirs: Array<[string, SchemaLike]>,
+): void {
+  const files = new Set(listFiles.map(([f]) => f))
+  const dirs = new Set(detailDirs.map(([d]) => d))
+  const mappedFiles = new Set(Object.keys(LIST_TO_DETAIL))
+  const mappedDirs = new Set(Object.values(LIST_TO_DETAIL))
+  const mismatch =
+    [...files].some((f) => !mappedFiles.has(f)) ||
+    [...mappedFiles].some((f) => !files.has(f)) ||
+    [...dirs].some((d) => !mappedDirs.has(d)) ||
+    [...mappedDirs].some((d) => !dirs.has(d))
+  if (mismatch) {
+    throw new Error(
+      `verify-data: LIST_TO_DETAIL 与 listFiles/detailDirs 不一致（files=${[...files].join(', ')}；dirs=${[...dirs].join(', ')}）`,
+    )
+  }
+}
+
+/** 校验入口，返回退出码（0 通过）：CI 调用方（sync-data）可进程内 await，
  *  不再经 npx tsx 子进程（npx 本身故障会被误报成"契约未通过"）。 */
 export async function verifyDataMain(): Promise<number> {
   // manifest（根） + live（正式服）名录/详情
@@ -101,9 +134,14 @@ export async function verifyDataMain(): Promise<number> {
     ['zh/bangboo', BangbooDetailSchema],
     ['zh/equipment', DiskDriveDetailSchema],
   ]
+  assertCategoryPairs(listFiles, detailDirs) // 映射一致性即抛错，防静默漏校验
   let detailCount = 0
+  /** 类别 → 名录 id 集合 / 详情文件 id 集合（完整性交叉校验用） */
+  const rosterIds: Record<string, Set<string>> = {}
+  const detailIds: Record<string, Set<string>> = {}
   for (const ver of VERSIONS) {
     for (const [file, schema] of listFiles) {
+      const dir = LIST_TO_DETAIL[file]
       const dict = (await readJson(path.join(ver, file))) as Record<string, unknown>
       const values = Object.values(dict)
       if (!values.length) {
@@ -111,9 +149,11 @@ export async function verifyDataMain(): Promise<number> {
         continue
       }
       for (const v of values) check(path.join(ver, file), v, schema)
+      rosterIds[dir] = new Set(Object.keys(dict))
     }
     for (const [dir, schema] of detailDirs) {
       const files = await fs.readdir(path.join(OUT, ver, dir))
+      detailIds[dir] = new Set(files.filter((f) => f.endsWith('.json')).map((f) => f.replace(/\.json$/, '')))
       for (const f of files) {
         if (!f.endsWith('.json')) continue
         detailCount++
@@ -123,6 +163,29 @@ export async function verifyDataMain(): Promise<number> {
         if (dir.endsWith('character')) {
           checkEnhanceMonotonic(rel, detail)
         }
+      }
+    }
+    // 完整性：名录 id ↔ 详情文件 一一对应。防「单详情拉取失败被静默带上 → 名录有、详情 404」的破快照；
+    // 名录有 id 却缺详情 = 阻塞（门禁拒绝，不提交）；详情孤儿（无名录对应）仅告警不阻断。
+    for (const [file] of listFiles) {
+      const dir = LIST_TO_DETAIL[file]
+      const r = rosterIds[dir]
+      const d = detailIds[dir]
+      if (!r || !d) continue // 名录/详情为空已由「名单为空」等分支报告
+      const missing = [...r].filter((id) => !d.has(id))
+      const orphan = [...d].filter((id) => !r.has(id))
+      if (missing.length) {
+        errors.push({
+          file: `${ver}/${file}↔${dir}`,
+          issues: [
+            `名录含 ${missing.length} 个 id 缺对应详情文件：${missing.slice(0, 10).join(', ')}${missing.length > 10 ? '…' : ''}`,
+          ],
+        })
+      }
+      if (orphan.length) {
+        console.warn(
+          `⚠ [${ver}/${file}↔${dir}] ${orphan.length} 个详情文件无名录对应（孤儿，不阻断）：${orphan.slice(0, 10).join(', ')}`,
+        )
       }
     }
   }
@@ -135,11 +198,11 @@ export async function verifyDataMain(): Promise<number> {
     }
     return 1
   }
-  console.log(`✓ verify-data 通过：manifest + ${VERSIONS.length} 版本名录 + ${detailCount} 详情 全部符合契约`)
+  console.log(`✓ verify-data 通过：manifest + ${VERSIONS.length} 版本名录 + ${detailCount} 详情（契约 + 完整性）全部通过`)
   return 0
 }
 
-/** 直接以 CLI 运行时才自动执行并设退出码；被 ci-data import 时由调用方决定流程。 */
+/** 直接以 CLI 运行时才自动执行并设退出码；被 sync-data import 时由调用方决定流程。 */
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   verifyDataMain()
     .then((code) => {

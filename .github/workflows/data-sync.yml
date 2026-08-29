@@ -1,0 +1,64 @@
+# ============================================================
+# data-sync.yml — 定时「数据 + 图标」同步（唯一写者），直接提交默认分支
+#
+# 触发：每日 cron（默认 04:17 UTC）+ 手动 workflow_dispatch。
+# 职责：跑 npm run sync —— 探测源站新版本 → 有新版本才重建 JSON + 图标 --soft 补差
+#       → 汇总变更集；随后用 `npm run verify:data` 做【硬门禁】，通过后
+#       直接 commit + push 到默认分支（master）→ 触发 Vercel 部署。
+#       门禁不通过 → 本 job 失败，不提交（站点停留在上次提交的好数据）。
+#
+# 设计取舍（单写者模型：本 workflow 是唯一自动化写入 public/data 的入口）：
+#   - 部署（build:ci）只构建已提交快照、不再重建数据；数据更新全部走这里。
+#   - 无变更时不提交（git diff 静默），避免每日空提交。
+#   - 门禁内嵌 workflow：本仓库私有 + 免费套餐，GitHub 分支保护 / required checks
+#     不可用，故以本 job 内 npm run verify:data 作为真正的硬卡点。
+# ============================================================
+
+name: data-sync
+
+on:
+  schedule:
+    - cron: '17 4 * * *' # 每日 04:17 UTC，避开整点峰值
+  workflow_dispatch: {} # 手动触发
+
+permissions:
+  contents: write # 提交 / 推送默认分支
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Sync data + icons
+        run: npm run sync
+
+      - name: Gate — strict data-contract check before any push
+        run: npm run verify:data
+
+      - name: Commit and push if public/data changed
+        run: |
+          if git diff --quiet HEAD -- public/data; then
+            echo "public/data unchanged — nothing to commit"
+            exit 0
+          fi
+          git config user.name  "data-sync[bot]"
+          git config user.email "data-sync[bot]@users.noreply.github.com"
+          git add public/data
+          git commit -m "chore: 同步 zzz live 数据与图标"
+          # 竞态防护：本次运行期间 master 可能被推进，先 rebase 到最新再 push，避免 non-fast-forward
+          git pull --rebase origin "$(git rev-parse --abbrev-ref HEAD)"
+          git push
+          echo "Committed and pushed public/data update"

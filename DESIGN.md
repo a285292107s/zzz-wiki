@@ -103,8 +103,8 @@ src/
   styles/                # 维持 token 方案；CSS 变量为唯一设计事实
   router/index.ts        # lazy 路由 + route meta（title/eyebrow/desc）
 scripts/
-  build-data.ts          # 入口（顺序编排）
-  ci-data.ts             # 部署环境数据同步
+  build-data.ts          # 入口（顺序编排，npm run data）
+  sync-data.ts           # 数据+图标同步（唯一写者，npm run sync；data-sync workflow 定时触发并提交）
   build/                 # 拆模块：io / normalize / domains / live-target / index（+ download-icons.mjs）
   verify-data.ts         # 对 public/data/ 做 zod 校验（可独立跑、可挂 CI）
   verify-icons.mjs       # 保留

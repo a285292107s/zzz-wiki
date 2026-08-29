@@ -13,7 +13,7 @@ export interface ZzzManifest {
   available?: string[]
 }
 
-/** 合规校验：返回正式服版本号；任一条合规红线被触犯即抛错（build 失败，由 ci-data 回退既有数据）。 */
+/** 合规校验：返回正式服版本号；任一条合规红线被触犯即抛错（build 失败，由调用方 sync-data 判定失败则不提交、沿用既有数据）。 */
 export function resolveLiveTarget(zzz: ZzzManifest): string {
   const ver = zzz.live
   if (!ver) throw new Error('manifest.json 缺 zzz.live（源站 schema 变更？），拒绝构建')

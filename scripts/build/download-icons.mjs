@@ -16,16 +16,20 @@
  *
  * 幂等：已存在的本地文件跳过；可重复运行增补缺失项。
  *
- * 用法：node scripts/build/download-icons.mjs           # 不含皮肤
- *       SKIN_LOCAL=1 node scripts/build/download-icons.mjs  # 含皮肤缩略图
+ * 导出 runDownloadIcons()：被 sync-data.ts 进程内调用（不经 npx/子进程，
+ * 避免管道与漂移，同 verify-data.ts 的处理）；返回统计摘要供上层判定。
+ *
+ * 用法（CLI）：
+ *   node scripts/build/download-icons.mjs               # 严格：缺口非零退出
+ *   node scripts/build/download-icons.mjs --soft          # 缺口仅告警不阻断
+ *   node scripts/build/download-icons.mjs --dry           # 只打印差集不下载
  * 环境：需外网；有代理时设 NODE_USE_ENV_PROXY=1。
  * ============================================================ */
 
 import fs from 'node:fs'
 import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 import { SKIN_LOCAL, collectIcons, cdnUrl, localPath } from './icon-inventory.mjs'
-
-/* ---------- 下载（并发受限、幂等） ---------- */
 
 const CONCURRENCY = 8
 
@@ -37,46 +41,76 @@ async function download(url, dest) {
   fs.writeFileSync(dest, buf)
 }
 
-async function worker(queue, ok, fail) {
+async function worker(queue, onOk, onFail) {
   while (queue.length) {
     const { url, dest, cat } = queue.shift()
     try {
       await download(url, dest)
-      ok(dest)
+      onOk(dest)
     } catch (e) {
-      fail(url, e.message, cat)
+      onFail(url, e.message, cat)
     }
   }
 }
 
-// 皮肤默认不下载（清单仍会产出 skin 条目供 verify 远程审计用）
-const entries = collectIcons().filter((e) => e.cat !== 'skin' || SKIN_LOCAL)
+/**
+ * 执行图标同步（幂等补差）。皮肤默认不下载（SKIN_LOCAL=1 才开）。
+ * @param {{soft?:boolean, dry?:boolean}} [opts]
+ *   soft 缺口仅告警不阻断（CI / 部署用）；dry 只计算差集打印、不下载不写盘。
+ * @returns {Promise<{added:number, failed:number, heroMissing:number, dry:boolean}>}
+ */
+export async function runDownloadIcons({ soft = false, dry = false } = {}) {
+  const entries = collectIcons().filter((e) => e.cat !== 'skin' || SKIN_LOCAL)
 
-const queue = []
-for (const e of entries) {
-  const dest = localPath(e)
-  if (fs.existsSync(dest)) continue // 幂等
-  queue.push({ url: cdnUrl(e), dest, cat: e.cat })
+  // 差集：已存在的本地文件跳过（幂等），只补缺失
+  const queue = []
+  for (const e of entries) {
+    const dest = localPath(e)
+    if (fs.existsSync(dest)) continue
+    queue.push({ url: cdnUrl(e), dest, cat: e.cat })
+  }
+
+  if (dry) {
+    console.log('== 图标差集（--dry，不下载）==')
+    for (const q of queue) console.log(`  + ${q.cat}/${path.basename(q.dest)}`)
+    console.log(`SYNC_ICONS added=${queue.length} missing=0`)
+    return { added: queue.length, failed: 0, heroMissing: 0, dry: true }
+  }
+
+  let ok = 0
+  const failed = []
+  const heroMissing = [] // hero 头图源站缺口（如 1611/1621 未上传）：仅告警，不置失败码
+  const report = () => {
+    ok++
+    if (ok % 25 === 0) console.log(`  ✓ ${ok}/${queue.length + ok}…`)
+  }
+
+  const workers = Array.from(
+    { length: Math.min(CONCURRENCY, Math.max(1, queue.length)) },
+    () =>
+      worker(queue, report, (url, msg, cat) =>
+        cat === 'hero' ? heroMissing.push({ url, msg }) : failed.push({ url, msg }),
+      ),
+  )
+  await Promise.all(workers)
+
+  // queue 已被 worker 消费（shift 清空），改用已处理计数推断跳过数
+  const skipped = entries.length - ok - failed.length - heroMissing.length
+  console.log(`\n== 图标本地化 ==`)
+  console.log(
+    `目标资源：${entries.length}，本次下载：${ok}，本地已存在跳过：${skipped}，失败：${failed.length + heroMissing.length}`,
+  )
+  for (const f of failed) console.log(`  ${soft ? '⚠' : '✖'} ${f.url} → ${f.msg}`)
+  for (const f of heroMissing) console.log(`  ⚠ ${f.url} → ${f.msg}（源站未上传；本地/前端底色兜底不破图）`)
+
+  console.log(`SYNC_ICONS added=${ok} missing=${failed.length + heroMissing.length}`)
+  return { added: ok, failed: failed.length, heroMissing: heroMissing.length, dry: false }
 }
 
-let planned = entries.length // 计划处理的资源文件数（hero 双形态角色按实际文件数计）
-let ok = 0
-const failed = []
-const heroMissing = [] // hero 头图源站缺口（如 1611/1621 未上传）：仅告警，不置失败码
-const report = () => {
-  ok++
-  if (ok % 25 === 0) console.log(`  ✓ ${ok}/${queue.length + ok}…`)
+/** 直接以 CLI 运行时才执行并设退出码；被 sync-data import 时由调用方决定流程。 */
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const soft = process.argv.includes('--soft')
+  const dry = process.argv.includes('--dry')
+  const r = await runDownloadIcons({ soft, dry })
+  if (!dry && !soft && r.failed) process.exitCode = 1
 }
-
-const workers = Array.from({ length: Math.min(CONCURRENCY, Math.max(1, queue.length)) }, () =>
-  worker(queue, report, (url, msg, cat) =>
-    cat === 'hero' ? heroMissing.push({ url, msg }) : failed.push({ url, msg }),
-  ),
-)
-await Promise.all(workers)
-
-console.log(`\n== 图标本地化 ==`)
-console.log(`目标资源：${planned}，本次下载：${ok}，本地已存在跳过：${planned - ok - failed.length - heroMissing.length}，失败：${failed.length + heroMissing.length}`)
-for (const f of failed) console.log(`  ✖ ${f.url} → ${f.msg}`)
-for (const f of heroMissing) console.log(`  ⚠ ${f.url} → ${f.msg}（源站未上传；本地/前端底色兜底不破图）`)
-if (failed.length) process.exitCode = 1

@@ -33,7 +33,7 @@ npm run preview
 
 1. 将本仓库推送到 GitHub。
 2. 在 [vercel.com/new](https://vercel.com/new) 导入该仓库。
-3. 无需任何配置——`vercel.json` 已声明 Vite 框架、构建命令（`npm run build:ci`：测试 + 数据同步 + 构建，见 DATA_GUIDE §7）与产物目录；headers 含数据/图片缓存策略，rewrites 含 SPA 路由回退。
+3. 无需任何配置——`vercel.json` 已声明 Vite 框架、构建命令（`npm run build:ci`：测试 + 字体校验 + 构建，数据同步由 `data-sync` 定时任务承担，见 DATA_GUIDE §7）与产物目录；headers 含数据/图片缓存策略，rewrites 含 SPA 路由回退。
 4. 部署后访问 `https://<你的项目>.vercel.app`。
 
 ## 数据源
@@ -92,8 +92,8 @@ src/
   router/        # 懒加载路由 + meta（dev-only 路由由 devRoutes 派生，构建级排除）
 scripts/
   build/         # 数据管线模块（io / normalize / domains / live-target / index + download-icons.mjs，tsx/node 运行）
-  build-data.ts  # 数据管线入口（npm run data）
-  ci-data.ts     # 部署数据同步（npm run build:ci 前置）
+  build-data.ts  # 数据管线入口（npm run data，仅本地/数据-only）
+  sync-data.ts   # 数据+图标同步（唯一写者，npm run sync；由 data-sync workflow 定时触发并提交）
   verify-data.ts # zod 契约校验（npm run verify:data，可挂 CI）
   verify-icons.mjs # 图标资源可达性校验
 tests/           # vitest 单元/组件测试

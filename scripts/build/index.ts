@@ -35,7 +35,7 @@ export async function main(): Promise<void> {
   const zzz = manifest.zzz
   // 单版本：live = 游戏在线版本（正式服内容）。输出目录名固定为 live（不随版本号变，前端路径稳定）。
   // 合规约束（resolveLiveTarget，见 live-target.ts 单测）：绝不以 latest（含前瞻/测试服内容）补位或
-  // 降级——live 缺失/不在源站可用列表时直接失败，由调用方（ci-data）回退仓库内既有合规模数据。
+  // 降级——live 缺失/不在源站可用列表时直接失败，由调用方（sync-data）判定失败则不提交、沿用仓库内既有合规模数据。
   const ver = resolveLiveTarget(zzz)
   console.log(`  zzz live（正式服）版本：${ver}（latest=${zzz.latest} 仅作源站参考，不产出）`)
   console.log(
@@ -101,7 +101,7 @@ export async function main(): Promise<void> {
 }
 
 /**
- * 版本探测（--check / ci-data 用）：实时拉取源站 manifest，
+ * 版本探测（--check / sync-data 用）：实时拉取源站 manifest，
  * 对比本地产物 manifest.json 的 live；本地缺失或版本不同 → true。
  * 源站不可达时抛错（由调用方决定回退策略）。
  */

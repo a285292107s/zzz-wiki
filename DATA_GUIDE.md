@@ -45,7 +45,7 @@
 - `live` = 游戏在线版本数据（2026-08 为 3.1，角色 58），与玩家正式服内容对齐。
 - 构建期只落地 `public/data/live/`（目录名固定，不随版本号变）；
   **不再产出 latest**——`zzz.latest` 含前瞻/测试服内容，为合规绝不拉取/降级/补位。
-- live 不在源站 `available` 列表时构建**直接失败**（由 ci-data 回退仓库内既有正式服数据），拒绝用 latest 顶替。
+- live 不在源站 `available` 列表时构建**直接失败**（sync-data 判定失败则不提交，沿用仓库内既有正式服数据），拒绝用 latest 顶替。
 
 **注意**：`item.json` 只在带语言路径（`/zzz/{ver}/zh/item.json`）存在；`monster/boss/shiyu/simul/hard`
 等端点站方亦有（见 §8 扩展域），本项目当前未消费；`zh/noun.json` 名词表**已消费**（→ 各版本 `noun.json`）。
@@ -69,7 +69,7 @@
 
 **当前版本号易变**：`manifest.zzz.available` 含历史版本；构建只取 `live`（正式服，见 §1 单版本说明）。
 合规判定集中在 `scripts/build/live-target.ts` 的 `resolveLiveTarget()`（纯函数，有单测）：live 缺失 / available 缺失 /
-live 不在 available 时**直接抛错**（ci-data 回退仓库内既有正式服数据），`npm run data` 重建即可。
+live 不在 available 时**直接抛错**（sync-data 判定失败则不提交、沿用仓库内既有正式服数据），`npm run data` 重建即可。
 
 ---
 
@@ -212,7 +212,10 @@ public/data/
 
 ## 7. 运维命令
 
-改动数据管线的建议顺序：`npm run data` → `npm run verify:data` →（可选）`npm run download:icons`
+改动数据管线的建议顺序：正式更新入口用 `npm run sync`（探测 → 重建 JSON → 图标补差 → 校验 → 汇总，
+由 GitHub Actions 定时触发，工作流内 `npm run verify:data` 硬门禁通过 → 直接 commit + push 到默认分支
+（master），JSON 与图标同次提交锁步；门禁不通过则 job 失败、不提交）；
+仅本地改数据时 `npm run data` → `npm run verify:data` →（可选）`npm run download:icons`
 → `npm test` → `npm run build`（→ 可选 `npm run verify:icons`）。改动视觉层字体时另见
 `npm run download:fonts` / `npm run verify:fonts`（§10 字体组）。各命令如下：
 
@@ -221,8 +224,11 @@ npm install             # 依赖（首次或变更后）
 npm run data            # 拉取 hakushin raw（live = 正式服单版本）→ 规整 → 生成 public/data/live/ + manifest（需外网）
                         #   有代理时：set NODE_USE_ENV_PROXY=1
 npm run data -- --check # 仅版本探测：输出 UPDATE_AVAILABLE / UP_TO_DATE，不构建（CI/定时哨兵）
-npm run build:ci        # Vercel 部署构建入口：npm test → verify:fonts（缺字体文件非零退出）→ ci-data（版本探测→有更新则构建→失败回退既有数据
-                        #   →verify:data 契约校验仅告警）→ npm run build；源站不可达时沿用旧数据，绝不让站点因数据源故障而挂
+npm run sync           # 数据+图标同步（正式提交入口）：探测 → 重建 JSON → 图标 --soft 补差（只补缺失、已有资源零重下）
+                        #   → verify:data + 本地必须项图标齐整（告警）→ 汇总变更集；无变更不提交；由 data-sync workflow
+                        #   定时触发 → 工作流内 verify:data 硬门禁通过 → 直接 commit + push 到默认分支（master）（需外网）
+npm run build:ci        # Vercel 部署构建入口：npm test → verify:fonts（缺字体文件非零退出）→ npm run build；
+                        #   只构建已提交快照、不在构建期重建数据（数据更新走 npm run sync）；站点因数据源故障而挂的情形由 sync 不提交规避
 npm run verify:icons    # 图标校准：本地 img 差集（核心）+ nanoka 远程审计；缺失非零退出
                         #   --local 仅查本地（离线可用）；网络异常按"无法确认"以码 2 退出
 npm run download:fonts  # 西文字体本地化：Google Fonts css2 → public/fonts/*.woff2（自托管、运行时零外网）；幂等；网络失败仅告警
@@ -247,7 +253,7 @@ npm run preview         # 预演产物
 2. **请求 404** → 站点 schema 变更（端点改名/移动），检查 `manifest.json` 的 `available` 列表与旧端点对比。
 3. **图标全文字** → `verify:icons` 先看本地 img 差集（运行时消费的是本地文件，缺失才会静默落 CDN）；nanoka `/assets/zzz/` 是主兜底，若它也挂则所有图降文字（`--local` 之外的审计会标出源站缺口）。
 4. **多语言名异常** → 名录 `en`/`ja`/`ko` 对极新角色可能是原始资源键（`zh` 不受影响）；若大面积如此说明站点本地化未完成。
-5. **构建失败：「live 不在可用列表」** → `npm run data` 抛错（为合规拒绝降级 latest）；源站下架/改名 live 版本时需人工确认。ci-data 会回退仓库内既有正式服数据，站点不挂。
+5. **构建失败：「live 不在可用列表」** → `npm run data` 抛错（为合规拒绝降级 latest）；源站下架/改名 live 版本时需人工确认。sync-data 判定失败则不提交、沿用仓库内既有正式服数据；部署只构建已提交快照，站点不挂。
 
 ### 不要做的事
 - 不要把 hakushin raw 提为**运行时**数据源（§0 铁律：运行时零外部请求）；仅构建期拉取。

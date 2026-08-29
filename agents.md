@@ -35,7 +35,12 @@
 
 - 依赖：包管理器为 npm，锁文件只维护 `package-lock.json`（勿再引入 pnpm 锁文件）；新增依赖用 `npm install <pkg>`。
 - 开发 `npm run dev`（http://localhost:5173）；构建 `npm run build`（含 vue-tsc）；单测 `npm test`。
-- 部署构建入口 `npm run build:ci`（Vercel 已指向）：`scripts/ci-data.ts` 数据同步（版本探测 →
-  有更新才构建 → 失败回退既有产物 → 契约校验告警），再 `npm run build`。
+- 部署构建入口 `npm run build:ci`（Vercel 已指向）：`npm test` → `verify:fonts` → `npm run build`；
+  **只构建已提交快照，不在构建期重建数据**（数据更新走 `npm run sync`，见下）。
+- **数据+图标同步入口 `npm run sync`**（`scripts/sync-data.ts`）：唯一自动化写入 `public/data/` 的入口——
+  探测新版本 → 重建 JSON → 图标 `--soft` 补差（只补缺失、已有美术资源零重下）→ 校验（告警）→ 汇总变更集。
+  由 `.github/workflows/data-sync.yml` 定时触发并走【工作流内硬门禁】：`npm run verify:data` 通过 → 直接
+  commit + push 到默认分支（master）→ 触发 Vercel 部署；不通过则 job 失败、不提交。无变更不提交。
+  仓库为私有 + 免费套餐，分支保护不可用，故门禁在 workflow 内实现。`npm run data` 仅作数据-only 用途。
 - 改动数据管线按 DATA_GUIDE §7 顺序执行；名录/详情数量为 0 或 404 时先查 DATA_GUIDE §8
   失效信号，别急着改前端。

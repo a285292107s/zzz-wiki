@@ -13,7 +13,7 @@ import { normalizeCharacterDetail, resolveTerms, toListDict, type TermNames } fr
 type Dict = Record<string, Record<string, unknown>>
 
 /** 拉取整类详情；单个 id 失败仅告警并跳过（名录仍产出）。
- *  源站单文件瞬时故障不应让整次构建失败 → ci-data 全量回退旧数据。 */
+ *  源站单文件瞬时故障不应让整次构建失败 → sync-data 判定失败则不提交、沿用旧数据。 */
 async function fetchDetails(
   ver: string,
   dir: string,
