@@ -207,6 +207,30 @@ scripts/build/
 - 新 npm scripts：npm run data（不变）、npm run verify:data（新增）、npm test（新增）。
 - 验证链：data → verify:data → test → build（CI 或本地手动按序执行）。
 
+### 7.1 数据刷新与可靠性模型（2026-08）
+
+数据更新由**单一写入者**承担，部署**只读**：
+
+```
+数据更新（唯一写者）                       部署（只读）
+npm run sync ──▶ .github/workflows/data-sync.yml（每日 cron）
+  探测新版本 → 重建 JSON → 图标 --soft 补差 → 汇总
+  工作流内 npm run verify:data（硬门禁）通过 → commit + push 默认分支（master）
+                                                └─▶ Vercel 部署（build:ci 只构建已提交快照）
+```
+
+- **单一写入者**：`scripts/sync-data.ts`（`npm run sync`）是唯一自动化写入 `public/data/` 的入口；
+  `ci-data.ts`（部署期重建）已删除。部署 `build:ci` 只构建已提交快照，不再构建期重建数据。
+- **尽力构建 + 完整门禁**：构建容忍单文件抖动（`fetchDetails` 详情失败重试后跳过），但 `verify:data`
+  是「可提交」的唯一裁决，并升级为「契约 + 完整性」：schema 合法 + 名录非空 + **名录 id ↔ 详情文件
+  一一对应** + `extra_level` 单调。任一不满足 → 不提交（保留 last-good，顺延下次）。
+- **JSON 严格 / 图标宽松**：内容必须完整（缺一阻断）；展示资产缺失则降级（CDN/文字占位）并自愈，不阻塞提交。
+- **图标自愈**：`download-icons.mjs --soft` 每次同步都跑（幂等的存在性差集，只补缺失），瞬态失败的图标下次自愈。
+- **失败 → 响应**：源站不可达 → 不动 last-good、图标仍可自愈、下轮重试；构建抛错 / 门禁不通过 → 不提交、下轮重试；
+  图标缺失 → 降级 + 自愈。
+- **取舍**：以「可用性让位于完整性」为代价——源站**持续**缺详情会冻结更新（门禁标红，需人工介入）；
+  部署不再自愈（生产数据刷新对 cron 依赖更高）。
+
 ## 8. 测试策略（P0 先铺安全网）
 
 | 对象 | 内容 |

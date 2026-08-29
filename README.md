@@ -36,6 +36,11 @@ npm run preview
 3. 无需任何配置——`vercel.json` 已声明 Vite 框架、构建命令（`npm run build:ci`：测试 + 字体校验 + 构建，数据同步由 `data-sync` 定时任务承担，见 DATA_GUIDE §7）与产物目录；headers 含数据/图片缓存策略，rewrites 含 SPA 路由回退。
 4. 部署后访问 `https://<你的项目>.vercel.app`。
 
+> **数据新鲜度依赖 `data-sync` 定时任务**：部署只构建已提交快照，数据更新由 `.github/workflows/data-sync.yml`
+> 每日 cron 跑 `npm run sync`（探测 → 重建 JSON → 图标补差 → `verify:data` 硬门禁 → 提交）实现，二者经提交锁步。
+> 若生产数据滞旧：先确认该 workflow 最近是否成功 / GitHub Actions 配额；可手动 `npm run sync` 后提交，
+> 或 `npm run data` → `npm run verify:data` → 提交。**生产分支须为 `master`**（仓库默认分支）。
+
 ## 数据源
 
 构建期从 **hakushin raw**（`https://static.nanoka.cc`，zzz.nanoka.cc / hakush.in 站底层 CDN）拉取，
