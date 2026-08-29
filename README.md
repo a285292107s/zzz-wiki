@@ -2,110 +2,87 @@
 
 绝区零（Zenless Zone Zero）数据展示型 wiki。以「空洞数据终端」的档案化视觉呈现代理人、音擎、邦布与驱动盘数据。设计取向：**约束、排印、纸墨质感**——拒绝渐变霓虹与圆角卡片堆叠的模板感。
 
-> 📄 给后续 AI / 协作者的**数据交接文档**见 [`DATA_GUIDE.md`](./DATA_GUIDE.md)——数据来源、表结构、反混淆锚点、图标兜底、已知缺口与失效信号都在这里，无需从头探测。
->
-> 🏗️ **架构设计**（分层、数据契约单一事实源、测试策略、路线图）见 [`DESIGN.md`](./DESIGN.md)。
->
-> 🖼️ **图片展示规范**（超宽/透明底/人像立绘如何展示得好、公式与核验流程）见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)。
+> 📋 **文档地图**（各有专属主题，按需取用）：
+> - **给 AI / 协作者的工作约定** → [`agents.md`](./agents.md)（临时文件、提交、数据与前端铁律、命令）
+> - **数据交接** → [`DATA_GUIDE.md`](./DATA_GUIDE.md)（来源、表结构、图标兜底、失效信号、运维命令）
+> - **架构设计** → [`DESIGN.md`](./DESIGN.md)（分层、数据契约单一事实源、测试策略、路线图）
+> - **图片展示** → [`IMG_GUIDE.md`](./IMG_GUIDE.md)（超宽/透明底/人像立绘如何展示得好、公式与核验）
 
 ## 技术栈
 
-- **Vue 3** + **TypeScript** + **Vite 6**
-- **vue-router 4**
+- **Vue 3** + **TypeScript** + **Vite 6** + **vue-router 4**
 - 零 UI 框架：纯手写设计系统（CSS 变量 + 细线 + 等宽数据数字）
 - 数据为**构建期生成的静态 JSON**（`public/data/`），运行时零外部请求
+- 图标、西文字体本地化（`public/data/img/`、`public/fonts/`），运行时零外网
+- **zod** 数据契约（校验在构建/CI 侧，不进前端热路径）；**vitest** 单测/组件测试
 
 ## 本地开发
 
+数据已提交在 `public/data/`，日常开发/部署**无需重跑**：
+
 ```bash
 npm install
-npm run data         # 生成静态数据（拉取 hakushin raw 正式服 → 规整 → 拼装，见下方「数据源」）
-npm run verify:icons # （可选）校验全部图标资源可达性，失败非零退出
-npm run dev          # http://localhost:5173
-npm run build
-npm run preview
+npm run dev          # http://localhost:5173（端口占用自动换）
+npm run build        # vue-tsc 类型检查 + 构建
+npm run preview      # 预演产物
+npm test             # vitest 单元/组件测试
 ```
 
-> `npm run data` 需要网络访问 `static.nanoka.cc`（有代理时设 `NODE_USE_ENV_PROXY=1`）；
-> 数据已提交在 `public/data/`，日常开发/部署无需重跑。更新数据：重跑该脚本。
+需要新数据时（详见 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §7）：
 
-## 部署（Vercel）
+- `npm run sync` — 数据+图标同步（**唯一自动化写入入口**：探测 → 重建 → 图标补差 → 校验 → 汇总）
+- `npm run data` — 仅数据本地重建（`--check` 只探测版本 / `--force` 忽略缓存）
+- `npm run verify:data` / `npm run verify:icons` / `npm run verify:fonts` — 契约 / 图标 / 字体校验
+- `npm run download:icons` / `npm run download:fonts` — 图标 / 字体本地化落地
 
-1. 将本仓库推送到 GitHub。
-2. 在 [vercel.com/new](https://vercel.com/new) 导入该仓库。
-3. 无需任何配置——`vercel.json` 已声明 Vite 框架、构建命令（`npm run build:ci`：测试 + 字体校验 + 构建，数据同步由 `data-sync` 定时任务承担，见 DATA_GUIDE §7）与产物目录；headers 含数据/图片缓存策略，rewrites 含 SPA 路由回退。
-4. 部署后访问 `https://<你的项目>.vercel.app`。
-
-> **数据新鲜度依赖 `data-sync` 定时任务**：部署只构建已提交快照，数据更新由 `.github/workflows/data-sync.yml`
-> 每日 cron 跑 `npm run sync`（探测 → 重建 JSON → 图标补差 → `verify:data` 硬门禁 → 提交）实现，二者经提交锁步。
-> 若生产数据滞旧：先确认该 workflow 最近是否成功 / GitHub Actions 配额；可手动 `npm run sync` 后提交，
-> 或 `npm run data` → `npm run verify:data` → 提交。**生产分支须为 `master`**（仓库默认分支）。
+> 上述需网络访问 `static.nanoka.cc`；有代理时设 `NODE_USE_ENV_PROXY=1`。
 
 ## 数据源
 
-构建期从 **hakushin raw**（`https://static.nanoka.cc`，zzz.nanoka.cc / hakush.in 站底层 CDN）拉取，
-解析层直取 + 规整（v2，2026-08 切换；v1 为 Dimbreath ZenlessData 反混淆管线，已弃用，见 `DATA_GUIDE.md` §9）。
+构建期从 **hakushin raw**（`static.nanoka.cc`，zzz.nanoka.cc / hakush.in 站底层 CDN）拉取**正式服（live）**名录与详情，规整为静态 JSON 提交入仓；运行时前端只读本地 `/data`（零外部请求、零 CORS）。
 
-- `scripts/build/`（入口 `scripts/build-data.ts`）负责：读取 `manifest.json` 取版本（`zzz.live` = 正式服）→ 抓取角色/音擎/邦布/驱动盘名录与中文详情 → 规整（icon 裸名、枚举英文值、皮肤回退）→ 输出到 `public/data/live/`。
-- 产出（`public/data/`，运行时本地 fetch，无 CORS）：
+站点**只展示 live**（不产出源站 latest——含前瞻/测试服内容，合规约定 2026-08 起），版本号从 `manifest.json` 的 `zzz.live` 动态取，**禁止硬编码**。
 
-| 路径 | 说明 |
-| --- | --- |
-| `/data/manifest.json` | 版本/来源元信息（`zzz.live` / `source`） |
-| `/data/live/…` | 正式服名录与详情：`character.json`（58 名）、`zh/character/{id}.json`（数值/技能/影画/档案/皮肤/特殊属性/策略/潜能）、`weapon.json`（95 件）、`zh/weapon/{id}.json`、`bangboo.json`（42 只）、`zh/bangboo/{id}.json`、`equipment.json`（30 套）、`zh/equipment/{id}.json` |
-| `/data/live/noun.json` | 名词表（术语 ID → 中文名，供描述 `<Term:N>` 浮层，`src/data/terms.ts` 消费） |
+- 管线入口 `scripts/build-data.ts` → 模块 `scripts/build/`（`io` / `normalize` / `domains` / `live-target` / `index`）→ 产出 `public/data/live/`
+- 数据契约、字段约定、图标兜底链（本地 → nanoka CDN → 文字占位）见 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §3、§5
 
-**字段约定**：属性 `200物理 201火 202冰 203电 204风 205以太 300流明(Lumiflux)`；职业 `1强攻 2击破 3异常 4支援 5防护 6命破 7锋御(Armorer)`；稀有度 `角色/邦布: 3=A 4=S，音擎: 2=B 3=A 4=S`。技能/影画/档案文本含 `<color=#…>` 等游戏标记，站点已做剥离清洗。
+## 部署（Vercel）
 
-> 数据版本说明：站点**只展示正式服（live）数据**（合规约定 2026-08 起，此前曾有 live/latest 双版本切换，已移除）。
-> live = 游戏在线版本数据（2026-08 为 3.1，与正式服内容对齐）；源站最新 latest（含前瞻/测试服内容）不产出、不展示。
-> 版本号从 `manifest.json` 的 `zzz.live` 动态获取，重跑 `npm run data` 即跟随站点最新正式服数据。
+1. 推送仓库到 GitHub。
+2. 在 [vercel.com/new](https://vercel.com/new) 导入——`vercel.json` 已声明框架、构建命令（`npm run build:ci`：测试 + 字体校验 + 构建）、产物目录及 headers/rewrites，无需额外配置。
+3. 部署后访问 `https://<你的项目>.vercel.app`。
 
-### 图片素材（两级兜底）
-
-按优先级依次尝试，全部失败后显示档案式文字占位（代号首两字）：
-
-1. **本地化图标**：`/data/img/{category}/{basename}.webp`（`npm run download:icons` 落地，构建期拉取）
-2. **static.nanoka.cc** 素材 CDN：`https://static.nanoka.cc/assets/zzz/{basename}.webp`（全品类已实测可用）
-3. 文字占位（`<HollowImage>` 内置）
-
-**素材 CDN 解析（与 zzz.nanoka.cc 同源）**：该站页面数据全部来自 `static.nanoka.cc/zzz/{ver}/{lang}/…` JSON；图片素材另有独立的 `static.nanoka.cc/assets/zzz/` CDN——命名规则为**取游戏资源路径的裸文件名**（如 `UI/Sprite/A1DynamicLoad/IconSuit/UnPacker/SuitWoodpeckerElectro.png` → `SuitWoodpeckerElectro.webp`），角色头像 `IconRole01` 等即直接可用。本项目 `src/data/icons.ts` 完全复刻这套规则。
-
-**可用性现状（2026-08 实测）**：
-- 本地图标（`img/`）：运行时实际消费层，由 `download-icons.mjs` 按 `icon-inventory.mjs` 清单本地化；
-  `npm run verify:icons -- --local` 校验「必须项零缺失」（离线可用，失败非零退出）
-- nanoka 素材 CDN：候选链第二级兜底，`npm run verify:icons` 附带远程审计；源站缺口但本地已兜住时仅告警（如 `IconLumen` 源站已 404、本地现存），两端皆缺才硬失败
-- 技能键位图标：资产名取自描述文本的 `<IconMap:Icon_XXX>` 标记（`Icon_Normal`/`Icon_Evade`/`Icon_SpecialReady`/`Icon_UltimateReady`/`Icon_QTE`/`Icon_Switch` 均 200），
-  已随 `npm run download:icons` 本地化到 `img/skill/`（icons.ts `skillAssetSources`/`skillIconSources` 本地优先 + nanoka CDN 兜底 + 占位），
-  由前端 `icons.ts` + `rich.ts` 渲染——技能组头图标经 `<HollowImage>` 加载（含几何字符兜底），描述内联键位图（`<IconMap>`）直接嵌入富文本
-- honeyhunterworld：已从候选链移除（曾整体返回 Cloudflare 521，仅角色图可用），当前唯一 CDN 兜底为 nanoka
-- 已知提供方缺口：主角「哲/铃」第 3 套皮肤的立绘（`IconRole34_03` / `IconRole33_03`）nanoka 未上传，构建管线已将其回退到默认立绘（`scripts/build/normalize.ts` 的 `SKIN_IMAGE_FALLBACK`），杜绝死链字段
+> **数据新鲜度依赖 `data-sync` 定时任务**：部署的 `build:ci` **只构建已提交快照**、不在构建期重建数据；数据更新由
+> `.github/workflows/data-sync.yml`（每日 cron 跑 `npm run sync`：探测 → 重建 JSON → 图标补差 → **`verify:data` 硬门禁** → 提交）
+> 承担，二者经提交锁步。门禁通过才 commit + push 到默认分支 `master` → 触发部署；不通过则 job 失败、不提交，站点沿用既有快照不挂。
+> 若生产数据滞旧：先确认该 workflow 最近是否成功 / Actions 配额，再手动 `npm run sync` 后提交。**生产分支须为 `master`（仓库默认分支）。**
 
 ## 目录结构
 
 ```
 src/
-  domain/        # 单一事实源：枚举 / 类目元信息 / zod 契约 / 详情区块类型 / dev 页面元数据（devRoutes）
+  domain/        # 单一事实源：枚举 / 类目元信息 / zod 契约 / 详情区块类型 / dev 页面元数据
   data/          # 请求层（api）+ 类别表驱动（resources）+ 类型派生（types）+ 图标候选（icons）
-                 # + 校准数据（featured-pool / heroCalibration / heroGenderVariants / hero-gender-variants.json）
-                 # + 战斗公式图文源（formulaGuide）
-  composables/   # useAsyncResource / useCatalogList / useCatalogSort / useRouteParam / usePageMeta
-                 # / useDetailNavigation / useDetailSections / useFeaturedAgents / useHeroForm / useNavScrollable
+                 # + 校准数据（精选池 / hero） + 战斗公式图文源（formulaGuide）
+  composables/   # 异步状态 / 列表 / 排序 / 路由参数 / 页元信息 / 详情导航 / 精选池 / hero 形态 / 滚动监听
   components/    # layout / list / state / detail 区块 + Rarity / Tags / HollowImage / FormulaEq / TermTip
-  views/         # 页面（薄组装层；含 /formulas 战斗公式、dev-only /style /calibrate）
+  views/         # 页面（薄组装层；含 /formulas，dev-only /style、/calibrate）
+  utils/         # 纯函数：text / rich / names / contrast / cameraRect（无组件、无状态，可单测）
   styles/        # 设计 token + 基样式
   router/        # 懒加载路由 + meta（dev-only 路由由 devRoutes 派生，构建级排除）
 scripts/
-  build/         # 数据管线模块（io / normalize / domains / live-target / index + download-icons.mjs，tsx/node 运行）
-  build-data.ts  # 数据管线入口（npm run data，仅本地/数据-only）
-  sync-data.ts   # 数据+图标同步（唯一写者，npm run sync；由 data-sync workflow 定时触发并提交）
-  verify-data.ts # zod 契约校验（npm run verify:data，可挂 CI）
-  verify-icons.mjs # 图标资源可达性校验
+  build/         # 数据管线模块（io / normalize / domains / live-target / index + download-icons / download-fonts）
+  build-data.ts  # 数据管线入口（npm run data）
+  sync-data.ts   # 数据+图标同步（唯一写者，npm run sync；由 data-sync workflow 触发并提交）
+  verify-data.ts # zod 契约校验（npm run verify:data）
 tests/           # vitest 单元/组件测试
 public/
-  data/          # 生成的静态 JSON（提交入库）
+  data/          # 生成的静态 JSON + 本地化图标（提交入库）
+  fonts/         # 本地化西文字体（运行时零外网）
 ```
 
-> 架构分层、依赖规则与重构路线见 `DESIGN.md`；组件/设计 token 速查见站内 `/style` 设计系统页（**dev-only**，生产构建不打包，`/calibrate` 同理）。
+> 分层与依赖规则、重构路线见 [`DESIGN.md`](./DESIGN.md)；组件/设计 token 速查见站内 `/style` 设计系统页（**dev-only**，生产构建不打包，`/calibrate` 同理）。
 
-> 项目为社区爱好者制作，与米哈游 / HoYoverse 无关；数据版权归原作者（Dimbreath 解包数据 / miHoYo）所有。
+## 版权
+
+社区爱好者制作，与米哈游 / HoYoverse 无关；数据版权归原作者（Dimbreath 解包数据 / miHoYo）所有。
