@@ -136,7 +136,8 @@ export function buildMoveRows(
 
 /* ---------- 技能槽位（角色详情） ---------- */
 
-export const SKILL_ORDER = ['basic', 'dodge', 'special', 'chain', 'ultimate', 'assist', 'core'] as const
+/** 展示顺序（站内约定，非游戏 UI 原序）：闪避挪到支援技之后，招式区以攻击系技能连贯呈现 */
+export const SKILL_ORDER = ['basic', 'special', 'chain', 'ultimate', 'assist', 'dodge', 'core'] as const
 export type SkillSlotKey = (typeof SKILL_ORDER)[number]
 
 

@@ -31,7 +31,7 @@ import {
 describe('sections 常量契约（哨兵）', () => {
   it('SKILL_ORDER 固定七槽，中文徽章与键位字形逐槽齐全', () => {
     expect([...SKILL_ORDER]).toEqual([
-      'basic', 'dodge', 'special', 'chain', 'ultimate', 'assist', 'core',
+      'basic', 'special', 'chain', 'ultimate', 'assist', 'dodge', 'core',
     ])
     for (const k of SKILL_ORDER) {
       expect(SKILL_ZH[k], `SKILL_ZH.${k}`).toBeTruthy()
