@@ -71,7 +71,7 @@ src/
     enums.ts             # 从 types.ts 迁出 ELEMENTS/PROFESSIONS/HIT/RANK_TO_TIER 等
     catalog.ts           # 4 类目唯一元信息（导航/首页/路由共用一份）
     schema.ts            # zod 数据契约（build 与前端共享）
-    sections.ts          # 详情区块行构建（SkillRow/StatItem/SkinRow/潜能合成/出招表/段×指标转置表）
+    sections.ts          # 详情区块行构建（SkillRow/StatItem/SkinRow/潜能合成/段×指标转置表）
     skillFormula.ts      # 技能公式求值引擎（{Skill:}/{CAL:} 解析与等级代入，独立单测）
     filterIcons.ts       # 属性/职业筛选图标键（FilterDropdown 用）
     devRoutes.ts         # dev-only 页面元数据（/style、/calibrate；路由 DEV 分支 + 页脚派生）

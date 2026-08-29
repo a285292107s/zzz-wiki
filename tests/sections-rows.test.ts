@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest'
 import {
-  buildMoveRows,
   buildSkillRows,
   buildSkinRows,
   dictToRows
@@ -32,59 +31,6 @@ describe('dictToRows', () => {
     const rows = dictToRows({ '1': { other: true } })
     expect(rows[0]).toMatchObject({ no: 1 })
     expect(rows[0].name).toBeUndefined()
-  })
-})
-
-describe('buildMoveRows（出招表 skill_list）', () => {
-  it('returns [] for null/undefined', () => {
-    expect(buildMoveRows(null)).toEqual([])
-    expect(buildMoveRows(undefined)).toEqual([])
-  })
-
-  it('sorts by numeric id and maps name/desc', () => {
-    const rows = buildMoveRows({
-      '1201002': {
-        name: '普通攻击：穿云（四、五段）',
-        desc: '<IconMap:Icon_Normal>',
-        element_type: 203,
-        hit_type: 103,
-        potential: [],
-      },
-      '1201001': {
-        name: '普通攻击：穿云（一、二、三段）',
-        desc: '<IconMap:Icon_Normal>',
-        element_type: 200,
-        hit_type: 103,
-        potential: [],
-      },
-    })
-    expect(rows.map((r) => r.id)).toEqual(['1201001', '1201002'])
-    expect(rows[0]).toMatchObject({
-      id: '1201001',
-      name: '普通攻击：穿云（一、二、三段）',
-      desc: '<IconMap:Icon_Normal>',
-    })
-  })
-
-  it('skips entries without name or desc', () => {
-    const rows = buildMoveRows({
-      '1': { name: 'x' },
-      '2': { desc: 'd' },
-      '3': { other: true },
-    })
-    expect(rows).toEqual([])
-  })
-
-  it('keeps potential-gated moves (纯操作参考不因潜能隐藏)', () => {
-    const rows = buildMoveRows({
-      '1021012': {
-        name: '闪避：尾巴失踪术',
-        desc: '<IconMap:Icon_Evade>',
-        potential: [102100],
-      },
-    })
-    expect(rows).toHaveLength(1)
-    expect(rows[0].name).toBe('闪避：尾巴失踪术')
   })
 })
 
