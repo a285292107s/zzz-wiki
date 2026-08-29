@@ -13,6 +13,13 @@ import Rarity from '@/components/Rarity.vue'
 
 usePageMeta()
 
+/**
+ * 不入收藏簿的邦布 ID：伊埃斯（55098）是绳匠专属的 H.D.D. 搭档，
+ * 不是可获取的收藏型号（源站名录即空 icon / 占位 desc 的桩数据），
+ * 故从邦布名录浏览列表隐藏；详情页仍可经直接链接到达。
+ */
+const HIDDEN_BANGBOO_IDS = new Set<number>([55098])
+
 /** 详情路由前缀与名录取数均由 catalog 派生（单一事实源） */
 const cat = catalogEntry('/bangboos')
 const base = cat.path
@@ -20,7 +27,7 @@ const base = cat.path
 const { data, status, error } = useAsyncResource(() => listFor<BangbooListItem>(cat))
 
 const { query, filtered, count } = useCatalogList<BangbooListItem>({
-  items: () => data.value ?? [],
+  items: () => (data.value ?? []).filter((r) => !HIDDEN_BANGBOO_IDS.has(r.Id)),
   syncRoute: true,
   keywords: (row) => [row.codename ?? ''],
 })
