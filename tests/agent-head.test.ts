@@ -20,14 +20,19 @@ function heroImg(w: ReturnType<typeof mount>) {
   return w.find('.hero-bg img')
 }
 
+/** 组件含 RouterLink（专属音擎卡片）：不传 signatureEngine 时不渲染，但需 stub 避免未解析告警 */
+const mountOptions = {
+  global: { stubs: { RouterLink: { template: '<a><slot /></a>' } } },
+}
+
 describe('AgentHead hero 底图（本地优先 + CDN 兜底）', () => {
   it('首选本地化头图（/data/img/hero/Mindscape_{id}_2.webp）', () => {
-    const w = mount(AgentHead, { props: { detail } })
+    const w = mount(AgentHead, { props: { detail }, ...mountOptions })
     expect(heroImg(w).attributes('src')).toBe('/data/img/hero/Mindscape_1011_2.webp')
   })
 
   it('已校准角色（1011）在 img 上注入移动端构图自定义属性（来源 featured-pool.json calibrated）', () => {
-    const w = mount(AgentHead, { props: { detail } })
+    const w = mount(AgentHead, { props: { detail }, ...mountOptions })
     const el = heroImg(w).element as HTMLElement
     expect(el.style.getPropertyValue('--hero-pos')).toBe('44%')
     expect(el.style.getPropertyValue('--hero-zoom')).toBe('1.32')
@@ -35,7 +40,7 @@ describe('AgentHead hero 底图（本地优先 + CDN 兜底）', () => {
   })
 
   it('本地图加载失败时切换到 nanoka CDN 兜底，不破暗', async () => {
-    const w = mount(AgentHead, { props: { detail } })
+    const w = mount(AgentHead, { props: { detail }, ...mountOptions })
     await heroImg(w).trigger('error')
     expect(heroImg(w).attributes('src')).toBe(
       'https://static.nanoka.cc/assets/zzz/Mindscape_1011_2.webp',
@@ -43,14 +48,14 @@ describe('AgentHead hero 底图（本地优先 + CDN 兜底）', () => {
   })
 
   it('两级候选均失败时隐藏底图（降为底色，不渲染 img）', async () => {
-    const w = mount(AgentHead, { props: { detail } })
+    const w = mount(AgentHead, { props: { detail }, ...mountOptions })
     await heroImg(w).trigger('error')
     await heroImg(w).trigger('error')
     expect(heroImg(w).exists()).toBe(false)
   })
 
   it('切换角色（组件复用）时游标重置回本地候选', async () => {
-    const w = mount(AgentHead, { props: { detail } })
+    const w = mount(AgentHead, { props: { detail }, ...mountOptions })
     await heroImg(w).trigger('error')
     expect(heroImg(w).attributes('src')).toContain('static.nanoka.cc')
     await w.setProps({ detail: { ...detail, id: 1021 } })

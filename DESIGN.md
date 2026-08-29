@@ -77,6 +77,7 @@ src/
     devRoutes.ts         # dev-only 页面元数据（/style、/calibrate；路由 DEV 分支 + 页脚派生）
     featuredPool.ts      # 今日角色精选池 zod schema（featured-pool.json 读写共用）
     scrollspy.ts         # 详情页/公式页吸顶导航滚动监听（active 区段判定）
+    signatureEngine.ts   # 代理人 ↔ 专属音擎 互链解析（命名约定 + 覆盖表，纯函数可单测）
   data/
     api.ts               # 瘦身：请求层（timeout/错误归一化/baseUrl/lang）
     resources.ts         # 新增：类别驱动表，消除 4 组 list/detail 重复
@@ -168,6 +169,7 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 | StatLevelPanel | 属性等级滑条面板（1–60、突破刻度） | 角色详情等级展示 |
 | TermTip | 术语悬停浮层（读本地 noun.json） | 富文本术语锚点交互 |
 | NameCell | 名录名单元格（四语名/阵营） | 4 张表格的名列 |
+| SignatureRef | 边缘注记式交叉引用（代理人 ↔ 专属音擎 互链），footnote 风格无卡盒；`thumb` 按素材原始高宽比定盒 | 代理人 hero / 音擎 head 的归属引用 |
 | FormulaEq | 战斗公式条目排版（/formulas 页） | 公式图文统一渲染 |
 
 ### 6.3 视图瘦身目标（验收指标）

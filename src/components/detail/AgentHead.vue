@@ -2,16 +2,23 @@
 import { computed } from 'vue'
 import { HIT_TYPES } from '@/domain/enums'
 import type { AttrCode, HitCode, SpecCode } from '@/domain/enums'
-import type { CharacterDetail } from '@/data/types'
+import { catalogEntry } from '@/domain/catalog'
+import type { CharacterDetail, WEngineListItem } from '@/data/types'
+import { iconSources } from '@/data/icons'
+import { pickName } from '@/utils/names'
 import { heroVariantFile } from '@/data/heroGenderVariants'
 import { getHeroCalibration, type HeroCalibration } from '@/data/heroCalibration'
 import { useHeroForm } from '@/composables/useHeroForm'
 import HollowImage from '@/components/HollowImage.vue'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
+import SignatureRef from '@/components/detail/SignatureRef.vue'
 
 const props = defineProps<{
   detail: CharacterDetail
+  /** 专属音擎（签名 W-Engine）：由上级（AgentDetailView）经武器名录解析后传入。
+   *  缺失时 hero 不展示专属音擎卡片（可能非法条目 / 名录未覆盖）。 */
+  signatureEngine?: WEngineListItem | null
 }>()
 
 const attrCode = computed<AttrCode | null>(() => {
@@ -39,6 +46,19 @@ const hitZh = computed<string | null>(() => {
 })
 
 const codeName = computed(() => props.detail.code_name?.toUpperCase() ?? '')
+
+/** 专属音擎：名录条目（含 Id / icon / 四语名）。命名约定 + 覆盖表见 domain/signatureEngine.ts */
+const signature = computed(() => props.signatureEngine ?? null)
+/** 专属音擎详情页路由：`/w-engines/{Id}`（路径由 catalog 派生，单一事实源） */
+const signatureTo = computed(() =>
+  signature.value ? `${catalogEntry('/w-engines').path}/${signature.value.Id}` : '',
+)
+/** 专属音擎图标候选链（本地化 + nanoka CDN 两级兜底） */
+const signatureIconSrcs = computed(() =>
+  signature.value ? iconSources(signature.value, 'weapon') : [],
+)
+/** 专属音擎展示名（zh → en → … 回退） */
+const signatureName = computed(() => (signature.value ? pickName(signature.value) : ''))
 
 /** 本地 hero 头图根（download:icons 落地 public/data/img/hero） */
 const LOCAL_HERO = `${import.meta.env.BASE_URL ?? '/'}data/img/hero`
@@ -128,6 +148,17 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
           <Tags :element="attrCode" :element-label="specialElementName" :specialty="specCode" />
           <span v-if="hitZh" class="tag mono">{{ hitZh }}</span>
         </div>
+
+        <!-- 专属音擎（签名 W-Engine）· 边缘注记式交叉引用：点击跳转对应音擎详情页。
+             复用共享组件 SignatureRef 的 marginalia 语言（与 W-Engine head 反向引用同一套）。 -->
+        <SignatureRef
+          v-if="signature"
+          :to="signatureTo"
+          label="专属音擎"
+          :name="signatureName"
+          :icon-srcs="signatureIconSrcs"
+          :aria-label="`专属音擎：${signatureName}，前往音擎详情`"
+        />
       </div>
     </div>
   </header>

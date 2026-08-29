@@ -31,6 +31,11 @@ function heroImg(w: ReturnType<typeof mount>) {
   return w.find('.hero-bg img')
 }
 
+/** 组件含 RouterLink（专属音擎卡片）：此用例不传 signatureEngine，但需 stub 避免未解析告警 */
+const mountOptions = {
+  global: { stubs: { RouterLink: { template: '<a><slot /></a>' } } },
+}
+
 describe('AgentHead 双形态切换钮（首页 hero 头图已移除，切换钮移至详情页）', () => {
   beforeEach(() => {
     localStorage.clear()
@@ -38,7 +43,7 @@ describe('AgentHead 双形态切换钮（首页 hero 头图已移除，切换钮
 
   it('双形态角色（1551 佩洛伊斯）显示形态切换钮，点击后切换 hero 头图并持久化', async () => {
     const AgentHead = await freshAgentHead()
-    const w = mount(AgentHead, { props: { detail: dualDetail } })
+    const w = mount(AgentHead, { props: { detail: dualDetail }, ...mountOptions })
     // 默认女性形态
     expect(w.find('.form-toggle').exists()).toBe(true)
     expect(heroImg(w).attributes('src')).toBe('/data/img/hero/Mindscape_1551_Female_2.webp')
@@ -50,7 +55,7 @@ describe('AgentHead 双形态切换钮（首页 hero 头图已移除，切换钮
 
   it('非双形态角色不显示形态切换钮', async () => {
     const AgentHead = await freshAgentHead()
-    const w = mount(AgentHead, { props: { detail: singleDetail } })
+    const w = mount(AgentHead, { props: { detail: singleDetail }, ...mountOptions })
     expect(w.find('.form-toggle').exists()).toBe(false)
   })
 })

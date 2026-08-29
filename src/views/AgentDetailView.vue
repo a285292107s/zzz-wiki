@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed, ref, type Ref } from 'vue'
-import { detailFor } from '@/data/resources'
+import { detailFor, listFor } from '@/data/resources'
 import { iconSources, skillIconSources, type SkillSlot } from '@/data/icons'
+import { signatureEngineFor } from '@/domain/signatureEngine'
 import { stripRichText } from '@/utils/text'
 import { useRouteParam } from '@/composables/useRouteParam'
 import { useAsyncResource } from '@/composables/useAsyncResource'
@@ -39,7 +40,7 @@ interface SkillDisplay extends SkillRow {
   /** 等级源：连携技/终结技共享同一槽位等级（== 游戏内链技/终结技共用一份升级），其余各自独立 */
   level: Ref<number>
 }
-import type { CharacterDetail } from '@/data/types'
+import type { CharacterDetail, WEngineListItem } from '@/data/types'
 import { AgentHead, CoreSkillGroup, DescRow, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel } from '@/components'
 import HollowImage from '@/components/HollowImage.vue'
 
@@ -47,6 +48,15 @@ const id = useRouteParam('id')
 const { data: detail, status, error } = useAsyncResource(() => detailFor<CharacterDetail>(catalogEntry('/agents'), id.value))
 
 usePageMeta(() => detail.value?.name ?? undefined)
+
+/** 武器名录：用于解析当前代理人的专属音擎（domain/signatureEngine 命名约定 + 覆盖表）。
+ *  作为独立资源加载，避免阻塞角色详情主链路。 */
+const { data: weapons } = useAsyncResource(() => listFor<WEngineListItem>(catalogEntry('/w-engines')))
+
+/** 专属音擎（签名 W-Engine）名录条目；名录未加载/未覆盖时为空（hero 静默不展示） */
+const signatureEngine = computed(() =>
+  signatureEngineFor(detail.value?.id, weapons.value ?? []),
+)
 
 /* ---------- 基础属性：等级滑条 ---------- */
 
@@ -205,7 +215,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
   >
     <template v-if="detail">
       <!-- 封面锚点：00 导航直达；scrollspy 亦观察此 id（滚动回顶时高亮 00） -->
-      <AgentHead id="head" :detail="detail" />
+      <AgentHead id="head" :detail="detail" :signature-engine="signatureEngine" />
 
       <DetailSection v-if="dossier.length" v-reveal id="dossier" :no="noOf('dossier') ?? '01'" title="档案详情" en="Dossier">
         <dl class="dossier mono">
@@ -260,7 +270,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
         v-if="coreSkill"
         v-reveal
         id="core"
-        :no="noOf('core') ?? '04'"
+        :no="noOf('core')"
         title="核心技"
         en="Core"
       >
@@ -290,7 +300,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
         v-if="potentialCinema.length"
         v-reveal
         id="potential"
-        :no="noOf('potential') ?? '06'"
+        :no="noOf('potential')"
         title="潜能影像"
         en="Potential"
       >
@@ -332,7 +342,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
         v-if="hasImpressions"
         v-reveal
         id="impressions"
-        :no="noOf('impressions') ?? '08'"
+        :no="noOf('impressions')"
         title="绳网印象"
         en="Inter-Knot"
       >

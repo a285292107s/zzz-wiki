@@ -27,6 +27,10 @@ defineProps<{
       <div class="sub">
         <slot name="sub" />
       </div>
+      <!-- 脚注区：边缘注记式交叉引用（如 音擎 → 归属代理人）。可选，未投递则不渲染 -->
+      <div v-if="$slots.footnote" class="footnote">
+        <slot name="footnote" />
+      </div>
     </div>
 
     <div class="portrait">
@@ -58,6 +62,10 @@ defineProps<{
 }
 .sub {
   margin-top: 14px;
+}
+/* 脚注区（如 音擎→归属代理人 的交叉引用）：无额外间距干涉，由脚注自身 hairline 分隔 */
+.footnote {
+  margin-top: 0;
 }
 .portrait {
   flex: none;

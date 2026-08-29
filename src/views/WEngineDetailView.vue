@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { detailFor } from '@/data/resources'
+import { detailFor, listFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
+import { ownerAgentForEngine } from '@/domain/signatureEngine'
 import { richDesc } from '@/utils/rich'
 import { stripRichText } from '@/utils/text'
 import { useRouteParam } from '@/composables/useRouteParam'
@@ -20,8 +21,9 @@ import {
   type StatItem,
 } from '@/domain/sections'
 import { PROFESSIONS, type SpecCode } from '@/data/types'
-import type { WEngineDetail } from '@/data/types'
-import { DescRow, DetailHead, DetailPage, DetailSection, KeyValueGrid, LevelSlider, StatLevelPanel } from '@/components'
+import type { CharacterListItem, WEngineDetail } from '@/data/types'
+import { pickName } from '@/utils/names'
+import { DescRow, DetailHead, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SignatureRef, StatLevelPanel } from '@/components'
 import Rarity from '@/components/Rarity.vue'
 import Tags from '@/components/Tags.vue'
 
@@ -29,6 +31,15 @@ const id = useRouteParam('id')
 const { data: detail, status, error } = useAsyncResource(() => detailFor<WEngineDetail>(catalogEntry('/w-engines'), id.value))
 
 usePageMeta(() => detail.value?.name ?? undefined)
+
+/** 代理人名录：用于反查归属该音擎的代理人（domain/signatureEngine 命名约定 + 覆盖表转置）。
+ *  作为独立资源，避免阻塞音擎详情主链路。 */
+const { data: agents } = useAsyncResource(() => listFor<CharacterListItem>(catalogEntry('/agents')))
+
+/** 归属代理人（音擎拥有者）名录条目；名录未加载/未覆盖（如公共池通用音擎）时为空，head 静默不展示 */
+const ownerAgent = computed(() =>
+  ownerAgentForEngine(detail.value?.id, detail.value?.code_name, agents.value ?? []),
+)
 
 const specCode = computed<SpecCode | null>(() => {
   const wd = detail.value?.weapon_type
@@ -74,6 +85,19 @@ const bodyText = computed<string>(() => {
 const portraitSrcs = computed(() =>
   iconSources({ Id: detail.value?.id, icon: detail.value?.icon }, 'weapon'),
 )
+
+/* ---------- 归属代理人（反向交叉引用） ---------- */
+
+/** 归属代理人详情页路由：`/agents/{Id}`（路径由 catalog 派生，单一事实源） */
+const ownerTo = computed(() =>
+  ownerAgent.value ? `${catalogEntry('/agents').path}/${ownerAgent.value.Id}` : '',
+)
+/** 归属代理人头像候选链（本地化 + nanoka CDN 两级兜底） */
+const ownerIconSrcs = computed(() =>
+  ownerAgent.value ? iconSources(ownerAgent.value, 'character') : [],
+)
+/** 归属代理人展示名（zh → en → … 回退） */
+const ownerName = computed(() => (ownerAgent.value ? pickName(ownerAgent.value) : ''))
 
 /* ---------- 区块导航（条件区块）+ scrollspy + reveal ---------- */
 
@@ -121,6 +145,18 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
         <template #sub>
           <p v-if="detail?.desc3" class="tagline">{{ detail.desc3 }}</p>
           <p v-if="detail?.desc2" class="sub-info">{{ detail.desc2 }}</p>
+        </template>
+        <template #footnote>
+          <!-- 归属代理人：边缘注记式反向交叉引用，点击跳转对应代理人详情页（marginalia 语言与 AgentHead 同一套） -->
+          <SignatureRef
+            v-if="ownerAgent"
+            :to="ownerTo"
+            label="归属代理人"
+            :name="ownerName"
+            :icon-srcs="ownerIconSrcs"
+            thumb="banner"
+            :aria-label="`归属代理人：${ownerName}，前往代理人详情`"
+          />
         </template>
       </DetailHead>
 
