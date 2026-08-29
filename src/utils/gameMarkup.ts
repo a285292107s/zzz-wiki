@@ -5,7 +5,7 @@
  * 各写一套正则，语法规则双份维护必然漂移。现统一：两个消费端都从
  * 本模块的 tokenizeGameText() 取同一条词法流，只保留各自的「策略」：
  *   - richDesc（渲染）：COLOR(hex)→彩色 span、ICONMAP→键位小图标、
- *     TERM→术语锚点、CAL(level)→等级代入数值
+ *     TERM→术语锚点、CAL(level)→等级代入数值、图标紧邻指令短语→.rich-keyop 高亮框
  *   - stripRichText（剥离）：全部还原为纯文本（换行保留；{Skill}/{CAL}
  *     维持锁定现状原样透传，见各端注释）
  * 词法（与数据实测形态一致）：

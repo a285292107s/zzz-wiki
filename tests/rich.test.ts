@@ -81,4 +81,68 @@ describe('richDesc', () => {
     expect(out).not.toContain('{CAL')
     expect(out).toContain('伤害提升')
   })
+
+  // —— 操作指令短语（rich-keyop）：动词 + 键位图标 [+ 发动] 打包高亮 ——
+
+  it('boxes verb + key icon + trailing 发动 as one keyop phrase', () => {
+    const out = richDesc('点按 <IconMap:Icon_Normal> 发动：对前方敌人发动至多五段攻击')
+    expect(out).toMatch(/<span class="rich-keyop">点按 <img class="rich-key"[^>]*> 发动<\/span>：/)
+  })
+
+  it('closes the keyop box after the icon when 发动 is absent', () => {
+    const out = richDesc('长按 <IconMap:Icon_Normal> 消耗40点[呼噜能量]')
+    expect(out).toMatch(/<span class="rich-keyop">长按 <img class="rich-key"[^>]*><\/span> 消耗40点/)
+  })
+
+  it('boxes combined verb forms and leaves the preceding clause outside', () => {
+    const out = richDesc('触发招架支援后点按或长按 <IconMap:Icon_Switch> 发动：')
+    expect(out).toMatch(/后<span class="rich-keyop">点按或长按 <img[^>]*> 发动<\/span>：/)
+  })
+
+  it('boxes 保持-prefixed verbs mid-sentence', () => {
+    const out = richDesc('招式发动时保持长按 <IconMap:Icon_Normal> 取消后摇')
+    expect(out).toMatch(/时<span class="rich-keyop">保持长按 <img[^>]*><\/span> 取消后摇/)
+  })
+
+  it('does not box icons without a leading input verb', () => {
+    expect(richDesc('<IconMap:Icon_GeneralBuff_PhysDmg>物理属性伤害提升')).not.toContain(
+      'rich-keyop',
+    )
+  })
+
+  it('boxes 或-connected icon sequences as one phrase with trailing 发动', () => {
+    const out = richDesc('点按 <IconMap:Icon_Normal> 或 <IconMap:Icon_Special> 发动')
+    expect(out).toMatch(/<span class="rich-keyop">点按 <img[^>]*> 或 <img[^>]*> 发动<\/span>$/)
+  })
+
+  it('boxes multi-icon input sequences (般岳 快速键入指令)', () => {
+    const out = richDesc(
+      '时，快速键入指令 <IconMap:Icon_Normal> <IconMap:Icon_Special> <IconMap:Icon_Normal> 发动：',
+    )
+    expect(out).toMatch(
+      /，<span class="rich-keyop">快速键入指令 <img[^>]*> <img[^>]*> <img[^>]*> 发动<\/span>：/,
+    )
+  })
+
+  it('closes the box before a non-connector 或 phrase', () => {
+    const out = richDesc('点按 <IconMap:Icon_Normal> 或长按敌人')
+    expect(out).toMatch(/<span class="rich-keyop">点按 <img[^>]*><\/span> 或长按敌人/)
+  })
+
+  it('closes a multi-icon sequence after the last icon when 发动 is absent', () => {
+    const out = richDesc('点按 <IconMap:Icon_Normal> 或 <IconMap:Icon_Special> 会消耗生命值')
+    expect(out).toMatch(
+      /<span class="rich-keyop">点按 <img[^>]*> 或 <img[^>]*><\/span> 会消耗生命值/,
+    )
+  })
+
+  it('keeps the keyop box inside a color span without breaking nesting', () => {
+    const out = richDesc('<color=#FFFFFF>后，点按 <IconMap:Icon_Normal> 发动</color>：')
+    expect(out).toBe(
+      '<span style="color:#FFFFFF">后，<span class="rich-keyop">点按 ' +
+        '<img class="rich-key" src="/data/img/skill/Icon_Normal.webp" alt="" loading="lazy" ' +
+        'decoding="async" data-cdn="https://static.nanoka.cc/assets/zzz/Icon_Normal.webp">' +
+        ' 发动</span></span>：',
+    )
+  })
 })

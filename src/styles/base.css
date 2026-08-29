@@ -115,6 +115,17 @@ a.rich-term:hover {
   color: var(--amber);
 }
 
+/* 富文本操作指令短语（rich.ts 生成）：「点按/长按 <键位图标…可连按成序列> [发动]」
+   整体细线框标注，字染琥珀提亮——1px 细线、2px 圆角、无投影，与键位图标/术语锚点
+   同层的标本语言。inline-block：框随内容定宽（含 1.15em 图标），短语整体不跨行拆散 */
+.rich-keyop {
+  display: inline-block;
+  color: var(--amber);
+  border: 1px solid color-mix(in srgb, var(--amber) 35%, transparent);
+  border-radius: 2px;
+  padding: 0 6px;
+}
+
 /* Eyebrow label: tiny, tracked, uppercase-ish */
 .eyebrow {
   font-family: var(--mono);
