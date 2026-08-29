@@ -5,6 +5,40 @@
    hairline rules, tabular data numerals. No gradients, no glow.
    ============================================================ */
 
+/* ---------- 自托管西文字体（Tier 1）----------
+   由 scripts/build/download-fonts.mjs 从 Google Fonts 拉取 latin 子集 →
+   public/fonts/（运行时零外部请求，本地服务）。font-display: swap 避免 FOIT。
+   载入失败自动回退到下方系统字体栈，不破版。
+   新增字族只改 font-inventory.mjs + 此处 @font-face 即可。 */
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Public Sans';
+  src: url('/fonts/PublicSans-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Public Sans';
+  src: url('/fonts/PublicSans-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* surfaces */
   --bg-0: #0d0f11;          /* page ground */
@@ -53,9 +87,13 @@
   --rank-b: #7dae7a;           /* 稀有度 B — 绿 */
 
   /* type */
-  --serif: "Iowan Old Style", "Source Serif 4", "Noto Serif SC",
-    "Songti SC", "STSong", "SimSun", Georgia, serif;
-  --sans: "Inter", "HarmonyOS Sans SC", "MiSans", "PingFang SC",
+  /* 中文本站：CJK 衬线（宋/明朝体）先行——mac=Songti、win=SimSun、装了 Noto Serif SC 则用最高质；
+     拉丁衬线（Source Serif 4/Georgia）作西文回退，服务少数西文显示字。 */
+  --serif: "Noto Serif SC", "Songti SC", "STSong", "SimSun",
+    "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  /* 西文 sans 不再以 Inter（"AI 默认脸"）打头，改从具档案记录气质的 Public Sans 起，逐级落到
+     常见 CJK 无衬线与 system-ui；本机无这些字体时仍回退 system-ui，不破版。 */
+  --sans: "Public Sans", "HarmonyOS Sans SC", "MiSans", "PingFang SC",
     "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
   --mono: "JetBrains Mono", "SFMono-Regular", "Cascadia Code",
     Consolas, "Roboto Mono", monospace;
@@ -85,8 +123,11 @@
   --space-group: clamp(26px, 3vw, 42px);          /* 同一区块内子组之间的间距（如技能组） */
   --space-section: calc(var(--pad-section) * 0.72); /* 详情页区块与区块之间的间距 */
 
-  /* 浮层阴影：唯一来源，仅用于脱离文档层的浮层（术语浮层 / 下拉面板），克制 · 无立体感 */
-  --shadow-pop: 0 10px 28px rgba(0, 0, 0, 0.40);
+  /* 浮层阴影：唯一来源，仅用于脱离文档层的浮层（术语浮层 / 下拉面板），克制 · 无立体感。
+     以页面底色染墨（非纯黑），深底上更柔和，更贴近档案纸面；不提供纯黑投影（无立体感）。 */
+  --shadow-pop:
+    0 10px 28px color-mix(in srgb, var(--bg-0) 55%, transparent),
+    0 2px 8px color-mix(in srgb, var(--bg-0) 40%, transparent);
 
   /* motion */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);

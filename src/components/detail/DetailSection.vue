@@ -13,7 +13,8 @@ defineProps<{
   <!-- aria-labelledby：区块 landmark 与标题显式关联（id 缺失时跳过） -->
   <section class="block" :id="id" :aria-labelledby="id ? 'h-' + id : undefined">
     <div class="section-head">
-      <span class="no mono">{{ no }}</span>
+      <!-- no 为空时（区块被渲染但未登记进 navItems 的异常态）不渲染编号，避免留 16px 空档 -->
+      <span v-if="no" class="no mono">{{ no }}</span>
       <h2 :id="id ? 'h-' + id : undefined">{{ title }}</h2>
       <span class="rule" />
       <span v-if="en" class="en mono">{{ en }}</span>

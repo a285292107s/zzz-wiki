@@ -217,7 +217,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
       <!-- 封面锚点：00 导航直达；scrollspy 亦观察此 id（滚动回顶时高亮 00） -->
       <AgentHead id="head" :detail="detail" :signature-engine="signatureEngine" />
 
-      <DetailSection v-if="dossier.length" v-reveal id="dossier" :no="noOf('dossier') ?? '01'" title="档案详情" en="Dossier">
+      <DetailSection v-if="dossier.length" v-reveal id="dossier" :no="noOf('dossier')" title="档案详情" en="Dossier">
         <dl class="dossier mono">
           <div v-for="d in dossier" :key="d.k" class="d-item">
             <dt>{{ d.k }}</dt>
@@ -226,11 +226,11 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
         </dl>
       </DetailSection>
 
-      <DetailSection v-if="profile" v-reveal id="profile" :no="noOf('profile') ?? '02'" title="角色介绍" en="Profile">
+      <DetailSection v-if="profile" v-reveal id="profile" :no="noOf('profile')" title="角色介绍" en="Profile">
         <p class="profile-desc">{{ profile }}</p>
       </DetailSection>
 
-      <DetailSection id="stats" :no="noOf('stats') ?? '02'" title="基础属性" en="Vitals">
+      <DetailSection id="stats" :no="noOf('stats')" title="基础属性" en="Vitals">
         <StatLevelPanel
           :lv-label="`Lv.${charLevel}`"
           :meta="breakCount == null ? undefined : breakCount === 0 ? '未突破' : `突破 ${breakCount} 阶`"
@@ -248,7 +248,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
         <KeyValueGrid :items="stats" variant="ledger" />
       </DetailSection>
 
-      <DetailSection v-if="skills.length" v-reveal id="skills" :no="noOf('skills') ?? '03'" title="技能招式" en="Skills">
+      <DetailSection v-if="skills.length" v-reveal id="skills" :no="noOf('skills')" title="技能招式" en="Skills">
         <!-- 锚点 id 直接挂在 SkillGroup 根上（Vue 属性继承）：技能组必须互为兄弟，
              组件内的 .skill-group + .skill-group 分隔规则才生效（勿再套包裹层） -->
         <SkillGroup
@@ -282,7 +282,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
         />
       </DetailSection>
 
-      <DetailSection v-if="talents.length" v-reveal id="talents" :no="noOf('talents') ?? '05'" title="影画" en="Mindscape">
+      <DetailSection v-if="talents.length" v-reveal id="talents" :no="noOf('talents')" title="影画" en="Mindscape">
         <ul class="talents-list">
           <DescRow
             v-for="t in talents"
@@ -316,7 +316,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
         </ul>
       </DetailSection>
 
-      <DetailSection v-if="skinList.length" v-reveal id="skins" :no="noOf('skins') ?? '07'" title="皮肤" en="Outfits">
+      <DetailSection v-if="skinList.length" v-reveal id="skins" :no="noOf('skins')" title="皮肤" en="Outfits">
         <ul class="skin-list">
           <li v-for="(s, i) in skinList" :key="s.id" class="skin">
             <!-- figcaption 必须是 figure 的子元素（HTML 规范）；两栏栅格设在 figure 上 -->

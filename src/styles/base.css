@@ -430,7 +430,7 @@ a.rich-term:hover {
 }
 
 .sn-child::before {
-  content: '—';
+  content: '·';
   flex: none;
   color: var(--ink-2);
 }

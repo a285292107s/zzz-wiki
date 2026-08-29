@@ -59,11 +59,11 @@ const backTo = computed(() => (detail.value ? undefined : '/disks'))
         </template>
       </DetailHead>
 
-      <DetailSection id="set2" :no="noOf('set2') ?? '01'" title="2 件套" en="Set II">
+      <DetailSection id="set2" :no="noOf('set2')" title="2 件套" en="Set II">
         <p class="effect" v-html="richDesc(detail.desc2)" />
       </DetailSection>
 
-      <DetailSection v-reveal id="set4" :no="noOf('set4') ?? '01'" title="4 件套" en="Set IV">
+      <DetailSection v-reveal id="set4" :no="noOf('set4')" title="4 件套" en="Set IV">
         <p class="effect" v-html="richDesc(detail.desc4)" />
       </DetailSection>
     </template>

@@ -127,7 +127,7 @@ const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
         </template>
       </DetailHead>
 
-      <DetailSection id="stats" :no="noOf('stats') ?? '01'" title="基础属性" en="Vitals">
+      <DetailSection id="stats" :no="noOf('stats')" title="基础属性" en="Vitals">
         <StatLevelPanel
           :lv-label="`Lv.${bLevel}`"
           :meta="breakCount === 0 ? '未突破' : `突破 ${breakCount} 阶`"
@@ -145,7 +145,7 @@ const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
         <KeyValueGrid :items="stats" variant="ledger" />
       </DetailSection>
 
-      <DetailSection v-if="skillRows.length" v-reveal id="skills" :no="noOf('skills') ?? '01'" title="技能" en="Skills">
+      <DetailSection v-if="skillRows.length" v-reveal id="skills" :no="noOf('skills')" title="技能" en="Skills">
         <SkillGroup
           v-for="sk in skillRows"
           :key="sk.keyed"

@@ -6,12 +6,14 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "build:ci": "npm test && tsx scripts/ci-data.ts && npm run build",
+    "build:ci": "npm test && node scripts/verify-fonts.mjs && tsx scripts/ci-data.ts && npm run build",
     "preview": "vite preview",
     "data": "tsx scripts/build-data.ts",
     "download:icons": "node scripts/build/download-icons.mjs",
     "verify:icons": "node scripts/verify-icons.mjs",
     "verify:data": "tsx scripts/verify-data.ts",
+    "download:fonts": "node scripts/build/download-fonts.mjs",
+    "verify:fonts": "node scripts/verify-fonts.mjs",
     "test": "vitest run",
     "test:watch": "vitest"
   },

@@ -129,6 +129,11 @@ const rhythm = readTokens([
   ['--t-med', '常规动效'],
 ])
 
+/* 浮层阴影：唯一来源（--shadow-pop），仅供脱离文档层的浮层；以页面底色染墨（非纯黑），克制无立体感 */
+const shadowPop = readTokens([
+  ['--shadow-pop', '浮层阴影（术语浮层 / 下拉面板）'],
+])[0]
+
 /* ---------- 色彩对比度徽标 ---------- */
 
 function crText(t: Graded): string {
@@ -218,6 +223,14 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
         </div>
       </div>
       <p class="scale-note">
+        字体族策略：标题走 <code>--serif</code>——CJK 衬线（宋/明体系）先行
+        （<code>Noto Serif SC → Songti SC → STSong → SimSun</code>，mac=宋体、win=宋体，印刷档案纸面语汇），
+        西文衬线（<code>Source Serif 4 / Georgia</code>）仅作少数西文回退；正文/数据走 <code>--sans</code>——
+        以 <code>Public Sans</code> 打头（弃开会生成"AI 默认脸"的 <code>Inter</code>），逐级落到常用
+        CJK 无衬线与 <code>system-ui</code>，本机无这些字体也不破版；等宽 <code>--mono</code>
+        （<code>JetBrains Mono</code>）专司编号/数值/标签。
+      </p>
+      <p class="scale-note">
         字号一律取自 <code>--fs-*</code> 排版阶梯，组件禁止写裸 px；相邻档位语义不可混用。
       </p>
       <div class="type-scale">
@@ -238,14 +251,31 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
       </ul>
     </DetailSection>
 
-    <DetailSection no="03" title="检索与筛选">
+    <DetailSection no="03" title="浮层与阴影">
+      <div class="shadow-stage">
+        <div class="shadow-demo">
+          <b>浮层示例</b>
+          <span>术语浮层 / 下拉面板</span>
+        </div>
+        <div class="shadow-token mono">
+          <b>{{ shadowPop.name }}</b> = {{ shadowPop.value }}
+        </div>
+      </div>
+      <p class="scale-note">
+        全站唯一阴影 <code>--shadow-pop</code>，仅供脱离文档层的浮层（术语浮层 / 下拉面板），
+        禁止撒在卡片与区块上。以页面底色 <code>--bg-0</code> 染墨（非纯黑），深底上更柔和、更贴近档案纸面；
+        刻意不提供纯黑投影，与「档案标本 · 无立体感」一致。
+      </p>
+    </DetailSection>
+
+    <DetailSection no="04" title="检索与筛选">
       <div class="demo-col">
         <SearchField v-model="query" :count="4" placeholder="检索示例…" />
         <FilterDropdown v-model:attr="attr" v-model:prof="prof" />
       </div>
     </DetailSection>
 
-    <DetailSection no="04" title="表格（CatalogTable 列配置驱动）">
+    <DetailSection no="05" title="表格（CatalogTable 列配置驱动）">
       <CatalogTable :columns="sampleColumns" :items="sampleRows">
         <template #cell-name="{ row }">
           <RouterLink :to="row.path" class="name-link">{{ row.name }}</RouterLink>
@@ -253,7 +283,7 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
       </CatalogTable>
     </DetailSection>
 
-    <DetailSection no="05" title="详情行与数值网格">
+    <DetailSection no="06" title="详情行与数值网格">
       <DescRow
         no="01"
         title="普通攻击"
@@ -270,7 +300,7 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
       />
     </DetailSection>
 
-    <DetailSection no="06" title="徽记与占位">
+    <DetailSection no="07" title="徽记与占位">
       <div class="inline-row">
         <Rarity :rank="4" />
         <Rarity :rank="3" />
@@ -282,7 +312,7 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
       </div>
     </DetailSection>
 
-    <DetailSection no="07" title="命名规范">
+    <DetailSection no="08" title="命名规范">
       <ul class="norms">
         <li>组件：PascalCase 单文件（<code>SearchField.vue</code>），职责单一、纯 props/emits。</li>
         <li>组合函数：<code>useXxx</code>（异步状态机 / 列表筛选 / 路由参数 / 页面元信息）。</li>
@@ -427,6 +457,52 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
 
 .rhythm b {
   color: var(--ink-1);
+}
+
+/* ---------- 浮层与阴影陈列 ----------
+   深底染墨阴影的实况：浮层盒压在抬升面板上，仅以 --shadow-pop 提供层次，无纯黑投影。 */
+.shadow-stage {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+  border: var(--rule);
+  background: var(--bg-1);
+}
+
+.shadow-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 320px;
+  padding: 14px 18px;
+  background: var(--bg-2);
+  border: 1px solid var(--line-1);
+  border-radius: 2px;
+  box-shadow: var(--shadow-pop);
+  color: var(--ink-0);
+}
+
+.shadow-demo b {
+  font-weight: 500;
+}
+
+.shadow-demo span {
+  font-size: var(--fs-caption);
+  letter-spacing: 0.1em;
+  color: var(--ink-2);
+}
+
+.shadow-token {
+  font-size: var(--fs-micro);
+  color: var(--ink-2);
+  line-height: 1.6;
+}
+
+.shadow-token b {
+  color: var(--ink-1);
+  font-weight: 500;
 }
 
 .demo-col {

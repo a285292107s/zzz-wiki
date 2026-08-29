@@ -213,17 +213,20 @@ public/data/
 ## 7. 运维命令
 
 改动数据管线的建议顺序：`npm run data` → `npm run verify:data` →（可选）`npm run download:icons`
-→ `npm test` → `npm run build`（→ 可选 `npm run verify:icons`）。各命令如下：
+→ `npm test` → `npm run build`（→ 可选 `npm run verify:icons`）。改动视觉层字体时另见
+`npm run download:fonts` / `npm run verify:fonts`（§10 字体组）。各命令如下：
 
 ```bash
 npm install             # 依赖（首次或变更后）
 npm run data            # 拉取 hakushin raw（live = 正式服单版本）→ 规整 → 生成 public/data/live/ + manifest（需外网）
                         #   有代理时：set NODE_USE_ENV_PROXY=1
 npm run data -- --check # 仅版本探测：输出 UPDATE_AVAILABLE / UP_TO_DATE，不构建（CI/定时哨兵）
-npm run build:ci        # Vercel 部署构建入口：npm test → ci-data（版本探测→有更新则构建→失败回退既有数据
+npm run build:ci        # Vercel 部署构建入口：npm test → verify:fonts（缺字体文件非零退出）→ ci-data（版本探测→有更新则构建→失败回退既有数据
                         #   →verify:data 契约校验仅告警）→ npm run build；源站不可达时沿用旧数据，绝不让站点因数据源故障而挂
 npm run verify:icons    # 图标校准：本地 img 差集（核心）+ nanoka 远程审计；缺失非零退出
                         #   --local 仅查本地（离线可用）；网络异常按"无法确认"以码 2 退出
+npm run download:fonts  # 西文字体本地化：Google Fonts css2 → public/fonts/*.woff2（自托管、运行时零外网）；幂等；网络失败仅告警
+npm run verify:fonts    # 字体存在性校验：download:fonts 声明的每个文件在 public/fonts/ 存在且非空（离线可用；build:ci 已挂）
 npm run dev             # 开发 http://localhost:5173（占用自动换端口）
 npm run build           # vue-tsc 类型检查 + vite 构建
 npm run preview         # 预演产物
@@ -272,4 +275,8 @@ v1 主源，v2 已弃用（数据更新滞后：缺 1611/1621、职业 7；键�
 ## 10. 视觉语言速记（改 UI 时遵循）
 
 "档案标本"质感：1px 细线框、2px 圆角、等宽编号、纸墨配色。列表/首页图标用 34–40px 细线框小图；
-**禁止圆角卡片堆叠、渐变霓虹、投影**。图标统一走 `HollowImage`（含兜底），skills 描述富文本走 `richDesc`。
+**禁止圆角卡片堆叠、渐变霓虹、投影**（浮层阴影除外，见 `--shadow-pop`）。图标统一走 `HollowImage`（含兜底），
+skills 描述富文本走 `richDesc`。字体族（CJK 衬线优先、sans 弃 `Inter`）与浮层阴影染 `--bg-0` 属 **token 级精修**，
+唯一记录点见 `tokens.css` 注释与 `/style`（DESIGN.md §9）；本条指核心语言不变。
+西文（JetBrains Mono / Public Sans）**自托管**至 `public/fonts/`，经 `@font-face` 引用、运行时零外网；
+刷新用 `npm run download:fonts`，缺文件由 `verify:fonts` 门禁（含 build:ci）。

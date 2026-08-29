@@ -160,11 +160,11 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
         </template>
       </DetailHead>
 
-      <DetailSection v-if="hasBody" id="overview" :no="noOf('overview') ?? '01'" title="概述" en="Lore">
+      <DetailSection v-if="hasBody" id="overview" :no="noOf('overview')" title="概述" en="Lore">
         <p class="story">{{ bodyText }}</p>
       </DetailSection>
 
-      <DetailSection v-reveal id="props" :no="noOf('props') ?? '01'" title="基础属性" en="Specs">
+      <DetailSection v-reveal id="props" :no="noOf('props')" title="基础属性" en="Specs">
         <StatLevelPanel
           :lv-label="`Lv.${wLevel}`"
           :meta="hasLevels ? (breakCount === 0 ? '未突破' : `突破 ${breakCount} 阶`) : undefined"
@@ -183,7 +183,7 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
         <KeyValueGrid :items="propItems" variant="ledger" />
       </DetailSection>
 
-      <DetailSection v-reveal id="talents" :no="noOf('talents') ?? '01'" title="精炼效果" en="Refine">
+      <DetailSection v-reveal id="talents" :no="noOf('talents')" title="精炼效果" en="Refine">
         <ul v-if="talents.length" class="desc-list">
           <DescRow
             v-for="t in talents"

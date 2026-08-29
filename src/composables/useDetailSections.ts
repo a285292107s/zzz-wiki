@@ -41,8 +41,10 @@ export function useDetailSections(
     nextTick(() => activate(sectionIds(toValue(navItems))))
   })
 
-  /** 按区块 id 查编号（DdetailSection :no 单一来源） */
-  const noOf = (id: string) => toValue(navItems).find((n) => n.id === id)?.no
+  /** 按区块 id 查编号（DetailSection :no 单一来源）。
+   *  每个被渲染的区块都已被对应 navItems 的 add() 登记（同条件派生），故总能取到；
+   *  仅当误漏登记时兜底空串，避免错号/重号（此前硬编码的 ?? '0X' 随条件区块变化必然失真）。 */
+  const noOf = (id: string) => toValue(navItems).find((n) => n.id === id)?.no ?? ''
 
   return { activeSection, revealDir, noOf }
 }

@@ -15,7 +15,7 @@
 1. 建立**数据契约单一事实源**，让 build 管线与前端永远无法漂移（含运行时校验 + CI 门禁）。
 2. 前端**分层化**：视图变薄、逻辑进 composables、重复下沉为组件、状态无库。
 3. **测试基建**从零到一，保护高风险纯逻辑。
-4. 保持现有铁律与视觉语言（见 §10），**不推倒重来、不改视觉**。
+4. 保持现有铁律与视觉语言（见 §10），**不推倒重来、不改视觉**（token 级精修除外，见 §10 铁律 5 附注）。
 
 ## 2. 决策记录（ADR）
 
@@ -243,7 +243,7 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 2. **版本号不硬编码**：一律从 manifest 的 zzz.live 动态取（站点只展示正式服数据，见 DATA_GUIDE §1）。
 3. **图标走 <HollowImage> + src/data/icons.ts 候选链**，禁止直连单一外部图源。
 4. **富文本经 rich.ts / stripRichText**，禁止裸插值；v-html 只在白名单渲染函数后使用。
-5. **视觉语言不变**：1px 细线框、2px 圆角、等宽编号、纸墨配色；无圆角卡片堆叠/渐变霓虹/投影。
+5. **视觉语言稳定**：核心不变——1px 细线框、2px 圆角、等宽编号、纸墨配色；无圆角卡片堆叠/渐变霓虹/立体投影（浮层阴影除外，见 `--shadow-pop`）。字体族（CJK 衬线优先、sans 弃 `Inter`）与浮层阴影染 `--bg-0` 属 **token 级精修**，记录点见 `tokens.css` 注释、`/style` 页（§9）与 `DATA_GUIDE §7/§10`，不在本条禁令之列。
 6. **临时文件只进 temp/**；测试 fixture 属仓库内容，进 tests/fixtures 或各模块旁 fixture 目录。
 7. **git 约定**：<type>: <中文摘要>；数据文件改动伴随 scripts 升级；不入库 dist/temp/.cache/_research_*。
 8. **依赖单锁**：只维护 `package-lock.json`（npm），勿再引入 pnpm/yarn 锁文件（AGENTS.md §4）。
