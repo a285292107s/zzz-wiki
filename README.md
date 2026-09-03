@@ -85,4 +85,4 @@ public/
 
 ## 版权
 
-社区爱好者制作，与米哈游 / HoYoverse 无关；数据版权归原作者（Dimbreath 解包数据 / miHoYo）所有。
+社区爱好者制作，与米哈游 / HoYoverse 无关；数据和美术资源版权归 米哈游 / HoYoverse 所有。
