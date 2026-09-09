@@ -85,7 +85,10 @@
    "EtherEyesSize1"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -93,7 +96,21 @@
     {
      "name": "普通攻击：砸扁，粉碎",
      "desc": "点按 <IconMap:Icon_Normal> 发动：\n向前方进行至多四段的打击，造成<color=#F0D12B>物理伤害</color>；\n当珂蕾妲拥有<color=#FFFFFF>[熔炉升温]</color>效果时，能够在第二段攻击后发动强化<color=#FFFFFF>[普通攻击]</color>，消耗<color=#FFFFFF>[熔炉升温]</color>效果并造成大量<color=#FF5521>火属性伤害</color>；\n当珂蕾妲与本同时出战，发动强化<color=#FFFFFF>[普通攻击]</color>时，会由双方配合发动协同攻击，进一步提升招式的威力；\n<color=#FFFFFF>[普通攻击]</color>第四段和强化<color=#FFFFFF>[普通攻击]</color>发动期间拥有无敌效果。",
-     "potential": []
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "普通攻击：砸扁，粉碎",
+     "desc": "点按 <IconMap:Icon_Normal> 发动：\n向前方进行至多四段的打击，造成<color=#F0D12B>物理伤害</color>；\n当珂蕾妲拥有<color=#FFFFFF>[熔炉升温]</color>效果时，能够在第二段攻击后发动强化<color=#FFFFFF>[普通攻击]</color>，消耗<color=#FFFFFF>[熔炉升温]</color>效果并造成大量<color=#FF5521>火属性伤害</color>；\n强化<color=#FFFFFF>[普通攻击]</color>分为两段，发动第一段后点按或长按 <IconMap:Icon_Normal> 可衔接第二段，且第一段强化<color=#FFFFFF>[普通攻击]</color>的追击效果增强；\n<color=#FFFFFF>[熔炉升温]</color>效果最多可拥有2层，发动强化<color=#FFFFFF>[普通攻击]</color>会消耗所有的<color=#FFFFFF>[熔炉升温]</color>；\n消耗<color=#FFFFFF>[熔炉升温]</color>时，全队代理人造成的伤害提升35%，持续40秒，重复触发刷新时间，且每消耗一层<color=#FFFFFF>[熔炉升温]</color>，第二段强化<color=#FFFFFF>[普通攻击]</color>造成的伤害提升10%，造成的失衡值提升20%；\n第一段强化<color=#FFFFFF>[普通攻击]</color>发动期间切换代理人，珂蕾妲会在前台自动发动第二段强化<color=#FFFFFF>[普通攻击]</color>；\n当珂蕾妲与本同时出战，发动强化<color=#FFFFFF>[普通攻击]</color>，且未在第一段强化<color=#FFFFFF>[普通攻击]</color>期间切换代理人时，会由双方配合发动协同攻击，进一步提升招式的威力；\n<color=#FFFFFF>[普通攻击]</color>第四段和强化<color=#FFFFFF>[普通攻击]</color>发动期间拥有无敌效果；\n第二段强化<color=#FFFFFF>[普通攻击]</color>无敌效果持续时间增加。",
+     "potential": [
+      110100,
+      110101,
+      110102,
+      110103,
+      110104,
+      110105
+     ]
     },
     {
      "name": "普通攻击：砸扁，粉碎",
@@ -525,12 +542,40 @@
     {
      "name": "冲刺攻击：给我颤抖",
      "desc": "闪避时，点按 <IconMap:Icon_Normal> 发动：\n向前方进行打击，造成<color=#F0D12B>物理伤害</color>。",
-     "potential": []
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "冲刺攻击：给我颤抖",
+     "desc": "闪避时，点按 <IconMap:Icon_Normal> 发动：\n向前方进行打击，造成<color=#F0D12B>物理伤害</color>。\n招式发动期间，若持有<color=#FFFFFF>[熔炉升温]</color>，抗打断等级提升，长按 <IconMap:Icon_Normal> 可衔接强化<color=#FFFFFF>[普通攻击]</color>。",
+     "potential": [
+      110100,
+      110101,
+      110102,
+      110103,
+      110104,
+      110105
+     ]
     },
     {
      "name": "闪避反击：别小看我",
      "desc": "触发<color=#FFFFFF>[极限闪避]</color>后，点按 <IconMap:Icon_Normal> 发动：\n向前方敌人发动打击并引发爆炸，造成<color=#FF5521>火属性伤害</color>；\n招式发动期间拥有无敌效果。",
-     "potential": []
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "闪避反击：别小看我",
+     "desc": "触发<color=#FFFFFF>[极限闪避]</color>后，点按 <IconMap:Icon_Normal> 发动：\n向前方敌人发动打击并引发爆炸，造成<color=#FF5521>火属性伤害</color>；\n招式发动期间拥有无敌效果，若持有<color=#FFFFFF>[熔炉升温]</color>，长按 <IconMap:Icon_Normal> 可衔接强化<color=#FFFFFF>[普通攻击]</color>。",
+     "potential": [
+      110100,
+      110101,
+      110102,
+      110103,
+      110104,
+      110105
+     ]
     },
     {
      "name": "冲刺攻击：给我颤抖",
@@ -703,12 +748,40 @@
     {
      "name": "特殊技：爆破！铁锤时间",
      "desc": "点按 <IconMap:Icon_Special> 发动：\n对前方进行打击并引发爆炸，造成<color=#FF5521>火属性伤害</color>；\n若衔接在<color=#FFFFFF>[普通攻击]</color>第二、第四段或强化<color=#FFFFFF>[普通攻击]</color>后，则能够快速发动招式，直接引发爆炸；\n当珂蕾妲与本同时出战，并衔接在强化<color=#FFFFFF>[普通攻击]</color>后快速发动招式时，会由双方配合发动协同攻击，进一步提升招式的威力；\n招式发动期间抗打断等级提升。",
-     "potential": []
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "特殊技：爆破！铁锤时间",
+     "desc": "点按 <IconMap:Icon_Special> 发动：\n对前方进行打击并引发爆炸，造成<color=#FF5521>火属性伤害</color>；\n若衔接在<color=#FFFFFF>[普通攻击]</color>第二、第四段或强化<color=#FFFFFF>[普通攻击]</color>后，则能够快速发动招式，直接引发爆炸；\n第二段<color=#FFFFFF>[普通攻击]</color>发动期间，长按 <IconMap:Icon_Normal> 也可直接引发爆炸；\n当珂蕾妲与本同时出战，并衔接在强化<color=#FFFFFF>[普通攻击]</color>后快速发动招式时，会由双方配合发动协同攻击，进一步提升招式的威力；\n招式发动期间抗打断等级提升。",
+     "potential": [
+      110100,
+      110101,
+      110102,
+      110103,
+      110104,
+      110105
+     ]
     },
     {
      "name": "强化特殊技：沸腾熔炉",
      "desc": "能量足够时，点按 <IconMap:Icon_SpecialReady> 发动：\n对前方进行打击并引发强力爆炸，造成大量<color=#FF5521>火属性伤害</color>，并获得<color=#FFFFFF>[熔炉升温]</color>效果；\n若衔接在<color=#FFFFFF>[普通攻击]</color>第二、第四段或强化<color=#FFFFFF>[普通攻击]</color>后，则能够快速发动招式，直接引发爆炸；\n当珂蕾妲与本同时出战，并衔接在强化<color=#FFFFFF>[普通攻击]</color>后快速发动招式时，会由双方配合发动协同攻击，进一步提升招式的威力；\n招式发动期间拥有无敌效果。",
-     "potential": []
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "强化特殊技：沸腾熔炉",
+     "desc": "能量足够时，点按 <IconMap:Icon_SpecialReady> 发动：\n对前方进行打击并引发强力爆炸，造成大量<color=#FF5521>火属性伤害</color>，并获得<color=#FFFFFF>[熔炉升温]</color>效果；\n若衔接在<color=#FFFFFF>[普通攻击]</color>第二、第四段或强化<color=#FFFFFF>[普通攻击]</color>后，则能够快速发动招式，直接引发爆炸，通过该方式引发爆炸造成的失衡值提升10%；\n当珂蕾妲与本同时出战，并衔接在强化<color=#FFFFFF>[普通攻击]</color>后快速发动招式时，会由双方配合发动协同攻击，进一步提升招式的威力；\n招式发动期间拥有无敌效果，长按 <IconMap:Icon_Normal> 可衔接<color=#FFFFFF>[冲刺攻击：给我颤抖]</color>。",
+     "potential": [
+      110100,
+      110101,
+      110102,
+      110103,
+      110104,
+      110105
+     ]
     },
     {
      "name": "特殊技：爆破！铁锤时间",
@@ -1099,7 +1172,21 @@
     {
      "name": "终结技：锤进地心",
      "desc": "喧响等级达到<color=#FFFFFF>[极]</color>时，点按 <IconMap:Icon_UltimateReady> 发动：\n在前方大范围区域发动强力爆炸，造成大量<color=#FF5521>火属性伤害</color>，并获得<color=#FFFFFF>[熔炉升温]</color>效果；\n当珂蕾妲与本同时出战时，会由双方配合发动协同攻击，进一步提升招式的威力；\n招式发动期间拥有无敌效果。",
-     "potential": []
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "终结技：锤进地心",
+     "desc": "喧响等级达到<color=#FFFFFF>[极]</color>时，点按 <IconMap:Icon_UltimateReady> 发动：\n在前方大范围区域发动强力爆炸，造成大量<color=#FF5521>火属性伤害</color>，并获得<color=#FFFFFF>[熔炉升温]</color>效果；\n当珂蕾妲与本同时出战时，会由双方配合发动协同攻击，进一步提升招式的威力；\n招式发动期间拥有无敌效果，长按 <IconMap:Icon_Normal> 可衔接<color=#FFFFFF>[冲刺攻击：给我颤抖]</color>。",
+     "potential": [
+      110100,
+      110101,
+      110102,
+      110103,
+      110104,
+      110105
+     ]
     },
     {
      "name": "连携技：天崩-地裂",
@@ -1334,7 +1421,21 @@
     {
      "name": "支援突击：锤钟",
      "desc": "发动<color=#FFFFFF>[招架支援]</color>后，点按 <IconMap:Icon_Normal> 发动：\n对前方敌人发动突进打击，造成<color=#FF5521>火属性伤害</color>，并获得<color=#FFFFFF>[熔炉升温]</color>效果；\n招式发动期间拥有无敌效果。",
-     "potential": []
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "支援突击：锤钟",
+     "desc": "发动<color=#FFFFFF>[招架支援]</color>后，点按 <IconMap:Icon_Normal> 发动：\n对前方敌人发动突进打击，造成<color=#FF5521>火属性伤害</color>，并获得<color=#FFFFFF>[熔炉升温]</color>效果；\n招式发动期间拥有无敌效果，长按 <IconMap:Icon_Normal> 可衔接<color=#FFFFFF>[冲刺攻击：给我颤抖]</color>。",
+     "potential": [
+      110100,
+      110101,
+      110102,
+      110103,
+      110104,
+      110105
+     ]
     },
     {
      "name": "快速支援：让我来",
@@ -1639,7 +1740,9 @@
      "队伍中存在与自身属性或阵营相同的角色或<color=#FFFFFF>[命破]</color>角色时触发：\n珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>引发爆炸命中敌人时，对目标施加减益效果；当目标陷入失衡状态后，<color=#FFFFFF>[连携技]</color>对其造成的伤害提升35%，最多叠加2层，失衡状态结束时该效果重置。"
     ],
     "extra_property": {},
-    "potential": []
+    "potential": [
+     0
+    ]
    },
    "1101502": {
     "level": 2,
@@ -1653,7 +1756,9 @@
      "队伍中存在与自身属性或阵营相同的角色或<color=#FFFFFF>[命破]</color>角色时触发：\n珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>引发爆炸命中敌人时，对目标施加减益效果；当目标陷入失衡状态后，<color=#FFFFFF>[连携技]</color>对其造成的伤害提升35%，最多叠加2层，失衡状态结束时该效果重置。"
     ],
     "extra_property": {},
-    "potential": []
+    "potential": [
+     0
+    ]
    },
    "1101503": {
     "level": 3,
@@ -1667,7 +1772,9 @@
      "队伍中存在与自身属性或阵营相同的角色或<color=#FFFFFF>[命破]</color>角色时触发：\n珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>引发爆炸命中敌人时，对目标施加减益效果；当目标陷入失衡状态后，<color=#FFFFFF>[连携技]</color>对其造成的伤害提升35%，最多叠加2层，失衡状态结束时该效果重置。"
     ],
     "extra_property": {},
-    "potential": []
+    "potential": [
+     0
+    ]
    },
    "1101504": {
     "level": 4,
@@ -1681,7 +1788,9 @@
      "队伍中存在与自身属性或阵营相同的角色或<color=#FFFFFF>[命破]</color>角色时触发：\n珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>引发爆炸命中敌人时，对目标施加减益效果；当目标陷入失衡状态后，<color=#FFFFFF>[连携技]</color>对其造成的伤害提升35%，最多叠加2层，失衡状态结束时该效果重置。"
     ],
     "extra_property": {},
-    "potential": []
+    "potential": [
+     0
+    ]
    },
    "1101505": {
     "level": 5,
@@ -1695,7 +1804,9 @@
      "队伍中存在与自身属性或阵营相同的角色或<color=#FFFFFF>[命破]</color>角色时触发：\n珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>引发爆炸命中敌人时，对目标施加减益效果；当目标陷入失衡状态后，<color=#FFFFFF>[连携技]</color>对其造成的伤害提升35%，最多叠加2层，失衡状态结束时该效果重置。"
     ],
     "extra_property": {},
-    "potential": []
+    "potential": [
+     0
+    ]
    },
    "1101506": {
     "level": 6,
@@ -1709,7 +1820,9 @@
      "队伍中存在与自身属性或阵营相同的角色或<color=#FFFFFF>[命破]</color>角色时触发：\n珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>引发爆炸命中敌人时，对目标施加减益效果；当目标陷入失衡状态后，<color=#FFFFFF>[连携技]</color>对其造成的伤害提升35%，最多叠加2层，失衡状态结束时该效果重置。"
     ],
     "extra_property": {},
-    "potential": []
+    "potential": [
+     0
+    ]
    },
    "1101507": {
     "level": 7,
@@ -1723,7 +1836,156 @@
      "队伍中存在与自身属性或阵营相同的角色或<color=#FFFFFF>[命破]</color>角色时触发：\n珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>引发爆炸命中敌人时，对目标施加减益效果；当目标陷入失衡状态后，<color=#FFFFFF>[连携技]</color>对其造成的伤害提升35%，最多叠加2层，失衡状态结束时该效果重置。"
     ],
     "extra_property": {},
-    "potential": []
+    "potential": [
+     0
+    ]
+   },
+   "1101508": {
+    "level": 1,
+    "id": 1101508,
+    "name": [
+     "核心被动：爆破锤",
+     "额外能力：白祇管理学"
+    ],
+    "desc": [
+     "珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>，或消耗<color=#FFFFFF>[熔炉升温]</color>发动强化<color=#FFFFFF>[普通攻击]</color>时，招式造成的失衡值提升<color=#2BAD00>30%</color>。",
+     "队伍中存在与自身属性或阵营相同的角色或<color=#FFFFFF>[命破]</color>或<color=#FFFFFF>[锋御]</color>角色时触发：\n珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>引发爆炸命中敌人时，对目标施加减益效果；当目标陷入失衡状态后，<color=#FFFFFF>[连携技]</color>对其造成的伤害提升35%，最多叠加2层，失衡状态结束时该效果重置。"
+    ],
+    "extra_property": {},
+    "potential": [
+     110100,
+     110101,
+     110102,
+     110103,
+     110104,
+     110105
+    ]
+   },
+   "1101509": {
+    "level": 2,
+    "id": 1101509,
+    "name": [
+     "核心被动：爆破锤",
+     "额外能力：白祇管理学"
+    ],
+    "desc": [
+     "珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>，或消耗<color=#FFFFFF>[熔炉升温]</color>发动强化<color=#FFFFFF>[普通攻击]</color>时，招式造成的失衡值提升<color=#2BAD00>35%</color>。",
+     "队伍中存在与自身属性或阵营相同的角色或<color=#FFFFFF>[命破]</color>或<color=#FFFFFF>[锋御]</color>角色时触发：\n珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>引发爆炸命中敌人时，对目标施加减益效果；当目标陷入失衡状态后，<color=#FFFFFF>[连携技]</color>对其造成的伤害提升35%，最多叠加2层，失衡状态结束时该效果重置。"
+    ],
+    "extra_property": {},
+    "potential": [
+     110100,
+     110101,
+     110102,
+     110103,
+     110104,
+     110105
+    ]
+   },
+   "1101510": {
+    "level": 3,
+    "id": 1101510,
+    "name": [
+     "核心被动：爆破锤",
+     "额外能力：白祇管理学"
+    ],
+    "desc": [
+     "珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>，或消耗<color=#FFFFFF>[熔炉升温]</color>发动强化<color=#FFFFFF>[普通攻击]</color>时，招式造成的失衡值提升<color=#2BAD00>40%</color>。",
+     "队伍中存在与自身属性或阵营相同的角色或<color=#FFFFFF>[命破]</color>或<color=#FFFFFF>[锋御]</color>角色时触发：\n珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>引发爆炸命中敌人时，对目标施加减益效果；当目标陷入失衡状态后，<color=#FFFFFF>[连携技]</color>对其造成的伤害提升35%，最多叠加2层，失衡状态结束时该效果重置。"
+    ],
+    "extra_property": {},
+    "potential": [
+     110100,
+     110101,
+     110102,
+     110103,
+     110104,
+     110105
+    ]
+   },
+   "1101511": {
+    "level": 4,
+    "id": 1101511,
+    "name": [
+     "核心被动：爆破锤",
+     "额外能力：白祇管理学"
+    ],
+    "desc": [
+     "珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>，或消耗<color=#FFFFFF>[熔炉升温]</color>发动强化<color=#FFFFFF>[普通攻击]</color>时，招式造成的失衡值提升<color=#2BAD00>45%</color>。",
+     "队伍中存在与自身属性或阵营相同的角色或<color=#FFFFFF>[命破]</color>或<color=#FFFFFF>[锋御]</color>角色时触发：\n珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>引发爆炸命中敌人时，对目标施加减益效果；当目标陷入失衡状态后，<color=#FFFFFF>[连携技]</color>对其造成的伤害提升35%，最多叠加2层，失衡状态结束时该效果重置。"
+    ],
+    "extra_property": {},
+    "potential": [
+     110100,
+     110101,
+     110102,
+     110103,
+     110104,
+     110105
+    ]
+   },
+   "1101512": {
+    "level": 5,
+    "id": 1101512,
+    "name": [
+     "核心被动：爆破锤",
+     "额外能力：白祇管理学"
+    ],
+    "desc": [
+     "珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>，或消耗<color=#FFFFFF>[熔炉升温]</color>发动强化<color=#FFFFFF>[普通攻击]</color>时，招式造成的失衡值提升<color=#2BAD00>50%</color>。",
+     "队伍中存在与自身属性或阵营相同的角色或<color=#FFFFFF>[命破]</color>或<color=#FFFFFF>[锋御]</color>角色时触发：\n珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>引发爆炸命中敌人时，对目标施加减益效果；当目标陷入失衡状态后，<color=#FFFFFF>[连携技]</color>对其造成的伤害提升35%，最多叠加2层，失衡状态结束时该效果重置。"
+    ],
+    "extra_property": {},
+    "potential": [
+     110100,
+     110101,
+     110102,
+     110103,
+     110104,
+     110105
+    ]
+   },
+   "1101513": {
+    "level": 6,
+    "id": 1101513,
+    "name": [
+     "核心被动：爆破锤",
+     "额外能力：白祇管理学"
+    ],
+    "desc": [
+     "珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>，或消耗<color=#FFFFFF>[熔炉升温]</color>发动强化<color=#FFFFFF>[普通攻击]</color>时，招式造成的失衡值提升<color=#2BAD00>55%</color>。",
+     "队伍中存在与自身属性或阵营相同的角色或<color=#FFFFFF>[命破]</color>或<color=#FFFFFF>[锋御]</color>角色时触发：\n珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>引发爆炸命中敌人时，对目标施加减益效果；当目标陷入失衡状态后，<color=#FFFFFF>[连携技]</color>对其造成的伤害提升35%，最多叠加2层，失衡状态结束时该效果重置。"
+    ],
+    "extra_property": {},
+    "potential": [
+     110100,
+     110101,
+     110102,
+     110103,
+     110104,
+     110105
+    ]
+   },
+   "1101514": {
+    "level": 7,
+    "id": 1101514,
+    "name": [
+     "核心被动：爆破锤",
+     "额外能力：白祇管理学"
+    ],
+    "desc": [
+     "珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>，或消耗<color=#FFFFFF>[熔炉升温]</color>发动强化<color=#FFFFFF>[普通攻击]</color>时，招式造成的失衡值提升<color=#2BAD00>60%</color>。",
+     "队伍中存在与自身属性或阵营相同的角色或<color=#FFFFFF>[命破]</color>或<color=#FFFFFF>[锋御]</color>角色时触发：\n珂蕾妲发动<color=#FFFFFF>[强化特殊技]</color>引发爆炸命中敌人时，对目标施加减益效果；当目标陷入失衡状态后，<color=#FFFFFF>[连携技]</color>对其造成的伤害提升35%，最多叠加2层，失衡状态结束时该效果重置。"
+    ],
+    "extra_property": {},
+    "potential": [
+     110100,
+     110101,
+     110102,
+     110103,
+     110104,
+     110105
+    ]
    }
   },
   "materials": {
@@ -1759,6 +2021,7 @@
   "3111010": {
    "name": "珂蕾妲·赤子烈锤",
    "desc": "赤红的身影挥舞双锤，仿佛连时间都能击碎。\n可你是这样年轻，一切正准备开始。不必着急长大，你终将成为你自己。",
+   "obtain_desc": "",
    "image": "IconRole14"
   }
  },
@@ -1877,12 +2140,40 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 31200,
-  "slot2": 31300,
-  "slot_sub": 31600,
+  "slot4": 33200,
+  "slot2": 31200,
+  "slot_sub": 31000,
   "part_sub_list": [
+   20103,
    12102,
-   20103
+   21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31200,
+     31600
+    ],
+    "part_sub_list": [
+     20103
+    ]
+   },
+   {
+    "suit_list": [
+     33200,
+     31200
+    ],
+    "part_sub_list": [
+     31603,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12202
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,
@@ -1915,8 +2206,123 @@
   "快速为敌人累积失衡值",
   "与本协同攻击提升招式威力"
  ],
- "potential": [],
- "potential_detail": {},
+ "potential": [
+  110100,
+  110101,
+  110102,
+  110103,
+  110104,
+  110105
+ ],
+ "potential_detail": {
+  "110100": {
+   "id": 110100,
+   "name": "",
+   "desc": "",
+   "image": "Koleda",
+   "level_show_name": "开工了！ I",
+   "level": 1,
+   "ability_list": [
+    11101401
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20110,
+     "number": 1
+    }
+   ]
+  },
+  "110101": {
+   "id": 110101,
+   "name": "潜能觉醒：爆破作业",
+   "desc": "队伍中的[锋御]代理人锐暴伤害提升<color=#2BAD00>4%</color>，非[锋御]代理人暴击伤害提升<color=#2BAD00>11%</color>。",
+   "image": "Koleda",
+   "level_show_name": "开工了！ II",
+   "level": 2,
+   "ability_list": [
+    11101401,
+    11101501
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20110,
+     "number": 1
+    }
+   ]
+  },
+  "110102": {
+   "id": 110102,
+   "name": "潜能觉醒：爆破作业",
+   "desc": "队伍中的[锋御]代理人锐暴伤害提升<color=#2BAD00>6%</color>，非[锋御]代理人暴击伤害提升<color=#2BAD00>17%</color>。",
+   "image": "Koleda",
+   "level_show_name": "开工了！ III",
+   "level": 3,
+   "ability_list": [
+    11101401,
+    11101502
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20110,
+     "number": 1
+    }
+   ]
+  },
+  "110103": {
+   "id": 110103,
+   "name": "潜能觉醒：爆破作业",
+   "desc": "队伍中的[锋御]代理人锐暴伤害提升<color=#2BAD00>8%</color>，非[锋御]代理人暴击伤害提升<color=#2BAD00>23%</color>。",
+   "image": "Koleda",
+   "level_show_name": "开工了！ IV",
+   "level": 4,
+   "ability_list": [
+    11101401,
+    11101503
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20110,
+     "number": 1
+    }
+   ]
+  },
+  "110104": {
+   "id": 110104,
+   "name": "潜能觉醒：爆破作业",
+   "desc": "队伍中的[锋御]代理人锐暴伤害提升<color=#2BAD00>10%</color>，非[锋御]代理人暴击伤害提升<color=#2BAD00>29%</color>。",
+   "image": "Koleda",
+   "level_show_name": "开工了！ V",
+   "level": 5,
+   "ability_list": [
+    11101401,
+    11101504
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20110,
+     "number": 1
+    }
+   ]
+  },
+  "110105": {
+   "id": 110105,
+   "name": "潜能觉醒：爆破作业",
+   "desc": "队伍中的[锋御]代理人锐暴伤害提升<color=#2BAD00>12%</color>，非[锋御]代理人暴击伤害提升<color=#2BAD00>35%</color>。",
+   "image": "Koleda",
+   "level_show_name": "开工了！ VI",
+   "level": 6,
+   "ability_list": [
+    11101401,
+    11101505
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20110,
+     "number": 1
+    }
+   ]
+  }
+ },
  "level": {
   "1": {
    "hp_max": 0,

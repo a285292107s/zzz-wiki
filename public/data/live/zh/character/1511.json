@@ -85,7 +85,10 @@
    "EtherEyesSize1"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1548,12 +1551,20 @@
   "3115110": {
    "name": "南宫羽·绮梦领舞",
    "desc": "梦想既廉价又昂贵，触不可及，地上的人儿总把梦唤作星星。\n于是天使漫步繁星，从无穷远的银河里捧起一抹妄想——那便是最初照耀她的虹光。",
+   "obtain_desc": "",
    "image": "IconRole59"
   },
   "3115111": {
    "name": "南宫羽·狂想缪斯",
    "desc": "在失序的节拍中起舞，于狂想的舞台上回旋。\n天使与恶魔的界限，随灯光倾斜，在她的倒影中溶解。",
+   "obtain_desc": "",
    "image": "IconRole59_01"
+  },
+  "3115112": {
+   "name": "南宫羽·心动应援中",
+   "desc": "天使团规第一则：章鱼小队长必须以身作则！拥抱粉色、拥抱夏天！",
+   "obtain_desc": "",
+   "image": "IconRole59_02"
   }
  },
  "special_element_type": {},
@@ -1664,12 +1675,35 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 33000,
-  "slot2": 31300,
-  "slot_sub": 33600,
+  "slot4": 33600,
+  "slot2": 33000,
+  "slot_sub": 33200,
   "part_sub_list": [
    31203,
    12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33000,
+     31300
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31903
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31402
+    ]
+   }
   ],
   "part4": {
    "prop": 31402,

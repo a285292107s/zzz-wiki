@@ -85,7 +85,10 @@
    "EtherEyesSize2"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1901,6 +1904,7 @@
   "3111710": {
    "name": "柏妮思·纵燃欢宴",
    "desc": "比燃油饮更热烈的装束。如果在外环误入一场派对，那十有八九会撞见柏妮思，请对她递出的特调保持谨慎…\n什么，已经开喝了？那么——3，2，1，燃烧吧！",
+   "obtain_desc": "",
    "image": "IconRole32"
   }
  },
@@ -2034,11 +2038,39 @@
  ],
  "fairy_recommend": {
   "slot4": 31800,
-  "slot2": 31300,
-  "slot_sub": 31400,
+  "slot2": 31600,
+  "slot_sub": 31300,
   "part_sub_list": [
    31203,
    12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31800,
+     31300
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [
+     31800,
+     31600
+    ],
+    "part_sub_list": [
+     31603,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31402,
+     30502
+    ]
+   }
   ],
   "part4": {
    "prop": 30502,
@@ -2053,16 +2085,16 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementMystery.png"
   },
   "part6": {
+   "prop": 31603,
+   "name": "火属性伤害加成",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconFire.png"
+  },
+  "part_sub": {
    "prop": 12102,
    "name": "攻击力",
    "format": "{0:0.#%}",
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
-  },
-  "part_sub": {
-   "prop": 20103,
-   "name": "暴击率",
-   "format": "{0:0.#%}",
-   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
   }
  },
  "strategy": [

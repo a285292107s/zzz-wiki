@@ -86,7 +86,10 @@
    "EtherEyesSize3"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1757,6 +1760,7 @@
   "3113210": {
    "name": "伊芙琳·飞蛾逐光",
    "desc": "干练凌厉的经纪人装束，锋芒暗露，令窥伺者止步。缃叶色的发丝织就细密之网，一泓星光安然栖居其中。",
+   "obtain_desc": "",
    "image": "IconRole37"
   }
  },
@@ -1910,6 +1914,30 @@
    20103,
    12102,
    21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31000,
+     32700
+    ],
+    "part_sub_list": [
+     21103,
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31603
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,

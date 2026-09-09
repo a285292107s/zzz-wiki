@@ -85,7 +85,10 @@
    "EtherEyesSize3"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -2222,11 +2225,13 @@
   "3112610": {
    "name": "简·夜隐阑珊",
    "desc": "无需模仿变装时，犯罪顾问的日常装扮。或许，这也不过是她千重面相的其中一副。夜色为她披上外衣，假面是她不变的真名。",
+   "obtain_desc": "",
    "image": "IconRole24"
   },
   "3112611": {
    "name": "简·漪光夜曲",
    "desc": "海滨漫步何须阳光作陪？于真名不详的潜伏者而言，夜色才是最忠实的伙伴。「无名氏」小姐说，夜晚的大海埋藏着不可言说的秘密——这句话是真相，还是谎言？",
+   "obtain_desc": "",
    "image": "IconRole24_01"
   }
  },
@@ -2375,10 +2380,34 @@
  "fairy_recommend": {
   "slot4": 32600,
   "slot2": 31300,
-  "slot_sub": 31400,
+  "slot_sub": 33000,
   "part_sub_list": [
    31203,
    12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32600,
+     31300
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31503,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31402
+    ]
+   }
   ],
   "part4": {
    "prop": 31203,
@@ -2393,16 +2422,16 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconPhysDmg.png"
   },
   "part6": {
+   "prop": 31402,
+   "name": "异常掌控",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementAbnormalPower.png"
+  },
+  "part_sub": {
    "prop": 12102,
    "name": "攻击力",
    "format": "{0:0.#%}",
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
-  },
-  "part_sub": {
-   "prop": 20103,
-   "name": "暴击率",
-   "format": "{0:0.#%}",
-   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
   }
  },
  "strategy": [

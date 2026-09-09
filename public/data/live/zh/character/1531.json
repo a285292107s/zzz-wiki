@@ -60,7 +60,10 @@
    "EtherEyesSize2"
   ],
   "rp_max": 120,
-  "rp_recover": 200
+  "rp_recover": 200,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1730,6 +1733,7 @@
   "3115310": {
    "name": "星徽·比利·星徽武装",
    "desc": "始终相信希望的人，最后也会成为别人的希望。",
+   "obtain_desc": "",
    "image": "IconRole62"
   }
  },
@@ -1870,12 +1874,40 @@
  ],
  "fairy_recommend": {
   "slot4": 33100,
-  "slot2": 31000,
-  "slot_sub": 32700,
+  "slot2": 32700,
+  "slot_sub": 31000,
   "part_sub_list": [
    20103,
    21103,
    11102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33100,
+     32700
+    ],
+    "part_sub_list": [
+     20103,
+     21103
+    ]
+   },
+   {
+    "suit_list": [
+     33100,
+     31000
+    ],
+    "part_sub_list": [
+     31503,
+     11102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     11102
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,

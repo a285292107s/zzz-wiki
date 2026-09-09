@@ -85,7 +85,10 @@
    "EtherEyesSize1"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1793,6 +1796,7 @@
   "3112510": {
    "name": "青衣·清平乐",
    "desc": "常备水壶、多喝热水，这是旧文明源远流长的人生智慧。智能构造体为什么要喝茶？嗯…应该也能养生…的吧？",
+   "obtain_desc": "",
    "image": "IconRole29"
   }
  },
@@ -1911,12 +1915,39 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 31200,
-  "slot2": 32400,
-  "slot_sub": 31600,
+  "slot4": 33200,
+  "slot2": 31200,
+  "slot_sub": 31000,
   "part_sub_list": [
-   12102,
-   20103
+   20103,
+   12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31200,
+     32400
+    ],
+    "part_sub_list": [
+     20103
+    ]
+   },
+   {
+    "suit_list": [
+     33200,
+     31200
+    ],
+    "part_sub_list": [
+     31803,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12202
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,

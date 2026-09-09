@@ -60,7 +60,10 @@
    "EtherEyesSize3"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1799,6 +1802,7 @@
   "3115510": {
    "name": "佩洛伊斯·黎明铁卫",
    "desc": "在山谷里熄灭的阳炎，终会从大海中新生。蹂躏命运的恶兽，也将成为开辟前路的战车。",
+   "obtain_desc": "",
    "image": "IconRole63"
   }
  },
@@ -1938,6 +1942,34 @@
    20103,
    21103,
    12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     34000,
+     31000
+    ],
+    "part_sub_list": [
+     20103,
+     21103
+    ]
+   },
+   {
+    "suit_list": [
+     34000,
+     32700
+    ],
+    "part_sub_list": [
+     31903,
+     23103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,

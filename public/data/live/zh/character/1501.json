@@ -85,7 +85,10 @@
    "EtherEyesSize1"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1873,12 +1876,20 @@
   "3115010": {
    "name": "爱芮·元气偶像",
    "desc": "一点点粉色与白色，一点点灯光和音浪，再加上无数日夜的努力演唱，便组成了舞台上的无尽妄想。",
+   "obtain_desc": "",
    "image": "IconRole57"
   },
   "3115011": {
    "name": "爱芮·不协和音",
    "desc": "爱芮在特别演出中的表演服装，出场次数屈指可数。\n纯白的「天使」，披上了「恶魔」的羽翼。深呼吸，准备好…聚光灯亮起之后，就是属于「妄想天使」的叛逆时间！",
+   "obtain_desc": "",
    "image": "IconRole57_01"
+  },
+  "3115012": {
+   "name": "爱芮·萌力加载中",
+   "desc": "天使团规第二则：无论投影如何变幻，元气偶像的笑容都始终如一！",
+   "obtain_desc": "",
+   "image": "IconRole57_02"
   }
  },
  "special_element_type": {},
@@ -2003,17 +2014,43 @@
    31203,
    12102
   ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33600,
+     33000
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [
+     33000,
+     33600
+    ],
+    "part_sub_list": [
+     31903
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31402
+    ]
+   }
+  ],
   "part4": {
-   "prop": 31402,
-   "name": "异常掌控",
-   "format": "{0:0.#%}",
-   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementAbnormalPower.png"
-  },
-  "part5": {
    "prop": 31203,
    "name": "异常精通",
    "format": "{0:0}",
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementMystery.png"
+  },
+  "part5": {
+   "prop": 31402,
+   "name": "异常掌控",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementAbnormalPower.png"
   },
   "part6": {
    "prop": 31903,

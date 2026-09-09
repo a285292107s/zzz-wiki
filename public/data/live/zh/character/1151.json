@@ -85,7 +85,10 @@
    "EtherEyesSize1"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1745,11 +1748,13 @@
   "3111510": {
    "name": "露西·铁腕淑女",
    "desc": "在机车族中略显考究的服饰，据说在对外交涉时大有用处。\n出逃的公主在外环找到了自由，它闪烁在夜的星光中，燃烧在余晖的尽头，也静静伏在脚边的沙粒间。",
+   "obtain_desc": "",
    "image": "IconRole27"
   },
   "3111511": {
    "name": "露西·公主假日",
    "desc": "球棍在沙滩排球中显然并无用武之地，但可以确保无人打扰荒原千金的假日好时光。阿草阿木阿砖，进入度假作战模式！",
+   "obtain_desc": "",
    "image": "IconRole27_01"
   }
  },
@@ -1886,12 +1891,37 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 31600,
-  "slot2": 31400,
-  "slot_sub": 31300,
+  "slot4": 33400,
+  "slot2": 32800,
+  "slot_sub": 31400,
   "part_sub_list": [
    12102,
-   31203
+   12103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31600,
+     31400
+    ],
+    "part_sub_list": [
+     12102,
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102,
+     30502
+    ]
+   }
   ],
   "part4": {
    "prop": 12102,

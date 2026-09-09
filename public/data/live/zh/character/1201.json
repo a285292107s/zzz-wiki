@@ -11,7 +11,7 @@
   "203": "Electric"
  },
  "hit_type": {
-  "103": "Pierce"
+  "101": "Slash"
  },
  "camp": {
   "6": "对空洞特别行动部第六课"
@@ -86,7 +86,10 @@
    "EtherEyesSize1"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -2167,6 +2170,7 @@
   "3112010": {
    "name": "浅羽悠真·落弦飞羽",
    "desc": "他的双眼，比额间的那抹明黄更显澄澈。箭矢贯穿欺骗与谎言，过往如轻羽逐风而散。或许黎明尚未到来，但在地平线的前方，金色的未来隐约闪烁。",
+   "obtain_desc": "",
    "image": "IconRole35"
   }
  },
@@ -2306,13 +2310,38 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 32400,
+  "slot4": 32900,
   "slot2": 31000,
-  "slot_sub": 32900,
+  "slot_sub": 32700,
   "part_sub_list": [
    20103,
    12102,
    21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32400,
+     31000
+    ],
+    "part_sub_list": [
+     21103,
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31803,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,

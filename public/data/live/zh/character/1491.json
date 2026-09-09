@@ -85,7 +85,10 @@
    "EtherEyesSize1"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1628,12 +1631,20 @@
   "3114910": {
    "name": "千夏·妄念环响",
    "desc": "只要穿上少女心目中最可爱的衣服，就能逃离人群的包围，躲进妄想的回声里。",
+   "obtain_desc": "",
    "image": "IconRole58"
   },
   "3114911": {
    "name": "千夏·午后茶歇",
    "desc": "新鲜出炉的蛋糕、醇香芬芳的咖啡、还有午后温煦的暖阳…\n在所有温柔环绕的时刻，开启今日茶歇时光。",
+   "obtain_desc": "",
    "image": "IconRole58_01"
+  },
+  "3114912": {
+   "name": "千夏·梦想营业中",
+   "desc": "天使团规第三则：出门前请穿戴好翅膀，天使们的旅程会随时出发！",
+   "obtain_desc": "",
+   "image": "IconRole58_02"
   }
  },
  "special_element_type": {},
@@ -1752,11 +1763,37 @@
  ],
  "fairy_recommend": {
   "slot4": 33400,
-  "slot2": 32800,
-  "slot_sub": 31600,
+  "slot2": 31600,
+  "slot_sub": 32800,
   "part_sub_list": [
    12102,
    12103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33400,
+     31600
+    ],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [
+     33400,
+     32800
+    ],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     30502
+    ]
+   }
   ],
   "part4": {
    "prop": 30502,

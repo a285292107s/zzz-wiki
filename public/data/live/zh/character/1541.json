@@ -85,7 +85,10 @@
    "EtherEyesSize3"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1747,6 +1750,7 @@
   "3115410": {
    "name": "普罗米娅·曳影迷霜",
    "desc": "黑暗是件趁手的武器，处刑者早已谙熟黑夜，可身负重枷，难免行于歧路。",
+   "obtain_desc": "",
    "image": "IconRole61"
   }
  },
@@ -1892,6 +1896,29 @@
   "part_sub_list": [
    31203,
    12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33800,
+     33000
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31703
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31402
+    ]
+   }
   ],
   "part4": {
    "prop": 31402,

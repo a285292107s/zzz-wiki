@@ -84,7 +84,10 @@
    "EtherEyesSize2"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1405,6 +1408,7 @@
   "3110110": {
    "name": "安比·街头迅影",
    "desc": "妮可亲自为安比挑选、搭配的常服，机动性强，便于街头活动。服装材质、配饰都远比看上去昂贵，因此（？）安比十分珍惜。",
+   "obtain_desc": "",
    "image": "IconRole01"
   }
  },
@@ -1530,12 +1534,42 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 31200,
-  "slot2": 32400,
+  "slot4": 33200,
+  "slot2": 31200,
   "slot_sub": 31600,
   "part_sub_list": [
+   20103,
    12102,
-   20103
+   21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31200,
+     32400
+    ],
+    "part_sub_list": [
+     20103,
+     12102,
+     21103
+    ]
+   },
+   {
+    "suit_list": [
+     31200,
+     31600
+    ],
+    "part_sub_list": [
+     31803,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12202
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,

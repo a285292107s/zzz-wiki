@@ -85,7 +85,10 @@
    "EtherEyesSize1"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1578,6 +1581,7 @@
   "3112810": {
    "name": "派派·快与慢",
    "desc": "不要被卡车司机慵懒的眼神蛊惑，一脚油门足以将乘客的惊魂按回后座。",
+   "obtain_desc": "",
    "image": "IconRole28"
   }
  },
@@ -1710,12 +1714,39 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 31300,
-  "slot2": 32600,
-  "slot_sub": 31600,
+  "slot4": 32600,
+  "slot2": 31300,
+  "slot_sub": 33000,
   "part_sub_list": [
-   31203,
-   12102
+   12102,
+   31203
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31300,
+     32600
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [
+     32600,
+     31300
+    ],
+    "part_sub_list": [
+     12102,
+     31503
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31402
+    ]
+   }
   ],
   "part4": {
    "prop": 31203,
@@ -1730,16 +1761,16 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementAbnormalPower.png"
   },
   "part6": {
+   "prop": 31503,
+   "name": "物理伤害加成",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconPhysDmg.png"
+  },
+  "part_sub": {
    "prop": 12102,
    "name": "攻击力",
    "format": "{0:0.#%}",
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
-  },
-  "part_sub": {
-   "prop": 20103,
-   "name": "暴击率",
-   "format": "{0:0.#%}",
-   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
   }
  },
  "strategy": [

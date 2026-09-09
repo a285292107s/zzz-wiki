@@ -85,7 +85,10 @@
    "EtherEyesSize2"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1860,6 +1863,7 @@
   "3112910": {
    "name": "雨果·无冕歧命",
    "desc": "不要被命运捕获，蔑视它的钳制、操纵、嘲弄与施舍、诅咒与祝福。既已从深渊归来，那便让命运向你俯首。",
+   "obtain_desc": "",
    "image": "IconRole42"
   }
  },
@@ -2000,6 +2004,34 @@
    21103,
    12102
   ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31400,
+     31000
+    ],
+    "part_sub_list": [
+     21103,
+     20103
+    ]
+   },
+   {
+    "suit_list": [
+     31400,
+     32700
+    ],
+    "part_sub_list": [
+     31703,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
+  ],
   "part4": {
    "prop": 20103,
    "name": "暴击率",
@@ -2013,16 +2045,16 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconIce.png"
   },
   "part6": {
-   "prop": 12102,
-   "name": "攻击力",
-   "format": "{0:0.#%}",
-   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
-  },
-  "part_sub": {
    "prop": 21103,
    "name": "暴击伤害",
    "format": "{0:0.#%}",
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "攻击力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
  "strategy": [

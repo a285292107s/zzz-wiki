@@ -84,7 +84,10 @@
    "EtherEyesSize2"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1518,6 +1521,7 @@
   "3110810": {
    "name": "比利·闪耀星徽套装",
    "desc": "帅气即正义，正义即帅气，这就是永不磨灭的骑士美学！虽然关节螺丝的确容易磨损就是了…",
+   "obtain_desc": "",
    "image": "IconRole10"
   }
  },
@@ -1629,13 +1633,38 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 32600,
+  "slot4": 31400,
   "slot2": 31000,
-  "slot_sub": 31400,
+  "slot_sub": 32600,
   "part_sub_list": [
    12102,
    20103,
    21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32600,
+     31000
+    ],
+    "part_sub_list": [
+     21103,
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31503,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,

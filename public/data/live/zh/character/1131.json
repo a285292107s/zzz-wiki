@@ -85,7 +85,10 @@
    "EtherEyesSize1"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1835,6 +1838,7 @@
   "3111310": {
    "name": "苍角·青蓝冰舞",
    "desc": "挥舞半人高的刃旗，伴随着肚子的咕咕响声，一阵扇扇扇扇扇——收工！回家吃饭咯！",
+   "obtain_desc": "",
    "image": "IconRole17"
   }
  },
@@ -1960,12 +1964,40 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 31400,
-  "slot2": 32500,
-  "slot_sub": 31600,
+  "slot4": 33400,
+  "slot2": 31600,
+  "slot_sub": 32500,
   "part_sub_list": [
    12102,
    31203
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31600,
+     31400
+    ],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [
+     31300,
+     33000
+    ],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102,
+     31402,
+     30502
+    ]
+   }
   ],
   "part4": {
    "prop": 12102,

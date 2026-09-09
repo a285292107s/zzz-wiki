@@ -86,7 +86,10 @@
    "EtherEyesSize3"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1694,6 +1697,7 @@
   "3114610": {
    "name": "「席德」·繁花",
    "desc": "一隅灿烂花海，一滴微咸泪水，一轮生命之圆，少女与构造体完成了关于心的证明。无须回头，她已绽成一片繁花。",
+   "obtain_desc": "",
    "image": "IconRole48"
   }
  },
@@ -1840,6 +1844,34 @@
    20103,
    21103,
    12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33300,
+     31000
+    ],
+    "part_sub_list": [
+     20103,
+     21103
+    ]
+   },
+   {
+    "suit_list": [
+     33300,
+     32700
+    ],
+    "part_sub_list": [
+     31803,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,

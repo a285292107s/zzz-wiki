@@ -85,7 +85,10 @@
    "EtherEyesSize2"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -2024,6 +2027,7 @@
   "3111610": {
    "name": "莱特·不熄烬炎",
    "desc": "常胜冠军从不摘下他的墨镜…和围巾。荣耀早已微不足道，但还有无数与同伴共度的黄昏值得守候。",
+   "obtain_desc": "",
    "image": "IconRole26"
   }
  },
@@ -2149,12 +2153,40 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 31200,
-  "slot2": 32200,
-  "slot_sub": 31600,
+  "slot4": 33200,
+  "slot2": 31200,
+  "slot_sub": 31000,
   "part_sub_list": [
+   20103,
    12102,
-   20103
+   21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31200,
+     31600
+    ],
+    "part_sub_list": [
+     20103
+    ]
+   },
+   {
+    "suit_list": [
+     33200,
+     31200
+    ],
+    "part_sub_list": [
+     31603,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12202
+    ]
+   }
   ],
   "part4": {
    "prop": 12202,
@@ -2169,16 +2201,16 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconFire.png"
   },
   "part6": {
-   "prop": 12102,
-   "name": "攻击力",
-   "format": "{0:0.#%}",
-   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
-  },
-  "part_sub": {
    "prop": 20103,
    "name": "暴击率",
    "format": "{0:0.#%}",
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "攻击力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
  "strategy": [

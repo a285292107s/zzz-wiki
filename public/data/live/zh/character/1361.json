@@ -85,7 +85,10 @@
    "EtherEyesSize3"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1688,6 +1691,7 @@
   "3113610": {
    "name": "「扳机」·幽目启明",
    "desc": "空洞中，她的准心始终如一，值得交托后背；回到六分街，那份无处不在的视线也总温柔停驻，在察觉前，悄然隐去。",
+   "obtain_desc": "",
    "image": "IconRole39"
   }
  },
@@ -1806,13 +1810,37 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 32900,
+  "slot4": 33200,
   "slot2": 31000,
   "slot_sub": 31200,
   "part_sub_list": [
    20103,
    12102,
    21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32900,
+     31000
+    ],
+    "part_sub_list": [
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31803,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12202
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,

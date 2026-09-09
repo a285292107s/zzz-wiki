@@ -60,7 +60,10 @@
    "EtherEyesSize2"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -2032,6 +2035,7 @@
   "3113810": {
    "name": "零号·安比·银心锡兵",
    "desc": "安比在白银小队时期的军服，沾染着无法忘却的旧忆。\n当往日的幽暗倏忽而至，挺身直面还是狼狈逃离？无论作何选择，你永远有家可回。",
+   "obtain_desc": "",
    "image": "IconRole40"
   }
  },
@@ -2157,6 +2161,34 @@
    21103,
    20103,
    12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32900,
+     31000
+    ],
+    "part_sub_list": [
+     20103,
+     21103
+    ]
+   },
+   {
+    "suit_list": [
+     32900,
+     31000
+    ],
+    "part_sub_list": [
+     31803,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,

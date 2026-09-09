@@ -85,7 +85,10 @@
    "EtherEyesSize3"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1385,6 +1388,7 @@
   "3113510": {
    "name": "波可娜·倦尾栖痕",
    "desc": "风尘仆仆的雇佣兵本该浪迹天涯，但这里阳光温暖，恰好适合安睡。",
+   "obtain_desc": "",
    "image": "IconRole38"
   }
  },
@@ -1496,12 +1500,37 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 32900,
+  "slot4": 33200,
   "slot2": 31000,
   "slot_sub": 31200,
   "part_sub_list": [
+   20103,
    12102,
-   20103
+   21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32900,
+     31200
+    ],
+    "part_sub_list": [
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31503,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12202
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,

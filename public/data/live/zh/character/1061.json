@@ -85,7 +85,10 @@
    "EtherEyesSize1"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1689,6 +1692,7 @@
   "3110610": {
    "name": "可琳·抹茶泡芙",
    "desc": "小小身躯迸发强大能量，猎猎电锯吞咽轻声啜泣。乖巧专业的女仆总是缺乏自信，停下脚步，等等她吧。",
+   "obtain_desc": "",
    "image": "IconRole09"
   }
  },
@@ -1793,13 +1797,38 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 32600,
+  "slot4": 31400,
   "slot2": 31000,
-  "slot_sub": 31400,
+  "slot_sub": 32600,
   "part_sub_list": [
    12102,
    20103,
    21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32600,
+     31000
+    ],
+    "part_sub_list": [
+     20103,
+     21103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31503,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,

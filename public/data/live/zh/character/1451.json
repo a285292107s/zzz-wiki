@@ -85,7 +85,10 @@
    "EtherEyesSize2"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1826,6 +1829,7 @@
   "3114510": {
    "name": "卢西娅·颂夜梦呓",
    "desc": "斗篷是夜的帷幕，兜帽下藏着世界的低语。她是颂夜的歌者，亦是梦呓的诗人，拾取沉睡者遗落的思绪，将其编织成星空中的光晕与谜题。",
+   "obtain_desc": "",
    "image": "IconRole50"
   }
  },
@@ -1931,11 +1935,37 @@
  ],
  "fairy_recommend": {
   "slot4": 33400,
-  "slot2": 31600,
-  "slot_sub": 33100,
+  "slot2": 33100,
+  "slot_sub": 31600,
   "part_sub_list": [
    11102,
    11103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33400,
+     33100
+    ],
+    "part_sub_list": [
+     11102
+    ]
+   },
+   {
+    "suit_list": [
+     33400,
+     31600
+    ],
+    "part_sub_list": [
+     11102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     11102
+    ]
+   }
   ],
   "part4": {
    "prop": 11102,

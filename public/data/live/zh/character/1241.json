@@ -85,7 +85,10 @@
    "EtherEyesSize3"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1749,6 +1752,7 @@
   "3112410": {
    "name": "朱鸢·镇暴者",
    "desc": "治安局高规格镇压武装，结合朱鸢的战斗特性进行了定制化改良。\n蝉联三届雅努斯分局作战能力比拼大赛冠军，最佳青年治安官全天候待命，碾压一切不法之徒。",
+   "obtain_desc": "",
    "image": "IconRole23"
   }
  },
@@ -1867,13 +1871,38 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 32300,
+  "slot4": 34000,
   "slot2": 31000,
-  "slot_sub": 31400,
+  "slot_sub": 32700,
   "part_sub_list": [
    20103,
    21103,
    12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32300,
+     31000
+    ],
+    "part_sub_list": [
+     21103,
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31903,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,
@@ -1888,16 +1917,16 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconDungeonBuffEther.png"
   },
   "part6": {
-   "prop": 12102,
-   "name": "攻击力",
-   "format": "{0:0.#%}",
-   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
-  },
-  "part_sub": {
    "prop": 21103,
    "name": "暴击伤害",
    "format": "{0:0.#%}",
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "攻击力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
  "strategy": [

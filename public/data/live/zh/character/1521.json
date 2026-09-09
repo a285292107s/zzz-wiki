@@ -85,7 +85,10 @@
    "EtherEyesSize0"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1559,6 +1562,7 @@
   "3115210": {
    "name": "希希芙·蛇鼠游戏",
    "desc": "世上的人都是毒蛇和老鼠！至于谁是蛇、谁是鼠…\n希希芙大人坦言：比我强就是蛇，比我弱就是鼠！",
+   "obtain_desc": "",
    "image": "IconRole60"
   }
  },
@@ -1678,30 +1682,57 @@
  ],
  "fairy_recommend": {
   "slot4": 33300,
-  "slot2": 31600,
-  "slot_sub": 33400,
+  "slot2": 33400,
+  "slot_sub": 31600,
   "part_sub_list": [
-   21103,
    20103,
+   21103,
    12102
   ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33300,
+     33400
+    ],
+    "part_sub_list": [
+     20103
+    ]
+   },
+   {
+    "suit_list": [
+     33300,
+     31600
+    ],
+    "part_sub_list": [
+     31803,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     30502
+    ]
+   }
+  ],
   "part4": {
-   "prop": 30502,
-   "name": "能量自动回复",
-   "format": "{0:0.#%}",
-   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconSpRecover.png"
-  },
-  "part5": {
    "prop": 20103,
    "name": "暴击率",
    "format": "{0:0.#%}",
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
   },
-  "part6": {
-   "prop": 21103,
-   "name": "暴击伤害",
+  "part5": {
+   "prop": 30502,
+   "name": "能量自动回复",
    "format": "{0:0.#%}",
-   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconSpRecover.png"
+  },
+  "part6": {
+   "prop": 12102,
+   "name": "攻击力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   },
   "part_sub": {
    "prop": 31803,

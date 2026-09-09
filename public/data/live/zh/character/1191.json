@@ -85,7 +85,10 @@
    "EtherEyesSize2"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -2407,11 +2410,13 @@
   "3111910": {
    "name": "艾莲·剪刀手艾鲨鲨",
    "desc": "维多利亚家政的锐利剪刀手，如果没打瞌睡的话…",
+   "obtain_desc": "",
    "image": "IconRole21"
   },
   "3111911": {
    "name": "艾莲·从周一到周五",
    "desc": "尾巴与校服不兼容，但只需要一点点的缝纫改造，就会变得更可爱！",
+   "obtain_desc": "",
    "image": "IconRole21_01"
   }
  },
@@ -2614,13 +2619,41 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 32500,
+  "slot4": 33300,
   "slot2": 31000,
-  "slot_sub": 31400,
+  "slot_sub": 31100,
   "part_sub_list": [
    20103,
    21103,
    12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32500,
+     31000
+    ],
+    "part_sub_list": [
+     21103,
+     20103
+    ]
+   },
+   {
+    "suit_list": [
+     32500,
+     32700
+    ],
+    "part_sub_list": [
+     31703,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,
@@ -2635,16 +2668,16 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconIce.png"
   },
   "part6": {
-   "prop": 12102,
-   "name": "攻击力",
-   "format": "{0:0.#%}",
-   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
-  },
-  "part_sub": {
    "prop": 21103,
    "name": "暴击伤害",
    "format": "{0:0.#%}",
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "攻击力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
  "strategy": [

@@ -85,7 +85,10 @@
    "EtherEyesSize3"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1520,11 +1523,13 @@
   "3114210": {
    "name": "潘引壶·食引百味",
    "desc": "云岿山现存最大款式的弟子服饰，既容师兄肚量，又容百味调料，头顶铁锅乃一种首创。但…刚炒完菜的锅放在头上，真的不烫吗？",
+   "obtain_desc": "",
    "image": "IconRole45"
   },
   "3114211": {
    "name": "潘引壶·馔玉烹金",
    "desc": "师哥也曾梦想成为一名伟大的厨子，但这世道里，总有想砸你锅碗瓢盆的歹人。\n——「你砸一个试试？」",
+   "obtain_desc": "",
    "image": "IconRole45_01"
   }
  },
@@ -1637,11 +1642,35 @@
  ],
  "fairy_recommend": {
   "slot4": 33700,
-  "slot2": 31600,
-  "slot_sub": 31400,
+  "slot2": 31400,
+  "slot_sub": 32800,
   "part_sub_list": [
    12102,
-   20103
+   12103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32800,
+     31600
+    ],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     30502,
+     12102
+    ]
+   }
   ],
   "part4": {
    "prop": 12102,
@@ -1669,7 +1698,7 @@
   }
  },
  "strategy": [
-  "05",
+  "04",
   "<IconMap:Icon_GeneralBuff_PhysDmg>物理属性，命破体系辅助",
   "为队友提供贯穿力"
  ],

@@ -85,7 +85,10 @@
    "EtherEyesSize1"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1648,6 +1651,7 @@
   "3113910": {
    "name": "橘福福·山中萌虎",
    "desc": "身着修者衣装，大师姐的威风似乎被尽数敛去，但心有橘猫…咳咳，心有猛虎，侠气自生啊。",
+   "obtain_desc": "",
    "image": "IconRole43"
   }
  },
@@ -1768,10 +1772,36 @@
  "fairy_recommend": {
   "slot4": 33200,
   "slot2": 31000,
-  "slot_sub": 31400,
+  "slot_sub": 31200,
   "part_sub_list": [
+   20103,
    12102,
-   20103
+   21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33200,
+     32800
+    ],
+    "part_sub_list": [
+     12102,
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102,
+     12202
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,
@@ -1792,10 +1822,10 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconSpRecover.png"
   },
   "part_sub": {
-   "prop": 21103,
-   "name": "暴击伤害",
+   "prop": 12202,
+   "name": "冲击力",
    "format": "{0:0.#%}",
-   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconBreakStun.png"
   }
  },
  "strategy": [

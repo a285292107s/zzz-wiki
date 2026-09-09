@@ -85,7 +85,10 @@
    "EtherEyesSize3"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1636,6 +1639,7 @@
   "3112110": {
    "name": "丽娜·完美女仆长",
    "desc": "裙摆一丝不苟，尽显得体仪容，完美主义是女仆长的基本准则。但对于烹饪，完美的定义似乎另有一套标准…",
+   "obtain_desc": "",
    "image": "IconRole22"
   }
  },
@@ -1747,12 +1751,35 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 31300,
+  "slot4": 33400,
   "slot2": 31100,
-  "slot_sub": 32400,
+  "slot_sub": 31600,
   "part_sub_list": [
    12102,
    31203
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31600,
+     31100
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     23103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     30502
+    ]
+   }
   ],
   "part4": {
    "prop": 23103,
@@ -1767,16 +1794,16 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconSpRecover.png"
   },
   "part6": {
-   "prop": 20103,
-   "name": "暴击率",
-   "format": "{0:0.#%}",
-   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
-  },
-  "part_sub": {
    "prop": 12102,
    "name": "攻击力",
    "format": "{0:0.#%}",
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  },
+  "part_sub": {
+   "prop": 31203,
+   "name": "异常精通",
+   "format": "{0:0}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementMystery.png"
   }
  },
  "strategy": [

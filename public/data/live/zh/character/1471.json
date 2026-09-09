@@ -85,7 +85,10 @@
    "EtherEyesSize2"
   ],
   "rp_max": 120,
-  "rp_recover": 200
+  "rp_recover": 200,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -2206,6 +2209,7 @@
   "3114710": {
    "name": "般岳·灼业石心",
    "desc": "一身浩然正气，尽显宗师风范。切莫因其沉默而妄加评判，石心不鸣，悲悯无声。",
+   "obtain_desc": "",
    "image": "IconRole53"
   }
  },
@@ -2451,6 +2455,34 @@
    21103,
    11102
   ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33100,
+     31000
+    ],
+    "part_sub_list": [
+     20103,
+     21103
+    ]
+   },
+   {
+    "suit_list": [
+     33100,
+     31000
+    ],
+    "part_sub_list": [
+     31603,
+     11102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     11102
+    ]
+   }
+  ],
   "part4": {
    "prop": 20103,
    "name": "暴击率",
@@ -2464,16 +2496,16 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
   },
   "part6": {
-   "prop": 11102,
-   "name": "生命值",
-   "format": "{0:0.#%}",
-   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconHpMax.png"
-  },
-  "part_sub": {
    "prop": 31603,
    "name": "火属性伤害加成",
    "format": "{0:0.#%}",
    "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconFire.png"
+  },
+  "part_sub": {
+   "prop": 11102,
+   "name": "生命值",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconHpMax.png"
   }
  },
  "strategy": [

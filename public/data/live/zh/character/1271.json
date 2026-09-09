@@ -85,7 +85,10 @@
    "EtherEyesSize1"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1510,6 +1513,7 @@
   "3112710": {
    "name": "赛斯·不染澄心",
    "desc": "尽管钝感力比左手的盾牌还沉，但少年人对罪恶的感知，却比右手的警棍更锐利。",
+   "obtain_desc": "",
    "image": "IconRole30"
   }
  },
@@ -1628,6 +1632,33 @@
    12102,
    31203
   ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33700,
+     31900
+    ],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [
+     31900,
+     31400
+    ],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     30502,
+     12102
+    ]
+   }
+  ],
   "part4": {
    "prop": 30502,
    "name": "能量自动回复",
@@ -1647,14 +1678,14 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconThunder.png"
   },
   "part_sub": {
-   "prop": 11102,
-   "name": "生命值",
-   "format": "{0:0.#%}",
-   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconHpMax.png"
+   "prop": 31203,
+   "name": "异常精通",
+   "format": "{0:0}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementMystery.png"
   }
  },
  "strategy": [
-  "05",
+  "04",
   "<IconMap:Icon_GeneralBuff_Thunder>电属性，异常体系辅助",
   "为队友提供护盾与异常精通"
  ],

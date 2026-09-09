@@ -85,7 +85,10 @@
    "EtherEyesSize2"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1859,6 +1862,7 @@
   "3115710": {
    "name": "诺姆·蠢材绝缘体",
    "desc": "诺姆的实验安全守则第一条：远离来自庸人和蠢材的质疑与见解。",
+   "obtain_desc": "",
    "image": "IconRole65"
   }
  },
@@ -1977,6 +1981,30 @@
    20103,
    21103,
    12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33200,
+     31000
+    ],
+    "part_sub_list": [
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31603,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     30502
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,

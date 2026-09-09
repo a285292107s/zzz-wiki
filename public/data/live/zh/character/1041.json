@@ -85,7 +85,10 @@
    "EtherEyesSize2"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1937,6 +1940,7 @@
   "3110410": {
    "name": "「11号」·精锐士兵",
    "desc": "暖色的护目镜下，士兵的眼眸总透出一股冷峻。想看她露出微笑？87.5个单手俯卧撑和超辣拉面，选一个吧。",
+   "obtain_desc": "",
    "image": "IconRole05"
   }
  },
@@ -2091,12 +2095,37 @@
  ],
  "fairy_recommend": {
   "slot4": 32200,
-  "slot2": 31000,
-  "slot_sub": 31400,
+  "slot2": 32700,
+  "slot_sub": 31000,
   "part_sub_list": [
    20103,
    21103,
    12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32200,
+     31000
+    ],
+    "part_sub_list": [
+     21103,
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31603,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,

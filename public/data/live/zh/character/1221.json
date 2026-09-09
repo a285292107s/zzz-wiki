@@ -86,7 +86,10 @@
    "EtherEyesSize3"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1724,6 +1727,7 @@
   "3112210": {
    "name": "月城柳·月影流华",
    "desc": "反光镜片也难掩副课长眼底的清明，因为她需要时刻关注一位沉迷修行的武者，一位消极怠工的斥候，以及一位容易吃坏肚子的小朋友。",
+   "obtain_desc": "",
    "image": "IconRole31"
   }
  },
@@ -1849,12 +1853,36 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 31800,
-  "slot2": 31300,
-  "slot_sub": 32400,
+  "slot4": 31300,
+  "slot2": 32400,
+  "slot_sub": 31800,
   "part_sub_list": [
-   31203,
-   12102
+   12102,
+   31203
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31800,
+     31300
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31803,
+     23103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31402
+    ]
+   }
   ],
   "part4": {
    "prop": 31203,
@@ -1869,16 +1897,16 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconThunder.png"
   },
   "part6": {
-   "prop": 12102,
-   "name": "攻击力",
-   "format": "{0:0.#%}",
-   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
-  },
-  "part_sub": {
    "prop": 31402,
    "name": "异常掌控",
    "format": "{0:0.#%}",
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementAbnormalPower.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "攻击力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
  "strategy": [

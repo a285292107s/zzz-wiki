@@ -85,7 +85,10 @@
    "EtherEyesSize3"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1737,6 +1740,7 @@
   "3111810": {
    "name": "格莉丝·钢铁的女巫",
    "desc": "简洁干练的工作服。最让天才机械师满意的是外侧大大小小的口袋，足够装下各种型号的螺丝、齿轮甚至扳手。",
+   "obtain_desc": "",
    "image": "IconRole20"
   }
  },
@@ -1841,12 +1845,40 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 32400,
-  "slot2": 31300,
-  "slot_sub": 31000,
+  "slot4": 31300,
+  "slot2": 32400,
+  "slot_sub": 33000,
   "part_sub_list": [
    12102,
    31203
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31300,
+     32400
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [
+     32400,
+     31300
+    ],
+    "part_sub_list": [
+     31803,
+     12102,
+     23103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31402
+    ]
+   }
   ],
   "part4": {
    "prop": 31203,
@@ -1867,10 +1899,10 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   },
   "part_sub": {
-   "prop": 20103,
-   "name": "暴击率",
+   "prop": 23103,
+   "name": "穿透率",
    "format": "{0:0.#%}",
-   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconPenRatio.png"
   }
  },
  "strategy": [

@@ -84,7 +84,10 @@
    "EtherEyesSize2"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -2274,11 +2277,13 @@
   "3110310": {
    "name": "妮可·一点点俏皮",
    "desc": "狡兔屋老大的经典穿搭，隐藏了几分灵动的小心机，俏皮又可爱。",
+   "obtain_desc": "",
    "image": "IconRole12"
   },
   "3110311": {
    "name": "妮可·狡黠甜心",
    "desc": "粉色！粉色！粉色！粉色就是妮可的本命色，心动了吗？",
+   "obtain_desc": "",
    "image": "IconRole12_01"
   }
  },
@@ -2404,12 +2409,40 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 32300,
+  "slot4": 33400,
   "slot2": 31600,
-  "slot_sub": 31000,
+  "slot_sub": 32300,
   "part_sub_list": [
    12102,
    31203
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31600,
+     32300
+    ],
+    "part_sub_list": [
+     31203,
+     20103
+    ]
+   },
+   {
+    "suit_list": [
+     33400,
+     31600
+    ],
+    "part_sub_list": [
+     31903,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     30502
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,

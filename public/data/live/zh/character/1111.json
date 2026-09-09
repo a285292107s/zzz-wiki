@@ -85,7 +85,10 @@
    "EtherEyesSize2"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1699,6 +1702,7 @@
   "3111110": {
    "name": "安东·撼地炽轴",
    "desc": "冲击锤的轴承轰鸣不止，男子汉炽热的心亦如雷鸣鼓动。",
+   "obtain_desc": "",
    "image": "IconRole15"
   }
  },
@@ -1831,13 +1835,39 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 32400,
+  "slot4": 33300,
   "slot2": 31000,
-  "slot_sub": 31400,
+  "slot_sub": 32700,
   "part_sub_list": [
    12102,
    20103,
    21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32400,
+     31000
+    ],
+    "part_sub_list": [
+     20103,
+     21103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31803,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102,
+     30502
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,

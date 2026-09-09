@@ -85,7 +85,10 @@
    "EtherEyesSize2"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1760,11 +1763,13 @@
   "3114010": {
    "name": "爱丽丝·圣星裁仪",
    "desc": "少女的完全对称美学，唯有在佩戴校徽时会稍作让步。这便是优雅且高尚的泰姆菲尔德精神。",
+   "obtain_desc": "",
    "image": "IconRole46"
   },
   "3114011": {
    "name": "爱丽丝·百里香之海",
    "desc": "尽管并非完全对称，来自挚友的礼物却意外地让少女没那么抗拒。\n少女推开紧闭的门扉，行走在骤雨停歇后的粉色沙滩上，有点冰凉的海浪刚好能没过脚踝。已再没有什么未知能让她感到恐惧。",
+   "obtain_desc": "",
    "image": "IconRole46_01"
   }
  },
@@ -1892,10 +1897,33 @@
  "fairy_recommend": {
   "slot4": 32600,
   "slot2": 31300,
-  "slot_sub": 31400,
+  "slot_sub": 33000,
   "part_sub_list": [
-   31203,
-   12102
+   12102,
+   31203
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32600,
+     33000
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31503
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31402
+    ]
+   }
   ],
   "part4": {
    "prop": 31203,
@@ -1916,10 +1944,10 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementAbnormalPower.png"
   },
   "part_sub": {
-   "prop": 20103,
-   "name": "暴击率",
+   "prop": 12102,
+   "name": "攻击力",
    "format": "{0:0.#%}",
-   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
  "strategy": [

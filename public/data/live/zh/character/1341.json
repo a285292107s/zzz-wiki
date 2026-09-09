@@ -85,7 +85,10 @@
    "EtherEyesSize0"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1612,6 +1615,7 @@
   "3113410": {
    "name": "照·绒耳寒枝",
    "desc": "暖绒的双耳、娇小的身姿，倘若因此投以轻视，「利益」的裁决官将不吝挥下枝条。",
+   "obtain_desc": "",
    "image": "IconRole56"
   }
  },
@@ -1731,11 +1735,35 @@
  ],
  "fairy_recommend": {
   "slot4": 33700,
-  "slot2": 31600,
-  "slot_sub": 33100,
+  "slot2": 33100,
+  "slot_sub": 31600,
   "part_sub_list": [
    11102,
    11103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33700,
+     33100
+    ],
+    "part_sub_list": [
+     11102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     11102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     11102,
+     30502
+    ]
+   }
   ],
   "part4": {
    "prop": 11102,
@@ -1763,7 +1791,7 @@
   }
  },
  "strategy": [
-  "05",
+  "04",
   "<IconMap:Icon_GeneralBuff_Ice>冰属性，泛用型速切辅助",
   "可稳定开启[以太帷幕]",
   "提高全队角色攻击力"

@@ -85,7 +85,10 @@
    "EtherEyesSize2"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -2234,6 +2237,7 @@
   "3111410": {
    "name": "莱卡恩·苍月夜巡",
    "desc": "皎月洗尽尘色，执事的优雅臻于完美。而当红月升起，礼服下潜伏的野性，亦自有它的从容与风度。",
+   "obtain_desc": "",
    "image": "IconRole18"
   }
  },
@@ -2359,12 +2363,37 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 31200,
-  "slot2": 32500,
-  "slot_sub": 31600,
+  "slot4": 33200,
+  "slot2": 31200,
+  "slot_sub": 31000,
   "part_sub_list": [
+   20103,
    12102,
-   20103
+   21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31200,
+     32500
+    ],
+    "part_sub_list": [
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31703,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12202
+    ]
+   }
   ],
   "part4": {
    "prop": 20103,

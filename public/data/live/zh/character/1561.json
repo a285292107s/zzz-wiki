@@ -85,7 +85,10 @@
    "EtherEyesSize3"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1673,11 +1676,13 @@
   "3115610": {
    "name": "维琳娜·华扇流银",
    "desc": "好事者曾传言，总务官拒绝外策局的制式服装，是为了彰显门第矜贵，但维琳娜对华服向来兴致寥寥。比起礼仪场上的锦绣装点，她更偏爱简洁的装束——利落、得体，足以应对永无尽头的公务。",
+   "obtain_desc": "",
    "image": "IconRole64"
   },
   "3115611": {
    "name": "维琳娜·暇时闲影",
    "desc": "维琳娜在工作之余邀请好友参加午后茶会，在此期间，她会换上相对休闲的服装享受闲暇…不过此前对于邦布们来说，那也只是死神换了一套可怖的伪装而已。",
+   "obtain_desc": "",
    "image": "IconRole64_01"
   }
  },
@@ -1798,10 +1803,36 @@
  "fairy_recommend": {
   "slot4": 33900,
   "slot2": 31600,
-  "slot_sub": 31300,
+  "slot_sub": 33400,
   "part_sub_list": [
    31203,
    12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33900,
+     31600
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [
+     33900,
+     33400
+    ],
+    "part_sub_list": [
+     32303
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     30502
+    ]
+   }
   ],
   "part4": {
    "prop": 30502,

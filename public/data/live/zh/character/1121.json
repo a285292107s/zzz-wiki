@@ -85,7 +85,10 @@
    "EtherEyesSize3"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1539,6 +1542,7 @@
   "3111210": {
    "name": "本·兽王毛茸茸",
    "desc": "卸下震慑外敌的姿态，兽王也会为毛发护理和账单核算犯难。",
+   "obtain_desc": "",
    "image": "IconRole16"
   }
  },
@@ -1661,12 +1665,38 @@
   }
  ],
  "fairy_recommend": {
-  "slot4": 31500,
-  "slot2": 31600,
-  "slot_sub": 31300,
+  "slot4": 33700,
+  "slot2": 31900,
+  "slot_sub": 31500,
   "part_sub_list": [
    13102,
    12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33700,
+     31900
+    ],
+    "part_sub_list": [
+     13102
+    ]
+   },
+   {
+    "suit_list": [
+     31500,
+     31600
+    ],
+    "part_sub_list": [
+     13102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     13102
+    ]
+   }
   ],
   "part4": {
    "prop": 13102,
@@ -1694,7 +1724,7 @@
   }
  },
  "strategy": [
-  "05",
+  "04",
   "<IconMap:Icon_GeneralBuff_Fire>火属性，防护辅助",
   "为全队角色提供护盾防御反击"
  ],

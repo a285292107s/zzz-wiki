@@ -85,7 +85,10 @@
    "EtherEyesSize3"
   ],
   "rp_max": 120,
-  "rp_recover": 200
+  "rp_recover": 200,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1902,6 +1905,7 @@
   "3110510": {
    "name": "伊德海莉·遐思漫录",
    "desc": "旧忆与新梦纷至沓来，诱人沉溺，于纸端缠拥。她铺展空白，在虚实交界之地，落下了故事的开篇一笔。",
+   "obtain_desc": "",
    "image": "IconRole52"
   }
  },
@@ -2070,6 +2074,34 @@
    21103,
    11102
   ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33100,
+     31000
+    ],
+    "part_sub_list": [
+     20103,
+     21103
+    ]
+   },
+   {
+    "suit_list": [
+     33100,
+     31000
+    ],
+    "part_sub_list": [
+     31703,
+     11102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     11102
+    ]
+   }
+  ],
   "part4": {
    "prop": 20103,
    "name": "暴击率",
@@ -2089,10 +2121,10 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconHpMax.png"
   },
   "part_sub": {
-   "prop": 11102,
-   "name": "生命值",
+   "prop": 31703,
+   "name": "冰属性伤害加成",
    "format": "{0:0.#%}",
-   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconHpMax.png"
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconIce.png"
   }
  },
  "strategy": [

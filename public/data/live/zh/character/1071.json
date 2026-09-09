@@ -86,7 +86,10 @@
    "EtherEyesSize3"
   ],
   "rp_max": 0,
-  "rp_recover": 0
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
  },
  "skill": {
   "basic": {
@@ -1850,6 +1853,7 @@
   "3110710": {
    "name": "凯撒·火浴焰行",
    "desc": "再奏凯歌的霸主，重燃传奇的英雄。尚不成熟的领袖等来了一场加冕的烈火，但她仍行走于外环的沙砾之中。\n轻拨琴键，沙色旋律仍在这片承载希望的土地上潺潺流淌。",
+   "obtain_desc": "",
    "image": "IconRole25"
   }
  },
@@ -1987,7 +1991,32 @@
   "slot_sub": 31200,
   "part_sub_list": [
    12102,
-   20103
+   20103,
+   21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33700,
+     31900
+    ],
+    "part_sub_list": [
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31503,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12202
+    ]
+   }
   ],
   "part4": {
    "prop": 12202,
@@ -2015,7 +2044,7 @@
   }
  },
  "strategy": [
-  "05",
+  "04",
   "<IconMap:Icon_GeneralBuff_PhysDmg>物理属性，后台辅助",
   "为全队角色提供护盾与抗打断能力",
   "为站场队友提供攻击加成"
