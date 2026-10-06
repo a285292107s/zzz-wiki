@@ -22,6 +22,8 @@ import {
   CHAR_LEVEL_MIN,
   charBreakSegment,
   SKILL_LEVEL_DEFAULT,
+  SKILL_LEVEL_MAX,
+  SKILL_LEVEL_MIN,
   characterStatsAtLevel,
   dictToRows,
   synthesizePotentialCinema,
@@ -71,8 +73,15 @@ const signatureEngine = computed(() =>
 /* ---------- 基础属性：等级滑条 ---------- */
 
 /** 连携技/终结技共享的技能等级（同处 game 的 chain 槽，共用一个 material/12 级）；
- *  父级持有以便两个技能组同步，切换角色时重置 */
-const chainLevel = ref(SKILL_LEVEL_DEFAULT)
+ *  父级持有以便两个技能组同步，切换角色时重置。用 useEntityLevel 统一承接
+ *  「默认值 + URL 深链（?clv=）」两条行为，避免手写第二份 ref/watch。 */
+const { level: chainShared } = useEntityLevel({
+  min: SKILL_LEVEL_MIN,
+  max: SKILL_LEVEL_MAX,
+  default: SKILL_LEVEL_DEFAULT,
+  queryKey: 'clv',
+})
+const chainLevel = chainShared
 
 /** 当前查看等级（默认满级，与技能滑块默认一致；切换角色时重置连携共享等级）+ 突破刻度 */
 const { level: charLevel, levelMarks } = useEntityLevel({

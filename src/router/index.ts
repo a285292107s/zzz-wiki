@@ -39,7 +39,7 @@ export const router = createRouter({
      注意：Vue Router 的 { el } 滚动走 getBoundingClientRect 手动计算，CSS
      scroll-margin-top 不会生效；必须在此手动算避让偏移（站头/吸顶横条），
      偏移值读取 CSS 变量 --anchor-offset（base.css 单一来源，含断点）。 */
-  scrollBehavior(to, _from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
     if (savedPosition) return savedPosition
     if (to.hash) {
       const id = to.hash.slice(1)
@@ -57,6 +57,10 @@ export const router = createRouter({
         return { top: y - resolveAnchorOffset(), behavior: 'smooth' }
       }
     }
+    // 同路由、仅查询参数变化（名录筛选/搜索词、等级等经 URL 同步的状态）**不滚动**：
+    // 否则每次筛选都被拉回页顶（2026-10 实测：列表页滚到 1200px 点筛选 → scrollY 0）。
+    // 返回 false 表示「本次导航不改动滚动位置」。
+    if (to.path === from.path) return false
     return { top: 0 }
   },
   routes: [

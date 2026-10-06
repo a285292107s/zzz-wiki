@@ -233,6 +233,45 @@ async (page) => {
     add('content-sample-clean', bad.length === 0, bad.join(' ⏐ ') || '5 页抽样无异常')
   }
 
+  // ---- 等级深链（?lv= 可分享视图；改等级不得丢滚动位置） ----
+  {
+    await page.goto('http://localhost:4175/agents/1011?lv=55', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(2200)
+    const deep = await page.evaluate(() => ({
+      level: document.querySelector('.level-range')?.value,
+      url: location.search,
+    }))
+    add('level-deeplink', deep.level === '55' && deep.url.includes('lv=55'), JSON.stringify(deep))
+
+    // 中段改等级：URL 跟随且滚动保持（滑条实测在 y≈1450，依赖 scrollBehavior 同路由不滚动）
+    await page.evaluate(() => window.scrollTo(0, 1500))
+    await page.waitForTimeout(400)
+    const y0 = await page.evaluate(() => Math.round(window.scrollY))
+    await page.evaluate(() => {
+      const s = document.querySelector('.level-range')
+      s.value = '42'
+      s.dispatchEvent(new Event('input', { bubbles: true }))
+    })
+    await page.waitForTimeout(900)
+    const after = await page.evaluate(() => ({
+      y: Math.round(window.scrollY),
+      url: location.search,
+      level: document.querySelector('.level-range')?.value,
+    }))
+    add('level-sync-url', after.url.includes('lv=42') && after.level === '42', JSON.stringify(after))
+    add('level-keeps-scroll', Math.abs(after.y - y0) < 120, `before=${y0} after=${after.y}`)
+
+    // 翻页到相邻条目：等级与 lv 参数一并重置（不把上一档等级带给下一个角色）
+    await page.keyboard.press('ArrowRight')
+    await page.waitForTimeout(1500)
+    const next = await page.evaluate(() => ({
+      path: location.pathname,
+      search: location.search,
+      level: document.querySelector('.level-range')?.value,
+    }))
+    add('level-reset-on-pager', next.path !== '/agents/1011' && next.search === '' && next.level === '60', JSON.stringify(next))
+  }
+
   // ---- 数据说明页（页脚入口 + 动态数字） ----  await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1400)
   {

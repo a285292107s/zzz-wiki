@@ -163,9 +163,11 @@ function select(g: FilterGroup, value: FilterValue) {
   else if (g.key === 'prof') emit('update:prof', value as 'all' | SpecCode)
   else emit('update:camp', value as CampFilter)
   openGroup.value = null
-  // 选择后焦点归还触发钮（选项被卸载，否则焦点落 body——键盘用户丢失位置）
+  // 选择后焦点归还触发钮（选项被卸载，否则焦点落 body——键盘用户丢失位置）。
+  // preventScroll：触发钮在页面顶部，不加此参浏览器会把它滚入视野——用户在列表
+  // 中段选筛选就被拉回页顶（2026-10 实测：滚到 1200px 选筛选 → scrollY 0）。
   void nextTick(() => {
-    rootEl.value?.querySelector<HTMLElement>(`.trigger[data-key="${g.key}"]`)?.focus()
+    rootEl.value?.querySelector<HTMLElement>(`.trigger[data-key="${g.key}"]`)?.focus({ preventScroll: true })
   })
 }
 
