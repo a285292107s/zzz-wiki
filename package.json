@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "build:ci": "npm test && node scripts/verify-fonts.mjs && node scripts/verify-cjk-fonts.mjs && vite build && node scripts/generate-sitemap.mjs && node scripts/verify-budget.mjs && node scripts/verify-vercel-config.mjs",
+    "build:ci": "npm test && node scripts/verify-fonts.mjs && node scripts/verify-cjk-fonts.mjs && vite build && node scripts/generate-sitemap.mjs && node scripts/generate-route-html.mjs && node scripts/verify-budget.mjs && node scripts/verify-vercel-config.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "audit": "node scripts/audit-runner.mjs",
     "preview": "vite preview",
@@ -24,7 +24,8 @@
     "verify:budget": "node scripts/verify-budget.mjs",
     "subset:fonts:cjk": "node scripts/build/subset-cjk-fonts.mjs",
     "fonts:cjk": "npm run download:fonts:cjk && npm run subset:fonts:cjk",
-    "verify:vercel": "node scripts/verify-vercel-config.mjs"
+    "verify:vercel": "node scripts/verify-vercel-config.mjs",
+    "route-html": "node scripts/generate-route-html.mjs"
   },
   "dependencies": {
     "vue": "^3.5.13",

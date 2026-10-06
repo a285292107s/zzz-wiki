@@ -117,9 +117,28 @@ if (!fs.existsSync(sm)) {
   }
 }
 
+/* 5) 逐路由静态 HTML（社交卡片 / 爬虫元信息）：数量须与 sitemap 匹配 */
+{
+  const htmls = []
+  const walk = (dir) => {
+    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (e.isDirectory()) walk(path.join(dir, e.name))
+      else if (e.name === 'index.html' && dir !== DIST) htmls.push(path.join(dir, e.name))
+    }
+  }
+  if (fs.existsSync(DIST)) walk(DIST)
+  const sitemapUrls = fs.existsSync(sm) ? (fs.readFileSync(sm, 'utf8').match(/<loc>/g) || []).length : 0
+  // sitemap 含根路由（用 dist/index.html 本体），故生成数 = sitemap - 1
+  const ok = htmls.length > 0 && htmls.length >= sitemapUrls - 2
+  console.log(`  ${ok ? '✓' : '✖'} 逐路由 HTML: ${htmls.length} 个（sitemap ${sitemapUrls}）`)
+  if (!ok) bad++
+  const bytes = htmls.reduce((s, p) => s + fs.statSync(p).size, 0)
+  console.log(`  · 逐路由 HTML 体积: ${Math.round(bytes / 1024)}KB（部署额外产物，不影响首访下载）`)
+}
+
 console.log(
   bad
     ? `\n== 性能预算 == 未通过（${bad} 项）——新增依赖/代码请同步评估预算，调整预算须更新基线文档`
-    : '\n== 性能预算 == 通过（主包/CSS/sitemap 全部在预算内）',
+    : '\n== 性能预算 == 通过（主包/CSS/sitemap/逐路由 HTML 全部在预算内）',
 )
 process.exitCode = bad ? 1 : 0

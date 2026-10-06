@@ -245,7 +245,13 @@ npm run verify:fonts:cjk    # CJK 分片完整性 + 字符集覆盖校验：清�
 npm run sitemap         # 生成 dist/sitemap.xml（build:ci 末段自动执行；域名取 VITE_SITE_ORIGIN，与 canonical/og:url 同源；
                         #   部署环境（VERCEL/CI）缺该变量则直接失败——防止把 localhost 域名的 sitemap 发上线）；
                         #   verify:budget 另做「sitemap origin 与 VITE_SITE_ORIGIN 一致」门禁
-npm run verify:budget    # 体积预算 + sitemap origin 一致性门禁（build:ci 已挂）
+npm run route-html      # 逐路由静态 HTML（build:ci 紧随 sitemap 执行）：以 dist/index.html 为模板，
+                        #   为 sitemap 中每个路由生成 dist/<route>/index.html，只替换 head 的
+                        #   title/description/canonical/og:*（og:image 按类目选：角色=hero/card 派生图、
+                        #   音擎/邦布=thumb 图标、名录/静态页=站点头图），宽高由 sharp 读实际文件；
+                        #   Vercel 静态文件优先于 rewrites，故社交爬虫与搜索引擎拿到的是逐页元信息。
+                        #   生成器内置自校验（任一页字段未替换即失败）
+npm run verify:budget    # 体积预算 + sitemap origin 一致性 + 逐路由 HTML 数量门禁（build:ci 已挂）
 npm run verify:vercel    # 生产缓存策略 + 安全响应头不变量门禁（build:ci 已挂）：
                          #   内容寻址资源才可 immutable、非寻址资源禁止 immutable、manifest/字体 CSS 必须每次重验证、
                          #   CSP 必需指令齐备且脚本**不得**放开 unsafe-inline/eval、安全头齐备、SPA rewrite 存在、
