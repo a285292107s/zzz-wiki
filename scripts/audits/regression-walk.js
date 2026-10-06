@@ -644,6 +644,22 @@ async (page) => {
       ranges.length === 4 && ranges.every((x) => /^\d+–\d+$/.test(x)),
       ranges.join(' '),
     )
+    // 编号语义必须讲清两套（源站 ID / 展示位次）及各自出现的位置——
+    // 实测：详情页头 NO.1011、翻页 002、快搜 1011、名录表格不显示编号
+    const numbering = await page.evaluate(() => {
+      const t = document.querySelector('.spec-note')?.textContent.replace(/\s+/g, ' ') ?? ''
+      return {
+        id: /源站 ID/.test(t),
+        ordinal: /展示位次/.test(t),
+        scope: /该类目内/.test(t),
+        listNo: /名录表格本身不显示编号/.test(t),
+      }
+    })
+    add(
+      'about-numbering-precise',
+      numbering.id && numbering.ordinal && numbering.scope && numbering.listNo,
+      JSON.stringify(numbering),
+    )
     // 声明诚实性：文案不得出现「不做任何跨域请求 / 不经任何外部服务」这类绝对化表述
     // ——图片候选链**确实**会在源站缺口时回源 CDN（实测邦布 55098 触发 1 次跨域请求）。
     // 该说清楚的是「本站资源齐备时零跨域请求 + 兜底例外」，而不是抹掉例外。

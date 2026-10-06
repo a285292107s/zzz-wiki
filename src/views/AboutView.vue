@@ -169,9 +169,12 @@ const gapCount = computed(() =>
         </li>
       </ul>
       <p class="spec-note">
-        编号即<strong>源站 ID</strong>：深链地址与图片文件名都用它（如
-        <code class="mono">/agents/1011</code>）；名录里的三位序号（001–232）是本站按源站 ID
-        升序排出的<strong>展示位次</strong>，与源站 ID 无关。号段为各类目实测范围，随数据更新自动跟随。
+        编号有两套，用途不同：<strong>源站 ID</strong>（详情页头的
+        <code class="mono">NO.1011</code>、快速检索结果、深链地址与图片文件名）与
+        <strong>展示位次</strong>（详情页翻页处的三位序号，如
+        <code class="mono">002</code>，按源站 ID 升序在<em>该类目内</em>排定）。
+        名录表格本身不显示编号——它按名称、属性等列陈列。号段为各类目实测范围，
+        随数据更新自动跟随。
       </p>
     </aside>
 
