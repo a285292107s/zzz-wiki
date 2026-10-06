@@ -242,7 +242,9 @@ npm run download:fonts:cjk  # CJK 原始分片拉取：Noto Serif SC 500 → .ca
 npm run subset:fonts:cjk    # CJK 分片裁剪：按站内字符集裁剪源片并按 10KB 目标细分 → public/fonts/noto-serif-sc/ + CSS + 清单（内容寻址命名，自动清理孤儿）
 npm run fonts:cjk           # 上两步串联（字符集变化后跑这个）
 npm run verify:fonts:cjk    # CJK 分片完整性 + 字符集覆盖校验：清单/css/文件三方对账，且字体能提供的字符必须全部已声明（离线可用；build:ci 已挂）
-npm run sitemap         # 生成 dist/sitemap.xml（build:ci 末段自动执行；SITE_ORIGIN 环境变量注入生产域）
+npm run sitemap         # 生成 dist/sitemap.xml（build:ci 末段自动执行；域名取 VITE_SITE_ORIGIN，与 canonical/og:url 同源；
+                        #   部署环境（VERCEL/CI）缺该变量则直接失败——防止把 localhost 域名的 sitemap 发上线）；
+                        #   verify:budget 另做「sitemap origin 与 VITE_SITE_ORIGIN 一致」门禁
 npm run dev             # 开发 http://localhost:5173（占用自动换端口）
 npm run build           # vue-tsc 类型检查 + vite 构建
 npm run preview         # 预演产物

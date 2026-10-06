@@ -88,15 +88,33 @@ if (fs.existsSync(cjkCss)) {
   fail('public/fonts/noto-serif-sc.css 缺失——CJK 衬线分片未就位？')
 }
 
-/* 4) sitemap */
+/* 4) sitemap：条数下限 + **域名一致性** */
 const sm = path.join(DIST, 'sitemap.xml')
 if (!fs.existsSync(sm)) {
   fail('dist/sitemap.xml 缺失——generate-sitemap 未执行？')
 } else {
-  const urls = (fs.readFileSync(sm, 'utf8').match(/<loc>/g) || []).length
+  const xml = fs.readFileSync(sm, 'utf8')
+  const urls = (xml.match(/<loc>/g) || []).length
   const ok = urls >= BUDGET.sitemapMinUrls
   console.log(`  ${ok ? '✓' : '✖'} sitemap.xml: ${urls} URLs / 下限 ${BUDGET.sitemapMinUrls}`)
   if (!ok) bad++
+
+  // 域名一致性：sitemap 的 origin 必须与 canonical/og:url 同源（VITE_SITE_ORIGIN）。
+  // 2026-10 实测踩到过 origin 变量名不一致（vercel.json 注 VITE_SITE_ORIGIN、
+  // 脚本读 SITE_ORIGIN）→ 生产 sitemap 全部指向 localhost。此门禁把该类缺陷挡在部署前。
+  const expect = (process.env.VITE_SITE_ORIGIN || process.env.SITE_ORIGIN || '').replace(/\/$/, '')
+  const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])
+  const origins = new Set(locs.map((u) => u.replace(/^(https?:\/\/[^/]+).*$/, '$1')))
+  const uniqueOrigin = origins.size === 1
+  console.log(`  ${uniqueOrigin ? '✓' : '✖'} sitemap origin: ${[...origins].join(' / ') || '无'}`)
+  if (!uniqueOrigin) bad++
+  if (expect) {
+    const match = [...origins][0] === expect
+    console.log(`  ${match ? '✓' : '✖'} sitemap origin 与 VITE_SITE_ORIGIN 一致: 期望 ${expect}`)
+    if (!match) bad++
+  } else if (process.env.VERCEL || process.env.CI) {
+    fail('部署构建未设置 VITE_SITE_ORIGIN——sitemap 会指向 localhost，拒绝通过')
+  }
 }
 
 console.log(
