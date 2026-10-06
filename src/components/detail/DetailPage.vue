@@ -115,6 +115,8 @@ watch(
   display: inline-block;
   /* 与页头的绑定的间距较区块间距收紧：返回链接语义上从属页头，不参与区块之间的呼吸 */
   margin-bottom: clamp(16px, 2.2vw, 34px);
+  /* 触屏命中区：WCAG 2.5.8 min 24px（视觉行高 20px + 负 margin 抵消布局影响） */
+  padding: 2px 0;
 }
 
 .back:hover {

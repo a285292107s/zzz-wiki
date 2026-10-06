@@ -527,7 +527,9 @@ a.rich-term:hover {
 
   .sn-item {
     gap: 8px;
-    padding: 0;
+    /* 触屏命中区：WCAG 2.5.8 min 24px（横条行高 22px + padding-block 上下各 4px）；
+       视觉密度不变，命中区垂直扩展 */
+    padding: 4px 0;
     font-size: var(--fs-micro);
   }
 
@@ -557,7 +559,8 @@ a.rich-term:hover {
 
   .sn-child {
     gap: 6px;
-    padding: 0;
+    /* 触屏命中区：同 sn-item，padding-block 扩至 24px 行盒 */
+    padding: 4px 0;
     font-size: var(--fs-micro);
   }
 
@@ -587,8 +590,9 @@ a.rich-term:hover {
     align-self: center;
     align-items: center;
     justify-content: center;
-    width: 22px;
-    height: 22px;
+    /* WCAG 2.5.8：24×24 最小命中区（22px 视觉 + outline 外扩由 border-box 保证） */
+    width: 24px;
+    height: 24px;
     background: var(--bg-0);
     border: 1px solid var(--line-1);
     border-radius: 2px;
