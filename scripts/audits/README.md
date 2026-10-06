@@ -15,6 +15,7 @@
  * | slider-keyboard.js    | 滑条键盘操作（8 实例） | 全部响应 |
  * | landmarks.js          | landmark/h1/alt 唯一性 | 每页各 1 |
  * | font-weight-calibration.js | CJK 衬线实际渲染字重标定 | 生产 = wght 500 实例 |
+ * | axe-a11y.js          | axe-core 全量规则（8 路由 × 桌面/移动 16 组合） | 0 violations |
  *
  * 新增审计：脚本导出 JSON（{ total, failed, failedItems } 风格），
  * 失败项必须带定位信息（tag/cls/几何），让下一轮修复不用重新考古。

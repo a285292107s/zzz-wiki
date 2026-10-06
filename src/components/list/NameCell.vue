@@ -12,6 +12,7 @@ import { catalogByPath } from '@/domain/catalog'
 const props = defineProps<{
   to: string
   srcs: string[]
+  /** 缩略图 alt：本组件恒为装饰图（名字紧随其后属同一链接），保留 prop 仅为调用方语义自述 */
   alt: string
   fallback: string
   name: string
@@ -33,7 +34,8 @@ function warmNow(): void {
 <template>
   <RouterLink :to="to" class="name-cell" @pointerenter="warmDwell" @pointerdown="warmNow" @focus="warmNow">
     <span :class="['thumb', { banner: thumb === 'banner' }]">
-      <HollowImage :srcs="srcs" :alt="alt" :fallback="fallback" fit="contain" />
+      <!-- alt 置空：名字文本紧邻同链接内，图再说一遍名字是冗余朗读（axe image-redundant-alt） -->
+      <HollowImage :srcs="srcs" alt="" :fallback="fallback" fit="contain" />
     </span>
     <span class="name">{{ name }}</span>
   </RouterLink>

@@ -104,24 +104,25 @@ function onHeadClick(c: CatalogColumn) {
             </slot>
           </td>
           <td v-if="rightColumn" class="m-right">
-            <!-- 右格可排序时整格为排序钮（稀有度等）；触屏无 hover，常态显示 ↕ 提示。
-                 方向信息放 aria-label（aria-sort 仅 columnheader/rowheader 合法，button 上会被辅助技术忽略） -->
+            <!-- 右格可排序时整格为排序钮（稀有度等）。可访问名从内容派生（勿用 aria-label：
+                 视觉文本含稀有度字母与箭头，aria-label 会与之不一致而触发
+                 label-content-name-mismatch）；操作说明用 sr-only 文本补足，
+                 箭头字形改由 CSS 生成内容提供（不进文本，读屏与 axe 均不计入） -->
             <button
               v-if="rightColumn.sortable"
               type="button"
               class="m-sort"
-              :class="{ active: sort === rightColumn.key }"
-              :aria-label="sort === rightColumn.key
-                ? `按${rightColumn.label}排序，当前${sortDir === 'asc' ? '升序' : '降序'}`
-                : `按${rightColumn.label}排序`"
+              :class="{ active: sort === rightColumn.key, desc: sort === rightColumn.key && sortDir === 'desc' }"
               :aria-pressed="sort === rightColumn.key"
               @click="onHeadClick(rightColumn)"
             >
               <slot :name="`cell-${rightColumn.key}`" :row="row" :index="i">
                 {{ String(row[rightColumn.key] ?? '—') }}
               </slot>
-              <span class="sort-arrow" aria-hidden="true">
-                {{ sort === rightColumn.key ? (sortDir === 'asc' ? '▲' : '▼') : '↕' }}
+              <span class="sr-only">
+                ，按{{ rightColumn.label }}排序{{
+                  sort === rightColumn.key ? (sortDir === 'asc' ? '，当前升序' : '，当前降序') : ''
+                }}
               </span>
             </button>
             <slot v-else :name="`cell-${rightColumn.key}`" :row="row" :index="i">
@@ -233,13 +234,21 @@ th.sortable {
     outline-offset: 2px;
   }
 
-  .m-sort .sort-arrow {
+  /* 排序提示字形由 CSS 生成内容提供：不进文本节点（读屏不念、axe 不计入可见文本），
+     保持「可访问名 = 可见文本」的一致关系 */
+  .m-sort::after {
+    content: '↕';
     font-size: var(--fs-nano);
-    color: var(--ink-3);
+    color: var(--ink-2);
   }
 
-  .m-sort.active .sort-arrow {
+  .m-sort.active::after {
+    content: '▲';
     color: var(--amber);
+  }
+
+  .m-sort.active.desc::after {
+    content: '▼';
   }
 
   /* meta 行：中间列 inline 排布（属性/职业/阵营标签等），组内不再有分隔线 */

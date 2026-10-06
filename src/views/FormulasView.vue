@@ -104,7 +104,9 @@ onBeforeUnmount(() => {
           <article v-for="item in g.items" :key="item.no" class="item">
             <span class="it-no">{{ item.no }}</span>
             <div class="it-body">
-              <h4 class="it-title">{{ item.title }}</h4>
+              <!-- 标题层级随分组标题是否存在浮动：无组标题时条目名升为 h3，
+                   避免 h2 → h4 跳级（axe heading-order，读屏大纲断链） -->
+              <component :is="g.title ? 'h4' : 'h3'" class="it-title">{{ item.title }}</component>
               <p v-if="item.desc" class="it-desc">{{ item.desc }}</p>
               <FormulaEq v-if="item.formula" :formula="item.formula" />
             </div>

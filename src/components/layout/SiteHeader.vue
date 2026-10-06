@@ -25,13 +25,11 @@
         </RouterLink>
       </nav>
 
-      <button
-        type="button"
-        class="search-toggle mono"
-        aria-label="快速检索 (Ctrl+K)"
-        @click="openSearch()"
-      >
-        <span class="st-mark">⌕</span>
+      <!-- 可访问名从内容派生（「检索 Ctrl K」）＝视觉可见文本，故不给 aria-label：
+           ⓐ 满足 WCAG 2.5.3 Label in Name，ⓑ 避开 axe label-content-name-mismatch
+           （该规则只在名字来自 aria-label 时校验，且以视觉文本为基准）。
+           放大镜字形由 CSS 生成内容提供，不进文本节点。 -->
+      <button type="button" class="search-toggle mono" @click="openSearch()">
         <span class="st-word">检索</span>
         <kbd class="st-kbd">Ctrl K</kbd>
       </button>
@@ -187,7 +185,9 @@ function openSearch() {
   transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
 }
 
-.st-mark {
+/* 放大镜字形：CSS 生成内容（不进文本节点，避免成为可访问名/可见文本的一部分） */
+.search-toggle::before {
+  content: '⌕';
   color: var(--amber);
   font-size: var(--fs-body);
 }
@@ -196,15 +196,29 @@ function openSearch() {
   font-family: var(--mono);
   font-size: var(--fs-badge);
   letter-spacing: 0.1em;
-  color: var(--ink-3);
+  /* ink-2（4.87:1）而非 ink-3（2.28:1）：axe color-contrast 实测 9px 小字需 AA */
+  color: var(--ink-2);
   border: 1px solid var(--line-0);
   border-radius: 2px;
   padding: 1px 5px;
 }
 
-/* 窄屏：文字与快捷键提示退场，仅留 ⌕ 图标钮 */
+/* 窄屏：仅留 ⌕ 图标钮。文字「检索」改为视觉隐藏而非 display:none——
+   display:none 会把按钮文本从可访问树里摘掉，按钮将无可访问名（axe button-name critical）；
+   视觉隐藏则名字保持「检索」，读屏仍可识别。键位提示窄屏无用，直接移除 */
 @media (max-width: 1100px) {
-  .st-word,
+  .st-word {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   .st-kbd {
     display: none;
   }
@@ -233,7 +247,8 @@ function openSearch() {
 
 .nav-item .no {
   font-size: var(--fs-nano);
-  color: var(--ink-3);
+  /* ink-2（4.87:1）而非 ink-3（2.28:1）：编号在链接内是可见文本，需过 AA */
+  color: var(--ink-2);
   transition: color var(--t-fast) var(--ease);
 }
 
@@ -340,7 +355,7 @@ function openSearch() {
 
 .mobile-item .no {
   font-size: var(--fs-micro);
-  color: var(--ink-3);
+  color: var(--ink-2); /* 同桌面导航：编号是可见文本，需过 AA（ink-3 仅 2.28:1） */
 }
 
 .mobile-item .label {

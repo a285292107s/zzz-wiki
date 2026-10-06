@@ -1,0 +1,6 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": ["scripts/audits/*.js"],
+  "ignoreDependencies": ["axe-core"],
+  "ignoreExportsUsedInFile": true
+}
