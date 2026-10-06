@@ -8,7 +8,7 @@
  * |---|---|---|
  * | viewport-overflow.js  | 8 视口 × 8 路由横向溢出 | 0 |
  * | touch-targets.js      | 交互目标 ≥24×24（WCAG 2.5.8） | 0 问题 |
- * | regression-walk.js    | 全站功能走查（78 项，覆盖七类目/边界态/URL 状态/离线联动） | 78/78 |
+ * | regression-walk.js    | 全站功能走查（79 项，覆盖七类目/边界态/URL 状态/离线联动） | 79/79 |
  * | transfer-profile.js   | 分类传输体积（逐文件 kb + 加载时刻） | 36 请求；最大 noto-serif-sc.css 68.9KB（解码值，gzip 后 ~10KB） |
  * | quick-search.js       | ⌘K 检索链路端到端（中文高亮/罗马字命中/结果态预激活/空态键盘路径） | 4/4 |
  * | font-loading.js       | CJK 衬线生效 + 分片按需 | serif=Noto Serif SC |
@@ -36,6 +36,8 @@
  * ⚠ **跑审计前必须 `npm run build:ci`**（不是 `npm run build`）：后者会清空 dist 且
  *   **不生成 sitemap / 逐路由 HTML**，`content-sweep` 这类读产物清单的脚本会静默地
  *   扫 0 页（曾据此误判）。产物清单以 sitemap 为单一来源。
+ *   现已设防：取不到任何 `<loc>` 时 `content-sweep` **显式返回 `failed: true` 与原因**，
+ *   不再「0 页 / 0 异常」地绿着通过（负向验证：移走 `dist/sitemap.xml` → 立刻报错）。
  *
  * ⚠ **run-code 探针里不要在事件回调中抛异常**：`page.on` / `cdp.on` 的回调一旦抛错会
  *   直接让 playwright-cli 会话崩溃（"Session closed"，无堆栈）。需要计数请求时优先用

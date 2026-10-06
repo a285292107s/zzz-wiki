@@ -636,14 +636,23 @@ async (page) => {
     add('ax-basics', ax.length === 0, ax.join(' ⏐ ') || 'h1 唯一 / 无冗余图片名 / 无无名可交互元素')
   }
 
-  // ---- 数据说明页（页脚入口 + 动态数字） ----  await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
+  // ---- 数据说明页（页脚入口 + 动态数字） ----
+  await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1400)
   {
-    // 页脚入口可点且落到 /about
-    const href = await page.evaluate(
-      () => document.querySelector('.foot-link')?.getAttribute('href') ?? 'none',
+    // 页脚入口可点且落到 /about / /compare（对照台带计数）
+    const foot = await page.evaluate(() => ({
+      about: document.querySelector('.foot-links a[href="/about"]')?.getAttribute('href') ?? 'none',
+      compare: document.querySelector('.foot-links a[href="/compare"]')?.getAttribute('href') ?? 'none',
+      compareText: document.querySelector('.foot-links a[href="/compare"]')?.textContent.trim() ?? '',
+    }))
+    add('footer-about-link', foot.about === '/about', foot.about)
+    // 对照台入口是常驻的（此前只能从详情页进入 = 发现性缺口）
+    add(
+      'footer-compare-link',
+      foot.compare === '/compare' && foot.compareText.includes('对照台'),
+      JSON.stringify(foot),
     )
-    add('footer-about-link', href === '/about', href)
     await page.goto('http://localhost:4175/about', { waitUntil: 'networkidle' })
     await page.waitForTimeout(1800)
     const r = await page.evaluate(() => ({

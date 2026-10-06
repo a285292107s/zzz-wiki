@@ -11,6 +11,12 @@
         <p class="disclaimer">游戏资产版权与商标归 HoYoverse 所有</p>
       </div>
       <div class="foot-side foot-links">
+        <!-- 对照台常驻入口：它此前只能从详情页进入（发现性缺口）。
+             桌上有内容时带计数，让「我攒了什么」一眼可见。 -->
+        <RouterLink to="/compare" class="foot-link mono">
+          对照台<span v-if="benchCount" class="foot-count" aria-hidden="true">{{ benchCount }}</span>
+        </RouterLink>
+        <span class="sep" aria-hidden="true">/</span>
         <RouterLink to="/about" class="foot-link mono">数据说明</RouterLink>
       </div>
       <div v-if="isDev" class="foot-actions">
@@ -29,10 +35,14 @@
 import { onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { dataVersions } from '@/data/api'
+import { useCompareBench } from '@/composables/useCompareBench'
 import { IS_DEV, DEV_FOOTER_ROUTES } from '@/domain/devRoutes'
 
 // 开发环境专属入口：仅 DEV 显示，且由 DEV_ROUTES 单一事实源派生（新增页自动出现）
 const isDev = IS_DEV
+
+// 对照台计数：与对照页读同一份状态（模块级单例），页脚即时反映
+const benchCount = useCompareBench().count
 
 // 数据抓取/更新时间（构建期落地在 manifest 的 generated，动态取，勿硬编码）
 const updatedAt = ref('')
@@ -124,6 +134,13 @@ onMounted(() => {
      加的是垂直内边距，下划线仍在文字下方，视觉几乎不变。 */
   display: inline-block;
   padding: 3px 0;
+}
+
+/* 对照台计数：上标式小号数字，不抢页脚的分量 */
+.foot-count {
+  margin-left: 5px;
+  font-size: 0.85em;
+  color: var(--amber);
 }
 
 .style-link:hover {

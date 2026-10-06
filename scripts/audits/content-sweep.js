@@ -18,6 +18,22 @@ async (page) => {
   const res = await page.request.get('http://localhost:4175/sitemap.xml')
   const xml = await res.text()
   const paths = [...xml.matchAll(/<loc>https?:\/\/[^/]+([^<]*)<\/loc>/g)].map((m) => m[1] || '/')
+  // **显式失败而不是静默扫 0 页**：`npm run build`（普通构建）会清空 dist 且不生成 sitemap，
+  // 此时 SPA 回退会把 /sitemap.xml 当作未知路径返回 index.html——XML 正则匹配不到任何 <loc>，
+  // 脚本会「0 页 / 0 异常」地绿着通过。这是最危险的一类假绿（本会话踩过三次）。
+  if (!paths.length) {
+    return JSON.stringify(
+      {
+        error: 'sitemap 不可用：未取到任何 <loc>（可能 dist/sitemap.xml 缺失——先跑 npm run build:ci）',
+        status: res.status(),
+        looksLikeHtml: /^\s*<!doctype html/i.test(xml),
+        pagesChecked: 0,
+        failed: true,
+      },
+      null,
+      1,
+    )
+  }
   const LEak = /undefined|null|NaN|\[object Object\]|\{\{/
   const anomalies = []
   let checked = 0
