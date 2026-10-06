@@ -21,6 +21,7 @@
  * | forced-colors.js     | 高对比度模式：结构线/状态/滑条可见 | 8/8 |
  * | csp-check.js         | 生产安全响应头本地验证（拦截注入 CSP 后走关键路径） | 0 违规 |
  * | content-sweep.js     | 全站 238 页内容完整性（泄漏/空区块/断图/元信息） | 0 异常 |
+ * | focus-visible.js     | 焦点可见性（逐 Tab 位，WCAG 2.4.7） | 121 停靠点 0 缺失 |
  *
  * 新增审计：脚本导出 JSON（{ total, failed, failedItems } 风格），
  * 失败项必须带定位信息（tag/cls/几何），让下一轮修复不用重新考古。

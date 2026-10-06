@@ -39,8 +39,12 @@ const emit = defineEmits<{
   border-radius: 2px;
   min-width: 240px;
 }
+/* 聚焦指示：整框转琥珀（与全站 :focus-visible 焦点环同语言）。
+   原先只把边框从 --line-1(#2a3137) 提到 --line-2(#3d454c)——深底上几乎不可辨，
+   而输入框自身 outline: none，等于键盘用户看不到焦点落在哪（2026-10 焦点可见性
+   逐 Tab 位审计发现：全站唯一无可见指示的停靠点）。 */
 .search:focus-within {
-  border-color: var(--line-2);
+  border-color: var(--focus);
 }
 .q-mark {
   color: var(--ink-2);

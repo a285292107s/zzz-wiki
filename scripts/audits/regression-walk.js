@@ -65,6 +65,23 @@ async (page) => {
     add('agents-rows', r.rows === 60, String(r.rows))
     add('agents-aria-current', r.ariaCurrent === 1, String(r.ariaCurrent))
     add('header-search-btn', r.searchToggle, '')
+
+    // 搜索框聚焦指示：整框转琥珀（原先只把边框从 line-1 提到 line-2，深底上不可辨）
+    await page.focus('.search input')
+    await page.waitForTimeout(250)
+    const focusRing = await page.evaluate(() => {
+      const probe = document.createElement('span')
+      probe.style.cssText = 'position:absolute;visibility:hidden;border:1px solid var(--focus)'
+      document.body.appendChild(probe)
+      const focusColor = getComputedStyle(probe).borderTopColor
+      probe.remove()
+      return {
+        border: getComputedStyle(document.querySelector('.search')).borderTopColor,
+        focusColor,
+      }
+    })
+    add('search-focus-indicator', focusRing.border === focusRing.focusColor, `${focusRing.border} vs ${focusRing.focusColor}`)
+    await page.evaluate(() => document.activeElement?.blur())
   }
 
   // ---- 名录空态（检索无匹配 → 文案 + 清除出路 → 一键恢复）----
