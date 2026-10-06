@@ -35,7 +35,7 @@
 
 - 依赖：包管理器为 npm，锁文件只维护 `package-lock.json`（勿再引入 pnpm 锁文件）；新增依赖用 `npm install <pkg>`。
 - 开发 `npm run dev`（http://localhost:5173）；构建 `npm run build`（含 vue-tsc）；单测 `npm test`。
-- 部署构建入口 `npm run build:ci`（Vercel 已指向）：`npm test` → `verify:fonts` → `npm run build`；
+- 部署构建入口 `npm run build:ci`（Vercel 已指向）：`npm test` → `verify:fonts` → `verify:fonts:cjk` → `npm run build`；
   **只构建已提交快照，不在构建期重建数据**（数据更新走 `npm run sync`，见下）。
 - **数据+图标同步入口 `npm run sync`**（`scripts/sync-data.ts`）：唯一自动化写入 `public/data/` 的入口——
   探测新版本 → 重建 JSON → 图标 `--soft` 补差（只补缺失、已有美术资源零重下）→ 校验（告警）→ 汇总变更集。
