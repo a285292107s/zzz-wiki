@@ -19,6 +19,7 @@
  * | axe-states.js        | 交互面板**展开态**的 axe（菜单/下拉/检索/浮层/空态） | 6 状态 0 violations |
  * | print-mode.js        | 打印（纸墨模式）：白纸黑字/外壳隐藏/内容保留 | 24/24 |
  * | forced-colors.js     | 高对比度模式：结构线/状态/滑条可见 | 8/8 |
+ * | csp-check.js         | 生产安全响应头本地验证（拦截注入 CSP 后走关键路径） | 0 违规 |
  *
  * 新增审计：脚本导出 JSON（{ total, failed, failedItems } 风格），
  * 失败项必须带定位信息（tag/cls/几何），让下一轮修复不用重新考古。

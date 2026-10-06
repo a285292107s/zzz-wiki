@@ -246,9 +246,11 @@ npm run sitemap         # 生成 dist/sitemap.xml（build:ci 末段自动执行�
                         #   部署环境（VERCEL/CI）缺该变量则直接失败——防止把 localhost 域名的 sitemap 发上线）；
                         #   verify:budget 另做「sitemap origin 与 VITE_SITE_ORIGIN 一致」门禁
 npm run verify:budget    # 体积预算 + sitemap origin 一致性门禁（build:ci 已挂）
-npm run verify:vercel    # 生产缓存策略不变量门禁（build:ci 已挂）：内容寻址资源才可 immutable、
-                         #   非寻址资源禁止 immutable、manifest/字体 CSS 必须每次重验证、SPA rewrite 存在、
+npm run verify:vercel    # 生产缓存策略 + 安全响应头不变量门禁（build:ci 已挂）：
+                         #   内容寻址资源才可 immutable、非寻址资源禁止 immutable、manifest/字体 CSS 必须每次重验证、
+                         #   CSP 必需指令齐备且脚本**不得**放开 unsafe-inline/eval、安全头齐备、SPA rewrite 存在、
                          #   规则互不重叠（详见脚本头：这类配置本地测不到，只能在构建期断言）
+                         #   候选 CSP 另经 scripts/audits/csp-check.js 本地实测（注入响应头走关键路径，基线 0 违规）
 npm run dev             # 开发 http://localhost:5173（占用自动换端口）
 npm run build           # vue-tsc 类型检查 + vite 构建
 npm run preview         # 预演产物

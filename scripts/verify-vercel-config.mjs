@@ -92,9 +92,59 @@ if (iJson >= 0 && iManifest >= 0 && iManifest < iJson)
   fail('/data/manifest.json 规则须排在 /data/(.*\\.json) 之后（否则被通配覆盖）')
 else ok('manifest 重验证规则顺序正确（在 JSON 通配之后）')
 
+/* 6) 安全响应头（同样只在生产生效，本地测不到——用断言替代线上试错）
+      候选策略已由 scripts/audits/csp-check.js 本地实测：零 securitypolicyviolation、
+      字体/图片/检索/下拉/浮层全部正常。 */
+const headerValue = (source, key) =>
+  rules
+    .filter((r) => r.source === source)
+    .flatMap((r) => r.headers ?? [])
+    .find((h) => h.key.toLowerCase() === key.toLowerCase())?.value ?? ''
+
+const csp = headerValue('/(.*)', 'Content-Security-Policy')
+if (!csp) fail('缺少 Content-Security-Policy（全局规则）')
+else {
+  for (const [needle, label] of [
+    ["default-src 'self'", '默认同源'],
+    ["script-src 'self'", '脚本仅同源'],
+    ["object-src 'none'", '禁插件'],
+    ["base-uri 'self'", '禁 base 劫持'],
+    ["frame-ancestors 'none'", '禁被嵌框（防点击劫持）'],
+    ["font-src 'self'", '字体仅同源'],
+    ["form-action 'none'", '禁表单外发'],
+  ]) {
+    if (csp.includes(needle)) ok(`CSP ${label}`)
+    else fail(`CSP 缺少「${needle}」（${label}）`)
+  }
+  // 关键：脚本不得放开内联/动态求值——站内无内联脚本，无需妥协
+  if (/script-src[^;]*unsafe-(inline|eval)/.test(csp))
+    fail("CSP script-src 含 unsafe-inline/unsafe-eval（站内无内联脚本，不应妥协）")
+  else ok('CSP 脚本无 unsafe-inline / unsafe-eval')
+  // 样式：Vue 运行期写 style 属性（--reveal-delay / object-position 等），必须放行内联样式
+  if (!/style-src[^;]*unsafe-inline/.test(csp))
+    fail('CSP style-src 需含 unsafe-inline（Vue 动态 style 属性依赖）')
+  else ok('CSP 样式放行内联属性（Vue 动态 style）')
+  // 图片源白名单：仅自身 + data:（纸纹 URI）+ nanoka CDN 兜底
+  const img = csp.match(/img-src([^;]*)/)?.[1] ?? ''
+  const externalImg = [...img.matchAll(/https?:\/\/[^\s;]+/g)].map((m) => m[0])
+  if (externalImg.every((u) => u === 'https://static.nanoka.cc')) ok(`CSP 图片外源白名单：${externalImg.join(' ') || '无'}`)
+  else fail(`CSP 图片外源含未预期主机：${externalImg.join(' ')}`)
+}
+
+for (const [key, label] of [
+  ['X-Content-Type-Options', 'MIME 嗅探防护'],
+  ['Referrer-Policy', '来源信息策略'],
+  ['Permissions-Policy', '设备能力收敛'],
+  ['Strict-Transport-Security', '强制 HTTPS'],
+]) {
+  const v = headerValue('/(.*)', key)
+  if (v) ok(`${label} ${key}: ${v.slice(0, 48)}`)
+  else fail(`缺少 ${key}（${label}）`)
+}
+
 console.log(
   bad
-    ? `\n== Vercel 缓存策略 == 未通过（${bad} 项）`
-    : '\n== Vercel 缓存策略 == 通过（内容寻址 immutable / 非寻址重验证 / SPA rewrite）',
+    ? `\n== Vercel 缓存/安全策略 == 未通过（${bad} 项）`
+    : '\n== Vercel 缓存/安全策略 == 通过（immutable 白名单 / 重验证 / CSP / 安全头 / SPA rewrite）',
 )
 process.exitCode = bad ? 1 : 0
