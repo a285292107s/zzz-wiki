@@ -221,7 +221,8 @@ public/data/
 （master），JSON 与图标同次提交锁步；门禁不通过则 job 失败、不提交）；
 仅本地改数据时 `npm run data` → `npm run verify:data` →（可选）`npm run download:icons`
 → `npm test` → `npm run build`（→ 可选 `npm run verify:icons`）。改动视觉层字体时另见
-`npm run download:fonts` / `npm run verify:fonts`（§10 字体组）。各命令如下：
+`npm run download:fonts` / `npm run verify:fonts`（西文）与 `npm run download:fonts:cjk` /
+`npm run verify:fonts:cjk`（CJK 衬线分片，§10 字体组）。各命令如下：
 
 ```bash
 npm install             # 依赖（首次或变更后）
@@ -231,12 +232,15 @@ npm run data -- --check # 仅版本探测：输出 UPDATE_AVAILABLE / UP_TO_DATE
 npm run sync           # 数据+图标同步（正式提交入口）：探测 → 重建 JSON → 图标 --soft 补差（只补缺失、已有资源零重下）
                         #   → verify:data + 本地必须项图标齐整（告警）→ 汇总变更集；无变更不提交；由 data-sync workflow
                         #   定时触发 → 工作流内 verify:data（契约 + 完整性：名录↔详情一一对应）硬门禁通过 → 直接 commit + push 到默认分支（master）（需外网）
-npm run build:ci        # Vercel 部署构建入口：npm test → verify:fonts（缺字体文件非零退出）→ npm run build；
+npm run build:ci        # Vercel 部署构建入口：npm test → verify:fonts → verify:fonts:cjk → vite build → generate-sitemap；
                         #   只构建已提交快照、不在构建期重建数据（数据更新走 npm run sync）；站点因数据源故障而挂的情形由 sync 不提交规避
 npm run verify:icons    # 图标校准：本地 img 差集（核心）+ nanoka 远程审计；缺失非零退出
                         #   --local 仅查本地（离线可用）；网络异常按"无法确认"以码 2 退出
 npm run download:fonts  # 西文字体本地化：Google Fonts css2 → public/fonts/*.woff2（自托管、运行时零外网）；幂等；网络失败仅告警
 npm run verify:fonts    # 字体存在性校验：download:fonts 声明的每个文件在 public/fonts/ 存在且非空（离线可用；build:ci 已挂）
+npm run download:fonts:cjk  # CJK 衬线本地化：Noto Serif SC 500/600 → public/fonts/noto-serif-sc/（unicode-range 分片 202 个）+ noto-serif-sc.css + 清单 JSON；幂等；失败仅告警
+npm run verify:fonts:cjk    # CJK 分片完整性校验：清单结构 / 分片存在 / css @font-face 数 / css↔文件双向对账（离线可用；build:ci 已挂）
+npm run sitemap         # 生成 dist/sitemap.xml（build:ci 末段自动执行；SITE_ORIGIN 环境变量注入生产域）
 npm run dev             # 开发 http://localhost:5173（占用自动换端口）
 npm run build           # vue-tsc 类型检查 + vite 构建
 npm run preview         # 预演产物
@@ -291,3 +295,6 @@ skills 描述富文本走 `richDesc`。字体族（CJK 衬线优先、sans 弃 `
 唯一记录点见 `tokens.css` 注释与 `/style`（DESIGN.md §9）；本条指核心语言不变。
 西文（JetBrains Mono / Public Sans）**自托管**至 `public/fonts/`，经 `@font-face` 引用、运行时零外网；
 刷新用 `npm run download:fonts`，缺文件由 `verify:fonts` 门禁（含 build:ci）。
+CJK 衬线（Noto Serif SC 500/600）**分片自托管**至 `public/fonts/noto-serif-sc/`（unicode-range 按需加载，
+首屏增量 ~3-6 片），生成物 `noto-serif-sc.css` 勿手改；刷新用 `npm run download:fonts:cjk`，
+完整性由 `verify:fonts:cjk` 门禁（含 build:ci）。
