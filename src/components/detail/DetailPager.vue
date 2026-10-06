@@ -5,7 +5,8 @@
  * 无投影无卡片堆叠。空位（无上一档/下一档）渲染哑端占位，保持两格对齐。
  * 悬停即预热目标详情（useDetailPrefetch）——翻页回路与名录→详情同速。
  */
-import { RouterLink } from 'vue-router'
+import { onBeforeUnmount, onMounted } from 'vue'
+import { RouterLink, useRouter } from 'vue-router'
 import { prefetchDetail } from '@/composables/useDetailPrefetch'
 import type { CatalogEntry } from '@/domain/catalog'
 
@@ -25,14 +26,45 @@ const props = defineProps<{
   entry: CatalogEntry
 }>()
 
+const router = useRouter()
+
 function warm(it: DetailPagerItem): void {
   const id = it.to.split('/')[2]
   if (id) prefetchDetail(props.entry, id)
 }
+
+/* ---------- 键盘 ←/→ 翻页 ---------- */
+
+/** 快捷键让路条件：表单控件 / 滑条 / 内容可编辑处、术语浮层开启、
+ *  焦点位于链接或按钮（此时方向键由组件自身语义接管）时一律不劫持。 */
+function shouldSkip(e: KeyboardEvent): boolean {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return true
+  const el = e.target as HTMLElement | null
+  const tag = el?.tagName.toLowerCase()
+  if (tag === 'input' || tag === 'textarea' || tag === 'select' || el?.isContentEditable) return true
+  if (el?.closest('input, textarea, select, [role="slider"], .term-tip-list')) return true
+  if (el && (tag === 'a' || tag === 'button')) return true
+  if (document.querySelector('.term-tip')) return true
+  return false
+}
+
+function onKeydown(e: KeyboardEvent): void {
+  if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return
+  if (shouldSkip(e)) return
+  const target = e.key === 'ArrowLeft' ? props.prev : props.next
+  if (!target) return
+  e.preventDefault()
+  router.push(target.to)
+}
+
+onMounted(() => document.addEventListener('keydown', onKeydown))
+onBeforeUnmount(() => document.removeEventListener('keydown', onKeydown))
 </script>
 
 <template>
   <nav v-if="prev || next" class="detail-pager" aria-label="相邻条目">
+    <p class="pg-hint mono" aria-hidden="true">← → 翻页</p>
+    <div class="pg-row">
     <RouterLink v-if="prev" :to="prev.to" class="pg" rel="prev" @pointerenter="warm(prev)" @focus="warm(prev)">
       <span class="pg-dir mono">← PREV</span>
       <span class="pg-name">{{ prev.label }}</span>
@@ -50,16 +82,28 @@ function warm(it: DetailPagerItem): void {
     <span v-else class="pg pg-empty" aria-hidden="true">
       <span class="pg-dir mono">NEXT →</span>
     </span>
+    </div>
   </nav>
 </template>
 
 <style scoped>
 .detail-pager {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   border-top: var(--rule);
   margin-top: var(--space-section);
-  padding-top: 22px;
+  padding-top: 14px;
+}
+
+.pg-hint {
+  font-size: var(--fs-nano);
+  letter-spacing: 0.18em;
+  color: var(--ink-3);
+  text-align: right;
+  margin-bottom: 6px;
+}
+
+.pg-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .pg {
