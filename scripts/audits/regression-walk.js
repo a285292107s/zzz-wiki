@@ -111,12 +111,33 @@ async (page) => {
     add('detail-inview-sections-visible', r.inViewportHidden === 0, String(r.inViewportHidden))
   }
 
+  // ---- 路由切换的焦点管理（SPA 无障碍：切页后焦点不能留在旧页面）----
+  {
+    // 区块索引（hash 直达）→ 焦点应落到目标区块（区块带 tabindex="-1"）
+    const nav = await page.evaluate(() => {
+      const a = document.querySelector('.sn-item')
+      const href = a?.getAttribute('href') ?? ''
+      return { href, id: href.includes('#') ? href.slice(href.lastIndexOf('#') + 1) : '' }
+    })
+    if (nav.id) {
+      await page.evaluate((h) => document.querySelector(`.sn-item[href="${h}"]`)?.click(), nav.href)
+      await page.waitForTimeout(1300)
+      const focusedId = await page.evaluate(() => document.activeElement?.id ?? '')
+      add('hash-focus-target', focusedId === nav.id, `${focusedId}（期望 ${nav.id}）`)
+    } else {
+      add('hash-focus-target', false, '未找到区块索引链接')
+    }
+  }
+
   // ---- 翻页键盘 ----
   await page.keyboard.press('ArrowRight')
   await page.waitForTimeout(1300)
   {
     const path = await page.evaluate(() => location.pathname)
     add('pager-arrow-right', path === '/agents/1031', path)
+    // 翻页（路由切换）后焦点须落到正文容器，读屏才会播报新条目
+    const focused = await page.evaluate(() => document.activeElement?.id ?? '')
+    add('route-change-focus-main', focused === 'main', focused || 'body')
   }
 
   // ---- 数据说明页（页脚入口 + 动态数字） ----

@@ -1,3 +1,4 @@
+import { nextTick } from 'vue'
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import { CATALOG } from '@/domain/catalog'
 import { DEV_ROUTES } from '@/domain/devRoutes'
@@ -85,6 +86,26 @@ export const router = createRouter({
       meta: { title: '404' },
     },
   ],
+})
+
+/* ---------- 路由切换的焦点管理（SPA 无障碍） ----------
+   单页应用切路由不会像整页刷新那样把焦点与读屏游标归零：不处理的话，用户点完链接后
+   焦点仍停在旧页面的元素上，新内容既不获焦点也不被播报，下一次 Tab 还从旧位置继续。
+   故每次导航后把焦点移到正文容器（main 有 tabindex="-1"）：
+   - 初次进入不抢焦点（地址栏/页面默认焦点保持，from 为 START_LOCATION 时跳过）
+   - preventScroll：滚动仍由 scrollBehavior 负责，二者不打架
+   - hash 导航优先聚焦目标区块（区块带 tabindex="-1"，见 DetailSection），
+     读屏随之播报该区块标题（aria-labelledby）
+   程序化 focus 不触发 :focus-visible（Chrome 启发式），因此不出现「整块正文被描边」。 */
+router.afterEach((to, from) => {
+  if (from.matched.length === 0) return // 首次进入
+  void nextTick(() => {
+    const target = to.hash ? document.getElementById(to.hash.slice(1)) : null
+    // hash 目标须可聚焦（区块/封面块均带 tabindex="-1"）；否则退回正文容器，
+    // 保证焦点始终落在有意义的位置而不是留在旧页面
+    const el = target?.hasAttribute('tabindex') ? target : document.getElementById('main')
+    el?.focus({ preventScroll: true })
+  })
 })
 
 /* 开发环境专属页面：仅在开发环境注册（构建级排除）。
