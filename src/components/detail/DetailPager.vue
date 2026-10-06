@@ -35,8 +35,10 @@ function warm(it: DetailPagerItem): void {
 
 /* ---------- 键盘 ←/→ 翻页 ---------- */
 
-/** 快捷键让路条件：表单控件 / 滑条 / 内容可编辑处、术语浮层开启、
- *  焦点位于链接或按钮（此时方向键由组件自身语义接管）时一律不劫持。 */
+/** 快捷键让路条件：表单控件 / 滑条 / 内容可编辑处、焦点位于链接或按钮
+ *  （此时方向键由组件自身语义接管）时一律不劫持。
+ *  术语浮层开启：Esc/点击别处先关浮层（浮层自身已处理），翻页按键忽略——
+ *  否则「读说明时误触方向键」会突然跳走，语境全失。 */
 function shouldSkip(e: KeyboardEvent): boolean {
   if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return true
   const el = e.target as HTMLElement | null
