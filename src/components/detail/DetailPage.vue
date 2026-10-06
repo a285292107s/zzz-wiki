@@ -121,17 +121,18 @@ watch(
       :back-text="fallbackText"
     >
       <slot />
+      <!-- 逐条出处：本条数据属于哪一版快照。版本取自 manifest（api 层已缓存，零额外请求）。
+           **必须渲染在内容插槽内**：放在插槽外时，加载骨架态（页面仅 ~720px 高）就会先渲染
+           这一行，内容到达后页面长到 8000+px，该行被推下 ~7600px——冷缓存实测 CLS 尖峰
+           0.04–0.17（帧级定位：源节点 p.prov 由 t341 变为 t0）。放进插槽后它只随内容出现，
+           且位于内容最末，下方无内容可推。 -->
+      <p class="prov mono">
+        数据版本 <span class="prov-v">{{ version ? `LIVE ${version}` : '···' }}</span>
+        <span v-if="updatedAt"> · 快照 {{ updatedAt }}</span>
+        <span v-else> · 快照 ···</span>
+        <span class="prov-src"> · 来源 hakushin raw，构建期落地</span>
+      </p>
     </AsyncState>
-
-    <!-- 逐条出处：本条数据属于哪一版快照。版本取自 manifest（api 层已缓存，零额外请求）。
-         **槽位常驻**（版本未到时显示 ···）：异步到达才出现会推移下方内容（实测 CLS 0.051），
-         与首页版本槽同一教训——异步槽位必须预留高度。 -->
-    <p class="prov mono">
-      数据版本 <span class="prov-v">{{ version ? `LIVE ${version}` : '···' }}</span>
-      <span v-if="updatedAt"> · 快照 {{ updatedAt }}</span>
-      <span v-else> · 快照 ···</span>
-      <span class="prov-src"> · 来源 hakushin raw，构建期落地</span>
-    </p>
 
     <BackToTop />
   </div>
