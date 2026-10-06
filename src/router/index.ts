@@ -73,6 +73,12 @@ export const router = createRouter({
       meta: { title: '战斗公式' },
     },
     {
+      path: '/about',
+      name: 'about',
+      component: () => import('@/views/AboutView.vue'),
+      meta: { title: '数据说明' },
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
       component: () => import('@/views/NotFoundView.vue'),

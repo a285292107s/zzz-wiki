@@ -8,12 +8,16 @@ async (page) => {
   {
     const r = await page.evaluate(() => ({
       serif: getComputedStyle(document.querySelector('.page-title')).fontFamily.split(',')[0].replaceAll('"', '').trim(),
-      revealResidue: document.querySelectorAll('.reveal:not(.revealed)').length,
+      // 同下图：只统计「视口内却未显现」的残留（视口外待显现属设计行为）
+      revealResidueInViewport: [...document.querySelectorAll('.reveal:not(.revealed)')].filter((el) => {
+        const b = el.getBoundingClientRect()
+        return b.top < innerHeight && b.bottom > 0
+      }).length,
       cards: document.querySelectorAll('.specimen-card').length,
       title: document.title,
     }))
     add('home-serif', r.serif === 'Noto Serif SC', r.serif)
-    add('home-reveal-settled', r.revealResidue === 0, String(r.revealResidue))
+    add('home-reveal-settled', r.revealResidueInViewport === 0, String(r.revealResidueInViewport))
     add('home-cards', r.cards === 4, String(r.cards))
     add('home-title', r.title.includes('绳网档案'), r.title)
   }
@@ -67,11 +71,17 @@ async (page) => {
     const r = await page.evaluate(() => ({
       serif: getComputedStyle(document.querySelector('.page-title, .dh-title')).fontFamily.split(',')[0].replaceAll('"', '').trim(),
       scrollBtn: !!document.querySelector('.back-top'),
-      sectionsOk: [...document.querySelectorAll('section[id]')].every((s) => getComputedStyle(s).opacity === '1'),
+      // v-reveal 是一次性显现：视口内区块必须已显现；视口外待滚动显现是设计行为，
+      // 不能算缺陷（Round 17/33 曾因此误报——此处只统计视口内）
+      inViewportHidden: [...document.querySelectorAll('section[id]')].filter((s) => {
+        const b = s.getBoundingClientRect()
+        const inView = b.top < innerHeight * 0.9 && b.bottom > innerHeight * 0.1
+        return inView && getComputedStyle(s).opacity !== '1'
+      }).length,
     }))
     add('detail-serif', r.serif === 'Noto Serif SC', r.serif)
     add('detail-backtop', r.scrollBtn, '')
-    add('detail-sections-visible', r.sectionsOk, '')
+    add('detail-inview-sections-visible', r.inViewportHidden === 0, String(r.inViewportHidden))
   }
 
   // ---- 翻页键盘 ----
@@ -80,6 +90,31 @@ async (page) => {
   {
     const path = await page.evaluate(() => location.pathname)
     add('pager-arrow-right', path === '/agents/1031', path)
+  }
+
+  // ---- 数据说明页（页脚入口 + 动态数字） ----
+  await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
+  await page.waitForTimeout(1400)
+  {
+    // 页脚入口可点且落到 /about
+    const href = await page.evaluate(
+      () => document.querySelector('.foot-link')?.getAttribute('href') ?? 'none',
+    )
+    add('footer-about-link', href === '/about', href)
+    await page.goto('http://localhost:4175/about', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1800)
+    const r = await page.evaluate(() => ({
+      title: document.querySelector('.page-title')?.textContent.trim(),
+      sections: document.querySelectorAll('section[id]').length,
+      total: document.querySelectorAll('.spec-item dd')[2]?.textContent.trim(),
+      cats: document.querySelectorAll('.spec-cat').length,
+      version: document.querySelectorAll('.spec-item dd')[0]?.textContent.trim(),
+    }))
+    add('about-title', r.title === '数据说明', r.title ?? 'none')
+    add('about-sections', r.sections === 4, String(r.sections))
+    add('about-cats', r.cats === 4, String(r.cats))
+    add('about-total', /^\d+ 条$/.test(r.total ?? ''), r.total ?? 'none')
+    add('about-version', /LIVE \d/.test(r.version ?? ''), r.version ?? 'none')
   }
 
   // ---- 404 ----

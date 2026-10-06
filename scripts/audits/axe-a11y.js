@@ -16,7 +16,7 @@
  * ============================================================ */
 
 async (page) => {
-  const routes = ['/', '/agents', '/agents/1011', '/w-engines/14162', '/bangboos', '/disks/34200', '/formulas', '/none']
+  const routes = ['/', '/agents', '/agents/1011', '/w-engines/14162', '/bangboos', '/disks/34200', '/formulas', '/about', '/none']
   const viewports = [
     [1920, 1080],
     [390, 844],

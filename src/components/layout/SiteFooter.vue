@@ -10,6 +10,9 @@
         <span class="sep" aria-hidden="true">/</span>
         <p class="disclaimer">游戏资产版权与商标归 HoYoverse 所有</p>
       </div>
+      <div class="foot-side foot-links">
+        <RouterLink to="/about" class="foot-link mono">数据说明</RouterLink>
+      </div>
       <div v-if="isDev" class="foot-actions">
         <RouterLink
           v-for="r in DEV_FOOTER_ROUTES"
@@ -109,6 +112,14 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+/* 站内常规入口：数据说明（页脚此前无站内链接，出处页给读者一个落点） */
+.foot-link {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.16em;
+  color: var(--ink-1);
+  border-bottom: 1px solid var(--line-1);
 }
 
 .style-link:hover {

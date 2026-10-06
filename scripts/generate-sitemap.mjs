@@ -28,7 +28,7 @@ const CATALOG = [
 ]
 
 function urls() {
-  const list = ['/', '/formulas']
+  const list = ['/', '/formulas', '/about']
   for (const c of CATALOG) {
     list.push(c.path)
     const p = `public/data/live/${c.file}`
