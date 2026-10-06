@@ -346,6 +346,41 @@ const gapCount = computed(() =>
   border-bottom: 1px solid var(--line-0);
 }
 
+/* 窄屏：五列挤不下（实测 320px 下 scrollWidth 350 > 320 横向溢出）。
+   改为两行排布——信息一条不少，只是把英文标识与号段挪到第二行。
+   这类「加一列」的改动必须在 320px 复核，reflow-spacing 会报 docOverflow。 */
+@media (max-width: 430px) {
+  .spec-cat {
+    grid-template-columns: 28px 1fr auto;
+    row-gap: 4px;
+  }
+
+  .spec-cat .no {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .spec-cat .label {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .spec-cat .count {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .spec-cat .en {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .spec-cat .range {
+    grid-column: 3;
+    grid-row: 2;
+  }
+}
+
 .spec-cat .range {
   font-size: var(--fs-nano);
   color: var(--ink-2);

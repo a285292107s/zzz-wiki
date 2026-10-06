@@ -160,7 +160,6 @@ watch(
 .page-actions .back {
   margin-bottom: 0;
 }
-
 /* 逐条出处：页脚式的细字，不抢内容，但让每条档案可追溯到具体快照 */
 .prov {
   margin-top: var(--space-section);
@@ -184,10 +183,12 @@ watch(
   color: var(--ink-2);
   letter-spacing: 0.12em;
   transition: color var(--t-fast) var(--ease);
-  display: inline-block;
-  /* 与页头的绑定的间距较区块间距收紧：返回链接语义上从属页头，不参与区块之间的呼吸 */
-  margin-bottom: clamp(16px, 2.2vw, 34px);
-  /* 触屏命中区：WCAG 2.5.8 min 24px（视觉行高 20px + 负 margin 抵消布局影响） */
+  /* 触屏命中区（WCAG 2.5.8 下限 24px）：**用 min-height 锁死**而不是靠行高凑。
+     靠 padding 凑时实际渲染高度会落在 23.99px（亚像素），reflow-spacing 的
+     `< 24` 判定照样报越轨——下限就该钉死，不留给字体度量。 */
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
   padding: 2px 0;
 }
 
