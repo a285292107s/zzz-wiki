@@ -141,6 +141,50 @@ async (page) => {
   })
   add('kb-mobile-menu', menuOpen && menuClosed && afterEsc.includes('menu-toggle'), `open=${menuOpen} closed=${menuClosed} focus=${afterEsc}`)
 
+  /* ---------- 8) 对照台：加入 → 移出 → 移空（焦点必须被交棒，不能掉回 body） ---------- */
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.evaluate(() => localStorage.removeItem('zzz-wiki:compare'))
+  await page.goto('http://localhost:4175/agents/1011', { waitUntil: 'networkidle' })
+  await page.waitForTimeout(1500)
+  await page.evaluate(() => document.querySelector('.cmp-btn')?.focus())
+  await page.keyboard.press('Enter')
+  await page.waitForTimeout(400)
+  const cmpAdded = await page.evaluate(() => ({
+    pressed: document.querySelector('.cmp-btn')?.getAttribute('aria-pressed'),
+    note: document.querySelector('.cmp-note')?.textContent.trim() ?? '',
+  }))
+  add('kb-compare-add', cmpAdded.pressed === 'true', JSON.stringify(cmpAdded))
+
+  await page.goto('http://localhost:4175/compare?cat=/agents&ids=1011,1021', { waitUntil: 'networkidle' })
+  await page.waitForTimeout(1700)
+  await page.evaluate(() => document.querySelector('.entry-remove')?.focus())
+  await page.keyboard.press('Enter')
+  await page.waitForTimeout(1100)
+  const afterRemove = await page.evaluate(() => ({
+    cols: document.querySelectorAll('.th-entry').length,
+    focus: document.activeElement?.tagName + '.' + String(document.activeElement?.className || '').split(' ')[0],
+  }))
+  // 移出后焦点必须落在**下一条的移出钮**上：掉回 body 的话键盘用户要重新 Tab 一整圈
+  add(
+    'kb-compare-remove-focus-handoff',
+    afterRemove.cols === 1 && afterRemove.focus.includes('entry-remove'),
+    JSON.stringify(afterRemove),
+  )
+
+  await page.keyboard.press('Enter')
+  await page.waitForTimeout(1100)
+  const afterLast = await page.evaluate(() => ({
+    empty: !!document.querySelector('.bench-empty-title'),
+    focus: document.activeElement?.tagName + '.' + String(document.activeElement?.className || '').split(' ')[0],
+    text: document.activeElement?.textContent?.trim().slice(0, 8) ?? '',
+  }))
+  // 移空后：空态必须出现，且焦点交到空态标题（tabindex=-1）
+  add(
+    'kb-compare-empty-focus-handoff',
+    afterLast.empty && afterLast.focus.includes('bench-empty-title') && afterLast.text.includes('对照台为空'),
+    JSON.stringify(afterLast),
+  )
+
   const failed = checks.filter((c) => !c.ok)
   return JSON.stringify({ total: checks.length, failed: failed.length, failedItems: failed, checks }, null, 1)
 }

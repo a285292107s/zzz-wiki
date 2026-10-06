@@ -91,7 +91,7 @@
 | **字段覆盖透明度** | 缺口如实标注、不补造 | **4 类目 / 9 字段**，3 项缺口以琥珀标注（简介 57/60、潜能 11/60、邦布图标 41/42） ✅ | `regression-walk.js`（about-coverage） |
 | **编号规则可核查** | 号段与编号语义有说明 | **4 类目号段由数据派生**（1011–1621 / 12001–14162 / 53001–55098 / 31000–34200），并讲清**两套编号**：源站 ID（详情页头 `NO.1011`、快搜结果、深链/文件名）与展示位次（翻页处 `002`，类目内按 ID 升序）；名录表格不显示编号 ✅ | `regression-walk.js`（about-id-ranges / about-numbering-precise） |
 | **「今日角色」名副其实** | 同日恒定、跨日更换 | 按本地日期播种确定性挑选（mulberry32）——原先每次挂载随机换人，与文案不符且回访永远冷缓存 ✅ | `regression-walk.js`（home-today-stable）+ 单测 4 例 |
-| **对照台（档案原生交互）** | 同类目并排比对，差异可辨 | 详情页就地「加入对照」→ `/compare` 表格并排；差异行**同时**用琥珀与「差异」文字标记（不单靠颜色）；上限 3 条、跨类目重开一桌、localStorage 持久化、`?cat=&ids=` 可分享 ✅ | `regression-walk.js`（compare-add / compare-table / compare-remove / compare-clear）+ 单测 21 例 |
+| **对照台（档案原生交互）** | 同类目并排比对，差异可辨 | 详情页就地「加入对照」→ `/compare` 表格并排；差异行**同时**用琥珀与「差异」文字标记（不单靠颜色）；上限 3 条、跨类目重开一桌、localStorage 持久化、`?cat=&ids=` 可分享；**移出/清空后焦点主动交棒**（下一条的移出钮 / 空态标题），不掉回 body ✅ | `regression-walk.js`（compare-add / compare-table / compare-remove / compare-clear / **compare-deeplink**）+ `keyboard-journey.js`（3 项焦点交棒）+ 单测 21 例 |
 | **逐条出处** | 每条档案可追溯快照 | 详情页页脚显示「数据版本 LIVE x.y · 快照 日期 · 来源」 ✅ | `regression-walk.js`（detail-provenance） |
 | **公式页版本锚定** | 机制版本与数据版本并列可对照 | 「机制整理 **2.0 版** · 站内档案数据 **LIVE 3.2**（快照 …）」+ 出处链接 + 通向实据的交叉引用（→ 代理人名录对照读数） ✅ | `regression-walk.js`（formulas-version / formulas-crossref） |
 | **声明与实现一致** | 文案不得绝对化到与实现不符 | 原「页面不做任何跨域请求 / 不经任何外部服务」→ 改为「**本站资源齐备时零跨域请求** + 候选链兜底例外」（实测邦布 55098 缺图标时确实回源 CDN 一次）；原「离线打开已缓存页面仍可阅读」当时**没有 SW、是空话** → 现已实现并写明适用范围 ✅ | `regression-walk.js`（about-claims-precise）+ `offline-check.js` |

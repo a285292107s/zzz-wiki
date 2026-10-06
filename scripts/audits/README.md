@@ -8,7 +8,7 @@
  * |---|---|---|
  * | viewport-overflow.js  | 8 视口 × 8 路由横向溢出 | 0 |
  * | touch-targets.js      | 交互目标 ≥24×24（WCAG 2.5.8） | 0 问题 |
- * | regression-walk.js    | 全站功能走查（73 项，覆盖七类目/边界态/URL 状态/离线联动） | 73/73 |
+ * | regression-walk.js    | 全站功能走查（78 项，覆盖七类目/边界态/URL 状态/离线联动） | 78/78 |
  * | transfer-profile.js   | 分类传输体积（逐文件 kb + 加载时刻） | 36 请求；最大 noto-serif-sc.css 68.9KB（解码值，gzip 后 ~10KB） |
  * | quick-search.js       | ⌘K 检索链路端到端（中文高亮/罗马字命中/结果态预激活/空态键盘路径） | 4/4 |
  * | font-loading.js       | CJK 衬线生效 + 分片按需 | serif=Noto Serif SC |
@@ -27,7 +27,7 @@
  * | motion-audit.js      | 动效克制性（reduced-motion 覆盖、过长过渡、transition: all） | reduced 0 残留 |
  * | color-audit.js       | 色彩系统（调色板合规 / 文本 AA / 非文本 3:1） | 0 越轨，最差文本 4.65:1 |
  * | reflow-spacing.js    | WCAG 1.4.10 重排(320px) + 1.4.12 文本间距 + 320px 命中区 + 触屏档 | 0 溢出/0 裁切/0 过小目标 |
- * | keyboard-journey.js  | 键盘完整旅程（12 条任务，含焦点不被抢） | 12/12 |
+ * | keyboard-journey.js  | 键盘完整旅程（15 条任务，含焦点不被抢 / 对照台焦点交棒） | 15/15 |
  * | ax-tree.js           | 无障碍树（可访问名/标题层级/控件状态/图片名冗余） | 0 未命名，0 冗余 |
  * | inp-interaction.js   | 交互响应 INP 代理（4× CPU 节流，含长任务/TBT） | 最差 48–88ms（<100 竞奖档） |
  * | offline-check.js     | 离线阅读（SW 接管 → 断网重载 → 兜底页 → 缓存有界 → 回访零网络） | 7/7 |

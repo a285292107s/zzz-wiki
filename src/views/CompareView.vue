@@ -12,7 +12,7 @@
  *
  * 无障碍：真 `<table>` + `<caption>` + `scope`；差异不只用颜色（行尾有「差异」文字标记）。
  * ============================================================ */
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import { RouterLink, useRoute, useRouter } from 'vue-router'
 import { CATALOG, catalogEntry } from '@/domain/catalog'
 import { buildComparison, MAX_COMPARE, type CompareEntryInput } from '@/domain/compare'
@@ -38,8 +38,15 @@ const bench = useCompareBench()
 const rows = ref<Record<string, unknown>[]>([])
 const status = ref<'idle' | 'loading' | 'ready' | 'error'>('idle')
 
-/** 当前对照的类目：URL 未指定时用本桌的类目 */
-const catPath = computed(() => bench.catPath.value)
+/**
+ * 当前对照的类目：**URL 优先**（分享链接 `?cat=/agents&ids=…` 打开即所见），
+ * 其次本桌的类目。此前用「加占位条目再移除」把 URL 类目落到本桌，结果本桌被清空、
+ * 类目落空——深链静默失效（第 102 轮验证时因本桌已有内容而假通过，第 103 轮实测暴露）。
+ */
+const urlCat = computed(() =>
+  typeof route.query.cat === 'string' && catalogEntry(route.query.cat) ? route.query.cat : null,
+)
+const catPath = computed(() => urlCat.value ?? bench.catPath.value)
 const cat = computed(() => (catPath.value ? catalogEntry(catPath.value) : null))
 
 /** URL 里的 ids（逗号分隔，最多 MAX_COMPARE 条；非法值一律丢弃） */
@@ -98,20 +105,14 @@ async function load(path: string) {
 /** URL 里的 ids 是权威视图 → 同步回本桌，保证「加入对照」的累积与所见一致 */
 function syncBenchFromUrl() {
   const ids = urlIds.value
-  if (!ids.length || !catPath.value) return
-  if (ids.join() === bench.ids.value.join()) return
+  const path = catPath.value
+  if (!ids.length || !path) return
+  if (ids.join() === bench.ids.value.join() && bench.catPath.value === path) return
   bench.clear()
-  for (const id of ids) bench.add(catPath.value, id)
+  for (const id of ids) bench.add(path, id) // 首次 add 即把类目落到本桌
 }
 
 onMounted(() => {
-  // URL 里可能带类目（分享链接：?cat=/agents&ids=…）；缺省用本桌类目
-  const urlCat = typeof route.query.cat === 'string' && catalogEntry(route.query.cat) ? route.query.cat : null
-  if (urlCat && urlCat !== bench.catPath.value) {
-    bench.clear()
-    bench.add(urlCat, -1) // 占位后立刻移除：只为把类目落到本桌
-    bench.remove(-1)
-  }
   if (catPath.value) void load(catPath.value)
 })
 
@@ -121,18 +122,41 @@ watch(catPath, (p) => {
 
 watch([urlIds, catPath], syncBenchFromUrl, { immediate: true })
 
-/** 移出：同时从本桌与 URL 视图里去掉（否则刷新会「复活」） */
-function removeEntry(id: number) {
-  bench.remove(id)
-  const next = activeIds.value.filter((x) => x !== id)
-  void router.replace({
-    query: next.length ? { ...route.query, ids: next.join(',') } : { ...route.query, ids: undefined },
-  })
+/**
+ * 移出 / 清空后的**焦点归属**：被移除的按钮若正持有焦点，浏览器会把焦点丢回 `<body>`，
+ * 键盘用户的下一次 Tab 就从文档开头重来（实测确认）。故变更后主动交棒：
+ *   · 还有条目 → 焦点落到第一条的「移出」钮（可继续操作）
+ *   · 已空     → 焦点落到空态标题（tabindex=-1，可编程聚焦 + 读屏念出新状态）
+ * **必须等 `router.replace` 落定后再聚焦**：URL 同步会触发重渲染、节点被替换，
+ * 先聚焦的元素会被丢弃，焦点又回 body（实测踩过）。
+ */
+const emptyRef = ref<HTMLElement | null>(null)
+const benchRef = ref<HTMLElement | null>(null)
+
+async function focusAfterChange() {
+  await nextTick()
+  if (activeIds.value.length) {
+    const btn = benchRef.value?.querySelector<HTMLElement>('.entry-remove')
+    ;(btn ?? emptyRef.value)?.focus()
+  } else {
+    emptyRef.value?.focus()
+  }
 }
 
-function clearAll() {
+/** 移出：同时从本桌与 URL 视图里去掉（否则刷新会「复活」） */
+async function removeEntry(id: number) {
+  bench.remove(id)
+  const next = activeIds.value.filter((x) => x !== id)
+  await router.replace({
+    query: next.length ? { ...route.query, ids: next.join(',') } : { ...route.query, ids: undefined },
+  })
+  await focusAfterChange()
+}
+
+async function clearAll() {
   bench.clear()
-  void router.replace({ query: { ...route.query, ids: undefined } })
+  await router.replace({ query: { ...route.query, ids: undefined } })
+  await focusAfterChange()
 }
 
 const emptyHint = computed(() =>
@@ -152,37 +176,21 @@ const emptyHint = computed(() =>
       </p>
     </header>
 
-    <section v-reveal="80" class="bench" aria-labelledby="bench-title">
+    <section ref="benchRef" v-reveal="80" class="bench" aria-labelledby="bench-title">
       <h2 id="bench-title" class="sr-only">对照结果</h2>
 
-      <!-- 空态：说清楚「怎么开始」，而不是只报空 -->
-      <div v-if="!catPath || status === 'idle'" class="bench-empty">
-        <p class="bench-empty-title mono">{{ emptyHint || '对照台为空' }}</p>
-        <p class="bench-empty-hint">
-          对照只在<strong>同类目内</strong>进行（不同类目字段不同）。先挑一个类目：
-        </p>
-        <ul class="bench-cats">
-          <li v-for="c in CATALOG" :key="c.path">
-            <RouterLink class="bench-cat" :to="c.path">
-              <span class="no mono">{{ c.no }}</span>
-              <span class="label">{{ c.label }}</span>
-              <span class="en mono">{{ c.en }}</span>
-            </RouterLink>
-          </li>
-        </ul>
-        <p class="bench-empty-hint">
-          进入任一条目详情后，点页头的「加入对照」；也可以从名录页逐条挑。
-        </p>
-      </div>
-
-      <p v-else-if="status === 'loading'" class="bench-state mono">载入名录…</p>
+      <!-- 分支顺序：加载 → 失败 → 有内容 → **兜底空态**。
+           空态必须是兜底（v-else）而不是「无类目时」：否则移出最后一条后会落进
+           没有任何分支的空白区——既看不到空态，也没有可交棒的焦点落点（实测踩过）。 -->
+      <p v-if="status === 'loading'" class="bench-state mono">载入名录…</p>
       <p v-else-if="status === 'error'" class="bench-state mono">
         名录载入失败。请重新加载页面；若持续失败，稍后再试。
       </p>
 
       <template v-else-if="entries.length">
         <div class="bench-head">
-          <p class="bench-summary mono">
+          <!-- 摘要即状态播报点：移出/清空后条目数变化由读屏念出 -->
+          <p class="bench-summary mono" role="status">
             {{ cat?.label }} · {{ entries.length }} 条 ·
             <span :class="{ diff: (model?.diffCount ?? 0) > 0 }">
               {{ model?.diffCount ?? 0 }} 处差异
@@ -244,6 +252,29 @@ const emptyHint = computed(() =>
           同值行保持墨色，把注意力留给真正的差别。
         </p>
       </template>
+
+      <!-- 兜底空态：说清楚「怎么开始」，而不是只报空。标题可编程聚焦（tabindex=-1）：
+           清空 / 移完最后一条后把焦点交到这里，避免焦点掉回 body -->
+      <div v-else class="bench-empty">
+        <p ref="emptyRef" tabindex="-1" class="bench-empty-title mono">
+          {{ emptyHint || '对照台为空' }}
+        </p>
+        <p class="bench-empty-hint">
+          对照只在<strong>同类目内</strong>进行（不同类目字段不同）。先挑一个类目：
+        </p>
+        <ul class="bench-cats">
+          <li v-for="c in CATALOG" :key="c.path">
+            <RouterLink class="bench-cat" :to="c.path">
+              <span class="no mono">{{ c.no }}</span>
+              <span class="label">{{ c.label }}</span>
+              <span class="en mono">{{ c.en }}</span>
+            </RouterLink>
+          </li>
+        </ul>
+        <p class="bench-empty-hint">
+          进入任一条目详情后，点页头的「加入对照」；也可以从名录页逐条挑。
+        </p>
+      </div>
     </section>
   </ListPage>
 </template>

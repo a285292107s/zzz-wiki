@@ -27,7 +27,11 @@ const { copied, failed, copy } = useCopyLink()
     :class="{ done: copied, failed }"
     @click="copy()"
   >
-    <span aria-hidden="true">{{ failed ? '复制失败' : copied ? '已复制 ✓' : label }}</span>
+    <!-- 可见文字**不** aria-hidden：它同时承担按钮的可访问名。
+         此前把可见文字整体 aria-hidden（只为避免与下方 status 重复播报），
+         空闲态就只剩空的 status → 按钮无可辨名称（axe button-name critical）。
+         列表页只在带状态时才渲染本按钮，故该缺陷长期潜伏；对照台无条件渲染它才暴露。 -->
+    <span>{{ failed ? '复制失败' : copied ? '已复制 ✓' : label }}</span>
     <!-- 读屏播报：按钮自身文字变化不一定被朗读，额外给一个 status 区 -->
     <span class="sr-only" role="status">
       {{ failed ? '复制失败，请手动复制地址栏链接' : copied ? '链接已复制' : '' }}

@@ -810,6 +810,22 @@ async (page) => {
       cleared.emptyTitle.includes('对照台为空') && cleared.cats === 4 && cleared.stored === null,
       JSON.stringify(cleared),
     )
+
+    // 深链必须**在干净状态**下测：本桌已有内容时 URL 失效也会「看起来正常」——
+    // 第 102 轮就是这样假通过的（`?cat=&ids=` 实际未生效），第 103 轮才暴露。
+    await page.evaluate(() => localStorage.removeItem('zzz-wiki:compare'))
+    await page.goto('http://localhost:4175/compare?cat=/agents&ids=1011,1021', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1700)
+    const deep = await page.evaluate(() => ({
+      cols: [...document.querySelectorAll('.th-entry .entry-name')].map((e) => e.textContent.trim()),
+      diffs: document.querySelectorAll('tbody tr.is-diff').length,
+      stored: localStorage.getItem('zzz-wiki:compare'),
+    }))
+    add(
+      'compare-deeplink',
+      deep.cols.length === 2 && deep.diffs >= 1 && (deep.stored ?? '').includes('1011'),
+      JSON.stringify(deep),
+    )
   }
 
   // ---- 404 ----
