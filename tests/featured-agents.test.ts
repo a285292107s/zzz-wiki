@@ -54,6 +54,18 @@ describe('buildFeaturedCards', () => {
     expect(cards[0]!.to).toBe('/agents/1011')
   })
 
+  it('清单未就绪（null）时出占位卡：全量保留、图候选齐全、名字留空（LCP 与清单并行）', () => {
+    const cards = buildFeaturedCards(seed, null)
+    expect(cards.map((c) => c.id)).toEqual([1011, 9999, 1051]) // 无真值依据，不丢 id
+    expect(cards.map((c) => c.no)).toEqual(['01', '02', '03'])
+    expect(cards[0]!.zh).toBe('')
+    expect(cards[0]!.en).toBe('')
+    expect(cards[0]!.elementZh).toBe('')
+    expect(cards[0]!.srcs[0]).toMatch(/hero\/card\/Mindscape_1011_2\.webp$/)
+    expect(cards[0]!.srcs[2]).toContain('static.nanoka.cc')
+    expect(cards[0]!.to).toBe('/agents/1011')
+  })
+
   it('特殊属性显示特殊名，且不套基础元素色', () => {
     const list = [makeItem(1371, { zh: '仪玄', en: 'Yixuan', element: 205, special_element: '玄墨' })]
     const cards = buildFeaturedCards([{ id: 1371, pos: '40%', zoom: 1.2, originY: 30.2 }], list)

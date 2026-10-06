@@ -51,21 +51,25 @@ export function shuffle<T>(arr: readonly T[]): T[] {
   return a
 }
 
-/** 由池条目 + 名录解析卡片：名字/元素/特殊属性/头图候选。缺失 id 丢弃并紧凑重排编号。 */
-export function buildFeaturedCards(seed: PoolItem[], list: CharacterListItem[]): FeaturedCard[] {
-  const byId = new Map(list.map((x) => [x.Id, x]))
+/**
+ * 由池条目 + 名录解析卡片。list 为 null（清单未就绪）时照样出卡：头图 src 只依赖 id，
+ * 名字/元素留空由视图占位——让 LCP 图片与清单请求并行，而非排在它后面。
+ * 名单就绪后按名录真值解析；池内 id 不在名录时丢弃并紧凑重排编号（策展真值）。
+ */
+export function buildFeaturedCards(seed: PoolItem[], list: CharacterListItem[] | null): FeaturedCard[] {
+  const byId = new Map((list ?? []).map((x) => [x.Id, x]))
   const cards: FeaturedCard[] = []
   for (const n of seed) {
     const item = byId.get(n.id)
-    if (!item) continue
-    const el = item.element !== undefined ? ELEMENTS[item.element] : undefined
-    const hasSpecial = Boolean(item.special_element)
+    if (list && !item) continue
+    const el = item?.element !== undefined ? ELEMENTS[item.element] : undefined
+    const hasSpecial = Boolean(item?.special_element)
     cards.push({
       id: n.id,
       no: '', // 末尾统一重排
-      zh: item.zh ?? '',
-      en: item.en ?? '',
-      elementZh: item.special_element ?? el?.zh ?? '',
+      zh: item?.zh ?? '',
+      en: item?.en ?? '',
+      elementZh: item?.special_element ?? el?.zh ?? '',
       // 特殊属性（如 玄墨）无专属色，不套基础元素色，落回标签默认 ink
       elementColor: hasSpecial ? '' : (el?.color ?? ''),
       srcs: [
@@ -82,11 +86,12 @@ export function buildFeaturedCards(seed: PoolItem[], list: CharacterListItem[]):
   return cards.map((c, i) => ({ ...c, no: String(i + 1).padStart(2, '0') }))
 }
 
-/** 首页「今日角色」：每次挂载随机取 4 张 + 解析，返回响应式 featured。 */
+/** 首页「今日角色」：每次挂载随机取 4 张 + 解析，返回响应式 featured。
+ *  featured 与 picks 等长起步（名字未就绪时留空占位），清单到达后按真值收敛。 */
 export function useFeaturedAgents() {
   const picks = shuffle(FEATURED_POOL).slice(0, 4)
 
-  // 首屏头图预热：卡片区要等角色清单 JSON 返回后才 v-if 渲染；且带 transform:scale 的 img
+  // 首屏头图预热：卡片在挂载即渲染（图 src 只依赖 id，不等清单）；且带 transform:scale 的 img
   // 会升级为独立合成层，合成器按 DOM 顺序解码/栅格化，最右一张总最后上屏（网络其实并行）。
   // 故在 picks 定下后立刻并行预取+预解码本地图，与清单 fetch 重叠，使卡片渲染时已解码、
   // 4 张可同帧合成，消除「第 4 张慢半拍」。
@@ -101,7 +106,6 @@ export function useFeaturedAgents() {
   }
 
   const { data: list } = useAsyncResource<CharacterListItem[]>(() => listFor<CharacterListItem>(catalogEntry('/agents')))
-  const featured = computed(() => (list.value ? buildFeaturedCards(picks, list.value) : []))
-  // picks 同步可得：视图用它先渲染等高骨架卡（清单未就绪时），消除卡片区插入引发的 CLS
+  const featured = computed(() => buildFeaturedCards(picks, list.value))
   return { featured, picks }
 }

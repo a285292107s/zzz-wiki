@@ -19,6 +19,11 @@
          只预载首屏实际命中的 400 字重；preload 不匹配 (as="font") 会报 console 警告，增删须同步 tokens.css。 -->
     <link rel="preload" href="/fonts/PublicSans-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/JetBrainsMono-400.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- 关键名录 JSON 预取：首页今日角色 / 代理人名录的首屏链路是 JS → 取清单 → 渲染 → 取图，
+         预取让清单请求与 JS 加载并行，砍掉一整段串行 RTT（移动模拟 LCP 的主项）。
+         SPA 各路由共用本 head：非代理人路由多耗一份缓存友好的同源请求，换取两个高频页面链路减一。 -->
+    <link rel="preload" href="/data/manifest.json" as="fetch" crossorigin />
+    <link rel="preload" href="/data/live/character.json" as="fetch" crossorigin />
     <!-- 今日角色头图不走静态预取：四张为挂载期随机（61 选 4），静态赌中率 ~6.5%；
          确定性预热在 useFeaturedAgents（挂载即 img.decode，早于卡片区渲染）。 -->
   </head>

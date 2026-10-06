@@ -18,6 +18,7 @@
           :to="item.to"
           class="nav-item"
           :class="{ active: isActive(item.to) }"
+          :aria-current="isActive(item.to) ? 'true' : undefined"
         >
           <span class="no mono">{{ item.no }}</span>
           <span class="label">{{ item.label }}</span>
@@ -30,7 +31,7 @@
         :class="{ open: menuOpen }"
         :aria-expanded="menuOpen"
         aria-controls="mobile-nav"
-        aria-label="切换导航菜单"
+        :aria-label="(menuOpen ? 'CLOSE' : 'MENU') + ' · 切换导航菜单'"
         @click="menuOpen = !menuOpen"
       >
         <span class="burger" aria-hidden="true">
@@ -47,6 +48,7 @@
         :to="item.to"
         class="mobile-item"
         :class="{ active: isActive(item.to) }"
+        :aria-current="isActive(item.to) ? 'true' : undefined"
         @click="closeMenu"
       >
         <span class="no mono">{{ item.no }}</span>
