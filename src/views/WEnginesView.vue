@@ -32,14 +32,14 @@ const columns: CatalogColumn[] = [
   { key: 'prof', label: '职业定位' },
 ]
 
-const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
+const { sorted, sortKey, sortDir, toggle, isDefault: sortIsDefault } = useCatalogSort(
   filtered,
   [
     { key: 'id', value: (r) => r.Id },
     { key: 'name', value: (r) => pickName(r) },
     { key: 'rarity', value: (r) => r.rank ?? -1 },
   ],
-  { defaultKey: 'id', defaultDir: 'desc' },
+  { defaultKey: 'id', defaultDir: 'desc', syncRoute: true },
 )
 </script>
 
@@ -59,7 +59,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
       />
       <SearchField v-model="query" :count="count" placeholder="检索音擎…" />
       <!-- 筛选/搜索生效时 URL 带状态：显式给出「复制此视图链接」入口 -->
-      <CopyLinkButton v-if="hasActiveFilter" label="复制筛选链接" />
+      <CopyLinkButton v-if="hasActiveFilter || !sortIsDefault" label="复制筛选链接" />
     </section>
 
     <!-- 空态分工：AsyncState 只管「数据级为空」；「筛掉全部结果」由 CatalogTable 空态行承担 -->

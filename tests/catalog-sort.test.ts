@@ -68,4 +68,28 @@ describe('useCatalogSort', () => {
     r.toggle('name')
     expect(r.sorted.value.map((x) => x.id).sort()).toEqual([1, 3])
   })
+
+  /* ---------- 第三态：降序再点回到默认（档案自然序） ---------- */
+
+  it('third toggle on the same key returns to the default order', () => {
+    const r = useCatalogSort(ref(ROWS), COLS, { defaultKey: 'id', defaultDir: 'desc' })
+    r.toggle('name') // 升序
+    expect(r.sortDir.value).toBe('asc')
+    r.toggle('name') // 降序
+    expect(r.sortDir.value).toBe('desc')
+    r.toggle('name') // 回默认：默认键没有表头，两态循环永远回不去
+    expect(r.sortKey.value).toBe('id')
+    expect(r.sortDir.value).toBe('desc')
+    expect(r.sorted.value.map((x) => x.id)).toEqual([1, 2, 3])
+  })
+
+  it('isDefault tracks whether the current order equals the default', () => {
+    const r = useCatalogSort(ref(ROWS), COLS, { defaultKey: 'id', defaultDir: 'desc' })
+    expect(r.isDefault.value).toBe(true)
+    r.toggle('rarity')
+    expect(r.isDefault.value).toBe(false)
+    r.toggle('rarity')
+    r.toggle('rarity')
+    expect(r.isDefault.value).toBe(true)
+  })
 })

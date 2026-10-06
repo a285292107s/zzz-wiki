@@ -293,6 +293,38 @@ async (page) => {
     add('level-reset-on-pager', next.path !== '/agents/1011' && next.search === '' && next.level === '60', JSON.stringify(next))
   }
 
+  // ---- 排序深链（?sort=&dir=）与三态循环 ----
+  {
+    await page.goto('http://localhost:4175/agents?sort=rarity&dir=desc', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1600)
+    const deep = await page.evaluate(() => ({
+      ariaSort: [...document.querySelectorAll('thead th')].map((t) => t.getAttribute('aria-sort')).filter(Boolean),
+      url: location.search,
+    }))
+    add('sort-deeplink', deep.url.includes('sort=rarity') && deep.ariaSort[0] === 'descending', JSON.stringify(deep))
+
+    // 同键三击：升 → 降 → 回默认（默认键无表头，两态循环回不去），参数随之清空
+    await page.goto('http://localhost:4175/agents', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1500)
+    const first0 = await page.evaluate(() => document.querySelector('tbody.d-body tr .name')?.textContent.trim())
+    for (let i = 0; i < 3; i++) {
+      await page.evaluate(() => document.querySelectorAll('thead th .sort-btn')[1]?.click())
+      await page.waitForTimeout(650)
+    }
+    const back = await page.evaluate(() => ({
+      url: location.search,
+      ariaSort: !!document.querySelector('thead th[aria-sort]'),
+      first: document.querySelector('tbody.d-body tr .name')?.textContent.trim(),
+    }))
+    add('sort-third-toggle-default', back.url === '' && !back.ariaSort && back.first === first0, JSON.stringify(back))
+
+    // 非法排序参数就地清理
+    await page.goto('http://localhost:4175/agents?sort=zzz&dir=sideways', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1600)
+    const cleaned = await page.evaluate(() => ({ url: location.search, ariaSort: !!document.querySelector('thead th[aria-sort]') }))
+    add('sort-invalid-cleaned', cleaned.url === '' && !cleaned.ariaSort, JSON.stringify(cleaned))
+  }
+
   // ---- 数据说明页（页脚入口 + 动态数字） ----  await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1400)
   {

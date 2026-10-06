@@ -31,13 +31,13 @@ const { query, filtered, count, hasActiveFilter, reset } = useCatalogList<DiskDr
   keywords: (d) => [d.zh?.desc2 ?? '', d.zh?.desc4 ?? ''],
 })
 
-const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
+const { sorted, sortKey, sortDir, toggle, isDefault: sortIsDefault } = useCatalogSort(
   filtered,
   [
     { key: 'id', value: (d) => d.Id },
     { key: 'name', value: (d) => d.zh?.name ?? '' },
   ],
-  { defaultKey: 'id', defaultDir: 'desc' },
+  { defaultKey: 'id', defaultDir: 'desc', syncRoute: true },
 )
 
 /** 悬停卡片头即预热详情（驻留 90ms 发射），pointerdown 立即——与 NameCell 同一回路 */
@@ -76,7 +76,7 @@ function warmNow(id: number | string): void {
       </div>
       <SearchField v-model="query" :count="count" placeholder="检索套装…" />
       <!-- 筛选/搜索生效时 URL 带状态：显式给出「复制此视图链接」入口 -->
-      <CopyLinkButton v-if="hasActiveFilter" label="复制筛选链接" />
+      <CopyLinkButton v-if="hasActiveFilter || !sortIsDefault" label="复制筛选链接" />
     </div>
 
     <!-- 空态分工：AsyncState 只管「数据级为空」；「筛掉全部结果」由下方 .disk-empty 承担 -->
