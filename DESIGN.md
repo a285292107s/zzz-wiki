@@ -349,6 +349,10 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 ## 12. 开放问题（后续轮次可讨论）
 
 - 是否需要 SEO 预渲染（SSG/prerender）——当前 SPA 无 SSR，搜索引擎抓取有限。
+  **量化证据（2026-10，Lighthouse 移动模拟）**：LCP 元素为 hero 文本，
+  TTFB 占 ~3s（slow-4G 模型常数，SPA 架构下不可压缩）+ render delay ~0.6s；
+  a11y/BP/SEO 已 100、CLS 0.02、TBT 120ms，性能分的天花板就在 TTFB——
+  要把 LCP 压进 2.5s 只有 prerender 一条路，做与不做等这个证据再议。
 - 是否做数据增量更新（只写变更详情，减少 git 噪声）。
 - 是否需要内容搜索（全文检索索引 JSON）。
 - 新增类别（敌人/材料/徽章）时按 §5.3 catalog 走通的接入流程。

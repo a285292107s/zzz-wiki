@@ -73,15 +73,15 @@ const sections = [
     <section class="hero">
       <div class="wrap">
         <p v-reveal="0" class="eyebrow mono">NEW Eridu · Data Terminal</p>
-        <h1 v-reveal="80" class="page-title">
+        <h1 v-reveal="60" class="page-title">
           绳网档案
           <span class="title-en">Ropeweb Archive</span>
         </h1>
-        <p v-reveal="180" class="page-sub">
+        <p v-reveal="120" class="page-sub">
           基于开放数据源整理的绝区零资料库。以档案编号为纲，收录代理人、音擎、邦布与驱动盘的结构化数据——不含任何主观评述，只做客观陈列。
         </p>
 
-        <div v-reveal="300" class="hero-meta mono">
+        <div v-reveal="220" class="hero-meta mono">
           <span>游戏客户端数据</span>
           <span class="dot">·</span>
           <span>持续更新</span>
