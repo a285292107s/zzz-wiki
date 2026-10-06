@@ -17,7 +17,7 @@
 
 import type { CatalogEntry } from '@/domain/catalog'
 import { detailFor, listFor } from '@/data/resources'
-import { catalogViews } from '@/router'
+import { catalogViews } from '@/router/views'
 
 /** 已预热过的视图 key（chunk 级去重；JSON 预取由 api 缓存天然幂等，无需记录） */
 const warmed = new Set<string>()

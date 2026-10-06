@@ -6,6 +6,7 @@ import StyleGuideView from '../src/views/StyleGuideView.vue'
 // usePageMeta 依赖 useRoute，测试环境无路由实例 → 提供最小 mock
 vi.mock('vue-router', () => ({
   useRoute: () => ({ meta: {} }),
+  RouterLink: { template: '<a><slot /></a>' },
 }))
 
 /** 注入 :root 级 token（jsdom 不加载 CSS，经 inline style 提供 getComputedStyle 读取源） */

@@ -5,18 +5,9 @@ import { resolveAnchorOffset } from '@/composables/anchorOffset'
 // 首页是着陆页：静态编入主包（其余路由保持懒加载）。懒 chunk 到位前 main 只有站头+页脚，
 // 内容到达时整页弹入、页脚下坠（实测 CLS 0.031 的来源）；着陆页 +2.5KB gzip 换首帧稳定。
 import HomeView from '@/views/HomeView.vue'
+import { catalogViews } from './views'
 
-/** 类目视图懒加载映射：catalog 条目 → [名录页, 详情页]。
- *  路径/名称/标题全部由 CATALOG 派生（单一事实源），此处只登记组件文件。
- *  导出供 useDetailPrefetch 复用同一批懒加载函数（预取与导航加载同一 chunk，缓存天然归一）。 */
-export const catalogViews: Record<string, [() => Promise<unknown>, () => Promise<unknown>]> = {
-  '/agents': [() => import('@/views/AgentsView.vue'), () => import('@/views/AgentDetailView.vue')],
-  '/w-engines': [() => import('@/views/WEnginesView.vue'), () => import('@/views/WEngineDetailView.vue')],
-  '/bangboos': [() => import('@/views/BangboosView.vue'), () => import('@/views/BangbooDetailView.vue')],
-  '/disks': [() => import('@/views/DisksView.vue'), () => import('@/views/DiskDetailView.vue')],
-}
-
-/** 由 catalog 条目生成「名录 + 详情」两条路由 */
+/** 由 catalog 条目生成「名录 + 详情」两条路由（视图映射见 ./views.ts） */
 function catalogRoutes(): RouteRecordRaw[] {
   return CATALOG.flatMap((c): RouteRecordRaw[] => {
     const pair = catalogViews[c.path]
