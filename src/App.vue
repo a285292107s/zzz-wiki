@@ -1,9 +1,18 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
+import { ref } from 'vue'
+import { RouterView, useRouter } from 'vue-router'
 import SiteHeader from '@/components/layout/SiteHeader.vue'
 import SiteFooter from '@/components/layout/SiteFooter.vue'
 import TermTip from '@/components/detail/TermTip.vue'
 import { ErrorBoundary } from '@/components'
+
+/* 站尾延迟到初始导航就绪后渲染：懒路由 chunk 到位前 footer 先落地、内容到达再下坠，
+   是名录页 CLS 的主要来源（实测 0.061→目标 0）。isReady 后不再变化，无后续位移。 */
+const router = useRouter()
+const ready = ref(router.currentRoute.value.matched.length > 0)
+router.isReady().then(() => {
+  ready.value = true
+})
 </script>
 
 <template>
@@ -26,7 +35,7 @@ import { ErrorBoundary } from '@/components'
     </main>
 
     <!-- 站尾（SiteFooter） -->
-    <SiteFooter />
+    <SiteFooter v-if="ready" />
   </div>
 
   <!-- 术语悬停浮层：全局委托监听，读本地名词表 -->
