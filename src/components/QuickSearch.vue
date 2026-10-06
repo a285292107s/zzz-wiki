@@ -14,7 +14,7 @@ import HollowImage from '@/components/HollowImage.vue'
 
 const router = useRouter()
 const { phase, query, close } = useQuickSearch()
-const { results } = useQuickSearchResults()
+const { results, overflow } = useQuickSearchResults()
 const recent = useRecentItems()
 
 const active = ref(0)
@@ -240,6 +240,10 @@ function onKeydown(e: KeyboardEvent): void {
         </div>
 
         <p class="qs-foot mono" aria-hidden="true">
+          <template v-if="overflow > 0">
+            <span class="foot-overflow">共 {{ overflow + results.length }} 条命中，仅列前 {{ results.length }} — 精确关键词</span>
+            <span class="sep">·</span>
+          </template>
           <span>↑↓ 移动</span><span class="sep">·</span><span>ENTER 直达</span><span class="sep">·</span><span>ESC 关闭</span>
         </p>
       </div>
@@ -497,6 +501,10 @@ mark.qs-hit {
 
 .qs-foot .sep {
   color: var(--amber);
+}
+
+.foot-overflow {
+  color: var(--ink-2);
 }
 
 @media (max-width: 640px) {

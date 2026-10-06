@@ -9,7 +9,7 @@
 
 import { computed, ref } from 'vue'
 import { CATALOG, HIDDEN_ITEM_IDS } from '@/domain/catalog'
-import { buildSearchIndex, normalizeQuery, searchEntries, type SearchEntry } from '@/domain/search'
+import { buildSearchIndex, searchEntries, type SearchEntry } from '@/domain/search'
 import { iconSources } from '@/data/icons'
 import { listFor } from '@/data/resources'
 
@@ -85,10 +85,15 @@ export function useQuickSearch() {
 }
 
 /** 结果列表（面板组件用）：已过滤 + 高亮词 */
+/** 结果上限：检索面向四语+编号，宽查询（如「布」命中 42 邦布）仍可完整陈列；
+ *  上限只拦「泛查询淹没」——超出时行首提示精确化建议（结果态脚注）。 */
+const RESULTS_MAX = 60
+
 export function useQuickSearchResults() {
-  const results = computed(() => searchEntries(index.value, query.value))
-  const normQuery = computed(() => normalizeQuery(query.value))
-  return { results, normQuery }
+  const all = computed(() => searchEntries(index.value, query.value))
+  const results = computed(() => all.value.slice(0, RESULTS_MAX))
+  const overflow = computed(() => all.value.length - results.value.length)
+  return { results, overflow }
 }
 
 /** 供组件判定面板可见性（Teleport 到 body 的全局层） */
