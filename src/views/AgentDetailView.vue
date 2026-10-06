@@ -45,7 +45,7 @@ interface SkillDisplay extends SkillRow {
   level: Ref<number>
 }
 import type { CharacterDetail, WEngineListItem } from '@/data/types'
-import { AgentHead, CoreSkillGroup, DetailPager, DescRow, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel } from '@/components'
+import { AgentHead, CoreSkillGroup, DetailPager, DescRow, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel, CopyLinkButton } from '@/components'
 import HollowImage from '@/components/HollowImage.vue'
 
 const id = useRouteParam('id')
@@ -268,6 +268,10 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
               label="角色等级"
               :marks="levelMarks"
             />
+          </template>
+          <!-- 等级非默认时才出现：此时 URL 带 ?lv=，链接即「此等级视图」的可分享入口 -->
+          <template #actions>
+            <CopyLinkButton v-if="charLevel !== CHAR_LEVEL_MAX" label="复制此等级链接" />
           </template>
         </StatLevelPanel>
         <KeyValueGrid :items="stats" variant="ledger" />

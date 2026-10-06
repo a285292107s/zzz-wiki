@@ -233,6 +233,21 @@ async (page) => {
     add('content-sample-clean', bad.length === 0, bad.join(' ⏐ ') || '5 页抽样无异常')
   }
 
+  // ---- 复制视图链接（URL 带状态时才出现；复制内容 = 当前完整 URL） ----
+  {
+    await page.goto('http://localhost:4175/agents', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1500)
+    const idleHidden = await page.evaluate(() => !document.querySelector('.copy-link'))
+    add('copy-hidden-when-idle', idleHidden, String(idleHidden))
+
+    await page.fill('.search input', '安')
+    await page.waitForTimeout(700)
+    const shown = await page.evaluate(
+      () => document.querySelector('.copy-link')?.textContent.replace(/\s+/g, ' ').trim() ?? '',
+    )
+    add('copy-shown-when-stateful', shown.includes('复制'), shown || 'none')
+  }
+
   // ---- 等级深链（?lv= 可分享视图；改等级不得丢滚动位置） ----
   {
     await page.goto('http://localhost:4175/agents/1011?lv=55', { waitUntil: 'networkidle' })
@@ -260,6 +275,12 @@ async (page) => {
     }))
     add('level-sync-url', after.url.includes('lv=42') && after.level === '42', JSON.stringify(after))
     add('level-keeps-scroll', Math.abs(after.y - y0) < 120, `before=${y0} after=${after.y}`)
+
+    // 等级非默认 → 出现「复制此等级链接」，复制内容含 ?lv=
+    const copyShown = await page.evaluate(
+      () => document.querySelector('.copy-link')?.textContent.replace(/\s+/g, ' ').trim() ?? '',
+    )
+    add('level-copy-shown', copyShown.includes('复制'), copyShown || 'none')
 
     // 翻页到相邻条目：等级与 lv 参数一并重置（不把上一档等级带给下一个角色）
     await page.keyboard.press('ArrowRight')

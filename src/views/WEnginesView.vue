@@ -8,7 +8,7 @@ import type { WEngineListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { catalogEntry } from '@/domain/catalog'
-import { AsyncState, CatalogTable, CatalogTableSkeleton, FilterDropdown, ListPage, NameCell, SearchField, type CatalogColumn } from '@/components'
+import { AsyncState, CatalogTable, CatalogTableSkeleton, CopyLinkButton, FilterDropdown, ListPage, NameCell, SearchField, type CatalogColumn } from '@/components'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
 
@@ -58,6 +58,8 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
         @update:prof="profFilter = $event"
       />
       <SearchField v-model="query" :count="count" placeholder="检索音擎…" />
+      <!-- 筛选/搜索生效时 URL 带状态：显式给出「复制此视图链接」入口 -->
+      <CopyLinkButton v-if="hasActiveFilter" label="复制筛选链接" />
     </section>
 
     <!-- 空态分工：AsyncState 只管「数据级为空」；「筛掉全部结果」由 CatalogTable 空态行承担 -->

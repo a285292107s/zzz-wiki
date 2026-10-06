@@ -1,7 +1,8 @@
 <script setup lang="ts">
 /**
  * 等级滑条面板容器：三个详情页（角色/音擎/邦布）基础属性区共用结构。
- * 结构：细线框 = 等级行（Lv 标签 + #control 滑条）+ 可选突破说明 + 主体（KeyValueGrid 等）。
+ * 结构：细线框 = 等级行（Lv 标签 + #control 滑条 + 可选 #actions 操作位）
+ *      + 可选突破说明 + 主体（KeyValueGrid 等）。
  */
 defineProps<{
   /** 当前等级显示文本，如 'Lv.60' */
@@ -16,6 +17,8 @@ defineProps<{
     <div v-if="$slots.control" class="stat-level-head">
       <span class="stat-level-lv mono">{{ lvLabel }}</span>
       <slot name="control" />
+      <!-- 操作位（如「复制此等级视图链接」）：滑条右端，仅在 URL 带状态时由调用方渲染 -->
+      <slot name="actions" />
     </div>
     <p v-if="meta" class="stat-level-meta mono">
       <span>{{ meta }}</span>
@@ -35,6 +38,12 @@ defineProps<{
   display: flex;
   align-items: center;
   gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* 操作位推到行尾（滑条自适应占满中间） */
+.stat-level-head > :deep(.copy-link) {
+  margin-left: auto;
 }
 
 .stat-level-lv {

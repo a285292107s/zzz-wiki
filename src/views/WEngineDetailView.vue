@@ -24,7 +24,7 @@ import {
 import { PROFESSIONS, type SpecCode } from '@/data/types'
 import type { CharacterListItem, WEngineDetail } from '@/data/types'
 import { pickName } from '@/utils/names'
-import { DescRow, DetailHead, DetailPager, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SignatureRef, StatLevelPanel } from '@/components'
+import { DescRow, DetailHead, DetailPager, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SignatureRef, StatLevelPanel, CopyLinkButton } from '@/components'
 import Rarity from '@/components/Rarity.vue'
 import Tags from '@/components/Tags.vue'
 
@@ -192,6 +192,9 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
               label="音擎等级"
               :marks="levelMarks"
             />
+          </template>
+          <template #actions>
+            <CopyLinkButton v-if="hasLevels && wLevel !== W_ENGINE_LEVEL_MAX" label="复制此等级链接" />
           </template>
         </StatLevelPanel>
         <KeyValueGrid :items="propItems" variant="ledger" />

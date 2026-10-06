@@ -12,7 +12,7 @@ import { stripRichText } from '@/utils/text'
 import type { DiskDriveListItem } from '@/data/types'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { catalogEntry } from '@/domain/catalog'
-import { AsyncState, ListPage, SearchField } from '@/components'
+import { AsyncState, ListPage, SearchField, CopyLinkButton } from '@/components'
 import HollowImage from '@/components/HollowImage.vue'
 import { prefetchDetail, armPrefetchDetail } from '@/composables/useDetailPrefetch'
 
@@ -75,6 +75,8 @@ function warmNow(id: number | string): void {
         </button>
       </div>
       <SearchField v-model="query" :count="count" placeholder="检索套装…" />
+      <!-- 筛选/搜索生效时 URL 带状态：显式给出「复制此视图链接」入口 -->
+      <CopyLinkButton v-if="hasActiveFilter" label="复制筛选链接" />
     </div>
 
     <!-- 空态分工：AsyncState 只管「数据级为空」；「筛掉全部结果」由下方 .disk-empty 承担 -->

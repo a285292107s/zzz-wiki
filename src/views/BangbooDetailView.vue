@@ -21,7 +21,7 @@ import {
   type StatItem,
 } from '@/domain/sections'
 import type { BangbooDetail } from '@/data/types'
-import { DetailHead, DetailPager, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel } from '@/components'
+import { DetailHead, DetailPager, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel, CopyLinkButton } from '@/components'
 import Rarity from '@/components/Rarity.vue'
 
 const id = useRouteParam('id')
@@ -161,6 +161,9 @@ const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
               label="邦布等级"
               :marks="levelMarks"
             />
+          </template>
+          <template #actions>
+            <CopyLinkButton v-if="bLevel !== BANGBOO_LEVEL_MAX" label="复制此等级链接" />
           </template>
         </StatLevelPanel>
         <KeyValueGrid :items="stats" variant="ledger" />
