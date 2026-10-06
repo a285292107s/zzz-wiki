@@ -16,15 +16,27 @@ router.isReady().then(() => {
   ready.value = true
 })
 
-/* 全局快速检索：Ctrl/⌘+K 唤起（终端式入口）。输入焦点在表单内时不劫持。 */
+/* 全局快速检索：Ctrl/⌘+K 唤起（终端式入口）。
+   焦点在文本框内时**放行**——名录搜索框里按 Ctrl+K = 把当前词升级到全局检索
+   （种子词优先取框内内容，其次 ?q=），这正是用户期待的升级路径。
+   其余输入控件（contentEditable 等）仍让路。 */
 const { toggle: toggleSearch } = useQuickSearch()
 function onGlobalKeydown(e: KeyboardEvent): void {
   if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
     const el = e.target as HTMLElement | null
     const tag = el?.tagName.toLowerCase()
-    if (tag === 'input' || tag === 'textarea' || el?.isContentEditable) return
+    if (el?.isContentEditable) return
     e.preventDefault()
-    toggleSearch()
+    let q: string | undefined
+    if (tag === 'input' || tag === 'textarea') {
+      const v = (el as HTMLInputElement | HTMLTextAreaElement).value
+      q = v?.trim() || undefined
+    }
+    if (!q) {
+      const rq = router.currentRoute.value.query.q
+      q = typeof rq === 'string' ? rq : undefined
+    }
+    toggleSearch(q)
   }
 }
 onMounted(() => document.addEventListener('keydown', onGlobalKeydown))

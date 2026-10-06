@@ -50,12 +50,15 @@ function buildIndex(): Promise<SearchEntry[]> {
   return indexPromise
 }
 
-/** 面板开启入口：closed/loading → open；索引并行构建 */
+/** 面板开启入口：closed/loading → open；索引并行构建。
+ *  seed：唤起时预填的检索词（名录页把已输入的搜索词带进来——
+ *  用户心智：同一目标换更强的工具继续找）。 */
 export function useQuickSearch() {
   const loading = ref(false)
 
-  function open(): void {
+  function open(seed?: string): void {
     if (phase.value !== 'closed') return
+    if (seed?.trim()) query.value = seed.trim()
     phase.value = 'loading'
     loading.value = true
     void buildIndex()
@@ -77,8 +80,8 @@ export function useQuickSearch() {
     query.value = ''
   }
 
-  function toggle(): void {
-    phase.value === 'closed' ? open() : close()
+  function toggle(seed?: string): void {
+    phase.value === 'closed' ? open(seed) : close()
   }
 
   return { phase, query, loading, open, close, toggle }

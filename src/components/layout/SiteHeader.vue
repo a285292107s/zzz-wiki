@@ -29,7 +29,7 @@
         type="button"
         class="search-toggle mono"
         aria-label="快速检索 (Ctrl+K)"
-        @click="toggleSearch()"
+        @click="openSearch()"
       >
         <span class="st-mark">⌕</span>
         <span class="st-word">检索</span>
@@ -102,7 +102,12 @@ onMounted(() => document.addEventListener('keydown', onDocKeydown))
 onBeforeUnmount(() => document.removeEventListener('keydown', onDocKeydown))
 
 // 全局快速检索（Ctrl/⌘+K；按钮唤起）
+// 名录页唤起时把该页已输入的搜索词带入面板（?q= 参数）——同一目标换更强的工具继续找
 const { toggle: toggleSearch } = useQuickSearch()
+function openSearch() {
+  const q = typeof route.query.q === 'string' ? route.query.q : undefined
+  toggleSearch(q)
+}
 </script>
 
 <style scoped>
