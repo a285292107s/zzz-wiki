@@ -14,7 +14,7 @@ import { usePageMeta } from '@/composables/usePageMeta'
 import { catalogEntry } from '@/domain/catalog'
 import { AsyncState, ListPage, SearchField } from '@/components'
 import HollowImage from '@/components/HollowImage.vue'
-import { prefetchDetail } from '@/composables/useDetailPrefetch'
+import { prefetchDetail, armPrefetchDetail } from '@/composables/useDetailPrefetch'
 
 usePageMeta()
 
@@ -40,8 +40,11 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
   { defaultKey: 'id', defaultDir: 'desc' },
 )
 
-/** 悬停卡片头即预热详情（chunk + JSON），与名录表格的 NameCell 同一回路 */
-function warm(id: number | string): void {
+/** 悬停卡片头即预热详情（驻留 90ms 发射），pointerdown 立即——与 NameCell 同一回路 */
+function warmDwell(id: number | string): void {
+  armPrefetchDetail(cat, id)
+}
+function warmNow(id: number | string): void {
   prefetchDetail(cat, id)
 }
 </script>
@@ -92,7 +95,7 @@ function warm(id: number | string): void {
 
       <ul v-reveal="160" class="disk-grid">
         <li v-for="d in sorted" :key="d.Id" class="disk-card">
-          <RouterLink :to="`${base}/${d.Id}`" class="card-head" @pointerenter="warm(d.Id)" @focus="warm(d.Id)">
+          <RouterLink :to="`${base}/${d.Id}`" class="card-head" @pointerenter="warmDwell(d.Id)" @pointerdown="warmNow(d.Id)" @focus="warmNow(d.Id)">
             <span class="thumb">
               <HollowImage
                 :srcs="iconSources({ Id: d.Id, icon: d.icon }, 'disc')"

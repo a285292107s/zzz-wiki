@@ -6,7 +6,7 @@
  */
 import { RouterLink } from 'vue-router'
 import HollowImage from '@/components/HollowImage.vue'
-import { prefetchDetail } from '@/composables/useDetailPrefetch'
+import { prefetchDetail, armPrefetchDetail } from '@/composables/useDetailPrefetch'
 import { catalogByPath } from '@/domain/catalog'
 
 const props = defineProps<{
@@ -20,14 +20,18 @@ const props = defineProps<{
 }>()
 
 /** to = '/agents/1011'：按首段路径取 catalog 条目预热（未登记路径静默跳过） */
-function warm(): void {
+function warmDwell(): void {
+  const entry = catalogByPath(`/${props.to.split('/')[1]}`)
+  if (entry) armPrefetchDetail(entry, props.to.split('/')[2] ?? '')
+}
+function warmNow(): void {
   const entry = catalogByPath(`/${props.to.split('/')[1]}`)
   if (entry) prefetchDetail(entry, props.to.split('/')[2] ?? '')
 }
 </script>
 
 <template>
-  <RouterLink :to="to" class="name-cell" @pointerenter="warm" @focus="warm">
+  <RouterLink :to="to" class="name-cell" @pointerenter="warmDwell" @pointerdown="warmNow" @focus="warmNow">
     <span :class="['thumb', { banner: thumb === 'banner' }]">
       <HollowImage :srcs="srcs" :alt="alt" :fallback="fallback" fit="contain" />
     </span>

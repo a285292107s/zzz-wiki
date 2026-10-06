@@ -22,6 +22,13 @@ import { catalogViews } from '@/router/views'
 /** 已预热过的视图 key（chunk 级去重；JSON 预取由 api 缓存天然幂等，无需记录） */
 const warmed = new Set<string>()
 
+/** 悬停驻留门槛：扫过列表（快速掠过多行）不发射预取，停留即意图。
+ *  InstantClick/quicklink 同款模式；90ms 对真实悬停意图无感。 */
+const PREFETCH_DWELL_MS = 90
+
+let dwellTimer: number | undefined
+let dwellKey: string | undefined
+
 function warmViews(entry: CatalogEntry): void {
   const pair = catalogViews[entry.path]
   if (!pair || warmed.has(entry.path)) return
@@ -29,7 +36,8 @@ function warmViews(entry: CatalogEntry): void {
   void pair[1]().catch(() => warmed.delete(entry.path))
 }
 
-/** 预热名录页（名录 chunk + 名录 JSON）。目录行/导航类入口用。 */
+/** 预热名录页（名录 chunk + 名录 JSON）。目录行/导航类入口用。
+ *  名录 JSON 每类目只有一个文件，无风暴问题，立即发射。 */
 export function prefetchList(entry: CatalogEntry): void {
   const pair = catalogViews[entry.path]
   if (pair && !warmed.has(entry.path)) {
@@ -41,7 +49,21 @@ export function prefetchList(entry: CatalogEntry): void {
   })
 }
 
-/** 预热一个详情目标（chunk + 详情 JSON 并行，触发即忘）。 */
+/** 悬停驻留版详情预取：pointerenter 用。驻留满门槛才发射，快速扫过自动作废。 */
+export function armPrefetchDetail(entry: CatalogEntry, id: number | string): void {
+  const key = `${entry.path}/${id}`
+  if (dwellKey === key) return // 同一目标计时中
+  clearTimeout(dwellTimer)
+  dwellKey = key
+  dwellTimer = window.setTimeout(() => {
+    dwellTimer = undefined
+    dwellKey = undefined
+    prefetchDetail(entry, id)
+  }, PREFETCH_DWELL_MS)
+}
+
+/** 立即版详情预取：pointerdown（触屏 / 快速点击者）用，绕过驻留门槛。
+ *  重复调用由 api 层 promise 缓存归一，无二次网络。 */
 export function prefetchDetail(entry: CatalogEntry, id: number | string): void {
   warmViews(entry)
   // 详情 JSON：进入 api 层 promise 缓存；失败时缓存自动清除（api.ts getJson），可重试

@@ -5,7 +5,7 @@ import { CATALOG, GUIDE_ENTRY } from '@/domain/catalog'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { dataVersions } from '@/data/api'
 import { useFeaturedAgents } from '@/composables/useFeaturedAgents'
-import { prefetchDetail, prefetchList } from '@/composables/useDetailPrefetch'
+import { prefetchDetail, prefetchList, armPrefetchDetail } from '@/composables/useDetailPrefetch'
 import { catalogByPath } from '@/domain/catalog'
 import HollowImage from '@/components/HollowImage.vue'
 
@@ -38,7 +38,12 @@ const AGENT_CIRCLE_ICON = `${import.meta.env.BASE_URL ?? '/'}data/img/character/
 const { featured, picks } = useFeaturedAgents()
 
 /** 预热详情回路：标本卡悬停预热对应详情；目录行悬停预热名录视图 chunk + 名录 JSON */
-function warmDetail(to: string): void {
+function warmDetailDwell(to: string): void {
+  const seg = to.split('/')
+  const entry = catalogByPath(`/${seg[1]}`)
+  if (entry && seg[2]) armPrefetchDetail(entry, seg[2])
+}
+function warmDetailNow(to: string): void {
   const seg = to.split('/')
   const entry = catalogByPath(`/${seg[1]}`)
   if (entry && seg[2]) prefetchDetail(entry, seg[2])
@@ -123,8 +128,9 @@ const sections = [
             v-reveal="i * 70"
             :to="card.to"
             class="specimen-card"
-            @pointerenter="warmDetail(card.to)"
-            @focus="warmDetail(card.to)"
+            @pointerenter="warmDetailDwell(card.to)"
+            @pointerdown="warmDetailNow(card.to)"
+            @focus="warmDetailNow(card.to)"
           >
             <span class="specimen-figure">
               <!-- 首屏重点头图，勿 lazy：懒加载会把它降为低优先级，且带 transform:scale 的
