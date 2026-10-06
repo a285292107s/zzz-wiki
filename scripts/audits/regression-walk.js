@@ -341,9 +341,12 @@ async (page) => {
       total: document.querySelectorAll('.spec-item dd')[2]?.textContent.trim(),
       cats: document.querySelectorAll('.spec-cat').length,
       version: document.querySelectorAll('.spec-item dd')[0]?.textContent.trim(),
+      keyRows: document.querySelectorAll('.key-row').length,
+      hasShortcuts: !!document.querySelector('#shortcuts'),
     }))
     add('about-title', r.title === '数据说明', r.title ?? 'none')
-    add('about-sections', r.sections === 4, String(r.sections))
+    add('about-sections', r.sections === 5, String(r.sections))
+    add('about-shortcuts', r.hasShortcuts && r.keyRows === 4, `rows=${r.keyRows}`)
     add('about-cats', r.cats === 4, String(r.cats))
     add('about-total', /^\d+ 条$/.test(r.total ?? ''), r.total ?? 'none')
     add('about-version', /LIVE \d/.test(r.version ?? ''), r.version ?? 'none')

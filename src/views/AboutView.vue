@@ -154,7 +154,36 @@ const fmt = (n: number | null | undefined) => (typeof n === 'number' ? String(n)
       </ul>
     </DetailSection>
 
-    <DetailSection v-reveal id="rights" no="04" title="版权与免责" en="Rights">
+    <DetailSection v-reveal id="shortcuts" no="04" title="快捷操作" en="Controls">
+      <p class="prose">
+        本站的检索、翻页、等级与筛选都做了键盘支持；<strong>链接本身就是视图</strong>——
+        筛选、排序、等级会写进地址栏，复制出去即是同一份视图。
+      </p>
+      <dl class="keys">
+        <div class="key-row">
+          <dt><kbd class="kbd mono">⌘K</kbd><span class="kbd-alt mono">/ Ctrl+K</span></dt>
+          <dd>随时唤起全局检索（名录页搜索框里按亦可，会把已输入的词带进去）</dd>
+        </div>
+        <div class="key-row">
+          <dt><kbd class="kbd mono">←</kbd><kbd class="kbd mono">→</kbd></dt>
+          <dd>详情页翻到相邻条目；等级滑条用方向键微调</dd>
+        </div>
+        <div class="key-row">
+          <dt><kbd class="kbd mono">Tab</kbd></dt>
+          <dd>按序遍历全部交互元素；浮层与面板内焦点被圈定，<kbd class="kbd mono">Esc</kbd> 关闭并归还焦点</dd>
+        </div>
+        <div class="key-row">
+          <dt><kbd class="kbd mono">⌘P</kbd><span class="kbd-alt mono">/ Ctrl+P</span></dt>
+          <dd>打印时自动切换为纸墨样式：白纸黑字、隐藏交互外壳、表格不跨页断开</dd>
+        </div>
+      </dl>
+      <p class="prose">
+        名录页在筛选或排序生效时、详情页在等级非默认时，会就近出现「复制链接」——
+        分享出去的就是你正在看的那份视图。数据说明页本身也在页脚常驻入口。
+      </p>
+    </DetailSection>
+
+    <DetailSection v-reveal id="rights" no="05" title="版权与免责" en="Rights">
       <p class="prose">
         本站为社区爱好者制作的<strong>非官方</strong>资料站，与米哈游 / HoYoverse 无隶属或合作关系。
         游戏数据与美术资源的版权、商标归米哈游 / HoYoverse 所有；本站仅作结构化陈列与检索，
@@ -334,5 +363,57 @@ const fmt = (n: number | null | undefined) => (typeof n === 'number' ? String(n)
   border: 1px solid var(--line-1);
   border-radius: 2px;
   padding: 2px 7px;
+}
+
+/* ---------- 快捷操作 ---------- */
+
+.keys {
+  margin: 18px 0 22px;
+  border-top: 1px solid var(--line-0);
+}
+
+.key-row {
+  display: grid;
+  grid-template-columns: 132px 1fr;
+  gap: 16px;
+  align-items: baseline;
+  padding: 11px 2px;
+  border-bottom: 1px solid var(--line-0);
+}
+
+.key-row dt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.key-row dd {
+  margin: 0;
+  color: var(--ink-1);
+  font-size: var(--fs-md);
+  line-height: 1.8;
+}
+
+.kbd {
+  font-family: var(--mono);
+  font-size: var(--fs-nano);
+  letter-spacing: 0.08em;
+  color: var(--ink-0);
+  border: 1px solid var(--line-1);
+  border-radius: 2px;
+  padding: 2px 7px;
+}
+
+.kbd-alt {
+  font-size: var(--fs-nano);
+  color: var(--ink-2);
+}
+
+@media (max-width: 720px) {
+  .key-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
 }
 </style>
