@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "build:ci": "npm test && node scripts/verify-fonts.mjs && node scripts/verify-cjk-fonts.mjs && npm run build",
+    "build:ci": "npm test && node scripts/verify-fonts.mjs && node scripts/verify-cjk-fonts.mjs && vite build && node scripts/generate-sitemap.mjs",
+    "sitemap": "node scripts/generate-sitemap.mjs",
     "preview": "vite preview",
     "data": "tsx scripts/build-data.ts",
     "sync": "tsx scripts/sync-data.ts",

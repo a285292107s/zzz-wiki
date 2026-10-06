@@ -15,6 +15,8 @@
     <meta property="og:description" content="以档案编号为纲的绝区零结构化资料库：代理人、音擎、邦布与驱动盘，客观陈列，不含主观评述。" />
     <meta property="og:image" content="/home-bg.webp" />
     <meta name="twitter:card" content="summary_large_image" />
+    <!-- canonical/og:url 的 origin 由 usePageMeta 按部署域动态维护（见该文件 SITE_ORIGIN）；此处仅兜底 -->
+    <link rel="canonical" href="/" />
     <!-- 字体预加载：@font-face 经 CSS 才被发现，晚到必触发 swap 重排（页脚/编号文字跳位，CLS）。
          只预载首屏实际命中的 400 字重；preload 不匹配 (as="font") 会报 console 警告，增删须同步 tokens.css。 -->
     <link rel="preload" href="/fonts/PublicSans-400.woff2" as="font" type="font/woff2" crossorigin />
