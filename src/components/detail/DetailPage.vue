@@ -19,6 +19,8 @@ const props = defineProps<{
   active?: string | null
   status: AsyncStatus | string
   error?: string | null
+  /** 重试回调（视图传 useAsyncResource 的 reload）——加载失败时的出路 */
+  retry?: () => void
   /** 404 时回名录的目标（AsyncState back-to） */
   fallbackTo?: string
   fallbackText?: string
@@ -94,7 +96,13 @@ watch(
       <button class="sn-scroll-btn" aria-label="向右滚动" @click="scrollRight">→</button>
     </nav>
 
-    <AsyncState :status="status" :error="error" :back-to="fallbackTo" :back-text="fallbackText">
+    <AsyncState
+      :status="status"
+      :error="error"
+      :retry="retry"
+      :back-to="fallbackTo"
+      :back-text="fallbackText"
+    >
       <slot />
     </AsyncState>
 

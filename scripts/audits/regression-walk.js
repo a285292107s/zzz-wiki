@@ -167,8 +167,37 @@ async (page) => {
     add('route-change-focus-main', focused === 'main', focused || 'body')
   }
 
-  // ---- 数据说明页（页脚入口 + 动态数字） ----
-  await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
+  // ---- 加载失败态：可读文案 + 重试出路（拦截数据请求再放开） ----
+  {
+    await page.route('**/data/live/weapon.json', (r) => r.abort())
+    await page.goto('http://localhost:4175/w-engines', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1800)
+    const err = await page.evaluate(() => {
+      const box = document.querySelector('.state.err')
+      return {
+        shown: !!box,
+        role: box?.getAttribute('role') ?? '',
+        title: box?.querySelector('.err-title')?.textContent.trim() ?? '',
+        retry: box?.querySelector('.err-retry')?.textContent.trim() ?? '',
+        hint: (box?.querySelector('.err-hint')?.textContent.trim() ?? '').length,
+        invalid: !!document.querySelector('p > button'),
+      }
+    })
+    add('error-state-copy', err.shown && err.role === 'alert' && err.title.includes('数据加载失败') && err.hint > 10, `${err.title} | hint=${err.hint}`)
+    add('error-state-retry-btn', err.retry === '重新加载', err.retry || 'none')
+    add('error-state-valid-dom', !err.invalid, `p>button=${err.invalid}`)
+    await page.unrouteAll({ behavior: 'ignoreErrors' })
+    if (err.shown) {
+      await page.click('.err-retry')
+      await page.waitForTimeout(1600)
+      const recovered = await page.evaluate(
+        () => document.querySelectorAll('tbody.d-body tr:not(.empty-row)').length,
+      )
+      add('error-state-retry-recovers', recovered === 100, `rows=${recovered}`)
+    }
+  }
+
+  // ---- 数据说明页（页脚入口 + 动态数字） ----  await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1400)
   {
     // 页脚入口可点且落到 /about

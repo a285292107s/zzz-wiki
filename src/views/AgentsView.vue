@@ -19,7 +19,7 @@ usePageMeta()
 const cat = catalogEntry('/agents')
 const base = cat.path
 
-const { data, status, error } = useAsyncResource(() => listFor<CharacterListItem>(cat))
+const { data, status, error, reload } = useAsyncResource(() => listFor<CharacterListItem>(cat))
 
 const { attrFilter, profFilter, campFilter, query, filtered, count, hasActiveFilter, reset } =
   useCatalogList<CharacterListItem>({
@@ -89,6 +89,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
     <AsyncState
       :status="status"
       :error="error"
+      :retry="reload"
       :empty="status === 'success' && !data?.length"
     >
       <template #skeleton>

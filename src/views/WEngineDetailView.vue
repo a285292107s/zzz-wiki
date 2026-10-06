@@ -29,7 +29,7 @@ import Rarity from '@/components/Rarity.vue'
 import Tags from '@/components/Tags.vue'
 
 const id = useRouteParam('id')
-const { data: detail, status, error } = useAsyncResource(() => detailFor<WEngineDetail>(catalogEntry('/w-engines'), id.value))
+const { data: detail, status, error, reload } = useAsyncResource(() => detailFor<WEngineDetail>(catalogEntry('/w-engines'), id.value))
 
 usePageMeta(
   () => detail.value?.name ?? undefined,
@@ -138,6 +138,7 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
     :active="activeSection"
     :status="status"
     :error="error"
+    :retry="reload"
     :fallback-to="backTo"
     :recent="{ entry: catWEngines, id: () => String(id), label: () => detail?.name ?? '' }"
   >

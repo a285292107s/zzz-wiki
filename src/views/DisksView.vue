@@ -22,7 +22,7 @@ usePageMeta()
 const cat = catalogEntry('/disks')
 const base = cat.path
 
-const { data, status, error } = useAsyncResource(() => listFor<DiskDriveListItem>(cat))
+const { data, status, error, reload } = useAsyncResource(() => listFor<DiskDriveListItem>(cat))
 
 const { query, filtered, count, hasActiveFilter, reset } = useCatalogList<DiskDriveListItem>({
   items: () => data.value ?? [],
@@ -81,6 +81,7 @@ function warmNow(id: number | string): void {
     <AsyncState
       :status="status"
       :error="error"
+      :retry="reload"
       :empty="status === 'success' && !data?.length"
     >
       <template #skeleton>

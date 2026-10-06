@@ -18,7 +18,7 @@ usePageMeta()
 const cat = catalogEntry('/w-engines')
 const base = cat.path
 
-const { data, status, error } = useAsyncResource(() => listFor<WEngineListItem>(cat))
+const { data, status, error, reload } = useAsyncResource(() => listFor<WEngineListItem>(cat))
 
 const { profFilter, query, filtered, count, hasActiveFilter, reset } = useCatalogList<WEngineListItem>({
   items: () => data.value ?? [],
@@ -64,6 +64,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
     <AsyncState
       :status="status"
       :error="error"
+      :retry="reload"
       :empty="status === 'success' && !data?.length"
     >
       <template #skeleton>

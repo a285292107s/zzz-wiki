@@ -23,7 +23,7 @@ const HIDDEN_BANGBOO_IDS = HIDDEN_ITEM_IDS.get('/bangboos')!
 const cat = catalogEntry('/bangboos')
 const base = cat.path
 
-const { data, status, error } = useAsyncResource(() => listFor<BangbooListItem>(cat))
+const { data, status, error, reload } = useAsyncResource(() => listFor<BangbooListItem>(cat))
 
 const { query, filtered, count, hasActiveFilter, reset } = useCatalogList<BangbooListItem>({
   items: () => (data.value ?? []).filter((r) => !HIDDEN_BANGBOO_IDS.has(r.Id)),
@@ -64,6 +64,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
     <AsyncState
       :status="status"
       :error="error"
+      :retry="reload"
       :empty="status === 'success' && !data?.length"
     >
       <template #skeleton>

@@ -15,7 +15,7 @@ import type { DiskDriveDetail } from '@/data/types'
 import { DetailHead, DetailPager, DetailPage, DetailSection } from '@/components'
 
 const id = useRouteParam('id')
-const { data: detail, status, error } = useAsyncResource(() => detailFor<DiskDriveDetail>(catalogEntry('/disks'), id.value))
+const { data: detail, status, error, reload } = useAsyncResource(() => detailFor<DiskDriveDetail>(catalogEntry('/disks'), id.value))
 
 usePageMeta(
   () => detail.value?.name ?? undefined,
@@ -55,6 +55,7 @@ const backTo = computed(() => (detail.value ? undefined : '/disks'))
     :active="activeSection"
     :status="status"
     :error="error"
+    :retry="reload"
     :fallback-to="backTo"
     :recent="{ entry: catDisks, id: () => String(id), label: () => detail?.name ?? '' }"
   >

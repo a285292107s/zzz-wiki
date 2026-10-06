@@ -25,7 +25,7 @@ import { DetailHead, DetailPager, DetailPage, DetailSection, KeyValueGrid, Level
 import Rarity from '@/components/Rarity.vue'
 
 const id = useRouteParam('id')
-const { data: detail, status, error } = useAsyncResource(() => detailFor<BangbooDetail>(catalogEntry('/bangboos'), id.value))
+const { data: detail, status, error, reload } = useAsyncResource(() => detailFor<BangbooDetail>(catalogEntry('/bangboos'), id.value))
 
 usePageMeta(
   () => detail.value?.name ?? undefined,
@@ -125,6 +125,7 @@ const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
     :active="activeSection"
     :status="status"
     :error="error"
+    :retry="reload"
     :fallback-to="backTo"
     :recent="{ entry: catBangboos, id: () => String(id), label: () => detail?.name ?? '' }"
   >

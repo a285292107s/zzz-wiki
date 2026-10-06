@@ -47,7 +47,7 @@ import { AgentHead, CoreSkillGroup, DetailPager, DescRow, DetailPage, DetailSect
 import HollowImage from '@/components/HollowImage.vue'
 
 const id = useRouteParam('id')
-const { data: detail, status, error } = useAsyncResource(() => detailFor<CharacterDetail>(catalogEntry('/agents'), id.value))
+const { data: detail, status, error, reload } = useAsyncResource(() => detailFor<CharacterDetail>(catalogEntry('/agents'), id.value))
 
 usePageMeta(
   () => detail.value?.name ?? undefined,
@@ -225,6 +225,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
     :active="activeSection"
     :status="status"
     :error="error"
+    :retry="reload"
     :fallback-to="backTo"
     :recent="{ entry: catAgents, id: () => String(id), label: () => detail?.name ?? '' }"
   >
