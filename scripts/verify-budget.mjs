@@ -24,8 +24,12 @@ const DIST = 'dist'
 const BUDGET = {
   /** 主 JS 包 gzip 上限 KB（基线 55.2 + 余量） */
   mainJsGzipKB: 62,
-  /** 主 CSS gzip 上限 KB（基线 ~19 + 余量） */
+  /** 主 CSS gzip 上限 KB（基线 ~11 + 余量） */
   mainCssGzipKB: 22,
+  /** CJK 分片 CSS gzip 上限 KB——渲染阻塞资源，权重档位翻倍会直接翻倍它
+      （2026-10 实测：500/600 双档压缩 62KB 时移动端 FCP 7.4s；单档 31KB 后 1.5s。
+       原始大小 109KB 是 unicode-range 列表，故按 gzip 口径设限） */
+  cjkCssGzipKB: 40,
   /** sitemap 最少 URL 数（低于此说明数据或生成器故障） */
   sitemapMinUrls: 230,
 }
@@ -69,7 +73,22 @@ for (const f of cssFiles) {
   if (!ok) bad++
 }
 
-/* 3) sitemap */
+/* 3) CJK 分片 CSS（渲染阻塞；字重档位与分片数直接决定首屏绘制） */
+const cjkCss = 'public/fonts/noto-serif-sc.css'
+if (fs.existsSync(cjkCss)) {
+  const kb = gzipKB(cjkCss)
+  const ok = kb <= BUDGET.cjkCssGzipKB
+  console.log(`  ${ok ? '✓' : '✖'} noto-serif-sc.css: gzip ${kb}KB / 预算 ${BUDGET.cjkCssGzipKB}KB`)
+  if (!ok) bad++
+  const weights = new Set([...fs.readFileSync(cjkCss, 'utf8').matchAll(/font-weight:\s*(\d+)/g)].map((m) => m[1]))
+  const oneWeight = weights.size === 1
+  console.log(`  ${oneWeight ? '✓' : '✖'} CJK 字重档位: ${[...weights].join('/') || '无'}（应为单档——多档只增载荷，见 DATA_GUIDE §10）`)
+  if (!oneWeight) bad++
+} else {
+  fail('public/fonts/noto-serif-sc.css 缺失——CJK 衬线分片未就位？')
+}
+
+/* 4) sitemap */
 const sm = path.join(DIST, 'sitemap.xml')
 if (!fs.existsSync(sm)) {
   fail('dist/sitemap.xml 缺失——generate-sitemap 未执行？')

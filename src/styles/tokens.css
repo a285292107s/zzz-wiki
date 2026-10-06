@@ -7,7 +7,7 @@
 
 /* ---------- CJK 衬线（Noto Serif SC 分片自托管）----------
    由 scripts/build/download-cjk-fonts.mjs 生成 public/fonts/noto-serif-sc.css
-   （101 片 × 2 字重，unicode-range 按需加载：页面实际字形才触发对应分片下载）。
+   （101 片 × 1 字重/500，unicode-range 按需加载：页面实际字形才触发对应分片下载）。
    解决 Windows 落 SimSun 的点阵感短板。生成文件勿手改；清单由 verify-cjk-fonts.mjs 门禁。
    引用方式：index.html 的 <link rel=stylesheet>——**不可用 @import**：
    postcss 会把 202 条 @font-face 内联进主 CSS（251KB/74KB gzip，Round 36 实测），

@@ -6,9 +6,15 @@
  * 官方按 unicode-range 切 101 片，浏览器只下载页面实际用到的字所属分片
  * （每片 3~8KB），运行时仍零外部请求、总量可控。
  *
- * 实现：拉 css2（wght 500/600 两档），解析全部 @font-face 的 url 与
- * unicode-range，重写 url 为本地 /fonts/noto-serif-sc/v{n}/{hash}.woff2，
- * 生成 tokens.css 引用的 CSS 与清单 JSON（verify-cjk-fonts.mjs 门禁用）。
+ * 实现：拉 css2（wght 500 单档，见下「为何只留 500」），解析全部 @font-face
+ * 的 url 与 unicode-range，重写 url 为本地 /fonts/noto-serif-sc/{weight}-{hash}.woff2，
+ * 生成 link 引用的 CSS 与清单 JSON（verify-cjk-fonts.mjs 门禁用）。
+ *
+ * 为何只留 500（2026-10 实测）：站内仅两处用 600（术语浮层标题衬线、稀有度字母等宽），
+ * 而三页 Lighthouse 网络记录显示 CJK 分片请求 **全部是 500 档、0 次 600**——
+ * 600 档 101 个文件（仓库约 2.9MB）与半个渲染阻塞 CSS（32KB）都是纯重量，
+ * 且浮层一旦打开还会多拉一片 ~80KB。裁掉后 600 请求由 500 面按「最近字重」接管，
+ * 视觉差异可忽略；CSS 与仓库体积各减半。
  *
  * 幂等：清单与文件已存在则跳过（官方分片 URL 稳定，v 升级时自动增补新片）。
  * 失败仅告警不阻断——字体是持久资产，verify 门禁把守完整性，前端另有系统栈回退。
@@ -23,7 +29,8 @@ import path from 'node:path'
 const GA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36'
 const FAMILY = 'Noto Serif SC'
-const WEIGHTS = [500, 600]
+/** 只保留 500：600 档在站内零请求（见文件头「为何只留 500」），纯重量 */
+const WEIGHTS = [500]
 const CSS_URL = `https://fonts.googleapis.com/css2?family=${FAMILY.replace(/ /g, '+')}:wght@${WEIGHTS.join(';')}&display=swap`
 const FONT_ORIGIN = 'https://fonts.gstatic.com/'
 
@@ -55,7 +62,7 @@ async function main() {
   const faces = parseFaces(css)
   if (faces.length === 0) throw new Error('未解析到任何 @font-face（响应结构变更？）')
 
-  // 按片去重：同 hash 片文件在 500/600 是不同实例（可变字重切片按字重分开下载）
+  // 按片去重：同一 hash 的分片文件按字重各自成文件
   const byFile = new Map() // hash → { urls:Set<weight>, faces:[] }
   for (const f of faces) {
     if (!byFile.has(f.hash)) byFile.set(f.hash, { faces: [] })
@@ -95,7 +102,7 @@ async function main() {
   const lines = [
     '/* ============================================================',
     ' * Noto Serif SC 自托管（scripts/build/download-cjk-fonts.mjs 生成，勿手改）',
-    ` * ${FAMILY} ${WEIGHTS.join('/')} · unicode-range 分片（101 片 × 2 字重）`,
+    ` * ${FAMILY} ${WEIGHTS.join('/')} · unicode-range 分片（101 片 × ${WEIGHTS.length} 字重）`,
     ' * 浏览器按页面实际字形按需加载单片（3~8KB）；运行时零外部请求。',
     ' * ============================================================ */',
     '',

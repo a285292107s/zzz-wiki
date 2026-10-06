@@ -380,7 +380,8 @@ onBeforeUnmount(() => {
   margin: 0;
   font-family: var(--serif);
   font-size: var(--fs-body);
-  font-weight: 600;
+  /* 500：CJK 衬线只自托管 500 档（600 档站内零请求已裁，见 DATA_GUIDE §10） */
+  font-weight: 500;
   color: var(--amber-hi);
   line-height: 1.45;
   letter-spacing: 0.01em;
