@@ -138,6 +138,14 @@ function openSearch() {
   line-height: 1.15;
 }
 
+/* 站名即首页链接：悬停把主标题转到琥珀高亮（与全站链接语言一致），
+   否则鼠标用户不会意识到它是可点的 */
+@media (hover: hover) {
+  .brand:hover .brand-mark {
+    color: var(--amber-hi);
+  }
+}
+
 .brand-logo {
   flex: none;
   /* 黑色线稿反色为纸白，契合纸墨配色（同首页 hero 处理） */
@@ -184,6 +192,15 @@ function openSearch() {
   letter-spacing: 0.1em;
   cursor: pointer;
   transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+}
+
+/* 悬停反馈：transition 早已声明却一直没有 hover 规则（半成品状态）——
+   交互态完整性审计按元素逐条实测发现的（2026-10） */
+@media (hover: hover) {
+  .search-toggle:hover {
+    color: var(--ink-0);
+    border-color: var(--line-2);
+  }
 }
 
 /* 放大镜字形：CSS 生成内容（不进文本节点，避免成为可访问名/可见文本的一部分） */

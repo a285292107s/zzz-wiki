@@ -164,6 +164,19 @@ async (page) => {
       return { tokenSize, titleSize: getComputedStyle(document.querySelector('.main .page-title')).fontSize }
     })
     add('detail-name-token', nameToken.tokenSize === nameToken.titleSize, JSON.stringify(nameToken))
+
+    // 区块导航「当前项」也要有悬停反馈（它已是 ink-0/琥珀，普通 hover 对它等于无变化）
+    const navActive = await page.evaluate(() => {
+      const el = document.querySelector('.sn-item.active')
+      return el ? { sel: 'yes', color: getComputedStyle(el).color } : null
+    })
+    if (navActive) {
+      await page.hover('.sn-item.active')
+      await page.waitForTimeout(250)
+      const after = await page.evaluate(() => getComputedStyle(document.querySelector('.sn-item.active')).color)
+      add('hover-nav-active', after !== navActive.color, `${navActive.color} → ${after}`)
+      await page.mouse.move(0, 0)
+    }
   }
 
   // ---- 路由切换的焦点管理（SPA 无障碍：切页后焦点不能留在旧页面）----
@@ -351,6 +364,33 @@ async (page) => {
     await page.waitForTimeout(1600)
     const cleaned = await page.evaluate(() => ({ url: location.search, ariaSort: !!document.querySelector('thead th[aria-sort]') }))
     add('sort-invalid-cleaned', cleaned.url === '' && !cleaned.ariaSort, JSON.stringify(cleaned))
+  }
+
+  // ---- 交互态：悬停必须有可见反馈（真实鼠标，非 CDP 强制） ----
+  {
+    const styleOf = (sel) =>
+      page.evaluate((s) => {
+        const el = document.querySelector(s)
+        if (!el) return null
+        const cs = getComputedStyle(el)
+        return `${cs.color}|${cs.borderTopColor}`
+      }, sel)
+
+    // 站名（首页链接）：原先没有 hover 规则
+    const brandBefore = await styleOf('.brand-mark')
+    await page.hover('.brand')
+    await page.waitForTimeout(250)
+    const brandAfter = await styleOf('.brand-mark')
+    add('hover-brand', brandBefore && brandAfter && brandBefore !== brandAfter, `${brandBefore} → ${brandAfter}`)
+    await page.mouse.move(0, 0)
+
+    // ⌘K 检索钮：transition 早已写好却一直没有 hover 规则
+    const toggleBefore = await styleOf('.search-toggle')
+    await page.hover('.search-toggle')
+    await page.waitForTimeout(250)
+    const toggleAfter = await styleOf('.search-toggle')
+    add('hover-search-toggle', toggleBefore !== toggleAfter, `${toggleBefore} → ${toggleAfter}`)
+    await page.mouse.move(0, 0)
   }
 
   // ---- 数据说明页（页脚入口 + 动态数字） ----  await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })

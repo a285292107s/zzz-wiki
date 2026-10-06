@@ -448,6 +448,15 @@ a.rich-term:hover {
   color: var(--amber-hi);
 }
 
+/* 当前项也要有悬停反馈：它已是 ink-0/琥珀，`hver→ink-0` 对它等于没变化，
+   故单独提亮一档（交互态完整性审计按元素实测发现「当前项 hover 无变化」） */
+@media (hover: hover) {
+  .sn-item.active:hover,
+  .sn-child.active:hover {
+    color: var(--amber);
+  }
+}
+
 /* 区块子导航：技能等含局部锚点的区块在顶层条目下缩进的子列表，
    不加编号（不占顶层编号序列），激活以同样式下刻线表达 */
 .sn-group {
