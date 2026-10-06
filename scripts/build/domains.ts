@@ -2,6 +2,9 @@
  * domains.ts — 角色/音擎/邦布/驱动盘 名录+详情构建（原 build-data.mjs 迁出）。
  * ============================================================ */
 
+import fs from 'node:fs'
+import path from 'node:path'
+
 import {
   BASE,
   CONCURRENCY,
@@ -11,6 +14,29 @@ import {
 import { normalizeCharacterDetail, resolveTerms, toListDict, type TermNames } from './normalize'
 
 type Dict = Record<string, Record<string, unknown>>
+
+/**
+ * 阵营细分补充（构建期注入名录）：源数据 camp 为粗粒度阵营（如 16=罗斯凯利法），
+ * 按官方设定把已知角色细分到下属组织（如 罗斯凯利法·弗林特工坊）。
+ * 单一事实源 src/data/camp-supplement.json（口径=官方设定 / biligame 角色图鉴阵营属性）；
+ * 上游若原生引入细分阵营，删除对应条目即回归源数据。图标映射见 src/data/filter-assets.json。
+ */
+const CAMP_SUPPLEMENT: { camps: Record<string, string>; assign: Record<string, number> } = (() => {
+  const p = path.resolve('src/data/camp-supplement.json')
+  if (!fs.existsSync(p)) return { camps: {}, assign: {} }
+  return JSON.parse(fs.readFileSync(p, 'utf8'))
+})()
+
+/** 把细分阵营码/展示名覆写到名录行（详情 camp 字段保持源数据不动）。 */
+function applyCampSupplement(list: Dict): void {
+  for (const [id, fine] of Object.entries(CAMP_SUPPLEMENT.assign)) {
+    const name = CAMP_SUPPLEMENT.camps[String(fine)]
+    if (name && list[id]) {
+      list[id]['camp'] = fine
+      list[id]['camp_name'] = name
+    }
+  }
+}
 
 /** 拉取整类详情；单个 id 失败仅告警并跳过（名录仍产出）。
  *  源站单文件瞬时故障不应让整次构建失败 → sync-data 判定失败则不提交、沿用旧数据。 */
@@ -91,6 +117,9 @@ export async function buildCharacters(ver: string, terms: TermNames): Promise<{ 
     const campName = camp ? String(Object.values(camp)[0] ?? '') : ''
     if (campName && list[id]) list[id]['camp_name'] = campName
   }
+
+  // 阵营细分补充：粗粒度 camp 覆写为官方下属组织（构建期增值，源数据缺失细分时的口径补齐）
+  applyCampSupplement(list)
 
   const details: Dict = {}
   for (let i = 0; i < ids.length; i++) {

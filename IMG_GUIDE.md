@@ -92,6 +92,8 @@
   `pool`，**每次挂载随机取 4 张轮换**）。参数不再手写进代码，而是用开发的**校准工具路由 `/calibrate`**
   逐张调整并保存（仅开发环境；页面拖全景图上的 9:16 取景框 + 滑杆，经 `vite.config.ts` 的 dev 中间件
   `GET/PUT /__calibrate` 读写该 JSON，`src/utils/cameraRect.ts` 负责取景框与参数的映射）。
+  校准网格角色号由 **live 代理人名录**派生（`src/domain/heroCatalog.ts` 的 `heroIdsFromList`），
+  数据同步落地新角色后 `/calibrate` 自动出现，无需再改源码；`pos` 仍须目检后入池。
 - 角色详情页 `AgentHead` 移动端头图：`src/data/heroCalibration.ts` 读 `featured-pool.json` 的 `calibrated` 全表
   （`{ pos, zoom, originY }`），移动断点（≤860px）下套到 `.hero-bg img`（CSS 自定义属性透传，见该组件样式）。
   三者是源图相对构参数（水平焦点 / 放满消透明边 / 内容垂直居中），可直接复用；移动端 hero 比 9:16 卡更宽，
@@ -100,6 +102,19 @@
   视图共用同一套 `{ pos, zoom, originY }` 于两形态（校准在默认版上校准，切换形态后构图可能略有偏移，
   形态选择见 `useHeroForm`）。
 - 素材：`img/hero/Mindscape_{id}_2.webp`（本地化；nanoka CDN 兜底见 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §5）。
+- 页面地面壁纸：`public/page-bg.png`（绳网情报站 wiki 官方背景同款 `pc-page-bg.png`，1920×1231 / 95KB，
+  深炭底 + 斜向 ZZZ 水印纹理、向下渐隐近黑，与 `--bg-0` 同域色）。经 `tokens.css` 的 `--page-bg-image`
+  单一事实源取用，`base.css` 的 `body::before` 固定视口层（fixed + cover）铺装在页面地面之上、内容之下，
+  长页无接缝；**不用** `background-attachment: fixed`——iOS Safari 降级为滚动铺装时 cover 会放大到整文档高，纹理糊掉。
+- 首页 hero 壁纸：`public/home-bg.webp`（绳网情报站 wiki 首页 banner 同款全幅背景，2400×1080 / 213KB，
+  ZENLESS 描边字 + BANGBOO:NET 斜向字带 + 撕纸边缘拼贴；原图 1.1MB 经 OSS `quality,q_80` + webp 转码）。
+  经 `tokens.css` 的 `--home-bg-image` 取用，`HomeView.vue` 的 `.home-backdrop` 铺装。**固定视口层**
+  （`position: fixed; inset: 0`，不随页滚动，手法同 body::before；实底页头 62px 自行遮住视口顶，
+  无需让位）。铺装规则**实测复刻原站**：图恒以 2400:1080 比例、高度撑满视口（`background-size:
+  auto 100%`）水平居中，common 桌面两侧出血 ≈1.25×；压暗用 scrim token（`--scrim-3` 叠层，
+  禁止手写 rgba）；图自带向下渐隐、fixed 层永不露边，故**无需** mask 渐隐（曾用的
+  `background-attachment: fixed`/随文档滚动两版均已废弃）——首页特异性壁纸，内页仍是上一条的
+  `--page-bg-image`。
 
 ## 体积预算与压缩分级（2026-09 实测）
 

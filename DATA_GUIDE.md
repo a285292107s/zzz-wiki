@@ -64,6 +64,7 @@
   - 皮肤 `image` 应用 `SKIN_IMAGE_FALLBACK`（见 §5）。
 - 新增透传字段（v2 增值，前端 index signature 兼容）：`special_element_type`、`strategy`、`fairy_recommend`、`skill_list`、`skill_priority`、`passive`、`potential_detail`、`level`、`extra_level`、`level_exp`、`live2_d`。
 - **特殊属性展示**：详情 `special_element_type.name`（如 星见雅→「烈霜」）在构建期同步注入名录为 `special_element` 字段；前端 `Tags` 展示属性时优先显示特殊名，无则退回 `ELEMENTS[element].zh` 基础属性。
+- **阵营细分补充**：源数据 `camp` 为粗粒度阵营（如 16=罗斯凯利法），构建期按官方设定把已知角色细分到下属组织（live 3.2 共 15 角色 → 7 子阵营：防卫军·奥波勒斯小队/白银小队、治安局·刑侦特勤组/都市秩序部、罗斯凯利法·外务筹策局/空域巡戍局/弗林特工坊）。单一事实源 `src/data/camp-supplement.json`（码 18 起为细分新增码；细分只覆写名录 `camp/camp_name`，详情 `camp` 保持源数据），由 `domains.ts` 的 `applyCampSupplement()` 注入；上游若原生引入细分，删除对应条目即回归源数据。口径核对自 biligame 角色图鉴（2026-10-05）。
 - **名词表**：源站 `zh/noun.json` 全量下沉为 `live/noun.json`；术语名规整为带括号风格（如 `[虚曜]`）注入名录/详情，名词表自身 desc 经 `resolveTerms` 解析（`<Term:N>` 保留 ID 外壳，前端渲染为术语锚点）。
 - 详情并发抓取上限 8；磁盘缓存 `.cache/hakushin-raw/`（缓存路径含版本号，同版本重复构建秒级跳过、跨版本自动全量刷新；`--force` 强制忽略缓存重拉）。
 - **manifest.json 永不读缓存**：每次 `npm run data` 都实时拉取源站清单，保证版本探测不固着。
@@ -94,20 +95,21 @@ public/data/
 > `src/data/featured-pool.json` 精选池维护（`useFeaturedAgents` 读取 `pool`；用开发校准工具 `/calibrate`
 > 逐张调整并保存，见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)）：每项 `{ id, pos, zoom, originY }`（`id` 角色号；
 > `pos` 水平脸对焦；`zoom` 放大填满；`originY` 变换原点 Y），名字/属性运行时从名录解析；
-> `useFeaturedAgents()` **每次挂载随机取 4 张轮换**。该图源带透明边（上下为 alpha 透明区）；
+> `useFeaturedAgents()` **每次挂载随机取 4 张轮换**。校准页网格角色号从 live 名录动态派生
+> （`domain/heroCatalog.ts`），同步落地新角色后自动可见；入池仍须在 `/calibrate` 目检 `pos`。该图源带透明边（上下为 alpha 透明区）；
 > **首页 hero 底图已移除**（`HomeView` `.hero` 只作文字陈列，不再加载 Mindscape 头图）。双形态切换钮改挂到
 > 1551 佩洛伊斯详情页 `AgentHead.vue` 的右上档案行：仅双形态角色（`hero-gender-variants.json` 登记，当前为 1551）
 > 显示，可在女性/男性双形态间切换；选择经 `useHeroForm` 全局共享 + `localStorage` 持久化
 > （键 `zzz-wiki:hero-form`，默认女性），跨刷新 / 跨页保持一致。
 > `img/banner/` 下的旧宣发海报当前已不再被引用（可留作素材，构建管线不会清除该目录）。
 > 展示技法与公式（视口遮罩 / 放大填满 / 脸对焦 / 核验流程）总纲见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)。
-> 名录/详情数据量：live（3.1）角色 58/音擎 95/邦布 42/驱动盘 30。（源站 latest 的角色 60/音擎 100 含
+> 名录/详情数据量：live（3.2）角色 60/音擎 100/邦布 42/驱动盘 30。（源站 latest 3.3.4+… 含
 > 前瞻/测试服内容，按合规约定不产出、不展示。）
 
 ### 名录字段
-- **CharacterListItem**：`Id, code, rank, type(职业int), element(属性int), special_element(特殊属性展示名,可选), hit(攻击int), camp(阵营id), camp_name(阵营展示名,可选), icon(裸文件名), potential, skin, desc, en, zh, ja, ko`
+- **CharacterListItem**：`Id, code, rank, type(职业int), element(属性int), special_element(特殊属性展示名,可选), hit(攻击int), camp(阵营id,可经阵营细分补充覆写,见 §2), camp_name(阵营展示名,可选), icon(裸文件名), potential, skin, desc, en, zh, ja, ko`
   - `special_element`：构建期由详情 `special_element_type.name` 注入（如 星见雅→`烈霜`、仪玄→`玄墨`、叶瞬光→`凛刃`）。前端展示属性时优先显示它，无则为 `element` 基础属性。
-  - `camp_name`：构建期由详情 `camp` 映射（如 `{"1":"狡兔屋"}`）注入阵营中文名。前端名录阵营列优先显示它，无则退回 `C##` 代码。
+  - `camp_name`：构建期由详情 `camp` 映射（如 `{"1":"狡兔屋"}`）注入阵营中文名；随后应用阵营细分补充（`camp-supplement.json`，如 1611→`罗斯凯利法·弗林特工坊`）。前端名录阵营列优先显示它，无则退回 `C##` 代码。
 - **WEngineListItem**：`Id, icon, rank, type, atk, sub, desc, en, zh, ja, ko`
 - **BangbooListItem**：`Id, icon, rank, codename, desc, en, zh, ja, ko`
 - **DiskDriveListItem**：`Id, icon, en{name,desc2,desc4}, ko{…}, zh{…}, ja{…}`
@@ -120,7 +122,8 @@ public/data/
 
 ### 枚举映射（与 `src/data/types.ts` 一致）
 - 属性 `200物理 201火 202冰 203电 204风 205以太 300流明(Lumiflux)` — 300 为蕾米埃尔(1581)等新角色属性，ZenlessData `DamageElementConfigTemplateTb` 中 `300 = ElementType_Lumen`（PFN 标志 0，标准元素；烈霜/FireFrost 为 202 变体、PFN=1，属特殊属性）
-- 职业 `1强攻 2击破 3异常 4支援 5防护 6命破 7锋御(Armorer)` — **7 为 v2 新增**（1611 克拉蕾；hakushin raw 3.2.3 收录，ZenlessData 职业表暂未收录）
+- 职业 `1强攻 2击破 3异常 4支援 5防护 6命破 7锋御(Armorer)` — **7 为 v2 新增**（1611 克拉蕾，live 3.2 已收录；ZenlessData 职业表暂未收录）
+- 阵营 `1狡兔屋 2维多利亚家政 3白祇重工 4卡吕冬之子 5新艾利都防卫军 6对空洞特别行动部第六课 7新艾利都治安局 8天琴座 9反舌鸟 10云岿山 11怪啖屋 12坎卜斯黑枝 13妄想天使 14未使用 15法厄同 16罗斯凯利法 17达识结社` — 防卫军/治安局/罗斯凯利法在名录中已细分为码 18-24（见 §2 阵营细分补充），父级码保留作未来新角色兜底
 - 稀有度 `角色/邦布: 3=A 4=S，音擎: 2=B 3=A 4=S`
 - 攻击类型 `101斩 102击 103刺`
 
@@ -243,10 +246,10 @@ npm run preview         # 预演产物
 
 ## 8. 已知缺口与失效信号（务必注意）
 
-### 当前状态（2026-08，v2 实测）
-- 正式服（live 3.1）名录 58 角色／95 音擎 / 42 邦布 / 30 驱动盘（不含主角 2011/2021——与 hakushin 名录口径一致，前端零引用主角，无影响）。
+### 当前状态（2026-10，v2 实测）
+- 正式服（live 3.2）名录 60 角色／100 音擎 / 42 邦布 / 30 驱动盘（不含主角 2011/2021——与 hakushin 名录口径一致，前端零引用主角，无影响）。
 - **伊埃斯（55098）不入邦布名录展示**：它是绳匠专属的 H.D.D. 搭档，非可获取收藏型号（源站名录即空 icon / 占位 desc 的桩数据）；由 `BangboosView.vue` 的 `HIDDEN_BANGBOO_IDS` 前端策展，名录文件仍保留该条，详情页可经直接链接到达。
-- **源站 latest（3.2.4+…，角色 60）含前瞻/测试服内容（1611 克拉蕾 / 1621 洛克茜，live 3.1 未收录），按合规约定不产出、不展示。**
+- **源站 latest（3.3.4+…）含前瞻/测试服内容（如 菲欧妮 / 赛维里安，live 3.2 未收录），按合规约定不产出、不展示。**
 - **站方扩展域未消费**：`monster.json`(306) / `boss.json`(47) / `shiyu.json`(62) / `simul.json`(3) / `hard.json`(1) / `zh/item.json`(5771) 全部实测 200，做怪物图鉴/式舆/以骸卡牌页时可扩展（同源 schema 见各端点返回）。
 
 ### 失效信号
@@ -258,7 +261,7 @@ npm run preview         # 预演产物
 
 ### 不要做的事
 - 不要把 hakushin raw 提为**运行时**数据源（§0 铁律：运行时零外部请求）；仅构建期拉取。
-- 不要硬编码版本号（live 当前为 `3.1`，随时会变）——每次构建从 manifest 动态取 `zzz.live`。
+- 不要硬编码版本号（live 当前为 `3.2`，随时会变）——每次构建从 manifest 动态取 `zzz.live`。
 - **不要把 latest（源站最新/含前瞻·测试服内容）引入构建或展示**——合规红线：不拉取、不降级、不补位。
 - 不要依赖 `static.nanoka.cc/zzz/UI/`（旧路径）——那是 404 残留，素材在 `/assets/zzz/`。
 - 不要重新引入 honeyhunterworld 作为 CDN 来源（曾整体 521，仅角色图可用，已从候选链移除）。

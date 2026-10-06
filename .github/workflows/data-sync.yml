@@ -6,6 +6,8 @@
 #       → 汇总变更集；随后用 `npm run verify:data` 做【硬门禁】，通过后
 #       直接 commit + push 到默认分支（master）→ 触发 Vercel 部署。
 #       门禁不通过 → 本 job 失败，不提交（站点停留在上次提交的好数据）。
+# 附注：新角色 hero 落地后，/calibrate 网格自动出现（角色号由 live 名录派生，
+#       见 src/domain/heroCatalog.ts）；featured-pool.json 的 pos 入池仍须人工目检，本 workflow 不写它。
 #
 # 设计取舍（单写者模型：本 workflow 是唯一自动化写入 public/data 的入口）：
 #   - 部署（build:ci）只构建已提交快照、不再重建数据；数据更新全部走这里。

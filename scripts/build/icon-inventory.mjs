@@ -83,8 +83,10 @@ const SKILL_ASSET_ALIAS = {
  * 筛选图标（属性/职业/阵营）资产清单 → 落地 /data/img/filter/。
  * 单一事实源在 src/data/filter-assets.json（前端 filterIcons.ts 由同一份派生
  * code→资产名映射），此处取全部 value 作为待下载清单——手写第二份曾因双处
- * 维护存在漂移风险。注意含 IconLumen：纯本地资产，源站无此文件（校验按
- * 「本地已兜住」降级告警）。
+ * 维护存在漂移风险。注意含纯本地资产（源站无此文件，校验按「本地已兜住」降级告警）：
+ * IconLumen、IconArmorer，及阵营图标 IconCampPhaethon / IconCampCovenantOfDayar /
+ * IconCampSilverSquad / IconCampCriminalInvestigation / IconCampUrbanOrder /
+ * IconCampForeignAffairs / IconCampSkyPatrol / IconCampFlintWorkshop。
  */
 const FILTER_ASSETS = (() => {
   const p = path.resolve('src/data/filter-assets.json')

@@ -2,20 +2,18 @@
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { rectFromParams, paramsFromRect, formatPos, ZOOM_MIN, ZOOM_MAX, type CameraRect } from '@/utils/cameraRect'
 import type { CalibratedEntry, FeaturedPool, PoolItem } from '@/domain/featuredPool'
+import { heroIdsFromList } from '@/domain/heroCatalog'
 import { heroImageFile } from '@/data/heroGenderVariants'
+import { listFor } from '@/data/resources'
+import { catalogEntry } from '@/domain/catalog'
+import type { CharacterListItem } from '@/data/types'
 
 // 开发环境专属校准页：路由仅在 DEV 分支注册（见 router/index.ts），生产构建不可达。
 const LOCAL_HERO = `${import.meta.env.BASE_URL ?? '/'}data/img/hero`
 
-/** img/hero 下可直接加载的角色号（与 download:icons 落地清单一致）。
- *  单一事实源 src/data/hero-gender-variants.json 的双形态角色（无裸名，如 1551）由 heroSrc 经
- *  heroImageFile 取默认（女性）版；无 hero 图的 1611/1621 不在本列。 */
-const HERO_IDS = [
-  1011, 1021, 1031, 1041, 1051, 1061, 1071, 1081, 1091, 1101, 1111, 1121, 1131, 1141, 1151, 1161, 1171, 1181,
-  1191, 1201, 1211, 1221, 1241, 1251, 1261, 1271, 1281, 1291, 1301, 1311, 1321, 1331, 1341, 1351, 1361, 1371,
-  1381, 1391, 1401, 1411, 1421, 1431, 1441, 1451, 1461, 1471, 1481, 1491, 1501, 1511, 1521, 1531, 1541, 1551, 1561,
-  1571, 1581, 1591,
-]
+/** 可校准角色号：live 代理人名录派生（随 npm run sync 自动扩展，见 domain/heroCatalog）。
+ *  双形态角色（如 1551）由 heroSrc 经 heroImageFile 取默认（女性）版文件名。 */
+const heroIds = ref<number[]>([])
 
 const pool = ref<FeaturedPool>({ pool: [], calibrated: {} })
 const currentId = ref<number | null>(null)
@@ -271,8 +269,14 @@ async function togglePool(id: number) {
 
 onMounted(async () => {
   await loadPool()
+  try {
+    const list = await listFor<CharacterListItem>(catalogEntry('/agents'))
+    heroIds.value = heroIdsFromList(list)
+  } catch {
+    heroIds.value = []
+  }
   if (pool.value.pool.length) await selectId(pool.value.pool[0]!.id)
-  else if (HERO_IDS.length) await selectId(HERO_IDS[0]!)
+  else if (heroIds.value.length) await selectId(heroIds.value[0]!)
 })
 
 onUnmounted(() => {
@@ -363,7 +367,7 @@ function thumbStyle(id: number): Record<string, string> | undefined {
 
       <!-- 网格 -->
       <ol class="grid">
-        <li v-for="id in HERO_IDS" :key="id" class="grid-item" :class="{ 'is-current': id === currentId }">
+        <li v-for="id in heroIds" :key="id" class="grid-item" :class="{ 'is-current': id === currentId }">
           <button class="grid-cell" @click="selectId(id)">
             <img :src="heroSrc(id)" :alt="`${id}`" loading="lazy" :style="thumbStyle(id)" />
             <span class="gid mono">{{ id }}</span>
