@@ -27,16 +27,23 @@
 
 | 指标 | 门槛 | 良好 | 竞奖 | 本站实测 | 复跑 |
 | --- | --- | --- | --- | --- | --- |
-| LCP（首页 · 移动） | ≤4.0s | ≤2.5s | <1.5s | ~4.5s ⚠️ | `npx lighthouse` |
+| LCP（首页 · 移动 · **实测观测值**） | ≤4.0s | ≤2.5s | <1.5s | **2.33–2.47s** ✅ | `temp/home-lcp-attribution.js`（冷缓存） |
+| LCP（首页 · 移动 · Lighthouse 模拟值） | ≤4.0s | ≤2.5s | <1.5s | ~4.5s ⚠️ | `npx lighthouse` |
 | LCP（名录 · 移动） | ≤4.0s | ≤2.5s | <1.5s | **2.6s** ✅ | 同上 |
 | LCP（详情 · 移动） | ≤4.0s | ≤2.5s | <1.5s | **2.3s**（节流 A/B 口径） | `temp/lcp-probe-4180.js` |
 | LCP（详情 · 桌面） | ≤4.0s | ≤2.5s | <1.5s | **3.4–3.7s** ⚠️ | `temp/lcp-probe-desktop.js` |
 | **INP**（4× CPU 节流代理） | ≤500ms | ≤200ms | <100ms | **最差 48–88ms / 中位 32–40ms** ✅ | `scripts/audits/inp-interaction.js` |
 | CLS | ≤0.25 | ≤0.1 | <0.05 | **0.000–0.001** ✅ | `regression-walk.js`（home-cls / detail-cls-fresh） |
 | 总重（首页/名录/详情） | — | — | <3MB | **636 / 440 / 911KB** ✅ | Lighthouse `resource-summary` |
-| 长任务 TBT（节流） | — | — | — | 4 个 / 最长 **771ms**（首屏）⚠️ | `inp-interaction.js` |
+| 长任务 TBT（节流） | — | — | — | 4 个 / 最长 **229–771ms**（首屏，unattributed）⚠️ | `inp-interaction.js` |
 | 主包 gzip / CSS gzip | — | — | — | **59.1KB / 11.9KB** ✅ | `npm run verify:budget` |
 | 运行时外部请求 | 0 | 0 | 0 | **0** ✅ | `regression-walk.js` + CSP 门禁 |
+
+> **LCP 的两个口径必须分清**：Lighthouse 报的是 **Lantern 模拟值**（从 trace 推算并行竞争），
+> 本站首页模拟 ~4.5s 而**冷缓存实测观测值只有 2.33–2.47s**。做优化决策要用观测值 +
+> 机制级时序；对外报告要同时给两个口径，否则会误判「首页远未达标」。
+> 首页 LCP 元素是**随机挑选的今日角色头图**（4 张之一，33–43KB）：它在 JS 引导后 ~1.36s
+> 才被发现。试过并回退的优化：首卡 high / 其余 low 的优先级分化（2360 vs 2400ms，噪声内）。
 
 ## 2. 无障碍与包容性（Awwwards Usability 内 / Webby Visual Design 明列）
 
@@ -94,10 +101,10 @@
 
 | 差距 | 现状 | 目标 | 方向 |
 | --- | --- | --- | --- |
-| **首页 LCP 4.5s** | 官方「需改善」区间 | ≤2.5s | 首屏字体分片与今日角色头图的时序（字体代价实测 1.7s） |
-| **详情桌面 LCP 3.4s** | 官方「需改善」 | ≤2.5s | full-res hero 311KB 对 1440px 视口偏大（DPR2 需 ~2336px，但 46KB 的 mobile 变体在桌面偏糊）→ 评估中间档派生 |
-| **首屏长任务 771ms** | TBT 756ms | <200ms | 定位该任务归属（当前 unattributed）：入口 JS 求值 vs 首帧渲染 |
-| 首页 LCP 竞奖档（<1.5s） | 4.5s | <1.5s | 需要字体与头图之外的架构级手段（已否决 content-visibility） |
+| **详情桌面 LCP 3.4s** | 官方「需改善」 | ≤2.5s | full-res hero 311KB 对 1440px 视口偏大（DPR2 需 ~2336px）→ 评估中间档派生 |
+| **首屏长任务 229–771ms** | TBT 396–756ms | <200ms | 定位该任务归属（当前 unattributed）：入口 JS 求值 vs 首帧渲染 |
+| **首页 LCP 竞奖档（<1.5s）** | 实测 2.4s / 模拟 4.5s | <1.5s | LCP 元素是**随机**挑的今日角色头图（JS 引导后 1.36s 才发现）→ 若要提前只能让首卡确定化（牺牲部分随机性，需产品决策） |
+| 首页 Lighthouse 模拟值 | 4.5s | ≤2.5s | Lantern 模拟对并行请求的建模偏悲观；先按观测值优化，对外双口径报告 |
 | 3D/WebGL 类创意表达 | 无 | — | FWA 偏好的方向；本站定位为「档案标本」静态质感，**刻意不做**（避免模板化的炫技） |
 
 > 记分卡的复跑约定：`npm test` + `npm run build:ci` 是**必过门禁**；
