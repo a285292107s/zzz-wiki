@@ -75,6 +75,43 @@ async function imageMeta(rel) {
   }
 }
 
+/* ---------- 路由 → 视图源文件（单一事实源是 src/router/views.ts） ----------
+   仅用于把该路由的懒加载 chunk 写进 modulepreload；下面的 buildManifest 会校验
+   每个映射都在构建清单里，映射漂移会在构建期直接失败而不是静默退化。 */
+const VIEW_OF = {
+  '/agents': 'src/views/AgentsView.vue',
+  '/w-engines': 'src/views/WEnginesView.vue',
+  '/bangboos': 'src/views/BangboosView.vue',
+  '/disks': 'src/views/DisksView.vue',
+  '/formulas': 'src/views/FormulasView.vue',
+  '/about': 'src/views/AboutView.vue',
+}
+const DETAIL_VIEW_OF = {
+  '/agents': 'src/views/AgentDetailView.vue',
+  '/w-engines': 'src/views/WEngineDetailView.vue',
+  '/bangboos': 'src/views/BangbooDetailView.vue',
+  '/disks': 'src/views/DiskDetailView.vue',
+}
+
+/** 该路由的 modulepreload 目标：视图 chunk + 其静态依赖（不含入口 index.html） */
+function preloadModulesFor(manifest, source) {
+  const entry = manifest?.[source]
+  if (!entry) return null
+  const out = []
+  const seen = new Set()
+  const push = (file) => {
+    if (!file || file === 'index.html' || seen.has(file)) return
+    seen.add(file)
+    out.push(`/assets/${file}`.replace('/assets/assets/', '/assets/'))
+  }
+  push(entry.file)
+  for (const dep of entry.imports ?? []) {
+    const d = manifest[dep]
+    if (d?.file) push(d.file)
+  }
+  return out
+}
+
 /* ---------- head 替换 ---------- */
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
@@ -94,6 +131,24 @@ function buildHtml(tpl, meta) {
         (p) =>
           `    <link rel="preload" as="image" href="${esc(p.href)}" fetchpriority="low"${p.media ? ` media="${esc(p.media)}"` : ''} />`,
       )
+      .join('\n')
+    out = out.replace(/(<link rel="preload" href="\/data\/manifest\.json"[^>]*>)/, `${links}\n$1`)
+  }
+  // 详情 JSON 预载：详情页要等 JS 起来才 fetch 这份数据，是渲染段里的一段串行 RTT。
+  // 逐路由 HTML 知道确切路径，故在解析期就并行取。crossorigin 必须带——
+  // 应用侧 fetch() 默认 CORS 模式，预载不带会因模式不匹配而重复下载。
+  if (meta.preloadJson) {
+    out = out.replace(
+      /(<link rel="preload" href="\/data\/manifest\.json"[^>]*>)/,
+      `    <link rel="preload" as="fetch" href="${esc(meta.preloadJson)}" crossorigin />\n$1`,
+    )
+  }
+  // 路由 chunk 的 modulepreload：该路由的视图是动态 import，入口 JS 跑完才发现它
+  // （实测：入口 231→1600ms，chunk 1649ms 才出发——白等一段串行 RTT）。
+  // 逐路由 HTML 知道自己在哪条路由，故可提前到解析期并行取。
+  if (meta.preloadModules?.length) {
+    const links = meta.preloadModules
+      .map((h) => `    <link rel="modulepreload" href="${esc(h)}" />`)
       .join('\n')
     out = out.replace(/(<link rel="preload" href="\/data\/manifest\.json"[^>]*>)/, `${links}\n$1`)
   }
@@ -126,6 +181,7 @@ async function main() {
   const tpl = fs.readFileSync(TEMPLATE, 'utf8')
   const xml = fs.readFileSync(SITEMAP, 'utf8')
   const paths = [...xml.matchAll(/<loc>(?:https?:\/\/[^/]+)?(\/[^<]*)<\/loc>/g)].map((m) => m[1]).filter(Boolean)
+  const buildManifest = readJson(path.join(DIST, '.vite', 'manifest.json'))
 
   const dataByCat = new Map()
   for (const c of CATS) {
@@ -143,11 +199,22 @@ async function main() {
     const seg = p.split('/').filter(Boolean)
     const entry = dataByCat.get('/' + seg[0])
     const box = { title: '', description: '', image: '', imageW: 0, imageH: 0, url: `${ORIGIN}${p}` }
+    // 该路由视图 chunk 的 modulepreload（映射漂移在构建期直接报错）
+    const viewSource = seg[1] ? DETAIL_VIEW_OF['/' + seg[0]] : VIEW_OF['/' + seg[0]]
+    if (viewSource) {
+      const mods = preloadModulesFor(buildManifest, viewSource)
+      if (!mods) problems.push(`${p}: 构建清单缺少视图 ${viewSource}（映射漂移？）`)
+      else box.preloadModules = mods
+    }
 
     if (entry && seg[1]) {
       const { cat, list } = entry
       const row = list[seg[1]]
       const detail = readJson(`public/data/live/zh/${cat.dir}/${seg[1]}.json`)
+      // 详情数据预载：应用侧 detailFor() 会取这份（api.ts toDataUrl: /data/live/zh/{dir}/{id}.json）
+      box.preloadJson = fs.existsSync(`public/data/live/zh/${cat.dir}/${seg[1]}.json`)
+        ? `/data/live/zh/${cat.dir}/${seg[1]}.json`
+        : null
       // 名称优先取中文详情（列表 JSON 的 name 是英文），再退回列表行/id
       const name = nameOf(detail) || nameOf(row) || seg[1]
       box.title = `${name} · ${cat.label}详情 · 绳网档案`
@@ -220,9 +287,20 @@ async function main() {
     // 角色详情页的首屏图预载不得丢：它是 LCP 关键路径（桌面实测 LCP 5.4s → 3.8s）
     if (box.preloadImages?.length && !html.includes('rel="preload" as="image"'))
       problems.push(`${p}: 首屏图预载缺失（LCP 关键路径）`)
+    // 路由 chunk 的 modulepreload 同理（实测 chunk 出发 1649ms → 210ms）
+    if (box.preloadModules?.length && !html.includes('rel="modulepreload"'))
+      problems.push(`${p}: 路由 chunk 预载缺失（LCP 关键路径）`)
+    if (box.preloadJson && !html.includes(`as="fetch" href="${box.preloadJson}"`))
+      problems.push(`${p}: 详情 JSON 预载缺失（LCP 关键路径）`)
   }
 
   console.log(`== 逐路由 HTML == 生成 ${written} 个（origin ${ORIGIN}）`)
+  // 构建清单已用完：静态站不需要它对外暴露，删掉以免进部署产物
+  const manifestPath = path.join(DIST, '.vite', 'manifest.json')
+  if (fs.existsSync(manifestPath)) {
+    fs.rmSync(path.join(DIST, '.vite'), { recursive: true, force: true })
+    console.log('  · 已清理 dist/.vite/manifest.json（仅构建期使用）')
+  }
   if (problems.length) {
     console.error(`  ✖ ${problems.length} 项自校验失败：`)
     for (const x of problems.slice(0, 8)) console.error(`    ${x}`)

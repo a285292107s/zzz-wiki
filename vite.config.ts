@@ -73,4 +73,10 @@ export default defineConfig({
   server: {
     port: 5173,
   },
+  build: {
+    // 产出 dist/.vite/manifest.json：逐路由 HTML 生成器据此把**该路由的懒加载 chunk**
+    // 写进 <link rel="modulepreload">——否则它要等入口 JS 跑完才被发现（串行一段 RTT）。
+    // 生成器读完即删除该文件（静态站不需要它对外暴露）。
+    manifest: true,
+  },
 })

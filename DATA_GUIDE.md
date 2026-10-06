@@ -346,6 +346,15 @@ CJK 衬线（Noto Serif SC **500 单档**）**按站点字符集裁剪后自托�
 > High 优先级会与关键 JS 抢带宽（实测默认优先级时图片就绪提前 2.3s 但 LCP 无改善）。
 > 生成器自校验会拦住预载丢失。注意 `vite preview` 不返回生成的目录索引（本地测量须用
 > 目录索引静态服务器；生产 Vercel 静态优先，行为正确）。
+> 已采纳（2026-10，同一处逐路由 HTML 再收两项，**移动端详情页 LCP 中位 3152 → 2308ms，−27%**）：
+> - **详情 JSON 预载**（`<link rel=preload as=fetch crossorigin>`）：应用侧 `detailFor()` 要等
+>   JS 起来才 fetch，实测请求 2139 → 229ms 出发、2370 → 603ms 完成；无预载时它是**最后一个依赖**
+> - **路由 chunk 的 modulepreload**（`vite build` 开 `manifest: true`，生成器据此把该路由视图
+>   chunk 及其静态依赖写进 `<link rel=modulepreload>`）：动态 import 的 chunk 要等入口 JS 跑完
+>   才发现——实测出发 1649 → 210ms、完成 1922 → 565ms。manifest 读完即删（不进部署产物）；
+>   路由→视图的映射漂移会在构建期直接报错
+> 三项预载的效果要用**机制级时序**（请求起止）而不是单看 LCP 判断：LCP 的噪声（±300ms）
+> 远大于单项收益，但请求时序的差异是秒级的、方向明确。
 >
 > ⚠ **分片内部名会误导诊断**：CSS 交付里的 family 内部名固定为 `Noto Serif SC ExtraLight…`，
 > CDP `CSS.getPlatformFontsForNode` 报的就是它——**不代表实际渲染字重**（现行片 OS/2
