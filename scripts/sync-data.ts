@@ -29,6 +29,7 @@ import { main as buildAll, needUpdate } from './build'
 import { OUT } from './build/io'
 import { runDownloadIcons } from './build/download-icons.mjs'
 import { runHeroCards } from './build/hero-cards.mjs'
+import { runHeroMobile } from './build/hero-mobile.mjs'
 import { verifyDataMain } from './verify-data'
 import { collectIcons, localPath } from './build/icon-inventory.mjs'
 
@@ -104,14 +105,23 @@ async function main(): Promise<void> {
   if (icons.added > 0) changed = true
   console.log(`[sync] 图标同步：新增 ${icons.added}，缺口 ${icons.failed + icons.heroMissing}（软失败，不阻断）`)
 
-  // hero card 派生（幂等补差，随图标下载后执行）：首页 9:16 标本卡用 ≤1000px 变体，
-  // 原图（~500KB/张）留给详情页满栏底图。失败软失败（前端候选链回退原图，不破图）。
+  // hero card 派生（幂等补差，随图标下载后执行）：首页 9:16 标本卡用 ≤800px/q68 变体，
+  // 原图留给详情页满栏底图。失败软失败（前端候选链回退原图，不破图）。
   const heroCards = await runHeroCards()
   if (heroCards.generated > 0) changed = true
   console.log(
     `[sync] hero card 派生：生成 ${heroCards.generated}，沿用 ${heroCards.skipped}，失败 ${heroCards.failed.length}（软失败，不阻断）`,
   )
   for (const f of heroCards.failed) console.warn(`  ⚠ ${f}`)
+
+  // hero 窄屏派生（幂等补差）：手机视口只用到原图中心一条，1400w/45-71KB 替代 221-310KB 原图。
+  // 失败软失败（AgentHead 候选链回退原图，不破图）。
+  const heroMobile = await runHeroMobile()
+  if (heroMobile.generated > 0) changed = true
+  console.log(
+    `[sync] hero mobile 派生：生成 ${heroMobile.generated}，沿用 ${heroMobile.skipped}，失败 ${heroMobile.failed.length}（软失败，不阻断）`,
+  )
+  for (const f of heroMobile.failed) console.warn(`  ⚠ ${f}`)
 
   // 契约校验（进程内执行，失败仅告警）
   try {

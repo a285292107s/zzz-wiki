@@ -9,6 +9,7 @@ import { pickName } from '@/utils/names'
 import { heroVariantFile } from '@/data/heroGenderVariants'
 import { getHeroCalibration, type HeroCalibration } from '@/data/heroCalibration'
 import { useHeroForm } from '@/composables/useHeroForm'
+import { useMediaQuery } from '@/composables/useMediaQuery'
 import HollowImage from '@/components/HollowImage.vue'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
@@ -83,10 +84,20 @@ const heroBase = computed(() => {
   const id = props.detail.id
   return heroVariantFile(id, heroForm.value) ?? `Mindscape_${id}_2`
 })
-const heroSrcs = computed(() => [
-  `${LOCAL_HERO}/${heroBase.value}.webp`,
-  `https://static.nanoka.cc/assets/zzz/${heroBase.value}.webp`,
-])
+
+/** 窄屏判定（<=860px 与 tokens.css / SearchField 断点一致）：hero 盒手机仅 ~350 CSS px
+ *  可见窗，原图 2552px 超采约 2 倍 → 走 1400w 派生（45-71KB vs 原图 221-310KB）。
+ *  在 setup 期同步求值，首帧即选中正确分支（免「先请求原图再切换」的双下载）。 */
+const narrow = useMediaQuery('(max-width: 860px)')
+
+const heroSrcs = computed(() => {
+  const local = `${LOCAL_HERO}/${heroBase.value}.webp`
+  const cdn = `https://static.nanoka.cc/assets/zzz/${heroBase.value}.webp`
+  // 候选链顺序即回退顺序：窄屏变体缺失时自动落到原图（HollowImage 逐个尝试）
+  return narrow.value
+    ? [`${LOCAL_HERO}/mobile/${heroBase.value}.webp`, local, cdn]
+    : [local, cdn]
+})
 
 /** 复用「今日角色」校准构图（featured-pool.json calibrated 表）：水平脸对焦 + 放大消透明边。
  *  仅移动端应用；未校准（如无 hero 图角色）回落 null，保持居中取景。

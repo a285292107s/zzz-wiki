@@ -140,21 +140,28 @@
 
 ### card 派生图（2026-10 落地：首页带宽的 8× 收益，不动原图）
 
-权衡结论：**不压缩原图、为首页另派生小图**。原图保持全分辨率（详情页 AgentHead 满栏底图
-仍需要它），为首页 9:16 标本卡（展示格 ~320 CSS px，retina ×2 含 zoom ≤1.5 后 ≤1000px 内
-无可见损失）生成 ≤1000px 等比变体：
+权衡结论：**不压缩原图、按用途另派生小图**。原图保持全分辨率（详情页 AgentHead 满栏底图
+在桌面 DPR2 下正需要它：hero 盒 1168×497 → 需 ~2336px，原图 2552px 合适），为更小的展示格
+另派生等比变体：
 
 - 生成器 `scripts/build/hero-cards.mjs`（sharp）：`public/data/img/hero/card/{同名}.webp`，
-  q78、幂等补差、原图 mtime 更新后自动重派生、孤儿清理；由 `npm run sync` 在图标下载后
-  调用（单一写入者），派生图随 `public/data` 约定入库（部署只构建已提交快照）。
+  **≤800px / q68**（实测展示格手机 242 / 桌面 291 CSS px，DPR3 需求 ≤726px，800px 留 ~10% 余量）、
+  幂等补差、原图 mtime 更新后自动重派生、孤儿清理；由 `npm run sync` 在图标下载后调用
+  （单一写入者），派生图随 `public/data` 约定入库（部署只构建已提交快照）。
+- **hero 窄屏派生**（`scripts/build/hero-mobile.mjs`）：`public/data/img/hero/mobile/{同名}.webp`，
+  ≤1400px / q62。详情页 hero 在手机上可见窗仅 ~350 CSS px（cover 缩放后源图等效需求 ~1300px），
+  2552px 原图超采约 2 倍。前端按视口选路（`AgentHead.vue` + `useMediaQuery('(max-width: 860px)')`，
+  在 setup 期同步求值以免「先请求原图再切分支」的双下载），候选链
+  `hero/mobile → hero 原图 → CDN`，派生缺失自动回退不破图。
+  实测：详情页图片载荷 370KB → 105KB，LCP 9.2s → 7.6s。
 - 等比缩放不改构图坐标系：`featured-pool.json` 的 `pos/zoom/originY` 与详情页校准**原样复用**，
   无需重算或目检。
 - 前端候选链（`useFeaturedAgents.ts`）：`hero/card/{file}.webp → hero/{file}.webp → CDN 原图`，
   派生缺失自动回退不破图；挂载期 `img.decode()` 预热同用 card 首位。
   （曾有的构建期池首 `<link rel=preload>` 已移除：61 选 4 的随机池里命中率仅 ~6.5%，
   白拉一张 + console 警告；挂载即执行的预热是确定性机制，先于卡片区渲染。）
-- 实测：61 张全量 card 2.9MB（均值 ~49KB、峰值 77KB）vs 原图均值 ~330KB；首页首屏 4 张
-  头图传输 ~2MB → ~250KB。
+- 实测：61 张全量 card 1.95MB（均值 ~32KB）vs 原图均值 ~351KB；首页首屏 4 张头图
+  187KB → ~120KB；hero/mobile 61 张 4.0MB（均值 ~66KB）。
 
 上一节「压缩分级」里覆盖原图的路径**不再执行**（会产生新全量 blob 且破坏详情页满栏底图清晰度），
 以本节的派生方案为准。
