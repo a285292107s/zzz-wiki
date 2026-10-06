@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>离线 · 绳网档案</title>
+    <!-- 自包含：不引用任何外部/站内资源（离线时它们可能不在缓存里），也不含内联脚本
+         （全站 CSP 的 script-src 'self' 会拦掉内联脚本——离线页必须在同一策略下工作）。
+         视觉沿用「档案标本」语言：纸墨底色 + 1px 细线 + 等宽编号。 -->
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0d0f11;
+        --ink-0: #e8e4da;
+        --ink-1: #a9a49a;
+        --ink-2: #848076;
+        --line: #2a3137;
+        --amber: #d8a35c;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg);
+        color: var(--ink-1);
+        font-family: -apple-system, "Segoe UI", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+        line-height: 1.85;
+      }
+      .wrap {
+        width: min(620px, calc(100vw - 48px));
+        border: 1px solid var(--line);
+        border-radius: 2px;
+        padding: 32px clamp(20px, 4vw, 40px) 28px;
+      }
+      .no {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        color: var(--amber);
+      }
+      h1 {
+        margin: 10px 0 4px;
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: var(--ink-0);
+      }
+      .en {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        color: var(--ink-2);
+        text-transform: uppercase;
+      }
+      p {
+        margin: 18px 0 0;
+        font-size: 14px;
+      }
+      ul {
+        margin: 14px 0 0;
+        padding-left: 18px;
+        font-size: 14px;
+      }
+      li {
+        margin: 6px 0;
+      }
+      a {
+        color: var(--ink-0);
+        text-decoration: none;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 1px;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 22px;
+        margin-top: 22px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+      }
+      .hint {
+        color: var(--ink-2);
+        font-size: 12px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <p class="no">OFFLINE</p>
+      <h1>当前离线</h1>
+      <p class="en">Network unavailable</p>
+      <p>
+        这一页还没有被缓存，因此断网时无法打开。本站已启用离线阅读：
+        <strong>访问过一次的页面，断网后仍可打开</strong>（数据、字体与图片都已本地化）。
+      </p>
+      <ul>
+        <li>回到首页或名录：联网后会自动恢复最新数据</li>
+        <li>若刚断网，重新连接后刷新本页即可</li>
+      </ul>
+      <div class="row">
+        <a href="/">返回首页</a>
+        <a href="/agents">代理人名录</a>
+        <a href="">重试本页</a>
+      </div>
+      <p class="hint">绳网档案 · 绝区零数据图鉴</p>
+    </main>
+  </body>
+</html>

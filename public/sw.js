@@ -22,6 +22,8 @@ const CACHE_PREFIX = 'zzz-wiki'
 const SHELL_CACHE = `${CACHE_PREFIX}-shell`
 const ASSET_CACHE = `${CACHE_PREFIX}-assets`
 const DATA_CACHE = `${CACHE_PREFIX}-data`
+/** 离线兜底页：导航既无网络又无缓存时返回它（自包含、无内联脚本，符合全站 CSP） */
+const OFFLINE_URL = '/offline.html'
 
 /** 数据版本（缓存世代）：manifest.json 的 zzz.live + generated 组合。
  *  取不到时退化为构建日期无关的固定名（离线仍可用，只是换版时清理不彻底）。 */
@@ -71,8 +73,18 @@ function maybeTrim(cacheName, maxEntries, filter) {
 }
 
 self.addEventListener('install', (e) => {
-  // 立即接管：不做预缓存（本站资源多为内容寻址，运行时缓存更准确）
-  e.waitUntil(self.skipWaiting())
+  // 只预缓存离线兜底页（其余资源多为内容寻址，运行时缓存更准确）。
+  // 必须放进**版本化**的 shell 缓存：activate 会清掉所有非当前版本的缓存。
+  e.waitUntil(
+    (async () => {
+      const v = await versionKey()
+      const cache = await caches.open(`${SHELL_CACHE}-${v}`)
+      await cache.add(OFFLINE_URL).catch(() => {
+        /* 兜底页预缓存失败不阻塞安装 */
+      })
+      await self.skipWaiting()
+    })(),
+  )
 })
 
 self.addEventListener('activate', (e) => {
@@ -106,6 +118,9 @@ async function networkFirst(request, cacheName) {
   } catch (err) {
     const hit = await cache.match(request)
     if (hit) return hit
+    // 既无网络又无该页缓存 → 返回离线兜底页（自包含页面，胜过浏览器空白/错误页）
+    const offline = await caches.match(OFFLINE_URL)
+    if (offline) return offline
     throw err
   }
 }

@@ -21,6 +21,19 @@ async (page) => {
   const add = (name, ok, detail) => checks.push({ name, ok, detail })
   const cdp = await page.context().newCDPSession(page)
   await cdp.send('Network.enable')
+  await cdp.send('Network.clearBrowserCache')
+
+  // 0) 自清理：注销可能残留的 SW 并清空其缓存。
+  //    浏览器配置跨审计复用，旧注册会**不重新拉取脚本**就继续生效——
+  //    不清的话本审计可能「因上一轮的 SW」通过（负向验证时实测踩到：删掉 dist/sw.js 仍全绿）。
+  await page.goto('http://localhost:4175/', { waitUntil: 'domcontentloaded' })
+  await page.evaluate(async () => {
+    const regs = await navigator.serviceWorker.getRegistrations()
+    await Promise.all(regs.map((r) => r.unregister()))
+    const keys = await caches.keys()
+    await Promise.all(keys.map((k) => caches.delete(k)))
+  })
+  await cdp.send('Network.clearBrowserCache')
 
   // 1) 在线访问两页，让 SW 接管并缓存
   await page.goto('http://localhost:4175/agents/1011', { waitUntil: 'networkidle' })
@@ -41,12 +54,10 @@ async (page) => {
   add('sw-controlled', controlled, String(controlled))
 
   // 2) 断网后重载已访问页面
-  await cdp.send('Network.emulateNetworkConditions', {
-    offline: true,
-    latency: 0,
-    downloadThroughput: 0,
-    uploadThroughput: 0,
-  })
+  // **必须用 context.setOffline**：CDP 的 Network.emulateNetworkConditions({offline:true})
+  // 只作用于页面 target，**SW 自己发起的 fetch 不在其中**——SW 仍能联网取回真实页面，
+  // 于是「离线」检查会因错误原因通过（本审计首版即如此，实测发现后改为上下文级断网）。
+  await page.context().setOffline(true)
   let offlineDetail = await page.evaluate(async () => {
     // 等一小会儿让离线状态生效，再重载
     await new Promise((r) => setTimeout(r, 300))
@@ -68,19 +79,27 @@ async (page) => {
     JSON.stringify(offlinePage),
   )
 
-  // 3) 断网下访问未缓存页面：允许失败，但不得是「空白无外壳」
-  await page.goto('http://localhost:4175/formulas', { waitUntil: 'domcontentloaded' }).catch(() => {})
+  // 3) 断网下访问未缓存页面：应落到**离线兜底页**（自包含、可读、给出返回入口），
+  //    而不是浏览器空白/错误页——这是「离线能力」的最后一环。
+  await page.goto('http://localhost:4175/disks/34200', { waitUntil: 'domcontentloaded' }).catch(() => {})
   await page.waitForTimeout(1500)
-  const cold = await page.evaluate(() => ({ nodes: document.querySelectorAll('*').length, url: location.pathname })).catch(() => ({ nodes: 0, url: '?' }))
-  add('offline-cold-page-graceful', cold.nodes === 0 || cold.nodes > 50, JSON.stringify(cold))
+  const cold = await page
+    .evaluate(() => ({
+      title: document.title,
+      h1: document.querySelector('h1')?.textContent?.trim() ?? '',
+      text: (document.body.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 40),
+      links: [...document.querySelectorAll('a')].map((a) => a.getAttribute('href')).filter(Boolean),
+      nodes: document.querySelectorAll('*').length,
+    }))
+    .catch(() => ({ title: '', h1: '', text: '', links: [], nodes: 0 }))
+  add(
+    'offline-fallback-page',
+    cold.h1 === '当前离线' && cold.links.includes('/') && cold.nodes > 20,
+    JSON.stringify(cold),
+  )
 
   // 4) 恢复联网
-  await cdp.send('Network.emulateNetworkConditions', {
-    offline: false,
-    latency: 0,
-    downloadThroughput: -1,
-    uploadThroughput: -1,
-  })
+  await page.context().setOffline(false)
   await page.goto('http://localhost:4175/agents', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1800)
   const back = await page.evaluate(() => ({

@@ -41,6 +41,13 @@
  *   需要在「无 SW」前提下测失败/断网的检查，应另开 `serviceWorker: 'block'` 的上下文
  *   （见 `regression-walk.js` 的错误态检查段）。
  *
+ * ⚠ **测离线必须用 `context.setOffline`**，不能用 CDP 的
+ *   `Network.emulateNetworkConditions({offline:true})`：后者只作用于页面 target，
+ *   **SW 自己发起的 fetch 不在其中**——SW 仍能联网取回真实页面，离线检查会因错误原因通过
+ *   （`offline-check.js` 首版即如此，实测发现后改正）。
+ *   同理，离线审计必须先**注销残留 SW + 清缓存**：浏览器配置跨审计复用，旧注册不重新拉取
+ *   脚本就继续生效（负向验证时删掉 `dist/sw.js` 仍全绿，即因此）。
+ *
  * 新增审计：脚本导出 JSON（{ total, failed, failedItems } 风格），
  * 失败项必须带定位信息（tag/cls/几何），让下一轮修复不用重新考古。
  * ============================================================ */
