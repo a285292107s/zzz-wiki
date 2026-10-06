@@ -309,6 +309,11 @@ v1 主源，v2 已弃用（数据更新滞后：缺 1611/1621、职业 7；键�
 **禁止圆角卡片堆叠、渐变霓虹、投影**（浮层阴影除外，见 `--shadow-pop`）。图标统一走 `HollowImage`（含兜底），
 skills 描述富文本走 `richDesc`。字体族（CJK 衬线优先、sans 弃 `Inter`）与浮层阴影染 `--bg-0` 属 **token 级精修**，
 唯一记录点见 `tokens.css` 注释与 `/style`（DESIGN.md §9）；本条指核心语言不变。
+
+**墨色分层是契约，不是建议**（`tokens.css` 已写明）：`--ink-2` 及更亮承载信息（对 bg-0/bg-1 ≥4.5:1，AA）；
+`--ink-3` 是**装饰层**（不承载信息、不要求 AA）——只能用于纯序号、分隔符、占位字形，且应 `aria-hidden`。
+`npm run audit` 里的 `color-audit` 会按元素实测并报出违规用法（2026-10 曾抓到未解锁档内容、
+翻页方向、检索框 placeholder、以及我们自己的「无匹配」空态文案都落在装饰层 → 已全部提到 AA）。
 西文（JetBrains Mono / Public Sans）**自托管**至 `public/fonts/`，经 `@font-face` 引用、运行时零外网；
 刷新用 `npm run download:fonts`，缺文件由 `verify:fonts` 门禁（含 build:ci）。
 CJK 衬线（Noto Serif SC **500 单档**）**按站点字符集裁剪后自托管**至 `public/fonts/noto-serif-sc/`：

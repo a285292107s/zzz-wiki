@@ -59,7 +59,7 @@ const emit = defineEmits<{
   color: var(--ink-0);
 }
 .search input::placeholder {
-  color: var(--ink-3);
+  color: var(--ink-2);
 }
 
 /* 移动端：iOS Safari 对字号 <16px 的 input 聚焦时会强制缩放页面，
@@ -79,7 +79,7 @@ const emit = defineEmits<{
 .escalate {
   font-size: var(--fs-badge);
   letter-spacing: 0.08em;
-  color: var(--ink-3);
+  color: var(--ink-2);
   border: 1px solid var(--line-0);
   border-radius: 2px;
   padding: 1px 4px;

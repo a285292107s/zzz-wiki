@@ -233,7 +233,7 @@ function potTag(grp: SkillGroup): string | null {
   font-style: normal;
   font-size: var(--fs-badge);
   letter-spacing: 0.14em;
-  color: var(--ink-3);
+  color: var(--ink-2);
 }
 .skill-kind {
   font-family: var(--serif);

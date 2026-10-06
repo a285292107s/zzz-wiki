@@ -152,7 +152,7 @@ const sections = [
             </span>
             <span class="specimen-plate">
               <span class="plate-top">
-                <span class="no mono">{{ card.no }}</span>
+                <span class="no mono" aria-hidden="true">{{ card.no }}</span>
                 <span
                   v-if="card.elementZh"
                   class="el mono"
@@ -175,7 +175,7 @@ const sections = [
 
       <section class="index">
       <div v-reveal class="section-head">
-        <span class="no mono">00</span>
+        <span class="no mono" aria-hidden="true">00</span>
         <h2>目录</h2>
         <span class="rule" />
       </div>
@@ -193,7 +193,7 @@ const sections = [
               <!-- 图文板块：无游戏图标，用该板块的标本符号（战斗公式 × / 数据说明 §） -->
               <span v-else class="specimen-guide" aria-hidden="true">{{ s.glyph }}</span>
             </span>
-            <span class="idx mono">{{ String(i + 1).padStart(2, '0') }}</span>
+            <span class="idx mono" aria-hidden="true">{{ String(i + 1).padStart(2, '0') }}</span>
             <span class="name">
               <span class="zh">{{ s.label }}</span>
               <span class="en mono">{{ s.en }}</span>

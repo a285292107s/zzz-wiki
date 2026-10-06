@@ -419,6 +419,56 @@ async (page) => {
     add('reduced-motion-clean', bad.length === 0, bad.length ? JSON.stringify(bad) : JSON.stringify(reduced))
   }
 
+  // ---- 文本对比度：非装饰文本最差须 ≥4.5（AA）。axe 对「背景是图片/渐变」的文字
+  //      只能判「无法确定」，故这里自算有效背景补上这块覆盖。 ----
+  {
+    await page.goto('http://localhost:4175/agents', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1600)
+    const worst = await page.evaluate(() => {
+      const parse = (c) => {
+        const m = /rgba?\(([^)]+)\)/.exec(c)
+        if (!m) return null
+        const [r, g, b, a = '1'] = m[1].split(',').map((x) => parseFloat(x))
+        return { r, g, b, a }
+      }
+      const lum = ({ r, g, b }) => {
+        const f = (v) => {
+          const s = v / 255
+          return s <= 0.03928 ? s / 12.92 : Math.pow((s + 0.055) / 1.055, 2.4)
+        }
+        return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b)
+      }
+      const ratio = (a, b) => (Math.max(lum(a), lum(b)) + 0.05) / (Math.min(lum(a), lum(b)) + 0.05)
+      const bgOf = (el) => {
+        let n = el
+        while (n && n !== document.documentElement) {
+          const c = parse(getComputedStyle(n).backgroundColor)
+          if (c && c.a > 0.5) return c
+          n = n.parentElement
+        }
+        return { r: 13, g: 15, b: 17, a: 1 }
+      }
+      const decorative = (el) => {
+        let n = el
+        for (let d = 0; d < 4 && n; d++, n = n.parentElement) if (n.getAttribute?.('aria-hidden') === 'true') return true
+        return false
+      }
+      let worst = { ratio: 99, sel: '' }
+      for (const el of document.querySelectorAll('body *')) {
+        const cs = getComputedStyle(el)
+        if (cs.display === 'none' || cs.visibility === 'hidden') continue
+        if (![...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim())) continue
+        if (decorative(el)) continue
+        const fg = parse(cs.color)
+        if (!fg || fg.a <= 0.3) continue
+        const cr = ratio(fg, bgOf(el))
+        if (cr < worst.ratio) worst = { ratio: Math.round(cr * 100) / 100, sel: el.tagName.toLowerCase() + (el.className ? '.' + String(el.className).split(' ')[0] : '') }
+      }
+      return worst
+    })
+    add('text-contrast-aa', worst.ratio >= 4.5, `最差 ${worst.ratio}:1（${worst.sel}）`)
+  }
+
   // ---- 数据说明页（页脚入口 + 动态数字） ----  await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1400)
   {

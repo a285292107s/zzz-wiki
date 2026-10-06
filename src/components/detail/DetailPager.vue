@@ -130,7 +130,7 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onKeydown))
 .pg-dir {
   font-size: var(--fs-nano);
   letter-spacing: 0.2em;
-  color: var(--ink-3);
+  color: var(--ink-2);
   transition: color var(--t-fast) var(--ease);
 }
 
@@ -148,7 +148,7 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onKeydown))
 .pg-no {
   font-size: var(--fs-nano);
   letter-spacing: 0.16em;
-  color: var(--ink-3);
+  color: var(--ink-2);
   transition: color var(--t-fast) var(--ease);
 }
 

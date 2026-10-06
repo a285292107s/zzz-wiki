@@ -64,7 +64,7 @@ watch(
               :to="{ hash: '#' + n.id }"
               :title="n.label"
             >
-              <span class="no">{{ n.no }}</span>
+              <span class="no" aria-hidden="true">{{ n.no }}</span>
               <span>{{ n.label }}</span>
             </RouterLink>
             <ul class="sn-child-list">
@@ -88,7 +88,7 @@ watch(
             :to="{ hash: '#' + n.id }"
             :title="n.label"
           >
-            <span class="no">{{ n.no }}</span>
+            <span class="no" aria-hidden="true">{{ n.no }}</span>
             <span>{{ n.label }}</span>
           </RouterLink>
         </template>

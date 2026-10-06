@@ -55,7 +55,7 @@ onBeforeUnmount(() => {
           :aria-current="active === n.id ? 'true' : undefined"
           :to="{ hash: '#' + n.id }"
         >
-          <span class="no">{{ n.no }}</span>
+          <span class="no" aria-hidden="true">{{ n.no }}</span>
           <span>{{ n.label }}</span>
         </RouterLink>
       </div>
@@ -102,7 +102,7 @@ onBeforeUnmount(() => {
 
         <div class="items">
           <article v-for="item in g.items" :key="item.no" class="item">
-            <span class="it-no">{{ item.no }}</span>
+            <span class="it-no" aria-hidden="true">{{ item.no }}</span>
             <div class="it-body">
               <!-- 标题层级随分组标题是否存在浮动：无组标题时条目名升为 h3，
                    避免 h2 → h4 跳级（axe heading-order，读屏大纲断链） -->
@@ -140,7 +140,7 @@ onBeforeUnmount(() => {
 .notice-tag {
   font-size: var(--fs-nano);
   letter-spacing: 0.22em;
-  color: var(--ink-3);
+  color: var(--ink-2);
   flex: none;
 }
 

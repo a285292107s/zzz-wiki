@@ -21,7 +21,7 @@ defineProps<{
   >
     <div class="section-head">
       <!-- no 为空时（区块被渲染但未登记进 navItems 的异常态）不渲染编号，避免留 16px 空档 -->
-      <span v-if="no" class="no mono">{{ no }}</span>
+      <span v-if="no" class="no mono" aria-hidden="true">{{ no }}</span>
       <h2 :id="id ? 'h-' + id : undefined">{{ title }}</h2>
       <span class="rule" />
       <span v-if="en" class="en mono">{{ en }}</span>

@@ -136,7 +136,7 @@ onErrorCaptured((err, _instance, info) => {
 .eb-detail-sum {
   font-size: var(--fs-micro);
   letter-spacing: 0.1em;
-  color: var(--ink-3);
+  color: var(--ink-2);
   cursor: pointer;
 }
 

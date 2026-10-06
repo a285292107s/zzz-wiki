@@ -159,8 +159,11 @@ const unlockCount = computed(() =>
             'is-locked': !isUnlocked(lv),
           }"
         >
-          <span class="tier-no mono">{{ lv.no }}</span>
+          <span class="tier-no mono" aria-hidden="true">{{ lv.no }}</span>
           <span class="tier-gate mono">Lv.{{ lv.unlockAt }}</span>
+          <!-- 未解锁状态用**文字**表达，而不是只靠「变暗」：状态不得仅由颜色传达
+               （WCAG 1.4.1），且弱墨文字对比度不足 AA（1.4.3）。 -->
+          <span v-if="!isUnlocked(lv)" class="tier-state mono">未解锁</span>
           <span class="tier-bonus">
             <template v-for="(b, bi) in lv.bonus" :key="b.name">
               <span v-if="bi" class="sep" aria-hidden="true">·</span>
@@ -231,7 +234,7 @@ const unlockCount = computed(() =>
   font-style: normal;
   font-size: var(--fs-badge);
   letter-spacing: 0.14em;
-  color: var(--ink-3);
+  color: var(--ink-2);
 }
 
 .skill-kind {
@@ -384,7 +387,17 @@ const unlockCount = computed(() =>
 }
 
 .tier.is-locked .tier-gate {
-  color: var(--ink-3);
+  color: var(--ink-2);
+}
+
+/* 未解锁标签：与门槛刻度同排，用文字承担「未解锁」语义 */
+.tier-state {
+  font-size: var(--fs-nano);
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
+  border: 1px solid var(--line-1);
+  border-radius: 2px;
+  padding: 0 5px;
 }
 
 /* 档位加成：属性名弱墨 + 数值琥珀 */
@@ -403,9 +416,9 @@ const unlockCount = computed(() =>
   color: var(--ink-3);
 }
 
-/* 未解锁档：整体弱化，加成内容保留作为升级预告，数值并入弱墨 */
+/* 未解锁档：内容仍可读（AA），「未解锁」由文字标签承担而非仅靠变暗 */
 .tier.is-locked .tier-bonus {
-  color: var(--ink-3);
+  color: var(--ink-2);
 }
 
 .tier.is-locked .bv {

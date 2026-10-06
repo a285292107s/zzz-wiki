@@ -232,7 +232,9 @@ function onKeydown(e: KeyboardEvent): void {
                 @click="go()"
               >
                 <span class="qs-ic">
-                  <HollowImage :srcs="r.srcs" :alt="r.label" :fallback="r.label" fit="contain" />
+                  <!-- 图标是装饰：名称就在紧邻的 .qs-name 里，重复 alt 会让读屏念两遍
+                       （axe image-redundant-alt，交互展开态审计发现） -->
+                  <HollowImage :srcs="r.srcs" alt="" :fallback="r.label" fit="contain" />
                 </span>
                 <span class="qs-name">
                   <template v-for="(s, si) in segs(r.label, r.to)" :key="si">
@@ -240,7 +242,7 @@ function onKeydown(e: KeyboardEvent): void {
                     <template v-else>{{ s.text }}</template>
                   </template>
                 </span>
-                <span class="qs-no mono">{{ r.no }}</span>
+                <span class="qs-no mono" aria-hidden="true">{{ r.no }}</span>
               </button>
             </div>
           </template>
@@ -263,7 +265,7 @@ function onKeydown(e: KeyboardEvent): void {
               >
                 <span class="qs-ic qs-ic-blank mono">↺</span>
                 <span class="qs-name">{{ r.label }}</span>
-                <span class="qs-no mono">{{ r.catNo }}</span>
+                <span class="qs-no mono" aria-hidden="true">{{ r.catNo }}</span>
               </button>
             </div>
             <p class="qs-state qs-state-quiet mono" :class="{ 'qs-state-first': !recent.length }">
@@ -290,9 +292,9 @@ function onKeydown(e: KeyboardEvent): void {
         <p class="qs-foot mono" aria-hidden="true">
           <template v-if="overflow > 0">
             <span class="foot-overflow">共 {{ overflow + results.length }} 条命中，仅列前 {{ results.length }} — 精确关键词</span>
-            <span class="sep">·</span>
+            <span class="sep" aria-hidden="true">·</span>
           </template>
-          <span>↑↓ 移动</span><span class="sep">·</span><span>ENTER 直达</span><span class="sep">·</span><span>ESC 关闭</span>
+          <span>↑↓ 移动</span><span class="sep" aria-hidden="true">·</span><span>ENTER 直达</span><span class="sep" aria-hidden="true">·</span><span>ESC 关闭</span>
         </p>
       </div>
     </div>
@@ -352,14 +354,14 @@ function onKeydown(e: KeyboardEvent): void {
 }
 
 .qs-input::placeholder {
-  color: var(--ink-3);
+  color: var(--ink-2);
 }
 
 .qs-esc {
   flex: none;
   font-size: var(--fs-nano);
   letter-spacing: 0.14em;
-  color: var(--ink-3);
+  color: var(--ink-2);
   border: 1px solid var(--line-1);
   border-radius: 2px;
   padding: 3px 7px;
@@ -373,7 +375,7 @@ function onKeydown(e: KeyboardEvent): void {
   padding: 7px 14px 0;
   font-size: var(--fs-nano);
   letter-spacing: 0.2em;
-  color: var(--ink-3);
+  color: var(--ink-2);
 }
 
 @media (hover: hover) {
@@ -414,7 +416,7 @@ function onKeydown(e: KeyboardEvent): void {
 }
 
 .qs-group-head .g-en {
-  color: var(--ink-3);
+  color: var(--ink-2);
   letter-spacing: 0.22em;
 }
 
@@ -497,7 +499,7 @@ mark.qs-hit {
 .qs-state-quiet {
   padding-top: 18px;
   padding-bottom: 10px;
-  color: var(--ink-3);
+  color: var(--ink-2);
 }
 
 .qs-state-first {
@@ -537,7 +539,7 @@ mark.qs-hit {
 .qs-entry .qe-en {
   font-size: var(--fs-nano);
   letter-spacing: 0.2em;
-  color: var(--ink-3);
+  color: var(--ink-2);
 }
 
 /* ---------- 状态与脚注 ---------- */
@@ -558,7 +560,7 @@ mark.qs-hit {
   border-top: var(--rule);
   font-size: var(--fs-nano);
   letter-spacing: 0.16em;
-  color: var(--ink-3);
+  color: var(--ink-2);
 }
 
 .qs-foot .sep {
