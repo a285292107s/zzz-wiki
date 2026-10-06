@@ -120,6 +120,10 @@ onMounted(() => {
   letter-spacing: 0.16em;
   color: var(--ink-1);
   border-bottom: 1px solid var(--line-1);
+  /* 命中区补到 ≥24px（WCAG 2.5.8）：页脚导航链接不在句子里，不适用行内豁免。
+     加的是垂直内边距，下划线仍在文字下方，视觉几乎不变。 */
+  display: inline-block;
+  padding: 3px 0;
 }
 
 .style-link:hover {

@@ -77,10 +77,21 @@ function onChange(e: Event) {
   -webkit-appearance: none;
   width: 100%;
   margin: 0;
-  padding: 6px 0;
+  /* 命中带 ≥24px（WCAG 2.5.8）：轨道仍是 2px 发丝线，加的是透明内边距——
+     视觉不变，但整条带都可点/可拖。原先 padding 6px 0 → 命中带仅 14px，
+     触屏拖动过窄（320px 重排审计的可用性附加检查发现）。 */
+  padding: 11px 0;
   background: transparent;
   cursor: pointer;
   min-width: 0;
+}
+
+/* 粗指针（触屏）：拇指放大到 18px——桌面保持 11px 的细巧，触屏给足可抓面积 */
+@media (pointer: coarse) {
+  .level-range {
+    --thumb-size: 18px;
+    padding: 14px 0;
+  }
 }
 
 /* 细线轨道（2px 发丝线），避免原生高亮粗条的视觉侵占 */

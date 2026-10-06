@@ -469,6 +469,46 @@ async (page) => {
     add('text-contrast-aa', worst.ratio >= 4.5, `最差 ${worst.ratio}:1（${worst.sel}）`)
   }
 
+  // ---- 320px 重排（WCAG 1.4.10）与触屏档命中区（2.5.8）----
+  {
+    await page.setViewportSize({ width: 320, height: 720 })
+    const wide = []
+    for (const r of ['/', '/agents', '/agents/1011']) {
+      await page.goto('http://localhost:4175' + r, { waitUntil: 'networkidle' })
+      await page.waitForTimeout(1500)
+      const res = await page.evaluate(() => ({
+        overflow: document.documentElement.scrollWidth > window.innerWidth + 1,
+        scrollW: document.documentElement.scrollWidth,
+      }))
+      if (res.overflow) wide.push(`${r}(${res.scrollW})`)
+    }
+    add('reflow-320-no-overflow', wide.length === 0, wide.join(' ') || '320px 无横向溢出')
+
+    // 触屏档：滑条拇指放大（CDP 触摸模拟可真正翻转 pointer: coarse）
+    await page.setViewportSize({ width: 390, height: 844 })
+    await page.goto('http://localhost:4175/agents/1011', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1800)
+    const cdp = await page.context().newCDPSession(page)
+    const readSlider = () =>
+      page.evaluate(() => {
+        const el = document.querySelector('input.level-range')
+        return {
+          thumb: parseFloat(getComputedStyle(el).getPropertyValue('--thumb-size')) || 0,
+          boxH: Math.round(el.getBoundingClientRect().height),
+        }
+      })
+    const desktop = await readSlider()
+    await cdp.send('Emulation.setTouchEmulationEnabled', { enabled: true, maxTouchPoints: 5 })
+    await page.waitForTimeout(300)
+    const touch = await readSlider()
+    await cdp.send('Emulation.setTouchEmulationEnabled', { enabled: false })
+    add(
+      'touch-slider-target',
+      touch.thumb > desktop.thumb && touch.boxH >= 24 && desktop.boxH >= 24,
+      `桌面 ${desktop.thumb}px/${desktop.boxH}px → 触屏 ${touch.thumb}px/${touch.boxH}px`,
+    )
+  }
+
   // ---- 数据说明页（页脚入口 + 动态数字） ----  await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1400)
   {
