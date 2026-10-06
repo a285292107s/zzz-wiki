@@ -218,6 +218,7 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
     :status="status"
     :error="error"
     :fallback-to="backTo"
+    :recent="{ entry: catAgents, id: () => String(id), label: () => detail?.name ?? '' }"
   >
     <template v-if="detail">
       <!-- 封面锚点：00 导航直达；scrollspy 亦观察此 id（滚动回顶时高亮 00） -->

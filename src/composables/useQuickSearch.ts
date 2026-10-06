@@ -8,7 +8,7 @@
  * ============================================================ */
 
 import { computed, ref } from 'vue'
-import { CATALOG } from '@/domain/catalog'
+import { CATALOG, HIDDEN_ITEM_IDS } from '@/domain/catalog'
 import { buildSearchIndex, normalizeQuery, searchEntries, type SearchEntry } from '@/domain/search'
 import { iconSources } from '@/data/icons'
 import { listFor } from '@/data/resources'
@@ -33,12 +33,17 @@ const CAT_TO_ICON: Record<string, Parameters<typeof iconSources>[1]> = {
 function buildIndex(): Promise<SearchEntry[]> {
   indexPromise ??= (async () => {
     const groups = await Promise.all(
-      CATALOG.map(async (c) => ({
-        catPath: c.path,
-        rows: (await listFor<Record<string, unknown>>(c)) as Record<string, unknown>[],
-        iconSrcs: (row: Record<string, unknown>) =>
-          iconSources({ Id: Number(row.Id), icon: row.icon as string }, CAT_TO_ICON[c.listFile]),
-      })),
+      CATALOG.map(async (c) => {
+        // 策展过滤与名录页同一份（HIDDEN_ITEM_IDS）：索引不收录名录中隐藏的条目
+        const hidden = HIDDEN_ITEM_IDS.get(c.path)
+        const all = (await listFor<Record<string, unknown>>(c)) as Record<string, unknown>[]
+        return {
+          catPath: c.path,
+          rows: hidden ? all.filter((row) => !hidden.has(Number(row.Id))) : all,
+          iconSrcs: (row: Record<string, unknown>) =>
+            iconSources({ Id: Number(row.Id), icon: row.icon as string }, CAT_TO_ICON[c.listFile]),
+        }
+      }),
     )
     return buildSearchIndex(groups)
   })()
@@ -89,4 +94,43 @@ export function useQuickSearchResults() {
 /** 供组件判定面板可见性（Teleport 到 body 的全局层） */
 export function isQuickSearchVisible(): boolean {
   return phase.value !== 'closed'
+}
+
+/* ---------- 最近访问档案 ---------- */
+
+const RECENT_KEY = 'zzz-wiki:recent-items'
+const RECENT_MAX = 6
+
+interface RecentItem {
+  to: string
+  label: string
+  catNo: string
+}
+
+function loadRecent(): RecentItem[] {
+  try {
+    const raw = localStorage.getItem(RECENT_KEY)
+    const arr = raw ? (JSON.parse(raw) as RecentItem[]) : []
+    return Array.isArray(arr) ? arr.filter((x) => x && typeof x.to === 'string' && typeof x.label === 'string') : []
+  } catch {
+    return []
+  }
+}
+
+const recent = ref<RecentItem[]>(loadRecent())
+
+/** 记录一次档案访问（去重置顶、上限裁剪、持久化）。面板空查询时先陈列历史。 */
+export function recordRecentVisit(catNo: string, to: string, label: string): void {
+  if (!to || !label) return
+  recent.value = [{ to, label, catNo }, ...recent.value.filter((x) => x.to !== to)].slice(0, RECENT_MAX)
+  try {
+    localStorage.setItem(RECENT_KEY, JSON.stringify(recent.value))
+  } catch {
+    /* 隐私模式等不可写场景静默 */
+  }
+}
+
+/** 面板组件用：最近访问列表（只读） */
+export function useRecentItems() {
+  return recent
 }

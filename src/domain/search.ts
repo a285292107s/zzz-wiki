@@ -39,6 +39,29 @@ export function normalizeQuery(q: string): string {
   return normalize(q)
 }
 
+/** 字符串或 {name} 对象 → 名字字符串（equipment 的 zh 为对象形态） */
+function takeName(v: unknown): string {
+  if (typeof v === 'string') return v
+  if (v && typeof v === 'object') {
+    const o = v as Record<string, unknown>
+    if (typeof o.name === 'string') return o.name
+  }
+  return ''
+}
+
+/** 名称提取：回退序 zh → en → ja → ko → code → codename → Id（与 pickName 同序） */
+function extractLabel(row: Record<string, unknown>): string {
+  return (
+    takeName(row.zh) ||
+    takeName(row.en) ||
+    takeName(row.ja) ||
+    takeName(row.ko) ||
+    (typeof row.code === 'string' ? row.code : '') ||
+    (typeof row.codename === 'string' ? row.codename : '') ||
+    String(row.Id ?? '')
+  )
+}
+
 export function buildSearchIndex(
   groups: Array<{
     catPath: string
@@ -51,9 +74,10 @@ export function buildSearchIndex(
     for (const row of g.rows) {
       const id = Number(row.Id)
       if (!Number.isFinite(id)) continue
-      const label =
-        (row.zh as string) || (row.en as string) || (row.ja as string) || (row.ko as string) || (row.code as string) || (row.codename as string) || String(id)
-      const hay = normalize([row.zh, row.en, row.ja, row.ko, row.code, row.codename, String(id)].filter(Boolean).join(' '))
+      const label = extractLabel(row)
+      const hay = normalize(
+        [row.zh, row.en, row.ja, row.ko, row.code, row.codename, String(id)].map(takeName).filter(Boolean).join(' '),
+      )
       out.push({
         to: `${g.catPath}/${id}`,
         catPath: g.catPath,
@@ -73,4 +97,65 @@ export function searchEntries(entries: SearchEntry[], query: string): SearchEntr
   if (!q) return entries
   const words = q.split(' ').filter(Boolean)
   return entries.filter((e) => words.every((w) => e.hay.includes(w)))
+}
+
+/**
+ * 关键词高亮：把 label 中与查询词命中的片段包上 <mark>（终端「命中标记」语义）。
+ * 归一匹配（大小写/全半角）+ 原文定位：逐字符比对归一化投影，保证 CJK/全角不漏标。
+ * 返回分段数组（hit 布尔标记），由视图渲染为文本/标记交替，不经 v-html（XSS 面 = 0）。
+ */
+export function highlightSegments(
+  label: string,
+  query: string,
+): Array<{ text: string; hit: boolean }> {
+  const words = normalizeQuery(query).split(' ').filter(Boolean)
+  if (!words.length) return [{ text: label, hit: false }]
+
+  // 归一化投影：norm[i] = 归一化后字符，map[i] = 原文下标（跳过空白折叠与全角差）
+  const normChars: string[] = []
+  const map: number[] = []
+  for (let i = 0; i < label.length; i++) {
+    const ch = label[i]
+    let n = ch.toLowerCase()
+    if (ch.charCodeAt(0) >= 0xff01 && ch.charCodeAt(0) <= 0xff5e) {
+      n = String.fromCharCode(ch.charCodeAt(0) - 0xfee0).toLowerCase()
+    }
+    if (/\s/.test(n)) {
+      // 连续空白折叠为一个空格
+      if (normChars[normChars.length - 1] !== ' ') {
+        normChars.push(' ')
+        map.push(i)
+      }
+      continue
+    }
+    normChars.push(n)
+    map.push(i)
+  }
+  const norm = normChars.join('')
+
+  const hitAt = new Array<boolean>(label.length).fill(false)
+  let matchedAll = true
+  for (const w of words) {
+    const at = norm.indexOf(w)
+    if (at === -1) {
+      matchedAll = false
+      continue
+    }
+    for (let i = at; i < at + w.length; i++) hitAt[map[i]] = true
+  }
+  if (!matchedAll) return [{ text: label, hit: false }]
+
+  const segs: Array<{ text: string; hit: boolean }> = []
+  let buf = ''
+  let cur = hitAt[0] ?? false
+  for (let i = 0; i < label.length; i++) {
+    if (hitAt[i] === cur) buf += label[i]
+    else {
+      segs.push({ text: buf, hit: cur })
+      buf = label[i]
+      cur = hitAt[i]
+    }
+  }
+  if (buf) segs.push({ text: buf, hit: cur })
+  return segs
 }

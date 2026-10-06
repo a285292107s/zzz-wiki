@@ -4,8 +4,10 @@ import { RouterLink } from 'vue-router'
 import AsyncState from '@/components/state/AsyncState.vue'
 import BackToTop from '@/components/BackToTop.vue'
 import { useNavScrollable } from '@/composables/useNavScrollable'
+import { recordRecentVisit } from '@/composables/useQuickSearch'
 import type { AsyncStatus } from '@/composables/useAsyncResource'
 import type { DetailSectionItem } from '@/composables/useDetailSections'
+import type { CatalogEntry } from '@/domain/catalog'
 
 const props = defineProps<{
   /** 返回名录链接 */
@@ -20,6 +22,8 @@ const props = defineProps<{
   /** 404 时回名录的目标（AsyncState back-to） */
   fallbackTo?: string
   fallbackText?: string
+  /** 最近访问记录（可选）：类目条目 + 当前详情 id + 展示名 getter；detail 就绪即记录 */
+  recent?: { entry: CatalogEntry; id: () => string; label: () => string } | null
 }>()
 
 /** 窄屏吸顶横条的「可横滑」提示与交互：条目随数据就绪（nav prop 变化）后重测 */
@@ -28,6 +32,17 @@ watch(
   () => props.nav,
   () => nextTick(refresh),
   { flush: 'post' },
+)
+
+/** detail 就绪（nav 条目出现）即记录最近访问：名录/检索/翻页各入口统一在此收口 */
+watch(
+  () => [props.recent, props.nav?.length, props.status] as const,
+  ([recent]) => {
+    if (!recent || props.status !== 'success') return
+    const label = recent.label()
+    if (label) recordRecentVisit(recent.entry.no, `${recent.entry.path}/${recent.id()}`, label)
+  },
+  { immediate: true, flush: 'post' },
 )
 </script>
 

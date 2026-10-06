@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { buildSearchIndex, normalizeQuery, searchEntries } from '../src/domain/search'
+import { buildSearchIndex, highlightSegments, normalizeQuery, searchEntries } from '../src/domain/search'
 
 const ICON = (row: Record<string, unknown>) => [`icon/${String(row.Id)}.webp`]
 
@@ -78,5 +78,29 @@ describe('searchEntries', () => {
 
   it('无匹配返回空（UI 呈现空态）', () => {
     expect(searchEntries(fixture(), '妮可')).toHaveLength(0)
+  })
+})
+
+describe('highlightSegments', () => {
+  it('同语言命中：原文定位分段（大小写/全半角归一）', () => {
+    expect(highlightSegments('Soldier 11', 'soldier')).toEqual([
+      { text: 'Soldier', hit: true },
+      { text: ' 11', hit: false },
+    ])
+    expect(highlightSegments('「11号」', '１１')).toEqual([
+      { text: '「', hit: false },
+      { text: '11', hit: true },
+      { text: '号」', hit: false },
+    ])
+  })
+
+  it('跨语言命中（label 无查询词）不伪造标记：整段 hit=false', () => {
+    // 查 'anby' 命中 zh label '安比' 的条目（hay 里有 en），但 label 本身无 'anby' 子串
+    expect(highlightSegments('安比', 'anby')).toEqual([{ text: '安比', hit: false }])
+    expect(highlightSegments('零号·安比', 'ling')).toEqual([{ text: '零号·安比', hit: false }])
+  })
+
+  it('空查询：整段不标', () => {
+    expect(highlightSegments('安比', '')).toEqual([{ text: '安比', hit: false }])
   })
 })

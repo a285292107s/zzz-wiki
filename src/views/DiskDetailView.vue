@@ -49,6 +49,7 @@ const backTo = computed(() => (detail.value ? undefined : '/disks'))
     :status="status"
     :error="error"
     :fallback-to="backTo"
+    :recent="{ entry: catDisks, id: () => String(id), label: () => detail?.name ?? '' }"
   >
     <template v-if="detail">
       <DetailHead

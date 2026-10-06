@@ -132,6 +132,7 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
     :status="status"
     :error="error"
     :fallback-to="backTo"
+    :recent="{ entry: catWEngines, id: () => String(id), label: () => detail?.name ?? '' }"
   >
     <template v-if="detail">
       <DetailHead
