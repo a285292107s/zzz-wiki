@@ -5,6 +5,14 @@
    hairline rules, tabular data numerals. No gradients, no glow.
    ============================================================ */
 
+/* ---------- CJK 衬线（Noto Serif SC 分片自托管）----------
+   由 scripts/build/download-cjk-fonts.mjs 生成 public/fonts/noto-serif-sc.css
+   （101 片 × 2 字重，unicode-range 按需加载：页面实际字形才触发对应分片下载，
+   实测首屏增量 ~3-6 片 / ~30KB）。解决 Windows 落 SimSun 的点阵感短板。
+   生成文件勿手改；清单由 verify-cjk-fonts.mjs 门禁。
+   注意：@import 必须位于文件所有语句之前（postcss 硬约束），故置顶。 */
+@import url('/fonts/noto-serif-sc.css');
+
 /* ---------- 自托管西文字体（Tier 1）----------
    由 scripts/build/download-fonts.mjs 从 Google Fonts 拉取 latin 子集 →
    public/fonts/（运行时零外部请求，本地服务）。font-display: swap 避免 FOIT。
@@ -98,6 +106,9 @@
 
   /* type */
   /* 中文本站：CJK 衬线（宋/明朝体）先行——mac=Songti、win=SimSun、装了 Noto Serif SC 则用最高质；
+     拉丁衬线（Source Serif 4/Georgia）作西文回退，服务少数西文显示字。 */
+  /* 中文本站：CJK 衬线（宋/明朝体）先行——Noto Serif SC 自托管分片（思源宋体，
+     覆盖 Windows 无高质量宋体的短板），装了更高质系统宋体（mac=Songti）的按需再议；
      拉丁衬线（Source Serif 4/Georgia）作西文回退，服务少数西文显示字。 */
   --serif: "Noto Serif SC", "Songti SC", "STSong", "SimSun",
     "Source Serif 4", "Iowan Old Style", Georgia, serif;
