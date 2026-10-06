@@ -7,18 +7,17 @@ import { iconSources } from '@/data/icons'
 import type { BangbooListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { catalogEntry } from '@/domain/catalog'
+import { catalogEntry, HIDDEN_ITEM_IDS } from '@/domain/catalog'
 import { AsyncState, CatalogTable, CatalogTableSkeleton, ListPage, NameCell, SearchField, type CatalogColumn } from '@/components'
 import Rarity from '@/components/Rarity.vue'
 
 usePageMeta()
 
 /**
- * 不入收藏簿的邦布 ID：伊埃斯（55098）是绳匠专属的 H.D.D. 搭档，
- * 不是可获取的收藏型号（源站名录即空 icon / 占位 desc 的桩数据），
- * 故从邦布名录浏览列表隐藏；详情页仍可经直接链接到达。
+ * 不入收藏簿的邦布 ID 清单已提升至 domain/catalog（HIDDEN_ITEM_IDS）：
+ * 名录页与详情页翻页共用同一份策展过滤，翻页序列不会出现名录中不存在的条目。
  */
-const HIDDEN_BANGBOO_IDS = new Set<number>([55098])
+const HIDDEN_BANGBOO_IDS = HIDDEN_ITEM_IDS.get('/bangboos')!
 
 /** 详情路由前缀与名录取数均由 catalog 派生（单一事实源） */
 const cat = catalogEntry('/bangboos')

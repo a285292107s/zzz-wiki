@@ -3,12 +3,14 @@ import { computed } from 'vue'
 import { detailFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
 import { stripRichText } from '@/utils/text'
+import { pickName } from '@/utils/names'
 import { useRouteParam } from '@/composables/useRouteParam'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useDetailSections, type DetailSectionItem } from '@/composables/useDetailSections'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { useEntityLevel } from '@/composables/useEntityLevel'
-import { catalogEntry } from '@/domain/catalog'
+import { useDetailPager } from '@/composables/useDetailPager'
+import { catalogEntry, HIDDEN_ITEM_IDS } from '@/domain/catalog'
 import {
   bangbooBreakCount,
   bangbooStatsAtLevel,
@@ -19,7 +21,7 @@ import {
   type StatItem,
 } from '@/domain/sections'
 import type { BangbooDetail } from '@/data/types'
-import { DetailHead, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel } from '@/components'
+import { DetailHead, DetailPager, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel } from '@/components'
 import Rarity from '@/components/Rarity.vue'
 
 const id = useRouteParam('id')
@@ -94,6 +96,16 @@ const navItems = computed<DetailSectionItem[]>(() => {
 
 const { activeSection, revealDir: vReveal, noOf } = useDetailSections(navItems, status)
 
+/** 相邻条目翻页：名录 Id 序，名录走 api 缓存；策展过滤与名录页同一份（隐藏伊埃斯） */
+const catBangboos = catalogEntry('/bangboos')
+const hidden = HIDDEN_ITEM_IDS.get('/bangboos')
+const { prev: pagerPrev, next: pagerNext } = useDetailPager(
+  catBangboos,
+  id,
+  pickName,
+  (r) => !hidden?.has(Number(r.Id)),
+)
+
 /** 404 时返回邦布名录 */
 const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
 </script>
@@ -161,6 +173,8 @@ const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
         </SkillGroup>
       </DetailSection>
     </template>
+
+    <DetailPager :prev="pagerPrev" :next="pagerNext" :entry="catBangboos" />
   </DetailPage>
 </template>
 

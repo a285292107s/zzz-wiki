@@ -4,13 +4,15 @@ import { detailFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
 import { richDesc } from '@/utils/rich'
 import { stripRichText } from '@/utils/text'
+import { pickName } from '@/utils/names'
 import { useRouteParam } from '@/composables/useRouteParam'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useDetailSections, type DetailSectionItem } from '@/composables/useDetailSections'
 import { usePageMeta } from '@/composables/usePageMeta'
+import { useDetailPager } from '@/composables/useDetailPager'
 import { catalogEntry } from '@/domain/catalog'
 import type { DiskDriveDetail } from '@/data/types'
-import { DetailHead, DetailPage, DetailSection } from '@/components'
+import { DetailHead, DetailPager, DetailPage, DetailSection } from '@/components'
 
 const id = useRouteParam('id')
 const { data: detail, status, error } = useAsyncResource(() => detailFor<DiskDriveDetail>(catalogEntry('/disks'), id.value))
@@ -29,6 +31,10 @@ const navItems = computed<DetailSectionItem[]>(() => [
 ])
 
 const { activeSection, revealDir: vReveal, noOf } = useDetailSections(navItems, status)
+
+/** 相邻条目翻页：名录 Id 序，名录走 api 缓存 */
+const catDisks = catalogEntry('/disks')
+const { prev: pagerPrev, next: pagerNext } = useDetailPager(catDisks, id, pickName)
 
 /** 404 时返回驱动盘总览 */
 const backTo = computed(() => (detail.value ? undefined : '/disks'))
@@ -67,6 +73,8 @@ const backTo = computed(() => (detail.value ? undefined : '/disks'))
         <p class="effect" v-html="richDesc(detail.desc4)" />
       </DetailSection>
     </template>
+
+    <DetailPager :prev="pagerPrev" :next="pagerNext" :entry="catDisks" />
   </DetailPage>
 </template>
 

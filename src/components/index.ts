@@ -10,6 +10,7 @@ export { default as CatalogTable, type CatalogColumn } from './list/CatalogTable
 export { default as NameCell } from './list/NameCell.vue'
 export { default as DetailHead } from './detail/DetailHead.vue'
 export { default as DetailPage } from './detail/DetailPage.vue'
+export { default as DetailPager, type DetailPagerItem } from './detail/DetailPager.vue'
 export { default as AgentHead } from './detail/AgentHead.vue'
 export { default as SignatureRef } from './detail/SignatureRef.vue'
 export { default as DetailSection } from './detail/DetailSection.vue'

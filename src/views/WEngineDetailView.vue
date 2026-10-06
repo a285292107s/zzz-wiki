@@ -10,6 +10,7 @@ import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useDetailSections, type DetailSectionItem } from '@/composables/useDetailSections'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { useEntityLevel } from '@/composables/useEntityLevel'
+import { useDetailPager } from '@/composables/useDetailPager'
 import { catalogEntry } from '@/domain/catalog'
 import {
   dictToRows,
@@ -23,7 +24,7 @@ import {
 import { PROFESSIONS, type SpecCode } from '@/data/types'
 import type { CharacterListItem, WEngineDetail } from '@/data/types'
 import { pickName } from '@/utils/names'
-import { DescRow, DetailHead, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SignatureRef, StatLevelPanel } from '@/components'
+import { DescRow, DetailHead, DetailPager, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SignatureRef, StatLevelPanel } from '@/components'
 import Rarity from '@/components/Rarity.vue'
 import Tags from '@/components/Tags.vue'
 
@@ -114,6 +115,10 @@ const navItems = computed(() => {
 
 const { activeSection, revealDir: vReveal, noOf } = useDetailSections(navItems, status)
 
+/** 相邻条目翻页：名录 Id 序，名录走 api 缓存 */
+const catWEngines = catalogEntry('/w-engines')
+const { prev: pagerPrev, next: pagerNext } = useDetailPager(catWEngines, id, pickName)
+
 /** 404 时返回音擎图鉴 */
 const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
 </script>
@@ -197,6 +202,8 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
         <p v-else class="empty mono">—</p>
       </DetailSection>
     </template>
+
+    <DetailPager :prev="pagerPrev" :next="pagerNext" :entry="catWEngines" />
   </DetailPage>
 </template>
 

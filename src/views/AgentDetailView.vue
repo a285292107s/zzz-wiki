@@ -4,11 +4,13 @@ import { detailFor, listFor } from '@/data/resources'
 import { iconSources, skillIconSources, type SkillSlot } from '@/data/icons'
 import { signatureEngineFor } from '@/domain/signatureEngine'
 import { stripRichText } from '@/utils/text'
+import { pickName } from '@/utils/names'
 import { useRouteParam } from '@/composables/useRouteParam'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useDetailSections, type DetailSectionChild, type DetailSectionItem } from '@/composables/useDetailSections'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { useEntityLevel } from '@/composables/useEntityLevel'
+import { useDetailPager } from '@/composables/useDetailPager'
 import { catalogEntry } from '@/domain/catalog'
 import {
   buildCoreEnhance,
@@ -41,7 +43,7 @@ interface SkillDisplay extends SkillRow {
   level: Ref<number>
 }
 import type { CharacterDetail, WEngineListItem } from '@/data/types'
-import { AgentHead, CoreSkillGroup, DescRow, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel } from '@/components'
+import { AgentHead, CoreSkillGroup, DetailPager, DescRow, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel } from '@/components'
 import HollowImage from '@/components/HollowImage.vue'
 
 const id = useRouteParam('id')
@@ -198,6 +200,10 @@ const navItems = computed(() => {
 })
 
 const { activeSection, revealDir: vReveal, noOf } = useDetailSections(navItems, status)
+
+/** 相邻条目翻页：名录 Id 序（与名录页默认排序一致），名录走 api 缓存 */
+const catAgents = catalogEntry('/agents')
+const { prev: pagerPrev, next: pagerNext } = useDetailPager(catAgents, id, pickName)
 
 /** 404 时返回名录 */
 const backTo = computed(() => (detail.value ? undefined : '/agents'))
@@ -360,6 +366,8 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
         </div>
       </DetailSection>
       </template>
+
+      <DetailPager :prev="pagerPrev" :next="pagerNext" :entry="catAgents" />
     </DetailPage>
 </template>
 

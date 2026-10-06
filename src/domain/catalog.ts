@@ -101,6 +101,16 @@ export function catalogEntry(path: string): CatalogEntry {
   return c
 }
 
+/**
+ * 类目策展：不进入名录浏览列表的条目（名录页与详情翻页共用同一份过滤）。
+ * 伊埃斯（55098）是绳匠专属的 H.D.D. 搭档，不是可获取的收藏型号
+ * （源站名录即空 icon / 占位 desc 的桩数据），从邦布名录浏览列表隐藏；
+ * 详情页仍可经直接链接与翻页外的路径到达。
+ */
+export const HIDDEN_ITEM_IDS: ReadonlyMap<string, ReadonlySet<number>> = new Map([
+  ['/bangboos', new Set<number>([55098])],
+])
+
 /** 页面标题文案（页面头 eyebrow 用，如 'AGENTS'）。 */
 export function catalogEyebrow(path: string): string {
   return catalogByPath(path)?.en ?? 'ARCHIVE'
