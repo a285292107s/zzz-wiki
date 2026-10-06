@@ -39,9 +39,11 @@ const FAMILY = 'Noto Serif SC'
 const WEIGHT = 500
 /** 单片体积目标（KB）：Google 官方分片按编码区切，常用字集中在少数 30-47KB 大
  *  分片里，页面为一个分片付全部字节而只用其中几十字。这里对超目标分片按码位
- *  二分递归细分——页面只为「含它所需字形」的小片付费，实测首页载荷再降约一半。
- *  调小 = 更省字节但更多请求；10KB 是两者平衡点（HTTP/2 多路复用成本低）。 */
-const TARGET_KB = Number(process.env.CJK_TARGET_KB ?? 10)
+ *  二分递归细分——页面只为「含它所需字形」的小片付费。
+ *  5KB（2026-10 实测选定）：更小的片让关键文字分片更早到达、管道更快释放；
+ *  详情页 LCP 7392 → 5515ms（两次均值），首页持平（4571 vs 4459ms），
+ *  代价是请求数上升（首页 31→34、详情 74→96），HTTP/2 多路复用下净收益为正。 */
+const TARGET_KB = Number(process.env.CJK_TARGET_KB ?? 5)
 const TARGET = TARGET_KB * 1024
 
 async function main() {
