@@ -24,4 +24,4 @@ for (const f of files) {
     ?.slice(0, 60)
   console.log(`  ${f.padEnd(24)} ${docLine ?? ''}`)
 }
-console.log('\n基线数值与取舍记录见 temp/quality-baseline.md（重建方法见各脚本头注释）。\n')
+console.log('\n目标值 / 当前实测 / 已知差距见 QUALITY.md（获奖级品质记分卡）；各脚本头注释含基线与取舍。\n')

@@ -29,6 +29,7 @@
  * | reflow-spacing.js    | WCAG 1.4.10 重排(320px) + 1.4.12 文本间距 + 320px 命中区 + 触屏档 | 0 溢出/0 裁切/0 过小目标 |
  * | keyboard-journey.js  | 键盘完整旅程（12 条任务，含焦点不被抢） | 12/12 |
  * | ax-tree.js           | 无障碍树（可访问名/标题层级/控件状态/图片名冗余） | 0 未命名，0 冗余 |
+ * | inp-interaction.js   | 交互响应 INP 代理（4× CPU 节流，含长任务/TBT） | 最差 48–88ms（<100 竞奖档） |
  *
  * 新增审计：脚本导出 JSON（{ total, failed, failedItems } 风格），
  * 失败项必须带定位信息（tag/cls/几何），让下一轮修复不用重新考古。
