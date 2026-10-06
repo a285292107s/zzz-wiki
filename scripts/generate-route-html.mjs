@@ -244,10 +244,23 @@ async function main() {
         const mobile = `/data/img/hero/mobile/${heroBase}.webp`
         const full = `/data/img/hero/${heroBase}.webp`
         box.preloadImages = []
-        if (fs.existsSync(path.join(DIST, mobile.replace(/^\//, ''))))
+        const hasMobile = fs.existsSync(path.join(DIST, mobile.replace(/^\//, '')))
+        const hasFull = fs.existsSync(path.join(DIST, full.replace(/^\//, '')))
+        // 宽屏 DPR 1 只需 ~1168px，原图 2552px 是 2.2 倍超采（311KB）→ 用 1400w 派生；
+        // 只有 DPR ≥1.5 才需要原图。**media 条件必须与 AgentHead 的
+        // useMediaQuery('(min-resolution: 1.5dppx)') 分支逐字一致**，否则预载与实取错位。
+        if (hasMobile) {
           box.preloadImages.push({ href: mobile, media: '(max-width: 860px)' })
-        if (fs.existsSync(path.join(DIST, full.replace(/^\//, ''))))
-          box.preloadImages.push({ href: full, media: '(min-width: 861px)' })
+          box.preloadImages.push({
+            href: mobile,
+            media: '(min-width: 861px) and (max-resolution: 1.49dppx)',
+          })
+        }
+        if (hasFull)
+          box.preloadImages.push({
+            href: full,
+            media: '(min-width: 861px) and (min-resolution: 1.5dppx)',
+          })
       }
     } else if (entry) {
       const { cat, list } = entry

@@ -188,6 +188,32 @@ async (page) => {
     })
     add('detail-name-token', nameToken.tokenSize === nameToken.titleSize, JSON.stringify(nameToken))
 
+    // 桌面 hero 按 DPR 选图：DPR 1 用 1400w 派生（46KB），DPR ≥1.5 才用原图（311KB）。
+    // 分支与逐路由 HTML 的预载 media 条件必须一致，否则预载与实取错位。
+    const heroAt = async (dpr) => {
+      const cdp = await page.context().newCDPSession(page)
+      await cdp.send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: dpr, mobile: false })
+      await page.goto('http://localhost:4175/agents/1011', { waitUntil: 'networkidle' })
+      await page.waitForTimeout(2200)
+      const r = await page.evaluate(() => {
+        const img = document.querySelector('.hero-bg img')
+        return { src: (img?.currentSrc || img?.src || '').split('/').slice(-2).join('/'), nw: img?.naturalWidth ?? 0 }
+      })
+      await cdp.send('Emulation.clearDeviceMetricsOverride')
+      return r
+    }
+    const heroDpr1 = await heroAt(1)
+    const heroDpr2 = await heroAt(2)
+    add(
+      'detail-hero-dpr',
+      heroDpr1.src.includes('mobile/') && heroDpr1.nw === 1400 && !heroDpr2.src.includes('mobile/') && heroDpr2.nw > 2000,
+      `DPR1 ${heroDpr1.src}(${heroDpr1.nw}) / DPR2 ${heroDpr2.src}(${heroDpr2.nw})`,
+    )
+    await page.setViewportSize({ width: 1440, height: 900 })
+    // 回到本段原本的页面（1021），否则后面的翻页断言会按 1011 的邻居失配
+    await page.goto('http://localhost:4175/agents/1021', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(2000)
+
     // 区块导航「当前项」也要有悬停反馈（它已是 ink-0/琥珀，普通 hover 对它等于无变化）
     const navActive = await page.evaluate(() => {
       const el = document.querySelector('.sn-item.active')

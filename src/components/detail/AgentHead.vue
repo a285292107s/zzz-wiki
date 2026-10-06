@@ -90,13 +90,20 @@ const heroBase = computed(() => {
  *  在 setup 期同步求值，首帧即选中正确分支（免「先请求原图再切换」的双下载）。 */
 const narrow = useMediaQuery('(max-width: 860px)')
 
+/** 高密度屏判定：宽屏下 hero 盒约 1168 CSS px，DPR 1 只需 ~1168px 图，而原图 2552px
+ *  是 2.2 倍超采（311KB）——Lighthouse 桌面（DPR 1）LCP 因此被图片拖住。故宽屏也按
+ *  DPR 分支：DPR < 1.5 用 1400w 派生（46KB，仍 ≥1168px 不放大），DPR ≥ 1.5 才用原图
+ *  （真需要 ~2336px）。
+ *  **阈值必须与逐路由 HTML 的预载 media 条件一致**（generate-route-html.mjs 的
+ *  max-resolution/min-resolution 分支），否则预载与实取错位、白下一份。 */
+const retina = useMediaQuery('(min-resolution: 1.5dppx)')
+
 const heroSrcs = computed(() => {
   const local = `${LOCAL_HERO}/${heroBase.value}.webp`
+  const mobile = `${LOCAL_HERO}/mobile/${heroBase.value}.webp`
   const cdn = `https://static.nanoka.cc/assets/zzz/${heroBase.value}.webp`
-  // 候选链顺序即回退顺序：窄屏变体缺失时自动落到原图（HollowImage 逐个尝试）
-  return narrow.value
-    ? [`${LOCAL_HERO}/mobile/${heroBase.value}.webp`, local, cdn]
-    : [local, cdn]
+  // 候选链顺序即回退顺序：派生变体缺失时自动落到原图（HollowImage 逐个尝试）
+  return narrow.value || !retina.value ? [mobile, local, cdn] : [local, cdn]
 })
 
 /** 复用「今日角色」校准构图（featured-pool.json calibrated 表）：水平脸对焦 + 放大消透明边。

@@ -39,6 +39,22 @@ const mountOptions = {
 describe('AgentHead 双形态切换钮（首页 hero 头图已移除，切换钮移至详情页）', () => {
   beforeEach(() => {
     localStorage.clear()
+    // 本文件测的是「形态切换」而非取图分支：固定为「宽屏 + retina」，
+    // 使 hero 走原图路径（jsdom 默认 matchMedia 恒 false，等于 DPR 1 桌面 → 派生）。
+    Object.defineProperty(window, 'matchMedia', {
+      configurable: true,
+      writable: true,
+      value: (query: string) => ({
+        matches: query.includes('min-resolution'),
+        media: query,
+        onchange: null,
+        addEventListener: () => {},
+        removeEventListener: () => {},
+        addListener: () => {},
+        removeListener: () => {},
+        dispatchEvent: () => false,
+      }),
+    })
   })
 
   it('双形态角色（1551 佩洛伊斯）显示形态切换钮，点击后切换 hero 头图并持久化', async () => {
