@@ -390,11 +390,11 @@ function thumbStyle(id: number): Record<string, string> | undefined {
 
 <style scoped>
 .calib { padding-bottom: var(--space-section); }
-.calib-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; padding: 22px 0 18px; }
+.calib-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-head); padding: 22px 0 18px; }
 .calib-head h1 { font-family: var(--serif); font-size: var(--fs-display); margin: 0; }
-.calib-main { display: grid; grid-template-columns: 1fr minmax(230px, 330px); gap: 12px; }
+.calib-main { display: grid; grid-template-columns: 1fr minmax(230px, 330px); gap: var(--space-inline); }
 
-.pan-col { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.pan-col { display: flex; flex-direction: column; gap: var(--space-inline); min-width: 0; }
 
 .panorama { position: relative; overflow: hidden; border: 1px solid var(--line-1); border-radius: 2px; background: var(--bg-0); touch-action: none; }
 .panorama > img { width: 100%; height: 100%; object-fit: contain; display: block; user-select: none; }
@@ -411,7 +411,7 @@ function thumbStyle(id: number): Record<string, string> | undefined {
 .controls input[type='range'] { width: 100%; }
 .save-note { position: absolute; top: 8px; left: 10px; z-index: 2; margin: 0; font-size: var(--fs-nano); letter-spacing: .04em; color: var(--ink-0); background: rgba(0,0,0,.45); padding: 2px 6px; border-radius: 2px; pointer-events: none; }
 
-.grid { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px 10px; margin-top: 20px; padding: 0; }
+.grid { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: var(--space-inline) 10px; margin-top: 20px; padding: 0; }
 .grid-item { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .grid-cell { position: relative; width: 100%; aspect-ratio: 9 / 16; overflow: hidden; border: 1px solid var(--line-1); border-radius: 2px; background: var(--bg-0); cursor: pointer; padding: 0; }
 .grid-item.is-current .grid-cell { outline: 1px solid var(--amber); }

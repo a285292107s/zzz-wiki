@@ -231,7 +231,7 @@ th.sortable {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
-    gap: 12px;
+    gap: var(--space-inline);
     padding: 11px 4px;
     border-bottom: var(--rule);
   }

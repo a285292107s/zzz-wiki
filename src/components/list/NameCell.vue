@@ -45,7 +45,7 @@ function warmNow(): void {
 .name-cell {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-inline);
 }
 
 /* 变色挂在整条链接上（头像+名字），与名录行只可点名称的语义一致 */

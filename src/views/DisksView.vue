@@ -143,7 +143,7 @@ function warmNow(id: number | string): void {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: var(--space-inline);
   margin-bottom: 20px;
 }
 
@@ -201,13 +201,13 @@ function warmNow(id: number | string): void {
   padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-inline);
 }
 
 .card-head {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-inline);
   text-decoration: none;
   color: inherit;
   min-width: 0;

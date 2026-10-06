@@ -144,7 +144,7 @@ const { sorted, sortKey, sortDir, toggle, isDefault: sortIsDefault } = useCatalo
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: var(--space-inline);
   margin-bottom: 20px;
 }
 

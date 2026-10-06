@@ -378,7 +378,7 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
 .type-row {
   display: grid;
   grid-template-columns: 90px 1fr auto;
-  gap: 16px;
+  gap: var(--space-col);
   align-items: center;
   padding: 14px 16px;
   border-bottom: var(--rule);
@@ -416,7 +416,7 @@ const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }
 .scale-row {
   display: grid;
   grid-template-columns: 96px 1fr auto 130px;
-  gap: 16px;
+  gap: var(--space-col);
   align-items: baseline;
   padding: 10px 16px;
   border-bottom: var(--rule);

@@ -364,7 +364,7 @@ function openSearch() {
 .mobile-item {
   display: flex;
   align-items: baseline;
-  gap: 12px;
+  gap: var(--space-inline);
   padding: 12px 2px;
   border-bottom: 1px solid var(--line-0);
   color: var(--ink-1);
@@ -396,7 +396,7 @@ function openSearch() {
   .masthead-inner {
     height: 62px;
     flex-direction: row;
-    gap: 12px;
+    gap: var(--space-inline);
     padding-block: 0;
   }
 

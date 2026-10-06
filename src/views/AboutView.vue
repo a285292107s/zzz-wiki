@@ -341,7 +341,7 @@ const gapCount = computed(() =>
   display: grid;
   grid-template-columns: 34px 1fr auto minmax(96px, auto) 60px;
   align-items: baseline;
-  gap: 12px;
+  gap: var(--space-inline);
   padding: 9px 2px;
   border-bottom: 1px solid var(--line-0);
 }
@@ -428,7 +428,7 @@ const gapCount = computed(() =>
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-inline);
   max-width: 74ch;
 }
 
@@ -471,7 +471,7 @@ const gapCount = computed(() =>
 .checks li {
   display: flex;
   align-items: baseline;
-  gap: 12px;
+  gap: var(--space-inline);
   font-size: var(--fs-md);
   color: var(--ink-1);
   line-height: 1.85;
@@ -529,7 +529,7 @@ const gapCount = computed(() =>
 .cov-row {
   display: flex;
   align-items: baseline;
-  gap: 12px;
+  gap: var(--space-inline);
   padding: 5px 0;
   border-bottom: 1px solid var(--line-0);
 }
@@ -564,7 +564,7 @@ const gapCount = computed(() =>
 .key-row {
   display: grid;
   grid-template-columns: 132px 1fr;
-  gap: 16px;
+  gap: var(--space-col);
   align-items: baseline;
   padding: 11px 2px;
   border-bottom: 1px solid var(--line-0);

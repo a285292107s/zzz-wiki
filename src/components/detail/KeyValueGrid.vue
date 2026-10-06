@@ -73,7 +73,7 @@ withDefaults(
 .ledger-row {
   display: flex;
   align-items: baseline;
-  gap: 12px;
+  gap: var(--space-inline);
   padding-block: 11px;
 }
 

@@ -515,7 +515,7 @@ mark.qs-hit {
 .qs-entry {
   display: flex;
   align-items: baseline;
-  gap: 12px;
+  gap: var(--space-inline);
   padding: 9px 8px;
   text-decoration: none;
   color: inherit;

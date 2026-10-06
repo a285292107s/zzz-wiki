@@ -247,7 +247,7 @@ const unlockCount = computed(() =>
 .level-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-inline);
   margin-left: auto;
   /* flex-basis 只决定 .skill-kind-row 的 flex-wrap 换行阈值（flex-grow 会把它拉伸至填满剩余、
      受 max-width 封顶，故不影响桌面最终宽度）：收紧到 150px 让窄屏滑条与核心技名同排，
@@ -327,7 +327,7 @@ const unlockCount = computed(() =>
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 12px;
+  gap: var(--space-inline);
   margin-bottom: 2px;
 }
 
@@ -456,7 +456,7 @@ const unlockCount = computed(() =>
 @media (max-width: 560px) {
   .tier {
     grid-template-columns: 40px 1fr;
-    column-gap: 12px;
+    column-gap: var(--space-inline);
     row-gap: 2px;
   }
 

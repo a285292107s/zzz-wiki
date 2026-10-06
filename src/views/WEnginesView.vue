@@ -109,7 +109,7 @@ const { sorted, sortKey, sortDir, toggle, isDefault: sortIsDefault } = useCatalo
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-inline);
   justify-content: space-between;
   margin-bottom: 20px;
 }

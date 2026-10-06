@@ -30,7 +30,8 @@
  * | keyboard-journey.js  | 键盘完整旅程（12 条任务，含焦点不被抢） | 12/12 |
  * | ax-tree.js           | 无障碍树（可访问名/标题层级/控件状态/图片名冗余） | 0 未命名，0 冗余 |
  * | inp-interaction.js   | 交互响应 INP 代理（4× CPU 节流，含长任务/TBT） | 最差 48–88ms（<100 竞奖档） |
- * | offline-check.js     | 离线阅读（SW 接管 → 断网重载已访问页面 → 恢复联网） | 5/5 |
+ * | offline-check.js     | 离线阅读（SW 接管 → 断网重载 → 兜底页 → 缓存有界 → 回访零网络） | 7/7 |
+ * | spacing-audit.js     | 版式节奏合规（严格门禁=版式级；容器级仅报告） | 版式级 0 越轨 |
  *
  * ⚠ **跑审计前必须 `npm run build:ci`**（不是 `npm run build`）：后者会清空 dist 且
  *   **不生成 sitemap / 逐路由 HTML**，`content-sweep` 这类读产物清单的脚本会静默地

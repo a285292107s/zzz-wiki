@@ -264,7 +264,7 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: var(--space-head);
   /* 与下方详情区版心同对齐；顶留一份呼吸空间，配合四角定位标内框 */
   padding: 18px var(--pad-page) 15px;
 }
@@ -332,7 +332,7 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
 .ghost {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-inline);
   margin-bottom: 14px;
   font-size: clamp(12px, 1.4vw, 15px);
   font-weight: 400;
@@ -356,7 +356,7 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: var(--space-inline);
   margin-top: 22px;
 }
 

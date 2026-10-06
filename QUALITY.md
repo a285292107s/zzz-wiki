@@ -75,6 +75,7 @@
 | 交互态完整性 | 每个可交互元素有 hover/active | **101 元素 0 缺失** ✅ | `interaction-states.js` |
 | 字体族 | 只在三套栈内 | **0 越轨** ✅ | `typography-audit.js` |
 | 行宽（measure） | 无过宽块（>50 字/行） | **0** ✅ | `typography-audit.js` |
+| **版式节奏（间距）** | 版式级间距全部来自节奏令牌 | **0 越轨**（8 个生效值全部出自 `--pad-*` / `--space-*`）✅ | `spacing-audit.js` |
 | 视觉层级/一致 | 令牌单一来源 | 见 `tokens.css` 注释 + `/style` | — |
 
 ## 4. 结构与内容（Webby Content / Structure & Navigation；Awwwards Content 10%）
@@ -102,7 +103,7 @@
 | CSP | 严格（脚本无 unsafe-inline/eval） | **已上线，本地实测 0 违规** ✅ | `csp-check.js` + `verify:vercel` |
 | 缓存策略 | 内容寻址 immutable、非寻址重验证 | **27 项断言通过** ✅ | `verify:vercel` |
 | 部署产物一致性 | sitemap 域 = canonical 域 | **门禁通过** ✅ | `verify-budget` |
-| 测试 | 全绿 | **325 passed / 37 files** ✅ | `npm test` |
+| 测试 | 全绿 | **331 passed / 37 files** ✅ | `npm test` |
 
 ---
 
@@ -122,3 +123,30 @@
 > 记分卡的复跑约定：`npm test` + `npm run build:ci` 是**必过门禁**；
 > 上表各审计用 `playwright-cli run-code --filename=scripts/audits/<脚本>`（需 preview 运行中）。
 > 新指标一旦加入记分卡，就要同时进 `regression-walk.js`（能进走查的）或独立脚本（需 CDP 的）。
+
+---
+
+## 7. 评审维度对照（自评 · 第 100 轮）
+
+把三大奖项的**评审维度**逐条对到本站证据上，避免「指标全绿但维度没覆盖」的盲区。
+自评只用两档：**有证据**（可跑命令复现）/ **无法自证**（需要人眼或真实评审）。
+
+| 奖项维度 | 本站证据 | 自评 |
+| --- | --- | --- |
+| Awwwards **Design 40%** | 令牌单一来源（字号/颜色/间距/字体族 4 项审计 0 越轨）、交互态完整 101/101、视觉层级由 `tokens.css` + `/style` 页自陈 | 有证据（**构图与美感的最终判断无法自证**） |
+| Awwwards **Usability 30%** | 键盘旅程 12/12、焦点 121/121、axe 24 组合 0、重排/间距/命中区/HCM/打印全通过、INP 48–88ms | 有证据 |
+| Awwwards **Creativity 20%** | 「档案标本」语言（细线 + 等宽编号 + 纸墨）、逐路由静态 HTML + 预载、URL 即视图 | **部分**：原创性成立，但缺少一个「记得住的交互」 |
+| Awwwards **Content 10%** | 232 条结构化档案、字段覆盖透明度、逐条出处、公式页版本锚定、编号规则可核查 | 有证据 |
+| Webby **Content** | 同上 + 238 页 0 异常、缺口如实标注不补造 | 有证据 |
+| Webby **Structure & Navigation** | 名录/详情/公式/说明四层结构、段内导航 + 滚动高亮、深链与视图状态入 URL、离线可用 | 有证据 |
+| Webby **Visual Design**（含 disability inclusion） | 对比度 4.65:1 起、HCM 8/8、reduced-motion 0 残留、320px 无溢出 | 有证据 |
+| Webby **Functionality**（快速加载 / 特殊访问 / 带宽） | CWV 达标、回访零网络、离线兜底页、SW 缓存有界、CSP 严格 | 有证据 |
+| Webby **Interactivity** | 快速检索（⌘K）、等级滑条（键盘 + URL）、筛选/排序（URL）、复制链接、翻页 | 有证据 |
+| Webby **Innovation** | 数据出处透明化（覆盖/版本/编号规则）、离线优先的档案站、零外部请求 | **部分**：方向清楚，深度可再加 |
+| Webby **Overall Experience** | 加载/错误/空/离线四态都有出路；边界态文案可读 | 有证据 |
+| FWA（创意 / 实验性 / 技术执行） | 技术执行有证据（性能/无障碍/离线/构建门禁）；**创意与实验性偏保守** | **部分**：与「不炫技」的定位一致，属有意取舍 |
+
+**自评结论**：可验收维度已基本覆盖（六板块 40+ 项、全部可复跑）；**真正的剩余风险集中在
+「创意/创新」与「构图美感」两项**——前者是有意的克制取舍，后者只能由人眼判定。
+故后续轮次的优先级是：① 若要做创新，应做**档案原生**的（如对照台/图谱），而不是加动效；
+② 不再堆指标，改为定期**全量复跑**防止回退。

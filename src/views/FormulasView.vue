@@ -156,14 +156,14 @@ onBeforeUnmount(() => {
   padding: 16px 18px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-inline);
   margin-bottom: var(--pad-section);
 }
 
 .notice-source {
   display: flex;
   align-items: baseline;
-  gap: 12px;
+  gap: var(--space-inline);
   font-size: var(--fs-small);
   color: var(--ink-1);
   line-height: 1.6;
@@ -265,7 +265,7 @@ onBeforeUnmount(() => {
 .group-title {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-inline);
   font-size: var(--fs-micro);
   font-weight: 400;
   letter-spacing: 0.24em;

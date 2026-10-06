@@ -310,7 +310,7 @@ function potTag(grp: SkillGroup): string | null {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 16px;
+  gap: var(--space-head);
   padding: 6px 0;
   color: var(--ink-1);
   font-size: var(--fs-small);
@@ -437,7 +437,7 @@ function potTag(grp: SkillGroup): string | null {
 .level-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-inline);
   margin-left: auto;
   /* flex-basis 只决定 .skill-kind-row 的 flex-wrap 换行阈值（flex-grow 会把它拉伸至填满剩余、
      受 max-width 封顶，故不影响桌面最终宽度）：收紧到 150px 让窄屏滑条与技能名同排，

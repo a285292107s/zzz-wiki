@@ -37,7 +37,7 @@ defineProps<{
 .section-head {
   display: flex;
   align-items: baseline;
-  gap: 16px;
+  gap: var(--space-head);
   border-top: var(--rule);
   padding-top: 14px;
   margin-bottom: 28px;
