@@ -98,7 +98,8 @@ watch(
   letter-spacing: 0.12em;
   transition: color var(--t-fast) var(--ease);
   display: inline-block;
-  margin-bottom: calc(var(--pad-section) * 0.6);
+  /* 与页头的绑定的间距较区块间距收紧：返回链接语义上从属页头，不参与区块之间的呼吸 */
+  margin-bottom: clamp(16px, 2.2vw, 34px);
 }
 
 .back:hover {

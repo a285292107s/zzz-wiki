@@ -6,6 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="绝区零（Zenless Zone Zero）数据档案 · 代理人、音擎、邦布与驱动盘结构化图鉴" />
     <title>绳网档案 · 绝区零数据图鉴</title>
+    <!-- 移动端浏览器 chrome 染页面底色（--bg-0 同值） -->
+    <meta name="theme-color" content="#0d0f11" />
+    <!-- 社交卡片：SPA 静态 head，全站共用一份（页面级标题由 usePageMeta 动态改 document.title） -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="绳网档案" />
+    <meta property="og:title" content="绳网档案 · 绝区零数据图鉴" />
+    <meta property="og:description" content="以档案编号为纲的绝区零结构化资料库：代理人、音擎、邦布与驱动盘，客观陈列，不含主观评述。" />
+    <meta property="og:image" content="/home-bg.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- 字体预加载：@font-face 经 CSS 才被发现，晚到必触发 swap 重排（页脚/编号文字跳位，CLS）。
+         只预载首屏实际命中的 400 字重；preload 不匹配 (as="font") 会报 console 警告，增删须同步 tokens.css。 -->
+    <link rel="preload" href="/fonts/PublicSans-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/JetBrainsMono-400.woff2" as="font" type="font/woff2" crossorigin />
     <!-- 首页 LCP 预取（hero 是 CSS background-image，浏览器默认不会提前加载）：
          预取图由构建期 vite.config.ts 的 hero-preload 插件按 src/data/featured-pool.json
          首张入池角色动态注入，此处不写死素材路径（池变更后自动跟随）。 -->

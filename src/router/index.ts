@@ -2,6 +2,9 @@ import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import { CATALOG } from '@/domain/catalog'
 import { DEV_ROUTES } from '@/domain/devRoutes'
 import { resolveAnchorOffset } from '@/composables/anchorOffset'
+// 首页是着陆页：静态编入主包（其余路由保持懒加载）。懒 chunk 到位前 main 只有站头+页脚，
+// 内容到达时整页弹入、页脚下坠（实测 CLS 0.031 的来源）；着陆页 +2.5KB gzip 换首帧稳定。
+import HomeView from '@/views/HomeView.vue'
 
 /** 类目视图懒加载映射：catalog 条目 → [名录页, 详情页]。
  *  路径/名称/标题全部由 CATALOG 派生（单一事实源），此处只登记组件文件。 */
@@ -67,7 +70,7 @@ export const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('@/views/HomeView.vue'),
+      component: HomeView,
       meta: { title: '首页' },
     },
     ...catalogRoutes(),

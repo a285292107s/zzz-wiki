@@ -31,8 +31,9 @@ const currentVersionLabel = computed(() => {
 const AGENT_CIRCLE_ICON = `${import.meta.env.BASE_URL ?? '/'}data/img/character/IconRoleCircle01.webp`
 
 // 今日角色：精选池 + 每次挂载随机取 4 张（取数与解析收敛在 useFeaturedAgents composable，
-// 构图参数 pos/zoom/originY 含义见 IMG_GUIDE.md）
-const { featured } = useFeaturedAgents()
+// 构图参数 pos/zoom/originY 含义见 IMG_GUIDE.md）。picks 同步可得，供骨架卡占位（防 CLS）：
+// 卡片区不再等清单 JSON 返回才插入，首帧即以等高骨架占位。
+const { featured, picks } = useFeaturedAgents()
 
 const sections = [
   ...CATALOG.map((c) => ({
@@ -95,49 +96,62 @@ const sections = [
     </section>
 
     <div class="wrap">
-      <!-- 今日角色：精选角色 9:16 标本卡（Mindscape 全景局部遮罩），4 张并列；无损无卡时不渲染 -->
-      <section v-if="featured.length" class="banners">
+      <!-- 今日角色：精选角色 9:16 标本卡（Mindscape 全景局部遮罩），4 张并列；池为空不渲染。
+           清单未就绪时先渲染 picks 等高骨架卡，避免区块延迟插入把下方目录/页脚整页下推（CLS）。 -->
+      <section v-if="picks.length" class="banners">
         <div v-reveal class="section-head">
           <h2>今日角色</h2>
           <span class="rule" />
         </div>
         <div class="specimen-row">
-          <RouterLink
-            v-for="(card, i) in featured"
-            :key="card.id"
-            v-reveal="i * 70"
-            :to="card.to"
-            class="specimen-card"
-          >
-            <span class="specimen-figure">
-              <!-- 首屏重点头图，勿 lazy：懒加载会把它降为低优先级，且带 transform:scale 的
-                   img 会升级为独立合成层，合成器按 DOM 顺序逐个绘制，最右一格最后上屏
-                   （网络其实并行，见 DevTools）。故用 eager 并行、常规优先级加载。 -->
-              <HollowImage
-                unframed
-                loading="eager"
-                :srcs="card.srcs"
-                :alt="card.zh || card.en"
-                :img-style="{
-                  objectPosition: card.pos,
-                  transformOrigin: `50% ${card.originY}%`,
-                  transform: `scale(${card.zoom})`,
-                }"
-              />
-            </span>
-            <span class="specimen-plate">
-              <span class="plate-top">
-                <span class="no mono">{{ card.no }}</span>
-                <span
-                  v-if="card.elementZh"
-                  class="el mono"
-                  :style="card.elementColor ? { color: card.elementColor } : undefined"
-                >{{ card.elementZh }}</span>
+          <template v-if="featured.length">
+            <RouterLink
+              v-for="(card, i) in featured"
+              :key="card.id"
+              v-reveal="i * 70"
+              :to="card.to"
+              class="specimen-card"
+            >
+              <span class="specimen-figure">
+                <!-- 首屏重点头图，勿 lazy：懒加载会把它降为低优先级，且带 transform:scale 的
+                     img 会升级为独立合成层，合成器按 DOM 顺序逐个绘制，最右一格最后上屏
+                     （网络其实并行，见 DevTools）。故用 eager 并行、常规优先级加载。 -->
+                <HollowImage
+                  unframed
+                  loading="eager"
+                  :srcs="card.srcs"
+                  :alt="card.zh || card.en"
+                  :img-style="{
+                    objectPosition: card.pos,
+                    transformOrigin: `50% ${card.originY}%`,
+                    transform: `scale(${card.zoom})`,
+                  }"
+                />
               </span>
-              <span class="zh">{{ card.zh }}</span>
-              <span class="en mono">{{ card.en }}</span>
-            </span>
-          </RouterLink>
+              <span class="specimen-plate">
+                <span class="plate-top">
+                  <span class="no mono">{{ card.no }}</span>
+                  <span
+                    v-if="card.elementZh"
+                    class="el mono"
+                    :style="card.elementColor ? { color: card.elementColor } : undefined"
+                  >{{ card.elementZh }}</span>
+                </span>
+                <span class="zh">{{ card.zh }}</span>
+                <span class="en mono">{{ card.en }}</span>
+              </span>
+            </RouterLink>
+          </template>
+          <template v-else>
+            <div v-for="p in picks" :key="p.id" class="specimen-card skel" aria-hidden="true">
+              <span class="specimen-figure" />
+              <span class="specimen-plate">
+                <span class="bar no-bar" />
+                <span class="bar zh-bar" />
+                <span class="bar en-bar" />
+              </span>
+            </div>
+          </template>
         </div>
       </section>
 
@@ -244,6 +258,52 @@ const sections = [
 
 /* 9:16 竖视口：遮罩住超宽全景图只露局部（object-fit:cover + object-position）。
    底图透明区透出页面深底色，形成浮空立绘；不加遮罩色阶，避免发糊 */
+
+/* ---------- 骨架卡（清单未就绪的占位）：与实体卡同构等高，防区块插入式 CLS ---------- */
+
+.skel {
+  pointer-events: none;
+}
+
+.skel .specimen-figure {
+  background: var(--bg-2);
+}
+
+.skel .bar {
+  display: block;
+  height: 12px;
+  background: linear-gradient(
+    90deg,
+    var(--bg-2) 0%,
+    var(--bg-3) 50%,
+    var(--bg-2) 100%
+  );
+  background-size: 200% 100%;
+  animation: skel-pulse 1.4s ease-in-out infinite;
+}
+
+/* 三条占位条对应标牌三行（编号/中文名/英文名），高度对齐真实行盒， swapping 不跳变 */
+.skel .no-bar {
+  height: 20px;
+  width: 24px;
+}
+
+.skel .zh-bar {
+  height: 21px;
+  width: 64px;
+}
+
+.skel .en-bar {
+  height: 17px;
+  width: 90px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skel .bar {
+    animation: none;
+    background: var(--bg-2);
+  }
+}
 .specimen-figure {
   position: relative;
   width: 100%;

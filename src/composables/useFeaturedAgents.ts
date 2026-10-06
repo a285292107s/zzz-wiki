@@ -99,5 +99,6 @@ export function useFeaturedAgents() {
 
   const { data: list } = useAsyncResource<CharacterListItem[]>(() => listFor<CharacterListItem>(catalogEntry('/agents')))
   const featured = computed(() => (list.value ? buildFeaturedCards(picks, list.value) : []))
-  return { featured }
+  // picks 同步可得：视图用它先渲染等高骨架卡（清单未就绪时），消除卡片区插入引发的 CLS
+  return { featured, picks }
 }
