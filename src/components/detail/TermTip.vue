@@ -46,7 +46,6 @@ function bindListEl(el: unknown): void {
 const SHOW_DELAY_MS = 120
 let showTimer: number | undefined
 let hideTimer: number | undefined
-
 /** 单调递增令牌：每次 hide()/新一轮 openTip 自增，令在途的 await 回调失效（防止指针离开后浮层迟滞弹出） */
 let session = 0
 
@@ -61,6 +60,7 @@ async function openTip(el: Element): Promise<void> {
   clearTimeout(hideTimer)
   clearTimeout(showTimer)
   showTimer = window.setTimeout(async () => {
+    showTimer = undefined // 已执行：此后滚动收起恢复正常判定（见 onScroll 守卫）
     const dict = await nounDict()
     // 等待词典期间已 hide 或切到别的术语，丢弃本次陈旧请求
     if (my !== session) return
@@ -118,6 +118,8 @@ function hideAll(): void {
   session++
   clearTimeout(showTimer)
   clearTimeout(hideTimer)
+  showTimer = undefined
+  hideTimer = undefined
   tips.value = []
 }
 
@@ -257,6 +259,10 @@ function onScroll(e: Event): void {
   // - 滚动源在卡片列表容器内（.tip-desc 长文本或容器超高超出的内部滚动）→ 不收起；
   // - 页面滚动 → 收起（名词已随内容滚走，fixed 卡片脱离上下文，保留无意义）。
   if ((e.target as Element | null)?.closest?.('.term-tip-list')) return
+  // 键盘聚焦引发的自动滚动（Tab/programmatic focus 到视口外术语）：focusin 先于滚动，
+  // openTip 的 120ms 显示窗会贯穿整个平滑滚动期——此刻收起会让键盘用户的浮层「永不出现」。
+  // showTimer 在途即显示序列未完成，豁免本次与后续滚动帧；显示完成（showTimer 归零）后恢复收起。
+  if (showTimer !== undefined) return
   hideAll()
 }
 
@@ -281,8 +287,8 @@ onBeforeUnmount(() => {
   root?.removeEventListener('focusout', onFocusOut, { capture: true })
   root?.removeEventListener('scroll', onScroll, true)
   root?.removeEventListener('pointerdown', onPointerDown, true)
-  clearTimeout(showTimer)
-  clearTimeout(hideTimer)
+  showTimer = undefined
+  hideTimer = undefined
 })
 </script>
 
