@@ -611,10 +611,23 @@ async (page) => {
       version: document.querySelectorAll('.spec-item dd')[0]?.textContent.trim(),
       keyRows: document.querySelectorAll('.key-row').length,
       hasShortcuts: !!document.querySelector('#shortcuts'),
+      // 字段覆盖：类目数 + 覆盖行数 + 缺口行数（缺口是「如实标注」而非错误）
+      covCats: document.querySelectorAll('.cov-cat').length,
+      covRows: document.querySelectorAll('.cov-row').length,
+      covGaps: document.querySelectorAll('.cov-row dd.gap').length,
+      covBadFractions: [...document.querySelectorAll('.cov-row dd')].filter((dd) => {
+        const m = /(\d+)\s*\/\s*(\d+)/.exec(dd.textContent ?? '')
+        return !m || Number(m[2]) === 0 || Number(m[1]) > Number(m[2])
+      }).length,
     }))
     add('about-title', r.title === '数据说明', r.title ?? 'none')
-    add('about-sections', r.sections === 5, String(r.sections))
+    add('about-sections', r.sections === 6, String(r.sections))
     add('about-shortcuts', r.hasShortcuts && r.keyRows === 4, `rows=${r.keyRows}`)
+    add(
+      'about-coverage',
+      r.covCats === 4 && r.covRows >= 6 && r.covBadFractions === 0,
+      `类目 ${r.covCats} / 行 ${r.covRows} / 缺口 ${r.covGaps} / 非法分数 ${r.covBadFractions}`,
+    )
     add('about-cats', r.cats === 4, String(r.cats))
     add('about-total', /^\d+ 条$/.test(r.total ?? ''), r.total ?? 'none')
     add('about-version', /LIVE \d/.test(r.version ?? ''), r.version ?? 'none')

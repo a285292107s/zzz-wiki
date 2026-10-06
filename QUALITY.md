@@ -79,12 +79,13 @@
 
 | 指标 | 目标 | 本站实测 | 复跑 |
 | --- | --- | --- | --- |
-| 全站内容完整性（238 页） | 0 渲染异常 | **0 泄漏 / 0 空区块 / 0 断图** ✅ | `content-sweep.js` |
+| 全站内容完整性（238 页） | 0 渲染异常 | **0 泄漏 / 0 空区块 / 0 断图** ✅ | `content-sweep.js`（**须先 `build:ci`**：`build` 不产 sitemap/逐路由 HTML，脚本会静默扫 0 页） |
 | 每页元信息 | title + description + canonical + og | **237 页逐路由 HTML 齐全** ✅ | `npm run route-html`（含自校验） |
 | 结构化入口 | sitemap + robots 一致 | **238 URL / 同域** ✅ | `verify-budget`（origin 一致性门禁） |
 | 边界态 | 加载/空/错误/404 均有出路 | **4 态齐备**（空态可清除、错误可重试） ✅ | `regression-walk.js` |
 | 可分享视图 | 筛选/排序/等级写进 URL | **4 类状态全部深链** ✅ | `regression-walk.js`（sort/level/copy 组） |
 | 空白与占位 | 无 lorem、无「敬请期待」 | 内容全部来自落地数据 ✅ | `content-sweep.js` |
+| **字段覆盖透明度** | 缺口如实标注、不补造 | **4 类目 / 9 字段**，3 项缺口以琥珀标注（简介 57/60、潜能 11/60、邦布图标 41/42） ✅ | `regression-walk.js`（about-coverage） |
 | 多语言质量 | 无机器翻译痕迹 | 单语（zh），文案人工撰写 ✅ | — |
 
 ## 5. 安全与部署（Functionality 的工程底线）

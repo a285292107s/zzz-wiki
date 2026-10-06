@@ -32,6 +32,7 @@ onMounted(() => {
     void listFor<Record<string, unknown>>(c)
       .then((rows) => {
         counts.value = { ...counts.value, [c.path]: rows.length }
+        rawRows.value = { ...rawRows.value, [c.path]: rows }
       })
       .catch(() => {
         /* 计数失败不阻断页面（显示占位 ···） */
@@ -68,6 +69,60 @@ const total = computed(() => {
 })
 
 const fmt = (n: number | null | undefined) => (typeof n === 'number' ? String(n) : '···')
+
+/* ---------- 字段覆盖：把「哪些字段是满的、哪些有源站缺口」摊开说 ----------
+   用名录页同源数据（listFor 已缓存，零额外请求）。缺口不补造、不隐藏——
+   这是本站「客观陈列」的底线，也是数据说明页该承担的透明度。 */
+const rawRows = ref<Record<string, Record<string, unknown>[]>>({})
+
+/** 字段规格：每类目挑 2–3 个能反映数据完整度的字段（键名来自源站 JSON） */
+const FIELD_SPEC: Record<string, { label: string; keys: string[] }[]> = {
+  '/agents': [
+    { label: '属性 / 职业 / 阵营', keys: ['element', 'type', 'camp'] },
+    { label: '简介', keys: ['desc'] },
+    { label: '潜能（影画）', keys: ['potential'] },
+  ],
+  '/w-engines': [
+    { label: '稀有度 / 类型 / 攻击', keys: ['rank', 'type', 'atk'] },
+    { label: '副词条 / 简介', keys: ['sub', 'desc'] },
+  ],
+  '/bangboos': [
+    { label: '稀有度 / 代号', keys: ['rank', 'codename'] },
+    { label: '图标', keys: ['icon'] },
+    { label: '简介', keys: ['desc'] },
+  ],
+  '/disks': [
+    { label: '中文名 / 图标', keys: ['zh', 'icon'] },
+  ],
+}
+
+/** 有值判定：非空字符串 / 非空数组 / 非空对象 */
+function hasValue(v: unknown): boolean {
+  if (v == null || v === '') return false
+  if (Array.isArray(v)) return v.length > 0
+  if (typeof v === 'object') return Object.keys(v as object).length > 0
+  return true
+}
+
+const coverage = computed(() =>
+  CATALOG.map((c) => {
+    const rows = rawRows.value[c.path] ?? []
+    return {
+      no: c.no,
+      label: c.label,
+      total: rows.length,
+      fields: (FIELD_SPEC[c.path] ?? []).map((f) => ({
+        label: f.label,
+        filled: rows.filter((r) => f.keys.every((k) => hasValue(r[k]))).length,
+      })),
+    }
+  }).filter((c) => c.total > 0),
+)
+
+/** 缺口总数：仅用于「有缺口」的措辞，不隐藏也不夸大 */
+const gapCount = computed(() =>
+  coverage.value.reduce((n, c) => n + c.fields.filter((f) => f.filled < c.total).length, 0),
+)
 </script>
 
 <template>
@@ -183,7 +238,38 @@ const fmt = (n: number | null | undefined) => (typeof n === 'number' ? String(n)
       </p>
     </DetailSection>
 
-    <DetailSection v-reveal id="rights" no="05" title="版权与免责" en="Rights">
+    <DetailSection v-reveal id="coverage" no="05" title="字段覆盖" en="Coverage">
+      <p class="prose">
+        数据取自公开数据源，源站本身的缺口我们<strong>如实标注、不补造</strong>。下表按类目列出
+        关键字段的有值条数——<span class="mono">分母是收录量，分子是有值条数</span>；
+        不足全量的条目以琥珀标注，说明该字段在源站尚缺。
+      </p>
+      <div v-if="coverage.length" class="cov">
+        <div v-for="c in coverage" :key="c.no" class="cov-cat">
+          <p class="cov-head">
+            <span class="cov-no mono">{{ c.no }}</span>
+            <span class="cov-label">{{ c.label }}</span>
+            <span class="cov-total mono">{{ c.total }} 条</span>
+          </p>
+          <dl class="cov-list">
+            <div v-for="f in c.fields" :key="f.label" class="cov-row">
+              <dt>{{ f.label }}</dt>
+              <dd class="mono" :class="{ gap: f.filled < c.total }">
+                {{ f.filled }} / {{ c.total }}
+                <span v-if="f.filled < c.total" class="sr-only">（源站缺口）</span>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <p v-else class="prose mono cov-loading">···</p>
+      <p class="prose">
+        当前共 <span class="mono">{{ gapCount }}</span> 项字段未满量。缺口集中在源站尚未提供
+        的角色潜能（影画）与个别图标；缺失处一律以占位呈现，不伪造数据、不留破图。
+      </p>
+    </DetailSection>
+
+    <DetailSection v-reveal id="rights" no="06" title="版权与免责" en="Rights">
       <p class="prose">
         本站为社区爱好者制作的<strong>非官方</strong>资料站，与米哈游 / HoYoverse 无隶属或合作关系。
         游戏数据与美术资源的版权、商标归米哈游 / HoYoverse 所有；本站仅作结构化陈列与检索，
@@ -365,8 +451,75 @@ const fmt = (n: number | null | undefined) => (typeof n === 'number' ? String(n)
   padding: 2px 7px;
 }
 
-/* ---------- 快捷操作 ---------- */
+/* ---------- 字段覆盖 ---------- */
 
+.cov {
+  margin: 18px 0 22px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0 28px;
+}
+
+.cov-cat {
+  border-top: 1px solid var(--line-1);
+  padding: 12px 0 16px;
+}
+
+.cov-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.cov-no {
+  font-size: var(--fs-nano);
+  color: var(--amber);
+  letter-spacing: 0.1em;
+}
+
+.cov-label {
+  font-size: var(--fs-lead);
+  color: var(--ink-0);
+}
+
+.cov-total {
+  margin-left: auto;
+  font-size: var(--fs-nano);
+  color: var(--ink-2);
+  letter-spacing: 0.1em;
+}
+
+.cov-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--line-0);
+}
+
+.cov-row dt {
+  font-size: var(--fs-small);
+  color: var(--ink-1);
+}
+
+.cov-row dd {
+  margin-left: auto;
+  font-size: var(--fs-small);
+  color: var(--ink-0);
+  letter-spacing: 0.06em;
+}
+
+/* 缺口用琥珀标注：不是错误，是「源站尚未提供」的如实标注 */
+.cov-row dd.gap {
+  color: var(--amber);
+}
+
+.cov-loading {
+  color: var(--ink-2);
+}
+
+/* ---------- 快捷操作 ---------- */
 .keys {
   margin: 18px 0 22px;
   border-top: 1px solid var(--line-0);
