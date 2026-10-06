@@ -137,6 +137,20 @@ async (page) => {
     JSON.stringify(cacheStats),
   )
 
+  // 6) 回访零网络：SW 热缓存下再访已浏览页面，**传输量应为 0 且资源全部由 SW 处理**
+  //    （实测：首访 881KB / 122 项 → 回访 0KB / 128 项全由 SW 命中）。这是回访用户的实际收益。
+  await page.goto('http://localhost:4175/agents/1011', { waitUntil: 'load' })
+  await page.waitForTimeout(2500)
+  const repeat = await page.evaluate(() => {
+    const res = performance.getEntriesByType('resource')
+    return {
+      kb: Math.round(res.reduce((n, x) => n + (x.transferSize || 0), 0) / 1024),
+      sw: res.filter((x) => (x.workerStart || 0) > 0).length,
+      total: res.length,
+    }
+  })
+  add('repeat-visit-zero-network', repeat.kb === 0 && repeat.sw === repeat.total, JSON.stringify(repeat))
+
   const failed = checks.filter((c) => !c.ok)
   return JSON.stringify({ total: checks.length, failed: failed.length, failedItems: failed }, null, 1)
 }
