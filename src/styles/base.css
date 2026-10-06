@@ -505,6 +505,15 @@ a.rich-term:hover {
     display: none;
   }
 
+  /* 用户偏好低透明度：毛玻璃退为不透明实底（内容不透底纹） */
+  @media (prefers-reduced-transparency: reduce) {
+    .section-nav {
+      background: var(--bg-0);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+  }
+
   .sn-list {
     display: contents;
     padding: 0;
