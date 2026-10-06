@@ -106,10 +106,11 @@ const sections = [
           <span>持续更新</span>
           <span class="dot">·</span>
           <span>非官方项目</span>
-          <template v-if="currentVersionLabel">
-            <span class="dot">·</span>
-            <span class="hero-ver">{{ currentVersionLabel }}</span>
-          </template>
+          <!-- 版本位常驻（清单到达前占位「VER ···」）：若改用 v-if 等清单到达再插入，
+               窄屏这一行会从 1 行折成 2 行（+34px）并把下方整块推下去——实测即首页
+               CLS 0.023 的全部来源。占位与真值同为「VER + 版本号」量级宽度，折行数不变。 -->
+          <span class="dot">·</span>
+          <span class="hero-ver">{{ currentVersionLabel || 'VER ···' }}</span>
         </div>
       </div>
     </section>

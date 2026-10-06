@@ -21,9 +21,10 @@ async (page) => {
   await page.waitForTimeout(1800)
   {
     const cls = await clsNow()
-    // 首页基线 0.023（实测位移在 t≈83ms、字体加载之前：首帧后卡片/目录区高度收敛 34px）。
-    // 阈值取 0.05 而非 0.02：仍能捕获 0.15 级的「骨架期站尾被推走」类回退，又不受首帧收敛噪声干扰
-    add('home-cls', cls < 0.05, String(cls))
+    // 首页基线 0.000（原 0.023：hero-meta 的版本位用 v-if，清单到达后窄屏多折一行
+    // 把下方推下 34px；改为常驻占位后位移归零）。阈值 0.02 与详情页一致，
+    // 仍能捕获 0.15 级的「骨架期站尾被推走」类回退
+    add('home-cls', cls < 0.02, String(cls))
   }
   {
     const r = await page.evaluate(() => ({
