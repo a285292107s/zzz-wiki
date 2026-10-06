@@ -62,14 +62,14 @@ onBeforeUnmount(() => {
       <button class="sn-scroll-btn" aria-label="向右滚动" @click="scrollRight">→</button>
     </nav>
 
-    <header class="page-head">
+    <header v-reveal class="page-head">
       <p class="eyebrow mono">Combat Formulas</p>
       <h1 class="page-title">{{ title }}</h1>
       <p class="page-sub">{{ FORMULA_GUIDE.sub }}</p>
     </header>
 
     <!-- 出处与提示：纯细线盒，无卡片堆叠 -->
-    <aside class="notice" aria-label="阅读提示">
+    <aside v-reveal="90" class="notice" aria-label="阅读提示">
       <p class="notice-source">
         <span class="notice-tag mono">SOURCE</span>
         <a :href="FORMULA_GUIDE.sourceUrl" target="_blank" rel="noopener" class="source-link">
@@ -85,6 +85,7 @@ onBeforeUnmount(() => {
       v-for="part in parts"
       :id="part.id"
       :key="part.id"
+      v-reveal
       :no="part.no"
       :title="part.title"
       :en="part.en"

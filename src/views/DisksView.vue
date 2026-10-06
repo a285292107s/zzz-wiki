@@ -12,7 +12,7 @@ import { stripRichText } from '@/utils/text'
 import type { DiskDriveListItem } from '@/data/types'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { catalogEntry } from '@/domain/catalog'
-import { AsyncState, ListPage } from '@/components'
+import { AsyncState, ListPage, SearchField } from '@/components'
 import HollowImage from '@/components/HollowImage.vue'
 
 usePageMeta()
@@ -42,7 +42,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
 
 <template>
   <ListPage>
-    <header class="page-head">
+    <header v-reveal class="page-head">
       <p class="eyebrow mono">Disk Drives</p>
       <h1 class="page-title">驱动盘</h1>
       <p class="page-sub">
@@ -50,7 +50,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
       </p>
     </header>
 
-    <div class="toolbar">
+    <div v-reveal="90" class="toolbar">
       <div class="toolbar-left">
         <button
           type="button"
@@ -84,7 +84,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
         </ul>
       </template>
 
-      <ul class="disk-grid">
+      <ul v-reveal="160" class="disk-grid">
         <li v-for="d in sorted" :key="d.Id" class="disk-card">
           <RouterLink :to="`${base}/${d.Id}`" class="card-head">
             <span class="thumb">

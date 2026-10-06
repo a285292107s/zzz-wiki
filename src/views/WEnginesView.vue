@@ -45,13 +45,13 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
 
 <template>
   <ListPage>
-    <header class="page-head">
+    <header v-reveal class="page-head">
       <p class="eyebrow mono">W-Engines</p>
       <h1 class="page-title">音擎</h1>
       <p class="page-sub">武装终端图鉴。按职业定位筛选或检索名称。</p>
     </header>
 
-    <section class="toolbar">
+    <section v-reveal="90" class="toolbar">
       <FilterDropdown
         :show-attr="false"
         :prof="profFilter"
@@ -69,6 +69,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
         <CatalogTableSkeleton :cols="3" />
       </template>
       <CatalogTable
+        v-reveal="160"
         :columns="columns"
         :items="sorted"
         :sort="sortKey"

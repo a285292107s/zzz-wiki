@@ -18,6 +18,9 @@ preview.log
 # 项目临时文件（统一放 temp/，不入库）
 temp/
 
+# playwright-cli 会话数据（快照、console 日志等运行时产物）
+.playwright-cli/
+
 # vue-tsc / tsc 增量构建缓存
 *.tsbuildinfo
 

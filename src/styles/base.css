@@ -24,6 +24,20 @@ body {
   font-feature-settings: 'kern' 1, 'liga' 1;
 }
 
+/* ---------- 页面地面壁纸 ----------
+   绳网情报站 wiki 同款官方背景（数据源 tokens.css --page-bg-image）。固定铺满视口
+   （position: fixed + cover），滚动时纹理恒定、壁纸渐隐端始终落在视口下缘，长页不露接缝；
+   画在 body 面色之上、#app（z-index:1）与 body 级浮层之下，内容胶囊 / 页头仍按各自面色浮于其上。
+   不用 background-attachment: fixed —— iOS Safari 降级为滚动铺装时 cover 会放大到整文档高，纹理糊掉。 */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--page-bg-image) top center / cover no-repeat;
+  pointer-events: none;
+}
+
 /* #app：建立堆叠上下文（z-index:1），把站点内部 z 层级（页头/吸顶横条/浮层）收拢起来，
    使其与 body 级 teleport 浮层（如术语浮层）在根层的堆叠关系保持可预期 */
 #app {
@@ -585,17 +599,21 @@ a.rich-term:hover {
   }
 }
 
-/* ---------- 滚动进入显示（视图 v-reveal 指令挂类） ---------- */
+/* ---------- 滚动进入显示（全局 v-reveal 指令挂类，src/directives/reveal.ts） ----------
+   延迟经 --reveal-delay（指令按绑定值写入）并入过渡简写，只作用于 opacity/transform，
+   不覆盖元素自身的 hover transition；显现结束后指令摘除本类，交还元素样式。 */
 
 .reveal {
   opacity: 0;
   transform: translateY(14px);
-  transition: opacity 480ms var(--ease), transform 480ms var(--ease);
 }
 
+/* 双类选择器压过组件单类样式（如 .specimen-card 的 transition），保证显现动画必中 */
 .reveal.revealed {
   opacity: 1;
   transform: none;
+  transition: opacity 480ms var(--ease) var(--reveal-delay, 0ms),
+    transform 480ms var(--ease) var(--reveal-delay, 0ms);
 }
 
 /* ---------- 锚点滚动避让：响应式（站头 + 吸顶横条） ----------

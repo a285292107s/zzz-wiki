@@ -51,13 +51,13 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
 
 <template>
   <ListPage>
-    <header class="page-head">
+    <header v-reveal class="page-head">
       <p class="eyebrow mono">Bangboo</p>
       <h1 class="page-title">邦布</h1>
       <p class="page-sub">空洞里的好搭档。检索型号或按稀有度浏览。</p>
     </header>
 
-    <div class="toolbar">
+    <div v-reveal="90" class="toolbar">
       <SearchField v-model="query" :count="count" placeholder="检索邦布…" />
     </div>
 
@@ -70,6 +70,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
         <CatalogTableSkeleton :cols="3" />
       </template>
       <CatalogTable
+        v-reveal="160"
         :columns="columns"
         :items="sorted"
         :sort="sortKey"

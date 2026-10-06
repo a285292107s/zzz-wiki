@@ -64,19 +64,23 @@ const sections = [
 
 <template>
   <div class="home">
-    <!-- hero：文字陈列；头图已移除，双形态切换钮移至 1551 佩洛伊斯详情页 AgentHead -->
+    <!-- 首页 hero 壁纸：绳网情报站 wiki 首页 banner 同款全幅拼贴（tokens.css --home-bg-image）。
+         仅首页铺装，固定视口层不随页滚动（手法同 body::before）；内页仍为 --page-bg-image。 -->
+    <div class="home-backdrop" aria-hidden="true" />
+
+    <!-- hero：文字陈列浮于壁纸之上；旧 Mindscape 头图已移除，双形态切换钮移至 1551 佩洛伊斯详情页 AgentHead -->
     <section class="hero">
       <div class="wrap">
-        <p class="eyebrow mono">NEW Eridu · Data Terminal</p>
-        <h1 class="page-title">
+        <p v-reveal="0" class="eyebrow mono">NEW Eridu · Data Terminal</p>
+        <h1 v-reveal="80" class="page-title">
           绳网档案
           <span class="title-en">Ropeweb Archive</span>
         </h1>
-        <p class="page-sub">
+        <p v-reveal="180" class="page-sub">
           基于开放数据源整理的绝区零资料库。以档案编号为纲，收录代理人、音擎、邦布与驱动盘的结构化数据——不含任何主观评述，只做客观陈列。
         </p>
 
-        <div class="hero-meta mono">
+        <div v-reveal="300" class="hero-meta mono">
           <span>游戏客户端数据</span>
           <span class="dot">·</span>
           <span>持续更新</span>
@@ -93,12 +97,18 @@ const sections = [
     <div class="wrap">
       <!-- 今日角色：精选角色 9:16 标本卡（Mindscape 全景局部遮罩），4 张并列；无损无卡时不渲染 -->
       <section v-if="featured.length" class="banners">
-        <div class="section-head">
+        <div v-reveal class="section-head">
           <h2>今日角色</h2>
           <span class="rule" />
         </div>
         <div class="specimen-row">
-          <RouterLink v-for="card in featured" :key="card.id" :to="card.to" class="specimen-card">
+          <RouterLink
+            v-for="(card, i) in featured"
+            :key="card.id"
+            v-reveal="i * 70"
+            :to="card.to"
+            class="specimen-card"
+          >
             <span class="specimen-figure">
               <!-- 首屏重点头图，勿 lazy：懒加载会把它降为低优先级，且带 transform:scale 的
                    img 会升级为独立合成层，合成器按 DOM 顺序逐个绘制，最右一格最后上屏
@@ -132,14 +142,14 @@ const sections = [
       </section>
 
       <section class="index">
-      <div class="section-head">
+      <div v-reveal class="section-head">
         <span class="no mono">00</span>
         <h2>目录</h2>
         <span class="rule" />
       </div>
 
       <ol class="index-list">
-        <li v-for="(s, i) in sections" :key="s.to">
+        <li v-for="(s, i) in sections" :key="s.to" v-reveal="i * 55">
           <RouterLink :to="s.to" class="index-row">
             <span class="specimen">
               <HollowImage
@@ -166,11 +176,36 @@ const sections = [
 </template>
 
 <style scoped>
+/* ---------- 首页 hero 壁纸 ---------- */
+
+.home {
+  position: relative;
+}
+
+/* 固定视口层（不随页滚动，手法同 base.css 的 body::before）。铺装规则沿用原站量得的
+   放大规则：图恒以 2400:1080 比例、高度撑满视口（auto 100%）水平居中 —— common 桌面
+   两侧出血 ≈1.25×，宽屏更宽；视口顶被实底页头遮住 62px（SiteHeader 内写死，无 token），
+   故直接 inset:0 不再让位。压暗：叠一层 --scrim-3（页面底色染墨，遮罩色阶见 tokens.css，
+   禁止手写 rgba）。图自带向下渐隐近黑，fixed 层永不露边，无需再接 mask 渐隐。
+   z-index:-1 收在本组件内：#app(z-index:1) 已建立堆叠上下文，故只压在首页内容之下、
+   不会掉到 body::before 之下去；内容各 section 为普通流，天然浮于其上。 */
+.home-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(var(--scrim-3), var(--scrim-3)),
+    var(--home-bg-image);
+  background-size: auto, auto 100%;
+  background-position: center top;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
 /* ---------- hero ---------- */
 
 .hero {
   position: relative;
-  /* 头图已移除：hero 只作文字陈列，落回页底 --bg-0（无遮罩/scrim，与内页一致） */
+  /* 头图已移除：hero 只作文字陈列，浮于 .home-backdrop 壁纸之上（无遮罩/scrim，与内页一致） */
   padding-top: calc(var(--pad-section) * 0.9);
   padding-bottom: var(--pad-section);
 }
@@ -225,6 +260,12 @@ const sections = [
   /* 逐图放大（FEATURED_POOL.zoom）配合逐图变换原点（FEATURED_POOL.originY，内容纵向中心，内联设置）
      把角色放大到填满，让上下透明边滚出视口（overflow:hidden 裁掉）；水平焦点由 object-position 控制 */
   transform-origin: 50% 50%;
+  /* hover 微推近：独立 scale 属性与内联 transform（构图 zoom）相乘，互不覆盖 */
+  transition: scale 700ms var(--ease);
+}
+
+.specimen-card:hover .specimen-figure img {
+  scale: 1.04;
 }
 
 /* 标本标签牌：编号 + 中英名 + 元素 */
@@ -247,6 +288,11 @@ const sections = [
   font-size: var(--fs-caption);
   letter-spacing: 0.12em;
   color: var(--ink-2);
+  transition: color var(--t-fast) var(--ease);
+}
+
+.specimen-card:hover .plate-top .no {
+  color: var(--amber);
 }
 
 .plate-top .el {
@@ -348,6 +394,12 @@ const sections = [
 .idx {
   font-size: var(--fs-body);
   color: var(--ink-3);
+  transition: color var(--t-fast) var(--ease);
+}
+
+/* hover 时编号点亮：档案检索的「抽中一档」暗号，与箭头位移同层回应 */
+.index-row:hover .idx {
+  color: var(--amber);
 }
 
 .name {

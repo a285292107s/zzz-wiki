@@ -1,7 +1,7 @@
 import { onBeforeUnmount, ref } from 'vue'
-import type { Directive } from 'vue'
 import { useRoute } from 'vue-router'
 import { NAV_SLOP, resolveActiveSection } from '@/domain/scrollspy'
+import { reveal } from '@/directives/reveal'
 import { resetAnchorOffset, resolveAnchorOffset } from './anchorOffset'
 
 /**
@@ -67,23 +67,8 @@ export function useDetailNavigation() {
     document.removeEventListener('scroll', onScroll)
   })
 
-  /** 区块滚动显现指令；系统减动效时直接跳过（保持可见） */
-  const revealDir: Directive<HTMLElement> = {
-    mounted(el) {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-      el.classList.add('reveal')
-      const io = new IntersectionObserver(
-        (entries) => {
-          if (entries.some((e) => e.isIntersecting)) {
-            el.classList.add('revealed')
-            io.disconnect()
-          }
-        },
-        { rootMargin: '0px 0px -8% 0px' },
-      )
-      io.observe(el)
-    },
-  }
+  /** 区块滚动显现指令：全局 v-reveal（src/directives/reveal.ts）的引用别名 */
+  const revealDir = reveal
 
   return { activeSection, revealDir, activate }
 }

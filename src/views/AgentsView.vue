@@ -63,7 +63,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
 
 <template>
   <ListPage>
-    <header class="page-head">
+    <header v-reveal class="page-head">
       <p class="eyebrow mono">Agents</p>
       <h1 class="page-title">代理人</h1>
       <p class="page-sub">
@@ -71,7 +71,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
       </p>
     </header>
 
-    <div class="toolbar">
+    <div v-reveal="90" class="toolbar">
       <FilterDropdown
         :attr="attrFilter"
         :prof="profFilter"
@@ -93,6 +93,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
         <CatalogTableSkeleton :cols="5" />
       </template>
       <CatalogTable
+        v-reveal="160"
         :columns="columns"
         :items="sorted"
         :sort="sortKey"
