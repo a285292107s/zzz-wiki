@@ -7,8 +7,12 @@
  *     → 原图严重超采，4 张并列时首屏多传 ~1.5MB
  *
  * 本脚本为每张原图派生 card 变体：public/data/img/hero/card/{同名}.webp
- * （最长边 ≤1000px 等比缩放，quality 78）。等比缩放不改构图坐标系，
+ * （最长边 ≤800px 等比缩放，quality 68）。等比缩放不改构图坐标系，
  * 卡片的 pos/zoom/originY 校准参数（featured-pool.json）无需重算。
+ *
+ * 规格依据（实测，2026-10）：卡片展示格手机 242 / 桌面 291 CSS px，最大 DPR3
+ * ⇒ 物理需求 ≤726px；800px 覆盖 DPR3 并留 ~10% 余量（原 1000px/q78 超采 1.4 倍）。
+ * 4 张并列的首屏图片载荷 187KB → ~120KB，肉眼无损。
  *
  * 幂等：card 已存在且不旧于原图时跳过；原图更新（重下/换形态）后自动重派生。
  * 由 sync-data.ts 在图标下载后调用（单一写入者），派生图随 public/data 约定入库
@@ -24,9 +28,9 @@ import sharp from 'sharp'
 
 const HERO_DIR = path.resolve('public/data/img/hero')
 const CARD_DIR = path.join(HERO_DIR, 'card')
-/** 卡片展示格最宽 ~320 CSS px；retina ×2 + zoom(≤1.5) 后 1000px 内无可见损失 */
-const MAX_WIDTH = 1000
-const QUALITY = 78
+/** 卡片展示格手机 242 / 桌面 291 CSS px；DPR3 ⇒ ≤726px，800px 留 ~10% 余量 */
+const MAX_WIDTH = 800
+const QUALITY = 68
 const CONCURRENCY = 4
 
 /** 原图列表：仅 hero 根目录的 .webp（不含 card/ 子目录） */

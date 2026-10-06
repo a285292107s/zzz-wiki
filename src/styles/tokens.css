@@ -86,12 +86,14 @@
 
   /* 页面地面壁纸：绳网情报站 wiki 官方背景同款（深炭底 + 斜向 ZZZ 水印纹理，向下渐隐近黑，
      与 --bg-0 页面地面同域色）。取自 baike.mihoyo.com/zzz/wiki 的 pc-page-bg.png，
-     本地化至 /page-bg.png（运行时零外部请求）。单一事实源：页面地面铺装一律经此变量取用。 */
-  --page-bg-image: url("/page-bg.png");
+     本地化并转 webp 至 /page-bg.webp（1920w 95→18KB；运行时零外部请求）。
+     单一事实源：页面地面铺装一律经此变量取用。 */
+  --page-bg-image: url("/page-bg.webp");
 
   /* 首页 hero 壁纸：绳网情报站 wiki 首页 banner 同款全幅背景（2400×1080，ZENLESS 描边字 +
      BANGBOO:NET 斜向字带 + 撕纸边缘拼贴）。取自其首页 banner 背景图（OSS q_80 webp 落地为
-     /home-bg.webp），仅首页经 HomeView 的 .home-backdrop 铺装，内页仍用 --page-bg-image。 */
+     /home-bg.webp），仅首页经 HomeView 的 .home-backdrop 铺装，内页仍用 --page-bg-image。
+     原图保留 2400×1080：它同时是 og:image（index.html 声明尺寸）。 */
   --home-bg-image: url("/home-bg.webp");
 
   /* 纸纹数据源：极淡灰阶档案纸纹（去色颗粒、无渐变/无辉光）；数据 URI 内联（运行时零外部请求）。
@@ -164,4 +166,14 @@
   --z-overlay: 200;
   --z-pop: 300;   /* 术语浮层（原 300 裸值） */
   --z-modal: 400; /* 检索面板（原 400 裸值） */
+}
+
+/* 窄屏壁纸换小图：两张背景都是 cover 铺满视口，而手机视口（390×844 竖屏）
+   只用得到原图中心一条——1920/2400px 原图超采 2.5 倍以上（96+213KB → 18+30KB）。
+   图片尺寸按「视口宽 × DPR2 + 余量」定：纸纹 900w、首页壁纸 1100w。 */
+@media (max-width: 860px) {
+  :root {
+    --page-bg-image: url("/page-bg-mobile.webp");
+    --home-bg-image: url("/home-bg-mobile.webp");
+  }
 }
