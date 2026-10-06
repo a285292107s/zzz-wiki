@@ -153,9 +153,11 @@ function warmNow(id: number | string): void {
     background var(--t-fast) var(--ease);
 }
 
-.sort-btn:hover {
-  color: var(--ink-0);
-  border-color: var(--line-2);
+@media (hover: hover) {
+  .sort-btn:hover {
+    color: var(--ink-0);
+    border-color: var(--line-2);
+  }
 }
 
 .sort-btn.on {
@@ -218,8 +220,10 @@ function warmNow(id: number | string): void {
   white-space: nowrap;
 }
 
-.card-head:hover .name {
-  color: var(--amber-hi);
+@media (hover: hover) {
+  .card-head:hover .name {
+    color: var(--amber-hi);
+  }
 }
 
 .set {

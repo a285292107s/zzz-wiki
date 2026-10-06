@@ -248,9 +248,13 @@ onUnmounted(() => {
   cursor: pointer;
   transition: all var(--t-fast) var(--ease);
 }
-.trigger:hover {
-  border-color: var(--line-2);
-  color: var(--ink-0);
+/* 触屏无 hover 语义：tap 后的粘滞高亮会让「当前行」与「选中行」混淆，
+   悬停反馈统一收进 hover-capable 媒体查询（触屏仅保留 selected 状态） */
+@media (hover: hover) {
+  .trigger:hover {
+    border-color: var(--line-2);
+    color: var(--ink-0);
+  }
 }
 .trigger.open {
   border-color: var(--line-2);
@@ -324,9 +328,11 @@ onUnmounted(() => {
   cursor: pointer;
   transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
 }
-.opt:hover {
-  background: var(--bg-3);
-  color: var(--ink-0);
+@media (hover: hover) {
+  .opt:hover {
+    background: var(--bg-3);
+    color: var(--ink-0);
+  }
 }
 .opt.selected {
   color: var(--ink-0);

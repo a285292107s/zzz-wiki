@@ -161,9 +161,11 @@ function closeMenu() {
   letter-spacing: 0.06em;
 }
 
-.nav-item:hover {
-  color: var(--ink-0);
-  background: var(--bg-3);
+@media (hover: hover) {
+  .nav-item:hover {
+    color: var(--ink-0);
+    background: var(--bg-3);
+  }
 }
 
 .nav-item.active {
@@ -199,9 +201,11 @@ function closeMenu() {
     border-color var(--t-fast) var(--ease);
 }
 
-.menu-toggle:hover {
-  color: var(--ink-0);
-  border-color: var(--line-2);
+@media (hover: hover) {
+  .menu-toggle:hover {
+    color: var(--ink-0);
+    border-color: var(--line-2);
+  }
 }
 
 .menu-toggle.open {

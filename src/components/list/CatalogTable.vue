@@ -157,8 +157,10 @@ function onHeadClick(c: CatalogColumn) {
   background: none;
   border: none;
 }
-.sort-btn:hover {
-  color: var(--ink-0);
+@media (hover: hover) {
+  .sort-btn:hover {
+    color: var(--ink-0);
+  }
 }
 .sort-btn.active {
   color: var(--amber-hi);

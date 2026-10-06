@@ -67,9 +67,11 @@ onUnmounted(() => {
   pointer-events: auto;
 }
 
-.back-top:hover {
-  color: var(--amber-hi);
-  border-color: var(--amber);
+@media (hover: hover) {
+  .back-top:hover {
+    color: var(--amber-hi);
+    border-color: var(--amber);
+  }
 }
 
 .back-top .arrow {
