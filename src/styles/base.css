@@ -689,6 +689,90 @@ section[id] {
 }
 
 /* ============================================================
+   高对比度模式（Windows 高对比度 / forced-colors: active）
+   —— 系统会把作者颜色强制替换为 Canvas/CanvasText 等系统色：
+   用「底色当发丝线」的构造会与页面同色而整条消失，纯底色表示
+   「选中/当前项」的状态也会一并消失。此块用系统色把它们还原成可见结构。
+   系统色关键字在 HCM 下被尊重（实测 CanvasText→黑、Highlight→系统高亮），
+   故一律用系统色而非作者色 —— 让结构跟随用户自己的配色方案。
+   ============================================================ */
+
+@media (forced-colors: active) {
+  /* 1) 底色充当发丝线的网格/细线：换 CanvasText（正文色）作实体线 */
+  .section-head .rule,
+  .dossier,
+  .stat-grid.v-grid,
+  .disk-grid,
+  .note-rule {
+    background: CanvasText !important;
+  }
+
+  /* 网格单元必须回到画布色，否则整片糊成实心块 */
+  .d-item,
+  .stat-grid.v-grid .stat,
+  .disk-card {
+    background: Canvas !important;
+  }
+
+  /* 2) 纯底色表示的选中/当前状态 → 系统高亮描边（HCM 下底色会被压平）
+        覆盖：筛选下拉选中项、检索面板当前行、排序激活钮、区块索引当前项 */
+  .opt.selected,
+  .qs-row.on,
+  .sort-btn.on {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+
+  .sn-item.active::after,
+  .nav-item.active::after {
+    background: Highlight !important;
+  }
+
+  /* 3) 滑条：轨道/刻度用系统色，突破点用高亮（否则整条看不见）。
+        ⚠ ::-webkit-* 与 ::-moz-* 必须各自成条：同一选择器列表里出现当前浏览器
+        不认的伪元素，会让**整条规则**被丢弃（曾把 .mark .tick 与 ::-moz-range-track
+        并列，导致刻度在 Chrome 静默失效） */
+  .mark .tick {
+    background: GrayText !important;
+  }
+
+  .mark.is-break .tick {
+    background: Highlight !important;
+  }
+
+  .level-range::-webkit-slider-runnable-track {
+    background: GrayText !important;
+  }
+
+  .level-range::-moz-range-track {
+    background: GrayText !important;
+  }
+
+  .level-range::-webkit-slider-thumb {
+    background: CanvasText !important;
+    border-color: Canvas !important;
+  }
+
+  .level-range::-moz-range-thumb {
+    background: CanvasText !important;
+    border-color: Canvas !important;
+  }
+
+  /* 4) 焦点环加粗：HCM 用户更依赖清晰焦点位置 */
+  :focus-visible {
+    outline: 2px solid CanvasText;
+    outline-offset: 2px;
+  }
+
+  /* 5) 骨架屏扫光是纯装饰动画，HCM 下不可辨且无意义 → 退为平面 */
+  .bar,
+  .skel .bar {
+    background: GrayText !important;
+    animation: none !important;
+  }
+}
+
+/* ============================================================
    打印：纸墨模式（站点是「档案」，纸上要成立）
    —— 白纸黑字、去背景纹理与浮层、隐藏交互外壳、区块不跨页断开。
    实现方式：整体替换 token（组件的颜色/线/圆角全经 var() 引用，故一处覆盖全站生效），
