@@ -123,11 +123,13 @@ watch(
       <slot />
     </AsyncState>
 
-    <!-- 逐条出处：本条数据属于哪一版快照。版本取自 manifest（api 层已缓存，零额外请求）；
-         取不到时不渲染，不留空行。 -->
-    <p v-if="version" class="prov mono">
-      数据版本 <span class="prov-v">LIVE {{ version }}</span>
+    <!-- 逐条出处：本条数据属于哪一版快照。版本取自 manifest（api 层已缓存，零额外请求）。
+         **槽位常驻**（版本未到时显示 ···）：异步到达才出现会推移下方内容（实测 CLS 0.051），
+         与首页版本槽同一教训——异步槽位必须预留高度。 -->
+    <p class="prov mono">
+      数据版本 <span class="prov-v">{{ version ? `LIVE ${version}` : '···' }}</span>
       <span v-if="updatedAt"> · 快照 {{ updatedAt }}</span>
+      <span v-else> · 快照 ···</span>
       <span class="prov-src"> · 来源 hakushin raw，构建期落地</span>
     </p>
 

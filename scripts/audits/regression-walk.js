@@ -644,6 +644,22 @@ async (page) => {
       ranges.length === 4 && ranges.every((x) => /^\d+–\d+$/.test(x)),
       ranges.join(' '),
     )
+    // 声明诚实性：文案不得出现「不做任何跨域请求 / 不经任何外部服务」这类绝对化表述
+    // ——图片候选链**确实**会在源站缺口时回源 CDN（实测邦布 55098 触发 1 次跨域请求）。
+    // 该说清楚的是「本站资源齐备时零跨域请求 + 兜底例外」，而不是抹掉例外。
+    const claims = await page.evaluate(() => {
+      const t = document.body.innerText
+      return {
+        absolute: /不做任何跨域请求|不经任何外部服务/.test(t),
+        precise: /资源齐备时页面零跨域请求/.test(t),
+        exception: /候选链兜底/.test(t),
+      }
+    })
+    add(
+      'about-claims-precise',
+      !claims.absolute && claims.precise && claims.exception,
+      `绝对化=${claims.absolute} 精确=${claims.precise} 例外=${claims.exception}`,
+    )
     add('about-cats', r.cats === 4, String(r.cats))
     add('about-total', /^\d+ 条$/.test(r.total ?? ''), r.total ?? 'none')
     add('about-version', /LIVE \d/.test(r.version ?? ''), r.version ?? 'none')

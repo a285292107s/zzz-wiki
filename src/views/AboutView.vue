@@ -139,7 +139,7 @@ const gapCount = computed(() =>
       <h1 class="page-title">数据说明</h1>
       <p class="page-sub">
         本站以档案编号为纲，只做客观陈列：数据取自公开数据源，构建期落地为静态档案，
-        运行时不经任何外部服务。以下说明收录范围、更新机制、校验门禁与版权归属。
+        运行时只读本站资源。以下说明收录范围、更新机制、校验门禁与版权归属。
       </p>
     </header>
 
@@ -180,7 +180,7 @@ const gapCount = computed(() =>
         条目数据取自公开数据源 <strong> hakushin raw </strong>（由
         <a href="https://zzz.nanoka.cc" target="_blank" rel="noopener" class="ext">zzz.nanoka.cc</a>
         及其同源 CDN 提供），在构建期一次性拉取并规整为静态 JSON，随仓库一起入库。
-        前端运行时只读本地 <code class="mono">/data</code>，不请求任何外部接口。
+        前端运行时只读本地 <code class="mono">/data</code>，不请求任何数据接口。
       </p>
       <p class="prose">
         <strong>只收录正式服（live）数据</strong>：源站的前瞻与测试服内容不拉取、不降级、不补位——
@@ -212,7 +212,10 @@ const gapCount = computed(() =>
     <DetailSection v-reveal id="assets" no="03" title="资产与校验" en="Assets">
       <p class="prose">
         图标、西文字体与中文衬线（按字形分片、用到才加载）、首页头图派生小图，全部本地化入库；
-        页面不做任何跨域请求，离线打开已缓存页面仍可阅读。
+        <strong>本站资源齐备时页面零跨域请求</strong>，离线打开已缓存页面仍可阅读。
+        唯一的例外是候选链兜底：个别源站缺口（如某条邦布无图标）会回源同源 CDN（nanoka）
+        取一次图——这是「不破图、也不把占位当有图」的取舍，触发条数与缺口同量级，
+        见下方「字段覆盖」。
       </p>
       <ul class="checks">
         <li><span class="ck mono">契约</span>名录↔详情一一对应、字段 schema 校验</li>
