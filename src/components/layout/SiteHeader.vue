@@ -37,6 +37,7 @@
       </button>
 
       <button
+        ref="menuToggleEl"
         type="button"
         class="menu-toggle mono"
         :class="{ open: menuOpen }"
@@ -70,7 +71,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import { CATALOG, GUIDE_ENTRY } from '@/domain/catalog'
 import { useQuickSearch } from '@/composables/useQuickSearch'
@@ -85,11 +86,20 @@ const nav = [
 const isActive = (to: string) =>
   route.path === to || (to !== '/' && route.path.startsWith(to))
 
-// 移动端菜单
+// 移动端菜单：路由切换关闭（closeMenu 由条目点击触发）+ Esc 关闭 + 焦点归还切换钮
 const menuOpen = ref(false)
+const menuToggleEl = ref<HTMLButtonElement | null>(null)
 function closeMenu() {
   menuOpen.value = false
 }
+function onDocKeydown(e: KeyboardEvent) {
+  if (e.key === 'Escape' && menuOpen.value) {
+    menuOpen.value = false
+    menuToggleEl.value?.focus()
+  }
+}
+onMounted(() => document.addEventListener('keydown', onDocKeydown))
+onBeforeUnmount(() => document.removeEventListener('keydown', onDocKeydown))
 
 // 全局快速检索（Ctrl/⌘+K；按钮唤起）
 const { toggle: toggleSearch } = useQuickSearch()
