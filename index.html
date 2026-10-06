@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- CJK 衬线分片 @font-face：独立 link（勿并入主 CSS——postcss @import 内联会把
+         202 条 face 打进主包，74KB gzip 阻塞渲染；link 独立缓存且并行加载） -->
+    <link rel="stylesheet" href="/fonts/noto-serif-sc.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="绝区零（Zenless Zone Zero）数据档案 · 代理人、音擎、邦布与驱动盘结构化图鉴" />
     <title>绳网档案 · 绝区零数据图鉴</title>
