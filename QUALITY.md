@@ -38,7 +38,8 @@
 | 总重（首页/名录/详情） | — | — | <3MB | **636 / 440 / 911KB** ✅ | Lighthouse `resource-summary` |
 | 长任务 TBT（节流） | — | — | — | 4 个 / 最长 **229–771ms**（首屏，unattributed）⚠️ | `inp-interaction.js` |
 | 主包 gzip / CSS gzip | — | — | — | **59.1KB / 11.9KB** ✅ | `npm run verify:budget` |
-| 运行时外部请求 | 0 | 0 | 0 | **0** ✅ | `regression-walk.js` + CSP 门禁 |
+| 运行时外部请求 | 0 | 0 | 0 | **数据面 0**；图片候选链兜底例外（见 §4 声明一致性） ✅ | `regression-walk.js` + CSP 门禁 |
+| **离线阅读** | 已访问页面断网可读 | — | — | **Service Worker 已上线**：导航网络优先 / 静态资源缓存优先 / 数据 JSON 陈旧优先 + 后台更新；缓存世代跟随数据版本，换版整批清理 ✅ | `offline-check.js`（5/5） |
 
 > **LCP 的两个口径必须分清**：Lighthouse 报的是 **Lantern 模拟值**（从 trace 推算并行竞争），
 > 本站首页模拟 ~4.5s 而**冷缓存实测观测值只有 2.33–2.47s**。做优化决策要用观测值 +
@@ -90,7 +91,7 @@
 | **「今日角色」名副其实** | 同日恒定、跨日更换 | 按本地日期播种确定性挑选（mulberry32）——原先每次挂载随机换人，与文案不符且回访永远冷缓存 ✅ | `regression-walk.js`（home-today-stable）+ 单测 4 例 |
 | **逐条出处** | 每条档案可追溯快照 | 详情页页脚显示「数据版本 LIVE x.y · 快照 日期 · 来源」 ✅ | `regression-walk.js`（detail-provenance） |
 | **公式页版本锚定** | 机制版本与数据版本并列可对照 | 「机制整理 **2.0 版** · 站内档案数据 **LIVE 3.2**（快照 …）」+ 出处链接 + 通向实据的交叉引用（→ 代理人名录对照读数） ✅ | `regression-walk.js`（formulas-version / formulas-crossref） |
-| **声明与实现一致** | 文案不得绝对化到与实现不符 | 原「页面不做任何跨域请求 / 不经任何外部服务」→ 改为「**本站资源齐备时零跨域请求** + 候选链兜底例外」（实测邦布 55098 缺图标时确实回源 CDN 一次） ✅ | `regression-walk.js`（about-claims-precise） |
+| **声明与实现一致** | 文案不得绝对化到与实现不符 | 原「页面不做任何跨域请求 / 不经任何外部服务」→ 改为「**本站资源齐备时零跨域请求** + 候选链兜底例外」（实测邦布 55098 缺图标时确实回源 CDN 一次）；原「离线打开已缓存页面仍可阅读」当时**没有 SW、是空话** → 现已实现并写明适用范围 ✅ | `regression-walk.js`（about-claims-precise）+ `offline-check.js` |
 | 多语言质量 | 无机器翻译痕迹 | 单语（zh），文案人工撰写 ✅ | — |
 
 ## 5. 安全与部署（Functionality 的工程底线）

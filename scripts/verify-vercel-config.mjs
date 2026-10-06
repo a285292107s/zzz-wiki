@@ -73,6 +73,7 @@ else ok('无 /fonts 通配（规则互不重叠）')
 for (const [src, label] of [
   ['/data/manifest.json', '数据清单'],
   ['/fonts/noto-serif-sc.css', 'CJK 字体 CSS'],
+  ['/sw.js', 'Service Worker 脚本'],
 ]) {
   const v = cacheOf(src)
   if (/max-age=0/.test(v)) ok(`${label} ${src}: 每次重验证`)
@@ -142,9 +143,20 @@ for (const [key, label] of [
   else fail(`缺少 ${key}（${label}）`)
 }
 
+/* 6) Service Worker：脚本自身必须每次重验证（否则客户端会「卡」在旧 SW 逻辑上），
+      且 CSP 必须允许同源 worker（default-src 'self' 已覆盖 worker-src 回退）。 */
+{
+  const sw = cacheOf('/sw.js')
+  if (/max-age=0/.test(sw)) ok('/sw.js: 每次重验证（避免旧 SW 滞留客户端）')
+  else fail(`/sw.js 应 max-age=0，实际「${sw || '无规则'}」`)
+  const cspSw = headerValue('/(.*)', 'Content-Security-Policy')
+  if (/default-src 'self'|worker-src 'self'/.test(cspSw)) ok('CSP 允许同源 Service Worker')
+  else fail("CSP 未允许同源 worker（default-src 需含 'self' 或显式 worker-src 'self'）")
+}
+
 console.log(
   bad
     ? `\n== Vercel 缓存/安全策略 == 未通过（${bad} 项）`
-    : '\n== Vercel 缓存/安全策略 == 通过（immutable 白名单 / 重验证 / CSP / 安全头 / SPA rewrite）',
+    : '\n== Vercel 缓存/安全策略 == 通过（immutable 白名单 / 重验证 / CSP / 安全头 / SW / SPA rewrite）',
 )
 process.exitCode = bad ? 1 : 0
