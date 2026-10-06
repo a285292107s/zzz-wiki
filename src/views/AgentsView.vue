@@ -21,7 +21,7 @@ const base = cat.path
 
 const { data, status, error } = useAsyncResource(() => listFor<CharacterListItem>(cat))
 
-const { attrFilter, profFilter, campFilter, query, filtered, count } =
+const { attrFilter, profFilter, campFilter, query, filtered, count, hasActiveFilter, reset } =
   useCatalogList<CharacterListItem>({
     items: () => data.value ?? [],
     withAttrs: true,
@@ -84,10 +84,12 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
       <SearchField v-model="query" :count="count" placeholder="检索姓名…" />
     </div>
 
+    <!-- 空态分工：AsyncState 只管「数据级为空」（接口没给数据）；
+         「筛掉全部结果」由 CatalogTable 的空态行承担（带清除出路的动作） -->
     <AsyncState
       :status="status"
       :error="error"
-      :empty="status === 'success' && filtered.length === 0"
+      :empty="status === 'success' && !data?.length"
     >
       <template #skeleton>
         <CatalogTableSkeleton :cols="5" />
@@ -99,6 +101,9 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
         :sort="sortKey"
         :sort-dir="sortDir"
         caption="代理人名录：代号、属性、职业、阵营与稀有度"
+        :show-clear="hasActiveFilter"
+        empty-text="无匹配代理人"
+        @clear="reset"
         @update:sort="toggle"
       >
         <template #cell-name="{ row }">

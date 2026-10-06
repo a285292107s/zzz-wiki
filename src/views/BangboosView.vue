@@ -25,7 +25,7 @@ const base = cat.path
 
 const { data, status, error } = useAsyncResource(() => listFor<BangbooListItem>(cat))
 
-const { query, filtered, count } = useCatalogList<BangbooListItem>({
+const { query, filtered, count, hasActiveFilter, reset } = useCatalogList<BangbooListItem>({
   items: () => (data.value ?? []).filter((r) => !HIDDEN_BANGBOO_IDS.has(r.Id)),
   syncRoute: true,
   keywords: (row) => [row.codename ?? ''],
@@ -60,10 +60,11 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
       <SearchField v-model="query" :count="count" placeholder="检索邦布…" />
     </div>
 
+    <!-- 空态分工：AsyncState 只管「数据级为空」；「筛掉全部结果」由 CatalogTable 空态行承担 -->
     <AsyncState
       :status="status"
       :error="error"
-      :empty="status === 'success' && filtered.length === 0"
+      :empty="status === 'success' && !data?.length"
     >
       <template #skeleton>
         <CatalogTableSkeleton :cols="3" />
@@ -75,6 +76,9 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
         :sort="sortKey"
         :sort-dir="sortDir"
         caption="邦布名录：型号、代号与稀有度"
+        :show-clear="hasActiveFilter"
+        empty-text="无匹配邦布"
+        @clear="reset"
         @update:sort="toggle"
       >
         <template #cell-name="{ row }">

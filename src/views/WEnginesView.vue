@@ -20,7 +20,7 @@ const base = cat.path
 
 const { data, status, error } = useAsyncResource(() => listFor<WEngineListItem>(cat))
 
-const { profFilter, query, filtered, count } = useCatalogList<WEngineListItem>({
+const { profFilter, query, filtered, count, hasActiveFilter, reset } = useCatalogList<WEngineListItem>({
   items: () => data.value ?? [],
   withProfs: true,
   syncRoute: true,
@@ -60,10 +60,11 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
       <SearchField v-model="query" :count="count" placeholder="检索音擎…" />
     </section>
 
+    <!-- 空态分工：AsyncState 只管「数据级为空」；「筛掉全部结果」由 CatalogTable 空态行承担 -->
     <AsyncState
       :status="status"
       :error="error"
-      :empty="status === 'success' && filtered.length === 0"
+      :empty="status === 'success' && !data?.length"
     >
       <template #skeleton>
         <CatalogTableSkeleton :cols="3" />
@@ -75,6 +76,9 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
         :sort="sortKey"
         :sort-dir="sortDir"
         caption="音擎名录：名称、职业定位与稀有度"
+        :show-clear="hasActiveFilter"
+        empty-text="无匹配音擎"
+        @clear="reset"
         @update:sort="toggle"
       >
         <template #cell-name="{ row }">

@@ -22,13 +22,21 @@ const props = defineProps<{
   sortDir?: SortDir | null
   /** 表格 caption（读屏语境，如「代理人名录，按档案编号排序」）；缺省无 caption */
   caption?: string
+  /** 无匹配时的空态标题（默认「无匹配档案」） */
+  emptyText?: string
+  /** 是否有可清除的检索/筛选条件（true 才显示「清除」按钮） */
+  showClear?: boolean
 }>()
 
 const emit = defineEmits<{
   (e: 'update:sort', key: string): void
+  /** 空态「清除检索与筛选」（视图侧负责重置 query/筛选） */
+  (e: 'clear'): void
 }>()
 
 const bodyColumns = computed(() => props.columns.filter((c) => c.key !== 'idx'))
+/** 空态标题：未显式传入时用默认文案 */
+const emptyText = computed(() => props.emptyText ?? '无匹配档案')
 
 /* ---------- 移动端堆叠行（<721px）：主体列 + 尾列(右对齐列优先) + 其余列 meta 行 ---------- */
 
@@ -80,6 +88,17 @@ function onHeadClick(c: CatalogColumn) {
       </tr>
     </thead>
     <tbody class="d-body">
+      <!-- 空态（检索/筛选无匹配）：此前只留一张空表，用户既不知道「没有匹配」，
+           也没有出路。文案 + 清除动作同格呈现；列数跨满保持表结构合法。 -->
+      <tr v-if="!items.length" class="empty-row">
+        <td :colspan="bodyColumns.length" class="empty-cell">
+          <p class="empty-title mono">{{ emptyText }}</p>
+          <p class="empty-hint">换个关键词，或清除筛选条件查看全部档案。</p>
+          <button v-if="showClear" type="button" class="empty-clear mono" @click="emit('clear')">
+            清除检索与筛选
+          </button>
+        </td>
+      </tr>
       <tr v-for="(row, i) in items" :key="String(row.Id ?? i)">
         <td
           v-for="c in bodyColumns"
@@ -96,6 +115,16 @@ function onHeadClick(c: CatalogColumn) {
     <!-- 移动端堆叠行：主体列（名称）整格 + 右格（稀有度，可排序）+ 其余列 meta 行。
          与桌面 tbody 共享同一批 cell-* 插槽（同一 slot 两处引用，CSS 断点互斥显示） -->
     <tbody class="m-body">
+      <!-- 移动端空态：与桌面同文案（两套 tbody 断点互斥显示，须各放一份） -->
+      <tr v-if="!items.length" class="empty-row">
+        <td class="empty-cell">
+          <p class="empty-title mono">{{ emptyText }}</p>
+          <p class="empty-hint">换个关键词，或清除筛选条件查看全部档案。</p>
+          <button v-if="showClear" type="button" class="empty-clear mono" @click="emit('clear')">
+            清除检索与筛选
+          </button>
+        </td>
+      </tr>
       <template v-for="(row, i) in items" :key="String(row.Id ?? i)">
         <tr class="m-row">
           <td v-if="mainColumn" class="m-main">
@@ -267,5 +296,50 @@ th.sortable {
     font-size: var(--fs-caption);
     color: var(--ink-2);
   }
+}
+
+/* ---------- 空态（检索/筛选无匹配） ---------- */
+
+.empty-cell {
+  padding: 46px 16px 50px;
+  text-align: center;
+}
+
+.empty-title {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-1);
+}
+
+.empty-hint {
+  margin-top: 10px;
+  font-size: var(--fs-caption);
+  color: var(--ink-2);
+}
+
+.empty-clear {
+  margin-top: 18px;
+  padding: 7px 14px;
+  background: none;
+  border: 1px solid var(--line-1);
+  border-radius: 2px;
+  color: var(--ink-1);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+}
+
+@media (hover: hover) {
+  .empty-clear:hover {
+    color: var(--amber-hi);
+    border-color: var(--amber);
+  }
+}
+
+.empty-clear:focus-visible {
+  outline: 1px solid var(--focus);
+  outline-offset: 2px;
 }
 </style>

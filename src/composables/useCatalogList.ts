@@ -154,7 +154,24 @@ export function useCatalogList<T extends Record<string, unknown>>(
 
   const count = computed(() => filtered.value.length)
 
-  return { attrFilter, profFilter, campFilter, query, filtered, count, nameOf }
+  /** 是否有生效中的检索/筛选条件（空态文案与「清除」按钮的显隐依据） */
+  const hasActiveFilter = computed(
+    () =>
+      query.value.trim() !== '' ||
+      (withAttrs && attrFilter.value !== 'all') ||
+      (withProfs && profFilter.value !== 'all') ||
+      (withCamps && campFilter.value !== 'all'),
+  )
+
+  /** 一键清除全部检索与筛选（空态出路）；未启用的维度不动 */
+  function reset(): void {
+    query.value = ''
+    if (withAttrs) attrFilter.value = 'all'
+    if (withProfs) profFilter.value = 'all'
+    if (withCamps) campFilter.value = 'all'
+  }
+
+  return { attrFilter, profFilter, campFilter, query, filtered, count, nameOf, hasActiveFilter, reset }
 }
 
 export type { ComputedRef }

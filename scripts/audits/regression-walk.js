@@ -67,6 +67,33 @@ async (page) => {
     add('header-search-btn', r.searchToggle, '')
   }
 
+  // ---- 名录空态（检索无匹配 → 文案 + 清除出路 → 一键恢复）----
+  {
+    await page.fill('.search input', 'zzzzzz')
+    await page.waitForTimeout(600)
+    const empty = await page.evaluate(() => {
+      const cell = document.querySelector('.empty-cell')
+      const btn = document.querySelector('.empty-clear')
+      return {
+        shown: !!cell,
+        text: (cell?.querySelector('.empty-title')?.textContent ?? '').trim(),
+        clear: btn?.textContent.trim() ?? '',
+        rows: document.querySelectorAll('tbody.d-body tr:not(.empty-row)').length,
+      }
+    })
+    add('agents-empty-state', empty.shown && empty.rows === 0, `${empty.text} | rows=${empty.rows}`)
+    add('agents-empty-clear', empty.clear.includes('清除'), empty.clear || 'no-button')
+    if (empty.shown) {
+      await page.click('.empty-clear')
+      await page.waitForTimeout(600)
+      const restored = await page.evaluate(() => ({
+        rows: document.querySelectorAll('tbody.d-body tr:not(.empty-row)').length,
+        input: document.querySelector('.search input')?.value ?? '',
+      }))
+      add('agents-empty-restored', restored.rows === 60 && restored.input === '', JSON.stringify(restored))
+    }
+  }
+
   // ---- ⌘K 检索链路 ----
   await page.keyboard.press('Control+k')
   await page.waitForTimeout(800)

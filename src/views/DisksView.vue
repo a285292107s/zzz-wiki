@@ -24,7 +24,7 @@ const base = cat.path
 
 const { data, status, error } = useAsyncResource(() => listFor<DiskDriveListItem>(cat))
 
-const { query, filtered, count } = useCatalogList<DiskDriveListItem>({
+const { query, filtered, count, hasActiveFilter, reset } = useCatalogList<DiskDriveListItem>({
   items: () => data.value ?? [],
   name: (d) => d.zh?.name ?? '',
   syncRoute: true,
@@ -77,10 +77,11 @@ function warmNow(id: number | string): void {
       <SearchField v-model="query" :count="count" placeholder="检索套装…" />
     </div>
 
+    <!-- 空态分工：AsyncState 只管「数据级为空」；「筛掉全部结果」由下方 .disk-empty 承担 -->
     <AsyncState
       :status="status"
       :error="error"
-      :empty="status === 'success' && filtered.length === 0"
+      :empty="status === 'success' && !data?.length"
     >
       <template #skeleton>
         <ul class="disk-grid" aria-hidden="true">
@@ -93,7 +94,17 @@ function warmNow(id: number | string): void {
         </ul>
       </template>
 
-      <ul v-reveal="160" class="disk-grid">
+      <!-- 空态（检索无匹配）：此前只留空白栅格 —— 卡片栅格用 li 呈现，
+           与表格名录同一套文案与「清除」动作（CatalogTable 侧是实现同名空态） -->
+      <div v-if="!sorted.length" class="disk-empty">
+        <p class="empty-title mono">无匹配驱动盘</p>
+        <p class="empty-hint">换个关键词，或清除检索条件查看全部档案。</p>
+        <button v-if="hasActiveFilter" type="button" class="empty-clear mono" @click="reset()">
+          清除检索与筛选
+        </button>
+      </div>
+
+      <ul v-else v-reveal="160" class="disk-grid">
         <li v-for="d in sorted" :key="d.Id" class="disk-card">
           <RouterLink :to="`${base}/${d.Id}`" class="card-head" @pointerenter="warmDwell(d.Id)" @pointerdown="warmNow(d.Id)" @focus="warmNow(d.Id)">
             <span class="thumb">
@@ -294,5 +305,51 @@ function warmNow(id: number | string): void {
     animation: none;
     background: var(--bg-1);
   }
+}
+/* ---------- 空态（检索无匹配）---------- */
+
+.disk-empty {
+  padding: 46px 16px 50px;
+  text-align: center;
+  border: 1px solid var(--line-0);
+  border-radius: 2px;
+}
+
+.empty-title {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-1);
+}
+
+.empty-hint {
+  margin-top: 10px;
+  font-size: var(--fs-caption);
+  color: var(--ink-2);
+}
+
+.empty-clear {
+  margin-top: 18px;
+  padding: 7px 14px;
+  background: none;
+  border: 1px solid var(--line-1);
+  border-radius: 2px;
+  color: var(--ink-1);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+}
+
+@media (hover: hover) {
+  .empty-clear:hover {
+    color: var(--amber-hi);
+    border-color: var(--amber);
+  }
+}
+
+.empty-clear:focus-visible {
+  outline: 1px solid var(--focus);
+  outline-offset: 2px;
 }
 </style>
