@@ -154,11 +154,6 @@ export function dataVersions(): Promise<DataVersions> {
   return versionsPromise
 }
 
-/** 兼容别名：正式服版本号（旧接口，新代码请用 dataVersions()） */
-export function gameVersion(): Promise<string> {
-  return dataVersions().then((v) => v.live)
-}
-
 /* ---------- list / detail ---------- */
 
 /** list payloads are { [numericId]: item } — return array with Id attached */

@@ -96,11 +96,6 @@ export function useQuickSearchResults() {
   return { results, overflow }
 }
 
-/** 供组件判定面板可见性（Teleport 到 body 的全局层） */
-export function isQuickSearchVisible(): boolean {
-  return phase.value !== 'closed'
-}
-
 /* ---------- 最近访问档案 ---------- */
 
 const RECENT_KEY = 'zzz-wiki:recent-items'

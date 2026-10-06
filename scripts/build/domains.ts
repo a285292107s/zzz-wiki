@@ -85,13 +85,10 @@ export function nounToTerms(noun: NounDict): TermNames {
 }
 
 /**
- * 名词表：加载全量并按 name 归纳为 TermNames（历史签名，index 用 loadNoun + nounToTerms）。
+ * 名词表：加载全量并按 name 归纳为 TermNames。
  * 仅取 name（如 "[虚曜]"），与数据内既有 <color=#FFFFFF>[虚曜]</color> 富文本形态一致。
+ * （历史别名 loadTerms 已移除——index 直接用 loadNoun + nounToTerms。）
  */
-export async function loadTerms(ver: string): Promise<TermNames> {
-  const dict = await loadNoun(ver)
-  return nounToTerms(dict)
-}
 
 export async function buildCharacters(ver: string, terms: TermNames): Promise<{ list: Dict; details: Dict }> {
   const listRaw = (await fetchJson(

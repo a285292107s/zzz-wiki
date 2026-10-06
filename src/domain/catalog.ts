@@ -110,8 +110,3 @@ export function catalogEntry(path: string): CatalogEntry {
 export const HIDDEN_ITEM_IDS: ReadonlyMap<string, ReadonlySet<number>> = new Map([
   ['/bangboos', new Set<number>([55098])],
 ])
-
-/** 页面标题文案（页面头 eyebrow 用，如 'AGENTS'）。 */
-export function catalogEyebrow(path: string): string {
-  return catalogByPath(path)?.en ?? 'ARCHIVE'
-}
