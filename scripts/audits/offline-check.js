@@ -89,6 +89,35 @@ async (page) => {
   }))
   add('online-restored', back.rows === 60, JSON.stringify(back))
 
+  // 5) 缓存有界：图片 ≤180、数据 JSON ≤100（sw.js 的 MAX_IMAGE_ENTRIES=160 / MAX_DATA_ENTRIES=80
+  //    + 每 20 次写入修剪一次的节流余量）。无上限时浏览完整档案会累积数十 MB。
+  for (const r of ['/agents/1011', '/agents/1021', '/w-engines', '/bangboos', '/disks', '/about']) {
+    await page.goto('http://localhost:4175' + r, { waitUntil: 'networkidle' })
+    await page.waitForTimeout(900)
+  }
+  const cacheStats = await page.evaluate(async () => {
+    const names = await caches.keys()
+    let images = 0
+    let data = 0
+    let kb = 0
+    for (const n of names) {
+      const c = await caches.open(n)
+      for (const k of await c.keys()) {
+        const p = new URL(k.url).pathname
+        if (/\.(?:webp|png|jpe?g|avif|gif)$/.test(p)) images++
+        else if (p.startsWith('/data/') && p.endsWith('.json')) data++
+        const res = await c.match(k)
+        if (res) kb += (await res.clone().arrayBuffer()).byteLength / 1024
+      }
+    }
+    return { images, data, kb: Math.round(kb) }
+  })
+  add(
+    'cache-bounded',
+    cacheStats.images <= 180 && cacheStats.data <= 100 && cacheStats.kb < 20000,
+    JSON.stringify(cacheStats),
+  )
+
   const failed = checks.filter((c) => !c.ok)
   return JSON.stringify({ total: checks.length, failed: failed.length, failedItems: failed }, null, 1)
 }

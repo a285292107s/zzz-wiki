@@ -36,6 +36,11 @@
  *   **不生成 sitemap / 逐路由 HTML**，`content-sweep` 这类读产物清单的脚本会静默地
  *   扫 0 页（曾据此误判）。产物清单以 sitemap 为单一来源。
  *
+ * ⚠ **Service Worker 会遮蔽「失败模拟」**（2026-10 引入离线能力后）：SW 自己发起的 fetch
+ *   不经过 `page.route`，SW 脚本的注册请求也不经过——`route('**/sw.js', abort)` 无效。
+ *   需要在「无 SW」前提下测失败/断网的检查，应另开 `serviceWorker: 'block'` 的上下文
+ *   （见 `regression-walk.js` 的错误态检查段）。
+ *
  * 新增审计：脚本导出 JSON（{ total, failed, failedItems } 风格），
  * 失败项必须带定位信息（tag/cls/几何），让下一轮修复不用重新考古。
  * ============================================================ */

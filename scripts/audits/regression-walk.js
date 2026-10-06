@@ -286,22 +286,19 @@ async (page) => {
   }
 
   // ---- 加载失败态：可读文案 + 重试出路（拦截数据请求再放开） ----
+  // 引入 Service Worker 后，失败模拟会被它遮蔽，且**两个边界都拦不住**：
+  //   · SW 自己发起的 fetch 不经过 page.route
+  //   · SW 脚本自身的注册请求也不经过 page.route（故 `route('**/sw.js', abort)` 无效）
+  // 干净解法：另开一个 `serviceWorkers: 'block'` 的上下文做这段检查——上下文级禁用，
+  // 不依赖任何拦截技巧，也不需要在生产代码里留测试开关。
   {
-    // 引入 Service Worker 后，失败模拟会被它遮蔽：/data/*.json 走「陈旧优先」，
-    // 且 **SW 自己发起的 fetch 不经过 page.route**（拦截只作用于页面请求）——
-    // 于是断网/中止都不会让应用看到失败。故本段先阻断 SW 注册并注销现有 SW + 清缓存，
-    // 让失败真正冒泡到应用层，错误态与重试按钮才可被验证。
-    await page.route('**/sw.js', (r) => r.abort())
-    await page.evaluate(async () => {
-      const regs = await navigator.serviceWorker.getRegistrations()
-      await Promise.all(regs.map((r) => r.unregister()))
-      const keys = await caches.keys()
-      await Promise.all(keys.map((k) => caches.delete(k)))
-    })
-    await page.route('**/data/live/weapon.json', (r) => r.abort())
-    await page.goto('http://localhost:4175/w-engines', { waitUntil: 'networkidle' })
-    await page.waitForTimeout(1800)
-    const err = await page.evaluate(() => {
+    const swBlockedCtx = await page.context().browser().newContext({ serviceWorkers: 'block' })
+    const p2 = await swBlockedCtx.newPage()
+    const add2 = (name, ok, detail) => checks.push({ name, ok, detail })
+    await p2.route('**/data/live/weapon.json', (r) => r.abort())
+    await p2.goto('http://localhost:4175/w-engines', { waitUntil: 'networkidle' })
+    await p2.waitForTimeout(1800)
+    const err = await p2.evaluate(() => {
       const box = document.querySelector('.state.err')
       return {
         shown: !!box,
@@ -310,20 +307,27 @@ async (page) => {
         retry: box?.querySelector('.err-retry')?.textContent.trim() ?? '',
         hint: (box?.querySelector('.err-hint')?.textContent.trim() ?? '').length,
         invalid: !!document.querySelector('p > button'),
+        controlled: !!navigator.serviceWorker.controller,
       }
     })
-    add('error-state-copy', err.shown && err.role === 'alert' && err.title.includes('数据加载失败') && err.hint > 10, `${err.title} | hint=${err.hint}`)
+    add('sw-bypassed-for-failure-test', !err.controlled, `controller 为空 = ${!err.controlled}`)
+    add(
+      'error-state-copy',
+      err.shown && err.role === 'alert' && err.title.includes('数据加载失败') && err.hint > 10,
+      `${err.title} | hint=${err.hint}`,
+    )
     add('error-state-retry-btn', err.retry === '重新加载', err.retry || 'none')
     add('error-state-valid-dom', !err.invalid, `p>button=${err.invalid}`)
-    await page.unrouteAll({ behavior: 'ignoreErrors' })
     if (err.shown) {
-      await page.click('.err-retry')
-      await page.waitForTimeout(1600)
-      const recovered = await page.evaluate(
+      await p2.unrouteAll({ behavior: 'ignoreErrors' })
+      await p2.click('.err-retry')
+      await p2.waitForTimeout(1600)
+      const recovered = await p2.evaluate(
         () => document.querySelectorAll('tbody.d-body tr:not(.empty-row)').length,
       )
       add('error-state-retry-recovers', recovered === 100, `rows=${recovered}`)
     }
+    await swBlockedCtx.close()
   }
 
   // ---- 内容完整性抽样（全量扫描见 content-sweep.js：238 页 0 异常）----
