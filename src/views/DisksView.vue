@@ -97,9 +97,10 @@ function warmNow(id: number | string): void {
         <li v-for="d in sorted" :key="d.Id" class="disk-card">
           <RouterLink :to="`${base}/${d.Id}`" class="card-head" @pointerenter="warmDwell(d.Id)" @pointerdown="warmNow(d.Id)" @focus="warmNow(d.Id)">
             <span class="thumb">
+              <!-- alt 置空：盘名文本紧随同链接内，图再念一遍名字是冗余朗读（axe image-redundant-alt） -->
               <HollowImage
                 :srcs="iconSources({ Id: d.Id, icon: d.icon }, 'disc')"
-                :alt="d.zh?.name ?? '—'"
+                alt=""
                 :fallback="d.zh?.name ?? '—'"
                 fit="contain"
               />
@@ -238,7 +239,11 @@ function warmNow(id: number | string): void {
 .set-lbl {
   font-size: var(--fs-nano);
   letter-spacing: 0.2em;
-  color: var(--ink-3);
+  /* ink-1 而非 ink-2/ink-3：本标签是 10px 小字，须过 4.5:1。ink-3 仅 2.06:1；
+     ink-2 在卡片底色 --bg-2（比页面底色亮的档位，ink-2 的 4.87:1 是在 bg-0/bg-1
+     上标定的）上实测 4.40:1 仍差一点 —— 故取 ink-1（6.98:1）。
+     层级由字号/字距/等宽小字承担，不再靠压暗颜色。 */
+  color: var(--ink-1);
 }
 
 .set-txt {

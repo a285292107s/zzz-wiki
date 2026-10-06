@@ -8,6 +8,10 @@
  * 输出：按路由聚合的 violations（规则 id / impact / 命中数 / 首个目标选择器），
  * 仅列 serious+critical 之外的也一并给出（含 moderate/minor 以便判断）。
  *
+ * 覆盖面（2026-10 扩到 12 路由 × 2 视口 = 24 组合）：四个名录页 + 各类目一个详情
+ * + 首页 + 图表页 + 出处页 + 404。**扩大覆盖本身就会抓到问题**——/disks 页此前
+ * 不在清单里，首次纳入即暴露两处（套装标签 4.40:1 差一点、磁盘图标 alt 冗余）。
+ *
  * 用法：
  *   playwright-cli open http://localhost:4175 && \
  *   playwright-cli run-code --filename=scripts/audits/axe-a11y.js
@@ -16,7 +20,21 @@
  * ============================================================ */
 
 async (page) => {
-  const routes = ['/', '/agents', '/agents/1011', '/w-engines/14162', '/bangboos', '/disks/34200', '/formulas', '/about', '/none']
+  // 四个名录页 + 各类目一个详情 + 图表页 + 出处页 + 404（覆盖全部页面类型）
+  const routes = [
+    '/',
+    '/agents',
+    '/agents/1011',
+    '/w-engines',
+    '/w-engines/14162',
+    '/bangboos',
+    '/bangboos/54023',
+    '/disks',
+    '/disks/34200',
+    '/formulas',
+    '/about',
+    '/none',
+  ]
   const viewports = [
     [1920, 1080],
     [390, 844],
