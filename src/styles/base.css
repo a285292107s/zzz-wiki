@@ -687,3 +687,133 @@ section[id] {
     animation-duration: 0.01ms !important;
   }
 }
+
+/* ============================================================
+   打印：纸墨模式（站点是「档案」，纸上要成立）
+   —— 白纸黑字、去背景纹理与浮层、隐藏交互外壳、区块不跨页断开。
+   实现方式：整体替换 token（组件的颜色/线/圆角全经 var() 引用，故一处覆盖全站生效），
+   再隐藏纯交互元素（它们的 scoped 选择器带属性、特异性更高，故用 !important，
+   仅出现在打印媒体查询内）。
+   ============================================================ */
+
+@media print {
+  :root {
+    color-scheme: light;
+
+    /* 面：白纸；hover 档位退为极浅灰仅作层次 */
+    --bg-0: #ffffff;
+    --bg-1: #ffffff;
+    --bg-2: #ffffff;
+    --bg-3: #f2f2f2;
+
+    /* 线；纸上细线要略深于屏幕，否则打印丢失 */
+    --line-0: #e4e4e4;
+    --line-1: #cdcdcd;
+    --line-2: #9a9a9a;
+
+    /* 墨：反相后仍保持四档层次（对应屏幕的 ink-0..3） */
+    --ink-0: #111111;
+    --ink-1: #333333;
+    --ink-2: #555555;
+    --ink-3: #767676; /* 纸上仍达 4.5:1，挡位语义不变 */
+
+    /* 强调色：屏幕琥珀在白纸上对比不足，换深琥珀（≈6:1） */
+    --amber: #8a5a12;
+    --amber-hi: #6d4708;
+    --amber-dim: transparent;
+
+    /* 语义/稀有度：同理由亮色换深色（保留色相含义） */
+    --danger: #8a2b20;
+    --ok: #2f6b32;
+    --rank-s: #7a5c00;
+    --rank-a: #5f3a7a;
+    --rank-b: #2f6b32;
+
+    /* 背景纹理 / 壁纸 / 浮层阴影一律去掉（省墨且避免固定层逐页重复） */
+    --page-bg-image: none;
+    --home-bg-image: none;
+    --paper-noise: none;
+    --shadow-pop: none;
+  }
+
+  /* 固定视口层：打印会逐页重复，直接移除 */
+  body::before,
+  .home-backdrop {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #111;
+    /* 打印可读性：正文字号与行距按纸面调（屏幕 15px ≈ 11pt） */
+    font-size: 11pt;
+    line-height: 1.55;
+  }
+
+  /* 交互外壳：站头导航 / 区块索引 / 回顶 / 检索面板 / 术语浮层 / 跳转链接 / 翻页提示 */
+  .masthead,
+  .section-nav,
+  .back-top,
+  .qs-scrim,
+  .term-tip-list,
+  .skip-link,
+  .pg-hint,
+  .foot-actions {
+    display: none !important;
+  }
+
+  /* 内容胶囊：去纸纹与面色，落回白纸 */
+  .wrap.page {
+    background: none !important;
+    border-bottom: none;
+  }
+
+  /* 分页控制：小单元不跨页断开；标题不孤悬页底 */
+  h1,
+  h2,
+  h3,
+  h4 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .metric-table,
+  .specimen-card,
+  .skill-group,
+  .dossier,
+  .spec-item,
+  .steps li,
+  tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  p,
+  li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* 打印时链接不必着色（纸上无「可点」概念），保留下划线语义 */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* 详情页头图等图片：限制高度，避免整页只印一张立绘 */
+  img {
+    max-height: 90mm;
+    object-fit: contain !important;
+  }
+
+  /* 打印页脚（出处行）保留并压缩：纸质档案需要出处与数据日期 */
+  .foot {
+    margin-top: 10mm;
+    border-top: 1px solid #cdcdcd;
+  }
+
+  .foot-inner {
+    padding-block: 4mm;
+    font-size: 9pt;
+  }
+}
