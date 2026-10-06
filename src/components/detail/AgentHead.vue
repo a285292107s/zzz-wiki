@@ -106,7 +106,9 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
 </script>
 
 <template>
-  <header class="ahead">
+  <!-- div 而非 header：页面 banner landmark 唯一（SiteHeader role=banner），
+       此处是内容区的档案封面块，不是页面级页眉——避免屏幕阅读器出现双 banner -->
+  <div class="ahead">
     <!-- hero 底图：Mindscape_{id}_2.webp 满栏铺底（object-cover 保人物头部），置右微移，留出左侧信息呼吸感。
          候选链与失败缓存收口在 HollowImage（unframed 纯图模式，耗尽后整体隐藏落 --bg-0 底色）；
          满栏大图 eager 加载，构图校准参数经 img-style 透传。 -->
@@ -161,7 +163,7 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
         />
       </div>
     </div>
-  </header>
+  </div>
 </template>
 
 <style scoped>
