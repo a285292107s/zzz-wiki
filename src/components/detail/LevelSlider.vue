@@ -116,17 +116,18 @@ function onChange(e: Event) {
   border-radius: 2px;
   transition: background var(--t-fast) var(--ease);
 }
-.level-range:hover::-webkit-slider-thumb,
-.level-range:active::-webkit-slider-thumb {
-  background: var(--amber-hi);
-}
-.level-range:hover::-moz-range-thumb,
-.level-range:active::-moz-range-thumb {
-  background: var(--amber-hi);
-}
-.level-range:hover::-webkit-slider-runnable-track,
-.level-range:hover::-moz-range-track {
-  background: var(--line-1);
+/* 悬停提亮仅限 hover 设备；:active（按压中）保留全设备——触屏拖动的即时反馈 */
+@media (hover: hover) {
+  .level-range:hover::-webkit-slider-thumb {
+    background: var(--amber-hi);
+  }
+  .level-range:hover::-moz-range-thumb {
+    background: var(--amber-hi);
+  }
+  .level-range:hover::-webkit-slider-runnable-track,
+  .level-range:hover::-moz-range-track {
+    background: var(--line-1);
+  }
 }
 .level-range:focus-visible {
   outline: 1px solid var(--amber);

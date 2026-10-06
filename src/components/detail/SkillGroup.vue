@@ -423,11 +423,13 @@ function potTag(grp: SkillGroup): string | null {
   opacity: 0;
   transition: opacity var(--t-fast) var(--ease);
 }
-.metric-table tbody tr:hover {
-  background: var(--bg-3);
-}
-.metric-table tbody tr:hover :is(th, td):first-child::before {
-  opacity: 1;
+@media (hover: hover) {
+  .metric-table tbody tr:hover {
+    background: var(--bg-3);
+  }
+  .metric-table tbody tr:hover :is(th, td):first-child::before {
+    opacity: 1;
+  }
 }
 
 .level-row {

@@ -413,8 +413,10 @@ const unlockCount = computed(() =>
 }
 
 /* 行悬停：bg-3（token 预置 hover 层级），与转置表行同力道；bg-1 仅差 5 色阶不可辨 */
-.tier:hover {
-  background: var(--bg-3);
+@media (hover: hover) {
+  .tier:hover {
+    background: var(--bg-3);
+  }
 }
 
 /* 满级累计：全部档位新增量合计，实线与清单区隔 */

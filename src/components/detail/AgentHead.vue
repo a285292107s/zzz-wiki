@@ -262,9 +262,11 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
   transition: border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
 }
 
-.form-toggle:hover {
-  border-color: var(--line-2);
-  color: var(--amber);
+@media (hover: hover) {
+  .form-toggle:hover {
+    border-color: var(--line-2);
+    color: var(--amber);
+  }
 }
 
 .form-toggle .t-label {
