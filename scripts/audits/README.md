@@ -8,14 +8,14 @@
  * |---|---|---|
  * | viewport-overflow.js  | 8 视口 × 8 路由横向溢出 | 0 |
  * | touch-targets.js      | 交互目标 ≥24×24（WCAG 2.5.8） | 0 问题 |
- * | regression-walk.js    | 19 项全站功能走查 | 19/19 |
- * | transfer-profile.js   | 分类传输体积 | 首页 imgs ≈175KB |
- * | quick-search.js       | ⌘K 检索链路端到端 | 全通过 |
+ * | regression-walk.js    | 全站功能走查（73 项，覆盖七类目/边界态/URL 状态/离线联动） | 73/73 |
+ * | transfer-profile.js   | 分类传输体积（逐文件 kb + 加载时刻） | 36 请求；最大 noto-serif-sc.css 68.9KB（解码值，gzip 后 ~10KB） |
+ * | quick-search.js       | ⌘K 检索链路端到端（中文高亮/罗马字命中/结果态预激活/空态键盘路径） | 4/4 |
  * | font-loading.js       | CJK 衬线生效 + 分片按需 | serif=Noto Serif SC |
  * | slider-keyboard.js    | 滑条键盘操作（8 实例） | 全部响应 |
- * | landmarks.js          | landmark/h1/alt 唯一性 | 每页各 1 |
+ * | landmarks.js          | landmark/h1/alt 唯一性 | 每页 h1/main/footer 各 1；无缺 alt 图（详情页含 2 个 `<header>`：页头 + 条目头，合法） |
  * | font-weight-calibration.js | CJK 衬线实际渲染字重标定 | 生产 = wght 500 实例 |
- * | axe-a11y.js          | axe-core 全量规则（8 路由 × 桌面/移动 16 组合） | 0 violations |
+ * | axe-a11y.js          | axe-core 全量规则（12 路由 × 桌面/移动 24 组合） | 0 violations |
  * | axe-states.js        | 交互面板**展开态**的 axe（菜单/下拉/检索/浮层/空态） | 6 状态 0 violations |
  * | print-mode.js        | 打印（纸墨模式）：白纸黑字/外壳隐藏/内容保留 | 24/24 |
  * | forced-colors.js     | 高对比度模式：结构线/状态/滑条可见 | 8/8 |
