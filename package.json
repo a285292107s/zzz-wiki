@@ -21,7 +21,9 @@
     "verify:fonts:cjk": "node scripts/verify-cjk-fonts.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
-    "verify:budget": "node scripts/verify-budget.mjs"
+    "verify:budget": "node scripts/verify-budget.mjs",
+    "subset:fonts:cjk": "node scripts/build/subset-cjk-fonts.mjs",
+    "fonts:cjk": "npm run download:fonts:cjk && npm run subset:fonts:cjk"
   },
   "dependencies": {
     "vue": "^3.5.13",
@@ -34,6 +36,7 @@
     "axe-core": "^4.14.0",
     "jsdom": "^26.1.0",
     "sharp": "^0.35.5",
+    "subset-font": "^2.9.0",
     "tsx": "^4.23.12",
     "typescript": "~5.7.2",
     "vite": "^6.0.7",

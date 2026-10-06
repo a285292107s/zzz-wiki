@@ -222,7 +222,7 @@ public/data/
 仅本地改数据时 `npm run data` → `npm run verify:data` →（可选）`npm run download:icons`
 → `npm test` → `npm run build`（→ 可选 `npm run verify:icons`）。改动视觉层字体时另见
 `npm run download:fonts` / `npm run verify:fonts`（西文）与 `npm run download:fonts:cjk` /
-`npm run verify:fonts:cjk`（CJK 衬线分片，§10 字体组）。各命令如下：
+`npm run subset:fonts:cjk` / `npm run verify:fonts:cjk`（CJK 衬线分片，§10 字体组）。各命令如下：
 
 ```bash
 npm install             # 依赖（首次或变更后）
@@ -238,8 +238,10 @@ npm run verify:icons    # 图标校准：本地 img 差集（核心）+ nanoka �
                         #   --local 仅查本地（离线可用）；网络异常按"无法确认"以码 2 退出
 npm run download:fonts  # 西文字体本地化：Google Fonts css2 → public/fonts/*.woff2（自托管、运行时零外网）；幂等；网络失败仅告警
 npm run verify:fonts    # 字体存在性校验：download:fonts 声明的每个文件在 public/fonts/ 存在且非空（离线可用；build:ci 已挂）
-npm run download:fonts:cjk  # CJK 衬线本地化：Noto Serif SC 500 → public/fonts/noto-serif-sc/（unicode-range 分片 101 个）+ noto-serif-sc.css + 清单 JSON；幂等；失败仅告警
-npm run verify:fonts:cjk    # CJK 分片完整性校验：清单结构 / 分片存在 / css @font-face 数 / css↔文件双向对账（离线可用；build:ci 已挂）
+npm run download:fonts:cjk  # CJK 原始分片拉取：Noto Serif SC 500 → .cache/cjk-raw/ + faces.json（不入库；幂等；失败仅告警）
+npm run subset:fonts:cjk    # CJK 分片裁剪：按站内字符集裁剪源片并按 10KB 目标细分 → public/fonts/noto-serif-sc/ + CSS + 清单（内容寻址命名，自动清理孤儿）
+npm run fonts:cjk           # 上两步串联（字符集变化后跑这个）
+npm run verify:fonts:cjk    # CJK 分片完整性 + 字符集覆盖校验：清单/css/文件三方对账，且字体能提供的字符必须全部已声明（离线可用；build:ci 已挂）
 npm run sitemap         # 生成 dist/sitemap.xml（build:ci 末段自动执行；SITE_ORIGIN 环境变量注入生产域）
 npm run dev             # 开发 http://localhost:5173（占用自动换端口）
 npm run build           # vue-tsc 类型检查 + vite 构建
@@ -295,18 +297,19 @@ skills 描述富文本走 `richDesc`。字体族（CJK 衬线优先、sans 弃 `
 唯一记录点见 `tokens.css` 注释与 `/style`（DESIGN.md §9）；本条指核心语言不变。
 西文（JetBrains Mono / Public Sans）**自托管**至 `public/fonts/`，经 `@font-face` 引用、运行时零外网；
 刷新用 `npm run download:fonts`，缺文件由 `verify:fonts` 门禁（含 build:ci）。
-CJK 衬线（Noto Serif SC **500 单档**）**分片自托管**至 `public/fonts/noto-serif-sc/`（unicode-range 按需加载，
-首屏增量 ~13 片 / ~940KB —— 这是当前 LCP 的主要构成，见下），生成物 `noto-serif-sc.css` 勿手改；
-刷新用 `npm run download:fonts:cjk`，完整性由 `verify:fonts:cjk` 门禁（含 build:ci）。
+CJK 衬线（Noto Serif SC **500 单档**）**按站点字符集裁剪后自托管**至 `public/fonts/noto-serif-sc/`：
+`download:fonts:cjk` 把 Google 官方分片拉到 `.cache/cjk-raw/`（不入库），`subset:fonts:cjk`
+用 `scripts/build/charset.mjs` 采集的站内字符集逐片裁剪，产物才进 `public/`（内容寻址命名）。
+生成物 `noto-serif-sc.css` 勿手改；`verify:fonts:cjk` 门禁把守完整性 + **字符集覆盖**
+（字体能提供的字符必须全部已声明，缺一即字形混排）。
 
-> ⚠ **为何只留 500**（Lighthouse 三页网络记录）：站内 600 档仅术语浮层标题一处衬线使用，
-> 而实测 CJK 分片请求**全部 500 档、0 次 600**——600 的 101 个文件（约 2.9MB）与半个渲染阻塞
-> CSS（32KB）都是纯重量，浮层打开还会多拉一片 ~80KB。裁掉后 600 请求由 500 面按最近字重接管，
-> 视觉差异可忽略。**新增衬线字重前先证明它真会被渲染**。
-
-> ⚠ **CJK 分片是可变字体，内部名会误导诊断**：Google 的 Noto Serif SC 分片 family 名固定为
-> `Noto Serif SC ExtraLight`（默认实例 wght=200），CDP `CSS.getPlatformFontsForNode` 报出的就是它——
-> 但这**不代表实际渲染字重**。`@font-face` 的单值 `font-weight` 描述符会把 wght 轴钉到该值，实测
-> 生产字族在 weight 400/500 下均渲染 **wght 500 实例**（读者按 500 出形）。判据与复跑脚本：
-> `scripts/audits/font-weight-calibration.js`（同分片对照墨量标定，基线 200/400/500/700 → 290/354/403/515，
-> 生产 = 403）。**勿据此把「ExtraLight」当缺陷去改**——那是命名，不是渲染结果。
+> 📉 **分片裁剪（2026-10）**：官方分片按编码区切，单片覆盖数千码位（20-80KB），页面只用几十字。
+> 裁剪 + 按 10KB 目标再细分后：**首页字体 924KB → ~270KB（−71%），总载荷 1.77MB → 0.98MB，
+> 移动端 LCP 11.2s → 6.5-6.7s（−41%）**。粒度由 `CJK_TARGET_KB` 控制（默认 10；调小更省字节、
+> 请求更多）。字符集变化（新增数据/文案）后须重跑 `npm run fonts:cjk`，否则新字回退系统字体。
+> 注意：Google 现行分片是**静态实例**（无 fvar 轴）——**不要钉可变轴**（harfbuzz 会报 axis 不存在）。
+>
+> ⚠ **分片内部名会误导诊断**：CSS 交付里的 family 内部名固定为 `Noto Serif SC ExtraLight…`，
+> CDP `CSS.getPlatformFontsForNode` 报的就是它——**不代表实际渲染字重**（现行片 OS/2
+> usWeightClass=500）。判据与复跑脚本：`scripts/audits/font-weight-calibration.js`
+> （用本站分片做对照字族比墨量，相等即证明生产走的是我们交付的字；基线 403=403）。
