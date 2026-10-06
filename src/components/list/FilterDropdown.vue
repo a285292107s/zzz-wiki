@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue'
 import { ELEMENTS, PROFESSIONS, type AttrCode, type SpecCode } from '@/domain/enums'
 import { elementIconUrl, professionIconUrl, campIconUrl } from '@/domain/filterIcons'
 import type { CampFilter } from '@/composables/useCatalogList'
@@ -117,7 +117,45 @@ function currentLabel(g: FilterGroup): string {
 }
 
 function toggle(key: string) {
-  openGroup.value = openGroup.value === key ? null : key
+  const opening = openGroup.value !== key
+  openGroup.value = opening ? key : null
+  if (opening) {
+    optionIdx.value = 0 // 打开时活跃项复位到首个选项
+    focusActiveOption() // 焦点移入 listbox（WAI-ARIA listbox 模式：打开即可方向键导航）
+  }
+}
+
+/** 触发器上按 ↓：打开（若未开）并把焦点移入 listbox——原生 select 的肌肉记忆 */
+function openAndFocus(key: string) {
+  const opening = openGroup.value !== key
+  if (opening) openGroup.value = key
+  if (opening) optionIdx.value = 0
+  focusActiveOption()
+}
+
+/** 焦点移到活跃选项（roving tabindex 的当前项）；打开后与方向键移动共用 */
+function focusActiveOption(): void {
+  void nextTick(() => {
+    rootEl.value?.querySelector<HTMLElement>(`.popover [data-oi="${optionIdx.value}"]`)?.focus()
+  })
+}
+
+/** roving tabindex：活跃选项索引（仅该项 Tab 可达；方向键在选项间移动） */
+const optionIdx = ref(0)
+function optionActive(key: string, oi: number): boolean {
+  return openGroup.value === key && optionIdx.value === oi
+}
+function moveOption(key: string, delta: number): void {
+  const g = groups.value.find((x) => x.key === key)
+  if (!g) return
+  const n = g.options.length
+  optionIdx.value = (optionIdx.value + delta + n) % n
+  void nextTick(() => {
+    const next = rootEl.value?.querySelector<HTMLElement>(`.popover [data-oi="${optionIdx.value}"]`)
+    // scrollIntoView 在 jsdom 等环境缺失：可选调用（焦点移动不因环境差异中断）
+    next?.scrollIntoView?.({ block: 'nearest' })
+    next?.focus()
+  })
 }
 
 function select(g: FilterGroup, value: FilterValue) {
@@ -125,6 +163,10 @@ function select(g: FilterGroup, value: FilterValue) {
   else if (g.key === 'prof') emit('update:prof', value as 'all' | SpecCode)
   else emit('update:camp', value as CampFilter)
   openGroup.value = null
+  // 选择后焦点归还触发钮（选项被卸载，否则焦点落 body——键盘用户丢失位置）
+  void nextTick(() => {
+    rootEl.value?.querySelector<HTMLElement>(`.trigger[data-key="${g.key}"]`)?.focus()
+  })
 }
 
 /* ---------- 点击外部 / Esc 关闭 ---------- */
@@ -159,10 +201,12 @@ onUnmounted(() => {
       <button
         type="button"
         class="trigger"
+        :data-key="g.key"
         :class="{ open: openGroup === g.key, active: g.current !== 'all' }"
         :aria-haspopup="'listbox'"
         :aria-expanded="openGroup === g.key"
         @click="toggle(g.key)"
+        @keydown.arrow-down.prevent="openAndFocus(g.key)"
       >
         <img
           v-if="currentOption(g)?.iconUrl"
@@ -188,15 +232,19 @@ onUnmounted(() => {
 
       <div v-if="openGroup === g.key" class="popover" role="listbox" :aria-label="g.label">
         <button
-          v-for="opt in g.options"
+          v-for="(opt, oi) in g.options"
           :key="String(opt.value)"
           type="button"
           role="option"
           class="opt"
           :class="{ selected: opt.value === g.current }"
           :aria-selected="opt.value === g.current"
+          :tabindex="optionActive(g.key, oi) ? 0 : -1"
+          :data-oi="oi"
           :style="opt.color ? { '--opt-color': opt.color } : undefined"
           @click="select(g, opt.value)"
+          @keydown.arrow-down.prevent="moveOption(g.key, 1)"
+          @keydown.arrow-up.prevent="moveOption(g.key, -1)"
         >
           <img v-if="opt.iconUrl" class="opt-ic" :src="opt.iconUrl!" :alt="opt.label" loading="lazy" />
           <svg
