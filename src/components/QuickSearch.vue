@@ -190,7 +190,9 @@ function onKeydown(e: KeyboardEvent): void {
             spellcheck="false"
             @keydown="onKeydown"
           />
-          <button type="button" class="qs-esc mono" aria-label="关闭检索" @click="close()">ESC</button>
+          <button type="button" class="qs-esc mono" @click="close()">
+        ESC<span class="sr-only">，关闭检索</span>
+      </button>
         </div>
 
         <!-- 命中规模实时提示（aria-live 让辅助技术感知结果集变化） -->
@@ -200,7 +202,16 @@ function onKeydown(e: KeyboardEvent): void {
 
         <div v-if="loading" class="qs-state mono" role="status">索引构建中…</div>
 
-        <div v-else id="quick-search-listbox" ref="listEl" class="qs-list" role="listbox" aria-label="检索结果">
+        <!-- role=listbox 只在**确有 option 子项**时挂：空态下 listbox 没有合法子项，
+             会触发 axe aria-required-children（critical）。空态文案改为 role=status 播报。 -->
+        <div
+          v-else
+          id="quick-search-listbox"
+          ref="listEl"
+          class="qs-list"
+          :role="flat.length ? 'listbox' : undefined"
+          :aria-label="flat.length ? '检索结果' : undefined"
+        >
           <template v-if="flat.length">
             <div v-for="g in groups" :key="g.en" class="qs-group">
               <p class="qs-group-head mono">
@@ -273,7 +284,7 @@ function onKeydown(e: KeyboardEvent): void {
             </div>
           </template>
           <p v-else-if="!query" class="qs-state mono">输入关键词检索全部档案</p>
-          <p v-else class="qs-state mono">无匹配档案 — 调整关键词再试</p>
+          <p v-else class="qs-state mono" role="status">无匹配档案 — 调整关键词再试</p>
         </div>
 
         <p class="qs-foot mono" aria-hidden="true">
@@ -455,7 +466,13 @@ function onKeydown(e: KeyboardEvent): void {
   flex: none;
   font-size: var(--fs-nano);
   letter-spacing: 0.16em;
-  color: var(--ink-3);
+  /* ink-2（在 bg-1/bg-2 上 4.87:1）而非 ink-3（2.28:1）：检索序号是可见文本，须过 AA */
+  color: var(--ink-2);
+}
+
+/* 当前行底色更亮（--bg-3），ink-2 在此仅 ~4.07:1 —— 提到 ink-1（~6.46:1） */
+.qs-row.on .qs-no {
+  color: var(--ink-1);
 }
 
 /* 命中标记：琥珀细线下注（无浏览器默认 mark 黄底），终端「命中高亮」语义 */

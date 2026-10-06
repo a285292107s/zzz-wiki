@@ -246,7 +246,8 @@ onUnmounted(() => {
           @keydown.arrow-down.prevent="moveOption(g.key, 1)"
           @keydown.arrow-up.prevent="moveOption(g.key, -1)"
         >
-          <img v-if="opt.iconUrl" class="opt-ic" :src="opt.iconUrl!" :alt="opt.label" loading="lazy" />
+          <!-- alt 置空：选项图标是装饰（选项文字紧随其后），再念一遍即冗余朗读（axe image-redundant-alt） -->
+          <img v-if="opt.iconUrl" class="opt-ic" :src="opt.iconUrl!" alt="" loading="lazy" />
           <svg
             v-else
             class="opt-ic opt-fallback"

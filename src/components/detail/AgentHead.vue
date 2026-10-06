@@ -145,11 +145,13 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
         v-if="isDualForm"
         class="form-toggle mono"
         type="button"
-        :aria-label="`切换角色形态，当前${heroForm === 'female' ? '女性' : '男性'}`"
         @click="toggleHeroForm"
       >
+        <!-- 可访问名从内容派生（「形态 Female」）＋ sr-only 操作说明：
+             aria-label 与可见文本不一致会触发 axe label-content-name-mismatch -->
         <span class="t-label">形态</span>
         <span class="t-val">{{ heroForm === 'female' ? 'Female' : 'Male' }}</span>
+        <span class="sr-only">，点按切换性别形态</span>
       </button>
     </div>
 

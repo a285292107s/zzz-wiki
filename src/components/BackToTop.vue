@@ -28,11 +28,13 @@ onUnmounted(() => {
     :class="{ show: visible }"
     :aria-hidden="visible ? undefined : 'true'"
     :tabindex="visible ? 0 : -1"
-    aria-label="回到顶部"
     @click="scrollToTop"
   >
+    <!-- 可访问名从内容派生（「TOP」）＋ sr-only 操作说明：aria-label 若与可见文本不一致，
+         会触发 axe label-content-name-mismatch（可见文本须包含于可访问名） -->
     <span class="arrow" aria-hidden="true">↑</span>
     <span class="word">TOP</span>
+    <span class="sr-only">，回到顶部</span>
   </button>
 </template>
 

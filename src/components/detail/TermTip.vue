@@ -302,13 +302,18 @@ onBeforeUnmount(() => {
       @pointerenter="cancelHide"
     >
       <div v-for="tip in tips" :key="tip.id" class="term-tip" role="status">
-        <header v-if="tip.entry?.title" class="tip-head">
+        <!-- div 而非 header/footer：本卡片经 Teleport 挂到 body，**不在 main 内**——
+            而 `<header>`/`<footer>` 只有在 main/section/article 等容器内才不构成
+            banner/contentinfo；挂到 body 后它们会变成页面级 landmark，与站头/站尾
+            重复（axe: landmark-no-duplicate-banner / -contentinfo / landmark-unique）。
+             这两个块是卡片内部的首尾区，不是页面语义区。 -->
+        <div v-if="tip.entry?.title" class="tip-head">
           <p class="tip-title serif">{{ tip.entry.title }}</p>
-        </header>
+        </div>
         <p v-if="tip.entry?.desc" class="tip-desc" v-html="richDesc(tip.entry.desc)"></p>
-        <footer v-if="tip.entry?.skill" class="tip-foot">
+        <div v-if="tip.entry?.skill" class="tip-foot">
           <p class="tip-eyebrow mono">{{ tip.entry.skill }}</p>
-        </footer>
+        </div>
       </div>
     </div>
   </Teleport>
