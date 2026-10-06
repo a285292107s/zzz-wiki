@@ -3,6 +3,7 @@ import { nextTick, onMounted, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import AsyncState from '@/components/state/AsyncState.vue'
 import BackToTop from '@/components/BackToTop.vue'
+import CompareToggle from '@/components/CompareToggle.vue'
 import { useNavScrollable } from '@/composables/useNavScrollable'
 import { recordRecentVisit } from '@/composables/useQuickSearch'
 import { dataVersions } from '@/data/api'
@@ -67,7 +68,11 @@ watch(
 
 <template>
   <div class="wrap page">
-    <RouterLink :to="backTo" class="back mono">← {{ backLabel ?? '返回' }}</RouterLink>
+    <div class="page-actions">
+      <RouterLink :to="backTo" class="back mono">← {{ backLabel ?? '返回' }}</RouterLink>
+      <!-- 对照台入口：就地加入，不必先跳去对照页找条目（类目/编号由当前路由推出） -->
+      <CompareToggle />
+    </div>
 
     <!-- 区块导航：宽屏左侧档案索引 / 窄屏吸顶横条（样式见 base.css .section-nav） -->
     <nav v-if="nav?.length" ref="navEl" class="section-nav" aria-label="页面区块">
@@ -141,6 +146,19 @@ watch(
 <style scoped>
 .page {
   padding-top: calc(var(--pad-section) * 0.9);
+}
+
+/* 返回 + 对照台入口：同一行、同一基线；间距收在页头范围内（区块间呼吸不参与） */
+.page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-head);
+  margin-bottom: clamp(16px, 2.2vw, 34px);
+}
+
+.page-actions .back {
+  margin-bottom: 0;
 }
 
 /* 逐条出处：页脚式的细字，不抢内容，但让每条档案可追溯到具体快照 */

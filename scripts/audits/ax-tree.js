@@ -16,7 +16,7 @@
  * ============================================================ */
 
 async (page) => {
-  const routes = ['/', '/agents', '/agents/1011', '/formulas', '/about']
+  const routes = ['/', '/agents', '/agents/1011', '/formulas', '/about', '/compare']
   const report = []
   const INTERACTIVE = new Set([
     'button', 'link', 'textbox', 'combobox', 'listbox', 'option', 'slider',

@@ -110,7 +110,7 @@ async (page) => {
 
   // 5) 缓存有界：图片 ≤180、数据 JSON ≤100（sw.js 的 MAX_IMAGE_ENTRIES=160 / MAX_DATA_ENTRIES=80
   //    + 每 20 次写入修剪一次的节流余量）。无上限时浏览完整档案会累积数十 MB。
-  for (const r of ['/agents/1011', '/agents/1021', '/w-engines', '/bangboos', '/disks', '/about']) {
+  for (const r of ['/agents/1011', '/agents/1021', '/w-engines', '/bangboos', '/disks', '/about', '/compare']) {
     await page.goto('http://localhost:4175' + r, { waitUntil: 'networkidle' })
     await page.waitForTimeout(900)
   }

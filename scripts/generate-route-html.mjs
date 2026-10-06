@@ -83,8 +83,32 @@ const VIEW_OF = {
   '/w-engines': 'src/views/WEnginesView.vue',
   '/bangboos': 'src/views/BangboosView.vue',
   '/disks': 'src/views/DisksView.vue',
+  '/compare': 'src/views/CompareView.vue',
   '/formulas': 'src/views/FormulasView.vue',
   '/about': 'src/views/AboutView.vue',
+}
+
+/** 静态页元信息（title 主语 + description）。**必须与运行时的 usePageMeta 一致**——
+ *  main() 末尾逐条自检，不一致直接构建失败。自检来源分两类：
+ *   · literal：视图里是字面量 `usePageMeta('标题', '描述')`
+ *   · guide  ：视图用变量（如 FORMULA_GUIDE.sub），回到数据模块取真值 */
+const STATIC_META = {
+  '/compare': {
+    label: '对照台',
+    desc: '把同类目的档案并排放到一起，逐字段看差异——配装与取舍时不必来回翻页。',
+    kind: 'literal',
+  },
+  '/formulas': {
+    label: '战斗公式',
+    desc: '伤害、失衡、属性异常与各类机制的乘区构成。承接社区数据机制导论的结构与主公式，面向配装与读数的档案式整理。',
+    kind: 'guide',
+    src: 'src/data/formulaGuide.ts',
+  },
+  '/about': {
+    label: '数据说明',
+    desc: '绳网档案的数据来源、覆盖范围、更新机制、校验门禁与版权声明——可核查的档案出处。',
+    kind: 'literal',
+  },
 }
 const DETAIL_VIEW_OF = {
   '/agents': 'src/views/AgentDetailView.vue',
@@ -271,15 +295,11 @@ async function main() {
       box.imageW = meta.w
       box.imageH = meta.h
     } else {
-      // 静态页 /formulas /about
-      const label = seg[0] === 'formulas' ? '战斗公式' : seg[0] === 'about' ? '数据说明' : '档案'
-      box.title = `${label} · 绳网档案`
-      box.description =
-        seg[0] === 'formulas'
-          ? '从伤害乘区到失衡、属性异常与命破，逐段拆解绝区零战斗数值构成。'
-          : seg[0] === 'about'
-            ? '绳网档案的数据来源、覆盖范围、更新机制、校验门禁与版权声明。'
-            : '绳网档案：绝区零结构化资料库。'
+      // 静态页：元信息从 STATIC_META 取（新增静态页只加一行），并与视图里的
+      // usePageMeta 文案做一致性自检——两处文案漂移是这类生成器最容易犯的错。
+      const sm = STATIC_META[`/${seg[0]}`]
+      box.title = `${sm?.label ?? '档案'} · 绳网档案`
+      box.description = sm?.desc ?? '绳网档案：绝区零结构化资料库。'
       const meta = await imageMeta(SITE_FALLBACK_IMAGE)
       box.image = meta.url
       box.imageW = meta.w
@@ -308,6 +328,32 @@ async function main() {
   }
 
   console.log(`== 逐路由 HTML == 生成 ${written} 个（origin ${ORIGIN}）`)
+  // 静态页元信息一致性：STATIC_META 必须与运行时的 usePageMeta 文案逐字一致
+  // （两处文案漂移是这类生成器最容易犯的错，且只在分享卡片上才看得出来）
+  for (const [route, meta] of Object.entries(STATIC_META)) {
+    let gotTitle = ''
+    let gotDesc = ''
+    if (meta.kind === 'literal') {
+      const src = fs.readFileSync(VIEW_OF[route], 'utf8')
+      const m = /usePageMeta\(\s*'([^']*)'\s*,\s*'([^']*)'/.exec(src)
+      if (!m) {
+        problems.push(`${route}: 视图里找不到单行 usePageMeta('title', 'desc')，无法自检`)
+        continue
+      }
+      gotTitle = m[1]
+      gotDesc = m[2]
+    } else {
+      const src = fs.readFileSync(meta.src, 'utf8')
+      const t = /title:\s*'([^']*)'/.exec(src)
+      const s = /sub:\s*'([^']*)'/.exec(src)
+      gotTitle = t?.[1] ?? ''
+      gotDesc = s?.[1] ?? ''
+    }
+    if (gotTitle !== meta.label)
+      problems.push(`${route}: 标题漂移（运行时「${gotTitle}」≠ 生成器「${meta.label}」）`)
+    if (gotDesc !== meta.desc) problems.push(`${route}: 描述漂移（运行时与生成器不一致）`)
+  }
+
   // 构建清单已用完：静态站不需要它对外暴露，删掉以免进部署产物
   const manifestPath = path.join(DIST, '.vite', 'manifest.json')
   if (fs.existsSync(manifestPath)) {

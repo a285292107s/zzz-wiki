@@ -744,6 +744,74 @@ async (page) => {
     add('detail-cls-fresh', cls < 0.02, String(cls))
   }
 
+  // ---- 对照台：同类目并排 + 差异标记 + 移出 + 清空（档案原生交互） ----
+  {
+    await page.evaluate(() => localStorage.removeItem('zzz-wiki:compare'))
+    await page.goto('http://localhost:4175/agents/1011', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1400)
+    await page.click('.cmp-btn')
+    await page.waitForTimeout(400)
+    const added = await page.evaluate(() => ({
+      label: document.querySelector('.cmp-btn')?.textContent.replace(/\s+/g, ' ').trim() ?? '',
+      pressed: document.querySelector('.cmp-btn')?.getAttribute('aria-pressed') ?? '',
+    }))
+    add('compare-add', added.label.includes('已加入对照') && added.pressed === 'true', JSON.stringify(added))
+
+    await page.goto('http://localhost:4175/agents/1021', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1400)
+    await page.click('.cmp-btn')
+    await page.waitForTimeout(400)
+
+    await page.goto('http://localhost:4175/compare', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1600)
+    const tbl = await page.evaluate(() => ({
+      cols: [...document.querySelectorAll('.th-entry .entry-name')].map((e) => e.textContent.trim()),
+      rows: [...document.querySelectorAll('tbody tr')].length,
+      diffs: document.querySelectorAll('tbody tr.is-diff').length,
+      same: [...document.querySelectorAll('tbody tr')].filter((tr) => !tr.classList.contains('is-diff')).length,
+      diffMarks: document.querySelectorAll('.diff-mark').length,
+      summary: document.querySelector('.bench-summary')?.textContent.replace(/\s+/g, ' ').trim() ?? '',
+      caption: document.querySelector('table caption')?.textContent.trim() ?? '',
+      scopeCols: document.querySelectorAll('th[scope="col"]').length,
+      scopeRows: document.querySelectorAll('th[scope="row"]').length,
+    }))
+    add(
+      'compare-table',
+      tbl.cols.length === 2 &&
+        tbl.rows === 5 &&
+        tbl.diffs >= 1 &&
+        tbl.same >= 1 &&
+        // 差异不单靠颜色：字段名旁有「差异」文字标记
+        tbl.diffMarks === tbl.diffs &&
+        tbl.caption.length > 0 &&
+        tbl.scopeCols === 3 &&
+        tbl.scopeRows === 5,
+      JSON.stringify(tbl),
+    )
+
+    // 移出一条 → 只剩一列；再清空 → 回到空态
+    await page.click('.entry-remove')
+    await page.waitForTimeout(700)
+    const afterRemove = await page.evaluate(() => ({
+      cols: document.querySelectorAll('.th-entry').length,
+      stored: localStorage.getItem('zzz-wiki:compare'),
+    }))
+    add('compare-remove', afterRemove.cols === 1, JSON.stringify(afterRemove))
+
+    await page.click('.bench-clear')
+    await page.waitForTimeout(600)
+    const cleared = await page.evaluate(() => ({
+      emptyTitle: document.querySelector('.bench-empty-title')?.textContent.trim() ?? '',
+      cats: document.querySelectorAll('.bench-cat').length,
+      stored: localStorage.getItem('zzz-wiki:compare'),
+    }))
+    add(
+      'compare-clear',
+      cleared.emptyTitle.includes('对照台为空') && cleared.cats === 4 && cleared.stored === null,
+      JSON.stringify(cleared),
+    )
+  }
+
   // ---- 404 ----
   await page.goto('http://localhost:4175/none', { waitUntil: 'networkidle' })
   await page.waitForTimeout(600)

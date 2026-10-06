@@ -32,7 +32,8 @@ async (page) => {
     '/disks',
     '/disks/34200',
     '/formulas',
-    '/about',
+    '/compare',
+  '/about',
     '/none',
   ]
   const viewports = [

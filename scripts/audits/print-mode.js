@@ -15,7 +15,7 @@
  * ============================================================ */
 
 async (page) => {
-  const routes = ['/', '/agents', '/agents/1011', '/about']
+  const routes = ['/', '/agents', '/agents/1011', '/about', '/compare']
   const checks = []
   const add = (route, name, ok, detail) => checks.push({ route, name, ok, detail })
 
@@ -42,7 +42,13 @@ async (page) => {
         homeBg: root.getPropertyValue('--home-bg-image').trim(),
         chromeVisible: ['.masthead', '.section-nav', '.back-top', '.foot-actions'].filter(vis),
         contentVisible: vis('.page-title') || vis('.page-head'),
-        tableVisible: vis('table') || vis('.index-row') || vis('.spec'),
+        // 正文保留的判据不能只认「表格/索引/spec」：空态页面（如对照台无内容时）
+        // 同样有正文要打印。故取「结构块可见」**或**「正文可见文本足够多」。
+        tableVisible:
+          vis('table') ||
+          vis('.index-row') ||
+          vis('.spec') ||
+          (document.querySelector('main')?.innerText.trim().length ?? 0) > 40,
         footVisible: vis('.foot'),
       }
     })
