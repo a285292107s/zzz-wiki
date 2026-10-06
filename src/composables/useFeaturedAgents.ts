@@ -34,7 +34,9 @@ export interface FeaturedCard {
   to: string
 }
 
-/** 本地 hero 头图根（download:icons 落地 public/data/img/hero，运行时零外部请求） */
+/** 本地 hero 头图根（download:icons 落地 public/data/img/hero，运行时零外部请求）。
+ *  card/ 子目录为 hero-cards.mjs 派生的 ≤1000px 变体（首页 9:16 卡展示格仅 ~320 CSS px，
+ *  原图超采 ~1.5MB/4 张）；候选链 card → 原图 → CDN，派生缺失自动回退原图不破图。 */
 const LOCAL_HERO = `${import.meta.env.BASE_URL ?? '/'}data/img/hero`
 
 /** Fisher–Yates 洗牌：不修改入参，返回新的随机排列（用于每次挂载换一批）。 */
@@ -67,6 +69,7 @@ export function buildFeaturedCards(seed: PoolItem[], list: CharacterListItem[]):
       // 特殊属性（如 玄墨）无专属色，不套基础元素色，落回标签默认 ink
       elementColor: hasSpecial ? '' : (el?.color ?? ''),
       srcs: [
+        `${LOCAL_HERO}/card/${heroImageFile(n.id)}.webp`,
         `${LOCAL_HERO}/${heroImageFile(n.id)}.webp`,
         `https://static.nanoka.cc/assets/zzz/${heroImageFile(n.id)}.webp`,
       ],
@@ -90,7 +93,7 @@ export function useFeaturedAgents() {
   for (const p of picks) {
     const img = new Image()
     img.decoding = 'async'
-    img.src = `${LOCAL_HERO}/${heroImageFile(p.id)}.webp`
+    img.src = `${LOCAL_HERO}/card/${heroImageFile(p.id)}.webp`
     // decode() 把解码放工作线程，不阻塞主线程；失败（池内本地图理应齐全）静默，留 <img @error> CDN 兜底
     img.decode().catch(() => {
       /* noop：留给 <img @error> 的 CDN 兜底 */

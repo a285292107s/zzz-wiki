@@ -46,8 +46,11 @@ describe('buildFeaturedCards', () => {
     expect(cards[0]!.zh).toBe('安比')
     expect(cards[0]!.elementZh).toBe(ELEMENTS[203].zh) // 基础元素中文
     expect(cards[0]!.elementColor).toBe(ELEMENTS[203].color)
-    expect(cards[0]!.srcs[0]).toMatch(/Mindscape_1011_2\.webp$/)
-    expect(cards[0]!.srcs[1]).toContain('static.nanoka.cc')
+    // 候选链三级：card 派生 → 本地原图 → CDN（见 scripts/build/hero-cards.mjs 与 useFeaturedAgents）
+    expect(cards[0]!.srcs).toHaveLength(3)
+    expect(cards[0]!.srcs[0]).toMatch(/hero\/card\/Mindscape_1011_2\.webp$/)
+    expect(cards[0]!.srcs[1]).toMatch(/Mindscape_1011_2\.webp$/)
+    expect(cards[0]!.srcs[2]).toContain('static.nanoka.cc')
     expect(cards[0]!.to).toBe('/agents/1011')
   })
 

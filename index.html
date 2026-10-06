@@ -19,9 +19,8 @@
          只预载首屏实际命中的 400 字重；preload 不匹配 (as="font") 会报 console 警告，增删须同步 tokens.css。 -->
     <link rel="preload" href="/fonts/PublicSans-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/JetBrainsMono-400.woff2" as="font" type="font/woff2" crossorigin />
-    <!-- 首页 LCP 预取（hero 是 CSS background-image，浏览器默认不会提前加载）：
-         预取图由构建期 vite.config.ts 的 hero-preload 插件按 src/data/featured-pool.json
-         首张入池角色动态注入，此处不写死素材路径（池变更后自动跟随）。 -->
+    <!-- 今日角色头图不走静态预取：四张为挂载期随机（61 选 4），静态赌中率 ~6.5%；
+         确定性预热在 useFeaturedAgents（挂载即 img.decode，早于卡片区渲染）。 -->
   </head>
   <body>
     <div id="app"></div>

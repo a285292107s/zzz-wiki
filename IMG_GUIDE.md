@@ -119,10 +119,10 @@
 ## 体积预算与压缩分级（2026-09 实测）
 
 `public/data/img/` 全量 26.3MB，其中 hero 一类占 20.0MB（59 张、均值 348KB、峰值 570KB），
-是仓库历史 blob 与克隆体积的主导项（`.git` ≈29MB）。数据 JSON 仅 ~5MB。首次 LCP 只取
-`index.html` 注入的**一张**预取图（构建期按 `featured-pool.json` 池首推导，见 `vite.config.ts`
-的 `hero-preload-inject` 插件），运行时按需加载其余——带宽侧无问题；压力在**仓库增长**：
-每次换图/新增角色都把整张 webp 沉入 git 历史。
+是仓库历史 blob 与克隆体积的主导项（`.git` ≈29MB）。数据 JSON 仅 ~5MB。首页首屏的 4 张
+头图经 `card/` 派生变体加载（见上节，~250KB），运行时按需加载其余——带宽侧无问题；
+压力在**仓库增长**：每次换图/新增角色都把整张 webp 沉入 git 历史（card 变体再 +1/3 体积，
+仍远优于压缩原图路径的全量 blob 重写）。
 
 处理分级（按投入产出排序）：
 
@@ -137,3 +137,24 @@
 
 压缩落地路径：在 `scripts/build/download-icons.mjs` 落盘前接 sharp 处理 hero 类别 +
 `npm run download:icons` 幂等重跑；执行后跑一轮 `/calibrate` 目检每张构图的透明边/眼部位置。
+
+### card 派生图（2026-10 落地：首页带宽的 8× 收益，不动原图）
+
+权衡结论：**不压缩原图、为首页另派生小图**。原图保持全分辨率（详情页 AgentHead 满栏底图
+仍需要它），为首页 9:16 标本卡（展示格 ~320 CSS px，retina ×2 含 zoom ≤1.5 后 ≤1000px 内
+无可见损失）生成 ≤1000px 等比变体：
+
+- 生成器 `scripts/build/hero-cards.mjs`（sharp）：`public/data/img/hero/card/{同名}.webp`，
+  q78、幂等补差、原图 mtime 更新后自动重派生、孤儿清理；由 `npm run sync` 在图标下载后
+  调用（单一写入者），派生图随 `public/data` 约定入库（部署只构建已提交快照）。
+- 等比缩放不改构图坐标系：`featured-pool.json` 的 `pos/zoom/originY` 与详情页校准**原样复用**，
+  无需重算或目检。
+- 前端候选链（`useFeaturedAgents.ts`）：`hero/card/{file}.webp → hero/{file}.webp → CDN 原图`，
+  派生缺失自动回退不破图；挂载期 `img.decode()` 预热同用 card 首位。
+  （曾有的构建期池首 `<link rel=preload>` 已移除：61 选 4 的随机池里命中率仅 ~6.5%，
+  白拉一张 + console 警告；挂载即执行的预热是确定性机制，先于卡片区渲染。）
+- 实测：61 张全量 card 2.9MB（均值 ~49KB、峰值 77KB）vs 原图均值 ~330KB；首页首屏 4 张
+  头图传输 ~2MB → ~250KB。
+
+上一节「压缩分级」里覆盖原图的路径**不再执行**（会产生新全量 blob 且破坏详情页满栏底图清晰度），
+以本节的派生方案为准。
