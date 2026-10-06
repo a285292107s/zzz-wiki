@@ -31,7 +31,14 @@ import Tags from '@/components/Tags.vue'
 const id = useRouteParam('id')
 const { data: detail, status, error } = useAsyncResource(() => detailFor<WEngineDetail>(catalogEntry('/w-engines'), id.value))
 
-usePageMeta(() => detail.value?.name ?? undefined)
+usePageMeta(
+  () => detail.value?.name ?? undefined,
+  () => {
+    const name = detail.value?.name
+    const d = detail.value?.desc
+    return name && d ? `${name} — ${stripRichText(d).slice(0, 110)}… · 绳网档案` : undefined
+  },
+)
 
 /** 代理人名录：用于反查归属该音擎的代理人（domain/signatureEngine 命名约定 + 覆盖表转置）。
  *  作为独立资源，避免阻塞音擎详情主链路。 */

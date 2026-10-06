@@ -3,6 +3,9 @@
   "buildCommand": "npm run build:ci",
   "outputDirectory": "dist",
   "framework": "vite",
+  "buildEnv": {
+    "VITE_SITE_ORIGIN": "https://zzz-wiki.vercel.app"
+  },
   "headers": [
     {
       "source": "/assets/(.*)",

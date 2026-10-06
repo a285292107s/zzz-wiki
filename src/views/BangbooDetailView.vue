@@ -27,7 +27,14 @@ import Rarity from '@/components/Rarity.vue'
 const id = useRouteParam('id')
 const { data: detail, status, error } = useAsyncResource(() => detailFor<BangbooDetail>(catalogEntry('/bangboos'), id.value))
 
-usePageMeta(() => detail.value?.name ?? undefined)
+usePageMeta(
+  () => detail.value?.name ?? undefined,
+  () => {
+    const name = detail.value?.name
+    const d = detail.value?.desc
+    return name && d ? `${name} — ${stripRichText(d).slice(0, 110)}… · 绳网档案` : undefined
+  },
+)
 
 const portraitSrcs = computed(() =>
   iconSources({ Id: id.value, icon: detail.value?.icon }, 'bangboo'),

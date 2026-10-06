@@ -49,7 +49,15 @@ import HollowImage from '@/components/HollowImage.vue'
 const id = useRouteParam('id')
 const { data: detail, status, error } = useAsyncResource(() => detailFor<CharacterDetail>(catalogEntry('/agents'), id.value))
 
-usePageMeta(() => detail.value?.name ?? undefined)
+usePageMeta(
+  () => detail.value?.name ?? undefined,
+  () => {
+    // profile computed 定义在本调用之后（TDZ），此处直接从 detail 取介绍摘要
+    const raw = detail.value?.partner_info?.profile_desc
+    const p = raw ? stripRichText(raw) : ''
+    return p ? `${detail.value?.name ?? ''} — ${p.slice(0, 110)}… · 绳网档案` : undefined
+  },
+)
 
 /** 武器名录：用于解析当前代理人的专属音擎（domain/signatureEngine 命名约定 + 覆盖表）。
  *  作为独立资源加载，避免阻塞角色详情主链路。 */

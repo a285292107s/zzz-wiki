@@ -17,7 +17,14 @@ import { DetailHead, DetailPager, DetailPage, DetailSection } from '@/components
 const id = useRouteParam('id')
 const { data: detail, status, error } = useAsyncResource(() => detailFor<DiskDriveDetail>(catalogEntry('/disks'), id.value))
 
-usePageMeta(() => detail.value?.name ?? undefined)
+usePageMeta(
+  () => detail.value?.name ?? undefined,
+  () => {
+    const name = detail.value?.name
+    const d = detail.value?.story
+    return name && d ? `${name} — ${stripRichText(d).slice(0, 110)}… · 绳网档案` : undefined
+  },
+)
 
 const portraitSrcs = computed(() =>
   iconSources({ Id: id.value, icon: detail.value?.icon }, 'disc'),
