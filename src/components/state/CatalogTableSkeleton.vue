@@ -42,7 +42,7 @@ withDefaults(
     var(--bg-2) 100%
   );
   background-size: 200% 100%;
-  animation: skel-pulse 1.4s ease-in-out infinite;
+  animation: skel-pulse var(--t-skel) ease-in-out infinite;
 }
 
 .head-bar {

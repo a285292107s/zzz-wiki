@@ -289,7 +289,7 @@ const sections = [
     var(--bg-2) 100%
   );
   background-size: 200% 100%;
-  animation: skel-pulse 1.4s ease-in-out infinite;
+  animation: skel-pulse var(--t-skel) ease-in-out infinite;
 }
 
 .specimen-plate .zh-bar {
@@ -325,7 +325,7 @@ const sections = [
      把角色放大到填满，让上下透明边滚出视口（overflow:hidden 裁掉）；水平焦点由 object-position 控制 */
   transform-origin: 50% 50%;
   /* hover 微推近：独立 scale 属性与内联 transform（构图 zoom）相乘，互不覆盖 */
-  transition: scale 700ms var(--ease);
+  transition: scale var(--t-zoom) var(--ease);
 }
 
 @media (hover: hover) {

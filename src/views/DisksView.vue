@@ -265,7 +265,7 @@ function warmNow(id: number | string): void {
     var(--bg-1) 100%
   );
   background-size: 200% 100%;
-  animation: skel-pulse 1.4s ease-in-out infinite;
+  animation: skel-pulse var(--t-skel) ease-in-out infinite;
 }
 
 .skel .thumb-bar {

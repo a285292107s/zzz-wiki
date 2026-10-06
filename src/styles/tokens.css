@@ -154,6 +154,9 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --t-fast: 140ms;
   --t-med: 260ms;
+  --t-reveal: 480ms;   /* v-reveal 区块显现（Round 29 定格，独立于 fast/med 层级） */
+  --t-zoom: 700ms;     /* 标本卡 hover 微推近（慢速呼吸感，快了像抖动） */
+  --t-skel: 1.4s;      /* 骨架扫光周期（base.css skel-pulse 单一来源） */
 
   /* z 层级：组件裸写的 z-index 逐步收敛到 token（越轨值见审计 Round 36：
      0/1/2 为组件内局部堆叠可保留；20/90/300/400 应换用下列 token） */

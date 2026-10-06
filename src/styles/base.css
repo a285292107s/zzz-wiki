@@ -625,8 +625,8 @@ a.rich-term:hover {
 .reveal.revealed {
   opacity: 1;
   transform: none;
-  transition: opacity 480ms var(--ease) var(--reveal-delay, 0ms),
-    transform 480ms var(--ease) var(--reveal-delay, 0ms);
+  transition: opacity var(--t-reveal) var(--ease) var(--reveal-delay, 0ms),
+    transform var(--t-reveal) var(--ease) var(--reveal-delay, 0ms);
 }
 
 /* ---------- 锚点滚动避让：响应式（站头 + 吸顶横条） ----------
