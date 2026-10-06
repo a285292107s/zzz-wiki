@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterView, useRouter } from 'vue-router'
 import SiteHeader from '@/components/layout/SiteHeader.vue'
 import SiteFooter from '@/components/layout/SiteFooter.vue'
 import TermTip from '@/components/detail/TermTip.vue'
+import QuickSearch from '@/components/QuickSearch.vue'
 import { ErrorBoundary } from '@/components'
+import { useQuickSearch } from '@/composables/useQuickSearch'
 
 /* 站尾延迟到初始导航就绪后渲染：懒路由 chunk 到位前 footer 先落地、内容到达再下坠，
    是名录页 CLS 的主要来源（实测 0.061→目标 0）。isReady 后不再变化，无后续位移。 */
@@ -13,6 +15,20 @@ const ready = ref(router.currentRoute.value.matched.length > 0)
 router.isReady().then(() => {
   ready.value = true
 })
+
+/* 全局快速检索：Ctrl/⌘+K 唤起（终端式入口）。输入焦点在表单内时不劫持。 */
+const { toggle: toggleSearch } = useQuickSearch()
+function onGlobalKeydown(e: KeyboardEvent): void {
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+    const el = e.target as HTMLElement | null
+    const tag = el?.tagName.toLowerCase()
+    if (tag === 'input' || tag === 'textarea' || el?.isContentEditable) return
+    e.preventDefault()
+    toggleSearch()
+  }
+}
+onMounted(() => document.addEventListener('keydown', onGlobalKeydown))
+onBeforeUnmount(() => document.removeEventListener('keydown', onGlobalKeydown))
 </script>
 
 <template>
@@ -40,6 +56,9 @@ router.isReady().then(() => {
 
   <!-- 术语悬停浮层：全局委托监听，读本地名词表 -->
   <TermTip />
+
+  <!-- 全局快速检索（Ctrl/⌘+K）：四类目统一档案索引 -->
+  <QuickSearch />
 </template>
 
 <style scoped>

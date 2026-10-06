@@ -27,6 +27,17 @@
 
       <button
         type="button"
+        class="search-toggle mono"
+        aria-label="快速检索 (Ctrl+K)"
+        @click="toggleSearch()"
+      >
+        <span class="st-mark">⌕</span>
+        <span class="st-word">检索</span>
+        <kbd class="st-kbd">Ctrl K</kbd>
+      </button>
+
+      <button
+        type="button"
         class="menu-toggle mono"
         :class="{ open: menuOpen }"
         :aria-expanded="menuOpen"
@@ -62,6 +73,7 @@
 import { ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import { CATALOG, GUIDE_ENTRY } from '@/domain/catalog'
+import { useQuickSearch } from '@/composables/useQuickSearch'
 
 // 导航由 catalog.ts 派生（DESIGN.md §5.3 单一事实源）：数据类目 + 图文板块入口
 const route = useRoute()
@@ -78,6 +90,9 @@ const menuOpen = ref(false)
 function closeMenu() {
   menuOpen.value = false
 }
+
+// 全局快速检索（Ctrl/⌘+K；按钮唤起）
+const { toggle: toggleSearch } = useQuickSearch()
 </script>
 
 <style scoped>
@@ -137,6 +152,57 @@ function closeMenu() {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+/* ---------- 检索钮（⌘K） ---------- */
+
+.search-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 10px;
+  padding: 6px 10px;
+  border: 1px solid var(--line-1);
+  border-radius: 2px;
+  background: none;
+  color: var(--ink-2);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+}
+
+.st-mark {
+  color: var(--amber);
+  font-size: var(--fs-body);
+}
+
+.st-kbd {
+  font-family: var(--mono);
+  font-size: var(--fs-badge);
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+  border: 1px solid var(--line-0);
+  border-radius: 2px;
+  padding: 1px 5px;
+}
+
+/* 窄屏：文字与快捷键提示退场，仅留 ⌕ 图标钮 */
+@media (max-width: 1100px) {
+  .st-word,
+  .st-kbd {
+    display: none;
+  }
+
+  .search-toggle {
+    margin-left: 2px;
+    padding: 6px 9px;
+  }
+}
+
+.search-toggle:focus-visible {
+  outline: 1px solid var(--amber);
+  outline-offset: 2px;
 }
 
 .nav-item {
