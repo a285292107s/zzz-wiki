@@ -161,6 +161,11 @@ function onKeydown(e: KeyboardEvent): void {
           <button type="button" class="qs-esc mono" aria-label="关闭检索" @click="close()">ESC</button>
         </div>
 
+        <!-- 命中规模实时提示（aria-live 让辅助技术感知结果集变化） -->
+        <p v-if="!loading && query.trim() && results.length" class="qs-count mono" aria-live="polite">
+          {{ results.length }} 条档案
+        </p>
+
         <div v-if="loading" class="qs-state mono" role="status">索引构建中…</div>
 
         <div v-else id="quick-search-listbox" ref="listEl" class="qs-list" role="listbox" aria-label="检索结果">
@@ -318,6 +323,14 @@ function onKeydown(e: KeyboardEvent): void {
   background: none;
   cursor: pointer;
   transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+}
+
+/* 命中规模：检索条下缘的等宽小字，档案终端的「命中 N 条」读数 */
+.qs-count {
+  padding: 7px 14px 0;
+  font-size: var(--fs-nano);
+  letter-spacing: 0.2em;
+  color: var(--ink-3);
 }
 
 @media (hover: hover) {
