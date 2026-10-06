@@ -30,6 +30,9 @@ const CAT_TO_ICON: Record<string, Parameters<typeof iconSources>[1]> = {
   equipment: 'disc',
 }
 
+/** 已派生名录用小图的类目（`{cat}/thumb/`）——检索面板行图标同样只用小尺寸展示 */
+const THUMB_CATS = new Set(['weapon', 'bangboo'])
+
 function buildIndex(): Promise<SearchEntry[]> {
   indexPromise ??= (async () => {
     const groups = await Promise.all(
@@ -40,8 +43,13 @@ function buildIndex(): Promise<SearchEntry[]> {
         return {
           catPath: c.path,
           rows: hidden ? all.filter((row) => !hidden.has(Number(row.Id))) : all,
+          // 小图标类目走 thumb 变体（仅当该目录确有派生图；其余不传，避免 404 候选）
           iconSrcs: (row: Record<string, unknown>) =>
-            iconSources({ Id: Number(row.Id), icon: row.icon as string }, CAT_TO_ICON[c.listFile]),
+            iconSources(
+              { Id: Number(row.Id), icon: row.icon as string },
+              CAT_TO_ICON[c.listFile],
+              THUMB_CATS.has(c.listFile) ? 'thumb' : undefined,
+            ),
         }
       }),
     )

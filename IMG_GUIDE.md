@@ -163,5 +163,19 @@
 - 实测：61 张全量 card 1.95MB（均值 ~32KB）vs 原图均值 ~351KB；首页首屏 4 张头图
   187KB → ~120KB；hero/mobile 61 张 4.0MB（均值 ~66KB）。
 
+### 名录图标小图（thumb 变体，2026-10）
+
+音擎/邦布图标原图 400-512px（均值 33-50KB），而**名录行展示格只有 38×38 CSS px**
+（DPR3 亦只需 ~114px）；详情页展示 278×278 仍需原图，故按用途派生：
+
+- 生成器 `scripts/build/icon-thumbs.mjs`：`public/data/img/{weapon,bangboo}/thumb/{同名}.webp`，
+  最长边 ≤128px、q80（实测 3.5-5.1KB，约原图 1/10），幂等补差 + 原图更新跟随 + 孤儿清理；
+  由 `npm run sync` 在图标下载后调用。
+- 前端：`iconSources(item, cat, 'thumb')` 把小图置于候选链首（缺失自动回退原图）；
+  名录行（`WEnginesView` / `BangboosView`）与检索面板结果行传 `'thumb'`，
+  **详情页不传**（用原图）。character 图标（180×64 圆头像，均值 6KB）不派生。
+- 实测：`/w-engines` 图片载荷 **1045KB → 140KB**（整页 1306 → 401KB），
+  `/bangboos` 图片 105KB；perf 分不变（本就懒加载），但真实带宽省约 87%。
+
 上一节「压缩分级」里覆盖原图的路径**不再执行**（会产生新全量 blob 且破坏详情页满栏底图清晰度），
 以本节的派生方案为准。

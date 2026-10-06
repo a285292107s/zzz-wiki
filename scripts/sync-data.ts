@@ -28,6 +28,7 @@ import path from 'node:path'
 import { main as buildAll, needUpdate } from './build'
 import { OUT } from './build/io'
 import { runDownloadIcons } from './build/download-icons.mjs'
+import { runIconThumbs } from './build/icon-thumbs.mjs'
 import { runHeroCards } from './build/hero-cards.mjs'
 import { runHeroMobile } from './build/hero-mobile.mjs'
 import { verifyDataMain } from './verify-data'
@@ -122,6 +123,15 @@ async function main(): Promise<void> {
     `[sync] hero mobile 派生：生成 ${heroMobile.generated}，沿用 ${heroMobile.skipped}，失败 ${heroMobile.failed.length}（软失败，不阻断）`,
   )
   for (const f of heroMobile.failed) console.warn(`  ⚠ ${f}`)
+
+  // 名录图标小图派生（幂等补差）：名录行 38×38 展示格用 128px 小图（~4KB）替代
+  // 400-512px 原图（31-50KB）；详情页仍用原图。失败软失败（候选链回退原图）。
+  const thumbs = await runIconThumbs()
+  if (thumbs.generated > 0) changed = true
+  console.log(
+    `[sync] 名录图标小图：生成 ${thumbs.generated}，沿用 ${thumbs.skipped}，失败 ${thumbs.failed.length}（软失败，不阻断）`,
+  )
+  for (const f of thumbs.failed) console.warn(`  ⚠ ${f}`)
 
   // 契约校验（进程内执行，失败仅告警）
   try {

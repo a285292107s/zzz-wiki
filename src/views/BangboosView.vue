@@ -80,7 +80,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
         <template #cell-name="{ row }">
           <NameCell
             :to="`${base}/${row.Id}`"
-            :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'bangboo')"
+            :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'bangboo', 'thumb')"
             :alt="pickName(row)"
             :fallback="pickName(row)"
             :name="pickName(row)"

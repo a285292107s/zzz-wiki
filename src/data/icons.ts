@@ -27,6 +27,9 @@ function basename(p: string | null | undefined): string {
 
 /**
  * 生成按优先级排列的图标候选：
+ * - variant='thumb' 时优先名录用小图（`{cat}/thumb/{base}.webp`，最长边 128px ≈ 4KB）：
+ *   名录行展示格仅 38×38 CSS px，原图 400-512px（31-50KB）超采约 10×；小图缺失自动
+ *   落到原图，不破图。详情页展示 ~278px，不传此参数，直接用原图。
  * - 本地优先（/data/img/{category}/{basename}.webp）
  * - nanoka CDN 兜底（static.nanoka.cc/assets/zzz/{basename}.webp）
  * - 全部失败由 <HollowImage> 降为文字占位
@@ -34,10 +37,12 @@ function basename(p: string | null | undefined): string {
 export function iconSources(
   item: IconItem,
   category: IconCategory = 'character',
+  variant?: 'thumb',
 ): string[] {
   const b = basename(item.icon ?? '')
   const out: string[] = []
 
+  if (b && variant === 'thumb') out.push(`${LOCAL_IMG}/${category}/thumb/${b}.webp`)
   // 本地化优先（Q4b）：/data/img/{cat}/{base}.webp
   if (b) out.push(`${LOCAL_IMG}/${category}/${b}.webp`)
 
