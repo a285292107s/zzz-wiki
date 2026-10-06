@@ -24,6 +24,38 @@ body {
   font-feature-settings: 'kern' 1, 'liga' 1;
 }
 
+/* ---------- 移动端细节（触屏反馈 / 文字放大 / 滚动边界） ---------- */
+
+/* iOS 横屏会自动放大文字（text inflation），排版比例会被打破：显式关掉 */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* 触屏按下反馈：站内交互元素此前只有 hover 态（`:active` 全站仅 1 处），触屏上等于无反馈；
+   浏览器默认的蓝色点按高亮又与「档案」视觉违和。故自绘按压反馈并关掉默认高亮。
+   两点取舍：
+   ⓐ 用 filter 而非 opacity —— `.reveal` 的显现动画占用 opacity，两者叠加会互相打断；
+   ⓑ 不做 `@media (hover: none)` 分支 —— 桌面点按同样应答（统一交互语义），
+      且无 hover 媒体特征的模拟环境下也能自动化验证。 */
+a:active,
+button:active,
+[role='button']:active {
+  filter: brightness(0.82);
+}
+
+a,
+button,
+[role='button'] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 横向滚动容器：在行尾继续左滑不该触发浏览器「后退」手势（移动到两端即止） */
+.specimen-row,
+.sn-list {
+  overscroll-behavior-x: contain;
+}
+
 /* ---------- 页面地面壁纸 ----------
    绳网情报站 wiki 同款官方背景（数据源 tokens.css --page-bg-image）。固定铺满视口
    （position: fixed + cover），滚动时纹理恒定、壁纸渐隐端始终落在视口下缘，长页不露接缝；

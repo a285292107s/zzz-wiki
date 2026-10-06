@@ -324,3 +324,13 @@ CJK 衬线（Noto Serif SC **500 单档**）**按站点字符集裁剪后自托�
 > CDP `CSS.getPlatformFontsForNode` 报的就是它——**不代表实际渲染字重**（现行片 OS/2
 > usWeightClass=500）。判据与复跑脚本：`scripts/audits/font-weight-calibration.js`
 > （用本站分片做对照字族比墨量，相等即证明生产走的是我们交付的字；基线 403=403）。
+
+> 📱 **触屏交互细节**（2026-10，全站 base.css 一处收口）：
+> - **按压反馈**：`:active` 用 `filter: brightness(0.82)`（**不用 opacity**——`.reveal` 的显现
+>   动画占用 opacity，叠加会互相打断）；不做 `@media (hover: none)` 分支，桌面点按同样应答，
+>   交互语义统一且可自动化验证（`CSS.forcePseudoState` 强制 :active 后读 computed filter）。
+> - **默认点按高亮**关闭（`-webkit-tap-highlight-color: transparent`）——浏览器蓝色闪光与
+>   「档案」视觉违和；前提是上一条自绘反馈已就位，否则触屏会失去全部点按反馈。
+> - `text-size-adjust: 100%`：关掉 iOS 横屏的文字自动放大（会打破既定排版比例）。
+> - 横向滚动容器（`.specimen-row` 手机胶片条、`.sn-list` 区块索引横条）加
+>   `overscroll-behavior-x: contain`：滑到两端不再触发浏览器「后退」手势。
