@@ -5,6 +5,7 @@ import { usePageMeta } from '@/composables/usePageMeta'
 import { resolveAnchorOffset } from '@/composables/anchorOffset'
 import { useNavScrollable } from '@/composables/useNavScrollable'
 import { FORMULA_GUIDE } from '@/data/formulaGuide'
+import { dataVersions } from '@/data/api'
 import { ListPage, DetailSection } from '@/components'
 import FormulaEq from '@/components/FormulaEq.vue'
 
@@ -23,6 +24,22 @@ const { navEl, scrollRight } = useNavScrollable()
 // 轻量滚动高亮：依据吸顶横条实际高度（anchorOffset，与 router scrollBehavior 同源）判定当前段
 const active = ref<string | null>(null)
 const NAV_SLOP = 80
+
+/** 站内数据版本（manifest 已由 api 层缓存，零额外请求）：与机制整理版本并列展示 */
+const version = ref('')
+const updatedAt = ref('')
+onMounted(() => {
+  void dataVersions()
+    .then((v) => {
+      version.value = v.live
+      const t = v.generated ? new Date(v.generated) : null
+      if (t && !Number.isNaN(t.getTime()))
+        updatedAt.value = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`
+    })
+    .catch(() => {
+      /* 取不到版本时该段显示 ···，不留空 */
+    })
+})
 function onScroll() {
   const offset = resolveAnchorOffset()
   let cur: string | null = parts.value[0]?.id ?? null
@@ -76,8 +93,23 @@ onBeforeUnmount(() => {
           {{ FORMULA_GUIDE.sourceTitle }}
         </a>
       </p>
+      <!-- 版本锚定：机制整理版本 vs 站内数据版本必须同时给出——两者不一致时读者
+           才知道该以哪一边为准（此前只写了「可能随版本调整」，没有可对照的版本号）。 -->
+      <p class="notice-ver mono">
+        <span class="notice-tag mono">VERSION</span>
+        <span>机制整理 <span class="ver-key">2.0 版</span></span>
+        <span class="ver-sep" aria-hidden="true">·</span>
+        <span v-if="version">站内档案数据 <span class="ver-key">LIVE {{ version }}</span></span>
+        <span v-else>站内档案数据 ···</span>
+        <span v-if="updatedAt" class="ver-snap">（快照 {{ updatedAt }}）</span>
+      </p>
       <ul class="notice-list">
         <li v-for="(n, i) in FORMULA_GUIDE.notice" :key="i">{{ n }}</li>
+        <li>
+          公式在档案里的落点：基础属性与技能数值随等级变化，可在
+          <RouterLink to="/agents" class="notice-link">代理人名录</RouterLink>
+          任一条目的「基础属性」区拖动等级滑条对照读数。
+        </li>
       </ul>
     </aside>
 
@@ -135,6 +167,42 @@ onBeforeUnmount(() => {
   font-size: var(--fs-small);
   color: var(--ink-1);
   line-height: 1.6;
+}
+
+/* 版本锚定行：机制版本与数据版本并列，读者才知道该以哪一边为准 */
+.notice-ver {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: var(--fs-nano);
+  letter-spacing: 0.1em;
+  color: var(--ink-2);
+}
+
+.ver-key {
+  color: var(--ink-0);
+}
+
+.ver-sep {
+  color: var(--line-2);
+}
+
+.ver-snap {
+  color: var(--ink-2);
+}
+
+.notice-link {
+  color: var(--ink-0);
+  border-bottom: 1px solid var(--line-2);
+  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+}
+
+@media (hover: hover) {
+  .notice-link:hover {
+    color: var(--amber-hi);
+    border-color: var(--amber);
+  }
 }
 
 .notice-tag {

@@ -649,6 +649,24 @@ async (page) => {
     add('about-version', /LIVE \d/.test(r.version ?? ''), r.version ?? 'none')
   }
 
+  // ---- 公式页：出处 + 版本锚定（机制版本 vs 数据版本并列）+ 通向实据的交叉引用 ----
+  {
+    await page.goto('http://localhost:4175/formulas', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1800)
+    const r = await page.evaluate(() => ({
+      sourceHref: document.querySelector('.notice-source .source-link')?.getAttribute('href') ?? '',
+      ver: (document.querySelector('.notice-ver')?.textContent ?? '').replace(/\s+/g, ' ').trim(),
+      linkHref: document.querySelector('.notice-link')?.getAttribute('href') ?? '',
+      parts: document.querySelectorAll('section[id^="part-"]').length,
+      eqs: document.querySelectorAll('.eq').length,
+    }))
+    add('formulas-source', r.sourceHref.includes('nga'), r.sourceHref.slice(0, 44) || 'missing')
+    // 两个版本必须同时出现：只说「可能随版本调整」而不给可对照的版本号，等于没锚定
+    add('formulas-version', r.ver.includes('机制整理') && /LIVE \d/.test(r.ver), r.ver || 'missing')
+    add('formulas-crossref', r.linkHref === '/agents', r.linkHref || 'missing')
+    add('formulas-content', r.parts >= 5 && r.eqs >= 3, `段 ${r.parts} / 公式 ${r.eqs}`)
+  }
+
   // ---- 详情页 CLS（独立文档加载：SPA 内导航会让观测器跨页累加，须另起一次 goto）----
   {
     await page.goto('http://localhost:4175/agents/1021', { waitUntil: 'networkidle' })
