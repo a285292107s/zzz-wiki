@@ -5,6 +5,8 @@ import { CATALOG, GUIDE_ENTRY } from '@/domain/catalog'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { dataVersions } from '@/data/api'
 import { useFeaturedAgents } from '@/composables/useFeaturedAgents'
+import { prefetchDetail, prefetchList } from '@/composables/useDetailPrefetch'
+import { catalogByPath } from '@/domain/catalog'
 import HollowImage from '@/components/HollowImage.vue'
 
 usePageMeta()
@@ -34,6 +36,17 @@ const AGENT_CIRCLE_ICON = `${import.meta.env.BASE_URL ?? '/'}data/img/character/
 // 构图参数 pos/zoom/originY 含义见 IMG_GUIDE.md）。picks 同步可得，供骨架卡占位（防 CLS）：
 // 卡片区不再等清单 JSON 返回才插入，首帧即以等高骨架占位。
 const { featured, picks } = useFeaturedAgents()
+
+/** 预热详情回路：标本卡悬停预热对应详情；目录行悬停预热名录视图 chunk + 名录 JSON */
+function warmDetail(to: string): void {
+  const seg = to.split('/')
+  const entry = catalogByPath(`/${seg[1]}`)
+  if (entry && seg[2]) prefetchDetail(entry, seg[2])
+}
+function warmList(path: string): void {
+  const entry = catalogByPath(path)
+  if (entry) prefetchList(entry)
+}
 
 const sections = [
   ...CATALOG.map((c) => ({
@@ -110,6 +123,8 @@ const sections = [
             v-reveal="i * 70"
             :to="card.to"
             class="specimen-card"
+            @pointerenter="warmDetail(card.to)"
+            @focus="warmDetail(card.to)"
           >
             <span class="specimen-figure">
               <!-- 首屏重点头图，勿 lazy：懒加载会把它降为低优先级，且带 transform:scale 的
@@ -159,7 +174,7 @@ const sections = [
 
       <ol class="index-list">
         <li v-for="(s, i) in sections" :key="s.to" v-reveal="i * 55">
-          <RouterLink :to="s.to" class="index-row">
+          <RouterLink :to="s.to" class="index-row" @pointerenter="warmList(s.to)" @focus="warmList(s.to)">
             <span class="specimen">
               <HollowImage
                 v-if="!s.guide"

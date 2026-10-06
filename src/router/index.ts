@@ -7,8 +7,9 @@ import { resolveAnchorOffset } from '@/composables/anchorOffset'
 import HomeView from '@/views/HomeView.vue'
 
 /** 类目视图懒加载映射：catalog 条目 → [名录页, 详情页]。
- *  路径/名称/标题全部由 CATALOG 派生（单一事实源），此处只登记组件文件。 */
-const catalogViews: Record<string, [() => Promise<unknown>, () => Promise<unknown>]> = {
+ *  路径/名称/标题全部由 CATALOG 派生（单一事实源），此处只登记组件文件。
+ *  导出供 useDetailPrefetch 复用同一批懒加载函数（预取与导航加载同一 chunk，缓存天然归一）。 */
+export const catalogViews: Record<string, [() => Promise<unknown>, () => Promise<unknown>]> = {
   '/agents': [() => import('@/views/AgentsView.vue'), () => import('@/views/AgentDetailView.vue')],
   '/w-engines': [() => import('@/views/WEnginesView.vue'), () => import('@/views/WEngineDetailView.vue')],
   '/bangboos': [() => import('@/views/BangboosView.vue'), () => import('@/views/BangbooDetailView.vue')],

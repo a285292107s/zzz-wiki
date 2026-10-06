@@ -14,6 +14,7 @@ import { usePageMeta } from '@/composables/usePageMeta'
 import { catalogEntry } from '@/domain/catalog'
 import { AsyncState, ListPage, SearchField } from '@/components'
 import HollowImage from '@/components/HollowImage.vue'
+import { prefetchDetail } from '@/composables/useDetailPrefetch'
 
 usePageMeta()
 
@@ -38,6 +39,11 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
   ],
   { defaultKey: 'id', defaultDir: 'desc' },
 )
+
+/** 悬停卡片头即预热详情（chunk + JSON），与名录表格的 NameCell 同一回路 */
+function warm(id: number | string): void {
+  prefetchDetail(cat, id)
+}
 </script>
 
 <template>
@@ -86,7 +92,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
 
       <ul v-reveal="160" class="disk-grid">
         <li v-for="d in sorted" :key="d.Id" class="disk-card">
-          <RouterLink :to="`${base}/${d.Id}`" class="card-head">
+          <RouterLink :to="`${base}/${d.Id}`" class="card-head" @pointerenter="warm(d.Id)" @focus="warm(d.Id)">
             <span class="thumb">
               <HollowImage
                 :srcs="iconSources({ Id: d.Id, icon: d.icon }, 'disc')"

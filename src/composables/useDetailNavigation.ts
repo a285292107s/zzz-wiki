@@ -26,16 +26,24 @@ export function useDetailNavigation() {
    *  顶部恰停在锚点停靠位（--anchor-offset，76/132px），远在 35%~45% 视口带之上，
    *  IO 永不命中，高亮会顺延到下一区块（点击 01 却亮 02）。
    *  偏移取吸顶横条实际高度（anchorOffset，单行恒定），与 router scrollBehavior 同源。
-   *  判定规则本体在 domain/scrollspy（纯函数，单测见 tests/scrollspy.test.ts）。 */
+   *  判定规则本体在 domain/scrollspy（纯函数，单测见 tests/scrollspy.test.ts）。
+   *  量取合并进 rAF：scroll 事件可一帧多次，逐事件 getBoundingClientRect（每区块一次）
+   *  会形成 Lighthouse 所指的 forced reflow；rAF 后每帧至多量取一轮。 */
+  let rafPending = false
   function onScroll() {
-    const offset = resolveAnchorOffset()
-    const tops = ids.map((id) => {
-      const el = document.getElementById(id)
-      return { id, top: el ? el.getBoundingClientRect().top : null }
+    if (rafPending) return
+    rafPending = true
+    requestAnimationFrame(() => {
+      rafPending = false
+      const offset = resolveAnchorOffset()
+      const tops = ids.map((id) => {
+        const el = document.getElementById(id)
+        return { id, top: el ? el.getBoundingClientRect().top : null }
+      })
+      const atBottom =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2
+      activeSection.value = resolveActiveSection(tops, atBottom, offset + NAV_SLOP) ?? ''
     })
-    const atBottom =
-      window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2
-    activeSection.value = resolveActiveSection(tops, atBottom, offset + NAV_SLOP) ?? ''
   }
 
   /** 建立区块滚动判定 + 处理直达 hash。需在数据就绪、DOM 已渲染后调用。 */
