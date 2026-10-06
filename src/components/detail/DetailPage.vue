@@ -1,13 +1,30 @@
 <script setup lang="ts">
-import { nextTick, watch } from 'vue'
+import { nextTick, onMounted, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import AsyncState from '@/components/state/AsyncState.vue'
 import BackToTop from '@/components/BackToTop.vue'
 import { useNavScrollable } from '@/composables/useNavScrollable'
 import { recordRecentVisit } from '@/composables/useQuickSearch'
+import { dataVersions } from '@/data/api'
 import type { AsyncStatus } from '@/composables/useAsyncResource'
 import type { DetailSectionItem } from '@/composables/useDetailSections'
 import type { CatalogEntry } from '@/domain/catalog'
+
+/** 逐条出处用的数据版本（manifest 已由 api 层缓存，进入详情页基本零网络） */
+const version = ref('')
+const updatedAt = ref('')
+onMounted(() => {
+  void dataVersions()
+    .then((v) => {
+      version.value = v.live
+      const t = v.generated ? new Date(v.generated) : null
+      if (t && !Number.isNaN(t.getTime()))
+        updatedAt.value = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`
+    })
+    .catch(() => {
+      /* 取不到版本时不渲染出处行（不留空行） */
+    })
+})
 
 const props = defineProps<{
   /** 返回名录链接 */
@@ -106,6 +123,14 @@ watch(
       <slot />
     </AsyncState>
 
+    <!-- 逐条出处：本条数据属于哪一版快照。版本取自 manifest（api 层已缓存，零额外请求）；
+         取不到时不渲染，不留空行。 -->
+    <p v-if="version" class="prov mono">
+      数据版本 <span class="prov-v">LIVE {{ version }}</span>
+      <span v-if="updatedAt"> · 快照 {{ updatedAt }}</span>
+      <span class="prov-src"> · 来源 hakushin raw，构建期落地</span>
+    </p>
+
     <BackToTop />
   </div>
 </template>
@@ -113,6 +138,24 @@ watch(
 <style scoped>
 .page {
   padding-top: calc(var(--pad-section) * 0.9);
+}
+
+/* 逐条出处：页脚式的细字，不抢内容，但让每条档案可追溯到具体快照 */
+.prov {
+  margin-top: var(--space-section);
+  padding-top: 14px;
+  border-top: 1px solid var(--line-0);
+  font-size: var(--fs-nano);
+  letter-spacing: 0.1em;
+  color: var(--ink-2);
+}
+
+.prov-v {
+  color: var(--amber);
+}
+
+.prov-src {
+  color: var(--ink-2);
 }
 
 .back {

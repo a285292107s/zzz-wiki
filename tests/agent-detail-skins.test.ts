@@ -14,7 +14,11 @@ Object.defineProperty(window, 'matchMedia', {
 })
 
 const { detailMock } = vi.hoisted(() => ({ detailMock: vi.fn() }))
-vi.mock('@/data/api', () => ({ api: { detail: detailMock } }))
+vi.mock('@/data/api', () => ({
+  api: { detail: detailMock },
+  // DetailPage 的「逐条出处」会取数据版本；mock 需一并提供，否则生命周期里报未定义导出
+  dataVersions: vi.fn().mockResolvedValue({ live: '3.2', generated: '2026-10-05T00:00:00Z' }),
+}))
 
 import AgentDetailView from '../src/views/AgentDetailView.vue'
 

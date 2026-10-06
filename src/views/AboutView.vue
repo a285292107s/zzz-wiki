@@ -53,14 +53,21 @@ onMounted(() => {
     })
 })
 
-/** 档案规格账目：类目 / 收录量（动态） */
+/** 档案规格账目：类目 / 收录量（动态）+ 源站 ID 号段（由数据实测，随更新自动跟随） */
 const ledger = computed(() =>
-  CATALOG.map((c) => ({
-    no: c.no,
-    label: c.label,
-    en: c.en,
-    count: counts.value[c.path],
-  })),
+  CATALOG.map((c) => {
+    const ids = (rawRows.value[c.path] ?? [])
+      .map((r) => Number(r.Id))
+      .filter((n) => Number.isFinite(n))
+      .sort((a, b) => a - b)
+    return {
+      no: c.no,
+      label: c.label,
+      en: c.en,
+      count: counts.value[c.path],
+      range: ids.length ? `${ids[0]}–${ids[ids.length - 1]}` : '···',
+    }
+  }),
 )
 
 const total = computed(() => {
@@ -157,9 +164,15 @@ const gapCount = computed(() =>
           <span class="no mono">{{ l.no }}</span>
           <span class="label">{{ l.label }}</span>
           <span class="en mono">{{ l.en }}</span>
+          <span class="range mono">{{ l.range }}</span>
           <span class="count mono">{{ fmt(l.count) }}</span>
         </li>
       </ul>
+      <p class="spec-note">
+        编号即<strong>源站 ID</strong>：深链地址与图片文件名都用它（如
+        <code class="mono">/agents/1011</code>）；名录里的三位序号（001–232）是本站按源站 ID
+        升序排出的<strong>展示位次</strong>，与源站 ID 无关。号段为各类目实测范围，随数据更新自动跟随。
+      </p>
     </aside>
 
     <DetailSection v-reveal id="source" no="01" title="数据来源与范围" en="Source">
@@ -318,11 +331,26 @@ const gapCount = computed(() =>
 
 .spec-cat {
   display: grid;
-  grid-template-columns: 34px 1fr auto 60px;
+  grid-template-columns: 34px 1fr auto minmax(96px, auto) 60px;
   align-items: baseline;
   gap: 12px;
   padding: 9px 2px;
   border-bottom: 1px solid var(--line-0);
+}
+
+.spec-cat .range {
+  font-size: var(--fs-nano);
+  color: var(--ink-2);
+  letter-spacing: 0.06em;
+  text-align: right;
+}
+
+.spec-note {
+  margin-top: 12px;
+  font-size: var(--fs-small);
+  line-height: 1.85;
+  color: var(--ink-1);
+  letter-spacing: 0.02em;
 }
 
 .spec-cat .no {

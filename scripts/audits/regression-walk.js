@@ -188,6 +188,13 @@ async (page) => {
     })
     add('detail-name-token', nameToken.tokenSize === nameToken.titleSize, JSON.stringify(nameToken))
 
+    // 逐条出处：详情页须显示本条所属的数据版本（可追溯到快照）
+    const prov = await page.evaluate(() => {
+      const el = document.querySelector('.prov')
+      return { text: (el?.textContent ?? '').replace(/\s+/g, ' ').trim(), hasVer: !!document.querySelector('.prov-v') }
+    })
+    add('detail-provenance', prov.hasVer && /LIVE \d/.test(prov.text), prov.text || 'missing')
+
     // 桌面 hero 按 DPR 选图：DPR 1 用 1400w 派生（46KB），DPR ≥1.5 才用原图（311KB）。
     // 分支与逐路由 HTML 的预载 media 条件必须一致，否则预载与实取错位。
     const heroAt = async (dpr) => {
@@ -627,6 +634,15 @@ async (page) => {
       'about-coverage',
       r.covCats === 4 && r.covRows >= 6 && r.covBadFractions === 0,
       `类目 ${r.covCats} / 行 ${r.covRows} / 缺口 ${r.covGaps} / 非法分数 ${r.covBadFractions}`,
+    )
+    // 编号规则：号段必须由数据派生（形如 1011–1621），且四类目齐全
+    const ranges = await page.evaluate(() =>
+      [...document.querySelectorAll('.spec-cat .range')].map((el) => el.textContent.trim()),
+    )
+    add(
+      'about-id-ranges',
+      ranges.length === 4 && ranges.every((x) => /^\d+–\d+$/.test(x)),
+      ranges.join(' '),
     )
     add('about-cats', r.cats === 4, String(r.cats))
     add('about-total', /^\d+ 条$/.test(r.total ?? ''), r.total ?? 'none')
