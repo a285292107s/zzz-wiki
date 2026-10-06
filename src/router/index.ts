@@ -97,12 +97,19 @@ export const router = createRouter({
    焦点仍停在旧页面的元素上，新内容既不获焦点也不被播报，下一次 Tab 还从旧位置继续。
    故每次导航后把焦点移到正文容器（main 有 tabindex="-1"）：
    - 初次进入不抢焦点（地址栏/页面默认焦点保持，from 为 START_LOCATION 时跳过）
+   - **同路径且锚点未变（纯查询参数同步）时不抢焦点**：筛选/搜索/排序/等级都是经 URL
+     同步的状态，它们不是「换页」。不排除的话，键盘用户选完筛选焦点被抛到 main（实测），
+     滑条连按两次方向键只走一步（第一次改值→URL 变→焦点被抢走）——2026-10 键盘旅程审计发现。
+     **但同页锚点导航（hash 变化）仍须聚焦目标区块**——一刀切按 path 判定会连锚点跳转
+     一起跳过（本轮自己踩过：`#head` 不再获焦，走查 hash-focus-target 立刻报错）。
+     与 scrollBehavior 的同路由不滚动是同一条判据，两处必须一致。
    - preventScroll：滚动仍由 scrollBehavior 负责，二者不打架
    - hash 导航优先聚焦目标区块（区块带 tabindex="-1"，见 DetailSection），
      读屏随之播报该区块标题（aria-labelledby）
    程序化 focus 不触发 :focus-visible（Chrome 启发式），因此不出现「整块正文被描边」。 */
 router.afterEach((to, from) => {
   if (from.matched.length === 0) return // 首次进入
+  if (to.path === from.path && to.hash === from.hash) return // 同页状态变化（query 同步）
   void nextTick(() => {
     const target = to.hash ? document.getElementById(to.hash.slice(1)) : null
     // hash 目标须可聚焦（区块/封面块均带 tabindex="-1"）；否则退回正文容器，

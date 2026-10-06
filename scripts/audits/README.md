@@ -27,6 +27,7 @@
  * | motion-audit.js      | 动效克制性（reduced-motion 覆盖、过长过渡、transition: all） | reduced 0 残留 |
  * | color-audit.js       | 色彩系统（调色板合规 / 文本 AA / 非文本 3:1） | 0 越轨，最差文本 4.65:1 |
  * | reflow-spacing.js    | WCAG 1.4.10 重排(320px) + 1.4.12 文本间距 + 320px 命中区 + 触屏档 | 0 溢出/0 裁切/0 过小目标 |
+ * | keyboard-journey.js  | 键盘完整旅程（12 条任务，含焦点不被抢） | 12/12 |
  *
  * 新增审计：脚本导出 JSON（{ total, failed, failedItems } 风格），
  * 失败项必须带定位信息（tag/cls/几何），让下一轮修复不用重新考古。

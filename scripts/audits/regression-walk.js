@@ -82,6 +82,29 @@ async (page) => {
     })
     add('search-focus-indicator', focusRing.border === focusRing.focusColor, `${focusRing.border} vs ${focusRing.focusColor}`)
     await page.evaluate(() => document.activeElement?.blur())
+
+    // 同页状态变化（筛选/滑条经 URL 同步）不得被路由焦点管理抢走焦点——
+    // 否则键盘用户选完筛选被抛到 main、滑条连按两步只生效一步
+    await page.evaluate(() => document.querySelector('.filter-dropdown .trigger')?.focus())
+    await page.keyboard.press('Enter')
+    await page.waitForTimeout(350)
+    await page.keyboard.press('ArrowDown')
+    await page.waitForTimeout(200)
+    await page.keyboard.press('Enter')
+    await page.waitForTimeout(900)
+    const kbFilter = await page.evaluate(() => ({
+      url: location.search,
+      focus: document.activeElement?.className ?? 'BODY',
+      rows: document.querySelectorAll('tbody.d-body tr:not(.empty-row)').length,
+    }))
+    add(
+      'kb-state-keeps-focus',
+      /attr=/.test(kbFilter.url) && kbFilter.focus.includes('trigger') && kbFilter.rows < 60,
+      JSON.stringify(kbFilter),
+    )
+    // 复位筛选，避免影响后续检查
+    await page.goto('http://localhost:4175/agents', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1200)
   }
 
   // ---- 名录空态（检索无匹配 → 文案 + 清除出路 → 一键恢复）----
