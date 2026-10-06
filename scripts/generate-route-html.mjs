@@ -82,6 +82,21 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 function buildHtml(tpl, meta) {
   let out = tpl
   out = out.replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(meta.title)}</title>`)
+  // 首屏图预载（仅详情页头图）：LCP 元素是 hero 图，但它是 JS 渲染后才创建的 <img>——
+  // 实测慢 4G 下请求要 1.5–4.0s 才发起。逐路由 HTML 让浏览器在**解析期**就开始取图。
+  // 按断点分开预载：错变体会白下一份（mobile/full 差 ~10 倍体积）。
+  // **fetchpriority=low 是关键**：默认预载按 High 优先级，会与关键 JS 抢带宽——
+  // 实测（4× CPU + 慢 4G）默认预载让图片就绪提前 2.3s，但 LCP 反而没改善，
+  // 因为渲染被 JS 拖后。降为 low 让它「并行但不抢路」，等应用渲染时图已在手。
+  if (meta.preloadImages?.length) {
+    const links = meta.preloadImages
+      .map(
+        (p) =>
+          `    <link rel="preload" as="image" href="${esc(p.href)}" fetchpriority="low"${p.media ? ` media="${esc(p.media)}"` : ''} />`,
+      )
+      .join('\n')
+    out = out.replace(/(<link rel="preload" href="\/data\/manifest\.json"[^>]*>)/, `${links}\n$1`)
+  }
   out = out.replace(
     /<meta name="description"[^>]*>/,
     `<meta name="description" content="${esc(meta.description)}" />`,
@@ -153,6 +168,20 @@ async function main() {
         box.imageW = 2400
         box.imageH = 1080
       }
+      // 角色详情页另有整栏 hero 底图（LCP 元素）：按断点预载对应变体
+      if (cat.kind === 'agent') {
+        // 双形态角色（如 1551）没有裸名文件，须取 hero-gender-variants.json 的默认形态
+        // （与 src/data/heroGenderVariants.ts 的 heroImageFile 同口径）
+        const gender = readJson('src/data/hero-gender-variants.json')
+        const heroBase = gender?.[String(seg[1])]?.defaultFile ?? `Mindscape_${seg[1]}_2`
+        const mobile = `/data/img/hero/mobile/${heroBase}.webp`
+        const full = `/data/img/hero/${heroBase}.webp`
+        box.preloadImages = []
+        if (fs.existsSync(path.join(DIST, mobile.replace(/^\//, ''))))
+          box.preloadImages.push({ href: mobile, media: '(max-width: 860px)' })
+        if (fs.existsSync(path.join(DIST, full.replace(/^\//, ''))))
+          box.preloadImages.push({ href: full, media: '(min-width: 861px)' })
+      }
     } else if (entry) {
       const { cat, list } = entry
       box.title = `${cat.label}名录 · 绳网档案`
@@ -188,6 +217,9 @@ async function main() {
     if (!html.includes(`<link rel="canonical" href="${ORIGIN}${p}"`)) problems.push(`${p}: canonical 未替换`)
     if (!html.includes(`<meta property="og:url" content="${ORIGIN}${p}"`)) problems.push(`${p}: og:url 未写入`)
     if (/<title>绳网档案 · 绝区零数据图鉴<\/title>/.test(html)) problems.push(`${p}: title 未替换`)
+    // 角色详情页的首屏图预载不得丢：它是 LCP 关键路径（桌面实测 LCP 5.4s → 3.8s）
+    if (box.preloadImages?.length && !html.includes('rel="preload" as="image"'))
+      problems.push(`${p}: 首屏图预载缺失（LCP 关键路径）`)
   }
 
   console.log(`== 逐路由 HTML == 生成 ${written} 个（origin ${ORIGIN}）`)

@@ -129,6 +129,7 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
       <HollowImage
         unframed
         loading="eager"
+        fetchpriority="high"
         :srcs="heroSrcs"
         :img-style="heroCalStyle"
       />

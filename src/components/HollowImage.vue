@@ -27,6 +27,9 @@ const props = defineProps<{
   unframed?: boolean
   /** 透传到 <img> 的内联样式（构图参数：object-position / transform 等） */
   imgStyle?: Record<string, string>
+  /** 首屏 LCP 图设 high：与逐路由 HTML 的 <link rel=preload as=image> 配合，
+   *  让浏览器把这张图排在其它资源之前（详情页头图实测即 LCP 元素） */
+  fetchpriority?: 'high' | 'low' | 'auto'
 }>()
 
 const candidates = computed(() => {
@@ -71,6 +74,7 @@ function onError() {
     :src="current"
     :alt="alt ?? ''"
     :loading="loading ?? 'lazy'"
+    :fetchpriority="fetchpriority"
     decoding="async"
     :style="imgStyle"
     @error="onError"
