@@ -297,7 +297,9 @@ onUnmounted(() => {
   font-size: var(--fs-small);
   letter-spacing: 0.06em;
   cursor: pointer;
-  transition: all var(--t-fast) var(--ease);
+  /* 显式列出会变的属性，而非 transition: all——后者会把布局属性一并补间，
+     既不可预测也白费合成器（动效审计按元素读 transition-property 发现） */
+  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
 }
 /* 触屏无 hover 语义：tap 后的粘滞高亮会让「当前行」与「选中行」混淆，
    悬停反馈统一收进 hover-capable 媒体查询（触屏仅保留 selected 状态） */

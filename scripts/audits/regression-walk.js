@@ -393,6 +393,32 @@ async (page) => {
     await page.mouse.move(0, 0)
   }
 
+  // ---- reduced-motion：关掉动效后不得有残留动画/长过渡 ----
+  {
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+    const reduced = []
+    for (const r of ['/', '/agents/1011']) {
+      await page.goto('http://localhost:4175' + r, { waitUntil: 'networkidle' })
+      await page.waitForTimeout(1600)
+      const res = await page.evaluate(() => {
+        let infinite = 0
+        let longT = 0
+        for (const el of document.querySelectorAll('body *')) {
+          const cs = getComputedStyle(el)
+          if (cs.display === 'none' || cs.visibility === 'hidden') continue
+          if (cs.animationName !== 'none' && cs.animationIterationCount.includes('infinite')) infinite++
+          const td = Math.max(...cs.transitionDuration.split(',').map((d) => parseFloat(d) || 0))
+          if (td > 0.05) longT++
+        }
+        return { infinite, longT }
+      })
+      reduced.push({ r, ...res })
+    }
+    await page.emulateMedia({ reducedMotion: null })
+    const bad = reduced.filter((x) => x.infinite || x.longT)
+    add('reduced-motion-clean', bad.length === 0, bad.length ? JSON.stringify(bad) : JSON.stringify(reduced))
+  }
+
   // ---- 数据说明页（页脚入口 + 动态数字） ----  await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1400)
   {
