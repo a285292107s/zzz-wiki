@@ -319,7 +319,7 @@ onBeforeUnmount(() => {
    超高（列表较长）时在容器内滚动，不再溢出屏幕。 */
 .term-tip-list {
   position: fixed;
-  z-index: 300;
+  z-index: var(--z-pop);
   /* 由 layoutList 写入 left/top；宽由卡片撑起，与 .term-tip 定宽一致 */
   display: flex;
   flex-direction: column;

@@ -292,7 +292,7 @@ function onKeydown(e: KeyboardEvent): void {
 .qs-scrim {
   position: fixed;
   inset: 0;
-  z-index: 400;
+  z-index: var(--z-modal);
   background: color-mix(in srgb, var(--bg-0) 78%, transparent);
   display: flex;
   align-items: flex-start;

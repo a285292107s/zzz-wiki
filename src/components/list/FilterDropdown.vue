@@ -299,7 +299,7 @@ onUnmounted(() => {
   position: absolute;
   top: calc(100% + 6px);
   left: 0;
-  z-index: 20;
+  z-index: var(--z-nav); /* 与站头同级语义：下拉面板浮于内容之上、被模态遮罩覆盖 */
   min-width: 168px;
   max-height: 320px;
   overflow-y: auto;
