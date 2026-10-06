@@ -74,6 +74,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
         :items="sorted"
         :sort="sortKey"
         :sort-dir="sortDir"
+        caption="音擎名录：名称、职业定位与稀有度"
         @update:sort="toggle"
       >
         <template #cell-name="{ row }">

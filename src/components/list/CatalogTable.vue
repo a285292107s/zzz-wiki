@@ -20,6 +20,8 @@ const props = defineProps<{
   sort?: string | null
   /** 当前排序方向 */
   sortDir?: SortDir | null
+  /** 表格 caption（读屏语境，如「代理人名录，按档案编号排序」）；缺省无 caption */
+  caption?: string
 }>()
 
 const emit = defineEmits<{
@@ -51,11 +53,13 @@ function onHeadClick(c: CatalogColumn) {
 
 <template>
   <table class="hairline-table">
+    <caption v-if="caption" class="sr-only">{{ caption }}</caption>
     <thead>
       <tr>
         <th
           v-for="c in bodyColumns"
           :key="c.key"
+          scope="col"
           :class="[{ r: c.align === 'right' }, { sortable: c.sortable }]"
           :aria-sort="c.sortable && sort === c.key ? (sortDir === 'asc' ? 'ascending' : 'descending') : undefined"
         >
