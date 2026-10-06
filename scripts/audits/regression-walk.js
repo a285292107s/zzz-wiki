@@ -197,6 +197,42 @@ async (page) => {
     }
   }
 
+  // ---- 内容完整性抽样（全量扫描见 content-sweep.js：238 页 0 异常）----
+  // 抽 5 页覆盖四类详情 + 已知「最简内容」页（1531 档案仅一行、31000 套装仅一句）
+  {
+    const sample = ['/agents/1011', '/agents/1531', '/w-engines/14162', '/bangboos/54023', '/disks/31000']
+    const bad = []
+    for (const p of sample) {
+      await page.goto('http://localhost:4175' + p, { waitUntil: 'domcontentloaded' })
+      await page.waitForFunction(() => !!document.querySelector('h1, .page-title'), null, { timeout: 6000 }).catch(() => {})
+      await page.waitForTimeout(400)
+      const r = await page.evaluate(() => {
+        const text = document.body.innerText || ''
+        const leak = /undefined|null|NaN|\[object Object\]|\{\{/.exec(text)
+        const empty = [...document.querySelectorAll('section[id]')]
+          .map((s) => {
+            const c = s.cloneNode(true)
+            c.querySelectorAll('h1,h2,h3,.section-head,.sr-only').forEach((h) => h.remove())
+            return { id: s.id, rest: (c.textContent || '').replace(/\s+/g, ' ').trim() }
+          })
+          .filter((x) => x.rest.length < 4)
+          .map((x) => x.id)
+        const broken = [...document.querySelectorAll('img')].filter(
+          (i) => i.complete && i.naturalWidth === 0 && i.getAttribute('src'),
+        ).length
+        return {
+          leak: leak ? text.slice(Math.max(0, leak.index - 20), leak.index + 20).replace(/\s+/g, ' ') : '',
+          empty,
+          broken,
+          desc: document.querySelector('meta[name=description]')?.getAttribute('content') ?? '',
+        }
+      })
+      if (r.leak || r.empty.length || r.broken || !r.desc)
+        bad.push(`${p}${r.leak ? ' 泄漏' : ''}${r.empty.length ? ' 空区块:' + r.empty.join(',') : ''}${r.broken ? ' 断图' + r.broken : ''}${!r.desc ? ' 缺description' : ''}`)
+    }
+    add('content-sample-clean', bad.length === 0, bad.join(' ⏐ ') || '5 页抽样无异常')
+  }
+
   // ---- 数据说明页（页脚入口 + 动态数字） ----  await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1400)
   {
