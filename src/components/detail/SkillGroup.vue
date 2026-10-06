@@ -145,9 +145,11 @@ function potTag(grp: SkillGroup): string | null {
                补充行（充能计数等）紧随表格，仅当可转置时出现，列表用 v-else 保证互斥 -->
           <template v-if="table">
             <table class="metric-table">
+              <!-- caption：读屏用户表格语境（ grp.name 为技能组名，如「 entrepreneurs的特殊技」） -->
+              <caption class="sr-only">「{{ grp.name }}」段次×指标数值表（随等级变化）</caption>
               <thead>
                 <tr>
-                  <th class="metric-row-head" scope="col">{{ table.rowLabel }}</th>
+                  <th class="metric-row-head" scope="col">{{ table.rowLabel || '段次' }}</th>
                   <th
                     v-for="c in table.columns"
                     :key="c.propId"
