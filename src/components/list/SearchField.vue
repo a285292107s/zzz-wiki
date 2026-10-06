@@ -5,7 +5,11 @@ defineProps<{
   placeholder?: string
 }>()
 
-const emit = defineEmits<{ (e: 'update:modelValue', v: string): void }>()
+const emit = defineEmits<{
+  (e: 'update:modelValue', v: string): void
+  /** Ctrl/⌘+K 升级到全局检索（SearchField 自身只搜本名录） */
+  (e: 'escalate'): void
+}>()
 </script>
 
 <template>
@@ -17,8 +21,11 @@ const emit = defineEmits<{ (e: 'update:modelValue', v: string): void }>()
       :placeholder="placeholder ?? '检索…'"
       :aria-label="placeholder ?? '检索'"
       @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+      @keydown.ctrl.k.prevent="emit('escalate')"
+      @keydown.meta.k.prevent="emit('escalate')"
     />
     <span v-if="count != null" class="mono count">{{ count }}</span>
+    <span class="mono escalate" title="全局检索" aria-hidden="true">⌘K</span>
   </div>
 </template>
 
@@ -62,5 +69,34 @@ const emit = defineEmits<{ (e: 'update:modelValue', v: string): void }>()
 .count {
   font-size: var(--fs-caption);
   color: var(--ink-2);
+}
+
+/* 升级提示：悬停/聚焦浮现的 ⌘K 小标（暗示本框可升级到全局检索） */
+.escalate {
+  font-size: var(--fs-badge);
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+  border: 1px solid var(--line-0);
+  border-radius: 2px;
+  padding: 1px 4px;
+  opacity: 0;
+  transition: opacity var(--t-fast) var(--ease);
+  flex: none;
+}
+
+.search:focus-within .escalate {
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .search:hover .escalate {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 860px) {
+  .escalate {
+    display: none;
+  }
 }
 </style>
