@@ -30,13 +30,18 @@ describe('CatalogTable', () => {
     expect(w.emitted('update:sort')).toBeUndefined()
   })
 
-  it('active column exposes sort direction via aria-sort; others stay neutral', () => {
+  it('aria-sort lives on the columnheader (th) of the active column; buttons stay clean', () => {
     const w = mount(CatalogTable, {
       props: { columns, items: rows, sort: 'rarity', sortDir: 'desc' },
     })
+    const ths = w.findAll('thead th')
+    // aria-sort 是 columnheader 的属性——挂在 button 上会被辅助技术忽略
+    expect(ths[0].attributes('aria-sort')).toBeUndefined() // name 未激活
+    expect(ths[2].attributes('aria-sort')).toBe('descending') // rarity 激活且降序
+    // 排序按钮本体不再携带 aria-sort
     const btns = headButtons(w)
-    expect(btns[0].attributes('aria-sort')).toBeUndefined() // name 未激活
-    expect(btns[1].attributes('aria-sort')).toBe('descending') // rarity 激活且降序
+    expect(btns[0].attributes('aria-sort')).toBeUndefined()
+    expect(btns[1].attributes('aria-sort')).toBeUndefined()
   })
 
   /* ---------- 移动端堆叠行（<721px 断点，jsdom 下与桌面结构同时存在） ---------- */

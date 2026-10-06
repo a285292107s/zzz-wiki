@@ -57,13 +57,13 @@ function onHeadClick(c: CatalogColumn) {
           v-for="c in bodyColumns"
           :key="c.key"
           :class="[{ r: c.align === 'right' }, { sortable: c.sortable }]"
+          :aria-sort="c.sortable && sort === c.key ? (sortDir === 'asc' ? 'ascending' : 'descending') : undefined"
         >
           <button
             v-if="c.sortable"
             type="button"
             class="sort-btn mono"
             :class="{ active: sort === c.key }"
-            :aria-sort="sort === c.key ? (sortDir === 'asc' ? 'ascending' : 'descending') : undefined"
             @click="onHeadClick(c)"
           >
             {{ c.label }}
