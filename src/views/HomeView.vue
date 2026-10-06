@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { iconSources } from '@/data/icons'
-import { CATALOG, GUIDE_ENTRY } from '@/domain/catalog'
+import { CATALOG, GUIDE_ENTRIES } from '@/domain/catalog'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { dataVersions } from '@/data/api'
 import { useFeaturedAgents } from '@/composables/useFeaturedAgents'
@@ -60,24 +60,25 @@ const sections = [
     en: c.en,
     to: c.path,
     desc: c.desc,
-    icon: c.icon,
-    cat: c.iconCategory,
     iconSrcs:
       c.no === '01'
         ? [AGENT_CIRCLE_ICON, ...iconSources(c.icon, c.iconCategory)]
         : iconSources(c.icon, c.iconCategory),
     guide: false as boolean,
+    glyph: '' as string,
   })),
-  {
-    // 图文板块：无游戏图标，用主题符号「×」作标本占位
-    no: GUIDE_ENTRY.no,
-    label: GUIDE_ENTRY.label,
-    en: GUIDE_ENTRY.en,
-    to: GUIDE_ENTRY.path,
-    desc: GUIDE_ENTRY.desc,
+  // 图文板块（战斗公式 / 数据说明）：无游戏图标，用各自的标本符号作占位。
+  // 首页目录是站点索引，常设页面全部列入（站头导航只用 nav:true 的子集）。
+  ...GUIDE_ENTRIES.map((g) => ({
+    no: g.no,
+    label: g.label,
+    en: g.en,
+    to: g.path,
+    desc: g.desc,
     iconSrcs: [] as string[],
     guide: true as boolean,
-  },
+    glyph: g.glyph,
+  })),
 ]
 </script>
 
@@ -188,7 +189,8 @@ const sections = [
                 :alt="s.label"
                 :fallback="s.en"
               />
-              <span v-else class="specimen-guide" aria-hidden="true">×</span>
+              <!-- 图文板块：无游戏图标，用该板块的标本符号（战斗公式 × / 数据说明 §） -->
+              <span v-else class="specimen-guide" aria-hidden="true">{{ s.glyph }}</span>
             </span>
             <span class="idx mono">{{ String(i + 1).padStart(2, '0') }}</span>
             <span class="name">

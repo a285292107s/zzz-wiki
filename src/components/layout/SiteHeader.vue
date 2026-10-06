@@ -71,14 +71,15 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
-import { CATALOG, GUIDE_ENTRY } from '@/domain/catalog'
+import { CATALOG, GUIDE_ENTRIES } from '@/domain/catalog'
 import { useQuickSearch } from '@/composables/useQuickSearch'
 
-// 导航由 catalog.ts 派生（DESIGN.md §5.3 单一事实源）：数据类目 + 图文板块入口
+// 导航由 catalog.ts 派生（DESIGN.md §5.3 单一事实源）：数据类目 + 进主导航的图文板块
+// （nav:false 的板块——如数据说明——只在首页目录与页脚出现，站头保持内容聚焦）
 const route = useRoute()
 const nav = [
   ...CATALOG.map((c) => ({ no: c.no, label: c.label, to: c.path })),
-  { no: GUIDE_ENTRY.no, label: GUIDE_ENTRY.label, to: GUIDE_ENTRY.path },
+  ...GUIDE_ENTRIES.filter((g) => g.nav).map((g) => ({ no: g.no, label: g.label, to: g.path })),
 ]
 
 const isActive = (to: string) =>

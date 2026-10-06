@@ -76,17 +76,42 @@ export const CATALOG: readonly CatalogEntry[] = [
 ]
 
 /**
- * 图文板块入口（战斗公式）。
- * 独立于 CATALOG：它没有数据类目的 listFile/detailDir/icon 契约，
- * 因此不进 CATALOG 数组，专供站头导航与首页目录追加展示。
+ * 图文板块入口（非数据类目的常设页面）。
+ * 独立于 CATALOG：它们没有 listFile/detailDir/icon 契约，故不进 CATALOG 数组，
+ * 专供站头导航与首页目录展示。字段：
+ *   - nav：是否进站头主导航（站头聚焦内容类目；出处类页面只在首页目录与页脚出现）
+ *   - glyph：无游戏图标时的标本符号（首页目录的占位符，与设计语言的「×」同族）
  */
-export const GUIDE_ENTRY = {
-  no: '05',
-  label: '战斗公式',
-  en: 'FORMULAS',
-  path: '/formulas',
-  desc: '从伤害乘区到失衡、属性异常与命破，逐段拆解战斗数值构成。',
-} as const
+export interface GuideEntry {
+  no: string
+  label: string
+  en: string
+  path: string
+  desc: string
+  glyph: string
+  nav: boolean
+}
+
+export const GUIDE_ENTRIES: readonly GuideEntry[] = [
+  {
+    no: '05',
+    label: '战斗公式',
+    en: 'FORMULAS',
+    path: '/formulas',
+    desc: '从伤害乘区到失衡、属性异常与命破，逐段拆解战斗数值构成。',
+    glyph: '×',
+    nav: true,
+  },
+  {
+    no: '06',
+    label: '数据说明',
+    en: 'COLOPHON',
+    path: '/about',
+    desc: '数据来源与覆盖范围、更新机制与校验门禁、版权声明。',
+    glyph: '§',
+    nav: false,
+  },
+] as const
 
 /** 按路由路径查找类目（导航/页面用），找不到返回 undefined。 */
 export function catalogByPath(path: string): CatalogEntry | undefined {

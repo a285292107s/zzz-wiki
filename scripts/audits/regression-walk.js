@@ -15,9 +15,14 @@ async (page) => {
       }).length,
       cards: document.querySelectorAll('.specimen-card').length,
       title: document.title,
+      // 首页目录 = 站点索引：4 数据类目 + 2 图文板块（战斗公式/数据说明）
+      indexRows: document.querySelectorAll('.index-row').length,
+      lastEntry: document.querySelector('.index-list li:last-child .name .zh')?.textContent.trim(),
     }))
     add('home-serif', r.serif === 'Noto Serif SC', r.serif)
     add('home-reveal-settled', r.revealResidueInViewport === 0, String(r.revealResidueInViewport))
+    add('home-index-rows', r.indexRows === 6, String(r.indexRows))
+    add('home-index-last', r.lastEntry === '数据说明', r.lastEntry ?? 'none')
     add('home-cards', r.cards === 4, String(r.cards))
     add('home-title', r.title.includes('绳网档案'), r.title)
   }
