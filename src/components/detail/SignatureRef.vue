@@ -36,7 +36,8 @@ defineProps<{
     <span class="sig-label">{{ label }}</span>
     <span class="sig-name serif">{{ name }}</span>
     <span :class="['sig-icon', { banner: thumb === 'banner' }]">
-      <HollowImage unframed :srcs="iconSrcs" :alt="name" />
+      <!-- 名称就在同链接的 .sig-name 里，图片再报同一名字会重复播报（AX 树审计） -->
+      <HollowImage unframed :srcs="iconSrcs" alt="" />
     </span>
   </RouterLink>
 </template>

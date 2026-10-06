@@ -532,6 +532,41 @@ async (page) => {
     )
   }
 
+  // ---- 无障碍树基本盘：h1 唯一 / 无冗余图片名 / 可交互元素都有名字 ----
+  {
+    const ax = []
+    for (const r of ['/', '/agents', '/agents/1011']) {
+      await page.goto('http://localhost:4175' + r, { waitUntil: 'networkidle' })
+      await page.waitForTimeout(1500)
+      const res = await page.evaluate(() => {
+        const h1 = document.querySelectorAll('h1').length
+        // 冗余图片名：alt 与所在链接/按钮的可见文本重复
+        const redundant = [...document.querySelectorAll('img[alt]')].filter((img) => {
+          const alt = (img.getAttribute('alt') || '').trim()
+          if (!alt) return false
+          const host = img.closest('a, button, [role="button"]')
+          return !!host && (host.textContent || '').includes(alt)
+        }).length
+        // 无名可交互元素：无文本、无 aria-label、无 title、无 aria-labelledby
+        const unnamed = [...document.querySelectorAll('a[href], button, [role="button"]')].filter((el) => {
+          const cs = getComputedStyle(el)
+          if (cs.display === 'none' || cs.visibility === 'hidden') return false
+          const text = (el.textContent || '').trim()
+          return (
+            !text &&
+            !el.getAttribute('aria-label') &&
+            !el.getAttribute('title') &&
+            !el.getAttribute('aria-labelledby') &&
+            !el.querySelector('img[alt]:not([alt=""])')
+          )
+        }).length
+        return { h1, redundant, unnamed }
+      })
+      if (res.h1 !== 1 || res.redundant > 0 || res.unnamed > 0) ax.push(`${r}: h1=${res.h1} 冗余=${res.redundant} 无名=${res.unnamed}`)
+    }
+    add('ax-basics', ax.length === 0, ax.join(' ⏐ ') || 'h1 唯一 / 无冗余图片名 / 无无名可交互元素')
+  }
+
   // ---- 数据说明页（页脚入口 + 动态数字） ----  await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1400)
   {

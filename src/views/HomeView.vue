@@ -138,11 +138,14 @@ const sections = [
               <!-- 首屏重点头图，勿 lazy：懒加载会把它降为低优先级，且带 transform:scale 的
                    img 会升级为独立合成层，合成器按 DOM 顺序逐个绘制，最右一格最后上屏
                    （网络其实并行，见 DevTools）。故用 eager 并行、常规优先级加载。 -->
+              <!-- 卡片里已有名称文本，图片再报同一名字会让读屏念两遍（AX 树审计发现 7 处
+                   同类冗余）→ 头图按装饰处理，语义交给文本 -->
               <HollowImage
                 unframed
                 loading="eager"
                 :srcs="card.srcs"
-                :alt="card.zh || card.en"
+                alt=""
+                :fallback="card.zh || card.en"
                 :img-style="{
                   objectPosition: card.pos,
                   transformOrigin: `50% ${card.originY}%`,
@@ -187,7 +190,7 @@ const sections = [
               <HollowImage
                 v-if="!s.guide"
                 :srcs="s.iconSrcs"
-                :alt="s.label"
+                alt=""
                 :fallback="s.en"
               />
               <!-- 图文板块：无游戏图标，用该板块的标本符号（战斗公式 × / 数据说明 §） -->
