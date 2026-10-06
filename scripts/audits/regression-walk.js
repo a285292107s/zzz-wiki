@@ -2,16 +2,37 @@ async (page) => {
   const checks = []
   const add = (name, ok, detail) => checks.push({ name, ok, detail })
 
+  // 固定视口：本走查的基线按桌面宽度定义（首页卡片行在窄屏是横向滚动容器，
+  // 屏外卡片不显现属正确行为；视口漂移会让断言意义变化）
+  await page.setViewportSize({ width: 1440, height: 900 })
+
+  // 每次导航都装 CLS 观测器（累积位移分数）：骨架期站尾被推走的位移曾达 0.156，
+  // 只有量出来才防得住（阈值取 0.02——远严于 Google「良好」线 0.1）。
+  await page.addInitScript(() => {
+    window.__cls = 0
+    new PerformanceObserver((l) => {
+      for (const e of l.getEntries()) if (!e.hadRecentInput) window.__cls += e.value
+    }).observe({ type: 'layout-shift', buffered: true })
+  })
+  const clsNow = () => page.evaluate(() => Math.round((window.__cls ?? 0) * 1000) / 1000)
+
   // ---- 首页 ----
   await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1800)
   {
+    const cls = await clsNow()
+    // 首页基线 0.023（实测位移在 t≈83ms、字体加载之前：首帧后卡片/目录区高度收敛 34px）。
+    // 阈值取 0.05 而非 0.02：仍能捕获 0.15 级的「骨架期站尾被推走」类回退，又不受首帧收敛噪声干扰
+    add('home-cls', cls < 0.05, String(cls))
+  }
+  {
     const r = await page.evaluate(() => ({
       serif: getComputedStyle(document.querySelector('.page-title')).fontFamily.split(',')[0].replaceAll('"', '').trim(),
-      // 同下图：只统计「视口内却未显现」的残留（视口外待显现属设计行为）
+      // 同下图：只统计「视口内却未显现」的残留（视口外待显现属设计行为）。
+      // 判定须双向：首页精选卡行在窄屏是横向滚动容器，屏外卡片本就未显现
       revealResidueInViewport: [...document.querySelectorAll('.reveal:not(.revealed)')].filter((el) => {
         const b = el.getBoundingClientRect()
-        return b.top < innerHeight && b.bottom > 0
+        return b.top < innerHeight && b.bottom > 0 && b.left < innerWidth && b.right > 0
       }).length,
       cards: document.querySelectorAll('.specimen-card').length,
       title: document.title,
@@ -120,6 +141,15 @@ async (page) => {
     add('about-cats', r.cats === 4, String(r.cats))
     add('about-total', /^\d+ 条$/.test(r.total ?? ''), r.total ?? 'none')
     add('about-version', /LIVE \d/.test(r.version ?? ''), r.version ?? 'none')
+  }
+
+  // ---- 详情页 CLS（独立文档加载：SPA 内导航会让观测器跨页累加，须另起一次 goto）----
+  {
+    await page.goto('http://localhost:4175/agents/1021', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(2200)
+    const cls = await clsNow()
+    // 基线 0.001–0.007（骨架期站尾被推走曾达 0.156——:has(.state.loading) 规则已修）
+    add('detail-cls-fresh', cls < 0.02, String(cls))
   }
 
   // ---- 404 ----
