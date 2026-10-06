@@ -24,7 +24,7 @@ const emit = defineEmits<{
       @keydown.ctrl.k.prevent="emit('escalate')"
       @keydown.meta.k.prevent="emit('escalate')"
     />
-    <span v-if="count != null" class="mono count">{{ count }}</span>
+    <span v-if="count != null" class="mono count" role="status">{{ count }}</span>
     <span class="mono escalate" title="全局检索" aria-hidden="true">⌘K</span>
   </div>
 </template>
