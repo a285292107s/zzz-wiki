@@ -298,3 +298,10 @@ skills 描述富文本走 `richDesc`。字体族（CJK 衬线优先、sans 弃 `
 CJK 衬线（Noto Serif SC 500/600）**分片自托管**至 `public/fonts/noto-serif-sc/`（unicode-range 按需加载，
 首屏增量 ~3-6 片），生成物 `noto-serif-sc.css` 勿手改；刷新用 `npm run download:fonts:cjk`，
 完整性由 `verify:fonts:cjk` 门禁（含 build:ci）。
+
+> ⚠ **CJK 分片是可变字体，内部名会误导诊断**：Google 的 Noto Serif SC 分片 family 名固定为
+> `Noto Serif SC ExtraLight`（默认实例 wght=200），CDP `CSS.getPlatformFontsForNode` 报出的就是它——
+> 但这**不代表实际渲染字重**。`@font-face` 的单值 `font-weight` 描述符会把 wght 轴钉到该值，实测
+> 生产字族在 weight 400/500 下均渲染 **wght 500 实例**（读者按 500 出形）。判据与复跑脚本：
+> `scripts/audits/font-weight-calibration.js`（同分片对照墨量标定，基线 200/400/500/700 → 290/354/403/515，
+> 生产 = 403）。**勿据此把「ExtraLight」当缺陷去改**——那是命名，不是渲染结果。
