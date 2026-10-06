@@ -153,6 +153,17 @@ async (page) => {
     add('detail-serif', r.serif === 'Noto Serif SC', r.serif)
     add('detail-backtop', r.scrollBtn, '')
     add('detail-inview-sections-visible', r.inViewportHidden === 0, String(r.inViewportHidden))
+
+    // 人名标题走 --fs-name 令牌（站内最醒目的排印元素不该游离在尺度外）
+    const nameToken = await page.evaluate(() => {
+      const probe = document.createElement('span')
+      probe.style.cssText = 'position:absolute;visibility:hidden;font-size: var(--fs-name)'
+      document.body.appendChild(probe)
+      const tokenSize = getComputedStyle(probe).fontSize
+      probe.remove()
+      return { tokenSize, titleSize: getComputedStyle(document.querySelector('.main .page-title')).fontSize }
+    })
+    add('detail-name-token', nameToken.tokenSize === nameToken.titleSize, JSON.stringify(nameToken))
   }
 
   // ---- 路由切换的焦点管理（SPA 无障碍：切页后焦点不能留在旧页面）----

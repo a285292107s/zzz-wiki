@@ -310,9 +310,11 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
 }
 
 /* hero 专属标题尺度：比全局 page-title 更果断，字距微收以衬 CID 衬线气质；
-   极端长名必须断行时 balance 均衡两行，避免孤字 */
+   极端长名必须断行时 balance 均衡两行，避免孤字。
+   尺度本身收在 tokens.css 的 --fs-name（含 64px 上限的校准依据）——
+   站内最醒目的排印元素不该游离在尺度之外（2026-10 排印合规审计发现）。 */
 .main .page-title {
-  font-size: clamp(34px, 5.6vw, 64px);
+  font-size: var(--fs-name);
   line-height: 1.04;
   letter-spacing: -0.01em;
   text-wrap: balance;

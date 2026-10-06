@@ -134,6 +134,10 @@
   --fs-title: 22px;                    /* 区块标题（section-head） */
   --fs-hero: 24px;                     /* 大数字 / 首页人名 */
   --fs-display: clamp(30px, 5vw, 52px);/* 页面标题 */
+  --fs-name: clamp(34px, 5.6vw, 64px); /* 详情页人名标题：比 page-title 更果断。
+                                          上限 64px 是校准值——76ch 行宽下内容区
+                                          ~451px，8 字符名（如「奥菲丝&「鬼火」」）
+                                          恰好单行，更长名交给 text-wrap: balance */
 
   /* rhythm */
   --pad-page: clamp(20px, 4vw, 56px);
