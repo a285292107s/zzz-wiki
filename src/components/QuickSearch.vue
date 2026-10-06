@@ -19,6 +19,7 @@ const recent = useRecentItems()
 
 const active = ref(0)
 const listEl = ref<HTMLElement | null>(null)
+const panelEl = ref<HTMLElement | null>(null)
 
 const visible = computed(() => phase.value === 'open')
 const loading = computed(() => phase.value === 'loading')
@@ -68,14 +69,44 @@ watch(
   },
 )
 
+/** 唤起元素：关闭时归还焦点（面板可从站头按钮或 Ctrl+K 打开） */
+let opener: HTMLElement | null = null
+
+/** 焦点圈定：Tab 循环限制在面板内部（遮罩后的底层页面对键盘不可达） */
+function trapFocus(e: KeyboardEvent): void {
+  if (e.key !== 'Tab') return
+  const panel = panelEl.value
+  if (!panel) return
+  const focusables = Array.from(
+    panel.querySelectorAll<HTMLElement>('input, button:not([disabled]), [href]'),
+  ).filter((el) => el.offsetParent !== null)
+  if (!focusables.length) return
+  const first = focusables[0]
+  const last = focusables[focusables.length - 1]
+  const cur = document.activeElement
+  if (e.shiftKey && (cur === first || !panel.contains(cur))) {
+    e.preventDefault()
+    last.focus()
+  } else if (!e.shiftKey && (cur === last || !panel.contains(cur))) {
+    e.preventDefault()
+    first.focus()
+  }
+}
+
 watch(visible, (v) => {
   if (v) {
+    opener = document.activeElement as HTMLElement | null
     document.documentElement.style.overflow = 'hidden'
+    document.addEventListener('keydown', trapFocus, true)
     void nextTick(() => document.getElementById('quick-search-input')?.focus())
   } else {
     document.documentElement.style.overflow = ''
+    document.removeEventListener('keydown', trapFocus, true)
     query.value = ''
     active.value = 0
+    // 焦点归还：唤起时记录的元素仍在文档中才归还（路由跳转后 opener 已卸载则跳过）
+    if (opener && document.contains(opener)) opener.focus()
+    opener = null
   }
 })
 
@@ -139,9 +170,10 @@ function onKeydown(e: KeyboardEvent): void {
   <Teleport to="body">
     <div v-if="visible" class="qs-scrim" @pointerdown.self="close()">
       <div
+        ref="panelEl"
         class="qs-panel"
-        role="combobox"
-        aria-expanded="true"
+        role="dialog"
+        aria-modal="true"
         aria-label="快速检索"
         aria-controls="quick-search-listbox"
       >
