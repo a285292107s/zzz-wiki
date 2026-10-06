@@ -47,8 +47,10 @@ function warmNow(): void {
 }
 
 /* 变色挂在整条链接上（头像+名字），与名录行只可点名称的语义一致 */
-a.name-cell:hover .name {
-  color: var(--amber-hi);
+@media (hover: hover) {
+  a.name-cell:hover .name {
+    color: var(--amber-hi);
+  }
 }
 
 a.name-cell .name {

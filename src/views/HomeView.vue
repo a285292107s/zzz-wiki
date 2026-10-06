@@ -267,9 +267,11 @@ const sections = [
     border-color var(--t-fast) var(--ease);
 }
 
-.specimen-card:hover {
-  background: var(--bg-2);
-  border-color: var(--line-2);
+@media (hover: hover) {
+  .specimen-card:hover {
+    background: var(--bg-2);
+    border-color: var(--line-2);
+  }
 }
 
 /* 9:16 竖视口：遮罩住超宽全景图只露局部（object-fit:cover + object-position）。
@@ -326,8 +328,10 @@ const sections = [
   transition: scale 700ms var(--ease);
 }
 
-.specimen-card:hover .specimen-figure img {
-  scale: 1.04;
+@media (hover: hover) {
+  .specimen-card:hover .specimen-figure img {
+    scale: 1.04;
+  }
 }
 
 /* 标本标签牌：编号 + 中英名 + 元素 */
@@ -353,8 +357,10 @@ const sections = [
   transition: color var(--t-fast) var(--ease);
 }
 
-.specimen-card:hover .plate-top .no {
-  color: var(--amber);
+@media (hover: hover) {
+  .specimen-card:hover .plate-top .no {
+    color: var(--amber);
+  }
 }
 
 .plate-top .el {
@@ -424,8 +430,14 @@ const sections = [
   transition: background var(--t-fast) var(--ease);
 }
 
-.index-row:hover {
-  background: var(--bg-3);
+@media (hover: hover) {
+  .index-row:hover {
+    background: var(--bg-3);
+  }
+
+  .index-row:hover .idx {
+    color: var(--amber);
+  }
 }
 
 .specimen {
@@ -495,9 +507,11 @@ const sections = [
     transform var(--t-fast) var(--ease);
 }
 
-.index-row:hover .go {
-  color: var(--amber);
-  transform: translateX(4px);
+@media (hover: hover) {
+  .index-row:hover .go {
+    color: var(--amber);
+    transform: translateX(4px);
+  }
 }
 
 @media (max-width: 860px) {
