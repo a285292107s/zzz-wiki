@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest'
-import { buildFeaturedCards, shuffle, FEATURED_POOL } from '@/composables/useFeaturedAgents'
+import {
+  buildFeaturedCards,
+  shuffle,
+  seededShuffle,
+  daySeed,
+  FEATURED_POOL,
+} from '@/composables/useFeaturedAgents'
 import type { CharacterListItem } from '@/data/types'
 import { ELEMENTS } from '@/domain/enums'
 
@@ -25,6 +31,37 @@ describe('shuffle', () => {
       expect(typeof p.zoom).toBe('number')
       expect(typeof p.originY).toBe('number')
     }
+  })
+})
+
+describe('「今日角色」的确定性挑选（同日恒定 / 跨日变化）', () => {
+  it('同一天同一批：同一 seed 必得同一排列，且不改写入参', () => {
+    const src = FEATURED_POOL.slice(0, 12)
+    const a = seededShuffle(src, daySeed(new Date(2026, 9, 6)))
+    const b = seededShuffle(src, daySeed(new Date(2026, 9, 6, 23, 59)))
+    expect(a.map((x) => x.id)).toEqual(b.map((x) => x.id))
+    expect(src.map((x) => x.id)).toEqual(FEATURED_POOL.slice(0, 12).map((x) => x.id))
+  })
+
+  it('跨日换一批：不同日期种子的前四位不同（至少一天不同即可）', () => {
+    const src = FEATURED_POOL
+    const today = seededShuffle(src, daySeed(new Date(2026, 9, 6))).slice(0, 4).map((x) => x.id)
+    const others = [7, 8, 9, 10, 11, 12].map((d) =>
+      seededShuffle(src, daySeed(new Date(2026, 9, d))).slice(0, 4).map((x) => x.id),
+    )
+    expect(others.some((ids) => ids.join() !== today.join())).toBe(true)
+  })
+
+  it('daySeed 同日恒定、跨日递增（本地日期编码）', () => {
+    expect(daySeed(new Date(2026, 0, 5))).toBe(20260105)
+    expect(daySeed(new Date(2026, 11, 31))).toBe(20261231)
+    expect(daySeed(new Date(2026, 9, 6, 0, 0))).toBe(daySeed(new Date(2026, 9, 6, 23, 59, 59)))
+  })
+
+  it('确定性排列仍是合法排列（元素不增不减）', () => {
+    const src = FEATURED_POOL.slice(0, 20).map((x) => x.id)
+    const out = seededShuffle(src, 42)
+    expect([...out].sort((a, b) => a - b)).toEqual([...src].sort((a, b) => a - b))
   })
 })
 

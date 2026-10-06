@@ -49,6 +49,27 @@ async (page) => {
     add('home-title', r.title.includes('绳网档案'), r.title)
   }
 
+  // ---- 「今日角色」同日恒定：文案承诺的是「今日」这批，不能每次刷新都换人 ----
+  {
+    const idsOf = () =>
+      page.evaluate(() =>
+        [...document.querySelectorAll('.specimen-card')].map((a) => (a.getAttribute('href') ?? '').split('/').pop()),
+      )
+    await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1800)
+    const first = await idsOf()
+    await page.goto('http://localhost:4175/agents', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(600)
+    await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1800)
+    const second = await idsOf()
+    add(
+      'home-today-stable',
+      first.length === 4 && first.join() === second.join(),
+      `${first.join(',')} vs ${second.join(',')}`,
+    )
+  }
+
   // ---- 名录页 + 检索 + 筛选 ----
   await page.goto('http://localhost:4175/agents', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1500)

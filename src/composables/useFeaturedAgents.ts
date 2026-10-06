@@ -51,6 +51,33 @@ export function shuffle<T>(arr: readonly T[]): T[] {
   return a
 }
 
+/** 以「本地日期」为种子（同日恒定、跨日变化）。 */
+export function daySeed(d: Date = new Date()): number {
+  return d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate()
+}
+
+/** 确定性洗牌（mulberry32 小 PRNG）：同一 seed 必得同一排列。
+ *  用于「今日角色」——区块文案承诺的是**今天**这一批，而非每次刷新都换人：
+ *  随机挑选会让文案与行为不符，回访用户也拿不到同一批（图片缓存白费）。 */
+export function seededShuffle<T>(arr: readonly T[], seed: number): T[] {
+  let s = seed >>> 0
+  const rand = () => {
+    s = (s + 0x6d2b79f5) >>> 0
+    let t = s
+    t = Math.imul(t ^ (t >>> 15), t | 1)
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61)
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+  }
+  const a = arr.slice()
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1))
+    const tmp = a[i]
+    a[i] = a[j]
+    a[j] = tmp
+  }
+  return a
+}
+
 /**
  * 由池条目 + 名录解析卡片。list 为 null（清单未就绪）时照样出卡：头图 src 只依赖 id，
  * 名字/元素留空由视图占位——让 LCP 图片与清单请求并行，而非排在它后面。
@@ -86,10 +113,12 @@ export function buildFeaturedCards(seed: PoolItem[], list: CharacterListItem[] |
   return cards.map((c, i) => ({ ...c, no: String(i + 1).padStart(2, '0') }))
 }
 
-/** 首页「今日角色」：每次挂载随机取 4 张 + 解析，返回响应式 featured。
+/** 首页「今日角色」：按**当天日期**确定性取 4 张 + 解析，返回响应式 featured。
+ *  同日恒定（文案承诺的是「今日」这批，回访还能命中图片缓存）、跨日自动换一批；
+ *  早前用 Math.random 每次挂载换人——文案与行为不符，且回访用户永远冷缓存。
  *  featured 与 picks 等长起步（名字未就绪时留空占位），清单到达后按真值收敛。 */
 export function useFeaturedAgents() {
-  const picks = shuffle(FEATURED_POOL).slice(0, 4)
+  const picks = seededShuffle(FEATURED_POOL, daySeed()).slice(0, 4)
 
   // 首屏头图预热：卡片在挂载即渲染（图 src 只依赖 id，不等清单）；且带 transform:scale 的 img
   // 会升级为独立合成层，合成器按 DOM 顺序解码/栅格化，最右一张总最后上屏（网络其实并行）。
