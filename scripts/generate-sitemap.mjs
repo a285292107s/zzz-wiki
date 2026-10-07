@@ -9,7 +9,7 @@
  *     名录页不陈列的条目不进 sitemap，口径与 UI 一致）
  *
  * 域名从 `VITE_SITE_ORIGIN` 环境变量取——**与前端 canonical/og:url 同一来源**
- * （vercel.json 的 buildEnv 注入，src/composables/usePageMeta.ts 读同一个变量）；
+ * （vercel.json 的 env 注入，src/composables/usePageMeta.ts 读同一个变量）；
  * 兼容读取旧名 `SITE_ORIGIN`。缺省回退本地预览域，但**在部署环境（VERCEL/CI）
  * 缺变量时直接失败**——否则会把 https://localhost:4175 的 sitemap 发上线
  * （2026-10 实测踩到：vercel.json 注 VITE_SITE_ORIGIN、脚本读 SITE_ORIGIN，
@@ -25,7 +25,7 @@ const DEPLOYING = Boolean(process.env.VERCEL || process.env.CI)
 if (!ENV_ORIGIN && DEPLOYING) {
   console.error(
     '✖ 部署构建缺少 VITE_SITE_ORIGIN（sitemap 域名来源）——拒绝生成指向 localhost 的 sitemap。\n' +
-      '  请在 vercel.json 的 buildEnv 或 CI 环境变量中注入生产域后重试。',
+      '  请在 vercel.json 的 env 或 CI 环境变量中注入生产域后重试。',
   )
   process.exit(1)
 }
