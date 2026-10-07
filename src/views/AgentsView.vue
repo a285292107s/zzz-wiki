@@ -72,18 +72,22 @@ const { sorted, sortKey, sortDir, toggle, isDefault: sortIsDefault } = useCatalo
     </header>
 
     <div v-reveal="90" class="toolbar">
-      <FilterDropdown
-        :attr="attrFilter"
-        :prof="profFilter"
-        :camp="campFilter"
-        :camps="camps"
-        @update:attr="attrFilter = $event"
-        @update:prof="profFilter = $event"
-        @update:camp="campFilter = $event"
-      />
+      <div class="toolbar-left">
+        <FilterDropdown
+          :attr="attrFilter"
+          :prof="profFilter"
+          :camp="campFilter"
+          :camps="camps"
+          @update:attr="attrFilter = $event"
+          @update:prof="profFilter = $event"
+          @update:camp="campFilter = $event"
+        />
+        <!-- 筛选/搜索生效时 URL 带状态：显式给出「复制此视图链接」入口。
+             紧随阵营筛选（三个下拉的末位）：它是「当前这套筛选」的导出动作，
+             贴着筛选区就不必横跨工具栏去找。 -->
+        <CopyLinkButton v-if="hasActiveFilter || !sortIsDefault" label="复制筛选链接" />
+      </div>
       <SearchField v-model="query" :count="count" placeholder="检索姓名…" />
-      <!-- 筛选/搜索生效时 URL 带状态：显式给出「复制此视图链接」入口 -->
-      <CopyLinkButton v-if="hasActiveFilter || !sortIsDefault" label="复制筛选链接" />
     </div>
 
     <!-- 空态分工：AsyncState 只管「数据级为空」（接口没给数据）；
@@ -146,6 +150,14 @@ const { sorted, sortKey, sortDir, toggle, isDefault: sortIsDefault } = useCatalo
   justify-content: space-between;
   gap: var(--space-inline);
   margin-bottom: 20px;
+}
+
+/* 左组：筛选（属性/职业/阵营）与它的「复制筛选链接」出口贴在一起 */
+.toolbar-left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
 }
 
 .toolbar :deep(.search) {
