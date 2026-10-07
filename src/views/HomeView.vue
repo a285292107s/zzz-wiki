@@ -12,7 +12,7 @@ import HollowImage from '@/components/HollowImage.vue'
 usePageMeta()
 
 // 数据版本元信息（正式服版本号，来自根 manifest.json；站点只展示正式服数据）
-const versions = ref<{ live: string } | null>(null)
+const versions = ref<{ live: string; generated?: string } | null>(null)
 onMounted(() => {
   dataVersions()
     .then((v) => {
@@ -26,6 +26,14 @@ onMounted(() => {
 const currentVersionLabel = computed(() => {
   if (!versions.value) return ''
   return `VER ${versions.value.live}`
+})
+
+/** 快照日期（hero 规格板用）：与数据说明页同一格式化口径 */
+const currentUpdatedLabel = computed(() => {
+  const g = versions.value?.generated
+  const t = g ? new Date(g) : null
+  if (!t || Number.isNaN(t.getTime())) return ''
+  return `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`
 })
 
 // 目录由 catalog.ts 派生（DESIGN.md §5.3 单一事实源）
@@ -90,28 +98,57 @@ const sections = [
 
     <!-- hero：文字陈列浮于壁纸之上；旧 Mindscape 头图已移除，双形态切换钮移至 1551 佩洛伊斯详情页 AgentHead -->
     <section class="hero">
-      <div class="wrap">
-        <p v-reveal="0" class="eyebrow mono">NEW Eridu · Data Terminal</p>
-        <h1 v-reveal="60" class="page-title">
-          绳网档案
-          <span class="title-en">Ropeweb Archive</span>
-        </h1>
-        <p v-reveal="120" class="page-sub">
-          基于开放数据源整理的绝区零资料库。以档案编号为纲，收录代理人、音擎、邦布与驱动盘的结构化数据——不含任何主观评述，只做客观陈列。
-        </p>
+      <div class="wrap hero-inner">
+        <div class="hero-text">
+          <p v-reveal="0" class="eyebrow mono">NEW Eridu · Data Terminal</p>
+          <h1 v-reveal="60" class="page-title">
+            绳网档案
+            <span class="title-en">Ropeweb Archive</span>
+          </h1>
+          <p v-reveal="120" class="page-sub">
+            基于开放数据源整理的绝区零资料库。以档案编号为纲，收录代理人、音擎、邦布与驱动盘的结构化数据——不含任何主观评述，只做客观陈列。
+          </p>
 
-        <div v-reveal="220" class="hero-meta mono">
-          <span>游戏客户端数据</span>
-          <span class="dot">·</span>
-          <span>持续更新</span>
-          <span class="dot">·</span>
-          <span>非官方项目</span>
-          <!-- 版本位常驻（清单到达前占位「VER ···」）：若改用 v-if 等清单到达再插入，
-               窄屏这一行会从 1 行折成 2 行（+34px）并把下方整块推下去——实测即首页
-               CLS 0.023 的全部来源。占位与真值同为「VER + 版本号」量级宽度，折行数不变。 -->
-          <span class="dot">·</span>
-          <span class="hero-ver">{{ currentVersionLabel || 'VER ···' }}</span>
+          <div v-reveal="220" class="hero-meta mono">
+            <span>游戏客户端数据</span>
+            <span class="dot">·</span>
+            <span>持续更新</span>
+            <span class="dot">·</span>
+            <span>非官方项目</span>
+            <!-- 版本位常驻（清单到达前占位「VER ···」）：若改用 v-if 等清单到达再插入，
+                 窄屏这一行会从 1 行折成 2 行（+34px）并把下方整块推下去——实测即首页
+                 CLS 0.023 的全部来源。占位与真值同为「VER + 版本号」量级宽度，折行数不变。 -->
+            <span class="dot">·</span>
+            <span class="hero-ver">{{ currentVersionLabel || 'VER ···' }}</span>
+          </div>
         </div>
+
+        <!-- 档案规格板：宽屏时补上 hero 右侧的大片空白（实测 1920 下内容栏 1280、
+             hero 文字仅占左侧 ~450px，右侧 ~800px 是空的）。
+             内容是「档案该有的规格信息」而不是装饰——与数据说明页的「档案规格」同一语言，
+             角标沿用详情页 hero 的 ⌐ 框，形成跨页面的家族感。
+             **窄屏隐藏**：移动端首屏本就紧凑干净，不需要它，也避免拉长首屏。 -->
+        <aside v-reveal="280" class="hero-spec" aria-label="档案规格">
+          <p class="hs-title mono">档案规格</p>
+          <dl class="hs-list">
+            <div class="hs-row">
+              <dt>类目</dt>
+              <dd class="mono">{{ String(CATALOG.length).padStart(2, '0') }}</dd>
+            </div>
+            <div class="hs-row">
+              <dt>数据版本</dt>
+              <dd class="mono">{{ currentVersionLabel || '···' }}</dd>
+            </div>
+            <div class="hs-row">
+              <dt>最近更新</dt>
+              <dd class="mono">{{ currentUpdatedLabel || '···' }}</dd>
+            </div>
+            <div class="hs-row">
+              <dt>数据源</dt>
+              <dd class="mono">hakushin raw</dd>
+            </div>
+          </dl>
+        </aside>
       </div>
     </section>
 
@@ -247,6 +284,103 @@ const sections = [
   /* 头图已移除：hero 只作文字陈列，浮于 .home-backdrop 壁纸之上（无遮罩/scrim，与内页一致） */
   padding-top: calc(var(--pad-section) * 0.9);
   padding-bottom: var(--pad-section);
+}
+
+/* 宽屏两栏：文字陈列 + 档案规格板。
+   实测 1920 下内容栏 1280、hero 文字仅占左侧 ~450px，右侧 ~800px 是空白——
+   规格板把这块空白换成「档案该有的规格信息」。窄屏（<1080）保持单栏、规格板隐藏，
+   移动端首屏维持原样（紧凑、干净）。 */
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: end;
+  gap: clamp(24px, 3vw, 48px);
+}
+
+@media (min-width: 1080px) {
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+    gap: clamp(48px, 6vw, 112px);
+  }
+}
+
+/* 规格板：与数据说明页「档案规格」同一语言（细线行 + 等宽数字），
+   四角用详情页 hero 的 ⌐ 框，形成跨页面的家族感 */
+.hero-spec {
+  display: none;
+  position: relative;
+  padding: 20px 22px 18px;
+  border: 1px solid var(--line-1);
+  border-radius: 2px;
+  /* 底色与数据说明页的「档案规格」盒同值（--bg-1）：hero 背后是全幅水印壁纸，
+     不填底色会让水印透进板面、行文读起来发噪 */
+  background: var(--bg-1);
+}
+
+@media (min-width: 1080px) {
+  .hero-spec {
+    display: block;
+  }
+}
+
+/* 角标：1px 短线，不抢内容（与 DetailHead 的 .plate 同语言） */
+.hero-spec::before,
+.hero-spec::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: var(--line-2);
+  border-style: solid;
+}
+
+.hero-spec::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1px 0 0 1px;
+}
+
+.hero-spec::after {
+  right: -1px;
+  bottom: -1px;
+  border-width: 0 1px 1px 0;
+}
+
+.hs-title {
+  font-size: var(--fs-nano);
+  letter-spacing: 0.22em;
+  color: var(--ink-2);
+  text-transform: uppercase;
+}
+
+.hs-list {
+  margin: 12px 0 0;
+}
+
+.hs-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-inline);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line-0);
+}
+
+.hs-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.hs-row dt {
+  font-size: var(--fs-small);
+  color: var(--ink-1);
+}
+
+.hs-row dd {
+  margin: 0;
+  font-size: var(--fs-small);
+  color: var(--ink-0);
+  letter-spacing: 0.06em;
 }
 
 /* ---------- 今日角色标本卡 ---------- */
