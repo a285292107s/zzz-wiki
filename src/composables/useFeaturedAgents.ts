@@ -14,6 +14,7 @@ import { useAsyncResource } from '@/composables/useAsyncResource'
 import { heroImageFile } from '@/data/heroGenderVariants'
 import type { FeaturedPool, PoolItem } from '@/domain/featuredPool'
 import poolJson from '@/data/featured-pool.json'
+import featuredElements from '@/data/featured-elements.json'
 
 /** 精选池（来自数据文件；结构防御性检查，非法/缺失则空池）。 */
 export const FEATURED_POOL: PoolItem[] = Array.isArray((poolJson as FeaturedPool)?.pool)
@@ -79,6 +80,59 @@ export function seededShuffle<T>(arr: readonly T[], seed: number): T[] {
 }
 
 /**
+ * 今日精选：**属性 + 阵营双重去重**。
+ *
+ * 纯随机洗牌会连着挑出同质角色——实测出现过「4 张里 3 张白发红眼」的观感重复
+ * （首页第一屏最显眼的位置，重复即显得随手）。两道约束：
+ *   ① **属性不重复**（避免同色系扎堆）
+ *   ② **阵营不重复**（不同阵营的设计语言差异明显：机车帮 / 家政 / 治安局 / 防卫军…）
+ * 逐级放宽：先要求两者都不重复 → 属性不够时放宽阵营 → 再不够才按洗牌序补齐（不静默少给）。
+ *
+ * 表来自构建期派生并提交的 featured-elements.json（见 scripts/generate-featured-elements.mjs）：
+ * 选片必须同步发生（头图 src 只依赖 id，才能与清单请求并行），不能等名录返回。
+ */
+export function pickFeatured(pool: readonly PoolItem[], seed: number, count = 4): PoolItem[] {
+  const shuffled = seededShuffle(pool, seed)
+  const out: PoolItem[] = []
+  const take = (needDistinctCamp: boolean) => {
+    for (const p of shuffled) {
+      if (out.length >= count) break
+      if (out.includes(p)) continue
+      const k = keyOf(p.id)
+      if (out.some((q) => keyOf(q.id).element === k.element)) continue
+      if (needDistinctCamp && out.some((q) => keyOf(q.id).camp === k.camp)) continue
+      out.push(p)
+    }
+  }
+  take(true) // ① 属性 + 阵营都不重复
+  take(false) // ② 放宽阵营，仍保持属性不重复
+  if (out.length < count) {
+    for (const p of shuffled) {
+      if (out.length >= count) break
+      if (!out.includes(p)) out.push(p)
+    }
+  }
+  return out
+}
+
+/** 池条目的去重键（属性 + 阵营；特殊属性单独成键，避免与基础属性混为一谈） */
+export function elementKeyOf(id: number): string {
+  const k = keyOf(id)
+  return k.special ? `special-${k.special}` : `el-${k.element}`
+}
+
+/** 池条目的阵营键（缺失时按 id 单列，不与任何条目「同阵营」） */
+export function campKeyOf(id: number): string {
+  return keyOf(id).camp ?? `camp-unknown-${id}`
+}
+
+function keyOf(id: number): { element: number | undefined; camp: string | null; special: string | null } {
+  // 紧凑表格式：[属性码, 阵营] 或 [属性码, 阵营, 特殊属性]（见 generate-featured-elements.mjs）
+  const e = (featuredElements as Record<string, [number, string | null] | [number, string | null, string]>)[String(id)]
+  return { element: e?.[0], camp: e?.[1] ?? null, special: e?.[2] ?? null }
+}
+
+/**
  * 由池条目 + 名录解析卡片。list 为 null（清单未就绪）时照样出卡：头图 src 只依赖 id，
  * 名字/元素留空由视图占位——让 LCP 图片与清单请求并行，而非排在它后面。
  * 名单就绪后按名录真值解析；池内 id 不在名录时丢弃并紧凑重排编号（策展真值）。
@@ -118,7 +172,7 @@ export function buildFeaturedCards(seed: PoolItem[], list: CharacterListItem[] |
  *  早前用 Math.random 每次挂载换人——文案与行为不符，且回访用户永远冷缓存。
  *  featured 与 picks 等长起步（名字未就绪时留空占位），清单到达后按真值收敛。 */
 export function useFeaturedAgents() {
-  const picks = seededShuffle(FEATURED_POOL, daySeed()).slice(0, 4)
+  const picks = pickFeatured(FEATURED_POOL, daySeed())
 
   // 首屏头图预热：卡片在挂载即渲染（图 src 只依赖 id，不等清单）；且带 transform:scale 的 img
   // 会升级为独立合成层，合成器按 DOM 顺序解码/栅格化，最右一张总最后上屏（网络其实并行）。

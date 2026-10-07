@@ -68,6 +68,16 @@ async (page) => {
       first.length === 4 && first.join() === second.join(),
       `${first.join(',')} vs ${second.join(',')}`,
     )
+
+    // 属性去重：4 张卡的属性标签互不重复（纯随机洗牌会出现「4 张里 3 张同色」的观感重复）
+    await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(2000)
+    const els = await page.evaluate(() =>
+      [...document.querySelectorAll('.specimen-card')]
+        .map((c) => c.querySelector('.el')?.textContent.trim() ?? '')
+        .filter(Boolean),
+    )
+    add('home-cards-element-diverse', els.length === 4 && new Set(els).size === 4, JSON.stringify(els))
   }
 
   // ---- 名录页 + 检索 + 筛选 ----

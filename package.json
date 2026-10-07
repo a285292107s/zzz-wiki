@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "build:ci": "npm test && node scripts/verify-fonts.mjs && node scripts/verify-icons.mjs --local && node scripts/verify-cjk-fonts.mjs && vite build && node scripts/generate-sitemap.mjs && node scripts/generate-route-html.mjs && node scripts/verify-budget.mjs && node scripts/verify-vercel-config.mjs",
+    "build:ci": "npm test && node scripts/verify-fonts.mjs && node scripts/verify-icons.mjs --local && node scripts/generate-featured-elements.mjs --check && node scripts/verify-cjk-fonts.mjs && vite build && node scripts/generate-sitemap.mjs && node scripts/generate-route-html.mjs && node scripts/verify-budget.mjs && node scripts/verify-vercel-config.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "audit": "node scripts/audit-runner.mjs",
     "preview": "vite preview",
@@ -26,7 +26,8 @@
     "fonts:cjk": "npm run download:fonts:cjk && npm run subset:fonts:cjk",
     "verify:vercel": "node scripts/verify-vercel-config.mjs",
     "route-html": "node scripts/generate-route-html.mjs",
-    "audit:all": "node scripts/audit-all.mjs"
+    "audit:all": "node scripts/audit-all.mjs",
+    "gen:featured-elements": "node scripts/generate-featured-elements.mjs"
   },
   "dependencies": {
     "vue": "^3.5.13",

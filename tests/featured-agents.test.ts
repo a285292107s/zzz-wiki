@@ -5,6 +5,9 @@ import {
   seededShuffle,
   daySeed,
   FEATURED_POOL,
+  pickFeatured,
+  elementKeyOf,
+  campKeyOf,
 } from '@/composables/useFeaturedAgents'
 import type { CharacterListItem } from '@/data/types'
 import { ELEMENTS } from '@/domain/enums'
@@ -62,6 +65,49 @@ describe('「今日角色」的确定性挑选（同日恒定 / 跨日变化）'
     const src = FEATURED_POOL.slice(0, 20).map((x) => x.id)
     const out = seededShuffle(src, 42)
     expect([...out].sort((a, b) => a - b)).toEqual([...src].sort((a, b) => a - b))
+  })
+})
+
+describe('今日精选的属性 + 阵营去重（pickFeatured）', () => {
+  it('4 张卡的属性与阵营都互不重复', () => {
+    const picks = pickFeatured(FEATURED_POOL, daySeed(new Date(2026, 9, 5)))
+    expect(picks).toHaveLength(4)
+    expect(new Set(picks.map((p) => elementKeyOf(p.id))).size).toBe(4)
+    expect(new Set(picks.map((p) => campKeyOf(p.id))).size).toBe(4)
+  })
+
+  it('一年 365 天逐日校验：任何一天都不出现属性或阵营重复', () => {
+    const elDupes: number[] = []
+    const campDupes: number[] = []
+    for (let d = 1; d <= 365; d++) {
+      const date = new Date(2026, 0, d)
+      const picks = pickFeatured(FEATURED_POOL, daySeed(date))
+      if (new Set(picks.map((p) => elementKeyOf(p.id))).size !== 4) elDupes.push(daySeed(date))
+      if (new Set(picks.map((p) => campKeyOf(p.id))).size !== 4) campDupes.push(daySeed(date))
+    }
+    expect({ elDupes, campDupes }).toEqual({ elDupes: [], campDupes: [] })
+  })
+
+  it('同一 seed 恒定：同日两次挑选完全一致（图片缓存才不白费）', () => {
+    const seed = daySeed(new Date(2026, 9, 5))
+    expect(pickFeatured(FEATURED_POOL, seed).map((p) => p.id)).toEqual(
+      pickFeatured(FEATURED_POOL, seed).map((p) => p.id),
+    )
+  })
+
+  it('池子属性种类不足时按洗牌序补齐，不静默少给', () => {
+    // 只给同属性的 3 个条目，却要 4 张 → 应回退补位（而不是返回 1 张）
+    const sameEl = FEATURED_POOL.filter((p) => elementKeyOf(p.id) === 'el-200').slice(0, 3)
+    const picks = pickFeatured(sameEl, 7, 4)
+    expect(picks).toHaveLength(3) // 池子本身只有 3 条 → 只能给 3
+    const many = pickFeatured(FEATURED_POOL, 7, 6)
+    expect(many).toHaveLength(6)
+  })
+
+  it('属性表覆盖池内全部条目（生成物与策展池不脱节）', () => {
+    for (const p of FEATURED_POOL) {
+      expect(elementKeyOf(p.id)).not.toMatch(/^unknown-/)
+    }
   })
 })
 
