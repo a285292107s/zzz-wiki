@@ -105,7 +105,7 @@
 | 缓存策略 | 内容寻址 immutable、非寻址重验证 | **27 项断言通过** ✅ | `verify:vercel` |
 | 部署产物一致性 | sitemap 域 = canonical 域 | **门禁通过** ✅ | `verify-budget` |
 | 测试 | 全绿 | **331 passed / 37 files** ✅ | `npm test` |
-| **审计工具箱全量复跑** | 26 脚本全部通过 | **26/26**（第 101 轮逐脚本复跑；README 基线已逐行校准）✅ | `playwright-cli run-code --filename=scripts/audits/<脚本>` |
+| **审计工具箱全量复跑** | 26 脚本全部通过 | **26/26 · 0 需人工判读**（每个脚本的通过判据显式声明；失败即非零退出）✅ | **`npm run audit:all`**（一条命令；单脚本仍可 `playwright-cli run-code --filename=scripts/audits/<脚本>`） |
 
 ---
 

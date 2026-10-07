@@ -14,7 +14,7 @@
  * | viewport-overflow.js  | 8 视口 × 8 路由横向溢出 | 0 |
  * | touch-targets.js      | 交互目标 ≥24×24（WCAG 2.5.8） | 0 问题 |
  * | regression-walk.js    | 全站功能走查（91 项，覆盖七类目/边界态/URL 状态/离线联动） | 91/91 |
- * | transfer-profile.js   | 分类传输体积（逐文件 kb + 加载时刻） | 36 请求；最大 noto-serif-sc.css 68.9KB（解码值，gzip 后 ~10KB） |
+ * | transfer-profile.js   | 首访传输预算（冷缓存总重 + 分类明细；总重 <3MB 竞奖档 / 字体 ≤1.2MB / 图片 ≤1MB） | 53 请求 / 751KB（js 61 + css 25 + 字体 189 + 图片 436 + json 40） |
  * | quick-search.js       | ⌘K 检索链路端到端（中文高亮/罗马字命中/结果态预激活/空态键盘路径） | 4/4 |
  * | font-loading.js       | CJK 衬线生效 + 分片按需 | serif=Noto Serif SC |
  * | slider-keyboard.js    | 滑条键盘操作（8 实例） | 全部响应 |

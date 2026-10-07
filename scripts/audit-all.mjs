@@ -24,7 +24,7 @@ const ORIGIN = 'http://localhost:4175'
 const RULES = {
   'landmarks.js': (r) =>
     Object.values(r).every((p) => p.h1 === 1 && p.main === 1 && p.footer === 1 && p.imgsNoAlt === 0),
-  'transfer-profile.js': null, // 仅测量（体积档案），无阈值 → 人工判读
+  'transfer-profile.js': (r) => r.failed === 0, // 首访传输预算（冷缓存总重/字体/图片）
   'slider-keyboard.js': (r) => Array.isArray(r) && r.length > 0 && r.every((x) => x.delta !== 0),
   'quick-search.js': (r) => r.failed === 0,
   'spacing-audit.js': (r) => r.layout?.offScale === 0,
