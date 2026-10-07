@@ -451,6 +451,56 @@ async (page) => {
     add('level-reset-on-pager', next.path !== '/agents/1011' && next.search === '' && next.level === '60', JSON.stringify(next))
   }
 
+  // ---- 第二条等级链路 `?clv=`（连携/终结技共享技能等级）----
+  // 同一页面有**两套**等级同步（lv 与 clv），互为「同一语义的第二个实现」：
+  // 深链是否读入、两个技能组是否共享同步、写回是否只动自己那个参数、回到默认是否移除参数——
+  // 这四点此前从未被任何门禁覆盖（实测全对，但没有护栏就会被后来的改动悄悄破坏）。
+  {
+    const lvSnap = () =>
+      page.evaluate(() => {
+        const s = [...document.querySelectorAll('.level-range')]
+        return { url: location.search, levels: s.map((x) => Number(x.value)) }
+      })
+
+    await page.goto('http://localhost:4175/agents/1011?lv=40&clv=5', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(2200)
+    const clvDeep = await lvSnap()
+    // 索引 3/4 = 两个技能组的共享等级；索引 0 = 角色等级
+    add(
+      'level-clv-deeplink',
+      clvDeep.levels[0] === 40 && clvDeep.levels[3] === 5 && clvDeep.levels[4] === 5,
+      JSON.stringify(clvDeep),
+    )
+
+    await page.evaluate(() => document.querySelectorAll('.level-range')[3]?.focus())
+    await page.keyboard.press('ArrowDown')
+    await page.waitForTimeout(400)
+    await page.keyboard.press('ArrowDown')
+    await page.waitForTimeout(800)
+    const clvAfter = await lvSnap()
+    add(
+      'level-clv-shared-and-isolated',
+      // 两个共享滑条同步为 3；角色等级仍是 40（不串台）；URL 两个参数共存且 clv 已更新
+      clvAfter.levels[3] === 3 &&
+        clvAfter.levels[4] === 3 &&
+        clvAfter.levels[0] === 40 &&
+        clvAfter.url.includes('lv=40') &&
+        clvAfter.url.includes('clv=3'),
+      JSON.stringify(clvAfter),
+    )
+
+    // 把 clv 调回默认 → 该参数应从 URL 移除（而 lv 仍在）
+    await page.evaluate(() => document.querySelectorAll('.level-range')[3]?.focus())
+    for (let i = 0; i < 12; i++) await page.keyboard.press('ArrowUp')
+    await page.waitForTimeout(900)
+    const clvReset = await lvSnap()
+    add(
+      'level-clv-default-removes-param',
+      clvReset.levels[3] === 12 && clvReset.levels[4] === 12 && !clvReset.url.includes('clv') && clvReset.url.includes('lv=40'),
+      JSON.stringify(clvReset),
+    )
+  }
+
   // ---- 排序深链（?sort=&dir=）与三态循环 ----
   {
     await page.goto('http://localhost:4175/agents?sort=rarity&dir=desc', { waitUntil: 'networkidle' })
