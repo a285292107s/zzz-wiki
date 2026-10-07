@@ -38,7 +38,7 @@
 | CLS | ≤0.25 | ≤0.1 | <0.05 | **0.000–0.001** ✅ | `regression-walk.js`（home-cls / detail-cls-fresh） |
 | 总重（首页/名录/详情） | — | — | <3MB | **636 / 440 / 911KB** ✅ | Lighthouse `resource-summary` |
 | 长任务 TBT（节流） | — | — | — | 4 个 / 最长 **229–771ms**（首屏，unattributed）⚠️ | `inp-interaction.js` |
-| 主包 gzip / CSS gzip | — | — | — | **59.1KB / 11.9KB** ✅ | `npm run verify:budget` |
+| 主包 gzip / CSS gzip | — | — | — | **64.1KB / 13.1KB** ✅（预算 66 / 22KB；+3KB 记在「今日角色」横幅牌堆改版 + 头图 srcset 两档，见 `verify-budget.mjs` 文件头） | `npm run verify:budget` |
 | 运行时外部请求 | 0 | 0 | 0 | **数据面 0**；图片候选链兜底例外（见 §4 声明一致性） ✅ | `regression-walk.js` + CSP 门禁 |
 | **离线阅读** | 已访问页面断网可读 | — | — | **Service Worker 已上线**：导航网络优先 / 静态资源缓存优先 / 数据 JSON 陈旧优先 + 后台更新；缓存世代跟随数据版本，换版整批清理；**未缓存页面断网落到自包含的离线兜底页**（可读文案 + 返回入口，而非浏览器空白页） ✅ | `offline-check.js`（7/7，含负向验证） |
 | **回访数据量** | 回访零网络 | — | — | 首访详情 **881KB / 122 项** → 回访 **0KB / 128 项全部由 SW 命中**（`transferSize` 合计 0、`workerStart>0` 全覆盖）——对反复查阅的资料档案是实际收益，也对应 Webby「带宽受限」考量 ✅ | `offline-check.js`（repeat-visit-zero-network） |
@@ -121,6 +121,7 @@
 | **字段覆盖透明度** | 缺口如实标注、不补造 | **4 类目 / 9 字段**，3 项缺口以琥珀标注（简介 57/60、潜能 11/60、邦布图标 41/42） ✅ | `regression-walk.js`（about-coverage） |
 | **编号规则可核查** | 号段与编号语义有说明 | **4 类目号段由数据派生**（1011–1621 / 12001–14162 / 53001–55098 / 31000–34200），并讲清**两套编号**：源站 ID（详情页头 `NO.1011`、快搜结果、深链/文件名）与展示位次（翻页处 `002`，类目内按 ID 升序）；名录表格不显示编号 ✅ | `regression-walk.js`（about-id-ranges / about-numbering-precise） |
 | **「今日角色」名副其实** | 同日恒定、跨日更换 | 按本地日期播种确定性挑选（mulberry32）——原先每次挂载随机换人，与文案不符且回访永远冷缓存 ✅ | `regression-walk.js`（home-today-stable）+ 单测 4 例 |
+| **「今日角色」双断点陈列** | 桌面与手机都完整展示角色，信息不压画面 | 桌面 2.36:1 横幅（宽度 = min(栏宽, 48vh×2.36)，居中陈列不留单侧空档）；手机 4:5 竖幅＋**图下标本签**（旧版手机是 16:9 横带，只露一条横带且被信息条压掉近半画面）；两断点共用同一套 `pos/zoom/originY`，纵向取景完全一致 ✅ | 截图 `temp/deck-mobile-before-after.png` + `axe-a11y`（30 组合 0 violations）/ `reflow-spacing`（320 溢出 0、命中区 0 过小）/ `regression-walk` |
 | **「今日角色」首屏不重复** | 4 张卡的属性与阵营都不重复 | **365/365 天成立**：选片按「属性 + 阵营」双重去重（阵营代表设计语言：机车帮 / 家政 / 治安局 / 防卫军…）。此前纯随机洗牌实测出现「4 张里 3 张白发红眼」，首页第一印象显得随手 ✅（残余局限：设计语言本身相近的角色仍可能同屏；**试过按图片主色调去重——实测信号太弱未采用**：47/54 张有色彩，但**2 个色相桶就占 57%**，要求 4 张色相分散经常无解） | `regression-walk.js`（home-cards-element-diverse）+ 单测 5 例（含逐日 365 天校验） |
 | **皮肤立绘陈列（Outfits）** | 素材按其实质尺寸呈现，不印成邮票 | 立绘列 **132px → clamp(260px, 26vw, 400px)**（桌面实测 372×497）；源站皮肤素材实测 **2128×2008 / ~350KB** 全身立绘；文字与立绘**垂直居中**（说明常仅两三行，顶端对齐会留大片空白）；手机单列、立绘 ≤64vw 不占满整屏 ✅ | 截图 `temp/shots/skins5-1440.png` · `skins-390.png` + 走查/reflow 回归 |
 | **对照台（档案原生交互）** | 同类目并排比对，差异可辨 | 详情页就地「加入对照」→ `/compare` 表格并排；差异行**同时**用琥珀与「差异」文字标记（不单靠颜色）；上限 3 条、跨类目重开一桌、localStorage 持久化、`?cat=&ids=` 可分享；**移出/清空后焦点主动交棒**（下一条的移出钮 / 空态标题），不掉回 body ✅ | `regression-walk.js`（compare-add / compare-table / compare-remove / compare-clear / **compare-deeplink**）+ `keyboard-journey.js`（3 项焦点交棒）+ 单测 21 例 |

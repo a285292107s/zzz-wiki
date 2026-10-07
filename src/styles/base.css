@@ -51,7 +51,6 @@ button,
 }
 
 /* 横向滚动容器：在行尾继续左滑不该触发浏览器「后退」手势（移动到两端即止） */
-.specimen-row,
 .sn-list {
   overscroll-behavior-x: contain;
 }
@@ -690,7 +689,7 @@ a.rich-term:hover {
   transform: translateY(14px);
 }
 
-/* 双类选择器压过组件单类样式（如 .specimen-card 的 transition），保证显现动画必中 */
+/* 双类选择器压过组件单类样式（组件自身也可能写了 transition/transform），保证显现动画必中 */
 .reveal.revealed {
   opacity: 1;
   transform: none;
@@ -950,7 +949,6 @@ section[id] {
   }
 
   .metric-table,
-  .specimen-card,
   .skill-group,
   .dossier,
   .spec-item,

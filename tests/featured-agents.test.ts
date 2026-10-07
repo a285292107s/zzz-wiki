@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import {
   buildFeaturedCards,
+  deckSizes,
+  heroSources,
   shuffle,
   seededShuffle,
   daySeed,
@@ -111,6 +113,61 @@ describe('今日精选的属性 + 阵营去重（pickFeatured）', () => {
   })
 })
 
+describe('heroSources · 首页头图的派生档（档位交给浏览器按 DPR 选）', () => {
+  const SIZES = '1322px'
+  const srcs = heroSources('Mindscape_1011_2', SIZES)
+
+  it('候选链三级且顺序固定：本地派生档 → 本地原图 → CDN 兜底', () => {
+    expect(srcs).toHaveLength(3)
+    expect(srcs[0]!.src).toBe('/data/img/hero/wide/Mindscape_1011_2.webp')
+    expect(srcs[1]!.src).toBe('/data/img/hero/Mindscape_1011_2.webp')
+    expect(srcs[2]!.src).toBe('https://static.nanoka.cc/assets/zzz/Mindscape_1011_2.webp')
+  })
+
+  it('srcset 给出 card/wide/原图三档、按宽度升序，且 w 描述符必配 sizes', () => {
+    const ss = srcs[0]!.srcset!
+    const widths = [...ss.matchAll(/(\d+)w/g)].map((m) => Number(m[1]))
+    expect(widths).toEqual([800, 1600, 1920]) // 升序：浏览器取「最小够用」档
+    expect(ss).toContain('/data/img/hero/card/Mindscape_1011_2.webp 800w')
+    expect(ss).toContain('/data/img/hero/wide/Mindscape_1011_2.webp 1600w')
+    expect(ss).toContain('/data/img/hero/Mindscape_1011_2.webp 1920w')
+    // 缺 sizes 时浏览器按 100vw 兜底 → 桌面会误选最小档（又糊），故必须成对出现
+    expect(srcs[0]!.sizes).toBe(SIZES)
+  })
+
+  it('末档（原图）的 w 描述符不参与选档：它是最后一档，只当前几档都不够时才落回', () => {
+    // 原图实际宽 1920-2580 不等，这里声明全池下界 1920；因为它是最后一档，
+    // 浏览器「取密度≥DPR 的最小档，否则取最大档」的规则下取值不影响结果。
+    const last = srcs[0]!.srcset!.split(', ').at(-1)!
+    expect(last).toBe('/data/img/hero/Mindscape_1011_2.webp 1920w')
+  })
+})
+
+describe('deckSizes · 头图 sizes 定档（纯 px，预热探针与真实 <img> 必须同值）', () => {
+  it('桌面按「取景框宽」定档：min(视口宽, 1322px)', () => {
+    expect(deckSizes(861)).toBe('861px')
+    expect(deckSizes(1280)).toBe('1280px')
+    expect(deckSizes(1322)).toBe('1322px')
+    expect(deckSizes(1920)).toBe('1322px')
+    expect(deckSizes(2560)).toBe('1322px')
+  })
+
+  it('手机（≤860）走竖幅等效源宽：固定 520px，不随视口缩到 350', () => {
+    // 竖幅把超宽源图放大取中段，布局宽会低估需求（见 DECK_SIZES_NARROW 的推导表）
+    expect(deckSizes(860)).toBe('520px')
+    expect(deckSizes(390)).toBe('520px')
+    expect(deckSizes(320)).toBe('520px')
+  })
+
+  it('输出纯 px：不含 vw / 媒体查询 —— 脱离文档的预热探针求不了它们', () => {
+    for (const s of [deckSizes(390), deckSizes(1440)]) {
+      expect(s).toMatch(/^\d+px$/)
+      expect(s).not.toContain('vw')
+      expect(s).not.toContain('max-width')
+    }
+  })
+})
+
 describe('buildFeaturedCards', () => {
   const seed = [
     { id: 1011, pos: '50%', zoom: 1.3, originY: 49.8 },
@@ -129,11 +186,13 @@ describe('buildFeaturedCards', () => {
     expect(cards[0]!.zh).toBe('安比')
     expect(cards[0]!.elementZh).toBe(ELEMENTS[203].zh) // 基础元素中文
     expect(cards[0]!.elementColor).toBe(ELEMENTS[203].color)
-    // 候选链三级：card 派生 → 本地原图 → CDN（见 scripts/build/hero-cards.mjs 与 useFeaturedAgents）
+    // 候选链三级：本地派生档（srcset：card 800w / wide 1600w / 原图）→ 本地原图 → CDN
+    // （见 scripts/build/hero-cards.mjs 的两档规格与 useFeaturedAgents.heroSources）
     expect(cards[0]!.srcs).toHaveLength(3)
-    expect(cards[0]!.srcs[0]).toMatch(/hero\/card\/Mindscape_1011_2\.webp$/)
-    expect(cards[0]!.srcs[1]).toMatch(/Mindscape_1011_2\.webp$/)
-    expect(cards[0]!.srcs[2]).toContain('static.nanoka.cc')
+    expect(cards[0]!.srcs[0]!.src).toMatch(/hero\/wide\/Mindscape_1011_2\.webp$/)
+    expect(cards[0]!.srcs[0]!.srcset).toContain('800w')
+    expect(cards[0]!.srcs[1]!.src).toMatch(/hero\/Mindscape_1011_2\.webp$/)
+    expect(cards[0]!.srcs[2]!.src).toContain('static.nanoka.cc')
     expect(cards[0]!.to).toBe('/agents/1011')
   })
 
@@ -144,8 +203,8 @@ describe('buildFeaturedCards', () => {
     expect(cards[0]!.zh).toBe('')
     expect(cards[0]!.en).toBe('')
     expect(cards[0]!.elementZh).toBe('')
-    expect(cards[0]!.srcs[0]).toMatch(/hero\/card\/Mindscape_1011_2\.webp$/)
-    expect(cards[0]!.srcs[2]).toContain('static.nanoka.cc')
+    expect(cards[0]!.srcs[0]!.src).toMatch(/hero\/wide\/Mindscape_1011_2\.webp$/)
+    expect(cards[0]!.srcs[2]!.src).toContain('static.nanoka.cc')
     expect(cards[0]!.to).toBe('/agents/1011')
   })
 

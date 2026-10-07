@@ -74,7 +74,7 @@ async (page) => {
     const r = await page.evaluate(() => ({
       serif: getComputedStyle(document.querySelector('.page-title')).fontFamily.split(',')[0].replaceAll('"', '').trim(),
       loadedSerif: [...document.fonts].filter((f) => f.family.includes('Noto Serif') && f.status === 'loaded').length,
-      cards: document.querySelectorAll('.specimen-card').length,
+      cards: document.querySelectorAll('.deck-item').length,
       imgsLoaded: [...document.querySelectorAll('img')].filter((i) => i.complete && i.naturalWidth > 0).length,
       violations: window.__csp,
     }))

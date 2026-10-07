@@ -35,7 +35,7 @@ async (page) => {
         const b = el.getBoundingClientRect()
         return b.top < innerHeight && b.bottom > 0 && b.left < innerWidth && b.right > 0
       }).length,
-      cards: document.querySelectorAll('.specimen-card').length,
+      cards: document.querySelectorAll('.deck-item').length,
       title: document.title,
       // 首页目录 = 站点索引：4 数据类目 + 2 图文板块（战斗公式/数据说明）
       indexRows: document.querySelectorAll('.index-row').length,
@@ -53,7 +53,7 @@ async (page) => {
   {
     const idsOf = () =>
       page.evaluate(() =>
-        [...document.querySelectorAll('.specimen-card')].map((a) => (a.getAttribute('href') ?? '').split('/').pop()),
+        [...document.querySelectorAll('.deck-item')].map((a) => (a.getAttribute('href') ?? '').split('/').pop()),
       )
     await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
     await page.waitForTimeout(1800)
@@ -69,14 +69,17 @@ async (page) => {
       `${first.join(',')} vs ${second.join(',')}`,
     )
 
-    // 属性去重：4 张卡的属性标签互不重复（纯随机洗牌会出现「4 张里 3 张同色」的观感重复）
+    // 属性去重：4 张卡的属性标签互不重复（纯随机洗牌会出现「4 张里 3 张同色」的观感重复）。
+    // 信息在图下的**标本签**里只渲染当前卡，故逐个刻度切过去读可见的属性标签
+    // （比解析 aria-label 文本更贴近用户所见）。
     await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
     await page.waitForTimeout(2000)
-    const els = await page.evaluate(() =>
-      [...document.querySelectorAll('.specimen-card')]
-        .map((c) => c.querySelector('.el')?.textContent.trim() ?? '')
-        .filter(Boolean),
-    )
+    const els = []
+    for (let i = 0; i < 4; i++) {
+      await page.evaluate((n) => document.querySelectorAll('.deck-tick')[n]?.click(), i)
+      await page.waitForTimeout(350)
+      els.push(await page.evaluate(() => document.querySelector('.deck-label .el')?.textContent.trim() ?? ''))
+    }
     add('home-cards-element-diverse', els.length === 4 && new Set(els).size === 4, JSON.stringify(els))
   }
 

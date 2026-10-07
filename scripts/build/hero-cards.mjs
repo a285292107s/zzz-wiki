@@ -1,20 +1,28 @@
 /* ============================================================
- * hero-cards.mjs — 首页「今日角色」头图派生（card 变体）
+ * hero-cards.mjs — 首页「今日角色」头图派生（card / wide 两档变体）
  *
- * Mindscape 原图 (~500KB/张，高分辨率全景) 同时服务两处：
+ * Mindscape 原图（1920-2580px、~350KB/张）同时服务多处：
  *   - 详情页 AgentHead：满栏底图 → 需要原图
- *   - 首页 9:16 标本卡：约 320px 宽展示格（retina ×2 ≈ 640px，含构图 zoom ≤1.5）
- *     → 原图严重超采，4 张并列时首屏多传 ~1.5MB
+ *   - 详情页 og:image（generate-route-html.mjs）与窄屏首屏卡片 → card 档
+ *   - 首页「今日角色」整栏宽横幅 → wide 档
  *
- * 本脚本为每张原图派生 card 变体：public/data/img/hero/card/{同名}.webp
- * （最长边 ≤800px 等比缩放，quality 68）。等比缩放不改构图坐标系，
- * 卡片的 pos/zoom/originY 校准参数（featured-pool.json）无需重算。
+ * 两档规格由**展示格的物理像素需求**反推，不靠感觉：
  *
- * 规格依据（实测，2026-10）：卡片展示格手机 242 / 桌面 291 CSS px，最大 DPR3
- * ⇒ 物理需求 ≤726px；800px 覆盖 DPR3 并留 ~10% 余量（原 1000px/q78 超采 1.4 倍）。
- * 4 张并列的首屏图片载荷 187KB → ~120KB，肉眼无损。
+ *   card（≤800px / q68）：窄屏取景框 = 100vw（390 宽 → 350 CSS px），乘逐图 zoom ≤1.49
+ *     ⇒ 绘制宽 ≤448 CSS px：DPR1 余量近 2×，DPR2 需求 ~897px 略超 800（1.12×），
+ *     DPR3 手机由 srcset 改选 wide。同日兼作 og:image（16:9 派生图天然适合卡片）。
  *
- * 幂等：card 已存在且不旧于原图时跳过；原图更新（重下/换形态）后自动重派生。
+ *   wide（≤1600px / q72）：桌面取景框最宽 = 高度上限 clamp(240px,48vh,560px) × 2.36
+ *     = 1322 CSS px，乘逐图 zoom（1.05-1.49）⇒ 绘制宽 1565-1970 CSS px。1920×1080 桌面
+ *     的实际需求是 1223×1.28 = 1565px，故 1600px 恰好 1:1（此前只有 800px 一档 →
+ *     被放大 1.96×、DPR2 下 3.9×，首页第一屏肉眼可见发糊）。
+ *
+ * 前端候选链（useFeaturedAgents.ts）把两档交给 srcset 让浏览器自己选：
+ *   `card 800w, wide 1600w, 原图 1920w` + `sizes` = 挂载期取景框宽（纯 px，上界 1322px）
+ *   ⇒ 手机/DPR≤2 取 card（~30KB）、桌面 DPR1 取 wide（~81KB）、DPR≥1.21 落回原图。
+ *   **规格与展示格绑定**：改取景框尺寸/比例或 zoom 上界时必须重算这两档，否则又会糊。
+ *
+ * 幂等：某档已存在且不旧于原图时跳过；原图更新（重下/换形态）后自动重派生。
  * 由 sync-data.ts 在图标下载后调用（单一写入者），派生图随 public/data 约定入库
  * （部署 build:ci 只构建已提交快照，不重建数据）。
  *
@@ -27,13 +35,15 @@ import { pathToFileURL } from 'node:url'
 import sharp from 'sharp'
 
 const HERO_DIR = path.resolve('public/data/img/hero')
-const CARD_DIR = path.join(HERO_DIR, 'card')
-/** 卡片展示格手机 242 / 桌面 291 CSS px；DPR3 ⇒ ≤726px，800px 留 ~10% 余量 */
-const MAX_WIDTH = 800
-const QUALITY = 68
+
+/** 派生档位：maxWidth/quality 的依据见文件头（展示格物理像素需求） */
+const VARIANTS = [
+  { name: 'card', dir: path.join(HERO_DIR, 'card'), maxWidth: 800, quality: 68 },
+  { name: 'wide', dir: path.join(HERO_DIR, 'wide'), maxWidth: 1600, quality: 72 },
+]
 const CONCURRENCY = 4
 
-/** 原图列表：仅 hero 根目录的 .webp（不含 card/ 子目录） */
+/** 原图列表：仅 hero 根目录的 .webp（不含 card/ wide/ mobile/ 子目录） */
 function sourceHeroes() {
   return fs
     .readdirSync(HERO_DIR, { withFileTypes: true })
@@ -41,56 +51,84 @@ function sourceHeroes() {
     .map((d) => d.name)
 }
 
-/** 派生是否需要（重）生成：缺失或原图比 card 新（重下/换形态后自动跟随） */
-function isStale(src) {
-  const dest = path.join(CARD_DIR, src)
+/** 派生是否需要（重）生成：缺失或原图比派生新（重下/换形态后自动跟随） */
+function isStale(variant, src) {
+  const dest = path.join(variant.dir, src)
   if (!fs.existsSync(dest)) return true
   return fs.statSync(path.join(HERO_DIR, src)).mtimeMs > fs.statSync(dest).mtimeMs
 }
 
 /**
- * 派生今日角色 card 头图（幂等补差）。
+ * 派生今日角色头图（card + wide 两档，幂等补差）。
  * @param {{dry?:boolean}} [opts] dry 只列出将生成的差集、不写盘
- * @returns {Promise<{generated: number, skipped: number, failed: string[], dry: boolean, total: number}>}
+ * @returns {Promise<{generated: number, skipped: number, failed: string[], dry: boolean, total: number,
+ *   variants: Record<string, {generated: number, skipped: number}>}>}
  */
 export async function runHeroCards({ dry = false } = {}) {
   const all = fs.existsSync(HERO_DIR) ? sourceHeroes() : []
-  const stale = all.filter(isStale)
-
-  if (dry) {
-    console.log('== hero card 派生差集（--dry，不写盘）==')
-    for (const f of stale) console.log(`  + hero/card/${f}`)
-    return { generated: stale.length, skipped: all.length - stale.length, failed: [], dry: true, total: all.length }
+  const stale = []
+  const variants = {}
+  for (const v of VARIANTS) {
+    const jobs = all.filter((f) => isStale(v, f))
+    variants[v.name] = { generated: 0, skipped: all.length - jobs.length }
+    for (const f of jobs) stale.push({ v, f })
   }
 
-  fs.mkdirSync(CARD_DIR, { recursive: true })
+  if (dry) {
+    console.log('== hero 派生差集（--dry，不写盘）==')
+    for (const { v, f } of stale) console.log(`  + hero/${v.name}/${f}`)
+    return {
+      generated: stale.length,
+      skipped: all.length * VARIANTS.length - stale.length,
+      failed: [],
+      dry: true,
+      total: all.length,
+      variants,
+    }
+  }
+
   const failed = []
   const queue = [...stale]
   let generated = 0
 
   async function worker() {
     while (queue.length) {
-      const file = queue.shift()
-      const src = path.join(HERO_DIR, file)
-      const dest = path.join(CARD_DIR, file)
+      const { v, f } = queue.shift()
+      const src = path.join(HERO_DIR, f)
+      const dest = path.join(v.dir, f)
       try {
-        await sharp(src).resize({ width: MAX_WIDTH, withoutEnlargement: true }).webp({ quality: QUALITY }).toFile(dest)
+        fs.mkdirSync(v.dir, { recursive: true })
+        await sharp(src)
+          .resize({ width: v.maxWidth, withoutEnlargement: true })
+          .webp({ quality: v.quality })
+          .toFile(dest)
+        variants[v.name].generated++
         generated++
       } catch (e) {
-        failed.push(`${file}: ${e.message}`)
+        failed.push(`${v.name}/${f}: ${e.message}`)
         fs.rmSync(dest, { force: true }) // 半成品不留盘：下次重派生
       }
     }
   }
   await Promise.all(Array.from({ length: CONCURRENCY }, worker))
 
-  // 原图已从 hero/ 移除的孤儿 card 清理（形态表变更等），保持 card/ 与原图一一对应
+  // 原图已从 hero/ 移除的孤儿派生清理（形态表变更等），保持各档与原图一一对应
   const valid = new Set(all)
-  for (const f of fs.readdirSync(CARD_DIR)) {
-    if (f.endsWith('.webp') && !valid.has(f)) fs.rmSync(path.join(CARD_DIR, f))
+  for (const v of VARIANTS) {
+    if (!fs.existsSync(v.dir)) continue
+    for (const f of fs.readdirSync(v.dir)) {
+      if (f.endsWith('.webp') && !valid.has(f)) fs.rmSync(path.join(v.dir, f))
+    }
   }
 
-  return { generated, skipped: all.length - stale.length, failed, dry: false, total: all.length }
+  return {
+    generated,
+    skipped: all.length * VARIANTS.length - stale.length,
+    failed,
+    dry: false,
+    total: all.length,
+    variants,
+  }
 }
 
 /* CLI 入口（sync-data 进程内调用 runHeroCards，不经本分支） */
@@ -101,6 +139,9 @@ if (process.argv[1] && pathToFileURLSafe(process.argv[1]) === import.meta.url) {
       console.log(
         `HERO_CARDS generated=${r.generated} skipped=${r.skipped} failed=${r.failed.length} total=${r.total}`,
       )
+      for (const [name, s] of Object.entries(r.variants)) {
+        console.log(`  ${name}: generated=${s.generated} skipped=${s.skipped}`)
+      }
       for (const f of r.failed) console.log(`  ⚠ ${f}`)
     })
     .catch((e) => {

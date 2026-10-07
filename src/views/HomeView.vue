@@ -5,9 +5,10 @@ import { CATALOG, GUIDE_ENTRIES } from '@/domain/catalog'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { dataVersions } from '@/data/api'
 import { useFeaturedAgents } from '@/composables/useFeaturedAgents'
-import { prefetchDetail, prefetchList, armPrefetchDetail } from '@/composables/useDetailPrefetch'
+import { prefetchList } from '@/composables/useDetailPrefetch'
 import { catalogByPath } from '@/domain/catalog'
 import HollowImage from '@/components/HollowImage.vue'
+import FeaturedDeck from '@/components/home/FeaturedDeck.vue'
 
 usePageMeta()
 
@@ -40,22 +41,12 @@ const currentUpdatedLabel = computed(() => {
 // 代理人类目图标：圆形头像已本地化（public/data/img/character/），其余沿用候选链兜底
 const AGENT_CIRCLE_ICON = `${import.meta.env.BASE_URL ?? '/'}data/img/character/IconRoleCircle01.webp`
 
-// 今日角色：精选池 + 每次挂载随机取 4 张（取数与解析收敛在 useFeaturedAgents composable，
-// 构图参数 pos/zoom/originY 含义见 IMG_GUIDE.md）。picks 同步可得，供骨架卡占位（防 CLS）：
-// 卡片区不再等清单 JSON 返回才插入，首帧即以等高骨架占位。
+// 今日角色：精选池 + 按当天日期确定性取 4 张（取数与解析收敛在 useFeaturedAgents composable，
+// 构图参数 pos/zoom/originY 含义见 IMG_GUIDE.md）。picks 同步可得（池为空即不渲染该区块），
+// 牌堆不等名录 JSON 返回才插入：卡图 src 只依赖 id，缺失的名字/元素由规格条占位。
 const { featured, picks } = useFeaturedAgents()
 
-/** 预热详情回路：标本卡悬停预热对应详情；目录行悬停预热名录视图 chunk + 名录 JSON */
-function warmDetailDwell(to: string): void {
-  const seg = to.split('/')
-  const entry = catalogByPath(`/${seg[1]}`)
-  if (entry && seg[2]) armPrefetchDetail(entry, seg[2])
-}
-function warmDetailNow(to: string): void {
-  const seg = to.split('/')
-  const entry = catalogByPath(`/${seg[1]}`)
-  if (entry && seg[2]) prefetchDetail(entry, seg[2])
-}
+/** 预热名录视图 chunk + 名录 JSON（目录行悬停；详情预热在 FeaturedDeck 内） */
 function warmList(path: string): void {
   const entry = catalogByPath(path)
   if (entry) prefetchList(entry)
@@ -153,67 +144,17 @@ const sections = [
     </section>
 
     <div class="wrap">
-      <!-- 今日角色：精选角色 9:16 标本卡（Mindscape 全景局部遮罩），4 张并列；池为空不渲染。
-           挂载即渲染（图 src 只依赖 id，与清单请求并行）；名字/元素未就绪时盘内条形占位，到达后填充。 -->
+      <!-- 今日角色：标本陈列（桌面 2.36:1 横幅 / 手机 4:5 竖幅，一次一张、不露邻卡）。
+           信息在**图下的标本签**里、不压画面；横向拖拽 1:1 跟手、松手吸附，另有
+           ←/→/Home/End 与刻度切换；整卡点击跳 /agents/{id}。
+           区块挂载即渲染（图 src 只依赖 id，与清单请求并行）；名字/元素未就绪时标本签留条形占位。
+           逐图构图参数 pos/zoom/originY 与详情页 AgentHead 同一套校准（IMG_GUIDE.md）。池为空不渲染。 -->
       <section v-if="picks.length" class="banners">
         <div v-reveal class="section-head">
           <h2>今日角色</h2>
           <span class="rule" />
         </div>
-        <div class="specimen-row">
-          <RouterLink
-            v-for="(card, i) in featured"
-            :key="card.id"
-            v-reveal="i * 70"
-            :to="card.to"
-            class="specimen-card"
-            @pointerenter="warmDetailDwell(card.to)"
-            @pointerdown="warmDetailNow(card.to)"
-            @focus="warmDetailNow(card.to)"
-          >
-            <span class="specimen-figure">
-              <!-- 首屏重点头图，勿 lazy：懒加载会把它降为低优先级，且带 transform:scale 的
-                   img 会升级为独立合成层，合成器按 DOM 顺序逐个绘制，最右一格最后上屏
-                   （网络其实并行，见 DevTools）。故用 eager 并行、常规优先级加载。 -->
-              <!-- 卡片里已有名称文本，图片再报同一名字会让读屏念两遍（AX 树审计发现 7 处
-                   同类冗余）→ 头图按装饰处理，语义交给文本 -->
-              <!-- 试过并**回退**：首卡 high / 其余 low 的优先级分化。冷缓存实测 LCP
-                   2360ms vs 全部同优先级 2400ms——噪声内无收益。根因是 4 张图都在
-                   JS 引导后才被发现（~1.36s 同批出发），瓶颈是**发现时刻**不是带宽竞争。 -->
-              <HollowImage
-                unframed
-                loading="eager"
-                :srcs="card.srcs"
-                alt=""
-                :fallback="card.zh || card.en"
-                :img-style="{
-                  objectPosition: card.pos,
-                  transformOrigin: `50% ${card.originY}%`,
-                  transform: `scale(${card.zoom})`,
-                }"
-              />
-            </span>
-            <span class="specimen-plate">
-              <span class="plate-top">
-                <span class="no mono" aria-hidden="true">{{ card.no }}</span>
-                <span
-                  v-if="card.elementZh"
-                  class="el mono"
-                  :style="card.elementColor ? { color: card.elementColor } : undefined"
-                >{{ card.elementZh }}</span>
-              </span>
-              <template v-if="card.zh">
-                <span class="zh">{{ card.zh }}</span>
-                <span class="en mono">{{ card.en }}</span>
-              </template>
-              <!-- 名单未就绪：条形占位（与骨架同构），名字到达后填充，盘高不变 -->
-              <template v-else aria-hidden="true">
-                <span class="bar zh-bar" />
-                <span class="bar en-bar" />
-              </template>
-            </span>
-          </RouterLink>
-        </div>
+        <FeaturedDeck v-reveal="60" :cards="featured" />
       </section>
 
       <section class="index">
@@ -383,147 +324,11 @@ const sections = [
   letter-spacing: 0.06em;
 }
 
-/* ---------- 今日角色标本卡 ---------- */
+/* ---------- 今日角色（横向牌堆，见 components/home/FeaturedDeck.vue） ---------- */
 
 .banners {
   /* 底部节奏复用 --space-section 标尺 */
   padding-bottom: var(--space-section);
-}
-
-/* 4 张并列：flex 均分宽度、hairline 间隙；整卡一框，细线框标本陈列 */
-.specimen-row {
-  display: flex;
-  align-items: stretch;
-  gap: 1px;
-}
-
-.specimen-card {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--line-1);
-  border-radius: 2px;
-  overflow: hidden;
-  background: var(--bg-1);
-  transition: background var(--t-fast) var(--ease),
-    border-color var(--t-fast) var(--ease);
-}
-
-@media (hover: hover) {
-  .specimen-card:hover {
-    background: var(--bg-2);
-    border-color: var(--line-2);
-  }
-}
-
-/* 9:16 竖视口：遮罩住超宽全景图只露局部（object-fit:cover + object-position）。
-   底图透明区透出页面深底色，形成浮空立绘；不加遮罩色阶，避免发糊 */
-
-/* ---------- 名字占位条（名单未就绪时盘内条形，与文字行盒同高，交换不跳变） ---------- */
-
-.specimen-plate .bar {
-  display: block;
-  height: 12px;
-  background: linear-gradient(
-    90deg,
-    var(--bg-2) 0%,
-    var(--bg-3) 50%,
-    var(--bg-2) 100%
-  );
-  background-size: 200% 100%;
-  animation: skel-pulse var(--t-skel) ease-in-out infinite;
-}
-
-.specimen-plate .zh-bar {
-  height: 21px;
-  width: 64px;
-}
-
-.specimen-plate .en-bar {
-  height: 17px;
-  width: 90px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .specimen-plate .bar {
-    animation: none;
-    background: var(--bg-2);
-  }
-}
-.specimen-figure {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 9 / 16;
-  overflow: hidden;
-  background: var(--bg-0);
-}
-
-.specimen-figure img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* 逐图放大（FEATURED_POOL.zoom）配合逐图变换原点（FEATURED_POOL.originY，内容纵向中心，内联设置）
-     把角色放大到填满，让上下透明边滚出视口（overflow:hidden 裁掉）；水平焦点由 object-position 控制 */
-  transform-origin: 50% 50%;
-  /* hover 微推近：独立 scale 属性与内联 transform（构图 zoom）相乘，互不覆盖 */
-  transition: scale var(--t-zoom) var(--ease);
-}
-
-@media (hover: hover) {
-  .specimen-card:hover .specimen-figure img {
-    scale: 1.04;
-  }
-}
-
-/* 标本标签牌：编号 + 中英名 + 元素 */
-.specimen-plate {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 12px 12px 14px;
-  border-top: 1px solid var(--line-0);
-}
-
-.plate-top {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.plate-top .no {
-  font-size: var(--fs-caption);
-  letter-spacing: 0.12em;
-  color: var(--ink-2);
-  transition: color var(--t-fast) var(--ease);
-}
-
-@media (hover: hover) {
-  .specimen-card:hover .plate-top .no {
-    color: var(--amber);
-  }
-}
-
-.plate-top .el {
-  font-size: var(--fs-caption);
-  letter-spacing: 0.08em;
-  color: var(--ink-2);
-}
-
-.specimen-plate .zh {
-  font-family: var(--serif);
-  font-size: var(--fs-subhead);
-  line-height: 1.15;
-  color: var(--ink-0);
-}
-
-.specimen-plate .en {
-  font-size: var(--fs-nano);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ink-2);
 }
 
 .title-en {
@@ -658,22 +463,6 @@ const sections = [
 }
 
 @media (max-width: 860px) {
-  /* 今日角色：手机转横向胶片条（保留 9:16 比例、不拖高页面） */
-  .specimen-row {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 10px;
-    padding-bottom: 8px;
-    scrollbar-width: none;
-  }
-  .specimen-row::-webkit-scrollbar {
-    display: none;
-  }
-  .specimen-card {
-    flex: 0 0 62vw;
-    scroll-snap-align: start;
-  }
-
   .index-row {
     grid-template-columns: 40px 40px 1fr auto;
   }

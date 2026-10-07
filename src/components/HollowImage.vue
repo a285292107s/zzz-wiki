@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
+import { normalizeCandidates, type ImageCandidate } from '@/utils/imageSource'
 
 /** 会话级候选失败缓存（模块级单例）：某地址本会话 404 过的，后续挂载直接跳到下一候选。
  *  列表页几十个图标 × 每次进入都重打一遍 404 是纯浪费；会话内不重复尝试。 */
 const sessionFailed = new Set<string>()
 
 const props = defineProps<{
-  /** 依序尝试的图片候选；全部失败后显示文字占位 */
-  srcs?: Array<string | null | undefined>
+  /** 依序尝试的图片候选；全部失败后显示文字占位。
+   *  候选可以是单地址字符串，也可以是 `{ src, srcset, sizes }`（同一张图的多个派生档位
+   *  交给浏览器按 DPR 选，见 src/utils/imageSource.ts） */
+  srcs?: Array<ImageCandidate | null | undefined>
   /** 兼容单图用法 */
   src?: string | null
   alt?: string
@@ -33,15 +36,15 @@ const props = defineProps<{
 }>()
 
 const candidates = computed(() => {
-  const list = props.srcs?.filter((s): s is string => Boolean(s)) ?? []
-  if (!list.length && props.src) return [props.src]
+  const list = normalizeCandidates(props.srcs)
+  if (!list.length && props.src) return [{ src: props.src }]
   return list
 })
 
 /** 首个未在会话中失败的候选下标；全败过则返回 length（直接耗尽态） */
 function firstAliveIdx(): number {
   const list = candidates.value
-  const i = list.findIndex((u) => !sessionFailed.has(u))
+  const i = list.findIndex((u) => !sessionFailed.has(u.src))
   return i === -1 ? list.length : i
 }
 
@@ -61,17 +64,20 @@ const exhausted = computed(() => !candidates.value.length || idx.value >= candid
 
 function onError() {
   const cur = current.value
-  if (cur) sessionFailed.add(cur)
+  if (cur) sessionFailed.add(cur.src)
   idx.value += 1
 }
 </script>
 
 <template>
-  <!-- 无框模式：img 本体即组件输出（样式/定位完全交给父容器与 img-style） -->
+  <!-- 无框模式：img 本体即组件输出（样式/定位完全交给父容器与 img-style）。
+       key 用 src：候选换档时重建元素，否则浏览器会复用旧 src 的加载状态 -->
   <img
     v-if="unframed && !exhausted && current"
-    :key="current"
-    :src="current"
+    :key="current.src"
+    :src="current.src"
+    :srcset="current.srcset"
+    :sizes="current.sizes"
     :alt="alt ?? ''"
     :loading="loading ?? 'lazy'"
     :fetchpriority="fetchpriority"
@@ -87,8 +93,10 @@ function onError() {
   >
     <img
       v-if="!exhausted && current"
-      :key="current"
-      :src="current"
+      :key="current.src"
+      :src="current.src"
+      :srcset="current.srcset"
+      :sizes="current.sizes"
       :alt="alt ?? ''"
       :loading="loading ?? 'lazy'"
       decoding="async"
@@ -147,7 +155,9 @@ function onError() {
 
 .ph {
   font-family: var(--mono);
-  font-size: 0.85rem;
+  /* 走字号令牌（原 0.85rem = 13.6px 越轨：typography-audit 在「候选耗尽、显示占位」
+     的页面上会抓到它，例：离线时本地缺的那一枚邦布图标） */
+  font-size: var(--fs-small);
   letter-spacing: 0.08em;
   color: var(--ink-3);
   user-select: none;

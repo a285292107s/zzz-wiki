@@ -91,11 +91,14 @@ public/data/
 > `img/` 为 `npm run download:icons` 的本地化图标（独立管理）；`npm run data`
 > 的 resetOut **只清理根 manifest 与 live 目录**，不触碰 img/（曾有整体删除 OUT 目录连坐清空图标的教训）。
 > `img/hero/Mindscape_{id}_2.webp` 除作角色详情页 AgentHead 头图外，也驱动首页「今日角色」
-> 区块：用超宽全景图在 9:16 竖视口内做**局部遮罩**展示（纯 CSS，不产出裁切图）。选角由
+> 区块：**标本陈列**——桌面 2.36:1 横幅（宽度 = min(栏宽, 48vh×2.36) 居中）、手机 4:5 竖幅，
+> 一次一张、拖拽/滑动换人，信息在**图下的标本签**里
+> （见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)）。选角由
 > `src/data/featured-pool.json` 精选池维护（`useFeaturedAgents` 读取 `pool`；用开发校准工具 `/calibrate`
 > 逐张调整并保存，见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)）：每项 `{ id, pos, zoom, originY }`（`id` 角色号；
 > `pos` 水平脸对焦；`zoom` 放大填满；`originY` 变换原点 Y），名字/属性运行时从名录解析；
-> `useFeaturedAgents()` **每次挂载随机取 4 张轮换**。校准页网格角色号从 live 名录动态派生
+> `useFeaturedAgents()` 按**当天日期**确定性取 4 张（同日恒定、跨日换批，属性 + 阵营双重去重）。
+> 校准页网格角色号从 live 名录动态派生
 > （`domain/heroCatalog.ts`），同步落地新角色后自动可见；入池仍须在 `/calibrate` 目检 `pos`。该图源带透明边（上下为 alpha 透明区）；
 > **首页 hero 底图已移除**（`HomeView` `.hero` 只作文字陈列，不再加载 Mindscape 头图）。双形态切换钮改挂到
 > 1551 佩洛伊斯详情页 `AgentHead.vue` 的右上档案行：仅双形态角色（`hero-gender-variants.json` 登记，当前为 1551）
@@ -384,5 +387,5 @@ CJK 衬线（Noto Serif SC **500 单档**）**按站点字符集裁剪后自托�
 > - **默认点按高亮**关闭（`-webkit-tap-highlight-color: transparent`）——浏览器蓝色闪光与
 >   「档案」视觉违和；前提是上一条自绘反馈已就位，否则触屏会失去全部点按反馈。
 > - `text-size-adjust: 100%`：关掉 iOS 横屏的文字自动放大（会打破既定排版比例）。
-> - 横向滚动容器（`.specimen-row` 手机胶片条、`.sn-list` 区块索引横条）加
+> - 横向滚动容器（`.sn-list` 区块索引横条、以及任何横滑容器）加
 >   `overscroll-behavior-x: contain`：滑到两端不再触发浏览器「后退」手势。

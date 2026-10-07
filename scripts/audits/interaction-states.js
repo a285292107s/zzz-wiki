@@ -26,16 +26,27 @@ async (page) => {
 
   /** 指纹：自身 + 最多 12 个后代 + 滑条伪元素的视觉相关计算值。
    *  伪元素（::-webkit-slider-thumb）的样式不在元素自身的 computed style 里——
-   *  首版据此把「滑条 hover 有反馈」误报成缺失（审计局限，非真实缺口）。 */
+   *  首版据此把「滑条 hover 有反馈」误报成缺失（审计局限，非真实缺口）。
+   *  同理要采 ::before/::after：细线刻度（.deck-tick）的 hover 反馈全画在 ::before 上，
+   *  单看元素自身会再次误报。另需采 `scale`：`scale: 1.015` 这类独立变换属性
+   *  不出现在 `transform` 里（首页牌堆的推近反馈就是这么写的）。 */
   const fpExpr = `(() => {
     const pick = (el) => {
       const cs = getComputedStyle(el)
       const parts = [cs.color, cs.backgroundColor, cs.borderTopColor, cs.borderBottomColor,
-              cs.opacity, cs.transform, cs.boxShadow, cs.textDecorationLine, cs.filter].join(',')
+              cs.opacity, cs.transform, cs.scale, cs.boxShadow, cs.textDecorationLine, cs.filter].join(',')
+      let pseudo = ''
+      try {
+        for (const p of ['::before', '::after']) {
+          const ps = getComputedStyle(el, p)
+          pseudo += '|' + [ps.backgroundColor, ps.borderTopColor, ps.borderBottomColor,
+            ps.transform, ps.opacity, ps.content].join(',')
+        }
+      } catch { /* 取不到伪元素样式就不采 */ }
       try {
         const thumb = getComputedStyle(el, '::-webkit-slider-thumb')
-        return parts + '#' + [thumb.backgroundColor, thumb.borderTopColor, thumb.transform, thumb.boxShadow].join(',')
-      } catch { return parts }
+        return parts + '#' + [thumb.backgroundColor, thumb.borderTopColor, thumb.transform, thumb.boxShadow].join(',') + pseudo
+      } catch { return parts + pseudo }
     }
     return (el) => {
       const out = [pick(el)]

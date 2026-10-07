@@ -144,7 +144,7 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 - useDetailNavigation → 详情页相邻条目的前后翻页。
 - useDetailSections → 详情区块行构建（复用 domain/sections.ts）。
 - useNavScrollable → 详情页/公式页导航条横滑（窄屏单行 scroll-snap + 桌面滚轮/按钮）。
-- useFeaturedAgents → 首页「今日角色」精选池（读 featured-pool.json，每次挂载随机取 4 张）。
+- useFeaturedAgents → 首页「今日角色」精选池（读 featured-pool.json，按当天日期确定性取 4 张）。
 - useHeroForm → 双形态角色（1551 佩洛伊斯）形态选择，模块级状态 + localStorage 持久化（详见 IMG_GUIDE）。
 - anchorOffset → 锚点避让偏移计算（router scrollBehavior 与吸顶横条同源，读 CSS 变量 --anchor-offset）。
 

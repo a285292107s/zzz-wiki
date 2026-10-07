@@ -7,6 +7,7 @@
 
 import { computed } from 'vue'
 import type { CharacterListItem } from '@/data/types'
+import type { ImageSource } from '@/utils/imageSource'
 import { ELEMENTS } from '@/domain/enums'
 import { listFor } from '@/data/resources'
 import { catalogEntry } from '@/domain/catalog'
@@ -28,17 +29,67 @@ export interface FeaturedCard {
   en: string
   elementZh: string
   elementColor: string
-  srcs: string[]
+  srcs: ImageSource[]
   pos: string
   zoom: number
   originY: number
   to: string
 }
 
-/** 本地 hero 头图根（download:icons 落地 public/data/img/hero，运行时零外部请求）。
- *  card/ 子目录为 hero-cards.mjs 派生的 ≤1000px 变体（首页 9:16 卡展示格仅 ~320 CSS px，
- *  原图超采 ~1.5MB/4 张）；候选链 card → 原图 → CDN，派生缺失自动回退原图不破图。 */
+/** 本地 hero 头图根（download:icons 落地 public/data/img/hero，运行时零外部请求）。 */
 const LOCAL_HERO = `${import.meta.env.BASE_URL ?? '/'}data/img/hero`
+
+/** 首页头图取景框的 CSS 宽度上界（px）：高度上限 clamp(240px,48vh,560px) × 2.36 = 1322px
+ *  （见 FeaturedDeck.vue 的 .deck-frame）。 */
+export const DECK_MAX_WIDTH = 1322
+
+/** 手机（≤860，与 FeaturedDeck 的竖幅断点同一个数）竖框的「等效源宽」。
+ *  竖幅（4:5）会把超宽源图放大取中段，故**布局宽不足以表达需求**；实测口径（屏 390、框 350×437）：
+ *    · card 800  → 绘制 0.97×：DPR1 刚好够（~30KB）
+ *    · wide 1600 → 绘制 0.97×：DPR2 刚好够（~84KB）
+ *    · 原图      → DPR3 也只有 1.22×（竖幅在 DPR3 本就超出源图能力），但要 ~350KB/张
+ *  取 520px：>400 使 DPR2 选 wide（而非被放大 1.94× 的 card），≤533 使 DPR3 仍选 wide、
+ *  不落回 350KB 的原图 —— 首屏 4 张因此稳定在 120KB（DPR1）～340KB（DPR2/3）。 */
+const DECK_SIZES_NARROW = '520px'
+
+/**
+ * 头图 `sizes`：交给浏览器的「元素布局宽」提示。
+ *  · 桌面（>860）：取景框宽度 = min(视口宽, 1322px)（2.36 横幅，高度上限反推）
+ *  · 手机（≤860）：竖幅的等效源宽，见 DECK_SIZES_NARROW
+ *
+ * 刻意用**纯 px** 而非 `100vw` / 媒体查询：挂载期的 `new Image()` 预热不在文档里，
+ * 脱离文档的 img 求不了媒体查询与 vw（实测落到 sizes 末条 → 手机上错选 wide，
+ * 白拉 4 张 ~84KB）。纯 px 在预热探针与真实 <img> 上必然同档，两边不会打架。
+ */
+export function deckSizes(
+  viewportWidth: number = typeof window === 'undefined' ? DECK_MAX_WIDTH : window.innerWidth,
+): string {
+  if (viewportWidth <= 860) return DECK_SIZES_NARROW
+  return `${Math.min(viewportWidth, DECK_MAX_WIDTH)}px`
+}
+
+/**
+ * 首页头图候选：本地派生档（card / wide 交给浏览器按 DPR 自选）→ 本地原图 → CDN。
+ *
+ * 展示格是整栏宽超宽横幅（取景框最宽 1322 CSS px，再乘逐图 zoom 1.05-1.49），
+ * 只有 800px 的 card 一档时桌面上被放大近 2×、DPR2 近 4× —— 首页首屏肉眼可见发糊。
+ * 故加 wide（1600px）一档，并让浏览器在 srcset 里选：手机/DPR≤2 仍取 800px（省带宽），
+ * 桌面 DPR1 取 1600px（1:1），DPR≥1.21 落回原图（它才是够用的那一档）。
+ * 两档规格与展示格的绑定关系见 scripts/build/hero-cards.mjs 文件头。
+ *
+ * 原图放最后一位当「上界档」：它已是最后一档，w 描述符取值不影响选档结果（浏览器只在前
+ * 面各档密度都低于 DPR 时才落回它），取全池原图宽的下界 1920 以免虚报。
+ */
+export function heroSources(file: string, sizes: string = deckSizes()): ImageSource[] {
+  const card = `${LOCAL_HERO}/card/${file}.webp`
+  const wide = `${LOCAL_HERO}/wide/${file}.webp`
+  const local = `${LOCAL_HERO}/${file}.webp`
+  return [
+    { src: wide, srcset: `${card} 800w, ${wide} 1600w, ${local} 1920w`, sizes },
+    { src: local },
+    { src: `https://static.nanoka.cc/assets/zzz/${file}.webp` },
+  ]
+}
 
 /** Fisher–Yates 洗牌：不修改入参，返回新的随机排列（用于每次挂载换一批）。 */
 export function shuffle<T>(arr: readonly T[]): T[] {
@@ -142,8 +193,13 @@ function keyOf(id: number): { element: number | undefined; camp: string | null; 
  * 由池条目 + 名录解析卡片。list 为 null（清单未就绪）时照样出卡：头图 src 只依赖 id，
  * 名字/元素留空由视图占位——让 LCP 图片与清单请求并行，而非排在它后面。
  * 名单就绪后按名录真值解析；池内 id 不在名录时丢弃并紧凑重排编号（策展真值）。
+ * `sizes` 由调用方按挂载期取景框宽定档（见 deckSizes），好让预热与真实 <img> 同档。
  */
-export function buildFeaturedCards(seed: PoolItem[], list: CharacterListItem[] | null): FeaturedCard[] {
+export function buildFeaturedCards(
+  seed: PoolItem[],
+  list: CharacterListItem[] | null,
+  sizes: string = deckSizes(),
+): FeaturedCard[] {
   const byId = new Map((list ?? []).map((x) => [x.Id, x]))
   const cards: FeaturedCard[] = []
   for (const n of seed) {
@@ -151,6 +207,7 @@ export function buildFeaturedCards(seed: PoolItem[], list: CharacterListItem[] |
     if (list && !item) continue
     const el = item?.element !== undefined ? ELEMENTS[item.element] : undefined
     const hasSpecial = Boolean(item?.special_element)
+    const file = heroImageFile(n.id)
     cards.push({
       id: n.id,
       no: '', // 末尾统一重排
@@ -159,11 +216,7 @@ export function buildFeaturedCards(seed: PoolItem[], list: CharacterListItem[] |
       elementZh: item?.special_element ?? el?.zh ?? '',
       // 特殊属性（如 玄墨）无专属色，不套基础元素色，落回标签默认 ink
       elementColor: hasSpecial ? '' : (el?.color ?? ''),
-      srcs: [
-        `${LOCAL_HERO}/card/${heroImageFile(n.id)}.webp`,
-        `${LOCAL_HERO}/${heroImageFile(n.id)}.webp`,
-        `https://static.nanoka.cc/assets/zzz/${heroImageFile(n.id)}.webp`,
-      ],
+      srcs: heroSources(file, sizes),
       pos: n.pos,
       zoom: n.zoom,
       originY: n.originY,
@@ -179,15 +232,22 @@ export function buildFeaturedCards(seed: PoolItem[], list: CharacterListItem[] |
  *  featured 与 picks 等长起步（名字未就绪时留空占位），清单到达后按真值收敛。 */
 export function useFeaturedAgents() {
   const picks = pickFeatured(FEATURED_POOL, daySeed())
+  /** 挂载期按取景框宽定档：卡片与预热共用同一个值，两边的档位不会打架 */
+  const sizes = deckSizes()
 
   // 首屏头图预热：卡片在挂载即渲染（图 src 只依赖 id，不等清单）；且带 transform:scale 的 img
   // 会升级为独立合成层，合成器按 DOM 顺序解码/栅格化，最右一张总最后上屏（网络其实并行）。
   // 故在 picks 定下后立刻并行预取+预解码本地图，与清单 fetch 重叠，使卡片渲染时已解码、
   // 4 张可同帧合成，消除「第 4 张慢半拍」。
+  // 预热必须**走同一份 srcset + sizes**：档位由浏览器按 DPR 选，探针若自己另算 sizes
+  // （脱离文档的 img 求不了媒体查询/vw）就会挑错档 → 白拉一张，比不预热更糟。
   for (const p of picks) {
+    const primary = heroSources(heroImageFile(p.id), sizes)[0]!
     const img = new Image()
     img.decoding = 'async'
-    img.src = `${LOCAL_HERO}/card/${heroImageFile(p.id)}.webp`
+    img.srcset = primary.srcset ?? ''
+    img.sizes = primary.sizes ?? ''
+    img.src = primary.src
     // decode() 把解码放工作线程，不阻塞主线程；失败（池内本地图理应齐全）静默，留 <img @error> CDN 兜底
     img.decode().catch(() => {
       /* noop：留给 <img @error> 的 CDN 兜底 */
@@ -195,6 +255,6 @@ export function useFeaturedAgents() {
   }
 
   const { data: list } = useAsyncResource<CharacterListItem[]>(() => listFor<CharacterListItem>(catalogEntry('/agents')))
-  const featured = computed(() => buildFeaturedCards(picks, list.value))
+  const featured = computed(() => buildFeaturedCards(picks, list.value, sizes))
   return { featured, picks }
 }
