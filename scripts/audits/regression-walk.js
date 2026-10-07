@@ -835,6 +835,54 @@ async (page) => {
       deep.cols.length === 2 && deep.diffs >= 1 && (deep.stored ?? '').includes('1011'),
       JSON.stringify(deep),
     )
+
+    // 两条「边界提示」路径：文案写了不等于渲染对了（深链就曾长期假通过），故在浏览器里验。
+    // 1) 已满：第 4 条被拒，提示可读、计数不变、存储不变
+    await page.evaluate(() => localStorage.removeItem('zzz-wiki:compare'))
+    for (const id of [1011, 1021, 1031]) {
+      await page.goto(`http://localhost:4175/agents/${id}`, { waitUntil: 'networkidle' })
+      await page.waitForTimeout(900)
+      await page.click('.cmp-btn')
+      await page.waitForTimeout(250)
+    }
+    await page.goto('http://localhost:4175/agents/1041', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1200)
+    await page.click('.cmp-btn')
+    await page.waitForTimeout(450)
+    const fullState = await page.evaluate(() => ({
+      note: document.querySelector('.cmp-note')?.textContent.trim() ?? '',
+      pressed: document.querySelector('.cmp-btn')?.getAttribute('aria-pressed'),
+      count: document.querySelector('.cmp-count')?.textContent.trim() ?? '',
+      ids: JSON.parse(localStorage.getItem('zzz-wiki:compare') || '{}').ids ?? [],
+    }))
+    add(
+      'compare-full-hint',
+      fullState.note.includes('已满') &&
+        fullState.pressed === 'false' &&
+        fullState.count === '3' &&
+        fullState.ids.join() === '1011,1021,1031',
+      JSON.stringify(fullState),
+    )
+
+    // 2) 跨类目：清空并重开一桌，提示可读、存储只剩新条目
+    await page.goto('http://localhost:4175/w-engines/14162', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1200)
+    await page.click('.cmp-btn')
+    await page.waitForTimeout(450)
+    const replaced = await page.evaluate(() => ({
+      note: document.querySelector('.cmp-note')?.textContent.trim() ?? '',
+      count: document.querySelector('.cmp-count')?.textContent.trim() ?? '',
+      stored: localStorage.getItem('zzz-wiki:compare') ?? '',
+    }))
+    add(
+      'compare-cross-category-hint',
+      replaced.note.includes('重开一桌') &&
+        replaced.count === '1' &&
+        replaced.stored.includes('/w-engines') &&
+        replaced.stored.includes('14162'),
+      JSON.stringify(replaced),
+    )
+    await page.evaluate(() => localStorage.removeItem('zzz-wiki:compare'))
   }
 
   // ---- 404 ----

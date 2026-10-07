@@ -887,7 +887,8 @@ section[id] {
     line-height: 1.55;
   }
 
-  /* 交互外壳：站头导航 / 区块索引 / 回顶 / 检索面板 / 术语浮层 / 跳转链接 / 翻页提示 */
+  /* 交互外壳：站头导航 / 区块索引 / 回顶 / 检索面板 / 术语浮层 / 跳转链接 / 翻页提示
+     / 复制链接 / 对照台控件（交互件印在纸上没有意义，且「×」会被误读成正文） */
   .masthead,
   .section-nav,
   .back-top,
@@ -895,7 +896,13 @@ section[id] {
   .term-tip-list,
   .skip-link,
   .pg-hint,
-  .foot-actions {
+  .foot-actions,
+  .copy-link,
+  .cmp-btn,
+  .cmp-link,
+  .cmp-note,
+  .entry-remove,
+  .bench-clear {
     display: none !important;
   }
 

@@ -8,7 +8,7 @@
  * |---|---|---|
  * | viewport-overflow.js  | 8 视口 × 8 路由横向溢出 | 0 |
  * | touch-targets.js      | 交互目标 ≥24×24（WCAG 2.5.8） | 0 问题 |
- * | regression-walk.js    | 全站功能走查（79 项，覆盖七类目/边界态/URL 状态/离线联动） | 79/79 |
+ * | regression-walk.js    | 全站功能走查（81 项，覆盖七类目/边界态/URL 状态/离线联动） | 81/81 |
  * | transfer-profile.js   | 分类传输体积（逐文件 kb + 加载时刻） | 36 请求；最大 noto-serif-sc.css 68.9KB（解码值，gzip 后 ~10KB） |
  * | quick-search.js       | ⌘K 检索链路端到端（中文高亮/罗马字命中/结果态预激活/空态键盘路径） | 4/4 |
  * | font-loading.js       | CJK 衬线生效 + 分片按需 | serif=Noto Serif SC |
@@ -17,7 +17,7 @@
  * | font-weight-calibration.js | CJK 衬线实际渲染字重标定 | 生产 = wght 500 实例 |
  * | axe-a11y.js          | axe-core 全量规则（12 路由 × 桌面/移动 24 组合） | 0 violations |
  * | axe-states.js        | 交互面板**展开态**的 axe（菜单/下拉/检索/浮层/空态） | 6 状态 0 violations |
- * | print-mode.js        | 打印（纸墨模式）：白纸黑字/外壳隐藏/内容保留 | 24/24 |
+ * | print-mode.js        | 打印（纸墨模式）：白纸黑字/外壳隐藏/内容保留（含对照台**有内容**态） | 30/30 |
  * | forced-colors.js     | 高对比度模式：结构线/状态/滑条可见 | 8/8 |
  * | csp-check.js         | 生产安全响应头本地验证（拦截注入 CSP 后走关键路径） | 0 违规 |
  * | content-sweep.js     | 全站 238 页内容完整性（泄漏/空区块/断图/元信息） | 0 异常 |
