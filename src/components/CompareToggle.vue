@@ -113,6 +113,12 @@ function toggle() {
   letter-spacing: 0.08em;
   color: var(--ink-2);
   border-bottom: 1px solid var(--line-1);
+  /* 命中区 ≥24px（WCAG 2.5.8）：本链接不在句子里，不适用行内豁免。
+     靠 line-height 凑会在字体度量变化时落到 23.x px——用 min-height 钉死。
+     此前只在「桌上有内容」时渲染，单独跑审计看不到，全量审计才暴露。 */
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
 }
 
 @media (hover: hover) {

@@ -961,6 +961,30 @@ async (page) => {
       JSON.stringify(cleared),
     )
 
+    // 详情页「查看对照台 →」链接的命中区：它**只在桌上有内容时渲染**，故需先摆一桌再量
+    // （320px 下曾只有 ~16px 高 → WCAG 2.5.8 不足；单独跑审计看不到，全量审计顺序里才暴露）。
+    // 放在本块末尾并自行复位状态，避免改变后续步骤的页面上下文（上轮踩过这个坑）。
+    await page.evaluate(() =>
+      localStorage.setItem('zzz-wiki:compare', JSON.stringify({ catPath: '/agents', ids: [1011] })),
+    )
+    await page.setViewportSize({ width: 320, height: 720 })
+    await page.goto('http://localhost:4175/agents/1011', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(2200)
+    const cmpTargets = await page.evaluate(() => {
+      const box = (sel) => {
+        const b = document.querySelector(sel)?.getBoundingClientRect()
+        return b ? { w: Math.round(b.width), h: Math.round(b.height) } : null
+      }
+      return { link: box('.cmp-link'), btn: box('.cmp-btn') }
+    })
+    add(
+      'compare-toggle-hit-area',
+      (cmpTargets.link?.h ?? 0) >= 24 && (cmpTargets.btn?.h ?? 0) >= 24,
+      JSON.stringify(cmpTargets),
+    )
+    await page.setViewportSize({ width: 1440, height: 900 })
+    await page.evaluate(() => localStorage.removeItem('zzz-wiki:compare'))
+
     // 深链必须**在干净状态**下测：本桌已有内容时 URL 失效也会「看起来正常」——
     // 第 102 轮就是这样假通过的（`?cat=&ids=` 实际未生效），第 103 轮才暴露。
     await page.evaluate(() => localStorage.removeItem('zzz-wiki:compare'))

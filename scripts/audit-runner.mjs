@@ -13,7 +13,8 @@ const files = fs
   .sort()
 
 console.log('\n== 品质审计工具箱 ==（需 preview :4175 运行中）\n')
-console.log('运行方式（每脚本）：playwright-cli open http://localhost:4175 && playwright-cli run-code --filename=' + DIR + '/<脚本>')
+console.log('**跑全套**：`npm run audit:all`（逐个执行 + 汇总 + 失败即非零退出；判据见 scripts/audit-all.mjs）')
+console.log('单脚本：playwright-cli open http://localhost:4175 && playwright-cli run-code --filename=' + DIR + '/<脚本>')
 console.log('')
 for (const f of files) {
   const src = fs.readFileSync(path.join(DIR, f), 'utf8')

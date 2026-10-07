@@ -4,11 +4,16 @@
  * 每个脚本对应一项品质基线检查（基线数值见 quality-baseline.md）。
  * 运行前提：npm run build:ci && npm run preview（或等效静态服务 :4175）。
  *
+ * **一条命令跑全套**：`npm run audit:all`（scripts/audit-all.mjs）——按下面的表格逐个执行、
+ * 汇总通过/失败/需人工判读，失败即非零退出。每个脚本的**通过判据显式声明**在该文件的
+ * RULES 表里（不靠猜返回结构）；**新增审计脚本必须同时补判据**，否则会被标「？需人工判读」
+ * 而不会默认通过。`npm run audit` 仍只列清单（含各脚本一句话说明）。
+ *
  * | 脚本 | 检查项 | 基线 |
  * |---|---|---|
  * | viewport-overflow.js  | 8 视口 × 8 路由横向溢出 | 0 |
  * | touch-targets.js      | 交互目标 ≥24×24（WCAG 2.5.8） | 0 问题 |
- * | regression-walk.js    | 全站功能走查（90 项，覆盖七类目/边界态/URL 状态/离线联动） | 90/90 |
+ * | regression-walk.js    | 全站功能走查（91 项，覆盖七类目/边界态/URL 状态/离线联动） | 91/91 |
  * | transfer-profile.js   | 分类传输体积（逐文件 kb + 加载时刻） | 36 请求；最大 noto-serif-sc.css 68.9KB（解码值，gzip 后 ~10KB） |
  * | quick-search.js       | ⌘K 检索链路端到端（中文高亮/罗马字命中/结果态预激活/空态键盘路径） | 4/4 |
  * | font-loading.js       | CJK 衬线生效 + 分片按需 | serif=Noto Serif SC |
@@ -43,6 +48,16 @@
  *   直接让 playwright-cli 会话崩溃（"Session closed"，无堆栈）。需要计数请求时优先用
  *   `performance.getEntriesByType('resource')` 的 `transferSize` / `workerStart` 字段，
  *   而不是挂事件监听。
+ *
+ * ⚠ **量尺寸前等字体与渲染稳定**：命中区/行高这类测量依赖字体度量，固定 `waitForTimeout`
+ *   在浏览器繁忙时会读到未就绪状态而误报（`reflow-spacing.js` 在全量审计时曾偶发报
+ *   `smallTargetsAt320: 3`，单独复跑为 0）。改为等 `document.fonts.status === 'loaded'`
+ *   + 两帧 rAF 后再量。**偶发失败要查竞态或改确定性等待，不能靠重跑蒙过去。**
+ *
+ * ⚠ **结构性改动不要用脚本搬行**：本会话三次用正则/PowerShell 批量改文件，分别把
+ *   `add()` 的多余参数、注释吞掉 `page.goto`、以及 `execFileSync` 的参数数组清空——
+ *   每次都靠复读文件才发现。**改代码用编辑器工具逐处改；批量替换只用于等长、可验证的
+ *   字面量替换，并在替换后立刻复读受影响行。**
  *
  * ⚠ **Service Worker 会遮蔽「失败模拟」**（2026-10 引入离线能力后）：SW 自己发起的 fetch
  *   不经过 `page.route`，SW 脚本的注册请求也不经过——`route('**/sw.js', abort)` 无效。

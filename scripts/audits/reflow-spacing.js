@@ -19,8 +19,18 @@ async (page) => {
   for (const route of routes) {
     /* ---------- 1.4.10 重排：320px ---------- */
     await page.setViewportSize({ width: 320, height: 720 })
+    // **先预热该路由再测量**：CJK 衬线按 unicode-range 懒加载，冷缓存下（全量审计里
+    // offline-check 会清缓存）字体尚未就绪时文本行高偏小 → 命中区被误判 <24px
+    // （全量审计偶发 smallTargetsAt320: 3，单独复跑为 0）。预热 + 等字体就绪后再量，
+    // 测的是「布局是否合规」这一稳定属性，与缓存冷热无关。
     await page.goto('http://localhost:4175' + route, { waitUntil: 'networkidle' })
-    await page.waitForTimeout(1800)
+    await page.waitForFunction(() => document.fonts?.status === 'loaded', null, { timeout: 15000 }).catch(() => {})
+    await page.goto('http://localhost:4175' + route, { waitUntil: 'networkidle' })
+    await page.waitForFunction(() => document.fonts?.status === 'loaded', null, { timeout: 15000 }).catch(() => {})
+    await page.evaluate(
+      () => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(() => r(null)))),
+    )
+    await page.waitForTimeout(300)
     const reflow = await page.evaluate(() => {
       const docOverflow = document.documentElement.scrollWidth > window.innerWidth + 1
       // 找出真正超宽的元素（可能是设计内的横向滚动容器，需人工甄别）
@@ -156,6 +166,8 @@ async (page) => {
       smallTargetsAt320: report.reduce((n, r) => n + r.reflow.smallTargetCount, 0),
       spacingClipped: report.reduce((n, r) => n + r.spacing.clippedCount, 0),
       spacingOverlaps: report.reduce((n, r) => n + r.spacing.overlapCount, 0),
+      // 失败必须自带定位信息（脚本内已记 route/sel/尺寸），否则下一轮要重新考古
+      smallTargetDetail: report.flatMap((r) => (r.reflow.smallTargets ?? []).map((s) => ({ route: r.route, ...s }))),
       touch: { desktop, touch, thumbGrows: touch.thumb > desktop.thumb, hitBandOk: touch.boxH >= 24 && desktop.boxH >= 24 },
       detail: report,
     },
