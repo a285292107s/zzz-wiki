@@ -1,5 +1,5 @@
 async (page) => {
-  const routes = ['/', '/agents', '/agents/1011', '/w-engines', '/w-engines/14162', '/bangboos', '/disks', '/formulas']
+  const routes = ['/', '/agents', '/agents/1011', '/w-engines', '/w-engines/14162', '/bangboos', '/disks', '/formulas', '/atlas']
   const viewports = [[1920, 1080], [1440, 900], [1280, 800], [1024, 768], [820, 1180], [768, 1024], [390, 844], [360, 740]]
   const problems = []
   for (const [w, h] of viewports) {

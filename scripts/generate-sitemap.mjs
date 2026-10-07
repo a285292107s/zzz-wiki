@@ -44,7 +44,7 @@ const CATALOG = [
 function urls() {
   // '/compare' 是工具页（内容取决于用户自己的对照台），但它是**正式可访问页面**：
   // 进 sitemap 才能拿到逐路由 HTML（标题/描述/canonical），也避免被当作软 404。
-  const list = ['/', '/compare', '/formulas', '/about']
+  const list = ['/', '/atlas', '/compare', '/formulas', '/about']
   for (const c of CATALOG) {
     list.push(c.path)
     const p = `public/data/live/${c.file}`

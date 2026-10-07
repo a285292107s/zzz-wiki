@@ -84,6 +84,7 @@ const VIEW_OF = {
   '/bangboos': 'src/views/BangboosView.vue',
   '/disks': 'src/views/DisksView.vue',
   '/compare': 'src/views/CompareView.vue',
+  '/atlas': 'src/views/AtlasView.vue',
   '/formulas': 'src/views/FormulasView.vue',
   '/about': 'src/views/AboutView.vue',
 }
@@ -93,6 +94,11 @@ const VIEW_OF = {
  *   · literal：视图里是字面量 `usePageMeta('标题', '描述')`
  *   · guide  ：视图用变量（如 FORMULA_GUIDE.sub），回到数据模块取真值 */
 const STATIC_META = {
+  '/atlas': {
+    label: '档案图谱',
+    desc: '把代理人档案按「属性 × 职业」摊平成一张格子表——每格是条目数，点开即筛出对应档案。',
+    kind: 'literal',
+  },
   '/compare': {
     label: '对照台',
     desc: '把同类目的档案并排放到一起，逐字段看差异——配装与取舍时不必来回翻页。',

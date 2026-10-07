@@ -31,6 +31,7 @@ async (page) => {
     '/bangboos/54023',
     '/disks',
     '/disks/34200',
+    '/atlas',
     '/formulas',
     '/compare',
     '/agents/9999', // 详情 404 态（无效编号）：h1/标题/返回出路

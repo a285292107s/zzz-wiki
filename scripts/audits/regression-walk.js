@@ -43,7 +43,7 @@ async (page) => {
     }))
     add('home-serif', r.serif === 'Noto Serif SC', r.serif)
     add('home-reveal-settled', r.revealResidueInViewport === 0, String(r.revealResidueInViewport))
-    add('home-index-rows', r.indexRows === 6, String(r.indexRows))
+    add('home-index-rows', r.indexRows === 7, String(r.indexRows))
     add('home-index-last', r.lastEntry === '数据说明', r.lastEntry ?? 'none')
     add('home-cards', r.cards === 4, String(r.cards))
     add('home-title', r.title.includes('绳网档案'), r.title)
@@ -1085,6 +1085,59 @@ async (page) => {
         // 关键：不再白试一次跨域请求
         keys.nanoka === 0,
       JSON.stringify(keys),
+    )
+  }
+
+  // ---- 档案图谱：分布矩阵（既是可视化也是导航）----
+  {
+    await page.goto('http://localhost:4175/atlas', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(2200)
+    const atlas = await page.evaluate(() => {
+      const links = [...document.querySelectorAll('.ax-link')]
+      const sum = links.reduce((n, e) => n + Number(e.textContent.trim()), 0)
+      return {
+        rows: document.querySelectorAll('tbody .ax-row').length,
+        cols: document.querySelectorAll('thead .ax-col').length,
+        cells: links.length,
+        sum,
+        grand: document.querySelector('.ax-grand')?.textContent.trim() ?? '',
+        // 空组合必须显式呈现（不是漏画）
+        empties: document.querySelectorAll('.ax-empty').length,
+        caption: !!document.querySelector('.atlas caption'),
+        scopeCols: document.querySelectorAll('thead th[scope=col]').length,
+        scopeRows: document.querySelectorAll('tbody th[scope=row]').length,
+      }
+    })
+    add(
+      'atlas-matrix',
+      // 7 属性 × 7 职业 = 49 格，非空 32 格；空格必须显式呈现（49-32=17）
+      atlas.rows === 7 &&
+        atlas.cols === 7 && // 职业列（合计列用 .ax-total，不计入）
+        atlas.cells === 32 &&
+        atlas.empties === 17 &&
+        // 图与账同源：格内数字之和 = 总计
+        atlas.sum === Number(atlas.grand) &&
+        atlas.sum > 0 &&
+        atlas.caption &&
+        atlas.scopeCols === 9 && // 7 职业 + 左上角 + 合计
+        atlas.scopeRows === 7,
+      JSON.stringify(atlas),
+    )
+
+    // 点一格 → 进入名录并带上对应筛选（图谱是导航，不是装饰画）
+    await page.evaluate(() => document.querySelector('.ax-link')?.click())
+    await page.waitForTimeout(1600)
+    const jump = await page.evaluate(() => ({
+      path: location.pathname,
+      attr: new URLSearchParams(location.search).get('attr'),
+      prof: new URLSearchParams(location.search).get('prof'),
+      rows: document.querySelectorAll('tbody.d-body tr:not(.empty-row)').length,
+      activeFilters: document.querySelectorAll('.filter-dropdown .trigger.active').length,
+    }))
+    add(
+      'atlas-cell-jumps-to-filtered-list',
+      jump.path === '/agents' && !!jump.attr && !!jump.prof && jump.rows > 0 && jump.rows < 60 && jump.activeFilters === 2,
+      JSON.stringify(jump),
     )
   }
 

@@ -78,6 +78,12 @@ export const router = createRouter({
       meta: { title: '对照台' },
     },
     {
+      path: '/atlas',
+      name: 'atlas',
+      component: () => import('@/views/AtlasView.vue'),
+      meta: { title: '档案图谱' },
+    },
+    {
       path: '/formulas',
       name: 'formulas',
       component: () => import('@/views/FormulasView.vue'),

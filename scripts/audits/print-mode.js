@@ -15,7 +15,7 @@
  * ============================================================ */
 
 async (page) => {
-  const routes = ['/', '/agents', '/agents/1011', '/about', '/compare']
+  const routes = ['/', '/agents', '/agents/1011', '/atlas', '/about', '/compare']
   const checks = []
   const add = (route, name, ok, detail) => checks.push({ route, name, ok, detail })
 

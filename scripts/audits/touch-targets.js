@@ -1,7 +1,7 @@
 async (page) => {
   // 触屏目标尺寸审计：所有可交互元素的命中区几何
   await page.setViewportSize({ width: 390, height: 844 })
-  const routes = ['/', '/agents', '/agents/1011', '/disks']
+  const routes = ['/', '/agents', '/agents/1011', '/atlas', '/disks']
   const problems = []
   let checked = 0
   for (const route of routes) {

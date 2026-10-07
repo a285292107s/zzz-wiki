@@ -13,7 +13,7 @@
  * |---|---|---|
  * | viewport-overflow.js  | 8 视口 × 8 路由横向溢出 | 0 |
  * | touch-targets.js      | 交互目标 ≥24×24（WCAG 2.5.8） | 0 问题 |
- * | regression-walk.js    | 全站功能走查（91 项，覆盖七类目/边界态/URL 状态/离线联动） | 91/91 |
+ * | regression-walk.js    | 全站功能走查（93 项，覆盖七类目/边界态/URL 状态/离线联动） | 93/93 |
  * | transfer-profile.js   | 首访传输预算（冷缓存总重 + 分类明细；总重 <3MB 竞奖档 / 字体 ≤1.2MB / 图片 ≤1MB） | 53 请求 / 751KB（js 61 + css 25 + 字体 189 + 图片 436 + json 40） |
  * | quick-search.js       | ⌘K 检索链路端到端（中文高亮/罗马字命中/结果态预激活/空态键盘路径） | 4/4 |
  * | font-loading.js       | CJK 衬线生效 + 分片按需 | serif=Noto Serif SC |
@@ -85,4 +85,12 @@
  *
  * 新增审计：脚本导出 JSON（{ total, failed, failedItems } 风格），
  * 失败项必须带定位信息（tag/cls/几何），让下一轮修复不用重新考古。
+ * 新增页面/路由时，**同时把路径加进各审计的 `routes` 清单**（axe/ax-tree/排印/色彩/
+ * 节奏/reflow/打印/交互态/焦点/动效/视口溢出/landmark/touch-targets）——否则新页面
+ * 等于没有任何门禁覆盖。`content-sweep` 读 sitemap，会自动覆盖。
+ *
+ * ⚠ **`git checkout -- <目录>` 会连未提交的改动一起回退**：为恢复一个被正则改坏的审计
+ *   脚本而 `git checkout -- scripts/audits/`，把同目录下**尚未提交**的走查护栏一起退掉了
+ *   （全量审计报 `home-index-rows` 期望值不符才发现）。**只恢复出问题的那个文件，
+ *   并先 `git status` 看清哪些改动还没提交。**
  * ============================================================ */

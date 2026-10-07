@@ -21,7 +21,7 @@ async (page) => {
   await cdp.send('CSS.enable')
 
   const SELECTOR = 'a[href], button, [role="button"], summary, input[type="range"]'
-  const routes = ['/', '/agents', '/agents/1011', '/formulas', '/about', '/compare']
+  const routes = ['/', '/agents', '/agents/1011', '/atlas', '/formulas', '/about', '/compare']
   const report = []
 
   /** 指纹：自身 + 最多 12 个后代 + 滑条伪元素的视觉相关计算值。

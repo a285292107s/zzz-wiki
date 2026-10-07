@@ -95,6 +95,15 @@ export interface GuideEntry {
 export const GUIDE_ENTRIES: readonly GuideEntry[] = [
   {
     no: '05',
+    label: '档案图谱',
+    en: 'ATLAS',
+    path: '/atlas',
+    desc: '属性 × 职业的分布格子表，点开即筛出对应档案。',
+    glyph: '⊞',
+    nav: true,
+  },
+  {
+    no: '06',
     label: '战斗公式',
     en: 'FORMULAS',
     path: '/formulas',
@@ -103,11 +112,11 @@ export const GUIDE_ENTRIES: readonly GuideEntry[] = [
     nav: true,
   },
   {
-    no: '06',
+    no: '07',
     label: '数据说明',
     en: 'COLOPHON',
     path: '/about',
-    desc: '数据来源与覆盖范围、更新机制与校验门禁、版权声明。',
+    desc: '数据来源与覆盖范围、更新机制、校验门禁与版权声明。',
     glyph: '§',
     nav: false,
   },
