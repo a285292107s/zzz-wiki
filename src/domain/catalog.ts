@@ -53,17 +53,6 @@ export const CATALOG: readonly CatalogEntry[] = [
   },
   {
     no: '03',
-    label: '邦布',
-    en: 'BANGBOO',
-    path: '/bangboos',
-    desc: '空洞探索的忠实伙伴，收录全部型号与数据。',
-    icon: { Id: 53001, icon: 'IconBangbooPiece12' },
-    iconCategory: 'bangboo',
-    listFile: 'bangboo',
-    detailDir: 'bangboo',
-  },
-  {
-    no: '04',
     label: '驱动盘',
     en: 'DISK DRIVES',
     path: '/disks',
@@ -72,6 +61,17 @@ export const CATALOG: readonly CatalogEntry[] = [
     iconCategory: 'disc',
     listFile: 'equipment',
     detailDir: 'equipment',
+  },
+  {
+    no: '04',
+    label: '邦布',
+    en: 'BANGBOO',
+    path: '/bangboos',
+    desc: '空洞探索的忠实伙伴，收录全部型号与数据。',
+    icon: { Id: 53001, icon: 'IconBangbooPiece12' },
+    iconCategory: 'bangboo',
+    listFile: 'bangboo',
+    detailDir: 'bangboo',
   },
 ]
 
