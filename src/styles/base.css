@@ -358,15 +358,6 @@ a.rich-term:hover {
   padding-inline: var(--pad-page);
 }
 
-/* 宽屏放宽版心（阈值与理由见 tokens.css 的 --wrap-max 注释）：
-   1920 下内容占比 67% → 81%，详情页立绘明显更有存在感。所有页面共用同一容器，
-   内部对齐关系不变（只有栏宽变宽）。 */
-@media (min-width: 1820px) {
-  :root {
-    --wrap-max: 1560px;
-  }
-}
-
 /* ---------- shared list / table moods ---------- */
 
 .hairline-table {

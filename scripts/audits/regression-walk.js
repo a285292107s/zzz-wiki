@@ -1141,6 +1141,32 @@ async (page) => {
     )
   }
 
+  // ---- 版心：比例 + 上下限（超宽屏不得无限拉长，正文行宽不得随视口变宽）----
+  {
+    await page.setViewportSize({ width: 2560, height: 1440 })
+    await page.goto('http://localhost:4175/about', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1800)
+    const wide = await page.evaluate(() => {
+      const wrap = document.querySelector('.wrap')?.getBoundingClientRect()
+      const prose = [...document.querySelectorAll('p.prose, p.page-sub')].find(
+        (p) => p.getBoundingClientRect().width > 200,
+      )
+      return {
+        vw: window.innerWidth,
+        wrapW: wrap ? Math.round(wrap.width) : 0,
+        proseW: prose ? Math.round(prose.getBoundingClientRect().width) : 0,
+        ratio: wrap ? +(wrap.width / window.innerWidth).toFixed(2) : 0,
+      }
+    })
+    add(
+      'wide-container-capped',
+      // 上限 1760：2560 视口下版心不得继续拉长；正文块另有 56–76ch 上限，不得随版心变宽
+      wide.vw === 2560 && wide.wrapW > 1200 && wide.wrapW <= 1760 && wide.proseW > 200 && wide.proseW <= 620,
+      JSON.stringify(wide),
+    )
+    await page.setViewportSize({ width: 1440, height: 900 })
+  }
+
   // ---- 404 ----
   await page.goto('http://localhost:4175/none', { waitUntil: 'networkidle' })
   await page.waitForTimeout(600)
