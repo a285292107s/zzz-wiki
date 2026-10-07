@@ -392,6 +392,8 @@ function openSearch() {
 
 /* ---------- responsive ---------- */
 
+/* 720 是「导航收进 ☰」的断点，与 QuickSearch 的窄屏去重规则绑定：
+   此断点以下检索面板不再列「四类目直达」（否则与菜单重复），改断点须同步两处 */
 @media (max-width: 720px) {
   .masthead-inner {
     height: 62px;

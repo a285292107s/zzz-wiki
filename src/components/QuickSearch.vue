@@ -3,7 +3,9 @@
  * QuickSearch — 全局快速检索面板（Ctrl/⌘+K；站头检索钮）。
  * 终端语言：染墨遮罩 + 单一 hairline 框 + 等宽编号陈列；无投影卡片堆叠。
  * 键盘完整可用：↑/↓ 移动、Enter 直达、Esc 关闭；aria-combobox 语义。
- * 结果按类目分组陈列（类目徽标 = catalog no），空查询为四类目快速入口。
+ * 结果按类目分组陈列（类目徽标 = catalog no），空查询为四类目快速入口
+ * ——**窄屏除外**：那时站头导航已收进 ☰ 菜单，再列四类目捷径就是两个入口指同一批
+ * 目的地（手机断点下「检索 / 菜单」功能重复），故窄屏空态只留检索提示与最近访问。
  */
 import { computed, nextTick, ref, watch } from 'vue'
 import { RouterLink, useRouter } from 'vue-router'
@@ -269,7 +271,7 @@ function onKeydown(e: KeyboardEvent): void {
               </button>
             </div>
             <p class="qs-state qs-state-quiet mono" :class="{ 'qs-state-first': !recent.length }">
-              输入关键词检索全部档案，或直达：
+              输入关键词检索全部档案<span class="qs-or">，或直达：</span>
             </p>
             <div class="qs-quick-entries">
               <RouterLink
@@ -540,6 +542,17 @@ mark.qs-hit {
   font-size: var(--fs-nano);
   letter-spacing: 0.2em;
   color: var(--ink-2);
+}
+
+/* 窄屏：站头导航已收进 ☰ 菜单（断点见 SiteHeader.vue 的 720px），检索面板不再列
+   「四类目直达」——那 4 项与移动菜单完全重复，等于两个按钮指同一批目的地。
+   display:none 同时把链接移出可访问树，不会留下不可见的焦点位；
+   桌面 ⌘K 面板的快捷入口与 quick-search 走查（desktop 视口）都不受影响。 */
+@media (max-width: 720px) {
+  .qs-or,
+  .qs-quick-entries {
+    display: none;
+  }
 }
 
 /* ---------- 状态与脚注 ---------- */
