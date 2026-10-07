@@ -50,8 +50,10 @@ npm test             # vitest 单元/组件测试
 ## 部署（Vercel）
 
 1. 推送仓库到 GitHub。
-2. 在 [vercel.com/new](https://vercel.com/new) 导入——`vercel.json` 已声明框架、构建命令（`npm run build:ci`：测试 + 西文/CJK 字体校验 + 构建 + sitemap 生成）、产物目录、headers/rewrites 及 `VITE_SITE_ORIGIN`（canonical/og:url 的 origin，换域时改这里），无需额外配置。
-3. 部署后访问 `https://<你的项目>.vercel.app`。
+2. 在 [vercel.com/new](https://vercel.com/new) 导入——`vercel.json` 已声明框架、构建命令（`npm run build:ci`：测试 + 西文/CJK 字体校验 + 构建 + sitemap 生成）、产物目录、headers/rewrites，无需额外配置。
+3. **必须在 Vercel 项目里再设一条环境变量 `VITE_SITE_ORIGIN`**，值为站点生产域（如 `https://myzzz.vercel.app`）。它是 sitemap / canonical / og:url 的 origin 来源，**缺了构建期的门禁会直接失败**（`scripts/generate-sitemap.mjs`）。加在 **Settings → Environment Variables**，或 `vercel env add VITE_SITE_ORIGIN production`（Preview / Development 同理）。
+   **不要写进 `vercel.json`**：那里的 `env` / `build.env` 是 Vercel 已废弃的旧属性，构建期读不到——2026-10 实测因此连续部署失败（配了等于没配）；`scripts/verify-vercel-config.mjs` 已加断言挡住回退。
+4. 部署后访问 `https://<你的项目>.vercel.app`。
 
 > **数据新鲜度依赖 `data-sync` 定时任务**：部署的 `build:ci` **只构建已提交快照**、不在构建期重建数据；数据更新由
 > `.github/workflows/data-sync.yml`（每日 cron 跑 `npm run sync`：探测 → 重建 JSON → 图标补差 → **`verify:data` 硬门禁** → 提交）

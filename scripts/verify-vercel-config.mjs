@@ -154,9 +154,53 @@ for (const [key, label] of [
   else fail("CSP 未允许同源 worker（default-src 需含 'self' 或显式 worker-src 'self'）")
 }
 
+/* 7) 上传面：Vercel CLI **不读 .gitignore**，只排除它自己的内置清单。
+      2026-10 实测一次部署上传 12,453 个文件（入库 1,393 + temp/ 6,815 +
+      .agents/ 2,088 + dist/ 1,447 + .playwright-cli/ 700 + …），
+      破万文件同时撞上 hobby 套餐上传请求上限（>5000 → 429），部署在上传阶段就失败。
+      断言：.gitignore 里每个「构建不需要」的顶层目录都必须在 .vercelignore 中列明。
+      注：.gitignore 自身在 Vercel 默认排除清单内，线上构建读不到它，故本段只在本地生效
+      ——本地 build:ci 正是 push 前的把关位（上传发生在构建之前，构建期断言拦不住它）。 */
+const VERCEL_DEFAULT_IGNORES = new Set([
+  '.hg', '.git', '.gitmodules', '.svn', '.cache', '.next', '.now', '.vercel',
+  '.npmignore', '.dockerignore', '.gitignore', '.venv', '.yarn', 'node_modules',
+  '__pycache__', 'venv', 'CVS',
+])
+if (!fs.existsSync('.gitignore')) {
+  ok('.gitignore 不在场（线上构建）——跳过上传面断言')
+} else {
+  const listed = new Set(
+    (fs.existsSync('.vercelignore') ? fs.readFileSync('.vercelignore', 'utf8') : '')
+      .split('\n')
+      .map((l) => l.trim())
+      .filter((l) => l && !l.startsWith('#') && !l.startsWith('!')),
+  )
+  const missing = []
+  for (const raw of fs.readFileSync('.gitignore', 'utf8').split('\n')) {
+    const line = raw.trim()
+    if (!line || line.startsWith('#') || line.startsWith('!') || line.startsWith('/')) continue
+    if (/[*?[\]]/.test(line)) continue // 通配条目不做目录断言
+    const dir = line.replace(/\/+$/, '')
+    if (dir.includes('/')) continue // 只看顶层
+    if (VERCEL_DEFAULT_IGNORES.has(dir)) continue // Vercel 已默认排除
+    if (!fs.existsSync(dir) || !fs.statSync(dir).isDirectory()) continue
+    if (!listed.has(dir) && !listed.has(`${dir}/`)) missing.push(dir)
+  }
+  if (missing.length)
+    fail(`.vercelignore 未覆盖这些 gitignore 目录（会被整包上传）：${missing.join(', ')}`)
+  else ok('.vercelignore 覆盖全部 gitignore 顶层目录（上传面不夹带临时产物）')
+}
+
+/* 8) vercel.json 的 `env` / `build.env` 是 Vercel 已废弃的旧属性，**构建期读不到**
+      ——2026-10 实测踩到：配了 VITE_SITE_ORIGIN 仍被 generate-sitemap 判定「缺少」而部署失败，
+      配了等于没配，却让人以为域名已注入。域名来源统一走项目环境变量（README「部署（Vercel）」）。 */
+if ('env' in cfg || (cfg.build && 'env' in cfg.build))
+  fail('vercel.json 含已废弃的 env / build.env（构建期不生效）——改用 Vercel 项目环境变量')
+else ok('vercel.json 无废弃的 env / build.env（域名来源走项目环境变量）')
+
 console.log(
   bad
     ? `\n== Vercel 缓存/安全策略 == 未通过（${bad} 项）`
-    : '\n== Vercel 缓存/安全策略 == 通过（immutable 白名单 / 重验证 / CSP / 安全头 / SW / SPA rewrite）',
+    : '\n== Vercel 缓存/安全策略 == 通过（immutable 白名单 / 重验证 / CSP / 安全头 / SW / SPA rewrite / 上传面）',
 )
 process.exitCode = bad ? 1 : 0

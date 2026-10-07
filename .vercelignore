@@ -1,0 +1,39 @@
+# ============================================================
+# .vercelignore —— Vercel 上传排除清单
+#
+# 为什么必须有：Vercel CLI **不读 .gitignore**，只排除它自己的内置清单
+# （.git / node_modules / .cache / .vercel / .next …，见 Vercel docs
+# 「Ignored files and folders」）。于是本仓库 gitignore 掉的临时目录会被整包上传。
+#
+# 2026-10 实测：一次 `vercel deploy` 上传 **12,453 个文件**，恰好等于
+#   入库 git ls-files        1,393
+#   + temp/                  6,815   （CDP profile / Lighthouse 报告 / 截图，682 MB）
+#   + .agents/               2,088
+#   + dist/                  1,447
+#   + .playwright-cli/         700
+#   + shots/ + .workbuddy/       6
+#   + 根级 gitignore 文件        4
+# 项目源码本身只有 1,393 个文件——多出来的 11,060 个全是本文件要挡掉的东西。
+# 破万文件同时触发 hobby 套餐的上传请求上限（>5000 → api-upload-free 429），
+# 部署在上传阶段即失败，与构建无关。
+#
+# 维护约定：新增「构建不需要」的顶层目录时，.gitignore 与这里**两边都要加**；
+# 漏加会被 scripts/verify-vercel-config.mjs 的上传面断言在本地 build:ci 拦下。
+# ============================================================
+
+# 临时产物（AGENTS.md §1：一律放 temp/，随时可清空）
+temp/
+# 构建产物（构建期由 vite build 重新生成，不需要上传旧的一份）
+dist/
+# 各 agent 运行时工作区
+.agents/
+.workbuddy/
+# playwright-cli 会话数据（快照 / console 日志）
+.playwright-cli/
+# 历史截图
+shots/
+# 个人编辑器设置
+.vscode/
+# 根级临时文件
+preview.log
+*.tsbuildinfo
