@@ -353,9 +353,18 @@ a.rich-term:hover {
 
 .wrap {
   width: 100%;
-  max-width: 1280px;
+  max-width: var(--wrap-max);
   margin-inline: auto;
   padding-inline: var(--pad-page);
+}
+
+/* 宽屏放宽版心（阈值与理由见 tokens.css 的 --wrap-max 注释）：
+   1920 下内容占比 67% → 81%，详情页立绘明显更有存在感。所有页面共用同一容器，
+   内部对齐关系不变（只有栏宽变宽）。 */
+@media (min-width: 1820px) {
+  :root {
+    --wrap-max: 1560px;
+  }
 }
 
 /* ---------- shared list / table moods ---------- */
@@ -395,7 +404,7 @@ a.rich-term:hover {
   z-index: 90;
   top: 50%;
   transform: translateY(-50%);
-  left: max(14px, calc((100vw - 1280px) / 2 - 126px));
+  left: max(14px, calc((100vw - var(--wrap-max)) / 2 - 126px));
   display: flex;
   flex-direction: column;
   width: 96px;

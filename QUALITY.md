@@ -105,6 +105,7 @@
 | 字体族 | 只在三套栈内 | **0 越轨** ✅ | `typography-audit.js` |
 | 行宽（measure） | 无过宽块（>50 字/行） | **0** ✅ | `typography-audit.js` |
 | **版式节奏（间距）** | 版式级间距全部来自节奏令牌 | **0 越轨**（8 个生效值全部出自 `--pad-*` / `--space-*`）✅ | `spacing-audit.js` |
+| **宽屏构图（1920）** | 版心不过窄、两侧留白不成「空场」 | 内容占比 **67% → 81%**（`--wrap-max` 1280 → 1560 @≥1820，容器与左侧区块导航共用同一变量）；详情立绘 1168 → 1448px、首页 hero 右侧不再是大片空白 ✅ | 截图 `temp/shots/*-1920.png` + 走查回归 |
 | 视觉层级/一致 | 令牌单一来源 | 见 `tokens.css` 注释 + `/style` | — |
 
 ## 4. 结构与内容（Webby Content / Structure & Navigation；Awwwards Content 10%）
