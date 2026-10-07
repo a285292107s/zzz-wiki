@@ -893,6 +893,31 @@ async (page) => {
     add('404', t === '档案缺失', t ?? 'none')
   }
 
+  // ---- 详情 404 态（无效编号）：必须有 h1 + 标题说真话 + 返回出路 ----
+  // 实测发现过：/agents/9999 整页无 h1（正文插槽未渲染、错误态只有 <p>），
+  // 且标签页标题停在「代理人详情」。路由级 404 早就对，详情级漏了。
+  await page.goto('http://localhost:4175/agents/9999', { waitUntil: 'networkidle' })
+  await page.waitForTimeout(1800)
+  {
+    const bad = await page.evaluate(() => {
+      const h1 = document.querySelector('h1')
+      return {
+        h1Count: document.querySelectorAll('h1').length,
+        h1Text: h1?.textContent.replace(/\s+/g, ' ').trim() ?? '',
+        title: document.title,
+        back: document.querySelector('.state a[href="/agents"]')?.getAttribute('href') ?? 'none',
+      }
+    })
+    add(
+      'detail-404-state',
+      bad.h1Count === 1 &&
+        bad.h1Text.includes('目标不存在') &&
+        bad.title.includes('档案缺失') &&
+        bad.back === '/agents',
+      JSON.stringify(bad),
+    )
+  }
+
   // ---- 汇总 ----
   const failed = checks.filter((c) => !c.ok)
   return JSON.stringify({ total: checks.length, failed: failed.length, failedItems: failed, checks }, null, 1)

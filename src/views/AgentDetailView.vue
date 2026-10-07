@@ -52,7 +52,9 @@ const id = useRouteParam('id')
 const { data: detail, status, error, reload } = useAsyncResource(() => detailFor<CharacterDetail>(catalogEntry('/agents'), id.value))
 
 usePageMeta(
-  () => detail.value?.name ?? undefined,
+  // 404（档案不存在）时标题给「档案缺失」：与路由级 404 一致，也让标签页/书签说真话；
+  // 加载中仍走路由 meta 的默认标题（不能提前显示「缺失」）
+  () => detail.value?.name ?? (status.value === 'error' ? '档案缺失' : undefined),
   () => {
     // profile computed 定义在本调用之后（TDZ），此处直接从 detail 取介绍摘要
     const raw = detail.value?.partner_info?.profile_desc

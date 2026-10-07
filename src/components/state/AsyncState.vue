@@ -15,6 +15,9 @@ const props = defineProps<{
   /** 404 时展示的返回链接目标（可选） */
   backTo?: string
   backText?: string
+  /** 404 态把标题渲染为 `<h1>`：详情页整页只有这一处标题元素时用。
+   *  列表页已有自己的 h1，传了会造成双 h1（故默认 false，由 DetailPage 显式开启）。 */
+  notFoundAsHeading?: boolean
   /** 重试回调（通常传 useAsyncResource 的 reload）；给了才显示「重新加载」按钮 */
   retry?: () => void
 }>()
@@ -52,7 +55,13 @@ const errorHint = computed(() => {
        否则是非法 DOM）。role=alert 保留，读屏会在错误出现时立刻播报。 -->
   <div v-else-if="status === 'error'" class="state err" role="alert">
     <template v-if="isNotFound">
-      <p class="err-title mono">⚠ {{ notFoundText ?? '目标不存在或已被移除' }}</p>
+      <!-- 详情页的 404 态必须有 h1：此时正文插槽未渲染，整页没有别的标题元素
+           （实测 /agents/9999 的 h1 为空 → 读屏与 SEO 都缺主标题）。
+           ⚠ 作装饰 aria-hidden，标题的可访问名只留文案。 -->
+      <h1 v-if="notFoundAsHeading" class="err-title mono">
+        <span aria-hidden="true">⚠ </span>{{ notFoundText ?? '目标不存在或已被移除' }}
+      </h1>
+      <p v-else class="err-title mono">⚠ {{ notFoundText ?? '目标不存在或已被移除' }}</p>
       <RouterLink v-if="backTo" class="err-link mono" :to="backTo">{{ backText ?? '返回名录' }}</RouterLink>
     </template>
     <template v-else>

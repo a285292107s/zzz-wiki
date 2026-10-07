@@ -8,14 +8,14 @@
  * |---|---|---|
  * | viewport-overflow.js  | 8 视口 × 8 路由横向溢出 | 0 |
  * | touch-targets.js      | 交互目标 ≥24×24（WCAG 2.5.8） | 0 问题 |
- * | regression-walk.js    | 全站功能走查（81 项，覆盖七类目/边界态/URL 状态/离线联动） | 81/81 |
+ * | regression-walk.js    | 全站功能走查（82 项，覆盖七类目/边界态/URL 状态/离线联动） | 82/82 |
  * | transfer-profile.js   | 分类传输体积（逐文件 kb + 加载时刻） | 36 请求；最大 noto-serif-sc.css 68.9KB（解码值，gzip 后 ~10KB） |
  * | quick-search.js       | ⌘K 检索链路端到端（中文高亮/罗马字命中/结果态预激活/空态键盘路径） | 4/4 |
  * | font-loading.js       | CJK 衬线生效 + 分片按需 | serif=Noto Serif SC |
  * | slider-keyboard.js    | 滑条键盘操作（8 实例） | 全部响应 |
  * | landmarks.js          | landmark/h1/alt 唯一性 | 每页 h1/main/footer 各 1；无缺 alt 图（详情页含 2 个 `<header>`：页头 + 条目头，合法） |
  * | font-weight-calibration.js | CJK 衬线实际渲染字重标定 | 生产 = wght 500 实例 |
- * | axe-a11y.js          | axe-core 全量规则（12 路由 × 桌面/移动 24 组合） | 0 violations |
+ * | axe-a11y.js          | axe-core 全量规则（14 路由 × 桌面/移动 28 组合，含详情 404 态） | 0 violations |
  * | axe-states.js        | 交互面板**展开态**的 axe（菜单/下拉/检索/浮层/空态） | 6 状态 0 violations |
  * | print-mode.js        | 打印（纸墨模式）：白纸黑字/外壳隐藏/内容保留（含对照台**有内容**态） | 30/30 |
  * | forced-colors.js     | 高对比度模式：结构线/状态/滑条可见 | 8/8 |
@@ -28,7 +28,7 @@
  * | color-audit.js       | 色彩系统（调色板合规 / 文本 AA / 非文本 3:1） | 0 越轨，最差文本 4.65:1 |
  * | reflow-spacing.js    | WCAG 1.4.10 重排(320px) + 1.4.12 文本间距 + 320px 命中区 + 触屏档 | 0 溢出/0 裁切/0 过小目标 |
  * | keyboard-journey.js  | 键盘完整旅程（15 条任务，含焦点不被抢 / 对照台焦点交棒） | 15/15 |
- * | ax-tree.js           | 无障碍树（可访问名/标题层级/控件状态/图片名冗余） | 0 未命名，0 冗余 |
+ * | ax-tree.js           | 无障碍树（可访问名/标题层级/控件状态/图片名冗余，含详情 404 态） | 0 未命名，0 冗余 |
  * | inp-interaction.js   | 交互响应 INP 代理（4× CPU 节流，含长任务/TBT） | 最差 48–88ms（<100 竞奖档） |
  * | offline-check.js     | 离线阅读（SW 接管 → 断网重载 → 兜底页 → 缓存有界 → 回访零网络） | 7/7 |
  * | spacing-audit.js     | 版式节奏合规（严格门禁=版式级；容器级仅报告） | 版式级 0 越轨 |
