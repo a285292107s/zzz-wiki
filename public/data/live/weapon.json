@@ -10,7 +10,20 @@
   "ko": "「루나」-보름달",
   "zh": "「月相」-望",
   "ja": "「月相」-望",
-  "Id": 12001
+  "Id": 12001,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "满月",
+  "effect_desc": "<color=#FFFFFF>[普通攻击]</color>、<color=#FFFFFF>[冲刺攻击]</color>、<color=#FFFFFF>[闪避反击]</color>造成的伤害提升<color=#2BAD00>12%</color>。",
+  "effect_refine": 1
  },
  "12002": {
   "icon": "Weapon_B_Common_02",
@@ -23,7 +36,20 @@
   "ko": "「루나」-그믐달",
   "zh": "「月相」-晦",
   "ja": "「月相」-晦",
-  "Id": 12002
+  "Id": 12002,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "残月",
+  "effect_desc": "发动<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>时，装备者造成的伤害提升<color=#2BAD00>15%</color>，持续6秒。",
+  "effect_refine": 1
  },
  "12003": {
   "icon": "Weapon_B_Common_03",
@@ -36,7 +62,20 @@
   "ko": "「루나」-초승달",
   "zh": "「月相」-朔",
   "ja": "「月相」-朔",
-  "Id": 12003
+  "Id": 12003,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "暴击率",
+   "value": 640,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "新月",
+  "effect_desc": "发动<color=#FFFFFF>[强化特殊技]</color>时，装备者回复<color=#2BAD00>3</color>点能量，12秒内最多触发一次。",
+  "effect_refine": 1
  },
  "12004": {
   "icon": "Weapon_B_Common_04",
@@ -49,7 +88,20 @@
   "ko": "「잔향」-Ⅰ형",
   "zh": "「残响」-Ⅰ型",
   "ja": "「残響」-Ⅰ型",
-  "Id": 12004
+  "Id": 12004,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "潮汐",
+  "effect_desc": "发动<color=#FFFFFF>[强化特殊技]</color>时，全队角色冲击力提升<color=#2BAD00>8%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。",
+  "effect_refine": 1
  },
  "12005": {
   "icon": "Weapon_B_Common_05",
@@ -62,7 +114,20 @@
   "ko": "「잔향」-Ⅱ형",
   "zh": "「残响」-Ⅱ型",
   "ja": "「残響」-Ⅱ型",
-  "Id": 12005
+  "Id": 12005,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "能量自动回复",
+   "value": 1600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "音浪",
+  "effect_desc": "发动<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[连携技]</color>时，全队角色异常掌控和异常精通提升<color=#2BAD00>10</color>点，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。",
+  "effect_refine": 1
  },
  "12006": {
   "icon": "Weapon_B_Common_06",
@@ -75,7 +140,20 @@
   "ko": "「잔향」-Ⅲ형",
   "zh": "「残响」-Ⅲ型",
   "ja": "「残響」-Ⅲ型",
-  "Id": 12006
+  "Id": 12006,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "生命值",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "强音",
+  "effect_desc": "发动<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>时，全队角色攻击力提升<color=#2BAD00>8%</color>，持续10秒，20秒内最多触发一次，同名被动效果之间不可叠加。",
+  "effect_refine": 1
  },
  "12007": {
   "icon": "Weapon_B_Common_07",
@@ -88,7 +166,20 @@
   "ko": "「급류」-총",
   "zh": "「湍流」-铳型",
   "ja": "「激流」-銃型",
-  "Id": 12007
+  "Id": 12007,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "暗涌",
+  "effect_desc": "<color=#FFFFFF>[强化特殊技]</color>造成的失衡值提升<color=#2BAD00>10%</color>。",
+  "effect_refine": 1
  },
  "12008": {
   "icon": "Weapon_B_Common_08",
@@ -101,7 +192,20 @@
   "ko": "「급류」-화살",
   "zh": "「湍流」-矢型",
   "ja": "「激流」-矢型",
-  "Id": 12008
+  "Id": 12008,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "冲击力",
+   "value": 480,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "巨浪",
+  "effect_desc": "攻击命中敌人时，装备者对主要攻击目标造成的失衡值提升<color=#2BAD00>8%</color>。",
+  "effect_refine": 1
  },
  "12009": {
   "icon": "Weapon_B_Common_09",
@@ -114,7 +218,20 @@
   "ko": "「급류」-도끼",
   "zh": "「湍流」-斧型",
   "ja": "「激流」-斧型",
-  "Id": 12009
+  "Id": 12009,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "能量自动回复",
+   "value": 1600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "疾潮",
+  "effect_desc": "成为接战状态下的当前操作角色时，装备者的冲击力提升<color=#2BAD00>9%</color>，持续10秒，20秒内最多触发一次。",
+  "effect_refine": 1
  },
  "12010": {
   "icon": "Weapon_B_Common_10",
@@ -127,7 +244,20 @@
   "ko": "「자기 폭풍」-알파",
   "zh": "「电磁暴」-壹式",
   "ja": "「磁気嵐」-壱式",
-  "Id": 12010
+  "Id": 12010,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "紊乱电流",
+  "effect_desc": "累积属性异常积蓄值时，装备者的异常掌控提升<color=#2BAD00>25</color>点，持续10秒，20秒内最多触发一次。",
+  "effect_refine": 1
  },
  "12011": {
   "icon": "Weapon_B_Common_11",
@@ -140,7 +270,20 @@
   "ko": "「자기 폭풍」-브라보",
   "zh": "「电磁暴」-贰式",
   "ja": "「磁気嵐」-弐式",
-  "Id": 12011
+  "Id": 12011,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "异常精通",
+   "value": 24,
+   "format": "{0:0}"
+  },
+  "effect_name": "高压电涌",
+  "effect_desc": "累积属性异常积蓄值时，装备者的异常精通提升<color=#2BAD00>25</color>点，持续10秒，20秒内最多触发一次。",
+  "effect_refine": 1
  },
  "12012": {
   "icon": "Weapon_B_Common_12",
@@ -153,7 +296,20 @@
   "ko": "「자기 폭풍」-찰리",
   "zh": "「电磁暴」-叁式",
   "ja": "「磁気嵐」-参式",
-  "Id": 12012
+  "Id": 12012,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "穿透率",
+   "value": 640,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "过载电荷",
+  "effect_desc": "队伍中任意角色对敌人施加属性异常效果时，装备者回复<color=#2BAD00>3.5</color>点能量，12秒内最多触发一次。",
+  "effect_refine": 1
  },
  "12013": {
   "icon": "Weapon_B_Common_13",
@@ -166,7 +322,20 @@
   "ko": "「아이덴티티」-베이스",
   "zh": "「恒等式」-本格",
   "ja": "「恒等式」-本格",
-  "Id": 12013
+  "Id": 12013,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "防御力",
+   "value": 1280,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "沉击",
+  "effect_desc": "受到敌方攻击时，装备者的防御力提升<color=#2BAD00>20%</color>，持续8秒。",
+  "effect_refine": 1
  },
  "12014": {
   "icon": "Weapon_B_Common_14",
@@ -179,7 +348,20 @@
   "ko": "「아이덴티티」-인플렉션",
   "zh": "「恒等式」-变格",
   "ja": "「恒等式」-変格",
-  "Id": 12014
+  "Id": 12014,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "防御力",
+   "value": 1280,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "致眩",
+  "effect_desc": "受到敌方攻击时，攻击者造成的伤害降低<color=#2BAD00>6%</color>，持续12秒。",
+  "effect_refine": 1
  },
  "12015": {
   "icon": "Weapon_B_Common_15",
@@ -192,7 +374,20 @@
   "ko": "「잿더미」-코발트블루",
   "zh": "「灰烬」-钴蓝",
   "ja": "「灰燼」-蒼藍",
-  "Id": 12015
+  "Id": 12015,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "生命值",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "黯火",
+  "effect_desc": "成为接战状态下的当前操作角色时，装备者的攻击力提升<color=#2BAD00>7.2%</color>，持续10秒，20秒内最多触发一次。",
+  "effect_refine": 1
  },
  "12016": {
   "icon": "Weapon_B_Common_16",
@@ -205,7 +400,20 @@
   "ko": "「루나」-반달",
   "zh": "「月相」-弦",
   "ja": "「月相」-弦",
-  "Id": 12016
+  "Id": 12016,
+  "base_property": {
+   "name": "基础防御力",
+   "value": 19,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "防御力",
+   "value": 1280,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "弦月",
+  "effect_desc": "发动<color=#FFFFFF>[强化特殊技]</color>时，[普通攻击]造成的伤害提升<color=#2BAD00>18%</color>，持续10秒，重复触发时刷新持续时间。",
+  "effect_refine": 1
  },
  "13001": {
   "icon": "Weapon_A_Common_01",
@@ -218,7 +426,20 @@
   "ko": "거리의 슈퍼스타",
   "zh": "街头巨星",
   "ja": "ストリートスター",
-  "Id": 13001
+  "Id": 13001,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "火热腔调",
+  "effect_desc": "队伍中任意角色发动<color=#FFFFFF>[连携技]</color>时，为装备者提供1层充能效果，最多叠加3层；发动<color=#FFFFFF>[终结技]</color>时，消耗所有充能，每层充能效果使招式造成的伤害提升<color=#2BAD00>15%</color>。",
+  "effect_refine": 1
  },
  "13002": {
   "icon": "Weapon_A_Common_02",
@@ -231,7 +452,20 @@
   "ko": "시간의 파편",
   "zh": "时光切片",
   "ja": "歳月の薄片",
-  "Id": 13002
+  "Id": 13002,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "穿透率",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "说「茄子」",
+  "effect_desc": "队伍中任意角色发动<color=#FFFFFF>[闪避反击]</color>/<color=#FFFFFF>[强化特殊技]</color>/<color=#FFFFFF>[支援攻击]</color>/<color=#FFFFFF>[连携技]</color>时，额外获得<color=#2BAD00>20</color>/<color=#2BAD00>25</color>/<color=#2BAD00>30</color>/<color=#2BAD00>35</color>点喧响值，并为装备者回复<color=#2BAD00>0.7</color>点能量，12秒内最多触发一次，不同招式分别结算冷却时间，同名被动效果之间不可叠加。",
+  "effect_refine": 1
  },
  "13003": {
   "icon": "Weapon_A_Common_03",
@@ -244,7 +478,20 @@
   "ko": "우림의 식객",
   "zh": "雨林饕客",
   "ja": "密林の食いしん坊",
-  "Id": 13003
+  "Id": 13003,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "异常精通",
+   "value": 30,
+   "format": "{0:0}"
+  },
+  "effect_name": "开饭了！",
+  "effect_desc": "每消耗10点能量值，获得1层增益效果，每层增益效果使装备者的攻击力提升<color=#2BAD00>2.5%</color>，最多叠加10层，持续10秒，每层效果单独结算持续时间。",
+  "effect_refine": 1
  },
  "13004": {
   "icon": "Weapon_A_Common_04",
@@ -257,7 +504,20 @@
   "ko": "별빛 엔진",
   "zh": "星徽引擎",
   "ja": "スターライトエンジン",
-  "Id": 13004
+  "Id": 13004,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "骑士连打",
+  "effect_desc": "发动<color=#FFFFFF>[闪避反击]</color>或<color=#FFFFFF>[快速支援]</color>时，装备者的攻击力提升<color=#2BAD00>12%</color>，持续12秒。",
+  "effect_refine": 1
  },
  "13005": {
   "icon": "Weapon_A_Common_05",
@@ -270,7 +530,20 @@
   "ko": "스팀오븐",
   "zh": "人为刀俎",
   "ja": "まな板の鯉",
-  "Id": 13005
+  "Id": 13005,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "能量自动回复",
+   "value": 2000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "浓厚汤底",
+  "effect_desc": "每拥有10点能量值，装备者的冲击力提升<color=#2BAD00>2%</color>，最多叠加8层，能量消耗后该增益效果仍然保留，持续8秒，每层效果单独结算持续时间。",
+  "effect_refine": 1
  },
  "13006": {
   "icon": "Weapon_A_Common_06",
@@ -283,7 +556,20 @@
   "ko": "귀중한 화석 코어",
   "zh": "贵重骨核",
   "ja": "貴重な石化コア",
-  "Id": 13006
+  "Id": 13006,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "冲击力",
+   "value": 600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "巨兽猎手",
+  "effect_desc": "敌方生命值大于等于50%时，装备者对目标造成的失衡值提升<color=#2BAD00>10%</color>，敌方生命值大于等于75%时，该增益效果额外提升<color=#2BAD00>10%</color>。",
+  "effect_refine": 1
  },
  "13007": {
   "icon": "Weapon_A_Common_07",
@@ -296,7 +582,20 @@
   "ko": "오리지널 변신 아이템",
   "zh": "正版变身器",
   "ja": "正規版変身装置",
-  "Id": 13007
+  "Id": 13007,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "生命值",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "骑士飞踢",
+  "effect_desc": "生命值上限提升<color=#2BAD00>8%</color>；受到敌方攻击时，装备者的冲击力提升<color=#2BAD00>10%</color>，持续12秒。",
+  "effect_refine": 1
  },
  "13008": {
   "icon": "Weapon_A_Common_08",
@@ -309,7 +608,20 @@
   "ko": "쌍둥이의 눈물",
   "zh": "双生泣星",
   "ja": "双生の涙",
-  "Id": 13008
+  "Id": 13008,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "呜咽余波",
+  "effect_desc": "队伍中任意角色对敌人施加属性异常效果时，为装备者提供1层增益效果，每层增益效果使装备者的异常精通提升<color=#2BAD00>30</color>点，最多叠加4层，目标从失衡状态恢复或死亡时，对应增益效果结束，每层效果单独结算持续时间。",
+  "effect_refine": 1
  },
  "13009": {
   "icon": "Weapon_A_Common_09",
@@ -322,7 +634,20 @@
   "ko": "감전 립글로스",
   "zh": "触电唇彩",
   "ja": "電撃リップグロス",
-  "Id": 13009
+  "Id": 13009,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "异常精通",
+   "value": 30,
+   "format": "{0:0}"
+  },
+  "effect_name": "致命拥吻",
+  "effect_desc": "当场上存在处于属性异常状态下的敌人时，装备者的攻击力提升<color=#2BAD00>10%</color>，对目标造成的伤害额外提升<color=#2BAD00>15%</color>。",
+  "effect_refine": 1
  },
  "13010": {
   "icon": "Weapon_A_Common_10",
@@ -335,7 +660,20 @@
   "ko": "버니 밴드",
   "zh": "兔能环",
   "ja": "ラビットチャージャー",
-  "Id": 13010
+  "Id": 13010,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "防御力",
+   "value": 1600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "摸摸兔兔",
+  "effect_desc": "生命值上限提升<color=#2BAD00>8%</color>；拥有护盾时，装备者的攻击力提升<color=#2BAD00>10%</color>。",
+  "effect_refine": 1
  },
  "13011": {
   "icon": "Weapon_A_Common_11",
@@ -348,7 +686,20 @@
   "ko": "봄날의 포옹",
   "zh": "春日融融",
   "ja": "ホットスプリング",
-  "Id": 13011
+  "Id": 13011,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "热泉汤",
+  "effect_desc": "受到的伤害降低<color=#2BAD00>7.5%</color>；受到敌方攻击时，装备者的能量获得效率提升<color=#2BAD00>10%</color>，持续12秒；装备者换回后场时，该增益效果将传递给当前操作中的角色，并刷新持续时间，同名被动效果之间不可叠加。",
+  "effect_refine": 1
  },
  "13012": {
   "icon": "Weapon_A_Common_12",
@@ -361,7 +712,20 @@
   "ko": "기변의 큐브",
   "zh": "幻变魔方",
   "ja": "魔法の立体パズル",
-  "Id": 13012
+  "Id": 13012,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "奇机弄巧",
+  "effect_desc": "发动<color=#FFFFFF>[强化特殊技]</color>时，装备者暴击伤害提升<color=#2BAD00>16%</color>，持续12秒；且若目标当前生命值低于最大值的50%时，<color=#FFFFFF>[强化特殊技]</color>造成的伤害提升<color=#2BAD00>20%</color>。",
+  "effect_refine": 1
  },
  "13013": {
   "icon": "Weapon_A_Common_13",
@@ -374,7 +738,20 @@
   "ko": "도금된 화신풍",
   "zh": "鎏金花信",
   "ja": "金メッキの花信",
-  "Id": 13013
+  "Id": 13013,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "超规防盗措施",
+  "effect_desc": "攻击力提升<color=#2BAD00>6</color>%，<color=#FFFFFF>[强化特殊技]</color>造成的伤害提升<color=#2BAD00>15</color>%。",
+  "effect_refine": 1
  },
  "13014": {
   "icon": "Weapon_A_Common_14",
@@ -387,7 +764,20 @@
   "ko": "일렉트로 워크",
   "zh": "电波漫步",
   "ja": "エレクトロウォーク",
-  "Id": 13014
+  "Id": 13014,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "生命值",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "自在步调",
+  "effect_desc": "发动<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>时，装备者获得1层增益效果，每层增益效果使装备者的贯穿力提升<color=#2BAD00>80</color>点，最多叠加3层，持续12秒，每层效果单独结算持续时间。",
+  "effect_refine": 1
  },
  "13015": {
   "icon": "Weapon_A_Common_15",
@@ -400,7 +790,20 @@
   "ko": "열망의 악센트",
   "zh": "强音热望",
   "ja": "強音デザイア",
-  "Id": 13015
+  "Id": 13015,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "暴击率",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "躁动全场",
+  "effect_desc": "<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[连携技]</color>命中敌人时，装备者的攻击力提升<color=#2BAD00>6%</color>，持续8秒；目标处于属性异常状态下时，该增益效果额外提升<color=#2BAD00>6%</color>。",
+  "effect_refine": 1
  },
  "13016": {
   "icon": "Weapon_A_Common_16",
@@ -413,7 +816,20 @@
   "ko": "조명을 새기는 칼",
   "zh": "光影刻刀",
   "ja": "光と影のカット",
-  "Id": 13016
+  "Id": 13016,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "冲击力",
+   "value": 600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "镌刻倏忽",
+  "effect_desc": "队伍中角色生命值大于等于50%，受到的伤害降低<color=#2BAD00>7.5%</color>，受到的[秽息浸染]值降低<color=#2BAD00>10%</color>，该效果全队唯一。",
+  "effect_refine": 1
  },
  "13017": {
   "icon": "Weapon_A_Common_17",
@@ -426,7 +842,20 @@
   "ko": "묘운이 눈앞에",
   "zh": "喵运当头",
   "ja": "ニャン運到来",
-  "Id": 13017
+  "Id": 13017,
+  "base_property": {
+   "name": "基础防御力",
+   "value": 24,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "防御力",
+   "value": 1600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "幸运肉球",
+  "effect_desc": "防御力提升<color=#2BAD00>8%</color>；释放<color=#FFFFFF>[强化特殊技]</color>时，防御力额外提升<color=#2BAD00>8%</color>，持续40秒，重复触发时刷新持续时间。",
+  "effect_refine": 1
  },
  "13018": {
   "icon": "Weapon_A_Common_18",
@@ -439,7 +868,20 @@
   "ko": "둥둥 메아리",
   "zh": "咚哒回声",
   "ja": "ドンカツエコー",
-  "Id": 13018
+  "Id": 13018,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "异常精通",
+   "value": 30,
+   "format": "{0:0}"
+  },
+  "effect_name": "铿锵鸣鼓",
+  "effect_desc": "装备者触发<color=#FFFFFF>[乱流]</color>效果时，为自身回复<color=#2BAD00>2</color>点能量，10秒内最多触发一次；装备者攻击处于属性异常状态下的敌人时，造成的伤害提升<color=#2BAD00>11.5%</color>。",
+  "effect_refine": 1
  },
  "13019": {
   "icon": "Weapon_A_Common_19",
@@ -452,7 +894,20 @@
   "ko": "푸른 물결의 솥",
   "zh": "青漪灵鼎",
   "ja": "蒼き波の霊器",
-  "Id": 13019
+  "Id": 13019,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "生命值",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "玄音唤灵",
+  "effect_desc": "装备者发动<color=#FFFFFF>[强化特殊技]</color> 时可获得1层增益效果，每层增益效果使装备者造成的伤害提升<color=#2BAD00>4%</color>，最多叠加3层，持续20秒，每0.5秒最多触发1次，重复触发时刷新持续时间；拥有3层增益效果时，装备者的暴击率提升<color=#2BAD00>6.5%</color>。",
+  "effect_refine": 1
  },
  "13020": {
   "icon": "Weapon_A_Common_20",
@@ -465,7 +920,20 @@
   "ko": "들끓는 가마솥",
   "zh": "炎炙沸釜",
   "ja": "炎々沸々鍋一丁",
-  "Id": 13020
+  "Id": 13020,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "冲击力",
+   "value": 600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "红油辣锅",
+  "effect_desc": "发动<color=#FFFFFF>[支援突击]</color> 时，装备者对目标造成的失衡值提升<color=#2BAD00>7.2%</color>，装备者造成的伤害提升<color=#2BAD00>7.2%</color>，持续30秒，重复触发时刷新持续时间。",
+  "effect_refine": 1
  },
  "13021": {
   "icon": "Weapon_A_Common_21",
@@ -478,7 +946,20 @@
   "ko": "진혈의 비갑",
   "zh": "血髓秘匣",
   "ja": "ブラッドボックス",
-  "Id": 13021
+  "Id": 13021,
+  "base_property": {
+   "name": "基础防御力",
+   "value": 24,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "暴击率",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "启封之刻",
+  "effect_desc": "装备者暴击率大于<color=#2BAD00>100%</color>时，每超出1%暴击率，使装备者造成的伤害提升<color=#2BAD00>0.48%</color>，至多提升<color=#2BAD00>24%</color>。",
+  "effect_refine": 1
  },
  "13101": {
   "icon": "Weapon_A_1011",
@@ -491,7 +972,20 @@
   "ko": "데마라 배터리 Ⅱ형",
   "zh": "德玛拉电池Ⅱ型",
   "ja": "デマラ式電池Ⅱ型",
-  "Id": 13101
+  "Id": 13101,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "冲击力",
+   "value": 600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "电光石火",
+  "effect_desc": "<color=#2EB6FF>电属性伤害</color>提升<color=#2BAD00>15%</color>；<color=#FFFFFF>[闪避反击]</color>或<color=#FFFFFF>[支援攻击]</color>命中敌人时，装备者的能量获得效率提升<color=#2BAD00>18%</color>，持续8秒。",
+  "effect_refine": 1
  },
  "13103": {
   "icon": "Weapon_A_1031",
@@ -504,7 +998,20 @@
   "ko": "보물함",
   "zh": "聚宝箱",
   "ja": "ザ・ボールト",
-  "Id": 13103
+  "Id": 13103,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "能量自动回复",
+   "value": 2000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "财迷心窍",
+  "effect_desc": "<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>造成<color=#FE437E>以太伤害</color>时，所有单位对目标造成的伤害提升<color=#2BAD00>15%</color>，装备者的能量自动回复提升<color=#2BAD00>0.5</color>点/秒，持续2秒，同名被动效果之间不可叠加。",
+  "effect_refine": 1
  },
  "13106": {
   "icon": "Weapon_A_1061",
@@ -517,7 +1024,20 @@
   "ko": "하우스키퍼",
   "zh": "家政员",
   "ja": "ハウスキーパー",
-  "Id": 13106
+  "Id": 13106,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "安心家用轮锯",
+  "effect_desc": "位于后场时，装备者的能量自动回复提升<color=#2BAD00>0.45</color>点/秒；<color=#FFFFFF>[强化特殊技]</color>命中敌人时，装备者造成的<color=#F0D12B>物理伤害</color>提升<color=#2BAD00>3%</color>，最多叠加15层，持续1秒，重复触发时刷新持续时间。",
+  "effect_refine": 1
  },
  "13108": {
   "icon": "Weapon_A_1081",
@@ -530,7 +1050,20 @@
   "ko": "별빛 엔진 레플리카",
   "zh": "仿制星徽引擎",
   "ja": "なんちゃってスターライトエンジン",
-  "Id": 13108
+  "Id": 13108,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "骑士光波：改",
+  "effect_desc": "<color=#FFFFFF>[普通攻击]</color>或<color=#FFFFFF>[冲刺攻击]</color>命中6米外的敌人时，装备者对目标造成的<color=#F0D12B>物理伤害</color>提升<color=#2BAD00>36%</color>，持续8秒。",
+  "effect_refine": 1
  },
  "13111": {
   "icon": "Weapon_A_1111",
@@ -543,7 +1076,20 @@
   "ko": "굴착기-붉은 축",
   "zh": "旋钻机-赤轴",
   "ja": "ドリルリグ-レッドシャフト",
-  "Id": 13111
+  "Id": 13111,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "能量自动回复",
+   "value": 2000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "红莲电机",
+  "effect_desc": "发动<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[连携技]</color>时，<color=#FFFFFF>[普通攻击]</color>和<color=#FFFFFF>[冲刺攻击]</color>造成的<color=#2EB6FF>电属性伤害</color>提升<color=#2BAD00>50%</color>，持续10秒，15秒内最多触发一次。",
+  "effect_refine": 1
  },
  "13112": {
   "icon": "Weapon_A_1121",
@@ -556,7 +1102,20 @@
   "ko": "빅 실린더",
   "zh": "比格气缸",
   "ja": "ビガー・シリンダー",
-  "Id": 13112
+  "Id": 13112,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "防御力",
+   "value": 1600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "万斤顶",
+  "effect_desc": "受到的伤害降低<color=#2BAD00>7.5%</color>；受到敌方攻击后，下一次攻击命中敌人时，额外造成装备者<color=#2BAD00>600%</color>防御力的伤害，且必定触发暴击，7.5秒内最多触发一次。",
+  "effect_refine": 1
  },
  "13113": {
   "icon": "Weapon_A_1131",
@@ -569,7 +1128,20 @@
   "ko": "수줍은 악마",
   "zh": "含羞恶面",
   "ja": "恥じらう悪面",
-  "Id": 13113
+  "Id": 13113,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "饕餮相",
+  "effect_desc": "<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>15%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，全队角色攻击力提升<color=#2BAD00>2%</color>，最多叠加4层，持续12秒，重复触发时刷新持续时间，同名被动效果之间不可叠加。",
+  "effect_refine": 1
  },
  "13115": {
   "icon": "Weapon_A_1151",
@@ -582,7 +1154,20 @@
   "ko": "호전적인 꽝꽝이",
   "zh": "好斗的阿炮",
   "ja": "喧嘩腰のボンバルダム",
-  "Id": 13115
+  "Id": 13115,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "能量自动回复",
+   "value": 2000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "踩踏事故",
+  "effect_desc": "队伍中任意友方单位攻击命中敌人时，队伍中所有友方单位的攻击力提升<color=#2BAD00>2.5%</color>，最多叠加4层，持续8秒，每层效果单独结算持续时间，每名友方单位最多提供1层增益效果，同名被动效果之间不可叠加。",
+  "effect_refine": 1
  },
  "13127": {
   "icon": "Weapon_A_1271",
@@ -595,7 +1180,20 @@
   "ko": "평화 수호자-특화형",
   "zh": "维序者-特化型",
   "ja": "秩序の守り手・特化型",
-  "Id": 13127
+  "Id": 13127,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "标准格挡术",
+  "effect_desc": "拥有护盾时，装备者的能量自动回复提升<color=#2BAD00>0.4</color>点/秒；<color=#FFFFFF>[强化特殊技]</color>和<color=#FFFFFF>[支援突击]</color>累积的属性异常积蓄值提升<color=#2BAD00>36%</color>。",
+  "effect_refine": 1
  },
  "13128": {
   "icon": "Weapon_A_1281",
@@ -608,7 +1206,20 @@
   "ko": "뛰뛰빵빵",
   "zh": "轰鸣座驾",
   "ja": "グロウル・マイ・カー",
-  "Id": 13128
+  "Id": 13128,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "碰撞势能",
+  "effect_desc": "<color=#FFFFFF>[强化特殊技]</color>命中敌人时，随机触发以下三种效果中的一种，持续5秒，0.3秒内最多触发一次，同类效果不可叠加，重复触发时刷新持续时间，多个效果可以同时存在：装备者的攻击力提升<color=#2BAD00>8%</color>；装备者的异常精通提升<color=#2BAD00>40</color>点；装备者的属性异常积蓄效率提升<color=#2BAD00>25%</color>。",
+  "effect_refine": 1
  },
  "13135": {
   "icon": "Weapon_A_1351",
@@ -621,7 +1232,20 @@
   "ko": "커터칼",
   "zh": "裁纸刀",
   "ja": "ペーパーカッター",
-  "Id": 13135
+  "Id": 13135,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "冲击力",
+   "value": 600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "小心手指",
+  "effect_desc": "发动<color=#FFFFFF>[追加攻击]</color>时，装备者造成的<color=#F0D12B>物理伤害</color>提升<color=#2BAD00>15%</color>，造成的失衡值提升<color=#2BAD00>10%</color>，持续10秒。",
+  "effect_refine": 1
  },
  "13142": {
   "icon": "Weapon_A_1421",
@@ -634,7 +1258,20 @@
   "ko": "진괘를 담은 함",
   "zh": "震元奇枢",
   "ja": "雷鳴が如き八卦",
-  "Id": 13142
+  "Id": 13142,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "寻经定络",
+  "effect_desc": "装备者的<color=#FFFFFF>[强化特殊技]</color>和<color=#FFFFFF>[终结技]</color>造成的伤害增加<color=#2BAD00>25%</color>；队伍中任意角色受到伤害或回复生命时，为装备者回复<color=#2BAD00>2</color>点能量，5秒内最多触发一次；",
+  "effect_refine": 1
  },
  "13144": {
   "icon": "Weapon_A_1441",
@@ -647,7 +1284,20 @@
   "ko": "어스름한 밤의 화염",
   "zh": "燔火胧夜",
   "ja": "燔火の朧夜",
-  "Id": 13144
+  "Id": 13144,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "生命值",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "笼中火",
+  "effect_desc": "装备者造成的<color=#FF5521>火属性伤害</color>提升<color=#2BAD00>15%</color>；装备者的生命值降低时，暴击率提升<color=#2BAD00>15%</color>，持续5秒。",
+  "effect_refine": 1
  },
  "14001": {
   "icon": "Weapon_S_Common_01",
@@ -660,7 +1310,20 @@
   "ko": "캐논 로터",
   "zh": "加农转子",
   "ja": "キャノンローラー",
-  "Id": 14001
+  "Id": 14001,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "暴击率",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "口径超规",
+  "effect_desc": "攻击力提升<color=#2BAD00>7.5%</color>；攻击命中敌人并触发暴击时，额外造成200%攻击力的伤害，<color=#2BAD00>8</color>秒内最多触发一次。",
+  "effect_refine": 1
  },
  "14002": {
   "icon": "Weapon_S_Common_02",
@@ -673,7 +1336,20 @@
   "ko": "내 맘대로 게임 볼",
   "zh": "逍遥游球",
   "ja": "ゲームボール",
-  "Id": 14002
+  "Id": 14002,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "能量自动回复",
+   "value": 2000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "电玩，启动！",
+  "effect_desc": "装备者攻击命中敌人时，若触发属性克制效果，则所有单位对该目标的暴击率提升<color=#2BAD00>12%</color>，持续12秒，同名被动效果之间不可叠加。",
+  "effect_refine": 1
  },
  "14003": {
   "icon": "Weapon_S_Common_03",
@@ -686,7 +1362,20 @@
   "ko": "리볼버 로터",
   "zh": "左轮转子",
   "ja": "シックスシューター",
-  "Id": 14003
+  "Id": 14003,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "冲击力",
+   "value": 600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "开火！",
+  "effect_desc": "每3秒为装备者提供1层充能效果，最多叠加6层；发动<color=#FFFFFF>[强化特殊技]</color>时，消耗所有充能，每层充能效果使招式造成的失衡值提升<color=#2BAD00>4%</color>。",
+  "effect_refine": 1
  },
  "14102": {
   "icon": "Weapon_S_1021",
@@ -699,7 +1388,20 @@
   "ko": "스틸 쿠션",
   "zh": "钢铁肉垫",
   "ja": "鋼の肉球",
-  "Id": 14102
+  "Id": 14102,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 46,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "暴击率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "合金猫爪",
+  "effect_desc": "<color=#F0D12B>物理伤害</color>提升<color=#2BAD00>20%</color>；从背后攻击命中敌人时，装备者造成的伤害提升<color=#2BAD00>25%</color>。",
+  "effect_refine": 1
  },
  "14104": {
   "icon": "Weapon_S_1041",
@@ -712,7 +1414,20 @@
   "ko": "유황석",
   "zh": "硫磺石",
   "ja": "ブリムストーン",
-  "Id": 14104
+  "Id": 14104,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 46,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "炽烈吐息",
+  "effect_desc": "<color=#FFFFFF>[普通攻击]</color>、<color=#FFFFFF>[冲刺攻击]</color>或<color=#FFFFFF>[闪避反击]</color>命中敌人时，装备者的攻击力提升<color=#2BAD00>3.5%</color>，最多叠加8层，持续8秒，0.5秒内最多触发一次，每层效果单独结算持续时间。",
+  "effect_refine": 1
  },
  "14105": {
   "icon": "Weapon_S_1051",
@@ -725,7 +1440,20 @@
   "ko": "크라켄의 요람",
   "zh": "海妖摇篮",
   "ja": "セイレーンクレードル",
-  "Id": 14105
+  "Id": 14105,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "生命值",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "触抚心拥",
+  "effect_desc": "装备者的生命值降低时，造成的<color=#98EFF0>冰属性贯穿伤害</color>提升<color=#2BAD00>6%</color>，最多叠加3层，持续25秒，每层效果单独结算持续时间，0.5秒内最多触发一次；装备者生命值降低至最大值的50%时，暴击率提升<color=#2BAD00>20%</color>。",
+  "effect_refine": 1
  },
  "14107": {
   "icon": "Weapon_S_1071",
@@ -738,7 +1466,20 @@
   "ko": "저돌적인 송곳니",
   "zh": "奔袭獠牙",
   "ja": "猛進するキバ",
-  "Id": 14107
+  "Id": 14107,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "冲击力",
+   "value": 720,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "不破铁骑",
+  "effect_desc": "装备者施加的护盾值提升<color=#2BAD00>30%</color>；队伍中任意角色触发<color=#FFFFFF>[破招]</color>或<color=#FFFFFF>[极限闪避]</color>时，全队角色造成的伤害提升<color=#2BAD00>18%</color>，造成的失衡值提升<color=#2BAD00>12%</color>，持续20秒，同名被动效果之间不可叠加。",
+  "effect_refine": 1
  },
  "14109": {
   "icon": "Weapon_S_1091",
@@ -751,7 +1492,20 @@
   "ko": "싸락눈 내린 별각",
   "zh": "霰落星殿",
   "ja": "あられ落つ星殿",
-  "Id": 14109
+  "Id": 14109,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 50,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "暴击率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "霜染寒星",
+  "effect_desc": "暴击伤害提升<color=#2BAD00>50%</color>；发动<color=#FFFFFF>[强化特殊技]</color>或队伍中任意角色对敌人施加属性异常效果时，装备者造成的<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>20%</color>，最多叠加2层，持续15秒，每层效果单独结算持续时间。",
+  "effect_refine": 1
  },
  "14110": {
   "icon": "Weapon_S_1101",
@@ -764,7 +1518,20 @@
   "ko": "헬파이어 기어",
   "zh": "燃狱齿轮",
   "ja": "燃獄ギア",
-  "Id": 14110
+  "Id": 14110,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 46,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "冲击力",
+   "value": 720,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "热血施工",
+  "effect_desc": "位于后场时，装备者的能量自动回复提升<color=#2BAD00>0.6</color>点/秒；发动<color=#FFFFFF>[强化特殊技]</color>时，装备者的冲击力提升<color=#2BAD00>10%</color>，最多叠加2层，持续10秒，每层效果单独结算持续时间。",
+  "effect_refine": 1
  },
  "14114": {
   "icon": "Weapon_S_1141",
@@ -777,7 +1544,20 @@
   "ko": "구속된 자",
   "zh": "拘缚者",
   "ja": "拘縛されし者",
-  "Id": 14114
+  "Id": 14114,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 46,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "冲击力",
+   "value": 720,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "束缚枷锁",
+  "effect_desc": "攻击命中敌人时，<color=#FFFFFF>[普通攻击]</color>造成的伤害和失衡值提升<color=#2BAD00>6%</color>，最多叠加5层，持续8秒，同一招式内最多触发一次，每层效果单独结算持续时间。",
+  "effect_refine": 1
  },
  "14116": {
   "icon": "Weapon_S_1161",
@@ -790,7 +1570,20 @@
   "ko": "화염의 월계관",
   "zh": "焰心桂冠",
   "ja": "炎心の桂冠",
-  "Id": 14116
+  "Id": 14116,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "冲击力",
+   "value": 720,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "流动之火",
+  "effect_desc": "发动<color=#FFFFFF>[快速支援]</color>或<color=#FFFFFF>[极限支援]</color>时，装备者的冲击力提升<color=#2BAD00>25%</color>，持续8秒；装备者的<color=#FFFFFF>[普通攻击]</color>命中敌人时，对目标施加一层<color=#FFFFFF>[萎靡]</color>，最多叠加20层，持续30秒，重复触发时刷新持续时间；队伍中任意角色攻击命中敌人时，目标每拥有一层<color=#FFFFFF>[萎靡]</color>，本次攻击中<color=#98EFF0>冰属性伤害</color>和<color=#FF5521>火属性伤害</color>的暴击伤害提升<color=#2BAD00>1.5%</color>，该效果全队唯一。",
+  "effect_refine": 1
  },
  "14117": {
   "icon": "Weapon_S_1171",
@@ -803,7 +1596,20 @@
   "ko": "타오르는 셰이커",
   "zh": "灼心摇壶",
   "ja": "バーニング・シェイカー",
-  "Id": 14117
+  "Id": 14117,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "焦油斟注",
+  "effect_desc": "位于后场时，装备者的能量自动回复提升<color=#2BAD00>0.6</color>点/秒；<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[支援攻击]</color>命中敌人时，装备者造成的伤害提升<color=#2BAD00>3.5%</color>，最多叠加10层，持续6秒，0.3秒内最多触发一次，位于后场时叠加效率翻倍，重复触发时刷新持续时间；获得伤害提升效果时，若叠加层数大于等于5层，则装备者的异常精通额外提升<color=#2BAD00>50</color>点，异常精通提升效果不可叠加，持续6秒。",
+  "effect_refine": 1
  },
  "14118": {
   "icon": "Weapon_S_1181",
@@ -816,7 +1622,20 @@
   "ko": "감입 컴파일러",
   "zh": "嵌合编译器",
   "ja": "複合コンパイラ",
-  "Id": 14118
+  "Id": 14118,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 46,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "穿透率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "数据洪流",
+  "effect_desc": "攻击力提升<color=#2BAD00>12%</color>；发动<color=#FFFFFF>[特殊技]</color>或<color=#FFFFFF>[强化特殊技]</color>时，装备者的异常精通提升<color=#2BAD00>25</color>点，最多叠加3层，持续8秒，每层效果单独结算持续时间。",
+  "effect_refine": 1
  },
  "14119": {
   "icon": "Weapon_S_1191",
@@ -829,7 +1648,20 @@
   "ko": "심해 방문객",
   "zh": "深海访客",
   "ja": "ディープシー・ビジター",
-  "Id": 14119
+  "Id": 14119,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "暴击率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "诸洋之王",
+  "effect_desc": "<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>25%</color>；<color=#FFFFFF>[普通攻击]</color>命中敌人时，装备者的暴击率提升<color=#2BAD00>10%</color>，持续8秒；<color=#FFFFFF>[冲刺攻击]</color>造成<color=#98EFF0>冰属性伤害</color>时，装备者的暴击率额外提升<color=#2BAD00>10%</color>，持续15秒，每种增益效果单独结算持续时间。",
+  "effect_refine": 1
  },
  "14120": {
   "icon": "Weapon_S_1201",
@@ -842,7 +1674,20 @@
   "ko": "잔심의 청낭",
   "zh": "残心青囊",
   "ja": "残心の青籠",
-  "Id": 14120
+  "Id": 14120,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "暴击伤害",
+   "value": 1920,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "啖若逆修",
+  "effect_desc": "暴击率提升<color=#2BAD00>10%</color>；<color=#FFFFFF>[冲刺攻击]</color>造成的<color=#2EB6FF>电属性伤害</color>提升<color=#2BAD00>40%</color>；队伍中任意角色对敌人施加属性异常效果或造成失衡时，装备者的暴击率额外提升<color=#2BAD00>10%</color>，持续15秒。",
+  "effect_refine": 1
  },
  "14121": {
   "icon": "Weapon_S_1211",
@@ -855,7 +1700,20 @@
   "ko": "흐느끼는 요람",
   "zh": "啜泣摇篮",
   "ja": "啜り泣くゆりかご",
-  "Id": 14121
+  "Id": 14121,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 46,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "穿透率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "惩·罚",
+  "effect_desc": "位于后场时，装备者的能量自动回复提升<color=#2BAD00>0.6</color>点/秒；装备者攻击命中敌人时，所有单位对目标造成的伤害提升<color=#2BAD00>10%</color>，持续3秒；效果持续期间，每0.5秒该增益效果额外提升<color=#2BAD00>1.7%</color>，最多额外提升<color=#2BAD00>10.2%</color>，重复触发时仅刷新持续时间，不刷新伤害提升效果，同名被动效果之间不可叠加。",
+  "effect_refine": 1
  },
  "14122": {
   "icon": "Weapon_S_1221",
@@ -868,7 +1726,20 @@
   "ko": "시류의 현자",
   "zh": "时流贤者",
   "ja": "刻流の賢者",
-  "Id": 14122
+  "Id": 14122,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "时喰奇谋",
+  "effect_desc": "装备者的<color=#2EB6FF>电属性异常积蓄效率</color>提升<color=#2BAD00>30%</color>；<color=#FFFFFF>[特殊技]</color>或<color=#FFFFFF>[强化特殊技]</color>命中处于属性异常状态下的敌人时，装备者的异常精通提升<color=#2BAD00>75</color>点，持续15秒；\n当装备者的异常精通大于等于375点时，由装备者造成的<color=#FFFFFF>[紊乱]</color>伤害提升<color=#2BAD00>25%</color>。",
+  "effect_refine": 1
  },
  "14124": {
   "icon": "Weapon_S_1241",
@@ -881,7 +1752,20 @@
   "ko": "서프레서 Ⅵ형",
   "zh": "防暴者Ⅵ型",
   "ja": "サプレッサーⅥ型",
-  "Id": 14124
+  "Id": 14124,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "暴击伤害",
+   "value": 1920,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "安全巡查",
+  "effect_desc": "暴击率提升<color=#2BAD00>15%</color>；发动<color=#FFFFFF>[强化特殊技]</color>时，为装备者提供8层充能效果，最多叠加8层；<color=#FFFFFF>[普通攻击]</color>或<color=#FFFFFF>[冲刺攻击]</color>造成<color=#FE437E>以太伤害</color>时，消耗1层充能，使当前招式造成的伤害提升<color=#2BAD00>35%</color>。",
+  "effect_refine": 1
  },
  "14125": {
   "icon": "Weapon_S_1251",
@@ -894,7 +1778,20 @@
   "ko": "맑은 옥주전자",
   "zh": "玉壶青冰",
   "ja": "玉壺青氷",
-  "Id": 14125
+  "Id": 14125,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "冲击力",
+   "value": 720,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "泠泠连奏",
+  "effect_desc": "<color=#FFFFFF>[普通攻击]</color>命中敌人时，获得1层<color=#FFFFFF>[茶劲]</color>，每层<color=#FFFFFF>[茶劲]</color>使装备者的冲击力提升<color=#2BAD00>0.7%</color>，最多叠加30层，持续8秒，每层效果单独结算持续时间；获得<color=#FFFFFF>[茶劲]</color>时，若装备者拥有的<color=#FFFFFF>[茶劲]</color>层数大于等于15层，全队角色造成的伤害提升<color=#2BAD00>20%</color>，持续10秒，同名被动效果之间不可叠加。",
+  "effect_refine": 1
  },
  "14126": {
   "icon": "Weapon_S_1261",
@@ -907,7 +1804,20 @@
   "ko": "예리한 집게칼",
   "zh": "淬锋钳刺",
   "ja": "磨き抜かれた切っ先",
-  "Id": 14126
+  "Id": 14126,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "异常精通",
+   "value": 36,
+   "format": "{0:0}"
+  },
+  "effect_name": "恣横猎心",
+  "effect_desc": "发动<color=#FFFFFF>[冲刺攻击]</color>时，获得1层<color=#FFFFFF>[猎意]</color>，每层<color=#FFFFFF>[猎意]</color>使装备者造成的<color=#F0D12B>物理伤害</color>提升<color=#2BAD00>12%</color>，最多叠加3层，持续10秒，0.5秒内最多触发一次，重复触发时刷新持续时间；进入接战状态或触发<color=#FFFFFF>[极限闪避]</color>时，直接获得3层<color=#FFFFFF>[猎意]</color>；<color=#FFFFFF>[猎意]</color>叠加至层数上限后，装备者的属性异常积蓄效率提升<color=#2BAD00>40%</color>。",
+  "effect_refine": 1
  },
  "14129": {
   "icon": "Weapon_S_1291",
@@ -920,7 +1830,20 @@
   "ko": "천변하는 태양의 몰락",
   "zh": "千面日陨",
   "ja": "千面の落日",
-  "Id": 14129
+  "Id": 14129,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "暴击率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "万千非我",
+  "effect_desc": "暴击伤害提升<color=#2BAD00>45%</color>；<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[终结技]</color>造成<color=#98EFF0>冰属性伤害</color>时，角色获得<color=#FFFFFF>[零度处刑宣言]</color>效果，持续3秒；<color=#FFFFFF>[零度处刑宣言]</color>效果期间，角色命中敌人时无视<color=#2BAD00>25%</color>防御力。",
+  "effect_refine": 1
  },
  "14130": {
   "icon": "Weapon_S_1301",
@@ -933,7 +1856,20 @@
   "ko": "소란한 총성과 화염",
   "zh": "嚣枪喧焰",
   "ja": "憤怒の銃騒",
-  "Id": 14130
+  "Id": 14130,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "能量自动回复",
+   "value": 2400,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "喋声吞炎",
+  "effect_desc": "暴击率提升<color=#2BAD00>20%</color>；装备者发动<color=#FFFFFF>[追加攻击]</color>造成<color=#FF5521>火属性伤害</color>时，装备者的攻击对敌人造成的伤害无视<color=#2BAD00>15%</color>防御力，持续8秒，3秒内最多获得1层，最多叠加2层，重复触发时刷新持续时间。",
+  "effect_refine": 1
  },
  "14131": {
   "icon": "Weapon_S_1311",
@@ -946,7 +1882,20 @@
   "ko": "우아한 베니티백",
   "zh": "玲珑妆匣",
   "ja": "優美のヴァニティ",
-  "Id": 14131
+  "Id": 14131,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "卓卓千华",
+  "effect_desc": "队伍中任意角色通过<color=#FFFFFF>[快速支援]</color>、<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[招架支援]</color>、<color=#FFFFFF>[回避支援]</color>入场时，为装备者回复<color=#2BAD00>5</color>点能量，5秒内最多触发一次；装备者消耗25点或以上能量时，全队角色造成的伤害提升<color=#2BAD00>10%</color>，最多叠加2层，持续20秒，重复触发时刷新持续时间，该效果全队唯一。",
+  "effect_refine": 1
  },
  "14132": {
   "icon": "Weapon_S_1321",
@@ -959,7 +1908,20 @@
   "ko": "심금을 울리는 야상곡",
   "zh": "心弦夜响",
   "ja": "心弦のノクターン",
-  "Id": 14132
+  "Id": 14132,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "暴击率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "弦音相随",
+  "effect_desc": "暴击伤害提升<color=#2BAD00>50%</color>；装备者进入接战状态、发动<color=#FFFFFF>[连携技]</color>、<color=#FFFFFF>[终结技]</color>时，获得1层<color=#FFFFFF>[心弦]</color>，每层<color=#FFFFFF>[心弦]</color>会使装备者的<color=#FFFFFF>[连携技]</color>和<color=#FFFFFF>[终结技]</color>无视目标<color=#2BAD00>12.5%</color><color=#FF5521>火属性伤害抗性</color>，最多叠加2层，持续30秒，重复触发时刷新持续时间。",
+  "effect_refine": 1
  },
  "14133": {
   "icon": "Weapon_S_1331",
@@ -972,7 +1934,20 @@
   "ko": "별빛 꿈을 누비는 새",
   "zh": "飞鸟星梦",
   "ja": "鳥は夢へと羽ばたいて",
-  "Id": 14133
+  "Id": 14133,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "异常精通",
+   "value": 36,
+   "format": "{0:0}"
+  },
+  "effect_name": "银刺幽羽",
+  "effect_desc": "属性异常积蓄效率提升<color=#2BAD00>40%</color>；装备者造成<color=#FE437E>以太伤害</color>时，自身异常精通提升<color=#2BAD00>20</color>点，持续5秒，最多叠加6层，0.5秒内最多触发一次，重复触发时刷新持续时间。",
+  "effect_refine": 1
  },
  "14134": {
   "icon": "Weapon_S_1341",
@@ -985,7 +1960,20 @@
   "ko": "당도 50% 눈토끼",
   "zh": "半糖雪兔",
   "ja": "甘さ控えめ雪うさぎ",
-  "Id": 14134
+  "Id": 14134,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "生命值",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "易碎之甜",
+  "effect_desc": "装备者的能量自动回复提升<color=#2BAD00>0.46</color>点/秒；全队角色攻击力提升<color=#2BAD00>10%</color>，最大生命值提升<color=#2BAD00>10%</color>，该效果全队唯一；装备者开启或延长<color=#FFFFFF>[以太帷幕]</color>时，使全队角色的暴击伤害提升<color=#2BAD00>30%</color>，持续60秒，重复触发刷新持续时间。",
+  "effect_refine": 1
  },
  "14136": {
   "icon": "Weapon_S_1361",
@@ -998,7 +1986,20 @@
   "ko": "탐혼의 눈동자",
   "zh": "索魂影眸",
   "ja": "奪魂の瞑目",
-  "Id": 14136
+  "Id": 14136,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "暴击率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "捕风寻踪",
+  "effect_desc": "装备者的<color=#FFFFFF>[追加攻击]</color>命中敌人并造成<color=#2EB6FF>电属性伤害</color>时，目标的防御力降低<color=#2BAD00>25%</color>，持续5秒，同名被动效果之间不可叠加；该效果触发时，如果自身不是当前操作中的角色，则装备者获得1层<color=#FFFFFF>[魂锁]</color>，最多叠加3层，同一招式内最多触发一次；每层<color=#FFFFFF>[魂锁]</color>，可使装备者的冲击力提升<color=#2BAD00>4%</color>，持续12秒，每层效果单独结算持续时间，<color=#FFFFFF>[魂锁]</color>层数叠满时，额外给装备者的冲击力提升<color=#2BAD00>8%</color>。",
+  "effect_refine": 1
  },
  "14137": {
   "icon": "Weapon_S_1371",
@@ -1011,7 +2012,20 @@
   "ko": "청명의 보금자리",
   "zh": "青溟笼舍",
   "ja": "青溟の鳥籠",
-  "Id": 14137
+  "Id": 14137,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 50,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "生命值",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "云流运转",
+  "effect_desc": "暴击率提升<color=#2BAD00>20%</color>；装备者释放<color=#FFFFFF>[强化特殊技]</color>时角色获得1层<color=#FFFFFF>[青溟同行]</color>效果，最多叠加2层，持续15秒，进入接战状态时直接获得2层，重复触发时刷新持续时间；每层<color=#FFFFFF>[青溟同行]</color>效果使装备者造成的<color=#FE437E>以太伤害</color>提升<color=#2BAD00>8%</color>，[终结技]或[强化特殊技]造成的<color=#FE437E>以太贯穿伤害</color>提升<color=#2BAD00>10%</color>。",
+  "effect_refine": 1
  },
  "14138": {
   "icon": "Weapon_S_1381",
@@ -1024,7 +2038,20 @@
   "ko": "순결한 희생",
   "zh": "牺牲洁纯",
   "ja": "純然たる犠牲",
-  "Id": 14138
+  "Id": 14138,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "暴击伤害",
+   "value": 1920,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "光静花冷",
+  "effect_desc": "暴击伤害提升<color=#2BAD00>30%</color>；装备者发动<color=#FFFFFF>[普通攻击]</color> 、<color=#FFFFFF>[特殊技]</color>或<color=#FFFFFF>[追加攻击]</color>命中敌人时，可分别获得1层增益效果，每层增益效果使装备者的暴击伤害额外提升<color=#2BAD00>10%</color>，最多叠加3层，持续30秒，每层效果单独结算持续时间，同一招式内最多触发一次；拥有3层增益效果时，装备者造成的<color=#2EB6FF>电属性伤害</color>提升<color=#2BAD00>20%</color>。",
+  "effect_refine": 1
  },
  "14139": {
   "icon": "Weapon_S_1391",
@@ -1037,7 +2064,20 @@
   "ko": "복을 뿜는 맹호",
   "zh": "福虓炉炉",
   "ja": "招福の虎炉",
-  "Id": 14139
+  "Id": 14139,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "虎气融融",
+  "effect_desc": "装备者的<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[连携技]</color>和<color=#FFFFFF>[终结技]</color>造成的失衡值提升<color=#2BAD00>28%</color>；\n发动<color=#FFFFFF>[连携技]</color>或<color=#FFFFFF>[终结技]</color>并造成<color=#FF5521>火属性伤害</color>时，全队角色造成伤害提升<color=#2BAD00>10%</color>，最多叠加2层，持续30秒，每层效果单独结算持续时间，同一招式内最多触发一次，该效果全队唯一。",
+  "effect_refine": 1
  },
  "14140": {
   "icon": "Weapon_S_1401",
@@ -1050,7 +2090,20 @@
   "ko": "완벽하게 단조된 별",
   "zh": "十方锻星",
   "ja": "十面百錬の星",
-  "Id": 14140
+  "Id": 14140,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "予你星屑",
+  "effect_desc": "装备者的<color=#FFFFFF>[异常掌控]</color>提升<color=#2BAD00>60</color>点；触发<color=#F0D12B>[强击]</color>时，装备者造成的<color=#F0D12B>物理伤害</color>提升<color=#2BAD00>20%</color>，持续20秒，最多叠加2层，重复触发时刷新持续时间，装备者进入接战状态时，立即获得2层效果。",
+  "effect_refine": 1
  },
  "14141": {
   "icon": "Weapon_S_1411",
@@ -1063,7 +2116,20 @@
   "ko": "너구리의 7단 변신",
   "zh": "狸法七变化",
   "ja": "狸の七変化",
-  "Id": 14141
+  "Id": 14141,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "能量自动回复",
+   "value": 2400,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "机巧玲珑",
+  "effect_desc": "装备者的<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[终结技]</color>造成<color=#F0D12B>物理伤害</color>时，装备者<color=#FFFFFF>异常掌控</color>提升<color=#2BAD00>30</color>点，持续40秒；装备者的<color=#FFFFFF>[追加攻击]</color>命中敌人时，使全队角色的<color=#FFFFFF>异常精通</color>提升<color=#2BAD00>60</color>点，持续40秒，该效果全队唯一。",
+  "effect_refine": 1
  },
  "14143": {
   "icon": "Weapon_S_1431",
@@ -1076,7 +2142,20 @@
   "ko": "구름을 헤친 빛",
   "zh": "云霓孤光",
   "ja": "孤光彩雲",
-  "Id": 14143
+  "Id": 14143,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 50,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "暴击伤害",
+   "value": 1920,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "玉魄冰心",
+  "effect_desc": "装备者造成的伤害无视目标<color=#2BAD00>20%</color><color=#F0D12B>物理属性伤害抗性</color>；装备者开启<color=#FFFFFF>[以太帷幕]</color>时，自身造成的伤害提升<color=#2BAD00>25%</color>，暴击伤害提升<color=#2BAD00>25%</color>，持续40秒，重复触发时刷新持续时间。",
+  "effect_refine": 1
  },
  "14145": {
   "icon": "Weapon_S_1451",
@@ -1089,7 +2168,20 @@
   "ko": "꿈을 빚는 용광로의 노래",
   "zh": "铸梦炉歌",
   "ja": "炉で歌い上げられる夢",
-  "Id": 14145
+  "Id": 14145,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "生命值",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "月引颂篇",
+  "effect_desc": "装备者的能量自动回复提升<color=#2BAD00>0.4</color>点/秒；当装备者开启<color=#FFFFFF>[以太帷幕]</color>或延长<color=#FFFFFF>[以太帷幕]</color>的持续时间时，全队角色造成伤害提升<color=#2BAD00>25%</color>，生命值上限提升<color=#2BAD00>15%</color>，效果持续45秒，重复触发时刷新持续时间，该效果全队唯一。",
+  "effect_refine": 1
  },
  "14146": {
   "icon": "Weapon_S_1461",
@@ -1102,7 +2194,20 @@
   "ko": "기계 심장에 내린 씨앗",
   "zh": "机巧心种",
   "ja": "駆動する種",
-  "Id": 14146
+  "Id": 14146,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "暴击率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "芽生炉心",
+  "effect_desc": "暴击率提升<color=#2BAD00>15%</color>；装备者的<color=#FFFFFF>[普通攻击]</color>、<color=#FFFFFF>[强化特殊技]</color>造成伤害时，可分别获得1层增益效果，每层增益效果使装备者造成的<color=#2EB6FF>电属性伤害</color>提升<color=#2BAD00>12.5%</color>，最多叠加2层，持续40秒，每层效果单独结算持续时间，同一招式内最多触发一次；拥有2层增益效果时，装备者的<color=#FFFFFF>[普通攻击]</color>和<color=#FFFFFF>[终结技]</color>对敌人造成的伤害无视<color=#2BAD00>20%</color>防御力。",
+  "effect_refine": 1
  },
  "14147": {
   "icon": "Weapon_S_1471",
@@ -1115,7 +2220,20 @@
   "ko": "성난 눈의 금강",
   "zh": "怒目金刚",
   "ja": "金剛不壊怒髪衝冠",
-  "Id": 14147
+  "Id": 14147,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "生命值",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "焚心业火",
+  "effect_desc": "暴击率提升<color=#2BAD00>20%</color>；装备者发动<color=#FFFFFF>[强化特殊技]</color>时，装备者造成的<color=#FF5521>火属性贯穿伤害</color>提升<color=#2BAD00>9%</color>，最多叠加2层，持续20秒，每层效果单独结算持续时间。",
+  "effect_refine": 1
  },
  "14148": {
   "icon": "Weapon_S_1481",
@@ -1128,7 +2246,20 @@
   "ko": "지난밤의 전화",
   "zh": "昨夜来电",
   "ja": "昨夜からの着信",
-  "Id": 14148
+  "Id": 14148,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "暴击率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "7×24",
+  "effect_desc": "位于后场时，装备者的能量自动回复提升<color=#2BAD00>1.5</color>点/秒；装备者发动<color=#FFFFFF>[强化特殊技]</color>造成<color=#F0D12B>物理属性</color>伤害时，装备者攻击造成的失衡值提升<color=#2BAD00>9%</color>，最多叠加3层，持续10秒，叠加到3层时，全队角色暴击伤害额外提升<color=#2BAD00>30%</color>，持续40秒，重复触发时刷新持续时间，暴击伤害提升效果全队唯一。",
+  "effect_refine": 1
  },
  "14149": {
   "icon": "Weapon_S_1491",
@@ -1141,7 +2272,20 @@
   "ko": "사유로 빚은 노래",
   "zh": "思络成歌",
   "ja": "想いが織りなす歌",
-  "Id": 14149
+  "Id": 14149,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "能量自动回复",
+   "value": 2400,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "喧响独白",
+  "effect_desc": "装备者为非操作中角色时，能量自动回复提升<color=#2BAD00>0.6</color>点/秒；装备者发动<color=#FFFFFF>[强化特殊技]</color>造成<color=#F0D12B>物理伤害</color>时，使全队角色获得增益效果：角色造成伤害提升<color=#2BAD00>12.5%</color>，效果持续40秒，最多叠加2层，重复触发时刷新持续时间；拥有2层效果时，角色的攻击力额外提升<color=#2BAD00>10%</color>，该效果全队唯一。",
+  "effect_refine": 1
  },
  "14150": {
   "icon": "Weapon_S_1501",
@@ -1154,7 +2298,20 @@
   "ko": "껍데기 속 영혼",
   "zh": "壳中之灵",
   "ja": "殻の中の魂",
-  "Id": 14150
+  "Id": 14150,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "异常掌控",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "元气一击",
+  "effect_desc": "装备者的异常精通提升<color=#2BAD00>90</color>点；<color=#FE437E>以太属性</color>的装备者进入前场或发动<color=#FFFFFF>[特殊技]</color>、<color=#FFFFFF>[强化特殊技]</color>时获得增益效果：对处于属性异常状态下的敌人造成的伤害提升<color=#2BAD00>20%</color>，触发的所有属性异常伤害和[紊乱]伤害提升<color=#2BAD00>10%</color>，效果持续15秒，重复触发时刷新持续时间，换回后场时该效果移除。",
+  "effect_refine": 1
  },
  "14151": {
   "icon": "Weapon_S_1511",
@@ -1167,7 +2324,20 @@
   "ko": "네온사인 망상",
   "zh": "霓虹妄想",
   "ja": "妄想ディスコテック",
-  "Id": 14151
+  "Id": 14151,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "异常掌控",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "迪斯科恶魔",
+  "effect_desc": "装备者的异常精通提升<color=#2BAD00>90</color>点；装备者<color=#FFFFFF>[强化特殊技]</color>或<color=#FFFFFF>[普通攻击]</color>造成<color=#FE437E>以太属性伤害</color>时，全队角色造成的伤害提升<color=#2BAD00>15%</color>，持续40秒，最多叠加2层，同一招式内最多触发一次，重复触发时刷新持续时间，拥有2层效果时，装备者的异常精通额外提升<color=#2BAD00>60</color>点，该效果全队唯一。",
+  "effect_refine": 1
  },
  "14152": {
   "icon": "Weapon_S_1521",
@@ -1180,7 +2350,20 @@
   "ko": "추적하는 송곳니",
   "zh": "鳞齿寻踪",
   "ja": "影を追う白き牙",
-  "Id": 14152
+  "Id": 14152,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "能量自动回复",
+   "value": 2400,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "仿生毒素",
+  "effect_desc": "暴击率提升<color=#2BAD00>25%</color>；装备者单次消耗的能量达到20点时，每消耗20点能量，获得3秒增益效果：造成<color=#2EB6FF>电属性伤害</color>时无视目标<color=#2BAD00>28%</color>防御力；重复获得时，延长持续时间，至多延长至30秒；进入接战状态时，获得10秒该增益；装备者为非当前操作中角色时，持续时间不再减少。",
+  "effect_refine": 1
  },
  "14153": {
   "icon": "Weapon_S_1531",
@@ -1193,7 +2376,20 @@
   "ko": "별빛 기사의 가면",
   "zh": "辉骑面铠",
   "ja": "スターライトバイザー",
-  "Id": 14153
+  "Id": 14153,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "生命值",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "骑士气势",
+  "effect_desc": "暴击率提升<color=#2BAD00>20%</color>；装备者发动<color=#FFFFFF>[特殊技]</color>时，装备者造成的<color=#F0D12B>物理贯穿伤害</color>提升<color=#2BAD00>10%</color>，最多叠加2层，持续30秒，重复触发时刷新持续时间。",
+  "effect_refine": 1
  },
  "14154": {
   "icon": "Weapon_S_1541",
@@ -1206,7 +2402,20 @@
   "ko": "삭월에 끊어지는 서리",
   "zh": "朔月裁霜",
   "ja": "フロスト・クレセント",
-  "Id": 14154
+  "Id": 14154,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "异常掌控",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "终末裁决",
+  "effect_desc": "<color=#98EFF0>冰属性</color>的装备者发动<color=#FFFFFF>[特殊技]</color>、<color=#FFFFFF>[强化特殊技]</color>时，自身造成的<color=#98EFF0>冰属性伤害</color>提升<color=#2BAD00>20%</color>，持续40秒，最多叠加2层，同一招式内最多触发一次，重复触发时刷新持续时间，拥有2层效果时，装备者造成的<color=#FFFFFF>[异放]</color>伤害额外提升<color=#2BAD00>35%</color>。",
+  "effect_refine": 1
  },
  "14155": {
   "icon": "Weapon_S_Common_04",
@@ -1219,7 +2428,20 @@
   "ko": "태양의 유체",
   "zh": "日冕遗蜕",
   "ja": "太陽の抜け殻",
-  "Id": 14155
+  "Id": 14155,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "日蚀效应",
+  "effect_desc": "暴击率提升20%；装备者为佩洛伊斯时，发动<color=#FFFFFF>[终结技]</color>获得[日蚀]效果，[日蚀]效果下，装备者造成的伤害无视<color=#2BAD00>16%</color><color=#FE437E>以太伤害抗性</color>，持续45秒，重复触发时刷新持续时间，进入接战状态时，获得[日蚀]效果。",
+  "effect_refine": 1
  },
  "14156": {
   "icon": "Weapon_S_1561",
@@ -1232,7 +2454,20 @@
   "ko": "영롱한 금빛 마음",
   "zh": "琳琅鎏心",
   "ja": "金襴の心",
-  "Id": 14156
+  "Id": 14156,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "能量自动回复",
+   "value": 2400,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "无懈之礼",
+  "effect_desc": "装备者的异常精通提升<color=#2BAD00>70</color>点；装备者发动<color=#FFFFFF>[强化特殊技]</color>造成<color=#A6C5FD>风属性伤害</color>时，自身造成的<color=#FFFFFF>[乱流]</color>和<color=#A6C5FD>[风化]</color>伤害提升<color=#2BAD00>7%</color>，持续40秒，最多叠加2层，重复触发时刷新持续时间，同一招式内最多触发一次，拥有2层该效果时，全队代理人的异常精通提升<color=#2BAD00>60</color>点，该效果全队唯一。",
+  "effect_refine": 1
  },
  "14157": {
   "icon": "Weapon_S_1571",
@@ -1245,7 +2480,20 @@
   "ko": "수석 조수",
   "zh": "首席跟班",
   "ja": "エースのオトモ",
-  "Id": 14157
+  "Id": 14157,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "暴击率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "天才的扈从",
+  "effect_desc": "装备者的冲击力提升<color=#2BAD00>30</color>点，造成的伤害无视目标<color=#2BAD00>15%</color><color=#FF5521>火属性伤害抗性</color>；装备者为非操作中角色时，能量自动回复提升<color=#2BAD00>0.4</color>点/秒；装备者发动<color=#FFFFFF>[强化特殊技]</color>造成<color=#FF5521>火属性伤害</color>时，使全队代理人造成的伤害提升<color=#2BAD00>12.5%</color>，持续30秒，最多叠加2层，重复触发时刷新持续时间，同一招式内最多触发1次，该效果全队唯一。",
+  "effect_refine": 1
  },
  "14158": {
   "icon": "Weapon_S_1581",
@@ -1258,7 +2506,20 @@
   "ko": "돌아온 날개의 시",
   "zh": "空羽复归之诗",
   "ja": "目覚めし翼の聖歌",
-  "Id": 14158
+  "Id": 14158,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 50,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻击力",
+   "value": 1440,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "失乐园",
+  "effect_desc": "异常精通提升<color=#2BAD00>96</color>点；装备者触发<color=#FFA9DD>[异化]</color>反应时，自身获得属性异常伤害提升<color=#2BAD00>20%</color>的效果，并为全队角色施加造成的伤害提升<color=#2BAD00>30%</color>效果，效果均持续30秒，重复触发时刷新持续时间。",
+  "effect_refine": 1
  },
  "14159": {
   "icon": "Weapon_S_1591",
@@ -1271,7 +2532,20 @@
   "ko": "기사 예찬",
   "zh": "骁骑礼赞",
   "ja": "栄光の騎士道",
-  "Id": 14159
+  "Id": 14159,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "暴击伤害",
+   "value": 1920,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "骑士仪典",
+  "effect_desc": "装备者的<color=#FFFFFF>[普通攻击]</color>和<color=#FFFFFF>[强化特殊技]</color>的重击命中敌人时，获得1层<color=#FFFFFF>[兵锋]</color>，使暴击伤害提升<color=#2BAD00>32%</color>，持续25秒；<color=#FFFFFF>[兵锋]</color>最多叠加2层，且每种招式类型最多提供1层，重复触发时，刷新所有<color=#FFFFFF>[兵锋]</color>持续时间；\n拥有2层<color=#FFFFFF>[兵锋]</color>时，获得<color=#FFFFFF>[彻骨]</color>：装备者造成的伤害无视目标<color=#2BAD00>20%</color><color=#98EFF0>冰属性伤害抗性</color>。",
+  "effect_refine": 1
  },
  "14161": {
   "icon": "Weapon_S_1611",
@@ -1284,7 +2558,20 @@
   "ko": "핏빛 갈망",
   "zh": "猩红渴望",
   "ja": "深紅の渇望",
-  "Id": 14161
+  "Id": 14161,
+  "base_property": {
+   "name": "基础防御力",
+   "value": 29,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "防御力",
+   "value": 1920,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "渴血",
+  "effect_desc": "装备者暴击率提升<color=#2BAD00>25%</color>；<color=#2EB6FF>电属性伤害</color>提升<color=#2BAD00>15%</color>；装备者发动<color=#FFFFFF>[强化特殊技]</color>或触发<color=#FFFFFF>[毁伤]</color>时，造成的<color=#2EB6FF>电属性锐化伤害</color>提升<color=#2BAD00>10%</color>，持续40秒，重复触发时刷新持续时间。",
+  "effect_refine": 1
  },
  "14162": {
   "icon": "Weapon_S_1621",
@@ -1297,6 +2584,19 @@
   "ko": "진홍달의 은관",
   "zh": "绯月银棺",
   "ja": "緋月の銀棺",
-  "Id": 14162
+  "Id": 14162,
+  "base_property": {
+   "name": "基础攻击力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "能量自动回复",
+   "value": 2400,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "永夜辗眠",
+  "effect_desc": "装备者暴击率提升<color=#2BAD00>24%</color>；造成的伤害无视目标<color=#2BAD00>15%</color><color=#A6C5FD>风属性伤害抗性</color>；装备者发动<color=#FFFFFF>[强化特殊技]</color>造成<color=#A6C5FD>风属性伤害</color>时，造成的失衡值提升<color=#2BAD00>16%</color>，全队其他角色造成的伤害提升<color=#2BAD00>20%</color>，持续50秒，重复触发时刷新持续时间，伤害提升效果全队唯一。",
+  "effect_refine": 1
  }
 }

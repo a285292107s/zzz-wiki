@@ -89,6 +89,19 @@ export const CharacterListItemSchema = z
   })
   .catchall(z.unknown())
 
+/**
+ * 音擎主/副属性形状（名 + Lv.1 基础值 + 格式串）：名录与详情共用同一份声明，
+ * 各自只带自己要用的字段——名录注入展示面（name/value/format），详情另有 name2（百分比变体名）。
+ */
+export const WEngineStatSchema = z
+  .object({
+    name: z.string().optional(),
+    name2: z.string().optional(),
+    format: z.string().optional(),
+    value: z.number().optional(),
+  })
+  .catchall(z.unknown())
+
 export const WEngineListItemSchema = z
   .object({
     Id: z.number(),
@@ -99,6 +112,17 @@ export const WEngineListItemSchema = z
     zh: z.string().optional(),
     ja: z.string().optional(),
     ko: z.string().optional(),
+    /** 满级（Lv.60）基础攻击力，源站名录原生字段 */
+    atk: z.number().optional(),
+    /** 主属性（基础攻击力）展示面，构建期注入 */
+    base_property: WEngineStatSchema.optional(),
+    /** 副属性展示面（中文名 + Lv.1 基础值 + 格式串），构建期注入 */
+    rand_property: WEngineStatSchema.optional(),
+    /** 音擎效果：效果名 + 正文，构建期取自详情的对应精炼档 */
+    effect_name: z.string().optional(),
+    effect_desc: z.string().optional(),
+    /** 上述正文对应的精炼档（卡片据此标注数值档位，避免视图硬编码） */
+    effect_refine: z.number().optional(),
   })
   .catchall(z.unknown())
 
@@ -197,14 +221,8 @@ export const WEngineDetailSchema = z
     /** 满级（Lv.60）主属性值，构建期由名录 atk 注入，供等级滑条插值 */
     atk_max: z.number().optional(),
     weapon_type: PropMapSchema.optional(),
-    base_property: z
-      .object({ name: z.string().optional(), name2: z.string().optional(), format: z.string().optional(), value: z.number().optional() })
-      .catchall(z.unknown())
-      .optional(),
-    rand_property: z
-      .object({ name: z.string().optional(), name2: z.string().optional(), format: z.string().optional(), value: z.number().optional() })
-      .catchall(z.unknown())
-      .optional(),
+    base_property: WEngineStatSchema.optional(),
+    rand_property: WEngineStatSchema.optional(),
     talents: z.record(z.unknown()).optional(),
   })
   .catchall(z.unknown())

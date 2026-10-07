@@ -41,10 +41,10 @@ async (page) => {
 
   for (const p of paths) {
     await page.goto('http://localhost:4175' + p, { waitUntil: 'domcontentloaded' })
-    // 详情页要等数据到达（h1 出现）；列表页等表格行
+    // 详情页要等数据到达（h1 出现）；列表页等表格行或卡片栅格
     await page
       .waitForFunction(
-        () => !!document.querySelector('h1, .page-title, tbody tr, .disk-card'),
+        () => !!document.querySelector('h1, .page-title, tbody tr, .card-grid'),
         null,
         { timeout: 6000 },
       )

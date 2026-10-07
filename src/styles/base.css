@@ -771,7 +771,7 @@ section[id] {
   .section-head .rule,
   .dossier,
   .stat-grid.v-grid,
-  .disk-grid,
+  .card-grid,
   .note-rule {
     background: CanvasText !important;
   }
@@ -779,7 +779,7 @@ section[id] {
   /* 网格单元必须回到画布色，否则整片糊成实心块 */
   .d-item,
   .stat-grid.v-grid .stat,
-  .disk-card {
+  .card {
     background: Canvas !important;
   }
 

@@ -129,6 +129,49 @@ export async function buildCharacters(ver: string, terms: TermNames): Promise<{ 
   return { list, details }
 }
 
+/**
+ * 名片卡直接陈列的「音擎效果」精炼档：取基础档（1 阶）。数值随精炼变化，
+ * 故 effect_refine 一并注入，由卡片标注档位（视图不硬编码）。
+ */
+const CARD_EFFECT_REFINE = 1
+
+/**
+ * 名录注入音擎卡片展示面（构建期增值，与详情同源同解析）：
+ * - base_property / rand_property：主/副属性展示子集（中文名 + Lv.1 基础值 + 格式串），
+ *   前端据此复用 sections.wEnginePropsAtLevel 呈现与详情页逐字一致的满级面板；
+ * - effect_name / effect_desc / effect_refine：音擎效果名与正文（取基础精炼档）。
+ * 取值来自已 resolveTerms 的详情，故名录里的术语标记与详情逐字节一致。
+ */
+export function injectWEngineCardDisplay(
+  row: Record<string, unknown> | undefined,
+  detail: Record<string, unknown>,
+): void {
+  if (!row) return
+  for (const key of ['base_property', 'rand_property'] as const) {
+    const s = detail[key] as Record<string, unknown> | undefined
+    const name = typeof s?.['name'] === 'string' ? (s['name'] as string) : ''
+    const value = typeof s?.['value'] === 'number' ? (s['value'] as number) : undefined
+    if (!name || value == null) continue
+    const format = typeof s?.['format'] === 'string' ? (s['format'] as string) : ''
+    row[key] = format ? { name, value, format } : { name, value }
+  }
+
+  const talents = detail['talents'] as Record<string, Record<string, unknown>> | undefined
+  if (!talents) return
+  const keys = Object.keys(talents).filter((k) => Number.isFinite(Number(k)))
+  if (!keys.length) return
+  const refine = keys.includes(String(CARD_EFFECT_REFINE))
+    ? CARD_EFFECT_REFINE
+    : Math.min(...keys.map(Number))
+  const picked = talents[String(refine)]
+  const name = typeof picked?.['name'] === 'string' ? (picked['name'] as string) : ''
+  const desc = typeof picked?.['desc'] === 'string' ? (picked['desc'] as string) : ''
+  if (!name && !desc) return
+  row['effect_name'] = name
+  row['effect_desc'] = desc
+  row['effect_refine'] = refine
+}
+
 export async function buildWeapons(ver: string, terms: TermNames): Promise<{ list: Dict; details: Dict }> {
   const listRaw = (await fetchJson(
     `${BASE}/zzz/${ver}/weapon.json`,
@@ -148,9 +191,11 @@ export async function buildWeapons(ver: string, terms: TermNames): Promise<{ lis
     // 注入满级主属性（名录 atk = Lv.60 基础攻击力），供详情页等级滑条插值
     const atkMax = (listRaw[ids[i]] as Record<string, unknown> | undefined)?.['atk']
     const withAtkMax = atkMax != null ? { ...d, atk_max: atkMax } : d
-    details[ids[i]] = (k
+    const detail = (k
       ? resolveTerms({ ...withAtkMax, weapon_type: { [k]: specialEn(k, String(w[k])) } }, terms)
       : resolveTerms(withAtkMax, terms)) as Record<string, unknown>
+    details[ids[i]] = detail
+    injectWEngineCardDisplay(list[ids[i]], detail)
   }
   return { list, details }
 }

@@ -1,6 +1,7 @@
 <script setup lang="ts" generic="T extends Record<string, unknown>">
 import { computed } from 'vue'
 import type { SortDir } from '@/composables/useCatalogSort'
+import NoMatchState from './NoMatchState.vue'
 
 export interface CatalogColumn {
   /** 列键：无对应插槽时直接渲染 row[key] */
@@ -92,11 +93,7 @@ function onHeadClick(c: CatalogColumn) {
            也没有出路。文案 + 清除动作同格呈现；列数跨满保持表结构合法。 -->
       <tr v-if="!items.length" class="empty-row">
         <td :colspan="bodyColumns.length" class="empty-cell">
-          <p class="empty-title mono">{{ emptyText }}</p>
-          <p class="empty-hint">换个关键词，或清除筛选条件查看全部档案。</p>
-          <button v-if="showClear" type="button" class="empty-clear mono" @click="emit('clear')">
-            清除检索与筛选
-          </button>
+          <NoMatchState :title="emptyText" :show-clear="showClear" @clear="emit('clear')" />
         </td>
       </tr>
       <tr v-for="(row, i) in items" :key="String(row.Id ?? i)">
@@ -118,11 +115,7 @@ function onHeadClick(c: CatalogColumn) {
       <!-- 移动端空态：与桌面同文案（两套 tbody 断点互斥显示，须各放一份） -->
       <tr v-if="!items.length" class="empty-row">
         <td class="empty-cell">
-          <p class="empty-title mono">{{ emptyText }}</p>
-          <p class="empty-hint">换个关键词，或清除筛选条件查看全部档案。</p>
-          <button v-if="showClear" type="button" class="empty-clear mono" @click="emit('clear')">
-            清除检索与筛选
-          </button>
+          <NoMatchState :title="emptyText" :show-clear="showClear" @clear="emit('clear')" />
         </td>
       </tr>
       <template v-for="(row, i) in items" :key="String(row.Id ?? i)">
@@ -298,48 +291,10 @@ th.sortable {
   }
 }
 
-/* ---------- 空态（检索/筛选无匹配） ---------- */
+/* ---------- 空态（检索/筛选无匹配）----------
+   内容与文案在 NoMatchState（名录页共用）；此处只给表格语境的留白框 */
 
 .empty-cell {
   padding: 46px 16px 50px;
-  text-align: center;
-}
-
-.empty-title {
-  font-size: var(--fs-micro);
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--ink-1);
-}
-
-.empty-hint {
-  margin-top: 10px;
-  font-size: var(--fs-caption);
-  color: var(--ink-2);
-}
-
-.empty-clear {
-  margin-top: 18px;
-  padding: 7px 14px;
-  background: none;
-  border: 1px solid var(--line-1);
-  border-radius: 2px;
-  color: var(--ink-1);
-  font-size: var(--fs-caption);
-  letter-spacing: 0.08em;
-  cursor: pointer;
-  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
-}
-
-@media (hover: hover) {
-  .empty-clear:hover {
-    color: var(--amber-hi);
-    border-color: var(--amber);
-  }
-}
-
-.empty-clear:focus-visible {
-  outline: 1px solid var(--focus);
-  outline-offset: 2px;
 }
 </style>

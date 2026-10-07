@@ -1,8 +1,8 @@
 <script setup lang="ts">
 /* 陈列形态决策（架构评审 2026-09）：驱动盘刻意保留卡片栅格、不并入 CatalogTable——
- * 2/4 件套效果是长文本（stripRichText 后仍数行），表格行的信息密度不适配；
- * 与其它名录共享的部分（筛选/排序/取数）已分别经 useCatalogList/useCatalogSort/resources 收敛，
- * 未共享的仅剩排序按钮与骨架的视觉外壳，强行抽公共 grid-list 的收益低于接口成本。 */
+ * 2/4 件套效果是长文本（stripRichText 后仍数行），表格行的信息密度不适配。
+ * 与音擎名录同构：卡壳/骨架/空态由 CardGrid + CardBlock 收起（两页共用），
+ * 本页只声明「一张卡片陈列什么」；筛选/排序/取数分别经 useCatalogList/useCatalogSort/resources 收敛。 */
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useCatalogList } from '@/composables/useCatalogList'
 import { useCatalogSort } from '@/composables/useCatalogSort'
@@ -12,9 +12,7 @@ import { stripRichText } from '@/utils/text'
 import type { DiskDriveListItem } from '@/data/types'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { catalogEntry } from '@/domain/catalog'
-import { AsyncState, ListPage, SearchField, CopyLinkButton } from '@/components'
-import HollowImage from '@/components/HollowImage.vue'
-import { prefetchDetail, armPrefetchDetail } from '@/composables/useDetailPrefetch'
+import { AsyncState, CardBlock, CardGrid, CopyLinkButton, ListPage, NameCell, SearchField } from '@/components'
 
 usePageMeta()
 
@@ -39,14 +37,6 @@ const { sorted, sortKey, sortDir, toggle, isDefault: sortIsDefault } = useCatalo
   ],
   { defaultKey: 'id', defaultDir: 'desc', syncRoute: true },
 )
-
-/** 悬停卡片头即预热详情（驻留 90ms 发射），pointerdown 立即——与 NameCell 同一回路 */
-function warmDwell(id: number | string): void {
-  armPrefetchDetail(cat, id)
-}
-function warmNow(id: number | string): void {
-  prefetchDetail(cat, id)
-}
 </script>
 
 <template>
@@ -79,7 +69,7 @@ function warmNow(id: number | string): void {
       <CopyLinkButton v-if="hasActiveFilter || !sortIsDefault" label="复制筛选链接" />
     </div>
 
-    <!-- 空态分工：AsyncState 只管「数据级为空」；「筛掉全部结果」由下方 .disk-empty 承担 -->
+    <!-- 空态分工：AsyncState 只管「数据级为空」；「筛掉全部结果」由 CardGrid 承担 -->
     <AsyncState
       :status="status"
       :error="error"
@@ -87,57 +77,41 @@ function warmNow(id: number | string): void {
       :empty="status === 'success' && !data?.length"
     >
       <template #skeleton>
-        <ul class="disk-grid" aria-hidden="true">
-          <li v-for="i in 6" :key="i" class="disk-card skel">
-            <span class="bar thumb-bar" />
-            <span class="bar name-bar" />
-            <span class="bar body-bar" />
-            <span class="bar body-bar" />
-          </li>
-        </ul>
+        <CardGrid :items="[]" skeleton />
       </template>
 
-      <!-- 空态（检索无匹配）：此前只留空白栅格 —— 卡片栅格用 li 呈现，
-           与表格名录同一套文案与「清除」动作（CatalogTable 侧是实现同名空态） -->
-      <div v-if="!sorted.length" class="disk-empty">
-        <p class="empty-title mono">无匹配驱动盘</p>
-        <p class="empty-hint">换个关键词，或清除检索条件查看全部档案。</p>
-        <button v-if="hasActiveFilter" type="button" class="empty-clear mono" @click="reset()">
-          清除检索与筛选
-        </button>
-      </div>
+      <CardGrid
+        v-reveal="160"
+        :items="sorted"
+        :key-of="(d) => d.Id"
+        empty-text="无匹配驱动盘"
+        :show-clear="hasActiveFilter"
+        @clear="reset"
+      >
+        <template #default="{ item: d }">
+          <NameCell
+            :to="`${base}/${d.Id}`"
+            :srcs="iconSources({ Id: d.Id, icon: d.icon }, 'disc')"
+            alt=""
+            :fallback="d.zh?.name ?? '—'"
+            :name="d.zh?.name ?? '—'"
+            thumb="square"
+            name-style="card"
+          />
 
-      <ul v-else v-reveal="160" class="disk-grid">
-        <li v-for="d in sorted" :key="d.Id" class="disk-card">
-          <RouterLink :to="`${base}/${d.Id}`" class="card-head" @pointerenter="warmDwell(d.Id)" @pointerdown="warmNow(d.Id)" @focus="warmNow(d.Id)">
-            <span class="thumb">
-              <!-- alt 置空：盘名文本紧随同链接内，图再念一遍名字是冗余朗读（axe image-redundant-alt） -->
-              <HollowImage
-                :srcs="iconSources({ Id: d.Id, icon: d.icon }, 'disc')"
-                alt=""
-                :fallback="d.zh?.name ?? '—'"
-                fit="contain"
-              />
-            </span>
-            <span class="name">{{ d.zh?.name ?? '—' }}</span>
-          </RouterLink>
-
-          <div class="set">
-            <span class="set-lbl mono">2 件套</span>
-            <p class="set-txt">{{ stripRichText(d.zh?.desc2) }}</p>
-          </div>
-          <div class="set set4">
-            <span class="set-lbl mono">4 件套</span>
-            <p class="set-txt">{{ stripRichText(d.zh?.desc4) }}</p>
-          </div>
-        </li>
-      </ul>
+          <CardBlock label="2 件套">
+            <p>{{ stripRichText(d.zh?.desc2) }}</p>
+          </CardBlock>
+          <CardBlock label="4 件套">
+            <p>{{ stripRichText(d.zh?.desc4) }}</p>
+          </CardBlock>
+        </template>
+      </CardGrid>
     </AsyncState>
   </ListPage>
 </template>
 
 <style scoped>
-
 .toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -183,176 +157,5 @@ function warmNow(id: number | string): void {
 
 .sort-arrow {
   font-size: var(--fs-nano);
-}
-
-/* ---------- card grid ---------- */
-
-.disk-grid {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1px;
-  background: var(--line-1);
-  border: var(--rule);
-}
-
-.disk-card {
-  background: var(--bg-2);
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-inline);
-}
-
-.card-head {
-  display: flex;
-  align-items: center;
-  gap: var(--space-inline);
-  text-decoration: none;
-  color: inherit;
-  min-width: 0;
-}
-
-.thumb {
-  width: 40px;
-  height: 40px; /* 驱动盘图标 151×151 方形，contain 完整显示 */
-  flex: none;
-  display: block;
-}
-
-.thumb :deep(.frame) {
-  border-radius: 2px;
-}
-
-.name {
-  font-family: var(--serif);
-  font-size: var(--fs-subhead);
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  transition: color var(--t-fast) var(--ease);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-@media (hover: hover) {
-  .card-head:hover .name {
-    color: var(--amber-hi);
-  }
-}
-
-.set {
-  border-top: var(--rule);
-  padding-top: 10px;
-}
-
-.set4 {
-  padding-top: 10px;
-}
-
-.set-lbl {
-  font-size: var(--fs-nano);
-  letter-spacing: 0.2em;
-  /* ink-1 而非 ink-2/ink-3：本标签是 10px 小字，须过 4.5:1。ink-3 仅 2.06:1；
-     ink-2 在卡片底色 --bg-2（比页面底色亮的档位，ink-2 的 4.87:1 是在 bg-0/bg-1
-     上标定的）上实测 4.40:1 仍差一点 —— 故取 ink-1（6.98:1）。
-     层级由字号/字距/等宽小字承担，不再靠压暗颜色。 */
-  color: var(--ink-1);
-}
-
-.set-txt {
-  margin-top: 6px;
-  font-size: var(--fs-caption);
-  line-height: 1.7;
-  color: var(--ink-1);
-  max-width: 46ch;
-}
-
-/* ---------- skeleton ---------- */
-
-.skel {
-  gap: 14px;
-}
-
-.skel .bar {
-  display: block;
-  height: 12px;
-  background: linear-gradient(
-    90deg,
-    var(--bg-1) 0%,
-    var(--bg-3) 50%,
-    var(--bg-1) 100%
-  );
-  background-size: 200% 100%;
-  animation: skel-pulse var(--t-skel) ease-in-out infinite;
-}
-
-.skel .thumb-bar {
-  width: 40px;
-  height: 40px;
-}
-
-.skel .name-bar {
-  width: 50%;
-  height: 16px;
-}
-
-.skel .body-bar {
-  width: 100%;
-  height: 12px;
-  margin-top: 10px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .skel .bar {
-    animation: none;
-    background: var(--bg-1);
-  }
-}
-/* ---------- 空态（检索无匹配）---------- */
-
-.disk-empty {
-  padding: 46px 16px 50px;
-  text-align: center;
-  border: 1px solid var(--line-0);
-  border-radius: 2px;
-}
-
-.empty-title {
-  font-size: var(--fs-micro);
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--ink-1);
-}
-
-.empty-hint {
-  margin-top: 10px;
-  font-size: var(--fs-caption);
-  color: var(--ink-2);
-}
-
-.empty-clear {
-  margin-top: 18px;
-  padding: 7px 14px;
-  background: none;
-  border: 1px solid var(--line-1);
-  border-radius: 2px;
-  color: var(--ink-1);
-  font-size: var(--fs-caption);
-  letter-spacing: 0.08em;
-  cursor: pointer;
-  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
-}
-
-@media (hover: hover) {
-  .empty-clear:hover {
-    color: var(--amber-hi);
-    border-color: var(--amber);
-  }
-}
-
-.empty-clear:focus-visible {
-  outline: 1px solid var(--focus);
-  outline-offset: 2px;
 }
 </style>

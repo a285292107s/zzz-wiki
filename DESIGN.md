@@ -95,7 +95,7 @@ src/
     usePageMeta.ts       # per-route title/eyebrow/description
   components/
     layout/              # SiteHeader / SiteFooter（从 App.vue 抽出）
-    list/                # CatalogTable / SearchField / FilterDropdown / ListPage
+    list/                # CatalogTable / CardGrid / CardBlock / SortButton / NoMatchState / SearchField / FilterDropdown / ListPage
     state/               # AsyncState / CatalogTableSkeleton / ErrorBoundary
     detail/              # DetailPage / DetailSection / KeyValueGrid / DescRow / DetailHead / AgentHead / SkillGroup / CoreSkillGroup / LevelSlider / StatLevelPanel / TermTip
     BackToTop.vue / Rarity.vue / Tags.vue / HollowImage.vue / FormulaEq.vue
@@ -160,6 +160,10 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 | SearchField | 搜索框 + 计数 | 4 处复制 |
 | FilterDropdown | 筛选下拉（属性/职业/阵营，图标 + 自定义面板） | 各列表页的筛选区块 |
 | CatalogTable | 列配置驱动表格 | 4 张手写表格；列配置声明渲染/格式化/插槽 |
+| CardGrid | 档案栅格（栅格几何 + 卡壳 + 骨架 + 空态；卡内内容经插槽） | 驱动盘 / 音擎两个栅格名录页的栅格与骨架外壳 |
+| CardBlock | 卡内「块」（上细线 + 等宽小字标签 + 注记 + 内容） | 卡片的 2/4 件套、基础属性、音擎效果等分块 |
+| SortButton | 名录工具栏排序钮（升/降/回默认三态，状态写 URL） | 栅格名录页失去表头后的排序入口 |
+| NoMatchState | 「检索/筛选无匹配」空态（标题 + 出路 + 一键清除） | 表格空态行与栅格空态的重复文案 |
 | DetailSection | 编号 section-head 容器 | 详情页 01/02/03 头部 |
 | KeyValueGrid | 数值网格 | 角色/音擎 stat-grid |
 | DescRow | 序号+标题+富文本行 | skill/talent/skin 行 |
@@ -168,7 +172,7 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 | DetailPage | 详情页容器（页头/区块编排） | 4 个详情页共享结构 |
 | StatLevelPanel | 属性等级滑条面板（1–60、突破刻度） | 角色详情等级展示 |
 | TermTip | 术语悬停浮层（读本地 noun.json） | 富文本术语锚点交互 |
-| NameCell | 名录名单元格（四语名/阵营） | 4 张表格的名列 |
+| NameCell | 名录名单元格（四语名/阵营；行内与栅格卡名两种排印） | 各表格与栅格名录页的名列 + 详情预热 |
 | SignatureRef | 边缘注记式交叉引用（代理人 ↔ 专属音擎 互链），footnote 风格无卡盒；`thumb` 按素材原始高宽比定盒 | 代理人 hero / 音擎 head 的归属引用 |
 | FormulaEq | 战斗公式条目排版（/formulas 页） | 公式图文统一渲染 |
 

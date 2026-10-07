@@ -27,6 +27,25 @@ describe('list schemas', () => {
       DiskDriveListItemSchema.safeParse({ Id: 31000, zh: { name: '啄木鸟' } }).success,
     ).toBe(true)
   })
+
+  it('accepts the weapon card display face injected at build time', () => {
+    const r = WEngineListItemSchema.safeParse({
+      Id: 14104,
+      rank: 4,
+      type: 1,
+      atk: 684,
+      base_property: { name: '基础攻击力', value: 46, format: '{0:0.#}' },
+      rand_property: { name: '攻击力', value: 1200, format: '{0:0.#%}' },
+      effect_name: '炽烈吐息',
+      effect_desc: '装备者的攻击力提升3.5%…',
+      effect_refine: 1,
+    })
+    expect(r.success).toBe(true)
+  })
+
+  it('weapon card fields are all optional (名录在无详情时仍合法)', () => {
+    expect(WEngineListItemSchema.safeParse({ Id: 12001 }).success).toBe(true)
+  })
 })
 
 describe('detail schemas', () => {

@@ -110,7 +110,10 @@ public/data/
 - **CharacterListItem**：`Id, code, rank, type(职业int), element(属性int), special_element(特殊属性展示名,可选), hit(攻击int), camp(阵营id,可经阵营细分补充覆写,见 §2), camp_name(阵营展示名,可选), icon(裸文件名), potential, skin, desc, en, zh, ja, ko`
   - `special_element`：构建期由详情 `special_element_type.name` 注入（如 星见雅→`烈霜`、仪玄→`玄墨`、叶瞬光→`凛刃`）。前端展示属性时优先显示它，无则为 `element` 基础属性。
   - `camp_name`：构建期由详情 `camp` 映射（如 `{"1":"狡兔屋"}`）注入阵营中文名；随后应用阵营细分补充（`camp-supplement.json`，如 1611→`罗斯凯利法·弗林特工坊`）。前端名录阵营列优先显示它，无则退回 `C##` 代码。
-- **WEngineListItem**：`Id, icon, rank, type, atk, sub, desc, en, zh, ja, ko`
+- **WEngineListItem**：`Id, icon, rank, type, atk(满级基础攻击力), sub(副属性英文名), desc, en, zh, ja, ko`
+  - `base_property` / `rand_property`：构建期由详情同名对象注入的**展示子集**（`name`(中文名) + `value`(Lv.1 基础值) + `format`），供名录卡片复用 `domain/sections.wEnginePropsAtLevel` 呈现与详情页同口径的满级面板（主属性按 `atk` 插值到 Lv.60）。
+  - `effect_name` / `effect_desc` / `effect_refine`：构建期由详情 `talents` 注入的音擎效果（效果名 + 正文 + 正文对应的精炼档，通常 1 阶），供名录卡片直接陈列。正文含 `<color=#…>` 富文本，展示层须经 `stripRichText`（与驱动盘 2/4 件套同一约定）。
+  - 三者均可选：详情缺失时名录仍合法，卡片对应块不渲染。
 - **BangbooListItem**：`Id, icon, rank, codename, desc, en, zh, ja, ko`
 - **DiskDriveListItem**：`Id, icon, en{name,desc2,desc4}, ko{…}, zh{…}, ja{…}`
 
@@ -136,7 +139,7 @@ public/data/
 | `/manifest.json` | 版本号（live = 正式服）、new 新内容 ID 清单（latest 仅作参考，不消费） |
 | `character.json` | 角色名录（code/rank/type/element/hit/camp/icon/四语名） |
 | `zh/character/{id}.json` | 角色详情（数值/技能/影画/档案/皮肤/特殊属性/策略/潜能…） |
-| `weapon.json` | 音擎名录（含 atk/sub/desc） |
+| `weapon.json` | 音擎名录（含 atk/sub/desc；主/副属性展示面与音擎效果由详情注入，见 §3 名录字段） |
 | `zh/weapon/{id}.json` | 音擎详情（主/副属性、等级成长、精炼 1-5、突破材料） |
 | `bangboo.json` | 邦布名录 |
 | `zh/bangboo/{id}.json` | 邦布详情（数值/晋升/技能 a/b/c） |

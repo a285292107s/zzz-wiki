@@ -333,7 +333,8 @@ async (page) => {
       await p2.click('.err-retry')
       await p2.waitForTimeout(1600)
       const recovered = await p2.evaluate(
-        () => document.querySelectorAll('tbody.d-body tr:not(.empty-row)').length,
+        // 音擎名录是栅格卡片（2026-10 起）：表格行恒为 0，须按卡计数
+        () => document.querySelectorAll('.card-grid > li:not(.skel)').length,
       )
       add('error-state-retry-recovers', recovered === 100, `rows=${recovered}`)
     }
@@ -513,13 +514,13 @@ async (page) => {
 
   // ---- 其余三个名录页的筛选/搜索（走查此前只在代理人页验过）----
   // 四类目的筛选配置是**各自声明**的（代理人 3 个下拉、音擎 1 个、邦布/驱动盘仅搜索），
-  // 且驱动盘用的是**卡片**布局而非表格——按 /agents 的假设去测会得到「0 行」的假象。
+  // 且驱动盘与音擎用的是**卡片栅格**而非表格——按 /agents 的假设去测会得到「0 行」的假象。
   {
-    // 音擎：职业下拉
+    // 音擎：职业下拉（栅格名录 = 卡片计数，见 CardGrid）
     await page.goto('http://localhost:4175/w-engines', { waitUntil: 'networkidle' })
     await page.waitForTimeout(1700)
     const weBase = await page.evaluate(
-      () => document.querySelectorAll('tbody.d-body tr:not(.empty-row)').length,
+      () => document.querySelectorAll('.card-grid > li:not(.skel)').length,
     )
     await page.evaluate(() => document.querySelector('.filter-dropdown .trigger')?.focus())
     await page.keyboard.press('Enter')
@@ -530,7 +531,7 @@ async (page) => {
     await page.waitForTimeout(900)
     const we = await page.evaluate(() => ({
       url: location.search,
-      rows: document.querySelectorAll('tbody.d-body tr:not(.empty-row)').length,
+      rows: document.querySelectorAll('.card-grid > li:not(.skel)').length,
       active: document.querySelectorAll('.filter-dropdown .trigger.active').length,
     }))
     add('wengines-filter', we.rows < weBase && we.rows > 0 && /prof=/.test(we.url) && we.active === 1, JSON.stringify({ weBase, ...we }))
@@ -555,23 +556,23 @@ async (page) => {
       JSON.stringify({ bbBase, ...bb }),
     )
 
-    // 驱动盘：卡片布局 + 搜索
+    // 驱动盘：卡片栅格 + 搜索
     await page.goto('http://localhost:4175/disks', { waitUntil: 'networkidle' })
     await page.waitForTimeout(1800)
     const dkBase = await page.evaluate(() => ({
-      cards: document.querySelectorAll('.disk-card').length,
+      cards: document.querySelectorAll('.card-grid > li:not(.skel)').length,
       rows: document.querySelectorAll('tbody tr').length,
     }))
     await page.evaluate(() => document.querySelector('.search input')?.focus())
     await page.keyboard.insertText('啄木鸟')
     await page.waitForTimeout(1000)
     const dk = await page.evaluate(() => ({
-      cards: document.querySelectorAll('.disk-card').length,
+      cards: document.querySelectorAll('.card-grid > li:not(.skel)').length,
       url: location.search,
     }))
     add(
       'disks-search-cards',
-      // 卡片布局：表格行恒为 0，必须按 .disk-card 计数（否则会把「布局不同」误判成「没有内容」）
+      // 卡片栅格：表格行恒为 0，必须按卡计数（否则会把「布局不同」误判成「没有内容」）
       dkBase.cards === 30 && dkBase.rows === 0 && dk.cards === 1 && /q=/.test(dk.url),
       JSON.stringify({ dkBase, ...dk }),
     )
