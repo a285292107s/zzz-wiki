@@ -31,10 +31,13 @@ import Tags from '@/components/Tags.vue'
 const id = useRouteParam('id')
 const { data: detail, status, error, reload } = useAsyncResource(() => detailFor<WEngineDetail>(catalogEntry('/w-engines'), id.value))
 
+/** 404 与「加载失败」要分开说：档案确实不存在 vs 数据没到位（标题不能都说「缺失」） */
+const isNotFound = computed(() => /HTTP 404\b/.test(error.value ?? ''))
+
 usePageMeta(
   // 404（档案不存在）时标题给「档案缺失」：与路由级 404 一致，也让标签页/书签说真话；
   // 加载中仍走路由 meta 的默认标题（不能提前显示「缺失」）
-  () => detail.value?.name ?? (status.value === 'error' ? '档案缺失' : undefined),
+  () => detail.value?.name ?? (status.value === 'error' ? (isNotFound.value ? '档案缺失' : '载入失败') : undefined),
   () => {
     const name = detail.value?.name
     const d = detail.value?.desc

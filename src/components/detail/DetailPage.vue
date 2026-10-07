@@ -124,7 +124,7 @@ watch(
       :retry="retry"
       :back-to="fallbackTo"
       :back-text="fallbackText"
-      :not-found-as-heading="true"
+      :state-as-heading="true"
     >
       <slot />
       <!-- 逐条出处：本条数据属于哪一版快照。版本取自 manifest（api 层已缓存，零额外请求）。

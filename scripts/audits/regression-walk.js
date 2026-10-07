@@ -327,6 +327,31 @@ async (page) => {
       )
       add('error-state-retry-recovers', recovered === 100, `rows=${recovered}`)
     }
+
+    // 详情页的错误态（非 404）与 404 是**两条不同语义的分支**：前者标题应说「载入失败」
+    // （档案可能只是没取到），后者才说「档案缺失」。两者都必须有 h1——实测都曾缺失。
+    const p3 = await swBlockedCtx.newPage()
+    await p3.route('**/data/live/zh/character/1011.json', (r) => r.abort())
+    await p3.goto('http://localhost:4175/agents/1011', { waitUntil: 'networkidle' })
+    await p3.waitForTimeout(2200)
+    const detailErr = await p3.evaluate(() => ({
+      h1Count: document.querySelectorAll('h1').length,
+      h1Text: document.querySelector('h1')?.textContent.replace(/\s+/g, ' ').trim() ?? '',
+      role: document.querySelector('.state')?.getAttribute('role') ?? '',
+      retry: document.querySelector('.err-retry')?.textContent.trim() ?? 'none',
+      title: document.title,
+    }))
+    add(
+      'detail-error-state',
+      detailErr.h1Count === 1 &&
+        detailErr.h1Text.includes('数据加载失败') &&
+        detailErr.role === 'alert' &&
+        detailErr.retry === '重新加载' &&
+        // 关键：网络失败**不能**说「档案缺失」（档案可能只是没取到）
+        detailErr.title.includes('载入失败') &&
+        !detailErr.title.includes('档案缺失'),
+      JSON.stringify(detailErr),
+    )
     await swBlockedCtx.close()
   }
 

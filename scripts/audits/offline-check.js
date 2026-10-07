@@ -49,9 +49,24 @@ async (page) => {
 
   // 等 SW 接管本页（首次注册后需要一次导航或 clients.claim）
   await page.reload({ waitUntil: 'networkidle' })
-  await page.waitForTimeout(2000)
-  const controlled = await page.evaluate(() => !!navigator.serviceWorker.controller)
-  add('sw-controlled', controlled, String(controlled))
+  // **确定性等待 SW 就绪**，而不是定时猜测：安装要预缓存 /offline.html，
+  // 在浏览器刚跑完别的审计（忙）时 2s 可能不够 → 曾出现「兜底页未缓存 → 离线落到
+  // 浏览器错误页」的偶发失败（三次复跑均通过，确认是竞态而非功能问题）。
+  let ready = { controlled: false, offlineCached: false }
+  for (let i = 0; i < 20; i++) {
+    ready = await page.evaluate(async () => {
+      const controlled = !!navigator.serviceWorker.controller
+      let offlineCached = false
+      for (const k of await caches.keys()) {
+        const c = await caches.open(k)
+        if (await c.match('/offline.html')) offlineCached = true
+      }
+      return { controlled, offlineCached }
+    })
+    if (ready.controlled && ready.offlineCached) break
+    await page.waitForTimeout(400)
+  }
+  add('sw-controlled', ready.controlled, JSON.stringify(ready))
 
   // 2) 断网后重载已访问页面
   // **必须用 context.setOffline**：CDP 的 Network.emulateNetworkConditions({offline:true})

@@ -15,9 +15,10 @@ const props = defineProps<{
   /** 404 时展示的返回链接目标（可选） */
   backTo?: string
   backText?: string
-  /** 404 态把标题渲染为 `<h1>`：详情页整页只有这一处标题元素时用。
+  /** 错误态（404 与其它失败）把标题渲染为 `<h1>`：详情页出错时正文插槽未渲染，
+   *  整页没有别的标题元素，必须有主标题（读屏与 SEO 都要）。
    *  列表页已有自己的 h1，传了会造成双 h1（故默认 false，由 DetailPage 显式开启）。 */
-  notFoundAsHeading?: boolean
+  stateAsHeading?: boolean
   /** 重试回调（通常传 useAsyncResource 的 reload）；给了才显示「重新加载」按钮 */
   retry?: () => void
 }>()
@@ -58,14 +59,18 @@ const errorHint = computed(() => {
       <!-- 详情页的 404 态必须有 h1：此时正文插槽未渲染，整页没有别的标题元素
            （实测 /agents/9999 的 h1 为空 → 读屏与 SEO 都缺主标题）。
            ⚠ 作装饰 aria-hidden，标题的可访问名只留文案。 -->
-      <h1 v-if="notFoundAsHeading" class="err-title mono">
+      <h1 v-if="stateAsHeading" class="err-title mono">
         <span aria-hidden="true">⚠ </span>{{ notFoundText ?? '目标不存在或已被移除' }}
       </h1>
       <p v-else class="err-title mono">⚠ {{ notFoundText ?? '目标不存在或已被移除' }}</p>
       <RouterLink v-if="backTo" class="err-link mono" :to="backTo">{{ backText ?? '返回名录' }}</RouterLink>
     </template>
     <template v-else>
-      <p class="err-title mono">⚠ {{ errorTitle ?? '数据加载失败' }}</p>
+      <!-- 其它失败态同理需要 h1（实测 /agents/1011 断网时 h1Count 也是 0） -->
+      <h1 v-if="stateAsHeading" class="err-title mono">
+        <span aria-hidden="true">⚠ </span>{{ errorTitle ?? '数据加载失败' }}
+      </h1>
+      <p v-else class="err-title mono">⚠ {{ errorTitle ?? '数据加载失败' }}</p>
       <p class="err-hint">{{ errorHint }}</p>
       <button v-if="retry" type="button" class="err-retry mono" @click="retry()">重新加载</button>
       <p v-if="error" class="err-detail mono">{{ error }}</p>

@@ -8,7 +8,7 @@
  * |---|---|---|
  * | viewport-overflow.js  | 8 视口 × 8 路由横向溢出 | 0 |
  * | touch-targets.js      | 交互目标 ≥24×24（WCAG 2.5.8） | 0 问题 |
- * | regression-walk.js    | 全站功能走查（82 项，覆盖七类目/边界态/URL 状态/离线联动） | 82/82 |
+ * | regression-walk.js    | 全站功能走查（83 项，覆盖七类目/边界态/URL 状态/离线联动） | 83/83 |
  * | transfer-profile.js   | 分类传输体积（逐文件 kb + 加载时刻） | 36 请求；最大 noto-serif-sc.css 68.9KB（解码值，gzip 后 ~10KB） |
  * | quick-search.js       | ⌘K 检索链路端到端（中文高亮/罗马字命中/结果态预激活/空态键盘路径） | 4/4 |
  * | font-loading.js       | CJK 衬线生效 + 分片按需 | serif=Noto Serif SC |
@@ -55,6 +55,10 @@
  *   （`offline-check.js` 首版即如此，实测发现后改正）。
  *   同理，离线审计必须先**注销残留 SW + 清缓存**：浏览器配置跨审计复用，旧注册不重新拉取
  *   脚本就继续生效（负向验证时删掉 `dist/sw.js` 仍全绿，即因此）。
+ *   另：等 SW 就绪要**轮询状态**（controller 存在 **且** `/offline.html` 已入缓存），
+ *   不要用固定 `waitForTimeout` —— 刚跑完别的审计（浏览器忙）时安装会慢，曾出现
+ *   「兜底页未缓存 → 离线落到浏览器错误页」的偶发失败（复跑三次均过，确认是竞态）。
+ *   **偶发失败要么查出竞态、要么改成确定性等待，不能靠重跑蒙过去。**
  *
  * 新增审计：脚本导出 JSON（{ total, failed, failedItems } 风格），
  * 失败项必须带定位信息（tag/cls/几何），让下一轮修复不用重新考古。
