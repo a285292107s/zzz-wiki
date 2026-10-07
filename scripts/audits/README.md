@@ -54,6 +54,14 @@
  *   `smallTargetsAt320: 3`，单独复跑为 0）。改为等 `document.fonts.status === 'loaded'`
  *   + 两帧 rAF 后再量。**偶发失败要查竞态或改确定性等待，不能靠重跑蒙过去。**
  *
+ * ⚠ **测「首次访问」性能必须三件套**（第 114 轮修正，此前口径不严）：
+ *   ① **新上下文**（`browser.newContext()`）——在共享 page 上测，测量导航本身会注册 SW
+ *      并缓存资源，第二次读数就变成回访；
+ *   ② `serviceWorkers: 'block'`——否则 SW 命中让资源以 `transferSize=0` 秒回；
+ *   ③ `Network.setCacheDisabled(true)`——仅 `clearBrowserCache` 不够，本 profile 的缓存
+ *      仍会让头图 0KB 秒回（实测踩过：读数 1.0s vs 真值 2.26s）。
+ *   回访性能则相反：**保留 SW 缓存**才是要测的条件。
+ *
  * ⚠ **结构性改动不要用脚本搬行**：本会话三次用正则/PowerShell 批量改文件，分别把
  *   `add()` 的多余参数、注释吞掉 `page.goto`、以及 `execFileSync` 的参数数组清空——
  *   每次都靠复读文件才发现。**改代码用编辑器工具逐处改；批量替换只用于等长、可验证的
