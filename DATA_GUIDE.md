@@ -171,6 +171,19 @@ public/data/
 > **hero 头图（AgentHead）**：角色详情页 head 的 Mindscape_{id}_2.webp 已全量本地化到
 > `public/data/img/hero/`（live 58/58，正式服角色源站均已上传；下载脚本遇缺仅告警不置失败码）
 > ——前端 `AgentHead.vue` 本地优先 + nanoka CDN 兜底，两级均缺时降为 --bg-0 底色，不破版。
+
+> **已知两端皆缺的按键图标（单一事实源）**：游戏文本 `<IconMap:…>` 里有个别资产**源站从未提供**。
+> 清单在 `src/data/known-missing-assets.json`，前端（`src/data/icons.ts`）与门禁
+> （`scripts/verify-icons.mjs`）读同一份：
+> - 前端对这类资产**直接渲染文字键位**（`.rich-keylabel`，如「EP」），不发请求、不留虚线空洞；
+> - 门禁把它记为「已记录缺口」而非失败，仍逐条打印（避免记了就不再被看见）。
+>
+> 当前 1 条：`Icon_SpecialReady_Ep`（2026-10 实测 CDN 404 且本地无文件；影响 1611 克拉蕾技能描述 3 处）。
+> **新增条目必须写明依据**（实测时间、探测过的 URL 与状态码、本地是否存在）——
+> 这里是记录事实，不是「缺失就忽略」的抽屉；新增图标缺失仍应优先补资产。
+>
+> `npm run verify:icons --local` 已接入 `build:ci`（本地差集，离线可用）；带远程审计的
+> `npm run verify:icons`（默认）需联网，用于核查「源站是否已补上」。
 > **双形态角色例外**：1551 佩洛伊斯（Pyrois）源站无裸名 `Mindscape_1551_2.webp`，而是按性别后缀
 > 区分（`Mindscape_1551_Female_2.webp` / `Mindscape_1551_Male_2.webp`），两形态均已本地化到
 > `img/hero/`。**单一事实源**：`src/data/hero-gender-variants.json` 以 `{ id: { variants, defaultFile } }`

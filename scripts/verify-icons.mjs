@@ -30,12 +30,22 @@ const LOCAL_ONLY = process.argv.includes('--local')
 
 /* ---------- 1) 本地差集 ---------- */
 
+/** 已知两端皆缺的按键资产：**单一事实源**与前端共用（src/data/known-missing-assets.json）。
+ *  这类条目不是失败——前端对它们直接渲染文字键位、根本不发请求（见 src/data/icons.ts）。
+ *  但仍逐条打印，避免「记了就不再被看见」。 */
+const KNOWN_MISSING = JSON.parse(
+  fs.readFileSync(new URL('../src/data/known-missing-assets.json', import.meta.url), 'utf8'),
+)
+
 const entries = collectIcons()
 const localMissing = [] // 必须本地存在却缺失（破坏零外部请求）
 const localTolerated = [] // 可容忍缺口（hero 源站未上传 / 皮肤默认不落地）
+const knownGaps = [] // 已知两端皆缺（前端以文字键位降级，不发请求）
 for (const e of entries) {
   if (fs.existsSync(localPath(e))) continue
-  if (e.optionalLocal) localTolerated.push(e)
+  const key = e.file.replace(/\.(png|webp)$/i, '')
+  if (Object.prototype.hasOwnProperty.call(KNOWN_MISSING, key)) knownGaps.push(e)
+  else if (e.optionalLocal) localTolerated.push(e)
   else localMissing.push(e)
 }
 
@@ -79,17 +89,24 @@ if (!LOCAL_ONLY) {
 
   // 远端缺口按「本地是否已兜住」分级：
   //   本地存在 → 仅告警（运行时由本地文件兜住，零请求不受影响；但下次重建/换机下载会缺）
-  //   本地缺失 → 已计入 localMissing，是真正的硬失败
+  //   本地缺失且**未记录** → 已计入 localMissing，是真正的硬失败
+  //   本地缺失但**已记录**（known-missing-assets.json）→ 前端以文字键位降级、不发请求，
+  //   故不计入失败；仍单独列出，避免「记了就不再被看见」。
   remoteMiss = entries.filter((e) => {
     const s = statusCache.get(cdnUrl(e))
     return s !== -1 && s !== 200
   })
+  const isKnownGap = (e) =>
+    Object.prototype.hasOwnProperty.call(KNOWN_MISSING, e.file.replace(/\.(png|webp)$/i, ''))
   const missLocalAlive = remoteMiss.filter((e) => fs.existsSync(localPath(e)))
-  remoteDead = remoteMiss.filter((e) => !fs.existsSync(localPath(e)))
+  remoteDead = remoteMiss.filter((e) => !fs.existsSync(localPath(e)) && !isKnownGap(e))
+  const missKnown = remoteMiss.filter((e) => !fs.existsSync(localPath(e)) && isKnownGap(e))
   remoteUnreachable = entries.some((e) => statusCache.get(cdnUrl(e)) === -1)
 
-  console.log(`\n== nanoka.cc /assets/zzz 远程审计：${urls.length} 个地址，源站缺口 ${remoteMiss.length}（本地已兜住 ${missLocalAlive.length} / 两端皆缺 ${remoteDead.length}）${remoteUnreachable ? '，另有个别地址网络不可达' : ''} ==`)
+  console.log(`\n== nanoka.cc /assets/zzz 远程审计：${urls.length} 个地址，源站缺口 ${remoteMiss.length}（本地已兜住 ${missLocalAlive.length} / 已记录缺口 ${missKnown.length} / 两端皆缺 ${remoteDead.length}）${remoteUnreachable ? '，另有个别地址网络不可达' : ''} ==`)
   for (const m of missLocalAlive) console.log(`  ⚠ [${m.cat}] ${m.remote} → 源站已缺失（本地现存可兜底；重建时将无法补下）`)
+  for (const m of missKnown)
+    console.log(`  ℹ [${m.cat}] ${m.remote} → 两端皆缺但**已记录**：前端渲染文字键位、不发请求（依据见 src/data/known-missing-assets.json）`)
   for (const m of remoteDead) console.log(`  ✖ [${m.cat}] ${m.remote} → 源站缺失且本地无文件`)
 }
 

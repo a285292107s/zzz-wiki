@@ -10,7 +10,7 @@
  * 「白名单 token 定向还原 + 普通文本段 HTML 转义」双保险。
  * ============================================================ */
 
-import { skillAssetSources } from '@/data/icons'
+import { keyAssetLabel, knownMissingKeyAsset, skillAssetSources } from '@/data/icons'
 import { calTokenValue, parseCalToken } from '@/domain/skillFormula'
 import { tokenizeGameText } from './gameMarkup'
 
@@ -121,11 +121,22 @@ export function richDesc(desc?: string, level?: number): string {
       case 'iconmap': {
         // 内联键位图标：本地候选优先；本地缺失时由 main.ts 的全局 error 捕获降级到
         // data-cdn；全部失败后替换为 .rich-key-broken 占位方框（HollowImage 同语言）
-        const [local, cdn] = skillAssetSources(tok.name)
-        const src = local ?? cdn
-        if (src) {
-          const data = local && cdn ? ` data-cdn="${cdn}"` : ''
-          out += `<img class="rich-key" src="${src}" alt="" loading="lazy" decoding="async"${data}>`
+        //
+        // 例外：**已知源站从未提供的资产**（见 icons.ts 的 KNOWN_MISSING_KEY_ASSETS）
+        // 直接渲染文字键位——省掉一次注定 404 的跨域请求，也不留视觉空洞。
+        const missing = knownMissingKeyAsset(tok.name)
+        if (missing) {
+          const label = keyAssetLabel(tok.name)
+          // 外盒按**父级** em 定高（与图标同高），内层才缩字号——若把两者放在同一个元素上，
+          // 盒高会随标签自身字号一起缩小（实测 10.8px vs 图标 14.9px）
+          out += `<span class="rich-keylabel" title="${esc(tok.name)}" aria-label="${esc(label)}"><span class="rich-keylabel-t mono">${esc(label)}</span></span>`
+        } else {
+          const [local, cdn] = skillAssetSources(tok.name)
+          const src = local ?? cdn
+          if (src) {
+            const data = local && cdn ? ` data-cdn="${cdn}"` : ''
+            out += `<img class="rich-key" src="${src}" alt="" loading="lazy" decoding="async"${data}>`
+          }
         }
         // 短语在此收束（后续既非「发动」也非序列连接段）时：框在图标后即闭合
         if (keyopOpen && !launchAt.has(i + 1) && !connAt.has(i + 1)) {

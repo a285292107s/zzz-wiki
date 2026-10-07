@@ -1026,6 +1026,44 @@ async (page) => {
     await page.evaluate(() => localStorage.removeItem('zzz-wiki:compare'))
   }
 
+  // ---- 富文本键位图标：已知缺失资产以文字键位降级（且不发请求）----
+  // 1611 克拉蕾的技能描述引用了 Icon_SpecialReady_Ep——源站从未提供。此前走常规候选链：
+  // 本地 404 → 回源 CDN 一次（违反数据面零请求）→ 仍 404 → 虚线空洞。
+  // 现在按 known-missing-assets.json 直接渲染文字键位「EP」。
+  {
+    await page.goto('http://localhost:4175/agents/1611', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(3000)
+    const keys = await page.evaluate(() => {
+      const labels = [...document.querySelectorAll('.rich-keylabel')]
+      const icon = document.querySelector('img.rich-key')
+      const box = (e) => {
+        const r = e?.getBoundingClientRect()
+        return r ? { w: +r.width.toFixed(1), h: +r.height.toFixed(1) } : null
+      }
+      return {
+        labels: labels.length,
+        text: labels[0]?.textContent.trim() ?? '',
+        title: labels[0]?.getAttribute('title') ?? '',
+        labelBox: box(labels[0]),
+        iconBox: box(icon),
+        broken: document.querySelectorAll('.rich-key-broken').length,
+        nanoka: [...performance.getEntriesByType('resource')].filter((r) => /nanoka/.test(r.name)).length,
+      }
+    })
+    add(
+      'rich-key-missing-asset-fallback',
+      keys.labels >= 1 &&
+        keys.text === 'EP' &&
+        keys.title === 'Icon_SpecialReady_Ep' &&
+        keys.broken === 0 &&
+        // 文字键位与图标键位同高（视觉一致）
+        keys.labelBox?.h === keys.iconBox?.h &&
+        // 关键：不再白试一次跨域请求
+        keys.nanoka === 0,
+      JSON.stringify(keys),
+    )
+  }
+
   // ---- 404 ----
   await page.goto('http://localhost:4175/none', { waitUntil: 'networkidle' })
   await page.waitForTimeout(600)

@@ -85,3 +85,35 @@ export function skillAssetSources(asset: string): string[] {
   const name = asset.replace(/\.(png|webp)$/i, '')
   return [`${LOCAL_IMG}/skill/${name}.webp`, `${NANOKA_ASSETS}/${name}.webp`]
 }
+
+/* ============================================================
+ * 已知源站缺失的按键图标
+ *
+ * 背景：游戏文本里引用的 <IconMap:…> 有个别资产**源站从未提供**。这类资产走常规候选链
+ * 会：本地 404 → 回源 CDN 一次（违反「数据面零外部请求」的初衷）→ 仍 404 → 虚线占位方框
+ * （视觉空洞）。既然已知两端皆无，就该**直接渲染文字键位**：省掉白试的跨域请求，
+ * 也给读者可读的信息。
+ *
+ * 清单存在 `known-missing-assets.json`（**单一事实源**）：门禁 scripts/verify-icons.mjs
+ * 读同一份文件，把这类缺口记为「已记录」而不是失败。新增条目必须写明依据（实测时间、
+ * 探测过的 URL 与状态码、本地是否存在）——这里是记录事实，不是「缺失就忽略」的抽屉。
+ * ============================================================ */
+import knownMissingJson from '@/data/known-missing-assets.json'
+
+const KNOWN_MISSING_KEY_ASSETS: Record<string, { reason: string }> = Object.fromEntries(
+  Object.entries(knownMissingJson as Record<string, unknown>).filter(([k]) => !k.startsWith('_')),
+) as Record<string, { reason: string }>
+
+/** 该按键资产是否已知两端皆缺（缺则渲染文字键位，不发请求） */
+export function knownMissingKeyAsset(asset: string): boolean {
+  const name = asset.replace(/\.(png|webp)$/i, '')
+  return Object.prototype.hasOwnProperty.call(KNOWN_MISSING_KEY_ASSETS, name)
+}
+
+/** 文字键位的短标签：取最后一段下划线后缀并大写（Icon_SpecialReady_Ep → EP） */
+export function keyAssetLabel(asset: string): string {
+  const name = asset.replace(/\.(png|webp)$/i, '')
+  const parts = name.split('_').filter(Boolean)
+  const last = parts[parts.length - 1] ?? name
+  return last.length <= 4 ? last.toUpperCase() : name
+}

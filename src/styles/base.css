@@ -146,6 +146,34 @@ select {
   line-height: 0;
 }
 
+/* 文字键位（rich.ts 生成）：**已知源站从未提供**的按键资产直接显示短标签，
+   既省掉一次注定 404 的跨域请求，也不留虚线空洞。
+   用**独立类名**而不是复用 .rich-key：四个详情组件各自给 .rich-key 定了方框尺寸与
+   `line-height: 0`（为 svg 准备的），复用会让文字被压成 10px 高且难以覆盖
+   （scoped 规则的特异度更高，实测踩过）。颜色走 currentColor：在 .rich-keyop 短语框里
+   自然继承琥珀，在正文里保持墨色。 */
+.rich-keylabel {
+  display: inline-block;
+  min-width: 1.15em;
+  height: 1.15em;
+  margin: 0 0.1em;
+  padding: 0 0.28em;
+  box-sizing: border-box;
+  /* 盒高与行高都用**父级** em（不在本元素上改 font-size），故与图标键位同高 */
+  line-height: 1.15em;
+  text-align: center;
+  color: currentColor;
+  border: 1px solid color-mix(in srgb, currentColor 45%, transparent);
+  border-radius: 1px;
+  vertical-align: -0.22em;
+}
+
+/* 标签文字：只在这里缩字号（0.72em），盒高不受影响 */
+.rich-keylabel-t {
+  font-size: 0.72em;
+  letter-spacing: 0.02em;
+}
+
 /* 富文本术语锚点（rich.ts 生成）：细点线 + 助手指针，悬停/聚焦浮层（TermTip）。
    保持与内文同字号同色，仅用底线提示可交互，不喧宾夺主。 */
 a.rich-term {

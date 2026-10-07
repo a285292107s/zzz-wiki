@@ -1,0 +1,14 @@
+{
+  "_comment": [
+    "已知两端皆缺的按键图标（游戏文本引用、但源站从未提供、本地也没有）。",
+    "单一事实源：前端 src/data/icons.ts 用它决定「直接渲染文字键位、不发请求」；",
+    "门禁 scripts/verify-icons.mjs 用它把这类缺口记为「已记录的缺口」而不是失败。",
+    "新增条目的门槛：必须写明依据（实测时间、探测过的 URL 与状态码、本地是否存在）。",
+    "这里是**记录事实**，不是「缺失就忽略」的抽屉——新增图标缺失应优先补资产。"
+  ],
+  "Icon_SpecialReady_Ep": {
+    "reason": "源站从未提供：2026-10 实测 static.nanoka.cc/assets/zzz/Icon_SpecialReady_Ep.webp 与 _EP / Icon_SpecialReadyEp / _Ep_1 等变体均 404（同族 Icon_SpecialReady 为 200、_Rp 源站亦 404 但本地已有），本地亦无。",
+    "impact": "1611 克拉蕾技能描述 3 处 <IconMap:Icon_SpecialReady_Ep>；以文字键位「EP」降级。",
+    "fallback": "text-key-label"
+  }
+}
