@@ -513,12 +513,16 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
 }
 
 /* 立绘主位 + 说明两栏：直立画幅完整呈现全身皮肤照（figcaption 是 figure 子元素，
-   故两栏栅格/间距设在 figure 上，li 只负责列表分隔） */
+   故两栏栅格/间距设在 figure 上，li 只负责列表分隔）。
+   立绘列宽从 132px 提到 clamp(260px, 26vw, 400px)：源站皮肤素材是 **2128×2008 / ~350KB**
+   的全身立绘（实测），此前只按 132px 展示——等于把一张大画印成邮票，区块右侧大片空白。
+   说明文字另有 72ch 上限，不会随栏宽拉长。 */
 .skin-figure {
   display: grid;
-  grid-template-columns: 132px 1fr;
-  align-items: start;
-  gap: 20px;
+  grid-template-columns: clamp(260px, 26vw, 400px) minmax(0, 1fr);
+  /* 文字与立绘垂直居中：立绘近 500px 高、说明常只有两三行，顶端对齐会让右栏大面积留白 */
+  align-items: center;
+  gap: clamp(20px, 3vw, 40px);
   margin: 0;
 }
 
@@ -554,9 +558,13 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
   .skin {
     padding-block: 14px;
   }
+  /* 手机单列：立绘在上、说明在下；立绘不占满整屏（留出上下文，避免「一屏一张图」） */
   .skin-figure {
-    grid-template-columns: 96px 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 14px;
+  }
+  .skin-figure > :first-child {
+    max-width: min(64vw, 280px);
   }
 }
 

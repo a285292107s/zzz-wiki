@@ -127,9 +127,15 @@ export function campKeyOf(id: number): string {
 }
 
 function keyOf(id: number): { element: number | undefined; camp: string | null; special: string | null } {
-  // 紧凑表格式：[属性码, 阵营] 或 [属性码, 阵营, 特殊属性]（见 generate-featured-elements.mjs）
-  const e = (featuredElements as Record<string, [number, string | null] | [number, string | null, string]>)[String(id)]
-  return { element: e?.[0], camp: e?.[1] ?? null, special: e?.[2] ?? null }
+  // 紧凑表格式：[属性码, 阵营] 或 [属性码, 阵营, 特殊属性]（见 generate-featured-elements.mjs）。
+  // JSON 导入被推断为 (string|number)[]，元组断言需经 unknown 中转（直接断言 TS 会报不重叠）。
+  const table = featuredElements as unknown as Record<string, (string | number)[]>
+  const e = table[String(id)]
+  return {
+    element: typeof e?.[0] === 'number' ? e[0] : undefined,
+    camp: typeof e?.[1] === 'string' ? e[1] : null,
+    special: typeof e?.[2] === 'string' ? e[2] : null,
+  }
 }
 
 /**
