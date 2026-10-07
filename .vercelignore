@@ -17,23 +17,37 @@
 # 破万文件同时触发 hobby 套餐的上传请求上限（>5000 → api-upload-free 429），
 # 部署在上传阶段即失败，与构建无关。
 #
+# ⚠ 写法约束（踩过的坑，别改成 `temp/` 这种带斜杠的形式）：
+#   CLI 内置的是 **ignore@4.0.6**（见 dist/chunks 内联的 pnpm 路径），
+#   该版本里模式 `dist/` **只匹配目录内容、不匹配目录本身**：
+#       ig.ignores('dist')      → false
+#       ig.ignores('dist/a.js') → true
+#   而 CLI 的 readdir 是「命中就整棵剪掉，否则递归下去」：
+#       if (ignores.some(m => m(filePath, stats))) return   // 剪枝
+#   于是 `dist/` 写法的目录**不会被剪枝**，行为对不上预期。写成**不带斜杠**的
+#   `dist` 才能让 ig.ignores('dist') 为 true，在顶层就把整棵子树剪掉。
+#   实测（三次真实部署的上传文件数）：
+#       无 .vercelignore        12,453
+#       写成 `temp/` 等带斜杠     5,636   ← 只剪掉了 temp，其余照传
+#       写成 `temp` 等不带斜杠     1,392   ← 与入库 1,393 个文件持平
+#
 # 维护约定：新增「构建不需要」的顶层目录时，.gitignore 与这里**两边都要加**；
 # 漏加会被 scripts/verify-vercel-config.mjs 的上传面断言在本地 build:ci 拦下。
 # ============================================================
 
 # 临时产物（AGENTS.md §1：一律放 temp/，随时可清空）
-temp/
+temp
 # 构建产物（构建期由 vite build 重新生成，不需要上传旧的一份）
-dist/
+dist
 # 各 agent 运行时工作区
-.agents/
-.workbuddy/
+.agents
+.workbuddy
 # playwright-cli 会话数据（快照 / console 日志）
-.playwright-cli/
+.playwright-cli
 # 历史截图
-shots/
+shots
 # 个人编辑器设置
-.vscode/
+.vscode
 # 根级临时文件
 preview.log
 *.tsbuildinfo
