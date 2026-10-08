@@ -31,20 +31,8 @@ withDefaults(
 </template>
 
 <style scoped>
-.skel .bar {
-  display: inline-block;
-  height: 12px;
-  border-radius: 0;
-  background: linear-gradient(
-    90deg,
-    var(--bg-2) 0%,
-    var(--bg-3) 50%,
-    var(--bg-2) 100%
-  );
-  background-size: 200% 100%;
-  animation: skel-pulse var(--t-skel) ease-in-out infinite;
-}
-
+/* 占位条的底色与扫光收在 base.css 的 `.skel .bar`（单一来源，多个骨架共用）；
+   这里只管表格骨架自己的**形状**。 */
 .head-bar {
   width: 56px;
   height: 10px;
@@ -56,13 +44,6 @@ withDefaults(
 
 .cell-bar.wide {
   width: 60%;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .skel .bar {
-    animation: none;
-    background: var(--bg-2);
-  }
 }
 
 /* 移动端：与 CatalogTable 堆叠行同构 —— 只保留序号 + 首列条块，其余列隐藏 */

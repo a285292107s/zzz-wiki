@@ -62,7 +62,14 @@ export function collectCharset({ root = process.cwd(), verbose = false } = {}) {
   stats.data = set.size
 
   const html = path.join(root, 'index.html')
-  if (fs.existsSync(html)) for (const ch of fs.readFileSync(html, 'utf8')) set.add(ch.codePointAt(0))
+  // index.html 也要**先剔注释**（与 src 同一口径）：HTML 注释不是渲染内容，此前却原样采集 ——
+  // 实测在注释里写了一个正文没有的字（「帧」），字符集就多出一个码点，而字体分片是按旧
+  // 字符集裁的，verify:fonts:cjk 立刻报「字符集覆盖缺口 1 个」。只剔 HTML 注释，
+  // 不套 stripComments 的 JS 规则：属性里的 `//` 路径不该被误伤。
+  if (fs.existsSync(html)) {
+    const markup = fs.readFileSync(html, 'utf8').replace(/<!--[\s\S]*?-->/g, '')
+    for (const ch of markup) set.add(ch.codePointAt(0))
+  }
   stats.afterHtml = set.size
 
   const srcFiles = walk(path.join(root, 'src'), (p) => /\.(ts|vue)$/.test(p))

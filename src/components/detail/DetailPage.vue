@@ -126,6 +126,12 @@ watch(
       :back-text="fallbackText"
       :state-as-heading="true"
     >
+      <!-- 加载骨架：视图自己给（详情页封面形态各不同），没给就退回 AsyncState 的一行 LOADING…
+           条件挂载是必要的：无条件传空插槽会让 AsyncState 认为"父级提供了骨架"，
+           于是连那行文字也不渲染（其他详情页会变成全空加载态）。 -->
+      <template v-if="$slots.skeleton" #skeleton>
+        <slot name="skeleton" />
+      </template>
       <slot />
       <!-- 逐条出处：本条数据属于哪一版快照。版本取自 manifest（api 层已缓存，零额外请求）。
            **必须渲染在内容插槽内**：放在插槽外时，加载骨架态（页面仅 ~720px 高）就会先渲染

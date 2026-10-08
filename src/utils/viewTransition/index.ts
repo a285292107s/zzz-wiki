@@ -179,6 +179,36 @@ function reducedMotion(): boolean {
   return typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 }
 
+/**
+ * 直接进入详情页（没有共享元素过渡，例如从名录点进、深链直达）时的一次性入场：
+ * 与「降落编排」**同一套词汇**（`.vt-in` + `--vt-i` 错峰 + `vt-landed`），
+ * 只是由视图在首屏内容就绪后自己触发 —— 于是三种进入方式的观感一致：
+ *   深链直达 / 名录点进 = 骨架 → 逐条入场
+ *   首页点卡            = 退场 → 变形 → 飞行 → 逐条入场
+ *
+ * 正在飞行（`vt-landing` 已挂）或已有过渡在途时直接返回：那一趟由降落编排负责入场。
+ */
+export function playLandingEntrance(): void {
+  if (!VT_SUPPORTED || reducedMotion()) return
+  const root = document.documentElement
+  if (root.classList.contains(VT_LANDING_CLASS) || inFlight) return
+  applyTimingVars()
+  const plan = collectChrome()
+  if (!plan.blocks.length) return
+  stampChrome(plan, 'in')
+  root.classList.add(VT_LANDING_CLASS) // 先「藏」（只作用于本帧）
+  // 让出一个宏任务再切到「入场」：同一批样式更新里初始态与动画 from 会一起到达，等于没入场
+  window.setTimeout(() => {
+    root.classList.remove(VT_LANDING_CLASS)
+    root.classList.add(VT_LANDED_CLASS)
+    window.setTimeout(() => {
+      root.classList.remove(VT_LANDED_CLASS)
+      clearChrome('in')
+      clearChromeCases()
+    }, enterSettleMs(plan.blocks.length))
+  }, 0)
+}
+
 function wait(ms: number): Promise<void> {
   return new Promise((resolve) => window.setTimeout(resolve, ms))
 }

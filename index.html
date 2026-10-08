@@ -2,6 +2,16 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
+    <!-- 画布底色必须**内联**：深色站点的首帧在 CSS 包解析前由 UA 用默认（白）画布绘制，
+         冷加载实测抓到一整帧纯白（1440×900 全白）——这就是「页面闪了一下」。
+         三处同值，改一处要一起改：这里 / <meta name="theme-color"> / tokens.css 的 --bg-0 -->
+    <meta name="color-scheme" content="dark" />
+    <style>
+      html {
+        background-color: #0d0f11;
+        color-scheme: dark;
+      }
+    </style>
     <link rel="icon" type="image/png" href="/favicon.png" />
     <!-- CJK 衬线分片 @font-face：独立 link（勿并入主 CSS——postcss @import 内联会把
          202 条 face 打进主包，74KB gzip 阻塞渲染；link 独立缓存且并行加载） -->

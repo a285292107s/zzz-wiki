@@ -36,6 +36,8 @@
 | LCP（详情 · 桌面 DPR 2） | ≤4.0s | ≤2.5s | <1.5s | **节流 7212ms / 不节流 152ms** → 严苛节流产物，真实桌面不构成问题 ✅ | `temp/lcp-dpr2-compare.js` |
 | **INP**（4× CPU 节流代理） | ≤500ms | ≤200ms | <100ms | **最差 48–88ms / 中位 32–40ms** ✅ | `scripts/audits/inp-interaction.js` |
 | CLS | ≤0.25 | ≤0.1 | <0.05 | **0.000–0.001** ✅ | `regression-walk.js`（home-cls / detail-cls-fresh） |
+| **首帧画布（深色站点）** | 不出现白底闪 | **内联 `html{background-color:#0d0f11;color-scheme:dark}`**（不依赖外部资源，三处同值见 index.html 注释）。冷加载逐帧实测：修复前抓到**整帧纯白**（均值 255/255/255），修复后首帧均值 **18/22/25** ✅ | 冷加载帧序列（禁 SW + 禁缓存，逐帧取均值） |
+| **详情页加载态** | 加载中有形状、内容到达是「填进去」不是「换一页」 | 新增 `DetailSkeleton`（封面带 + 区块标题 + 档案行，与真值同形）：实测加载中 **688px 骨架稳定在位**（旧版只有一行 `LOADING…`、页面 720px），数据到达后 **7 块逐条入场**（369ms 就位 → 727/778/829ms 依次显形）✅ | 冷加载帧序列 + `regression-walk`（detail-cls-fresh = 0） |
 | 总重（首页/名录/详情） | — | — | <3MB | **636 / 440 / 911KB** ✅ | Lighthouse `resource-summary` |
 | 长任务 TBT（节流） | — | — | — | 4 个 / 最长 **229–771ms**（首屏，unattributed）⚠️ | `inp-interaction.js` |
 | 主包 gzip / CSS gzip | — | — | — | **67KB / 14.1KB** ✅（预算 70 / 22KB；+2.9KB 记在本轮「起飞前编排」——整页退场收集器 + 取景变形 + 逐条入场 + 中断回滚路径，见 `verify-budget.mjs` 文件头） | `npm run verify:budget` |

@@ -717,13 +717,33 @@ section[id] {
   scroll-margin-top: var(--anchor-offset);
 }
 
-/* 骨架屏扫光动画（CatalogTableSkeleton / DisksView 共用，消除同名异义） */
+/* 骨架屏扫光动画（CatalogTableSkeleton / DetailSkeleton / DisksView 共用，消除同名异义） */
 @keyframes skel-pulse {
   0% {
     background-position: 200% 0;
   }
   100% {
     background-position: -200% 0;
+  }
+}
+
+/* 骨架占位条的**观感**（底色 + 扫光）收在这里做单一来源：
+   此前它只写在 CatalogTableSkeleton 的 scoped 样式里，于是任何别的骨架
+   （本轮新增的 DetailSkeleton）拿到的 `.bar` 是没有底色的空条 —— 骨架等于没画。
+   形状（宽高/栅格）仍由各自的骨架组件负责。 */
+.skel .bar {
+  display: inline-block;
+  height: 12px;
+  border-radius: 0;
+  background: linear-gradient(90deg, var(--bg-2) 0%, var(--bg-3) 50%, var(--bg-2) 100%);
+  background-size: 200% 100%;
+  animation: skel-pulse var(--t-skel) ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skel .bar {
+    animation: none;
+    background: var(--bg-2);
   }
 }
 

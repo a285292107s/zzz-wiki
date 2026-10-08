@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, type Ref } from 'vue'
+import { computed, nextTick, ref, watch, type Ref } from 'vue'
 import { detailFor, listFor } from '@/data/resources'
 import { iconSources, skillIconSources, type SkillSlot } from '@/data/icons'
 import { signatureEngineFor } from '@/domain/signatureEngine'
@@ -12,6 +12,7 @@ import { usePageMeta } from '@/composables/usePageMeta'
 import { useEntityLevel } from '@/composables/useEntityLevel'
 import { useDetailPager } from '@/composables/useDetailPager'
 import { catalogEntry } from '@/domain/catalog'
+import { playLandingEntrance } from '@/utils/viewTransition'
 import {
   buildCoreEnhance,
   buildCoreSkill,
@@ -45,7 +46,7 @@ interface SkillDisplay extends SkillRow {
   level: Ref<number>
 }
 import type { CharacterDetail, WEngineListItem } from '@/data/types'
-import { AgentHead, CoreSkillGroup, DetailPager, DescRow, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel, CopyLinkButton } from '@/components'
+import { AgentHead, CoreSkillGroup, DetailPager, DescRow, DetailPage, DetailSection, DetailSkeleton, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel, CopyLinkButton } from '@/components'
 import HollowImage from '@/components/HollowImage.vue'
 
 const id = useRouteParam('id')
@@ -229,6 +230,14 @@ const { prev: pagerPrev, next: pagerNext } = useDetailPager(catAgents, id, pickN
 
 /** 404 时返回名录 */
 const backTo = computed(() => (detail.value ? undefined : '/agents'))
+
+/** 首屏入场：骨架 → 逐条入场（与首页点卡那条路的降落编排同一套词汇）。
+ *  在这里触发而不是在 DetailPage：只有视图自己知道"数据到了、首屏内容真的上屏了"。
+ *  正在飞行（首页点卡进来）时 playLandingEntrance 会自己让位，不会两套编排打架。 */
+watch(detail, (d) => {
+  if (!d) return
+  void nextTick(() => playLandingEntrance())
+})
 </script>
 
 <template>
@@ -243,6 +252,13 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
     :fallback-to="backTo"
     :recent="{ entry: catAgents, id: () => String(id), label: () => detail?.name ?? '' }"
   >
+    <!-- 加载骨架：把首屏形状（封面带 + 区块标题 + 档案行）先摆出来，
+         数据到达是「填进去」而不是「换一页」——旧版只有一行 LOADING…，
+         页面从 ~720px 长到 8000+px，观感就是「闪了一下」（见 DetailSkeleton 注释） -->
+    <template #skeleton>
+      <DetailSkeleton />
+    </template>
+
     <template v-if="detail">
       <!-- 封面锚点：00 导航直达；scrollspy 亦观察此 id（滚动回顶时高亮 00） -->
       <AgentHead id="head" :detail="detail" :signature-engine="signatureEngine" />
@@ -621,4 +637,6 @@ const backTo = computed(() => (detail.value ? undefined : '/agents'))
   color: var(--amber);
 }
 </style>
+
+
 
