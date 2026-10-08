@@ -39,7 +39,9 @@ import {
   clearChromeCases,
   collectChrome,
   enterSettleMs,
+  exitCascadeMs,
   exitSettleMs,
+  exitStepFor,
   stampChrome,
 } from './chrome'
 import {
@@ -139,8 +141,16 @@ export async function armDeckFlight(target: string): Promise<ArmResult> {
   stampChrome(plan, 'out')
   armed.value = true
   armedTarget = target
-  document.documentElement.classList.add(VT_EXIT_CLASS)
-  await wait(exitSettleMs(plan.blocks.length))
+  const root = document.documentElement
+  // 区块多时压小错峰步长（准备期封顶 EXIT_CASCADE_CAP_MS），并把取景变形**提到与错峰同长**：
+  // 于是"画一直在变、页面一直在收"，直到起跳那一刻。旧实现变形 300ms 就停住、退场要走 412ms，
+  // 中间实测 ~140ms「页面已空、画也不再动」——去程节奏卡顿的主因。
+  const step = exitStepFor(plan.blocks.length)
+  const cascade = exitCascadeMs(plan.blocks.length, step)
+  root.style.setProperty('--vt-out-step', `${step}ms`)
+  root.style.setProperty('--vt-morph', `${cascade}ms`)
+  root.classList.add(VT_EXIT_CLASS)
+  await wait(exitSettleMs(plan.blocks.length, step))
   return armed.value ? 'ready' : 'cancelled'
 }
 
@@ -377,4 +387,7 @@ export function installViewTransition(router: Router): void {
     void fly(flight)
   })
 }
+
+
+
 

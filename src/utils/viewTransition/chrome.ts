@@ -41,15 +41,19 @@ const MAX_BLOCKS = 26
  * 入场整体延后 inHold —— 太早会在飞行快照背后白跑完，落地就没有「逐步入场」了。
  */
 export const VT_TIMING = {
-  /** 退场：每块 220ms + 每块错峰 26ms（7 块 ≈ 380ms）——错峰要**读得出来**才算编排，
-   *  6ms 级的小步长在 60fps 下几乎同时发生，等于没有编排 */
-  outDur: 220,
-  outStep: 26,
+  /** 退场：每块 200ms + 每块错峰 20ms（12 块 ≈ 420ms）。
+   *  错峰要**读得出来**（6ms 级的小步长在 60fps 下几乎同时发生，等于没有编排），
+   *  但也不能拖成"漫长清空"——它和取景变形是**同一拍**，两者必须同时结束（见 exitSettleMs）。 */
+  outDur: 200,
+  outStep: 20,
   inDur: 320,
   inStep: 18,
-  /** 入场整体延后到飞行尾段：太早会在飞行快照背后白跑完，落地就没有「逐步入场」了 */
+  /** 入场整体延后到飞行尾段：太早会在飞行快照背后白跑完、落地就没有「逐步入场」；
+   *  调飞行时长时要回来对一眼 —— 飞行 460ms + 延后 300ms ⇒ 落地时首块约 50%、末块刚开始，
+   *  于是「落地即有形、余下续入」。 */
   inHold: 300,
-  /** 取景变形时长：与退场并行，两者都落定才起跳 */
+  /** 取景变形时长的**兜底值**：起飞前编排会按实际区块数把它提到与退场同长
+   *  （见 armDeckFlight 写 --vt-morph），保证"画一直在动，直到起跳"。 */
   morph: 300,
 } as const
 
@@ -64,10 +68,27 @@ export function applyTimingVars(root: HTMLElement = document.documentElement): v
   root.style.setProperty('--vt-morph', `${t.morph}ms`)
 }
 
-/** 退场落定所需时长（退场与取景变形取长者，再加一档余量） */
-export function exitSettleMs(blocks: number): number {
-  const cascade = VT_TIMING.outDur + VT_TIMING.outStep * Math.max(0, blocks - 1)
-  return Math.max(cascade, VT_TIMING.morph) + 60
+/** 退场错峰走完所需时长（起飞前编排按它决定起跳时刻，并让取景变形与之同步收尾） */
+export function exitCascadeMs(blocks: number, step: number = VT_TIMING.outStep): number {
+  return VT_TIMING.outDur + step * Math.max(0, blocks - 1)
+}
+
+/** 起飞前编排的**总时长上限**：区块再多也不把准备期拖长 —— 超出就压小错峰步长。
+ *  没有它时，16 块的页面准备期会到 500ms+（观感是"清空得很久，然后才飞"）。 */
+export const EXIT_CASCADE_CAP_MS = 420
+
+/** 按区块数求出本次退场实际可用的错峰步长（≤ VT_TIMING.outStep，且不短于 8ms 保住可读性） */
+export function exitStepFor(blocks: number): number {
+  const room = EXIT_CASCADE_CAP_MS - VT_TIMING.outDur
+  const n = Math.max(1, blocks - 1)
+  return Math.max(8, Math.min(VT_TIMING.outStep, Math.round(room / n)))
+}
+
+/** 起飞前编排该等多久：错峰走完 + 一档余量。
+ *  **不再与 morph 取 max** —— 变形时长会被 armDeckFlight 提到与错峰同长，
+ *  于是"最后一笔动画"与起跳之间只剩这点余量，消掉此前实测的 ~140ms 死档。 */
+export function exitSettleMs(blocks: number, step: number = VT_TIMING.outStep): number {
+  return exitCascadeMs(blocks, step) + 40
 }
 
 /** 入场编排走完所需时长（从落地标记挂上算起） */

@@ -743,12 +743,15 @@ onBeforeUnmount(() => {
   /* 起飞前的「原地取景变形」：位移/缩放/取景/悬停微推近全在同一个 transition 里平滑过去。
      常驻无副作用 —— 只有 morphing 那一刻内联取景才变，其余时候值不变就不触发过渡。
      ⚠ 四条必须写在**同一条规则**里：hover 那条若另写 transition 简写会把本条整体顶掉，
-     而点击恰恰总发生在 hover 状态下（实测踩过）。 */
+     而点击恰恰总发生在 hover 状态下（实测踩过）。
+     ⚠ 取景三条**不能沿用全局 --ease**（强 ease-out）：实测它 420ms 的变形在 ~300ms
+     就"看起来停住了"，于是「退场还在收、画已经不动」——去程起飞前那段死档的真身。
+     换成缓入缓出的中段饱满曲线，整段准备期里画一直在变。 */
   transition:
     scale var(--t-zoom) var(--ease),
-    transform var(--vt-morph, 300ms) var(--ease),
-    transform-origin var(--vt-morph, 300ms) var(--ease),
-    object-position var(--vt-morph, 300ms) var(--ease);
+    transform var(--vt-morph, 300ms) cubic-bezier(0.42, 0, 0.22, 1),
+    transform-origin var(--vt-morph, 300ms) cubic-bezier(0.42, 0, 0.22, 1),
+    object-position var(--vt-morph, 300ms) cubic-bezier(0.42, 0, 0.22, 1);
 }
 
 /* 悬停反馈：整幅轻微推近（1.5%）。不加 `.is-active` 限定 —— 拖动中邻卡会部分进画，

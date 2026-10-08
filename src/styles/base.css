@@ -789,24 +789,25 @@ section[id] {
    ============================================================ */
 
 ::view-transition-group(deck-frame) {
-  /* 400ms：比 --t-med(260ms) 长，这是全站位移最大的一次转场；
-     曲线取 expo-out 家族（起步快、尾段长减速）——中段位移才被眼睛跟得住，
-     用全局 --ease 会「一步到位」显不出飞行。 */
-  animation-duration: 400ms;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  /* 460ms：全站位移最大的一次转场，要**读成一拍**——比退场（≈420ms）略长，
+     于是"准备 → 飞 → 落"三拍长短相当，不会出现"长准备 + 短飞行"的失衡。
+     曲线取标准 ease-in-out 家族（中段最饱满）：此前的 expo-out 把约 60% 的位移挤在
+     头 150ms 里，中段像"挂着"，观感是"跳一下然后等"（实测吐槽的来源）。 */
+  animation-duration: 460ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* 两个快照是同一张画的不同取景（首页 2.36 横幅 / 详情整栏），交接用**等长线性互补**淡入淡出：
    old 1→0 与 new 0→1 同步走完，透明度和恒为 1 —— plus-lighter 在数学上就是一次
    干净的交叉溶解，不会出现「时长不等 → 和≠1 → 中段提亮」的毛病。
-   **延迟到飞行的 35% 才开始**：起飞那一下留首页那张裁切（几何先被读懂），
-   落位前 170ms 内收敛到详情页的幅面——溶解藏在运动的收尾里，而不是劈在中段。 */
+   **延迟到飞行的 37% 才开始**：起飞那一下留首页那张裁切（几何先被读懂），
+   落位前 200ms 内收敛到详情页的幅面——溶解藏在运动的收尾里，而不是劈在中段。 */
 ::view-transition-old(deck-frame) {
-  animation: 170ms linear 140ms both vt-swap-out;
+  animation: 200ms linear 170ms both vt-swap-out;
 }
 
 ::view-transition-new(deck-frame) {
-  animation: 170ms linear 140ms both vt-swap-in;
+  animation: 200ms linear 170ms both vt-swap-in;
 }
 
 /* root 组：**等长线性互补**的整页交叉溶解（240ms），不再是硬切，也不与飞行抢戏。

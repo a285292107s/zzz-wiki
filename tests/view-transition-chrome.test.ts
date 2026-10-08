@@ -11,6 +11,7 @@ import {
   clearChromeCases,
   collectChrome,
   enterSettleMs,
+  exitCascadeMs,
   exitSettleMs,
   stampChrome,
 } from '@/utils/viewTransition/chrome'
@@ -32,12 +33,15 @@ afterEach(() => {
 })
 
 describe('编排时序（CSS 与 JS 的单一来源）', () => {
-  it('退场落定：随区块数增长，且不低于取景变形所需时长', () => {
-    expect(exitSettleMs(1)).toBeGreaterThanOrEqual(VT_TIMING.morph)
+  it('退场落定：随区块数增长，且变形与之同一拍收尾（不再与 morph 取 max）', () => {
+    expect(exitSettleMs(1)).toBe(exitCascadeMs(1) + 40)
     expect(exitSettleMs(7)).toBeGreaterThan(exitSettleMs(1))
-    // 与步长同源：n 块 = max(outDur + step×(n−1), 取景变形) + 余量
+    // 与步长同源：n 块 = outDur + step×(n−1) + 余量（变形时长由 armDeckFlight 提到同长）
     const cascade = VT_TIMING.outDur + VT_TIMING.outStep * 6
-    expect(exitSettleMs(7)).toBe(Math.max(cascade, VT_TIMING.morph) + 60)
+    expect(exitCascadeMs(7)).toBe(cascade)
+    expect(exitSettleMs(7)).toBe(cascade + 40)
+    // 关键节奏约束：准备期不得长到"退场早结束、画也早停"（旧实现实测 477ms 里有 ~140ms 死档）
+    expect(exitSettleMs(12)).toBeLessThan(560)
   })
 
   it('入场落定：含整体延后，且随区块数增长', () => {
@@ -130,3 +134,4 @@ describe('区块收集（只认声明）', () => {
     expect(collectChrome(document.body).blocks).toEqual([inner])
   })
 })
+
