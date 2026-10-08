@@ -884,6 +884,40 @@ html.vt-exit .vt-chrome-case {
   }
 }
 
+/* 导航类区块（`data-vt-fade`：详情页左上「返回/加入对照」与区块索引）**只淡不位移**。
+   它们不是"内容到达"，而是页面上的导航家具；跟着一起上浮 12px 会被读成"位置跳了一下"
+   ——实测（1440×900 冷加载）nav 的 rect 从 213 飘到 201，且因为入场用强 ease-out，
+   12px 里有 ~70% 挤在头 100ms，观感就是突兀地一顿。淡入则完全没有位移问题。 */
+html.vt-landed .vt-in[data-vt-fade] {
+  animation-name: vt-fade-in;
+}
+
+html.vt-restore .vt-out[data-vt-fade] {
+  animation-name: vt-fade-in;
+}
+
+html.vt-exit .vt-out[data-vt-fade] {
+  animation-name: vt-fade-out;
+}
+
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes vt-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 @keyframes vt-case-out {
   from {
     border-color: var(--line-1);

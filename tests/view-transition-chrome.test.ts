@@ -3,6 +3,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
   BLOCK_ATTR,
   CHROME_CASE_CLASS,
+  CHROME_FADE_ATTR,
   CHROME_HOLD_ATTR,
   CHROME_IN_CLASS,
   CHROME_OUT_CLASS,
@@ -135,6 +136,16 @@ describe('区块收集（只认声明）', () => {
     expect(collectChrome(document.body).blocks).toEqual([inner])
   })
 
+  it('导航类（data-vt-fade）仍在计划里：只是 CSS 换关键帧，不是排除', () => {
+    stubLayout()
+    const nav = document.createElement('nav')
+    nav.setAttribute(BLOCK_ATTR, '')
+    nav.setAttribute(CHROME_FADE_ATTR, '')
+    document.body.append(nav)
+
+    expect(collectChrome(document.body).blocks).toEqual([nav]) // 与 hold 相反：要收进来、按节奏淡
+  })
+
   it('常驻外壳永不进计划：不退出场、不被入场藏起（两层快照里都在原位）', () => {
     stubLayout()
     const masthead = document.createElement('header')
@@ -165,5 +176,6 @@ describe('区块收集（只认声明）', () => {
     expect(collectChrome(document.body).cases).not.toContain(shell)
   })
 })
+
 
 
