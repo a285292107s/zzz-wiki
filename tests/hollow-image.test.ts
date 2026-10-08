@@ -62,3 +62,16 @@ describe('HollowImage · 候选链', () => {
     expect(w.find('img').attributes('srcset')).toBe('/c/a.webp 800w, /w/a.webp 1600w')
   })
 })
+
+describe('HollowImage · 共享元素', () => {
+  it('本组件不发任何 view-transition 声明：名字挂在调用方的裁切容器上（.deck-item / .hero-bg）', () => {
+    // <img> 带 zoom 构图 transform，渲染盒比可视区域大；带名元素的快照不含祖先裁切，
+    // 挂在 <img> 或外框上都会起飞在一圈放大的画面上（曾实测）。真正的名字由调用方
+    // 挂在自己的 overflow: hidden 容器上（见 utils/viewTransition 的 VT_SHARED_NAME）。
+    const unframed = mount(HollowImage, { props: { unframed: true, srcs: ['/a.webp'] } })
+    const framed = mount(HollowImage, { props: { srcs: ['/a.webp'] } })
+    expect((img(unframed).element as HTMLElement).style.viewTransitionName).toBe('')
+    expect((img(framed).element as HTMLElement).style.viewTransitionName).toBe('')
+    expect((framed.find('.frame').element as HTMLElement).style.viewTransitionName).toBe('')
+  })
+})

@@ -39,9 +39,9 @@ export interface FeaturedCard {
 /** 本地 hero 头图根（download:icons 落地 public/data/img/hero，运行时零外部请求）。 */
 const LOCAL_HERO = `${import.meta.env.BASE_URL ?? '/'}data/img/hero`
 
-/** 首页头图取景框的 CSS 宽度上界（px）：高度上限 clamp(240px,48vh,560px) × 2.36 = 1322px
- *  （见 FeaturedDeck.vue 的 .deck-frame）。 */
-export const DECK_MAX_WIDTH = 1322
+/** 首页头图取景框的 CSS 宽度上界（px）：高度上限 clamp(240px,44vh,500px) × 2.36 = 1180px
+ *  （见 FeaturedDeck.vue 的 .deck-frame；改了那里就要同步这里）。 */
+export const DECK_MAX_WIDTH = 1180
 
 /** 手机（≤860，与 FeaturedDeck 的竖幅断点同一个数）竖框的「等效源宽」。
  *  竖幅（4:5）会把超宽源图放大取中段，故**布局宽不足以表达需求**；实测口径（屏 390、框 350×437）：
@@ -54,7 +54,7 @@ const DECK_SIZES_NARROW = '520px'
 
 /**
  * 头图 `sizes`：交给浏览器的「元素布局宽」提示。
- *  · 桌面（>860）：取景框宽度 = min(视口宽, 1322px)（2.36 横幅，高度上限反推）
+ *  · 桌面（>860）：取景框宽度 = min(视口宽, 1180px)（2.36 横幅，高度上限反推）
  *  · 手机（≤860）：竖幅的等效源宽，见 DECK_SIZES_NARROW
  *
  * 刻意用**纯 px** 而非 `100vw` / 媒体查询：挂载期的 `new Image()` 预热不在文档里，
@@ -71,7 +71,7 @@ export function deckSizes(
 /**
  * 首页头图候选：本地派生档（card / wide 交给浏览器按 DPR 自选）→ 本地原图 → CDN。
  *
- * 展示格是整栏宽超宽横幅（取景框最宽 1322 CSS px，再乘逐图 zoom 1.05-1.49），
+ * 展示格是内容栏里居中的超宽标本板（取景框最宽 1180 CSS px，再乘逐图 zoom 1.05-1.49），
  * 只有 800px 的 card 一档时桌面上被放大近 2×、DPR2 近 4× —— 首页首屏肉眼可见发糊。
  * 故加 wide（1600px）一档，并让浏览器在 srcset 里选：手机/DPR≤2 仍取 800px（省带宽），
  * 桌面 DPR1 取 1600px（1:1），DPR≥1.21 落回原图（它才是够用的那一档）。

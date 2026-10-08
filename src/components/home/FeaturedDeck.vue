@@ -3,8 +3,8 @@
  * FeaturedDeck — 首页「今日角色」标本陈列（一次一张，横向牌堆）。
  *
  * 构图（一个 hairline 装裱框内：立绘 → 标本签 → 座次/刻度）：
- *   桌面：2.36:1 超宽横幅（Mindscape 全景原生比例），整幅展示不裁上下；
- *         装裱宽度 = min(栏宽, 高度上限 × 2.36) 并居中 —— 大屏上「比例」与「48vh 高度
+ *   桌面：2.36:1 超宽标本板（Mindscape 全景原生比例），整幅展示不裁上下；
+ *         装裱宽度 = min(栏宽, 高度上限 × 2.36) 并居中 —— 大屏上「比例」与「44vh 高度
  *         上限」不再互相打架（直接铺满栏宽会把 2.36 压成 2.7:1，上下要被裁掉）。
  *   手机：4:5 竖幅。超宽全景放进横框只露一条横带，还容易被信息条压掉半个画面；
  *         竖幅下同一套 pos/zoom/originY（本就是为竖框校准的）收进更多角色本体，
@@ -30,9 +30,19 @@
  *   ③ 落定：dragX 归零、active 换成新槽位；基位移与跟手量都归零，画面不跳
  * ============================================================ */
 
-import { computed, onBeforeUnmount, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import type { FeaturedCard } from '@/composables/useFeaturedAgents'
 import { prefetchDetail } from '@/composables/useDetailPrefetch'
+import {
+  VT_LANDING_CLASS,
+  VT_SHARED_ATTR,
+  VT_SHARED_NAME,
+  VT_SUPPORTED,
+  consumeDeckCard,
+} from '@/utils/viewTransition'
+import { heroForm } from '@/composables/useHeroForm'
+import { heroVariantFile } from '@/data/heroGenderVariants'
+import { awaitImageReady, heroDetailPrimarySrc, heroDetailViewport } from '@/data/heroImageSources'
 import { catalogByPath } from '@/domain/catalog'
 import HollowImage from '@/components/HollowImage.vue'
 import {
@@ -48,11 +58,72 @@ const props = defineProps<{ cards: FeaturedCard[] }>()
 
 const viewport = ref<HTMLElement | null>(null)
 
+/** 共享元素过渡（首页卡 → 代理人详情页头图，见 utils/viewTransition）：
+ *  名字挂在**活动卡的 .deck-item**（<a> 元素）上，不挂 <img> 本体——
+ *  <img> 带 zoom 校准的 transform，渲染盒比可视区域大 1.28×，而带名元素的快照
+ *  不含祖先裁切，直接挂会起飞在一圈放大的画面上（实测的「起飞瞬间凭空放大」）。
+ *  .deck-item 自身 overflow: hidden，快照=可见画面，与详情页 .hero-bg 同一策略。
+ *  名字常驻是安全的：view-transition-name 只在 `startViewTransition` 采样期间起作用，
+ *  平时对渲染零影响；但同一时刻同名元素必须唯一，故只给活动卡传（四张都传会让
+ *  浏览器跳过整次过渡）。 */
+const VT_ITEM_STYLE = { viewTransitionName: VT_SHARED_NAME } as const
+
+/** 共享元素端点的 DOM 标记：过渡的运行时要找到**新状态那端的画**并等它可绘制
+ *  （见 utils/viewTransition/awaitSharedEndImage）。同样只给活动卡挂。
+ *  取值必须与详情页那头不同（'deck' vs 'hero'）：新旧两页都带标记，只按属性找会命中旧页。 */
+const VT_ITEM_MARK = { [VT_SHARED_ATTR]: 'deck' } as const
+
 const count = computed(() => props.cards.length)
 const last = computed(() => lastIndexOf(count.value))
 
-/** 当前槽位（真卡下标） */
-const active = ref(0)
+/* ---------- 入场：标本装匣 ----------
+ * 一次编排、三拍：装裱线先亮 → 画落位（缩放 + 微裁切收拢）→ 标本签与刻度随后写就。
+ * 全部只动 transform/opacity/border-color（不触发布局，零 CLS），且**终态即常态**
+ * ——序列结束把类摘掉，样式无缝接回，换卡时的轻淡入不受影响（is-mounting 已摘）。
+ *
+ * 触发不用父级的 v-reveal：两者节奏不同（v-reveal 只是整块上浮），这里要和
+ * 「匣子进入视野」对齐，故自持一个 IntersectionObserver，只在**第一次**入画时播一次。 */
+const frame = ref<HTMLElement | null>(null)
+const mounting = ref(false)
+let mountTimer: number | undefined
+
+onMounted(() => {
+  // 减少动效：整段编排不参与（全局只归零时长、不归零延迟，直接不加类最干净）
+  if (typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return
+  }
+  // 共享元素过渡的降落端（详情页返回首页）：这一趟的入场由落地编排负责，
+  // 画/标本签此时正被 ::view-transition-* 接管，别在同一段时间里再叠一套自转
+  if (document.documentElement.classList.contains(VT_LANDING_CLASS)) return
+  const el = frame.value
+  if (!el || typeof IntersectionObserver === 'undefined') return
+  const io = new IntersectionObserver(
+    (entries) => {
+      if (!entries.some((e) => e.isIntersecting)) return
+      io.disconnect()
+      mounting.value = true
+      // 序列总时长（最后一枚刻度 590ms 延迟 + 340ms）之后摘类：交还常态样式
+      mountTimer = window.setTimeout(() => {
+        mounting.value = false
+      }, 1200)
+    },
+    { rootMargin: '0px 0px -10% 0px' },
+  )
+  io.observe(el)
+  onBeforeUnmount(() => io.disconnect())
+})
+
+/** 当前槽位（真卡下标）。
+ *  回程（代理人详情 → 首页）要落在**刚才点开的那张卡**上，否则共享元素会把 A 的画
+ *  接到 B 的框里（两个不同角色的交叉溶解，比不飞更糟）。起飞时由路由守卫登记 id
+ *  （utils/viewTransition 的 rememberDeckCard），这里挂载时取走一次。 */
+const active = ref(restoreSlot())
+function restoreSlot(): number {
+  const id = consumeDeckCard()
+  if (id == null) return 0
+  const i = props.cards.findIndex((c) => c.id === id)
+  return i > 0 ? i : 0
+}
 /** 标本签只渲染当前这一张：换卡时 :key 重挂 → 轻淡入（不给 4 张卡各留一份标签） */
 const current = computed(() => props.cards[active.value])
 
@@ -60,6 +131,8 @@ const current = computed(() => props.cards[active.value])
 const dragging = ref(false)
 /** 跟手位移（px，右为正），松手归零 */
 const dragX = ref(0)
+/** 换卡方向（+1 前进 / −1 后退）：只服务读数滚入的方向（见 settleTo 与 .deck-count-num） */
+const dir = ref(1)
 
 /** 拖拽判定与基准 */
 let startX = 0
@@ -103,11 +176,17 @@ function settleTo(index: number): void {
   dragX.value = 0
   dragging.value = false
   if (count.value <= 1) return
-  active.value = clampIndex(index, count.value)
+  const next = clampIndex(index, count.value)
+  // 换卡方向（+1 前进 / −1 后退）：读数按方向滚入 —— 机械计数器的方向感与手势同向
+  dir.value = next >= active.value ? 1 : -1
+  active.value = next
 }
 
 function onPointerDown(e: PointerEvent): void {
   if (count.value <= 1 || (e.pointerType === 'mouse' && e.button !== 0)) return
+  // 触屏没有 hover：按下即预热当前卡的详情头图（点开与这里只隔一次 pointerup，
+  // 抢在路由守卫起飞前把请求发出去；鼠标路径已由 pointerenter 预热过，不必重复）
+  if (e.pointerType !== 'mouse') warmHero(current.value?.id)
   // 跟手换算基准：按下这一刻量一次即可（能收到指针事件必已布局；量为 0 时不接管手势）
   const w = viewport.value?.clientWidth ?? 0
   if (w <= 0) return
@@ -184,10 +263,24 @@ function onClickCapture(e: MouseEvent): void {
   }
 }
 
-function warmDetail(to: string): void {
-  const seg = to.split('/')
+function warmDetail(slot: number): void {
+  const card = props.cards[slot]
+  if (!card) return
+  const seg = card.to.split('/')
   const entry = catalogByPath(`/${seg[1]}`)
   if (entry && seg[2]) prefetchDetail(entry, seg[2])
+  warmHero(card.id)
+}
+
+/** 预热详情页 hero 头图（共享元素过渡的**降落端**）。
+ *  降落端与卡片端是同一张 Mindscape 的**不同派生档**（卡片走 card/wide 派生，
+ *  详情按 DPR 走原图或 mobile 派生），地址不同、缓存不共享 —— 不预热的话浏览器采样
+ *  「新状态」时那张画还在下载，整段飞行退化成一次黑场（实测：导航后 ~430ms 页面全黑、
+ *  随后硬切到详情页，看不出任何飞行）。悬停/聚焦即预热，触屏在 pointerdown 补一发。 */
+function warmHero(id: number | undefined): void {
+  if (id == null) return
+  const base = heroVariantFile(id, heroForm.value) ?? `Mindscape_${id}_2`
+  void awaitImageReady(heroDetailPrimarySrc(base, heroDetailViewport()), 2000)
 }
 
 /** 卡片的可读名（中英名 + 编号 + 元素）：slide 的可访问名与卡内链接名共用这一份。
@@ -210,16 +303,17 @@ function slideId(slot: number): string {
 
 onBeforeUnmount(() => {
   endDrag()
+  if (mountTimer !== undefined) window.clearTimeout(mountTimer)
 })
 </script>
 
 <template>
-  <!-- 单根节点：HomeView 用 v-reveal 挂在本组件上，多根时指令不会生效（Vue 会告警） -->
-  <div class="featured-deck">
+  <!-- 单根节点（挂 v-reveal 之类的指令时需要）；入场编排由本组件自持，见 is-mounting -->
+  <div class="featured-deck" :class="{ 'is-mounting': mounting }">
     <!-- 装裱：立绘、标本签、座次共处一个 hairline 框（2px 圆角，同全站语言）。
          宽度取 min(栏宽, 高度上限 × 2.36) 并居中：超宽屏不留单侧空档，
          2.36 构图也不会被「铺满栏宽」压成 2.7:1（那会裁掉上下）。 -->
-    <div class="deck-frame">
+    <div ref="frame" class="deck-frame">
       <div
         ref="viewport"
         class="deck-viewport"
@@ -257,8 +351,10 @@ onBeforeUnmount(() => {
               :tabindex="s === active ? undefined : -1"
               :aria-current="s === active ? 'true' : undefined"
               :aria-label="labelOf(cards[s])"
-              @pointerenter="warmDetail(cards[s]?.to ?? '')"
-              @focus="warmDetail(cards[s]?.to ?? '')"
+              :style="s === active && VT_SUPPORTED ? VT_ITEM_STYLE : undefined"
+              v-bind="s === active && VT_SUPPORTED ? VT_ITEM_MARK : undefined"
+              @pointerenter="warmDetail(s)"
+              @focus="warmDetail(s)"
               @dragstart.prevent
             >
               <!-- @dragstart.prevent：卡片是 <a> 包 <img>，鼠标按住拖动会触发**浏览器原生图片
@@ -313,9 +409,7 @@ onBeforeUnmount(() => {
              没做自动轮播，故不需要暂停按钮（APG 只对 autoplay 要求它）。
              读数只作视觉陈列（aria-hidden）：位置信息由刻度的可访问名与轮播的 aria-live 承担。 -->
         <div class="deck-pager">
-          <span class="mono deck-count" aria-hidden="true">
-            {{ String(active + 1).padStart(2, '0') }} / {{ String(count).padStart(2, '0') }}
-          </span>
+          <span class="mono deck-count" :style="{ '--deck-dir': dir }" aria-hidden="true"><span :key="active" class="deck-count-num">{{ String(active + 1).padStart(2, '0') }}</span> / <span class="deck-count-total">{{ String(count).padStart(2, '0') }}</span></span>
           <span v-if="count > 1" class="deck-ticks" role="group" aria-label="选择要展示的角色">
             <button
               v-for="(c, i) in cards"
@@ -340,8 +434,139 @@ onBeforeUnmount(() => {
 
 .featured-deck {
   /* 高度上限的单一来源：装裱宽度由它反推（× 2.36），取景框高度上限也用它。
-     改这里还要同步 useFeaturedAgents 的 DECK_MAX_WIDTH / deckSizes 与 hero-cards.mjs 的档宽。 */
-  --deck-max-h: clamp(240px, 48vh, 560px);
+     改这里还要同步 useFeaturedAgents 的 DECK_MAX_WIDTH / deckSizes 与 hero-cards.mjs 的档宽。
+
+     44vh / 500px 是**为共享元素过渡定的**：陈列框若铺满内容栏（48vh 时 1680 宽下正好
+     1187 ≈ 栏宽 1198），详情页头图也是整栏宽 —— 两端几何几乎相同，飞行退化成一次纯交叉
+     溶解（实测 1680 下宽度倍率只有 1.009）。留一档「标本比封面小」的差距后，
+     各断点倍率稳定在 1.10～1.42，且纵向本就要飞行 250～350px。 */
+  --deck-max-h: clamp(240px, 44vh, 500px);
+}
+
+/* ---------- 入场「标本装匣」 ----------
+   一次编排、三拍：装裱线先亮 → 画落位（1.035 倍收回 + 下缘裁切收拢）→ 标本签与刻度逐条写就。
+   类只在首次入画后挂 1.5s，序列结束即摘（**终态=常态**，摘掉无缝接回；
+   故换卡时那套轻淡入不会被它抢走）。全部只动 transform/opacity/border-color：不触发布局、零 CLS。 */
+.featured-deck.is-mounting .deck-frame {
+  animation: deck-frame-in 560ms var(--ease) both;
+}
+
+.featured-deck.is-mounting .deck-figure {
+  /* 动的是 .deck-figure 而非 <img>：img 身上有逐图校准的内联 transform，不能碰。
+     只走 transform/opacity（合成器可承担）；不用 clip-path —— 它每帧都要重绘
+     1168×500 那一层，是这套编排里唯一会拖帧的属性。 */
+  animation: deck-plate-in 760ms var(--ease) 60ms both;
+}
+
+.featured-deck.is-mounting .deck-meta {
+  animation: deck-meta-in 460ms var(--ease) 240ms both;
+}
+
+/* 标本签四件与刻度错峰：读起来像「一条条写上去」，而不是整块浮现 */
+.featured-deck.is-mounting .deck-label > * {
+  animation: deck-piece-in 420ms var(--ease) both;
+}
+
+.featured-deck.is-mounting .deck-label > :nth-child(1) {
+  animation-delay: 260ms;
+}
+
+.featured-deck.is-mounting .deck-label > :nth-child(2) {
+  animation-delay: 320ms;
+}
+
+.featured-deck.is-mounting .deck-label > :nth-child(3) {
+  animation-delay: 380ms;
+}
+
+.featured-deck.is-mounting .deck-label > :nth-child(4) {
+  animation-delay: 440ms;
+}
+
+.featured-deck.is-mounting .deck-count {
+  animation: deck-piece-in 420ms var(--ease) 380ms both;
+}
+
+.featured-deck.is-mounting .deck-tick::before {
+  animation: deck-tick-in 340ms var(--ease) both;
+  transform-origin: left center;
+}
+
+.featured-deck.is-mounting .deck-tick:nth-child(1)::before {
+  animation-delay: 440ms;
+}
+
+.featured-deck.is-mounting .deck-tick:nth-child(2)::before {
+  animation-delay: 490ms;
+}
+
+.featured-deck.is-mounting .deck-tick:nth-child(3)::before {
+  animation-delay: 540ms;
+}
+
+.featured-deck.is-mounting .deck-tick:nth-child(4)::before {
+  animation-delay: 590ms;
+}
+
+@keyframes deck-frame-in {
+  from {
+    border-color: transparent;
+  }
+  to {
+    border-color: var(--line-1);
+  }
+}
+
+/* 画落位：从 1.03 倍收回、自半透明「显影」到位（两件都走合成器） */
+@keyframes deck-plate-in {
+  from {
+    transform: scale(1.03);
+    opacity: 0.82;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes deck-meta-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes deck-piece-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes deck-tick-in {
+  from {
+    opacity: 0;
+    transform: scaleX(0.25);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* 全局只归零时长、不归零延迟：显式清掉延迟，元素直接停在终态 */
+  .featured-deck.is-mounting *,
+  .featured-deck.is-mounting *::before,
+  .featured-deck.is-mounting *::after {
+    animation-delay: 0ms !important;
+  }
 }
 
 .deck-frame {
@@ -354,6 +579,18 @@ onBeforeUnmount(() => {
   background: var(--bg-0);
   overflow: hidden; /* 标本签与立绘共用圆角 */
 }
+
+/* ---------- 共享元素（首页卡 → 代理人详情页头图） ----------
+   名字挂在**活动卡的那张画**上（HollowImage 的 vt-name prop → <img> 内联样式）：
+   装裱框与详情头图尺寸本来就接近，挂框只会「整块面板挪一下」；
+   挂画才是真正的共享元素——同一张 Mindscape 从这里长到详情页整栏封面。
+   动画时长/缓动收在 base.css 的 ::view-transition-*（全局单一来源）。
+
+   试过在起飞前把画「卡回取景框的可见矩形」，结论是不做：
+   带名元素的截图用的是它自己的布局盒（卡内 <img> 因 zoom 校准比取景框大 1.28×），
+   而要让 inset 卡准就得改动祖先定位，实测会把 .deck-item 的含有块换成整栏
+   （1178×499），比不卡更失真。多出来的那一圈与卡同为深底，
+   在 320ms 的飞行里不可辨——不值得为它动布局。 */
 
 /* ---------- 取景框 ---------- */
 
@@ -537,6 +774,28 @@ onBeforeUnmount(() => {
   color: var(--ink-2);
 }
 
+/* 读数是一件**机械计数器**（标本签是印刷体）：换卡时只有序号滚入，方向与手势同向
+   ——前进时新数字从下方顶上来，后退时从上方落下。总量不参与（它不变）。
+   裁切窗**不写死高度**：写死 1.2em 时 WCAG 1.4.12（用户放大行距）会把数字裁掉 4px
+   （reflow-spacing 实测 clipped=1）。高度交给行盒，滚动位移按自身百分比仍然是一整行。 */
+.deck-count-num {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  animation: deck-count-roll 240ms var(--ease) both;
+}
+
+@keyframes deck-count-roll {
+  from {
+    transform: translateY(calc(var(--deck-dir, 1) * 100%));
+    opacity: 0.35;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
 .deck-ticks {
   display: flex;
   align-items: center;
@@ -612,3 +871,4 @@ onBeforeUnmount(() => {
   }
 }
 </style>
+

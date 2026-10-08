@@ -7,6 +7,7 @@ import type { CharacterDetail, WEngineListItem } from '@/data/types'
 import { iconSources } from '@/data/icons'
 import { pickName } from '@/utils/names'
 import { heroVariantFile } from '@/data/heroGenderVariants'
+import { heroDetailSources } from '@/data/heroImageSources'
 import { getHeroCalibration, type HeroCalibration } from '@/data/heroCalibration'
 import { useHeroForm } from '@/composables/useHeroForm'
 import { useMediaQuery } from '@/composables/useMediaQuery'
@@ -61,9 +62,6 @@ const signatureIconSrcs = computed(() =>
 /** 专属音擎展示名（zh → en → … 回退） */
 const signatureName = computed(() => (signature.value ? pickName(signature.value) : ''))
 
-/** 本地 hero 头图根（download:icons 落地 public/data/img/hero） */
-const LOCAL_HERO = `${import.meta.env.BASE_URL ?? '/'}data/img/hero`
-
 /**
  * 双形态角色 hero 头图：源站未提供裸名 Mindscape_{id}_2.webp，而是按性别后缀区分
  * （Mindscape_{id}_Female_2 / _Male_2）。单一事实源在 src/data/hero-gender-variants.json；
@@ -98,13 +96,11 @@ const narrow = useMediaQuery('(max-width: 860px)')
  *  max-resolution/min-resolution 分支），否则预载与实取错位、白下一份。 */
 const retina = useMediaQuery('(min-resolution: 1.5dppx)')
 
-const heroSrcs = computed(() => {
-  const local = `${LOCAL_HERO}/${heroBase.value}.webp`
-  const mobile = `${LOCAL_HERO}/mobile/${heroBase.value}.webp`
-  const cdn = `https://static.nanoka.cc/assets/zzz/${heroBase.value}.webp`
-  // 候选链顺序即回退顺序：派生变体缺失时自动落到原图（HollowImage 逐个尝试）
-  return narrow.value || !retina.value ? [mobile, local, cdn] : [local, cdn]
-})
+const heroSrcs = computed(() =>
+  // 候选链构造收在 data/heroImageSources（与首页「今日角色」的起飞前预热共用一份）：
+  // 两处算错档位之一就等于白下一份 hero 原图（46KB vs 311KB），且过渡会等错图。
+  heroDetailSources(heroBase.value, { narrow: narrow.value, retina: retina.value }),
+)
 
 /** 复用「今日角色」校准构图（featured-pool.json calibrated 表）：水平脸对焦 + 放大消透明边。
  *  仅移动端应用；未校准（如无 hero 图角色）回落 null，保持居中取景。
@@ -130,9 +126,10 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
        （读屏随之播报本块内容）；-1 不进 Tab 序，不影响键盘遍历。 -->
   <div class="ahead" tabindex="-1">
     <!-- hero 底图：Mindscape_{id}_2.webp 满栏铺底（object-cover 保人物头部），置右微移，留出左侧信息呼吸感。
-         候选链与失败缓存收口在 HollowImage（unframed 纯图模式，耗尽后整体隐藏落 --bg-0 底色）；
-         满栏大图 eager 加载，构图校准参数经 img-style 透传。 -->
-    <span class="hero-bg" aria-hidden="true">
+         候选链与失败缓存收口在 HollowImage（unframed 纯图模式，耗尽后整体隐藏落 bg-0 底色）；
+         满栏大图 eager 加载，构图校准参数经 img-style 透传。
+         共享元素名挂在 .hero-bg（见 style）：它是这张画的**裁切容器**，盒子=可见画面 -->
+    <span class="hero-bg" aria-hidden="true" data-vt-shared="hero">
       <HollowImage
         unframed
         loading="eager"
@@ -202,11 +199,18 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
 
 /* ---------- 底图 ---------- */
 
+/* 共享元素过渡的降落端（回程是起飞端）：名字挂这个**裁切容器**而不是 <img>——
+   <img> 在移动端带 zoom 缩放，渲染盒比可视区域大 1.28×；带名元素的快照不含祖先裁切，
+   直接挂会起飞/着陆在一圈放大的画面上（实测的「起飞瞬间凭空放大」）。
+   .hero-bg 自己 overflow: hidden，快照=可见画面，与首页 .deck-item 同一策略。
+   静态声明安全：全站只有这一个元素持有该名（首页那头在 FeaturedDeck 的活动卡上）。 */
 .hero-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  overflow: hidden;
+  view-transition-name: deck-frame;
 }
 
 .hero-bg img {

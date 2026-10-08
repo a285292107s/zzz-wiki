@@ -757,6 +757,128 @@ section[id] {
 }
 
 /* ============================================================
+   共享元素过渡（View Transitions API）—— 首页「今日角色」卡 ↔ 代理人详情页头图
+   ------------------------------------------------------------
+   浏览器版的 flutter Hero：两端 `view-transition-name: deck-frame` 合并成一次飞行。
+   共享元素是**画的可视裁切容器**（首页 .deck-item / 详情 .hero-bg），不是装裱框——
+   框与详情头图尺寸本来就接近，挂框只会「整块面板向上挪一下」。
+   谁在何时挂名、怎么和路由谈判，见 src/utils/viewTransition/；此处只管节奏。
+
+   规范里 ::view-transition-* 伪元素不算常规元素：`*` 选择器与 base.css 的全局降速
+   都盖不到它们（故减少动效要单独给一条 0s；JS 侧还会在源头上短路整条路径）。
+   ============================================================ */
+
+::view-transition-group(deck-frame) {
+  /* 400ms：比 --t-med(260ms) 长，这是全站位移最大的一次转场；
+     曲线取 expo-out 家族（起步快、尾段长减速）——中段位移才被眼睛跟得住，
+     用全局 --ease 会「一步到位」显不出飞行。 */
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 两个快照是同一张画的不同取景（首页 2.36 横幅 / 详情整栏），交接用**等长线性互补**淡入淡出：
+   old 1→0 与 new 0→1 同步走完，透明度和恒为 1 —— plus-lighter 在数学上就是一次
+   干净的交叉溶解，不会出现「时长不等 → 和≠1 → 中段提亮」的毛病。
+   **延迟到飞行的 35% 才开始**：起飞那一下留首页那张裁切（几何先被读懂），
+   落位前 170ms 内收敛到详情页的幅面——溶解藏在运动的收尾里，而不是劈在中段。 */
+::view-transition-old(deck-frame) {
+  animation: 170ms linear 140ms both vt-swap-out;
+}
+
+::view-transition-new(deck-frame) {
+  animation: 170ms linear 140ms both vt-swap-in;
+}
+
+/* root 组：**等长线性互补**的整页交叉溶解（240ms），不再是硬切，也不与飞行抢戏。
+   两段同步、和恒为 1，plus-lighter 下不留残影也不提亮。
+   曾经的老问题：只给 0s 时长不给 fill-mode，旧页快照以 opacity:1 盖到最后，
+   飞行结束整页「啪」地硬切——观感上不自然的大头就是这个。 */
+::view-transition-old(root) {
+  animation: 240ms linear both vt-page-out;
+}
+
+::view-transition-new(root) {
+  animation: 240ms linear both vt-page-in;
+}
+
+@keyframes vt-swap-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes vt-swap-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes vt-page-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes vt-page-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* 落地编排（`vt-landed` 由 utils/viewTransition 在新状态采样**之后**挂到 html 上）：
+   目的页的文字层按「装订顺序」逐条就位——框标 → 档案行 → 身份块。
+   延迟从飞行中途起算（不是落地之后才动），于是落地那一刻文字已在就位途中：
+   眼睛跟着画走完位移，文字刚好补上，两件事不抢同一段时间。
+   `both` 填充：延迟期间停在起点（不可见），与 .vt-active 的隐藏态无缝接上。 */
+@keyframes vt-plate-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 飞行里「只留画」：文字层不进新状态快照（`vt-landing` 只在新状态采样前挂上，
+   故起飞端首页的标本签照常参与它自己的旧快照，两端各归各的）。
+   三个块按档案装订的层次分开：框标（对位）→ 档案行（编号）→ 身份块（名字/标签）。 */
+html.vt-landing .marks,
+html.vt-landing .file-row,
+html.vt-landing .id-block,
+html.vt-landing .deck-meta {
+  opacity: 0;
+}
+
+/* 落地前后逐条就位：延迟从飞行中途起算（400ms 飞行的 50%～75%），
+   于是画还在落位时文字已经动了 —— 落地那一刻读者拿到的是「装订完成」而不是「啪」地补齐。 */
+html.vt-landed .marks {
+  animation: vt-plate-in 300ms var(--ease) 200ms both;
+}
+
+html.vt-landed .file-row {
+  animation: vt-plate-in 320ms var(--ease) 250ms both;
+}
+
+html.vt-landed .id-block {
+  animation: vt-plate-in 340ms var(--ease) 300ms both;
+}
+
+/* 回程同理：装裱框与画先落回原位，标本签随后才贴上 */
+html.vt-landed .deck-meta {
+  animation: vt-plate-in 320ms var(--ease) 250ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(deck-frame),
+  ::view-transition-old(deck-frame),
+  ::view-transition-new(deck-frame) {
+    animation-duration: 0s;
+  }
+}
+
+/* ============================================================
    高对比度模式（Windows 高对比度 / forced-colors: active）
    —— 系统会把作者颜色强制替换为 Canvas/CanvasText 等系统色：
    用「底色当发丝线」的构造会与页面同色而整条消失，纯底色表示

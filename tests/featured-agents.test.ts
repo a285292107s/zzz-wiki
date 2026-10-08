@@ -114,7 +114,7 @@ describe('今日精选的属性 + 阵营去重（pickFeatured）', () => {
 })
 
 describe('heroSources · 首页头图的派生档（档位交给浏览器按 DPR 选）', () => {
-  const SIZES = '1322px'
+  const SIZES = '1180px'
   const srcs = heroSources('Mindscape_1011_2', SIZES)
 
   it('候选链三级且顺序固定：本地派生档 → 本地原图 → CDN 兜底', () => {
@@ -144,12 +144,12 @@ describe('heroSources · 首页头图的派生档（档位交给浏览器按 DPR
 })
 
 describe('deckSizes · 头图 sizes 定档（纯 px，预热探针与真实 <img> 必须同值）', () => {
-  it('桌面按「取景框宽」定档：min(视口宽, 1322px)', () => {
+  it('桌面按「取景框宽」定档：min(视口宽, 1180px)', () => {
     expect(deckSizes(861)).toBe('861px')
-    expect(deckSizes(1280)).toBe('1280px')
-    expect(deckSizes(1322)).toBe('1322px')
-    expect(deckSizes(1920)).toBe('1322px')
-    expect(deckSizes(2560)).toBe('1322px')
+    expect(deckSizes(1180)).toBe('1180px')
+    expect(deckSizes(1280)).toBe('1180px')
+    expect(deckSizes(1920)).toBe('1180px')
+    expect(deckSizes(2560)).toBe('1180px')
   })
 
   it('手机（≤860）走竖幅等效源宽：固定 520px，不随视口缩到 350', () => {
@@ -219,3 +219,4 @@ describe('buildFeaturedCards', () => {
     expect(buildFeaturedCards(seed, [])).toEqual([])
   })
 })
+

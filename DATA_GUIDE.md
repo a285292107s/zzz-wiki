@@ -91,7 +91,7 @@ public/data/
 > `img/` 为 `npm run download:icons` 的本地化图标（独立管理）；`npm run data`
 > 的 resetOut **只清理根 manifest 与 live 目录**，不触碰 img/（曾有整体删除 OUT 目录连坐清空图标的教训）。
 > `img/hero/Mindscape_{id}_2.webp` 除作角色详情页 AgentHead 头图外，也驱动首页「今日角色」
-> 区块：**标本陈列**——桌面 2.36:1 横幅（宽度 = min(栏宽, 48vh×2.36) 居中）、手机 4:5 竖幅，
+> 区块：**标本陈列**——桌面 2.36:1 横幅（宽度 = min(栏宽, 44vh×2.36) 居中）、手机 4:5 竖幅，
 > 一次一张、拖拽/滑动换人，信息在**图下的标本签**里
 > （见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)）。选角由
 > `src/data/featured-pool.json` 精选池维护（`useFeaturedAgents` 读取 `pool`；用开发校准工具 `/calibrate`

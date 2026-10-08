@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import { router } from './router'
 import { reveal } from './directives/reveal'
+import { installViewTransition } from './utils/viewTransition'
 import './styles/base.css'
 
 /* ============================================================
@@ -27,6 +28,11 @@ document.addEventListener(
   },
   true,
 )
+
+/* 共享元素过渡（首页「今日角色」卡 → 代理人详情页头图）：把导航包进
+   document.startViewTransition 的更新回调里。不支持该 API 时整条路径静默不注册，
+   导航与页面过渡完全退回原样（见 utils/viewTransition）。 */
+installViewTransition(router)
 
 createApp(App).use(router).directive('reveal', reveal).mount('#app')
 

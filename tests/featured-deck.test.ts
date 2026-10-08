@@ -207,6 +207,18 @@ describe('FeaturedDeck 结构与无障碍', () => {
     expect(controls).toEqual(['deck-slide-0', 'deck-slide-1', 'deck-slide-2', 'deck-slide-3'])
     for (const id of controls) expect(wrapper.find(`#${id}`).exists()).toBe(true)
   })
+
+  it('共享元素名挂在活动卡的 .deck-item 上（jsdom 无原生 API → 不发）：四张卡里至多一张带名', async () => {
+    // 名字的落点是 .deck-item（自身 overflow: hidden 的裁切容器，快照=可见画面），
+    // 不是 <img> 本体（带 zoom transform，渲染盒比可视区域大）也不是装裱框——见 utils/viewTransition
+    const wrapper = await mountDeck(4)
+    const named = wrapper.findAll('.deck-item').filter((el) => {
+      const st = (el.element as HTMLElement).style.viewTransitionName
+      return st !== '' && st != null
+    })
+    // VT_SUPPORTED 在 jsdom 里为 false → 没有任何元素带名（真机上仅活动卡带名）
+    expect(named).toHaveLength(0)
+  })
 })
 
 describe('FeaturedDeck 拖拽吸附', () => {

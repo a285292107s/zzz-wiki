@@ -154,7 +154,9 @@ const sections = [
           <h2>今日角色</h2>
           <span class="rule" />
         </div>
-        <FeaturedDeck v-reveal="60" :cards="featured" />
+        <!-- 入场不动用 v-reveal：牌堆自带「标本装匣」编排（首次入画时演一次，见 FeaturedDeck），
+             整块上浮会与那三拍抢同一段时间。区块标题仍走 v-reveal。 -->
+        <FeaturedDeck :cards="featured" />
       </section>
 
       <section class="index">
