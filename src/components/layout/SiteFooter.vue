@@ -1,5 +1,7 @@
 <template>
-  <footer class="foot">
+  <!-- data-vt-hold：站尾与站头同属「终端外壳」（跨路由不重建），永不参与退场/入场编排 ——
+       见 utils/viewTransition/chrome.ts 的三条硬规则。 -->
+  <footer class="foot" data-vt-hold>
     <div class="wrap foot-inner">
       <div class="foot-side foot-info">
         <p class="meta">

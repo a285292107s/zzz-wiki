@@ -262,10 +262,11 @@ function beginFlight(
     //    只等路由就会把还在场上的旧页面拍成「新状态」——两端几何相同，飞行冻在起飞盒
     await waitSharedEndMounted(landingEnd)
     await nextTick()
-    // ④ 跨路由常驻的 chrome（站头/站尾这类不在 RouterView 里的元素）不会随导航重建：
-    //    它们的**退场态在这里交棒给入场编排** —— 先撤退场痕迹（旧的已进快照，安全），
-    //    再按新页收集一次，于是它们在新快照里同样是「不可见」，落地后才逐条入场。
-    //    不交棒的话，它们会带着退场态飞完全程，落地那一刻「啪」地出现。
+    // ④ 收拾起飞端的退场痕迹，再按**新页**收集一份入场计划。
+    //    · 撤 `.vt-out`：源端那些区块的退场态已经进了旧快照，DOM 上留着会污染新快照
+    //      （新快照是按当前 DOM 拍的）。
+    //    · 常驻外壳（站头/站尾，`data-vt-hold`）不在任何计划里 —— 它在两层快照里都是原样
+    //      原位，交叉溶解叠上去等于不变，观感是「终端不动、只有页面内容在换」。
     clearChrome('out')
     document.documentElement.classList.remove(VT_EXIT_CLASS)
     const plan = collectChrome()

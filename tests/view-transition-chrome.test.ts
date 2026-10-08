@@ -3,6 +3,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
   BLOCK_ATTR,
   CHROME_CASE_CLASS,
+  CHROME_HOLD_ATTR,
   CHROME_IN_CLASS,
   CHROME_OUT_CLASS,
   CHROME_SKIP_ATTR,
@@ -133,5 +134,36 @@ describe('区块收集（只认声明）', () => {
 
     expect(collectChrome(document.body).blocks).toEqual([inner])
   })
+
+  it('常驻外壳永不进计划：不退出场、不被入场藏起（两层快照里都在原位）', () => {
+    stubLayout()
+    const masthead = document.createElement('header')
+    masthead.setAttribute(CHROME_HOLD_ATTR, '')
+    // 站头里就算有声明块，也整棵子树跳过 —— 否则它还是会被淡掉
+    const innerBlock = document.createElement('div')
+    innerBlock.setAttribute(BLOCK_ATTR, '')
+    masthead.append(innerBlock)
+    const content = document.createElement('div')
+    content.setAttribute(BLOCK_ATTR, '')
+    document.body.append(masthead, content)
+
+    const plan = collectChrome(document.body)
+    expect(plan.blocks).toEqual([content])
+    expect(plan.blocks).not.toContain(masthead)
+    expect(plan.blocks).not.toContain(innerBlock)
+  })
+
+  it('装裱壳也不碰常驻外壳：共享元素的祖先里遇到 hold 就停手', () => {
+    stubLayout()
+    const shell = document.createElement('header')
+    shell.setAttribute(CHROME_HOLD_ATTR, '')
+    const plate = document.createElement('div')
+    plate.setAttribute(CHROME_SKIP_ATTR, '')
+    shell.append(plate)
+    document.body.append(shell)
+
+    expect(collectChrome(document.body).cases).not.toContain(shell)
+  })
 })
+
 

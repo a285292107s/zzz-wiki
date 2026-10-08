@@ -7,11 +7,14 @@
  * 用 `data-vt-block` 自己声明，本模块只负责「按视觉顺序编号 + 标记 + 清理」，
  * 并用覆盖率与不嵌套两条性质在测试/审计里守住（漏标一个新区块会被断言抓到）。
  *
- * 两条硬规则（都踩过坑）：
+ * 三条硬规则（都踩过坑）：
  *   1. **共享元素永不被收集**：`data-vt-skip` 挂在牌堆那张画 / 详情头图上，
  *      含它的祖先记作「装裱壳」（只退边线/底色，不碰子树）—— 退场不能把主角一起淡掉。
  *   2. **只收视口内的区块**：快照只覆盖视口，视口外的区块编排了也没人看见，
  *      收进来只会白涨错峰时长与合成层数量。
+ *   3. **常驻外壳（`data-vt-hold`）永不进计划**：站头/站尾跨路由不重建，若让它们退出场、
+ *      再被入场藏起，飞行期间两层快照里都是缺的 —— 观感是"整块丢了一下"。标记为 hold 的
+ *      子树在原位原样存在（两层快照一致 → 根交叉溶解叠上去等于不变）。
  *
  * 时序常量（`VT_TIMING`）是 CSS 与 JS 的**单一来源**：本模块把 `--vt-*` 写到 html 上，
  * JS 侧按同一组数字算出「该等多久」，避免两边各写一份时长然后漂移。
@@ -19,6 +22,9 @@
 
 /** 共享元素（或任何不该参与编排的节点）上的排除标记 */
 export const CHROME_SKIP_ATTR = 'data-vt-skip'
+
+/** 常驻外壳标记：跨路由不重建的终端框架（站头/站尾），永不退场、永不入场 */
+export const CHROME_HOLD_ATTR = 'data-vt-hold'
 
 /** 区块声明：组件用它在自己的可视单元上声明「这是一块，按整块退场/入场」 */
 export const BLOCK_ATTR = 'data-vt-block'
@@ -121,10 +127,20 @@ function coversSharedElement(el: HTMLElement): boolean {
   return el.matches(`[${CHROME_SKIP_ATTR}]`) || el.querySelector(`[${CHROME_SKIP_ATTR}]`) != null
 }
 
+/** 常驻外壳（站头/站尾这类跨路由不重建的终端框架）——**永不参与编排**：
+ *  它们不退出场、不被入场藏起，于是两层快照里都以原样在原位存在，
+ *  根交叉溶解叠上去等于不变（观感：终端不动，只有页面内容在换）。
+ *  与 `data-vt-skip` 的区别：skip 是"这块让位给装裱壳（边线动、内容不动）"，
+ *  hold 是"这块根本不进计划"。 */
+function isHeld(el: HTMLElement): boolean {
+  return el.matches(`[${CHROME_HOLD_ATTR}]`) || el.closest(`[${CHROME_HOLD_ATTR}]`) != null
+}
+
 /**
  * 收集一份编排计划：只认声明（`data-vt-block`），按视觉顺序编号。
  *   · 声明嵌套时**只收最内层**（近端优先，避免同一个位置被淡两次）
  *   · 含共享元素的声明整块让位给「装裱壳」
+ *   · 常驻外壳（`data-vt-hold`）整棵子树跳过
  *   · 装裱壳 = 共享元素的所有祖先（去重；CSS 只动边线/底色，嵌套无害）
  */
 export function collectChrome(root: ParentNode = document.body): ChromePlan {
@@ -133,7 +149,7 @@ export function collectChrome(root: ParentNode = document.body): ChromePlan {
 
   for (const el of declared) {
     if (blocks.length >= MAX_BLOCKS) break
-    if (coversSharedElement(el)) continue
+    if (isHeld(el) || coversSharedElement(el)) continue
     if (!isVisible(el) || !inViewport(el)) continue
     // 别的声明块在它里面 → 它在结构上是容器，交给内层各自入列
     if (declared.some((d) => d !== el && el.contains(d))) continue
@@ -144,7 +160,8 @@ export function collectChrome(root: ParentNode = document.body): ChromePlan {
   for (const skip of Array.from(root.querySelectorAll<HTMLElement>(`[${CHROME_SKIP_ATTR}]`))) {
     let p = skip.parentElement
     while (p && p !== document.documentElement) {
-      cases.add(p)
+      // 装裱壳也不碰常驻外壳：否则会去动站头的边线/底色
+      if (!isHeld(p)) cases.add(p)
       p = p.parentElement
     }
   }
