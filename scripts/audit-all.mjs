@@ -1,7 +1,7 @@
 /* ============================================================
  * audit-all.mjs — npm run audit:all：**一条命令跑完整个审计箱**
  *
- * 为什么需要：`npm run audit` 只**列出**脚本，26 个审计此前全靠人工逐个跑
+ * 为什么需要：`npm run audit` 只**列出**脚本，27 个审计此前全靠人工逐个跑
  * （漏跑一个就等于没有那项保障——第 111 轮发现 `verify:icons` 从未接入任何链路，
  * 正是这类问题的另一面）。本脚本把它们串起来，并**显式声明每个脚本的通过判据**。
  *
@@ -55,6 +55,8 @@ const RULES = {
   'axe-states.js': (r) => r.serious === 0,
   'inp-interaction.js': (r) => typeof r.worst?.dur === 'number' && r.worst.dur < 200,
   'regression-walk.js': (r) => r.failed === 0,
+  // 共享元素飞行：逐帧几何证明「真的在飞」（曾经静默空转 —— 只看动画类/动画对象验不出来）
+  'hero-flight.js': (r) => r.failed === 0 && r.total >= 13,
 }
 
 function serverUp() {
@@ -138,3 +140,4 @@ console.log(
 if (manual.length) console.log(`  （人工判读：${manual.map((m) => m.f).join('、')}）`)
 for (const f of failed) console.log(`  ✖ ${f.f} → ${f.detail}`)
 process.exit(failed.length ? 1 : 0)
+
