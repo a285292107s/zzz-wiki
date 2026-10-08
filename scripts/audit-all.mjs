@@ -56,7 +56,7 @@ const RULES = {
   'inp-interaction.js': (r) => typeof r.worst?.dur === 'number' && r.worst.dur < 200,
   'regression-walk.js': (r) => r.failed === 0,
   // 共享元素飞行：逐帧几何证明「真的在飞」（曾经静默空转 —— 只看动画类/动画对象验不出来）
-  'hero-flight.js': (r) => r.failed === 0 && r.total >= 13,
+  'hero-flight.js': (r) => r.failed === 0 && r.total >= 18,
 }
 
 function serverUp() {
@@ -140,4 +140,6 @@ console.log(
 if (manual.length) console.log(`  （人工判读：${manual.map((m) => m.f).join('、')}）`)
 for (const f of failed) console.log(`  ✖ ${f.f} → ${f.detail}`)
 process.exit(failed.length ? 1 : 0)
+
+
 

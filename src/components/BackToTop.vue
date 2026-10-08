@@ -25,6 +25,7 @@ onUnmounted(() => {
   <button
     type="button"
     class="back-top mono"
+    data-vt-block
     :class="{ show: visible }"
     :aria-hidden="visible ? undefined : 'true'"
     :tabindex="visible ? 0 : -1"

@@ -139,11 +139,11 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
       />
     </span>
     <!-- 存档面：底部深掩埋保证文字可读；右上渐淡露出场景，避免整面压黑 -->
-    <span class="scrim" aria-hidden="true" />
+    <span class="scrim" aria-hidden="true" data-vt-skip />
     <!-- 四角琥珀定位标：档案标本的对位框，非投影非霓虹，纯线框语言 -->
-    <span class="marks" aria-hidden="true"><i /><i /><i /><i /></span>
+    <span class="marks" aria-hidden="true" data-vt-block><i /><i /><i /><i /></span>
 
-    <div class="file-row">
+    <div class="file-row" data-vt-block>
       <p class="eyebrow">AGENT FILE · NO.{{ String(detail.id ?? '').padStart(4, '0') }}</p>
       <!-- 双形态切换钮：仅双形态角色（当前为 1551 佩洛伊斯）显示；切换 hero 头图形态，localStorage 持久化 -->
       <button
@@ -160,7 +160,7 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
       </button>
     </div>
 
-    <div class="main">
+    <div class="main" data-vt-block>
       <div class="id-block">
         <p v-if="codeName" class="ghost mono">{{ codeName }}</p>
         <h1 class="page-title">{{ detail.name ?? '—' }}</h1>

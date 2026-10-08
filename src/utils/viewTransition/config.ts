@@ -61,10 +61,14 @@ export const VT_ROOT_CLASS = 'vt-active'
 export const VT_LANDING_CLASS = 'vt-landing'
 
 /** 落地标记：**采样之后**才挂上（挂早了会把编排动画一起拍进新状态）。
- *  组件用它做「文字层在飞行落地前后逐条就位」的编排，见 base.css 的 vt-plate-in。
- *  时长取最慢那条的 delay + duration，再留一档余量。 */
+ *  组件用它做「文字层在飞行落地前后逐条就位」的编排，见 base.css 的 vt-chrome-in。 */
 export const VT_LANDED_CLASS = 'vt-landed'
-export const VT_LANDED_MS = 900
+
+/** 起飞标记：整页区块依次退场（标记由 chrome 收集器写在区块上，见 base.css 的 vt-chrome-out） */
+export const VT_EXIT_CLASS = 'vt-exit'
+
+/** 中断回滚标记：退场演到一半被取消时，把区块按同一份错峰索引放回去 */
+export const VT_RESTORE_CLASS = 'vt-restore'
 
 /** 共享元素名（两个方向共用）：首页挂在活动卡的 .deck-item、详情挂在 .hero-bg。
  *  两端都是**画的可视裁切容器**（各自 overflow: hidden，快照=可见画面）。

@@ -91,16 +91,16 @@ const sections = [
     <section class="hero">
       <div class="wrap hero-inner">
         <div class="hero-text">
-          <p v-reveal="0" class="eyebrow mono">NEW Eridu · Data Terminal</p>
-          <h1 v-reveal="60" class="page-title">
+          <p v-reveal="0" class="eyebrow mono" data-vt-block>NEW Eridu · Data Terminal</p>
+          <h1 v-reveal="60" class="page-title" data-vt-block>
             绳网档案
             <span class="title-en">Ropeweb Archive</span>
           </h1>
-          <p v-reveal="120" class="page-sub">
+          <p v-reveal="120" class="page-sub" data-vt-block>
             基于开放数据源整理的绝区零资料库。以档案编号为纲，收录代理人、音擎、邦布与驱动盘的结构化数据——不含任何主观评述，只做客观陈列。
           </p>
 
-          <div v-reveal="220" class="hero-meta mono">
+          <div v-reveal="220" class="hero-meta mono" data-vt-block>
             <span>游戏客户端数据</span>
             <span class="dot">·</span>
             <span>持续更新</span>
@@ -119,7 +119,7 @@ const sections = [
              内容是「档案该有的规格信息」而不是装饰——与数据说明页的「档案规格」同一语言，
              角标沿用详情页 hero 的 ⌐ 框，形成跨页面的家族感。
              **窄屏隐藏**：移动端首屏本就紧凑干净，不需要它，也避免拉长首屏。 -->
-        <aside v-reveal="280" class="hero-spec" aria-label="档案规格">
+        <aside v-reveal="280" class="hero-spec" aria-label="档案规格" data-vt-block>
           <p class="hs-title mono">档案规格</p>
           <dl class="hs-list">
             <div class="hs-row">
@@ -150,7 +150,7 @@ const sections = [
            区块挂载即渲染（图 src 只依赖 id，与清单请求并行）；名字/元素未就绪时标本签留条形占位。
            逐图构图参数 pos/zoom/originY 与详情页 AgentHead 同一套校准（IMG_GUIDE.md）。池为空不渲染。 -->
       <section v-if="picks.length" class="banners">
-        <div v-reveal class="section-head">
+        <div v-reveal class="section-head" data-vt-block>
           <h2>今日角色</h2>
           <span class="rule" />
         </div>
@@ -160,14 +160,14 @@ const sections = [
       </section>
 
       <section class="index">
-      <div v-reveal class="section-head">
+      <div v-reveal class="section-head" data-vt-block>
         <span class="no mono" aria-hidden="true">00</span>
         <h2>目录</h2>
         <span class="rule" />
       </div>
 
       <ol class="index-list">
-        <li v-for="(s, i) in sections" :key="s.to" v-reveal="i * 55">
+        <li v-for="(s, i) in sections" :key="s.to" v-reveal="i * 55" data-vt-block>
           <RouterLink :to="s.to" class="index-row" @pointerenter="warmList(s.to)" @focus="warmList(s.to)">
             <span class="specimen">
               <HollowImage

@@ -17,6 +17,12 @@
  *      **共享元素飞行**（utils/viewTransition 的时机谈判与降级路径、data/heroImageSources
  *      的降落端档位单一来源、牌堆的装匣入场编排 ≈ +1.6KB）。换来的是首屏「点了有回应」的
  *      那个关键瞬间；余量只剩约 0.3KB —— **下一次加功能前必须先腾预算**。
+ *      **2026-10 由 66KB 提到 70KB（实测 68.6KB）**：起飞前编排 ——
+ *      「整页退场（chrome 收集器 + 声明式区块）→ 原地取景变形 → 飞行 → 目的页逐条入场」，
+ *      外加中途改主意的回滚路径。这是用户明确要的编排（第一屏点下去的那一下是
+ *      全站唯一「有戏」的动作），且全部走 transform/opacity，不加依赖、不增请求。
+ *      代价记账：首访 gzip +2.9KB（约首访 1.74MB 的 0.2%）。**这是本设计的最后一点余量**，
+ *      再加编排要先把状态机/选择器精简掉，而不是继续加预算。
  *   2) 主 CSS 包 gzip 后 ≤ 22KB
  *      （基线 ~19KB；202 条 CJK @font-face 已含）
  *   3) sitemap.xml 存在且 URL 数 ≥ 230
@@ -35,8 +41,8 @@ import zlib from 'node:zlib'
 
 const DIST = 'dist'
 const BUDGET = {
-  /** 主 JS 包 gzip 上限 KB（基线 55.2 + 余量；2026-10 62 → 63 → 66，理由见文件头注释） */
-  mainJsGzipKB: 66,
+  /** 主 JS 包 gzip 上限 KB（基线 55.2 + 余量；2026-10 62 → 63 → 66 → 70，理由见文件头注释） */
+  mainJsGzipKB: 70,
   /** 主 CSS gzip 上限 KB（基线 ~11 + 余量） */
   mainCssGzipKB: 22,
   /** CJK 分片 CSS gzip 上限 KB——渲染阻塞资源，权重档位翻倍会直接翻倍它
@@ -155,3 +161,4 @@ console.log(
     : '\n== 性能预算 == 通过（主包/CSS/sitemap/逐路由 HTML 全部在预算内）',
 )
 process.exitCode = bad ? 1 : 0
+

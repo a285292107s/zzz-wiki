@@ -825,15 +825,78 @@ section[id] {
   }
 }
 
-/* 落地编排（`vt-landed` 由 utils/viewTransition 在新状态采样**之后**挂到 html 上）：
-   目的页的文字层按「装订顺序」逐条就位——框标 → 档案行 → 身份块。
-   延迟从飞行中途起算（不是落地之后才动），于是落地那一刻文字已在就位途中：
-   眼睛跟着画走完位移，文字刚好补上，两件事不抢同一段时间。
-   `both` 填充：延迟期间停在起点（不可见），与 .vt-active 的隐藏态无缝接上。 */
-@keyframes vt-plate-in {
+/* ============================================================
+   整页退场 / 整页入场（`data-vt-block` 声明的区块）
+   ------------------------------------------------------------
+   一趟完整的编排是四拍：**整页退场 → 取景变形 → 飞行 → 目的页逐条入场**。
+   标记由 utils/viewTransition/chrome 写（`.vt-out` / `.vt-in` / `.vt-chrome-case`
+   与 `--vt-i` 错峰索引），时序常量由同一模块写进 `--vt-*`（CSS 与 JS 单一来源）。
+
+   退场读作「自上而下依次收走」（按 visually top→bottom 编号），入场读作「自上而下逐条装订」。
+   全程只动 opacity / transform / 边线色 / 底色 —— 合成器能承担，且不触发布局。
+   ============================================================ */
+
+/* 起飞前：整页区块依次退场（停在退场态 —— 紧接着的旧状态快照里就只剩底纹与那张画）。
+   曲线用「加速离开」（ease-in）而不是全局 --ease：退场该越走越快，
+   用强 ease-out 会在头 40ms 就几乎淡完，错峰也就读不出来了。 */
+html.vt-exit .vt-out {
+  animation: vt-chrome-out var(--vt-out-dur, 220ms) cubic-bezier(0.55, 0, 1, 0.45) both;
+  animation-delay: calc(var(--vt-i, 0) * var(--vt-out-step, 26ms));
+}
+
+/* 装裱壳：只退边线与底色，子树（含共享元素）不动 —— 陈列框先空，那张画还留在原处 */
+html.vt-exit .vt-chrome-case {
+  animation: vt-case-out var(--vt-out-dur, 220ms) cubic-bezier(0.55, 0, 1, 0.45) both;
+}
+
+@keyframes vt-chrome-out {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.996);
+  }
+}
+
+@keyframes vt-case-out {
+  from {
+    border-color: var(--line-1);
+    background-color: var(--bg-0);
+  }
+  to {
+    border-color: transparent;
+    background-color: transparent;
+  }
+}
+
+/* 采样期：降落端的区块不进新状态快照（飞行画面里只有那张画与底纹） */
+html.vt-landing .vt-in {
+  opacity: 0;
+}
+
+html.vt-landing .vt-chrome-case {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+/* 落地：目的页区块自上而下逐条装订。整体延后 `--vt-in-hold`，
+   让第一块在飞行尾段才开始动、最后一块在落地之后走完 —— 才有「逐步入场」。 */
+html.vt-landed .vt-in {
+  animation: vt-chrome-in var(--vt-in-dur, 320ms) var(--ease) both;
+  animation-delay: calc(var(--vt-in-hold, 300ms) + var(--vt-i, 0) * var(--vt-in-step, 14ms));
+}
+
+html.vt-landed .vt-chrome-case {
+  animation: vt-case-in 420ms var(--ease) both;
+  animation-delay: var(--vt-in-hold, 300ms);
+}
+
+@keyframes vt-chrome-in {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -841,34 +904,31 @@ section[id] {
   }
 }
 
-/* 飞行里「只留画」：文字层不进新状态快照（`vt-landing` 只在新状态采样前挂上，
-   故起飞端首页的标本签照常参与它自己的旧快照，两端各归各的）。
-   三个块按档案装订的层次分开：框标（对位）→ 档案行（编号）→ 身份块（名字/标签）。 */
-html.vt-landing .marks,
-html.vt-landing .file-row,
-html.vt-landing .id-block,
-html.vt-landing .deck-meta {
-  opacity: 0;
+@keyframes vt-case-in {
+  from {
+    border-color: transparent;
+    background-color: transparent;
+  }
+  to {
+    border-color: var(--line-1);
+    background-color: var(--bg-0);
+  }
 }
 
-/* 落地前后逐条就位：延迟从飞行中途起算（400ms 飞行的 50%～75%），
-   于是画还在落位时文字已经动了 —— 落地那一刻读者拿到的是「装订完成」而不是「啪」地补齐。 */
-html.vt-landed .marks {
-  animation: vt-plate-in 300ms var(--ease) 200ms both;
+/* 中断回滚：退场演到一半被取消（再点一次 / 导航失败 / 组件卸载），
+   把区块按同一份错峰索引放回去，而不是让它「啪」地复位。 */
+html.vt-restore .vt-out {
+  animation: vt-chrome-in var(--vt-in-dur, 320ms) var(--ease) both;
+  animation-delay: calc(var(--vt-i, 0) * var(--vt-out-step, 12ms));
 }
 
-html.vt-landed .file-row {
-  animation: vt-plate-in 320ms var(--ease) 250ms both;
+html.vt-restore .vt-chrome-case {
+  animation: vt-case-in 320ms var(--ease) both;
 }
 
-html.vt-landed .id-block {
-  animation: vt-plate-in 340ms var(--ease) 300ms both;
-}
-
-/* 回程同理：装裱框与画先落回原位，标本签随后才贴上 */
-html.vt-landed .deck-meta {
-  animation: vt-plate-in 320ms var(--ease) 250ms both;
-}
+/* 上面那套 `.vt-in` / `.vt-chrome-case` 取代了早前「逐元素写死 .marks/.file-row/.id-block/
+   .deck-meta」的临时做法：现在哪些区块参与编排由组件用 `data-vt-block` 声明，
+   base.css 只提供三种动作（区块退场 / 区块入场 / 装裱壳退边底）。 */
 
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(deck-frame),

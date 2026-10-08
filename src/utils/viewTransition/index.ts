@@ -34,11 +34,21 @@ import { heroVariantFile } from '@/data/heroGenderVariants'
 import { awaitImageReady, heroDetailPrimarySrc, heroDetailViewport } from '@/data/heroImageSources'
 import { heroForm } from '@/composables/useHeroForm'
 import {
+  applyTimingVars,
+  clearChrome,
+  clearChromeCases,
+  collectChrome,
+  enterSettleMs,
+  exitSettleMs,
+  stampChrome,
+} from './chrome'
+import {
   LANDING_PREWARM_MS,
   NAV_SETTLE_MS,
+  VT_EXIT_CLASS,
   VT_LANDED_CLASS,
-  VT_LANDED_MS,
   VT_LANDING_CLASS,
+  VT_RESTORE_CLASS,
   VT_ROOT_CLASS,
   VT_SUPPORTED,
   awaitSharedEndImage,
@@ -52,6 +62,7 @@ import {
 } from './config'
 
 export {
+  VT_EXIT_CLASS,
   VT_LANDED_CLASS,
   VT_LANDING_CLASS,
   VT_ROOT_CLASS,
@@ -61,8 +72,15 @@ export {
   consumeDeckCard,
 } from './config'
 export { isAgentDetailOf } from './config'
+export { BLOCK_ATTR, CHROME_SKIP_ATTR, VT_TIMING } from './chrome'
 
 let installed = false
+/** 安装时收下的 router：组件侧（牌堆）不自己注入 router，少一处「测试环境没有 router」的依赖 */
+let appRouter: Router | null = null
+/** 起飞前编排是否在途（整页退场 + 取景变形）。做成 ref：组件据此回滚自己的取景变形 */
+const armed = ref(false)
+/** 本次编排准备飞去的目的地：**别的**导航一旦开始就撤销编排（用户改主意优先） */
+let armedTarget: string | null = null
 /** 飞行中的过渡：重叠导航并到同一次上，而不是再开一次 */
 let inFlight: Promise<void> | null = null
 /** 去程起飞端（首页牌堆）：本次导航是首页 → 代理人详情时为 true */
@@ -98,6 +116,73 @@ function prewarmLandingHero(id: string | number | undefined): Promise<void> {
   return awaitImageReady(heroDetailPrimarySrc(base, heroDetailViewport()), LANDING_PREWARM_MS)
 }
 
+/**
+ * 起飞前编排（首页点卡时由 FeaturedDeck 调用）：整页区块依次退场，同时那张画在原地
+ * 把取景变形到目的地（组件侧做，纯 transform）——**两者都落定**才允许起跳，
+ * 于是旧状态快照里只剩底纹与那张已经「就位」的画。
+ *
+ * `target` 是本次编排准备飞去的路径：**用户中途改主意（点了别的链接）就整段撤销** ——
+ * 否则编排落定后的那一跳会盖掉用户后来点的那一次导航（实测确实会）。
+ *
+ * 返回三种结果（调用方据此决定要不要补一次导航）：
+ *   · `ready`       —— 编排落定，可以起跳
+ *   · `cancelled`   —— 中途被撤销（用户点了别处）：**不要再导航**，否则会盖掉用户的新去向
+ *   · `unavailable` —— 根本没起编排（不支持 / 减少动效 / 没声明区块）：点击得自己补导航
+ */
+export type ArmResult = 'ready' | 'cancelled' | 'unavailable'
+
+export async function armDeckFlight(target: string): Promise<ArmResult> {
+  if (!VT_SUPPORTED || reducedMotion() || armed.value) return 'unavailable'
+  applyTimingVars()
+  const plan = collectChrome()
+  if (!plan.blocks.length) return 'unavailable' // 一个区块都没声明：无从编排，别改页面状态
+  stampChrome(plan, 'out')
+  armed.value = true
+  armedTarget = target
+  document.documentElement.classList.add(VT_EXIT_CLASS)
+  await wait(exitSettleMs(plan.blocks.length))
+  return armed.value ? 'ready' : 'cancelled'
+}
+
+/** 中断回滚：撤退场标记，把整页区块按同一份错峰索引放回去（不是「啪」地复位） */
+export function disarmDeckFlight(): void {
+  const root = document.documentElement
+  if (!armed.value && !root.classList.contains(VT_EXIT_CLASS)) return
+  armed.value = false
+  armedTarget = null
+  root.classList.remove(VT_EXIT_CLASS)
+  root.classList.add(VT_RESTORE_CLASS)
+  window.setTimeout(() => {
+    root.classList.remove(VT_RESTORE_CLASS)
+    clearChrome('out')
+    clearChromeCases()
+  }, 420)
+}
+
+/** 起飞前编排是否在途（响应式：牌堆 watch 它，撤销时把取景变形平滑回常态） */
+export function deckFlightArmed(): Ref<boolean> {
+  return armed
+}
+
+/** 现在能不能起编排（同步判定，供点击入口决定要不要接管这次点击）：
+ *  不支持 View Transitions / 用户要减少动效 / 已在编排中 —— 三种情况一律放行走普通导航。 */
+export function canArmDeckFlight(): boolean {
+  return VT_SUPPORTED && !reducedMotion() && !armed.value && appRouter != null
+}
+
+/** 编排落定后的那一跳（router 由 installViewTransition 收着，见上） */
+export async function deckNavigate(to: string): Promise<void> {
+  await appRouter?.push(to)
+}
+
+function reducedMotion(): boolean {
+  return typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
+function wait(ms: number): Promise<void> {
+  return new Promise((resolve) => window.setTimeout(resolve, ms))
+}
+
 /** 开一次飞行。已有飞行在途时返回 null（并进那一次）。 */
 function beginFlight(
   router: Router,
@@ -125,6 +210,8 @@ function beginFlight(
   const callbackStarted = new Promise<void>((resolve) => {
     markStarted = resolve
   })
+  /** 降落端收集到的区块数（落地编排要走多久由它决定，见 enterSettleMs） */
+  let landingBlocks = 0
 
   const started = doc.startViewTransition(async () => {
     // ① 旧状态此刻已进快照 —— 放行守卫里等着的导航（顺序错了就是整段空转，见文件头）
@@ -135,8 +222,15 @@ function beginFlight(
     //    只等路由就会把还在场上的旧页面拍成「新状态」——两端几何相同，飞行冻在起飞盒
     await waitSharedEndMounted(landingEnd)
     await nextTick()
-    // ④ 挂降落标记：只作用于**即将被采样**的新状态（旧状态早已进快照，故不受影响）——
-    //    目的页的文字层因此不进飞行画面，留给落地前后的编排（base.css 的 vt-plate-in）
+    // ④ 跨路由常驻的 chrome（站头/站尾这类不在 RouterView 里的元素）不会随导航重建：
+    //    它们的**退场态在这里交棒给入场编排** —— 先撤退场痕迹（旧的已进快照，安全），
+    //    再按新页收集一次，于是它们在新快照里同样是「不可见」，落地后才逐条入场。
+    //    不交棒的话，它们会带着退场态飞完全程，落地那一刻「啪」地出现。
+    clearChrome('out')
+    document.documentElement.classList.remove(VT_EXIT_CLASS)
+    const plan = collectChrome()
+    stampChrome(plan, 'in')
+    landingBlocks = plan.blocks.length
     document.documentElement.classList.add(VT_LANDING_CLASS)
     // ⑤ 等那一端的画可绘制：预热已先行，这里只收尾（空画布的采样就是一次黑场）
     await Promise.race([landingReady, awaitSharedEndImage(landingEnd)])
@@ -152,15 +246,19 @@ function beginFlight(
 
   // 落地编排：**新状态已采样之后**才挂落地类（挂早了会被拍进快照、编排就不存在了）。
   // 用一个宏任务保证「采样已发生」：采样与回调结算在同一个渲染更新里，
-  // 定时器回调必然排在它之后。组件侧据此把文字层按档案装订顺序逐条就位。
-  // 两个定时器无须在 finish 里清：`vt-landed` 自身不带隐藏态，多挂一会儿无害
-  // （动画的终点就是常态），清早反而会把编排断在半路。
+  // 定时器回调必然排在它之后。目的页区块于是按同一份错峰索引逐条装订。
+  // 时长按块数算（与 CSS 同一组 --vt-* 常量），走完即摘标记、交还常态样式。
   void bestEffort(started.updateCallbackDone).then(() => {
     window.setTimeout(() => {
       document.documentElement.classList.add(VT_LANDED_CLASS)
-      window.setTimeout(() => {
-        document.documentElement.classList.remove(VT_LANDED_CLASS)
-      }, VT_LANDED_MS)
+      window.setTimeout(
+        () => {
+          document.documentElement.classList.remove(VT_LANDED_CLASS)
+          clearChrome('in')
+          clearChromeCases()
+        },
+        enterSettleMs(landingBlocks),
+      )
     }, 0)
   })
 
@@ -172,10 +270,16 @@ function beginFlight(
       // finished 才代表伪元素上的动画真的落地（含被跳过的情况），此时才能撤标记
       await wait
       inFlight = null
+      armed.value = false
+      armedTarget = null
       deckIsSource.value = false
       deckIsSink.value = false
-      document.documentElement.classList.remove(VT_ROOT_CLASS)
-      document.documentElement.classList.remove(VT_LANDING_CLASS)
+      const root = document.documentElement
+      root.classList.remove(VT_ROOT_CLASS)
+      root.classList.remove(VT_LANDING_CLASS)
+      // 起飞端那一页此刻已被替换：撤退场标记（其在途动画随 DOM 一起消失，不会残留）
+      root.classList.remove(VT_EXIT_CLASS)
+      clearChrome('out')
     },
   }
 }
@@ -191,6 +295,7 @@ async function fly(flight: ReturnType<typeof beginFlight>): Promise<void> {
 }
 
 export function installViewTransition(router: Router): void {
+  appRouter = router
   if (!VT_SUPPORTED) return // 浏览器不支持：整条路径保持惰性，不注册也不打日志
 
   // 「为什么我没看到动画」的第一诊断线索：支持性只在启动时判定一次，出错时看这一行
@@ -200,12 +305,20 @@ export function installViewTransition(router: Router): void {
 
   // 减少动效：整条路径不动（`::view-transition-*` 伪元素不在 base.css 的 `*` 规则作用域里，
   // 全局的 transition-duration: 0.01ms 盖不到它们，必须在源头拦）
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+  if (reducedMotion()) return
+
+  // 时序常量（CSS 与 JS 单一来源）一次写好：样式里的 duration/step 都读这几个变量，
+  // 免得"界面动画 300ms、JS 只等 200ms"这种两边各写一份的漂移
+  applyTimingVars()
 
   // 回程要提前置位：deckIsSink 的唯一职责是 App.vue 的页面过渡让位
   // （共享元素名不靠它——两端均常驻声明）
   router.beforeEach((to, from) => {
     deckIsSink.value = isAgentDetailToDeck(to, from)
+    // 起飞前编排在途时，**别的**导航一旦开始就整段撤销：用户改主意优先。
+    // 不撤的话，编排落定后的那一跳会盖掉用户后来点的那一次（实测会飞到旧目的地），
+    // 而且退场标记会留在页面上（站头保持隐身）。
+    if (armed.value && to.fullPath !== armedTarget) disarmDeckFlight()
   })
 
   router.beforeResolve(async (to, from) => {
@@ -234,3 +347,4 @@ export function installViewTransition(router: Router): void {
     void fly(flight)
   })
 }
+

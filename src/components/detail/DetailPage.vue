@@ -68,14 +68,14 @@ watch(
 
 <template>
   <div class="wrap page">
-    <div class="page-actions">
+    <div class="page-actions" data-vt-block>
       <RouterLink :to="backTo" class="back mono">← {{ backLabel ?? '返回' }}</RouterLink>
       <!-- 对照台入口：就地加入，不必先跳去对照页找条目（类目/编号由当前路由推出） -->
       <CompareToggle />
     </div>
 
     <!-- 区块导航：宽屏左侧档案索引 / 窄屏吸顶横条（样式见 base.css .section-nav） -->
-    <nav v-if="nav?.length" ref="navEl" class="section-nav" aria-label="页面区块">
+    <nav v-if="nav?.length" ref="navEl" class="section-nav" aria-label="页面区块" data-vt-block>
       <div class="sn-list">
         <template v-for="n in nav" :key="n.id">
           <div v-if="n.children?.length" class="sn-group">

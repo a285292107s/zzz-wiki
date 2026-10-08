@@ -143,6 +143,122 @@ async page => {
   })
   check('回程落回同一张卡', back.path === '/' && back.href === switched.href, JSON.stringify({ ...back, expected: switched.href }))
 
+  // 6. 起飞前编排：整页退场 + 原地取景变形，两者落定才起跳
+  // ⚠ 采样必须**每次一个独立 evaluate**：这段时间里会发生一次导航，
+  //   把整段循环塞进一个 evaluate 会撞上「Execution context was destroyed」（实测）。
+  await home()
+  const pre0 = await page.evaluate(() => {
+    const img = document.querySelector('[data-vt-shared] img')
+    const visible = Array.from(document.querySelectorAll('[data-vt-block]')).filter((el) => {
+      const r = el.getBoundingClientRect()
+      return r.bottom > 0 && r.top < innerHeight && el.getClientRects().length
+    })
+    const start = img ? getComputedStyle(img).transform : ''
+    document.querySelector('[data-vt-shared]').click()
+    return { blocks: visible.length, transform0: start }
+  })
+  let exitSeen = false
+  let cascade = 0
+  let lastDeckMorph = ''
+  for (let i = 0; i < 50; i++) {
+    await page.waitForTimeout(40)
+    const s = await page.evaluate(() => {
+      const root = document.documentElement
+      const ops = Array.from(document.querySelectorAll('.vt-out')).map((el) => Number(getComputedStyle(el).opacity))
+      // 只认**起飞端**那张画（data-vt-shared="deck"）：导航后同名标记会换成详情端，
+      // 用属性名泛查会读到目的地那张（transform: none），把结论读成"已变形"（实测踩过）
+      const img = document.querySelector('[data-vt-shared="deck"] img')
+      return {
+        exit: root.classList.contains('vt-exit'),
+        cascade: ops.length ? Math.max(...ops) - Math.min(...ops) : 0,
+        morph: img ? getComputedStyle(img).transform : '',
+      }
+    })
+    if (s.exit) {
+      exitSeen = true
+      // 错峰要**在整个退场过程中取最大值**：退场用 ease-in，头 40ms 各块还没拉开，
+      // 只采「第一次看到 vt-exit 的那一刻」会读到 0.01 而误判（实测踩过）
+      cascade = Math.max(cascade, s.cascade)
+    }
+    if (s.morph) lastDeckMorph = s.morph // 记录起飞端最后一次可见的取景
+  }
+  await page.waitForTimeout(2600)
+  const startScale = (() => {
+    const m = /matrix\(([^)]+)\)/.exec(pre0.transform0)
+    return m ? parseFloat(m[1].split(',')[0]) : 1
+  })()
+  const endScale = (() => {
+    const m = /matrix\(([^)]+)\)/.exec(lastDeckMorph)
+    return m ? parseFloat(m[1].split(',')[0]) : lastDeckMorph === 'none' ? 1 : 0
+  })()
+  check('起飞前：整页退场启动', exitSeen && pre0.blocks >= 5, `blocks=${pre0.blocks} exitSeen=${exitSeen}`)
+  check('起飞前：退场是错峰级联（不是同时消失）', cascade > 0.2, `opacity 极差峰值=${cascade.toFixed(2)}`)
+  check(
+    '起飞前：取景已变形到目的地（离场前 img 尺度回到 1）',
+    Math.abs(startScale - endScale) > 0.1 && Math.abs(endScale - 1) < 0.02,
+    `起手 scale=${startScale.toFixed(3)} → 离场前 ${endScale.toFixed(3)}（末次 transform=${lastDeckMorph || 'n/a'}）`,
+  )
+
+  // 7. 修饰键（⌘/Ctrl 点击「新标签打开」）：必须放行、不接管、不做编排
+  // ⚠ 不能直接 `link.dispatchEvent(click)` 就走：合成事件**没有**「新标签」语义，
+  //   浏览器会真的导航当前帧 → 后续 evaluate 全部撞上「context destroyed」（实测踩过）。
+  //   改在 window 冒泡阶段读 `defaultPrevented`（此刻我们的捕获处理器已跑完）并自己兜住默认动作。
+  await home()
+  const mod = await page.evaluate(
+    () =>
+      new Promise((resolve) => {
+        const link = document.querySelector('[data-vt-shared]')
+        const img = document.querySelector('[data-vt-shared] img')
+        const before = img ? getComputedStyle(img).transform : ''
+        const onBubble = (e) => {
+          window.removeEventListener('click', onBubble)
+          e.preventDefault() // 审计自己兜住默认导航：这一项测的是"我们有没有接管"
+          resolve({
+            defaultPrevented: e.defaultPrevented,
+            exit: document.documentElement.classList.contains('vt-exit'),
+            outs: document.querySelectorAll('.vt-out').length,
+            morphBefore: before,
+          })
+        }
+        window.addEventListener('click', onBubble)
+        link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, button: 0, metaKey: true }))
+      }),
+  )
+  // 判据只看**可观察的接管征兆**：没有整页退场、没有区块入列、取景没被改。
+  // 不去断言 defaultPrevented：浏览器对 ⌘-点击本身也会置位（打开新标签），读它会把
+  // 「放行」误判成「被拦」（实测）。
+  check(
+    '修饰键点击放行（不接管、不编排）',
+    !mod.exit && mod.outs === 0,
+    JSON.stringify(mod),
+  )
+
+  // 8. 中途改主意：编排进行中点了别的链接 —— 用户的新去向必须赢，且不留任何标记
+  await home()
+  await page.evaluate(() => document.querySelector('[data-vt-shared]').click())
+  await page.waitForTimeout(120)
+  await page.evaluate(() => {
+    const a = [...document.querySelectorAll('a')].find((x) => x.getAttribute('href') === '/agents')
+    a?.click()
+  })
+  await page.waitForTimeout(1800)
+  const interrupt = await page.evaluate(() => ({
+    path: location.pathname,
+    exit: document.documentElement.classList.contains('vt-exit'),
+    restore: document.documentElement.classList.contains('vt-restore'),
+    outs: document.querySelectorAll('.vt-out').length,
+    ins: document.querySelectorAll('.vt-in').length,
+  }))
+  check(
+    '中途改主意：新去向优先且标记撤净',
+    interrupt.path === '/agents' &&
+      !interrupt.exit &&
+      !interrupt.restore &&
+      interrupt.outs === 0 &&
+      interrupt.ins === 0,
+    JSON.stringify(interrupt),
+  )
+
   return {
     total,
     failed: failedItems.length,
@@ -151,6 +267,9 @@ async page => {
       direct: { frames: direct.frames.length, delta: direct.delta },
       switched: { frames: switched.frames.length, delta: switched.delta, href: switched.href },
       back,
+      preflight: { ...pre0, exitSeen, cascade, lastDeckMorph, startScale, endScale },
+      modifiedClick: mod,
+      interrupt,
     },
   }
 }

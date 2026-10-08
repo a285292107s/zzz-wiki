@@ -19,7 +19,9 @@ defineProps<{
     :tabindex="id ? -1 : undefined"
     :aria-labelledby="id ? 'h-' + id : undefined"
   >
-    <div class="section-head">
+    <!-- 区块标题行参与「整页退场 / 逐条入场」编排（见 utils/viewTransition/chrome）；
+         区块正文由各自的内容组件出声，这里只管标题行。 -->
+    <div class="section-head" data-vt-block>
       <!-- no 为空时（区块被渲染但未登记进 navItems 的异常态）不渲染编号，避免留 16px 空档 -->
       <span v-if="no" class="no mono" aria-hidden="true">{{ no }}</span>
       <h2 :id="id ? 'h-' + id : undefined">{{ title }}</h2>

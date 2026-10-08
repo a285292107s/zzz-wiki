@@ -30,7 +30,7 @@
  *   ③ 落定：dragX 归零、active 换成新槽位；基位移与跟手量都归零，画面不跳
  * ============================================================ */
 
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import type { FeaturedCard } from '@/composables/useFeaturedAgents'
 import { prefetchDetail } from '@/composables/useDetailPrefetch'
 import {
@@ -38,7 +38,12 @@ import {
   VT_SHARED_ATTR,
   VT_SHARED_NAME,
   VT_SUPPORTED,
+  armDeckFlight,
+  canArmDeckFlight,
   consumeDeckCard,
+  deckFlightArmed,
+  deckNavigate,
+  disarmDeckFlight,
 } from '@/utils/viewTransition'
 import { heroForm } from '@/composables/useHeroForm'
 import { heroVariantFile } from '@/data/heroGenderVariants'
@@ -70,8 +75,10 @@ const VT_ITEM_STYLE = { viewTransitionName: VT_SHARED_NAME } as const
 
 /** 共享元素端点的 DOM 标记：过渡的运行时要找到**新状态那端的画**并等它可绘制
  *  （见 utils/viewTransition/awaitSharedEndImage）。同样只给活动卡挂。
- *  取值必须与详情页那头不同（'deck' vs 'hero'）：新旧两页都带标记，只按属性找会命中旧页。 */
-const VT_ITEM_MARK = { [VT_SHARED_ATTR]: 'deck' } as const
+ *  取值必须与详情页那头不同（'deck' vs 'hero'）：新旧两页都带标记，只按属性找会命中旧页。
+ *  `data-vt-skip`：整页退场时这张画是主角，不能被淡掉 —— 收集器会把它所在的分支
+ *  整支排除，只把祖先记作「装裱壳」（退边线/底色，见 chrome.ts）。 */
+const VT_ITEM_MARK = { [VT_SHARED_ATTR]: 'deck', 'data-vt-skip': '' } as const
 
 const count = computed(() => props.cards.length)
 const last = computed(() => lastIndexOf(count.value))
@@ -254,13 +261,76 @@ function goTo(index: number): void {
   settleTo(index)
 }
 
-/** 点击闸门：拖动过的那一次 click 拦掉，正常点击放行给 <RouterLink> */
+/** 点击闸门 + 起飞前编排的接管点（**捕获阶段**：必须跑在 vue-router 的链接处理器之前，
+ *  否则 RouterLink 先 preventDefault 并 push，我们连拦的机会都没有）。
+ *  三件事按序判定：
+ *    ① 拖拽尾随的那一次 click 拦掉（拖动过松手不该跳详情）
+ *    ② 修饰键点击（⌘/Ctrl/Shift/Alt、中键）一律放行 —— 那是「新标签打开」的正常语义
+ *    ③ 其余普通左键点击活动卡：接管，先演整页退场 + 原地取景变形，落定后再 push */
 function onClickCapture(e: MouseEvent): void {
   if (suppressClick) {
     suppressClick = false
     e.preventDefault()
     e.stopPropagation()
+    return
   }
+  if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+  const link = (e.target as HTMLElement | null)?.closest<HTMLAnchorElement>('.deck-item')
+  if (!link) return
+  const card = props.cards.find((c) => c.to === link.getAttribute('href'))
+  if (!card || !canArmDeckFlight()) return
+  // 接管：既拦默认导航，也拦 vue-router 的处理器（本次点击由我们编排完再 push）
+  e.preventDefault()
+  e.stopPropagation()
+  void flyWithPreflight(card.to)
+}
+
+/* ---------- 起飞前编排：整页退场 + 原地变形 ----------
+ * 用户点开某张卡时不再立刻跳页，而是：
+ *   ① 整页可视区块自上而下依次退场（chrome 收集器按 `data-vt-block` 声明）
+ *   ② 同一时间，那张画**在原地**把取景从「牌堆校准」变形到「目的地取景」
+ *   ③ 两者都落定，才 push 导航 → 共享元素飞行
+ * 为什么值得多花这 ~500ms：飞行中的两层是位图快照，浏览器只插值几何 —— 两端取景不同
+ * 就只能靠交叉溶解交接，落地那一刻会出现约等于 zoom 倍的尺寸跳（1.2–1.49×）。
+ * 把「取景变化」挪到起飞前在活的 DOM 上做，飞行就只剩纯几何位移，两层内容尺度一致。
+ */
+/** 取景变形中：图的内联取景切到「目的地取景」（neutral），由 CSS transition 平滑过去 */
+const morphing = ref(false)
+
+/** 图的取景样式：常态读逐图校准；变形中切到目的地（详情桌面 = 纯 cover 居中、无校准） */
+function figureStyle(slot: number): Record<string, string> {
+  const c = props.cards[slot]
+  if (morphing.value) {
+    return { objectPosition: '50%', transformOrigin: '50% 50%', transform: 'scale(1)' }
+  }
+  return {
+    objectPosition: c?.pos ?? '50%',
+    transformOrigin: `50% ${c?.originY ?? 50}%`,
+    transform: `scale(${c?.zoom ?? 1})`,
+  }
+}
+
+/** 编排被撤销（用户改主意 / 导航失败）时把取景平滑回常态 ——
+ *  不然牌堆会停在「目的地取景」上，而这一趟根本没飞出去 */
+watch(deckFlightArmed(), (active) => {
+  if (!active) morphing.value = false
+})
+
+/** 点击入口：只在「能编排」时接管，其余一律放行 —— 修饰键（新标签打开）永远放行 */
+async function flyWithPreflight(to: string): Promise<void> {
+  morphing.value = true
+  const result = await armDeckFlight(to)
+  if (result === 'cancelled') {
+    // 用户中途点了别处：退场已由守卫撤销，这里绝不能再补一次导航盖掉他的新去向
+    morphing.value = false
+    return
+  }
+  if (result === 'unavailable') {
+    // 编排根本没起来（不支持 / 没声明区块）：这次点击已被我们拦下，得自己补一次导航
+    disarmDeckFlight()
+    morphing.value = false
+  }
+  await deckNavigate(to)
 }
 
 function warmDetail(slot: number): void {
@@ -370,11 +440,7 @@ onBeforeUnmount(() => {
                   loading="eager"
                   :srcs="cards[s]?.srcs ?? []"
                   alt=""
-                  :img-style="{
-                    objectPosition: cards[s]?.pos,
-                    transformOrigin: `50% ${cards[s]?.originY}%`,
-                    transform: `scale(${cards[s]?.zoom ?? 1})`,
-                  }"
+                  :img-style="figureStyle(s)"
                 />
               </span>
             </RouterLink>
@@ -382,7 +448,9 @@ onBeforeUnmount(() => {
         </div>
       </div>
 
-      <div class="deck-meta">
+      <!-- 标本签 + 座次：整块参与「整页退场 / 逐条入场」（data-vt-block），
+           退场时与其它区块一起自上而下收走；那张画的取景变形由 .deck-figure 承担 -->
+      <div class="deck-meta" data-vt-block>
         <!-- 标本签：编号 · 属性 · 中英名（图下，不压画面）。
              内容是当前卡的**镜像**（同样的信息已由 slide 的 aria-label 给出），故 aria-hidden，
              免得读屏把同一批信息播两遍；:key 换卡重挂触发一次轻淡入（reduced-motion 由
@@ -672,14 +740,23 @@ onBeforeUnmount(() => {
   object-fit: cover;
   object-position: center;
   transform-origin: 50% 50%;
+  /* 起飞前的「原地取景变形」：位移/缩放/取景/悬停微推近全在同一个 transition 里平滑过去。
+     常驻无副作用 —— 只有 morphing 那一刻内联取景才变，其余时候值不变就不触发过渡。
+     ⚠ 四条必须写在**同一条规则**里：hover 那条若另写 transition 简写会把本条整体顶掉，
+     而点击恰恰总发生在 hover 状态下（实测踩过）。 */
+  transition:
+    scale var(--t-zoom) var(--ease),
+    transform var(--vt-morph, 300ms) var(--ease),
+    transform-origin var(--vt-morph, 300ms) var(--ease),
+    object-position var(--vt-morph, 300ms) var(--ease);
 }
 
 /* 悬停反馈：整幅轻微推近（1.5%）。不加 `.is-active` 限定 —— 拖动中邻卡会部分进画，
    指针落在它上面时同样给反馈；静止时框外的卡本来就悬停不到。 */
 @media (hover: hover) {
   .deck-item:hover .deck-figure img {
+    /* 只给值，不重写 transition：base 那条已经把 scale 一起列进去了（见上） */
     scale: 1.015;
-    transition: scale var(--t-zoom) var(--ease);
   }
 }
 
@@ -871,4 +948,6 @@ onBeforeUnmount(() => {
   }
 }
 </style>
+
+
 

@@ -37,7 +37,7 @@
  * | inp-interaction.js   | 交互响应 INP 代理（4× CPU 节流，含长任务/TBT） | 最差 48–88ms（<100 竞奖档） |
  * | offline-check.js     | 离线阅读（SW 接管 → 断网重载 → 兜底页 → 缓存有界 → 回访零网络） | 7/7 |
  * | spacing-audit.js     | 版式节奏合规（严格门禁=版式级；容器级仅报告） | 版式级 0 越轨 |
- * | hero-flight.js       | 首页「今日角色」→ 详情的共享元素飞行（逐帧读 ::view-transition-group 几何） | 13/13（两条路径都真的在飞） |
+ * | hero-flight.js       | 起飞前编排 + 共享元素飞行（逐帧读 ::view-transition-group 几何 / 退场错峰 / 取景变形是否落定 / 中途改主意） | 18/18 |
  *
  * ⚠ **跑审计前必须 `npm run build:ci`**（不是 `npm run build`）：后者会清空 dist 且
  *   **不生成 sitemap / 逐路由 HTML**，`content-sweep` 这类读产物清单的脚本会静默地
@@ -95,3 +95,4 @@
  *   （全量审计报 `home-index-rows` 期望值不符才发现）。**只恢复出问题的那个文件，
  *   并先 `git status` 看清哪些改动还没提交。**
  * ============================================================ */
+

@@ -1,6 +1,7 @@
 <template>
-  <!-- 全站站头：显式 banner landmark（Vue 根挂载于 #app，隐式 banner 不生效） -->
-  <header class="masthead" role="banner">
+  <!-- 全站站头：显式 banner landmark（Vue 根挂载于 #app，隐式 banner 不生效）。
+       整条作为一个编排区块参与「整页退场 / 逐条入场」（见 utils/viewTransition/chrome） -->
+  <header class="masthead" role="banner" data-vt-block>
     <div class="wrap masthead-inner">
       <RouterLink to="/" class="brand">
         <!-- 品牌符号：黑色线稿反色为纸白；文字已由 brand-mark 提供，纯装饰 -->

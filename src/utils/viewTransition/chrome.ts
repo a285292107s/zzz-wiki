@@ -1,0 +1,168 @@
+/* ============================================================
+ * viewTransition/chrome — 起飞前的「整页退场」与降落后的「整页入场」
+ *
+ * 为什么是**显式标记**而不是自动切分：自动判据（"看着像一块"）在真页面上会把站头拆成
+ * 六个标签、把 hero 那排 meta 拆成带点的碎块 —— 实测两页都收到上限件、详情页覆盖率还只有
+ * 53%（主内容都没轮到）。编排粒度是**艺术决定**，不该由几何猜：需要退场/入场的区块由组件
+ * 用 `data-vt-block` 自己声明，本模块只负责「按视觉顺序编号 + 标记 + 清理」，
+ * 并用覆盖率与不嵌套两条性质在测试/审计里守住（漏标一个新区块会被断言抓到）。
+ *
+ * 两条硬规则（都踩过坑）：
+ *   1. **共享元素永不被收集**：`data-vt-skip` 挂在牌堆那张画 / 详情头图上，
+ *      含它的祖先记作「装裱壳」（只退边线/底色，不碰子树）—— 退场不能把主角一起淡掉。
+ *   2. **只收视口内的区块**：快照只覆盖视口，视口外的区块编排了也没人看见，
+ *      收进来只会白涨错峰时长与合成层数量。
+ *
+ * 时序常量（`VT_TIMING`）是 CSS 与 JS 的**单一来源**：本模块把 `--vt-*` 写到 html 上，
+ * JS 侧按同一组数字算出「该等多久」，避免两边各写一份时长然后漂移。
+ * ============================================================ */
+
+/** 共享元素（或任何不该参与编排的节点）上的排除标记 */
+export const CHROME_SKIP_ATTR = 'data-vt-skip'
+
+/** 区块声明：组件用它在自己的可视单元上声明「这是一块，按整块退场/入场」 */
+export const BLOCK_ATTR = 'data-vt-block'
+
+/** 退场区块标记（起飞端） */
+export const CHROME_OUT_CLASS = 'vt-out'
+/** 入场区块标记（降落端） */
+export const CHROME_IN_CLASS = 'vt-in'
+/** 含共享元素的祖先：只退边线/底色 */
+export const CHROME_CASE_CLASS = 'vt-chrome-case'
+/** 错峰索引的自定义属性（退场与入场共用一份编号） */
+export const CHROME_INDEX_PROP = '--vt-i'
+
+/** 单次编排最多收集多少块：再多就要拿合成层数量与错峰总时长去换，不划算 */
+const MAX_BLOCKS = 26
+
+/**
+ * 编排时序（ms）。写进 html 的 CSS 变量供样式读，JS 侧按同一组数字等落定。
+ * 退场总时长 = outDur + outStep × (块数 − 1)：整页「自上而下依次收走」。
+ * 入场整体延后 inHold —— 太早会在飞行快照背后白跑完，落地就没有「逐步入场」了。
+ */
+export const VT_TIMING = {
+  /** 退场：每块 220ms + 每块错峰 26ms（7 块 ≈ 380ms）——错峰要**读得出来**才算编排，
+   *  6ms 级的小步长在 60fps 下几乎同时发生，等于没有编排 */
+  outDur: 220,
+  outStep: 26,
+  inDur: 320,
+  inStep: 18,
+  /** 入场整体延后到飞行尾段：太早会在飞行快照背后白跑完，落地就没有「逐步入场」了 */
+  inHold: 300,
+  /** 取景变形时长：与退场并行，两者都落定才起跳 */
+  morph: 300,
+} as const
+
+/** 把时序写到 html 上（CSS 读 var(--vt-*)），返回本次编排该等多久（含一档余量） */
+export function applyTimingVars(root: HTMLElement = document.documentElement): void {
+  const t = VT_TIMING
+  root.style.setProperty('--vt-out-dur', `${t.outDur}ms`)
+  root.style.setProperty('--vt-out-step', `${t.outStep}ms`)
+  root.style.setProperty('--vt-in-dur', `${t.inDur}ms`)
+  root.style.setProperty('--vt-in-step', `${t.inStep}ms`)
+  root.style.setProperty('--vt-in-hold', `${t.inHold}ms`)
+  root.style.setProperty('--vt-morph', `${t.morph}ms`)
+}
+
+/** 退场落定所需时长（退场与取景变形取长者，再加一档余量） */
+export function exitSettleMs(blocks: number): number {
+  const cascade = VT_TIMING.outDur + VT_TIMING.outStep * Math.max(0, blocks - 1)
+  return Math.max(cascade, VT_TIMING.morph) + 60
+}
+
+/** 入场编排走完所需时长（从落地标记挂上算起） */
+export function enterSettleMs(blocks: number): number {
+  return VT_TIMING.inHold + VT_TIMING.inDur + VT_TIMING.inStep * Math.max(0, blocks - 1) + 80
+}
+
+export interface ChromePlan {
+  /** 逐条退场/入场的可视区块（已按视觉顺序编号） */
+  blocks: HTMLElement[]
+  /** 含共享元素的容器：只退边线/底色，子树（含共享元素）不动 */
+  cases: HTMLElement[]
+}
+
+function isVisible(el: HTMLElement): boolean {
+  const cs = getComputedStyle(el)
+  if (cs.display === 'none' || cs.visibility === 'hidden' || cs.visibility === 'collapse') return false
+  // opacity 取空值（环境不支持计算样式时）按可见处理：Number('') === 0 会把整页判成不可见
+  if (cs.opacity && Number(cs.opacity) === 0) return false
+  return el.getClientRects().length > 0
+}
+
+/** 视口相交：只编排「看得见的那一屏」 */
+function inViewport(el: HTMLElement): boolean {
+  const r = el.getBoundingClientRect()
+  return r.bottom > 0 && r.top < window.innerHeight && r.right > 0 && r.left < window.innerWidth
+}
+
+function coversSharedElement(el: HTMLElement): boolean {
+  return el.matches(`[${CHROME_SKIP_ATTR}]`) || el.querySelector(`[${CHROME_SKIP_ATTR}]`) != null
+}
+
+/**
+ * 收集一份编排计划：只认声明（`data-vt-block`），按视觉顺序编号。
+ *   · 声明嵌套时**只收最内层**（近端优先，避免同一个位置被淡两次）
+ *   · 含共享元素的声明整块让位给「装裱壳」
+ *   · 装裱壳 = 共享元素的所有祖先（去重；CSS 只动边线/底色，嵌套无害）
+ */
+export function collectChrome(root: ParentNode = document.body): ChromePlan {
+  const declared = Array.from(root.querySelectorAll<HTMLElement>(`[${BLOCK_ATTR}]`))
+  const blocks: HTMLElement[] = []
+
+  for (const el of declared) {
+    if (blocks.length >= MAX_BLOCKS) break
+    if (coversSharedElement(el)) continue
+    if (!isVisible(el) || !inViewport(el)) continue
+    // 别的声明块在它里面 → 它在结构上是容器，交给内层各自入列
+    if (declared.some((d) => d !== el && el.contains(d))) continue
+    blocks.push(el)
+  }
+
+  const cases = new Set<HTMLElement>()
+  for (const skip of Array.from(root.querySelectorAll<HTMLElement>(`[${CHROME_SKIP_ATTR}]`))) {
+    let p = skip.parentElement
+    while (p && p !== document.documentElement) {
+      cases.add(p)
+      p = p.parentElement
+    }
+  }
+
+  // 视觉顺序：自上而下、自左而右 —— 错峰读起来才是「从上往下依次收走」
+  blocks.sort((a, b) => {
+    const ra = a.getBoundingClientRect()
+    const rb = b.getBoundingClientRect()
+    return ra.top - rb.top || ra.left - rb.left
+  })
+  return { blocks, cases: Array.from(cases) }
+}
+
+/** 给区块写错峰索引与阶段标记（`out` = 起飞端退场，`in` = 降落端入场） */
+export function stampChrome(plan: ChromePlan, phase: 'out' | 'in'): void {
+  const cls = phase === 'out' ? CHROME_OUT_CLASS : CHROME_IN_CLASS
+  plan.blocks.forEach((el, i) => {
+    el.classList.add(cls)
+    el.style.setProperty(CHROME_INDEX_PROP, String(i))
+  })
+  for (const el of plan.cases) el.classList.add(CHROME_CASE_CLASS)
+}
+
+/** 擦掉某一阶段的痕迹（正常收尾与中断回滚共用；两阶段分开擦，互不误伤） */
+export function clearChrome(phase: 'out' | 'in', root: ParentNode = document.body): void {
+  const cls = phase === 'out' ? CHROME_OUT_CLASS : CHROME_IN_CLASS
+  for (const el of Array.from(root.querySelectorAll<HTMLElement>(`.${cls}`))) {
+    el.classList.remove(cls)
+    // `--vt-i` 只属于一个阶段，另一阶段还可能在用；两阶段都摘掉才算干净
+    if (!el.classList.contains(CHROME_OUT_CLASS) && !el.classList.contains(CHROME_IN_CLASS)) {
+      el.style.removeProperty(CHROME_INDEX_PROP)
+    }
+  }
+}
+
+/** 擦掉装裱壳标记：只在一趟编排**彻底结束**（或整段撤销）时调用 ——
+ *  它同时服务退场与入场两侧的边框/底色，早擦会让后一段编排失去壳的动作。 */
+export function clearChromeCases(root: ParentNode = document.body): void {
+  for (const el of Array.from(root.querySelectorAll<HTMLElement>(`.${CHROME_CASE_CLASS}`))) {
+    el.classList.remove(CHROME_CASE_CLASS)
+  }
+}
