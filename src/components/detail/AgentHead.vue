@@ -137,9 +137,12 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
         :srcs="heroSrcs"
         :img-style="heroCalStyle"
       />
+      <!-- 存档面（压暗层）**必须在共享元素内部**：它是这张画的一部分观感。
+           放在 .hero-bg 外面时它属于「页面」快照，而具名组的伪元素画在根快照之上 ——
+           飞行期间那张画把压暗层盖住，落地那一刻才露出来，观感就是「飞完突然变暗」（实测）。
+           放进来后，压暗随共享元素的新旧快照交叉溶解逐步加上去，落地即最终态、无跳变。 -->
+      <span class="scrim" data-vt-skip />
     </span>
-    <!-- 存档面：底部深掩埋保证文字可读；右上渐淡露出场景，避免整面压黑 -->
-    <span class="scrim" aria-hidden="true" data-vt-skip />
     <!-- 四角琥珀定位标：档案标本的对位框，非投影非霓虹，纯线框语言 -->
     <span class="marks" aria-hidden="true" data-vt-block><i /><i /><i /><i /></span>
 
@@ -223,7 +226,9 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
 }
 
 /* ---------- 存档面：与主页同一向纵向曝光｜顶部透出场景，底部深掩埋保障可读 ----------
-   色阶统一取 --scrim-*（以 bg-0 为基色），禁止手写 rgba */
+   色阶统一取 --scrim-*（以 bg-0 为基色），禁止手写 rgba。
+   它是 .hero-bg 的子元素（同 inset:0，几何与放在外面完全一致），理由见 template 注释：
+   压暗层必须属于共享元素的快照，否则落地那一刻才出现。 */
 
 .scrim {
   position: absolute;
