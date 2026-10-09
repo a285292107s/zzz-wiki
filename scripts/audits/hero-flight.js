@@ -18,6 +18,9 @@
  *   3. 收敛：末帧几何 ≈ 目的地 `.hero-bg` 的盒子
  *   4. 收尾干净：结束后 html 上不留 vt-active / vt-landing / vt-landed
  *   5. 回程落回起飞的那张卡（否则 A 的画会飞进 B 的框里）
+ *   6. 起飞前编排：退场启动且错峰、取景在起飞前变形到目的地
+ *      —— 第 6 项的变形量是 |zoom − 1|，故采样前会先切到「四卡里 zoom 偏离 1 最大」的那张：
+ *      首卡 zoom≈1 时「已变形」与「没变形」不可区分，属采样前提不成立（详见第 6 节注释）。
  *
  * 复跑：playwright-cli open http://localhost:4175 && \
  *       playwright-cli run-code --filename=scripts/audits/hero-flight.js
@@ -147,6 +150,38 @@ async page => {
   // ⚠ 采样必须**每次一个独立 evaluate**：这段时间里会发生一次导航，
   //   把整段循环塞进一个 evaluate 会撞上「Execution context was destroyed」（实测）。
   await home()
+
+  // —— 采样前提：把活动卡换到「取景明显偏离 1」的那一张 ——
+  // 本项判据是「变形在起飞前落定」，而变形量 = |zoom − 1|（zoom 来自 featured-pool.json）。
+  // 活动卡恰好 zoom≈1 时，「已变形到 1」与「从未变形」在几何上**不可区分** ——
+  // 那是采样前提不成立，不该报成实现失败。池内 zoom 跨 1.05–1.49，
+  // 实测 730 天里有 30 天（4.1%）首卡落在 zoom≤1.08（1201 / 1511 / 1611），
+  // 这一项于是会**按日期偶发误报**（2026-01-17 即其一，首卡 1201 的 zoom=1.05）。
+  // 四张卡的 <img> 都在 DOM 里且各带自己的 scale，故直接读、挑偏离最大的一张来采样：
+  // 实测每天至少有一张 |zoom−1| > 0.1（730/730），采样因此变成确定性的。
+  const zoomPick = await page.evaluate(() => {
+    const scaleOf = (img) => {
+      const t = img ? getComputedStyle(img).transform : ''
+      const m = /matrix\(([^)]+)\)/.exec(t)
+      return m ? parseFloat(m[1].split(',')[0]) : 1
+    }
+    const slides = Array.from(document.querySelectorAll('.deck-slide'))
+    const scales = slides.map((s) => scaleOf(s.querySelector('img')))
+    let best = 0
+    for (let i = 1; i < scales.length; i++) {
+      if (Math.abs(scales[i] - 1) > Math.abs(scales[best] - 1)) best = i
+    }
+    return {
+      scales,
+      best,
+      active: slides.findIndex((s) => s.querySelector('[data-vt-shared]')),
+    }
+  })
+  if (zoomPick.best !== zoomPick.active) {
+    await page.locator('.deck-tick').nth(zoomPick.best).click()
+    await page.waitForTimeout(500)
+  }
+
   const pre0 = await page.evaluate(() => {
     const img = document.querySelector('[data-vt-shared] img')
     const visible = Array.from(document.querySelectorAll('[data-vt-block]')).filter((el) => {
@@ -196,7 +231,8 @@ async page => {
   check(
     '起飞前：取景已变形到目的地（离场前 img 尺度回到 1）',
     Math.abs(startScale - endScale) > 0.1 && Math.abs(endScale - 1) < 0.02,
-    `起手 scale=${startScale.toFixed(3)} → 离场前 ${endScale.toFixed(3)}（末次 transform=${lastDeckMorph || 'n/a'}）`,
+    `起手 scale=${startScale.toFixed(3)} → 离场前 ${endScale.toFixed(3)}（末次 transform=${lastDeckMorph || 'n/a'}）` +
+      ` · 采样卡 #${zoomPick.best + 1}，四卡 zoom=[${zoomPick.scales.map((s) => s.toFixed(3)).join(', ')}]`,
   )
 
   // 7. 修饰键（⌘/Ctrl 点击「新标签打开」）：必须放行、不接管、不做编排
@@ -267,7 +303,7 @@ async page => {
       direct: { frames: direct.frames.length, delta: direct.delta },
       switched: { frames: switched.frames.length, delta: switched.delta, href: switched.href },
       back,
-      preflight: { ...pre0, exitSeen, cascade, lastDeckMorph, startScale, endScale },
+      preflight: { ...pre0, exitSeen, cascade, lastDeckMorph, startScale, endScale, zoomPick },
       modifiedClick: mod,
       interrupt,
     },

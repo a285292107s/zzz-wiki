@@ -30,7 +30,7 @@
 
 import { computed, nextTick, ref, type Ref } from 'vue'
 import type { Router } from 'vue-router'
-import { heroVariantFile } from '@/data/heroGenderVariants'
+import { heroFileForForm } from '@/data/heroGenderVariants'
 import { awaitImageReady, heroDetailPrimarySrc, heroDetailViewport } from '@/data/heroImageSources'
 import { heroForm } from '@/composables/useHeroForm'
 import {
@@ -114,7 +114,7 @@ export function useViewTransition(): { active: Ref<boolean> } {
 function prewarmLandingHero(id: string | number | undefined): Promise<void> {
   const numeric = Number(id)
   if (!Number.isFinite(numeric)) return Promise.resolve()
-  const base = heroVariantFile(numeric, heroForm.value) ?? `Mindscape_${numeric}_2`
+  const base = heroFileForForm(numeric, heroForm.value)
   return awaitImageReady(heroDetailPrimarySrc(base, heroDetailViewport()), LANDING_PREWARM_MS)
 }
 

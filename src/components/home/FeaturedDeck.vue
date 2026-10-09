@@ -46,7 +46,7 @@ import {
   disarmDeckFlight,
 } from '@/utils/viewTransition'
 import { heroForm } from '@/composables/useHeroForm'
-import { heroVariantFile } from '@/data/heroGenderVariants'
+import { heroFileForForm } from '@/data/heroGenderVariants'
 import { awaitImageReady, heroDetailPrimarySrc, heroDetailViewport } from '@/data/heroImageSources'
 import { catalogByPath } from '@/domain/catalog'
 import HollowImage from '@/components/HollowImage.vue'
@@ -349,7 +349,7 @@ function warmDetail(slot: number): void {
  *  随后硬切到详情页，看不出任何飞行）。悬停/聚焦即预热，触屏在 pointerdown 补一发。 */
 function warmHero(id: number | undefined): void {
   if (id == null) return
-  const base = heroVariantFile(id, heroForm.value) ?? `Mindscape_${id}_2`
+  const base = heroFileForForm(id, heroForm.value)
   void awaitImageReady(heroDetailPrimarySrc(base, heroDetailViewport()), 2000)
 }
 

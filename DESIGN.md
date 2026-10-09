@@ -1,6 +1,6 @@
 # DESIGN.md · 绳网档案架构设计
 
-> 本文档是项目**架构设计**（愿景、分层、契约、路线图），与 [DATA_GUIDE.md](./DATA_GUIDE.md)（数据事实）和 [AGENTS.md](./AGENTS.md)（工作约定）并列。
+> 本文档是项目**架构设计**（愿景、分层、契约、实施状态），与 [DATA_GUIDE.md](./DATA_GUIDE.md)（数据事实）和 [AGENTS.md](./AGENTS.md)（工作约定）并列。
 > 实施过程中本文件保持更新：结构落地后就地修正，不许让文档与代码漂移。
 
 ---
@@ -8,9 +8,9 @@
 ## 1. 背景与目标
 
 「绳网档案」是绝区零数据展示型 wiki：Vue 3 + TS + Vite 6，零 UI 框架，构建期生成静态 JSON（public/data/），运行时零外部请求。
-项目当前功能完整、视觉成立，但结构层存在**契约漂移、视图重复、零测试、单文件管线**四类问题，阻碍新增内容类型与长期维护。
+> ⚠ **本节是重构启动时的快照**：当时功能完整、视觉成立，但结构层存在**契约漂移、视图重复、零测试、单文件管线**四类问题。**这四类问题现已全部解决**（见 §11）——下面的「重构目标」是**当时**的目标，不是待办；读现状请看 §4–§9。
 
-本次重构目标（与用户多轮对齐后确认）：
+当时确认的重构目标（**已完成**，见 §11）：
 
 1. 建立**数据契约单一事实源**，让 build 管线与前端永远无法漂移（含运行时校验 + CI 门禁）。
 2. 前端**分层化**：视图变薄、逻辑进 composables、重复下沉为组件、状态无库。
@@ -24,12 +24,21 @@
 | ADR-001 | 重构范围 | **全套 P0→P4** | 一步到位，避免半套架构再次漂移 |
 | ADR-002 | 契约校验方案 | **引入 zod** | 类型推导一流、生态成熟；尺寸代价可接受（构建/校验侧使用，不进入运行时热路径） |
 | ADR-003 | 测试基建 | **vitest + @vue/test-utils** | 纯逻辑 + 组件行为都值得保护 |
-| ADR-004 | 多语言 | **预留 lang 参数，默认 zh，本轮不做切换 UI** | 数据四语齐全，架构一次到位，入口以后加 |
+| ADR-004 | 多语言 | **预留 lang 参数，默认 zh，本重构轮不做切换 UI** | 数据四语齐全，架构一次到位，入口以后加 |
 | ADR-005 | 状态管理 | **保持无状态库，composables 解决** | 当前规模组合式函数足够，不引入 pinia |
 | ADR-006 | 设计系统 | **维持 token 方案 + 新增设计系统文档页** | 视觉不动，组织方式文档化 |
 | ADR-007 | 交付物 | DESIGN.md 落地为唯一架构依据 | 本轮实施依据 |
 
-## 3. 现状问题（重构动机，代码级证据）
+> 以上 7 条是**重构期的历史决策**，保留备查。**新决策一律写入 [`docs/decisions/`](./docs/decisions/)**
+> （格式、六类封闭集与红线见该目录 README）——不要继续往这张表里加行。
+
+## 3. 现状问题（重构**前**快照，代码级证据）
+
+> ⚠ **本节是历史快照**：描述的是本轮重构**启动时**的状态，**不是现状**。文中问题已全部解决
+> （见 §11 实施状态）——`package.json` 现已有 `test`（vitest run），文中证据所指的
+> `scripts/build-data.mjs` 已拆为 `scripts/build/*.ts`。
+> **不要据此判断「还需修什么」**；保留本节只为记录重构动机与当时的证据口径。
+> 当前结构以 §4–§9 为准。
 
 | 级别 | 问题 | 证据 |
 |---|---|---|
@@ -41,7 +50,13 @@
 
 ## 4. 目标架构
 
-### 4.1 分层与依赖规则（单向依赖，禁止跨层回跳）
+### 4.1 分层与依赖规则
+
+> ⚠ **以下层序图是「设计意图」，不是实测事实。** 实测存在双向与回跳：
+> `domain ↔ data`、`composables ↔ components`、`composables ↔ router`、`utils → Vue`。
+> **实际边界（含已登记的例外）以 [`docs/architecture.md`](./docs/architecture.md) 为准**——
+> 那是 `src/**` 全量 import 扫描的结果。**不要按本节的箭头做重构**：照箭头推导会得出
+> 「把图标分类从 `data/` 搬进 `domain/`」这类与图标链 SSoT 冲突的结论。
 
 ```
 views（薄页面，只做拼装）
@@ -54,62 +69,34 @@ domain（单一事实源：枚举、目录元信息、zod schema）
   ↓
 data（请求实现：只依赖 domain 的 schema 推导类型）
   ↑
-utils（纯函数：text / rich / names / contrast / cameraRect —— 无组件、无状态，可单测；data 与其平级互不依赖）
+utils（纯函数：text / rich / names / contrast / cameraRect —— 目标是无组件、无状态，可单测）
 ```
 
-规则：
-- views 不得直接调 fetch、不得写 async 状态机样板、不得复制枚举映射；这些必须走 composables / domain。
-- components 不感知路由、不发起请求（纯 props/emits/slots）。
-- domain 不依赖任何 Vue 产物；utils 不依赖 Vue。
-- 图标链（HollowImage + icons.ts）保持现状，作为铁律执行点，只做 API 稳定性整理。
+**真硬边界**（这些实测成立，违反即返工）：
 
-### 4.2 目标目录
+- **components 不得 import `router` / `views`**，也不得发起请求（纯 props/emits/slots）——实测当前
+  为零违规，保持住。
+- **枚举只定义在 `src/domain/enums.ts`**；`src/data/types.ts` **只做再导出**（见 §5.2）。
+- **views 不得写 async 状态机样板、不得复制枚举映射**——必须走 composables / domain。
+- **图标链（HollowImage + icons.ts）保持现状**，作为铁律执行点，只做 API 稳定性整理。
 
-```
-src/
-  domain/                # 新增：单一事实源
-    enums.ts             # 从 types.ts 迁出 ELEMENTS/PROFESSIONS/HIT/RANK_TO_TIER 等
-    catalog.ts           # 4 类目唯一元信息（导航/首页/路由共用一份）
-    schema.ts            # zod 数据契约（build 与前端共享）
-    sections.ts          # 详情区块行构建（SkillRow/StatItem/SkinRow/潜能合成/段×指标转置表）
-    skillFormula.ts      # 技能公式求值引擎（{Skill:}/{CAL:} 解析与等级代入，独立单测）
-    filterIcons.ts       # 属性/职业筛选图标键（FilterDropdown 用）
-    devRoutes.ts         # dev-only 页面元数据（/style、/calibrate；路由 DEV 分支 + 页脚派生）
-    featuredPool.ts      # 今日角色精选池 zod schema（featured-pool.json 读写共用）
-    scrollspy.ts         # 详情页/公式页吸顶导航滚动监听（active 区段判定）
-    signatureEngine.ts   # 代理人 ↔ 专属音擎 互链解析（命名约定 + 覆盖表，纯函数可单测）
-  data/
-    api.ts               # 瘦身：请求层（timeout/错误归一化/baseUrl/lang）
-    resources.ts         # 新增：类别驱动表，消除 4 组 list/detail 重复
-    types.ts             # 保留：由 schema 推导的类型别名（向后兼容 import 面）
-    icons.ts             # 图标候选链（本地 img/* → nanoka CDN 两级兜底）+ 技能键位资产名映射
-    terms.ts             # 术语词典（读 /data/live/noun.json，供 TermTip）
-    heroCalibration.ts   # AgentHead 移动端头图构图参数访问器（featured-pool calibrated 表）
-    heroGenderVariants.ts / hero-gender-variants.json # 双形态 hero 文件（单一事实源，见 IMG_GUIDE）
-    featured-pool.json   # 今日角色精选池（校准工具 dev 中间件读写）
-    formulaGuide.ts      # 战斗公式图文内容（/formulas 页面数据源）
-  composables/           # 新增
-    useAsyncResource.ts  # 统一异步状态机（idle/loading/success/error/refetch）
-    useCatalogList.ts    # 列表 + 筛选 + 搜索 + 计数（通用化）
-    useRouteParam.ts     # 路由参数响应式化
-    usePageMeta.ts       # per-route title/eyebrow/description
-  components/
-    layout/              # SiteHeader / SiteFooter（从 App.vue 抽出）
-    list/                # CatalogTable / CardGrid / CardBlock / SortButton / NoMatchState / SearchField / FilterDropdown / ListPage
-    state/               # AsyncState / CatalogTableSkeleton / ErrorBoundary
-    detail/              # DetailPage / DetailSection / KeyValueGrid / DescRow / DetailHead / AgentHead / SkillGroup / CoreSkillGroup / LevelSlider / StatLevelPanel / TermTip
-    BackToTop.vue / Rarity.vue / Tags.vue / HollowImage.vue / FormulaEq.vue
-  views/                 # 变薄：每个 view 只用 composables + 组件拼装
-  styles/                # 维持 token 方案；CSS 变量为唯一设计事实
-  router/index.ts        # lazy 路由 + route meta（title/eyebrow/desc）
-scripts/
-  build-data.ts          # 入口（顺序编排，npm run data）
-  sync-data.ts           # 数据+图标同步（唯一写者，npm run sync；data-sync workflow 定时触发并提交）
-  build/                 # 拆模块：io / normalize / domains / live-target / index（+ download-icons.mjs）
-  verify-data.ts         # 对 public/data/ 做 zod 校验（可独立跑、可挂 CI）
-  verify-icons.mjs       # 保留
-tests/                   # 测试（vitest；见 §8）
-```
+已接受的例外与新增边界的登记流程，见 [`docs/architecture.md`](./docs/architecture.md) §4。
+
+### 4.2 目录结构
+
+> **目录树的单一事实源是 [`README.md`](./README.md) 的「目录结构」节**——本节**不再维护第二棵树**。
+> 此前两棵树已经漂移：本节漏列 `views/`、`utils/`、`domain/{heroCatalog,search}.ts`、
+> `components/{QuickSearch,CopyLinkButton}` 等多处。这里只保留**读目录树看不出来的架构说明**。
+
+- **`domain/` 是单一事实源**：枚举（`enums.ts`）、4 类目元信息（`catalog.ts`）、zod 契约（`schema.ts`）。
+  `data/types.ts` **只做再导出**，不新增定义（见 §5.2）——这条曾经漂移过（上游职业只到 6，前端已有 7 锋御），所以固定下来。
+- **`catalog.ts` 驱动导航 / 首页目录 / 路由定义 / 列表页**：改类目顺序只改这一处。
+- **`domain/devRoutes.ts`** 登记 dev-only 页面（`/style`、`/calibrate`）；生产构建整块摇树移除（§6.4）。
+- **`utils/` 目标是纯函数**，唯一例外是 `utils/viewTransition/`（有状态、依赖 Vue 的编排层）——
+  例外已登记在 [`docs/architecture.md`](./docs/architecture.md) §4，**迁出与否尚未拍板**。
+- **`scripts/build/`** 拆为 `io` / `normalize` / `domains` / `live-target` / `index` 五模块（详见 §7）。
+
+逐目录的**调用边界（允许调谁 / 严禁调谁）**不在本节——见 [`docs/architecture.md`](./docs/architecture.md)。
 
 ## 5. 数据契约（核心机制）
 
@@ -118,7 +105,9 @@ tests/                   # 测试（vitest；见 §8）
 - src/domain/schema.ts 用 zod 定义全部产出形状：CharacterListItem、CharacterDetail、WEngineListItem、WEngineDetail、Bangboo…、DiskDrive…、Manifest。
 - 前端类型：src/data/types.ts 改为 z.infer 导出，删掉手写防御类型与 [k: string]: unknown 兜底（删除后逐页过 vue-tsc，消灭全部 as 断言）。
 - 构建管线：scripts/build/ 直接 import 同一份 schema（zod 是运行时校验器，Node 天然可用；若工具链要求，build 侧经编译产物或 tsx 运行，保持单一 import 面）。
-- 校验门禁：scripts/verify-data.ts 对 public/data/ 全部文件跑 safeParse；名录数量、详情字段缺失、未知键都会非零退出。
+- 校验门禁：scripts/verify-data.ts 对 public/data/ 全部文件跑 safeParse；**门禁口径**是「契约形状 + 名录非空 +
+  名录 id ↔ 详情文件一一对应 + extra_level 单调」——**未知键不会失败**（所有 schema 均追加 `.catchall(z.unknown())`，
+  见 `src/domain/schema.ts`；这是为向前兼容而做的取舍，不是遗漏）。
 
 ### 5.2 枚举同步
 
@@ -145,7 +134,7 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 - useDetailSections → 详情区块行构建（复用 domain/sections.ts）。
 - useNavScrollable → 详情页/公式页导航条横滑（窄屏单行 scroll-snap + 桌面滚轮/按钮）。
 - useFeaturedAgents → 首页「今日角色」精选池（读 featured-pool.json，按当天日期确定性取 4 张）。
-- useHeroForm → 双形态角色（1551 佩洛伊斯）形态选择，模块级状态 + localStorage 持久化（详见 IMG_GUIDE）。
+- useHeroForm → 双形态角色（1551 佩洛伊斯）形态选择，模块级状态 + localStorage 持久化（**文件规则与 SSoT 见 `DATA_GUIDE.md` §5**；展示技法见 IMG_GUIDE）。
 - anchorOffset → 锚点避让偏移计算（router scrollBehavior 与吸顶横条同源，读 CSS 变量 --anchor-offset）。
 
 ### 6.2 组件
@@ -178,8 +167,8 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 
 ### 6.3 视图瘦身目标（验收指标）
 
-- 各列表页 ≤ 120 行 template 声明 + 少量逻辑（AgentsView total 151 行，template ≈65 行）。
-- AgentDetailView 组装层（template + script）≤ 160 行（实测 template ≈155 行；含样式与后续新增展示块的总行数不作硬指标）。
+- 各列表页 ≤ 120 行 template 声明 + 少量逻辑。**行数是易变指标，本文件不复述数值**——需要时直接看文件。
+- AgentDetailView 组装层（template + script）≤ 160 行（**行数不复述，以文件为准**；含样式与后续新增展示块的总行数不作硬指标）。
 - 行为不变：现有路由、筛选、搜索、图标链、富文本渲染全部保持。
 
 ### 6.4 路由
@@ -237,7 +226,7 @@ npm run sync ──▶ .github/workflows/data-sync.yml（每日 cron）
 
 ## 8. 测试策略（P0 先铺安全网）
 
-| 对象 | 内容 |
+| 对象 | 内容（**示例，非穷举**；完整清单见 `tests/`） |
 |---|---|
 | utils/text.ts | stripRichText 全部标记分支（color/IconMap/LAYOUT/BR/残留标签） |
 | utils/rich.ts | 转义 + 两类定向还原 + 注入安全（<script> 被转义） |
@@ -269,86 +258,22 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 
 1. **运行时零外部请求**：前端只读本地 /data；数据构建期落地（npm run data）。
 2. **版本号不硬编码**：一律从 manifest 的 zzz.live 动态取（站点只展示正式服数据，见 DATA_GUIDE §1）。
-3. **图标走 <HollowImage> + src/data/icons.ts 候选链**，禁止直连单一外部图源。
+3. **站外图标走 <HollowImage> + src/data/icons.ts 候选链**，禁止直连单一外部图源（本地自绘筛选资产例外，见 DATA_GUIDE §5）。
 4. **富文本经 rich.ts / stripRichText**，禁止裸插值；v-html 只在白名单渲染函数后使用。
-5. **视觉语言稳定**：核心不变——1px 细线框、2px 圆角、等宽编号、纸墨配色；无圆角卡片堆叠/渐变霓虹/立体投影（浮层阴影除外，见 `--shadow-pop`）。字体族（CJK 衬线优先、sans 弃 `Inter`）与浮层阴影染 `--bg-0` 属 **token 级精修**，记录点见 `tokens.css` 注释、`/style` 页（§9）与 `DATA_GUIDE §7/§10`，不在本条禁令之列。
-6. **临时文件只进 temp/**；测试 fixture 属仓库内容，进 tests/fixtures 或各模块旁 fixture 目录。
+5. **视觉语言稳定**：**设计语言禁令的唯一完整定义在 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §10**，本条不复述要素；token 级精修（字体族、浮层阴影）的记录点是 `tokens.css` 注释与 `/style`（§9），不在禁令之列。
+6. **临时文件只进 temp/**；测试 fixture 当前**内联在测试文件内**（仓库无独立 fixture 目录）。
 7. **git 约定**：<type>: <中文摘要>；数据文件改动伴随 scripts 升级；不入库 dist/temp/.cache/_research_*。
 8. **依赖单锁**：只维护 `package-lock.json`（npm），勿再引入 pnpm/yarn 锁文件（AGENTS.md §4）。
 
-## 11. 分阶段路线图
+## 11. 实施状态
 
-> 每阶段独立可交付、可回滚；验收标准明确后合入主分支。
-
-### P0 基线加固（安全网优先）—— ✅ 已完成
-
-- [x] 引入 vitest + @vue/test-utils + jsdom（vitest ^3.2.4，锁内解析 3.2.7）
-- [x] 为 utils/text.ts、utils/rich.ts、domain/enums.ts、utils/names.ts 写测试（29 用例，全部锁定当前行为）
-      —— **P0 时点**覆盖 14 个测试文件：text(10) + rich(10) + names(5) + icons(6) + schema(7) +
-        sections(91) + api(12) + catalog-list(10) + catalog-sort(6) + catalogtable(3) +
-        filterdropdown(7) + core-skill-group(6) + contrast(6) + styleguide-colors(4)
-        = **183 用例全绿**（此后随新功能持续扩充，见 tests/，当前 27 个测试文件）
-- [x] 合并 locName/pickName → utils/names.ts（唯一实现）；api.ts 旧 export 改为转发
-      —— **实际发现**：pickName 在 text.ts 中无任何调用方（死代码），视图全部使用 locName
-      —— **后续清理**：locName 别名已完全移除（api.ts 不再转发），所有调用方改用 pickName
-- [x] 枚举从 types.ts 迁入 domain/enums.ts（新增 HIT_TYPES），types.ts 再导出（零调用方改动）
-
-### P1 数据层与列表一致化 —— ✅ 已完成
-
-- [x] domain/catalog.ts（4 类目唯一元信息）+ data/resources.ts（类别表驱动）+ api.ts 重构
-      （kind 式 list/detail + DataError 归一化 + 10s 超时 + BASE_URL 派生 + lang 参数预留；
-      旧 characters() 等兼容接口保留，新代码走 api.list / api.detail）
-- [x] composables：useAsyncResource（状态机收编三件套）、useCatalogList（筛选/搜索/计数通用化）、useRouteParam
-- [x] 组件：AsyncState / SearchField / FilterDropdown（属性/职业/阵营下拉，showAttr/showProf/showCamp 开关 + 数据驱动 camps）/ CatalogTable（列配置驱动 + 行插槽）
-- [x] 4 个列表页迁移（行为不变，代码量减半以上；样式组件化后 CSS 由 21.95kB 降至 19.04kB）
-- [x] App.vue 导航与 HomeView 目录改由 catalog 派生（删除手写双份）
-- [x] App.vue 拆分：抽出 SiteHeader / SiteFooter（布局组件），App.vue 降至 51 行薄壳
-- [x] 新建 ListPage 组件：吸收 4 个列表页共享的 .page / .page-head 样式，消除 8 处重复定义
-- [x] tests/api.test.ts（mock fetch：normalize/路径/缓存/错误归一化三分支 + resources 表驱动），12 用例全绿
-
-### P2 详情页拆分 —— ✅ 已完成
-
-- [x] 组件：DetailHead（页头：eyebrow/标题/meta slot/画像）/ DetailSection（编号区块）/
-      KeyValueGrid（数值网格）/ DescRow（序号+标题+正文行，variant 保视觉差异）
-- [x] composables：useAsyncResource 直接驱动详情页（kind + id.value，连续导航自动 reload；useDetailResource 薄包装已移除）
-- [x] domain/sections.ts：DetailRow / SkillRow / StatItem / SkinRow + dictToRows /
-      buildSkillRows / buildSkinRows / SKILL_* 常量（TalentRow 等重复类型收敛于此）
-- [x] AgentDetailView 529→~290 行（含样式；组装层 ≤160 行），WEngineDetailView 338→~168 行
-      —— 后续新增潜能/核心技/等级滑条（StatLevelPanel 等）后：AgentDetailView 562 行（template ≈155 行，
-        组装层仍 ≤160），WEngineDetailView 213 行
-- [x] 视觉/行为不变：技能本地 SVG 图标、富文本渲染、皮肤缩略图全部保留
-      —— 技能图标方案后续已回退 CDN 图（删 SkillIcon.vue/skillGlyphs.ts，见 §12 开放问题 1）
-- [x] tests/sections.test.ts（91 用例）+ tests/catalogtable.test.ts（3 用例）+ tests/filterdropdown.test.ts（7 用例，jsdom）；
-      vitest.config 接入 @vitejs/plugin-vue。build 通过（CSS 降至 17.64kB）
-
-### P3 契约落地 —— ✅ 已完成
-
-- [x] src/domain/schema.ts（zod 3.24）：全部产出 schema（名录/详情/manifest），.catchall 保留未知字段
-- [x] src/data/types.ts 改为纯派生（z.infer + type-only import；zod 未进前端 bundle，134KB 不变）
-- [x] build 管线拆模块（scripts/build/{io,normalize,domains,index}）经 tsx 运行；
-      英文枚举从 domain/enums 复用——**修复历史漂移：1611 克拉蕾/4 音擎的 weapon_type
-      从 fallback 中文「锋御」修正为规范英文 Armorer**（5 个数据文件语义修正）
-- [x] scripts/verify-data.ts：manifest + 4 名录 + live 全量详情（225：58 角色 / 95 音擎 / 42 邦布 / 30 驱动盘）zod 校验，失败非零退出
-- [x] 验证链：npm run data → verify:data → npm test → npm run build（AGENTS.md 已更新）
-- [x] 新增 tests/schema.test.ts（契约通过/失败用例）
-
-> P3 发现：角色 stats 存在数组字段（stats.tags）——schema 由 Record<number> 放宽为
-> number|string|array，前端 STAT_DEFS 加 typeof 守卫（AgentDetailView）。
-
-### P4 体验与文档 —— ✅ 已完成
-
-- [x] 路由全量懒加载（每视图独立 chunk；主包 134KB→103KB，gzip 49.99→40.78KB）
-- [x] route meta（title）+ usePageMeta（三级：组件标题覆盖 → route meta → 站名；description 注入）
-- [x] NotFoundView（档案式 404，替代 redirect 到首页）
-- [x] StyleGuideView（/style）：真实组件陈列 + 运行时读取 CSS 变量（token 零二次维护）
-- [x] footer 增设计系统入口；AGENTS.md 验证链已补 test/verify:data；README 补架构指针（P0 时已完成）
-- [x] 全局错误边界 ErrorBoundary：包裹 RouterView，渲染异常时捕获并显示友好回退（避免白屏）
-      —— 2026-08 移除 live/latest 双版本后，`:key="dataVersion"` 重置机制已随版本切换一并删除
-- [x] 术语系统：`<Term:N>` 富文本锚点（rich.ts）+ TermTip 悬停浮层 + terms.ts 读本地 noun.json（构建期下沉 live 单版本）
-- [x] 移除 useDetailResource 薄包装：4 个详情页直接用 useAsyncResource + api.detail
-- [x] 移除 locName 别名死代码：全站统一使用 pickName
-- [x] ATTR_CODES / SPEC_CODES 从 domain/enums 派生：消除 useCatalogList 中的硬编码枚举漂移
-- [x] schema.ts / normalize.ts / verify-data.ts 补充依赖方向与设计取舍文档
+重构范围 P0→P4（ADR-001）**已全部落地**，源码注释中的阶段标记按此对照：
+P0 基线加固（测试安全网、`utils/names.ts` 唯一实现、枚举迁入 `domain/enums.ts`）、
+P1 数据层与列表一致化（`catalog.ts` / `resources.ts` / `api.ts` 重构）、
+P2 详情页拆分（`domain/sections.ts` 与详情组件）、P3 契约落地（zod schema + `verify-data.ts`）、
+P4 体验与文档（懒加载、route meta、/style）。各层现状即上文 §4–§9 所描述的目录与模块
+（§4.2 目录树、§5 契约、§6 组件/composables、§7 管线、§8 测试），不再单列已完成任务清单。
+后续新增类别按 §5.3 catalog 走通接入流程。
 
 ## 12. 开放问题（后续轮次可讨论）
 
@@ -360,16 +285,3 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 - 是否做数据增量更新（只写变更详情，减少 git 噪声）。
 - 是否需要内容搜索（全文检索索引 JSON）。
 - 新增类别（敌人/材料/徽章）时按 §5.3 catalog 走通的接入流程。
-
-### P0 测试锁定的两个真实行为（待修复决策）
-
-1. **rich.ts 的 IconMap 捕获组丢前缀**：`<IconMap:Icon_Normal>` 曾渲染为 `…/Normal.webp`
-   而非 `…/Icon_Normal.webp`。**已处理（用户决策）**：技能图标先整体回退至 `dbc0c72` 的
-   CDN 官方图方案（删除 SkillIcon.vue / skillGlyphs.ts 本地 SVG；rich.ts 恢复 CDN img），
-   但捕获组保留 `(Icon_\w+)` 全名修正——不再请求丢前缀的 404 URL；
-   随后（2026-08）技能键位图标随 `download-icons.mjs` 再次本地化到 `img/skill/`，
-   现候选链为「本地 img/skill → nanoka CDN → .rich-key-broken 占位」，见 DATA_GUIDE §5。
-   tests/rich.test.ts 锁定「本地 key image + data-cdn + 全资产名」行为。
-2. **stripRichText 放行带数字的 LAYOUT 标记**：正则 `LAYOUT_[A-Z]+#` 无法跨越数字
-   （如 `{LAYOUT_PS5#O}` 原样保留）。若真实数据出现 `PS5` 等标记会漏洗，多为无害残留，
-   修复时把 `[A-Z]+` 扩为 `[A-Z0-9]+` 并补用例。

@@ -14,7 +14,7 @@
  * ============================================================ */
 
 async (page) => {
-  const routes = ['/', '/agents', '/agents/1011', '/w-engines/14162', '/disks/34200', '/formulas', '/about', '/compare', '/atlas']
+  const routes = ['/', '/agents', '/agents/1011', '/w-engines/14162', '/disks/34200', '/formulas', '/about', '/atlas']
   const out = []
 
   for (const route of routes) {

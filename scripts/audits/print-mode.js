@@ -15,19 +15,12 @@
  * ============================================================ */
 
 async (page) => {
-  const routes = ['/', '/agents', '/agents/1011', '/atlas', '/about', '/compare']
+  const routes = ['/', '/agents', '/agents/1011', '/atlas', '/about']
   const checks = []
   const add = (route, name, ok, detail) => checks.push({ route, name, ok, detail })
 
   for (const route of routes) {
-    // 对照台：预置一桌内容再打印——空态与「有表」是两种版式，只测空态会漏掉
-    // 「交互件印到纸上」「表格被 min-width 裁掉」这类问题（实测确认过）。
     await page.goto('http://localhost:4175/', { waitUntil: 'domcontentloaded' })
-    await page.evaluate((r) => {
-      if (r === '/compare')
-        localStorage.setItem('zzz-wiki:compare', JSON.stringify({ catPath: '/agents', ids: [1011, 1021, 1031] }))
-      else localStorage.removeItem('zzz-wiki:compare')
-    }, route)
     await page.goto('http://localhost:4175' + route, { waitUntil: 'networkidle' })
     await page.waitForTimeout(1600)
     await page.emulateMedia({ media: 'print' })
@@ -48,21 +41,18 @@ async (page) => {
         noise: root.getPropertyValue('--paper-noise').trim(),
         pageBg: root.getPropertyValue('--page-bg-image').trim(),
         homeBg: root.getPropertyValue('--home-bg-image').trim(),
-        // 交互外壳：除站头/索引/回顶/页脚动作外，还包括**复制链接**与**对照台控件**
-        // （移出/清空是纯交互件；印在纸上会出现无意义的「×」，且会被误读成正文）
+        // 交互外壳：除站头/索引/回顶/页脚动作外，还包括**复制链接**
+        // （纯交互件；印在纸上会出现无意义的「×」，且会被误读成正文）
         chromeVisible: [
           '.masthead',
           '.section-nav',
           '.back-top',
           '.foot-actions',
           '.copy-link',
-          '.entry-remove',
-          '.bench-clear',
-          '.cmp-btn',
         ].filter(vis),
         contentVisible: vis('.page-title') || vis('.page-head'),
-        // 正文保留的判据不能只认「表格/索引/spec」：空态页面（如对照台无内容时）
-        // 同样有正文要打印。故取「结构块可见」**或**「正文可见文本足够多」。
+        // 正文保留的判据不能只认「表格/索引/spec」：结构较简的页面同样有正文要打印。
+        // 故取「结构块可见」**或**「正文可见文本足够多」。
         tableVisible:
           vis('table') ||
           vis('.index-row') ||

@@ -33,7 +33,6 @@ async (page) => {
     '/disks/34200',
     '/atlas',
     '/formulas',
-    '/compare',
     '/agents/9999', // 详情 404 态（无效编号）：h1/标题/返回出路
   '/about',
     '/none',

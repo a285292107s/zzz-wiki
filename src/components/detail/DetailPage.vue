@@ -3,7 +3,6 @@ import { nextTick, onMounted, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import AsyncState from '@/components/state/AsyncState.vue'
 import BackToTop from '@/components/BackToTop.vue'
-import CompareToggle from '@/components/CompareToggle.vue'
 import { useNavScrollable } from '@/composables/useNavScrollable'
 import { recordRecentVisit } from '@/composables/useQuickSearch'
 import { dataVersions } from '@/data/api'
@@ -70,8 +69,6 @@ watch(
   <div class="wrap page">
     <div class="page-actions" data-vt-block data-vt-fade>
       <RouterLink :to="backTo" class="back mono">← {{ backLabel ?? '返回' }}</RouterLink>
-      <!-- 对照台入口：就地加入，不必先跳去对照页找条目（类目/编号由当前路由推出） -->
-      <CompareToggle />
     </div>
 
     <!-- 区块导航：宽屏左侧档案索引 / 窄屏吸顶横条（样式见 base.css .section-nav） -->
@@ -155,7 +152,7 @@ watch(
   padding-top: calc(var(--pad-section) * 0.9);
 }
 
-/* 返回 + 对照台入口：同一行、同一基线；间距收在页头范围内（区块间呼吸不参与） */
+/* 返回：间距收在页头范围内（区块间呼吸不参与） */
 .page-actions {
   display: flex;
   flex-wrap: wrap;

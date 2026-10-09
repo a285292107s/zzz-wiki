@@ -6,7 +6,7 @@ import { catalogEntry } from '@/domain/catalog'
 import type { CharacterDetail, WEngineListItem } from '@/data/types'
 import { iconSources } from '@/data/icons'
 import { pickName } from '@/utils/names'
-import { heroVariantFile } from '@/data/heroGenderVariants'
+import { heroVariantFile, heroFileForForm } from '@/data/heroGenderVariants'
 import { heroDetailSources } from '@/data/heroImageSources'
 import { getHeroCalibration, type HeroCalibration } from '@/data/heroCalibration'
 import { useHeroForm } from '@/composables/useHeroForm'
@@ -80,7 +80,7 @@ const isDualForm = computed(() => {
  *  本地化优先（img/hero，运行时零外部请求），CDN 兜底；两级均缺时降为 --bg-0 底色 */
 const heroBase = computed(() => {
   const id = props.detail.id
-  return heroVariantFile(id, heroForm.value) ?? `Mindscape_${id}_2`
+  return heroFileForForm(id, heroForm.value)
 })
 
 /** 窄屏判定（<=860px 与 tokens.css / SearchField 断点一致）：hero 盒手机仅 ~350 CSS px
@@ -125,26 +125,30 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
        tabindex="-1"：区块索引「00 封面」是 hash 直达（#head），路由层要把焦点落进来
        （读屏随之播报本块内容）；-1 不进 Tab 序，不影响键盘遍历。 -->
   <div class="ahead" tabindex="-1">
-    <!-- hero 底图：Mindscape_{id}_2.webp 满栏铺底（object-cover 保人物头部），置右微移，留出左侧信息呼吸感。
-         候选链与失败缓存收口在 HollowImage（unframed 纯图模式，耗尽后整体隐藏落 bg-0 底色）；
-         满栏大图 eager 加载，构图校准参数经 img-style 透传。
+    <!-- 取景框：桌面是满盒底图（文字浮于其上，右侧留白）；手机是独立的 4:5 竖幅一格，
+         文字整体落到它下方——**作品不被遮挡**（见 IMG_GUIDE.md「信息一律在图下」，
+         与首页「今日角色」手机端同一策略）。两种断点只差这一格的盒模型，图本身不换、不裁。
          共享元素名挂在 .hero-bg（见 style）：它是这张画的**裁切容器**，盒子=可见画面 -->
-    <span class="hero-bg" aria-hidden="true" data-vt-shared="hero">
-      <HollowImage
-        unframed
-        loading="eager"
-        fetchpriority="high"
-        :srcs="heroSrcs"
-        :img-style="heroCalStyle"
-      />
-      <!-- 存档面（压暗层）**必须在共享元素内部**：它是这张画的一部分观感。
-           放在 .hero-bg 外面时它属于「页面」快照，而具名组的伪元素画在根快照之上 ——
-           飞行期间那张画把压暗层盖住，落地那一刻才露出来，观感就是「飞完突然变暗」（实测）。
-           放进来后，压暗随共享元素的新旧快照交叉溶解逐步加上去，落地即最终态、无跳变。 -->
-      <span class="scrim" data-vt-skip />
+    <span class="hero-frame">
+      <span class="hero-bg" aria-hidden="true" data-vt-shared="hero">
+        <HollowImage
+          unframed
+          loading="eager"
+          fetchpriority="high"
+          :srcs="heroSrcs"
+          :img-style="heroCalStyle"
+        />
+        <!-- 存档面（压暗层）**必须在共享元素内部**：它是这张画的一部分观感。
+             放在 .hero-bg 外面时它属于「页面」快照，而具名组的伪元素画在根快照之上 ——
+             飞行期间那张画把压暗层盖住，落地那一刻才露出来，观感就是「飞完突然变暗」（实测）。
+             放进来后，压暗随共享元素的新旧快照交叉溶解逐步加上去，落地即最终态、无跳变。 -->
+        <span class="scrim" data-vt-skip />
+      </span>
+      <!-- 四角琥珀定位标：档案标本的对位框，非投影非霓虹，纯线框语言。
+           框的是**这张画的裁切格**（跟随 .hero-frame），不是整个区块——手机上图与文分开后，
+           若仍按整块描边，框会跑到文字外面，「对位」语义就丢了。 -->
+      <span class="marks" aria-hidden="true" data-vt-block><i /><i /><i /><i /></span>
     </span>
-    <!-- 四角琥珀定位标：档案标本的对位框，非投影非霓虹，纯线框语言 -->
-    <span class="marks" aria-hidden="true" data-vt-block><i /><i /><i /><i /></span>
 
     <div class="file-row" data-vt-block>
       <p class="eyebrow">AGENT FILE · NO.{{ String(detail.id ?? '').padStart(4, '0') }}</p>
@@ -200,6 +204,18 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
   border-bottom: var(--rule);
 }
 
+/* ---------- 取景框 ---------- */
+
+/* 桌面：取景框即整个 .ahead（inset:0），文字绝对浮于其上——右侧 76ch 之外是画，
+   文字实际只压住左半边。手机断点会把它改成独立的 4:5 一格（见文件末的媒体查询）。 */
+.hero-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  overflow: hidden;
+}
+
 /* ---------- 底图 ---------- */
 
 /* 共享元素过渡的降落端（回程是起飞端）：名字挂这个**裁切容器**而不是 <img>——
@@ -215,7 +231,6 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
   overflow: hidden;
   view-transition-name: deck-frame;
 }
-
 .hero-bg img {
   width: 100%;
   height: 100%;
@@ -369,15 +384,38 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
   margin-top: 22px;
 }
 
-/* ---------- 移动端：场景面让位，信息沉底更清爽 ---------- */
-
+/* ---------- 移动端：图与文分离（作品不被遮挡） ----------
+   桌面是「满栏底图 + 文字浮于左半」，靠的是 1168px 宽、76ch 上限让右侧留白给画；
+   手机 353px 宽时同一套窄不下（76ch 等于没约束），实测文字块占盒宽 89%、盒高 61%，
+   名字正压在人脸上——不是压暗不够，是版式把字放在了画上。
+   故手机改为**上下两段**：4:5 竖幅取景框在上，信息整体落到图下。
+   依据 IMG_GUIDE.md「信息一律在图下」，与首页「今日角色」手机端同一策略。 */
 @media (max-width: 860px) {
+  /* 容器改为纵向流：取景框不再铺底，而是流内的一格 */
   .ahead {
-    min-height: clamp(340px, 46vh, 520px);
+    min-height: 0;
+    /* 图与文共用一个框，故不能再 overflow:hidden 裁到 .marks 的描边 */
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--pad-page);
   }
 
+  /* 取景框：占据流内位置，4:5 竖幅（超宽全景进横框只露一条横带，竖幅能收进更多角色本体）。
+     aspect-ratio 定高，宽度随容器；与首页手机端 4:5 同一坐标系，
+     pos/zoom/originY 三个校准参数原样复用（IMG_GUIDE.md：比例型 zoom/pos 与视口无关）。 */
+  .hero-frame {
+    position: relative;
+    inset: auto;
+    /* 竖幅取景：图与文分离后，画必须自己撑起这一格 */
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    border: 1px solid var(--line-1);
+    border-radius: 2px;
+  }
+
+  /* 四角定位标内缩，贴住取景框内缘 */
   .marks {
-    inset: 12px;
+    inset: 10px;
   }
 
   /* 复用「今日角色」校准构图：水平脸对焦（pos）+ 放大消透明边（zoom/originY），
@@ -386,6 +424,57 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
     object-position: var(--hero-pos, center);
     transform-origin: 50% var(--hero-originY, 50%);
     transform: scale(var(--hero-zoom, 1));
+  }
+
+  /* 压暗层退化为「只为收口」的轻渐隐：画上已经没有文字，不再需要为可读性压暗整幅。
+     上下各留一点，把取景格与黑底的交界收干净（硬边会让透明底素材显得像被切了一刀）。 */
+  .scrim {
+    background: linear-gradient(
+      180deg,
+      var(--scrim-2) 0%,
+      transparent 22%,
+      transparent 78%,
+      var(--scrim-3) 100%
+    );
+  }
+
+  /* 编号行移到取景框**上方**：黑底承载，不压画；与首页标本签的「编号在图上」相反，
+     因为详情页这行还兼作形态切换钮的落点，放图上会与小尺寸取景框抢注意力。 */
+  .file-row {
+    order: -1;
+    padding: 14px 0 10px;
+  }
+
+  /* 信息块：正常文档流，落在图下；不再 margin:auto 居中、不再吃 max-width:76ch */
+  .main {
+    margin: 0;
+    padding: 18px 0 22px;
+    max-width: none;
+  }
+
+  /* 图下信息区：字号略收，标题保持档案分量但不至于压满 */
+  .main .page-title {
+    font-size: clamp(30px, 9vw, 40px);
+  }
+
+  .ghost {
+    margin-bottom: 10px;
+  }
+
+  .meta {
+    margin-top: 16px;
+  }
+}
+
+/* ---------- 中宽以上（>430，含手机横屏与平板）----------
+   4:5 只在**真正的手机竖屏**宽度下成立（≤430 时取景格 240–438px 高，图与文一起进一屏）。
+   再宽一寸就会算出过高的一格：560px 时 470×588、768px 时 645×806——名字被推出屏幕，
+   「图与文分离」就做成了「只剩图」。故 >430 改用**高度封顶**的画幅：
+   取景格高度由 vh 定，宽度随栏宽（超宽全景进这种横框反而更合，与首页桌面端同一取景逻辑）。 */
+@media (min-width: 431px) and (max-width: 860px) {
+  .hero-frame {
+    aspect-ratio: auto;
+    height: clamp(260px, 42vh, 420px);
   }
 }
 </style>

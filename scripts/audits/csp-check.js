@@ -128,7 +128,7 @@ async (page) => {
   }
 
   // 5) 公式页 / 出处页
-  for (const route of ['/formulas', '/about', '/compare']) {
+  for (const route of ['/formulas', '/about']) {
     await page.goto('http://localhost:4175' + route, { waitUntil: 'networkidle' })
     await page.waitForTimeout(1500)
     const v = await page.evaluate(() => window.__csp)

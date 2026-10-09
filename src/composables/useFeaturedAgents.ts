@@ -12,7 +12,8 @@ import { ELEMENTS } from '@/domain/enums'
 import { listFor } from '@/data/resources'
 import { catalogEntry } from '@/domain/catalog'
 import { useAsyncResource } from '@/composables/useAsyncResource'
-import { heroImageFile } from '@/data/heroGenderVariants'
+import { heroFileForForm, type HeroForm } from '@/data/heroGenderVariants'
+import { useHeroForm, DEFAULT_HERO_FORM } from '@/composables/useHeroForm'
 import type { FeaturedPool, PoolItem } from '@/domain/featuredPool'
 import poolJson from '@/data/featured-pool.json'
 import featuredElements from '@/data/featured-elements.json'
@@ -194,11 +195,14 @@ function keyOf(id: number): { element: number | undefined; camp: string | null; 
  * 名字/元素留空由视图占位——让 LCP 图片与清单请求并行，而非排在它后面。
  * 名单就绪后按名录真值解析；池内 id 不在名录时丢弃并紧凑重排编号（策展真值）。
  * `sizes` 由调用方按挂载期取景框宽定档（见 deckSizes），好让预热与真实 <img> 同档。
+ * `form` 为双形态角色的当前形态（佩洛伊斯）：**卡面跟随详情页所选形态**，
+ * 好让卡片与降落端同图、共享元素飞行不出现「女性溶解成男性」。非双形态角色不受影响。
  */
 export function buildFeaturedCards(
   seed: PoolItem[],
   list: CharacterListItem[] | null,
   sizes: string = deckSizes(),
+  form: HeroForm = DEFAULT_HERO_FORM,
 ): FeaturedCard[] {
   const byId = new Map((list ?? []).map((x) => [x.Id, x]))
   const cards: FeaturedCard[] = []
@@ -207,7 +211,7 @@ export function buildFeaturedCards(
     if (list && !item) continue
     const el = item?.element !== undefined ? ELEMENTS[item.element] : undefined
     const hasSpecial = Boolean(item?.special_element)
-    const file = heroImageFile(n.id)
+    const file = heroFileForForm(n.id, form)
     cards.push({
       id: n.id,
       no: '', // 末尾统一重排
@@ -235,14 +239,19 @@ export function useFeaturedAgents() {
   /** 挂载期按取景框宽定档：卡片与预热共用同一个值，两边的档位不会打架 */
   const sizes = deckSizes()
 
+  /** 双形态角色的当前形态（佩洛伊斯）：卡面与详情页共用一份选择，切换后回首页即同图。
+   *  本 ref 是模块级单例（localStorage 持久化），在此读取使 `featured` 对它保持响应式。 */
+  const { heroForm } = useHeroForm()
+
   // 首屏头图预热：卡片在挂载即渲染（图 src 只依赖 id，不等清单）；且带 transform:scale 的 img
   // 会升级为独立合成层，合成器按 DOM 顺序解码/栅格化，最右一张总最后上屏（网络其实并行）。
   // 故在 picks 定下后立刻并行预取+预解码本地图，与清单 fetch 重叠，使卡片渲染时已解码、
   // 4 张可同帧合成，消除「第 4 张慢半拍」。
   // 预热必须**走同一份 srcset + sizes**：档位由浏览器按 DPR 选，探针若自己另算 sizes
   // （脱离文档的 img 求不了媒体查询/vw）就会挑错档 → 白拉一张，比不预热更糟。
+  // 形态按挂载时的 heroForm 取值：形态只在详情页切换，回到首页必是重新挂载，故此处不会取到旧值。
   for (const p of picks) {
-    const primary = heroSources(heroImageFile(p.id), sizes)[0]!
+    const primary = heroSources(heroFileForForm(p.id, heroForm.value), sizes)[0]!
     const img = new Image()
     img.decoding = 'async'
     img.srcset = primary.srcset ?? ''
@@ -255,6 +264,6 @@ export function useFeaturedAgents() {
   }
 
   const { data: list } = useAsyncResource<CharacterListItem[]>(() => listFor<CharacterListItem>(catalogEntry('/agents')))
-  const featured = computed(() => buildFeaturedCards(picks, list.value, sizes))
+  const featured = computed(() => buildFeaturedCards(picks, list.value, sizes, heroForm.value))
   return { featured, picks }
 }

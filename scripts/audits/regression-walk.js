@@ -19,6 +19,42 @@ async (page) => {
   // ---- 首页 ----
   await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1800)
+
+  // ---- 运行时数据量：从数据文件取真值，**不把条数写死** ----
+  // 名册/音擎/驱动盘的条数由 `npm run sync` 定时落地（AGENTS.md §4：新增角色是常规业务事件，
+  // 工作流门禁通过后自动 commit）。把条数写成字面量，会让「正常的数据更新」误报成回归失败——
+  // 而「修复」往往只是把 60 改成 61；门禁一旦因为与实现无关的原因失败，就没人再信它
+  // （本仓库已发生过：regression-walk 的文档计数漂移 96→86）。
+  // 故这里先读真值，再断言「渲染条数 == 数据条数」：检测力不减，且不随数据增长误报。
+  // 口径精确的理由：三类名录都没有策展隐藏条目（HIDDEN_ITEM_IDS 只有 /bangboos 的 55098），
+  // 且 element∈200-205/300、type∈1-7 由 zod 契约限定（domain/schema.ts），
+  // 于是「渲染条数 == 数据文件条数」与「图谱非空格 == 名册内 (属性,职业) 组合数」都是精确等式。
+  const live = await page.evaluate(async () => {
+    const read = async (file) => {
+      const res = await fetch(`/data/live/${file}`)
+      if (!res.ok) throw new Error(`${file} HTTP ${res.status}`)
+      return res.json()
+    }
+    const [chars, weapons, disks] = await Promise.all([
+      read('character.json'),
+      read('weapon.json'),
+      read('equipment.json'),
+    ])
+    const rows = Object.values(chars)
+    return {
+      agents: rows.length,
+      weapons: Object.keys(weapons).length,
+      disks: Object.keys(disks).length,
+      // 图谱非空格数 = 名册里出现过的 (属性, 职业) 组合数（与 AtlasView 同一份数据、同一口径）
+      atlasCells: new Set(rows.map((r) => `${Number(r.element)}:${Number(r.type)}`)).size,
+    }
+  })
+  add(
+    'live-data-readable',
+    live.agents > 0 && live.weapons > 0 && live.disks > 0,
+    `角色=${live.agents} 音擎=${live.weapons} 驱动盘=${live.disks} 图谱非空=${live.atlasCells}`,
+  )
+
   {
     const cls = await clsNow()
     // 首页基线 0.000（原 0.023：hero-meta 的版本位用 v-if，清单到达后窄屏多折一行
@@ -96,7 +132,7 @@ async (page) => {
     }))
     add('agents-search', r.search, '')
     add('agents-filters', r.filterTriggers === 3, String(r.filterTriggers))
-    add('agents-rows', r.rows === 60, String(r.rows))
+    add('agents-rows', r.rows === live.agents, `${r.rows} / 数据 ${live.agents}`)
     add('agents-aria-current', r.ariaCurrent === 1, String(r.ariaCurrent))
     add('header-search-btn', r.searchToggle, '')
 
@@ -133,7 +169,7 @@ async (page) => {
     }))
     add(
       'kb-state-keeps-focus',
-      /attr=/.test(kbFilter.url) && kbFilter.focus.includes('trigger') && kbFilter.rows < 60,
+      /attr=/.test(kbFilter.url) && kbFilter.focus.includes('trigger') && kbFilter.rows < live.agents,
       JSON.stringify(kbFilter),
     )
     // 复位筛选，避免影响后续检查
@@ -164,7 +200,7 @@ async (page) => {
         rows: document.querySelectorAll('tbody.d-body tr:not(.empty-row)').length,
         input: document.querySelector('.search input')?.value ?? '',
       }))
-      add('agents-empty-restored', restored.rows === 60 && restored.input === '', JSON.stringify(restored))
+      add('agents-empty-restored', restored.rows === live.agents && restored.input === '', JSON.stringify(restored))
     }
   }
 
@@ -339,7 +375,7 @@ async (page) => {
         // 音擎名录是栅格卡片（2026-10 起）：表格行恒为 0，须按卡计数
         () => document.querySelectorAll('.card-grid > li:not(.skel)').length,
       )
-      add('error-state-retry-recovers', recovered === 100, `rows=${recovered}`)
+      add('error-state-retry-recovers', recovered === live.weapons, `音擎卡=${recovered} / 数据 ${live.weapons}`)
     }
 
     // 详情页的错误态（非 404）与 404 是**两条不同语义的分支**：前者标题应说「载入失败」
@@ -576,7 +612,7 @@ async (page) => {
     add(
       'disks-search-cards',
       // 卡片栅格：表格行恒为 0，必须按卡计数（否则会把「布局不同」误判成「没有内容」）
-      dkBase.cards === 30 && dkBase.rows === 0 && dk.cards === 1 && /q=/.test(dk.url),
+      dkBase.cards === live.disks && dkBase.rows === 0 && dk.cards === 1 && /q=/.test(dk.url),
       JSON.stringify({ dkBase, ...dk }),
     )
   }
@@ -795,19 +831,11 @@ async (page) => {
   await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1400)
   {
-    // 页脚入口可点且落到 /about / /compare（对照台带计数）
+    // 页脚入口可点且落到 /about
     const foot = await page.evaluate(() => ({
       about: document.querySelector('.foot-links a[href="/about"]')?.getAttribute('href') ?? 'none',
-      compare: document.querySelector('.foot-links a[href="/compare"]')?.getAttribute('href') ?? 'none',
-      compareText: document.querySelector('.foot-links a[href="/compare"]')?.textContent.trim() ?? '',
     }))
     add('footer-about-link', foot.about === '/about', foot.about)
-    // 对照台入口是常驻的（此前只能从详情页进入 = 发现性缺口）
-    add(
-      'footer-compare-link',
-      foot.compare === '/compare' && foot.compareText.includes('对照台'),
-      JSON.stringify(foot),
-    )
     await page.goto('http://localhost:4175/about', { waitUntil: 'networkidle' })
     await page.waitForTimeout(1800)
     const r = await page.evaluate(() => ({
@@ -908,162 +936,6 @@ async (page) => {
     add('detail-cls-fresh', cls < 0.02, String(cls))
   }
 
-  // ---- 对照台：同类目并排 + 差异标记 + 移出 + 清空（档案原生交互） ----
-  {
-    await page.evaluate(() => localStorage.removeItem('zzz-wiki:compare'))
-    await page.goto('http://localhost:4175/agents/1011', { waitUntil: 'networkidle' })
-    await page.waitForTimeout(1400)
-    await page.click('.cmp-btn')
-    await page.waitForTimeout(400)
-    const added = await page.evaluate(() => ({
-      label: document.querySelector('.cmp-btn')?.textContent.replace(/\s+/g, ' ').trim() ?? '',
-      pressed: document.querySelector('.cmp-btn')?.getAttribute('aria-pressed') ?? '',
-    }))
-    add('compare-add', added.label.includes('已加入对照') && added.pressed === 'true', JSON.stringify(added))
-
-    await page.goto('http://localhost:4175/agents/1021', { waitUntil: 'networkidle' })
-    await page.waitForTimeout(1400)
-    await page.click('.cmp-btn')
-    await page.waitForTimeout(400)
-
-    await page.goto('http://localhost:4175/compare', { waitUntil: 'networkidle' })
-    await page.waitForTimeout(1600)
-    const tbl = await page.evaluate(() => ({
-      cols: [...document.querySelectorAll('.th-entry .entry-name')].map((e) => e.textContent.trim()),
-      rows: [...document.querySelectorAll('tbody tr')].length,
-      diffs: document.querySelectorAll('tbody tr.is-diff').length,
-      same: [...document.querySelectorAll('tbody tr')].filter((tr) => !tr.classList.contains('is-diff')).length,
-      diffMarks: document.querySelectorAll('.diff-mark').length,
-      summary: document.querySelector('.bench-summary')?.textContent.replace(/\s+/g, ' ').trim() ?? '',
-      caption: document.querySelector('table caption')?.textContent.trim() ?? '',
-      scopeCols: document.querySelectorAll('th[scope="col"]').length,
-      scopeRows: document.querySelectorAll('th[scope="row"]').length,
-    }))
-    add(
-      'compare-table',
-      tbl.cols.length === 2 &&
-        tbl.rows === 5 &&
-        tbl.diffs >= 1 &&
-        tbl.same >= 1 &&
-        // 差异不单靠颜色：字段名旁有「差异」文字标记
-        tbl.diffMarks === tbl.diffs &&
-        tbl.caption.length > 0 &&
-        tbl.scopeCols === 3 &&
-        tbl.scopeRows === 5,
-      JSON.stringify(tbl),
-    )
-
-    // 移出一条 → 只剩一列；再清空 → 回到空态
-    await page.click('.entry-remove')
-    await page.waitForTimeout(700)
-    const afterRemove = await page.evaluate(() => ({
-      cols: document.querySelectorAll('.th-entry').length,
-      stored: localStorage.getItem('zzz-wiki:compare'),
-    }))
-    add('compare-remove', afterRemove.cols === 1, JSON.stringify(afterRemove))
-
-    await page.click('.bench-clear')
-    await page.waitForTimeout(600)
-    const cleared = await page.evaluate(() => ({
-      emptyTitle: document.querySelector('.bench-empty-title')?.textContent.trim() ?? '',
-      cats: document.querySelectorAll('.bench-cat').length,
-      stored: localStorage.getItem('zzz-wiki:compare'),
-    }))
-    add(
-      'compare-clear',
-      cleared.emptyTitle.includes('对照台为空') && cleared.cats === 4 && cleared.stored === null,
-      JSON.stringify(cleared),
-    )
-
-    // 详情页「查看对照台 →」链接的命中区：它**只在桌上有内容时渲染**，故需先摆一桌再量
-    // （320px 下曾只有 ~16px 高 → WCAG 2.5.8 不足；单独跑审计看不到，全量审计顺序里才暴露）。
-    // 放在本块末尾并自行复位状态，避免改变后续步骤的页面上下文（上轮踩过这个坑）。
-    await page.evaluate(() =>
-      localStorage.setItem('zzz-wiki:compare', JSON.stringify({ catPath: '/agents', ids: [1011] })),
-    )
-    await page.setViewportSize({ width: 320, height: 720 })
-    await page.goto('http://localhost:4175/agents/1011', { waitUntil: 'networkidle' })
-    await page.waitForTimeout(2200)
-    const cmpTargets = await page.evaluate(() => {
-      const box = (sel) => {
-        const b = document.querySelector(sel)?.getBoundingClientRect()
-        return b ? { w: Math.round(b.width), h: Math.round(b.height) } : null
-      }
-      return { link: box('.cmp-link'), btn: box('.cmp-btn') }
-    })
-    add(
-      'compare-toggle-hit-area',
-      (cmpTargets.link?.h ?? 0) >= 24 && (cmpTargets.btn?.h ?? 0) >= 24,
-      JSON.stringify(cmpTargets),
-    )
-    await page.setViewportSize({ width: 1440, height: 900 })
-    await page.evaluate(() => localStorage.removeItem('zzz-wiki:compare'))
-
-    // 深链必须**在干净状态**下测：本桌已有内容时 URL 失效也会「看起来正常」——
-    // 第 102 轮就是这样假通过的（`?cat=&ids=` 实际未生效），第 103 轮才暴露。
-    await page.evaluate(() => localStorage.removeItem('zzz-wiki:compare'))
-    await page.goto('http://localhost:4175/compare?cat=/agents&ids=1011,1021', { waitUntil: 'networkidle' })
-    await page.waitForTimeout(1700)
-    const deep = await page.evaluate(() => ({
-      cols: [...document.querySelectorAll('.th-entry .entry-name')].map((e) => e.textContent.trim()),
-      diffs: document.querySelectorAll('tbody tr.is-diff').length,
-      stored: localStorage.getItem('zzz-wiki:compare'),
-    }))
-    add(
-      'compare-deeplink',
-      deep.cols.length === 2 && deep.diffs >= 1 && (deep.stored ?? '').includes('1011'),
-      JSON.stringify(deep),
-    )
-
-    // 两条「边界提示」路径：文案写了不等于渲染对了（深链就曾长期假通过），故在浏览器里验。
-    // 1) 已满：第 4 条被拒，提示可读、计数不变、存储不变
-    await page.evaluate(() => localStorage.removeItem('zzz-wiki:compare'))
-    for (const id of [1011, 1021, 1031]) {
-      await page.goto(`http://localhost:4175/agents/${id}`, { waitUntil: 'networkidle' })
-      await page.waitForTimeout(900)
-      await page.click('.cmp-btn')
-      await page.waitForTimeout(250)
-    }
-    await page.goto('http://localhost:4175/agents/1041', { waitUntil: 'networkidle' })
-    await page.waitForTimeout(1200)
-    await page.click('.cmp-btn')
-    await page.waitForTimeout(450)
-    const fullState = await page.evaluate(() => ({
-      note: document.querySelector('.cmp-note')?.textContent.trim() ?? '',
-      pressed: document.querySelector('.cmp-btn')?.getAttribute('aria-pressed'),
-      count: document.querySelector('.cmp-count')?.textContent.trim() ?? '',
-      ids: JSON.parse(localStorage.getItem('zzz-wiki:compare') || '{}').ids ?? [],
-    }))
-    add(
-      'compare-full-hint',
-      fullState.note.includes('已满') &&
-        fullState.pressed === 'false' &&
-        fullState.count === '3' &&
-        fullState.ids.join() === '1011,1021,1031',
-      JSON.stringify(fullState),
-    )
-
-    // 2) 跨类目：清空并重开一桌，提示可读、存储只剩新条目
-    await page.goto('http://localhost:4175/w-engines/14162', { waitUntil: 'networkidle' })
-    await page.waitForTimeout(1200)
-    await page.click('.cmp-btn')
-    await page.waitForTimeout(450)
-    const replaced = await page.evaluate(() => ({
-      note: document.querySelector('.cmp-note')?.textContent.trim() ?? '',
-      count: document.querySelector('.cmp-count')?.textContent.trim() ?? '',
-      stored: localStorage.getItem('zzz-wiki:compare') ?? '',
-    }))
-    add(
-      'compare-cross-category-hint',
-      replaced.note.includes('重开一桌') &&
-        replaced.count === '1' &&
-        replaced.stored.includes('/w-engines') &&
-        replaced.stored.includes('14162'),
-      JSON.stringify(replaced),
-    )
-    await page.evaluate(() => localStorage.removeItem('zzz-wiki:compare'))
-  }
-
   // ---- 富文本键位图标：已知缺失资产以文字键位降级（且不发请求）----
   // 1611 克拉蕾的技能描述引用了 Icon_SpecialReady_Ep——源站从未提供。此前走常规候选链：
   // 本地 404 → 回源 CDN 一次（违反数据面零请求）→ 仍 404 → 虚线空洞。
@@ -1124,17 +996,21 @@ async (page) => {
     })
     add(
       'atlas-matrix',
-      // 7 属性 × 7 职业 = 49 格，非空 32 格；空格必须显式呈现（49-32=17）
-      atlas.rows === 7 &&
-        atlas.cols === 7 && // 职业列（合计列用 .ax-total，不计入）
-        atlas.cells === 32 &&
-        atlas.empties === 17 &&
+      // 轴（属性 × 职业）来自枚举，**非空格数来自名册**——后者随数据增长，故与数据真值比对，
+      // 不写死「49 格 / 非空 32 / 空 17」（那些是数据快照，见上面的 live 块说明）。
+      atlas.rows > 0 &&
+        atlas.cols > 0 &&
+        // 非空格必须正好等于名册里出现过的 (属性, 职业) 组合数
+        atlas.cells === live.atlasCells &&
+        // 网格完整：非空格 + 空格 = 全格（空格必须显式呈现，不是漏画）
+        atlas.cells + atlas.empties === atlas.rows * atlas.cols &&
         // 图与账同源：格内数字之和 = 总计
         atlas.sum === Number(atlas.grand) &&
         atlas.sum > 0 &&
         atlas.caption &&
-        atlas.scopeCols === 9 && // 7 职业 + 左上角 + 合计
-        atlas.scopeRows === 7,
+        // 列头 = 职业列 + 左上角 + 合计；行头与数据行一一对应
+        atlas.scopeCols === atlas.cols + 2 &&
+        atlas.scopeRows === atlas.rows,
       JSON.stringify(atlas),
     )
 
@@ -1150,7 +1026,7 @@ async (page) => {
     }))
     add(
       'atlas-cell-jumps-to-filtered-list',
-      jump.path === '/agents' && !!jump.attr && !!jump.prof && jump.rows > 0 && jump.rows < 60 && jump.activeFilters === 2,
+      jump.path === '/agents' && !!jump.attr && !!jump.prof && jump.rows > 0 && jump.rows < live.agents && jump.activeFilters === 2,
       JSON.stringify(jump),
     )
   }

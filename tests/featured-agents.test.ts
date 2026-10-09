@@ -220,3 +220,40 @@ describe('buildFeaturedCards', () => {
   })
 })
 
+describe('buildFeaturedCards · 双形态角色跟随所选形态', () => {
+  // 佩洛伊斯（1551）是站内唯一的双形态角色：hero 头图分 Female/Male 两个文件
+  // （src/data/hero-gender-variants.json）。首页卡面必须与详情页同图，
+  // 否则共享元素飞行会把卡片上的女性版溶解成降落端的男性版。
+  const pelo = [{ id: 1551, pos: '49%', zoom: 1.2965, originY: 50 }]
+  const list = [makeItem(1551, { zh: '佩洛伊斯', en: 'Phaethon' })]
+
+  it('female：取默认（女性）版文件', () => {
+    const cards = buildFeaturedCards(pelo, list, undefined, 'female')
+    expect(cards[0]!.srcs[0]!.src).toMatch(/hero\/wide\/Mindscape_1551_Female_2\.webp$/)
+    expect(cards[0]!.srcs[0]!.srcset).toContain('Mindscape_1551_Female_2')
+  })
+
+  it('male：取男性版文件（与详情页所选形态一致）', () => {
+    const cards = buildFeaturedCards(pelo, list, undefined, 'male')
+    expect(cards[0]!.srcs[0]!.src).toMatch(/hero\/wide\/Mindscape_1551_Male_2\.webp$/)
+    expect(cards[0]!.srcs[0]!.srcset).toContain('Mindscape_1551_Male_2')
+    // 三级候选都要跟着换，否则回退档会跳回女性版
+    expect(cards[0]!.srcs[1]!.src).toMatch(/hero\/Mindscape_1551_Male_2\.webp$/)
+    expect(cards[0]!.srcs[2]!.src).toContain('Mindscape_1551_Male_2')
+  })
+
+  it('未传形态时用默认值（female），与重构前行为一致', () => {
+    const cards = buildFeaturedCards(pelo, list)
+    expect(cards[0]!.srcs[0]!.src).toMatch(/Mindscape_1551_Female_2\.webp$/)
+  })
+
+  it('单形态角色不受形态影响：两形态都取裸名规则的文件', () => {
+    const single = [{ id: 1011, pos: '44%', zoom: 1.32, originY: 47.5 }]
+    const singleList = [makeItem(1011, { zh: '安比' })]
+    for (const form of ['female', 'male'] as const) {
+      const cards = buildFeaturedCards(single, singleList, undefined, form)
+      expect(cards[0]!.srcs[0]!.src).toMatch(/hero\/wide\/Mindscape_1011_2\.webp$/)
+    }
+  })
+})
+

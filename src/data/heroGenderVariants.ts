@@ -30,10 +30,19 @@ export function heroVariantFile(id: number | undefined, form: HeroForm): string 
   return entry.variants.find((v) => v !== entry.defaultFile) ?? entry.defaultFile
 }
 
+/** 取角色在**指定形态**下的 hero 头图文件名（不含 .webp）。
+ *  非双形态角色（不在 JSON 中）按裸名规则回落 `Mindscape_{id}_2`。
+ *  这是「id + 形态 → 文件名」的**唯一**出口：详情页、首页卡面、过渡预热全走它，
+ *  避免同一个回落表达式在四处各写一遍而漂移。 */
+export function heroFileForForm(id: number | undefined, form: HeroForm): string {
+  return heroVariantFile(id, form) ?? `Mindscape_${id}_2`
+}
+
 /** 取角色 hero 头图的「默认展示」文件名（不含 .webp）：双形态角色取默认（女性）版，其余取裸名
- *  Mindscape_{id}_2。供校准工具（CalibrateView）/ 今日角色池（useFeaturedAgents）引用默认形态，
- *  避免裸名/变体名散落各处漂移。详情页 AgentHead 不经过本函数：它按 heroVariantFile(id, heroForm)
- *  跟随用户所选形态（见 useHeroForm），与「默认展示」无关。 */
+ *  Mindscape_{id}_2。供校准工具（CalibrateView）引用默认形态——校准只在默认（女性）版上做，
+ *  故这里恒取 female，不跟随用户选择。
+ *  **首页「今日角色」不用它**：那里跟随用户所选形态（`heroFileForForm` + `useHeroForm`），
+ *  与详情页保持一致；详情页 AgentHead 同理按所选形态取图。 */
 export function heroImageFile(id: number | undefined): string {
-  return heroVariantFile(id, 'female') ?? `Mindscape_${id}_2`
+  return heroFileForForm(id, 'female')
 }

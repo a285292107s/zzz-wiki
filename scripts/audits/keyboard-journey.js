@@ -6,7 +6,8 @@
  *
  * 覆盖：跳转链接 / 全局检索（开→输入→方向键→回车→Esc 归还焦点）/ 筛选下拉
  * （开→方向键→回车→**焦点归还触发钮**）/ 名录检索输入 / 详情翻页 / 等级滑条
- * （连按两步必须都生效）/ 复制链接 / 回到顶部 / 术语浮层 / 移动端菜单。
+ * （连按两步必须都生效）/ 复制链接 / 回到顶部 / 术语浮层 / 窄屏检索直达（站头导航的
+ * 窄屏入口：⌕ 开面板→直达行与站头导航同数→Esc 关闭→焦点归还）。
  *
  * 用法：playwright-cli open http://localhost:4175 && \
  *       playwright-cli run-code --filename=scripts/audits/keyboard-journey.js
@@ -120,70 +121,43 @@ async (page) => {
   await page.waitForTimeout(400)
   add('kb-term-tip', tipOpened, String(tipOpened))
 
-  /* ---------- 7) 移动端菜单：开 → Esc 关闭 → 焦点归还 ---------- */
+  /* ---------- 7) 窄屏检索直达：⌕ 开面板 → 直达行与站头导航同数 → Esc 关闭 → 焦点归还 ---------- */
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1600)
-  await page.evaluate(() => document.querySelector('.menu-toggle')?.focus())
+  // 站头导航在 ≤720 隐去，点开的检索面板就是窄屏的导航入口（⌕ 钮是唯一入口，故先聚焦再回车）
+  await page.evaluate(() => document.querySelector('.search-toggle')?.focus())
   await page.keyboard.press('Enter')
-  await page.waitForTimeout(500)
-  // 面板是 #mobile-nav（v-show 切换）；首跑探针猜的 .m-menu/.mobile-menu 都不存在——探针自身的坑
-  const menuOpen = await page.evaluate(() => {
-    const nav = document.getElementById('mobile-nav')
-    return !!nav && getComputedStyle(nav).display !== 'none'
+  await page.waitForTimeout(1500)
+  const qsMobile = await page.evaluate(() => {
+    const scrim = document.querySelector('.qs-scrim')
+    return {
+      open: !!scrim && getComputedStyle(scrim).display !== 'none',
+      entries: document.querySelectorAll('.qs-quick-entries .qs-entry').length,
+      navItems: document.querySelectorAll('.nav .nav-item').length,
+    }
   })
   await page.keyboard.press('Escape')
-  await page.waitForTimeout(500)
-  const afterEsc = await active()
-  const menuClosed = await page.evaluate(() => {
-    const nav = document.getElementById('mobile-nav')
-    return !nav || getComputedStyle(nav).display === 'none'
-  })
-  add('kb-mobile-menu', menuOpen && menuClosed && afterEsc.includes('menu-toggle'), `open=${menuOpen} closed=${menuClosed} focus=${afterEsc}`)
+  await page.waitForTimeout(600)
+  const afterQsEsc = await active()
+  // 直达行必须与站头导航同一份清单（不是「至少 4 项」）：数值漂移即说明两处清单脱钩
+  add(
+    'kb-mobile-search-entries',
+    qsMobile.open && qsMobile.entries > 0 && qsMobile.entries === qsMobile.navItems && afterQsEsc.includes('search-toggle'),
+    JSON.stringify({ ...qsMobile, focus: afterQsEsc }),
+  )
 
-  /* ---------- 8) 对照台：加入 → 移出 → 移空（焦点必须被交棒，不能掉回 body） ---------- */
+  /* ---------- 8) 详情页页头：返回链接可达且可聚焦 ---------- */
   await page.setViewportSize({ width: 1440, height: 900 })
-  await page.evaluate(() => localStorage.removeItem('zzz-wiki:compare'))
   await page.goto('http://localhost:4175/agents/1011', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1500)
-  await page.evaluate(() => document.querySelector('.cmp-btn')?.focus())
-  await page.keyboard.press('Enter')
-  await page.waitForTimeout(400)
-  const cmpAdded = await page.evaluate(() => ({
-    pressed: document.querySelector('.cmp-btn')?.getAttribute('aria-pressed'),
-    note: document.querySelector('.cmp-note')?.textContent.trim() ?? '',
+  await page.evaluate(() => document.querySelector('.page-actions .back')?.focus())
+  const backFocused = await page.evaluate(() => ({
+    tag: document.activeElement?.tagName ?? '',
+    cls: String(document.activeElement?.className || ''),
+    text: document.activeElement?.textContent?.trim() ?? '',
   }))
-  add('kb-compare-add', cmpAdded.pressed === 'true', JSON.stringify(cmpAdded))
-
-  await page.goto('http://localhost:4175/compare?cat=/agents&ids=1011,1021', { waitUntil: 'networkidle' })
-  await page.waitForTimeout(1700)
-  await page.evaluate(() => document.querySelector('.entry-remove')?.focus())
-  await page.keyboard.press('Enter')
-  await page.waitForTimeout(1100)
-  const afterRemove = await page.evaluate(() => ({
-    cols: document.querySelectorAll('.th-entry').length,
-    focus: document.activeElement?.tagName + '.' + String(document.activeElement?.className || '').split(' ')[0],
-  }))
-  // 移出后焦点必须落在**下一条的移出钮**上：掉回 body 的话键盘用户要重新 Tab 一整圈
-  add(
-    'kb-compare-remove-focus-handoff',
-    afterRemove.cols === 1 && afterRemove.focus.includes('entry-remove'),
-    JSON.stringify(afterRemove),
-  )
-
-  await page.keyboard.press('Enter')
-  await page.waitForTimeout(1100)
-  const afterLast = await page.evaluate(() => ({
-    empty: !!document.querySelector('.bench-empty-title'),
-    focus: document.activeElement?.tagName + '.' + String(document.activeElement?.className || '').split(' ')[0],
-    text: document.activeElement?.textContent?.trim().slice(0, 8) ?? '',
-  }))
-  // 移空后：空态必须出现，且焦点交到空态标题（tabindex=-1）
-  add(
-    'kb-compare-empty-focus-handoff',
-    afterLast.empty && afterLast.focus.includes('bench-empty-title') && afterLast.text.includes('对照台为空'),
-    JSON.stringify(afterLast),
-  )
+  add('kb-detail-back-focus', backFocused.tag === 'A' && backFocused.cls.includes('back'), JSON.stringify(backFocused))
 
   const failed = checks.filter((c) => !c.ok)
   return JSON.stringify({ total: checks.length, failed: failed.length, failedItems: failed, checks }, null, 1)

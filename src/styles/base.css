@@ -884,7 +884,7 @@ html.vt-exit .vt-chrome-case {
   }
 }
 
-/* 导航类区块（`data-vt-fade`：详情页左上「返回/加入对照」与区块索引）**只淡不位移**。
+/* 导航类区块（`data-vt-fade`：详情页左上「返回」与区块索引）**只淡不位移**。
    它们不是"内容到达"，而是页面上的导航家具；跟着一起上浮 12px 会被读成"位置跳了一下"
    ——实测（1440×900 冷加载）nav 的 rect 从 213 飘到 201，且因为入场用强 ease-out，
    12px 里有 ~70% 挤在头 100ms，观感就是突兀地一顿。淡入则完全没有位移问题。 */
@@ -1155,7 +1155,7 @@ html.vt-restore .vt-chrome-case {
   }
 
   /* 交互外壳：站头导航 / 区块索引 / 回顶 / 检索面板 / 术语浮层 / 跳转链接 / 翻页提示
-     / 复制链接 / 对照台控件（交互件印在纸上没有意义，且「×」会被误读成正文） */
+     / 复制链接（交互件印在纸上没有意义，且「×」会被误读成正文） */
   .masthead,
   .section-nav,
   .back-top,
@@ -1164,12 +1164,7 @@ html.vt-restore .vt-chrome-case {
   .skip-link,
   .pg-hint,
   .foot-actions,
-  .copy-link,
-  .cmp-btn,
-  .cmp-link,
-  .cmp-note,
-  .entry-remove,
-  .bench-clear {
+  .copy-link {
     display: none !important;
   }
 

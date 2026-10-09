@@ -72,12 +72,6 @@ export const router = createRouter({
     },
     ...catalogRoutes(),
     {
-      path: '/compare',
-      name: 'compare',
-      component: () => import('@/views/CompareView.vue'),
-      meta: { title: '对照台' },
-    },
-    {
       path: '/atlas',
       name: 'atlas',
       component: () => import('@/views/AtlasView.vue'),
