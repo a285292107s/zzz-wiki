@@ -3,49 +3,44 @@
 绝区零（Zenless Zone Zero）数据展示型 wiki。以「空洞数据终端」的档案化视觉呈现代理人、音擎、邦布与驱动盘数据。设计取向：**约束、排印、纸墨质感**——拒绝渐变霓虹与圆角卡片堆叠的模板感。
 
 > 📋 **文档地图**（各有专属主题，按需取用）：
-> - **给 AI / 协作者的工作约定** → [`agents.md`](./agents.md)（临时文件、提交、数据与前端铁律、命令）
+> - **给 AI / 协作者的工作约定** → [`AGENTS.md`](./AGENTS.md)（临时文件、提交、数据与前端铁律、命令）
 > - **数据交接** → [`DATA_GUIDE.md`](./DATA_GUIDE.md)（来源、表结构、图标兜底、失效信号、运维命令）
-> - **架构设计** → [`DESIGN.md`](./DESIGN.md)（分层、数据契约单一事实源、测试策略、路线图）
+> - **架构设计** → [`DESIGN.md`](./DESIGN.md)（分层、数据契约单一事实源、测试策略、实施状态）
 > - **图片展示** → [`IMG_GUIDE.md`](./IMG_GUIDE.md)（超宽/透明底/人像立绘如何展示得好、公式与核验）
+> - **品质指标与复跑命令** → [`QUALITY.md`](./QUALITY.md)
+> - **AI 加载索引 / 模块边界 / 决策记录** → [`docs/README.md`](./docs/README.md)
 
 ## 技术栈
 
-- **Vue 3** + **TypeScript** + **Vite 6** + **vue-router 4**
-- 零 UI 框架：纯手写设计系统（CSS 变量 + 细线 + 等宽数据数字）
-- 数据为**构建期生成的静态 JSON**（`public/data/`），运行时零外部请求
-- 图标、西文字体、CJK 衬线（Noto Serif SC 分片）本地化（`public/data/img/`、`public/fonts/`），运行时零外网
-- **zod** 数据契约（校验在构建/CI 侧，不进前端热路径）；**vitest** 单测/组件测试
-- 全局快速检索（Ctrl/⌘+K）、名录悬停预取、等级滑条与区块导航等交互均为原生优先、无障碍语义完整
+**Vue 3 + TypeScript + Vite 6 + vue-router 4**，**零 UI 框架**（纯手写设计系统：CSS 变量 + 细线 + 等宽数据数字）。
+数据是**构建期生成的静态 JSON**（`public/data/`），运行时零外部请求；图标、西文字体与 CJK 衬线分片全部本地化。
+数据契约用 **zod**（校验在构建/CI 侧，不进前端热路径），测试用 **vitest**。
 
-## 本地开发
+> 版本与脚本的事实源是 `package.json`；契约形状的事实源是 `src/domain/schema.ts`。
+> 技术选型的理由与禁令见 [`AGENTS.md`](./AGENTS.md) §3/§4。
 
-数据已提交在 `public/data/`，日常开发/部署**无需重跑**：
+## 快速上手
 
 ```bash
 npm install
 npm run dev          # http://localhost:5173（端口占用自动换）
 npm run build        # vue-tsc 类型检查 + 构建
-npm run preview      # 预演产物
 npm test             # vitest 单元/组件测试
 ```
 
-需要新数据时（详见 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §7）：
+数据已提交在 `public/data/`，**日常开发与部署都不需要重跑数据**。
+只有需要更新数据时才跑 `npm run sync`（**唯一自动化写入入口**：探测 → 重建 → 图标补差 → 派生图档位 → 校验 → 汇总）。
 
-- `npm run sync` — 数据+图标同步（**唯一自动化写入入口**：探测 → 重建 → 图标补差 → CJK 衬线派生 → 校验 → 汇总）
-- `npm run data` — 仅数据本地重建（`--check` 只探测版本 / `--force` 忽略缓存）
-- `npm run verify:data` / `npm run verify:icons` / `npm run verify:fonts` / `npm run verify:fonts:cjk` — 契约 / 图标 / 西文与 CJK 字体校验
-- `npm run download:icons` / `npm run download:fonts` / `npm run download:fonts:cjk` — 图标 / 西文字体 / CJK 衬线分片本地化落地
-
-> 上述需网络访问 `static.nanoka.cc` 与 `fonts.googleapis.com`；有代理时设 `NODE_USE_ENV_PROXY=1`。
+> 完整命令集、排障顺序与数据失效信号见 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §7/§8；
+> 部署构建链路（`build:ci`）以 `package.json` 为准。
 
 ## 数据源
 
-构建期从 **hakushin raw**（`static.nanoka.cc`，zzz.nanoka.cc / hakush.in 站底层 CDN）拉取**正式服（live）**名录与详情，规整为静态 JSON 提交入仓；运行时前端只读本地 `/data`（零外部请求、零 CORS）。
-
+构建期从 **hakushin raw**（`static.nanoka.cc`，zzz.nanoka.cc / hakush.in 站底层 CDN）拉取**正式服（live）**名录与详情，
+规整为静态 JSON 提交入仓；运行时前端只读本地 `/data`（零外部请求、零 CORS）。
 站点**只展示 live**（不产出源站 latest——含前瞻/测试服内容，合规约定 2026-08 起），版本号从 `manifest.json` 的 `zzz.live` 动态取，**禁止硬编码**。
 
-- 管线入口 `scripts/build-data.ts` → 模块 `scripts/build/`（`io` / `normalize` / `domains` / `live-target` / `index`）→ 产出 `public/data/live/`
-- 数据契约、字段约定、图标兜底链（本地 → nanoka CDN → 文字占位）见 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §3、§5
+> 端点契约、表结构、图标候选链、失效信号见 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §1/§3/§4/§5/§8。
 
 ## 部署（Vercel）
 
@@ -62,6 +57,8 @@ npm test             # vitest 单元/组件测试
 
 ## 目录结构
 
+> **本节是目录树的单一事实源**（[`DESIGN.md`](./DESIGN.md) §4.2 只讲模块职责与边界，不再维护第二棵树）。
+
 ```
 src/
   domain/        # 单一事实源：枚举 / 类目元信息 / zod 契约 / 详情区块类型 / dev 页面元数据 / 检索索引
@@ -72,22 +69,26 @@ src/
   components/    # layout / list / state / detail 区块 + QuickSearch / Rarity / Tags / HollowImage / FormulaEq / TermTip
   views/         # 页面（薄组装层；含 /formulas，dev-only /style、/calibrate）
   utils/         # 纯函数：text / rich / names / contrast / cameraRect（无组件、无状态，可单测）
+                 # 例外：viewTransition/ 是有状态编排层（见 docs/architecture.md §4）
   styles/        # 设计 token + 基样式
   router/        # 懒加载路由 + meta（视图映射 views.ts 由预取层复用；dev-only 路由由 devRoutes 派生，构建级排除）
   directives/    # v-reveal（滚动显现，数字绑定作错峰延迟）
 scripts/
   build/         # 数据管线模块（io / normalize / domains / live-target / index + download-icons / download-fonts / download-cjk-fonts）
   build-data.ts  # 数据管线入口（npm run data）
-  sync-data.ts   # 数据+图标同步（唯一写者，npm run sync；由 data-sync workflow 触发并提交）
+  sync-data.ts   # 数据+图标同步（**CI/定时唯一写者**，npm run sync；由 data-sync workflow 触发并提交）
   verify-data.ts # zod 契约校验（npm run verify:data）
-  generate-sitemap.mjs  # dist/sitemap.xml 生成（build:ci 末段）
+  probes/        # 长期保留的一次性性能探针（LCP / DPR 复核；不是 audit 工具箱的一部分）
+  generate-sitemap.mjs  # dist/sitemap.xml 生成（build:ci 中 vite build 之后）
 tests/           # vitest 单元/组件测试
 public/
   data/          # 生成的静态 JSON + 本地化图标（提交入库）
   fonts/         # 本地化字体：西文 + Noto Serif SC 分片（运行时零外网）
 ```
 
-> 分层与依赖规则、重构路线见 [`DESIGN.md`](./DESIGN.md)；组件/设计 token 速查见站内 `/style` 设计系统页（**dev-only**，生产构建不打包，`/calibrate` 同理）。
+> 模块职责与**调用边界（允许/严禁）**见 [`docs/architecture.md`](./docs/architecture.md)；
+> 架构愿景与契约见 [`DESIGN.md`](./DESIGN.md)；
+> 组件与设计 token 速查见站内 `/style` 设计系统页（**dev-only**，生产构建不打包，`/calibrate` 同理）。
 
 ## 版权
 

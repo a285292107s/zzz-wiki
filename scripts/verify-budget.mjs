@@ -1,8 +1,8 @@
 /* ============================================================
  * verify-budget.mjs — 性能预算门禁（build:ci 末段，sitemap 之后）
  *
- * 把品质基线（temp/quality-baseline.md 的可机器化子集）固化为硬约束：
- *   1) 主 JS 包（dist/assets/index-*.js）gzip 后 ≤ 66KB
+ * 把品质基线（[QUALITY.md](../QUALITY.md) 的可机器化子集）固化为硬约束：
+ *   1) 主 JS 包（dist/assets/index-*.js）gzip 后 ≤ 上限（见下方 mainJsGzipKB，当前 70KB；不要在这里重复数字）
  *      （基线 55KB；+20% 余量。首页静态编入 +4KB 已含）
  *      **2026-10 由 62KB 提到 63KB**：新增「今日角色」选片去重表
  *      （src/data/featured-elements.json，54 条 [属性码, 阵营] 紧凑数组 ≈0.4KB gzip）。

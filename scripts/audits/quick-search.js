@@ -6,7 +6,8 @@
  *   2) 罗马字查询（anby）→ 经英文名命中，但**高亮只标在中文 label 上**，故无 mark
  *      ——这一条是「已知且正确」的行为，写下来免得下次误判为缺陷
  *   3) 空查询 → 列出快速入口；**不预激活任何行**（空态不设隐式目标，避免误触回车跳走），
- *      但方向键必须能激活、回车必须能直达（键盘路径完整）
+ *      但方向键必须能激活、回车必须能直达（键盘路径完整）；最近访问先钉成确定的一条，
+ *      不让浏览器历史决定落点
  *   4) 有查询时首行默认激活（.qs-row.on）→ 回车直达
  *
  * 用法：playwright-cli open http://localhost:4175 && \
@@ -45,6 +46,16 @@ async (page) => {
   const empty = await probe('')
 
   // 空态：方向键激活 → 回车直达（键盘路径完整）
+  // 「最近访问」由 localStorage 派生，不清空就会读到上一轮审计的残留条目；若其首条恰是
+  // 本次所在页，方向键回车等于原地不动，断言将假红。故先种下一条别的详情页，
+  // 让方向键的落点确定（页内会再把当前页记到最前，落点即这条种子）。
+  await page.goto('http://localhost:4175/agents')
+  await page.evaluate(() =>
+    localStorage.setItem(
+      'zzz-wiki:recent-items',
+      JSON.stringify([{ to: '/agents/1021', label: '猫又', catNo: '01' }]),
+    ),
+  )
   await open('')
   const noPreActive = (await read()).activeRow === ''
   await page.keyboard.press('ArrowDown')

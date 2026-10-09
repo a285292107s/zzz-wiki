@@ -1,11 +1,11 @@
 /* ============================================================
  * axe-states.js — 交互面板「展开态」的 axe 审计（playwright-cli run-code）
  *
- * 现有 axe-a11y.js 只审计页面默认态；而对话框 / listbox / 浮层 / 移动菜单这类
+ * 现有 axe-a11y.js 只审计页面默认态；而对话框 / listbox / 浮层 / 交互面板这类
  * 动态结构只在展开后存在——它们的 ARIA 组合、焦点可见性、对比度从未被覆盖。
  * 本脚本逐个打开交互面并在该状态下跑全量 axe。
  *
- * 覆盖：移动菜单、筛选下拉（listbox）、检索面板（dialog）、术语浮层、双形态切换钮。
+ * 覆盖：窄屏检索面板（空态直达区）、筛选下拉（listbox）、检索面板（dialog）、术语浮层、双形态切换钮。
  * 用法：playwright-cli open http://localhost:4175 && \
  *       playwright-cli run-code --filename=scripts/audits/axe-states.js
  * 基线：各状态 0 violations
@@ -35,16 +35,17 @@ async (page) => {
     if (closeFn) await closeFn(page)
   }
 
-  // 1) 移动菜单展开（窄屏）
-  await audit('mobile-menu', {
+  // 1) 窄屏检索面板空态（最近访问 + 直达区）——吸顶栏在 ≤720 不列导航，
+  //    空态直达区就是窄屏的导航入口，其 ARIA 组合 / 对比度必须单独过审
+  await audit('quick-search-mobile-empty', {
     route: '/',
     viewport: { width: 412, height: 823 },
     openFn: async (p) => {
-      await p.click('.menu-toggle')
-      await p.waitForTimeout(500)
+      await p.click('.search-toggle')
+      await p.waitForTimeout(900)
       return true
     },
-    expect: '#mobile-nav',
+    expect: '.qs-quick-entries',
     closeFn: async (p) => {
       await p.keyboard.press('Escape')
       await p.waitForTimeout(300)

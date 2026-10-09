@@ -3,6 +3,8 @@
 > ⚠️ **本站数据管线已于 2026-08 再切换（v2）**：构建期从 **hakushin raw**（`static.nanoka.cc/zzz/…`，即本报告研究的 nanoka 家族契约）拉取
 > **正式服（live）**数据 → 规整 → 生成静态 JSON（`scripts/build-data.ts` → `public/data/`），运行时零外部请求；
 > 仅 live 单版本（2026-08 合规约定，`zzz.latest` 含前瞻/测试服内容不消费），入口/表结构与失效信号见 [`DATA_GUIDE.md`](./DATA_GUIDE.md)。
+> ⚠ **本报告 §5（CDN 素材）与 §7（待办结论）已被后续实现取代**：素材 CDN 现行可用路径是 `/assets/zzz/{basename}.webp`（`/zzz/UI/` 是 404 残留）；名录**已含**主角 2011/2021。**现行事实一律以 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §1/§4/§5 为准，不要把本报告的旧结论当建议。**
+>
 > 本文档保留主要作**端点契约研究参考**（v1 曾采用 Dimbreath ZenlessData 反混淆管线，已弃用；当时结论与 v2 同源，字段名以 v2 实测为准）。
 
 > 研究时间：2026-08（以"当下"为准）；所有端点均在本机沙箱内通过代理 **实测验证**（HTTP 200 + 响应头/JSON 字段实抓），非仅凭文档转述。

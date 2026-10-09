@@ -3,13 +3,13 @@
  * QuickSearch — 全局快速检索面板（Ctrl/⌘+K；站头检索钮）。
  * 终端语言：染墨遮罩 + 单一 hairline 框 + 等宽编号陈列；无投影卡片堆叠。
  * 键盘完整可用：↑/↓ 移动、Enter 直达、Esc 关闭；aria-combobox 语义。
- * 结果按类目分组陈列（类目徽标 = catalog no），空查询为四类目快速入口
- * ——**窄屏除外**：那时站头导航已收进 ☰ 菜单，再列四类目捷径就是两个入口指同一批
- * 目的地（手机断点下「检索 / 菜单」功能重复），故窄屏空态只留检索提示与最近访问。
+ * 结果按类目分组陈列（类目徽标 = catalog no），空查询为「最近访问 + 六项直达」：
+ * 直达区列 NAV_ENTRIES（4 个数据类目 + 档案图谱 / 战斗公式），桌面与窄屏**同一份**——
+ * 窄屏吸顶栏不列导航（断点见 SiteHeader.vue 的 720px），本面板即窄屏的导航入口。
  */
 import { computed, nextTick, ref, watch } from 'vue'
 import { RouterLink, useRouter } from 'vue-router'
-import { CATALOG } from '@/domain/catalog'
+import { CATALOG, NAV_ENTRIES } from '@/domain/catalog'
 import { highlightSegments } from '@/domain/search'
 import { useQuickSearch, useQuickSearchResults, useRecentItems } from '@/composables/useQuickSearch'
 import HollowImage from '@/components/HollowImage.vue'
@@ -55,10 +55,9 @@ const groups = computed(() => {
   }))
 })
 
-/** 空查询快速入口：四类目直达（取代全量陈列） */
-const quickEntries = computed(() =>
-  CATALOG.map((c) => ({ no: c.no, label: c.label, en: c.en, to: c.path })),
-)
+/** 空查询快速入口：站头导航的同一份清单（取代全量陈列）。
+ *  窄屏吸顶栏不列导航，这里就是窄屏的导航入口——故不按视口裁剪 */
+const quickEntries = NAV_ENTRIES
 
 /** 扁平顺序（键盘导航序 = 视觉序） */
 const flat = computed(() => groups.value.flatMap((g) => g.items))
@@ -271,7 +270,7 @@ function onKeydown(e: KeyboardEvent): void {
               </button>
             </div>
             <p class="qs-state qs-state-quiet mono" :class="{ 'qs-state-first': !recent.length }">
-              输入关键词检索全部档案<span class="qs-or">，或直达：</span>
+              输入关键词检索全部档案，或直达：
             </p>
             <div class="qs-quick-entries">
               <RouterLink
@@ -509,7 +508,9 @@ mark.qs-hit {
   padding-bottom: 14px;
 }
 
-/* 空查询快速入口：四类目直达行（细线行语言，无卡片） */
+/* 空查询快速入口：站头导航同款的直达行（细线行语言，无卡片）。
+   桌面与窄屏都列——窄屏吸顶栏不列导航（断点见 SiteHeader.vue 的 720px），
+   这里就是窄屏的导航入口，故不按视口裁剪。 */
 .qs-quick-entries {
   padding: 0 8px 12px;
 }
@@ -542,17 +543,6 @@ mark.qs-hit {
   font-size: var(--fs-nano);
   letter-spacing: 0.2em;
   color: var(--ink-2);
-}
-
-/* 窄屏：站头导航已收进 ☰ 菜单（断点见 SiteHeader.vue 的 720px），检索面板不再列
-   「四类目直达」——那 4 项与移动菜单完全重复，等于两个按钮指同一批目的地。
-   display:none 同时把链接移出可访问树，不会留下不可见的焦点位；
-   桌面 ⌘K 面板的快捷入口与 quick-search 走查（desktop 视口）都不受影响。 */
-@media (max-width: 720px) {
-  .qs-or,
-  .qs-quick-entries {
-    display: none;
-  }
 }
 
 /* ---------- 状态与脚注 ---------- */

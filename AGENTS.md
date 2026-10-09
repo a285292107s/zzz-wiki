@@ -1,14 +1,38 @@
-# agents.md · 工程约定（给 AI / 协作者）
+# AGENTS.md · 工程约定（给 AI / 协作者）
 
 绳网档案 —— 绝区零（ZZZ）资料档案站：Vue 3 + TS + Vite 静态站，数据在构建期拉取落地到
 `public/data/`，运行时零外部请求（数据面硬约束；图片候选链兜底例外见 §3）。
 
 > 本文档是**工作约定**，只收录「每个任务都相关」的内容；领域细节一律渐进式披露，按需取用，
-> 发现与实际不符时就地修正：
+> 发现与实际不符时就地修正。
+>
+> **加载指引**：全局只读本文档；确认任务涉及某领域后再按需读对应文档
+> （「什么任务读哪份」的完整索引见 [`docs/README.md`](./docs/README.md)）：
 >
 > - 数据来源 / 表结构 / 图标兜底 / 失效信号 / 运维命令 → [`DATA_GUIDE.md`](./DATA_GUIDE.md)
 > - 架构愿景、分层与目录约定 → [`DESIGN.md`](./DESIGN.md)
 > - 图片/媒体展示技法（超宽/透明底/人像立绘如何展示得好 → 公式与核验流程）→ [`IMG_GUIDE.md`](./IMG_GUIDE.md)
+> - 品质指标与复跑命令 → [`QUALITY.md`](./QUALITY.md)
+> - 模块调用边界（谁可以依赖谁）→ [`docs/architecture.md`](./docs/architecture.md)
+> - 数据契约 / 命名 / 术语表 → [`docs/conventions/`](./docs/conventions/)
+> - 决策记录（**为什么不用方案 B**，防止重走老路）→ [`docs/decisions/`](./docs/decisions/)
+
+## 0. 硬性禁止项（Negative Constraints）
+
+本节只收录 §3「数据与前端铁律」**未覆盖**的禁止项——**数据面零外部请求、图片候选链、富文本、
+版本号、措辞一致性五项见 §3**（设计语言的**完整定义在 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §10**，
+§3 只留判据），此处不重复，避免两处各自漂移。
+
+1. **不读就不断言**：未实际读取文件，禁止声称「已检查过」；路径与事实用工具核验，不靠推测。
+2. **不擅自加依赖**：需要新库先说明理由并由用户拍板；能原生实现就不引库。
+3. **不重复造 helper**：改逻辑前先查 `src/utils/` 与 `src/domain/`；同一功能禁止多处实现。
+4. **不夹带重构**：只改本任务相关的代码；未被要求的重写不做。
+5. **不写水文档**：不生成未被要求的样板文档、前言、客套；已落盘的文档**不复述代码与字段定义**
+   （字段定义归 `src/data/types.ts` / `src/domain/schema.ts`）。
+6. **不把 `temp/` 当仓库**：`temp/` 已 gitignore 且会被清空；验收依据与长期脚本不得只存在于 `temp/`
+   （既有基线文件 `temp/quality-baseline.md` 即属此类，不可依赖——基线归 `QUALITY.md`）。
+7. **不手改生成物**：`public/data/**` 由 `npm run sync` 与 `npm run data` 写入（**两者都会写盘**），
+   生成物（含名词表 `live/noun.json`）禁止手工追加内容——重建时会被覆盖。
 
 ## 1. 临时文件：只放 `temp/`
 
@@ -26,18 +50,19 @@
 - **运行时零外部请求（数据面）**：前端只读本地 `/data`；数据版本号从 `manifest.json` 动态取，禁止硬编码。
   措辞要与实现一致：**数据面零外部请求是硬约束**；**图片面**唯一例外是候选链兜底——本站资源缺失时
   才回源同源 CDN（nanoka），且**不得新增直连外部图源**（禁止把兜底当主源用）。
-- **图标候选链**：一律经 `<HollowImage>`，**禁止直连单一外部图源**（工具清单见 DATA_GUIDE §6）。
+- **图标候选链**：**站外图源**一律经 `<HollowImage>`，**禁止直连单一外部图源**（工具清单见 DATA_GUIDE §6）；**本地自绘/生成的筛选图标资产例外**（`FilterDropdown.vue` 直接渲染本地 `iconUrl`）。
 - **富文本处理**：游戏标记文本（`<color=#…>`、`<IconMap:…>`）展示层一律经富文本工具处理，禁止裸插值（见 DATA_GUIDE §6）。
-- **设计语言**："档案标本"质感 —— 1px 细线框、2px 圆角、等宽编号、纸墨配色；**禁止圆角卡片堆叠、
-  渐变霓虹、投影**（速记见 DATA_GUIDE §10）。
+- **设计语言（"档案标本"）**：**完整要素与禁令见 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §10**，本条不复述。
+  判据一句话：出现圆角卡片堆叠、渐变霓虹、投影，就是返工项。
 - **不 AI 味**：优雅、克制——当产出像常见模板站（圆角 + 渐变 + 投影 + 满屏卡片）时，宁可返工。
 
 ## 4. 环境与命令
 
 - **依赖**：包管理器为 npm，锁文件只维护 `package-lock.json`（勿再引入 pnpm 锁文件）；新增依赖用 `npm install <pkg>`。
 - **日常命令**：开发 `npm run dev`（http://localhost:5173）；构建 `npm run build`（含 vue-tsc）；单测 `npm test`。
-- **部署构建入口 `npm run build:ci`**（Vercel 已指向）：`npm test` → `verify:fonts` → `verify:fonts:cjk` → `vite build`
-  → `sitemap` → `verify:budget`（主包/CSS/sitemap 体积预算）；
+- **部署构建入口 `npm run build:ci`**（Vercel 已指向；**完整链路以 `package.json` 的 `build:ci` 为唯一事实源**）：
+  `npm test` → `verify:fonts` → `verify:icons --local` → `gen:featured-elements --check` → `verify:fonts:cjk`
+  → `vite build` → `sitemap` → `route-html` → `verify:budget`（主包/CSS/sitemap 体积预算）→ `verify:vercel`（缓存与安全响应头）；
   **只构建已提交快照，不在构建期重建数据**（数据更新走 `npm run sync`，见下）。
 - **工程质量审计工具箱**：`npm run audit`（清单与基线见 `scripts/audits/README.md`；含 axe-core 无障碍、
   视口溢出、触屏命中区、全站走查等，均以 playwright-cli 复跑）。
@@ -74,7 +99,11 @@
 
 - **完整定义只写一处**：一个工程术语只在**定义它的那份文档**里有完整定义——一句话「它是什么」
   ＋边界「它**不**包括什么、与近邻术语的区别」；其余地方只引用，不重述、不另立新叫法。
-  归属分区：游戏内术语 → 名词表（`live/noun.json`）；数据/工程术语 → DATA_GUIDE；架构术语 → DESIGN。
+  归属分区：游戏内术语 → [`docs/conventions/glossary.md`](./docs/conventions/glossary.md)（**手写**术语表）；
+  数据/工程术语 → DATA_GUIDE；架构术语 → DESIGN。
+  ⚠ **不要写进 `public/data/live/noun.json`**：那是构建期由源站**全量重建**的生成物
+  （`scripts/build/index.ts` → `dump('live','noun.json', …)`），手写内容会被下次 `npm run sync`
+  整体覆盖。该文件只是**被读取的数据源**，不是落盘位置。
 - **立刻落盘**：术语一经敲定**当场写入**归属文档，不批量攒到最后（会话结束时上下文已烂，攒 = 丢）；
   改名时同步更新全部引用，旧名保留为别名。
 - **挑战冲突，不静默兼容**：叫法与已有文档或代码命名冲突时，当场指出并给出规范术语让用户拍板

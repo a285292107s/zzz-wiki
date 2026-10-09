@@ -34,7 +34,7 @@
 | 项 | 值 |
 |---|---|
 | 源 | `https://static.nanoka.cc`（zzz.nanoka.cc / hakush.in 底层静态 CDN） |
-| 版本清单 | `GET /manifest.json` → `zzz.live`（当前 3.1）即数据版本（游戏正式服在线版本）；`zzz.latest`（3.2.4+…）为源站最新（含前瞻/测试服内容，**本项目不再消费**） |
+| 版本清单 | `GET /manifest.json` → `zzz.live`（**当前值以 `public/data/manifest.json` 为准，本文不写死**）即数据版本（游戏正式服在线版本）；`zzz.latest`（3.2.4+…）为源站最新（含前瞻/测试服内容，**本项目不再消费**） |
 | 列表（无语言） | `/zzz/{ver}/character.json` `/weapon.json` `/bangboo.json` `/equipment.json` |
 | 详情（带语言） | `/zzz/{ver}/zh/character/{id}.json` `/weapon/{id}` `/bangboo/{id}` `/equipment/{id}` |
 | 名词表 | `/zzz/{ver}/zh/noun.json` — 术语词典（游戏名词 title/desc），构建期全量下沉为 `noun.json`（§3/§4），供前端 TermTip 浮层 |
@@ -42,7 +42,7 @@
 | 数据性质 | 与 Dimbreath 解包数据**同源**（nanoka 亦从之加工），但字段名已可读、多语言内嵌、更新更快（新角色/音擎/职业已收录） |
 
 **单数据版本（合规约定 2026-08 起）**：站点只展示**正式服（live）**数据。
-- `live` = 游戏在线版本数据（2026-08 为 3.1，角色 58），与玩家正式服内容对齐。
+- `live` = 游戏在线版本数据（**具体版本与名录数量以 `public/data/manifest.json` 与名录文件为准，本文不写死**），与玩家正式服内容对齐。
 - 构建期只落地 `public/data/live/`（目录名固定，不随版本号变）；
   **不再产出 latest**——`zzz.latest` 含前瞻/测试服内容，为合规绝不拉取/降级/补位。
 - live 不在源站 `available` 列表时构建**直接失败**（sync-data 判定失败则不提交，沿用仓库内既有正式服数据），拒绝用 latest 顶替。
@@ -52,9 +52,9 @@
 
 ---
 
-## 2. 解析层要点（scripts/build/，`buildAll` 主编排；构建入口 build-data.ts，正式更新入口见 §7 `npm run sync`）
+## 2. 解析层要点（scripts/build/，`main()` 主编排；构建入口 build-data.ts，正式更新入口见 §7 `npm run sync`）
 
-`buildAll`（`scripts/build/index.ts`）被 `npm run data`（本地、仅数据）与 `npm run sync`（正式更新入口，见 §7）共用，
+`scripts/build/index.ts` 的 `main()` 被 `npm run data`（本地、仅数据）与 `npm run sync`（正式更新入口，见 §7）共用（`sync-data.ts` 内以 `buildAll` 为本地别名），
 解析/规整/合规逻辑同一份。数据源字段名已是可读英文，**无键名反混淆**，解析层只做规整：
 
 - `basename()`：`icon` 若为完整资源路径（驱动盘/邦布）→ 取裸文件名（去目录/扩展名），与素材 CDN 命名规则一致；角色/音擎 icon 本身即裸名，原样保留。
@@ -90,22 +90,14 @@ public/data/
 
 > `img/` 为 `npm run download:icons` 的本地化图标（独立管理）；`npm run data`
 > 的 resetOut **只清理根 manifest 与 live 目录**，不触碰 img/（曾有整体删除 OUT 目录连坐清空图标的教训）。
-> `img/hero/Mindscape_{id}_2.webp` 除作角色详情页 AgentHead 头图外，也驱动首页「今日角色」
-> 区块：**标本陈列**——桌面 2.36:1 横幅（宽度 = min(栏宽, 44vh×2.36) 居中）、手机 4:5 竖幅，
-> 一次一张、拖拽/滑动换人，信息在**图下的标本签**里
-> （见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)）。选角由
-> `src/data/featured-pool.json` 精选池维护（`useFeaturedAgents` 读取 `pool`；用开发校准工具 `/calibrate`
-> 逐张调整并保存，见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)）：每项 `{ id, pos, zoom, originY }`（`id` 角色号；
-> `pos` 水平脸对焦；`zoom` 放大填满；`originY` 变换原点 Y），名字/属性运行时从名录解析；
-> `useFeaturedAgents()` 按**当天日期**确定性取 4 张（同日恒定、跨日换批，属性 + 阵营双重去重）。
-> 校准页网格角色号从 live 名录动态派生
-> （`domain/heroCatalog.ts`），同步落地新角色后自动可见；入池仍须在 `/calibrate` 目检 `pos`。该图源带透明边（上下为 alpha 透明区）；
-> **首页 hero 底图已移除**（`HomeView` `.hero` 只作文字陈列，不再加载 Mindscape 头图）。双形态切换钮改挂到
-> 1551 佩洛伊斯详情页 `AgentHead.vue` 的右上档案行：仅双形态角色（`hero-gender-variants.json` 登记，当前为 1551）
-> 显示，可在女性/男性双形态间切换；选择经 `useHeroForm` 全局共享 + `localStorage` 持久化
-> （键 `zzz-wiki:hero-form`，默认女性），跨刷新 / 跨页保持一致。
+> `img/hero/Mindscape_{id}_2.webp` 同时是角色详情页 AgentHead 头图与首页「今日角色」的图源，
+> 该图源带透明边（上下为 alpha 透明区）。选角与逐图取景参数存于 `src/data/featured-pool.json`
+> （每项 `{ id, pos, zoom, originY }`；名字/属性运行时从名录解析），由 `useFeaturedAgents` 按
+> **当天日期**确定性取 4 张（同日恒定、跨日换批，属性 + 阵营双重去重）；参数经 dev 校准工具
+> `/calibrate` 写入（网格角色号从 live 名录动态派生，落地新角色后自动可见，入池仍须目检 `pos`）。
+> **怎么摆 / 怎么裁 / 怎么核验**属展示技法，唯一记录点见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)；
+> 双形态角色（当前 1551 佩洛伊斯）的头图文件名规则见 §5。
 > `img/banner/` 下的旧宣发海报当前已不再被引用（可留作素材，构建管线不会清除该目录）。
-> 展示技法与公式（视口遮罩 / 放大填满 / 脸对焦 / 核验流程）总纲见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)。
 > 名录/详情数据量：live（3.2）角色 60/音擎 100/邦布 42/驱动盘 30。（源站 latest 3.3.4+… 含
 > 前瞻/测试服内容，按合规约定不产出、不展示。）
 
@@ -157,17 +149,17 @@ public/data/
 
 ## 5. 图标来源与本地优先
 
-前端 `src/data/icons.ts` 提供 `iconSources(item, kind, category)`，返回**按优先级排列的候选 URL**：
+前端 `src/data/icons.ts` 提供 `iconSources(item, category?, variant?)`（第二参＝类目；第三参传 `'thumb'` 走名录小图），返回**按优先级排列的候选 URL**：
 `<HollowImage>` 依序尝试，全部失败→文字占位。
 
 | 优先级 | 来源 | URL 模板 | 覆盖/实测 |
 |---|---|---|---|
-| ① | **本地化图标** | `{BASE}/data/img/{category}/{basename}.webp`（`npm run download:icons` 落地） | 角色/音擎/邦布/驱动盘/技能键位/hero 头图全量（缺 npm run data 后运行） |
+| ① | **本地化图标** | `{BASE}/data/img/{category}/{basename}.webp`（`npm run download:icons` 落地） | 角色/音擎/邦布/驱动盘/技能键位/hero 头图全量（须在 `npm run data` / `npm run sync` 之后才落地） |
 | ② | nanoka 素材 CDN | `https://static.nanoka.cc/assets/zzz/{basename}.webp` | **全品类图标 100%（除空缺 icon）** |
 
 **nanoka 命名规则**：取游戏资源路径的**裸文件名**（去目录、去扩展名）+ `.webp`。
 例：`UI/Sprite/A1DynamicLoad/IconSuit/UnPacker/SuitWoodpeckerElectro.png` → `SuitWoodpeckerElectro.webp`。
-角色头像 `IconRole01` 等即直接用；角色列表头像在 ICON 名里 `Role`→`RoleSelect`（`IconRoleSelect01`）。
+角色头像 `IconRole01` 等即直接用；角色列表头像在现行名录里形如 `IconRoleGeneral01`（**实测：60 条名录 icon 零 `RoleSelect` 命中**——`Role`→`RoleSelect` 属早期命名，已不适用）。
 
 > **本地化（Q4b）**：`npm run download:icons` 把运行时图标从 nanoka 下载到
 > `public/data/img/{category}/`，使站点**运行时零外部请求**。本地文件缺失时自动落到
@@ -175,7 +167,7 @@ public/data/
 > 皮肤缩略图仍走 CDN→文字兜底。
 
 > **hero 头图（AgentHead）**：角色详情页 head 的 Mindscape_{id}_2.webp 已全量本地化到
-> `public/data/img/hero/`（live 58/58，正式服角色源站均已上传；下载脚本遇缺仅告警不置失败码）
+> `public/data/img/hero/`（**张数以目录实际文件为准，本文不写死**：当前含 1551 双形态男性版共 61 张；下载脚本遇缺仅告警不置失败码）
 > ——前端 `AgentHead.vue` 本地优先 + nanoka CDN 兜底，两级均缺时降为 --bg-0 底色，不破版。
 
 > **已知两端皆缺的按键图标（单一事实源）**：游戏文本 `<IconMap:…>` 里有个别资产**源站从未提供**。
@@ -223,7 +215,7 @@ public/data/
 | 文件 | 职责 |
 |---|---|
 | `src/data/api.ts` | 读本地 `/data`，内存缓存；本地化名统一由 `utils/names.ts` 的 `pickName()` 提供 |
-| `src/data/types.ts` | 数据类型 + 枚举映射常量（含 300 流明、职业 7 锋御） |
+| `src/data/types.ts` | **类型别名**（由 `src/domain/schema.ts` 的 `z.infer` 派生）+ 对外 import 面；**枚举常量不在这里**——只在 `src/domain/enums.ts` |
 | `src/data/icons.ts` | 图标候选链（本地 → nanoka CDN 两级兜底）+ 技能键位资产名映射 |
 | `src/components/HollowImage.vue` | 多候选图 + `position`/`ratio` 裁切 + 文字降级 |
 | `src/utils/rich.ts` | 富文本：`<IconMap:Icon_XXX>`→键位图（本地优先，`data-cdn` 属性供 main.ts 全局 error 降级）、`<color=#…>`→带色 span、`<Term:N>`→术语锚点（供 TermTip）、`{CAL:expr,scale,decimals}`→按技能等级代入求值（技能/核心技描述与数值条目，如「伤害提升18%」；需调用方传入等级，否则剥离；scale 语义按游戏实机核实：小数式 ×100 转百分比，如 月城柳 极性紊乱 满级 3200%）、LAYOUT 与 `{Skill:N,Prop:N}` 占位剥离，其余 HTML 转义防注入 |
@@ -251,7 +243,7 @@ npm run data -- --check # 仅版本探测：输出 UPDATE_AVAILABLE / UP_TO_DATE
 npm run sync           # 数据+图标同步（正式提交入口）：探测 → 重建 JSON → 图标 --soft 补差（只补缺失、已有资源零重下）
                         #   → verify:data + 本地必须项图标齐整（告警）→ 汇总变更集；无变更不提交；由 data-sync workflow
                         #   定时触发 → 工作流内 verify:data（契约 + 完整性：名录↔详情一一对应）硬门禁通过 → 直接 commit + push 到默认分支（master）（需外网）
-npm run build:ci        # Vercel 部署构建入口：npm test → verify:fonts → verify:fonts:cjk → vite build → generate-sitemap；
+npm run build:ci        # Vercel 部署构建入口（**完整链路以 package.json 的 build:ci 为唯一事实源**）：
                         #   只构建已提交快照、不在构建期重建数据（数据更新走 npm run sync）；站点因数据源故障而挂的情形由 sync 不提交规避
 npm run verify:icons    # 图标校准：本地 img 差集（核心）+ nanoka 远程审计；缺失非零退出
                         #   --local 仅查本地（离线可用）；网络异常按"无法确认"以码 2 退出
@@ -261,7 +253,7 @@ npm run download:fonts:cjk  # CJK 原始分片拉取：Noto Serif SC 500 → .ca
 npm run subset:fonts:cjk    # CJK 分片裁剪：按站内字符集裁剪源片并按 10KB 目标细分 → public/fonts/noto-serif-sc/ + CSS + 清单（内容寻址命名，自动清理孤儿）
 npm run fonts:cjk           # 上两步串联（字符集变化后跑这个）
 npm run verify:fonts:cjk    # CJK 分片完整性 + 字符集覆盖校验：清单/css/文件三方对账，且字体能提供的字符必须全部已声明（离线可用；build:ci 已挂）
-npm run sitemap         # 生成 dist/sitemap.xml（build:ci 末段自动执行；域名取 VITE_SITE_ORIGIN，与 canonical/og:url 同源；
+npm run sitemap         # 生成 dist/sitemap.xml（build:ci 中 vite build 之后执行；域名取 VITE_SITE_ORIGIN，与 canonical/og:url 同源；
                         #   部署环境（VERCEL/CI）缺该变量则直接失败——防止把 localhost 域名的 sitemap 发上线）；
                         #   verify:budget 另做「sitemap origin 与 VITE_SITE_ORIGIN 一致」门禁
 npm run route-html      # 逐路由静态 HTML（build:ci 紧随 sitemap 执行）：以 dist/index.html 为模板，
@@ -327,7 +319,7 @@ v1 主源，v2 已弃用（数据更新滞后：缺 1611/1621、职业 7；键�
 "档案标本"质感：1px 细线框、2px 圆角、等宽编号、纸墨配色。列表/首页图标用 34–40px 细线框小图；
 **禁止圆角卡片堆叠、渐变霓虹、投影**（浮层阴影除外，见 `--shadow-pop`）。图标统一走 `HollowImage`（含兜底），
 skills 描述富文本走 `richDesc`。字体族（CJK 衬线优先、sans 弃 `Inter`）与浮层阴影染 `--bg-0` 属 **token 级精修**，
-唯一记录点见 `tokens.css` 注释与 `/style`（DESIGN.md §9）；本条指核心语言不变。
+**token 级精修的记录点是 `tokens.css` 注释与 `/style`（DESIGN.md §9）**；本条指核心语言不变。
 
 **墨色分层是契约，不是建议**（`tokens.css` 已写明）：`--ink-2` 及更亮承载信息（对 bg-0/bg-1 ≥4.5:1，AA）；
 `--ink-3` 是**装饰层**（不承载信息、不要求 AA）——只能用于纯序号、分隔符、占位字形，且应 `aria-hidden`。
@@ -341,44 +333,14 @@ CJK 衬线（Noto Serif SC **500 单档**）**按站点字符集裁剪后自托�
 生成物 `noto-serif-sc.css` 勿手改；`verify:fonts:cjk` 门禁把守完整性 + **字符集覆盖**
 （字体能提供的字符必须全部已声明，缺一即字形混排）。
 
-> 📉 **分片裁剪（2026-10）**：官方分片按编码区切，单片覆盖数千码位（20-80KB），页面只用几十字。
-> 裁剪 + 按 **5KB** 目标细分后：**首页字体 924KB → ~227KB（−75%），总载荷 1.77MB → 0.60MB，
-> 移动端 LCP 11.2s → 4.5s（−60%）**。粒度由 `CJK_TARGET_KB` 控制（默认 5；调小更省字节、
-> 请求更多——详情页 96 请求 vs 74，HTTP/2 多路复用下实测更优）。字符集变化（新增数据/文案）
-> 后须重跑 `npm run fonts:cjk`，否则新字回退系统字体。
-> 注意：Google 现行分片是**静态实例**（无 fvar 轴）——**不要钉可变轴**（harfbuzz 会报 axis 不存在）。
->
-> 🎯 **详情页 LCP 的构成与已完成/已否决的方向**（2026-10 实测，Lighthouse 移动端）：
-> 详情页 LCP 元素是 hero 图（窄屏派生 45KB），但 620KB 字体分片与它争抢慢管道——屏蔽字体
-> 实验显示字体代价 **1.7s**（LCP 5228 → 3540ms）。字体字节下限 ≈ 页内去重字符数 × ~271B/字
-> （CJK woff2 单字成本），故「降到几十 KB」不可达。已评估并**否决**：
-> - `content-visibility: auto` 延迟折下文本布局：首屏分片仅 70 → 55（−21%），但
->   `contain-intrinsic-size` 估算让文档高度偏差 39px（影响 scrollspy 定位与锚点跳转），
->   收益不足以承担交互风险。
-> 已采纳：更细分片（TARGET 10 → 5KB）——字节持平但小片更快完成、关键文字分片更早到达，
-> 详情页 LCP 7392 → 5515ms（两次均值），首页持平（4571 vs 4459ms，噪声内）。
-> 已采纳（2026-10，逐路由 HTML 的副产品）：**角色详情页首屏图预载**
-> （`<link rel=preload as=image fetchpriority=low>`，按 860px 断点分 mobile/full 两个变体）。
-> hero 图是 JS 渲染后才创建的 `<img>`，实测慢 4G 下请求要 1.5–4.0s 才发起；预载让它
-> 在解析期就出发——**桌面实测 LCP 5372 → 3436/3736ms（−35%），移动端由「图片受限」
-> 转为「渲染受限」（中位持平、最差情况改善）**。`fetchpriority=low` 是关键：默认预载按
-> High 优先级会与关键 JS 抢带宽（实测默认优先级时图片就绪提前 2.3s 但 LCP 无改善）。
-> 生成器自校验会拦住预载丢失。注意 `vite preview` 不返回生成的目录索引（本地测量须用
-> 目录索引静态服务器；生产 Vercel 静态优先，行为正确）。
-> 已采纳（2026-10，同一处逐路由 HTML 再收两项，**移动端详情页 LCP 中位 3152 → 2308ms，−27%**）：
-> - **详情 JSON 预载**（`<link rel=preload as=fetch crossorigin>`）：应用侧 `detailFor()` 要等
->   JS 起来才 fetch，实测请求 2139 → 229ms 出发、2370 → 603ms 完成；无预载时它是**最后一个依赖**
-> - **路由 chunk 的 modulepreload**（`vite build` 开 `manifest: true`，生成器据此把该路由视图
->   chunk 及其静态依赖写进 `<link rel=modulepreload>`）：动态 import 的 chunk 要等入口 JS 跑完
->   才发现——实测出发 1649 → 210ms、完成 1922 → 565ms。manifest 读完即删（不进部署产物）；
->   路由→视图的映射漂移会在构建期直接报错
-> 三项预载的效果要用**机制级时序**（请求起止）而不是单看 LCP 判断：LCP 的噪声（±300ms）
-> 远大于单项收益，但请求时序的差异是秒级的、方向明确。
+> 📉 **分片裁剪（运维规则）**：官方分片按编码区切（单片 20-80KB，页面只用几十字），故裁剪后按
+> `CJK_TARGET_KB`（默认 5）细分。**字符集变化（新增数据/文案）后须重跑 `npm run fonts:cjk`**，
+> 否则新字回退系统字体。Google 现行分片是**静态实例（无 fvar 轴）——不要钉可变轴**
+> （harfbuzz 报 axis 不存在）。字体分片对首屏 LCP 的制约与测量口径见 [`QUALITY.md`](./QUALITY.md) §1。
 >
 > ⚠ **分片内部名会误导诊断**：CSS 交付里的 family 内部名固定为 `Noto Serif SC ExtraLight…`，
 > CDP `CSS.getPlatformFontsForNode` 报的就是它——**不代表实际渲染字重**（现行片 OS/2
-> usWeightClass=500）。判据与复跑脚本：`scripts/audits/font-weight-calibration.js`
-> （用本站分片做对照字族比墨量，相等即证明生产走的是我们交付的字；基线 403=403）。
+> usWeightClass=500）。判据与复跑脚本：`scripts/audits/font-weight-calibration.js`（基线 403=403）。
 
 > 📱 **触屏交互细节**（2026-10，全站 base.css 一处收口）：
 > - **按压反馈**：`:active` 用 `filter: brightness(0.82)`（**不用 opacity**——`.reveal` 的显现

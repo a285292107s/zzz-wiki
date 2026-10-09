@@ -34,72 +34,24 @@
         <span class="st-word">检索</span>
         <kbd class="st-kbd">Ctrl K</kbd>
       </button>
-
-      <button
-        ref="menuToggleEl"
-        type="button"
-        class="menu-toggle mono"
-        :class="{ open: menuOpen }"
-        :aria-expanded="menuOpen"
-        aria-controls="mobile-nav"
-        :aria-label="(menuOpen ? 'CLOSE' : 'MENU') + ' · 切换导航菜单'"
-        @click="menuOpen = !menuOpen"
-      >
-        <span class="burger" aria-hidden="true">
-          <i /><i /><i />
-        </span>
-        <span class="menu-word">{{ menuOpen ? 'CLOSE' : 'MENU' }}</span>
-      </button>
     </div>
-
-    <nav id="mobile-nav" v-show="menuOpen" class="mobile-nav" aria-label="移动端导航">
-      <RouterLink
-        v-for="item in nav"
-        :key="item.to"
-        :to="item.to"
-        class="mobile-item"
-        :class="{ active: isActive(item.to) }"
-        :aria-current="isActive(item.to) ? 'true' : undefined"
-        @click="closeMenu"
-      >
-        <span class="no mono">{{ item.no }}</span>
-        <span class="label">{{ item.label }}</span>
-      </RouterLink>
-    </nav>
   </header>
 </template>
 
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
-import { CATALOG, GUIDE_ENTRIES } from '@/domain/catalog'
+import { NAV_ENTRIES } from '@/domain/catalog'
 import { useQuickSearch } from '@/composables/useQuickSearch'
 
 // 导航由 catalog.ts 派生（DESIGN.md §5.3 单一事实源）：数据类目 + 进主导航的图文板块
-// （nav:false 的板块——如数据说明——只在首页目录与页脚出现，站头保持内容聚焦）
+// （nav:false 的板块——如数据说明——只在首页目录与页脚出现，站头保持内容聚焦）。
+// 窄屏不列这排导航（见样式里的 720px 断点）：检索面板空态的「直达」区列同一份 NAV_ENTRIES，
+// 即窄屏的导航入口——两处共用同一份清单，不会漂移
 const route = useRoute()
-const nav = [
-  ...CATALOG.map((c) => ({ no: c.no, label: c.label, to: c.path })),
-  ...GUIDE_ENTRIES.filter((g) => g.nav).map((g) => ({ no: g.no, label: g.label, to: g.path })),
-]
+const nav = NAV_ENTRIES
 
 const isActive = (to: string) =>
   route.path === to || (to !== '/' && route.path.startsWith(to))
-
-// 移动端菜单：路由切换关闭（closeMenu 由条目点击触发）+ Esc 关闭 + 焦点归还切换钮
-const menuOpen = ref(false)
-const menuToggleEl = ref<HTMLButtonElement | null>(null)
-function closeMenu() {
-  menuOpen.value = false
-}
-function onDocKeydown(e: KeyboardEvent) {
-  if (e.key === 'Escape' && menuOpen.value) {
-    menuOpen.value = false
-    menuToggleEl.value?.focus()
-  }
-}
-onMounted(() => document.addEventListener('keydown', onDocKeydown))
-onBeforeUnmount(() => document.removeEventListener('keydown', onDocKeydown))
 
 // 全局快速检索（Ctrl/⌘+K；按钮唤起）
 // 名录页唤起时把该页已输入的搜索词带入面板（?q= 参数）——同一目标换更强的工具继续找
@@ -222,10 +174,11 @@ function openSearch() {
   padding: 1px 5px;
 }
 
-/* 窄屏：仅留 ⌕ 图标钮。文字「检索」改为视觉隐藏而非 display:none——
-   display:none 会把按钮文本从可访问树里摘掉，按钮将无可访问名（axe button-name critical）；
-   视觉隐藏则名字保持「检索」，读屏仍可识别。键位提示窄屏无用，直接移除 */
-@media (max-width: 1100px) {
+/* 图标形态：文字「检索」改为视觉隐藏（而非 display:none——那会把按钮文本从可访问树里摘掉，
+   按钮将无可访问名，axe button-name critical；视觉隐藏则名字保持「检索」，读屏仍可识别）
+   ＋ 去掉 CTRL K 键帽 ＋ 收紧内边距。两个档位用同一形态，都是横向真的放不下带字钮：
+   721–1100 站头导航占着空间；≤359 见下方响应式段的实测 */
+@media (min-width: 721px) and (max-width: 1100px), (max-width: 359px) {
   .st-word {
     position: absolute;
     width: 1px;
@@ -300,119 +253,30 @@ function openSearch() {
   margin-left: -100%;
 }
 
-/* ---------- mobile menu (Q3a) ---------- */
-
-.menu-toggle {
-  display: none;
-  align-items: center;
-  gap: 8px;
-  font-size: var(--fs-micro);
-  letter-spacing: 0.18em;
-  color: var(--ink-2);
-  padding: 6px 10px;
-  border: 1px solid var(--line-1);
-  border-radius: 2px;
-  transition: color var(--t-fast) var(--ease),
-    border-color var(--t-fast) var(--ease);
-}
-
-@media (hover: hover) {
-  .menu-toggle:hover {
-    color: var(--ink-0);
-    border-color: var(--line-2);
-  }
-}
-
-.menu-toggle.open {
-  color: var(--amber-hi);
-  border-color: var(--amber);
-}
-
-.burger {
-  display: inline-flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.burger i {
-  display: block;
-  width: 14px;
-  height: 1px;
-  background: currentColor;
-  transition: transform var(--t-fast) var(--ease), opacity var(--t-fast) var(--ease);
-}
-
-.menu-toggle.open .burger i:nth-child(1) {
-  transform: translateY(4px) rotate(45deg);
-}
-
-.menu-toggle.open .burger i:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.open .burger i:nth-child(3) {
-  transform: translateY(-4px) rotate(-45deg);
-}
-
-.mobile-nav {
-  display: none;
-  border-top: var(--rule);
-  background: var(--bg-0);
-  padding: 8px var(--pad-page) 14px;
-  flex-direction: column;
-}
-
-.mobile-item {
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-inline);
-  padding: 12px 2px;
-  border-bottom: 1px solid var(--line-0);
-  color: var(--ink-1);
-  transition: color var(--t-fast) var(--ease);
-}
-
-.mobile-item .no {
-  font-size: var(--fs-micro);
-  color: var(--ink-2); /* 同桌面导航：编号是可见文本，需过 AA（ink-3 仅 2.28:1） */
-}
-
-.mobile-item .label {
-  font-size: var(--fs-body);
-  letter-spacing: 0.06em;
-}
-
-.mobile-item:hover,
-.mobile-item.active {
-  color: var(--ink-0);
-}
-
-.mobile-item.active .no {
-  color: var(--amber);
-}
-
 /* ---------- responsive ---------- */
 
-/* 720 是「导航收进 ☰」的断点，与 QuickSearch 的窄屏去重规则绑定：
-   此断点以下检索面板不再列「四类目直达」（否则与菜单重复），改断点须同步两处 */
+/* 720 是「站头导航让位给检索面板」的断点：此断点以下吸顶栏只剩品牌与检索钮，
+   导航（NAV_ENTRIES）改由检索面板空态的「直达」区承载（断点须与 QuickSearch 的
+   直达区规则同步——两处互相注明）。行距收到 --space-inline，把带字钮的位置让出来 */
 @media (max-width: 720px) {
   .masthead-inner {
-    height: 62px;
-    flex-direction: row;
     gap: var(--space-inline);
-    padding-block: 0;
-  }
-
-  .menu-toggle {
-    display: inline-flex;
   }
 
   .nav {
     display: none;
   }
+}
 
-  .mobile-nav {
-    display: flex;
+/* 360–720：手机断点下检索钮取桌面形态（⌕ + 文字「检索」），只去掉 CTRL K 键帽——
+   触屏按不到那个键，留着是给不存在的按键做广告。
+   实测：品牌 219 + 带字钮 67 + 行距 12 = 298，360px 档内容宽 320 放得下；
+   更窄的 320 档内容宽 280 放不下（带字钮会把品牌次行挤成两行、钮自身也折行），
+   故 ≤359 仍走上面的图标形态 */
+@media (min-width: 360px) and (max-width: 720px) {
+  .st-kbd {
+    display: none;
   }
 }
 </style>
+

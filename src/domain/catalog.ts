@@ -122,6 +122,21 @@ export const GUIDE_ENTRIES: readonly GuideEntry[] = [
   },
 ] as const
 
+/**
+ * 站头导航一览 = 4 个数据类目 + 进主导航的图文板块（GUIDE_ENTRIES 里 nav:true 的）。
+ * SiteHeader（吸顶栏导航）与 QuickSearch（检索面板空态的「直达」区）共用这一份派生结果：
+ * 窄屏吸顶栏不列导航，检索面板的直达区就是窄屏的导航入口，两处必须是同一份清单。
+ */
+export const NAV_ENTRIES: readonly { no: string; label: string; en: string; to: string }[] = [
+  ...CATALOG.map((c) => ({ no: c.no, label: c.label, en: c.en, to: c.path })),
+  ...GUIDE_ENTRIES.filter((g) => g.nav).map((g) => ({
+    no: g.no,
+    label: g.label,
+    en: g.en,
+    to: g.path,
+  })),
+]
+
 /** 按路由路径查找类目（导航/页面用），找不到返回 undefined。 */
 export function catalogByPath(path: string): CatalogEntry | undefined {
   return CATALOG.find((c) => c.path === path)

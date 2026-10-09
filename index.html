@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <!-- 画布底色必须**内联**：深色站点的首帧在 CSS 包解析前由 UA 用默认（白）画布绘制，
          冷加载实测抓到一整帧纯白（1440×900 全白）——这就是「页面闪了一下」。
-         三处同值，改一处要一起改：这里 / <meta name="theme-color"> / tokens.css 的 --bg-0 -->
+         **四处**同值，改一处要一起改：这里 / 本文件第 23 行的内联样式 / tokens.css 的 --bg-0 / public/offline.html 的 --bg -->
     <meta name="color-scheme" content="dark" />
     <style>
       html {

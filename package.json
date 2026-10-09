@@ -9,7 +9,7 @@
     "build:ci": "npm test && node scripts/verify-fonts.mjs && node scripts/verify-icons.mjs --local && node scripts/generate-featured-elements.mjs --check && node scripts/verify-cjk-fonts.mjs && vite build && node scripts/generate-sitemap.mjs && node scripts/generate-route-html.mjs && node scripts/verify-budget.mjs && node scripts/verify-vercel-config.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "audit": "node scripts/audit-runner.mjs",
-    "preview": "vite preview",
+    "preview": "vite preview --port 4175",
     "data": "tsx scripts/build-data.ts",
     "sync": "tsx scripts/sync-data.ts",
     "download:icons": "node scripts/build/download-icons.mjs",

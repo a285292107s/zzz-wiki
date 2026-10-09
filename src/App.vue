@@ -52,7 +52,7 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onGlobalKeydown))
     <!-- 键盘跳转链接：首个 Tab 即达正文，免于逐个穿过站头导航；获焦前视觉隐藏 -->
     <a class="skip-link mono" href="#main">跳至档案正文</a>
 
-    <!-- 站头：导航 / 移动端菜单（SiteHeader） -->
+    <!-- 站头：品牌 + 导航（窄屏隐去，改由检索面板直达区承载）+ 检索（SiteHeader） -->
     <SiteHeader />
 
     <!-- 主内容区：ErrorBoundary 包裹视图，渲染异常时捕获并显示友好回退，避免白屏。
