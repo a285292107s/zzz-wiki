@@ -3,13 +3,13 @@
  * QuickSearch — 全局快速检索面板（Ctrl/⌘+K；站头检索钮）。
  * 终端语言：染墨遮罩 + 单一 hairline 框 + 等宽编号陈列；无投影卡片堆叠。
  * 键盘完整可用：↑/↓ 移动、Enter 直达、Esc 关闭；aria-combobox 语义。
- * 结果按类目分组陈列（类目徽标 = catalog no），空查询为「最近访问 + 六项直达」：
- * 直达区列 NAV_ENTRIES（4 个数据类目 + 档案图谱 / 战斗公式），桌面与窄屏**同一份**——
- * 窄屏吸顶栏不列导航（断点见 SiteHeader.vue 的 720px），本面板即窄屏的导航入口。
+ * 结果按类目分组陈列（类目徽标 = catalog no）。空查询只列「最近访问」与检索提示——
+ * **不列类目导航**：站头本身就有入口（≥980 主排导航、≤979 ☰ 菜单），面板再列一遍
+ * 就是两个入口指同一批目的地。检索面板只做检索，导航归导航。
  */
 import { computed, nextTick, ref, watch } from 'vue'
-import { RouterLink, useRouter } from 'vue-router'
-import { CATALOG, NAV_ENTRIES } from '@/domain/catalog'
+import { useRouter } from 'vue-router'
+import { CATALOG } from '@/domain/catalog'
 import { highlightSegments } from '@/domain/search'
 import { useQuickSearch, useQuickSearchResults, useRecentItems } from '@/composables/useQuickSearch'
 import HollowImage from '@/components/HollowImage.vue'
@@ -55,12 +55,17 @@ const groups = computed(() => {
   }))
 })
 
-/** 空查询快速入口：站头导航的同一份清单（取代全量陈列）。
- *  窄屏吸顶栏不列导航，这里就是窄屏的导航入口——故不按视口裁剪 */
-const quickEntries = NAV_ENTRIES
-
 /** 扁平顺序（键盘导航序 = 视觉序） */
 const flat = computed(() => groups.value.flatMap((g) => g.items))
+
+/** 可移动项总数（= 脚注能否承诺 ↑↓·ENTER 的依据）。
+ *  与 move() 的算法同源：结果态是结果行，空态是最近访问行；两处都空则没有可移动项。
+ *  ⚠ 空态判据必须与模板一致用 `!query.trim()`：用 query 真值判断时，输入纯空格会分歧——
+ *  模板走空态分支（最近访问行照常渲染），这里却算出 0，于是脚注只剩「ESC」、
+ *  方向键静默失效，而鼠标点同一行还能跳（实测）。 */
+const movable = computed(
+  () => flat.value.length + (query.value.trim() ? 0 : recent.value.length),
+)
 
 watch(
   () => query.value,
@@ -73,8 +78,15 @@ watch(
 /** 唤起元素：关闭时归还焦点（面板可从站头按钮或 Ctrl+K 打开） */
 let opener: HTMLElement | null = null
 
-/** 焦点圈定：Tab 循环限制在面板内部（遮罩后的底层页面对键盘不可达） */
-function trapFocus(e: KeyboardEvent): void {
+/** 焦点圈定 + Esc 归属：面板是文档级模态（锁滚动、圈定 Tab），故两者都在 document 上。
+ *  ⚠ Esc **不能**只挂在输入框上（旧写法）：Tab 走到结果行或 ESC 钮之后 Esc 就失效了——
+ *  而 `aria-modal="true"` 的对话框本该随时可 Esc 关闭（实测旧写法下 3 / 4 个焦点位置关不掉）。 */
+function onDocKeydown(e: KeyboardEvent): void {
+  if (e.key === 'Escape') {
+    e.preventDefault()
+    close()
+    return
+  }
   if (e.key !== 'Tab') return
   const panel = panelEl.value
   if (!panel) return
@@ -98,11 +110,11 @@ watch(visible, (v) => {
   if (v) {
     opener = document.activeElement as HTMLElement | null
     document.documentElement.style.overflow = 'hidden'
-    document.addEventListener('keydown', trapFocus, true)
+    document.addEventListener('keydown', onDocKeydown, true)
     void nextTick(() => document.getElementById('quick-search-input')?.focus())
   } else {
     document.documentElement.style.overflow = ''
-    document.removeEventListener('keydown', trapFocus, true)
+    document.removeEventListener('keydown', onDocKeydown, true)
     query.value = ''
     active.value = 0
     // 焦点归还：唤起时记录的元素仍在文档中才归还（路由跳转后 opener 已卸载则跳过）
@@ -120,10 +132,10 @@ function scrollActiveIntoView(): void {
 }
 
 function move(delta: number): void {
-  // 扁平导航序 = [recent(负序，仅空查询时) ...] + results；wrap 环形移动
+  // 扁平导航序 = [recent(负序，仅空查询时) ...] + results；wrap 环形移动。
+  // 总数取 movable（与脚注提示同一处算法），不在这里另算一份
   const nRes = flat.value.length
-  const nRec = query.value ? 0 : recent.value.length
-  const total = nRes + nRec
+  const total = movable.value
   if (!total) return
   const pos = active.value < 0 ? nRes + (-1 - active.value) : active.value
   const next = (pos + delta + total) % total
@@ -150,6 +162,8 @@ function goRecent(r: { to: string }): void {
   router.push(r.to)
 }
 
+/** 输入框上的按键：↑↓ 移动、Enter 直达。
+ *  Esc 不在这里——它归 onDocKeydown（文档级），否则焦点一离开输入框就关不掉面板。 */
 function onKeydown(e: KeyboardEvent): void {
   if (e.key === 'ArrowDown') {
     e.preventDefault()
@@ -160,9 +174,6 @@ function onKeydown(e: KeyboardEvent): void {
   } else if (e.key === 'Enter') {
     e.preventDefault()
     go()
-  } else if (e.key === 'Escape') {
-    e.preventDefault()
-    close()
   }
 }
 </script>
@@ -270,32 +281,27 @@ function onKeydown(e: KeyboardEvent): void {
               </button>
             </div>
             <p class="qs-state qs-state-quiet mono" :class="{ 'qs-state-first': !recent.length }">
-              输入关键词检索全部档案，或直达：
+              输入关键词检索全部档案
             </p>
-            <div class="qs-quick-entries">
-              <RouterLink
-                v-for="q in quickEntries"
-                :key="q.to"
-                :to="q.to"
-                class="qs-entry"
-                @click="close()"
-              >
-                <span class="g-no mono">{{ q.no }}</span>
-                <span class="qe-label">{{ q.label }}</span>
-                <span class="qe-en mono">{{ q.en }}</span>
-              </RouterLink>
-            </div>
           </template>
           <p v-else-if="!query" class="qs-state mono">输入关键词检索全部档案</p>
           <p v-else class="qs-state mono" role="status">无匹配档案 — 调整关键词再试</p>
         </div>
 
         <p class="qs-foot mono" aria-hidden="true">
-          <template v-if="overflow > 0">
+          <!-- 截断提示只在**结果态**出现：空查询时 overflow 按「全部条目」算出 171 条，
+               但空态一行结果都没列，提示会变成「共 231 条命中，仅列前 60」而无处对照 -->
+          <template v-if="query.trim() && overflow > 0">
             <span class="foot-overflow">共 {{ overflow + results.length }} 条命中，仅列前 {{ results.length }} — 精确关键词</span>
             <span class="sep" aria-hidden="true">·</span>
           </template>
-          <span>↑↓ 移动</span><span class="sep" aria-hidden="true">·</span><span>ENTER 直达</span><span class="sep" aria-hidden="true">·</span><span>ESC 关闭</span>
+          <!-- 移动/直达提示只在**确有可移动项**时给：空态无最近访问时没有任何一行，
+               承诺 ↑↓·ENTER 是空头支票（ESC 仍然有效，故它常驻） -->
+          <template v-if="movable > 0">
+            <span>↑↓ 移动</span><span class="sep" aria-hidden="true">·</span>
+            <span>ENTER 直达</span><span class="sep" aria-hidden="true">·</span>
+          </template>
+          <span>ESC 关闭</span>
         </p>
       </div>
     </div>
@@ -506,43 +512,6 @@ mark.qs-hit {
 .qs-state-first {
   padding-top: 40px;
   padding-bottom: 14px;
-}
-
-/* 空查询快速入口：站头导航同款的直达行（细线行语言，无卡片）。
-   桌面与窄屏都列——窄屏吸顶栏不列导航（断点见 SiteHeader.vue 的 720px），
-   这里就是窄屏的导航入口，故不按视口裁剪。 */
-.qs-quick-entries {
-  padding: 0 8px 12px;
-}
-
-.qs-entry {
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-inline);
-  padding: 9px 8px;
-  text-decoration: none;
-  color: inherit;
-  border-bottom: 1px solid var(--line-0);
-  transition: background var(--t-fast) var(--ease);
-}
-
-@media (hover: hover) {
-  .qs-entry:hover {
-    background: var(--bg-3);
-  }
-}
-
-.qs-entry .qe-label {
-  flex: 1;
-  font-family: var(--serif);
-  font-size: var(--fs-md);
-  color: var(--ink-0);
-}
-
-.qs-entry .qe-en {
-  font-size: var(--fs-nano);
-  letter-spacing: 0.2em;
-  color: var(--ink-2);
 }
 
 /* ---------- 状态与脚注 ---------- */

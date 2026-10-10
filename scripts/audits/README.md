@@ -20,7 +20,7 @@ RULES 表里（不靠猜返回结构）；**新增审计脚本必须同时补判
 | landmarks.js          | landmark/h1/alt 唯一性 | 每页 h1/main/footer 各 1；无缺 alt 图（详情页含 2 个 `<header>`：页头 + 条目头，合法） |
 | font-weight-calibration.js | CJK 衬线实际渲染字重标定 | 生产 = wght 500 实例 |
 | axe-a11y.js          | axe-core 全量规则（**15 路由 × 桌面/移动 = 30 组合**，含详情 404 态） | 0 violations |
-| axe-states.js        | 交互面板**展开态**的 axe（窄屏检索直达区/下拉/检索/浮层/空态） | 6 状态 0 violations |
+| axe-states.js        | 交互面板**展开态**的 axe（窄屏 ☰ 导航菜单/下拉/检索/浮层/空态） | 6 状态 0 violations |
 | print-mode.js        | 打印（纸墨模式）：白纸黑字/外壳隐藏/内容保留 | **30/30**（5 路由 × 6 断言） |
 | forced-colors.js     | 高对比度模式：结构线/状态/滑条可见 | 8/8 |
 | csp-check.js         | 生产安全响应头本地验证（拦截注入 CSP 后走关键路径） | 0 违规 |
@@ -31,7 +31,7 @@ RULES 表里（不靠猜返回结构）；**新增审计脚本必须同时补判
 | motion-audit.js      | 动效克制性（reduced-motion 覆盖、过长过渡、transition: all） | reduced 0 残留 |
 | color-audit.js       | 色彩系统（调色板合规 / 文本 AA / 非文本 3:1） | 0 越轨，最差文本 4.65:1 |
 | reflow-spacing.js    | WCAG 1.4.10 重排(320px) + 1.4.12 文本间距 + 320px 命中区 + 触屏档 | 0 溢出/0 裁切/0 过小目标 |
-| keyboard-journey.js  | 键盘完整旅程（15 条任务，含焦点不被抢 / 详情页返回可达 / 窄屏检索直达） | 15/15 |
+| keyboard-journey.js  | 键盘完整旅程（**18 条任务**，含焦点不被抢 / 详情页返回可达 / 窄屏 ☰ 导航菜单 / 点当前页条目也收起 / 检索面板不重复指路 / Esc 任意焦点位置都能关检索面板 / Ctrl+K 先收菜单 / 纯空格查询空态判据一致）。条数以脚本内 `add()` 调用为准 | 18/18 |
 | ax-tree.js           | 无障碍树（可访问名/标题层级/控件状态/图片名冗余，含详情 404 态） | 0 未命名，0 冗余 |
 | inp-interaction.js   | 交互响应 INP 代理（4× CPU 节流，含长任务/TBT） | 最差 48–88ms（<100 竞奖档） |
 | offline-check.js     | 离线阅读（SW 接管 → 断网重载 → 兜底页 → 缓存有界 → 回访零网络） | 7/7 |

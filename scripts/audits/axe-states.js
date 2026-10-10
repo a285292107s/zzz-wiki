@@ -5,7 +5,7 @@
  * 动态结构只在展开后存在——它们的 ARIA 组合、焦点可见性、对比度从未被覆盖。
  * 本脚本逐个打开交互面并在该状态下跑全量 axe。
  *
- * 覆盖：窄屏检索面板（空态直达区）、筛选下拉（listbox）、检索面板（dialog）、术语浮层、双形态切换钮。
+ * 覆盖：窄屏 ☰ 导航菜单、筛选下拉（listbox）、检索面板（dialog）、术语浮层、双形态切换钮。
  * 用法：playwright-cli open http://localhost:4175 && \
  *       playwright-cli run-code --filename=scripts/audits/axe-states.js
  * 基线：各状态 0 violations
@@ -35,17 +35,17 @@ async (page) => {
     if (closeFn) await closeFn(page)
   }
 
-  // 1) 窄屏检索面板空态（最近访问 + 直达区）——吸顶栏在 ≤720 不列导航，
-  //    空态直达区就是窄屏的导航入口，其 ARIA 组合 / 对比度必须单独过审
-  await audit('quick-search-mobile-empty', {
+  // 1) 窄屏 ☰ 菜单展开态——导航在 ≤979 收进这里（见 SiteHeader 的 979 断点），
+  //    展开后的清单与静态站头不同构，其对比度 / 可访问名 / aria-expanded 必须单独过审
+  await audit('site-menu-mobile-open', {
     route: '/',
     viewport: { width: 412, height: 823 },
     openFn: async (p) => {
-      await p.click('.search-toggle')
-      await p.waitForTimeout(900)
+      await p.click('.menu-toggle')
+      await p.waitForTimeout(400)
       return true
     },
-    expect: '.qs-quick-entries',
+    expect: '#site-menu',
     closeFn: async (p) => {
       await p.keyboard.press('Escape')
       await p.waitForTimeout(300)
