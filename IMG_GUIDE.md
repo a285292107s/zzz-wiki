@@ -47,6 +47,12 @@
 - **同一套校准参数多处复用**：`pos / zoom / originY` 是源图相对构图，换画幅不用重算。
   纵向取景 = `源高 / zoom`，在 2.36 与 4:5 下**完全一致**（两者都是高度受限的 cover），
   差别只在横向上下文：2.36 见全宽、4:5 见中段（首页手机端与详情页 AgentHead 手机端现在同为 4:5）。
+- **起飞前「取景变形」只对宽屏有意义**（首页牌堆 → 详情头图的共享元素飞行）：
+  该变形的目标值是**桌面详情页的取景**（整栏、纯 cover 居中、不套校准），只有桌面下它才等于降落端。
+  窄屏（≤860）详情头图复用**同一份**校准，目的地取景本就等于卡片自己的取景 ——
+  此时变形到中性态反而把画推离目的地：实测 390×844 可见源图纵向区间从 `0–0.7722` 变成 `0–1.0`，
+  交接处凭空多出 `1/zoom ≈ 1.295×` 的尺度错位（恰是它本要消除的那个「换个大小」）。
+  故窄屏**不做变形**（`src/utils/deckFraming.ts`），让画保持校准取景飞过去，交接零错位。
 - **双形态角色跟随详情页所选形态**：佩洛伊斯（1551）的卡面取图与详情页 hero 共用同一份选择
   （`useHeroForm` 的模块级 ref + localStorage），即 `heroFileForForm(id, heroForm)`——
   在详情页切到 Male，回首页它的卡就是 Male。非双形态角色不受影响（回落裸名 `Mindscape_{id}_2`）。
@@ -158,6 +164,8 @@
   深炭底 + 斜向 ZZZ 水印纹理、向下渐隐近黑，与 `--bg-0` 同域色）。经 `tokens.css` 的 `--page-bg-image`
   单一事实源取用，`base.css` 的 `body::before` 固定视口层（fixed + cover）铺装在页面地面之上、内容之下，
   长页无接缝；**不用** `background-attachment: fixed`——iOS Safari 降级为滚动铺装时 cover 会放大到整文档高，纹理糊掉。
+  ⚠ 该层的 `z-index` 必须是 **0**（不可写 `-1`）：负层级排在被 `<body>` 底色覆盖的位置，整张壁纸会被盖死、
+  只在内页内容胶囊两侧露出纯黑面板。判据与实测见 [`src/styles/base.css`](./src/styles/base.css) 的注释。
 - 首页 hero 壁纸：`public/home-bg.webp`（绳网情报站 wiki 首页 banner 同款全幅背景，2400×1080 / 213KB，
   ZENLESS 描边字 + BANGBOO:NET 斜向字带 + 撕纸边缘拼贴；原图 1.1MB 经 OSS `quality,q_80` + webp 转码）。
   经 `tokens.css` 的 `--home-bg-image` 取用，`HomeView.vue` 的 `.home-backdrop` 铺装。**固定视口层**

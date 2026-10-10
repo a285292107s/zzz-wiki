@@ -2,17 +2,21 @@ import { describe, expect, it } from 'vitest'
 import type { RouteLocationNormalized } from 'vue-router'
 import {
   AGENT_DETAIL_ROUTE_NAME,
+  FLIGHT_MIN_VISIBLE_RATIO,
   HOME_ROUTE_NAME,
+  VT_NO_FLIGHT_ATTR,
   VT_SHARED_ATTR,
   VT_SHARED_NAME,
   VT_SUPPORTED,
   awaitSharedEndImage,
   consumeDeckCard,
   deckTargetPath,
+  flightSourceVisible,
   isAgentDetailOf,
   isAgentDetailToDeck,
   isDeckToAgentDetail,
   rememberDeckCard,
+  visibleRatio,
   waitSharedEndMounted,
   waitUntil,
   type VtEnd,
@@ -68,6 +72,47 @@ describe('共享元素过渡的路由判据', () => {
     // FeaturedDeck 的 VT_ITEM_MARK（'deck'）与 AgentHead 的 data-vt-shared="hero"
     const ends: VtEnd[] = ['deck', 'hero']
     expect(new Set(ends).size).toBe(2)
+  })
+})
+
+describe('起飞端可见性判据（不在屏上就别飞）', () => {
+  it('露出比例按自身高度算，越过视口上下缘分别裁剪', () => {
+    // 完整可见
+    expect(visibleRatio({ top: 100, bottom: 500, height: 400 }, 720)).toBe(1)
+    // 上缘被切掉 100px（详情页往上滚）
+    expect(visibleRatio({ top: -100, bottom: 300, height: 400 }, 720)).toBeCloseTo(0.75, 5)
+    // 下缘被切掉 200px
+    expect(visibleRatio({ top: 520, bottom: 920, height: 400 }, 720)).toBeCloseTo(0.5, 5)
+    // 整个在视口上方（滚到底部就是这一支）
+    expect(visibleRatio({ top: -9650, bottom: -9250, height: 400 }, 720)).toBe(0)
+  })
+
+  it('量不出来（无矩形 / 零高 / 视口高为 0）记 0，不做除法', () => {
+    expect(visibleRatio(null, 720)).toBe(0)
+    expect(visibleRatio(undefined, 720)).toBe(0)
+    expect(visibleRatio({ top: 0, bottom: 0, height: 0 }, 720)).toBe(0)
+    expect(visibleRatio({ top: 0, bottom: 400, height: 400 }, 0)).toBe(0)
+  })
+
+  it('阈值是 0.1，且判定用 >=（只拦「基本看不见」，常见视口全部放行）', () => {
+    expect(FLIGHT_MIN_VISIBLE_RATIO).toBe(0.1)
+    // 常见视口的比例下界（横屏牌堆 0.40 / 横屏头图 0.48 / 小视口牌堆 0.19）都必须放行，
+    // 否则横屏那条路会被永久判成不飞（牌堆 h=968 而视口仅 390，永远到不了高阈值）
+    expect(0.19 >= FLIGHT_MIN_VISIBLE_RATIO).toBe(true)
+    expect(0.4 >= FLIGHT_MIN_VISIBLE_RATIO).toBe(true)
+    expect(0.48 >= FLIGHT_MIN_VISIBLE_RATIO).toBe(true)
+    // 只露一角 / 完全滚出去：拦住
+    expect(0.05 >= FLIGHT_MIN_VISIBLE_RATIO).toBe(false)
+    expect(0 >= FLIGHT_MIN_VISIBLE_RATIO).toBe(false)
+  })
+
+  it('非 DOM 环境（本测试跑 node）量不到起飞端：按「飞」放行，不静默关掉正常飞行', () => {
+    expect(flightSourceVisible('hero')).toBe(true)
+    expect(flightSourceVisible('deck')).toBe(true)
+  })
+
+  it('降级标记的属性名是单一来源（运行时写、base.css 读）', () => {
+    expect(VT_NO_FLIGHT_ATTR).toBe('data-vt-no-flight')
   })
 })
 

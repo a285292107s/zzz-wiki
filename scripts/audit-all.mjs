@@ -55,8 +55,10 @@ const RULES = {
   'axe-states.js': (r) => r.serious === 0,
   'inp-interaction.js': (r) => typeof r.worst?.dur === 'number' && r.worst.dur < 200,
   'regression-walk.js': (r) => r.failed === 0,
-  // 共享元素飞行：逐帧几何证明「真的在飞」（曾经静默空转 —— 只看动画类/动画对象验不出来）
-  'hero-flight.js': (r) => r.failed === 0 && r.total >= 18,
+  // 共享元素飞行：逐帧几何证明「真的在飞」（曾经静默空转 —— 只看动画类/动画对象验不出来）；
+  // 33 项含「起飞端滚出屏后不飞」正反两向、「窄屏不做取景变形」（K）、
+  // 「装裱壳不给透明层凭空涂色」正反两向（L/M，背景闪烁的根因）
+  'hero-flight.js': (r) => r.failed === 0 && r.total >= 33,
   // 构图断点：行内空洞 / 窄列挤压 / CJK 末行孤字 / 叠线（>6 行的受 balance 上限所限，只报告）
   'composition-audit.js': (r) => r.total > 0 && r.failed === 0,
 }

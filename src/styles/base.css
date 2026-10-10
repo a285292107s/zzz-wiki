@@ -59,12 +59,20 @@ button,
    绳网情报站 wiki 同款官方背景（数据源 tokens.css --page-bg-image）。固定铺满视口
    （position: fixed + cover），滚动时纹理恒定、壁纸渐隐端始终落在视口下缘，长页不露接缝；
    画在 body 面色之上、#app（z-index:1）与 body 级浮层之下，内容胶囊 / 页头仍按各自面色浮于其上。
-   不用 background-attachment: fixed —— iOS Safari 降级为滚动铺装时 cover 会放大到整文档高，纹理糊掉。 */
+   不用 background-attachment: fixed —— iOS Safari 降级为滚动铺装时 cover 会放大到整文档高，纹理糊掉。
+
+   ⚠ z-index 必须是 0，**不能写 -1**：根堆叠上下文的绘制顺序里负层级排在「常规流块级盒的背景」
+   之前，而 body 自带不透明面色（--bg-0）——写 -1 等于把壁纸画到 body 底色**之下**，被整片盖死，
+   内容胶囊两侧只剩纯黑（1920 视口实测两侧恒为 #0d0f11，wallpaper 完全不可见）。
+   早年写 -1 没暴露，是因为当时 html 没有自己的背景，body 面色会**传播到画布**（传播后 body 自身
+   按透明绘制），负层级恰好落在它上面；index.html 为防首帧白闪内联了 html 底色之后那条传播链就断了。
+   0 落在定位层：常规流背景之上、#app（z-index:1）与 body 级浮层（--z-pop/--z-modal）之下，
+   且对「html 有无背景」两种情形都成立，故比 -1 稳。 */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   background: var(--page-bg-image) top center / cover no-repeat;
   pointer-events: none;
 }
@@ -907,6 +915,24 @@ section[id] {
   }
 }
 
+/* ---------- 起飞端不在屏上：不飞，只换页 ----------
+   `data-vt-no-flight="<起飞端>"` 由 utils/viewTransition/config 的 flightSourceVisible 判定、
+   在 startViewTransition **之前**挂到 html 上（挂晚了赶不上旧状态那次采样）。
+
+   浏览器把带名元素**在文档里的盒子**直接映射到视口坐标，不看它在不在屏幕上：详情页滚到底部时
+   .hero-bg 位于视口上方 ~9800px（1440×900 实测），整段飞行 91% 的路程在屏幕外、按时间算 67%
+   的画面完全不可见 —— 观感是「一张画从视口上缘凭空滑进来」。摘掉起飞端的名字后不再生成
+   ::view-transition-group(deck-frame)，也就没有几何插值，只剩落点那张画的一次淡入
+   （::view-transition-new 仍在，走上面 260ms/120ms 那条曲线）+ 根交叉溶解。
+
+   **必须带 !important**：两端的名字一处是内联样式（FeaturedDeck 的 VT_ITEM_STYLE）、
+   一处是组件 scoped 的静态声明（AgentHead 的 .hero-bg），层叠上都压不过。
+   只摘起飞端那一端 —— 伪元素跨新旧两页，摘两端就把它落点那次淡入也一并去掉了。 */
+html[data-vt-no-flight='hero'] .hero-bg,
+html[data-vt-no-flight='deck'] .deck-item {
+  view-transition-name: none !important;
+}
+
 /* ============================================================
    整页退场 / 整页入场（`data-vt-block` 声明的区块）
    ------------------------------------------------------------
@@ -977,10 +1003,19 @@ html.vt-exit .vt-out[data-vt-fade] {
 }
 
 @keyframes vt-case-out {
-  from {
-    border-color: var(--line-1);
-    background-color: var(--bg-0);
-  }
+  /* 装裱壳退场：**只写 to**，from 取元素自身的自然值（隐式关键帧）。
+
+     ⚠ 这里以前写死 `from { border-color: var(--line-1); background-color: var(--bg-0) }`，
+     而装裱壳是按「共享元素的**所有**祖先」标记的 —— 首页那张画有 13 层祖先，其中 10 层
+     （#app / .shell / #main / .home / .eb-root / .wrap …）**本身完全透明**。给它们跑一条
+     起点是不透明 --bg-0 的动画，等于**凭空涂上一层整页底色**：`.home` 一被涂，固定层
+     `.home-backdrop` 的拼贴壁纸被盖住；`#app`（z-index:1）一被涂，`body::before` 的页面
+     壁纸也被盖住。实测退场期这 5 层同步被涂到 alpha≈1.00，再淡回 0 —— 观感就是
+     「飞行前后背景闪了好几下」（落地那一侧同理，共 4 次跳变）。
+
+     改成隐式关键帧后：透明层 from==to==透明（no-op），真正带框的 `.deck-frame` / `.ahead`
+     / `.wrap.page` 从**自己的**底色与边线退到透明 —— 顺带修掉一处旧偏差：`.wrap.page` 的
+     自然底色是 --bg-1，旧关键帧却把它拉到 --bg-0 再在摘类时弹回。 */
   to {
     border-color: transparent;
     background-color: transparent;
@@ -1021,13 +1056,15 @@ html.vt-landed .vt-chrome-case {
 }
 
 @keyframes vt-case-in {
+  /* 装裱壳入场：同 vt-case-out 的**隐式关键帧**理由（见上）——只写 from（透明），
+     to 取元素自身的自然值，于是透明包装层是 no-op，不会被凭空涂上整页底色。
+
+     旧写法把 to 写死成 `var(--line-1)` / `var(--bg-0)`，正是落地期那 4 层包装层
+     （#app / #main / .eb-root / .shell）被从透明涂到 alpha 1.00、再在摘类时"啪"地消失的
+     原因（飞行结束后又一次背景闪动）。 */
   from {
     border-color: transparent;
     background-color: transparent;
-  }
-  to {
-    border-color: var(--line-1);
-    background-color: var(--bg-0);
   }
 }
 

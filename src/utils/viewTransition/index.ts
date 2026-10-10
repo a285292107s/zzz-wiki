@@ -50,10 +50,12 @@ import {
   VT_EXIT_CLASS,
   VT_LANDED_CLASS,
   VT_LANDING_CLASS,
+  VT_NO_FLIGHT_ATTR,
   VT_RESTORE_CLASS,
   VT_ROOT_CLASS,
   VT_SUPPORTED,
   awaitSharedEndImage,
+  flightSourceVisible,
   isAgentDetailToDeck,
   isDeckToAgentDetail,
   rememberDeckCard,
@@ -67,6 +69,7 @@ export {
   VT_EXIT_CLASS,
   VT_LANDED_CLASS,
   VT_LANDING_CLASS,
+  VT_NO_FLIGHT_ATTR,
   VT_ROOT_CLASS,
   VT_SHARED_ATTR,
   VT_SHARED_NAME,
@@ -175,9 +178,21 @@ export function deckFlightArmed(): Ref<boolean> {
 }
 
 /** 现在能不能起编排（同步判定，供点击入口决定要不要接管这次点击）：
- *  不支持 View Transitions / 用户要减少动效 / 已在编排中 —— 三种情况一律放行走普通导航。 */
+ *  不支持 View Transitions / 用户要减少动效 / 已在编排中 —— 三种情况一律放行走普通导航。
+ *
+ *  **必须与守卫用同一份可见性判据**：入口负责「要不要花 400ms 演整页退场 + 取景变形」，
+ *  守卫负责「飞不飞」。两者判据不一致时，会出现「编排演完了却决定不飞」的空拍 ——
+ *  用户白等 400ms 看页面清空，然后只换来一次普通溶解。
+ *  阈值 0.1（见 config）下常见视口全部通过（桌面 0.62–0.91 / 手机竖屏 0.75–1.0 /
+ *  横屏 0.40–0.48），故这一条在真机上几乎总是放行，只在极端位置才短路。 */
 export function canArmDeckFlight(): boolean {
-  return VT_SUPPORTED && !reducedMotion() && !armed.value && appRouter != null
+  return (
+    VT_SUPPORTED &&
+    !reducedMotion() &&
+    !armed.value &&
+    appRouter != null &&
+    flightSourceVisible('deck')
+  )
 }
 
 /** 编排落定后的那一跳（router 由 installViewTransition 收着，见上） */
@@ -223,13 +238,24 @@ function wait(ms: number): Promise<void> {
   return new Promise((resolve) => window.setTimeout(resolve, ms))
 }
 
-/** 开一次飞行。已有飞行在途时返回 null（并进那一次）。 */
+/** 开一次飞行。已有飞行在途时返回 null（并进那一次）。
+ *
+ *  `sourceVisible` 为假时**不生成具名组**：给 html 挂上 `VT_NO_FLIGHT_ATTR=<sourceEnd>`，
+ *  由 base.css 摘掉**起飞端那一端**的名字 —— 于是浏览器不再为 deck-frame 生成 group/old，
+ *  只剩落点那张画的一次淡入（`::view-transition-new`）。根交叉溶解、站头不动、
+ *  落地逐条入场全部照旧；少的只是那段「画从视口外飞进来」的几何插值。
+ *
+ *  摘的是**起飞端**而非两端：`::view-transition-*` 是跨新旧两页的，两端元素不同页，
+ *  只摘起飞端才刚好留住降落端那次淡入。 */
 function beginFlight(
   router: Router,
   targetFullPath: string,
   /** 本次**降落端**是哪个端点（去程 = 详情头图、回程 = 牌堆）：等它出现、等它的画可绘制 */
   landingEnd: VtEnd,
   landingReady: Promise<void>,
+  /** 本次**起飞端**是哪个端点（与 landingEnd 相反）：不在屏上时摘它的名字，见上 */
+  sourceEnd: VtEnd,
+  sourceVisible: boolean,
 ): { callbackStarted: Promise<void>; wait: Promise<void>; finish: () => Promise<void> } | null {
   if (inFlight) return null
 
@@ -245,6 +271,12 @@ function beginFlight(
   // 根类只做一件事：让 Vue 的页面过渡给共享元素让位（`.page-*` 的 out-in 会把新视图的
   // DOM 更新压后，浏览器就拍不到新画面）。共享元素名由两端组件常驻声明，不在这里挂。
   document.documentElement.classList.add(VT_ROOT_CLASS)
+
+  // 必须在 startViewTransition **之前**挂：浏览器在调用后的下一个渲染时机拍旧状态，
+  // 挂晚了就赶不上那次采样（名字会照样进快照，等于白摘）。
+  if (!sourceVisible) {
+    document.documentElement.setAttribute(VT_NO_FLIGHT_ATTR, sourceEnd)
+  }
 
   let markStarted: (() => void) | undefined
   const callbackStarted = new Promise<void>((resolve) => {
@@ -318,6 +350,7 @@ function beginFlight(
       const root = document.documentElement
       root.classList.remove(VT_ROOT_CLASS)
       root.classList.remove(VT_LANDING_CLASS)
+      root.removeAttribute(VT_NO_FLIGHT_ATTR)
       // 起飞端那一页此刻已被替换：撤退场标记（其在途动画随 DOM 一起消失，不会残留）
       root.classList.remove(VT_EXIT_CLASS)
       clearChrome('out')
@@ -376,7 +409,17 @@ export function installViewTransition(router: Router): void {
     }
 
     deckIsSource.value = true // 服务 App.vue 的页面过渡让位；名字不靠它
-    const flight = beginFlight(router, to.fullPath, outbound ? 'hero' : 'deck', landingReady)
+    // 起飞端 = 降落端的另一端。**起飞端不在屏上就别飞**（判据与原因见 config.flightSourceVisible）：
+    // 详情页滚到底部时头图在视口上方近万像素，飞行几乎全程发生在屏幕外。
+    const sourceEnd: VtEnd = outbound ? 'deck' : 'hero'
+    const flight = beginFlight(
+      router,
+      to.fullPath,
+      outbound ? 'hero' : 'deck',
+      landingReady,
+      sourceEnd,
+      flightSourceVisible(sourceEnd),
+    )
     // 上一次飞行还没落地：并进同一次，不叠第二次 startViewTransition
     if (!flight) return
     // **卡在「更新回调已开始」**：旧状态进快照后才放行导航（放早了拍到的就是切完的画面）。

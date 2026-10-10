@@ -35,6 +35,26 @@ const RouterLinkStub = defineComponent({
 
 const global = { stubs: { RouterLink: RouterLinkStub, HollowImage: true } }
 
+/** 媒体查询桩：`narrow` 控制 max-width:860px 是否命中（决定要不要做取景变形）。
+ *  jsdom 默认没有 matchMedia，故每个相关用例都要显式给出，否则测的是「无 media 环境」这条
+ *  与真实浏览器无关的分支（useMediaQuery 在无 matchMedia 时回落 false = 宽屏）。 */
+function mockMatchMedia(narrow: boolean): void {
+  Object.defineProperty(window, 'matchMedia', {
+    configurable: true,
+    writable: true,
+    value: (query: string) => ({
+      matches: query.includes('max-width') ? narrow : false,
+      media: query,
+      onchange: null,
+      addEventListener: () => {},
+      removeEventListener: () => {},
+      addListener: () => {},
+      removeListener: () => {},
+      dispatchEvent: () => false,
+    }),
+  })
+}
+
 /** 取景框宽（跟手换算基准）：jsdom 没有布局，clientWidth 恒为 0 → 打桩。
  *  组件只在 **pointerdown 那一刻**读它（静止态位移走百分比，不需要宽）。
  *  先 restoreAllMocks 再打桩：否则 spyOn 会包在上一用例的桩上，数值被平方。 */
@@ -313,6 +333,49 @@ describe('FeaturedDeck 拖拽吸附', () => {
     expect(style).toContain('%')
     expect(style).toContain('calc(')
     expect(trackShiftX(wrapper)).toBe(0) // 活动卡是第 1 张 → 位移 0
+  })
+})
+
+describe('FeaturedDeck 起飞前取景变形（窄屏不做）', () => {
+  /** 取第一张卡的 <img> 内联取景（figureStyle 的输出直通 HollowImage 的 img-style）。
+   *  真正的「变形中」判定逻辑在 utils/deckFraming（纯函数，见 deck-framing.test.ts）；
+   *  这里只验组件把窄屏判定接对了：jsdom 无 startViewTransition，
+   *  编排根本起不来（canArmDeckFlight 恒 false），故断言的是**常态取景**这一条。 */
+  function figureStyleOf(wrapper: DeckWrapper, slot = 0): Record<string, string> {
+    const imgs = wrapper.findAllComponents({ name: 'HollowImage' })
+    return (imgs[slot]!.props('imgStyle') ?? {}) as Record<string, string>
+  }
+
+  it('常态：卡片用自己那张图的校准取景（pos/originY/zoom 原样上屏）', async () => {
+    mockMatchMedia(false)
+    const wrapper = await mountDeck(4)
+    const st = figureStyleOf(wrapper)
+    expect(st.objectPosition).toBe('50%') // cards() 里 pos 统一给 '50%'
+    expect(st.transform).toBe('scale(1.2)') // zoom
+    expect(st.transformOrigin).toBe('50% 50%') // originY
+  })
+
+  it('窄屏判定读的是与 CSS 同一条媒体查询（max-width: 860px），且不影响常态取景', async () => {
+    mockMatchMedia(true) // ≤860
+    const wrapper = await mountDeck(4)
+    // 窄屏仍按校准取景上屏（校准参数与断点无关，是源图相对构图）
+    expect(figureStyleOf(wrapper).transform).toBe('scale(1.2)')
+    expect(window.matchMedia('(max-width: 860px)').matches).toBe(true)
+  })
+
+  it('编排未启动（jsdom 无 VT API）时取景不进入变形态：四张卡都保持各自校准', async () => {
+    mockMatchMedia(false)
+    const wrapper = await mountDeck(4)
+    wrapper.find('.deck-viewport').element.dispatchEvent(
+      new MouseEvent('pointerdown', { bubbles: true, clientX: 500, button: 0 }),
+    )
+    wrapper.find('.deck-item').element.dispatchEvent(
+      new MouseEvent('click', { bubbles: true, cancelable: true }),
+    )
+    await wrapper.vm.$nextTick()
+    for (let i = 0; i < 4; i++) {
+      expect(figureStyleOf(wrapper, i).transform).toBe('scale(1.2)')
+    }
   })
 })
 

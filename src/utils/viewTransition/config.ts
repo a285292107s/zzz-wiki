@@ -88,6 +88,56 @@ export const VT_SHARED_ATTR = 'data-vt-shared'
 /** 标记的取值：牌堆端（首页）/ 头图端（详情页） */
 export type VtEnd = 'deck' | 'hero'
 
+/** 起飞端不在视口里时的根标记：值即**该端点**（'deck' / 'hero'）。
+ *  名字只在 `startViewTransition` 采样期间起作用，故起飞前挂、收尾即撤。
+ *
+ *  为什么需要它：浏览器把带名元素**在文档里的盒子**直接映射到视口坐标，不看它在不在屏幕上。
+ *  详情页滚到底部时 `.hero-bg` 位于视口上方约 9800px（1440×900 实测），飞行 91% 的路程
+ *  发生在屏幕外、按时间算 67% 的画面完全不可见 —— 观感就是「一张画从视口上缘凭空滑进来」。
+ *  摘掉起飞端的名字之后不再生成 `::view-transition-group(deck-frame)`，也就没有几何插值，
+ *  只剩落点那张画的一次淡入 + 根交叉溶解（见 base.css 的本标记规则）。 */
+export const VT_NO_FLIGHT_ATTR = 'data-vt-no-flight'
+
+/** 起飞端至少要露出自身高度的这个比例才值得飞。
+ *
+ *  判据的语义是「**基本看不见**」，不是「没看全」——取值被实测的两条约束夹住：
+ *   · **上限（别误伤）**：常见视口的比例下界是 0.19（320×568 的牌堆只露一角）、
+ *     0.40（844×390 横屏牌堆贴顶边）、0.48（844×390 详情页头图）。这些位置上人正看着那张画，
+ *     取 0.25 以上会把它们**永久**判成不飞：横屏牌堆高达 968px、视口仅 390px，
+ *     任何阈值 > 0.5 都等于把横屏的去程飞行整个关掉。
+ *   · **下限（必须拦住）**：起飞端完全滚出视口（比例 0）时，飞行有 39%–91% 的路程在屏幕外
+ *     （详情页滚到底：头图在视口上方 9650px，91% 的路程、按时间算 67% 的画面完全不可见）
+ *     —— 那正是「一张画从视口上缘凭空滑进来」。
+ *  0.1 卡在「只露一角」（0.19）之下：**只有基本看不见才降级**，全部常见视口照飞。 */
+export const FLIGHT_MIN_VISIBLE_RATIO = 0.1
+
+/** 量测所需的最小矩形（只用 top/bottom/height）：不带 DOM 依赖，node 环境可单测 */
+export interface ViewportRect {
+  top: number
+  bottom: number
+  height: number
+}
+
+/** 矩形在视口里露出的高度占自身高度的比例（0–1）。
+ *  量不出来（无矩形 / 零高 / 视口高为 0）记 0，不做除法。 */
+export function visibleRatio(rect: ViewportRect | null | undefined, viewportHeight: number): number {
+  if (!rect || viewportHeight <= 0 || rect.height <= 0) return 0
+  const visible = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0)
+  return Math.max(0, Math.min(1, visible / rect.height))
+}
+
+/** 起飞端还够不够看得见（共享元素过渡要不要真的飞）。
+ *
+ *  **量不出来时按「飞」处理**：元素缺失 / 无 DOM 环境一律放行。宁可多飞一次，也不要因为
+ *  一次量测失败就把正常飞行静默关掉 —— 那正是本站 2026-10 那次「静默空转」（vt-active 挂着、
+ *  两端几何完全相同、观感即硬切）同类的事故形态。 */
+export function flightSourceVisible(end: VtEnd): boolean {
+  if (typeof document === 'undefined') return true
+  const el = document.querySelector(`[${VT_SHARED_ATTR}="${end}"]`)
+  if (!el) return true
+  return visibleRatio(el.getBoundingClientRect(), window.innerHeight) >= FLIGHT_MIN_VISIBLE_RATIO
+}
+
 /** 起飞登记：本次从牌堆点开的是哪张卡（回程时首页牌堆据此把同一张画接回原位）。
  *  模块级一格足够：一次导航只可能有一个起飞端，且消费方（牌堆挂载）立即取走。 */
 let deckCardId: number | null = null

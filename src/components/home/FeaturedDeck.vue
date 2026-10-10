@@ -46,6 +46,8 @@ import {
   disarmDeckFlight,
 } from '@/utils/viewTransition'
 import { heroForm } from '@/composables/useHeroForm'
+import { useMediaQuery } from '@/composables/useMediaQuery'
+import { deckFigureStyle } from '@/utils/deckFraming'
 import { heroFileForForm } from '@/data/heroGenderVariants'
 import { awaitImageReady, heroDetailPrimarySrc, heroDetailViewport } from '@/data/heroImageSources'
 import { catalogByPath } from '@/domain/catalog'
@@ -297,17 +299,16 @@ function onClickCapture(e: MouseEvent): void {
 /** 取景变形中：图的内联取景切到「目的地取景」（neutral），由 CSS transition 平滑过去 */
 const morphing = ref(false)
 
-/** 图的取景样式：常态读逐图校准；变形中切到目的地（详情桌面 = 纯 cover 居中、无校准） */
+/** 窄屏（≤860，与全站同一断点）：起飞前**不做取景变形**。
+ *  推理与实测数据收在 utils/deckFraming 的文件头（那里是定义处）：变形的目标值是
+ *  「桌面详情页的取景」，而窄屏详情头图复用同一份 pos/zoom/originY，目的地取景本就等于
+ *  卡片自己的取景 —— 切中性态反而引入 1.295× 的纵向尺度错位（恰等于该图 zoom）。
+ *  用 useMediaQuery：setup 期同步求值 + 跟随视口变化。 */
+const narrow = useMediaQuery('(max-width: 860px)')
+
+/** 图的取景样式（纯逻辑在 utils/deckFraming，可单测） */
 function figureStyle(slot: number): Record<string, string> {
-  const c = props.cards[slot]
-  if (morphing.value) {
-    return { objectPosition: '50%', transformOrigin: '50% 50%', transform: 'scale(1)' }
-  }
-  return {
-    objectPosition: c?.pos ?? '50%',
-    transformOrigin: `50% ${c?.originY ?? 50}%`,
-    transform: `scale(${c?.zoom ?? 1})`,
-  }
+  return deckFigureStyle(props.cards[slot], morphing.value, narrow.value)
 }
 
 /** 编排被撤销（用户改主意 / 导航失败）时把取景平滑回常态 ——
@@ -742,6 +743,8 @@ onBeforeUnmount(() => {
   transform-origin: 50% 50%;
   /* 起飞前的「原地取景变形」：位移/缩放/取景/悬停微推近全在同一个 transition 里平滑过去。
      常驻无副作用 —— 只有 morphing 那一刻内联取景才变，其余时候值不变就不触发过渡。
+     ⚠ 窄屏（≤860）下 figureStyle 不再切中性态（目的地取景与卡片相同，变形只会引入
+     1.295× 的纵向错位）：这几条 transition 在那儿就没有可插值的差值，等价于不存在。
      ⚠ 四条必须写在**同一条规则**里：hover 那条若另写 transition 简写会把本条整体顶掉，
      而点击恰恰总发生在 hover 状态下（实测踩过）。
      ⚠ 取景三条**不能沿用全局 --ease**（强 ease-out）：实测它 420ms 的变形在 ~300ms
