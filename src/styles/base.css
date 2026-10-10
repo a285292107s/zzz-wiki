@@ -92,6 +92,19 @@ body::before {
   border-bottom: var(--rule);
 }
 
+/* 标本板末端收口**只画一次**。
+   上面那条是本板的收边线；而名录表末行、卡片栅格底边也各画一条，两条相邻相叠 ——
+   实测叠成 2px，而板顶缘（站头 border-bottom）只有 1px：同一块板的上下缘就差了一倍的重量。
+   故末端恰好是这两类内容时，撤掉它们自己的那条（收边归本板）。
+   `:last-child` 两级是为了容下「栅格外还套一层 .card-grid-wrap」的情形；
+   只对**正好落在板底**的内容生效 —— 表格/栅格后面还有东西时，它仍需要自己的收口线。 */
+.wrap.page > .hairline-table:last-child > tbody > tr:last-child > :is(td, th),
+.wrap.page > :last-child > .hairline-table:last-child > tbody > tr:last-child > :is(td, th),
+.wrap.page > .card-grid:last-child,
+.wrap.page > :last-child > .card-grid:last-child {
+  border-bottom: none;
+}
+
 ::selection {
   background: var(--amber-dim);
   color: var(--amber-hi);
@@ -318,6 +331,38 @@ a.rich-term:hover {
   margin-top: 14px;
 }
 
+/* ---------- 正文断行均衡（CJK 行尾孤字治理） ----------
+   CJK 每个字都是断点，长句折行后末行常只剩 1–2 个字：实测 /about 的校验清单出现过
+   末行单字「限」、/formulas 的乘区说明出现过末行单字「。」、/w-engines 的音擎效果在
+   手机上出现过末行单字。
+
+   ⚠ 用 `balance` 而**不是** `pretty`：Chrome 的 pretty 只避免拉丁文的单字孤行，对 CJK
+   无效 —— 实测加 pretty 前后逐行宽完全一致（[574,42] → [574,42]，末行仍是 42px）。
+   balance 把同段各行拉平（[574,42] → [308,308]），且**不增加行数**：6 个页面 60 行
+   实测行数前后一致，故不会长高、不产生 CLS。
+
+   Chrome 对 balance 有 6 行上限，更长的正文自动退回普通断行 —— 于是这条可以按「短块」
+   语义安全地加：下面列的都是说明性短块（页副标 / 步骤 / 校验清单 / 乘区说明 / 音擎与
+   驱动盘效果 / 详情描述行），不含表格数值与长正文。 */
+.page-sub,
+.prose,
+.spec-note,
+.step-txt,
+.checks li,
+.it-desc,
+.part-lead,
+.group-note,
+.block-body.v-prose p,
+.im-text,
+.eq-note,
+.key-row dd,
+.effect,
+.effect-txt,
+.desc,
+.note {
+  text-wrap: balance;
+}
+
 /* numbered section header — e.g. "01 · 目录" */
 .section-head {
   display: flex;
@@ -340,6 +385,19 @@ a.rich-term:hover {
   font-weight: 500;
   font-size: var(--fs-title);
   letter-spacing: 0.02em;
+}
+
+/* 右端英文标签：延伸线的**收尾锚点**，不是可选装饰。
+   延伸线（.rule）的职责是把标题与这个标签连起来；缺了标签，它就与上方那条基线
+   （本元素的 border-top）变成两条几乎等长、同为 --line-1 的平行线 ——
+   首页「今日角色 / 目录」原先就是这样（全站 54 处 section-head 里唯一两处没有标签的）。
+   词表与既有 20 个标签同调：单词、Title Case（Dossier / Vitals / Outfits / Matrix…）。 */
+.section-head .en {
+  font-family: var(--mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-2);
 }
 
 .section-head .rule {

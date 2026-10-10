@@ -36,36 +36,9 @@ defineProps<{
 .block {
   margin-bottom: var(--space-section);
 }
-.section-head {
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-head);
-  border-top: var(--rule);
-  padding-top: 14px;
-  margin-bottom: 28px;
-}
-.no {
-  font-family: var(--mono);
-  font-size: var(--fs-caption);
-  color: var(--amber);
-  letter-spacing: 0.08em;
-}
-h2 {
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: var(--fs-title);
-  letter-spacing: 0.02em;
-}
-.rule {
-  flex: 1;
-  height: 1px;
-  background: var(--line-1);
-}
-.en {
-  font-family: var(--mono);
-  font-size: var(--fs-micro);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-}
+
+/* 区块标题行（.section-head / .no / h2 / .rule / .en）的样式**单一来源在 base.css**
+   —— 首页「今日角色 / 目录」用的是同一套语法。此前这里整份复制了一遍，
+   与 base.css 逐条重复（`.en` 就是因首页也要用才暴露出来）；两份各自漂移的隐患大于
+   这点局部性收益，故收口到 base.css。本文件只留 `.block` 自己的间距。 */
 </style>

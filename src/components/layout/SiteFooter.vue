@@ -143,5 +143,18 @@ onMounted(() => {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  /* 出处三件横排会挤成「标签 / 值」两行：390px 下三列各只有 83/83/121px，
+     「数据更新 · 2026-10-07」与版权行都被折断，斜杠分隔符正好落在断行的夹缝里。
+     窄屏改为逐条成行 —— 三行各自单行放得下，分隔符（原本只为横排省空间）随之撤掉。 */
+  .foot-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .foot-info .sep {
+    display: none;
+  }
 }
 </style>

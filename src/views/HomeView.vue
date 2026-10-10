@@ -153,6 +153,10 @@ const sections = [
         <div v-reveal class="section-head" data-vt-block>
           <h2>今日角色</h2>
           <span class="rule" />
+          <!-- 右端英文标签是延伸线的收尾锚点（缺了它，延伸线就与上方基线成为两条平行线，
+               见 base.css 的 .section-head .en）。词取 Featured：与 FeaturedDeck /
+               useFeaturedAgents / featured-pool.json 同名，不另造叫法。 -->
+          <span class="en mono">Featured</span>
         </div>
         <!-- 入场不动用 v-reveal：牌堆自带「标本装匣」编排（首次入画时演一次，见 FeaturedDeck），
              整块上浮会与那三拍抢同一段时间。区块标题仍走 v-reveal。 -->
@@ -164,6 +168,9 @@ const sections = [
         <span class="no mono" aria-hidden="true">00</span>
         <h2>目录</h2>
         <span class="rule" />
+        <!-- 右端英文标签（同「今日角色」）。词取 Contents：这一栏就是站点的目录，
+             与页脚「数据说明」的 Colophon 同一层语义，不复用类目页的 AGENTS 等「内容类目名」。 -->
+        <span class="en mono">Contents</span>
       </div>
 
       <ol class="index-list">
@@ -448,6 +455,9 @@ const sections = [
   color: var(--ink-1);
   font-size: var(--fs-md);
   max-width: 52ch;
+  /* 断行均衡：两栏账册里最长的一条描述（28 字）会在 584px 格内折成两行，
+     不均衡时末行只剩「成。」三个字。balance 把两行拉平，末行不再孤字。 */
+  text-wrap: balance;
 }
 
 .go {
@@ -461,6 +471,63 @@ const sections = [
   .index-row:hover .go {
     color: var(--amber);
     transform: translateX(4px);
+  }
+}
+
+/* ---------- 宽屏（≥1180）：目录改两栏账册 ----------
+   单栏时一行要摊满整个版心，而描述列是 1fr、文本上限 52ch：1440 下这一列实占 741px、
+   文字只用到 446px，箭头被孤悬在 315px 之外（7 行皆然，且版心越宽空档越大：
+   2560 下 776px）。两栏后每格 584px，图标 · 编号 · 名称/描述上下排，宽度真正用上。
+   1180 是「格宽仍够放最长描述」的下限：更窄时单栏的 1fr 本来就只有 500px 上下，
+   空档并不成立（1440 以上才开始明显），故不做更早切换。
+
+   三处关键取舍（都是实测出来的）：
+   ⓐ **列宽按内容定、箭头紧随描述**：`minmax(0, max-content)` + `auto`。
+      若把描述列写成 1fr、箭头右对齐（＝单栏那套），格内会重演同一处空洞 ——
+      1440 下 87px、2560 下 **293px**（按比例并不比单栏好）。内容定宽后箭头紧跟描述，
+      空档只剩格尾的普通留白。代价是箭头不再是整齐的一列 —— 换来的是任何宽度下都无空洞。
+   ⓑ `column-gap: 0`：发丝线画在每格 `.index-row` 的下边框上，栏间距为 0 时两格的线
+      在栏间接成一条；留出 gap 会把每行的线断成两截，读起来像画坏了。
+   ⓒ 栏间留白由**奇格右内边距 + 偶格左内边距各出一半**给出（合计 ~84px），左右两端仍与
+      区块头同为 8px —— 若改成整列 `padding-inline`，首格图标会相对「00 目录」右移一档。
+      留白必须够宽：只有 ~50px 时，左格箭头离自己的描述 87px、离右栏图标 50px，
+      看起来像右栏的箭头（Gestalt 归属错乱）；各出一半后变成 45px / 103px。 */
+@media (min-width: 1180px) {
+  .index-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 0;
+    /* 收口线画在容器上：7 条排两栏后末行只剩左格，若沿用每格下边框，
+       收口线就只有半条；容器自己的下边框横贯整个版心，账册收得干净。 */
+    border-bottom: var(--rule);
+  }
+
+  .index-list > li:last-child .index-row {
+    border-bottom: none;
+  }
+
+  .index-list > li:nth-child(odd) .index-row {
+    padding-right: var(--space-group);
+  }
+
+  .index-list > li:nth-child(even) .index-row {
+    padding-left: var(--space-group);
+  }
+
+  /* 名称与描述在格内上下排（584px 放不下「名称 | 描述」并列）；
+     名称列的宽度由内容定（=该行更宽的一方），箭头列吃掉余量、箭头左对齐 → 紧贴描述。
+     row-gap 必须收窄：`gap: 20px` 的行间距会让名称与它自己的描述隔开 20px，
+     一条目录被读成两件事（实测行高 133 → 收紧后 121）。 */
+  .index-row {
+    grid-template-columns: 40px 40px minmax(0, max-content) auto;
+    align-items: center;
+    row-gap: var(--space-1);
+  }
+
+  /* 只占名称列：`3 / -1` 会让描述盒盖到箭头列上，长描述会顶到箭头 */
+  .desc {
+    grid-column: 3 / 4;
+    grid-row: 2;
   }
 }
 

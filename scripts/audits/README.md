@@ -1,7 +1,7 @@
 # audits/README.md — 量化审计脚本工具箱（playwright-cli run-code --filename）
 
 每个脚本对应一项品质基线检查（基线数值见 QUALITY.md）。
-运行前提：`npm run build:ci` && `npm run preview`——**本仓库的 `preview` 已固定 `--port 4175`**，下面的 27 个脚本全部指向 `http://localhost:4175`，端口必须一致，否则全套跑不起来。
+运行前提：`npm run build:ci` && `npm run preview`——**本仓库的 `preview` 已固定 `--port 4175`**，下面的 28 个脚本全部指向 `http://localhost:4175`，端口必须一致，否则全套跑不起来。
 
 **一条命令跑全套**：`npm run audit:all`（scripts/audit-all.mjs）——按下面的表格逐个执行、
 汇总通过/失败/需人工判读，失败即非零退出。每个脚本的**通过判据显式声明**在该文件的
@@ -37,6 +37,7 @@ RULES 表里（不靠猜返回结构）；**新增审计脚本必须同时补判
 | offline-check.js     | 离线阅读（SW 接管 → 断网重载 → 兜底页 → 缓存有界 → 回访零网络） | 7/7 |
 | spacing-audit.js     | 版式节奏合规（严格门禁=版式级；容器级仅报告） | 版式级 0 越轨 |
 | hero-flight.js       | 起飞前编排 + 共享元素飞行（逐帧读 ::view-transition-group 几何 / 退场错峰 / 取景变形是否落定 / 中途改主意）。「取景变形落定」一项会先切到四卡里 zoom 偏离 1 最大的一张——首卡 zoom≈1 时变形量与「没变形」不可区分（详见脚本第 6 节） | 18/18 |
+| composition-audit.js | **构图（按元素关系测，逐元素属性审计看不出来）**：行内空洞 ≥240px（首页目录 7 行各 315px、详情技能头 626–876px）· nowrap 行被塞满时两个以上子项同时折行（手机页脚三列各 83px、标本签四名挤一行）· CJK 末行孤字 · **叠线**（同一条边界画两条水平发丝线，叠成 2px：技能组接缝、内容板底缘与表末行/栅格底边）· **平行重复线**（区块标题行的延伸线缺右端 `.en` 标签时，与基线成为两条几乎等长的平行线）。⚠ 泛化到全站的「空隔双线」会命中引导点线/夹持线/控件自身边框——那些是结构边框、不是装饰性重复，故只认 section-head 一族语法。10 路由 × **5 视口（320/390/1024/1440/1920）**，自持禁 SW 上下文、不滚动（直接把 `.reveal` 标为已显现） | 50 组合：stranded 0 / cramped 0 / orphan 0 / stacked 0（>6 行的受 `balance` 上限所限只报告 3 处） |
 
 ⚠ **跑审计前必须 `npm run build:ci`**（不是 `npm run build`）：后者会清空 dist 且
   **不生成 sitemap / 逐路由 HTML**，`content-sweep` 这类读产物清单的脚本会静默地

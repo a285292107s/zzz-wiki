@@ -57,6 +57,8 @@ const RULES = {
   'regression-walk.js': (r) => r.failed === 0,
   // 共享元素飞行：逐帧几何证明「真的在飞」（曾经静默空转 —— 只看动画类/动画对象验不出来）
   'hero-flight.js': (r) => r.failed === 0 && r.total >= 18,
+  // 构图断点：行内空洞 / 窄列挤压 / CJK 末行孤字 / 叠线（>6 行的受 balance 上限所限，只报告）
+  'composition-audit.js': (r) => r.total > 0 && r.failed === 0,
 }
 
 function serverUp() {

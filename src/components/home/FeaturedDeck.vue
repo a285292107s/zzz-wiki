@@ -946,6 +946,19 @@ onBeforeUnmount(() => {
     flex-basis: 100%;
   }
 
+  /* 标本签内部同样分行：编号 + 属性留在首行，中英名各占一行。
+     四项挤在 nowrap 的一行里时，324px 中 24px 的中文名只分到 159px ——
+     「奥菲丝&「鬼火」」被断成「奥菲丝&「鬼」/「火」」，英文名也断成两行。 */
+  .deck-label {
+    flex-wrap: wrap;
+    row-gap: 2px;
+  }
+
+  .deck-label .zh,
+  .deck-label .en {
+    flex: 1 0 100%;
+  }
+
   .deck-pager {
     justify-content: space-between;
   }

@@ -16,7 +16,13 @@ import type { AttrCode, SpecCode } from '@/domain/enums'
 import { catalogEntry } from '@/domain/catalog'
 import { listFor } from '@/data/resources'
 import { usePageMeta } from '@/composables/usePageMeta'
+import { useNavScrollable } from '@/composables/useNavScrollable'
 import { ListPage, DetailSection } from '@/components'
+
+/* 格子表在窄屏放不下（表宽 620px 起、390px 视口只给得到 350px）：
+   复用吸顶横条那套「可横滑」提示机制（useNavScrollable 给容器挂 .scrollable /
+   .at-end），由 CSS 决定提示的显隐 —— 不再新造一套横滑检测。 */
+const { navEl: matrixEl } = useNavScrollable()
 
 usePageMeta(
   '档案图谱',
@@ -85,7 +91,10 @@ function tint(color: string, n: number): string {
         名录载入失败。请重新加载页面；若持续失败，稍后再试。
       </p>
 
-      <div v-else class="atlas-scroll">
+      <div v-else ref="matrixEl" class="atlas-scroll">
+        <!-- 窄屏提示：只在真的放不下时出现（.scrollable 由 useNavScrollable 挂），
+             滚到最右自动消失。纯提示、不参与读屏内容（表格自身有 caption）。 -->
+        <p class="atlas-hint mono" aria-hidden="true">← 左右滑动查看全部职业 →</p>
         <table class="atlas">
           <caption class="sr-only">
             代理人档案的「属性 × 职业」分布：行为属性、列为职业，格内数字为条目数，可点击进入对应筛选
@@ -157,6 +166,22 @@ function tint(color: string, n: number): string {
 
 .atlas-scroll {
   overflow-x: auto;
+  /* 横滑容器共性（DATA_GUIDE 触屏细节）：滑到两端不再触发浏览器「后退」手势 */
+  overscroll-behavior-x: contain;
+}
+
+/* 提示：默认不占位；容器被判定为可横滑时才出现（useNavScrollable 挂 .scrollable）。
+   放在滚动容器内部、表格之上 —— 横滑时它随内容移出视野，正合「已经知道怎么滑了」。 */
+.atlas-hint {
+  display: none;
+  padding-bottom: 10px;
+  font-size: var(--fs-micro);
+  letter-spacing: 0.1em;
+  color: var(--ink-2);
+}
+
+.atlas-scroll.scrollable .atlas-hint {
+  display: block;
 }
 
 .atlas {

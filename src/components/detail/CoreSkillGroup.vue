@@ -248,13 +248,12 @@ const unlockCount = computed(() =>
   display: flex;
   align-items: center;
   gap: var(--space-inline);
-  margin-left: auto;
-  /* flex-basis 只决定 .skill-kind-row 的 flex-wrap 换行阈值（flex-grow 会把它拉伸至填满剩余、
-     受 max-width 封顶，故不影响桌面最终宽度）：收紧到 150px 让窄屏滑条与核心技名同排，
-     而非整条被挤到下一行。min-width 同步下调，避免把换行阈值抬回 200px。 */
+  /* 不设 margin-left: auto、不设 max-width：那两件会把等级尺推到行尾，与核心技名之间
+     空出 612px（1440 实测 626px、1920 实测 844px —— composition-audit 判为行内空洞）。
+     改为紧贴核心技名、由 flex-grow 吃满剩余宽度：等级本身就是一把刻度尺，跨满整行既
+     消掉空档，也让 12 级每一级更好点中。窄屏时 flex-basis 仍决定换行阈值。 */
   flex: 1 1 150px;
   min-width: 140px;
-  max-width: 420px;
 }
 
 .level-val {
@@ -281,6 +280,13 @@ const unlockCount = computed(() =>
   padding: var(--space-2) 4px;
   /* 与 SkillGroup 同源：行内细分隔线（串读单元不带 hover，避免假可点击暗示） */
   border-bottom: 1px solid var(--line-0);
+}
+
+/* 末行不画自己的细线：下一组的主分隔线就在它正下方 1px，两条叠成 2px ——
+   于是「父级强于行间细线」被这一叠推翻（组间分隔读起来并不比行间干净）。
+   撤掉末行细线，组间就只剩那条主分隔线，层级才真的成立。 */
+.action-list > li.row:last-child {
+  border-bottom: none;
 }
 
 .no {
