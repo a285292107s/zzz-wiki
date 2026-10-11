@@ -9,7 +9,7 @@
  * （连按两步必须都生效）/ 复制链接 / 回到顶部 / 术语浮层 / 窄屏 ☰ 导航菜单
  * （开→条目与站头导航同数→Esc 关闭→焦点归还）/ 点当前页条目也收起 / 检索面板不兼任
  * 导航（窄屏与桌面一致）/ Esc 在任意焦点位置都能关检索面板 / 菜单开着时 Ctrl+K 先收菜单 /
- * 纯空格查询的空态判据与模板一致。
+ * 纯空格查询的空态判据与模板一致 / 空态「检索范围」只在无最近访问时出现。
  *
  * 用法：playwright-cli open http://localhost:4175 && \
  *       playwright-cli run-code --filename=scripts/audits/keyboard-journey.js
@@ -312,6 +312,51 @@ async (page) => {
   )
   await page.keyboard.press('Escape')
   await page.waitForTimeout(400)
+
+  /* ---------- 7f) 空态内容：无「最近访问」时给「检索范围」，有则不给（回归护栏） ----------
+     面板空查询下不该出现「只有一行提示语」的空面板（新访客看到的第一次就是它）；
+     但也**不能**在有最近访问时再塞几行——窄屏面板高度有上限，会把列表挤到折叠线以下。 */
+  const scopeState = []
+  for (const withRecent of [false, true]) {
+    await page.setViewportSize({ width: 390, height: 844 })
+    await page.goto('http://localhost:4175/')
+    await page.evaluate((keep) => {
+      if (keep) {
+        localStorage.setItem(
+          'zzz-wiki:recent-items',
+          JSON.stringify([{ to: '/agents/1021', label: '猫又', catNo: '01' }]),
+        )
+      } else {
+        localStorage.removeItem('zzz-wiki:recent-items')
+      }
+    }, withRecent)
+    await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1200)
+    await page.keyboard.press('Control+k')
+    await page.waitForTimeout(1600)
+    scopeState.push(
+      await page.evaluate((keep) => ({
+        withRecent: keep,
+        rows: document.querySelectorAll('.qs-row').length,
+        scopeRows: document.querySelectorAll('.qs-scope-row').length,
+        scopeText: document.querySelector('.qs-scope')?.textContent.replace(/\s+/g, '') ?? '',
+        panelScrolls: (() => {
+          const p = document.querySelector('.qs-panel')
+          return p ? p.scrollHeight > p.clientHeight + 1 : false
+        })(),
+      }), withRecent),
+    )
+    await page.keyboard.press('Escape')
+    await page.waitForTimeout(400)
+  }
+  const [noRec, withRec] = scopeState
+  add(
+    'kb-empty-state-has-content',
+    // 无最近访问 → 有说明区、且三行齐全；有最近访问 → 无说明区（列表优先）
+    noRec.scopeRows === 3 && noRec.scopeText.includes('名称') && !noRec.panelScrolls &&
+      withRec.scopeRows === 0 && withRec.rows > 0 && !withRec.panelScrolls,
+    JSON.stringify(scopeState),
+  )
 
   /* ---------- 8) 详情页页头：返回链接可达且可聚焦 ---------- */
   await page.setViewportSize({ width: 1440, height: 900 })

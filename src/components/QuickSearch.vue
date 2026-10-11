@@ -55,6 +55,26 @@ const groups = computed(() => {
   }))
 })
 
+/** 空态「检索范围」说明：只在**无「最近访问」**时出现——那正是面板只剩一行字的时候
+ *  （新访客 / 清过缓存的回访）。内容逐条按实测写，不写实际搜不到的字段：
+ *    名称 ✓ 四语均可（安比 / Anby / アンビー / 엔비 各命中 2 条）——但界面文字**不逐语罗列**：
+ *      「韩」字不在已子集化的 CJK 分片里，写了会让 `npm run verify:fonts:cjk` 失败
+ *      （实测；补字要重下重切字体，与本改动的目的不成比例），故用「含外文原名」概括。
+ *    编号 ✓（1011 → 1 条；14162 → 1 条）
+ *    空格分词 AND ✓（「零号 安比」命中，「安比 零号」同）
+ *    大小写 / 全角无关 ✓（ANBY、ＡＮＢＹ 同）
+ *    ✗ 阵营名（狡兔屋 0 条）、职业名（强攻 0 条）、类目名（代理人 0 条）——
+ *      `domain/search.ts` 头部注释曾称索引含阵营名，与实现不符（已就地订正），故此处不列。 */
+const scopeRows = [
+  { k: '名称', v: '档案名，含外文原名' },
+  { k: '编号', v: '如 1011、14162' },
+  { k: '多词', v: '空格分隔，需全部命中' },
+]
+
+/** 「检索范围」是否显示：只在与「最近访问」二者必居其一时——面板空查询下总有一块内容，
+ *  不再出现「只有一行提示语」的空面板。 */
+const scopeShown = computed(() => !recent.value.length)
+
 /** 扁平顺序（键盘导航序 = 视觉序） */
 const flat = computed(() => groups.value.flatMap((g) => g.items))
 
@@ -280,9 +300,27 @@ function onKeydown(e: KeyboardEvent): void {
                 <span class="qs-no mono" aria-hidden="true">{{ r.catNo }}</span>
               </button>
             </div>
-            <p class="qs-state qs-state-quiet mono" :class="{ 'qs-state-first': !recent.length }">
+            <p class="qs-state qs-state-quiet mono" :class="{ 'qs-state-left': scopeShown }">
               输入关键词检索全部档案
             </p>
+            <!-- 无「最近访问」时（新访客 / 清过缓存的回访）补一份「检索范围」：
+                 面板空查询下总有一块内容，不再出现只挂一行字的空面板。
+                 组头与「最近访问 RECENT」同构（.qs-group / .qs-group-head 复用），
+                 两块内容在同一套语法里互为替补。有最近访问时不显示——那时面板已有内容，
+                 窄屏再多几行会把列表挤到折叠线以下（面板高度有上限）。 -->
+            <div v-if="scopeShown" class="qs-group">
+              <p class="qs-group-head mono">
+                <span class="g-no">⌕</span>
+                <span class="g-label">检索范围</span>
+                <span class="g-en">SCOPE</span>
+              </p>
+              <dl class="qs-scope">
+                <div v-for="row in scopeRows" :key="row.k" class="qs-scope-row">
+                  <dt class="mono">{{ row.k }}</dt>
+                  <dd>{{ row.v }}</dd>
+                </div>
+              </dl>
+            </div>
           </template>
           <p v-else-if="!query" class="qs-state mono">输入关键词检索全部档案</p>
           <p v-else class="qs-state mono" role="status">无匹配档案 — 调整关键词再试</p>
@@ -509,9 +547,49 @@ mark.qs-hit {
   color: var(--ink-2);
 }
 
-.qs-state-first {
-  padding-top: 40px;
-  padding-bottom: 14px;
+/* 空态提示语：下面若跟着「检索范围」组，提示语就**左对齐**与它成一条轴——
+   居中会让它悬在两块内容之间，读起来像两段无关的话。
+   没有说明区时（有「最近访问」）它仍是居中收尾的题注。 */
+.qs-state-quiet.qs-state-left {
+  padding: 14px 14px 8px;
+  text-align: left;
+}
+
+/* 空态「检索范围」：细线行 + 等宽键名（与「最近访问」组同一套标本语法，无卡片）。
+   左列定宽使「名称 / 编号 / 多词」对齐，右列是给玩家看的说明。
+   左右内边距与 .qs-group-head 取同一值（14）：键名与组头首元素（⌕ 符号）左缘对齐，
+   两块内容读起来是同一条竖线上的两段。 */
+.qs-scope {
+  margin: 0;
+  padding: 0 14px 12px;
+}
+
+.qs-scope-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-inline);
+  padding: 7px 0;
+  border-bottom: 1px solid var(--line-0);
+}
+
+/* 末端收口只画一次：末行的下边线归面板脚注那条（.qs-foot 的 border-top） */
+.qs-scope-row:last-child {
+  border-bottom: none;
+}
+
+.qs-scope-row dt {
+  flex: none;
+  width: 3.2em;
+  font-size: var(--fs-nano);
+  letter-spacing: 0.24em;
+  color: var(--amber);
+}
+
+.qs-scope-row dd {
+  margin: 0;
+  font-size: var(--fs-caption);
+  letter-spacing: 0.06em;
+  color: var(--ink-2);
 }
 
 /* ---------- 状态与脚注 ---------- */
