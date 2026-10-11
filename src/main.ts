@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import { inject } from '@vercel/analytics'
 import App from './App.vue'
 import { router } from './router'
 import { reveal } from './directives/reveal'
@@ -33,6 +34,22 @@ document.addEventListener(
    document.startViewTransition 的更新回调里。不支持该 API 时整条路径静默不注册，
    导航与页面过渡完全退回原样（见 utils/viewTransition）。 */
 installViewTransition(router)
+
+/* ============================================================
+ * Vercel Web Analytics（访客统计）
+ *
+ * 为什么用通用入口而不是 @vercel/analytics/vue：后者是一个 Vue 组件，靠
+ * `watch(route)` 打点并关掉脚本自身的 auto-track。本站筛选/搜索/等级是**逐键
+ * router.replace 写 query**（见 useCatalogList 等），而路由约定里
+ * 「同路径仅 query 变化不算换页」（见 router/index.ts 的 scrollBehavior 与 afterEach）。
+ * 本地实测：3 次真实换页 + 3 次输入筛选，通用入口记 3 次、vue 入口记 6 次——
+ * 用 vue 入口会把每次敲键都算成一次浏览，统计直接虚增。通用入口的 auto-track
+ * 只挂钩 pushState/popstate 且按 pathname 去重，与仓库约定一致。
+ *
+ * 采集脚本与上报端点均为**同源**路径（/_vercel/insights/*），故 vercel.json 的
+ * CSP（script-src 'self' / connect-src 'self'）无需放宽，verify-vercel-config 门禁不受影响。
+ * 开发环境不发生产请求（mode 为 auto，按 NODE_ENV 判定）。 */
+inject()
 
 createApp(App).use(router).directive('reveal', reveal).mount('#app')
 

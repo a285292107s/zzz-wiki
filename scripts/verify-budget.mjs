@@ -23,6 +23,11 @@
  *      全站唯一「有戏」的动作），且全部走 transform/opacity，不加依赖、不增请求。
  *      代价记账：首访 gzip +2.9KB（约首访 1.74MB 的 0.2%）。**这是本设计的最后一点余量**，
  *      再加编排要先把状态机/选择器精简掉，而不是继续加预算。
+ *      **2026-10-11 记账（不调预算，仍在 70KB 内，实测 68.0KB）**：接入 Vercel Web
+ *      Analytics（访客统计）——`@vercel/analytics` 通用入口的 inject()，+0.8KB gzip。
+ *      选通用入口而非 `@vercel/analytics/vue` 组件：vue 入口把「筛选逐键写 query」
+ *      也记成浏览（实测同一段操作 6 次 vs 3 次），与本站「同路径 query 变化不算换页」
+ *      的约定冲突；理由见 src/main.ts。余量仅剩约 2KB——**下一次加功能先腾预算**。
  *   2) 主 CSS 包 gzip 后 ≤ 22KB
  *      （基线 ~19KB；202 条 CJK @font-face 已含）
  *   3) sitemap.xml 存在且 URL 数 ≥ 230
