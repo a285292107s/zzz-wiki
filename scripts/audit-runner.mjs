@@ -1,5 +1,5 @@
 /* ============================================================
- * audit-runner.mjs — npm run audit：列出可用审计脚本与用法
+ * audit-runner.mjs — pnpm run audit：列出可用审计脚本与用法
  * （脚本本体是 playwright-cli run-code --filename 目标，需 preview 运行中）
  * ============================================================ */
 
@@ -13,7 +13,7 @@ const files = fs
   .sort()
 
 console.log('\n== 品质审计工具箱 ==（需 preview :4175 运行中）\n')
-console.log('**跑全套**：`npm run audit:all`（逐个执行 + 汇总 + 失败即非零退出；判据见 scripts/audit-all.mjs）')
+console.log('**跑全套**：`pnpm run audit:all`（逐个执行 + 汇总 + 失败即非零退出；判据见 scripts/audit-all.mjs）')
 console.log('单脚本：playwright-cli open http://localhost:4175 && playwright-cli run-code --filename=' + DIR + '/<脚本>')
 console.log('')
 for (const f of files) {

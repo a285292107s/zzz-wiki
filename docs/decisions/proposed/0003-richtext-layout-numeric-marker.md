@@ -47,7 +47,7 @@ Class: bug-fix
 
 - 想修的时候：`{LAYOUT_PS5#O}` 这类含数字键标记被 `stripRichText` 正确剥离。
 - `tests/text.test.ts` 覆盖该分支（现有用例已覆盖 color/IconMap/LAYOUT/BR/残留标签等分支）。
-- `npm test` 全绿，且 `src/utils/text.ts` 的注释同步更新（不再声称「不识别」）。
+- `pnpm test` 全绿，且 `src/utils/text.ts` 的注释同步更新（不再声称「不识别」）。
 
 ## Risks
 

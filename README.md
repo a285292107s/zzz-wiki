@@ -22,14 +22,14 @@
 ## 快速上手
 
 ```bash
-npm install
-npm run dev          # http://localhost:5173（端口占用自动换）
-npm run build        # vue-tsc 类型检查 + 构建
-npm test             # vitest 单元/组件测试
+pnpm install
+pnpm run dev          # http://localhost:5173（端口占用自动换）
+pnpm run build        # vue-tsc 类型检查 + 构建
+pnpm test             # vitest 单元/组件测试
 ```
 
 数据已提交在 `public/data/`，**日常开发与部署都不需要重跑数据**。
-只有需要更新数据时才跑 `npm run sync`（**唯一自动化写入入口**：探测 → 重建 → 图标补差 → 派生图档位 → 校验 → 汇总）。
+只有需要更新数据时才跑 `pnpm run sync`（**唯一自动化写入入口**：探测 → 重建 → 图标补差 → 派生图档位 → 校验 → 汇总）。
 
 > 完整命令集、排障顺序与数据失效信号见 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §7/§8；
 > 部署构建链路（`build:ci`）以 `package.json` 为准。
@@ -45,15 +45,15 @@ npm test             # vitest 单元/组件测试
 ## 部署（Vercel）
 
 1. 推送仓库到 GitHub。
-2. 在 [vercel.com/new](https://vercel.com/new) 导入——`vercel.json` 已声明框架、构建命令（`npm run build:ci`：测试 + 西文/CJK 字体校验 + 构建 + sitemap 生成）、产物目录、headers/rewrites，无需额外配置。
+2. 在 [vercel.com/new](https://vercel.com/new) 导入——`vercel.json` 已声明框架、构建命令（`pnpm run build:ci`：测试 + 西文/CJK 字体校验 + 构建 + sitemap 生成）、产物目录、headers/rewrites，无需额外配置。
 3. **必须在 Vercel 项目里再设一条环境变量 `VITE_SITE_ORIGIN`**，值为站点生产域（如 `https://myzzz.vercel.app`）。它是 sitemap / canonical / og:url 的 origin 来源，**缺了构建期的门禁会直接失败**（`scripts/generate-sitemap.mjs`）。加在 **Settings → Environment Variables**，或 `vercel env add VITE_SITE_ORIGIN production`（Preview / Development 同理）。
    **不要写进 `vercel.json`**：那里的 `env` / `build.env` 是 Vercel 已废弃的旧属性，构建期读不到——2026-10 实测因此连续部署失败（配了等于没配）；`scripts/verify-vercel-config.mjs` 已加断言挡住回退。
 4. 部署后访问 `https://<你的项目>.vercel.app`。
 
 > **数据新鲜度依赖 `data-sync` 定时任务**：部署的 `build:ci` **只构建已提交快照**、不在构建期重建数据；数据更新由
-> `.github/workflows/data-sync.yml`（每日 cron 跑 `npm run sync`：探测 → 重建 JSON → 图标补差 → **`verify:data` 硬门禁** → 提交）
+> `.github/workflows/data-sync.yml`（每日 cron 跑 `pnpm run sync`：探测 → 重建 JSON → 图标补差 → **`verify:data` 硬门禁** → 提交）
 > 承担，二者经提交锁步。门禁通过才 commit + push 到默认分支 `master` → 触发部署；不通过则 job 失败、不提交，站点沿用既有快照不挂。
-> 若生产数据滞旧：先确认该 workflow 最近是否成功 / Actions 配额，再手动 `npm run sync` 后提交。**生产分支须为 `master`（仓库默认分支）。**
+> 若生产数据滞旧：先确认该 workflow 最近是否成功 / Actions 配额，再手动 `pnpm run sync` 后提交。**生产分支须为 `master`（仓库默认分支）。**
 
 ## 目录结构
 
@@ -75,9 +75,9 @@ src/
   directives/    # v-reveal（滚动显现，数字绑定作错峰延迟）
 scripts/
   build/         # 数据管线模块（io / normalize / domains / live-target / index + download-icons / download-fonts / download-cjk-fonts）
-  build-data.ts  # 数据管线入口（npm run data）
-  sync-data.ts   # 数据+图标同步（**CI/定时唯一写者**，npm run sync；由 data-sync workflow 触发并提交）
-  verify-data.ts # zod 契约校验（npm run verify:data）
+  build-data.ts  # 数据管线入口（pnpm run data）
+  sync-data.ts   # 数据+图标同步（**CI/定时唯一写者**，pnpm run sync；由 data-sync workflow 触发并提交）
+  verify-data.ts # zod 契约校验（pnpm run verify:data）
   probes/        # 长期保留的一次性性能探针（LCP / DPR 复核；不是 audit 工具箱的一部分）
   generate-sitemap.mjs  # dist/sitemap.xml 生成（build:ci 中 vite build 之后）
 tests/           # vitest 单元/组件测试

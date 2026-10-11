@@ -16,7 +16,7 @@
  *
  * 幂等：已存在的本地文件跳过；可重复运行增补缺失项。
  *
- * 导出 runDownloadIcons()：被 sync-data.ts 进程内调用（不经 npx/子进程，
+ * 导出 runDownloadIcons()：被 sync-data.ts 进程内调用（不经 pnpm exec/子进程，
  * 避免管道与漂移，同 verify-data.ts 的处理）；返回统计摘要供上层判定。
  *
  * 用法（CLI）：

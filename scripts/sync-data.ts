@@ -1,5 +1,5 @@
 /* ============================================================
- * sync-data.ts — 「同步」入口：JSON + 图标 原子更新（npm run sync）
+ * sync-data.ts — 「同步」入口：JSON + 图标 原子更新（pnpm run sync）
  *
  * 设计（第一性原理）：
  *   - 需要的图标集 = 当前 live 数据的纯函数（icon-inventory.collectIcons，
@@ -19,7 +19,7 @@
  * 本脚本不执行 git 提交——提交由调用方（.github/workflows/data-sync.yml）按
  * git diff 决定，保持「同步」与「提交」解耦。
  *
- * 用法：npm run sync        （需外网；代理设 NODE_USE_ENV_PROXY=1）
+ * 用法：pnpm run sync        （需外网；代理设 NODE_USE_ENV_PROXY=1）
  * ============================================================ */
 
 import fs from 'node:fs'

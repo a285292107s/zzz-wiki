@@ -1,6 +1,6 @@
 /* ============================================================
  * heroCatalog — 校准工具可列角色号（单一事实源：live 代理人名录）。
- * 替代 CalibrateView 内硬编码 HERO_IDS：数据同步（npm run sync）写入新的
+ * 替代 CalibrateView 内硬编码 HERO_IDS：数据同步（pnpm run sync）写入新的
  * live/character.json 后，/calibrate 网格自动出现新角色，无需再改源码。
  * 纯函数、无 Vue 依赖，可单测。双形态角色文件名仍由 heroImageFile 解析。
  * ============================================================ */

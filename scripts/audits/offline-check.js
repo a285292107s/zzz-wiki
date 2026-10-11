@@ -10,7 +10,7 @@
  *   3) 断网下再访问**未访问过**的页面 → 允许失败，但不得白屏到没有任何站点外壳
  *   4) 恢复联网后一切照旧（不残留坏状态）
  *
- * 依赖：构建产物含 sw.js（`npm run build:ci` 后 preview 运行中）。
+ * 依赖：构建产物含 sw.js（`pnpm run build:ci` 后 preview 运行中）。
  * 用法：playwright-cli open http://localhost:4175 && \
  *       playwright-cli run-code --filename=scripts/audits/offline-check.js
  * 基线：已访问页面离线可读；SW 已接管

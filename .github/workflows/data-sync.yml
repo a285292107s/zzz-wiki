@@ -2,8 +2,8 @@
 # data-sync.yml — 定时「数据 + 图标」同步（唯一写者），直接提交默认分支
 #
 # 触发：每日 cron（默认 04:17 UTC）+ 手动 workflow_dispatch。
-# 职责：跑 npm run sync —— 探测源站新版本 → 有新版本才重建 JSON + 图标 --soft 补差
-#       → 汇总变更集；随后用 `npm run verify:data` 做【硬门禁】，通过后
+# 职责：跑 pnpm run sync —— 探测源站新版本 → 有新版本才重建 JSON + 图标 --soft 补差
+#       → 汇总变更集；随后用 `pnpm run verify:data` 做【硬门禁】，通过后
 #       直接 commit + push 到默认分支（master）→ 触发 Vercel 部署。
 #       门禁不通过 → 本 job 失败，不提交（站点停留在上次提交的好数据）。
 # 附注：新角色 hero 落地后，/calibrate 网格自动出现（角色号由 live 名录派生，
@@ -13,7 +13,7 @@
 #   - 部署（build:ci）只构建已提交快照、不再重建数据；数据更新全部走这里。
 #   - 无变更时不提交（git diff 静默），避免每日空提交。
 #   - 门禁内嵌 workflow：本仓库私有 + 免费套餐，GitHub 分支保护 / required checks
-#     不可用，故以本 job 内 npm run verify:data 作为真正的硬卡点。
+#     不可用，故以本 job 内 pnpm run verify:data 作为真正的硬卡点。
 # ============================================================
 
 name: data-sync
@@ -35,20 +35,26 @@ jobs:
         with:
           fetch-depth: 0
 
+      # pnpm 必须在 setup-node 之前就位：下面的 cache: pnpm 需要 pnpm 可执行文件，
+      # 且 setup-node 靠它定位 store 路径。版本不在此硬编码——pnpm/action-setup
+      # 读 package.json 的 `packageManager`（单一事实源，避免两处各自漂移）。
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
+          cache: pnpm
 
       - name: Install deps
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Sync data + icons
-        run: npm run sync
+        run: pnpm run sync
 
       - name: Gate — strict data-contract check before any push
-        run: npm run verify:data
+        run: pnpm run verify:data
 
       - name: Commit and push if public/data changed
         run: |

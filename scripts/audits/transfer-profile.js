@@ -3,7 +3,7 @@
  *
  * 为什么改成门禁而不是「仅测量」：竞奖档的硬指标之一就是**首访总重**（行业参考：获奖者
  * < 3MB）。此前本脚本只列字体分片的体积，既没有阈值、也漏掉图片/JS/CSS 这些大头，
- * 于是 `npm run audit:all` 只能标「？需人工判读」。
+ * 于是 `pnpm run audit:all` 只能标「？需人工判读」。
  *
  * 测量条件（必须**冷**，否则读到 0）：
  *   - 清 HTTP 缓存 + 注销 SW + 清 Cache Storage（SW 命中会把 transferSize 抹成 0）
@@ -12,7 +12,7 @@
  * 阈值（与 QUALITY.md 记分卡一致）：
  *   总重 < 3MB（竞奖档）· 字体 ≤ 1.2MB（231 片 CJK 约 1MB）· 图片 ≤ 1MB
  *
- * 用法：npm run audit:all（或 playwright-cli run-code --filename=…）
+ * 用法：pnpm run audit:all（或 playwright-cli run-code --filename=…）
  * 基线：总重 ~636KB / 字体与图片均在限内
  * ============================================================ */
 

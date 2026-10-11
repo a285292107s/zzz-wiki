@@ -29,7 +29,7 @@
 | --- | --- | --- | --- | --- | --- |
 | LCP（首页 · 移动 · **首次访问**，真冷：禁 SW + 禁缓存） | ≤4.0s | ≤2.5s | <1.5s | **2.26–2.27s**（头图）✅ | `scripts/probes/home-lcp-truefirst.js` |
 | LCP（首页 · 移动 · **回访**，SW 缓存命中） | ≤4.0s | ≤2.5s | <1.5s | **~1.00s**（文本）✅ **已达竞奖档** | 同上（不清 SW 缓存） |
-| LCP（首页 · 移动 · Lighthouse 模拟值） | ≤4.0s | ≤2.5s | <1.5s | ~4.5s ⚠️ | `npx lighthouse` |
+| LCP（首页 · 移动 · Lighthouse 模拟值） | ≤4.0s | ≤2.5s | <1.5s | ~4.5s ⚠️ | `pnpm dlx lighthouse` |
 | LCP（名录 · 移动） | ≤4.0s | ≤2.5s | <1.5s | **2.6s** ✅ | 同上 |
 | LCP（详情 · 移动） | ≤4.0s | ≤2.5s | <1.5s | **2.3s**（节流 A/B 口径） | `scripts/probes/lcp-probe-4180.js` |
 | LCP（详情 · 桌面 **DPR 1**） | ≤4.0s | ≤2.5s | <1.5s | **2.32s** ✅ | `scripts/probes/hero-dpr-check.js` |
@@ -40,7 +40,7 @@
 | **详情页加载态** | 加载中有形状、内容到达是「填进去」不是「换一页」 | 新增 `DetailSkeleton`（封面带 + 区块标题 + 档案行，与真值同形）：实测加载中 **688px 骨架稳定在位**（旧版只有一行 `LOADING…`、页面 720px），数据到达后 **7 块逐条入场**（369ms 就位 → 727/778/829ms 依次显形）✅ | 冷加载帧序列 + `regression-walk`（detail-cls-fresh = 0） |
 | 总重（首页/名录/详情） | — | — | <3MB | **636 / 440 / 911KB** ✅ | Lighthouse `resource-summary` |
 | 长任务 TBT（节流） | — | — | — | 4 个 / 最长 **229–771ms**（首屏，unattributed）⚠️ | `inp-interaction.js` |
-| 主包 gzip / CSS gzip | — | — | — | **67KB / 14.1KB** ✅（预算 70 / 22KB；主包 +2.9KB 来自起飞前编排——整页退场收集器 + 取景变形 + 逐条入场 + 中断回滚路径，见 `verify-budget.mjs` 文件头） | `npm run verify:budget` |
+| 主包 gzip / CSS gzip | — | — | — | **67KB / 14.1KB** ✅（预算 70 / 22KB；主包 +2.9KB 来自起飞前编排——整页退场收集器 + 取景变形 + 逐条入场 + 中断回滚路径，见 `verify-budget.mjs` 文件头） | `pnpm run verify:budget` |
 | 运行时外部请求 | 0 | 0 | 0 | **数据面 0**；图片候选链兜底例外（见 §4 声明一致性） ✅ | `regression-walk.js` + CSP 门禁 |
 | **离线阅读** | 已访问页面断网可读 | — | — | **Service Worker 已上线**：导航网络优先 / 静态资源缓存优先 / 数据 JSON 陈旧优先 + 后台更新；缓存世代跟随数据版本，换版整批清理；**未缓存页面断网落到自包含的离线兜底页**（可读文案 + 返回入口，而非浏览器空白页） ✅ | `offline-check.js`（7/7，含负向验证） |
 | **回访数据量** | 回访零网络 | — | — | 首访详情 **881KB / 122 项** → 回访 **0KB / 128 项全部由 SW 命中**（`transferSize` 合计 0、`workerStart>0` 全覆盖）——对反复查阅的资料档案是实际收益，也对应 Webby「带宽受限」考量 ✅ | `offline-check.js`（repeat-visit-zero-network） |
@@ -112,7 +112,7 @@
 | 指标 | 目标 | 本站实测 | 复跑 |
 | --- | --- | --- | --- |
 | 全站内容完整性（238 页） | 0 渲染异常 | **0 泄漏 / 0 空区块 / 0 断图** ✅ | `content-sweep.js`（**须先 `build:ci`**：`build` 不产 sitemap/逐路由 HTML，脚本会静默扫 0 页） |
-| 每页元信息 | title + description + canonical + og | **237 页逐路由 HTML 齐全** ✅ | `npm run route-html`（含自校验） |
+| 每页元信息 | title + description + canonical + og | **237 页逐路由 HTML 齐全** ✅ | `pnpm run route-html`（含自校验） |
 | 结构化入口 | sitemap + robots 一致 | **238 URL / 同域** ✅ | `verify-budget`（origin 一致性门禁） |
 | 边界态 | 加载/空/错误/404 均有出路 | **4 态齐备**（空态可清除、错误可重试） ✅ | `regression-walk.js` |
 | **窄屏横滑可达性** | 横向放不下的表格要给「还能滑」的提示，不能看起来已经完整 | 档案图谱 390px 下表格 **734px / 视口 350px**（半张表在框外那侧看不出还有内容）：复用吸顶横条那套 `useNavScrollable`（`.scrollable` / `.at-end`）→ 出现「← 左右滑动查看全部职业 →」，滚到最右自动消失；桌面表格放得下时提示**不渲染**（实测 1440 下 `scrollWidth == clientWidth`、提示 `display: none`）✅；同时按 DATA_GUIDE 的横向容器约定补上 `overscroll-behavior-x: contain` | `composition-audit.js`（三视口）+ 截图 |
@@ -137,10 +137,10 @@
 | CSP | 严格（脚本无 unsafe-inline/eval） | **已上线，本地实测 0 违规** ✅ | `csp-check.js` + `verify:vercel` |
 | 缓存策略 | 内容寻址 immutable、非寻址重验证 | **27 项断言通过** ✅ | `verify:vercel` |
 | 部署产物一致性 | sitemap 域 = canonical 域 | **门禁通过** ✅ | `verify-budget` |
-| 测试 | 全绿 | **439 passed / 46 files**（2026-10 实测；数值随测试增长，**以 `npm test` 输出为准**）✅ | `npm test` |
-| **审计工具箱全量复跑** | 28 脚本全部通过 | **28/28 · 0 需人工判读**（每个脚本的通过判据显式声明；失败即非零退出）✅ | **`npm run audit:all`**（一条命令；单脚本仍可 `playwright-cli run-code --filename=scripts/audits/<脚本>`） |
+| 测试 | 全绿 | **439 passed / 46 files**（2026-10 实测；数值随测试增长，**以 `pnpm test` 输出为准**）✅ | `pnpm test` |
+| **审计工具箱全量复跑** | 28 脚本全部通过 | **28/28 · 0 需人工判读**（每个脚本的通过判据显式声明；失败即非零退出）✅ | **`pnpm run audit:all`**（一条命令；单脚本仍可 `playwright-cli run-code --filename=scripts/audits/<脚本>`） |
 
-> **死代码扫描（knip）不在 `build:ci` 里**——`package.json` 没有 knip script，只能手工 `npx knip`。
+> **死代码扫描（knip）不在 `build:ci` 里**——`package.json` 没有 knip script，只能手工 `pnpm dlx knip`。
 > `knip.json` 的三条设置各自在挡一件**非显然**的事，**不要顺手删掉**：
 > - `entry: ["scripts/audits/*.js"]` —— 审计脚本由 playwright-cli **按文件名**加载，静态分析看不出谁引用它，
 >   少了这条会把 28 个脚本全报成死文件。
@@ -165,7 +165,7 @@
 >   原图 2552px 对 2336px 需求仅 1.09× 超采，**不为字节牺牲 retina 画质**。
 > - **首屏长任务**：已归因（首帧内容布局，与内容规模成正比 + 字体到达局部重排），INP 实测 48–88ms 已达获奖档。
 
-> 记分卡的复跑约定：`npm test` + `npm run build:ci` 是**必过门禁**；
+> 记分卡的复跑约定：`pnpm test` + `pnpm run build:ci` 是**必过门禁**；
 > 上表各审计用 `playwright-cli run-code --filename=scripts/audits/<脚本>`（需 preview 运行中）。
 > 新指标一旦加入记分卡，就要同时进 `regression-walk.js`（能进走查的）或独立脚本（需 CDP 的）。
 

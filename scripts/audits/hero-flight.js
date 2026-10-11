@@ -49,7 +49,7 @@
  *
  * 复跑：playwright-cli open http://localhost:4175 && \
  *       playwright-cli run-code --filename=scripts/audits/hero-flight.js
- * 前置：npm run build:ci && npm run preview（:4175）
+ * 前置：pnpm run build:ci && pnpm run preview（:4175）
  * ============================================================ */
 
 async page => {

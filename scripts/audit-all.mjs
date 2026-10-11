@@ -1,15 +1,15 @@
 /* ============================================================
- * audit-all.mjs — npm run audit:all：**一条命令跑完整个审计箱**
+ * audit-all.mjs — pnpm run audit:all：**一条命令跑完整个审计箱**
  *
- * 为什么需要：`npm run audit` 只**列出**脚本，27 个审计此前全靠人工逐个跑
+ * 为什么需要：`pnpm run audit` 只**列出**脚本，27 个审计此前全靠人工逐个跑
  * （漏跑一个就等于没有那项保障——第 111 轮发现 `verify:icons` 从未接入任何链路，
  * 正是这类问题的另一面）。本脚本把它们串起来，并**显式声明每个脚本的通过判据**。
  *
  * 判据写在这里而不是靠「输出里有没有 failed 字段」猜：不同审计的返回结构不同，
  * 猜错会得到假绿。没有判据的脚本一律标「？需人工判读」，绝不默认通过。
  *
- * 前置：preview 在 :4175 运行（npm run build:ci && npm run preview）。
- * 用法：npm run audit:all
+ * 前置：preview 在 :4175 运行（pnpm run build:ci && pnpm run preview）。
+ * 用法：pnpm run audit:all
  * 退出码：0 全部通过 · 1 有失败 · 2 前置不满足（服务未起）
  * ============================================================ */
 
@@ -96,7 +96,7 @@ const files = fs
   .sort()
 
 if (!serverUp()) {
-  console.error(`✖ ${ORIGIN} 不可用：先 \`npm run build:ci && npm run preview\`（审计读的是构建产物）`)
+  console.error(`✖ ${ORIGIN} 不可用：先 \`pnpm run build:ci && pnpm run preview\`（审计读的是构建产物）`)
   process.exit(2)
 }
 

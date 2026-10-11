@@ -91,7 +91,7 @@ export async function runDownloadCjkFonts() {
   console.log(
     `== CJK 原始分片 == 共 ${faces.length}，下载 ${downloaded}，缓存命中 ${skipped}，失败 ${failed.length}`,
   )
-  console.log(`   清单：${FACES_OUT}（裁剪用：npm run subset:fonts:cjk）`)
+  console.log(`   清单：${FACES_OUT}（裁剪用：pnpm run subset:fonts:cjk）`)
   for (const x of failed.slice(0, 10)) console.log(`  ⚠ ${x.key}: ${x.msg}`)
   if (failed.length > 10) console.log(`  ⚠ …共 ${failed.length} 项失败（重跑本脚本幂等补差）`)
   return { total: faces.length, downloaded, skipped, failed: failed.length }

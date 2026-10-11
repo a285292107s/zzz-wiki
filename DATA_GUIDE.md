@@ -52,9 +52,9 @@
 
 ---
 
-## 2. 解析层要点（scripts/build/，`main()` 主编排；构建入口 build-data.ts，正式更新入口见 §7 `npm run sync`）
+## 2. 解析层要点（scripts/build/，`main()` 主编排；构建入口 build-data.ts，正式更新入口见 §7 `pnpm run sync`）
 
-`scripts/build/index.ts` 的 `main()` 被 `npm run data`（本地、仅数据）与 `npm run sync`（正式更新入口，见 §7）共用（`sync-data.ts` 内以 `buildAll` 为本地别名），
+`scripts/build/index.ts` 的 `main()` 被 `pnpm run data`（本地、仅数据）与 `pnpm run sync`（正式更新入口，见 §7）共用（`sync-data.ts` 内以 `buildAll` 为本地别名），
 解析/规整/合规逻辑同一份。数据源字段名已是可读英文，**无键名反混淆**，解析层只做规整：
 
 - `basename()`：`icon` 若为完整资源路径（驱动盘/邦布）→ 取裸文件名（去目录/扩展名），与素材 CDN 命名规则一致；角色/音擎 icon 本身即裸名，原样保留。
@@ -67,11 +67,11 @@
 - **阵营细分补充**：源数据 `camp` 为粗粒度阵营（如 16=罗斯凯利法），构建期按官方设定把已知角色细分到下属组织（live 3.2 共 15 角色 → 7 子阵营：防卫军·奥波勒斯小队/白银小队、治安局·刑侦特勤组/都市秩序部、罗斯凯利法·外务筹策局/空域巡戍局/弗林特工坊）。单一事实源 `src/data/camp-supplement.json`（码 18 起为细分新增码；细分只覆写名录 `camp/camp_name`，详情 `camp` 保持源数据），由 `domains.ts` 的 `applyCampSupplement()` 注入；上游若原生引入细分，删除对应条目即回归源数据。口径核对自 biligame 角色图鉴（2026-10-05）。
 - **名词表**：源站 `zh/noun.json` 全量下沉为 `live/noun.json`；术语名规整为带括号风格（如 `[虚曜]`）注入名录/详情，名词表自身 desc 经 `resolveTerms` 解析（`<Term:N>` 保留 ID 外壳，前端渲染为术语锚点）。
 - 详情并发抓取上限 8；磁盘缓存 `.cache/hakushin-raw/`（缓存路径含版本号，同版本重复构建秒级跳过、跨版本自动全量刷新；`--force` 强制忽略缓存重拉）。
-- **manifest.json 永不读缓存**：每次 `npm run data` 都实时拉取源站清单，保证版本探测不固着。
+- **manifest.json 永不读缓存**：每次 `pnpm run data` 都实时拉取源站清单，保证版本探测不固着。
 
 **当前版本号易变**：`manifest.zzz.available` 含历史版本；构建只取 `live`（正式服，见 §1 单版本说明）。
 合规判定集中在 `scripts/build/live-target.ts` 的 `resolveLiveTarget()`（纯函数，有单测）：live 缺失 / available 缺失 /
-live 不在 available 时**直接抛错**（sync-data 判定失败则不提交、沿用仓库内既有正式服数据），`npm run data` 重建即可。
+live 不在 available 时**直接抛错**（sync-data 判定失败则不提交、沿用仓库内既有正式服数据），`pnpm run data` 重建即可。
 
 ---
 
@@ -88,7 +88,7 @@ public/data/
   img/                        图标本地化 + hero 头图（download:icons 产物）
 ```
 
-> `img/` 为 `npm run download:icons` 的本地化图标（独立管理）；`npm run data`
+> `img/` 为 `pnpm run download:icons` 的本地化图标（独立管理）；`pnpm run data`
 > 的 resetOut **只清理根 manifest 与 live 目录**，不触碰 img/（曾有整体删除 OUT 目录连坐清空图标的教训）。
 > `img/hero/Mindscape_{id}_2.webp` 同时是角色详情页 AgentHead 头图与首页「今日角色」的图源，
 > 该图源带透明边（上下为 alpha 透明区）。选角与逐图取景参数存于 `src/data/featured-pool.json`
@@ -154,14 +154,14 @@ public/data/
 
 | 优先级 | 来源 | URL 模板 | 覆盖/实测 |
 |---|---|---|---|
-| ① | **本地化图标** | `{BASE}/data/img/{category}/{basename}.webp`（`npm run download:icons` 落地） | 角色/音擎/邦布/驱动盘/技能键位/hero 头图全量（须在 `npm run data` / `npm run sync` 之后才落地） |
+| ① | **本地化图标** | `{BASE}/data/img/{category}/{basename}.webp`（`pnpm run download:icons` 落地） | 角色/音擎/邦布/驱动盘/技能键位/hero 头图全量（须在 `pnpm run data` / `pnpm run sync` 之后才落地） |
 | ② | nanoka 素材 CDN | `https://static.nanoka.cc/assets/zzz/{basename}.webp` | **全品类图标 100%（除空缺 icon）** |
 
 **nanoka 命名规则**：取游戏资源路径的**裸文件名**（去目录、去扩展名）+ `.webp`。
 例：`UI/Sprite/A1DynamicLoad/IconSuit/UnPacker/SuitWoodpeckerElectro.png` → `SuitWoodpeckerElectro.webp`。
 角色头像 `IconRole01` 等即直接用；角色列表头像在现行名录里形如 `IconRoleGeneral01`（**实测：60 条名录 icon 零 `RoleSelect` 命中**——`Role`→`RoleSelect` 属早期命名，已不适用）。
 
-> **本地化（Q4b）**：`npm run download:icons` 把运行时图标从 nanoka 下载到
+> **本地化（Q4b）**：`pnpm run download:icons` 把运行时图标从 nanoka 下载到
 > `public/data/img/{category}/`，使站点**运行时零外部请求**。本地文件缺失时自动落到
 > ② 的 CDN 兜底，不破图。皮肤多为此类**大图**（28MB+），默认**不本地化**（`SKIN_LOCAL=1` 可开），
 > 皮肤缩略图仍走 CDN→文字兜底。
@@ -180,8 +180,8 @@ public/data/
 > **新增条目必须写明依据**（实测时间、探测过的 URL 与状态码、本地是否存在）——
 > 这里是记录事实，不是「缺失就忽略」的抽屉；新增图标缺失仍应优先补资产。
 >
-> `npm run verify:icons --local` 已接入 `build:ci`（本地差集，离线可用）；带远程审计的
-> `npm run verify:icons`（默认）需联网，用于核查「源站是否已补上」。
+> `pnpm run verify:icons --local` 已接入 `build:ci`（本地差集，离线可用）；带远程审计的
+> `pnpm run verify:icons`（默认）需联网，用于核查「源站是否已补上」。
 > **双形态角色例外**：1551 佩洛伊斯（Pyrois）源站无裸名 `Mindscape_1551_2.webp`，而是按性别后缀
 > 区分（`Mindscape_1551_Female_2.webp` / `Mindscape_1551_Male_2.webp`），两形态均已本地化到
 > `img/hero/`。**单一事实源**：`src/data/hero-gender-variants.json` 以 `{ id: { variants, defaultFile } }`
@@ -227,50 +227,50 @@ public/data/
 
 ## 7. 运维命令
 
-改动数据管线的建议顺序：正式更新入口用 `npm run sync`（探测 → 重建 JSON → 图标补差 → 校验 → 汇总，
-由 GitHub Actions 定时触发，工作流内 `npm run verify:data` 硬门禁通过 → 直接 commit + push 到默认分支
+改动数据管线的建议顺序：正式更新入口用 `pnpm run sync`（探测 → 重建 JSON → 图标补差 → 校验 → 汇总，
+由 GitHub Actions 定时触发，工作流内 `pnpm run verify:data` 硬门禁通过 → 直接 commit + push 到默认分支
 （master），JSON 与图标同次提交锁步；门禁不通过则 job 失败、不提交）；
-仅本地改数据时 `npm run data` → `npm run verify:data` →（可选）`npm run download:icons`
-→ `npm test` → `npm run build`（→ 可选 `npm run verify:icons`）。改动视觉层字体时另见
-`npm run download:fonts` / `npm run verify:fonts`（西文）与 `npm run download:fonts:cjk` /
-`npm run subset:fonts:cjk` / `npm run verify:fonts:cjk`（CJK 衬线分片，§10 字体组）。各命令如下：
+仅本地改数据时 `pnpm run data` → `pnpm run verify:data` →（可选）`pnpm run download:icons`
+→ `pnpm test` → `pnpm run build`（→ 可选 `pnpm run verify:icons`）。改动视觉层字体时另见
+`pnpm run download:fonts` / `pnpm run verify:fonts`（西文）与 `pnpm run download:fonts:cjk` /
+`pnpm run subset:fonts:cjk` / `pnpm run verify:fonts:cjk`（CJK 衬线分片，§10 字体组）。各命令如下：
 
 ```bash
-npm install             # 依赖（首次或变更后）
-npm run data            # 拉取 hakushin raw（live = 正式服单版本）→ 规整 → 生成 public/data/live/ + manifest（需外网）
+pnpm install             # 依赖（首次或变更后）
+pnpm run data            # 拉取 hakushin raw（live = 正式服单版本）→ 规整 → 生成 public/data/live/ + manifest（需外网）
                         #   有代理时：set NODE_USE_ENV_PROXY=1
-npm run data -- --check # 仅版本探测：输出 UPDATE_AVAILABLE / UP_TO_DATE，不构建（CI/定时哨兵）
-npm run sync           # 数据+图标同步（正式提交入口）：探测 → 重建 JSON → 图标 --soft 补差（只补缺失、已有资源零重下）
+pnpm run data -- --check # 仅版本探测：输出 UPDATE_AVAILABLE / UP_TO_DATE，不构建（CI/定时哨兵）
+pnpm run sync           # 数据+图标同步（正式提交入口）：探测 → 重建 JSON → 图标 --soft 补差（只补缺失、已有资源零重下）
                         #   → verify:data + 本地必须项图标齐整（告警）→ 汇总变更集；无变更不提交；由 data-sync workflow
                         #   定时触发 → 工作流内 verify:data（契约 + 完整性：名录↔详情一一对应）硬门禁通过 → 直接 commit + push 到默认分支（master）（需外网）
-npm run build:ci        # Vercel 部署构建入口（**完整链路以 package.json 的 build:ci 为唯一事实源**）：
-                        #   只构建已提交快照、不在构建期重建数据（数据更新走 npm run sync）；站点因数据源故障而挂的情形由 sync 不提交规避
-npm run verify:icons    # 图标校准：本地 img 差集（核心）+ nanoka 远程审计；缺失非零退出
+pnpm run build:ci        # Vercel 部署构建入口（**完整链路以 package.json 的 build:ci 为唯一事实源**）：
+                        #   只构建已提交快照、不在构建期重建数据（数据更新走 pnpm run sync）；站点因数据源故障而挂的情形由 sync 不提交规避
+pnpm run verify:icons    # 图标校准：本地 img 差集（核心）+ nanoka 远程审计；缺失非零退出
                         #   --local 仅查本地（离线可用）；网络异常按"无法确认"以码 2 退出
-npm run download:fonts  # 西文字体本地化：Google Fonts css2 → public/fonts/*.woff2（自托管、运行时零外网）；幂等；网络失败仅告警
-npm run verify:fonts    # 字体存在性校验：download:fonts 声明的每个文件在 public/fonts/ 存在且非空（离线可用；build:ci 已挂）
-npm run download:fonts:cjk  # CJK 原始分片拉取：Noto Serif SC 500 → .cache/cjk-raw/ + faces.json（不入库；幂等；失败仅告警）
-npm run subset:fonts:cjk    # CJK 分片裁剪：按站内字符集裁剪源片并按 10KB 目标细分 → public/fonts/noto-serif-sc/ + CSS + 清单（内容寻址命名，自动清理孤儿）
-npm run fonts:cjk           # 上两步串联（字符集变化后跑这个）
-npm run verify:fonts:cjk    # CJK 分片完整性 + 字符集覆盖校验：清单/css/文件三方对账，且字体能提供的字符必须全部已声明（离线可用；build:ci 已挂）
-npm run sitemap         # 生成 dist/sitemap.xml（build:ci 中 vite build 之后执行；域名取 VITE_SITE_ORIGIN，与 canonical/og:url 同源；
+pnpm run download:fonts  # 西文字体本地化：Google Fonts css2 → public/fonts/*.woff2（自托管、运行时零外网）；幂等；网络失败仅告警
+pnpm run verify:fonts    # 字体存在性校验：download:fonts 声明的每个文件在 public/fonts/ 存在且非空（离线可用；build:ci 已挂）
+pnpm run download:fonts:cjk  # CJK 原始分片拉取：Noto Serif SC 500 → .cache/cjk-raw/ + faces.json（不入库；幂等；失败仅告警）
+pnpm run subset:fonts:cjk    # CJK 分片裁剪：按站内字符集裁剪源片并按 10KB 目标细分 → public/fonts/noto-serif-sc/ + CSS + 清单（内容寻址命名，自动清理孤儿）
+pnpm run fonts:cjk           # 上两步串联（字符集变化后跑这个）
+pnpm run verify:fonts:cjk    # CJK 分片完整性 + 字符集覆盖校验：清单/css/文件三方对账，且字体能提供的字符必须全部已声明（离线可用；build:ci 已挂）
+pnpm run sitemap         # 生成 dist/sitemap.xml（build:ci 中 vite build 之后执行；域名取 VITE_SITE_ORIGIN，与 canonical/og:url 同源；
                         #   部署环境（VERCEL/CI）缺该变量则直接失败——防止把 localhost 域名的 sitemap 发上线）；
                         #   verify:budget 另做「sitemap origin 与 VITE_SITE_ORIGIN 一致」门禁
-npm run route-html      # 逐路由静态 HTML（build:ci 紧随 sitemap 执行）：以 dist/index.html 为模板，
+pnpm run route-html      # 逐路由静态 HTML（build:ci 紧随 sitemap 执行）：以 dist/index.html 为模板，
                         #   为 sitemap 中每个路由生成 dist/<route>/index.html，只替换 head 的
                         #   title/description/canonical/og:*（og:image 按类目选：角色=hero/card 派生图、
                         #   音擎/邦布=thumb 图标、名录/静态页=站点头图），宽高由 sharp 读实际文件；
                         #   Vercel 静态文件优先于 rewrites，故社交爬虫与搜索引擎拿到的是逐页元信息。
                         #   生成器内置自校验（任一页字段未替换即失败）
-npm run verify:budget    # 体积预算 + sitemap origin 一致性 + 逐路由 HTML 数量门禁（build:ci 已挂）
-npm run verify:vercel    # 生产缓存策略 + 安全响应头不变量门禁（build:ci 已挂）：
+pnpm run verify:budget    # 体积预算 + sitemap origin 一致性 + 逐路由 HTML 数量门禁（build:ci 已挂）
+pnpm run verify:vercel    # 生产缓存策略 + 安全响应头不变量门禁（build:ci 已挂）：
                          #   内容寻址资源才可 immutable、非寻址资源禁止 immutable、manifest/字体 CSS 必须每次重验证、
                          #   CSP 必需指令齐备且脚本**不得**放开 unsafe-inline/eval、安全头齐备、SPA rewrite 存在、
                          #   规则互不重叠（详见脚本头：这类配置本地测不到，只能在构建期断言）
                          #   候选 CSP 另经 scripts/audits/csp-check.js 本地实测（注入响应头走关键路径，基线 0 违规）
-npm run dev             # 开发 http://localhost:5173（占用自动换端口）
-npm run build           # vue-tsc 类型检查 + vite 构建
-npm run preview         # 预演产物
+pnpm run dev             # 开发 http://localhost:5173（占用自动换端口）
+pnpm run build           # vue-tsc 类型检查 + vite 构建
+pnpm run preview         # 预演产物
 ```
 
 ---
@@ -288,8 +288,8 @@ npm run preview         # 预演产物
 2. **请求 404** → 站点 schema 变更（端点改名/移动），检查 `manifest.json` 的 `available` 列表与旧端点对比。
 3. **图标全文字** → `verify:icons` 先看本地 img 差集（运行时消费的是本地文件，缺失才会静默落 CDN）；nanoka `/assets/zzz/` 是主兜底，若它也挂则所有图降文字（`--local` 之外的审计会标出源站缺口）。
 4. **多语言名异常** → 名录 `en`/`ja`/`ko` 对极新角色可能是原始资源键（`zh` 不受影响）；若大面积如此说明站点本地化未完成。
-5. **构建失败：「live 不在可用列表」** → `npm run data` 抛错（为合规拒绝降级 latest）；源站下架/改名 live 版本时需人工确认。sync-data 判定失败则不提交、沿用仓库内既有正式服数据；部署只构建已提交快照，站点不挂。
-6. **图标带源站水印（如驱动盘 `SuitThornedRose` 的 DEMO 字样）** → 水印烙在 nanoka 源资产里，本地化时原样落地；且「零重下」幂等差集不会随上游替换自动更新。处置：人工从源站确认干净资产后覆盖对应 `public/data/img/disc/*.webp`（或删除本地文件后重跑 `npm run sync` 补差），勿整批重下。
+5. **构建失败：「live 不在可用列表」** → `pnpm run data` 抛错（为合规拒绝降级 latest）；源站下架/改名 live 版本时需人工确认。sync-data 判定失败则不提交、沿用仓库内既有正式服数据；部署只构建已提交快照，站点不挂。
+6. **图标带源站水印（如驱动盘 `SuitThornedRose` 的 DEMO 字样）** → 水印烙在 nanoka 源资产里，本地化时原样落地；且「零重下」幂等差集不会随上游替换自动更新。处置：人工从源站确认干净资产后覆盖对应 `public/data/img/disc/*.webp`（或删除本地文件后重跑 `pnpm run sync` 补差），勿整批重下。
 
 ### 不要做的事
 - 不要把 hakushin raw 提为**运行时**数据源（§0 铁律：运行时零外部请求）；仅构建期拉取。
@@ -334,10 +334,10 @@ skills 描述富文本走 `richDesc`。字体族（CJK 衬线优先、sans 弃 `
 
 **墨色分层是契约，不是建议**（`tokens.css` 已写明）：`--ink-2` 及更亮承载信息（对 bg-0/bg-1 ≥4.5:1，AA）；
 `--ink-3` 是**装饰层**（不承载信息、不要求 AA）——只能用于纯序号、分隔符、占位字形，且应 `aria-hidden`。
-`npm run audit` 里的 `color-audit` 会按元素实测并报出违规用法（2026-10 曾抓到未解锁档内容、
+`pnpm run audit` 里的 `color-audit` 会按元素实测并报出违规用法（2026-10 曾抓到未解锁档内容、
 翻页方向、检索框 placeholder、以及我们自己的「无匹配」空态文案都落在装饰层 → 已全部提到 AA）。
 西文（JetBrains Mono / Public Sans）**自托管**至 `public/fonts/`，经 `@font-face` 引用、运行时零外网；
-刷新用 `npm run download:fonts`，缺文件由 `verify:fonts` 门禁（含 build:ci）。
+刷新用 `pnpm run download:fonts`，缺文件由 `verify:fonts` 门禁（含 build:ci）。
 CJK 衬线（Noto Serif SC **500 单档**）**按站点字符集裁剪后自托管**至 `public/fonts/noto-serif-sc/`：
 `download:fonts:cjk` 把 Google 官方分片拉到 `.cache/cjk-raw/`（不入库），`subset:fonts:cjk`
 用 `scripts/build/charset.mjs` 采集的站内字符集逐片裁剪，产物才进 `public/`（内容寻址命名）。
@@ -345,7 +345,7 @@ CJK 衬线（Noto Serif SC **500 单档**）**按站点字符集裁剪后自托�
 （字体能提供的字符必须全部已声明，缺一即字形混排）。
 
 > 📉 **分片裁剪（运维规则）**：官方分片按编码区切（单片 20-80KB，页面只用几十字），故裁剪后按
-> `CJK_TARGET_KB`（默认 5）细分。**字符集变化（新增数据/文案）后须重跑 `npm run fonts:cjk`**，
+> `CJK_TARGET_KB`（默认 5）细分。**字符集变化（新增数据/文案）后须重跑 `pnpm run fonts:cjk`**，
 > 否则新字回退系统字体。Google 现行分片是**静态实例（无 fvar 轴）——不要钉可变轴**
 > （harfbuzz 报 axis 不存在）。字体分片对首屏 LCP 的制约与测量口径见 [`QUALITY.md`](./QUALITY.md) §1。
 >

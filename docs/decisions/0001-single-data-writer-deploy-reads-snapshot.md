@@ -16,12 +16,12 @@ Class: architecture
 
 **更新链与部署链分离，部署只读已提交快照。**
 
-- `scripts/sync-data.ts`（`npm run sync`）是 **CI/定时侧唯一写入者**：探测版本 → 重建 JSON →
+- `scripts/sync-data.ts`（`pnpm run sync`）是 **CI/定时侧唯一写入者**：探测版本 → 重建 JSON →
   图标 `--soft` 补差 → 派生图档位（hero card/wide、hero mobile、名录小图 thumb）→ 汇总变更集。
-  由 `.github/workflows/data-sync.yml` 每日 cron 触发，**工作流内**跑 `npm run verify:data` 作硬门禁；
+  由 `.github/workflows/data-sync.yml` 每日 cron 触发，**工作流内**跑 `pnpm run verify:data` 作硬门禁；
   通过 → commit + push 默认分支 `master` → 触发 Vercel 部署；不通过 → job 失败、**不提交**，
   站点沿用既有快照。无变更不提交。
-- 部署入口 `npm run build:ci` **只构建已提交快照**，不在构建期重建数据。
+- 部署入口 `pnpm run build:ci` **只构建已提交快照**，不在构建期重建数据。
 - 门禁口径：`verify:data` = 契约形状 + 名录非空 + **名录 id ↔ 详情文件一一对应** + `extra_level` 单调。
 - **JSON 严格 / 图标宽松**：内容缺一即阻断提交；展示资产缺失则降级（CDN → 文字占位）并自愈，不阻塞提交。
 
@@ -29,8 +29,8 @@ Class: architecture
 
 | 写入者 | 写什么 | 场景 |
 |---|---|---|
-| `npm run data` | 内容 JSON + manifest | 本地数据重建 |
-| `npm run download:icons` | `img/**` 图标与头图 | 资产本地化（sync 内部也会调） |
+| `pnpm run data` | 内容 JSON + manifest | 本地数据重建 |
+| `pnpm run download:icons` | `img/**` 图标与头图 | 资产本地化（sync 内部也会调） |
 | `scripts/build/hero-cards.mjs` / `hero-mobile.mjs` / `icon-thumbs.mjs` | 派生图档位 | 由 sync 在图标下载后调用 |
 
 手工直接改 `public/data/**` **禁止**——重建时会被覆盖（见 `AGENTS.md` §0.7）。

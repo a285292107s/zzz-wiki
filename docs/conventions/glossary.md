@@ -2,7 +2,7 @@
 
 **为什么有这份文件**：`public/data/live/noun.json` 是**构建期由源站全量重建的生成物**
 （`scripts/build/index.ts` → `dump('live','noun.json', …)`），只读、不可写——往里写术语会在下次
-`npm run sync` 被整体覆盖。所以**本项目自己敲定的术语**落在这里。
+`pnpm run sync` 被整体覆盖。所以**本项目自己敲定的术语**落在这里。
 
 | | 本文件 | `noun.json` |
 |---|---|---|

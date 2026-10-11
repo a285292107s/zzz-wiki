@@ -52,6 +52,6 @@ src/data/types.ts      ← 类型别名 + 对外 import 面（**只再导出，�
 - [ ] 改的是 `src/domain/schema.ts`，不是 `types.ts`。
 - [ ] 新字段是否需要 `catchall` 之外的显式声明？（只有**前端要消费**的字段才显式声明）
 - [ ] 是否影响 `verify:data` 的四项判据？（尤其「名录 id ↔ 详情一一对应」）
-- [ ] `npm run verify:data` 通过；若改了产出，`npm run data` 后产出的 JSON 一并入库。
+- [ ] `pnpm run verify:data` 通过；若改了产出，`pnpm run data` 后产出的 JSON 一并入库。
 - [ ] 富文本字段（含 `<color=#…>` / `<IconMap:…>`）在**展示层**经 `rich.ts`/`stripRichText`，
       契约层不做清洗。

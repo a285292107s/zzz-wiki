@@ -31,7 +31,7 @@
    （字段定义归 `src/data/types.ts` / `src/domain/schema.ts`）。
 6. **不把 `temp/` 当仓库**：`temp/` 已 gitignore 且会被清空；验收依据与长期脚本不得只存在于 `temp/`
    （既有基线文件 `temp/quality-baseline.md` 即属此类，不可依赖——基线归 `QUALITY.md`）。
-7. **不手改生成物**：`public/data/**` 由 `npm run sync` 与 `npm run data` 写入（**两者都会写盘**），
+7. **不手改生成物**：`public/data/**` 由 `pnpm run sync` 与 `pnpm run data` 写入（**两者都会写盘**），
    生成物（含名词表 `live/noun.json`）禁止手工追加内容——重建时会被覆盖。
 
 ## 1. 临时文件：只放 `temp/`
@@ -58,19 +58,22 @@
 
 ## 4. 环境与命令
 
-- **依赖**：包管理器为 npm，锁文件只维护 `package-lock.json`（勿再引入 pnpm 锁文件）；新增依赖用 `npm install <pkg>`。
-- **日常命令**：开发 `npm run dev`（http://localhost:5173）；构建 `npm run build`（含 vue-tsc）；单测 `npm test`。
-- **部署构建入口 `npm run build:ci`**（Vercel 已指向；**完整链路以 `package.json` 的 `build:ci` 为唯一事实源**）：
-  `npm test` → `verify:fonts` → `verify:icons --local` → `gen:featured-elements --check` → `verify:fonts:cjk`
+- **依赖**：包管理器为 pnpm（版本由 `package.json` 的 `packageManager` 钉住），锁文件只维护 `pnpm-lock.yaml`
+  （勿再引入 `package-lock.json` 或 yarn 锁文件）；新增依赖用 `pnpm add <pkg>`。
+  ⚠ pnpm 配置只读 `pnpm-workspace.yaml`（`package.json` 的 `pnpm` 字段已失效）；依赖的安装脚本须在该文件
+  的 `allowBuilds` 里逐一审批，否则 `pnpm install` 会以 `ERR_PNPM_IGNORED_BUILDS` 非零退出（详见决策记录 0005）。
+- **日常命令**：开发 `pnpm run dev`（http://localhost:5173）；构建 `pnpm run build`（含 vue-tsc）；单测 `pnpm test`。
+- **部署构建入口 `pnpm run build:ci`**（Vercel 已指向；**完整链路以 `package.json` 的 `build:ci` 为唯一事实源**）：
+  `pnpm test` → `verify:fonts` → `verify:icons --local` → `gen:featured-elements --check` → `verify:fonts:cjk`
   → `vite build` → `sitemap` → `route-html` → `verify:budget`（主包/CSS/sitemap 体积预算）→ `verify:vercel`（缓存与安全响应头）；
-  **只构建已提交快照，不在构建期重建数据**（数据更新走 `npm run sync`，见下）。
-- **工程质量审计工具箱**：`npm run audit`（清单与基线见 `scripts/audits/README.md`；含 axe-core 无障碍、
+  **只构建已提交快照，不在构建期重建数据**（数据更新走 `pnpm run sync`，见下）。
+- **工程质量审计工具箱**：`pnpm run audit`（清单与基线见 `scripts/audits/README.md`；含 axe-core 无障碍、
   视口溢出、触屏命中区、全站走查等，均以 playwright-cli 复跑）。
-- **数据+图标同步入口 `npm run sync`**（`scripts/sync-data.ts`）：唯一自动化写入 `public/data/` 的入口——
+- **数据+图标同步入口 `pnpm run sync`**（`scripts/sync-data.ts`）：唯一自动化写入 `public/data/` 的入口——
   探测新版本 → 重建 JSON → 图标 `--soft` 补差（只补缺失、已有美术资源零重下）→ 校验（告警）→ 汇总变更集。
-  由 `.github/workflows/data-sync.yml` 定时触发并走【工作流内硬门禁】：`npm run verify:data` 通过 → 直接
+  由 `.github/workflows/data-sync.yml` 定时触发并走【工作流内硬门禁】：`pnpm run verify:data` 通过 → 直接
   commit + push 到默认分支（master）→ 触发 Vercel 部署；不通过则 job 失败、不提交。无变更不提交。
-  仓库为私有 + 免费套餐，分支保护不可用，故门禁在 workflow 内实现。`npm run data` 仅作数据-only 用途。
+  仓库为私有 + 免费套餐，分支保护不可用，故门禁在 workflow 内实现。`pnpm run data` 仅作数据-only 用途。
 - **排障顺序**：改动数据管线按 DATA_GUIDE §7 顺序执行；名录/详情数量为 0 或 404 时先查 DATA_GUIDE §8
   失效信号，别急着改前端。
 
@@ -102,7 +105,7 @@
   归属分区：游戏内术语 → [`docs/conventions/glossary.md`](./docs/conventions/glossary.md)（**手写**术语表）；
   数据/工程术语 → DATA_GUIDE；架构术语 → DESIGN。
   ⚠ **不要写进 `public/data/live/noun.json`**：那是构建期由源站**全量重建**的生成物
-  （`scripts/build/index.ts` → `dump('live','noun.json', …)`），手写内容会被下次 `npm run sync`
+  （`scripts/build/index.ts` → `dump('live','noun.json', …)`），手写内容会被下次 `pnpm run sync`
   整体覆盖。该文件只是**被读取的数据源**，不是落盘位置。
 - **立刻落盘**：术语一经敲定**当场写入**归属文档，不批量攒到最后（会话结束时上下文已烂，攒 = 丢）；
   改名时同步更新全部引用，旧名保留为别名。

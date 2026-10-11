@@ -1,6 +1,6 @@
 /* ============================================================
  * verify-data.ts — 对 public/data/ 全量做「契约 + 完整性」校验（DESIGN.md §5.1）。
- * 失败非零退出，可挂 CI。用法：npm run verify:data
+ * 失败非零退出，可挂 CI。用法：pnpm run verify:data
  *
  * 契约：对 manifest + 各版本名录/详情跑 zod schema（src/domain/schema）；
  * 完整性：名录 id ↔ 详情文件一一对应（防「单详情拉取失败被静默带上 → 名录有、详情 404」）。
@@ -117,7 +117,7 @@ function assertCategoryPairs(
 }
 
 /** 校验入口，返回退出码（0 通过）：CI 调用方（sync-data）可进程内 await，
- *  不再经 npx tsx 子进程（npx 本身故障会被误报成"契约未通过"）。 */
+ *  不再经 pnpm exec tsx 子进程（pnpm exec 本身故障会被误报成"契约未通过"）。 */
 export async function verifyDataMain(): Promise<number> {
   // manifest（根） + live（正式服）名录/详情
   check('manifest.json', await readJson('manifest.json'), ManifestSchema)

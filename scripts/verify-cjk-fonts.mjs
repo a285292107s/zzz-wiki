@@ -94,7 +94,7 @@ if (!css) {
       .join('')
     fail(
       `字符集覆盖缺口 ${missing.length} 个（示例「${sample}」）→ 这些字会退回系统宋体；` +
-        `重跑 npm run download:fonts:cjk && npm run subset:fonts:cjk`,
+        `重跑 pnpm run download:fonts:cjk && pnpm run subset:fonts:cjk`,
     )
   } else if (m.supplyRange) {
     console.log(

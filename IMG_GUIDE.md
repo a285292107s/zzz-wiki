@@ -197,7 +197,7 @@
    生态与校准工具截图流程多一层转换）。
 
 压缩落地路径：在 `scripts/build/download-icons.mjs` 落盘前接 sharp 处理 hero 类别 +
-`npm run download:icons` 幂等重跑；执行后跑一轮 `/calibrate` 目检每张构图的透明边/眼部位置。
+`pnpm run download:icons` 幂等重跑；执行后跑一轮 `/calibrate` 目检每张构图的透明边/眼部位置。
 
 ### 头图派生档位（card + wide，2026-10 落地 / 2026-10-07 改为两档 + srcset）
 
@@ -213,7 +213,7 @@
   - `wide` **≤1600px / q72**：桌面取景框最宽 = 高度上限 500px × 2.36 = **1180 CSS px**，
     乘逐图 zoom（1.05–1.49）⇒ 绘制宽 1565–1970 CSS px。1920×1080 桌面的实际需求是
     该档的桌面需求以 `scripts/build/hero-cards.mjs` 的头注为准（**档位规格是展示格的函数，改布局必须重算**）；本文件不复述具体像素。
-  - 幂等补差、原图 mtime 更新后自动重派生、孤儿清理；由 `npm run sync` 在图标下载后调用
+  - 幂等补差、原图 mtime 更新后自动重派生、孤儿清理；由 `pnpm run sync` 在图标下载后调用
     （单一写入者），派生图随 `public/data` 约定入库（部署只构建已提交快照）。
 - 前端用 **srcset 让浏览器按 DPR 自己选档**（`useFeaturedAgents.ts` 的 `heroSources`）：
   `card 800w, wide 1600w, 原图 1920w` + `sizes` = 挂载期取景框宽（`deckSizes()`，纯 px、
@@ -248,7 +248,7 @@
 
 - 生成器 `scripts/build/icon-thumbs.mjs`：`public/data/img/{weapon,bangboo}/thumb/{同名}.webp`，
   最长边 ≤128px、q80（实测 3.5-5.1KB，约原图 1/10），幂等补差 + 原图更新跟随 + 孤儿清理；
-  由 `npm run sync` 在图标下载后调用。
+  由 `pnpm run sync` 在图标下载后调用。
 - 前端：`iconSources(item, cat, 'thumb')` 把小图置于候选链首（缺失自动回退原图）；
   名录行（`WEnginesView` / `BangboosView`）与检索面板结果行传 `'thumb'`，
   **详情页不传**（用原图）。character 图标（180×64 圆头像，均值 6KB）不派生。

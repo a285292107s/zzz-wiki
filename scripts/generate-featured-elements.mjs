@@ -48,7 +48,7 @@ const check = process.argv.includes('--check')
 if (check) {
   const cur = fs.existsSync(OUT) ? fs.readFileSync(OUT, 'utf8') : ''
   if (cur !== json) {
-    console.error('✖ featured-elements.json 与 character.json 不一致（跑 npm run gen:featured-elements 重新生成）')
+    console.error('✖ featured-elements.json 与 character.json 不一致（跑 pnpm run gen:featured-elements 重新生成）')
     process.exit(1)
   }
   console.log(`== featured-elements == 校验通过（${Object.keys(table).length} 条，与名录一致）`)

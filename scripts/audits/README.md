@@ -1,18 +1,18 @@
 # audits/README.md — 量化审计脚本工具箱（playwright-cli run-code --filename）
 
 每个脚本对应一项品质基线检查（基线数值见 QUALITY.md）。
-运行前提：`npm run build:ci` && `npm run preview`——**本仓库的 `preview` 已固定 `--port 4175`**，下面的 29 个脚本全部指向 `http://localhost:4175`，端口必须一致，否则全套跑不起来。
+运行前提：`pnpm run build:ci` && `pnpm run preview`——**本仓库的 `preview` 已固定 `--port 4175`**，下面的 29 个脚本全部指向 `http://localhost:4175`，端口必须一致，否则全套跑不起来。
 
-**一条命令跑全套**：`npm run audit:all`（scripts/audit-all.mjs）——按下面的表格逐个执行、
+**一条命令跑全套**：`pnpm run audit:all`（scripts/audit-all.mjs）——按下面的表格逐个执行、
 汇总通过/失败/需人工判读，失败即非零退出。每个脚本的**通过判据显式声明**在该文件的
 RULES 表里（不靠猜返回结构）；**新增审计脚本必须同时补判据**，否则会被标「？需人工判读」
-而不会默认通过。`npm run audit` 仍只列清单（含各脚本一句话说明）。
+而不会默认通过。`pnpm run audit` 仍只列清单（含各脚本一句话说明）。
 
 | 脚本 | 检查项 | 基线 |
 |---|---|---|
 | viewport-overflow.js  | 8 视口 × 8 路由横向溢出 | 0 |
 | touch-targets.js      | 交互目标 ≥24×24（WCAG 2.5.8） | 0 问题 |
-| regression-walk.js    | 全站功能走查（**87 项**，覆盖七类目/边界态/URL 状态/离线联动）。名录/图谱的**条数不写死**：比对运行时数据文件真值（`live-data-readable` 先取真值，再断言「渲染条数 == 数据条数」），故 `npm run sync` 新增角色不会误报 | 87/87 |
+| regression-walk.js    | 全站功能走查（**87 项**，覆盖七类目/边界态/URL 状态/离线联动）。名录/图谱的**条数不写死**：比对运行时数据文件真值（`live-data-readable` 先取真值，再断言「渲染条数 == 数据条数」），故 `pnpm run sync` 新增角色不会误报 | 87/87 |
 | transfer-profile.js   | 首访传输预算（冷缓存总重 + 分类明细；总重 <3MB 竞奖档 / 字体 ≤1.2MB / 图片 ≤1MB） | 53 请求 / 751KB（js 61 + css 25 + 字体 189 + 图片 436 + json 40；**2026-10 实测，运行取当前值**） |
 | quick-search.js       | ⌘K 检索链路端到端（中文高亮/罗马字命中/结果态预激活/空态键盘路径） | 4/4 |
 | font-loading.js       | CJK 衬线生效 + 分片按需 | serif=Noto Serif SC |
@@ -40,7 +40,7 @@ RULES 表里（不靠猜返回结构）；**新增审计脚本必须同时补判
 | composition-audit.js | **构图（按元素关系测，逐元素属性审计看不出来）**：行内空洞 ≥240px（首页目录 7 行各 315px、详情技能头 626–876px）· nowrap 行被塞满时两个以上子项同时折行（手机页脚三列各 83px、标本签四名挤一行）· CJK 末行孤字 · **叠线**（同一条边界画两条水平发丝线，叠成 2px：技能组接缝、内容胶囊底缘与表末行/栅格底边）· **平行重复线**（区块标题行的延伸线缺右端 `.en` 标签时，与基线成为两条几乎等长的平行线）。⚠ 泛化到全站的「空隔双线」会命中引导点线/夹持线/控件自身边框——那些是结构边框、不是装饰性重复，故只认 section-head 一族语法。10 路由 × **5 视口（320/390/1024/1440/1920）**，自持禁 SW 上下文、不滚动（直接把 `.reveal` 标为已显现） | 50 组合：stranded 0 / cramped 0 / orphan 0 / stacked 0（>6 行的受 `balance` 上限所限只报告 3 处） |
 | section-nav.js        | **吸顶横条的出口提示契约**（.sn-list 轨道 + 出口按钮，含 /agents/1541 与 /formulas 两处消费者）：起点标 `.at-start`、终点标 `.at-end`、到底后按钮退出无障碍树、右端两段蒙版在到边时收到 0、按钮命中区 ≥24×24 且不出视口、**按钮底下必须已渐隐到全透明**（尾窗宽度 ≥ 按钮宽度，否则文字压在雪佛龙上）、页面滚动换段后当前项被带进横条视野、宽屏侧栏模式按钮不渲染。⚠ 判据由**几何反推**（`scrollWidth > clientWidth` 就必须被标为可横滑）：否则结构回归（位置类挂回外层 / ref 挂错元素）会让整段断言静默跳过、**旧构建也全绿**——该脚本首版即如此假绿过一次 | 2 路由 0 问题 |
 
-⚠ **跑审计前必须 `npm run build:ci`**（不是 `npm run build`）：后者会清空 dist 且
+⚠ **跑审计前必须 `pnpm run build:ci`**（不是 `pnpm run build`）：后者会清空 dist 且
   **不生成 sitemap / 逐路由 HTML**，`content-sweep` 这类读产物清单的脚本会静默地
   扫 0 页（曾据此误判）。产物清单以 sitemap 为单一来源。
   现已设防：取不到任何 `<loc>` 时 `content-sweep` **显式返回 `failed: true` 与原因**，

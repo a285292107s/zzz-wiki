@@ -11,7 +11,7 @@ import type { CharacterListItem } from '@/data/types'
 // 开发环境专属校准页：路由仅在 DEV 分支注册（见 router/index.ts），生产构建不可达。
 const LOCAL_HERO = `${import.meta.env.BASE_URL ?? '/'}data/img/hero`
 
-/** 可校准角色号：live 代理人名录派生（随 npm run sync 自动扩展，见 domain/heroCatalog）。
+/** 可校准角色号：live 代理人名录派生（随 pnpm run sync 自动扩展，见 domain/heroCatalog）。
  *  双形态角色（如 1551）由 heroSrc 经 heroImageFile 取默认（女性）版文件名。 */
 const heroIds = ref<number[]>([])
 

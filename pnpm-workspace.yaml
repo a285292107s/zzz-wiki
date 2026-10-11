@@ -1,0 +1,17 @@
+# ============================================================
+# pnpm-workspace.yaml —— pnpm 配置（唯一位置）
+#
+# 为什么必须是这个文件：pnpm v11 起不再读取 package.json 的 `pnpm` 字段
+# （写入会告警「The "pnpm" field in package.json is no longer read」），
+# 所有 settings 的归属地在这里；`.npmrc` 只读认证与 registry。
+#
+# allowBuilds —— 让 esbuild 的安装脚本获准执行：
+#   pnpm 默认 `strictDepBuilds: true`，依赖的安装/postinstall 脚本未经审批时
+#   `pnpm install` 直接**非零退出**（ERR_PNPM_IGNORED_BUILDS），不是警告。
+#   esbuild（vite 与 tsx 两条依赖链上的构建工具）需要脚本落地平台二进制。
+#   ⚠ 写法是 **map**（`esbuild: true`）：写成列表无效；
+#     旧键 onlyBuiltDependencies 在 v11 已移除，写了不生效。
+#   审批面刻意保持最小：只放行确知需要的一位，不用 dangerouslyAllowAllBuilds。
+# ============================================================
+allowBuilds:
+  esbuild: true

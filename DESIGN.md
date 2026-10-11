@@ -197,7 +197,7 @@ scripts/build/
 
 - 规整函数全部改为纯函数（输入 raw detail → 输出规整 detail），纳入测试。
 - 借用 schema 做规整后校验（parse 收集错误列表，失败打印出错文件与字段）。
-- 新 npm scripts：npm run data（不变）、npm run verify:data（新增）、npm test（新增）。
+- 新 pnpm scripts：pnpm run data（不变）、pnpm run verify:data（新增）、pnpm test（新增）。
 - 验证链：data → verify:data → test → build（CI 或本地手动按序执行）。
 
 ### 7.1 数据刷新与可靠性模型（2026-08）
@@ -206,13 +206,13 @@ scripts/build/
 
 ```
 数据更新（唯一写者）                       部署（只读）
-npm run sync ──▶ .github/workflows/data-sync.yml（每日 cron）
+pnpm run sync ──▶ .github/workflows/data-sync.yml（每日 cron）
   探测新版本 → 重建 JSON → 图标 --soft 补差 → 汇总
-  工作流内 npm run verify:data（硬门禁）通过 → commit + push 默认分支（master）
+  工作流内 pnpm run verify:data（硬门禁）通过 → commit + push 默认分支（master）
                                                 └─▶ Vercel 部署（build:ci 只构建已提交快照）
 ```
 
-- **单一写入者**：`scripts/sync-data.ts`（`npm run sync`）是唯一自动化写入 `public/data/` 的入口；
+- **单一写入者**：`scripts/sync-data.ts`（`pnpm run sync`）是唯一自动化写入 `public/data/` 的入口；
   `ci-data.ts`（部署期重建）已删除。部署 `build:ci` 只构建已提交快照，不再构建期重建数据。
 - **尽力构建 + 完整门禁**：构建容忍单文件抖动（`fetchDetails` 详情失败重试后跳过），但 `verify:data`
   是「可提交」的唯一裁决，并升级为「契约 + 完整性」：schema 合法 + 名录非空 + **名录 id ↔ 详情文件
@@ -256,14 +256,15 @@ vitest 配置：node 环境测 utils/domain/api；jsdom + test-utils 测组件�
 
 ## 10. 铁律（重构不得违反）
 
-1. **运行时零外部请求**：前端只读本地 /data；数据构建期落地（npm run data）。
+1. **运行时零外部请求**：前端只读本地 /data；数据构建期落地（pnpm run data）。
 2. **版本号不硬编码**：一律从 manifest 的 zzz.live 动态取（站点只展示正式服数据，见 DATA_GUIDE §1）。
 3. **站外图标走 <HollowImage> + src/data/icons.ts 候选链**，禁止直连单一外部图源（本地自绘筛选资产例外，见 DATA_GUIDE §5）。
 4. **富文本经 rich.ts / stripRichText**，禁止裸插值；v-html 只在白名单渲染函数后使用。
 5. **视觉语言稳定**：**设计语言禁令的唯一完整定义在 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §10**，本条不复述要素；token 级精修（字体族、浮层阴影）的记录点是 `tokens.css` 注释与 `/style`（§9），不在禁令之列。
 6. **临时文件只进 temp/**；测试 fixture 当前**内联在测试文件内**（仓库无独立 fixture 目录）。
 7. **git 约定**：<type>: <中文摘要>；数据文件改动伴随 scripts 升级；不入库 dist/temp/.cache/_research_*。
-8. **依赖单锁**：只维护 `package-lock.json`（npm），勿再引入 pnpm/yarn 锁文件（AGENTS.md §4）。
+8. **依赖单锁**：包管理器为 pnpm，只维护 `pnpm-lock.yaml`（版本由 `package.json` 的 `packageManager` 钉住），
+   勿再引入 `package-lock.json` 或 yarn 锁文件（AGENTS.md §4；改用 pnpm 的理由与三个坑见决策记录 0005）。
 
 ## 11. 实施状态
 

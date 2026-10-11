@@ -6,7 +6,7 @@ Class: process
 ## Problem
 
 本站是 SPA。搜索引擎与社交爬虫拿到的 `dist/index.html` 必须由构建期逐路由生成
-（`npm run route-html`），否则所有页面共享同一份 head 元信息。
+（`pnpm run route-html`），否则所有页面共享同一份 head 元信息。
 
 但「逐路由 HTML」还顺带解决了一个**性能**问题：SPA 里 hero 图、详情 JSON、路由 chunk 都要等
 入口 JS 下载并执行后才发起请求。慢速网络下，这些请求会比 HTML 到达晚 1.5–4 秒——而它们恰恰是
@@ -45,7 +45,7 @@ Class: process
   复杂度上升；且它必须读 build manifest 才能算出 chunk 依赖图。
 - **收益**：慢网下首屏关键请求从「等 JS 引导」变成「HTML 解析期发起」；实测数字与结论记录在本记录
   与脚本头部注释中。
-- **遗留缺口**：`content-sweep` 等审计脚本**必须先 `npm run build:ci`**（不是 `npm run build`），
+- **遗留缺口**：`content-sweep` 等审计脚本**必须先 `pnpm run build:ci`**（不是 `pnpm run build`），
   否则 `dist/` 里没有逐路由 HTML 与 sitemap，脚本会静默扫 0 页（已加负向防护，
   见 `scripts/audits/README.md`）。
 

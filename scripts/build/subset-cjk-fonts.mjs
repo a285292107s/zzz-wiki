@@ -48,7 +48,7 @@ const TARGET = TARGET_KB * 1024
 
 async function main() {
   if (!fs.existsSync(FACES_IN)) {
-    console.error(`✖ 缺少 ${FACES_IN}——先跑 npm run download:fonts:cjk（需外网）`)
+    console.error(`✖ 缺少 ${FACES_IN}——先跑 pnpm run download:fonts:cjk（需外网）`)
     process.exit(1)
   }
   const raw = JSON.parse(fs.readFileSync(FACES_IN, 'utf8'))
