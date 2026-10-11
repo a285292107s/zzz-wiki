@@ -61,6 +61,9 @@ const RULES = {
   'hero-flight.js': (r) => r.failed === 0 && r.total >= 33,
   // 构图断点：行内空洞 / 窄列挤压 / CJK 末行孤字 / 叠线（>6 行的受 balance 上限所限，只报告）
   'composition-audit.js': (r) => r.total > 0 && r.failed === 0,
+  // 吸顶横条的出口提示契约：.at-start/.at-end 与淡出、按钮显隐、命中区、
+  // 「按钮不与条目文字相交」逐状态对齐（含点按后与滚到底两个后置状态）
+  'section-nav.js': (r) => r.problems.length === 0,
 }
 
 function serverUp() {

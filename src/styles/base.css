@@ -461,7 +461,14 @@ a.rich-term:hover {
 
 /* ---------- 详情页区块内导航：宽屏左侧页面索引 / 窄屏吸顶横条 ----------
    极致寡淡：无盒无框无轨道，只剩编号 + 标签；激活项以一条琥珀下划线
-   表达（hover 只动文字，线与变色不同时示警）。 */
+   表达（hover 只动文字，线与变色不同时示警）。
+
+   结构（两断点共用一份 DOM）：
+     .section-nav ── 宽屏=左侧固定索引；窄屏=吸顶横条本体（背景 / 下缘线）
+       └ .sn-list ── 宽屏=索引列；窄屏=**滚动轨道**（ref=navEl 挂这里）
+       └ .sn-scroll-btn ── 窄屏出口按钮（轨道之外，见其注释）
+   「轨道」与「横条」分成两层是必要的：窄屏下横条的背景与下缘线不该随内容滑动，
+   而两端淡出只该盖在轨道上、不该盖住出口按钮。 */
 
 .section-nav {
   /* 宽屏：固定于内容区左侧留白，垂直居中（脱离文档流，不占版心） */
@@ -477,9 +484,9 @@ a.rich-term:hover {
   margin: 0;
 }
 
-/* → 横滑提示按钮：全局默认隐藏。
+/* 横滑出口：全局默认隐藏。
    放在媒体查询外——宽屏侧栏模式下横条不可横滑，按钮必须始终不渲染；
-   窄屏媒体查询内 .section-nav.scrollable .sn-scroll-btn 覆盖为 inline-flex。 */
+   窄屏媒体查询内 .sn-list.scrollable ~ .sn-scroll-btn 覆盖为 flex。 */
 .sn-scroll-btn {
   display: none;
 }
@@ -620,7 +627,13 @@ a.rich-term:hover {
 /* 窄屏：左侧留白不足，恢复为站头下的吸顶横条（激活以同一条下刻线表达）。
    统一为单行横向滚动：条目过多时横滑（触屏惯性、隐藏滚动条），不换行——
    换行会顶掉大半个首屏且锚点偏移失效。高度恒定，--anchor-offset 的 132px 估算保持成立。
-   内容超宽时右缘 sticky 显示「→」提示，滚到底淡出。 */
+
+   横向可滚动性由**两端淡出**表达（`mask-image`，宽度读 --sn-fade-l / --sn-ramp-r /
+   --sn-tail-r），出口按钮（.sn-scroll-btn）绝对定位在右端、压在淡出带上——它不参与 flex
+   布局，故「能否横滑」不改变轨道可用宽度（改宽度会让量测与显示互相触发）。
+   淡出与按钮都只在「那一边确实还有内容」时存在：.at-start / .at-end 一到边就收掉，
+   不留「还能滑」的误导。这三条位置类由 useNavScrollable 维护（挂在 .sn-list 上，
+   与 ref 同一个元素——挂外层会让宽屏/窄屏两套样式各认一个祖先）。 */
 @media (max-width: 1520px) {
   .section-nav {
     position: sticky;
@@ -629,23 +642,12 @@ a.rich-term:hover {
     left: auto;
     flex-direction: row;
     flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    gap: 6px 20px;
     width: auto;
-    padding-block: 11px;
-    padding-inline: 2px; /* 首尾项不贴边，滚动到头仍留呼吸 */
     margin-bottom: calc(var(--pad-section) * 0.4);
     background: color-mix(in srgb, var(--bg-0) 92%, transparent);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: var(--rule);
-  }
-
-  .section-nav::-webkit-scrollbar {
-    display: none;
   }
 
   /* 用户偏好低透明度：毛玻璃退为不透明实底（内容不透底纹） */
@@ -657,9 +659,68 @@ a.rich-term:hover {
     }
   }
 
+  /* 滚动轨道。横向内边距是本轨道的通勤余量：滚动中它随内容位移，首末项在任何
+     滚动位置都不会永久贴边（贴边会让淡出把「当前项」切成半截）。
+
+     两端淡出用 mask 表达，右端分**两段**：
+       --sn-ramp-r  渐变斜坡（内容在这里渐渐化掉）
+       --sn-tail-r  斜坡之后的**全透明窗口**，宽度即出口按钮所占
+     两段缺一不可：只有斜坡时，斜坡尽头仍有约一半透明度的文字压在按钮底下，
+     雪佛龙与字叠在一起，与原先那个方块一样读不通。 */
   .sn-list {
-    display: contents;
-    padding: 0;
+    --sn-pad-block: 11px; /* 轨道上下留白 → 横条高度 */
+    --sn-fade-l: 20px;
+    --sn-ramp-r: 28px;
+    --sn-tail-r: 44px;
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 6px 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-block: var(--sn-pad-block);
+    padding-inline: 2px;
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0,
+      #000 var(--sn-fade-l),
+      #000 calc(100% - var(--sn-tail-r) - var(--sn-ramp-r)),
+      transparent calc(100% - var(--sn-tail-r)),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0,
+      #000 var(--sn-fade-l),
+      #000 calc(100% - var(--sn-tail-r) - var(--sn-ramp-r)),
+      transparent calc(100% - var(--sn-tail-r)),
+      transparent 100%
+    );
+  }
+
+  .sn-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 装得下时两端都不淡出；到边收掉对应那一边（按钮在右端，故右端要连尾窗一起收） */
+  .sn-list:not(.scrollable) {
+    --sn-fade-l: 0px;
+    --sn-ramp-r: 0px;
+    --sn-tail-r: 0px;
+  }
+
+  .sn-list.at-start {
+    --sn-fade-l: 0px;
+  }
+
+  .sn-list.at-end {
+    --sn-ramp-r: 0px;
+    --sn-tail-r: 0px;
   }
 
   .sn-item,
@@ -680,7 +741,7 @@ a.rich-term:hover {
   .sn-item::after {
     left: 0;
     right: auto;
-    bottom: -11px; /* 与 .section-nav padding-block 联动：贴住下边框 */
+    bottom: calc(var(--sn-pad-block) * -1); /* 与轨道 padding-block 联动：贴住下边框 */
     width: 100%;
     height: 2px;
     transform: scaleY(0);
@@ -714,7 +775,7 @@ a.rich-term:hover {
   .sn-child::after {
     left: 0;
     right: auto;
-    bottom: -11px;
+    bottom: calc(var(--sn-pad-block) * -1);
     width: 100%;
     height: 2px;
     transform: scaleY(0);
@@ -725,33 +786,53 @@ a.rich-term:hover {
     transform: scaleY(1);
   }
 
+  /* 横滑出口：纯字形，无盒无底（右端的「还有内容」由 .sn-list 的淡出表达，按钮只负责
+     把它变成可点的一步）。绝对定位压在淡出带上，故不参与布局、不改变轨道可用宽度；
+     按钮宽度即 --sn-tail-r 的取值来源，改一处要同时看另一处。 */
   .sn-scroll-btn {
-    position: sticky;
+    position: absolute;
+    top: 0;
     right: 0;
-    margin-left: auto;
-    flex: none;
-    align-self: center;
+    bottom: 0;
     align-items: center;
     justify-content: center;
-    /* WCAG 2.5.8：24×24 最小命中区（22px 视觉 + outline 外扩由 border-box 保证） */
-    width: 24px;
-    height: 24px;
-    background: var(--bg-0);
-    border: 1px solid var(--line-1);
-    border-radius: 2px;
-    font-size: var(--fs-micro);
+    width: 44px;
+    padding: 0;
+    background: none;
+    border: 0;
     color: var(--ink-2);
     cursor: pointer;
-    transition: opacity var(--t-fast) var(--ease);
+    transition:
+      opacity var(--t-med) var(--ease),
+      color var(--t-fast) var(--ease),
+      visibility 0s;
   }
 
-  .section-nav.scrollable .sn-scroll-btn {
-    display: inline-flex;
+  .sn-list.scrollable ~ .sn-scroll-btn {
+    display: flex;
   }
 
-  .section-nav.at-end .sn-scroll-btn {
+  /* 到边即撤：不只是淡出，还要退出 Tab 序与无障碍树（opacity:0 的元素仍可聚焦，
+     键盘会停在一个看不见、按了也没反应的按钮上）。故 visibility 延后一个淡出时长再切，
+     现身时则立即生效（见上面的 transition 覆盖）。 */
+  .sn-list.at-end ~ .sn-scroll-btn {
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
+    transition:
+      opacity var(--t-med) var(--ease),
+      visibility 0s linear var(--t-med);
+  }
+
+  @media (hover: hover) {
+    .sn-scroll-btn:hover {
+      color: var(--amber-hi);
+    }
+  }
+
+  /* 焦点环内缩：本元素满高贴边，外扩的环会顶到横条外面去 */
+  .sn-scroll-btn:focus-visible {
+    outline-offset: -8px;
   }
 }
 
@@ -1147,6 +1228,7 @@ html.vt-restore .vt-chrome-case {
   }
 
   .sn-item.active::after,
+  .sn-child.active::after,
   .nav-item.active::after {
     background: Highlight !important;
   }
@@ -1192,6 +1274,21 @@ html.vt-restore .vt-chrome-case {
   .skel .bar {
     background: GrayText !important;
     animation: none !important;
+  }
+
+  /* 6) 横条两端淡出 + 出口按钮：HCM 用户把对比度调到最高，正为看清每一个字，
+        此时让文字渐隐到透明是逆行 → 撤掉蒙版，宁可内容硬切在按钮左缘。
+        但撤掉蒙版后，原本被渐隐「让开」的文字会直接压在雪佛龙上（实测条目右缘
+        362px 与雪佛龙 344–353px 相交）→ 出口按钮须有一块**不透明系统色实底**加一道
+        分界线，把文字挡开。系统色关键字在 HCM 下被尊重，故用系统色而非作者色。 */
+  .sn-list {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+
+  .sn-scroll-btn {
+    background: Canvas !important;
+    border-inline-start: 1px solid CanvasText !important;
   }
 }
 

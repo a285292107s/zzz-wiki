@@ -116,6 +116,7 @@
 | 结构化入口 | sitemap + robots 一致 | **238 URL / 同域** ✅ | `verify-budget`（origin 一致性门禁） |
 | 边界态 | 加载/空/错误/404 均有出路 | **4 态齐备**（空态可清除、错误可重试） ✅ | `regression-walk.js` |
 | **窄屏横滑可达性** | 横向放不下的表格要给「还能滑」的提示，不能看起来已经完整 | 档案图谱 390px 下表格 **734px / 视口 350px**（半张表在框外那侧看不出还有内容）：复用吸顶横条那套 `useNavScrollable`（`.scrollable` / `.at-end`）→ 出现「← 左右滑动查看全部职业 →」，滚到最右自动消失；桌面表格放得下时提示**不渲染**（实测 1440 下 `scrollWidth == clientWidth`、提示 `display: none`）✅；同时按 DATA_GUIDE 的横向容器约定补上 `overscroll-behavior-x: contain` | `composition-audit.js`（三视口）+ 截图 |
+| **吸顶横条的「还有内容」表达** | 提示必须诚实：有内容才出现、到边即消失；且不得压住条目文字 | 390px 下横条轨道 **1148px / 视口 350px**。旧版在轨道内 sticky 一个 24×24 描边方块、内嵌 `→` 字形，压在「03 基础属…」上（同一屏两套「还能滑」的说法）。现改为：**轨道与出口分两层**（`ref` 落在真正滚动的 `.sn-list`，按钮是它的兄弟），右端两段式 `mask-image`（28px 斜坡 + 44px 全透明尾窗）承担渐变，出口只剩一个 1px 描边雪佛龙落在淡出带里 ≈ 与文字零叠压；`.at-start`/`.at-end` 两端成对，到边把该侧蒙版宽度收到 0 并让按钮 `visibility: hidden` **退出 Tab 序**。滚页面换区块时当前项自动被带进视野（`ensureActiveVisible`，取 nearest、只在用户没在横滑时让位）✅ | `section-nav.js`（2 路由逐状态 0 问题）+ `tests/use-nav-scrollable.test.ts`（19 例） |
 | 可分享视图 | 筛选/排序/等级写进 URL | **4 类状态全部深链** ✅ | `regression-walk.js`（sort/level/copy 组） |
 | 空白与占位 | 无 lorem、无「敬请期待」 | 内容全部来自落地数据 ✅ | `content-sweep.js` |
 | **字段覆盖透明度** | 缺口如实标注、不补造 | **4 类目 / 9 字段**，3 项缺口以琥珀标注（简介 57/60、潜能 11/60、邦布图标 41/42） ✅ | `regression-walk.js`（about-coverage） |

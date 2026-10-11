@@ -3,6 +3,7 @@ import { nextTick, onMounted, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import AsyncState from '@/components/state/AsyncState.vue'
 import BackToTop from '@/components/BackToTop.vue'
+import NavScrollButton from '@/components/NavScrollButton.vue'
 import { useNavScrollable } from '@/composables/useNavScrollable'
 import { recordRecentVisit } from '@/composables/useQuickSearch'
 import { dataVersions } from '@/data/api'
@@ -46,10 +47,17 @@ const props = defineProps<{
 }>()
 
 /** 窄屏吸顶横条的「可横滑」提示与交互：条目随数据就绪（nav prop 变化）后重测 */
-const { navEl, scrollRight, refresh } = useNavScrollable()
+const { navEl, scrollRight, refresh, ensureActiveVisible } = useNavScrollable()
 watch(
   () => props.nav,
   () => nextTick(refresh),
+  { flush: 'post' },
+)
+/* 滚动高亮切换时把当前区块带进视野——只在**用户自己滚动页面**时发生，
+   点条目跳转那条路浏览器已把它滚进来了（ensureActiveVisible 取 nearest，不动） */
+watch(
+  () => props.active,
+  () => ensureActiveVisible(),
   { flush: 'post' },
 )
 
@@ -71,9 +79,17 @@ watch(
       <RouterLink :to="backTo" class="back mono">← {{ backLabel ?? '返回' }}</RouterLink>
     </div>
 
-    <!-- 区块导航：宽屏左侧档案索引 / 窄屏吸顶横条（样式见 base.css .section-nav） -->
-    <nav v-if="nav?.length" ref="navEl" class="section-nav" aria-label="页面区块" data-vt-block data-vt-fade>
-      <div class="sn-list">
+    <!-- 区块导航：宽屏左侧档案索引 / 窄屏吸顶横条（样式见 base.css .section-nav）。
+         ref 挂在 .sn-list（窄屏**真正滚动的那个元素**）上，不是外层 nav：
+         宽屏下 nav 是 fixed 侧栏、不滚动，量它会得到「永远装得下」的假结论。 -->
+    <nav
+      v-if="nav?.length"
+      class="section-nav"
+      aria-label="页面区块"
+      data-vt-block
+      data-vt-fade
+    >
+      <div ref="navEl" class="sn-list">
         <template v-for="n in nav" :key="n.id">
           <div v-if="n.children?.length" class="sn-group">
             <RouterLink
@@ -112,7 +128,7 @@ watch(
           </RouterLink>
         </template>
       </div>
-      <button class="sn-scroll-btn" aria-label="向右滚动" @click="scrollRight">→</button>
+      <NavScrollButton label="向右浏览区块" @click="scrollRight" />
     </nav>
 
     <AsyncState

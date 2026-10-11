@@ -7,6 +7,7 @@ import { useNavScrollable } from '@/composables/useNavScrollable'
 import { FORMULA_GUIDE } from '@/data/formulaGuide'
 import { dataVersions } from '@/data/api'
 import { ListPage, DetailSection } from '@/components'
+import NavScrollButton from '@/components/NavScrollButton.vue'
 import FormulaEq from '@/components/FormulaEq.vue'
 
 const title = FORMULA_GUIDE.title
@@ -19,7 +20,7 @@ const nav = computed(() =>
 )
 
 // 窄屏吸顶横条的「可横滑」提示与交互（nav 静态，onMounted 内首次量测即可）
-const { navEl, scrollRight } = useNavScrollable()
+const { navEl, scrollRight, ensureActiveVisible } = useNavScrollable()
 
 // 轻量滚动高亮：依据吸顶横条实际高度（anchorOffset，与 router scrollBehavior 同源）判定当前段
 const active = ref<string | null>(null)
@@ -48,7 +49,12 @@ function onScroll() {
     if (!el) continue
     if (el.getBoundingClientRect().top <= offset + NAV_SLOP) cur = p.id
   }
+  if (cur === active.value) return
   active.value = cur
+  /* 横条里的当前段要跟着滚进来：本页的锚点滚动只发生在横条内部时
+     （点条目跳转），浏览器已把它带进视野；但**滚页面**换段时不会。
+     取 nearest，已可见则原地不动。 */
+  ensureActiveVisible()
 }
 onMounted(() => {
   onScroll()
@@ -61,9 +67,9 @@ onBeforeUnmount(() => {
 
 <template>
   <ListPage>
-    <!-- 段导航：宽屏左侧索引 / 窄屏吸顶横条 -->
-    <nav v-if="nav.length" ref="navEl" class="section-nav" aria-label="战斗公式段落">
-      <div class="sn-list">
+    <!-- 段导航：宽屏左侧索引 / 窄屏吸顶横条（ref 挂真正滚动的 .sn-list，见 base.css） -->
+    <nav v-if="nav.length" class="section-nav" aria-label="战斗公式段落">
+      <div ref="navEl" class="sn-list">
         <RouterLink
           v-for="n in nav"
           :key="n.id"
@@ -76,7 +82,7 @@ onBeforeUnmount(() => {
           <span>{{ n.label }}</span>
         </RouterLink>
       </div>
-      <button class="sn-scroll-btn" aria-label="向右滚动" @click="scrollRight">→</button>
+      <NavScrollButton label="向右浏览段落" @click="scrollRight" />
     </nav>
 
     <header v-reveal class="page-head">
