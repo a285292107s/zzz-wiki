@@ -15,3 +15,12 @@
 # ============================================================
 allowBuilds:
   esbuild: true
+
+# overrides —— 传递依赖的安全强锁：只收窄到**确知有安全公告、且上游尚未改依赖**的包，
+# 每条都写明公告号与理由，别把它当「顺手升版本」的地方。
+overrides:
+  # GHSA-qqgx-2p2h-9c37（high）：ini <1.3.6 经 ini.parse 原型污染。
+  # 来源链 @vue/test-utils → js-beautify@2 → config-chain@1.1.13 → ini。
+  # config-chain 声明的是 `^1.3.4`（本身就能满足 1.3.8），但默认解析落在 1.3.4，
+  # 且 `pnpm update ini` 判定「已是最新」不动它，故只能显式强锁。
+  ini: ^1.3.6

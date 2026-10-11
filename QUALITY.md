@@ -137,7 +137,7 @@
 | CSP | 严格（脚本无 unsafe-inline/eval） | **已上线，本地实测 0 违规** ✅ | `csp-check.js` + `verify:vercel` |
 | 缓存策略 | 内容寻址 immutable、非寻址重验证 | **27 项断言通过** ✅ | `verify:vercel` |
 | 部署产物一致性 | sitemap 域 = canonical 域 | **门禁通过** ✅ | `verify-budget` |
-| 测试 | 全绿 | **439 passed / 46 files**（2026-10 实测；数值随测试增长，**以 `pnpm test` 输出为准**）✅ | `pnpm test` |
+| 测试 | 全绿 | **455 passed / 46 files**（2026-10 实测；数值随测试增长，**以 `pnpm test` 输出为准**）✅ | `pnpm test` |
 | **审计工具箱全量复跑** | 28 脚本全部通过 | **28/28 · 0 需人工判读**（每个脚本的通过判据显式声明；失败即非零退出）✅ | **`pnpm run audit:all`**（一条命令；单脚本仍可 `playwright-cli run-code --filename=scripts/audits/<脚本>`） |
 
 > **死代码扫描（knip）不在 `build:ci` 里**——`package.json` 没有 knip script，只能手工 `pnpm dlx knip`。
@@ -146,6 +146,13 @@
 >   少了这条会把 28 个脚本全报成死文件。
 > - `ignoreDependencies: ["axe-core"]` —— axe 是**注入页面里**执行的运行时库，不被任何 TypeScript import 引用。
 > - `ignoreExportsUsedInFile: true` —— 同文件内自用的导出不算「未使用导出」。
+
+> **依赖漏洞扫描必须显式指定官方源**：本机 registry 是 npmmirror，它**没有 audit 端点**，
+> 直接 `pnpm audit` 会以 `ERR_PNPM_AUDIT_ENDPOINT_NOT_EXISTS` 退出——看起来像「跑不了」，
+> 实际是**从未检查过**（最危险的是把它当成「无漏洞」）。要查漏洞必须换源：
+> `pnpm audit --registry=https://registry.npmjs.org`
+> 2026-10 首次实跑为 2 critical / 3 high / 3 moderate，现已清零：tinypool 原型污染 → RCE 只能靠
+> 升 vitest 4 拔除（1.x 线无补丁），brace-expansion 与 ini 分别走区间内更新与最小 `overrides` 收口。
 
 ---
 
