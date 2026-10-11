@@ -25,8 +25,12 @@ function scrollBehavior(): ScrollBehavior {
 
 export function useNavScrollable() {
   const navEl = ref<HTMLElement | null>(null)
-  /** 最近一次 pointerdown 的时刻（轨道上），用于避让用户自己的横滑 */
-  let lastPointerDown = 0
+  /** 最近一次 pointerdown 的时刻（轨道上），用于避让用户自己的横滑。
+   *  初值取「很久以前」而不是 0：0 会让页面加载后的头 DRAG_QUIET_MS 被误判成
+   *  「用户正在操作」，静默吞掉首次 ensureActiveVisible——加载够快时，滚动高亮
+   *  切换的当前区块就不进视野了。同一处初值还会让用例依赖进程启动耗时：
+   *  进程够新（performance.now() < 600）时必失败，Vercel 构建曾因此挂在单测上。 */
+  let lastPointerDown = Number.NEGATIVE_INFINITY
 
   function refresh() {
     const el = navEl.value
