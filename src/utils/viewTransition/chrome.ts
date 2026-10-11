@@ -52,7 +52,11 @@ const MAX_BLOCKS = 26
 /**
  * 编排时序（ms）。写进 html 的 CSS 变量供样式读，JS 侧按同一组数字等落定。
  * 退场总时长 = outDur + outStep × (块数 − 1)：整页「自上而下依次收走」。
- * 入场整体延后 inHold —— 太早会在飞行快照背后白跑完，落地就没有「逐步入场」了。
+ *
+ * 入场有两个延后值，用哪个取决于**这趟有没有飞行幕布**：
+ * `::view-transition-*` 覆盖层在飞行结束前一直盖着，入场的动画原点却在新状态采样
+ * 那一刻（比幕布撤除早整整一个飞行时长）。没有幕布的路径（深链直达 / 名录点进）
+ * 两者同一时刻，于是同一个数字在两条路径上意味着完全不同的观感 —— 故分开取值。
  */
 export const VT_TIMING = {
   /** 退场：每块 200ms + 每块错峰 20ms（12 块 ≈ 420ms）。
@@ -62,23 +66,52 @@ export const VT_TIMING = {
   outStep: 20,
   inDur: 320,
   inStep: 18,
-  /** 入场整体延后到飞行尾段：太早会在飞行快照背后白跑完、落地就没有「逐步入场」；
-   *  调飞行时长时要回来对一眼 —— 飞行 460ms + 延后 300ms ⇒ 落地时首块约 50%、末块刚开始，
-   *  于是「落地即有形、余下续入」。 */
+  /** 无幕布路径（深链直达 / 名录点进）：动画原点就是用户看见它的那一刻，照常 300ms 起。 */
   inHold: 300,
+  /** 有飞行幕布时（首页点卡）：延后到 420ms —— 与飞行 460ms 只差 40ms（同 exitSettleMs 的余量档），
+   *  幕布撤除那一刻纸面才走 6.7%、首块 13.1%（60fps 下一帧即 5%，故这是「刚起步」的量级），
+   *  余下全程当着用户的面渐显。
+   *
+   *  **为什么必须跟着飞行走**：入场动画的起点是「新状态采样之后」，而幕布要到飞行结束才撤。
+   *  实测这个间隔是 467ms —— 旧值 300ms 时，幕布撤除那一刻纸面底色已走完 91.6%、
+   *  首块 96.6%，用户唯一看得见的就是最后那 8%，观感正是「底色啪地出现、没有渐变」。
+   *  两头都被顶住：小于飞行 = 在幕布背后白跑完；大于飞行 = 落地后页面还是空的
+   *  （后者是这条约束当初修掉的毛病）。 */
+  inHoldInFlight: 420,
+  /** 纸面（装裱壳）淡入时长。比文字那块长（320ms）：它是整页最大的一片色，
+   *  快了就读成"闪一下"。与末块文字大致同拍收尾，整趟编排不留一根还在动的尾巴。 */
+  caseDur: 420,
+  /** 飞行时长：`::view-transition-group(deck-frame)` 的 animation-duration（写进 `--vt-flight`）。
+   *  放进本模块是因为 `inHoldInFlight` 必须**短于**它 —— 那条约束（「落地不能是空的」）
+   *  原先只写在 README 的表格里，没有任何东西挡住两边各自漂移。 */
+  flight: 460,
   /** 取景变形时长的**兜底值**：起飞前编排会按实际区块数把它提到与退场同长
    *  （见 armDeckFlight 写 --vt-morph），保证"画一直在动，直到起跳"。 */
   morph: 300,
 } as const
 
-/** 把时序写到 html 上（CSS 读 var(--vt-*)），返回本次编排该等多久（含一档余量） */
-export function applyTimingVars(root: HTMLElement = document.documentElement): void {
+/** 这趟该怎么延后：带幕布的飞行用 inHoldInFlight，其余用 inHold */
+export type HoldScope = 'plain' | 'flight'
+
+/** 按路径取入场延后值 */
+export function inHoldFor(scope: HoldScope): number {
+  return scope === 'flight' ? VT_TIMING.inHoldInFlight : VT_TIMING.inHold
+}
+
+/** 把时序写到 html 上（CSS 读 var(--vt-*)）。`scope` 决定入场延后取哪个值：
+ *  调用方比本模块更清楚这趟有没有飞行幕布，故由它指定，不在这里猜。 */
+export function applyTimingVars(
+  root: HTMLElement = document.documentElement,
+  scope: HoldScope = 'plain',
+): void {
   const t = VT_TIMING
   root.style.setProperty('--vt-out-dur', `${t.outDur}ms`)
   root.style.setProperty('--vt-out-step', `${t.outStep}ms`)
   root.style.setProperty('--vt-in-dur', `${t.inDur}ms`)
   root.style.setProperty('--vt-in-step', `${t.inStep}ms`)
-  root.style.setProperty('--vt-in-hold', `${t.inHold}ms`)
+  root.style.setProperty('--vt-in-hold', `${inHoldFor(scope)}ms`)
+  root.style.setProperty('--vt-case-dur', `${t.caseDur}ms`)
+  root.style.setProperty('--vt-flight', `${t.flight}ms`)
   root.style.setProperty('--vt-morph', `${t.morph}ms`)
 }
 
@@ -105,9 +138,16 @@ export function exitSettleMs(blocks: number, step: number = VT_TIMING.outStep): 
   return exitCascadeMs(blocks, step) + 40
 }
 
-/** 入场编排走完所需时长（从落地标记挂上算起） */
-export function enterSettleMs(blocks: number): number {
-  return VT_TIMING.inHold + VT_TIMING.inDur + VT_TIMING.inStep * Math.max(0, blocks - 1) + 80
+/** 入场编排走完所需时长（从落地标记挂上算起）。
+ *
+ *  取**两条时间线里更晚的那条**：文字那条是 `inDur + 末块错峰`，
+ *  纸面那条是 `caseDur`。纸面在块数少时会比文字晚收尾（n=1 时纸面 420ms、文字 320ms）
+ *  —— 只按文字算就会在纸面还没淡完时把标记摘掉，尾部被硬切。
+ *  +80ms 是给合成器的一档余量。 */
+export function enterSettleMs(blocks: number, scope: HoldScope = 'plain'): number {
+  const text = VT_TIMING.inDur + VT_TIMING.inStep * Math.max(0, blocks - 1)
+  const longest = Math.max(text, VT_TIMING.caseDur)
+  return inHoldFor(scope) + longest + 80
 }
 
 export interface ChromePlan {

@@ -272,6 +272,11 @@ function beginFlight(
   // DOM 更新压后，浏览器就拍不到新画面）。共享元素名由两端组件常驻声明，不在这里挂。
   document.documentElement.classList.add(VT_ROOT_CLASS)
 
+  // 这一趟有飞行幕布：入场延后必须按「有幕布」那一档写（幕布要到飞行结束才撤，
+  // 比入场动画的原点晚整整一个飞行时长）。放在这里而不是 armDeckFlight ——
+  // 回程（详情→首页）不经起飞前编排，但也同样有幕布。
+  applyTimingVars(document.documentElement, 'flight')
+
   // 必须在 startViewTransition **之前**挂：浏览器在调用后的下一个渲染时机拍旧状态，
   // 挂晚了就赶不上那次采样（名字会照样进快照，等于白摘）。
   if (!sourceVisible) {
@@ -330,7 +335,7 @@ function beginFlight(
           clearChrome('in')
           clearChromeCases()
         },
-        enterSettleMs(landingBlocks),
+        enterSettleMs(landingBlocks, 'flight'),
       )
     }, 0)
   })

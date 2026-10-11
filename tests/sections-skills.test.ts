@@ -787,6 +787,106 @@ describe('buildSkillMetricTable', () => {
     expect(buildSkillMetricTable({ name: 'x' }, 1)).toBeNull()
     expect(buildSkillMetricTable({ name: 'x', entries: [] }, 1)).toBeNull()
   })
+
+  it('moves a segment-less entry in an otherwise full column to extras (普罗米娅 偏锋)', () => {
+    // 「披风切割每秒伤害倍率」只在伤害列出现（披风持续切割无段次可配），
+    // 不得阻断 5 段 × 2 指标成表——降级为补充行
+    const group: SkillGroup = {
+      name: '普通攻击：偏锋',
+      entries: [
+        entry('一段伤害倍率', 1541001, 1001, 4980, 460),
+        entry('二段伤害倍率', 1541002, 1001, 10320, 940),
+        entry('三段伤害倍率', 1541003, 1001, 19090, 1740),
+        entry('四段伤害倍率', 1541004, 1001, 20470, 1870),
+        entry('五段伤害倍率', 1541005, 1001, 24150, 2200),
+        entry('一段失衡倍率', 1541001, 1002, 3380, 160),
+        entry('二段失衡倍率', 1541002, 1002, 6910, 320),
+        entry('三段失衡倍率', 1541003, 1002, 12490, 570),
+        entry('四段失衡倍率', 1541004, 1002, 13630, 620),
+        entry('五段失衡倍率', 1541005, 1002, 16040, 730),
+        entry('披风切割每秒伤害倍率', 1541008, 1001, 1200, 100),
+      ],
+    }
+    const table = buildSkillMetricTable(group, 12)
+    expect(table).not.toBeNull()
+    expect(table?.columns.map((c) => c.label)).toEqual(['伤害倍率', '失衡倍率'])
+    expect(table?.rows.map((r) => r.label)).toEqual(['一段', '二段', '三段', '四段', '五段'])
+    // 五段伤害 = 241.5 + 22.0×11 = 483.5%；五段失衡 = 160.4 + 7.3×11 = 240.7%
+    expect(table?.rows[4].values).toEqual({ '1001': '483.5%', '1002': '240.7%' })
+    expect(table?.extras?.map((e) => e.name)).toEqual(['披风切割每秒伤害倍率'])
+    // 补充行取真实倍率值（随等级代入），而非原文占位
+    expect(table?.extras?.[0].formula).toBe('{Skill:1541008, Prop:1001}')
+  })
+
+  it('drops a row missing one metric to extras instead of voiding the table (克拉蕾 毁伤)', () => {
+    const group: SkillGroup = {
+      name: '特殊技：血华誓·斩金断铁',
+      entries: [
+        entry('上挑伤害倍率', 1481001, 1001, 5000),
+        entry('横斩伤害倍率', 1481002, 1001, 6000),
+        entry('毁伤伤害倍率', 1481003, 1001, 7000),
+        entry('上挑失衡倍率', 1481001, 1002, 3000),
+        entry('横斩失衡倍率', 1481002, 1002, 4000),
+      ],
+    }
+    const table = buildSkillMetricTable(group, 1)
+    expect(table).not.toBeNull()
+    expect(table?.rows.map((r) => r.label)).toEqual(['上挑', '横斩'])
+    // 「毁伤」只有伤害无失衡：整行退居补充行，伤害值不丢
+    expect(table?.extras?.map((e) => e.name)).toEqual(['毁伤伤害倍率'])
+  })
+
+  it('keeps a bare single-metric column out of the matrix (雨果 快速支援)', () => {
+    // 裸「伤害倍率/失衡倍率」各 1 条（招式本体），不足以成列；派生射击两行成表
+    const group: SkillGroup = {
+      name: '快速支援：葬歌',
+      entries: [
+        entry('伤害倍率', 1331001, 1001, 1000),
+        entry('派生射击伤害倍率', 1331004, 1001, 2501),
+        entry('派生蓄力射击伤害倍率', 1331005, 1001, 3271),
+        entry('失衡倍率', 1331001, 1002, 900),
+        entry('派生射击失衡倍率', 1331004, 1002, 943),
+        entry('派生蓄力射击失衡倍率', 1331005, 1002, 1234),
+      ],
+    }
+    const table = buildSkillMetricTable(group, 12)
+    expect(table).not.toBeNull()
+    expect(table?.rows.map((r) => r.label)).toEqual(['派生射击', '派生蓄力射击'])
+    expect(table?.extras?.map((e) => e.name)).toEqual(['伤害倍率', '失衡倍率'])
+  })
+
+  it('returns null when extras pruning leaves a degenerate matrix', () => {
+    // 只有伤害列 2 条、失衡列仅 1 条：列数跌破 2，仍须退回列表（不硬凑）
+    const group: SkillGroup = {
+      name: '退化',
+      entries: [
+        entry('一段伤害倍率', 1601001, 1001, 1000),
+        entry('二段伤害倍率', 1601002, 1001, 2000),
+        entry('一段失衡倍率', 1601001, 1002, 500),
+      ],
+    }
+    expect(buildSkillMetricTable(group, 1)).toBeNull()
+  })
+
+  it('drops a column that no row can pair with, instead of voiding the table', () => {
+    // 第三个指标（1003）两条都配不上任何行：该列整体退居补充行，不得让前两列的表归零
+    const group: SkillGroup = {
+      name: '异常指标列',
+      entries: [
+        entry('一段伤害倍率', 1701001, 1001, 1000),
+        entry('二段伤害倍率', 1701002, 1001, 2000),
+        entry('一段失衡倍率', 1701001, 1002, 500),
+        entry('二段失衡倍率', 1701002, 1002, 600),
+        entry('独立条目甲', 1701090, 1003, 7000),
+        entry('独立条目乙', 1701091, 1003, 8000),
+      ],
+    }
+    const table = buildSkillMetricTable(group, 1)
+    expect(table).not.toBeNull()
+    expect(table?.columns.map((c) => c.label)).toEqual(['伤害倍率', '失衡倍率'])
+    expect(table?.rows.map((r) => r.label)).toEqual(['一段', '二段'])
+    expect(table?.extras?.map((e) => e.name)).toEqual(['独立条目甲', '独立条目乙'])
+  })
 })
 
 describe('buildBangbooSkills', () => {

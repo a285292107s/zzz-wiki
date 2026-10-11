@@ -44,15 +44,25 @@ describe('CatalogTable', () => {
     expect(btns[1].attributes('aria-sort')).toBeUndefined()
   })
 
-  /* ---------- 移动端堆叠行（<721px 断点，jsdom 下与桌面结构同时存在） ---------- */
+  /* ---------- 移动端堆叠条目（<721px 断点，jsdom 下与桌面结构同时存在） ---------- */
 
   it('mobile row keeps main column render and meta cells for middle columns', () => {
     const w = mount(CatalogTable, { props: { columns, items: rows } })
     const main = w.find('.m-row .m-main')
     expect(main.text()).toBe('A') // 名称列（首列）
-    const meta = w.findAll('.m-meta-row .m-cell')
+    const meta = w.findAll('.m-meta .m-cell')
     expect(meta.length).toBe(rows.length) // 每数据行一个 meta cell：中间列只有「代号」，稀有度已入右格
     expect(meta[0].text()).toBe('a')
+  })
+
+  it('mobile entry is one row: main / right / meta cells share the same tr', () => {
+    const w = mount(CatalogTable, { props: { columns, items: rows } })
+    const entries = w.findAll('tbody.m-body tr.m-row')
+    expect(entries.length).toBe(rows.length)
+    // 一条 = 一行：收口线（border-bottom）才有唯一归属，不会切在同一条目的两半之间
+    expect(entries[0].find('.m-main').exists()).toBe(true)
+    expect(entries[0].find('.m-right').exists()).toBe(true)
+    expect(entries[0].find('.m-meta').exists()).toBe(true)
   })
 
   it('right column cell wraps in a sort button that toggles sort', async () => {

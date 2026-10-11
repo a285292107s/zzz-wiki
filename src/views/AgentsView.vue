@@ -165,6 +165,51 @@ const { sorted, sortKey, sortDir, toggle, isDefault: sortIsDefault } = useCatalo
   min-width: 280px;
 }
 
+/* ---------- 手机断点：工具栏两行，右缘与版心对齐 ----------
+   实测 390 宽下筛选行宽 316.4、检索框 280，两条右缘各比版心短 34 / 70px；
+   等宽铺满（flex:1）+ 检索通栏后，两条都与版心同宽，也与下方名录共用同一条右缘。
+   窄到 320（版心 280）时三颗放不下会折行：折行后的行同样被撑满，
+   右缘仍齐 —— 参差比「最后一颗独占一行」更显眼，故选后者。 */
+@media (max-width: 720px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .toolbar-left :deep(.filter-dropdown) {
+    flex: 1 1 100%;
+  }
+
+  .toolbar-left :deep(.filter-dropdown .group) {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .toolbar-left :deep(.filter-dropdown .trigger) {
+    width: 100%;
+  }
+
+  /* 触发钮变成通栏控件：标签贴左、插入符推到右缘（与下拉框的阅读方向一致） */
+  .toolbar-left :deep(.filter-dropdown .caret) {
+    margin-left: auto;
+  }
+
+  /* 选中值可能比列名长（如「罗斯凯利法·外务筹策局」）：省略号收尾，
+     完整值仍可在展开后的选项里看到 */
+  .toolbar-left :deep(.filter-dropdown .trigger-label) {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .toolbar :deep(.search) {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
 /* 由 CatalogTable 列 cls 应用（子组件作用域，用 :deep 穿透） */
 :deep(.camp) {
   color: var(--ink-2);

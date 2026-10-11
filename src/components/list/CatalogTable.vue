@@ -109,7 +109,10 @@ function onHeadClick(c: CatalogColumn) {
       </tr>
     </tbody>
 
-    <!-- 移动端堆叠行：主体列（名称）整格 + 右格（稀有度，可排序）+ 其余列 meta 行。
+    <!-- 移动端堆叠条目：**一条 = 一行**（主体格 + 右格），其余列作为元信息行跨满两格。
+         一行一条（而不是名称一行、元信息另起一行的两行结构）是为了让收口线有唯一归属：
+         线画在条目上，条目边界就是线；两行结构下线只能画在其中一行上，等于把同一条目
+         切成两半（详见本文件样式区注释）。
          与桌面 tbody 共享同一批 cell-* 插槽（同一 slot 两处引用，CSS 断点互斥显示） -->
     <tbody class="m-body">
       <!-- 移动端空态：与桌面同文案（两套 tbody 断点互斥显示，须各放一份） -->
@@ -118,50 +121,47 @@ function onHeadClick(c: CatalogColumn) {
           <NoMatchState :title="emptyText" :show-clear="showClear" @clear="emit('clear')" />
         </td>
       </tr>
-      <template v-for="(row, i) in items" :key="String(row.Id ?? i)">
-        <tr class="m-row">
-          <td v-if="mainColumn" class="m-main">
-            <slot :name="`cell-${mainColumn.key}`" :row="row" :index="i">
-              {{ String(row[mainColumn.key] ?? '—') }}
-            </slot>
-          </td>
-          <td v-if="rightColumn" class="m-right">
-            <!-- 右格可排序时整格为排序钮（稀有度等）。可访问名从内容派生（勿用 aria-label：
-                 视觉文本含稀有度字母与箭头，aria-label 会与之不一致而触发
-                 label-content-name-mismatch）；操作说明用 sr-only 文本补足，
-                 箭头字形改由 CSS 生成内容提供（不进文本，读屏与 axe 均不计入） -->
-            <button
-              v-if="rightColumn.sortable"
-              type="button"
-              class="m-sort"
-              :class="{ active: sort === rightColumn.key, desc: sort === rightColumn.key && sortDir === 'desc' }"
-              :aria-pressed="sort === rightColumn.key"
-              @click="onHeadClick(rightColumn)"
-            >
-              <slot :name="`cell-${rightColumn.key}`" :row="row" :index="i">
-                {{ String(row[rightColumn.key] ?? '—') }}
-              </slot>
-              <span class="sr-only">
-                ，按{{ rightColumn.label }}排序{{
-                  sort === rightColumn.key ? (sortDir === 'asc' ? '，当前升序' : '，当前降序') : ''
-                }}
-              </span>
-            </button>
-            <slot v-else :name="`cell-${rightColumn.key}`" :row="row" :index="i">
+      <tr v-for="(row, i) in items" :key="String(row.Id ?? i)" class="m-row">
+        <td v-if="mainColumn" class="m-main">
+          <slot :name="`cell-${mainColumn.key}`" :row="row" :index="i">
+            {{ String(row[mainColumn.key] ?? '—') }}
+          </slot>
+        </td>
+        <td v-if="rightColumn" class="m-right">
+          <!-- 右格可排序时整格为排序钮（稀有度等）。可访问名从内容派生（勿用 aria-label：
+               视觉文本含稀有度字母与箭头，aria-label 会与之不一致而触发
+               label-content-name-mismatch）；操作说明用 sr-only 文本补足，
+               箭头字形改由 CSS 生成内容提供（不进文本，读屏与 axe 均不计入） -->
+          <button
+            v-if="rightColumn.sortable"
+            type="button"
+            class="m-sort"
+            :class="{ active: sort === rightColumn.key, desc: sort === rightColumn.key && sortDir === 'desc' }"
+            :aria-pressed="sort === rightColumn.key"
+            @click="onHeadClick(rightColumn)"
+          >
+            <slot :name="`cell-${rightColumn.key}`" :row="row" :index="i">
               {{ String(row[rightColumn.key] ?? '—') }}
             </slot>
-          </td>
-        </tr>
-        <tr v-if="metaColumns.length" class="m-meta-row">
-          <td class="m-meta">
-            <span v-for="c in metaColumns" :key="c.key" class="m-cell" :class="c.cls">
-              <slot :name="`cell-${c.key}`" :row="row" :index="i">
-                {{ String(row[c.key] ?? '—') }}
-              </slot>
+            <span class="sr-only">
+              ，按{{ rightColumn.label }}排序{{
+                sort === rightColumn.key ? (sortDir === 'asc' ? '，当前升序' : '，当前降序') : ''
+              }}
             </span>
-          </td>
-        </tr>
-      </template>
+          </button>
+          <slot v-else :name="`cell-${rightColumn.key}`" :row="row" :index="i">
+            {{ String(row[rightColumn.key] ?? '—') }}
+          </slot>
+        </td>
+        <!-- 元信息格：跨满两格（属性/职业/阵营等），左缘与缩略图同轴 -->
+        <td v-if="metaColumns.length" class="m-meta">
+          <span v-for="c in metaColumns" :key="c.key" class="m-cell" :class="c.cls">
+            <slot :name="`cell-${c.key}`" :row="row" :index="i">
+              {{ String(row[c.key] ?? '—') }}
+            </slot>
+          </span>
+        </td>
+      </tr>
     </tbody>
   </table>
 </template>
@@ -203,8 +203,22 @@ th.sortable {
   white-space: nowrap;
 }
 
-/* ---------- 移动端（<721px）：表格退化为堆叠行 ----------
-   桌面列全保留，仅换排布；不引入卡片/投影，延续细线行语言 */
+/* ---------- 移动端（<721px）：表格退化为「档案条目」 ----------
+   一条 = 两行：① 缩略图 · 名称 ······ 稀有度　② 属性 / 职业 / 阵营；
+   收口线画在**条目末尾**，一条一格。
+
+   2026-10 在 390 宽实测到三处「单看任一元素都合规」的构图缺陷：
+   · 线画在①与②之间：同一条目的元信息被线切给了下一位代理人，条目之间反而没有分隔
+     —— 分组读反（.m-row 有 border-bottom、元信息行没有）；
+   · 左缘有三条：缩略图 38 / 属性标签 24 / 名称 138。缩略图比标签多缩进 14px，
+     来源是 .hairline-table td 的桌面内距（--space-2）在堆叠布局里没撤销
+     （缩略图那格照吃 14px，元信息那格已被覆盖为 4px，两条左缘于是错开）；
+   · 名称右缘 184 到稀有度 297 之间空 113px（430 宽 153px、540 宽 260px）：
+     两块各自贴边、中间是无主空洞，一行读不成一句话。
+
+   故：① 一条并作一行（线才有唯一归属）；② 单元格内距归零，左缘收成一条轴；
+   ③ 名称与分级之间用账册的引导点线连起来（与 KeyValueGrid / WEnginesView 同一语法）。
+   桌面列全保留，仅换排布；不引入卡片/投影，延续细线行语言。 */
 .m-body {
   display: none;
 }
@@ -219,18 +233,43 @@ th.sortable {
     display: block;
   }
 
-  /* 主体行：名称 + 右格稀有度，一行两格 */
+  /* 条目：一行两格（主体 | 稀有度），元信息格通栏跨两格 */
   .m-row {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
-    gap: var(--space-inline);
-    padding: 11px 4px;
+    column-gap: var(--space-inline);
+    row-gap: 7px;
+    padding: 12px 0;
     border-bottom: var(--rule);
   }
 
+  /* 格不再是「表格格」：撤掉桌面内距（--space-2 = 14px）与它自己的下边线 ——
+     内距归零才有统一左轴，下边线归零才只剩条目末尾那一条线 */
+  .m-row > td {
+    padding: 0;
+    border: none;
+  }
+
+  /* 缩略图与名称同格，用 flex 而非行内：行内盒按基线落位，会在 32px 的缩略图下
+     多漏出 ~7.8px 下沉空间（实测 .m-main 被撑到 67.8px 高，缩略图并不居中） */
   .m-main {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     min-width: 0;
+  }
+
+  /* 引导点线：把名称与它右侧的分级连成一条账册行。
+     纯装饰（无文本节点），读屏与 axe 都不计；点线墨色与 KeyValueGrid 同一份取值。
+     不做纵向补偿：这一行是 align-items:center，点线落在条目中线，
+     正好是中文名字的光学中心、也是稀有度方框的中线（KeyValueGrid 那条是基线对齐，
+     才需要 translateY 补偿，两处场景不同故不共用偏移）。 */
+  .m-main::after {
+    content: '';
+    flex: 1;
+    min-width: 16px;
+    border-bottom: 1px dotted color-mix(in srgb, var(--ink-2) 72%, transparent);
   }
 
   .m-right {
@@ -238,6 +277,7 @@ th.sortable {
     justify-content: flex-end;
   }
 
+  /* 触屏命中区：24px 方框 + 上下各 2px 内距 = 28px 高（WCAG 2.5.8 下限 24） */
   .m-sort {
     display: inline-flex;
     align-items: center;
@@ -273,13 +313,13 @@ th.sortable {
     content: '▼';
   }
 
-  /* meta 行：中间列 inline 排布（属性/职业/阵营标签等），组内不再有分隔线 */
-  .m-meta-row td {
+  /* 元信息行：通栏（跨两格），左缘与缩略图齐、与条目的收口线同宽 */
+  .m-meta {
+    grid-column: 1 / -1;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 6px 16px;
-    padding: 0 4px 12px;
+    gap: 6px var(--space-head);
   }
 
   .m-cell {
@@ -288,6 +328,11 @@ th.sortable {
     gap: 8px;
     font-size: var(--fs-caption);
     color: var(--ink-2);
+  }
+
+  /* 空态行不是条目：不进 grid，也不带收口线 */
+  .empty-row {
+    display: block;
   }
 }
 

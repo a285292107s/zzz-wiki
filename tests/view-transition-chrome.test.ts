@@ -9,12 +9,14 @@ import {
   CHROME_OUT_CLASS,
   CHROME_SKIP_ATTR,
   VT_TIMING,
+  applyTimingVars,
   clearChrome,
   clearChromeCases,
   collectChrome,
   enterSettleMs,
   exitCascadeMs,
   exitSettleMs,
+  inHoldFor,
   stampChrome,
 } from '@/utils/viewTransition/chrome'
 
@@ -47,8 +49,39 @@ describe('编排时序（CSS 与 JS 的单一来源）', () => {
   })
 
   it('入场落定：含整体延后，且随区块数增长', () => {
-    expect(enterSettleMs(1)).toBe(VT_TIMING.inHold + VT_TIMING.inDur + 80)
+    expect(enterSettleMs(1)).toBe(VT_TIMING.inHold + VT_TIMING.caseDur + 80)
     expect(enterSettleMs(8)).toBeGreaterThan(enterSettleMs(1))
+  })
+
+  it('入场落定取「文字 / 纸面」两条线里更晚的那条（否则纸面尾部被硬切）', () => {
+    // 块数少时纸面(420)比文字(320)晚收尾 —— 只按文字算会提前摘标记
+    expect(VT_TIMING.caseDur).toBeGreaterThan(VT_TIMING.inDur)
+    const textOnly = VT_TIMING.inHold + VT_TIMING.inDur + VT_TIMING.inStep * 0 + 80
+    expect(enterSettleMs(1)).toBeGreaterThan(textOnly)
+    // 块数多时反过来由文字定（末块错峰把它推过纸面）
+    const blocks = 8
+    const text = VT_TIMING.inDur + VT_TIMING.inStep * (blocks - 1)
+    expect(text).toBeGreaterThan(VT_TIMING.caseDur)
+    expect(enterSettleMs(blocks, 'plain')).toBe(VT_TIMING.inHold + text + 80)
+  })
+
+  it('带幕布的飞行延后更晚：`inHoldInFlight`（幕布比动画原点晚撤一个飞行时长）', () => {
+    expect(VT_TIMING.inHoldInFlight).toBeGreaterThan(VT_TIMING.inHold)
+    expect(inHoldFor('flight')).toBe(VT_TIMING.inHoldInFlight)
+    expect(inHoldFor('plain')).toBe(VT_TIMING.inHold)
+    // 同一份区块数下，带幕布那条整段更晚
+    expect(enterSettleMs(6, 'flight')).toBeGreaterThan(enterSettleMs(6, 'plain'))
+    // 延后必须仍短于飞行：超过就成了「落地后页面还是空的」
+    expect(VT_TIMING.inHoldInFlight).toBeLessThan(VT_TIMING.flight)
+  })
+
+  it('时序变量按 scope 下发（CSS 与 JS 单一来源）', () => {
+    const root = document.createElement('div')
+    applyTimingVars(root, 'flight')
+    expect(root.style.getPropertyValue('--vt-in-hold')).toBe(`${VT_TIMING.inHoldInFlight}ms`)
+    applyTimingVars(root, 'plain')
+    expect(root.style.getPropertyValue('--vt-in-hold')).toBe(`${VT_TIMING.inHold}ms`)
+    expect(root.style.getPropertyValue('--vt-case-dur')).toBe(`${VT_TIMING.caseDur}ms`)
   })
 })
 

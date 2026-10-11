@@ -37,6 +37,15 @@
  *      固定层的拼贴壁纸、`#app` 一被涂就盖住 body::before 的页面壁纸，退场淡出、落地又淡入，
  *      观感是「飞行前后背景闪了好几下」（实测 4 次跳变：点卡瞬间 / 退场淡出 / 落地淡入 / 摘类）。
  *      第 12 项查「包装层是否被涂」，第 13 项反向查「真正带框的壳仍在退色」（别把壳一起关掉）。
+ *  10. **落地那一刻的入场编排还看得见**（第 14/15 项）：入场的动画原点在「新状态采样之后」，
+ *      幕布（::view-transition-*）要到飞行结束才撤，两者差整整一个飞行时长（实测 467ms）。
+ *      延后若明显小于飞行，整段入场就在幕布背后白跑完 —— 幕布撤除那一刻纸面已走完 91.6%、
+ *      首块 96.6%，用户只看得见最后那 8%，观感是「底色啪地出现、没有渐变」。
+ *      第 14 项查「撤除帧别已经跑完」，第 15 项反向查「之后确实还有可见的渐变」。
+ *      **这一项是被用户看出来的，不是被上面任何一项测出来的**：L/M 只看包装层有没有被涂色、
+ *      第 1 项只看几何有没有位移，没有任何一项读过「幕布撤除那一刻的入场进度」；
+ *      计时器也测不出（动画确实播了、标记也确实撤净）。判据必须拿「幕布在不在」当参照系。
+ *      该段跑在**没有慢放 CSS** 的页面上（SLOW_CSS 会改掉飞行与入场的相对关系）。
  *
  * 复跑：playwright-cli open http://localhost:4175 && \
  *       playwright-cli run-code --filename=scripts/audits/hero-flight.js
@@ -580,6 +589,10 @@ async page => {
         const p = m ? m[1].split(',').map((v) => parseFloat(v.trim())) : []
         return p.length === 4 ? p[3] : p.length ? 1 : 0
       }
+      const opacityOf = (sel) => {
+        const el = document.querySelector(sel)
+        return el ? Number(getComputedStyle(el).opacity) : null
+      }
       // 本身完全透明的包装层（实测：首页这五层的自然 alpha 恒为 0）
       const WRAPPERS = ['#app', '.shell', '#main', '.home', '.eb-root']
       // 真正带框的壳：牌堆装裱框（自然带 1px 边线 + 不透明底色）
@@ -590,6 +603,11 @@ async page => {
         painted: WRAPPERS.map((s) => [s, alphaOf(s)]).filter(([, a]) => a != null && a > 0.01),
         frameAlpha: alphaOf(FRAME),
         caseCount: document.querySelectorAll('.vt-chrome-case').length,
+        // 幕布（::view-transition-* 覆盖层）还在不在 —— 撤除那一刻就是用户第一次看见活 DOM
+        active: root.classList.contains('vt-active'),
+        // 目的页的纸面（内容胶囊底色）与首块文字：入场编排走到哪儿了
+        capAlpha: alphaOf('.wrap.page'),
+        blockAlpha: opacityOf('.page-actions'),
       }
     })
 
@@ -639,6 +657,51 @@ async page => {
     `退场期 .deck-frame 底色最低值=${Math.min(...caseFrames.filter((f) => f.phase.startsWith('E') && f.frameAlpha != null).map((f) => f.frameAlpha), 1)}`,
   )
 
+  // 14/15. 落地那一刻的入场编排「还看得见吗」
+  // —— N 项查「幕布撤除那一帧，纸面别已经跑完」，O 项反向查「之后确实还有一段可见的渐变」。
+  //
+  // 为什么单列：入场的动画原点在「新状态采样之后」，而幕布（::view-transition-*）要到飞行
+  // 结束才撤 —— 两者差整整一个飞行时长（实测 467ms）。延后若明显小于飞行，整段入场就在幕布
+  // 背后白跑完：幕布撤除那一刻纸面已走完 91.6%、首块 96.6%，用户只看得见最后那 8%，
+  // 观感是「底色啪地出现、没有渐变」。**此前 33 项全绿**：L/M 只看包装层有没有被涂色、
+  // 第 1 项只看几何有没有位移，没有一项读过「幕布撤除那一刻的入场进度」。
+  // 计时器同样测不出（动画确实播了、标记也确实撤净），只有拿「幕布在不在」当参照系才分得出。
+  //
+  // ⚠ 本段必须在**没有慢放 CSS** 的页面上跑：SLOW_CSS 把飞行拉到 2400ms 而入场延后不变，
+  //   两者关系被人为改掉，测的就不是真实节奏了（上面 L/M 段同样是新开页面）。
+  const firstPass = caseFrames
+  let revealFrame = null
+  for (let i = 1; i < firstPass.length; i++) {
+    if (firstPass[i].active === false && firstPass[i - 1].active === true) {
+      revealFrame = firstPass[i]
+      break
+    }
+  }
+  // 撤除之后的可见渐变：纸面 alpha 落在「既非起步、也非到顶」的开区间里的帧数
+  const ramp = []
+  if (revealFrame) {
+    let seen = false
+    for (const f of firstPass) {
+      if (f === revealFrame) seen = true
+      if (seen && f.active === false && f.capAlpha != null) ramp.push(f.capAlpha)
+    }
+  }
+  const midRamp = ramp.filter((a) => a > 0.15 && a < 0.9)
+  const revealCap = revealFrame?.capAlpha ?? null
+  const revealBlock = revealFrame?.blockAlpha ?? null
+
+  check(
+    'N·幕布撤除那一刻纸面还没跑完（否则底色「啪」地出现、没有渐变）',
+    revealCap != null && revealCap < 0.6,
+    `撤除帧纸面 alpha=${revealCap}、首块 opacity=${revealBlock}` +
+      `（旧 bug 为 0.914 / 0.967；高则说明入场延后明显小于飞行、在幕布背后白跑完了）`,
+  )
+  check(
+    'O·反向：撤除之后仍有一段可见的渐变（不是一帧到位）',
+    midRamp.length >= 3,
+    `撤除后中间值帧数=${midRamp.length}（采样 ${ramp.length} 帧，区间 0.15–0.9）`,
+  )
+
   return {
     total,
     failed: failedItems.length,
@@ -654,6 +717,7 @@ async page => {
       fromShallow,
       narrow: { pick: narrowPick, before: nScale0, takeoff: nTakeoff, dest: nDest, path: narrowAfter.path },
       casePaint: { paintedFrames: paintedFrames.length, maxPainted, frameFaded },
+      entrance: { revealCap, revealBlock, rampFrames: ramp.length, midRamp: midRamp.length },
     },
   }
 }

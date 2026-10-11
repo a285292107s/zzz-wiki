@@ -472,10 +472,12 @@ function formulaSkillIds(formula: string): Set<string> {
  * 「三段（协同）」行因多引用一个 Skill 而得分更低，得以与「三段」行区分）。
  * 行标签 = 该行条目名公共前缀，重复时补「去列标签后的公共后缀」（如 一段/一段（物理）/一段（以太））；
  * 列头 = 每行同名条目「去行主题后缀」的公共前缀（不要求全一致，容忍「（物理）」类行后缀）。
- * 矩阵只收「每行都有条目」的稠密指标列（≥2 列且≥2 行才构成真正的表：1×M 退化形态
- * 无纵向对比、退回列表），保证矩阵无空位；
- * 静态文本条目（无 Skill 引用，如「1点」充能计数）与仅部分招式拥有的指标归入 extras
- * 独立成补充行。无法构成合理矩阵时返回 null，由调用方退回原纵向列表。
+ * 矩阵取「行 × 指标列」的极大双向全覆盖子矩阵（≥2 列且≥2 行才构成真正的表：1×M 退化形态
+ * 无纵向对比、退回列表），故矩阵自身无空位；
+ * 覆盖不上的条目一律退居 extras 补充行（不阻断表格）：静态文本（无 Skill 引用，如「1点」充能计数）、
+ * 对不上任何行的孤立条目（如普罗米娅「披风切割每秒伤害倍率」，披风持续切割无段次可配）、
+ * 以及缺某指标的行（如克拉蕾「毁伤」只有伤害无失衡）。
+ * 连补充行也凑不出 ≥2×≥2 时返回 null，由调用方退回原纵向列表。
  */
 export function buildSkillMetricTable(
   group: SkillGroup,
@@ -566,20 +568,30 @@ export function buildSkillMetricTable(
     }
   }
 
-  // 稠密列 = 条目数与行数一致、且每行都配对上（参考列天然稠密）
-  const complete: number[] = [refCol.propId]
-  for (const col of columns) {
-    if (col.propId === refCol.propId) continue
-    if (col.items.length === refCol.items.length && rowMap.every((m) => m.has(col.propId))) {
-      complete.push(col.propId)
-    }
+  // 行 × 列取极大全覆盖子矩阵：先淘汰「凑不成列」的指标（被 ≥2 行覆盖才成列，单条目列
+  // 无「段×指标」可对比），再淘汰「覆盖不全」的行；互删至稳定。
+  // 被删条目退居 extras 而不阻断表格——如普罗米娅「披风切割每秒伤害倍率」（披风持续切割
+  // 无段次可配，只在伤害列出现）、克拉蕾「毁伤伤害倍率」（该招式无失衡指标）。
+  // 参考列天然被每行覆盖，恒留在子矩阵内；列序沿用原判据（参考列打头，其余按首现序）
+  const covers = (r: number, p: number): boolean => p === refCol.propId || rowMap[r].has(p)
+  let rowIdx = refCol.items.map((_, r) => r)
+  let complete: number[] = [
+    refCol.propId,
+    ...columns.map((c) => c.propId).filter((p) => p !== refCol.propId),
+  ]
+  for (;;) {
+    const keptCols = complete.filter((p) => rowIdx.filter((r) => covers(r, p)).length >= 2)
+    const keptRows = rowIdx.filter((r) => keptCols.every((p) => covers(r, p)))
+    if (keptCols.length === complete.length && keptRows.length === rowIdx.length) break
+    complete = keptCols
+    rowIdx = keptRows
   }
-  if (complete.length < 2) return null
+  if (rowIdx.length < 2 || complete.length < 2) return null
   const completeSet = new Set(complete)
 
   // 行主题初值 = 该行稠密列条目名的公共前缀；任一为空则退回列表
   const subjects: string[] = []
-  for (let r = 0; r < refCol.items.length; r++) {
+  for (const r of rowIdx) {
     const names = [refCol.items[r].name ?? '']
     for (const [p, d] of rowMap[r]) {
       if (completeSet.has(p)) names.push(d.name ?? '')
@@ -595,9 +607,9 @@ export function buildSkillMetricTable(
   const colLabel = new Map<number, string>()
   for (const p of complete) {
     const pre: string[] = []
-    for (let r = 0; r < refCol.items.length; r++) {
-      const entry = p === refCol.propId ? refCol.items[r] : rowMap[r].get(p)!
-      pre.push((entry.name ?? '').slice(subjects[r].length))
+    for (let i = 0; i < rowIdx.length; i++) {
+      const entry = p === refCol.propId ? refCol.items[rowIdx[i]] : rowMap[rowIdx[i]].get(p)!
+      pre.push((entry.name ?? '').slice(subjects[i].length))
     }
     const raw = commonPrefix(pre)
     const label = raw.endsWith('（') ? raw.slice(0, -1) : raw
@@ -608,32 +620,35 @@ export function buildSkillMetricTable(
   // 行标签 = 行主题 + 该行条目「去行主题、再去列标签」后的公共后缀（区分重复行）；
   // 补全后仍重复 → 无法构成可读矩阵，退回列表
   const rows: SkillMetricTable['rows'] = []
-  for (let r = 0; r < refCol.items.length; r++) {
+  for (let i = 0; i < rowIdx.length; i++) {
     const leftovers: string[] = []
     for (const p of complete) {
-      const entry = p === refCol.propId ? refCol.items[r] : rowMap[r].get(p)!
-      const s = (entry.name ?? '').slice(subjects[r].length)
+      const entry = p === refCol.propId ? refCol.items[rowIdx[i]] : rowMap[rowIdx[i]].get(p)!
+      const s = (entry.name ?? '').slice(subjects[i].length)
       const label = colLabel.get(p)!
       leftovers.push(s.startsWith(label) ? s.slice(label.length) : s)
     }
-    rows.push({ label: subjects[r] + commonSuffix(leftovers), values: {} })
+    rows.push({ label: subjects[i] + commonSuffix(leftovers), values: {} })
   }
   if (new Set(rows.map((x) => x.label)).size < rows.length) return null
 
   // 填充矩阵值（代入所选等级）
-  for (let r = 0; r < rows.length; r++) {
+  for (let i = 0; i < rows.length; i++) {
     for (const p of complete) {
-      const entry = p === refCol.propId ? refCol.items[r] : rowMap[r].get(p)!
-      rows[r].values[String(p)] = skillDetailValue(entry, level)
+      const entry = p === refCol.propId ? refCol.items[rowIdx[i]] : rowMap[rowIdx[i]].get(p)!
+      rows[i].values[String(p)] = skillDetailValue(entry, level)
     }
   }
 
-  // 补充行：静态文本条目 + 非稠密列（未配对/仅部分行拥有）的引用条目，按组内原序
-  const extras: SkillDetail[] = []
-  for (const en of entries) {
-    const m = en.formula.match(SKILL_REF_FULL_RE)
-    if (!m || !completeSet.has(Number(m[2]))) extras.push(en)
+  // 补充行：未进矩阵的条目（静态文本、孤立条目、缺指标的行），按组内原序
+  const placed = new Set<SkillDetail>()
+  for (const r of rowIdx) {
+    placed.add(refCol.items[r])
+    for (const p of complete) {
+      if (p !== refCol.propId) placed.add(rowMap[r].get(p)!)
+    }
   }
+  const extras = entries.filter((en) => !placed.has(en))
 
   return {
     rowLabel: '',

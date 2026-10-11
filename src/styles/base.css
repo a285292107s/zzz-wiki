@@ -86,6 +86,7 @@ body::before {
 
 /* ---------- 页面内容区块纸纹 ----------
    极淡灰阶档案纸纹，仅铺在内容胶囊（.wrap.page）之下：名录/详情/404 等内容页统一。
+   术语（内容胶囊 / 版心 / 主内容区 / 区块）的完整定义在 DATA_GUIDE.md §10，此处只引用；
    纸纹数据源与原子约束见 tokens.css 的 --paper-noise。 */
 .wrap.page {
   /* BFC：阻止末区块 margin-bottom 与父盒塌陷，纸纹铺满内容胶囊到底，不留裸底条 */
@@ -95,21 +96,29 @@ body::before {
   background-color: var(--bg-1);
   background-image: var(--paper-noise);
   background-repeat: repeat;
-  /* 底部细线收口：让「内容标本板」上下都由发丝线框边（顶=站头 border-bottom，
-     底=本线），纸纹面不悬空被裁，页脚呼吸间距明确成为标本板之外的区域 */
+  /* 底部细线收口：让内容胶囊上下都由发丝线框边（顶=站头 border-bottom，底=本线），
+     纸纹面不悬空被裁，页脚呼吸间距明确成为胶囊之外的区域 */
   border-bottom: var(--rule);
 }
 
-/* 标本板末端收口**只画一次**。
-   上面那条是本板的收边线；而名录表末行、卡片栅格底边也各画一条，两条相邻相叠 ——
-   实测叠成 2px，而板顶缘（站头 border-bottom）只有 1px：同一块板的上下缘就差了一倍的重量。
-   故末端恰好是这两类内容时，撤掉它们自己的那条（收边归本板）。
+/* 胶囊末端收口**只画一次**。
+   上面那条是胶囊自己的收边线；而名录表末行、卡片栅格底边也各画一条，两条相邻相叠 ——
+   实测叠成 2px，而胶囊顶缘（站头 border-bottom）只有 1px：同一个容器上下缘就差了一倍的重量。
+   故末端恰好是这两类内容时，撤掉它们自己的那条（收边归胶囊）。
    `:last-child` 两级是为了容下「栅格外还套一层 .card-grid-wrap」的情形；
-   只对**正好落在板底**的内容生效 —— 表格/栅格后面还有东西时，它仍需要自己的收口线。 */
+   只对**正好落在胶囊底**的内容生效 —— 表格/栅格后面还有东西时，它仍需要自己的收口线。 */
 .wrap.page > .hairline-table:last-child > tbody > tr:last-child > :is(td, th),
 .wrap.page > :last-child > .hairline-table:last-child > tbody > tr:last-child > :is(td, th),
 .wrap.page > .card-grid:last-child,
 .wrap.page > :last-child > .card-grid:last-child {
+  border-bottom: none;
+}
+
+/* 移动端堆叠条目（CatalogTable）的收口线画在**条目**（tr）上而不是格（td）上——
+   一条并作一行后，线才是条目的边界。上面的选择器只认格上的线，故此处单补一条，
+   否则板底会叠成 2px（与桌面表末行同一个理由）。 */
+.wrap.page > .hairline-table:last-child > tbody.m-body > tr.m-row:last-child,
+.wrap.page > :last-child > .hairline-table:last-child > tbody.m-body > tr.m-row:last-child {
   border-bottom: none;
 }
 
@@ -858,8 +867,11 @@ section[id] {
   /* 460ms：全站位移最大的一次转场，要**读成一拍**——比退场（≈420ms）略长，
      于是"准备 → 飞 → 落"三拍长短相当，不会出现"长准备 + 短飞行"的失衡。
      曲线取标准 ease-in-out 家族（中段最饱满）：此前的 expo-out 把约 60% 的位移挤在
-     头 150ms 里，中段像"挂着"，观感是"跳一下然后等"（实测吐槽的来源）。 */
-  animation-duration: 460ms;
+     头 150ms 里，中段像"挂着"，观感是"跳一下然后等"（实测吐槽的来源）。
+
+     时长读 `--vt-flight`（chrome.ts 的 VT_TIMING.flight）：入场延后 `inHoldInFlight`
+     必须短于它（「落地不能是空的」），那条约束得有个东西在两个文件间对齐，否则各改各的。 */
+  animation-duration: var(--vt-flight, 460ms);
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1033,14 +1045,22 @@ html.vt-landing .vt-chrome-case {
 }
 
 /* 落地：目的页区块自上而下逐条装订。整体延后 `--vt-in-hold`，
-   让第一块在飞行尾段才开始动、最后一块在落地之后走完 —— 才有「逐步入场」。 */
+   让第一块在飞行尾段才开始动、最后一块在落地之后走完 —— 才有「逐步入场」。
+
+   曲线用**中段饱满**的 `cubic-bezier(0.4, 0, 0.2, 1)` 而**不是全局 `--ease`**：
+   `--ease` 是强 ease-out（`0.22, 1, 0.36, 1`），40% 的时间进度就交付 91.6% 的值 ——
+   入场的动画原点在「新状态采样之后」，而幕布（`::view-transition-*`）要到飞行结束才撤，
+   两者差 467ms。在旧值（延后 300ms）下，用户在幕布撤除那一刻看到的已经就是
+   「纸面 91.6% / 首块 96.6%」，于是底色观感是**啪地出现**、看不出渐变。
+   换成中段饱满后同一个时间进度只交付 61% / 80%，即便时序将来再漂移也仍有可见的渐变。
+   （同一条推理见 README「曲线」一节与 `:root` 的取景变形。） */
 html.vt-landed .vt-in {
-  animation: vt-chrome-in var(--vt-in-dur, 320ms) var(--ease) both;
+  animation: vt-chrome-in var(--vt-in-dur, 320ms) cubic-bezier(0.4, 0, 0.2, 1) both;
   animation-delay: calc(var(--vt-in-hold, 300ms) + var(--vt-i, 0) * var(--vt-in-step, 14ms));
 }
 
 html.vt-landed .vt-chrome-case {
-  animation: vt-case-in 420ms var(--ease) both;
+  animation: vt-case-in var(--vt-case-dur, 420ms) cubic-bezier(0.4, 0, 0.2, 1) both;
   animation-delay: var(--vt-in-hold, 300ms);
 }
 
