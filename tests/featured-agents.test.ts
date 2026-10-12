@@ -6,11 +6,13 @@ import {
   shuffle,
   seededShuffle,
   daySeed,
+  monthDayKey,
+  birthdayOf,
   FEATURED_POOL,
   pickFeatured,
-  elementKeyOf,
-  campKeyOf,
 } from '@/composables/useFeaturedAgents'
+import featuredBirthdays from '@/data/featured-birthdays.json'
+import birthdaySupplement from '@/data/birthday-supplement.json'
 import type { CharacterListItem } from '@/data/types'
 import { ELEMENTS } from '@/domain/enums'
 
@@ -70,46 +72,127 @@ describe('「今日角色」的确定性挑选（同日恒定 / 跨日变化）'
   })
 })
 
-describe('今日精选的属性 + 阵营去重（pickFeatured）', () => {
-  it('4 张卡的属性与阵营都互不重复', () => {
-    const picks = pickFeatured(FEATURED_POOL, daySeed(new Date(2026, 9, 5)))
+describe('今日精选的生日优先（pickFeatured）', () => {
+  /** 池内每天各有谁过生日（从生日表自算，与实现同源；避免把角色号写死在断言里） */
+  function birthdaysByDay(): Map<string, number[]> {
+    const byDay = new Map<string, number[]>()
+    for (const p of FEATURED_POOL) {
+      const b = birthdayOf(p.id)
+      if (b) byDay.set(b, [...(byDay.get(b) ?? []), p.id])
+    }
+    return byDay
+  }
+
+  /** 找一天「池内至少 n 位当天生日」，并给出对应的 Date */
+  function dayWithBirthdays(n: number): { date: Date; ids: number[] } | null {
+    const hit = [...birthdaysByDay().entries()].filter(([, v]) => v.length >= n).sort((a, b) => b[1].length - a[1].length)[0]
+    if (!hit) return null
+    const [mm, dd] = hit[0].split('-').map(Number)
+    return { date: new Date(2026, mm! - 1, dd!), ids: hit[1] }
+  }
+
+  it('当天生日的角色排在最前，其余名额按播种序补齐', () => {
+    const hit = dayWithBirthdays(1)
+    expect(hit).not.toBeNull()
+    const picks = pickFeatured(FEATURED_POOL, hit!.date)
     expect(picks).toHaveLength(4)
-    expect(new Set(picks.map((p) => elementKeyOf(p.id))).size).toBe(4)
-    expect(new Set(picks.map((p) => campKeyOf(p.id))).size).toBe(4)
+    // 生日位在最前，且「生日卡之后不再出现非生日卡」（flags 单调不增）
+    expect(hit!.ids).toContain(picks[0]!.id)
+    const isBirthday = picks.map((p) => hit!.ids.includes(p.id))
+    expect(isBirthday).toEqual([...isBirthday].sort((a, b) => Number(b) - Number(a)))
   })
 
-  it('一年 365 天逐日校验：任何一天都不出现属性或阵营重复', () => {
-    const elDupes: number[] = []
-    const campDupes: number[] = []
+  it('同一天两位生日角色都进牌堆（不是只取一位）', () => {
+    const hit = dayWithBirthdays(2)
+    expect(hit).not.toBeNull()
+    const picks = pickFeatured(FEATURED_POOL, hit!.date)
+    expect(new Set(picks.slice(0, 2).map((p) => p.id))).toEqual(new Set(hit!.ids))
+  })
+
+  it('count 小于生日人数时只取前 count 位（固定 4 张的取舍）', () => {
+    const hit = dayWithBirthdays(2)
+    expect(hit).not.toBeNull()
+    const picks = pickFeatured(FEATURED_POOL, hit!.date, 1)
+    expect(picks).toHaveLength(1)
+    expect(hit!.ids).toContain(picks[0]!.id)
+  })
+
+  it('当天无人生日时回到纯播种序：同日恒定（含当天 23:59 取片）', () => {
+    const byDay = birthdaysByDay()
+    // 「无人生日的那天」由生日表反推，不写死日期：池是人工策展，哪天新增一位生日角色
+    // 都会让写死的日期变成假失败（门禁一旦因与实现无关的原因失败，就没人再信它）
+    const date =
+      [...Array(365).keys()]
+        .map((i) => new Date(2026, 0, i + 1))
+        .find((d) => !byDay.has(monthDayKey(d))) ?? new Date(2026, 0, 1)
+    expect(byDay.has(monthDayKey(date))).toBe(false)
+    const a = pickFeatured(FEATURED_POOL, date)
+    const b = pickFeatured(FEATURED_POOL, new Date(date.getFullYear(), date.getMonth(), date.getDate(), 23, 59, 59))
+    expect(a.map((p) => p.id)).toEqual(b.map((p) => p.id))
+    expect(a).toHaveLength(4)
+    expect(new Set(a.map((p) => p.id)).size).toBe(4) // 不重复占格
+  })
+
+  it('跨日换一批：相隔一天的两批不完全相同', () => {
+    const a = pickFeatured(FEATURED_POOL, new Date(2026, 9, 12)).map((p) => p.id)
+    const others = [13, 14, 15, 16, 17].map((d) =>
+      pickFeatured(FEATURED_POOL, new Date(2026, 9, d)).map((p) => p.id),
+    )
+    expect(others.some((ids) => ids.join() !== a.join())).toBe(true)
+  })
+
+  it('一年 365 天逐日校验：生日卡张数精确等于「当天生日人数（上限 4）」，且整体排在前面', () => {
+    const byDay = birthdaysByDay()
     for (let d = 1; d <= 365; d++) {
       const date = new Date(2026, 0, d)
-      const picks = pickFeatured(FEATURED_POOL, daySeed(date))
-      if (new Set(picks.map((p) => elementKeyOf(p.id))).size !== 4) elDupes.push(daySeed(date))
-      if (new Set(picks.map((p) => campKeyOf(p.id))).size !== 4) campDupes.push(daySeed(date))
+      const picks = pickFeatured(FEATURED_POOL, date)
+      const today = byDay.get(monthDayKey(date)) ?? []
+      const flags = picks.map((p) => today.includes(p.id))
+
+      expect(picks).toHaveLength(4)
+      expect(new Set(picks.map((p) => p.id)).size).toBe(4) // 无重复占格
+      expect(flags.filter(Boolean).length).toBe(Math.min(today.length, 4)) // 生日的都给到，多的按上限截断
+      expect(flags).toEqual([...flags].sort((a, b) => Number(b) - Number(a))) // 生日组整体在最前
     }
-    expect({ elDupes, campDupes }).toEqual({ elDupes: [], campDupes: [] })
   })
 
-  it('同一 seed 恒定：同日两次挑选完全一致（图片缓存才不白费）', () => {
-    const seed = daySeed(new Date(2026, 9, 5))
-    expect(pickFeatured(FEATURED_POOL, seed).map((p) => p.id)).toEqual(
-      pickFeatured(FEATURED_POOL, seed).map((p) => p.id),
-    )
+  it('无生日的角色不享优先，但池子只剩它们时照样出卡（不静默少给）', () => {
+    const hit = dayWithBirthdays(1)!
+    // 用**生日表里必然没有的**角色号自造「无生日」条目：与「当前池内恰好谁缺生日」解耦
+    // （1551 这类缺口会随后续数据/补充表变化，写死真实角色号就会把正常更新误报成回归）
+    const noBirthday = [900001, 900002, 900003].map((id) => ({ id, pos: '50%', zoom: 1, originY: 50 }))
+    expect(noBirthday.every((p) => birthdayOf(p.id) === null)).toBe(true)
+    // 池内只有「1 位当天生日 + N 位无生日」时，首位必须是那位生日角色
+    const picks = pickFeatured([...noBirthday, { id: hit.ids[0]!, pos: '50%', zoom: 1, originY: 50 }], hit.date)
+    expect(picks[0]!.id).toBe(hit.ids[0])
+    // 全是无生日角色 → 按播种序给满（有多少给多少），且顺序确定
+    const only = pickFeatured(noBirthday, hit.date, 4)
+    expect(only).toHaveLength(noBirthday.length)
+    expect(only.map((p) => p.id)).toEqual(pickFeatured(noBirthday, hit.date, 4).map((p) => p.id))
   })
 
-  it('池子属性种类不足时按洗牌序补齐，不静默少给', () => {
-    // 只给同属性的 3 个条目，却要 4 张 → 应回退补位（而不是返回 1 张）
-    const sameEl = FEATURED_POOL.filter((p) => elementKeyOf(p.id) === 'el-200').slice(0, 3)
-    const picks = pickFeatured(sameEl, 7, 4)
-    expect(picks).toHaveLength(3) // 池子本身只有 3 条 → 只能给 3
-    const many = pickFeatured(FEATURED_POOL, 7, 6)
-    expect(many).toHaveLength(6)
-  })
-
-  it('属性表覆盖池内全部条目（生成物与策展池不脱节）', () => {
-    for (const p of FEATURED_POOL) {
-      expect(elementKeyOf(p.id)).not.toMatch(/^unknown-/)
+  it('特殊形态与其本体同生日（人工补充表生效的证据）', () => {
+    for (const [formId, baseId] of Object.entries(birthdaySupplement.inheritFrom)) {
+      // 该形态当前若不在池内，产物里就不会有它 —— 跳过（池是人工策展，增减不该误报成失败）
+      if (birthdayOf(Number(formId)) === null) continue
+      expect(birthdayOf(Number(baseId))).not.toBeNull() // 本体的生日必须同样来自详情
+      expect(birthdayOf(Number(formId))).toBe(birthdayOf(Number(baseId)))
     }
+  })
+
+  it('生日表与策展池不脱节：表内 id 全部仍在池内', () => {
+    const poolIds = new Set(FEATURED_POOL.map((p) => p.id))
+    for (const key of Object.keys(featuredBirthdays)) {
+      expect(poolIds.has(Number(key))).toBe(true)
+    }
+    // 有生日的条目必须格式统一（补零 MM-DD），否则当天比较必然落空
+    for (const v of Object.values(featuredBirthdays)) expect(v).toMatch(/^\d{2}-\d{2}$/)
+  })
+
+  it('monthDayKey 补零后与生日表同构', () => {
+    expect(monthDayKey(new Date(2026, 0, 5))).toBe('01-05')
+    expect(monthDayKey(new Date(2026, 11, 31))).toBe('12-31')
+    expect(monthDayKey(new Date(2026, 9, 12, 23, 59))).toBe('10-12')
   })
 })
 
@@ -254,6 +337,41 @@ describe('buildFeaturedCards · 双形态角色跟随所选形态', () => {
       const cards = buildFeaturedCards(single, singleList, undefined, form)
       expect(cards[0]!.srcs[0]!.src).toMatch(/hero\/wide\/Mindscape_1011_2\.webp$/)
     }
+  })
+})
+
+describe('buildFeaturedCards · 生日小签（isBirthday）', () => {
+  // 取生日表里**实际存在**的两位、且生日不同：与策展池增删解耦（写死角色号会随池变化误报）
+  const entries = Object.entries(featuredBirthdays as Record<string, string>)
+  const [idA, bdA] = entries[0]!
+  const [idB, bdB] = entries.find(([, v]) => v !== bdA)!
+  const seed = [idA, idB].map((id) => ({ id: Number(id), pos: '50%', zoom: 1, originY: 50 }))
+  const list = [makeItem(Number(idA), { zh: '甲' }), makeItem(Number(idB), { zh: '乙' })]
+  /** 生日表的值恒为真实 MM-DD，故 13 月这个键必然谁都不命中（= 今天没人生日的等价场景） */
+  const NO_ONE = '13-01'
+
+  it('只给当天生日的那张挂标记（判据与选片同源的一张生日表）', () => {
+    expect(buildFeaturedCards(seed, list, undefined, 'female', bdA).map((c) => c.isBirthday)).toEqual([true, false])
+    expect(buildFeaturedCards(seed, list, undefined, 'female', bdB).map((c) => c.isBirthday)).toEqual([false, true])
+  })
+
+  it('今天没人生日时一张都不挂（此时选片也退化为纯播种序）', () => {
+    expect(buildFeaturedCards(seed, list, undefined, 'female', NO_ONE).map((c) => c.isBirthday)).toEqual([false, false])
+  })
+
+  it('不依赖名录：清单未就绪（名字还在占位）时标记已经是准的', () => {
+    expect(buildFeaturedCards(seed, null, undefined, 'female', bdA).map((c) => c.isBirthday)).toEqual([true, false])
+  })
+
+  it('形态与本体同一天生日时两张都挂（11-25 比利 + 星徽·比利）', () => {
+    const forms = Object.entries(birthdaySupplement.inheritFrom)
+    if (!forms.length) return
+    const [formId, baseId] = forms[0]!
+    const formBd = birthdayOf(Number(formId))
+    if (formBd === null) return // 该形态当前不在池内 → 产物里没有它，跳过
+    const s = [Number(formId), Number(baseId)].map((id) => ({ id, pos: '50%', zoom: 1, originY: 50 }))
+    const l = [makeItem(Number(formId), { zh: '形态' }), makeItem(Number(baseId), { zh: '本体' })]
+    expect(buildFeaturedCards(s, l, undefined, 'female', formBd).map((c) => c.isBirthday)).toEqual([true, true])
   })
 })
 

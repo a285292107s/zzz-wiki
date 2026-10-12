@@ -1,7 +1,8 @@
 /* ============================================================
  * useFeaturedAgents — 首页「今日角色」精选池（DESIGN.md §6.1 走 useAsyncResource）。
  * 池结构与逐张校准参数存于 src/data/featured-pool.json（校准工具 dev 中间件读写），
- * 这里是唯一消费方之一；构图参数 pos/zoom/originY 含义见 IMG_GUIDE.md。
+ * 生日表存于 src/data/featured-birthdays.json（构建期派生、入库，见脚本同名文件），
+ * 这里是两份数据的唯一消费方之一；构图参数 pos/zoom/originY 含义见 IMG_GUIDE.md。
  * 视图只消费 { featured }（响应式），不写 fetch/异步状态机（DESIGN.md §4.1）。
  * ============================================================ */
 
@@ -16,7 +17,7 @@ import { heroFileForForm, type HeroForm } from '@/data/heroGenderVariants'
 import { useHeroForm, DEFAULT_HERO_FORM } from '@/composables/useHeroForm'
 import type { FeaturedPool, PoolItem } from '@/domain/featuredPool'
 import poolJson from '@/data/featured-pool.json'
-import featuredElements from '@/data/featured-elements.json'
+import featuredBirthdays from '@/data/featured-birthdays.json'
 
 /** 精选池（来自数据文件；结构防御性检查，非法/缺失则空池）。 */
 export const FEATURED_POOL: PoolItem[] = Array.isArray((poolJson as FeaturedPool)?.pool)
@@ -35,6 +36,8 @@ export interface FeaturedCard {
   zoom: number
   originY: number
   to: string
+  /** 今天是不是这位的生日：标本签据此挂「生日」小签，读屏名也随之带上（见 FeaturedDeck） */
+  isBirthday: boolean
 }
 
 /** 本地 hero 头图根（download:icons 落地 public/data/img/hero，运行时零外部请求）。 */
@@ -131,63 +134,51 @@ export function seededShuffle<T>(arr: readonly T[], seed: number): T[] {
   return a
 }
 
+/** 某角色的生日（`MM-DD`，与生日表同构）；源数据无生日（如 1551）返回 null —— 该角色只参与补齐 */
+export function birthdayOf(id: number): string | null {
+  const table = featuredBirthdays as unknown as Record<string, string>
+  const v = table[String(id)]
+  return typeof v === 'string' ? v : null
+}
+
+/** 某天（默认今天）的 `MM-DD` 键：与生日表同构，故「是否当天生日」只是一次字符串比较 */
+export function monthDayKey(d: Date = new Date()): string {
+  return `${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+}
+
 /**
- * 今日精选：**属性 + 阵营双重去重**。
+ * 今日精选：**当天生日的角色优先**。
  *
- * 纯随机洗牌会连着挑出同质角色——实测出现过「4 张里 3 张白发红眼」的观感重复
- * （首页第一屏最显眼的位置，重复即显得随手）。两道约束：
- *   ① **属性不重复**（避免同色系扎堆）
- *   ② **阵营不重复**（不同阵营的设计语言差异明显：机车帮 / 家政 / 治安局 / 防卫军…）
- * 逐级放宽：先要求两者都不重复 → 属性不够时放宽阵营 → 再不够才按洗牌序补齐（不静默少给）。
+ * 当天过生日的池内角色排在牌堆最前（生日表见 scripts/generate-featured-birthdays.mjs），
+ * 其余名额按「本地日期播种」的确定性顺序补齐 —— 同日恒定（文案承诺的是「今日」这批，
+ * 回访还能命中图片缓存）、跨日自动换一批；生日组内部同样按播种序，故同日顺序也恒定。
  *
- * 表来自构建期派生并提交的 featured-elements.json（见 scripts/generate-featured-elements.mjs）：
- * 选片必须同步发生（头图 src 只依赖 id，才能与清单请求并行），不能等名录返回。
+ * 曾按「属性 + 阵营」双重去重以免首屏 4 张雷同，改为生日优先后不再需要。
+ * 选片必须同步发生（头图 src 只依赖 id，才能与清单请求并行），不能等名录返回 ——
+ * 这正是生日要在构建期派生、入库、CI 校验的原因。
+ *
+ * @param date  选片基准日（默认此刻）：同时定 seed 与「今天」，避免两次读时钟跨零点打架
+ * @param count 牌堆张数（默认 4）：当天生日角色多于 count 时，按播种序取前 count 位
  */
-export function pickFeatured(pool: readonly PoolItem[], seed: number, count = 4): PoolItem[] {
-  const shuffled = seededShuffle(pool, seed)
-  const out: PoolItem[] = []
-  const take = (needDistinctCamp: boolean) => {
-    for (const p of shuffled) {
-      if (out.length >= count) break
-      if (out.includes(p)) continue
-      const k = keyOf(p.id)
-      if (out.some((q) => keyOf(q.id).element === k.element)) continue
-      if (needDistinctCamp && out.some((q) => keyOf(q.id).camp === k.camp)) continue
-      out.push(p)
-    }
-  }
-  take(true) // ① 属性 + 阵营都不重复
-  take(false) // ② 放宽阵营，仍保持属性不重复
-  if (out.length < count) {
-    for (const p of shuffled) {
-      if (out.length >= count) break
-      if (!out.includes(p)) out.push(p)
-    }
-  }
-  return out
-}
+export function pickFeatured(
+  pool: readonly PoolItem[],
+  date: Date = new Date(),
+  count = 4,
+): PoolItem[] {
+  const seed = daySeed(date)
+  const today = monthDayKey(date)
 
-/** 池条目的去重键（属性 + 阵营；特殊属性单独成键，避免与基础属性混为一谈） */
-export function elementKeyOf(id: number): string {
-  const k = keyOf(id)
-  return k.special ? `special-${k.special}` : `el-${k.element}`
-}
+  const birthday: PoolItem[] = []
+  const others: PoolItem[] = []
+  for (const p of pool) (birthdayOf(p.id) === today ? birthday : others).push(p)
 
-/** 池条目的阵营键（缺失时按 id 单列，不与任何条目「同阵营」） */
-export function campKeyOf(id: number): string {
-  return keyOf(id).camp ?? `camp-unknown-${id}`
-}
-
-function keyOf(id: number): { element: number | undefined; camp: string | null; special: string | null } {
-  // 紧凑表格式：[属性码, 阵营] 或 [属性码, 阵营, 特殊属性]（见 generate-featured-elements.mjs）。
-  // JSON 导入被推断为 (string|number)[]，元组断言需经 unknown 中转（直接断言 TS 会报不重叠）。
-  const table = featuredElements as unknown as Record<string, (string | number)[]>
-  const e = table[String(id)]
-  return {
-    element: typeof e?.[0] === 'number' ? e[0] : undefined,
-    camp: typeof e?.[1] === 'string' ? e[1] : null,
-    special: typeof e?.[2] === 'string' ? e[2] : null,
+  // seededShuffle 返回新数组（不改入参），故可安全地把它当作结果容器继续补位
+  const out = seededShuffle(birthday, seed)
+  for (const p of seededShuffle(others, seed)) {
+    if (out.length >= count) break
+    out.push(p)
   }
+  return out.slice(0, count)
 }
 
 /**
@@ -197,12 +188,15 @@ function keyOf(id: number): { element: number | undefined; camp: string | null; 
  * `sizes` 由调用方按挂载期取景框宽定档（见 deckSizes），好让预热与真实 <img> 同档。
  * `form` 为双形态角色的当前形态（佩洛伊斯）：**卡面跟随详情页所选形态**，
  * 好让卡片与降落端同图、共享元素飞行不出现「女性溶解成男性」。非双形态角色不受影响。
+ * `birthdayKey` 为「今天」的 `MM-DD`（默认取当前日期）：调用方传入与选片**同一个**基准日，
+ * 免得标志与选片跨零点各说各话。
  */
 export function buildFeaturedCards(
   seed: PoolItem[],
   list: CharacterListItem[] | null,
   sizes: string = deckSizes(),
   form: HeroForm = DEFAULT_HERO_FORM,
+  birthdayKey: string = monthDayKey(),
 ): FeaturedCard[] {
   const byId = new Map((list ?? []).map((x) => [x.Id, x]))
   const cards: FeaturedCard[] = []
@@ -225,17 +219,22 @@ export function buildFeaturedCards(
       zoom: n.zoom,
       originY: n.originY,
       to: `/agents/${n.id}`,
+      // 生日标记与选片同源（同一张生日表 + 同一个「今天」）：不依赖名录，
+      // 故名录未就绪、名字还在占位时标记就已经是对的
+      isBirthday: birthdayOf(n.id) === birthdayKey,
     })
   }
   return cards.map((c, i) => ({ ...c, no: String(i + 1).padStart(2, '0') }))
 }
 
-/** 首页「今日角色」：按**当天日期**确定性取 4 张 + 解析，返回响应式 featured。
+/** 首页「今日角色」：**当天生日的角色优先**，按日期确定性取 4 张 + 解析，返回响应式 featured。
  *  同日恒定（文案承诺的是「今日」这批，回访还能命中图片缓存）、跨日自动换一批；
  *  早前用 Math.random 每次挂载换人——文案与行为不符，且回访用户永远冷缓存。
  *  featured 与 picks 等长起步（名字未就绪时留空占位），清单到达后按真值收敛。 */
 export function useFeaturedAgents() {
-  const picks = pickFeatured(FEATURED_POOL, daySeed())
+  /** 选片基准日只取一次：picks 与卡片的生日标记共用同一个「今天」，跨零点不会两边劈叉 */
+  const date = new Date()
+  const picks = pickFeatured(FEATURED_POOL, date)
   /** 挂载期按取景框宽定档：卡片与预热共用同一个值，两边的档位不会打架 */
   const sizes = deckSizes()
 
@@ -264,6 +263,6 @@ export function useFeaturedAgents() {
   }
 
   const { data: list } = useAsyncResource<CharacterListItem[]>(() => listFor<CharacterListItem>(catalogEntry('/agents')))
-  const featured = computed(() => buildFeaturedCards(picks, list.value, sizes, heroForm.value))
+  const featured = computed(() => buildFeaturedCards(picks, list.value, sizes, heroForm.value, monthDayKey(date)))
   return { featured, picks }
 }

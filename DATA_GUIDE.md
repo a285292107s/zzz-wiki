@@ -93,7 +93,10 @@ public/data/
 > `img/hero/Mindscape_{id}_2.webp` 同时是角色详情页 AgentHead 头图与首页「今日角色」的图源，
 > 该图源带透明边（上下为 alpha 透明区）。选角与逐图取景参数存于 `src/data/featured-pool.json`
 > （每项 `{ id, pos, zoom, originY }`；名字/属性运行时从名录解析），由 `useFeaturedAgents` 按
-> **当天日期**确定性取 4 张（同日恒定、跨日换批，属性 + 阵营双重去重）；参数经 dev 校准工具
+> **当天日期**确定性取 4 张（同日恒定、跨日换批，**当天生日的角色排在最前**——生日来自详情
+> `partner_info.birthday`，由 `src/data/featured-birthdays.json` 在构建期派生入库；特殊形态缺生日时
+> 按 `src/data/birthday-supplement.json` 继承本体，如 星徽·比利 1531 → 比利 1081，见术语表「特殊形态」）；
+> 参数经 dev 校准工具
 > `/calibrate` 写入（网格角色号从 live 名录动态派生，落地新角色后自动可见，入池仍须目检 `pos`）。
 > **怎么摆 / 怎么裁 / 怎么核验**属展示技法，唯一记录点见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)；
 > 双形态角色（当前 1551 佩洛伊斯）的头图文件名规则见 §5。

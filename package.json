@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "build:ci": "pnpm run test && node scripts/verify-fonts.mjs && node scripts/verify-icons.mjs --local && node scripts/generate-featured-elements.mjs --check && node scripts/verify-cjk-fonts.mjs && vite build && node scripts/generate-sitemap.mjs && node scripts/generate-route-html.mjs && node scripts/verify-budget.mjs && node scripts/verify-vercel-config.mjs",
+    "build:ci": "pnpm run test && node scripts/verify-fonts.mjs && node scripts/verify-icons.mjs --local && node scripts/generate-featured-birthdays.mjs --check && node scripts/verify-cjk-fonts.mjs && vite build && node scripts/generate-sitemap.mjs && node scripts/generate-route-html.mjs && node scripts/verify-budget.mjs && node scripts/verify-vercel-config.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "audit": "node scripts/audit-runner.mjs",
     "preview": "vite preview --port 4175",
@@ -28,7 +28,7 @@
     "verify:vercel": "node scripts/verify-vercel-config.mjs",
     "route-html": "node scripts/generate-route-html.mjs",
     "audit:all": "node scripts/audit-all.mjs",
-    "gen:featured-elements": "node scripts/generate-featured-elements.mjs"
+    "gen:featured-birthdays": "node scripts/generate-featured-birthdays.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

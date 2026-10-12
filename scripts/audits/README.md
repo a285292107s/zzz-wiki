@@ -12,7 +12,7 @@ RULES 表里（不靠猜返回结构）；**新增审计脚本必须同时补判
 |---|---|---|
 | viewport-overflow.js  | 8 视口 × 8 路由横向溢出 | 0 |
 | touch-targets.js      | 交互目标 ≥24×24（WCAG 2.5.8） | 0 问题 |
-| regression-walk.js    | 全站功能走查（**87 项**，覆盖七类目/边界态/URL 状态/离线联动）。名录/图谱的**条数不写死**：比对运行时数据文件真值（`live-data-readable` 先取真值，再断言「渲染条数 == 数据条数」），故 `pnpm run sync` 新增角色不会误报 | 87/87 |
+| regression-walk.js    | 全站功能走查（**89 项**，覆盖七类目/边界态/URL 状态/离线联动）。名录/图谱的**条数不写死**：比对运行时数据文件真值（`live-data-readable` 先取真值，再断言「渲染条数 == 数据条数」），故 `pnpm run sync` 新增角色不会误报。图谱轴标图标单列一项（`atlas-axis-icons`）：断的是**素材在站内**（src 落在 `/data/img/filter/`）而非「能加载」——换 CDN 直链时结构断言仍全绿、但零外部请求的约束已破，故必须查 src | 89/89 |
 | transfer-profile.js   | 首访传输预算（冷缓存总重 + 分类明细；总重 <3MB 竞奖档 / 字体 ≤1.2MB / 图片 ≤1MB） | 53 请求 / 751KB（js 61 + css 25 + 字体 189 + 图片 436 + json 40；**2026-10 实测，运行取当前值**） |
 | quick-search.js       | ⌘K 检索链路端到端（中文高亮/罗马字命中/结果态预激活/空态键盘路径） | 4/4 |
 | font-loading.js       | CJK 衬线生效 + 分片按需 | serif=Noto Serif SC |

@@ -3,6 +3,7 @@
  * FeaturedDeck — 首页「今日角色」标本陈列（一次一张，横向牌堆）。
  *
  * 构图（一个 hairline 装裱框内：立绘 → 标本签 → 座次/刻度）：
+ *   标本签＝编号 · 属性 · 生日小签（仅当天生日那张挂）· 中英名；
  *   桌面：2.36:1 超宽标本板（Mindscape 全景原生比例），整幅展示不裁上下；
  *         装裱宽度 = min(栏宽, 高度上限 × 2.36) 并居中 —— 大屏上「比例」与「44vh 高度
  *         上限」不再互相打架（直接铺满栏宽会把 2.36 压成 2.7:1，上下要被裁掉）。
@@ -354,14 +355,16 @@ function warmHero(id: number | undefined): void {
   void awaitImageReady(heroDetailPrimarySrc(base, heroDetailViewport()), 2000)
 }
 
-/** 卡片的可读名（中英名 + 编号 + 元素）：slide 的可访问名与卡内链接名共用这一份。
+/** 卡片的可读名（中英名 + 编号 + 元素 + 生日）：slide 的可访问名与卡内链接名共用这一份。
  *  可见文本在**图下的标本签**里（不在链接内部），故链接名里带上同样的字串，
- *  WCAG 2.5.3（Label in Name）与 axe 的 label-content-name-mismatch 都稳。 */
+ *  WCAG 2.5.3（Label in Name）与 axe 的 label-content-name-mismatch 都稳。
+ *  「生日」小签同样要带：标本签是 aria-hidden 的镜像，漏了它读屏就丢一条信息。 */
 function labelOf(card: FeaturedCard | undefined): string {
   if (!card) return '待载入'
   const parts = [card.zh || card.en || '待载入']
   if (card.no) parts.push(`编号 ${card.no}`)
   if (card.elementZh) parts.push(card.elementZh)
+  if (card.isBirthday) parts.push('生日')
   return parts.join(' · ')
 }
 
@@ -452,7 +455,7 @@ onBeforeUnmount(() => {
       <!-- 标本签 + 座次：整块参与「整页退场 / 逐条入场」（data-vt-block），
            退场时与其它区块一起自上而下收走；那张画的取景变形由 .deck-figure 承担 -->
       <div class="deck-meta" data-vt-block>
-        <!-- 标本签：编号 · 属性 · 中英名（图下，不压画面）。
+        <!-- 标本签：编号 · 属性 · 生日小签 · 中英名（图下，不压画面）。
              内容是当前卡的**镜像**（同样的信息已由 slide 的 aria-label 给出），故 aria-hidden，
              免得读屏把同一批信息播两遍；:key 换卡重挂触发一次轻淡入（reduced-motion 由
              base.css 的全局规则压成 0.01ms）。名录未就绪时按条形占位，行盒同高不跳变。 -->
@@ -463,6 +466,9 @@ onBeforeUnmount(() => {
             class="el mono"
             :style="current?.elementColor ? { color: current.elementColor } : undefined"
           >{{ current!.elementZh }}</span>
+          <!-- 生日小签：只在当天过生日的卡上出现（数据来自构建期生日表，与选片同一判据）。
+               用全站共用的 .tag 细线小签语言，色取琥珀——与潜能徽标同调，不加底色/圆角卡片。 -->
+          <span v-if="current?.isBirthday" class="tag bd">生日</span>
           <template v-if="current?.zh">
             <span class="zh">{{ current!.zh }}</span>
             <span class="en mono">{{ current!.en }}</span>
@@ -808,6 +814,22 @@ onBeforeUnmount(() => {
   font-size: var(--fs-caption);
   letter-spacing: 0.08em;
   color: var(--ink-2);
+}
+
+/* 生日小签：全站 .tag 细线小签的琥珀变体（同 base.css 的 .pot-badge 语言：细线、无底色、方角）。
+ * 体量刻意比旁边的元数据（--fs-caption 12px）小一档：走 --fs-badge（9px）、盒高 16px，
+ * 它是一枚**戳记**，不该和 24px 的中文名抢同一段视觉重量。
+ * margin-right 给出与名字之间的那口气：让「编号 · 属性 · 生日」读成一组记述、名字另起一组
+ * （六个摆位的实拍比对见 IMG_GUIDE 的记录；这是唯一同时满足「编号保持左缘锚点」「不拆散成对项」
+ * 「不把角色属性挪进交互簇」的摆位）。 */
+.deck-label .tag.bd {
+  height: 16px;
+  padding: 0 6px;
+  font-size: var(--fs-badge);
+  letter-spacing: 0.12em;
+  margin-right: 4px;
+  color: var(--amber);
+  border-color: color-mix(in srgb, var(--amber) 34%, var(--line-1));
 }
 
 .deck-label .zh {

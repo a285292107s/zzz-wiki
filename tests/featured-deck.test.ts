@@ -6,8 +6,9 @@ import { defineComponent, h } from 'vue'
 import FeaturedDeck from '@/components/home/FeaturedDeck.vue'
 import type { FeaturedCard } from '@/composables/useFeaturedAgents'
 
-/** 造 N 张卡（结构同 buildFeaturedCards 的输出，只留测试关心的字段） */
-function cards(n: number): FeaturedCard[] {
+/** 造 N 张卡（结构同 buildFeaturedCards 的输出，只留测试关心的字段）
+ *  `birthdayIdx` 指定哪几张是「今天生日」（默认都不是），用于生日小签用例 */
+function cards(n: number, birthdayIdx: number[] = []): FeaturedCard[] {
   return Array.from({ length: n }, (_, i) => ({
     id: 1000 + i,
     no: String(i + 1).padStart(2, '0'),
@@ -20,6 +21,7 @@ function cards(n: number): FeaturedCard[] {
     zoom: 1.2,
     originY: 50,
     to: `/agents/${1000 + i}`,
+    isBirthday: birthdayIdx.includes(i),
   }))
 }
 
@@ -66,9 +68,9 @@ function stubLayout(): void {
   })
 }
 
-async function mountDeck(n = 4) {
+async function mountDeck(n = 4, birthdayIdx: number[] = []) {
   stubLayout()
-  const wrapper = mount(FeaturedDeck, { props: { cards: cards(n) }, global })
+  const wrapper = mount(FeaturedDeck, { props: { cards: cards(n, birthdayIdx) }, global })
   // 取景框宽是 onMounted 里量出来的：首渲染还没有它，等一拍让轨道摆正
   await wrapper.vm.$nextTick()
   return wrapper
@@ -158,6 +160,29 @@ describe('FeaturedDeck 结构与无障碍', () => {
     )
     await wrapper.vm.$nextTick()
     expect(track.attributes('aria-live')).toBe('off')
+  })
+
+  it('生日小签：只挂在当天生日那张的标本签上，非生日卡不挂', async () => {
+    // 第 1、3 张是「今天生日」→ 只有切到它们时才会出现小签（标本签一次只渲染当前卡）
+    const wrapper = await mountDeck(4, [0, 2])
+    expect(wrapper.findAll('.deck-label .tag.bd')).toHaveLength(1)
+    expect(wrapper.find('.deck-label .tag.bd').text()).toBe('生日')
+
+    await wrapper.find('.deck-viewport').trigger('keydown', { key: 'ArrowRight' }) // → 第 2 张（非生日）
+    expect(wrapper.find('.deck-label .tag.bd').exists()).toBe(false)
+
+    await wrapper.find('.deck-viewport').trigger('keydown', { key: 'ArrowRight' }) // → 第 3 张（生日）
+    expect(wrapper.find('.deck-label .tag.bd').exists()).toBe(true)
+  })
+
+  it('生日小签的信息对读屏可见：链接名（唯一可访问名通道）带上「生日」', async () => {
+    // 标本签是 aria-hidden 的镜像，故信息必须同时进入 labelOf —— 这里比对 1 号卡（生日）
+    // 与 2 号卡（非生日）的链接名，防止「看得见、读不到」
+    const wrapper = await mountDeck(2, [0])
+    const labels = wrapper.findAll('a').map((a) => a.attributes('aria-label'))
+    expect(labels[0]).toBe('角色1 · 编号 01 · 冰 · 生日')
+    expect(labels[1]).toBe('角色2 · 编号 02 · 冰')
+    expect(wrapper.findAll('.deck-slide')[0]!.attributes('aria-label')).toBe('第 1 位：角色1 · 编号 01 · 冰 · 生日')
   })
 
   it('标本签在图下、只渲染当前卡：换卡后内容与座次同步（读屏仍拿 slide 的可访问名）', async () => {

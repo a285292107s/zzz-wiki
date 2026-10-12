@@ -6,13 +6,15 @@
  * 哪个职业最稀缺。图谱把 60 条代理人压成 7×7 的格子：格子里是条目数，
  * **点任一格就跳到名录并带上对应筛选**（因此它既是可视化，也是导航，不是装饰画）。
  *
- * 语言：沿用「档案标本」——细线格、等宽数字、属性色只作极淡底纹与行首小方块；
+ * 语言：沿用「档案标本」——细线格、等宽数字、属性色只作极淡底纹；行首与列首各挂一枚
+ * **图标本**（属性/职业图标，取名录页筛选下拉那份本地素材），文字紧随其后；
  * 空格子用 `·`（装饰层，aria-hidden），并如实说明「源站如此，未补造」。
  * ============================================================ */
 import { computed, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { ELEMENTS, PROFESSIONS } from '@/domain/enums'
 import type { AttrCode, SpecCode } from '@/domain/enums'
+import { elementIconUrl, professionIconUrl } from '@/domain/filterIcons'
 import { catalogEntry } from '@/domain/catalog'
 import { listFor } from '@/data/resources'
 import { usePageMeta } from '@/composables/usePageMeta'
@@ -32,6 +34,13 @@ usePageMeta(
 /** 属性与职业的展示顺序（枚举里的键序即游戏内序号） */
 const ATTRS = Object.keys(ELEMENTS).map(Number) as AttrCode[]
 const PROFS = Object.keys(PROFESSIONS).map(Number) as SpecCode[]
+
+/* 轴标图标：与名录页筛选下拉**同一份本地资产**（src/data/filter-assets.json → /data/img/filter/），
+   故两者看图认属性的方式一致；素材只在本地、不发外部请求。
+   预先查一遍：模板里每格要用两次（v-if 与 src），不值得每处重复查表。
+   取值可能为 null（未来新增枚举而源站无素材）——此时按老样子回退到色块/SVG。 */
+const ATTR_ICONS = new Map(ATTRS.map((a) => [a, elementIconUrl(a)]))
+const PROF_ICONS = new Map(PROFS.map((p) => [p, professionIconUrl(p)]))
 
 const rows = ref<Record<string, unknown>[]>([])
 const status = ref<'loading' | 'ready' | 'error'>('loading')
@@ -102,7 +111,19 @@ function tint(color: string, n: number): string {
           <thead>
             <tr>
               <th scope="col" class="ax-corner">属性 \ 职业</th>
-              <th v-for="p in PROFS" :key="p" scope="col" class="ax-col mono">{{ PROFESSIONS[p].zh }}</th>
+              <th v-for="p in PROFS" :key="p" scope="col" class="ax-col mono">
+                <!-- 职业图标：本地素材（与名录页筛选下拉同一份），装饰层——职业名紧随其后，
+                     故 alt 置空（读屏念一次名字即可，重复念是冗余朗读） -->
+                <img
+                  v-if="PROF_ICONS.get(p)"
+                  class="ax-col-ic"
+                  :src="PROF_ICONS.get(p)!"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+                {{ PROFESSIONS[p].zh }}
+              </th>
               <th scope="col" class="ax-total mono">合计</th>
             </tr>
           </thead>
@@ -112,7 +133,18 @@ function tint(color: string, n: number): string {
                 <!-- 行首内容放在**内层** flex 容器里：直接把 th 设为 flex 会破坏表格单元格布局，
                      属性名与枚举码会重叠（实测踩过） -->
                 <span class="ax-row-inner">
+                  <!-- 属性图标（本地素材）：与名录页筛选下拉同一份；装饰层，属性名紧随其后故 alt 置空。
+                       无素材时回退为原来的属性色小方块（本行枚举将来若新增属性，源站暂无图也不破版） -->
+                  <img
+                    v-if="ATTR_ICONS.get(a)"
+                    class="ax-swatch ax-swatch-ic"
+                    :src="ATTR_ICONS.get(a)!"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <span
+                    v-else
                     class="ax-swatch"
                     :style="{ '--ax-swatch': ELEMENTS[a].color }"
                     aria-hidden="true"
@@ -219,6 +251,20 @@ function tint(color: string, n: number): string {
   width: 72px;
 }
 
+/* 表头职业图标：与文字同处一行（列宽 72px 装得下「图标 + 两字职业名」），
+   尺寸取 14px——与 tag 里的属性色点、筛选下拉的 16px 选项图标同一量级，
+   不抢格内数字（12/13px）的注意力。
+   display 必须显式写：base.css 的全局 `img { display: block }` 会让它另起一行、
+   把表头撑成两行（实测踩过）。vertical-align 把图标压到中文的视觉中线上。 */
+.ax-col-ic {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  vertical-align: -2px;
+  margin-right: 4px;
+}
+
 /* 行首：属性小方块 + 名称 + 枚举码（flex 在内层 span 上，th 保持表格单元格语义） */
 .ax-row {
   width: 130px;
@@ -241,6 +287,15 @@ function tint(color: string, n: number): string {
   border-radius: 1px;
   /* 属性色经自定义属性传入（同 .ax-cell 的理由） */
   background: var(--ax-swatch, var(--ink-2));
+}
+
+/* 有素材图时改由图片承担「属性」这一格：清掉方块底色与圆角，只留图本身 */
+.ax-swatch-ic {
+  width: 14px;
+  height: 14px;
+  border-radius: 0;
+  object-fit: contain;
+  background: none;
 }
 
 .ax-name {
@@ -313,5 +368,30 @@ function tint(color: string, n: number): string {
   font-size: var(--fs-nano);
   line-height: 1.9;
   color: var(--ink-2);
+}
+
+/* ---------- 轴标图标在非屏幕底面上的可读性 ----------
+   素材是**按深色底绘制的亮色位图**：职业图标近白（IconAttack 纯白）、属性图标是高亮色。
+   图片不跟随 token 换色，故打印（白纸）下会糊成一片白。
+   打印只压暗成墨色：形状（识别依据）保住，纸质档案不需要保留色相。
+
+   高对比度模式另行处理（见下）：那里画布颜色由用户的系统方案决定，可能是黑也可能是白，
+   固定压暗会在深色画布上变成「黑图标压黑底」——比不处理更糟。 */
+@media print {
+  .ax-col-ic,
+  .ax-swatch-ic {
+    filter: grayscale(1) brightness(0.35);
+  }
+}
+
+/* 高对比度模式：这两枚图标是**装饰**（alt 置空，紧邻文字已说明属性/职业），
+   而 HCM 用户要的是最大可读性、且配色跟随其系统方案。图片不受 forced-colors
+   的自动换色影响，任何「压暗/提亮」都只是赌画布明暗；直接不渲染最稳，
+   语义一字不丢（表头/行首的「强攻」「物理」等文字仍在）。 */
+@media (forced-colors: active) {
+  .ax-col-ic,
+  .ax-swatch-ic {
+    display: none;
+  }
 }
 </style>

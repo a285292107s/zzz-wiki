@@ -44,8 +44,8 @@
          SPA 各路由共用本 head：非代理人路由多耗一份缓存友好的同源请求，换取两个高频页面链路减一。 -->
     <link rel="preload" href="/data/manifest.json" as="fetch" crossorigin />
     <link rel="preload" href="/data/live/character.json" as="fetch" crossorigin />
-    <!-- 今日角色头图不走静态预取：四张按**访客本地日期**从 61 张里确定性挑选，
-         构建期无从得知是哪四张（旧文案写「挂载期随机」已与实现不符）；
+    <!-- 今日角色头图不走静态预取：四张由**访客本地日期**决定（当天生日的角色优先，其余按
+         日期播种补齐），构建期无从得知是哪四张（旧文案写「挂载期随机」已与实现不符）；
          确定性预热在 useFeaturedAgents（挂载即 img.decode，走同一份 srcset/sizes）。 -->
   </head>
   <body>

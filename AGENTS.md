@@ -50,7 +50,10 @@
 - **运行时零外部请求（数据面）**：前端只读本地 `/data`；数据版本号从 `manifest.json` 动态取，禁止硬编码。
   措辞要与实现一致：**数据面零外部请求是硬约束**；**图片面**唯一例外是候选链兜底——本站资源缺失时
   才回源同源 CDN（nanoka），且**不得新增直连外部图源**（禁止把兜底当主源用）。
-- **图标候选链**：**站外图源**一律经 `<HollowImage>`，**禁止直连单一外部图源**（工具清单见 DATA_GUIDE §6）；**本地自绘/生成的筛选图标资产例外**（`FilterDropdown.vue` 直接渲染本地 `iconUrl`）。
+- **图标候选链**：**站外图源**一律经 `<HollowImage>`，**禁止直连单一外部图源**（工具清单见 DATA_GUIDE §6）；
+  **本地筛选图标资产例外**（属性/职业/阵营图标，单一事实源 `src/domain/filterIcons.ts`）——消费方
+  `FilterDropdown.vue`（筛选下拉）与 `AtlasView.vue`（档案图谱轴标）**直接渲染本地 `iconUrl`**，
+  不经候选链、不发外部请求。
 - **富文本处理**：游戏标记文本（`<color=#…>`、`<IconMap:…>`）展示层一律经富文本工具处理，禁止裸插值（见 DATA_GUIDE §6）。
 - **设计语言（"档案标本"）**：**完整要素与禁令见 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §10**，本条不复述。
   判据一句话：出现圆角卡片堆叠、渐变霓虹、投影，就是返工项。
@@ -64,7 +67,7 @@
   的 `allowBuilds` 里逐一审批，否则 `pnpm install` 会以 `ERR_PNPM_IGNORED_BUILDS` 非零退出（详见决策记录 0005）。
 - **日常命令**：开发 `pnpm run dev`（http://localhost:5173）；构建 `pnpm run build`（含 vue-tsc）；单测 `pnpm test`。
 - **部署构建入口 `pnpm run build:ci`**（Vercel 已指向；**完整链路以 `package.json` 的 `build:ci` 为唯一事实源**）：
-  `pnpm test` → `verify:fonts` → `verify:icons --local` → `gen:featured-elements --check` → `verify:fonts:cjk`
+  `pnpm test` → `verify:fonts` → `verify:icons --local` → `gen:featured-birthdays --check` → `verify:fonts:cjk`
   → `vite build` → `sitemap` → `route-html` → `verify:budget`（主包/CSS/sitemap 体积预算）→ `verify:vercel`（缓存与安全响应头）；
   **只构建已提交快照，不在构建期重建数据**（数据更新走 `pnpm run sync`，见下）。
 - **工程质量审计工具箱**：`pnpm run audit`（清单与基线见 `scripts/audits/README.md`；含 axe-core 无障碍、

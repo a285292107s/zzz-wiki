@@ -105,18 +105,64 @@ async (page) => {
       `${first.join(',')} vs ${second.join(',')}`,
     )
 
-    // 属性去重：4 张卡的属性标签互不重复（纯随机洗牌会出现「4 张里 3 张同色」的观感重复）。
-    // 信息在图下的**标本签**里只渲染当前卡，故逐个刻度切过去读可见的属性标签
-    // （比解析 aria-label 文本更贴近用户所见）。
+    // 生日优先：当天生日的角色必须排在牌堆最前（「同日恒定」由上一条覆盖，这条管「谁在前」）。
+    // 判据只读页面 + 服务端同一份详情数据（partner_info.birthday）：src/ 下的精选池与生日表
+    // 在浏览器里取不到、也不该取 —— 于是这条端到端验证「派生生日表 → 选片 → 上牌堆」整条链路。
+    // 当日池内无人生日时本判据**空转通过**（页面只会给出 4 位非生日角色），故精确张数契约
+    // 交给单测逐日 365 天把关（tests/featured-agents.test.ts），两者分工不重叠。
     await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
     await page.waitForTimeout(2000)
-    const els = []
-    for (let i = 0; i < 4; i++) {
+    const todayKey = await page.evaluate(() => {
+      const d = new Date()
+      return `${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+    })
+    const shown = await page.evaluate(() =>
+      [...document.querySelectorAll('.deck-item')].map((a) => (a.getAttribute('href') ?? '').split('/').pop()),
+    )
+    const birthdays = await page.evaluate(async (ids) => {
+      const out = []
+      for (const id of ids) {
+        const res = await fetch(`/data/live/zh/character/${id}.json`)
+        const raw = res.ok ? (await res.json())?.partner_info?.birthday : null
+        // 源数据混用 '3/21' 与 '02/20'：与站点同口径补零，才能与「今天」直接比
+        const m = /^(\d{1,2})\/(\d{1,2})$/.exec(String(raw ?? '').trim())
+        out.push(m ? `${m[1].padStart(2, '0')}-${m[2].padStart(2, '0')}` : null)
+      }
+      return out
+    }, shown)
+    const bdayFlags = birthdays.map((b) => b === todayKey)
+    add(
+      'home-cards-birthday-first',
+      shown.length === 4 && bdayFlags.every((f, i) => !f || bdayFlags.slice(0, i).every(Boolean)),
+      `${shown.join(',')} 生日=${JSON.stringify(birthdays)} 今天=${todayKey} 生日卡=${bdayFlags.filter(Boolean).length}`,
+    )
+
+    // 生日小签：切到每一张卡，标本签上的「生日」小签必须与该卡是否当天生日逐张对上；
+    // 同时核对 4 个链接的可访问名里也带了「生日」—— 标本签是 aria-hidden 的镜像，
+    // 只测可见小签会放过「看得见、读不到」这一类漏（读屏用户拿不到这条信息）。
+    const marks = []
+    const announced = []
+    for (let i = 0; i < shown.length; i++) {
       await page.evaluate((n) => document.querySelectorAll('.deck-tick')[n]?.click(), i)
-      await page.waitForTimeout(350)
-      els.push(await page.evaluate(() => document.querySelector('.deck-label .el')?.textContent.trim() ?? ''))
+      await page.waitForTimeout(320)
+      marks.push(await page.evaluate(() => Boolean(document.querySelector('.deck-label .tag.bd'))))
+      announced.push(
+        await page.evaluate((n) => {
+          const a = document.querySelectorAll('.deck-item')[n]
+          return (a?.getAttribute('aria-label') ?? '').includes('生日')
+        }, i),
+      )
     }
-    add('home-cards-element-diverse', els.length === 4 && new Set(els).size === 4, JSON.stringify(els))
+    add(
+      'home-cards-birthday-mark',
+      // 先要求牌堆真的在（4 张卡）：否则 marks/announced/flags 会一起是空数组，
+      // 三条空数组"相等"会让这条判据在页面没起来时**假绿**（实测踩过：并发重建产物那次）
+      shown.length === 4 &&
+        marks.length === 4 &&
+        marks.join() === bdayFlags.join() &&
+        announced.join() === bdayFlags.join(),
+      `小签=${JSON.stringify(marks)} 读屏=${JSON.stringify(announced)} 生日=${JSON.stringify(bdayFlags)}`,
+    )
   }
 
   // ---- 名录页 + 检索 + 筛选 ----
@@ -1012,6 +1058,40 @@ async (page) => {
         atlas.scopeCols === atlas.cols + 2 &&
         atlas.scopeRows === atlas.rows,
       JSON.stringify(atlas),
+    )
+
+    // 轴标图标：属性（行首）/职业（列首）各一枚图标本。
+    // 断「素材在站内」而不是断「能加载」：本站硬约束是运行时零外部请求，若哪天把图标换成
+    // CDN 直链，结构断言会**全绿**而约束已经破了——故必须检查 src 落在 /data/img/filter/。
+    // 同时断 alt 置空（图标是装饰，紧邻文字已说明属性/职业）与真的加载出像素（404 即失败）。
+    const axisIcons = await page.evaluate(() => {
+      const grab = (sel) =>
+        [...document.querySelectorAll(sel)].map((i) => ({
+          src: i.getAttribute('src') ?? '',
+          alt: i.getAttribute('alt'),
+          loaded: i.complete && i.naturalWidth > 0,
+        }))
+      return {
+        cols: grab('thead .ax-col-ic'),
+        rows: grab('tbody .ax-swatch-ic'),
+        // 行首方块是**无素材时的回退**；有素材却出现方块，说明图与回退同时渲染了
+        fallback: document.querySelectorAll('tbody .ax-swatch:not(.ax-swatch-ic)').length,
+      }
+    })
+    add(
+      'atlas-axis-icons',
+      axisIcons.cols.length === atlas.cols &&
+        axisIcons.rows.length === atlas.rows &&
+        axisIcons.fallback === 0 &&
+        [...axisIcons.cols, ...axisIcons.rows].every(
+          (i) => i.src.includes('/data/img/filter/') && !/^https?:/i.test(i.src) && i.alt === '' && i.loaded,
+        ),
+      JSON.stringify({
+        cols: axisIcons.cols.length,
+        rows: axisIcons.rows.length,
+        fallback: axisIcons.fallback,
+        sample: axisIcons.cols[0],
+      }),
     )
 
     // 点一格 → 进入名录并带上对应筛选（图谱是导航，不是装饰画）

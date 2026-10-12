@@ -1,0 +1,6 @@
+{
+  "_comment": "生日补充（构建期派生 src/data/featured-birthdays.json 时读取，见 scripts/generate-featured-birthdays.mjs）。用途：特殊形态角色的详情数据里没有 partner_info.birthday，但**同一角色的不同形态自然同一天生日**——星徽·比利（1531）是比利（1081）的特殊形态，故二者生日相同。语义：`inheritFrom` 为「形态 Id → 本体 Id」，**只在详情缺生日时生效**（详情有生日一律以上游为准，不在两处各存一份）；本体自己的生日也必须来自详情，不支持多级继承。上游若补齐该形态的生日，删除对应条目即回归源数据。",
+  "inheritFrom": {
+    "1531": 1081
+  }
+}
