@@ -18,9 +18,12 @@ withDefaults(
     max?: number
     /** 无障碍标签（如「角色等级」） */
     label: string
+    /** 读屏朗读的当前值文本；缺省按等级播报「等级 N」，
+     *  非等级轴（音擎精炼阶数）传自己的说法（如「精炼 3 阶」），避免读成「等级 3」 */
+    valueText?: string
     marks?: LevelMark[]
   }>(),
-  { min: 1, max: 60, marks: undefined },
+  { min: 1, max: 60, marks: undefined, valueText: undefined },
 )
 
 const emit = defineEmits<{ 'update:modelValue': [number] }>()
@@ -40,7 +43,7 @@ function onChange(e: Event) {
       :max="max"
       :value="modelValue"
       :aria-label="label"
-      :aria-valuetext="`等级 ${modelValue}`"
+      :aria-valuetext="valueText ?? `等级 ${modelValue}`"
       @input="onChange"
     />
     <div v-if="marks?.length" class="slider-marks" aria-hidden="true">

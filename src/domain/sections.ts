@@ -1267,6 +1267,25 @@ export function wEnginePropsAtLevel(
   return items
 }
 
+/* ---------- 音擎精炼（阶数滑条） ---------- */
+
+/** 音擎精炼阶数范围（1-5，满精炼 5 阶）：数据侧 `talents` 字典的键即阶数 */
+export const W_ENGINE_REFINE_MIN = 1
+export const W_ENGINE_REFINE_MAX = 5
+
+/**
+ * 取指定精炼阶的档位行：`talents` 里 1-5 阶是同一段效果的不同数值，
+ * 详情页只呈现当前阶的那一份。数据缺该阶（源站形状变更 / 未收录满 5 阶）时
+ * 取序号最接近的一档——调用方须用**该行自身的序号**标注阶数，宁可显示相邻阶
+ * 并如实标注，也不留空白区（与名录卡片「缺基础档时如实标注实际档位」同一约定）。
+ */
+export function refineRowAt(rows: DetailRow[], level: number): DetailRow | null {
+  if (!rows.length) return null
+  const exact = rows.find((r) => r.no === level)
+  if (exact) return exact
+  return rows.reduce((best, r) => (Math.abs(r.no - level) < Math.abs(best.no - level) ? r : best))
+}
+
 /* ---------- 邦布基础属性（等级滑条） ---------- */
 
 /** 邦布等级范围（1-60，10 级一突破，与角色/音擎一致） */

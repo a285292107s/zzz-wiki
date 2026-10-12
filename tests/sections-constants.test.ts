@@ -26,6 +26,8 @@ import {
   W_ENGINE_LEVEL_DEFAULT,
   W_ENGINE_LEVEL_MAX,
   W_ENGINE_LEVEL_MIN,
+  W_ENGINE_REFINE_MAX,
+  W_ENGINE_REFINE_MIN,
 } from '../src/domain/sections'
 
 describe('sections 常量契约（哨兵）', () => {
@@ -57,6 +59,10 @@ describe('sections 常量契约（哨兵）', () => {
     expect([CHAR_LEVEL_MIN, CHAR_LEVEL_MAX, CHAR_LEVEL_DEFAULT]).toEqual([1, 60, 60])
     expect([W_ENGINE_LEVEL_MIN, W_ENGINE_LEVEL_MAX, W_ENGINE_LEVEL_DEFAULT]).toEqual([1, 60, 60])
     expect([BANGBOO_LEVEL_MIN, BANGBOO_LEVEL_MAX, BANGBOO_LEVEL_DEFAULT]).toEqual([1, 60, 60])
+  })
+
+  it('音擎精炼阶数 1–5（满精炼 5 阶）：档位键即阶数，滑条口径与之一致', () => {
+    expect([W_ENGINE_REFINE_MIN, W_ENGINE_REFINE_MAX]).toEqual([1, 5])
   })
 
   it('潜能门控阈值 POTENTIAL_ID_MIN=100000：基础版 [0] 不算门控', () => {

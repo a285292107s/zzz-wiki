@@ -14,17 +14,20 @@ import { useDetailPager } from '@/composables/useDetailPager'
 import { catalogEntry } from '@/domain/catalog'
 import {
   dictToRows,
+  refineRowAt,
   wEngineBreakCount,
   wEnginePropsAtLevel,
   W_ENGINE_LEVEL_MAX,
   W_ENGINE_LEVEL_MIN,
+  W_ENGINE_REFINE_MAX,
+  W_ENGINE_REFINE_MIN,
   type DetailRow,
   type StatItem,
 } from '@/domain/sections'
 import { PROFESSIONS, type SpecCode } from '@/data/types'
 import type { CharacterListItem, WEngineDetail } from '@/data/types'
 import { pickName } from '@/utils/names'
-import { DescRow, DetailHead, DetailPager, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SignatureRef, StatLevelPanel, CopyLinkButton } from '@/components'
+import { DetailHead, DetailPager, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SignatureRef, StatLevelPanel, CopyLinkButton } from '@/components'
 import Rarity from '@/components/Rarity.vue'
 import Tags from '@/components/Tags.vue'
 
@@ -85,6 +88,20 @@ const propItems = computed<StatItem[]>(() =>
 const breakCount = computed(() => wEngineBreakCount(wLevel.value))
 
 const talents = computed<DetailRow[]>(() => dictToRows(detail.value?.talents))
+
+/** 精炼阶数（1-5 阶，默认满精炼）：与基础属性同源「等级滑条」样板，深链参数 ?rf=N。
+ *  刻度不传 marks——该样板给的是 10 级突破点（1-60 口径），5 阶用不上 */
+const { level: refineLevel } = useEntityLevel({
+  min: W_ENGINE_REFINE_MIN,
+  max: W_ENGINE_REFINE_MAX,
+  queryKey: 'rf',
+})
+
+/** 当前精炼阶的效果档（1-5 阶是同一段效果的不同数值，只呈现当前阶） */
+const refineTalent = computed<DetailRow | null>(() => refineRowAt(talents.value, refineLevel.value))
+
+/** 档位标签取**档位行自身的序号**：正常数据下恒等于滑条值，缺档回退时也如实标注实际阶数 */
+const refineLabel = computed(() => (refineTalent.value ? `精炼 ${refineTalent.value.no} 阶` : ''))
 
 /** 概述仅承载 lore 正文（desc）；desc3 为主题句、desc2 为功能提示，均已上移至头部 sub 区 */
 const hasBody = computed(() => !!detail.value?.desc)
@@ -208,16 +225,27 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
       </DetailSection>
 
       <DetailSection v-reveal id="talents" :no="noOf('talents')" title="精炼效果" en="Refine">
-        <ul v-if="talents.length" class="desc-list">
-          <DescRow
-            v-for="t in talents"
-            :key="t.no"
-            :no="String(t.no).padStart(2, '0')"
-            :title="t.name ?? '未命名'"
-            :html="richDesc(t.desc)"
-            variant="talent"
-          />
-        </ul>
+        <!-- 1-5 阶只有数值不同、效果名与文案骨架完全一致，逐阶并列 5 行是同一段话抄 5 遍：
+             改为「一阶一段」——滑条选阶，正文只渲染当前阶那一份 -->
+        <StatLevelPanel v-if="refineTalent" :lv-label="refineLabel">
+          <template #control>
+            <LevelSlider
+              v-model="refineLevel"
+              :min="W_ENGINE_REFINE_MIN"
+              :max="W_ENGINE_REFINE_MAX"
+              label="精炼等级"
+              :value-text="refineLabel"
+            />
+          </template>
+          <!-- 操作位放在正文**之后**（不在滑条行、也不在 #actions 元信息行）：
+               滑条行会挤窄轨道；元信息行的显隐条件同样是「非满精炼」，一出现就把下方正文
+               顶下去 36px（拖过 5 阶时正文上下跳）。放正文之后，出现/消失只影响本框底部 -->
+          <h3 class="refine-name serif">{{ refineTalent.name ?? '未命名' }}</h3>
+          <p class="refine-desc" v-html="richDesc(refineTalent.desc)" />
+          <div v-if="refineLevel !== W_ENGINE_REFINE_MAX" class="refine-actions">
+            <CopyLinkButton label="复制此精炼链接" />
+          </div>
+        </StatLevelPanel>
         <p v-else class="empty mono">—</p>
       </DetailSection>
     </template>
@@ -253,8 +281,30 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
   white-space: pre-line;
 }
 
-.desc-list {
-  list-style: none;
+/* 精炼效果名/正文：与 DescRow 的 talent 行同源排版（serif 名 + 13px/1.8 正文），
+   差别只是不再编号、不再逐阶重复，由上方滑条选阶 */
+.refine-name {
+  font-family: var(--serif);
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink-0);
+  margin: 12px 0 6px;
+}
+
+.refine-desc {
+  color: var(--ink-1);
+  font-size: var(--fs-small);
+  line-height: 1.8;
+  max-width: 76ch;
+  white-space: pre-line;
+}
+
+/* 分享入口：正文之后的右对齐操作行（仅非满精炼时存在） */
+.refine-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
 }
 
 .empty {
