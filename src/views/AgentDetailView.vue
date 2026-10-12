@@ -290,9 +290,11 @@ watch(detail, (d) => {
               :marks="levelMarks"
             />
           </template>
-          <!-- 等级非默认时才出现：此时 URL 带 ?lv=，链接即「此等级视图」的可分享入口 -->
-          <template #actions>
-            <CopyLinkButton v-if="charLevel !== CHAR_LEVEL_MAX" label="复制此等级链接" />
+          <!-- 等级非默认时才出现：此时 URL 带 ?lv=，链接即「此等级视图」的可分享入口。
+               v-if 挂在 template 上而非按钮上：v-if 为假时整个具名插槽不存在，
+               StatLevelPanel 才判定得出「操作位为空」，不会留下一条空行 -->
+          <template v-if="charLevel !== CHAR_LEVEL_MAX" #actions>
+            <CopyLinkButton label="复制此等级链接" />
           </template>
         </StatLevelPanel>
         <KeyValueGrid :items="stats" variant="ledger" />

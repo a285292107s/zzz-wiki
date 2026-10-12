@@ -198,8 +198,10 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
               :marks="levelMarks"
             />
           </template>
-          <template #actions>
-            <CopyLinkButton v-if="hasLevels && wLevel !== W_ENGINE_LEVEL_MAX" label="复制此等级链接" />
+          <!-- v-if 挂在 template 上而非按钮上：v-if 为假时整个具名插槽不存在，
+               StatLevelPanel 才判定得出「操作位为空」，不会留下一条空行 -->
+          <template v-if="hasLevels && wLevel !== W_ENGINE_LEVEL_MAX" #actions>
+            <CopyLinkButton label="复制此等级链接" />
           </template>
         </StatLevelPanel>
         <KeyValueGrid :items="propItems" variant="ledger" />
