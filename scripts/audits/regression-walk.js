@@ -110,6 +110,14 @@ async (page) => {
     // 在浏览器里取不到、也不该取 —— 于是这条端到端验证「派生生日表 → 选片 → 上牌堆」整条链路。
     // 当日池内无人生日时本判据**空转通过**（页面只会给出 4 位非生日角色），故精确张数契约
     // 交给单测逐日 365 天把关（tests/featured-agents.test.ts），两者分工不重叠。
+    //
+    // ⚠ 源数据**没有**生日的两种角色必须分开看，不能一律当「非生日」：
+    //   · 池内仅佩洛伊斯 1551 真的没有生日 → 永远不进生日组；
+    //   · **特殊形态**（1531 星徽·比利）源数据同样不给生日，站内按「继承本体生日」处理
+    //     （构建期 birthday-supplement.json）。它在 11-25 会**正确地**排进生日组最前，
+    //     而按「null → 非生日」比就是每年 11-25 误报（实测复现：生日卡=1 却飘带两张）。
+    //   · 故这里只拿源数据里**有生日**的那些当独立真值逐张精确比，形态类的空值交给
+    //     下一条的「生日卡必须是前缀」结构判据兜住 —— 那条不需要任何外部真值。
     await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
     await page.waitForTimeout(2000)
     const todayKey = await page.evaluate(() => {
@@ -130,22 +138,31 @@ async (page) => {
       }
       return out
     }, shown)
-    const bdayFlags = birthdays.map((b) => b === todayKey)
+    const knownFlags = birthdays.filter((b) => b != null).map((b) => b === todayKey)
     add(
       'home-cards-birthday-first',
-      shown.length === 4 && bdayFlags.every((f, i) => !f || bdayFlags.slice(0, i).every(Boolean)),
-      `${shown.join(',')} 生日=${JSON.stringify(birthdays)} 今天=${todayKey} 生日卡=${bdayFlags.filter(Boolean).length}`,
+      shown.length === 4 && knownFlags.every((f, i) => !f || knownFlags.slice(0, i).every(Boolean)),
+      `${shown.join(',')} 生日=${JSON.stringify(birthdays)} 今天=${todayKey} 已知生日卡=${knownFlags.filter(Boolean).length}/${knownFlags.length}`,
     )
 
-    // 生日小签：切到每一张卡，标本签上的「生日」小签必须与该卡是否当天生日逐张对上；
-    // 同时核对 4 个链接的可访问名里也带了「生日」—— 标本签是 aria-hidden 的镜像，
-    // 只测可见小签会放过「看得见、读不到」这一类漏（读屏用户拿不到这条信息）。
+    // 生日飘带：切到每一张卡，画面右上角的「生日」飘带必须与该卡是否当天生日逐张对上；
+    // 同时核对 4 个链接的可访问名里也带了「生日」—— 飘带是 aria-hidden 的镜像，
+    // 只测可见标记会放过「看得见、读不到」这一类漏（读屏用户拿不到这条信息）。
+    // 并核对飘带**不在共享元素（.deck-item）里**：进去了就会跟着那张画飞进详情页，那边没有它。
     const marks = []
     const announced = []
+    const outside = []
     for (let i = 0; i < shown.length; i++) {
       await page.evaluate((n) => document.querySelectorAll('.deck-tick')[n]?.click(), i)
       await page.waitForTimeout(320)
-      marks.push(await page.evaluate(() => Boolean(document.querySelector('.deck-label .tag.bd'))))
+      marks.push(await page.evaluate(() => Boolean(document.querySelector('.deck-ribbon'))))
+      outside.push(
+        await page.evaluate(
+          () =>
+            document.querySelector('.deck-ribbon') != null &&
+            document.querySelector('.deck-item .deck-ribbon') == null,
+        ),
+      )
       announced.push(
         await page.evaluate((n) => {
           const a = document.querySelectorAll('.deck-item')[n]
@@ -153,15 +170,23 @@ async (page) => {
         }, i),
       )
     }
+    const flags = marks.map(Boolean)
     add(
       'home-cards-birthday-mark',
-      // 先要求牌堆真的在（4 张卡）：否则 marks/announced/flags 会一起是空数组，
-      // 三条空数组"相等"会让这条判据在页面没起来时**假绿**（实测踩过：并发重建产物那次）
+      // 先要求牌堆真的在（4 张卡）：否则 marks/announced 会一起是空数组，
+      // 空数组"相等"会让这条判据在页面没起来时**假绿**（实测踩过：并发重建产物那次）
       shown.length === 4 &&
         marks.length === 4 &&
-        marks.join() === bdayFlags.join() &&
-        announced.join() === bdayFlags.join(),
-      `小签=${JSON.stringify(marks)} 读屏=${JSON.stringify(announced)} 生日=${JSON.stringify(bdayFlags)}`,
+        // ① 结构（不依赖外部真值）：飘带必须是**前缀** —— 生日组整体在最前，
+        //    非生日卡之后不许再冒出飘带。形态类的空生日只能靠这条判（见上一条注释）
+        flags.every((f, i) => f || flags.slice(i).every((v) => !v)) &&
+        // ② 精确（独立真值）：源数据里有生日的那些，飘带的有无必须与「今天是不是它的生日」相等
+        birthdays.every((b, i) => b == null || flags[i] === (b === todayKey)) &&
+        // ③ 飘带不许进共享元素（.deck-item）：「存在且不在卡里」应逐张等于「有飘带」
+        outside.join() === flags.join() &&
+        // ④ 读屏名与可见标记一致：飘带是 aria-hidden 的镜像，别出现「看得见、读不到」
+        announced.join() === flags.join(),
+      `飘带=${JSON.stringify(marks)} 飘带在卡外=${JSON.stringify(outside)} 读屏=${JSON.stringify(announced)} 生日=${JSON.stringify(birthdays)} 今天=${todayKey}`,
     )
   }
 

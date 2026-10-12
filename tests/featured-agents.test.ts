@@ -340,7 +340,7 @@ describe('buildFeaturedCards · 双形态角色跟随所选形态', () => {
   })
 })
 
-describe('buildFeaturedCards · 生日小签（isBirthday）', () => {
+describe('buildFeaturedCards · 生日标记（isBirthday）', () => {
   // 取生日表里**实际存在**的两位、且生日不同：与策展池增删解耦（写死角色号会随池变化误报）
   const entries = Object.entries(featuredBirthdays as Record<string, string>)
   const [idA, bdA] = entries[0]!

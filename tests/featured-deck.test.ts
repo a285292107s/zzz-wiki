@@ -7,7 +7,7 @@ import FeaturedDeck from '@/components/home/FeaturedDeck.vue'
 import type { FeaturedCard } from '@/composables/useFeaturedAgents'
 
 /** 造 N 张卡（结构同 buildFeaturedCards 的输出，只留测试关心的字段）
- *  `birthdayIdx` 指定哪几张是「今天生日」（默认都不是），用于生日小签用例 */
+ *  `birthdayIdx` 指定哪几张是「今天生日」（默认都不是），用于生日飘带用例 */
 function cards(n: number, birthdayIdx: number[] = []): FeaturedCard[] {
   return Array.from({ length: n }, (_, i) => ({
     id: 1000 + i,
@@ -162,20 +162,31 @@ describe('FeaturedDeck 结构与无障碍', () => {
     expect(track.attributes('aria-live')).toBe('off')
   })
 
-  it('生日小签：只挂在当天生日那张的标本签上，非生日卡不挂', async () => {
-    // 第 1、3 张是「今天生日」→ 只有切到它们时才会出现小签（标本签一次只渲染当前卡）
+  it('生日飘带：只挂在当天生日那张的画面上，非生日卡不挂', async () => {
+    // 第 1、3 张是「今天生日」→ 只有切到它们时才会出现飘带（一次只渲染当前卡那一条）
     const wrapper = await mountDeck(4, [0, 2])
-    expect(wrapper.findAll('.deck-label .tag.bd')).toHaveLength(1)
-    expect(wrapper.find('.deck-label .tag.bd').text()).toBe('生日')
+    expect(wrapper.findAll('.deck-ribbon')).toHaveLength(1)
+    expect(wrapper.find('.deck-ribbon').text()).toBe('生日')
+    expect(wrapper.find('.deck-ribbon').attributes('aria-hidden')).toBe('true')
 
     await wrapper.find('.deck-viewport').trigger('keydown', { key: 'ArrowRight' }) // → 第 2 张（非生日）
-    expect(wrapper.find('.deck-label .tag.bd').exists()).toBe(false)
+    expect(wrapper.find('.deck-ribbon').exists()).toBe(false)
 
     await wrapper.find('.deck-viewport').trigger('keydown', { key: 'ArrowRight' }) // → 第 3 张（生日）
-    expect(wrapper.find('.deck-label .tag.bd').exists()).toBe(true)
+    expect(wrapper.find('.deck-ribbon').exists()).toBe(true)
   })
 
-  it('生日小签的信息对读屏可见：链接名（唯一可访问名通道）带上「生日」', async () => {
+  it('生日飘带在共享元素之外：落进 .deck-item 就会跟着那张画飞进详情页（那边没有它）', async () => {
+    const wrapper = await mountDeck(4, [0])
+    // 共享元素是 .deck-item（唯一带 view-transition-name 的节点）→ 飘带必须是取景框的直下子节点、
+    // 任何 .deck-item 里都不能有它；同时必须声明 data-vt-block，才能随整页退场一起收走
+    // （装裱壳只退边线与底色、不碰子树，不声明的话飘带会在起飞期留在原处）
+    expect(wrapper.find('.deck-item .deck-ribbon').exists()).toBe(false)
+    expect(wrapper.find('.deck-viewport > .deck-ribbon').exists()).toBe(true)
+    expect(wrapper.find('.deck-ribbon[data-vt-block]').exists()).toBe(true)
+  })
+
+  it('生日标记的信息对读屏可见：链接名（唯一可访问名通道）带上「生日」', async () => {
     // 标本签是 aria-hidden 的镜像，故信息必须同时进入 labelOf —— 这里比对 1 号卡（生日）
     // 与 2 号卡（非生日）的链接名，防止「看得见、读不到」
     const wrapper = await mountDeck(2, [0])
@@ -197,7 +208,7 @@ describe('FeaturedDeck 结构与无障碍', () => {
     expect(labels[0]!.find('.en').text()).toBe('Agent 1')
     expect(wrapper.find('.deck-count').text()).toBe('01 / 04')
 
-    // 换卡：标本签内容随之切换（图上不叠任何文字）
+    // 换卡：标本签内容随之切换（飘带由 isBirthday 单独驱动，不在这块里）
     await wrapper.find('.deck-viewport').trigger('keydown', { key: 'ArrowRight' })
     const after = wrapper.find('.deck-label')
     expect(after.find('.zh').text()).toBe('角色2')
@@ -205,18 +216,21 @@ describe('FeaturedDeck 结构与无障碍', () => {
     expect(wrapper.find('.deck-count').text()).toBe('02 / 04')
   })
 
-  it('图上不叠文字：卡片内部只装立绘（标本签在框外，立绘不被遮挡）', async () => {
-    const wrapper = await mountDeck(4)
+  it('共享元素内部只装立绘：卡内无文字层（生日飘带在它之外，不进飞行快照）', async () => {
+    const wrapper = await mountDeck(4, [0])
     for (const item of wrapper.findAll('.deck-item')) {
       expect(item.find('.deck-label').exists()).toBe(false)
       expect(item.find('.deck-plate').exists()).toBe(false)
+      // 飘带是画面上的标记、但不是那张画的一部分（见 utils/viewTransition：共享元素=飞行快照）
+      expect(item.find('.deck-ribbon').exists()).toBe(false)
       // HollowImage 在测试里是桩，故只断言「立绘宿主」在卡内、且卡内无文字层
       expect(item.find('.deck-figure').exists()).toBe(true)
       expect(item.text()).toBe('')
     }
-    // 标本签挂在装裱框下、取景框之外
+    // 标本签挂在装裱框下、取景框之外；飘带在取景框里、但在卡之外
     expect(wrapper.find('.deck-viewport .deck-meta').exists()).toBe(false)
     expect(wrapper.find('.deck-frame > .deck-meta').exists()).toBe(true)
+    expect(wrapper.find('.deck-viewport > .deck-ribbon').exists()).toBe(true)
   })
 
   it('缺名录真值时按占位条渲染（名字未到达不跳变）', async () => {

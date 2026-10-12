@@ -36,7 +36,7 @@ export interface FeaturedCard {
   zoom: number
   originY: number
   to: string
-  /** 今天是不是这位的生日：标本签据此挂「生日」小签，读屏名也随之带上（见 FeaturedDeck） */
+  /** 今天是不是这位的生日：卡片据此在画面右上角挂「生日」飘带，读屏名也随之带上（见 FeaturedDeck） */
   isBirthday: boolean
 }
 

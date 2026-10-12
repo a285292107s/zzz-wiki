@@ -3,14 +3,16 @@
  * FeaturedDeck — 首页「今日角色」标本陈列（一次一张，横向牌堆）。
  *
  * 构图（一个 hairline 装裱框内：立绘 → 标本签 → 座次/刻度）：
- *   标本签＝编号 · 属性 · 生日小签（仅当天生日那张挂）· 中英名；
+ *   标本签＝编号 · 属性 · 中英名；当天生日那张另在**画面右上角**挂一条「生日」飘带；
  *   桌面：2.36:1 超宽标本板（Mindscape 全景原生比例），整幅展示不裁上下；
  *         装裱宽度 = min(栏宽, 高度上限 × 2.36) 并居中 —— 大屏上「比例」与「44vh 高度
  *         上限」不再互相打架（直接铺满栏宽会把 2.36 压成 2.7:1，上下要被裁掉）。
  *   手机：4:5 竖幅。超宽全景放进横框只露一条横带，还容易被信息条压掉半个画面；
  *         竖幅下同一套 pos/zoom/originY（本就是为竖框校准的）收进更多角色本体，
  *         纵向取景与桌面完全一致（都是「源高 / zoom」那一档），只是横向上下文更少。
- *   信息一律在**图下**（标本签），不叠在画面上：作品不被遮挡，两种断点结构一致。
+ *   信息一律在**图下**（标本签）：作品不被遮挡，两种断点结构一致。唯一例外是生日飘带
+ *   （压画面右上角的角标，只挂在当天生日那张）——它刻意放在共享元素（.deck-item）**之外**，
+ *   故不进飞行快照；并声明 data-vt-block 随整页退场一起收走。三条约束与取舍见下方 .deck-ribbon。
  *
  * 手感对齐 flutter 的 PageView：跟手 1:1 拖动、两端橡皮筋阻尼、松手吸附到最近一张；
  * 整卡点击进详情。纯数字逻辑在 src/utils/deckGesture.ts（可单测），
@@ -450,12 +452,49 @@ onBeforeUnmount(() => {
             </RouterLink>
           </div>
         </div>
+
+        <!-- 生日飘带：压在画面右上角（本站「信息在图下」的唯一例外）。
+             位置在 .deck-track **之外**是硬约束：共享元素是 .deck-item（带 view-transition-name
+             与 data-vt-skip），飘带若落进它里面就会跟着那张画飞进详情页 —— 而那边并没有它。
+             数据来自构建期生日表、与选片同一判据；一次只渲染当前卡那一条（:key 换卡重挂）。
+             内容与 slide 的可访问名重复（那边已含「生日」），故 aria-hidden。
+             形状走 SVG 而不是「span + 伪元素 + rotate」：凹口是要精确到 0.5px 的几何，
+             写成坐标就没有「正角顺时针、旋转原点落在哪」这类 1× 下看不见的坑
+             （上一版真错过两处，见 .deck-ribbon 上方的记录）。viewBox 单位 = 1 CSS px。 -->
+        <svg
+          v-if="current?.isBirthday"
+          :key="active"
+          class="deck-ribbon"
+          data-vt-block
+          aria-hidden="true"
+          width="46"
+          height="20"
+          viewBox="0 0 46 20"
+          shape-rendering="geometricPrecision"
+        >
+          <!-- 底：燕尾剪影（bg-0 90%）。琥珀压任意立绘时对比度不可控，这层是**最坏情况**的保证 -->
+          <path class="deck-ribbon-scrim" d="M 0 0 H 46 V 20 H 0 L 8 10 Z" />
+          <!-- 线：上缘一条通到框内缘，右端不封口（那一竖与装裱框自己的细线共用边界，
+               画上就叠成 2px）；下缘自右向左、经凹口尖 (8.5,10) 折回左上角。
+               左端内缩 0.5 是给 1px 描边留外沿 —— 否则两个尖角的外半像素会被 SVG 视口切钝。 -->
+          <path class="deck-ribbon-line" d="M 0.5 0.5 H 46 M 46 19.5 H 0.5 L 8.5 10 L 0.5 0.5" />
+          <!-- 「生日」：方块字按 em 盒居中（dominant-baseline）；x 是**实测**出来的墨迹对中值
+               （28.45 = 内容区中心 27.25 + 1.2：本字体下墨迹中心比 text-anchor 的推进盒
+               中心偏左约 1.2px，补掉后左右气口各 9.9px；换字体要按 10× 逐像素采样重量） -->
+          <text
+            class="deck-ribbon-text"
+            x="28.45"
+            y="10"
+            text-anchor="middle"
+            dominant-baseline="central"
+          >生日</text>
+        </svg>
       </div>
 
       <!-- 标本签 + 座次：整块参与「整页退场 / 逐条入场」（data-vt-block），
            退场时与其它区块一起自上而下收走；那张画的取景变形由 .deck-figure 承担 -->
       <div class="deck-meta" data-vt-block>
-        <!-- 标本签：编号 · 属性 · 生日小签 · 中英名（图下，不压画面）。
+        <!-- 标本签：编号 · 属性 · 中英名（图下，不压画面；生日标记是画面上那条飘带，不在这里）。
              内容是当前卡的**镜像**（同样的信息已由 slide 的 aria-label 给出），故 aria-hidden，
              免得读屏把同一批信息播两遍；:key 换卡重挂触发一次轻淡入（reduced-motion 由
              base.css 的全局规则压成 0.01ms）。名录未就绪时按条形占位，行盒同高不跳变。 -->
@@ -466,9 +505,6 @@ onBeforeUnmount(() => {
             class="el mono"
             :style="current?.elementColor ? { color: current.elementColor } : undefined"
           >{{ current!.elementZh }}</span>
-          <!-- 生日小签：只在当天过生日的卡上出现（数据来自构建期生日表，与选片同一判据）。
-               用全站共用的 .tag 细线小签语言，色取琥珀——与潜能徽标同调，不加底色/圆角卡片。 -->
-          <span v-if="current?.isBirthday" class="tag bd">生日</span>
           <template v-if="current?.zh">
             <span class="zh">{{ current!.zh }}</span>
             <span class="en mono">{{ current!.en }}</span>
@@ -583,6 +619,16 @@ onBeforeUnmount(() => {
   animation-delay: 590ms;
 }
 
+/* 生日飘带最后落笔：带子 500 → 920ms；字再晚 120ms（620 + 300 = 920ms，与带子同拍收尾）——
+   读起来是「带子先挂上去、字随后写就」，两者都赶在摘类（1200ms）之前 */
+.featured-deck.is-mounting .deck-ribbon {
+  animation: deck-ribbon-in 420ms var(--ease) 500ms both;
+}
+
+.featured-deck.is-mounting .deck-ribbon-text {
+  animation: deck-ribbon-text-in 300ms var(--ease) 620ms both;
+}
+
 @keyframes deck-frame-in {
   from {
     border-color: transparent;
@@ -691,6 +737,91 @@ onBeforeUnmount(() => {
 
 .deck-viewport.is-dragging {
   cursor: grabbing;
+}
+
+/* ---------- 生日飘带（画面右上角） ----------
+   只在当天生日那张挂一条横带：右缘与装裱框内缘齐平（读成「挂在框上」），左端收成燕尾，
+   文字水平。它压住画面右上角一小块 —— 本站「信息一律在图下」的**唯一例外**，
+   三条约束写在下面，动摆位前先读：
+
+   ① **不进共享元素**：共享元素是 .deck-item（带 view-transition-name 与 data-vt-skip），
+      飘带挂在 .deck-viewport 直下、.deck-track 之外。落进那张画里就会跟着飞进详情页，
+      而详情页没有它（当初排除「压在图上」的第二条理由正是这个，靠这条摆位消掉）。
+   ② **声明 data-vt-block**：装裱壳（共享元素的祖先）只退边线与底色、不碰子树。不声明的话，
+      起飞那 ~420ms 里别处都收走了，只剩这条飘带留在原处等飞行开始（一眼假）。
+   ③ **垫一层 --scrim-4**（bg-0 90%）：琥珀压任意立绘时对比度不可控，垫底后最坏情况
+      （纯白画面）仍有 ≈6.6:1，达标 AA；琥珀对纯 --bg-0 是 ≈8.6:1。
+      真正「无底色」的版本在亮色立绘上会整条消失，故不采用（实拍见 IMG_GUIDE）。
+
+   形状由 SVG 画（46×20 设计单位，1 单位 = 1 CSS px，见模板里的两条 path）：
+     · 剪影 `M 0 0 H 46 V 20 H 0 L 8 10 Z` —— 燕尾在左端：两个尖角 (0,0)/(0,20)，凹口尖 (8,10)；
+     · 描边 `M 0.5 0.5 H 46 M 46 19.5 H 0.5 L 8.5 10 L 0.5 0.5` —— 上缘一条通到框内缘，右端
+       **不封口**（那一竖与装裱框自己的细线共用边界，画上就叠成 2px）；下缘自右向左、经凹口尖
+       折回左上角。左端 0.5 的内缩是给 1px 描边留外沿 —— 否则两个尖角的外半像素会被 SVG 视口切钝。
+   上一版是「span + 两条伪元素 + rotate」，换掉不是因为不好看，而是它把凹口表达成
+   「角度 + 旋转原点」：两处写错在 1× 下**完全看不出来**（实测错过：上斜线朝外撇出本体 8px，
+   下斜线绕错了角）。坐标没有这个自由度，几何由 tests/featured-deck-notch.test.ts 复算钉住。 */
+.deck-ribbon {
+  position: absolute;
+  top: 12px;
+  right: 0;
+  display: block;
+  /* 这不是控件，是指记：指针事件穿过去，悬停推近与「按下即预热详情头图」照旧落在卡上 */
+  pointer-events: none;
+  /* 换卡重挂（:key="active"）时飘带自己滑出来 —— 与标本签的入场同一语言 */
+  animation: deck-ribbon-in 260ms var(--ease) both;
+}
+
+.deck-ribbon-scrim {
+  fill: var(--scrim-4);
+}
+
+.deck-ribbon-line {
+  fill: none;
+  stroke: var(--amber);
+  stroke-width: 1;
+  /* 凹口尖必须是尖角：顶角 77.3°，斜接长度 1/sin(38.7°) ≈ 1.6，远在默认上限 4 之内 */
+  stroke-linejoin: miter;
+}
+
+/* 「生日」二字：字号与字距沿用标本签那套 token。`dominant-baseline: central` 让方块字按
+   **em 盒**居中而不是按西文基线（后者会把两个字整体压到偏上）；y 保持几何中心 10 ——
+   实测量到的 0.25px 偏低不去补：各引擎对 central 的解释本就差这个量级，补了只顾 Chrome。
+
+   x 是**实测**值：这条带的内容区是「画出来的凹口尖 8.5 → 框内缘 46」，墨迹中心该落在 27.25。
+   本字体下墨迹中心比 `text-anchor="middle"` 的推进盒中心偏左约 1.2px（**不是**末字字距的一半
+   0.54 —— 字距怎么参与 SVG 的推进盒各实现不一致，按公式推会差 0.66px），故 x = 27.25 + 1.2。
+   实测：墨迹 17.7 × 8.7，中心落在 27.25，左右气口各 9.9px（放大 10× 逐像素采样）。 */
+.deck-ribbon-text {
+  font-size: var(--fs-badge);
+  letter-spacing: 0.12em;
+  fill: var(--amber);
+  /* 带子先滑出、字晚 60ms 落定：与「标本装匣」那条错峰同一语言（首次入画另有更慢的一拍） */
+  animation: deck-ribbon-text-in 200ms var(--ease) 60ms both;
+}
+
+/* 从框外拉出来：右缘贴框，故 +6px 的起点落在框外、被 .deck-viewport 的 overflow 裁掉 */
+@keyframes deck-ribbon-in {
+  from {
+    opacity: 0;
+    transform: translateX(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 字落定：只走 opacity 与 1px 抬升（合成器可承担；SVG 元素同样吃 CSS transform） */
+@keyframes deck-ribbon-text-in {
+  from {
+    opacity: 0;
+    transform: translateY(1px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* 轨道：槽位绝对定位在 left: s·100%，故整排宽度即取景框宽，
@@ -814,22 +945,6 @@ onBeforeUnmount(() => {
   font-size: var(--fs-caption);
   letter-spacing: 0.08em;
   color: var(--ink-2);
-}
-
-/* 生日小签：全站 .tag 细线小签的琥珀变体（同 base.css 的 .pot-badge 语言：细线、无底色、方角）。
- * 体量刻意比旁边的元数据（--fs-caption 12px）小一档：走 --fs-badge（9px）、盒高 16px，
- * 它是一枚**戳记**，不该和 24px 的中文名抢同一段视觉重量。
- * margin-right 给出与名字之间的那口气：让「编号 · 属性 · 生日」读成一组记述、名字另起一组
- * （六个摆位的实拍比对见 IMG_GUIDE 的记录；这是唯一同时满足「编号保持左缘锚点」「不拆散成对项」
- * 「不把角色属性挪进交互簇」的摆位）。 */
-.deck-label .tag.bd {
-  height: 16px;
-  padding: 0 6px;
-  font-size: var(--fs-badge);
-  letter-spacing: 0.12em;
-  margin-right: 4px;
-  color: var(--amber);
-  border-color: color-mix(in srgb, var(--amber) 34%, var(--line-1));
 }
 
 .deck-label .zh {
