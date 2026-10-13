@@ -56,12 +56,18 @@ describe('AgentsRouteView（/agents 的版本外壳）', () => {
   /** 两版名录都是它的静态依赖：此处 stub 掉，只验「按偏好择一渲染」 */
   const stubs = { AgentsCardsView: true, AgentsView: true }
 
+  // 超时放宽：`AgentsRouteView` 静态依赖两版名录（模板 + 表格 + 卡片栅格），
+  // `freshRoute` 又要 `resetModules` 后重新走一遍整条导入链，实测单跑即需 4.6s，
+  // 贴着 vitest 默认 5s 上限——与其它文件并行时会偶发超时（失败信息只有
+  // 「Test timed out in 5000ms」，看起来像被测代码坏了）。这里给足余量。
+  const HEAVY_IMPORT_TIMEOUT = 20000
+
   it('默认渲染卡片名录', async () => {
     const AgentsRouteView = await freshRoute()
     const w = mount(AgentsRouteView, { global: { stubs } })
     expect(w.find('agents-cards-view-stub').exists()).toBe(true)
     expect(w.find('agents-view-stub').exists()).toBe(false)
-  })
+  }, HEAVY_IMPORT_TIMEOUT)
 
   it('偏好为表格时渲染表格名录', async () => {
     localStorage.setItem(AGENTS_VIEW_KEY, 'table')
@@ -69,5 +75,5 @@ describe('AgentsRouteView（/agents 的版本外壳）', () => {
     const w = mount(AgentsRouteView, { global: { stubs } })
     expect(w.find('agents-view-stub').exists()).toBe(true)
     expect(w.find('agents-cards-view-stub').exists()).toBe(false)
-  })
+  }, HEAVY_IMPORT_TIMEOUT)
 })
