@@ -329,12 +329,29 @@ async (page) => {
     })
     add('detail-name-token', nameToken.tokenSize === nameToken.titleSize, JSON.stringify(nameToken))
 
-    // 逐条出处：详情页须显示本条所属的数据版本（可追溯到快照）
+    // 出处唯一：数据版本、快照日期、数据源都由站尾给出（全站唯一，名录页也在）。
+    // 详情页内容末原有一条「数据版本 LIVE x.y」行，与站尾相隔约 100px 重复了同一批事实
+    // （实测同一个日期与同一个来源各在详情页出现 2 次），已移除并把版本号并入站尾。
+    // 这里同时断言两件事：**信息不丢**（版本号仍可见）且**重复不回归**（各项只出现一次）。
     const prov = await page.evaluate(() => {
-      const el = document.querySelector('.prov')
-      return { text: (el?.textContent ?? '').replace(/\s+/g, ' ').trim(), hasVer: !!document.querySelector('.prov-v') }
+      const t = document.body.innerText
+      return {
+        footText: (document.querySelector('.foot')?.textContent ?? '').replace(/\s+/g, ' ').trim(),
+        liveCount: (t.match(/LIVE \d/g) ?? []).length,
+        provEls: document.querySelectorAll('.prov').length,
+        dates: (t.match(/\d{4}-\d{2}-\d{2}/g) ?? []).length,
+        sources: (t.match(/nanoka|hakushin/g) ?? []).length,
+      }
     })
-    add('detail-provenance', prov.hasVer && /LIVE \d/.test(prov.text), prov.text || 'missing')
+    add(
+      'provenance-single-source',
+      /LIVE \d/.test(prov.footText) &&
+        prov.liveCount === 1 &&
+        prov.provEls === 0 &&
+        prov.dates === 1 &&
+        prov.sources === 1,
+      JSON.stringify(prov),
+    )
 
     // 桌面 hero 按 DPR 选图：DPR 1 用 1400w 派生（46KB），DPR ≥1.5 才用原图（311KB）。
     // 分支与逐路由 HTML 的预载 media 条件必须一致，否则预载与实取错位。

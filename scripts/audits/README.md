@@ -21,7 +21,7 @@ RULES 表里（不靠猜返回结构）；**新增审计脚本必须同时补判
 | font-weight-calibration.js | CJK 衬线实际渲染字重标定 | 生产 = wght 500 实例 |
 | axe-a11y.js          | axe-core 全量规则（**15 路由 × 桌面/移动 = 30 组合**，含详情 404 态） | 0 violations |
 | axe-states.js        | 交互面板**展开态**的 axe（窄屏 ☰ 导航菜单/下拉/检索/浮层/空态） | 6 状态 0 violations |
-| print-mode.js        | 打印（纸墨模式）：白纸黑字/外壳隐藏/内容保留 | **30/30**（5 路由 × 6 断言） |
+| print-mode.js        | 打印（纸墨模式）：白纸黑字/外壳隐藏/内容保留/站尾出处含版本号 | **30/30**（5 路由 × 6 断言） |
 | forced-colors.js     | 高对比度模式：结构线/状态/滑条可见 | 8/8 |
 | csp-check.js         | 生产安全响应头本地验证（拦截注入 CSP 后走关键路径） | 0 违规 |
 | content-sweep.js     | 全站逐页内容完整性（**页数取自 `dist/sitemap.xml`，不写死**） | 0 异常 |

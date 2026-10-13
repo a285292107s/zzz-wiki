@@ -86,7 +86,8 @@ async (page) => {
     title: document.title,
     h1: document.querySelector('h1')?.textContent?.trim() ?? '',
     nodes: document.querySelectorAll('*').length,
-    prov: !!document.querySelector('.prov'),
+    // 出处归站尾（全站唯一）：离线时 manifest 已随 SW 缓存，版本号应照常显示
+    footVer: /LIVE \d/.test(document.querySelector('.foot')?.textContent ?? ''),
   }))
   add(
     'offline-visited-page',

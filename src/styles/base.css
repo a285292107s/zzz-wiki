@@ -1423,7 +1423,8 @@ html.vt-restore .vt-chrome-case {
     object-fit: contain !important;
   }
 
-  /* 打印页脚（出处行）保留并压缩：纸质档案需要出处与数据日期 */
+  /* 打印页脚保留并压缩：纸质档案需要数据源与数据日期。
+     详情页内容末只给版本号，数据源/日期归此处（与屏幕同一分工） */
   .foot {
     margin-top: 10mm;
     border-top: 1px solid #cdcdcd;

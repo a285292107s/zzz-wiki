@@ -8,6 +8,8 @@
           数据源 <a href="https://zzz.nanoka.cc" target="_blank" rel="noopener">zzz.nanoka.cc</a>
         </p>
         <span class="sep" aria-hidden="true">/</span>
+        <p class="ver mono">数据版本 <span class="ver-key">LIVE {{ version || '···' }}</span></p>
+        <span class="sep" aria-hidden="true">/</span>
         <p class="updated mono">数据更新 · {{ updatedAt || '···' }}</p>
         <span class="sep" aria-hidden="true">/</span>
         <p class="disclaimer">游戏资产版权与商标归 HoYoverse 所有</p>
@@ -36,11 +38,15 @@ import { IS_DEV, DEV_FOOTER_ROUTES } from '@/domain/devRoutes'
 // 开发环境专属入口：仅 DEV 显示，且由 DEV_ROUTES 单一事实源派生（新增页自动出现）
 const isDev = IS_DEV
 
-// 数据抓取/更新时间（构建期落地在 manifest 的 generated，动态取，勿硬编码）
+// 数据版本与抓取时间（构建期落地在 manifest，动态取，勿硬编码）。
+// **全站唯一的数据出处**：内容页不再各印一份（详情页内容末原有「数据版本」行，
+// 与本站尾相隔约 100px 重复了同一批事实，已移除并集中到此处）。
+const version = ref('')
 const updatedAt = ref('')
 onMounted(() => {
   dataVersions()
     .then((v) => {
+      version.value = v.live
       const t = v.generated ? new Date(v.generated) : null
       if (t && !Number.isNaN(t.getTime()))
         updatedAt.value = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(
@@ -54,9 +60,12 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* 与正文拉开一个「区块级」距离，但**收窄到半个区块**：原先 1.2 倍时发丝线上方
+   桌面 92px、下方（页脚自身内边距）只有 31px，上下差 3 倍 —— 那条线读起来像正文的
+   收尾线，站尾反倒像飘在远处。0.6 倍下上下大致同量级，线回到「页脚的开头」。 */
 .foot {
   border-top: var(--rule);
-  margin-top: calc(var(--pad-section) * 1.2);
+  margin-top: calc(var(--pad-section) * 0.6);
 }
 
 .foot-inner {
@@ -89,16 +98,24 @@ onMounted(() => {
 
 .foot-info .meta,
 .updated,
+.ver,
 .disclaimer {
   margin: 0;
 }
 
 .updated,
 .disclaimer,
-.meta {
+.meta,
+.ver {
   font-size: var(--fs-caption);
   letter-spacing: 0.04em;
   color: var(--ink-2);
+}
+
+/* 数据版本是全站唯一的那一项事实（内容页不再各印一份），给它一处极轻的强调：
+   读者一眼能定位「这批数据是哪一版」 */
+.ver-key {
+  color: var(--amber);
 }
 
 .style-link {

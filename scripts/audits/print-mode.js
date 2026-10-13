@@ -59,6 +59,9 @@ async (page) => {
           vis('.spec') ||
           (document.querySelector('main')?.innerText.trim().length ?? 0) > 40,
         footVisible: vis('.foot'),
+        // 纸质档案的出处全在站尾（数据源/数据版本/更新日期）——详情页内容末的独立出处行
+        // 已合并到站尾，故印在纸上的版本号只能从站尾来，这里一并断言它真的印出来了
+        footHasVersion: /LIVE \d/.test(document.querySelector('.foot')?.textContent ?? ''),
       }
     })
     await page.emulateMedia({ media: 'screen' })
@@ -68,7 +71,7 @@ async (page) => {
     add(route, 'textures-off', r.noise === 'none' && r.pageBg === 'none' && r.homeBg === 'none', `${r.noise}|${r.pageBg}|${r.homeBg}`)
     add(route, 'chrome-hidden', r.chromeVisible.length === 0, JSON.stringify(r.chromeVisible))
     add(route, 'content-kept', r.contentVisible && r.tableVisible, `title=${r.contentVisible} content=${r.tableVisible}`)
-    add(route, 'provenance-footer', r.footVisible, String(r.footVisible))
+    add(route, 'provenance-footer', r.footVisible && r.footHasVersion, `${r.footVisible}/${r.footHasVersion}`)
   }
 
   const failed = checks.filter((c) => !c.ok)

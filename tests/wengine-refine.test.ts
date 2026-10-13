@@ -23,7 +23,6 @@ Object.defineProperty(window, 'matchMedia', {
 const { detailMock, listMock } = vi.hoisted(() => ({ detailMock: vi.fn(), listMock: vi.fn() }))
 vi.mock('@/data/api', () => ({
   api: { detail: detailMock, list: listMock },
-  dataVersions: vi.fn().mockResolvedValue({ live: '3.2', generated: '2026-10-05T00:00:00Z' }),
 }))
 
 import WEngineDetailView from '../src/views/WEngineDetailView.vue'

@@ -1,31 +1,14 @@
 <script setup lang="ts">
-import { nextTick, onMounted, ref, watch } from 'vue'
+import { nextTick, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import AsyncState from '@/components/state/AsyncState.vue'
 import BackToTop from '@/components/BackToTop.vue'
 import NavScrollButton from '@/components/NavScrollButton.vue'
 import { useNavScrollable } from '@/composables/useNavScrollable'
 import { recordRecentVisit } from '@/composables/useQuickSearch'
-import { dataVersions } from '@/data/api'
 import type { AsyncStatus } from '@/composables/useAsyncResource'
 import type { DetailSectionItem } from '@/composables/useDetailSections'
 import type { CatalogEntry } from '@/domain/catalog'
-
-/** 逐条出处用的数据版本（manifest 已由 api 层缓存，进入详情页基本零网络） */
-const version = ref('')
-const updatedAt = ref('')
-onMounted(() => {
-  void dataVersions()
-    .then((v) => {
-      version.value = v.live
-      const t = v.generated ? new Date(v.generated) : null
-      if (t && !Number.isNaN(t.getTime()))
-        updatedAt.value = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`
-    })
-    .catch(() => {
-      /* 取不到版本时不渲染出处行（不留空行） */
-    })
-})
 
 const props = defineProps<{
   /** 返回名录链接 */
@@ -146,17 +129,6 @@ watch(
         <slot name="skeleton" />
       </template>
       <slot />
-      <!-- 逐条出处：本条数据属于哪一版快照。版本取自 manifest（api 层已缓存，零额外请求）。
-           **必须渲染在内容插槽内**：放在插槽外时，加载骨架态（页面仅 ~720px 高）就会先渲染
-           这一行，内容到达后页面长到 8000+px，该行被推下 ~7600px——冷缓存实测 CLS 尖峰
-           0.04–0.17（帧级定位：源节点 p.prov 由 t341 变为 t0）。放进插槽后它只随内容出现，
-           且位于内容最末，下方无内容可推。 -->
-      <p class="prov mono">
-        数据版本 <span class="prov-v">{{ version ? `LIVE ${version}` : '···' }}</span>
-        <span v-if="updatedAt"> · 快照 {{ updatedAt }}</span>
-        <span v-else> · 快照 ···</span>
-        <span class="prov-src"> · 来源 hakushin raw，构建期落地</span>
-      </p>
     </AsyncState>
 
     <BackToTop />
@@ -179,23 +151,6 @@ watch(
 
 .page-actions .back {
   margin-bottom: 0;
-}
-/* 逐条出处：页脚式的细字，不抢内容，但让每条档案可追溯到具体快照 */
-.prov {
-  margin-top: var(--space-section);
-  padding-top: 14px;
-  border-top: 1px solid var(--line-0);
-  font-size: var(--fs-nano);
-  letter-spacing: 0.1em;
-  color: var(--ink-2);
-}
-
-.prov-v {
-  color: var(--amber);
-}
-
-.prov-src {
-  color: var(--ink-2);
 }
 
 .back {
