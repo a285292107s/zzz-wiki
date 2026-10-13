@@ -2,7 +2,7 @@
 import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import SkillGroup from '../src/components/detail/SkillGroup.vue'
-import type { SkillRow } from '../src/domain/sections'
+import { SKILL_LEVEL_CAP, SKILL_LEVEL_DEFAULT, type SkillRow } from '../src/domain/sections'
 
 /** 带数值条目的技能行样本（伤害倍率 = main + growth*(lv-1)） */
 const row: SkillRow = {
@@ -47,6 +47,42 @@ describe('SkillGroup 等级来源（外部 v-model:level 共享）', () => {
     await input.setValue('7')
     expect(w.emitted('update:level')).toBeTruthy()
     expect(w.emitted('update:level')?.at(-1)).toEqual([7])
+  })
+})
+
+describe('SkillGroup 等级上限（影画加成后的 16 级口径）', () => {
+  /** 角色技能区调用形态：上限 16（含影画 +4），默认 12 */
+  const roleGroup = {
+    props: {
+      row,
+      glyph: '✕',
+      srcs: [],
+      levelCount: SKILL_LEVEL_CAP,
+      defaultLevel: SKILL_LEVEL_DEFAULT,
+    },
+  }
+
+  it('滑条可达 16 级，但默认仍停在 12 级、数值按 12 级算', () => {
+    const w = mount(SkillGroup, roleGroup)
+    const input = w.find('input[type="range"]')
+    expect(input.attributes('max')).toBe('16')
+    expect(input.attributes('min')).toBe('1')
+    expect(w.find('.level-val').text()).toBe('Lv.12')
+    // 12 级：100 + 10*11 = 210 → 2.1%（未被上限顶到 16 级）
+    expect(w.find('.stat-val').text()).toBe('2.1%')
+  })
+
+  it('拖到 16 级时按 16 级出数值（影画满级口径）', async () => {
+    const w = mount(SkillGroup, { ...roleGroup, props: { ...roleGroup.props, level: 16 } })
+    expect(w.find('.level-val').text()).toBe('Lv.16')
+    // 16 级：100 + 10*15 = 250 → 2.5%
+    expect(w.find('.stat-val').text()).toBe('2.5%')
+  })
+
+  it('未传 defaultLevel 时退回上限（邦布「上限即满级」行为不变）', () => {
+    const w = mount(SkillGroup, { props: { row, glyph: 'a', srcs: [], levelCount: 10 } })
+    expect(w.find('input[type="range"]').attributes('max')).toBe('10')
+    expect(w.find('.level-val').text()).toBe('Lv.10')
   })
 })
 

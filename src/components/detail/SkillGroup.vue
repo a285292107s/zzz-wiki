@@ -19,16 +19,20 @@ const props = defineProps<{
   row: SkillRow
   glyph: string
   srcs: string[]
-  /** 等级上限（默认 12 级）；邦布等上限不同的槽位传入 skill.levelCount。上限即默认满级 */
+  /** 等级**上限**（滑条可达的最高级）。角色技能传 SKILL_LEVEL_CAP（16，含影画加成）；
+   *  邦布等上限不同的槽位传 skill.levelCount（10/5）。缺省为 SKILL_LEVEL_MAX（12） */
   levelCount?: number
+  /** 默认展示等级；缺省取 levelCount（邦布「上限即满级」）。
+   *  角色技能需显式传 SKILL_LEVEL_DEFAULT（12），否则会被上限顶到满影画的 16 级 */
+  defaultLevel?: number
   /** 角色技能组启用「段×指标」转置表：多段招式压缩为一行一段（邦布保持纵向列表） */
   transpose?: boolean
 }>()
 
 /** 技能等级：支持外部 v-model:level（连携技/终结技共享同一槽位等级时由父级注入）；
- *  未绑定时内部自管，默认最高级（= levelCount，如邦布 10/5 级） */
+ *  未绑定时内部自管，默认取 defaultLevel（角色 12 级；邦布 10/5 级 = 上限即满级） */
 const levelModel = defineModel<number>('level')
-const internalLevel = ref(props.levelCount ?? SKILL_LEVEL_DEFAULT)
+const internalLevel = ref(props.defaultLevel ?? props.levelCount ?? SKILL_LEVEL_DEFAULT)
 
 /** 生效等级：外部绑定优先（共享源），否则用内部自管等级 */
 const level = computed<number>({
@@ -448,7 +452,8 @@ function potTag(grp: SkillGroup): string | null {
   /* 不设 margin-left: auto、不设 max-width：那两件会把等级尺推到行尾，与技能名之间
      空出 612px（1440 实测 626px、1920 实测 844px —— composition-audit 判为行内空洞）。
      改为紧贴技能名、由 flex-grow 吃满剩余宽度：等级本身就是一把刻度尺，跨满整行既
-     消掉空档，也让 12 级每一级更好点中。窄屏时 flex-basis 仍决定换行阈值。 */
+     消掉空档，也让每一级更好点中（角色技能区 16 级、邦布 10/5 级）。窄屏时
+     flex-basis 仍决定换行阈值。 */
   flex: 1 1 150px;
   min-width: 140px;
 }

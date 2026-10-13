@@ -251,7 +251,7 @@ const unlockCount = computed(() =>
   /* 不设 margin-left: auto、不设 max-width：那两件会把等级尺推到行尾，与核心技名之间
      空出 612px（1440 实测 626px、1920 实测 844px —— composition-audit 判为行内空洞）。
      改为紧贴核心技名、由 flex-grow 吃满剩余宽度：等级本身就是一把刻度尺，跨满整行既
-     消掉空档，也让 12 级每一级更好点中。窄屏时 flex-basis 仍决定换行阈值。 */
+     消掉空档，也让核心技每一级更好点中（1-7 级）。窄屏时 flex-basis 仍决定换行阈值。 */
   flex: 1 1 150px;
   min-width: 140px;
 }

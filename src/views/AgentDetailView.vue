@@ -22,8 +22,8 @@ import {
   CHAR_LEVEL_MAX,
   CHAR_LEVEL_MIN,
   charBreakSegment,
+  SKILL_LEVEL_CAP,
   SKILL_LEVEL_DEFAULT,
-  SKILL_LEVEL_MAX,
   SKILL_LEVEL_MIN,
   characterStatsAtLevel,
   dictToRows,
@@ -78,12 +78,13 @@ const signatureEngine = computed(() =>
 
 /* ---------- 基础属性：等级滑条 ---------- */
 
-/** 连携技/终结技共享的技能等级（同处 game 的 chain 槽，共用一个 material/12 级）；
+/** 连携技/终结技共享的技能等级（同处 game 的 chain 槽，共用一个 material）；
  *  父级持有以便两个技能组同步，切换角色时重置。用 useEntityLevel 统一承接
- *  「默认值 + URL 深链（?clv=）」两条行为，避免手写第二份 ref/watch。 */
+ *  「默认值 + URL 深链（?clv=）」两条行为，避免手写第二份 ref/watch。
+ *  上限走 SKILL_LEVEL_CAP（16，含影画加成），默认仍是 SKILL_LEVEL_DEFAULT（12）。 */
 const { level: chainShared } = useEntityLevel({
   min: SKILL_LEVEL_MIN,
-  max: SKILL_LEVEL_MAX,
+  max: SKILL_LEVEL_CAP,
   default: SKILL_LEVEL_DEFAULT,
   queryKey: 'clv',
 })
@@ -122,8 +123,12 @@ const skills = computed<SkillDisplay[]>(() =>
     ...sk,
     glyph: SKILL_KEYS[sk.key as SkillSlotKey]?.glyph ?? '□',
     srcs: skillIconSources(sk.key as SkillSlot),
-    // chain/ultimate 共享 chainLevel（同一槽位等级）；其余槽位各自独立（切换角色时随 computed 重建重置）
-    level: sk.key === 'chain' || sk.key === 'ultimate' ? chainLevel : ref(SKILL_LEVEL_DEFAULT),
+    // chain/ultimate 共享 chainLevel（同一槽位等级）；其余槽位各自独立
+    //（切换角色时随 computed 重建，回到 defaultLevel = 12 级）
+    level:
+      sk.key === 'chain' || sk.key === 'ultimate'
+        ? chainLevel
+        : ref(SKILL_LEVEL_DEFAULT),
   })),
 )
 
@@ -311,6 +316,8 @@ watch(detail, (d) => {
           :glyph="sk.glyph"
           :srcs="sk.srcs"
           :level="sk.level.value"
+          :level-count="SKILL_LEVEL_CAP"
+          :default-level="SKILL_LEVEL_DEFAULT"
           transpose
           @update:level="sk.level.value = $event ?? sk.level.value"
         />

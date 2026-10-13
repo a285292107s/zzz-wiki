@@ -580,7 +580,11 @@ async (page) => {
     const lvSnap = () =>
       page.evaluate(() => {
         const s = [...document.querySelectorAll('.level-range')]
-        return { url: location.search, levels: s.map((x) => Number(x.value)) }
+        return {
+          url: location.search,
+          levels: s.map((x) => Number(x.value)),
+          caps: s.map((x) => Number(x.max)),
+        }
       })
 
     await page.goto('http://localhost:4175/agents/1011?lv=40&clv=5', { waitUntil: 'networkidle' })
@@ -610,15 +614,57 @@ async (page) => {
       JSON.stringify(clvAfter),
     )
 
-    // 把 clv 调回默认 → 该参数应从 URL 移除（而 lv 仍在）
+    // 把 clv 调回默认 → 该参数应从 URL 移除（而 lv 仍在）。
+    // **不能靠「一直按 ArrowUp 直到夹住」**：技能等级的上限（16，含影画加成）与默认等级
+    // （12）自 2026-10 起不再相等，夹在顶部会停在 16 而非默认的 12，参数便去不掉。
+    // 直接按到默认值：从当前位置升到 12 所需的次数由滑条自身的当前值算出。
     await page.evaluate(() => document.querySelectorAll('.level-range')[3]?.focus())
-    for (let i = 0; i < 12; i++) await page.keyboard.press('ArrowUp')
+    const clvFrom = await page.evaluate(
+      () => Number(document.querySelectorAll('.level-range')[3]?.value),
+    )
+    for (let i = 0; i < 12 - clvFrom; i++) await page.keyboard.press('ArrowUp')
     await page.waitForTimeout(900)
     const clvReset = await lvSnap()
     add(
       'level-clv-default-removes-param',
       clvReset.levels[3] === 12 && clvReset.levels[4] === 12 && !clvReset.url.includes('clv') && clvReset.url.includes('lv=40'),
       JSON.stringify(clvReset),
+    )
+
+    // 技能等级上限：角色技能滑条可达 16（基础 12 + 影画 3/5 各 +2），
+    // 但**默认仍是 12**（上限与默认不得混为一谈）；核心技是独立系统、上限固定 7。
+    add(
+      'skill-level-cap-16-default-12',
+      clvReset.caps[1] === 16 && clvReset.caps[3] === 16 && clvReset.caps[6] === 16 && clvReset.caps[7] === 7,
+      JSON.stringify(clvReset.caps),
+    )
+  }
+
+  // ---- 技能等级可达 16 级：拖到上限并按 16 级出数值（影画满级口径） ----
+  {
+    await page.goto('http://localhost:4175/agents/1011', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(2200)
+    // 普通攻击（索引 1）拖到上限 16
+    await page.evaluate(() => {
+      const s = document.querySelectorAll('.level-range')[1]
+      s.value = s.max
+      s.dispatchEvent(new Event('input', { bubbles: true }))
+    })
+    await page.waitForTimeout(800)
+    const at16 = await page.evaluate(() => {
+      const g = document.querySelector('#skill-basic')
+      const first = g.querySelector('.metric-table tbody tr td')
+      return {
+        lv: g.querySelector('.level-val')?.textContent?.trim(),
+        firstVal: first?.textContent?.trim(),
+        url: location.search,
+      }
+    })
+    // 安比普通攻击一段伤害倍率：main 3120 + growth 290×(lv-1) → Lv.12 = 63.1%、Lv.16 = 74.7%
+    add(
+      'skill-level-16-reachable',
+      at16.lv === 'Lv.16' && at16.firstVal === '74.7%' && !at16.url.includes('clv'),
+      JSON.stringify(at16),
     )
   }
 

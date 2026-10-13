@@ -70,10 +70,32 @@ export interface SkillRow {
   hasNumbers: boolean
 }
 
-/** 技能等级范围：绝区零技能 1–12 级（成长公式 main + growth*(lv-1)） */
+/* ---------- 技能等级范围（成长公式 main + growth*(lv-1)） ----------
+ * 两段口径**必须分开**，混用会把「默认 12 级」直接顶成 16 级：
+ *   基础上限 SKILL_LEVEL_MAX（12）= 技能本身能升到的等级，也是站内默认展示等级；
+ *   实际上限 SKILL_LEVEL_CAP（16）= 再计入影画「技能等级+2」后的满影画口径。
+ * 影画加成（数据实测，见 MINDSCAPE_SKILL_LEVEL_BONUS）作用在**除核心技外**的全部
+ * 技能槽位上——含终结技：它虽未被影画文案列出，但与连携技同处一个升级节点
+ * （`skill.chain` 槽、同一份 material），共享同一等级。核心技是独立系统（1-7 级，见
+ * buildCoreSkill），不受本条影响。 */
+
+/** 技能等级下限 */
 export const SKILL_LEVEL_MIN = 1
+
+/** 技能等级基础上限（未计影画加成）：技能本身可升到的最高等级 */
 export const SKILL_LEVEL_MAX = 12
+
+/** 默认展示等级：停在基础上限，即「默认 12 级」 */
 export const SKILL_LEVEL_DEFAULT = SKILL_LEVEL_MAX
+
+/** 影画带来的技能等级加成总量：影画 3 与影画 5 各 +2（live 60 名角色无一例外，
+ *  文案恒为「[普通攻击]、[闪避]、[支援技]、[特殊技]、[连携技] 技能等级+2」）。
+ *  后续若出现「+3」类档位，此处改为按档位求和即可，上限随之自动抬升。 */
+export const MINDSCAPE_SKILL_LEVEL_BONUS = 4
+
+/** 技能等级实际上限（满影画口径）：基础上限 + 影画加成 = 16 级。
+ *  滑条**可达**到这里，但默认等级仍是 SKILL_LEVEL_DEFAULT（12）。 */
+export const SKILL_LEVEL_CAP = SKILL_LEVEL_MAX + MINDSCAPE_SKILL_LEVEL_BONUS
 
 /** KeyValueGrid 数值项 */
 export interface StatItem {

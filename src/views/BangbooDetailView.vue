@@ -64,7 +64,8 @@ const breakCount = computed(() => bangbooBreakCount(bLevel.value))
 
 /* ---------- 技能（映射为通用 SkillRow 复用 SkillGroup；描述与数值随所选等级联动） ---------- */
 
-/** 邦布技能行附等级上限（SkillGroup defaultLevel 用；key 含详情 id，切换邦布时强制重建重置等级） */
+/** 邦布技能行附等级上限（SkillGroup 的 levelCount；上限即默认满级——邦布不吃影画加成，
+ *  故不传 defaultLevel。key 含详情 id，切换邦布时强制重建重置等级） */
 type BangbooSkillDisplay = SkillRow & { levelCount: number; keyed: string }
 
 const skillRows = computed<BangbooSkillDisplay[]>(() =>

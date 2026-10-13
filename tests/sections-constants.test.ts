@@ -16,8 +16,10 @@ import {
   CHAR_LEVEL_MAX,
   CHAR_LEVEL_MIN,
   isPotentialGated,
+  MINDSCAPE_SKILL_LEVEL_BONUS,
   POTENTIAL_ID_MIN,
   SKILL_KEYS,
+  SKILL_LEVEL_CAP,
   SKILL_LEVEL_DEFAULT,
   SKILL_LEVEL_MAX,
   SKILL_LEVEL_MIN,
@@ -49,10 +51,17 @@ describe('sections 常量契约（哨兵）', () => {
     expect(BANGBOO_SKILL_ZH.c).toBe('邦布连携技')
   })
 
-  it('技能等级 1–12 且默认满级', () => {
+  it('技能等级：基础上限 12、默认 12，影画加成把可达上限抬到 16', () => {
     expect(SKILL_LEVEL_MIN).toBe(1)
     expect(SKILL_LEVEL_MAX).toBe(12)
+    expect(SKILL_LEVEL_CAP).toBe(16)
+    // 默认等级必须停在基础上限（12），不能被影画上限顶到 16
     expect(SKILL_LEVEL_DEFAULT).toBe(SKILL_LEVEL_MAX)
+  })
+
+  it('影画加成总量 = 影画 3 与影画 5 各 +2（live 60 名角色口径一致）', () => {
+    expect(MINDSCAPE_SKILL_LEVEL_BONUS).toBe(4)
+    expect(SKILL_LEVEL_CAP).toBe(SKILL_LEVEL_MAX + MINDSCAPE_SKILL_LEVEL_BONUS)
   })
 
   it('三类实体等级区间均为 1–60、默认满级', () => {
