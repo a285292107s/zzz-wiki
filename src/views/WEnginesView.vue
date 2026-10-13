@@ -17,7 +17,7 @@ import { stripRichText } from '@/utils/text'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { catalogEntry } from '@/domain/catalog'
 import { W_ENGINE_LEVEL_MAX, W_ENGINE_LEVEL_MIN, wEnginePropsAtLevel, type StatItem } from '@/domain/sections'
-import { AsyncState, CardBlock, CardGrid, CopyLinkButton, FilterDropdown, ListPage, NameCell, SearchField } from '@/components'
+import { AsyncState, CardBlock, CardGrid, FilterDropdown, ListPage, NameCell, SearchField } from '@/components'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
 
@@ -39,9 +39,8 @@ const { profFilter, query, filtered, count, hasActiveFilter, reset } = useCatalo
 })
 
 /** 陈列顺序：默认编号倒序。**本页不提供排序控件**（2026-10 与代理人、驱动盘名录一同移除：
- *  排序钮与筛选钮挤在同一行工具栏）。排序能力仍在——历史 ?sort=&dir= 深链照读，故
- *  「复制筛选链接」仍按是否偏离默认序决定是否出现。 */
-const { sorted, isDefault: sortIsDefault } = useCatalogSort(
+ *  排序钮与筛选钮挤在同一行工具栏）。排序能力仍在——历史 ?sort=&dir= 深链照读。 */
+const { sorted } = useCatalogSort(
   filtered,
   [
     { key: 'id', value: (r) => r.Id },
@@ -82,8 +81,6 @@ function specNoteOf(r: WEngineListItem): string {
         />
       </div>
       <SearchField v-model="query" :count="count" placeholder="检索音擎或效果…" />
-      <!-- URL 带状态时显式给出复制入口：筛选/检索，或历史 ?sort=&dir= 深链 -->
-      <CopyLinkButton v-if="hasActiveFilter || !sortIsDefault" label="复制筛选链接" />
     </section>
 
     <!-- 空态分工：AsyncState 只管「数据级为空」；「筛掉全部结果」由 CardGrid 承担 -->

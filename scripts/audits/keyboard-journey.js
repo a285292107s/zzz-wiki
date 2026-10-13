@@ -6,7 +6,7 @@
  *
  * 覆盖：跳转链接 / 全局检索（开→输入→方向键→回车→Esc 归还焦点）/ 筛选下拉
  * （开→方向键→回车→**焦点归还触发钮**）/ 名录检索输入 / 详情翻页 / 等级滑条
- * （连按两步必须都生效）/ 复制链接 / 回到顶部 / 术语浮层 / 窄屏 ☰ 导航菜单
+ * （连按两步必须都生效）/ 回到顶部 / 术语浮层 / 窄屏 ☰ 导航菜单
  * （开→条目与站头导航同数→Esc 关闭→焦点归还）/ 点当前页条目也收起 / 检索面板不兼任
  * 导航（窄屏与桌面一致）/ Esc 在任意焦点位置都能关检索面板 / 菜单开着时 Ctrl+K 先收菜单 /
  * 纯空格查询的空态判据与模板一致 / 空态「检索范围」只在无最近访问时出现。
@@ -78,7 +78,7 @@ async (page) => {
   }))
   add('kb-search-type', searchFocused.includes('input') && /q=/.test(typed.url) && typed.rows < 60, `${searchFocused} ${JSON.stringify(typed)}`)
 
-  /* ---------- 5) 详情：翻页 / 滑条连按 / 复制链接 / 回到顶部 ---------- */
+  /* ---------- 5) 详情：翻页 / 滑条连按 / 回到顶部 ---------- */
   await page.goto('http://localhost:4175/agents/1011', { waitUntil: 'networkidle' })
   await page.waitForTimeout(2200)
   await page.keyboard.press('ArrowRight')
@@ -93,12 +93,6 @@ async (page) => {
   const lv1 = await page.evaluate(() => Number(document.querySelector('.level-range')?.value))
   // 连按两步必须都生效——若 URL 同步把焦点抢走，第二步会落空
   add('kb-slider-two-steps', lv1 === lv0 - 2, `${lv0} → ${lv1}`)
-
-  await page.evaluate(() => document.querySelector('.copy-link')?.focus())
-  await page.keyboard.press('Enter')
-  await page.waitForTimeout(400)
-  const copyState = await page.evaluate(() => document.querySelector('.copy-link')?.textContent.replace(/\s+/g, ' ').trim() ?? '')
-  add('kb-copy-link', copyState.includes('已复制'), copyState)
 
   await page.evaluate(() => window.scrollTo(0, 2000))
   await page.waitForTimeout(300)

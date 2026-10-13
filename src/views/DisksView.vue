@@ -13,7 +13,7 @@ import { stripRichText } from '@/utils/text'
 import type { DiskDriveListItem } from '@/data/types'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { catalogEntry } from '@/domain/catalog'
-import { AsyncState, CardBlock, CardGrid, CopyLinkButton, ListPage, NameCell, SearchField } from '@/components'
+import { AsyncState, CardBlock, CardGrid, ListPage, NameCell, SearchField } from '@/components'
 
 usePageMeta()
 
@@ -32,7 +32,7 @@ const { query, filtered, count, hasActiveFilter, reset } = useCatalogList<DiskDr
 
 /** 陈列顺序：默认编号倒序。**本页不提供排序控件**（2026-10 与音擎、代理人名录一同移除）；
  *  排序能力仍在——历史 ?sort=&dir= 深链照读。 */
-const { sorted, isDefault: sortIsDefault } = useCatalogSort(
+const { sorted } = useCatalogSort(
   filtered,
   [
     { key: 'id', value: (d) => d.Id },
@@ -54,8 +54,6 @@ const { sorted, isDefault: sortIsDefault } = useCatalogSort(
 
     <div v-reveal="90" class="toolbar">
       <SearchField v-model="query" :count="count" placeholder="检索套装…" />
-      <!-- URL 带状态时显式给出复制入口：筛选/检索，或历史 ?sort=&dir= 深链 -->
-      <CopyLinkButton v-if="hasActiveFilter || !sortIsDefault" label="复制筛选链接" />
     </div>
 
     <!-- 空态分工：AsyncState 只管「数据级为空」；「筛掉全部结果」由 CardGrid 承担 -->
@@ -102,10 +100,11 @@ const { sorted, isDefault: sortIsDefault } = useCatalogSort(
 
 <style scoped>
 .toolbar {
+  /* 单控件（搜索框）行：不再需要两端对齐——`space-between` 在单子项下本就是空操作，
+     去掉（渲染位置不变：单子项本就在行首）。 */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
   gap: var(--space-inline);
   margin-bottom: 20px;
 }

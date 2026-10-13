@@ -611,36 +611,6 @@ async (page) => {
     add('content-sample-clean', bad.length === 0, bad.join(' ⏐ ') || '5 页抽样无异常')
   }
 
-  // ---- 复制视图链接 ----
-  // 名录页：URL 带状态时才出现（/agents 是导航入口，分享它等于「去看名录」）。
-  // 详情页：档案就绪即出现，属**页面级**动作（见决策记录 0006）。
-  {
-    await page.goto('http://localhost:4175/agents', { waitUntil: 'networkidle' })
-    await page.waitForTimeout(1500)
-    const idleHidden = await page.evaluate(() => !document.querySelector('.copy-link'))
-    add('copy-hidden-when-idle', idleHidden, String(idleHidden))
-
-    await page.fill('.search input', '安')
-    await page.waitForTimeout(700)
-    const shown = await page.evaluate(
-      () => document.querySelector('.copy-link')?.textContent.replace(/\s+/g, ' ').trim() ?? '',
-    )
-    add('copy-shown-when-stateful', shown.includes('复制'), shown || 'none')
-  }
-
-  // ---- 详情页分享入口：位置在页面动作行，且不随等级状态出现/消失 ----
-  {
-    await page.goto('http://localhost:4175/agents/1011', { waitUntil: 'networkidle' })
-    await page.waitForTimeout(2200)
-    const idle = await page.evaluate(() => ({
-      inActions: !!document.querySelector('.page-actions .copy-link'),
-      // 等级区块内不得再有第二个复制入口（同页一个动作一个出口）
-      inStats: !!document.querySelector('#stats .copy-link'),
-      total: document.querySelectorAll('.copy-link').length,
-    }))
-    add('share-in-page-actions', idle.inActions && !idle.inStats && idle.total === 1, JSON.stringify(idle))
-  }
-
   // ---- 等级深链（?lv= 可分享视图；改等级不得丢滚动位置） ----
   {
     await page.goto('http://localhost:4175/agents/1011?lv=55', { waitUntil: 'networkidle' })
@@ -668,20 +638,6 @@ async (page) => {
     }))
     add('level-sync-url', after.url.includes('lv=42') && after.level === '42', JSON.stringify(after))
     add('level-keeps-scroll', Math.abs(after.y - y0) < 120, `before=${y0} after=${after.y}`)
-
-    // 分享入口是页面级动作：改等级后仍在原处（.page-actions），不随等级状态出现/消失。
-    // 「复制出去的内容 == 当前 URL」在单测里用 mock 剪贴板逐字断言（tests/detail-share-link.test.ts）——
-    // 审计箱不读真实剪贴板：权限与无头环境差异会让它成为偶发失败源。
-    const share = await page.evaluate(() => ({
-      inActions: !!document.querySelector('.page-actions .copy-link'),
-      label: document.querySelector('.page-actions .copy-link')?.textContent.replace(/\s+/g, ' ').trim() ?? '',
-      inStats: !!document.querySelector('#stats .copy-link'),
-    }))
-    add(
-      'share-stays-put-across-levels',
-      share.inActions && !share.inStats && share.label.includes('复制'),
-      JSON.stringify(share),
-    )
 
     // 翻页到相邻条目：等级与 lv 参数一并重置（不把上一档等级带给下一个角色）
     await page.keyboard.press('ArrowRight')

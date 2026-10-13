@@ -86,7 +86,7 @@ utils（纯函数：text / rich / names / contrast / cameraRect —— 目标是
 
 > **目录树的单一事实源是 [`README.md`](./README.md) 的「目录结构」节**——本节**不再维护第二棵树**。
 > 此前两棵树已经漂移：本节漏列 `views/`、`utils/`、`domain/{heroCatalog,search}.ts`、
-> `components/{QuickSearch,CopyLinkButton}` 等多处。这里只保留**读目录树看不出来的架构说明**。
+> `components/QuickSearch` 等多处。这里只保留**读目录树看不出来的架构说明**。
 
 - **`domain/` 是单一事实源**：枚举（`enums.ts`）、4 类目元信息（`catalog.ts`）、zod 契约（`schema.ts`）。
   `data/types.ts` **只做再导出**，不新增定义（见 §5.2）——这条曾经漂移过（上游职业只到 6，前端已有 7 锋御），所以固定下来。

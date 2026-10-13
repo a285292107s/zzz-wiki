@@ -116,7 +116,7 @@
 | 结构化入口 | sitemap + robots 一致 | **238 URL / 同域** ✅ | `verify-budget`（origin 一致性门禁） |
 | 边界态 | 加载/空/错误/404 均有出路 | **4 态齐备**（空态可清除、错误可重试） ✅ | `regression-walk.js` |
 | **吸顶横条的「还有内容」表达** | 提示必须诚实：有内容才出现、到边即消失；且不得压住条目文字 | 390px 下横条轨道 **1148px / 视口 350px**。旧版在轨道内 sticky 一个 24×24 描边方块、内嵌 `→` 字形，压在「03 基础属…」上（同一屏两套「还能滑」的说法）。现改为：**轨道与出口分两层**（`ref` 落在真正滚动的 `.sn-list`，按钮是它的兄弟），右端两段式 `mask-image`（28px 斜坡 + 44px 全透明尾窗）承担渐变，出口只剩一个 1px 描边雪佛龙落在淡出带里 ≈ 与文字零叠压；`.at-start`/`.at-end` 两端成对，到边把该侧蒙版宽度收到 0 并让按钮 `visibility: hidden` **退出 Tab 序**。滚页面换区块时当前项自动被带进视野（`ensureActiveVisible`，取 nearest、只在用户没在横滑时让位）✅ | `section-nav.js`（2 路由逐状态 0 问题）+ `tests/use-nav-scrollable.test.ts`（19 例） |
-| 可分享视图 | 筛选/检索/等级写进 URL | **可创建的深链状态全部有断言** ✅；代理人两版、音擎、驱动盘都不再摆排序控件，历史 `?sort=&dir=` 链接仍照读（`sort-ui-removed-in-table` / `sort-ui-removed-in-grids` / `sort-deeplink-still-read`） | `regression-walk.js`（sort/level/copy 组） |
+| 可分享视图 | 筛选/检索/等级写进 URL | **可创建的深链状态全部有断言** ✅；代理人两版、音擎、驱动盘都不再摆排序控件，历史 `?sort=&dir=` 链接仍照读（`sort-ui-removed-in-table` / `sort-ui-removed-in-grids` / `sort-deeplink-still-read`） | `regression-walk.js`（sort/level 组） |
 | 空白与占位 | 无 lorem、无「敬请期待」 | 内容全部来自落地数据 ✅ | `content-sweep.js` |
 | **字段覆盖透明度** | 缺口如实标注、不补造 | **4 类目 / 9 字段**，3 项缺口以琥珀标注（简介 57/60、潜能 11/60、邦布图标 41/42） ✅ | `regression-walk.js`（about-coverage） |
 | **编号规则可核查** | 号段与编号语义有说明 | **4 类目号段由数据派生**（1011–1621 / 12001–14162 / 53001–55098 / 31000–34200），并讲清**两套编号**：源站 ID（详情页头 `NO.1011`、快搜结果、深链/文件名）与展示位次（翻页处 `002`，类目内按 ID 升序）；名录表格不显示编号 ✅ | `regression-walk.js`（about-id-ranges / about-numbering-precise） |
@@ -192,7 +192,7 @@
 | Webby **Structure & Navigation** | 名录/详情/公式/说明四层结构、段内导航 + 滚动高亮、深链与视图状态入 URL、离线可用 | 有证据 |
 | Webby **Visual Design**（含 disability inclusion） | 对比度 4.65:1 起、HCM 8/8、reduced-motion 0 残留、320px 无溢出 | 有证据 |
 | Webby **Functionality**（快速加载 / 特殊访问 / 带宽） | CWV 达标、回访零网络、离线兜底页、SW 缓存有界、CSP 严格 | 有证据 |
-| Webby **Interactivity** | 快速检索（⌘K）、等级滑条（键盘 + URL）、筛选（URL）、复制链接、翻页、**今日角色牌堆**（跟手拖拽 1:1 + 橡皮筋 + 键盘 ←/→/Home/End + 刻度，换卡读数按方向滚入） | 有证据 |
+| Webby **Interactivity** | 快速检索（⌘K）、等级滑条（键盘 + URL）、筛选（URL）、翻页、**今日角色牌堆**（跟手拖拽 1:1 + 橡皮筋 + 键盘 ←/→/Home/End + 刻度，换卡读数按方向滚入） | 有证据 |
 | Webby **Innovation** | 数据出处透明化（覆盖/版本/编号规则）、离线优先的档案站、零外部请求 | **有证据**：方向清楚且有落地形态 |
 | Webby **Overall Experience** | 加载/错误/空/离线四态都有出路；边界态文案可读 | 有证据 |
 | FWA（创意 / 实验性 / 技术执行） | 技术执行有证据（性能/无障碍/离线/构建门禁）；**创意与实验性偏保守** | **部分**：与「不炫技」的定位一致，属有意取舍；已有一处**技术执行型**表达（View Transitions 共享元素飞行 + 逐帧几何审计），但不做 3D/WebGL 那类炫技 |

@@ -10,7 +10,7 @@
  * 「最差交互」与「98 分位」作为 INP 代理（实验室无法取真实 75 分位，故从严）。
  *
  * 覆盖交互：筛选下拉（开→选）、名录检索输入、等级滑条拖动、快速检索开/输入、
- * 翻页键盘、复制链接、回到顶部。
+ * 翻页键盘、回到顶部。
  *
  * 用法：playwright-cli open http://localhost:4175 && \
  *       playwright-cli run-code --filename=scripts/audits/inp-interaction.js

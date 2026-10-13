@@ -23,7 +23,6 @@ import { catalogEntry } from '@/domain/catalog'
 import {
   AgentCardGrid,
   AsyncState,
-  CopyLinkButton,
   FilterDropdown,
   ListPage,
   SearchField,
@@ -60,7 +59,7 @@ const camps = computed(() => {
 
 /** 陈列顺序：默认编号倒序（本页与表格版共用同一组键 id/name/rarity + id desc），
  *  故历史 ?sort=&dir= 链接在两版打开都是同一份视图。 */
-const { sorted, isDefault: sortIsDefault } = useCatalogSort(
+const { sorted } = useCatalogSort(
   filtered,
   [
     { key: 'id', value: (r) => r.Id },
@@ -139,7 +138,6 @@ onBeforeUnmount(() => {
           @update:prof="profFilter = $event"
           @update:camp="campFilter = $event"
         />
-        <CopyLinkButton v-if="hasActiveFilter || !sortIsDefault" label="复制筛选链接" />
       </div>
       <SearchField v-model="query" :count="count" placeholder="检索姓名…" />
     </div>
@@ -187,7 +185,7 @@ onBeforeUnmount(() => {
   margin-bottom: 20px;
 }
 
-/* 左组：筛选、排序与「复制筛选链接」贴在一起 */
+/* 左组：筛选下拉（属性/职业/阵营） */
 .toolbar-left {
   display: flex;
   flex-wrap: wrap;

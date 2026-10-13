@@ -1382,7 +1382,7 @@ html.vt-restore .vt-chrome-case {
   }
 
   /* 交互外壳：站头导航 / 区块索引 / 回顶 / 检索面板 / 术语浮层 / 跳转链接 / 翻页提示
-     / 复制链接（交互件印在纸上没有意义，且「×」会被误读成正文） */
+     / 页脚动作（交互件印在纸上没有意义，且「×」会被误读成正文） */
   .masthead,
   .section-nav,
   .back-top,
@@ -1390,8 +1390,7 @@ html.vt-restore .vt-chrome-case {
   .term-tip-list,
   .skip-link,
   .pg-hint,
-  .foot-actions,
-  .copy-link {
+  .foot-actions {
     display: none !important;
   }
 

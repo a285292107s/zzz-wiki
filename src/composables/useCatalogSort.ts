@@ -63,7 +63,7 @@ export function useCatalogSort<T>(
   const sortKey = ref<string | null>(initial.key)
   const sortDir = ref<SortDir>(initial.dir)
 
-  /** 是否处于默认排序（「复制此视图链接」的显隐依据之一） */
+  /** 是否处于默认排序（回到默认时 `?sort=&dir=` 被移除；见上方的 URL 同步） */
   const isDefault = computed(() => sortKey.value === defaultKey && sortDir.value === defaultDir)
 
   if (options.syncRoute && route && router) {

@@ -41,14 +41,12 @@ async (page) => {
         noise: root.getPropertyValue('--paper-noise').trim(),
         pageBg: root.getPropertyValue('--page-bg-image').trim(),
         homeBg: root.getPropertyValue('--home-bg-image').trim(),
-        // 交互外壳：除站头/索引/回顶/页脚动作外，还包括**复制链接**
-        // （纯交互件；印在纸上会出现无意义的「×」，且会被误读成正文）
+        // 交互外壳：站头 / 区块索引 / 回顶 / 页脚动作——纯交互件印在纸上没有意义
         chromeVisible: [
           '.masthead',
           '.section-nav',
           '.back-top',
           '.foot-actions',
-          '.copy-link',
         ].filter(vis),
         contentVisible: vis('.page-title') || vis('.page-head'),
         // 正文保留的判据不能只认「表格/索引/spec」：结构较简的页面同样有正文要打印。

@@ -101,9 +101,8 @@ describe('音擎详情 精炼效果（一阶一段）', () => {
     // 5 阶数值 = 20 + 5*2 = 30%，且不含其它阶的数值
     expect(refineText(w)).toContain('30%')
     expect(refineText(w)).not.toContain('24%')
-    // 区块内不承载分享入口（页面级动作归 DetailPage 的 .page-actions，见决策记录 0006）
+    // 区块内不承载动作位（决策记录 0006：页面级动作归 DetailPage 的 .page-actions，不回到数据区块）
     expect(w.find('#talents .refine-actions').exists()).toBe(false)
-    expect(w.find('#talents .copy-link').exists()).toBe(false)
     expect(w.find('#talents').text()).toContain('精炼 5 阶')
   })
 

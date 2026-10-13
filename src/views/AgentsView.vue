@@ -9,7 +9,7 @@ import type { CharacterListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { catalogEntry } from '@/domain/catalog'
-import { AsyncState, CatalogTable, CatalogTableSkeleton, FilterDropdown, ListPage, NameCell, SearchField, type CatalogColumn, CopyLinkButton } from '@/components'
+import { AsyncState, CatalogTable, CatalogTableSkeleton, FilterDropdown, ListPage, NameCell, SearchField, type CatalogColumn } from '@/components'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
 
@@ -55,7 +55,7 @@ const columns: CatalogColumn[] = [
 
 /** 陈列顺序：默认编号倒序（读一次，无控件可改）。键仍是 id/name/rarity，
  *  故旧链接里的 ?sort=&dir= 依旧照读——分享出去的排序视图不会因为这次改动变成另一份视图。 */
-const { sorted, isDefault: sortIsDefault } = useCatalogSort(
+const { sorted } = useCatalogSort(
   filtered,
   [
     { key: 'id', value: (r) => r.Id },
@@ -87,10 +87,6 @@ const { sorted, isDefault: sortIsDefault } = useCatalogSort(
           @update:prof="profFilter = $event"
           @update:camp="campFilter = $event"
         />
-        <!-- 筛选/搜索生效时 URL 带状态：显式给出「复制此视图链接」入口。
-             紧随阵营筛选（三个下拉的末位）：它是「当前这套筛选」的导出动作，
-             贴着筛选区就不必横跨工具栏去找。 -->
-        <CopyLinkButton v-if="hasActiveFilter || !sortIsDefault" label="复制筛选链接" />
       </div>
       <SearchField v-model="query" :count="count" placeholder="检索姓名…" />
     </div>
@@ -154,7 +150,7 @@ const { sorted, isDefault: sortIsDefault } = useCatalogSort(
   margin-bottom: 20px;
 }
 
-/* 左组：筛选（属性/职业/阵营）与它的「复制筛选链接」出口贴在一起 */
+/* 左组：筛选下拉（属性/职业/阵营） */
 .toolbar-left {
   display: flex;
   flex-wrap: wrap;
