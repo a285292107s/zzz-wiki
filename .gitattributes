@@ -1,0 +1,49 @@
+# ============================================================
+# .gitattributes —— 换行符与二进制资产的单一事实源
+#
+# 为什么必须有（2026-10 实测）：仓库此前**没有**本文件，且本机 core.autocrlf=false，
+# 换行完全取决于「当时用哪个编辑器」，实际已经漂移 —— 509 个文本文件里
+# 491 个 LF、15 个 CRLF、2 个 mixed（同一文件内混用）、1 个空；
+# CRLF 的包含 src/components/detail/DetailPage.vue、tests/contrast.test.ts 这类核心源码。
+#
+# 症状不是「难看」，而是**假改动**：`git diff --check` 会对既有文件报出几十条
+# trailing whitespace（HEAD 提交自身即 55 条）——文件本身没错，是行尾的 \r
+# 被当成了空白。噪声淹没真问题。
+#
+# 策略：文本一律 LF（text=auto eol=lf）。
+#   - 为什么是 eol=lf 而不是只写 text=auto：text=auto 只保证**入库**为 LF，
+#     工作区换行仍随 core.autocrlf / core.eol 走 —— 同一份代码在两台机器上
+#     工作区不同、diff 不同。本仓库 96% 的文本文件本来就是 LF，
+#     钉死 LF 可以让 autocrlf 的设置彻底无关紧要。
+#   - 为什么敢全仓 LF：仓库里没有 .bat / .cmd / .ps1（只有那些才需要 CRLF），
+#     也没有任何脚本对**文本源文件**做哈希或字节大小校验
+#     （scripts/** 里的 createHash / statSync 只作用于字体分片与 dist 产物）。
+#   - 影响面可精确预测：917 个 -text 文件恰好等于 679 webp + 235 woff2
+#     + 2 png + 1 ico，即全部二进制资产 —— 说明没有文本文件被判成二进制、反之亦然。
+#
+# ⚠ 规则顺序（踩过的坑，改动本文件前必读）：
+#   .gitattributes **后写的规则覆盖先写的**。曾把 `public/data/**` 写成通配文本规则
+#   放在 `*.webp binary` 之后，结果 232 张 webp 被判成文本、再被 --renormalize
+#   按 CRLF→LF 改写 blob —— 若提交就是资源损坏（工作区文件本身没事，坏的是索引）。
+#   故：**二进制声明必须排在所有文本通配之后**，且文本规则一律限定到具体扩展名，
+#   绝不用 `**` 去覆盖 public/data（那里 675/913 是美术与字体资源）。
+# ============================================================
+
+# 默认：文本在仓库内与工作区都用 LF
+* text=auto eol=lf
+
+# ---- 生成物（public/data/** 约定入库，勿删勿忽略）----
+# 只点名 JSON：目录里另外 675 个是 webp/woff2 二进制，`**` 通配会把它们卷进来。
+# 由 .github/workflows/data-sync.yml 在 ubuntu 上生成；显式 text 是为了不依赖
+# 自动探测 —— 生成物必须永远是 LF，否则「在 Windows 本地跑 pnpm run sync」
+# 产生的行尾差异会被当成数据变更提交上去。
+public/data/**/*.json text eol=lf
+
+# ---- 二进制资产：显式声明，不依赖自动探测（必须在文本规则之后，见文件头警示）----
+# 自动探测对 webp / woff2 目前判得对，但这些是 public/ 下的美术与字体资源，
+# 一旦哪天被判成文本（检出时被改写换行、diff 逐字节展开）就是资源损坏。
+# 显式钉死，代价为零。
+*.webp  binary
+*.woff2 binary
+*.png   binary
+*.ico   binary

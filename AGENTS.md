@@ -77,6 +77,9 @@
   由 `.github/workflows/data-sync.yml` 定时触发并走【工作流内硬门禁】：`pnpm run verify:data` 通过 → 直接
   commit + push 到默认分支（master）→ 触发 Vercel 部署；不通过则 job 失败、不提交。无变更不提交。
   仓库为私有 + 免费套餐，分支保护不可用，故门禁在 workflow 内实现。`pnpm run data` 仅作数据-only 用途。
+- **换行符**：文本一律 **LF**，由根级 `.gitattributes` 钉死；改动它之前先读该文件头的规则顺序警示
+  （后写规则覆盖先写，二进制声明必须排在文本通配之后）。判据：`git diff --check` 应完全干净。
+  详见决策记录 0007。
 - **排障顺序**：改动数据管线按 DATA_GUIDE §7 顺序执行；名录/详情数量为 0 或 404 时先查 DATA_GUIDE §8
   失效信号，别急着改前端。
 
