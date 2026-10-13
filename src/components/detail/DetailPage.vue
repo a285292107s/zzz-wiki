@@ -3,6 +3,7 @@ import { nextTick, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import AsyncState from '@/components/state/AsyncState.vue'
 import BackToTop from '@/components/BackToTop.vue'
+import CopyLinkButton from '@/components/CopyLinkButton.vue'
 import NavScrollButton from '@/components/NavScrollButton.vue'
 import { useNavScrollable } from '@/composables/useNavScrollable'
 import { recordRecentVisit } from '@/composables/useQuickSearch'
@@ -58,8 +59,15 @@ watch(
 
 <template>
   <div class="wrap page">
+    <!-- 页面动作行：返回导航 + 分享。
+         分享入口在此而**不在等级滑条区块**：它复制的是 location.href 整份 URL
+         （含 lv/rf/clv 等全部查询状态），与旁边显示什么数据无关，故属页面级动作。
+         门禁是「档案已就绪」——本行在 AsyncState **之外**，加载中/404 也会渲染，
+         不加门禁就会在坏链接上给出「复制这个坏链接」。
+         与返回链接分列两端：左是离开本页，右是把本页交出去。 -->
     <div class="page-actions" data-vt-block data-vt-fade>
       <RouterLink :to="backTo" class="back mono">← {{ backLabel ?? '返回' }}</RouterLink>
+      <CopyLinkButton v-if="status === 'success'" />
     </div>
 
     <!-- 区块导航：宽屏左侧档案索引 / 窄屏吸顶横条（样式见 base.css .section-nav）。
@@ -140,17 +148,24 @@ watch(
   padding-top: calc(var(--pad-section) * 0.9);
 }
 
-/* 返回：间距收在页头范围内（区块间呼吸不参与） */
+/* 返回与分享分列两端：`space-between` 是刻意的两端对齐（composition-audit 的
+   「行内空洞」判据按此豁免——它测的是**非** space-between 行里的大空隙）。
+   窄屏若因超长返回文案折行，按钮那行只有它自己：靠 margin-left:auto 仍推到行尾。 */
 .page-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
   gap: var(--space-head);
   margin-bottom: clamp(16px, 2.2vw, 34px);
 }
 
 .page-actions .back {
   margin-bottom: 0;
+}
+
+.page-actions > :deep(.copy-link) {
+  margin-left: auto;
 }
 
 .back {

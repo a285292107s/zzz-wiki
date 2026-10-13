@@ -21,7 +21,7 @@ import {
   type StatItem,
 } from '@/domain/sections'
 import type { BangbooDetail } from '@/data/types'
-import { DetailHead, DetailPager, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel, CopyLinkButton } from '@/components'
+import { DetailHead, DetailPager, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel } from '@/components'
 import Rarity from '@/components/Rarity.vue'
 
 const id = useRouteParam('id')
@@ -167,11 +167,6 @@ const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
               label="邦布等级"
               :marks="levelMarks"
             />
-          </template>
-          <!-- v-if 挂在 template 上而非按钮上：v-if 为假时整个具名插槽不存在，
-               StatLevelPanel 才判定得出「操作位为空」，不会留下一条空行 -->
-          <template v-if="bLevel !== BANGBOO_LEVEL_MAX" #actions>
-            <CopyLinkButton label="复制此等级链接" />
           </template>
         </StatLevelPanel>
         <KeyValueGrid :items="stats" variant="ledger" />

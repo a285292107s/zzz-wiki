@@ -101,12 +101,13 @@ describe('音擎详情 精炼效果（一阶一段）', () => {
     // 5 阶数值 = 20 + 5*2 = 30%，且不含其它阶的数值
     expect(refineText(w)).toContain('30%')
     expect(refineText(w)).not.toContain('24%')
-    // 默认视图不出现分享入口（URL 无状态）
+    // 区块内不承载分享入口（页面级动作归 DetailPage 的 .page-actions，见决策记录 0006）
     expect(w.find('#talents .refine-actions').exists()).toBe(false)
+    expect(w.find('#talents .copy-link').exists()).toBe(false)
     expect(w.find('#talents').text()).toContain('精炼 5 阶')
   })
 
-  it('拖滑条换阶：正文换成该阶数值、URL 带 ?rf=、出现「复制此精炼链接」', async () => {
+  it('拖滑条换阶：正文换成该阶数值、URL 带 ?rf=', async () => {
     const { w, router } = await mountView()
     const slider = w.find('#talents input.level-range')
     expect(slider.attributes('aria-valuetext')).toBe('精炼 5 阶')
@@ -119,13 +120,11 @@ describe('音擎详情 精炼效果（一阶一段）', () => {
     expect(w.find('#talents').text()).toContain('精炼 3 阶')
     expect(slider.attributes('aria-valuetext')).toBe('精炼 3 阶')
     expect(router.currentRoute.value.query.rf).toBe('3')
-    expect(w.find('#talents .refine-actions .copy-link').text()).toContain('复制此精炼链接')
 
-    // 回到默认档：参数被移除、分享入口一并消失
+    // 回到默认档：参数被移除
     await slider.setValue(String(W_ENGINE_REFINE_MAX))
     await flushPromises()
     expect(router.currentRoute.value.query.rf).toBeUndefined()
-    expect(w.find('#talents .refine-actions').exists()).toBe(false)
   })
 
   it('?rf= 深链：直接落在该阶，默认档不写参数', async () => {

@@ -27,7 +27,7 @@ import {
 import { PROFESSIONS, type SpecCode } from '@/data/types'
 import type { CharacterListItem, WEngineDetail } from '@/data/types'
 import { pickName } from '@/utils/names'
-import { DetailHead, DetailPager, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SignatureRef, StatLevelPanel, CopyLinkButton } from '@/components'
+import { DetailHead, DetailPager, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SignatureRef, StatLevelPanel } from '@/components'
 import Rarity from '@/components/Rarity.vue'
 import Tags from '@/components/Tags.vue'
 
@@ -215,11 +215,6 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
               :marks="levelMarks"
             />
           </template>
-          <!-- v-if 挂在 template 上而非按钮上：v-if 为假时整个具名插槽不存在，
-               StatLevelPanel 才判定得出「操作位为空」，不会留下一条空行 -->
-          <template v-if="hasLevels && wLevel !== W_ENGINE_LEVEL_MAX" #actions>
-            <CopyLinkButton label="复制此等级链接" />
-          </template>
         </StatLevelPanel>
         <KeyValueGrid :items="propItems" variant="ledger" />
       </DetailSection>
@@ -237,14 +232,8 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
               :value-text="refineLabel"
             />
           </template>
-          <!-- 操作位放在正文**之后**（不在滑条行、也不在 #actions 元信息行）：
-               滑条行会挤窄轨道；元信息行的显隐条件同样是「非满精炼」，一出现就把下方正文
-               顶下去 36px（拖过 5 阶时正文上下跳）。放正文之后，出现/消失只影响本框底部 -->
           <h3 class="refine-name serif">{{ refineTalent.name ?? '未命名' }}</h3>
           <p class="refine-desc" v-html="richDesc(refineTalent.desc)" />
-          <div v-if="refineLevel !== W_ENGINE_REFINE_MAX" class="refine-actions">
-            <CopyLinkButton label="复制此精炼链接" />
-          </div>
         </StatLevelPanel>
         <p v-else class="empty mono">—</p>
       </DetailSection>
@@ -298,13 +287,6 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
   line-height: 1.8;
   max-width: 76ch;
   white-space: pre-line;
-}
-
-/* 分享入口：正文之后的右对齐操作行（仅非满精炼时存在） */
-.refine-actions {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 12px;
 }
 
 .empty {

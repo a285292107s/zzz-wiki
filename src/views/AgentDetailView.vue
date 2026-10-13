@@ -46,7 +46,7 @@ interface SkillDisplay extends SkillRow {
   level: Ref<number>
 }
 import type { CharacterDetail, WEngineListItem } from '@/data/types'
-import { AgentHead, CoreSkillGroup, DetailPager, DescRow, DetailPage, DetailSection, DetailSkeleton, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel, CopyLinkButton } from '@/components'
+import { AgentHead, CoreSkillGroup, DetailPager, DescRow, DetailPage, DetailSection, DetailSkeleton, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel } from '@/components'
 import HollowImage from '@/components/HollowImage.vue'
 
 const id = useRouteParam('id')
@@ -294,12 +294,6 @@ watch(detail, (d) => {
               label="角色等级"
               :marks="levelMarks"
             />
-          </template>
-          <!-- 等级非默认时才出现：此时 URL 带 ?lv=，链接即「此等级视图」的可分享入口。
-               v-if 挂在 template 上而非按钮上：v-if 为假时整个具名插槽不存在，
-               StatLevelPanel 才判定得出「操作位为空」，不会留下一条空行 -->
-          <template v-if="charLevel !== CHAR_LEVEL_MAX" #actions>
-            <CopyLinkButton label="复制此等级链接" />
           </template>
         </StatLevelPanel>
         <KeyValueGrid :items="stats" variant="ledger" />

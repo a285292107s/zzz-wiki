@@ -12,7 +12,7 @@ RULES 表里（不靠猜返回结构）；**新增审计脚本必须同时补判
 |---|---|---|
 | viewport-overflow.js  | 8 视口 × 8 路由横向溢出 | 0 |
 | touch-targets.js      | 交互目标 ≥24×24（WCAG 2.5.8） | 0 问题 |
-| regression-walk.js    | 全站功能走查（**89 项**，覆盖七类目/边界态/URL 状态/离线联动）。名录/图谱的**条数不写死**：比对运行时数据文件真值（`live-data-readable` 先取真值，再断言「渲染条数 == 数据条数」），故 `pnpm run sync` 新增角色不会误报。图谱轴标图标单列一项（`atlas-axis-icons`）：断的是**素材在站内**（src 落在 `/data/img/filter/`）而非「能加载」——换 CDN 直链时结构断言仍全绿、但零外部请求的约束已破，故必须查 src | 89/89 |
+| regression-walk.js    | 全站功能走查（**92 项**，覆盖七类目/边界态/URL 状态/离线联动）。名录/图谱的**条数不写死**：比对运行时数据文件真值（`live-data-readable` 先取真值，再断言「渲染条数 == 数据条数」），故 `pnpm run sync` 新增角色不会误报。图谱轴标图标单列一项（`atlas-axis-icons`）：断的是**素材在站内**（src 落在 `/data/img/filter/`）而非「能加载」——换 CDN 直链时结构断言仍全绿、但零外部请求的约束已破，故必须查 src。技能等级另有两条：上限 16（含影画加成）与默认 12 不得混同、以及拖到 16 级确实按该级出数值。出处一条（`provenance-single-source`）：版本号可见且数据版本/快照日期/数据源各只出现一次——详情页内容末原有独立出处行，与站尾重复同一批事实，已合并到站尾。分享入口两条分列两类页：名录页 `copy-hidden-when-idle`/`copy-shown-when-stateful` 守「URL 带状态才出现」，详情页 `share-in-page-actions`/`share-stays-put-across-levels` 守「在 `.page-actions`、每页一个、不随等级出现消失」（决策记录 0006） | 92/92 |
 | transfer-profile.js   | 首访传输预算（冷缓存总重 + 分类明细；总重 <3MB 竞奖档 / 字体 ≤1.2MB / 图片 ≤1MB） | 53 请求 / 751KB（js 61 + css 25 + 字体 189 + 图片 436 + json 40；**2026-10 实测，运行取当前值**） |
 | quick-search.js       | ⌘K 检索链路端到端（中文高亮/罗马字命中/结果态预激活/空态键盘路径） | 4/4 |
 | font-loading.js       | CJK 衬线生效 + 分片按需 | serif=Noto Serif SC |

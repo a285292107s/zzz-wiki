@@ -89,10 +89,13 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onKeydown))
 </template>
 
 <style scoped>
+/* 上下 14px 对称：下方这条曾经是 0，翻页编号（如「099」）距内容胶囊底部那条发丝线
+   只剩 3px（实测），整条翻页读起来像被压在线上。上边 14px 是既有的区块头留白，
+   下边补齐同一值，翻页条自己成为一个上下有呼吸的收尾块。 */
 .detail-pager {
   border-top: var(--rule);
   margin-top: var(--space-section);
-  padding-top: 14px;
+  padding-block: 14px;
 }
 
 .pg-hint {
