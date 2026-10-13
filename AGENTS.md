@@ -65,7 +65,22 @@
   （勿再引入 `package-lock.json` 或 yarn 锁文件）；新增依赖用 `pnpm add <pkg>`。
   ⚠ pnpm 配置只读 `pnpm-workspace.yaml`（`package.json` 的 `pnpm` 字段已失效）；依赖的安装脚本须在该文件
   的 `allowBuilds` 里逐一审批，否则 `pnpm install` 会以 `ERR_PNPM_IGNORED_BUILDS` 非零退出（详见决策记录 0005）。
-- **日常命令**：开发 `pnpm run dev`（http://localhost:5173）；构建 `pnpm run build`（含 vue-tsc）；单测 `pnpm test`。
+- **日常命令**：开发 `pnpm run dev`（http://localhost:5173）；构建 `pnpm run build`（含 vue-tsc）；
+  单测 `pnpm test`（全量；本地改动默认用下面的 `pnpm run test:changed`）。
+- **验证分层：先看改了什么，再决定跑什么**——唯一执行入口是 `pnpm run check:diff`：它读实际改动，
+  打印本次的**最小验证集**与可直接复制的命令。不要凭感觉跑全箱，也不要为"稳妥"顺手跑 `pnpm run audit:all`。
+  - **默认档**：`npx vue-tsc -b`（类型）+ `pnpm run test:changed`（按 diff 选单测）。
+    **本地不必重复跑全量 `pnpm test`**——`build:ci` 在 Vercel 上每次必跑（见下），本地再来一遍是纯重复。
+    实测：纯文档改动选中 0 个用例、**工作区干净时也是 0 个**（`--changed` 的基准写死为 HEAD，
+    提交后再跑要给基准：`npx vitest run --changed HEAD~1`）；改动含 `package.json` / vitest 配置时
+    会退化为全量 515 个用例——这是**安全的过选**，不是异常。
+  - **浏览器层是触发式的，不是默认档**：29 个审计脚本一项就要几十秒（`viewport-overflow` 实测 52.4s），
+    只在 `check:diff` 命中对应改动面时才跑、且只跑命中的那几项；**单次改动默认 0 项**。
+    改动确实进到页面时，**合并/发版前**跑 L3 冒烟 5 项（`check:diff` 会列出来，约 5 分钟）。
+  - **不为小修复新增审计脚本**：先复跑已有脚本；确需新增，先逐条答准入判据（**五条答不全就不加**，
+    全文见 `scripts/audits/README.md`）。最常漏的是判据质量——`计数 === 0` 型是**空真**判据
+    （什么都没扫到也报绿），必须同时有正向锚与下限；新脚本还要能通过"把守护对象拿掉"的负向验证。
+  - **时间盒**：简单需求的验证总耗时 ≤ 2 分钟；预计会超，先说明"为什么必须跑这么久"再跑，不要默默把时间花掉。
 - **部署构建入口 `pnpm run build:ci`**（Vercel 已指向；**完整链路以 `package.json` 的 `build:ci` 为唯一事实源**）：
   `pnpm test` → `verify:fonts` → `verify:icons --local` → `gen:featured-birthdays --check` → `verify:fonts:cjk`
   → `vite build` → `sitemap` → `route-html` → `verify:budget`（主包/CSS/sitemap 体积预算）→ `verify:vercel`（缓存与安全响应头）；
@@ -94,6 +109,8 @@
   竞态…）；必须讲机制时用游戏逻辑或日常比喻。已在 DATA_GUIDE / DESIGN 定义的词可直接用。
 - **直截了当 + 业务收束**：第一句给方案或结论，不讲客套；代码讲完后用 ≤3 条大白话说明「这段改动让玩家
   多看到/看到了什么」，不罗列框架技术细节——与 §3「不 AI 味」同源。
+- **交代验证成本**：交付时说清「跑了什么 / 没跑什么、为什么」以及残余风险（一条就够），不写流水账。
+  跑了全箱不等于更负责——与本次改动无对应风险的检查只是在烧时间（判据见 §4 验证分层）。
 
 ### 5.2 面向代码：可复制、可复核
 

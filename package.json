@@ -22,12 +22,14 @@
     "verify:fonts:cjk": "node scripts/verify-cjk-fonts.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:changed": "vitest run --changed HEAD",
     "verify:budget": "node scripts/verify-budget.mjs",
     "subset:fonts:cjk": "node scripts/build/subset-cjk-fonts.mjs",
     "fonts:cjk": "pnpm run download:fonts:cjk && pnpm run subset:fonts:cjk",
     "verify:vercel": "node scripts/verify-vercel-config.mjs",
     "route-html": "node scripts/generate-route-html.mjs",
     "audit:all": "node scripts/audit-all.mjs",
+    "check:diff": "node scripts/check-diff.mjs",
     "gen:featured-birthdays": "node scripts/generate-featured-birthdays.mjs"
   },
   "dependencies": {
