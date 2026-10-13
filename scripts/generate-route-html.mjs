@@ -79,11 +79,12 @@ async function imageMeta(rel) {
    仅用于把该路由的懒加载 chunk 写进 modulepreload；下面的 buildManifest 会校验
    每个映射都在构建清单里，映射漂移会在构建期直接失败而不是静默退化。 */
 const VIEW_OF = {
-  '/agents': 'src/views/AgentsView.vue',
+  // 名录页是版本外壳（表格 / 卡片两版按读者本机偏好择一），两版都是它的静态依赖，
+  // 故 modulepreload 会随外壳的 imports 一并带上
+  '/agents': 'src/views/AgentsRouteView.vue',
   '/w-engines': 'src/views/WEnginesView.vue',
   '/bangboos': 'src/views/BangboosView.vue',
   '/disks': 'src/views/DisksView.vue',
-  '/atlas': 'src/views/AtlasView.vue',
   '/formulas': 'src/views/FormulasView.vue',
   '/about': 'src/views/AboutView.vue',
 }
@@ -93,11 +94,6 @@ const VIEW_OF = {
  *   · literal：视图里是字面量 `usePageMeta('标题', '描述')`
  *   · guide  ：视图用变量（如 FORMULA_GUIDE.sub），回到数据模块取真值 */
 const STATIC_META = {
-  '/atlas': {
-    label: '档案图谱',
-    desc: '把代理人档案按「属性 × 职业」摊平成一张格子表——每格是条目数，点开即筛出对应档案。',
-    kind: 'literal',
-  },
   '/formulas': {
     label: '战斗公式',
     desc: '伤害、失衡、属性异常与各类机制的乘区构成。承接社区数据机制导论的结构与主公式，面向配装与读数的档案式整理。',

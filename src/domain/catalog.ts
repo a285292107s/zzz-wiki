@@ -79,8 +79,11 @@ export const CATALOG: readonly CatalogEntry[] = [
  * 图文板块入口（非数据类目的常设页面）。
  * 独立于 CATALOG：它们没有 listFile/detailDir/icon 契约，故不进 CATALOG 数组，
  * 专供站头导航与首页目录展示。字段：
- *   - nav：是否进站头主导航（站头聚焦内容类目；出处类页面只在首页目录与页脚出现）
+ *   - nav：是否进站头主导航（战斗公式与设置进；出处类的「数据说明」只在首页目录与页脚出现）
  *   - glyph：无游戏图标时的标本符号（首页目录的占位符，与设计语言的「×」同族）
+ *
+ * 编号是**展示位次**（站头导航与首页目录都会印出来），故必须连续：
+ * 目录顺序 = 编号升序 = 站头导航顺序（导航取其中 nav:true 的，编号不留空号）。
  */
 export interface GuideEntry {
   no: string
@@ -95,20 +98,20 @@ export interface GuideEntry {
 export const GUIDE_ENTRIES: readonly GuideEntry[] = [
   {
     no: '05',
-    label: '档案图谱',
-    en: 'ATLAS',
-    path: '/atlas',
-    desc: '属性 × 职业的分布格子表，点开即筛出对应档案。',
-    glyph: '⊞',
-    nav: true,
-  },
-  {
-    no: '06',
     label: '战斗公式',
     en: 'FORMULAS',
     path: '/formulas',
     desc: '从伤害乘区到失衡、属性异常与命破，逐段拆解战斗数值构成。',
     glyph: '×',
+    nav: true,
+  },
+  {
+    no: '06',
+    label: '设置',
+    en: 'SETTINGS',
+    path: '/settings',
+    desc: '本机偏好：代理人名录的陈列版本与佩洛伊斯立绘形态。',
+    glyph: '⋮',
     nav: true,
   },
   {

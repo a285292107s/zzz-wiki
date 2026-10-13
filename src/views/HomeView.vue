@@ -87,7 +87,7 @@ const sections = [
          仅首页铺装，固定视口层不随页滚动（手法同 body::before）；内页仍为 --page-bg-image。 -->
     <div class="home-backdrop" aria-hidden="true" />
 
-    <!-- hero：文字陈列浮于壁纸之上；旧 Mindscape 头图已移除，双形态切换钮移至 1551 佩洛伊斯详情页 AgentHead -->
+    <!-- hero：文字陈列浮于壁纸之上；旧 Mindscape 头图已移除，双形态切换钮在设置页（/settings） -->
     <section class="hero">
       <div class="wrap hero-inner">
         <div class="hero-text">

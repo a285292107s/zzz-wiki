@@ -5,7 +5,7 @@
  * 动态结构只在展开后存在——它们的 ARIA 组合、焦点可见性、对比度从未被覆盖。
  * 本脚本逐个打开交互面并在该状态下跑全量 axe。
  *
- * 覆盖：窄屏 ☰ 导航菜单、筛选下拉（listbox）、检索面板（dialog）、术语浮层、双形态切换钮。
+ * 覆盖：窄屏 ☰ 导航菜单、筛选下拉（listbox）、检索面板（dialog）、术语浮层、设置页偏好选项板。
  * 用法：playwright-cli open http://localhost:4175 && \
  *       playwright-cli run-code --filename=scripts/audits/axe-states.js
  * 基线：各状态 0 violations
@@ -124,14 +124,15 @@ async (page) => {
     },
   })
 
-  // 5) 双形态切换（AgentHead 形态钮所在页）
-  await audit('hero-form-toggle', {
-    route: '/agents/1551',
+  // 6) 设置页偏好选项板（原生 radio 铺满整板、选中态由板描边与板头承担——
+  //    可访问名 / 焦点可见性 / 对比度都要在这个状态下单独过审）
+  await audit('settings-options', {
+    route: '/settings',
     openFn: async (p) => {
       await p.waitForTimeout(600)
-      return await p.evaluate(() => !!document.querySelector('.hero-form, .form-toggle, [aria-pressed]'))
+      return await p.evaluate(() => !!document.querySelector('.plates .plate'))
     },
-    expect: null,
+    expect: '.plates .plate',
   })
 
   const failed = states.filter((s) => s.violations.length > 0)

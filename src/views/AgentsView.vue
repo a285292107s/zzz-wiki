@@ -42,15 +42,20 @@ const camps = computed(() => {
     .map(([code, name]) => ({ code, name }))
 })
 
+/** 列配置：**不声明 sortable**——表格版与本页卡片版一致，不提供排序控件
+ *  （点表头排序需要读者先知道「表头能点」，且与卡片版的陈列语言不统一）。
+ *  陈列顺序见下方 useCatalogSort 的默认值。 */
 const columns: CatalogColumn[] = [
-  { key: 'name', label: '代号', sortable: true },
+  { key: 'name', label: '代号' },
   { key: 'attr', label: '属性' },
   { key: 'prof', label: '职业' },
   { key: 'camp', label: '阵营', cls: 'camp mono' },
-  { key: 'rarity', label: '稀有度', align: 'right', sortable: true },
+  { key: 'rarity', label: '稀有度', align: 'right' },
 ]
 
-const { sorted, sortKey, sortDir, toggle, isDefault: sortIsDefault } = useCatalogSort(
+/** 陈列顺序：默认编号倒序（读一次，无控件可改）。键仍是 id/name/rarity，
+ *  故旧链接里的 ?sort=&dir= 依旧照读——分享出去的排序视图不会因为这次改动变成另一份视图。 */
+const { sorted, isDefault: sortIsDefault } = useCatalogSort(
   filtered,
   [
     { key: 'id', value: (r) => r.Id },
@@ -105,13 +110,10 @@ const { sorted, sortKey, sortDir, toggle, isDefault: sortIsDefault } = useCatalo
         v-reveal="160"
         :columns="columns"
         :items="sorted"
-        :sort="sortKey"
-        :sort-dir="sortDir"
         caption="代理人名录：代号、属性、职业、阵营与稀有度"
         :show-clear="hasActiveFilter"
         empty-text="无匹配代理人"
         @clear="reset"
-        @update:sort="toggle"
       >
         <template #cell-name="{ row }">
           <NameCell

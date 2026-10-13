@@ -17,7 +17,7 @@ import { stripRichText } from '@/utils/text'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { catalogEntry } from '@/domain/catalog'
 import { W_ENGINE_LEVEL_MAX, W_ENGINE_LEVEL_MIN, wEnginePropsAtLevel, type StatItem } from '@/domain/sections'
-import { AsyncState, CardBlock, CardGrid, CopyLinkButton, FilterDropdown, ListPage, NameCell, SearchField, SortButton } from '@/components'
+import { AsyncState, CardBlock, CardGrid, CopyLinkButton, FilterDropdown, ListPage, NameCell, SearchField } from '@/components'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
 
@@ -38,7 +38,10 @@ const { profFilter, query, filtered, count, hasActiveFilter, reset } = useCatalo
   keywords: (r) => [r.effect_name ?? '', stripRichText(r.effect_desc)],
 })
 
-const { sorted, sortKey, sortDir, toggle, isDefault: sortIsDefault } = useCatalogSort(
+/** 陈列顺序：默认编号倒序。**本页不提供排序控件**（2026-10 与代理人、驱动盘名录一同移除：
+ *  排序钮与筛选钮挤在同一行工具栏）。排序能力仍在——历史 ?sort=&dir= 深链照读，故
+ *  「复制筛选链接」仍按是否偏离默认序决定是否出现。 */
+const { sorted, isDefault: sortIsDefault } = useCatalogSort(
   filtered,
   [
     { key: 'id', value: (r) => r.Id },
@@ -77,22 +80,9 @@ function specNoteOf(r: WEngineListItem): string {
           :prof="profFilter"
           @update:prof="profFilter = $event"
         />
-        <!-- 排序表头随表格形态一并消失，改为工具栏排序钮（与驱动盘名录同一件） -->
-        <SortButton
-          label="名称"
-          :active="sortKey === 'name'"
-          :dir="sortKey === 'name' ? sortDir : null"
-          @toggle="toggle('name')"
-        />
-        <SortButton
-          label="稀有度"
-          :active="sortKey === 'rarity'"
-          :dir="sortKey === 'rarity' ? sortDir : null"
-          @toggle="toggle('rarity')"
-        />
       </div>
       <SearchField v-model="query" :count="count" placeholder="检索音擎或效果…" />
-      <!-- 筛选/搜索生效时 URL 带状态：显式给出「复制此视图链接」入口 -->
+      <!-- URL 带状态时显式给出复制入口：筛选/检索，或历史 ?sort=&dir= 深链 -->
       <CopyLinkButton v-if="hasActiveFilter || !sortIsDefault" label="复制筛选链接" />
     </section>
 

@@ -1,7 +1,7 @@
 async (page) => {
   // 触屏目标尺寸审计：所有可交互元素的命中区几何
   await page.setViewportSize({ width: 390, height: 844 })
-  const routes = ['/', '/agents', '/agents/1011', '/atlas', '/disks']
+  const routes = ['/', '/agents', '/agents/1011', '/disks', '/settings']
   const problems = []
   let checked = 0
   for (const route of routes) {
@@ -18,6 +18,7 @@ async (page) => {
         // 视口内才查
         if (r.bottom < 0 || r.top > innerHeight) continue
         // WCAG 2.5.8: min 24x24 CSS px（例外：内联文本链接、由周围 spacing 保证间隔的目标）
+        // 本脚本只报事实（含 isTextLink 判据），是否豁免由 audit-all.mjs 的 RULES 决定
         const w = Math.round(r.width)
         const h = Math.round(r.height)
         const isTextLink = el.tagName === 'A' && el.children.length === 0 && /inline/.test(style.display)

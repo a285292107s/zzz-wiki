@@ -1,15 +1,17 @@
 /* ============================================================
- * heroImageSources — 详情页 hero 头图候选链的单一事实源。
+ * heroImageSources — 详情页 hero 头图与名录卡片候选链的单一事实源。
  *
  * 两个消费方必须算出**同一个地址**，否则会白下一份：
  *   · AgentHead 渲染（真正上屏的那张）
  *   · 首页「今日角色」→ 详情的共享元素过渡（起飞前预热降落端的画）
  *
- * 档位规则（与 generate-route-html.mjs 的预载 media 条件同源，改一处要同步三处）：
+ * 详情页档位规则（与 generate-route-html.mjs 的预载 media 条件同源，改一处要同步三处）：
  *   · 窄屏（≤860，与 tokens.css 同一断点）或 DPR<1.5：mobile/ 1400w 派生
  *     （手机可见窗仅 ~350 CSS px，原图 2552px 超采 ~2×）
  *   · 否则原图：宽屏 hero 盒 ~1168 CSS px，DPR1 用 1400w 会放大，故取原图
  * 顺序即回退顺序：派生档缺失时落到原图，本地耗尽才走同源 CDN 兜底。
+ *
+ * 名录卡片（9:16 竖格）走另一套档位，见 heroGridSources。
  * ============================================================ */
 
 import type { ImageSource } from '@/utils/imageSource'
@@ -49,6 +51,22 @@ export function heroDetailViewport(): { narrow: boolean; retina: boolean } {
     narrow: window.matchMedia('(max-width: 860px)').matches,
     retina: window.matchMedia('(min-resolution: 1.5dppx)').matches,
   }
+}
+
+/** 名录卡片（9:16 竖格）的候选链（`base` 为不含 .webp 的裸文件名）。
+ *
+ *  档位按**高**算，不按宽：9:16 从约 2:1 的场景横幅里取景，用满原图高度、只用掉约 28% 的宽度
+ *  —— 按宽度挑档会让结果小 3 倍以上（实测：按宽 400 出 10.5KB/张，放大糊；
+ *  按高 800 出 82.4KB/张，与 wide/ 同价）。
+ *   · DPR < 1.5：card/ 800×392（32KB/张，格内实际需要 ~277 CSS px）
+ *   · DPR ≥ 1.5：wide/ 1600×784（84KB/张）
+ *  两档都不在本地时落到原图（~351KB/张），本地耗尽才走同源 CDN 兜底。 */
+export function heroGridSources(base: string, opts: { retina: boolean }): ImageSource[] {
+  const local = `${LOCAL_HERO}/${base}.webp`
+  const card = `${LOCAL_HERO}/card/${base}.webp`
+  const wide = `${LOCAL_HERO}/wide/${base}.webp`
+  const cdn = `https://static.nanoka.cc/assets/zzz/${base}.webp`
+  return [{ src: opts.retina ? wide : card }, { src: local }, { src: cdn }]
 }
 
 /** 等一张图可绘制（带上限）：**超时/失败都 resolve** —— 预热是优化不是功能，

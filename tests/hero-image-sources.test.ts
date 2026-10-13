@@ -5,6 +5,7 @@ import {
   heroDetailPrimarySrc,
   heroDetailSources,
   heroDetailViewport,
+  heroGridSources,
 } from '@/data/heroImageSources'
 
 describe('详情页 hero 候选链（渲染与预取的单一事实源）', () => {
@@ -44,6 +45,26 @@ describe('详情页 hero 候选链（渲染与预取的单一事实源）', () =
     const vp = heroDetailViewport()
     expect(typeof vp.narrow).toBe('boolean')
     expect(typeof vp.retina).toBe('boolean')
+  })
+})
+
+describe('名录卡片立绘候选链（9:16 裁切格，复用已存在的派生档）', () => {
+  it('普通屏：card 派生在前，原图与 CDN 依次兜底', () => {
+    const srcs = heroGridSources('Mindscape_1011_2', { retina: false })
+    expect(srcs.map((s) => s.src)).toEqual([
+      `${LOCAL_HERO}/card/Mindscape_1011_2.webp`,
+      `${LOCAL_HERO}/Mindscape_1011_2.webp`,
+      'https://static.nanoka.cc/assets/zzz/Mindscape_1011_2.webp',
+    ])
+  })
+
+  it('高密度屏：wide 派生在前（窄格也要够像素密度，原图仍是兜底）', () => {
+    const srcs = heroGridSources('Mindscape_1011_2', { retina: true })
+    expect(srcs.map((s) => s.src)).toEqual([
+      `${LOCAL_HERO}/wide/Mindscape_1011_2.webp`,
+      `${LOCAL_HERO}/Mindscape_1011_2.webp`,
+      'https://static.nanoka.cc/assets/zzz/Mindscape_1011_2.webp',
+    ])
   })
 })
 

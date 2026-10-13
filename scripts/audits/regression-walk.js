@@ -24,11 +24,11 @@ async (page) => {
   // 名册/音擎/驱动盘的条数由 `pnpm run sync` 定时落地（AGENTS.md §4：新增角色是常规业务事件，
   // 工作流门禁通过后自动 commit）。把条数写成字面量，会让「正常的数据更新」误报成回归失败——
   // 而「修复」往往只是把 60 改成 61；门禁一旦因为与实现无关的原因失败，就没人再信它
-  // （本仓库已发生过：regression-walk 的文档计数漂移 96→86）。
+  // （本仓库已发生过：文档里写的走查条数与脚本实际条数漂移）。
   // 故这里先读真值，再断言「渲染条数 == 数据条数」：检测力不减，且不随数据增长误报。
   // 口径精确的理由：三类名录都没有策展隐藏条目（HIDDEN_ITEM_IDS 只有 /bangboos 的 55098），
   // 且 element∈200-205/300、type∈1-7 由 zod 契约限定（domain/schema.ts），
-  // 于是「渲染条数 == 数据文件条数」与「图谱非空格 == 名册内 (属性,职业) 组合数」都是精确等式。
+  // 于是「渲染条数 == 数据文件条数」是精确等式。
   const live = await page.evaluate(async () => {
     const read = async (file) => {
       const res = await fetch(`/data/live/${file}`)
@@ -45,14 +45,12 @@ async (page) => {
       agents: rows.length,
       weapons: Object.keys(weapons).length,
       disks: Object.keys(disks).length,
-      // 图谱非空格数 = 名册里出现过的 (属性, 职业) 组合数（与 AtlasView 同一份数据、同一口径）
-      atlasCells: new Set(rows.map((r) => `${Number(r.element)}:${Number(r.type)}`)).size,
     }
   })
   add(
     'live-data-readable',
     live.agents > 0 && live.weapons > 0 && live.disks > 0,
-    `角色=${live.agents} 音擎=${live.weapons} 驱动盘=${live.disks} 图谱非空=${live.atlasCells}`,
+    `角色=${live.agents} 音擎=${live.weapons} 驱动盘=${live.disks}`,
   )
 
   {
@@ -73,14 +71,35 @@ async (page) => {
       }).length,
       cards: document.querySelectorAll('.deck-item').length,
       title: document.title,
-      // 首页目录 = 站点索引：4 数据类目 + 2 图文板块（战斗公式/数据说明）
+      // 首页目录 = 站点索引：4 数据类目 + 3 图文板块（公式/设置/数据说明）
       indexRows: document.querySelectorAll('.index-row').length,
       lastEntry: document.querySelector('.index-list li:last-child .name .zh')?.textContent.trim(),
+      // 站头导航印的是展示位次：编号必须连续（01–06，不允许空号），末位是设置
+      navNos: [...document.querySelectorAll('.nav .nav-item .no')].map((e) => e.textContent.trim()),
+      navLast: (() => {
+        const a = [...document.querySelectorAll('.nav .nav-item')].at(-1)
+        return {
+          label: a?.querySelector('.label')?.textContent.trim() ?? '',
+          href: a?.getAttribute('href') ?? '',
+        }
+      })(),
     }))
     add('home-serif', r.serif === 'Noto Serif SC', r.serif)
     add('home-reveal-settled', r.revealResidueInViewport === 0, String(r.revealResidueInViewport))
     add('home-index-rows', r.indexRows === 7, String(r.indexRows))
+    // 首页目录收尾行是「数据说明」（nav:false 的出处页）：编号连续要求设置排在它前面，
+    // 故末行不是设置——设置的位置由下面两条站头导航断言守。
     add('home-index-last', r.lastEntry === '数据说明', r.lastEntry ?? 'none')
+    add(
+      'nav-numbering-contiguous',
+      r.navNos.join(',') === '01,02,03,04,05,06',
+      r.navNos.join(','),
+    )
+    add(
+      'nav-last-is-settings',
+      r.navLast.label === '设置' && r.navLast.href.endsWith('/settings'),
+      `${r.navLast.label} ${r.navLast.href}`,
+    )
     add('home-cards', r.cards === 4, String(r.cards))
     add('home-title', r.title.includes('绳网档案'), r.title)
   }
@@ -190,7 +209,22 @@ async (page) => {
     )
   }
 
+  // 名录页有**两套陈列版本**（卡片 / 表格），偏好只存本机、不进 URL（决策记录 0008）。
+  // 下面的行数、空态、列头深链断言都是**表格版**的语法，故先走设置页把偏好钉到表格版；
+  // 卡片版在本段末尾单独走一遍（同样走设置页的真入口），并切回表格版供后续断言使用。
+  const AGENTS_VIEW_KEY = 'zzz-wiki:agents-view'
+  const chooseAgentsView = async (label) => {
+    await page.goto('http://localhost:4175/settings', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(700)
+    await page.evaluate((name) => {
+      const plate = [...document.querySelectorAll('.plates .plate')].find((p) => p.textContent.includes(name))
+      plate?.querySelector('input')?.click()
+    }, label)
+    await page.waitForTimeout(200)
+  }
+
   // ---- 名录页 + 检索 + 筛选 ----
+  await chooseAgentsView('表格名录')
   await page.goto('http://localhost:4175/agents', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1500)
   {
@@ -273,6 +307,54 @@ async (page) => {
       }))
       add('agents-empty-restored', restored.rows === live.agents && restored.input === '', JSON.stringify(restored))
     }
+  }
+
+  // ---- 名录页第二套陈列：卡片版（设置页切换 → 偏好不进 URL → 刷新仍生效）----
+  {
+    await chooseAgentsView('卡片名录')
+    await page.goto('http://localhost:4175/agents', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1200)
+    const cards = await page.evaluate(() => ({
+      cards: document.querySelectorAll('.cards-wrap .grid .card').length,
+      rows: document.querySelectorAll('tbody.d-body tr').length,
+      sortBtns: document.querySelectorAll('.toolbar .sort-btn').length,
+      url: location.pathname + location.search,
+      key: localStorage.getItem('zzz-wiki:agents-view'),
+    }))
+    add('cards-version-switch', cards.cards > 0 && cards.rows === 0, `卡片=${cards.cards} 表格行=${cards.rows}`)
+    // 版本是**本机偏好**：切完地址栏仍是干净的名录路径，复制出去的链接不带它
+    add('cards-version-out-of-url', cards.url === '/agents', cards.url)
+    // 卡片版不摆排序控件（排序钮与标本签陈列挤同一行；要排序时表格版本来更顺手）
+    add(
+      'cards-no-sort-ui',
+      cards.sortBtns === 0 && !/sort=/.test(cards.url),
+      `排序钮=${cards.sortBtns} url=${cards.url}`,
+    )
+    await page.goto('http://localhost:4175/agents', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1000)
+    const persisted = await page.evaluate(() => ({
+      cards: document.querySelectorAll('.cards-wrap .grid .card').length,
+      key: localStorage.getItem('zzz-wiki:agents-view'),
+    }))
+    add(
+      'cards-version-persists',
+      persisted.cards > 0 && persisted.key === 'cards',
+      `卡片=${persisted.cards} key=${persisted.key}`,
+    )
+    // 换回表格版：后续的深链排序等断言按表格语法继续
+    await chooseAgentsView('表格名录')
+    await page.goto('http://localhost:4175/agents', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1000)
+    const back = await page.evaluate(() => ({
+      cards: document.querySelectorAll('.cards-wrap .grid .card').length,
+      rows: document.querySelectorAll('tbody.d-body tr:not(.empty-row)').length,
+      key: localStorage.getItem('zzz-wiki:agents-view'),
+    }))
+    add(
+      'cards-version-switch-back',
+      back.rows === live.agents && back.cards === 0,
+      `行=${back.rows} 卡片=${back.cards} key=${back.key}`,
+    )
   }
 
   // ---- ⌘K 检索链路 ----
@@ -774,36 +856,59 @@ async (page) => {
     )
   }
 
-  // ---- 排序深链（?sort=&dir=）与三态循环 ----
+  // ---- 排序：名录页无排序控件（代理人两版、音擎、驱动盘），旧的 ?sort=&dir= 深链仍照读 ----
   {
+    // 表格版（当前版本）不应再有排序控件：表头不再可点，也不该有 aria-sort
+    await page.goto('http://localhost:4175/agents', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1400)
+    const plain = await page.evaluate(() => ({
+      sortBtns: document.querySelectorAll('thead .sort-btn').length,
+      ariaSort: !!document.querySelector('thead th[aria-sort]'),
+      order: [...document.querySelectorAll('tbody.d-body tr .name')].map((n) => n.textContent.trim()).join('|'),
+    }))
+    add(
+      'sort-ui-removed-in-table',
+      plain.sortBtns === 0 && !plain.ariaSort && plain.order !== '',
+      `表头排序钮=${plain.sortBtns} aria-sort=${plain.ariaSort}`,
+    )
+
+    // 深链仍生效：?sort=&dir= 让行序真的变化——旧链接不会因为移除控件而变成另一份视图
     await page.goto('http://localhost:4175/agents?sort=rarity&dir=desc', { waitUntil: 'networkidle' })
     await page.waitForTimeout(1600)
     const deep = await page.evaluate(() => ({
-      ariaSort: [...document.querySelectorAll('thead th')].map((t) => t.getAttribute('aria-sort')).filter(Boolean),
       url: location.search,
+      order: [...document.querySelectorAll('tbody.d-body tr .name')].map((n) => n.textContent.trim()).join('|'),
     }))
-    add('sort-deeplink', deep.url.includes('sort=rarity') && deep.ariaSort[0] === 'descending', JSON.stringify(deep))
-
-    // 同键三击：升 → 降 → 回默认（默认键无表头，两态循环回不去），参数随之清空
-    await page.goto('http://localhost:4175/agents', { waitUntil: 'networkidle' })
-    await page.waitForTimeout(1500)
-    const first0 = await page.evaluate(() => document.querySelector('tbody.d-body tr .name')?.textContent.trim())
-    for (let i = 0; i < 3; i++) {
-      await page.evaluate(() => document.querySelectorAll('thead th .sort-btn')[1]?.click())
-      await page.waitForTimeout(650)
-    }
-    const back = await page.evaluate(() => ({
-      url: location.search,
-      ariaSort: !!document.querySelector('thead th[aria-sort]'),
-      first: document.querySelector('tbody.d-body tr .name')?.textContent.trim(),
-    }))
-    add('sort-third-toggle-default', back.url === '' && !back.ariaSort && back.first === first0, JSON.stringify(back))
+    add(
+      'sort-deeplink-still-read',
+      deep.url.includes('sort=rarity') && deep.order !== '' && deep.order !== plain.order,
+      `url=${deep.url} 行序变化=${deep.order !== plain.order}`,
+    )
 
     // 非法排序参数就地清理
     await page.goto('http://localhost:4175/agents?sort=zzz&dir=sideways', { waitUntil: 'networkidle' })
     await page.waitForTimeout(1600)
-    const cleaned = await page.evaluate(() => ({ url: location.search, ariaSort: !!document.querySelector('thead th[aria-sort]') }))
-    add('sort-invalid-cleaned', cleaned.url === '' && !cleaned.ariaSort, JSON.stringify(cleaned))
+    const cleaned = await page.evaluate(() => ({
+      url: location.search,
+      sortBtns: document.querySelectorAll('thead .sort-btn').length,
+    }))
+    add('sort-invalid-cleaned', cleaned.url === '' && cleaned.sortBtns === 0, JSON.stringify(cleaned))
+
+    // 音擎 / 驱动盘两个栅格名录页同样不再摆排序控件（陈列顺序固定为默认编号倒序）。
+    // 排序能力没跟着控件一起消失：两页仍走 useCatalogSort，历史 ?sort=&dir= 深链照读。
+    const gridToolbar = {}
+    for (const route of ['/w-engines', '/disks']) {
+      await page.goto(`http://localhost:4175${route}`, { waitUntil: 'networkidle' })
+      await page.waitForTimeout(1400)
+      gridToolbar[route] = await page.evaluate(
+        () => document.querySelectorAll('.toolbar .sort-btn, .toolbar [aria-pressed]').length,
+      )
+    }
+    add(
+      'sort-ui-removed-in-grids',
+      Object.values(gridToolbar).every((n) => n === 0),
+      JSON.stringify(gridToolbar),
+    )
   }
 
   // ---- 交互态：悬停必须有可见反馈（真实鼠标，非 CDP 强制） ----
@@ -1128,97 +1233,6 @@ async (page) => {
         // 关键：不再白试一次跨域请求
         keys.nanoka === 0,
       JSON.stringify(keys),
-    )
-  }
-
-  // ---- 档案图谱：分布矩阵（既是可视化也是导航）----
-  {
-    await page.goto('http://localhost:4175/atlas', { waitUntil: 'networkidle' })
-    await page.waitForTimeout(2200)
-    const atlas = await page.evaluate(() => {
-      const links = [...document.querySelectorAll('.ax-link')]
-      const sum = links.reduce((n, e) => n + Number(e.textContent.trim()), 0)
-      return {
-        rows: document.querySelectorAll('tbody .ax-row').length,
-        cols: document.querySelectorAll('thead .ax-col').length,
-        cells: links.length,
-        sum,
-        grand: document.querySelector('.ax-grand')?.textContent.trim() ?? '',
-        // 空组合必须显式呈现（不是漏画）
-        empties: document.querySelectorAll('.ax-empty').length,
-        caption: !!document.querySelector('.atlas caption'),
-        scopeCols: document.querySelectorAll('thead th[scope=col]').length,
-        scopeRows: document.querySelectorAll('tbody th[scope=row]').length,
-      }
-    })
-    add(
-      'atlas-matrix',
-      // 轴（属性 × 职业）来自枚举，**非空格数来自名册**——后者随数据增长，故与数据真值比对，
-      // 不写死「49 格 / 非空 32 / 空 17」（那些是数据快照，见上面的 live 块说明）。
-      atlas.rows > 0 &&
-        atlas.cols > 0 &&
-        // 非空格必须正好等于名册里出现过的 (属性, 职业) 组合数
-        atlas.cells === live.atlasCells &&
-        // 网格完整：非空格 + 空格 = 全格（空格必须显式呈现，不是漏画）
-        atlas.cells + atlas.empties === atlas.rows * atlas.cols &&
-        // 图与账同源：格内数字之和 = 总计
-        atlas.sum === Number(atlas.grand) &&
-        atlas.sum > 0 &&
-        atlas.caption &&
-        // 列头 = 职业列 + 左上角 + 合计；行头与数据行一一对应
-        atlas.scopeCols === atlas.cols + 2 &&
-        atlas.scopeRows === atlas.rows,
-      JSON.stringify(atlas),
-    )
-
-    // 轴标图标：属性（行首）/职业（列首）各一枚图标本。
-    // 断「素材在站内」而不是断「能加载」：本站硬约束是运行时零外部请求，若哪天把图标换成
-    // CDN 直链，结构断言会**全绿**而约束已经破了——故必须检查 src 落在 /data/img/filter/。
-    // 同时断 alt 置空（图标是装饰，紧邻文字已说明属性/职业）与真的加载出像素（404 即失败）。
-    const axisIcons = await page.evaluate(() => {
-      const grab = (sel) =>
-        [...document.querySelectorAll(sel)].map((i) => ({
-          src: i.getAttribute('src') ?? '',
-          alt: i.getAttribute('alt'),
-          loaded: i.complete && i.naturalWidth > 0,
-        }))
-      return {
-        cols: grab('thead .ax-col-ic'),
-        rows: grab('tbody .ax-swatch-ic'),
-        // 行首方块是**无素材时的回退**；有素材却出现方块，说明图与回退同时渲染了
-        fallback: document.querySelectorAll('tbody .ax-swatch:not(.ax-swatch-ic)').length,
-      }
-    })
-    add(
-      'atlas-axis-icons',
-      axisIcons.cols.length === atlas.cols &&
-        axisIcons.rows.length === atlas.rows &&
-        axisIcons.fallback === 0 &&
-        [...axisIcons.cols, ...axisIcons.rows].every(
-          (i) => i.src.includes('/data/img/filter/') && !/^https?:/i.test(i.src) && i.alt === '' && i.loaded,
-        ),
-      JSON.stringify({
-        cols: axisIcons.cols.length,
-        rows: axisIcons.rows.length,
-        fallback: axisIcons.fallback,
-        sample: axisIcons.cols[0],
-      }),
-    )
-
-    // 点一格 → 进入名录并带上对应筛选（图谱是导航，不是装饰画）
-    await page.evaluate(() => document.querySelector('.ax-link')?.click())
-    await page.waitForTimeout(1600)
-    const jump = await page.evaluate(() => ({
-      path: location.pathname,
-      attr: new URLSearchParams(location.search).get('attr'),
-      prof: new URLSearchParams(location.search).get('prof'),
-      rows: document.querySelectorAll('tbody.d-body tr:not(.empty-row)').length,
-      activeFilters: document.querySelectorAll('.filter-dropdown .trigger.active').length,
-    }))
-    add(
-      'atlas-cell-jumps-to-filtered-list',
-      jump.path === '/agents' && !!jump.attr && !!jump.prof && jump.rows > 0 && jump.rows < live.agents && jump.activeFilters === 2,
-      JSON.stringify(jump),
     )
   }
 

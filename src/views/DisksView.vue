@@ -2,7 +2,8 @@
 /* 陈列形态决策（架构评审 2026-09）：驱动盘刻意保留卡片栅格、不并入 CatalogTable——
  * 2/4 件套效果是长文本（stripRichText 后仍数行），表格行的信息密度不适配。
  * 与音擎名录同构：卡壳/骨架/空态由 CardGrid + CardBlock 收起（两页共用），
- * 本页只声明「一张卡片陈列什么」；筛选/排序/取数分别经 useCatalogList/useCatalogSort/resources 收敛。 */
+ * 本页只声明「一张卡片陈列什么」；筛选/取数与陈列顺序经 useCatalogList/useCatalogSort/resources 收敛
+ * （**本页不提供排序控件**，陈列顺序取 useCatalogSort 的默认编号倒序）。 */
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useCatalogList } from '@/composables/useCatalogList'
 import { useCatalogSort } from '@/composables/useCatalogSort'
@@ -29,7 +30,9 @@ const { query, filtered, count, hasActiveFilter, reset } = useCatalogList<DiskDr
   keywords: (d) => [d.zh?.desc2 ?? '', d.zh?.desc4 ?? ''],
 })
 
-const { sorted, sortKey, sortDir, toggle, isDefault: sortIsDefault } = useCatalogSort(
+/** 陈列顺序：默认编号倒序。**本页不提供排序控件**（2026-10 与音擎、代理人名录一同移除）；
+ *  排序能力仍在——历史 ?sort=&dir= 深链照读。 */
+const { sorted, isDefault: sortIsDefault } = useCatalogSort(
   filtered,
   [
     { key: 'id', value: (d) => d.Id },
@@ -45,27 +48,13 @@ const { sorted, sortKey, sortDir, toggle, isDefault: sortIsDefault } = useCatalo
       <p class="eyebrow mono">Disk Drives</p>
       <h1 class="page-title">驱动盘</h1>
       <p class="page-sub">
-        驱动盘套装总览。2 件套与 4 件套效果直接陈列于卡片中；可按名称检索或排序。
+        驱动盘套装总览。2 件套与 4 件套效果直接陈列于卡片中；可按名称检索。
       </p>
     </header>
 
     <div v-reveal="90" class="toolbar">
-      <div class="toolbar-left">
-        <button
-          type="button"
-          class="sort-btn mono"
-          :class="{ on: sortKey === 'name' }"
-          :aria-pressed="sortKey === 'name'"
-          @click="toggle('name')"
-        >
-          名称
-          <span v-if="sortKey === 'name'" class="sort-arrow" aria-hidden="true">
-            {{ sortDir === 'asc' ? '▲' : '▼' }}
-          </span>
-        </button>
-      </div>
       <SearchField v-model="query" :count="count" placeholder="检索套装…" />
-      <!-- 筛选/搜索生效时 URL 带状态：显式给出「复制此视图链接」入口 -->
+      <!-- URL 带状态时显式给出复制入口：筛选/检索，或历史 ?sort=&dir= 深链 -->
       <CopyLinkButton v-if="hasActiveFilter || !sortIsDefault" label="复制筛选链接" />
     </div>
 
@@ -119,43 +108,5 @@ const { sorted, sortKey, sortDir, toggle, isDefault: sortIsDefault } = useCatalo
   justify-content: space-between;
   gap: var(--space-inline);
   margin-bottom: 20px;
-}
-
-.toolbar-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.sort-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: var(--fs-caption);
-  letter-spacing: 0.14em;
-  color: var(--ink-2);
-  border: 1px solid var(--line-1);
-  border-radius: 2px;
-  padding: 6px 12px;
-  transition: color var(--t-fast) var(--ease),
-    border-color var(--t-fast) var(--ease),
-    background var(--t-fast) var(--ease);
-}
-
-@media (hover: hover) {
-  .sort-btn:hover {
-    color: var(--ink-0);
-    border-color: var(--line-2);
-  }
-}
-
-.sort-btn.on {
-  color: var(--amber-hi);
-  border-color: var(--amber);
-  background: var(--amber-dim);
-}
-
-.sort-arrow {
-  font-size: var(--fs-nano);
 }
 </style>

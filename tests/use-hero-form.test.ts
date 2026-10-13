@@ -31,13 +31,13 @@ describe('useHeroForm', () => {
     expect(heroForm.value).toBe('female')
   })
 
-  it('toggle 翻转形态并写入 localStorage', async () => {
+  it('setHeroForm 写入形态并落盘', async () => {
     const { heroForm, useHeroForm } = await freshUseHeroForm()
-    const { toggleHeroForm } = useHeroForm()
-    toggleHeroForm()
+    const { setHeroForm } = useHeroForm()
+    setHeroForm('male')
     expect(heroForm.value).toBe('male')
     expect(localStorage.getItem(HERO_FORM_KEY)).toBe('male')
-    toggleHeroForm()
+    setHeroForm('female')
     expect(heroForm.value).toBe('female')
     expect(localStorage.getItem(HERO_FORM_KEY)).toBe('female')
   })

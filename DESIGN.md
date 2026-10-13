@@ -129,12 +129,18 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 - useCatalogList(config) → 输入 attrs/profession/camp/query，输出 filtered/count：把 AgentsView 的筛选逻辑通用化；各列表页只需声明可筛字段（阵营为数据动态提取，见 AgentsView）。
 - useRouteParam(name) → 响应式 param（连续导航同一组件时正确切换）。
 - usePageMeta(meta) → 写 document.title 与 meta description（三级：路由 meta 默认 → 页面覆盖 → 数据名覆盖）。
-- useCatalogSort → 列表排序状态（列键/方向）与 URL 同步。
+- useCatalogSort → 列表排序状态（列键/方向）与 URL 同步。**名录页一律不摆排序控件**
+  （2026-10：排序钮和同一行的筛选钮、卡片版的标本签陈列互相挤，表格版又只能靠「表头能点」的暗示）；
+  代理人两版、音擎、驱动盘都留着它算默认编号倒序，并照读历史 `?sort=&dir=` 链接——屏上仍有
+  排序入口的只剩邦布名录（列头）。
+- useAgentsViewVersion → 代理人名录的**版式偏好**（卡片名录 / 表格名录），模块级 ref + localStorage
+  持久化；**只在本机生效，不进 URL**（分享出去的 `/agents` 链接不带版本）。
 - useDetailNavigation → 详情页相邻条目的前后翻页。
 - useDetailSections → 详情区块行构建（复用 domain/sections.ts）。
 - useNavScrollable → 详情页/公式页导航条横滑（窄屏单行轨道，两端淡出 + 出口按钮；桌面滚轮/按钮）。
 - useFeaturedAgents → 首页「今日角色」精选池（读 featured-pool.json，**当天生日的角色优先**，按日期确定性取 4 张；生日表见 featured-birthdays.json）。
-- useHeroForm → 双形态角色（1551 佩洛伊斯）形态选择，模块级状态 + localStorage 持久化（**文件规则与 SSoT 见 `DATA_GUIDE.md` §5**；展示技法见 IMG_GUIDE）。
+- useHeroForm → 双形态角色（1551 佩洛伊斯）形态选择，模块级状态 + localStorage 持久化；
+  **切换入口在设置页 `/settings`**，详情页/首页/名录卡片只读（**文件规则与 SSoT 见 `DATA_GUIDE.md` §5**；展示技法见 IMG_GUIDE）。
 - anchorOffset → 锚点避让偏移计算（router scrollBehavior 与吸顶横条同源，读 CSS 变量 --anchor-offset）。
 
 ### 6.2 组件
@@ -150,8 +156,8 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 | FilterDropdown | 筛选下拉（属性/职业/阵营，图标 + 自定义面板） | 各列表页的筛选区块 |
 | CatalogTable | 列配置驱动表格 | 4 张手写表格；列配置声明渲染/格式化/插槽 |
 | CardGrid | 档案栅格（栅格几何 + 卡壳 + 骨架 + 空态；卡内内容经插槽） | 驱动盘 / 音擎两个栅格名录页的栅格与骨架外壳 |
+| AgentCardGrid | 代理人 9:16 立绘名录格（校准取景 + 图下标本签 + 骨架 + 空态） | 代理人名录卡片版空态复用 `NoMatchState`；卡壳是留白分栏 + 取景框，与 `CardGrid` 的卡片盒几何不同源 |
 | CardBlock | 卡内「块」（上细线 + 等宽小字标签 + 注记 + 内容） | 卡片的 2/4 件套、基础属性、音擎效果等分块 |
-| SortButton | 名录工具栏排序钮（升/降/回默认三态，状态写 URL） | 栅格名录页失去表头后的排序入口 |
 | NoMatchState | 「检索/筛选无匹配」空态（标题 + 出路 + 一键清除） | 表格空态行与栅格空态的重复文案 |
 | DetailSection | 编号 section-head 容器 | 详情页 01/02/03 头部 |
 | KeyValueGrid | 数值网格 | 角色/音擎 stat-grid |
@@ -178,6 +184,11 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 - 新增 404 视图（/:pathMatch(.*)* 不再是 redirect 到 /，显示档案式 404）。
 - 新增设计系统文档路由（/style；见 §9）。
 - 新增战斗公式页（/formulas，FormulasView + FormulaEq 组件 + formulaGuide.ts 单一事实源）。
+- 新增设置页（/settings，SettingsView）：本机偏好——代理人名录版式与佩洛伊斯立绘形态。
+  **入口在站头导航第 06 位与首页目录**（导航入口数受 ADR 0004 约束，故替换掉原先占位的档案图谱）；
+  **不进 sitemap，也不参与按路由预载**（`generate-route-html.mjs` 的 `VIEW_OF`/`STATIC_META` 无此页）。
+- `/agents` 由 `AgentsRouteView` 外壳按偏好二选一渲染：卡片版 `AgentsCardsView` 或表格版 `AgentsView`
+  （两版**静态导入**，故首屏不闪、两版都在预载清单里；版本是本地偏好，**不写 URL**）。
 - dev-only 页面机制（2026-08 集中）：route 的 DEV 分支按 `domain/devRoutes.ts` 登记注册（/style、/calibrate），
   生产构建 `import.meta.env.DEV=false` 整块摇树移除——dev 页在 prod 不可达、零打包。
   router scrollBehavior 统一处理 hash 锚点避让（读 --anchor-offset，见 composables/anchorOffset）。

@@ -19,7 +19,7 @@
  * ============================================================ */
 
 async (page) => {
-  const routes = ['/', '/agents', '/agents/1011', '/w-engines', '/w-engines/14162', '/bangboos', '/disks', '/formulas', '/about', '/atlas']
+  const routes = ['/', '/agents', '/agents/1011', '/w-engines', '/w-engines/14162', '/bangboos', '/disks', '/formulas', '/about', '/settings']
   const out = { routes: routes.length, structural: {}, offScale: [] }
 
   /** 结构性容器分两档：

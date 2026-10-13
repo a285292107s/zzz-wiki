@@ -52,7 +52,7 @@
   才回源同源 CDN（nanoka），且**不得新增直连外部图源**（禁止把兜底当主源用）。
 - **图标候选链**：**站外图源**一律经 `<HollowImage>`，**禁止直连单一外部图源**（工具清单见 DATA_GUIDE §6）；
   **本地筛选图标资产例外**（属性/职业/阵营图标，单一事实源 `src/domain/filterIcons.ts`）——消费方
-  `FilterDropdown.vue`（筛选下拉）与 `AtlasView.vue`（档案图谱轴标）**直接渲染本地 `iconUrl`**，
+  `FilterDropdown.vue`（筛选下拉，属性/职业/阵营三组选项的图标）**直接渲染本地 `iconUrl`**，
   不经候选链、不发外部请求。
 - **富文本处理**：游戏标记文本（`<color=#…>`、`<IconMap:…>`）展示层一律经富文本工具处理，禁止裸插值（见 DATA_GUIDE §6）。
 - **设计语言（"档案标本"）**：**完整要素与禁令见 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §10**，本条不复述。

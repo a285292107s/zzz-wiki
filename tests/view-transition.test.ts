@@ -45,7 +45,7 @@ describe('共享元素过渡的路由判据', () => {
     expect(isDeckToAgentDetail(AGENTS_LIST, HOME)).toBe(false) // 首页 → 名录
     expect(isDeckToAgentDetail(DETAIL, AGENTS_LIST)).toBe(false) // 名录 → 详情（没有起飞端）
     expect(isDeckToAgentDetail(WENGINE_DETAIL, HOME)).toBe(false) // 别的类目详情
-    expect(isDeckToAgentDetail(route('atlas', '/atlas'), HOME)).toBe(false)
+    expect(isDeckToAgentDetail(route('formulas', '/formulas'), HOME)).toBe(false)
   })
 
   it('回程只认「代理人详情 → 首页」', () => {

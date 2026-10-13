@@ -3,7 +3,8 @@
  *
  * 数据在 hero-gender-variants.json：value = { variants, defaultFile }。
  * defaultFile = 本站默认展示（女性）版；男性版为 variants 中 ≠ defaultFile 的项（不依赖顺序）。
- * 当前形态经 useHeroForm 选中（1551 详情页 AgentHead 形态切换钮；首页 hero 头图已移除）。
+ * 当前形态经 useHeroForm 选中，切换入口在设置页（/settings）——详情页 AgentHead、
+ * 首页 hero 头图、代理人名录卡片都只读形态，不各摆切换钮。
  * 命名与 download-icons.mjs 的 HERO_GENDER_VARIANTS 一致。
  * ============================================================ */
 

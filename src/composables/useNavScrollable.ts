@@ -3,13 +3,13 @@
  *  - 检测内容是否超宽（scrollWidth > clientWidth）→ 给轨道加 .scrollable
  *  - 两端位置以 .at-start / .at-end 表达，供样式把**该方向**的淡出收掉：
  *    淡出与出口按钮都只在「那一边确实还有内容」时存在，到边即消失。
- *    （AtlasView 只取 .scrollable；另两条只对吸顶横条有意义，多挂无副作用）
  *  - 鼠标滚轮在横条上时转为横向滚动（桌面端主要入口）
  *  - scrollRight() 供出口按钮点击滚屏；ensureActiveVisible() 让当前区块不滑出视野
  * 横条条目在数据就绪后才出现：调用方须在条目就位后主动 refresh()。
- * 传入的 navEl 必须是**真正滚动的那个元素**（.sn-list / .atlas-scroll），
+ * 传入的 navEl 必须是**真正滚动的那个元素**（`.sn-list`），
  * 出口按钮是它的兄弟而非子节点——按钮留在轨道外，才不会压住最后一个条目。
  * 样式见 base.css 的 .sn-list / .sn-scroll-btn。
+ * 两条消费者都是吸顶横条：公式页（章节索引）与详情页（区块索引）。
  * ============================================================ */
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 

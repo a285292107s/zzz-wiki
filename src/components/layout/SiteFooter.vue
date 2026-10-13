@@ -60,12 +60,12 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* 与正文拉开一个「区块级」距离，但**收窄到半个区块**：原先 1.2 倍时发丝线上方
-   桌面 92px、下方（页脚自身内边距）只有 31px，上下差 3 倍 —— 那条线读起来像正文的
-   收尾线，站尾反倒像飘在远处。0.6 倍下上下大致同量级，线回到「页脚的开头」。 */
+/* 线上方的留白与**自身内边距**（26px）取同一量级，发丝线才落在「页脚的开头」而不是
+   飘在远处；留白偏大时会与页脚底色连成一片，读起来像页脚头上顶着一块空地。
+   0.3 倍在桌面 ≈26px，窄屏 --pad-section 收到 40px 时只有 12px，故兜底 24px。 */
 .foot {
   border-top: var(--rule);
-  margin-top: calc(var(--pad-section) * 0.6);
+  margin-top: max(24px, calc(var(--pad-section) * 0.3));
 }
 
 .foot-inner {
@@ -133,7 +133,8 @@ onMounted(() => {
   gap: 8px;
 }
 
-/* 站内常规入口：数据说明（页脚此前无站内链接，出处页给读者一个落点） */
+/* 站内常规入口：数据说明（出处）。
+   它不进站头导航——站头预算见 ADR 0004，页脚是它的落点。 */
 .foot-link {
   font-size: var(--fs-micro);
   letter-spacing: 0.16em;

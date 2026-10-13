@@ -96,6 +96,8 @@ async (page) => {
   }
 
   // 3) 名录 + 筛选下拉
+  // 名录页的两套陈列版本是本机偏好（决策记录 0008）：本步的 rows 断言按**表格版**语法。
+  await page.evaluate(() => localStorage.setItem('zzz-wiki:agents-view', 'table'))
   await page.goto('http://localhost:4175/agents', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1800)
   {

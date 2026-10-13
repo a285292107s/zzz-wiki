@@ -10,24 +10,24 @@ RULES 表里（不靠猜返回结构）；**新增审计脚本必须同时补判
 
 | 脚本 | 检查项 | 基线 |
 |---|---|---|
-| viewport-overflow.js  | 8 视口 × 8 路由横向溢出 | 0 |
-| touch-targets.js      | 交互目标 ≥24×24（WCAG 2.5.8） | 0 问题 |
-| regression-walk.js    | 全站功能走查（**92 项**，覆盖七类目/边界态/URL 状态/离线联动）。名录/图谱的**条数不写死**：比对运行时数据文件真值（`live-data-readable` 先取真值，再断言「渲染条数 == 数据条数」），故 `pnpm run sync` 新增角色不会误报。图谱轴标图标单列一项（`atlas-axis-icons`）：断的是**素材在站内**（src 落在 `/data/img/filter/`）而非「能加载」——换 CDN 直链时结构断言仍全绿、但零外部请求的约束已破，故必须查 src。技能等级另有两条：上限 16（含影画加成）与默认 12 不得混同、以及拖到 16 级确实按该级出数值。出处一条（`provenance-single-source`）：版本号可见且数据版本/快照日期/数据源各只出现一次——详情页内容末原有独立出处行，与站尾重复同一批事实，已合并到站尾。分享入口两条分列两类页：名录页 `copy-hidden-when-idle`/`copy-shown-when-stateful` 守「URL 带状态才出现」，详情页 `share-in-page-actions`/`share-stays-put-across-levels` 守「在 `.page-actions`、每页一个、不随等级出现消失」（决策记录 0006） | 92/92 |
+| viewport-overflow.js  | 8 视口 × 9 路由横向溢出 | 0 |
+| touch-targets.js      | 交互目标 ≥24×24（WCAG 2.5.8） | 0 问题（**行内文本链接**按该条的 Inline 例外豁免：命中区高度由所在句子的行高决定，放大即撑开行距；判据 `isTextLink` 随每条问题一起返回） |
+| regression-walk.js    | 全站功能走查（**97 项**，覆盖七类目/边界态/URL 状态/离线联动）。名录页的**两套陈列版本**各有一组断言：表格版沿用行数/空态那组，排序另有两项——`sort-ui-removed-in-table`（表头不再可点、无 `aria-sort`）与 `sort-deeplink-still-read`（历史 `?sort=&dir=` 仍照读：参数在、行序确实变了），卡片版另测**设置页切换 → 渲染卡片且表格行为 0 → 地址栏不带版本 → 刷新仍在 → 切回表格版**（偏好只存本机，决策记录 0008），并有 `cards-no-sort-ui` 守「卡片版工具栏不出现排序钮」；音擎与驱动盘两个栅格名录页同理，`sort-ui-removed-in-grids` 守「两页工具栏不出现排序钮」（这几处仍走 `useCatalogSort` 取默认编号倒序，故深链照读）。名录的**条数不写死**：比对运行时数据文件真值（`live-data-readable` 先取真值，再断言「渲染条数 == 数据条数」），故 `pnpm run sync` 新增角色不会误报。站头导航两条守**展示位次**：`nav-numbering-contiguous`（编号必须 `01,02,03,04,05,06` 连续、不许空号）与 `nav-last-is-settings`（末位是设置且指向 `/settings`）——档案图谱整页下线后位置让给设置，入口数保持 6（决策记录 0008）。技能等级另有两条：上限 16（含影画加成）与默认 12 不得混同、以及拖到 16 级确实按该级出数值。出处一条（`provenance-single-source`）：版本号可见且数据版本/快照日期/数据源各只出现一次——详情页内容末原有独立出处行，与站尾重复同一批事实，已合并到站尾。分享入口两条分列两类页：名录页 `copy-hidden-when-idle`/`copy-shown-when-stateful` 守「URL 带状态才出现」，详情页 `share-in-page-actions`/`share-stays-put-across-levels` 守「在 `.page-actions`、每页一个、不随等级出现消失」（决策记录 0006） | 97/97 |
 | transfer-profile.js   | 首访传输预算（冷缓存总重 + 分类明细；总重 <3MB 竞奖档 / 字体 ≤1.2MB / 图片 ≤1MB） | 53 请求 / 751KB（js 61 + css 25 + 字体 189 + 图片 436 + json 40；**2026-10 实测，运行取当前值**） |
 | quick-search.js       | ⌘K 检索链路端到端（中文高亮/罗马字命中/结果态预激活/空态键盘路径） | 4/4 |
 | font-loading.js       | CJK 衬线生效 + 分片按需 | serif=Noto Serif SC |
 | slider-keyboard.js    | 滑条键盘操作（8 实例） | 全部响应 |
 | landmarks.js          | landmark/h1/alt 唯一性 | 每页 h1/main/footer 各 1；无缺 alt 图（详情页含 2 个 `<header>`：页头 + 条目头，合法） |
 | font-weight-calibration.js | CJK 衬线实际渲染字重标定 | 生产 = wght 500 实例 |
-| axe-a11y.js          | axe-core 全量规则（**15 路由 × 桌面/移动 = 30 组合**，含详情 404 态） | 0 violations |
+| axe-a11y.js          | axe-core 全量规则（**14 路由 × 桌面/移动 = 28 组合**，含详情 404 态） | 0 violations |
 | axe-states.js        | 交互面板**展开态**的 axe（窄屏 ☰ 导航菜单/下拉/检索/浮层/空态） | 6 状态 0 violations |
 | print-mode.js        | 打印（纸墨模式）：白纸黑字/外壳隐藏/内容保留/站尾出处含版本号 | **30/30**（5 路由 × 6 断言） |
 | forced-colors.js     | 高对比度模式：结构线/状态/滑条可见 | 8/8 |
 | csp-check.js         | 生产安全响应头本地验证（拦截注入 CSP 后走关键路径） | 0 违规 |
 | content-sweep.js     | 全站逐页内容完整性（**页数取自 `dist/sitemap.xml`，不写死**） | 0 异常 |
-| focus-visible.js     | 焦点可见性（逐 Tab 位，WCAG 2.4.7） | 121 停靠点 0 缺失 |
+| focus-visible.js     | 焦点可见性（逐 Tab 位，WCAG 2.4.7） | 130 停靠点 0 缺失（6 路由） |
 | typography-audit.js  | 排印合规（字号是否全在 --fs-* 尺度内、字体族、行宽） | 0 越轨 |
-| interaction-states.js| 交互态完整性（逐元素强制 :hover/:active 比较视觉指纹） | 101 元素 0 缺失 |
+| interaction-states.js| 交互态完整性（逐元素强制 :hover/:active 比较视觉指纹） | 122 元素 0 缺失（6 路由） |
 | motion-audit.js      | 动效克制性（reduced-motion 覆盖、过长过渡、transition: all） | reduced 0 残留 |
 | color-audit.js       | 色彩系统（调色板合规 / 文本 AA / 非文本 3:1） | 0 越轨，最差文本 4.65:1 |
 | reflow-spacing.js    | WCAG 1.4.10 重排(320px) + 1.4.12 文本间距 + 320px 命中区 + 触屏档 | 0 溢出/0 裁切/0 过小目标 |
@@ -88,8 +88,10 @@ RULES 表里（不靠猜返回结构）；**新增审计脚本必须同时补判
 新增审计：脚本导出 JSON（{ total, failed, failedItems } 风格），
 失败项必须带定位信息（tag/cls/几何），让下一轮修复不用重新考古。
 新增页面/路由时，**同时把路径加进各审计的 `routes` 清单**（axe/ax-tree/排印/色彩/
-节奏/reflow/打印/交互态/焦点/动效/视口溢出/landmark/touch-targets）——否则新页面
+节奏/构图/reflow/打印/交互态/焦点/动效/视口溢出/landmark/touch-targets）——否则新页面
 等于没有任何门禁覆盖。`content-sweep` 读 sitemap，会自动覆盖。
+⚠ **不进 sitemap 的路由**（如 `/settings`：它只从站头导航与首页目录进，刻意为本机偏好页）
+不受 `content-sweep` 覆盖，只能靠上面这 13 份清单——加路由时别只看 sitemap。
 
 ⚠ **`git checkout -- <目录>` 会连未提交的改动一起回退**：为恢复一个被正则改坏的审计
   脚本而 `git checkout -- scripts/audits/`，把同目录下**尚未提交**的走查护栏一起退掉了

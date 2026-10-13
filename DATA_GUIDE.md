@@ -190,8 +190,10 @@ public/data/
 > `img/hero/`。**单一事实源**：`src/data/hero-gender-variants.json` 以 `{ id: { variants, defaultFile } }`
 > 列出全部双形态——`download-icons.mjs` 按 `variants` 逐个下载；`src/data/heroGenderVariants.ts` 的
 > `heroVariantFile(id, form)` 取当前形态（**女性**= `defaultFile`，**男性**= `variants` 中非 `defaultFile`
-> 的项，缺位回退 `defaultFile`）；`useHeroForm` 持形态状态 + `localStorage` 持久化，供
-> 1551 详情页 `AgentHead.vue` 跟随用户所选形态，切换即时一致。`CalibrateView.vue`（图库校准）与
+> 的项，缺位回退 `defaultFile`）；`useHeroForm` 持形态状态 + `localStorage` 持久化（模块级 ref + 写盘，
+> 与代理人名录的版本偏好同一套写法）。**消费方只读、不各摆切换钮**：1551 详情页 `AgentHead.vue`、
+> 首页「今日角色」卡面、代理人名录卡片都按当前形态取图，切换入口统一在**设置页**（`/settings`）。
+> `CalibrateView.vue`（图库校准）与
 > `useFeaturedAgents`（今日角色池）经 `heroImageFile(id)` 取**默认展示（女性）版**来定档，故双形态角色
 > （当前为 1551）也会出现在校准网格 / 可取图列表，无需手写 `Mindscape_…` 文件名字符串。后续新增双形态
 > 角色，`variants` 按「女性(默认)/男性」顺序填、`defaultFile` 填女性即可，**只改这份 JSON** 即自动生效，

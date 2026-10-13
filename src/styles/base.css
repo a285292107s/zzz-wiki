@@ -122,6 +122,15 @@ body::before {
   border-bottom: none;
 }
 
+/* 卡片版名录的栅格与上面两类块不同：它**没有自己的收口线**（格子不带边框、末排也不带行距），
+   末元素是一行文字签条 —— 不补留白就正好压在胶囊的收口线上（行上方 12px 行距，行下方 0）。
+   同样只对**正好落在胶囊底**的内容生效；`.more` 续加载计数器还在时栅格不是末元素，不受影响。
+   留白取区块间距的一个份额：桌面 ≈35px，320px 窄屏仍有 16px（大于一行行距）。 */
+.wrap.page > .cards-wrap:last-child,
+.wrap.page > :last-child > .cards-wrap:last-child {
+  padding-bottom: calc(var(--pad-section) * 0.4);
+}
+
 ::selection {
   background: var(--amber-dim);
   color: var(--amber-hi);
@@ -1219,10 +1228,9 @@ html.vt-restore .vt-chrome-case {
   }
 
   /* 2) 纯底色表示的选中/当前状态 → 系统高亮描边（HCM 下底色会被压平）
-        覆盖：筛选下拉选中项、检索面板当前行、排序激活钮、区块索引当前项 */
+        覆盖：筛选下拉选中项、检索面板当前行、区块索引当前项 */
   .opt.selected,
-  .qs-row.on,
-  .sort-btn.on {
+  .qs-row.on {
     outline: 2px solid Highlight;
     outline-offset: -2px;
   }

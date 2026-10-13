@@ -29,7 +29,9 @@ const RULES = {
   'quick-search.js': (r) => r.failed === 0,
   'spacing-audit.js': (r) => r.layout?.offScale === 0,
   'viewport-overflow.js': (r) => r.total === 0,
-  'touch-targets.js': (r) => (r.problems ?? []).length === 0,
+  // 行内文本链接按 WCAG 2.5.8 的 Inline 例外豁免：它的命中区高度由所在句子的行高决定，
+  // 放大就得把行距一起撑开（脚本已按此判据算出 isTextLink，此处据它过滤）
+  'touch-targets.js': (r) => (r.problems ?? []).filter((p) => !p.isTextLink).length === 0,
   'ax-tree.js': (r) =>
     r.totalUnnamed === 0 &&
     (r.badH1 ?? []).length === 0 &&

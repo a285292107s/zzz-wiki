@@ -35,6 +35,10 @@ async (page) => {
   })
   await cdp.send('Network.clearBrowserCache')
 
+  // 名录页的两套陈列版本是**本机偏好**（决策记录 0008）：新访客默认卡片版，
+  // 而本审计末尾要按「表格版的行数」断言在线恢复，故先钉到表格版（同一 4175 源下写入）。
+  await page.evaluate(() => localStorage.setItem('zzz-wiki:agents-view', 'table'))
+
   // 1) 在线访问两页，让 SW 接管并缓存
   await page.goto('http://localhost:4175/agents/1011', { waitUntil: 'networkidle' })
   await page.waitForTimeout(2500)
