@@ -3,8 +3,8 @@
  * 档案栅格（驱动盘 / 音擎两个名录共用）：栅格几何 + 卡壳 + 骨架 + 「无匹配」空态。
  *
  * 卡内内容由调用方经默认插槽决定（驱动盘陈列 2/4 件套文本，音擎陈列满级面板与
- * 音擎效果），本组件只保证两页的**卡壳几何**完全一致——1px gap 靠底色画出分隔线，
- * 无圆角、无投影，延续「档案标本」语言。
+ * 音擎效果），本组件只保证两页的**卡壳几何**完全一致——分格线由格子自己的右/下
+ * 发丝边画（见样式里的理由），无圆角、无投影，延续「档案标本」语言。
  */
 import NoMatchState from './NoMatchState.vue'
 
@@ -73,17 +73,25 @@ const emit = defineEmits<{ (e: 'clear'): void }>()
 </template>
 
 <style scoped>
+/* 分格线由**格子自己**画：每格右/下各一条发丝边，栅格底色不再充当线。
+   旧写法（gap: 1px + 栅格底色当线）在末排凑不满列数时，没有格子的位置也会
+   露出那层底色，糊成一块实心灰板并一直顶到胶囊收口线（音擎 100 条 / 3 列时
+   空 2 格 = 778×327px）。改为逐格画线后，线只出现在有内容的地方：末排空位
+   既无线也无底色。外框的上/左由栅格给，右/下由最右列、末排的格子给。
+   代价是每格内容宽度少 1px（border-box），视觉不可辨。 */
 .card-grid {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--card-min), 1fr));
-  gap: 1px;
-  background: var(--line-1);
-  border: var(--rule);
+  gap: 0;
+  border-top: var(--rule);
+  border-left: var(--rule);
 }
 
 .card {
   background: var(--bg-2);
+  border-right: var(--rule);
+  border-bottom: var(--rule);
   padding: 16px;
   display: flex;
   flex-direction: column;

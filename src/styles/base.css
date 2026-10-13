@@ -108,10 +108,16 @@ body::before {
    `:last-child` 两级是为了容下「栅格外还套一层 .card-grid-wrap」的情形；
    只对**正好落在胶囊底**的内容生效 —— 表格/栅格后面还有东西时，它仍需要自己的收口线。 */
 .wrap.page > .hairline-table:last-child > tbody > tr:last-child > :is(td, th),
-.wrap.page > :last-child > .hairline-table:last-child > tbody > tr:last-child > :is(td, th),
+.wrap.page > :last-child > .hairline-table:last-child > tbody > tr:last-child > :is(td, th) {
+  border-bottom: none;
+}
+
+/* 卡片栅格（音擎/驱动盘）的框线画在**格子**上（见 CardGrid.vue），它的下边线因此不再是
+   栅格自己的边，撤不掉 —— 与胶囊收边线相邻会叠成 2px。故把栅格上提 1px，让格子的下边线
+   与胶囊的收边线落在**同一像素行**（同样只画一次；空位区下沿只剩胶囊那条，仍是 1px）。 */
 .wrap.page > .card-grid:last-child,
 .wrap.page > :last-child > .card-grid:last-child {
-  border-bottom: none;
+  margin-bottom: -1px;
 }
 
 /* 移动端堆叠条目（CatalogTable）的收口线画在**条目**（tr）上而不是格（td）上——
@@ -1211,11 +1217,12 @@ html.vt-restore .vt-chrome-case {
    ============================================================ */
 
 @media (forced-colors: active) {
-  /* 1) 底色充当发丝线的网格/细线：换 CanvasText（正文色）作实体线 */
+  /* 1) 底色充当发丝线的网格/细线：换 CanvasText（正文色）作实体线。
+        ⚠ 卡片栅格（音擎/驱动盘）不在列：它的分格线已是格子的实体边框（HCM 下由系统
+        自动改色），若在此补一层底色，反而会把末排空位涂成实心块。 */
   .section-head .rule,
   .dossier,
   .stat-grid.v-grid,
-  .card-grid,
   .note-rule {
     background: CanvasText !important;
   }
