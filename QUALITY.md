@@ -40,7 +40,7 @@
 | **详情页加载态** | 加载中有形状、内容到达是「填进去」不是「换一页」 | 新增 `DetailSkeleton`（封面带 + 区块标题 + 档案行，与真值同形）：实测加载中 **688px 骨架稳定在位**（旧版只有一行 `LOADING…`、页面 720px），数据到达后 **7 块逐条入场**（369ms 就位 → 727/778/829ms 依次显形）✅ | 冷加载帧序列 + `regression-walk`（detail-cls-fresh = 0） |
 | 总重（首页/名录/详情） | — | — | <3MB | **636 / 440 / 911KB** ✅ | Lighthouse `resource-summary` |
 | 长任务 TBT（节流） | — | — | — | 4 个 / 最长 **229–771ms**（首屏，unattributed）⚠️ | `inp-interaction.js` |
-| 主包 gzip / CSS gzip | — | — | — | **92KB / 15.7KB** ✅（预算 **96** / 22KB；2026-10-14 预算由 70 提到 96：界面短文案三语化——四语文案表 + 术语四语标签，实测归因「文案载荷 ≈10KB、键结构与机制 ≈11KB、只带中文也有 82KB」，见 `verify-budget.mjs` 文件头与 `docs/decisions/0011`） | `pnpm run verify:budget` |
+| 主包 gzip / CSS gzip | — | — | — | **90.5KB / 15.3KB**（`verify:budget` 口径，即门禁实际读的数）✅ 预算 **96** / 22KB。⚠ 同一产物 `vite build` 自报 **92.6KB / 15.7KB**——两套差约 2KB（同一文件、不同 gzip 实现），**引用时连口径一起写**。2026-10-14 预算由 70 提到 96：界面短文案三语化（四语文案表 + 术语四语标签，归因「只带中文也有 82KB」），见 `verify-budget.mjs` 文件头与 `docs/decisions/0011` | `pnpm run verify:budget` |
 | 运行时外部请求 | 0 | 0 | 0 | **数据面 0**；图片候选链兜底例外（见 §4 声明一致性） ✅ | `regression-walk.js` + CSP 门禁 |
 | **离线阅读** | 已访问页面断网可读 | — | — | **Service Worker 已上线**：导航网络优先 / 静态资源缓存优先 / 数据 JSON 陈旧优先 + 后台更新；缓存世代跟随数据版本，换版整批清理；**未缓存页面断网落到自包含的离线兜底页**（可读文案 + 返回入口，而非浏览器空白页） ✅ | `offline-check.js`（7/7，含负向验证） |
 | **回访数据量** | 回访零网络 | — | — | 首访详情 **881KB / 122 项** → 回访 **0KB / 128 项全部由 SW 命中**（`transferSize` 合计 0、`workerStart>0` 全覆盖）——对反复查阅的资料档案是实际收益，也对应 Webby「带宽受限」考量 ✅ | `offline-check.js`（repeat-visit-zero-network） |
@@ -127,7 +127,7 @@
 | **数据出处** | 数据可追溯到具体版本与快照 | 站尾给出**全站唯一**的出处三件：`数据源 zzz.nanoka.cc · 数据版本 LIVE x.y · 数据更新 · 日期`（每页可见，含名录页）。内容页不再各印一份——详情页内容末原有独立出处行，与站尾相隔约 100px 重复同一批事实，已合并 | `regression-walk.js`（provenance-single-source）+ `offline-check.js` |
 | **公式页版本锚定** | 机制版本与数据版本并列可对照 | 「机制整理 **2.0 版** · 站内档案数据 **LIVE 3.2**（快照 …）」+ 出处链接 + 通向实据的交叉引用（→ 代理人名录对照读数） ✅ | `regression-walk.js`（formulas-version / formulas-crossref） |
 | **声明与实现一致** | 文案不得绝对化到与实现不符 | 原「页面不做任何跨域请求 / 不经任何外部服务」→ 改为「**本站资源齐备时零跨域请求** + 候选链兜底例外」（实测邦布 55098 缺图标时确实回源 CDN 一次）；原「离线打开已缓存页面仍可阅读」当时**没有 SW、是空话** → 现已实现并写明适用范围 ✅ | `regression-walk.js`（about-claims-precise）+ `offline-check.js` |
-| **四语界面无残留半成品** | 切到任一语言后，界面壳不得出现中文残留、`[object Object]`、或装不下的文案 | 设置页切 en/ja/ko 后逐页走查：站头/名录/详情/设置/404 的壳全为目标语言，`<html lang>` 同步；`Loc` 对象若漏解会在页面上印成 `[object Object]`，故这类漏解由单测与走查双守 ✅ | `tests/ui-text.test.ts` + 一次性四语走查（2026-10-14，四页 × 三语）+ `reflow-spacing.js` / `viewport-overflow.js`（窄屏文案变长后的重排与溢出） |
+| **四语界面无残留半成品** | 切到任一语言后，界面壳不得出现中文残留、`[object Object]`、或装不下的文案 | 设置页切 en/ja/ko 后逐页走查：站头/名录/详情/设置/404 的壳全为目标语言，`<html lang>` 同步；`Loc` 对象若漏解会在页面上印成 `[object Object]`，故这类漏解由单测与走查双守 ✅ | `tests/ui-text.test.ts` + 一次性四语走查（2026-10-14，名录/详情两类页 × 三语，人工截图比对）。⚠ **几何审计（`reflow-spacing` / `viewport-overflow`）没有语言维度**：脚本不读写 `zzz-wiki:lang`，默认只在中文档跑（见 `scripts/audits/README.md` 的「清语言偏好」说明），故 en/ja/ko 的窄屏排版目前只由那次一次性走查覆盖，**改文案后需人工重看**或给审计加语言档 |
 | 多语言质量 | **译文来源分层，且如实标注**：游戏内容取源站官方本地化；界面短文案是**起草**、待人工复核；站内中文长文不翻译 | **游戏内容四语**（zh/en/ja/ko 取自源站本地化端点，零机翻）；**界面短文案四语**（导航/按钮/区块标题/筛选标签/表头/空错态/检索面板/设置页/标签页标题；en/ja/ko 为**AI 起草 + 待人工复核**，术语表见 `docs/conventions/glossary.md`，游戏术语取源站官方值域）；**长文页**（`/about`、`/formulas`）保持中文原文，非中文读者见页内「本页仅中文」注记。范围与取舍见 `docs/decisions/0011`（取代 0010 的「界面外壳单语」部分） ✅ | `pnpm run verify:data`（四语契约 + 同源）+ `tests/ui-text.test.ts`（四语键对齐 · 无空值 · 占位符一致 · 术语取官方译名）+ `tests/names.test.ts`、`tests/search.test.ts`（回退序与「label 随语言、匹配面不随语言」） |
 
 ## 5. 安全与部署（Functionality 的工程底线）
@@ -137,8 +137,8 @@
 | CSP | 严格（脚本无 unsafe-inline/eval） | **已上线，本地实测 0 违规** ✅ | `csp-check.js` + `verify:vercel` |
 | 缓存策略 | 内容寻址 immutable、非寻址重验证 | **27 项断言通过** ✅ | `verify:vercel` |
 | 部署产物一致性 | sitemap 域 = canonical 域 | **门禁通过** ✅ | `verify-budget` |
-| 测试 | 全绿 | **547 passed / 52 files**（2026-10 实测；数值随测试增长，**以 `pnpm test` 输出为准**）✅ | `pnpm test` |
-| **审计工具箱全量复跑** | 28 脚本全部通过 | **28/28 · 0 需人工判读**（每个脚本的通过判据显式声明；失败即非零退出）✅ | **`pnpm run audit:all`**（一条命令；单脚本仍可 `playwright-cli run-code --filename=scripts/audits/<脚本>`） |
+| 测试 | 全绿 | **557 passed / 52 files**（2026-10 实测；数值随测试增长，**以 `pnpm test` 输出为准**）✅ | `pnpm test` |
+| **审计工具箱全量复跑** | 29 脚本全部通过 | **29/29 · 0 需人工判读**（每个脚本的通过判据显式声明；失败即非零退出）✅ | **`pnpm run audit:all`**（一条命令；单脚本仍可 `playwright-cli run-code --filename=scripts/audits/<脚本>`） |
 
 > **死代码扫描（knip）不在 `build:ci` 里**——`package.json` 没有 knip script，只能手工 `pnpm dlx knip`。
 > `knip.json` 的三条设置各自在挡一件**非显然**的事，**不要顺手删掉**：

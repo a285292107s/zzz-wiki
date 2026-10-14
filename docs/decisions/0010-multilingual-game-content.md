@@ -16,7 +16,7 @@ Class: feature
 
 数据源四语齐全（`static.nanoka.cc` 的 `/zzz/{ver}/{lang}/…` 详情端点 zh/en/ja/ko 均 200，名词表同样四语），
 但站点只构建与展示中文：`scripts/build/domains.ts` 把 `zh/character` 这类路径写死，`public/data/live/` 下
-只有一个 `zh/` 目录，`src/data/api.ts` 虽有 `Lang` 类型与 `detail(kind, id, lang)` 参数，却没有任何调用点
+只有根下一份名录/词典 + 一个 `zh/` 详情目录，`src/data/api.ts` 虽有 `Lang` 类型与 `detail(kind, id, lang)` 参数，却没有任何调用点
 传过非默认值，也没有任何切换入口。
 
 而「做多语言」其实是两条完全不同的路，代价差一个量级：
@@ -59,7 +59,8 @@ manifest.json                                           根下唯一文件（版
   套到非中文名录会得到「英文条目里混中文阵营名」；只借其中的数字码再配源站粗粒度名，则多个细分码会同名
   （筛选下拉出现重复项）。故非中文一律走源站粗粒度阵营，各语言内部自洽。
 - **校验**：`pnpm run verify:data` 升级为「四语 × 契约 + 完整性 + **同源**」——名录由同一份源站名录派生，
-  `src/verify-data` 因此逐类目断言四语 id 集合一致（某语言目录漏写/写坏直接失败，不靠人工比对四个目录）。
+  `scripts/verify-data.ts` 因此逐类目断言四语的名录 id 集合一致，**并且**断言四语的详情文件 id 集合
+  也一致（只查名录会放过「名录齐、详情缺」）；某语言目录漏写/写坏直接失败，不靠人工比对四个目录。
 
 ### 前端
 
@@ -75,7 +76,7 @@ manifest.json                                           根下唯一文件（版
   故 `src/utils/names.ts` 另出 `pickLocaleInfo`；`pickName` 同时收字符串与 `{name}` 两种形态
   （顺手修掉一处既有缺陷：`DiskDetailView` 的翻页标签传的是 `pickName`，它逐个跳过对象 → 标签恒为「—」）。
 - **界面外壳一律不动**，仍是中文：导航、按钮、区块标题、筛选标签、元素/职业标签（`domain/enums.ts` 的人工标签）、
-  页面 meta、sitemap、逐路由静态 HTML。搜索索引的**匹配面**（`hay`）仍是四语合并串（与界面语言无关），
+  页面 meta、sitemap、逐路由静态 HTML。搜索索引的**匹配面**（`hay`）仍是四语合并串（与展示语言无关），
   只有展示用的 `label` 随语言。
 
 ### 入口
@@ -87,7 +88,7 @@ manifest.json                                           根下唯一文件（版
 ## Alternatives considered
 
 - **界面文案也做多语言**：与 QUALITY.md「无机器翻译痕迹」冲突；人工翻译 54 个 `.vue` 的界面文案是另一项
-  内容工程，且会把 SEO 的单地址模型（sitemap / canonical / `generate-route-html` 的 238 份静态 HTML）
+  内容工程，且会把 SEO 的单地址模型（sitemap / canonical / `generate-route-html` 的 237 份静态 HTML）
   改成多地址模型。按用户确认的范围只做内容多语言。
 - **名录保持单份，把本地化注入字段改成四语字典**（`camp_name` → `camp_names: { zh, en, … }`）：
   名录不必按语言复制、切语言不重取名录。败在改动面——每个消费点都要改取值方式（含
@@ -95,7 +96,7 @@ manifest.json                                           根下唯一文件（版
   这条规则统一，代价只是三份副本里每份约 0.3MB（见 Consequences）。
 - **语言进 URL**（`?lang=en` 或 `/{lang}/…` 路径）：分享链接能带语言、SEO 能有多语地址。
   败在同一页面会出现多个 URL，而 sitemap / canonical / 逐路由静态 HTML 都按单地址生成
-  （要按语言各生成一份，238 → 952 份）。语言是本机偏好而非页面身份，与名录版式、立绘形态同类。
+  （要按语言各生成一份，237 → 948 份；sitemap 的 238 条 URL 含根页，同样要 ×语言数）。语言是本机偏好而非页面身份，与名录版式、立绘形态同类。
 - **按 `navigator.language` 自动选语言**：能免去非中文读者找入口。败在会让「浏览器语言不是中文」的读者
   一进来就看到另一种语言，与「默认 zh」的既有约定相悖；而切换入口是可见的。
 - **切换器放站头工具区**：可见性最好，非中文读者一进来就能换。败在站头有一份写死的宽度空间账
@@ -128,7 +129,11 @@ manifest.json                                           根下唯一文件（版
 - 收益：`verify:data` 多守一条「四语同源」契约；`domain/search.ts` 里那份与 `pickName` 重复的名称提取
   被删除（改为复用 `utils/names`，并因此新增一条 `domain → utils` 依赖，已登记在
   [`docs/architecture.md`](../architecture.md) §4）。
-- 遗留缺口：非中文界面下**元素 / 职业标签仍是中文**——它们来自 `domain/enums.ts` 的人工标签，
-  且源站的本地化名在构建期被 `enVal` 归一成英文枚举值。要本地化标签，先得决定 `enums.ts` 是否承载四语。
-- 遗留缺口：sitemap / 逐路由静态 HTML / 页面 meta 仍是中文单语（界面外壳中文的直接结果）；
-  若界面将来也做多语言，这三处要一起改。
+- ~~遗留缺口：非中文界面下**元素 / 职业标签仍是中文**~~ **已由 0011 解决**：`domain/enums.ts` 的
+  `label` 现在是四语 `Loc`（取自源站官方值域，见 0011 的锚点表），`Tags` 等消费点按当前语言取值。
+  站内只对**中文**保留「火/冰/电/风」短式。
+- 遗留缺口：**构建期产物**仍是中文单语——`generate-sitemap.mjs` 与 `generate-route-html.mjs` 固定读
+  `DEFAULT_LANG`（首位语言）、产出 237 份静态 HTML 与 238 条 sitemap URL，未按语言翻倍。
+  运行时**页面 meta 已随语言**（`usePageMeta` 解析四语 `Loc` 的 `route.meta.title`），
+  故差别只在「爬虫/分享抓到的静态 HTML 是哪门语言」。
+  若要静态产物也分语，这两处要一起改（并把 URL 空间 ×语言数）。

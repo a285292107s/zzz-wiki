@@ -30,7 +30,8 @@ export type Lang = 'zh' | 'en' | 'ja' | 'ko'
  */
 export const LANGS: readonly Lang[] = LANGS_JSON as readonly Lang[]
 
-/** 默认语言：数据面起点与首访界面语言（历史站点即中文）。 */
+/** 默认语言：数据面起点与首访展示语言（历史站点即中文）。术语统一叫「展示语言」，
+ *  与设置页的选项、DESIGN.md 的用词一致——不要另立「界面语言」。 */
 export const DEFAULT_LANG: Lang = 'zh'
 
 /** 语言元信息：切换入口只显示**自称**（原生拼写），不引入任何译文。 */

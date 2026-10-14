@@ -148,7 +148,8 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
   ＋ `useUiText`）；**站内中文长文**（`/about`、`/formulas`）与构建期静态产物不翻译，
   长文页对非中文读者挂「本页仅中文」注记。列表与详情按语言取数：
   `listFor`/`detailFor` 的 `lang` 是必填参数，`useAsyncResource` 的 watchEffect 读到它后自动重新取数。
-  语言集单一事实源 `domain/lang.ts`（+ `langs.json`）。**切换入口在设置页**，**不进 URL**；
+  语言集**单一事实源是 `src/domain/langs.json`**（有序语言清单）：TS 侧经 `domain/lang.ts` 读它，
+  `.mjs` 侧经 `scripts/build/langs.mjs` 读同一份，两条工具链不各写一遍。**切换入口在设置页**，**不进 URL**；
   范围与取舍见 [决策记录 0010](./docs/decisions/0010-multilingual-game-content.md)（数据面）与
   [0011](./docs/decisions/0011-multilingual-ui-copy.md)（界面文案）。
 - anchorOffset → 锚点避让偏移计算（router scrollBehavior 与吸顶横条同源，读 CSS 变量 --anchor-offset）。

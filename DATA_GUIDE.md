@@ -69,7 +69,7 @@
   - `weapon_type`/`element_type`/`hit_type` 的值统一为**英文**（`{202:"Ice"}`），与旧契约一致（前端只用 key 解码，值文本不参与显示；`camp` 值保留**该语言**文本——源站按语言给，构建期原样透传）。
   - 皮肤 `image` 应用 `SKIN_IMAGE_FALLBACK`（见 §5）。
 - 新增透传字段（v2 增值，前端 index signature 兼容）：`special_element_type`、`strategy`、`fairy_recommend`、`skill_list`、`skill_priority`、`passive`、`potential_detail`、`level`、`extra_level`、`level_exp`、`live2_d`。
-- **特殊属性展示**：详情 `special_element_type.name`（如 星见雅→「烈霜」）在构建期同步注入**该语言**名录为 `special_element` 字段；前端 `Tags` 展示属性时优先显示特殊名，无则退回 `ELEMENTS[element].zh` 基础属性（基础属性标签是站内人工标签，不随语言变——见决策记录 0010 的遗留缺口）。
+- **特殊属性展示**：详情 `special_element_type.name`（如 星见雅→「烈霜」）在构建期同步注入**该语言**名录为 `special_element` 字段；前端 `Tags` 展示属性时优先显示特殊名，无则退回**当前语言**的基础属性标签（`pickText(ELEMENTS[element].label, lang)`，四语取自源站官方译名——见决策记录 0011 的锚点表；站内只对中文保留「火/冰/电/风」短式）。
 - **阵营细分补充**：源数据 `camp` 为粗粒度阵营（如 16=罗斯凯利法），构建期按官方设定把已知角色细分到下属组织（live 3.2 共 15 角色 → 7 子阵营：防卫军·奥波勒斯小队/白银小队、治安局·刑侦特勤组/都市秩序部、罗斯凯利法·外务筹策局/空域巡戍局/弗林特工坊）。单一事实源 `src/data/camp-supplement.json`（码 18 起为细分新增码；细分只覆写名录 `camp/camp_name`，详情 `camp` 保持源数据），由 `domains.ts` 的 `applyCampSupplement()` 注入；上游若原生引入细分，删除对应条目即回归源数据。口径核对自 biligame 角色图鉴（2026-10-05）。
   **只对中文生效**：这张表的展示名是中文策展，源站对细分阵营没有四语名；套到非中文名录会得到「英文条目里混中文阵营名」，只借数字码再配源站粗粒度名又会让多个细分码同名（筛选下拉重复）。故非中文走源站粗粒度阵营。
 - **名词表**：源站 `{lang}/noun.json` 全量下沉为 `live/{lang}/noun.json`；术语名规整为带括号风格（如 `[虚曜]`）注入**该语言**的名录/详情，名词表自身 desc 经 `resolveTerms` 解析（`<Term:N>` 保留 ID 外壳，前端渲染为术语锚点）。**逐语言解析**：中文术语名不能出现在英文正文里。
@@ -303,7 +303,7 @@ pnpm run preview         # 预演产物
   **四个语言各一套完整数据面**（`live/{lang}/`，名录数量逐语一致，见 §3 与决策记录 0010），故 928 份详情文件。
 - **伊埃斯（55098）不入邦布名录展示**：它是绳匠专属的 H.D.D. 搭档，非可获取收藏型号（源站名录即空 icon / 占位 desc 的桩数据）；由 `BangboosView.vue` 的 `HIDDEN_BANGBOO_IDS` 前端策展，名录文件仍保留该条，详情页可经直接链接到达。
 - **源站 latest（3.3.4+…）含前瞻/测试服内容（如 菲欧妮 / 赛维里安，live 3.2 未收录），按合规约定不产出、不展示。**
-- **站方扩展域未消费**：`monster.json`(306) / `boss.json`(47) / `shiyu.json`(62) / `simul.json`(3) / `hard.json`(1) / `zh/item.json`(5771) 全部实测 200，做怪物图鉴/式舆/以骸卡牌页时可扩展（同源 schema 见各端点返回）。
+- **站方扩展域未消费**：`{lang}/monster.json`(306) / `boss.json`(47) / `shiyu.json`(62) / `simul.json`(3) / `hard.json`(1) / `{lang}/item.json`(5771，**也按语言**，实测 `en/item.json` 200 且 name 为英文) 全部实测 200，做怪物图鉴/式舆/以骸卡牌页时可扩展（同源 schema 见各端点返回）。
 
 ### 失效信号
 1. **名录/详情数量为 0** → 版本号变更或端点改名：先看 `.cache/hakushin-raw/manifest.json` 的 `live` 是否仍可用（请求 `https://static.nanoka.cc/zzz/{live}/character.json` 必须 200）。
@@ -371,9 +371,15 @@ CJK 衬线（Noto Serif SC **500 单档**）**按站点字符集裁剪后自托�
 > 否则新字回退系统字体。Google 现行分片是**静态实例（无 fvar 轴）——不要钉可变轴**
 > （harfbuzz 报 axis 不存在）。字体分片对首屏 LCP 的制约与测量口径见 [`QUALITY.md`](./QUALITY.md) §1。
 >
-> 🌐 **语料随数据面语言走（2026-10）**：字符集采集读的是 `public/data/**.json` **全量**，故数据面
-> 一变四语，语料立刻从 3851 涨到 5446 码点（多出的 728 个是日文汉字、另有假名与标点）。
-> 已按新语料重切：251 片 / 1218KB（源片 3093KB），`noto-serif-sc.css` gzip 12.3 → **14.7KB**（预算 40KB）。
+> 🌐 **语料随数据面语言走（2026-10）**：字符集采集面是**四项**——`public/data/**.json`、
+> `index.html`（剔注释）、`src/**.{ts,vue}`（剔注释）、`src/**.json`（界面文案表）；
+> 单一事实源与逐项计数见 `scripts/build/charset.mjs` 的 `collectCharset()`（`verbose: true` 会打印分段计数）。
+> 数据面一变四语，采集面里**数据那一段**从 3803 涨到 5401 码点（+1598：汉字 744、谚文 807、
+> 假名 32、其余标点/拉丁 15）——注意**新增的大头是谚文而非汉字**，而谚文不在 Noto Serif SC 字形集内。
+> 当前清单（`scripts/build/cjk-fonts-manifest.json`）`charsetSize = 5454`（含 HTML 与源码段），
+> 已按此重切：251 片 / 1218KB（源片 3093KB），`noto-serif-sc.css` gzip 12.3 → **14.7KB**（预算 40KB）。
+> **改采集面或数据面语言后必须重跑 `pnpm run fonts:cjk` 并提交新清单**——只加语言不重切，
+> 新字会静默回退系统字体（`verify:fonts:cjk` 会报覆盖缺口）。
 > **谚文（한글）不在 Noto Serif SC 的字形集里**，韩文正文按既有规则回退系统字体
 > （`verify:fonts:cjk` 的「字体本就不含」那一路，不是裁剪缺口）。
 >

@@ -12,17 +12,25 @@
 ## 1. 分层与实测依赖方向
 
 ```
-views ──────────▶ components(30) composables(51) data(38) domain(26) utils(19)
-components ─────▶ composables(20) data(13) domain(17) utils(7)
-composables ────▶ data(10) domain(10) utils(2) components(1) router(1) directives(1)
+views ──────────▶ components(30) composables(84) data(39) domain(38) utils(20)
+components ─────▶ composables(47) data(17) domain(32) utils(11)
+composables ────▶ data(10) domain(15) utils(3) components(1) router(1) directives(1)
 domain ─────────▶ data(3) utils(1)
-data ───────────▶ domain(7) utils(1)
-utils ──────────▶ data(3) domain(2) composables(1)
-router ─────────▶ views(1) domain(2) composables(1)
+data ───────────▶ domain(10) utils(1)
+utils ──────────▶ data(3) domain(3) composables(1)
+router ─────────▶ views(1) domain(4) composables(1)
 directives ─────▶ （无）
+src 根（入口）──▶ components(5) composables(3) utils(2) directives(1) styles(1)
 ```
 
-括号内为该方向上的 import 出现次数（源码级，含类型导入）。
+括号内为该方向上的 **import 语句**数：静态 `import` 与 `export … from` 各计一次，
+**不含**动态 `import()`（懒加载边单列于下方「路由懒加载」）；含 `import type`。
+同一语句引入多个标识符也只计 1。口径可复跑：对 `src/**/*.{ts,vue}` 扫 `from '…'`
+（`.vue` 取全部 `<script>` 块），把 `@/x` 与相对路径都解析到 `src/` 顶层目录再逐层计数。
+
+> 本表在 2026-10 的四语化改动后整体重测过一次——那次改动把 `useUiText` 接进 35 个
+> `.vue`，`views → composables` 与 `components → composables` 各自翻了约一倍
+> （51→84、20→47）。**新增跨层 import 时请顺手更新本表**，否则它就不再是「实测」。
 
 ## 2. 职责与边界表
 
@@ -56,9 +64,9 @@ directives ─────▶ （无）
 
 | 偏离 | 具体位置 | 为什么接受 |
 |---|---|---|
-| `domain → data`（3 处） | `filterIcons.ts:17`（运行时导入 `../data/filter-assets.json`）、`catalog.ts:8`、`signatureEngine.ts:14`（后两者**仅类型**） | 强行单向要么把图标分类搬进 `domain`（造成图标链规则双份，与 DATA_GUIDE §5 的 SSoT 冲突），要么删掉目录驱动表 |
-| `data → domain`（7 处） | `api.ts:42`、`resources.ts:7`、`heroCalibration.ts:12`、`types.ts:7-8,29,44` | 契约与枚举本就应由 domain 拥有——这是**正向**依赖，登记在此仅为说明 `domain ↔ data` 并非严格单向 |
-| `utils → data`（3 处） | `rich.ts:13`（`@/data/icons`）等 | 富文本渲染需要图标候选链；候选链的 SSoT 在 `data/icons.ts` |
+| `domain → data`（3 处） | `filterIcons.ts:17`（运行时导入 `../data/filter-assets.json`）、`catalog.ts:11`、`signatureEngine.ts:14`（后两者**仅类型**） | 强行单向要么把图标分类搬进 `domain`（造成图标链规则双份，与 DATA_GUIDE §5 的 SSoT 冲突），要么删掉目录驱动表 |
+| `data → domain`（10 处） | `api.ts:45-46`、`resources.ts:10-11`、`heroCalibration.ts:12`、`terms.ts:12`、`types.ts:7-8,10,31`（多数**仅类型**） | 契约与枚举本就应由 domain 拥有——这是**正向**依赖，登记在此仅为说明 `domain ↔ data` 并非严格单向 |
+| `utils → data`（3 处） | `rich.ts:13`（`@/data/icons`）、`viewTransition/index.ts:33-34`（`heroGenderVariants` / `heroImageSources`） | 富文本渲染需要图标候选链；候选链的 SSoT 在 `data/icons.ts` |
 | `utils → Vue`（1 处） | `src/utils/viewTransition/index.ts:31` | `viewTransition/` 是**有状态编排层**（依赖 Vue、`data`、`composables`），放在 `utils/` 下名不副实。两条出路：把它迁出 `utils/`，或把边界规则改为「其余 utils 为纯函数，`viewTransition/` 为显式例外」——**尚未拍板** |
 | `composables → components`（1 处） | `useDetailPager.ts:11`（仅 `import type { DetailPagerItem }`） | 仅类型导入，无运行时回跳 |
 | `composables ↔ router`（各 1 处） | `composables → router`(1)、`router → composables`(1) | 懒加载映射与锚点偏移互相需要，未造成分层坍塌 |

@@ -213,7 +213,7 @@ function formShotSources(form: HeroForm) {
         >
           <span class="plate-head">
             <span class="plate-mark" aria-hidden="true">{{ lang === l ? '◈' : '◇' }}</span>
-            <!-- 自称按各自语言标记（读屏会切到对应语音），而不是按界面语言 -->
+            <!-- 自称按各自语言标记（读屏会切到对应语音），而不是按当前展示语言 -->
             <span class="plate-label" :lang="LANG_META[l].htmlLang">{{ LANG_META[l].endonym }}</span>
             <span class="plate-flag" aria-hidden="true">{{ t.common.selected }}</span>
           </span>
