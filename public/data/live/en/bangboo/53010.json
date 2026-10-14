@@ -1,0 +1,443 @@
+{
+ "id": 53010,
+ "code_name": "Electroboo",
+ "name": "Electroboo",
+ "desc": "Bzzzt... Please wear insulated gloves when petting.",
+ "rarity": 3,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole16.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 360,
+  "hpupgrade": 428397,
+  "attack": 50,
+  "attack_upgrade": 252034,
+  "break_stun": 90,
+  "element_abnormal_power": 120,
+  "defence": 30,
+  "def_upgrade": 85729,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 188,
+   "attack": 47,
+   "defence": 38,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 376,
+   "attack": 233,
+   "defence": 75,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 564,
+   "attack": 699,
+   "defence": 113,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 752,
+   "attack": 1864,
+   "defence": 151,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 940,
+   "attack": 4661,
+   "defence": 188,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "Maximum Voltage!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nCharges the enemy and continuously electrocutes the target, dealing <color=#2EB6FF>Electric DMG</color> and accumulating <color=#2EB6FF>Electric Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5301001, Prop:1001}|{Skill:5301001, Prop:1002}|18s"
+    },
+    "2": {
+     "name": "Maximum Voltage!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nCharges the enemy and continuously electrocutes the target, dealing <color=#2EB6FF>Electric DMG</color> and accumulating <color=#2EB6FF>Electric Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5301001, Prop:1001}|{Skill:5301001, Prop:1002}|18s"
+    },
+    "3": {
+     "name": "Maximum Voltage!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nCharges the enemy and continuously electrocutes the target, dealing <color=#2EB6FF>Electric DMG</color> and accumulating <color=#2EB6FF>Electric Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5301001, Prop:1001}|{Skill:5301001, Prop:1002}|18s"
+    },
+    "4": {
+     "name": "Maximum Voltage!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nCharges the enemy and continuously electrocutes the target, dealing <color=#2EB6FF>Electric DMG</color> and accumulating <color=#2EB6FF>Electric Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5301001, Prop:1001}|{Skill:5301001, Prop:1002}|18s"
+    },
+    "5": {
+     "name": "Maximum Voltage!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nCharges the enemy and continuously electrocutes the target, dealing <color=#2EB6FF>Electric DMG</color> and accumulating <color=#2EB6FF>Electric Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5301001, Prop:1001}|{Skill:5301001, Prop:1002}|18s"
+    },
+    "6": {
+     "name": "Maximum Voltage!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nCharges the enemy and continuously electrocutes the target, dealing <color=#2EB6FF>Electric DMG</color> and accumulating <color=#2EB6FF>Electric Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5301001, Prop:1001}|{Skill:5301001, Prop:1002}|18s"
+    },
+    "7": {
+     "name": "Maximum Voltage!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nCharges the enemy and continuously electrocutes the target, dealing <color=#2EB6FF>Electric DMG</color> and accumulating <color=#2EB6FF>Electric Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5301001, Prop:1001}|{Skill:5301001, Prop:1002}|18s"
+    },
+    "8": {
+     "name": "Maximum Voltage!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nCharges the enemy and continuously electrocutes the target, dealing <color=#2EB6FF>Electric DMG</color> and accumulating <color=#2EB6FF>Electric Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5301001, Prop:1001}|{Skill:5301001, Prop:1002}|18s"
+    },
+    "9": {
+     "name": "Maximum Voltage!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nCharges the enemy and continuously electrocutes the target, dealing <color=#2EB6FF>Electric DMG</color> and accumulating <color=#2EB6FF>Electric Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5301001, Prop:1001}|{Skill:5301001, Prop:1002}|18s"
+    },
+    "10": {
+     "name": "Maximum Voltage!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nCharges the enemy and continuously electrocutes the target, dealing <color=#2EB6FF>Electric DMG</color> and accumulating <color=#2EB6FF>Electric Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5301001, Prop:1001}|{Skill:5301001, Prop:1002}|18s"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "Inductive Current",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#2EB6FF>Electric Attribute</color> characters in your squad: <color=#FFFFFF>Bangboo Chain Attack</color> inflicts 60% more Anomaly Buildup.",
+     "property": [
+      "Anomaly Buildup Increase"
+     ],
+     "param": "60%"
+    },
+    "2": {
+     "name": "Inductive Current",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#2EB6FF>Electric Attribute</color> characters in your squad: <color=#FFFFFF>Bangboo Chain Attack</color> inflicts 75% more Anomaly Buildup.",
+     "property": [
+      "Anomaly Buildup Increase"
+     ],
+     "param": "75%"
+    },
+    "3": {
+     "name": "Inductive Current",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#2EB6FF>Electric Attribute</color> characters in your squad: <color=#FFFFFF>Bangboo Chain Attack</color> inflicts 90% more Anomaly Buildup.",
+     "property": [
+      "Anomaly Buildup Increase"
+     ],
+     "param": "90%"
+    },
+    "4": {
+     "name": "Inductive Current",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#2EB6FF>Electric Attribute</color> characters in your squad: <color=#FFFFFF>Bangboo Chain Attack</color> inflicts 105% more Anomaly Buildup.",
+     "property": [
+      "Anomaly Buildup Increase"
+     ],
+     "param": "105%"
+    },
+    "5": {
+     "name": "Inductive Current",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#2EB6FF>Electric Attribute</color> characters in your squad: <color=#FFFFFF>Bangboo Chain Attack</color> inflicts 120% more Anomaly Buildup.",
+     "property": [
+      "Anomaly Buildup Increase"
+     ],
+     "param": "120%"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "Billion Volt Thunderbolt!",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nContinually electrocutes the target, dealing <color=#2EB6FF>Electric DMG</color> and inflicting massive <color=#2EB6FF>Electric Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5301002, Prop:1001}|{Skill:5301002, Prop:1002}"
+    },
+    "2": {
+     "name": "Billion Volt Thunderbolt!",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nContinually electrocutes the target, dealing <color=#2EB6FF>Electric DMG</color> and inflicting massive <color=#2EB6FF>Electric Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5301002, Prop:1001}|{Skill:5301002, Prop:1002}"
+    },
+    "3": {
+     "name": "Billion Volt Thunderbolt!",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nContinually electrocutes the target, dealing <color=#2EB6FF>Electric DMG</color> and inflicting massive <color=#2EB6FF>Electric Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5301002, Prop:1001}|{Skill:5301002, Prop:1002}"
+    },
+    "4": {
+     "name": "Billion Volt Thunderbolt!",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nContinually electrocutes the target, dealing <color=#2EB6FF>Electric DMG</color> and inflicting massive <color=#2EB6FF>Electric Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5301002, Prop:1001}|{Skill:5301002, Prop:1002}"
+    },
+    "5": {
+     "name": "Billion Volt Thunderbolt!",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nContinually electrocutes the target, dealing <color=#2EB6FF>Electric DMG</color> and inflicting massive <color=#2EB6FF>Electric Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5301002, Prop:1001}|{Skill:5301002, Prop:1002}"
+    },
+    "6": {
+     "name": "Billion Volt Thunderbolt!",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nContinually electrocutes the target, dealing <color=#2EB6FF>Electric DMG</color> and inflicting massive <color=#2EB6FF>Electric Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5301002, Prop:1001}|{Skill:5301002, Prop:1002}"
+    },
+    "7": {
+     "name": "Billion Volt Thunderbolt!",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nContinually electrocutes the target, dealing <color=#2EB6FF>Electric DMG</color> and inflicting massive <color=#2EB6FF>Electric Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5301002, Prop:1001}|{Skill:5301002, Prop:1002}"
+    },
+    "8": {
+     "name": "Billion Volt Thunderbolt!",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nContinually electrocutes the target, dealing <color=#2EB6FF>Electric DMG</color> and inflicting massive <color=#2EB6FF>Electric Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5301002, Prop:1001}|{Skill:5301002, Prop:1002}"
+    },
+    "9": {
+     "name": "Billion Volt Thunderbolt!",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nContinually electrocutes the target, dealing <color=#2EB6FF>Electric DMG</color> and inflicting massive <color=#2EB6FF>Electric Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5301002, Prop:1001}|{Skill:5301002, Prop:1002}"
+    },
+    "10": {
+     "name": "Billion Volt Thunderbolt!",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nContinually electrocutes the target, dealing <color=#2EB6FF>Electric DMG</color> and inflicting massive <color=#2EB6FF>Electric Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5301002, Prop:1001}|{Skill:5301002, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5301001": {
+   "1001": {
+    "main": 36000,
+    "growth": 3600,
+    "format": "%"
+   },
+   "1002": {
+    "main": 21100,
+    "growth": 2110,
+    "format": "%"
+   },
+   "element_accumulation_value": 27000
+  },
+  "5301002": {
+   "1001": {
+    "main": 71200,
+    "growth": 7120,
+    "format": "%"
+   },
+   "1002": {
+    "main": 10200,
+    "growth": 1020,
+    "format": "%"
+   },
+   "element_accumulation_value": 30500
+  }
+ }
+}

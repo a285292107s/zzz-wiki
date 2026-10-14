@@ -1,9 +1,13 @@
 <script setup lang="ts">
+import { useUiText } from '@/composables/useUiText'
+
 defineProps<{
   modelValue: string
   count?: number
   placeholder?: string
 }>()
+
+const { t } = useUiText()
 
 const emit = defineEmits<{
   (e: 'update:modelValue', v: string): void
@@ -18,14 +22,14 @@ const emit = defineEmits<{
     <input
       :value="modelValue"
       type="search"
-      :placeholder="placeholder ?? '检索…'"
-      :aria-label="placeholder ?? '检索'"
+      :placeholder="placeholder ?? t.search.shortPlaceholder"
+      :aria-label="placeholder ?? t.search.shortPlaceholder"
       @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
       @keydown.ctrl.k.prevent="emit('escalate')"
       @keydown.meta.k.prevent="emit('escalate')"
     />
     <span v-if="count != null" class="mono count" role="status">{{ count }}</span>
-    <span class="mono escalate" title="全局检索" aria-hidden="true">⌘K</span>
+    <span class="mono escalate" :title="t.search.ariaSearch" aria-hidden="true">⌘K</span>
   </div>
 </template>
 

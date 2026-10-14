@@ -1,0 +1,433 @@
+{
+ "id": 54015,
+ "code_name": "Snap",
+ "name": "찰칵이",
+ "desc": "그의 플래시는 오직 진정한 슈퍼스타를 위해 빛난다",
+ "rarity": 4,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole30.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 479,
+  "hpupgrade": 570196,
+  "attack": 64,
+  "attack_upgrade": 321091,
+  "break_stun": 110,
+  "element_abnormal_power": 110,
+  "defence": 28,
+  "def_upgrade": 78871,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 250,
+   "attack": 59,
+   "defence": 35,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 501,
+   "attack": 297,
+   "defence": 69,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 751,
+   "attack": 891,
+   "defence": 104,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 1001,
+   "attack": 2375,
+   "defence": 139,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 1252,
+   "attack": 5938,
+   "defence": 173,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "찰칵! 카메라를 보세요!",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 렌즈를 닦고 <color=#FFFFFF>[필름]</color>을 3장 획득한다. 찰칵이가 <color=#FFFFFF>[필름]</color>을 보유하고 있는 동안 에이전트가 <color=#FFFFFF>[회피 반격]</color>, <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[지원 돌격]</color> 시전 시 찰칵이가 <color=#FFFFFF>[필름]</color>을 1장 소모해 촬영하고 에이전트에게 <color=#FFFFFF>[슈퍼스타]</color> 상태를 부여하여 에이전트가 주는 피해가 증가한다. 지속 시간: 10초",
+     "property": [
+      "에이전트 피해 증가",
+      "재사용 대기시간"
+     ],
+     "param": "2.8%|22초"
+    },
+    "2": {
+     "name": "찰칵! 카메라를 보세요!",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 렌즈를 닦고 <color=#FFFFFF>[필름]</color>을 3장 획득한다. 찰칵이가 <color=#FFFFFF>[필름]</color>을 보유하고 있는 동안 에이전트가 <color=#FFFFFF>[회피 반격]</color>, <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[지원 돌격]</color> 시전 시 찰칵이가 <color=#FFFFFF>[필름]</color>을 1장 소모해 촬영하고 에이전트에게 <color=#FFFFFF>[슈퍼스타]</color> 상태를 부여하여 에이전트가 주는 피해가 증가한다. 지속 시간: 10초",
+     "property": [
+      "에이전트 피해 증가",
+      "재사용 대기시간"
+     ],
+     "param": "3.6%|22초"
+    },
+    "3": {
+     "name": "찰칵! 카메라를 보세요!",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 렌즈를 닦고 <color=#FFFFFF>[필름]</color>을 3장 획득한다. 찰칵이가 <color=#FFFFFF>[필름]</color>을 보유하고 있는 동안 에이전트가 <color=#FFFFFF>[회피 반격]</color>, <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[지원 돌격]</color> 시전 시 찰칵이가 <color=#FFFFFF>[필름]</color>을 1장 소모해 촬영하고 에이전트에게 <color=#FFFFFF>[슈퍼스타]</color> 상태를 부여하여 에이전트가 주는 피해가 증가한다. 지속 시간: 10초",
+     "property": [
+      "에이전트 피해 증가",
+      "재사용 대기시간"
+     ],
+     "param": "4.4%|22초"
+    },
+    "4": {
+     "name": "찰칵! 카메라를 보세요!",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 렌즈를 닦고 <color=#FFFFFF>[필름]</color>을 3장 획득한다. 찰칵이가 <color=#FFFFFF>[필름]</color>을 보유하고 있는 동안 에이전트가 <color=#FFFFFF>[회피 반격]</color>, <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[지원 돌격]</color> 시전 시 찰칵이가 <color=#FFFFFF>[필름]</color>을 1장 소모해 촬영하고 에이전트에게 <color=#FFFFFF>[슈퍼스타]</color> 상태를 부여하여 에이전트가 주는 피해가 증가한다. 지속 시간: 10초",
+     "property": [
+      "에이전트 피해 증가",
+      "재사용 대기시간"
+     ],
+     "param": "5.2%|22초"
+    },
+    "5": {
+     "name": "찰칵! 카메라를 보세요!",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 렌즈를 닦고 <color=#FFFFFF>[필름]</color>을 3장 획득한다. 찰칵이가 <color=#FFFFFF>[필름]</color>을 보유하고 있는 동안 에이전트가 <color=#FFFFFF>[회피 반격]</color>, <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[지원 돌격]</color> 시전 시 찰칵이가 <color=#FFFFFF>[필름]</color>을 1장 소모해 촬영하고 에이전트에게 <color=#FFFFFF>[슈퍼스타]</color> 상태를 부여하여 에이전트가 주는 피해가 증가한다. 지속 시간: 10초",
+     "property": [
+      "에이전트 피해 증가",
+      "재사용 대기시간"
+     ],
+     "param": "6%|22초"
+    },
+    "6": {
+     "name": "찰칵! 카메라를 보세요!",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 렌즈를 닦고 <color=#FFFFFF>[필름]</color>을 3장 획득한다. 찰칵이가 <color=#FFFFFF>[필름]</color>을 보유하고 있는 동안 에이전트가 <color=#FFFFFF>[회피 반격]</color>, <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[지원 돌격]</color> 시전 시 찰칵이가 <color=#FFFFFF>[필름]</color>을 1장 소모해 촬영하고 에이전트에게 <color=#FFFFFF>[슈퍼스타]</color> 상태를 부여하여 에이전트가 주는 피해가 증가한다. 지속 시간: 10초",
+     "property": [
+      "에이전트 피해 증가",
+      "재사용 대기시간"
+     ],
+     "param": "6.8%|22초"
+    },
+    "7": {
+     "name": "찰칵! 카메라를 보세요!",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 렌즈를 닦고 <color=#FFFFFF>[필름]</color>을 3장 획득한다. 찰칵이가 <color=#FFFFFF>[필름]</color>을 보유하고 있는 동안 에이전트가 <color=#FFFFFF>[회피 반격]</color>, <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[지원 돌격]</color> 시전 시 찰칵이가 <color=#FFFFFF>[필름]</color>을 1장 소모해 촬영하고 에이전트에게 <color=#FFFFFF>[슈퍼스타]</color> 상태를 부여하여 에이전트가 주는 피해가 증가한다. 지속 시간: 10초",
+     "property": [
+      "에이전트 피해 증가",
+      "재사용 대기시간"
+     ],
+     "param": "7.6%|22초"
+    },
+    "8": {
+     "name": "찰칵! 카메라를 보세요!",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 렌즈를 닦고 <color=#FFFFFF>[필름]</color>을 3장 획득한다. 찰칵이가 <color=#FFFFFF>[필름]</color>을 보유하고 있는 동안 에이전트가 <color=#FFFFFF>[회피 반격]</color>, <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[지원 돌격]</color> 시전 시 찰칵이가 <color=#FFFFFF>[필름]</color>을 1장 소모해 촬영하고 에이전트에게 <color=#FFFFFF>[슈퍼스타]</color> 상태를 부여하여 에이전트가 주는 피해가 증가한다. 지속 시간: 10초",
+     "property": [
+      "에이전트 피해 증가",
+      "재사용 대기시간"
+     ],
+     "param": "8.4%|22초"
+    },
+    "9": {
+     "name": "찰칵! 카메라를 보세요!",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 렌즈를 닦고 <color=#FFFFFF>[필름]</color>을 3장 획득한다. 찰칵이가 <color=#FFFFFF>[필름]</color>을 보유하고 있는 동안 에이전트가 <color=#FFFFFF>[회피 반격]</color>, <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[지원 돌격]</color> 시전 시 찰칵이가 <color=#FFFFFF>[필름]</color>을 1장 소모해 촬영하고 에이전트에게 <color=#FFFFFF>[슈퍼스타]</color> 상태를 부여하여 에이전트가 주는 피해가 증가한다. 지속 시간: 10초",
+     "property": [
+      "에이전트 피해 증가",
+      "재사용 대기시간"
+     ],
+     "param": "9.2%|22초"
+    },
+    "10": {
+     "name": "찰칵! 카메라를 보세요!",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 렌즈를 닦고 <color=#FFFFFF>[필름]</color>을 3장 획득한다. 찰칵이가 <color=#FFFFFF>[필름]</color>을 보유하고 있는 동안 에이전트가 <color=#FFFFFF>[회피 반격]</color>, <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[지원 돌격]</color> 시전 시 찰칵이가 <color=#FFFFFF>[필름]</color>을 1장 소모해 촬영하고 에이전트에게 <color=#FFFFFF>[슈퍼스타]</color> 상태를 부여하여 에이전트가 주는 피해가 증가한다. 지속 시간: 10초",
+     "property": [
+      "에이전트 피해 증가",
+      "재사용 대기시간"
+     ],
+     "param": "10%|22초"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "슈퍼스타의 순간",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[스타즈 오브 리라]</color> 진영의 캐릭터가 2명 이상 존재 시 발동: 찰칵이가 에이전트에게 <color=#FFFFFF>[슈퍼스타]</color> 상태를 부여할 시, 에이전트가 찰칵이 HP 최대치의 4%에 해당하는 HP를 즉시 회복한다.",
+     "property": [
+      "HP 회복"
+     ],
+     "param": "HP의 4%"
+    },
+    "2": {
+     "name": "슈퍼스타의 순간",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[스타즈 오브 리라]</color> 진영의 캐릭터가 2명 이상 존재 시 발동: 찰칵이가 에이전트에게 <color=#FFFFFF>[슈퍼스타]</color> 상태를 부여할 시, 에이전트가 찰칵이 HP 최대치의 5%에 해당하는 HP를 즉시 회복한다.",
+     "property": [
+      "HP 회복"
+     ],
+     "param": "HP의 5%"
+    },
+    "3": {
+     "name": "슈퍼스타의 순간",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[스타즈 오브 리라]</color> 진영의 캐릭터가 2명 이상 존재 시 발동: 찰칵이가 에이전트에게 <color=#FFFFFF>[슈퍼스타]</color> 상태를 부여할 시, 에이전트가 찰칵이 HP 최대치의 6%에 해당하는 HP를 즉시 회복한다.",
+     "property": [
+      "HP 회복"
+     ],
+     "param": "HP의 6%"
+    },
+    "4": {
+     "name": "슈퍼스타의 순간",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[스타즈 오브 리라]</color> 진영의 캐릭터가 2명 이상 존재 시 발동: 찰칵이가 에이전트에게 <color=#FFFFFF>[슈퍼스타]</color> 상태를 부여할 시, 에이전트가 찰칵이 HP 최대치의 7%에 해당하는 HP를 즉시 회복한다.",
+     "property": [
+      "HP 회복"
+     ],
+     "param": "HP의 7%"
+    },
+    "5": {
+     "name": "슈퍼스타의 순간",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[스타즈 오브 리라]</color> 진영의 캐릭터가 2명 이상 존재 시 발동: 찰칵이가 에이전트에게 <color=#FFFFFF>[슈퍼스타]</color> 상태를 부여할 시, 에이전트가 찰칵이 HP 최대치의 8%에 해당하는 HP를 즉시 회복한다.",
+     "property": [
+      "HP 회복"
+     ],
+     "param": "HP의 8%"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "찰칵! 눈 감지 마세요!",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n강력한 플래시라이트로 타깃의 눈을 공격해 <color=#FE437E>에테르 피해</color>를 주고, <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "2": {
+     "name": "찰칵! 눈 감지 마세요!",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n강력한 플래시라이트로 타깃의 눈을 공격해 <color=#FE437E>에테르 피해</color>를 주고, <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "3": {
+     "name": "찰칵! 눈 감지 마세요!",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n강력한 플래시라이트로 타깃의 눈을 공격해 <color=#FE437E>에테르 피해</color>를 주고, <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "4": {
+     "name": "찰칵! 눈 감지 마세요!",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n강력한 플래시라이트로 타깃의 눈을 공격해 <color=#FE437E>에테르 피해</color>를 주고, <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "5": {
+     "name": "찰칵! 눈 감지 마세요!",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n강력한 플래시라이트로 타깃의 눈을 공격해 <color=#FE437E>에테르 피해</color>를 주고, <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "6": {
+     "name": "찰칵! 눈 감지 마세요!",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n강력한 플래시라이트로 타깃의 눈을 공격해 <color=#FE437E>에테르 피해</color>를 주고, <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "7": {
+     "name": "찰칵! 눈 감지 마세요!",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n강력한 플래시라이트로 타깃의 눈을 공격해 <color=#FE437E>에테르 피해</color>를 주고, <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "8": {
+     "name": "찰칵! 눈 감지 마세요!",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n강력한 플래시라이트로 타깃의 눈을 공격해 <color=#FE437E>에테르 피해</color>를 주고, <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "9": {
+     "name": "찰칵! 눈 감지 마세요!",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n강력한 플래시라이트로 타깃의 눈을 공격해 <color=#FE437E>에테르 피해</color>를 주고, <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "10": {
+     "name": "찰칵! 눈 감지 마세요!",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n강력한 플래시라이트로 타깃의 눈을 공격해 <color=#FE437E>에테르 피해</color>를 주고, <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5401501": {
+   "1001": {
+    "main": 0,
+    "growth": 0,
+    "format": "%"
+   },
+   "1002": {
+    "main": 0,
+    "growth": 0,
+    "format": "%"
+   },
+   "element_accumulation_value": 0
+  },
+  "5401502": {
+   "1001": {
+    "main": 74700,
+    "growth": 7470,
+    "format": "%"
+   },
+   "1002": {
+    "main": 10700,
+    "growth": 1070,
+    "format": "%"
+   },
+   "element_accumulation_value": 32000
+  }
+ }
+}

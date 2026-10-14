@@ -1,0 +1,2530 @@
+{
+ "id": 1441,
+ "icon": "IconRole51",
+ "name": "마나토",
+ "code_name": "Manato",
+ "rarity": 3,
+ "weapon_type": {
+  "6": "Rupture"
+ },
+ "element_type": {
+  "201": "Fire"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "11": "괴담방"
+ },
+ "gender": 1,
+ "partner_info": {
+  "birthday": "1/5",
+  "full_name": "코마노 마나토",
+  "gender": "남성",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle51.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0051.png",
+  "impression_f": "마나토는 길에서 인사하는 모든 이웃들의 이름과 습관을 다 기억하고 있더라… 정말 대단해!",
+  "impression_m": "마나토랑 같이 다닐 땐 괴담의 무서움이 확 줄어드는 것 같아…",
+  "impressions": [
+   "코마노 마나토에 대한 인상:\n · 믿음직한 「형아」도 동생들을 걱정시키는 면이 있구나…",
+   " · 햇볕을 쬐기에 좋은 장소가 이렇게나 많았다니!",
+   " · 혀끝에 확실하게 느껴진다, 진심 어린 행복이!"
+  ],
+  "profile_desc": "코마노 마나토는 괴담방의 멤버 중 한 명이자, 동호회에서 가장 믿음직한 「집행인」이다. 옛 도시 함락에서 가족을 잃고 와이페이 반도에서 홀로 성장하던 중, 우연히 길거리를 떠돌던 아이들 아칭과 아월을 거두었고 서로에게 의지하는 가족이 되었다. 다소 어린 가정이지만 마나토는 이 새로운 가정의 모두를 잘 돌볼 수 있길 바라고 있다.\n마나토는 현재 시내의 한 기업 부설 학교에 재학 중이며, 그곳의 무서운 「일진」으로 소문나 있다. 이유는 그저 험악해 보이는 외모 때문으로 추정된다. 하지만 실제로 마나토는 겉모습보다 훨씬 더 온화하고 너그러운 성격의 소유자이다.\n처음에는 마나토도 「일진」이라는 오해를 바로잡고 싶어 했지만, 여러 이유로 그 노력은 별다른 성과를 거두지 못했다. 하지만 긍정적 성격의 소유자인 마나토는 「일진」 신분이 마냥 나쁜 것만은 아니라는 것을 금방 깨달았다. 덕분에 불필요한 사교 활동을 피할 수 있었고, 낯선 이들의 방해 없이 생활할 수 있었으며, 심지어 「일진」이라는 위치를 이용해 학교의 괴담 소식을 수집하거나 실제 괴롭힘을 당하는 학생들을 보호할 수도 있었다.\n다만 학업 성적만큼은 정말로 교내 「일진」이라는 타이틀과 꼭 어울린다.",
+  "role_icon": "IconRole/UnPacker/IconRole51",
+  "stature": "198",
+  "unlock_condition": [
+   "에이전트 획득",
+   "메인 의뢰 시즌 2 제4장 완료",
+   "「엔비의 고민」 의뢰 완료"
+  ],
+  "trust_lv": {
+   "1": "코마노 마나토는 괴담방의 멤버 중 한 명이자, 동호회에서 가장 믿음직한 「집행인」이다. 옛 도시 함락에서 가족을 잃고 와이페이 반도에서 홀로 성장하던 중, 우연히 길거리를 떠돌던 아이들 아칭과 아월을 거두었고 서로에게 의지하는 가족이 되었다. 다소 어린 가정이지만 마나토는 이 새로운 가정의 모두를 잘 돌볼 수 있길 바라고 있다.\n마나토는 현재 시내의 한 기업 부설 학교에 재학 중이며, 그곳의 무서운 「일진」으로 소문나 있다. 이유는 그저 험악해 보이는 외모 때문으로 추정된다. 하지만 실제로 마나토는 겉모습보다 훨씬 더 온화하고 너그러운 성격의 소유자이다.\n처음에는 마나토도 「일진」이라는 오해를 바로잡고 싶어 했지만, 여러 이유로 그 노력은 별다른 성과를 거두지 못했다. 하지만 긍정적 성격의 소유자인 마나토는 「일진」 신분이 마냥 나쁜 것만은 아니라는 것을 금방 깨달았다. 덕분에 불필요한 사교 활동을 피할 수 있었고, 낯선 이들의 방해 없이 생활할 수 있었으며, 심지어 「일진」이라는 위치를 이용해 학교의 괴담 소식을 수집하거나 실제 괴롭힘을 당하는 학생들을 보호할 수도 있었다.\n다만 학업 성적만큼은 정말로 교내 「일진」이라는 타이틀과 꼭 어울린다.",
+   "2": "",
+   "3": "\n지나친 정직함과 친화력은 때때로 마나토에게 예상치 못한 「곤란함」을 안겨주기도 했다. 시장이나 이웃들이 많이 모이는 곳에 갈 때면, 그는 늘 많은 사람의 주의를 끌었다. 정 많은 가게 주인, 노점상, 지나가는 이웃들은 늘 자신이 가진 것 중 가장 좋은 것들을 마나토의 품에 안겨주며, 따뜻하고도 자잘한 당부를 하곤 했다.\n\n마나토는 부모님이 돌아가신 후 빠르게 자립하는 법을 배웠고, 뛰어난 요리 실력뿐만 아니라 아칭과 아월이 장난치다 망가뜨린 옷까지 수선할 수 있는 솜씨를 갖추게 되었다.\n\n학교 실습에서도 마나토는 열렬한 환영을 받았는데, 마나토의 주체할 수 없는 힘은 오히려 이런 환경에 놓인 광산 노동자들에게 최고의 도움이 되었다.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 109,
+  "attack_growth": 63934,
+  "avatar_piece_id": 5441,
+  "break_stun": 95,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 36,
+  "defence_growth": 48400,
+  "element_abnormal_power": 87,
+  "element_mystery": 90,
+  "endurance": 0,
+  "hp_growth": 842857,
+  "hp_max": 621,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 0,
+  "sp_recover": 0,
+  "stun": 0,
+  "tags": [
+   "Norano",
+   "Cut",
+   "Fire",
+   "Male",
+   "Camp11",
+   "Size3",
+   "AidTypeParry",
+   "Norano",
+   "EtherEyesSize2"
+  ],
+  "rp_max": 120,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "일반 공격: 열풍참",
+     "desc": "<IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방으로 최대 3단까지 베기를 펼쳐 <color=#F0D12B>물리 피해</color>를 준다.\n각 공격의 시전 단계에서 <IconMap:Icon_Special>을 짧게 탭하면 [잿바람]을 발동해 해당 공격이 더 높은 <color=#FF5521>불 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 열풍·어둠 베기",
+     "desc": "[달궈진 칼날] 상태에서 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방으로 최대 4단까지 베기를 펼쳐 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬 시전 시 마나토의 HP가 30% 이상이면 HP 최대치의 3.5%를 소모한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 열풍참",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1441001, Prop:1001}",
+       "param": {
+        "1441001": {
+         "main": 2870,
+         "growth": 270,
+         "format": "%",
+         "damage_percentage": 2870,
+         "damage_percentage_growth": 270,
+         "stun_ratio": 2690,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 73975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 8060,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2687
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1441002, Prop:1001}+{Skill:1441003, Prop:1001}",
+       "param": {
+        "1441002": {
+         "main": 3820,
+         "growth": 350,
+         "format": "%",
+         "damage_percentage": 3820,
+         "damage_percentage_growth": 350,
+         "stun_ratio": 3620,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 99550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 10860,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3618
+        },
+        "1441003": {
+         "main": 4450,
+         "growth": 410,
+         "format": "%",
+         "damage_percentage": 4450,
+         "damage_percentage_growth": 410,
+         "stun_ratio": 4310,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 118525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 12910,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4302
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1441004, Prop:1001}+{Skill:1441005, Prop:1001}",
+       "param": {
+        "1441004": {
+         "main": 6000,
+         "growth": 550,
+         "format": "%",
+         "damage_percentage": 6000,
+         "damage_percentage_growth": 550,
+         "stun_ratio": 5900,
+         "stun_ratio_growth": 270,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 162250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 17680,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5891
+        },
+        "1441005": {
+         "main": 7460,
+         "growth": 680,
+         "format": "%",
+         "damage_percentage": 7460,
+         "damage_percentage_growth": 680,
+         "stun_ratio": 7430,
+         "stun_ratio_growth": 340,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 204325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 22270,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7424
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 피해 배율(잿바람 발동)",
+       "desc": "{Skill:1441001, Prop:1001}+{Skill:1441006, Prop:1001}",
+       "param": {
+        "1441001": {
+         "main": 2870,
+         "growth": 270,
+         "format": "%",
+         "damage_percentage": 2870,
+         "damage_percentage_growth": 270,
+         "stun_ratio": 2690,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 73975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 8060,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2687
+        },
+        "1441006": {
+         "main": 3440,
+         "growth": 320,
+         "format": "%",
+         "damage_percentage": 3440,
+         "damage_percentage_growth": 320,
+         "stun_ratio": 3050,
+         "stun_ratio_growth": 140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 83875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3581,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 9140,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3045
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율(잿바람 발동)",
+       "desc": "{Skill:1441002, Prop:1001}+{Skill:1441007, Prop:1001}",
+       "param": {
+        "1441002": {
+         "main": 3820,
+         "growth": 350,
+         "format": "%",
+         "damage_percentage": 3820,
+         "damage_percentage_growth": 350,
+         "stun_ratio": 3620,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 99550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 10860,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3618
+        },
+        "1441007": {
+         "main": 5730,
+         "growth": 530,
+         "format": "%",
+         "damage_percentage": 5730,
+         "damage_percentage_growth": 530,
+         "stun_ratio": 5510,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 151525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5501,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 16510,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5502
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율(잿바람 발동)",
+       "desc": "{Skill:1441004, Prop:1001}+{Skill:1441008, Prop:1001}",
+       "param": {
+        "1441004": {
+         "main": 6000,
+         "growth": 550,
+         "format": "%",
+         "damage_percentage": 6000,
+         "damage_percentage_growth": 550,
+         "stun_ratio": 5900,
+         "stun_ratio_growth": 270,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 162250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 17680,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5891
+        },
+        "1441008": {
+         "main": 8330,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 8330,
+         "damage_percentage_growth": 760,
+         "stun_ratio": 8260,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 227150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7165,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 24770,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8257
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1441001, Prop:1002}",
+       "param": {
+        "1441001": {
+         "main": 2690,
+         "growth": 130,
+         "format": "%",
+         "damage_percentage": 2870,
+         "damage_percentage_growth": 270,
+         "stun_ratio": 2690,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 73975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 8060,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2687
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1441002, Prop:1002}+{Skill:1441003, Prop:1002}",
+       "param": {
+        "1441002": {
+         "main": 3620,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 3820,
+         "damage_percentage_growth": 350,
+         "stun_ratio": 3620,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 99550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 10860,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3618
+        },
+        "1441003": {
+         "main": 4310,
+         "growth": 200,
+         "format": "%",
+         "damage_percentage": 4450,
+         "damage_percentage_growth": 410,
+         "stun_ratio": 4310,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 118525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 12910,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4302
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1441004, Prop:1002}+{Skill:1441005, Prop:1002}",
+       "param": {
+        "1441004": {
+         "main": 5900,
+         "growth": 270,
+         "format": "%",
+         "damage_percentage": 6000,
+         "damage_percentage_growth": 550,
+         "stun_ratio": 5900,
+         "stun_ratio_growth": 270,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 162250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 17680,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5891
+        },
+        "1441005": {
+         "main": 7430,
+         "growth": 340,
+         "format": "%",
+         "damage_percentage": 7460,
+         "damage_percentage_growth": 680,
+         "stun_ratio": 7430,
+         "stun_ratio_growth": 340,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 204325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 22270,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7424
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율(잿바람 발동)",
+       "desc": "{Skill:1441001, Prop:1002}+{Skill:1441006, Prop:1002}",
+       "param": {
+        "1441001": {
+         "main": 2690,
+         "growth": 130,
+         "format": "%",
+         "damage_percentage": 2870,
+         "damage_percentage_growth": 270,
+         "stun_ratio": 2690,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 73975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 8060,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2687
+        },
+        "1441006": {
+         "main": 3050,
+         "growth": 140,
+         "format": "%",
+         "damage_percentage": 3440,
+         "damage_percentage_growth": 320,
+         "stun_ratio": 3050,
+         "stun_ratio_growth": 140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 83875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3581,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 9140,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3045
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율(잿바람 발동)",
+       "desc": "{Skill:1441002, Prop:1002}+{Skill:1441007, Prop:1002}",
+       "param": {
+        "1441002": {
+         "main": 3620,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 3820,
+         "damage_percentage_growth": 350,
+         "stun_ratio": 3620,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 99550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 10860,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3618
+        },
+        "1441007": {
+         "main": 5510,
+         "growth": 260,
+         "format": "%",
+         "damage_percentage": 5730,
+         "damage_percentage_growth": 530,
+         "stun_ratio": 5510,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 151525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5501,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 16510,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5502
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율(잿바람 발동)",
+       "desc": "{Skill:1441004, Prop:1002}+{Skill:1441008, Prop:1002}",
+       "param": {
+        "1441004": {
+         "main": 5900,
+         "growth": 270,
+         "format": "%",
+         "damage_percentage": 6000,
+         "damage_percentage_growth": 550,
+         "stun_ratio": 5900,
+         "stun_ratio_growth": 270,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 162250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 17680,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5891
+        },
+        "1441008": {
+         "main": 8260,
+         "growth": 380,
+         "format": "%",
+         "damage_percentage": 8330,
+         "damage_percentage_growth": 760,
+         "stun_ratio": 8260,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 227150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7165,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 24770,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8257
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 열풍·어둠 베기",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1441009, Prop:1001}",
+       "param": {
+        "1441009": {
+         "main": 5310,
+         "growth": 490,
+         "format": "%",
+         "damage_percentage": 5310,
+         "damage_percentage_growth": 490,
+         "stun_ratio": 3880,
+         "stun_ratio_growth": 180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 106700,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3875,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 11630,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3876
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1441010, Prop:1001}",
+       "param": {
+        "1441010": {
+         "main": 11120,
+         "growth": 1020,
+         "format": "%",
+         "damage_percentage": 11120,
+         "damage_percentage_growth": 1020,
+         "stun_ratio": 8740,
+         "stun_ratio_growth": 400,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 240350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8736,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 26210,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8737
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1441011, Prop:1001}",
+       "param": {
+        "1441011": {
+         "main": 15450,
+         "growth": 1410,
+         "format": "%",
+         "damage_percentage": 15450,
+         "damage_percentage_growth": 1410,
+         "stun_ratio": 14160,
+         "stun_ratio_growth": 650,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 389400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14153,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 42470,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14154
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 피해 배율",
+       "desc": "{Skill:1441012, Prop:1001}",
+       "param": {
+        "1441012": {
+         "main": 23780,
+         "growth": 2170,
+         "format": "%",
+         "damage_percentage": 23780,
+         "damage_percentage_growth": 2170,
+         "stun_ratio": 21750,
+         "stun_ratio_growth": 990,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 598125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 21742,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 65230,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21743
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1441009, Prop:1002}",
+       "param": {
+        "1441009": {
+         "main": 3880,
+         "growth": 180,
+         "format": "%",
+         "damage_percentage": 5310,
+         "damage_percentage_growth": 490,
+         "stun_ratio": 3880,
+         "stun_ratio_growth": 180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 106700,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3875,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 11630,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3876
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1441010, Prop:1002}",
+       "param": {
+        "1441010": {
+         "main": 8740,
+         "growth": 400,
+         "format": "%",
+         "damage_percentage": 11120,
+         "damage_percentage_growth": 1020,
+         "stun_ratio": 8740,
+         "stun_ratio_growth": 400,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 240350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8736,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 26210,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8737
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1441011, Prop:1002}",
+       "param": {
+        "1441011": {
+         "main": 14160,
+         "growth": 650,
+         "format": "%",
+         "damage_percentage": 15450,
+         "damage_percentage_growth": 1410,
+         "stun_ratio": 14160,
+         "stun_ratio_growth": 650,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 389400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14153,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 42470,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14154
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 그로기 배율",
+       "desc": "{Skill:1441012, Prop:1002}",
+       "param": {
+        "1441012": {
+         "main": 21750,
+         "growth": 990,
+         "format": "%",
+         "damage_percentage": 23780,
+         "damage_percentage_growth": 2170,
+         "stun_ratio": 21750,
+         "stun_ratio_growth": 990,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 598125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 21742,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 65230,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21743
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "회피: 빛나는 칼날",
+     "desc": "<IconMap:Icon_Evade>을 짧게 탭하여 시전:\n빠른 대시로 회피한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 빛나는 칼날·잔심",
+     "desc": "회피 시 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방으로 어깨치기를 하고 <color=#F0D12B>물리 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 빛나는 칼날·교란",
+     "desc": "<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적을 베고 펀치를 날려 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 빛나는 칼날·잔심",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1441016, Prop:1001}",
+       "param": {
+        "1441016": {
+         "main": 5870,
+         "growth": 540,
+         "format": "%",
+         "damage_percentage": 5870,
+         "damage_percentage_growth": 540,
+         "stun_ratio": 3670,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 100925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 11000,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1441016, Prop:1002}",
+       "param": {
+        "1441016": {
+         "main": 3670,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 5870,
+         "damage_percentage_growth": 540,
+         "stun_ratio": 3670,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 100925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 11000,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3667
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 빛나는 칼날·교란",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1441017, Prop:1001}",
+       "param": {
+        "1441017": {
+         "main": 19800,
+         "growth": 1800,
+         "format": "%",
+         "damage_percentage": 19800,
+         "damage_percentage_growth": 1800,
+         "stun_ratio": 21340,
+         "stun_ratio_growth": 970,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 311850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 34020,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1441017, Prop:1002}",
+       "param": {
+        "1441017": {
+         "main": 21340,
+         "growth": 970,
+         "format": "%",
+         "damage_percentage": 19800,
+         "damage_percentage_growth": 1800,
+         "stun_ratio": 21340,
+         "stun_ratio_growth": 970,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 311850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 34020,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26337
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "특수 스킬: 잔재",
+     "desc": "<IconMap:Icon_Special>을 짧게 탭하여 시전:\n전방의 적을 베고 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 적의 공격을 받으면, 잃은 HP의 20%를 베기 시전 시 회복한다. <color=#FFFFFF>[특수 스킬: 잔재]</color> 및 <color=#FFFFFF>[특수 스킬: 잔재·희생]</color>의 HP 회복 효과는 20초 동안 최대 1회 발동한다.\n스킬을 시전하는 동안 적의 공격을 받으면, 이번 베기가 강화된다.\n스킬을 시전하는 동안 받는 피해가 40% 감소한다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 잔재·희생",
+     "desc": "<IconMap:Icon_Special>을 홀드해 시전:\n차지 상태에 진입해 최대 HP 최대치의 10%를 소모하고 <color=#FFFFFF>[뜨거운 마음]</color>을 100pt 회복한다. HP는 최대 HP 최대치의 30%까지 소모할 수 있다.\n버튼에서 손을 떼면 <color=#FFFFFF>[특수 스킬: 잔재]</color>를 시전하며, 스킬을 시전하는 동안 적의 공격을 받으면, 잃은 HP의 20%를 베기 시전 시 회복한다. <color=#FFFFFF>[특수 스킬: 잔재]</color> 및 <color=#FFFFFF>[특수 스킬: 잔재·희생]</color>의 HP 회복 효과는 20초 동안 최대 1회 발동한다.\n스킬을 시전하는 동안 적의 공격을 받거나 차지가 일정 시간에 도달하면 이번 베기가 강화된다.\n스킬을 시전하는 동안 받는 피해가 40% 감소한다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 잔재·추락",
+     "desc": "[달궈진 칼날] 상태에서 기운이 충분할 때 <IconMap:Icon_SpecialReady_Rp>을 짧게 탭하여 시전:\n점프 후 전방의 적에게 낙하 베기를 시전하여 대량의 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬 시전 시 HP 최대치의 33%를 회복한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 잔재",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1441013, Prop:1001}",
+       "param": {
+        "1441013": {
+         "main": 5070,
+         "growth": 470,
+         "format": "%",
+         "damage_percentage": 5070,
+         "damage_percentage_growth": 470,
+         "stun_ratio": 4760,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 130900,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4752,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4753
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1441013, Prop:1002}",
+       "param": {
+        "1441013": {
+         "main": 4760,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 5070,
+         "damage_percentage_growth": 470,
+         "stun_ratio": 4760,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 130900,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4752,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4753
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "피해 배율(차지 혹은 가드 성공)",
+       "desc": "{Skill:1441014, Prop:1001}",
+       "param": {
+        "1441014": {
+         "main": 13070,
+         "growth": 1190,
+         "format": "%",
+         "damage_percentage": 13070,
+         "damage_percentage_growth": 1190,
+         "stun_ratio": 12260,
+         "stun_ratio_growth": 560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 337150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12252,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12253
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율(차지 혹은 가드 성공)",
+       "desc": "{Skill:1441014, Prop:1002}",
+       "param": {
+        "1441014": {
+         "main": 12260,
+         "growth": 560,
+         "format": "%",
+         "damage_percentage": 13070,
+         "damage_percentage_growth": 1190,
+         "stun_ratio": 12260,
+         "stun_ratio_growth": 560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 337150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12252,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12253
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 잔재·추락",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1441015, Prop:1001}",
+       "param": {
+        "1441015": {
+         "main": 65260,
+         "growth": 5940,
+         "format": "%",
+         "damage_percentage": 65260,
+         "damage_percentage_growth": 5940,
+         "stun_ratio": 66220,
+         "stun_ratio_growth": 3010,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2665300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 73891,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1441015, Prop:1002}",
+       "param": {
+        "1441015": {
+         "main": 66220,
+         "growth": 3010,
+         "format": "%",
+         "damage_percentage": 65260,
+         "damage_percentage_growth": 5940,
+         "stun_ratio": 66220,
+         "stun_ratio_growth": 3010,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2665300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 73891,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "기운 소모",
+       "desc": "80pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "콤보 스킬: 맹렬한 폭발",
+     "desc": "<color=#FFFFFF>[콤보 스킬]</color> 발동 시 해당 캐릭터를 선택해 시전:\n손에 든 검을 던진 뒤 적을 향해 돌진한 후 폭발을 일으켜 대량의 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "궁극기: 무상의 거친 혼",
+     "desc": "데시벨 레벨 <color=#FFFFFF>[Maximum]</color> 달성 시 <IconMap:Icon_UltimateReady>을 짧게 탭하여 시전:\n점프한 뒤 전방의 적에게 낙하 베기를 시전한 후 폭발을 일으켜 대량의 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 맹렬한 폭발",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1441018, Prop:1001}",
+       "param": {
+        "1441018": {
+         "main": 48330,
+         "growth": 4400,
+         "format": "%",
+         "damage_percentage": 48330,
+         "damage_percentage_growth": 4400,
+         "stun_ratio": 20510,
+         "stun_ratio_growth": 940,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2392775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 40450,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20501
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1441018, Prop:1002}",
+       "param": {
+        "1441018": {
+         "main": 20510,
+         "growth": 940,
+         "format": "%",
+         "damage_percentage": 48330,
+         "damage_percentage_growth": 4400,
+         "stun_ratio": 20510,
+         "stun_ratio_growth": 940,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2392775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 40450,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20501
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "궁극기: 무상의 거친 혼",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1441019, Prop:1001}",
+       "param": {
+        "1441019": {
+         "main": 156230,
+         "growth": 14210,
+         "format": "%",
+         "damage_percentage": 156230,
+         "damage_percentage_growth": 14210,
+         "stun_ratio": 34840,
+         "stun_ratio_growth": 1590,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 34833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 84834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1441019, Prop:1002}",
+       "param": {
+        "1441019": {
+         "main": 34840,
+         "growth": 1590,
+         "format": "%",
+         "damage_percentage": 156230,
+         "damage_percentage_growth": 14210,
+         "stun_ratio": 34840,
+         "stun_ratio_growth": 1590,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 34833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 84834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "빠른 지원: 고영·진영 복귀",
+     "desc": "현재 조작 중인 캐릭터가 넉업되면 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n전방의 적을 베고 펀치를 날려 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 고영·우뚝 솟은 산",
+     "desc": "출전 캐릭터 피격 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적의 공격을 패링하고 대량의 그로기 수치를 누적하며, <color=#FF5521>불 속성 피해</color>를 준다.\n스킬 시전 시 <color=#FFFFFF>[뜨거운 마음]</color>을 75pt 회복한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 고영·송곳니 끊기",
+     "desc": "<color=#FFFFFF>[패링 지원]</color> 시전 후, <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적에게 여러 차례 베기를 시전해 <color=#FF5521>불 속성 피해</color>를 준다.\n연타 시 추가로 적을 최대 연속 7회까지 벨 수 있다.\n연속 베기 시 마나토의 HP가 30% 이상이면 HP 최대치의 2%를 소모한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 고영·진영 복귀",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1441020, Prop:1001}",
+       "param": {
+        "1441020": {
+         "main": 9070,
+         "growth": 830,
+         "format": "%",
+         "damage_percentage": 9070,
+         "damage_percentage_growth": 830,
+         "stun_ratio": 5670,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 155925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5668,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 17010,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5669
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1441020, Prop:1002}",
+       "param": {
+        "1441020": {
+         "main": 5670,
+         "growth": 260,
+         "format": "%",
+         "damage_percentage": 9070,
+         "damage_percentage_growth": 830,
+         "stun_ratio": 5670,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 155925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5668,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 17010,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5669
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 고영·우뚝 솟은 산",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1441026, Prop:1001}",
+       "param": {
+        "1441026": {
+         "main": 4000,
+         "growth": 370,
+         "format": "%",
+         "damage_percentage": 4000,
+         "damage_percentage_growth": 370,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "가벼운 패링 그로기 배율",
+       "desc": "{Skill:1441021, Prop:1002}",
+       "param": {
+        "1441021": {
+         "main": 24670,
+         "growth": 1130,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 24670,
+         "stun_ratio_growth": 1130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강한 패링 그로기 배율",
+       "desc": "{Skill:1441022, Prop:1002}",
+       "param": {
+        "1441022": {
+         "main": 31170,
+         "growth": 1420,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 31170,
+         "stun_ratio_growth": 1420,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 패링 그로기 배율",
+       "desc": "{Skill:1441023, Prop:1002}",
+       "param": {
+        "1441023": {
+         "main": 15170,
+         "growth": 690,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 15170,
+         "stun_ratio_growth": 690,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 고영·송곳니 끊기",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1441024, Prop:1001}",
+       "param": {
+        "1441024": {
+         "main": 16670,
+         "growth": 1520,
+         "format": "%",
+         "damage_percentage": 16670,
+         "damage_percentage_growth": 1520,
+         "stun_ratio": 27090,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 573100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 46880,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1441024, Prop:1002}",
+       "param": {
+        "1441024": {
+         "main": 27090,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 16670,
+         "damage_percentage_growth": 1520,
+         "stun_ratio": 27090,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 573100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 46880,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 타격 최대 피해 배율",
+       "desc": "{Skill:1441024, Prop:1001}+{Skill:1441025, Prop:1001}",
+       "param": {
+        "1441024": {
+         "main": 16670,
+         "growth": 1520,
+         "format": "%",
+         "damage_percentage": 16670,
+         "damage_percentage_growth": 1520,
+         "stun_ratio": 27090,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 573100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 46880,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20834
+        },
+        "1441025": {
+         "main": 40340,
+         "growth": 3670,
+         "format": "%",
+         "damage_percentage": 40340,
+         "damage_percentage_growth": 3670,
+         "stun_ratio": 21000,
+         "stun_ratio_growth": 960,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 577500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 21000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 78630,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 타격 최대 그로기 배율",
+       "desc": "{Skill:1441024, Prop:1002}+{Skill:1441025, Prop:1002}",
+       "param": {
+        "1441024": {
+         "main": 27090,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 16670,
+         "damage_percentage_growth": 1520,
+         "stun_ratio": 27090,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 573100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 46880,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20834
+        },
+        "1441025": {
+         "main": 21000,
+         "growth": 960,
+         "format": "%",
+         "damage_percentage": 40340,
+         "damage_percentage_growth": 3670,
+         "stun_ratio": 21000,
+         "stun_ratio_growth": 960,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 577500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 21000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 78630,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21000
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "방랑자의 생존 법칙",
+   "desc": "마나토의 HP가 감소할 때 잃은 HP가 누적되며, HP 최대치의 1%만큼 잃은 HP를 보유할 때마다 <color=#FFFFFF>[지원 돌격]</color> 및 <color=#FFFFFF>[일반 공격]</color>으로 주는 <color=#FF5521>불 속성 피해</color>가 0.4% 증가한다. 최대 증가: 20%",
+   "desc2": "불행한 아이들은 모두 비슷하다.\n정겨웠던 부름, 따스했던 불빛, 즐거웠던 약속이… 작별 인사도 없이 돌연 가라앉아 버린 것이다. 형태도 실체도 없기에, 아무리 날카로운 송곳니로도 물 수 없고, 아무리 예리한 손톱으로도 붙잡을 수 없었다.\n「난 뭐든 잘 먹고, 추위도 별로 안 타——『살아남은 비결』이란 게 있다면, 아마 이런 것들이겠지」"
+  },
+  "2": {
+   "level": 2,
+   "name": "낮과 밤, 주방과 사랑",
+   "desc": "<color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토는 타깃의 <color=#FF5521>불 속성 피해 저항</color>을 8% 무시한다. <color=#FFFFFF>[특수 스킬: 잔재]</color> 혹은 <color=#FFFFFF>[특수 스킬: 잔재·희생]</color> 시전 중 적의 공격을 받은 후 <IconMap:Icon_Normal>을 짧게 탭하면 <color=#FFFFFF>[지원 돌격]</color>을 시전할 수 있다.",
+   "desc2": "화목한 가정이란 이런 걸까——마나토, 아칭, 아월 모두 자신이 「주워 온」 행운아라고 여겼다.\n뭔가 다툴 만한 일이 남았다면, 그건 아마도 「마지막 남은 채소 한 젓가락은 누가 먹을까」 정도일 것이다.\n「진짜 맛없어? 중간에 뭐가 잘못됐나… 그럼 다음에 음차선에 가서 다시 물어볼게」\n「…영업 비밀이라고?! 그치만 저번엔… 그냥 서 있었는데도 그 요리사가 다 알려줬는데」"
+  },
+  "3": {
+   "level": 3,
+   "name": "괴담의 세계로",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "채널에서 자리 잡기 위한 첫걸음은 바로 입에 착 감기는 닉네임을 짓는 것이다——이런 일은 모두가 자신 없어 하지만, 종종 문학 수업 재시험을 치러야 하는 개 시렌에게는 특히나 어려운 일이었다.\n「…너도 알잖아. 그러니까, 그… 크흠, 『고독한유령of차룽』」\n「——제대로 들었으면서 왜 또 묻는 거야!」\n「젠장. 언젠가는 『예전닉네임물으면공동행』으로 바꿀 거야」"
+  },
+  "4": {
+   "level": 4,
+   "name": "소년의 맹세",
+   "desc": "HP 최대치가 8% 증가한다. <color=#FFFFFF>[특수 스킬: 잔재]</color> 및 <color=#FFFFFF>[특수 스킬: 잔재·희생]</color>을 시전하는 동안 마나토가 치명상을 입을 시 스킬을 시전하는 동안 전투 불능으로 퇴장하지 않고, HP가 최소 1까지만 감소한다. 10초 동안 최대 1회 발동한다.",
+   "desc2": "자신이 차가운 눈빛의 고독한 늑대라고 상상하는 건, 청소년이라면 한 번쯤 해볼 법한 일이다… 더군다나 마나토는 이런 일에 더 우세한 면이 있었으니까.\n꿈잡이가 나타나지만 않았어도, 남들처럼 그런 일 따위 없었던 것처럼 살았을 텐데.\n「말했잖아, 그건 여덟 살 때의 발상일 뿐이라고——」\n「이런 게 『친구』인가… 확실히 너흰 날 약자 취급하지 않지, 하지만 사람 취급도 하지 않아」"
+  },
+  "5": {
+   "level": 5,
+   "name": "혼자가 아닌 나",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "사실, 겉모습이라는 장벽에도 불구하고 마나토는 모두에게 인기가 많다.\n우정을 나누고 싶어 하는 이, 보호를 받고 싶어 하는 이, 그리고 또… 광고를 부탁하고 싶어 하는 이까지.\n「미안한데, 내가 그쪽 가게를 홍보하기엔 부적절하지 않을까」\n「난 『벤치프레스』 같은 거 해본 적 없는데. 아니면 혹시… 에테리얼에 의해 바닥에 짓눌렸을 때, 팔로 대검을 밀어 올리면서 녀석의 발톱 공격을 막아내는 걸 말하는 거야?」"
+  },
+  "6": {
+   "level": 6,
+   "name": "지난날의 꿈을 넘어서",
+   "desc": "<color=#FFFFFF>[특수 스킬: 잔재]</color>가 그로기 상태의 적에게 명중하면 마나토가 [뜨거운 마음]을 75pt 회복하고 [잔화] 4스택을 획득하며, <IconMap:Icon_Normal>을 짧게 탭하면 <color=#FFFFFF>[지원 돌격]</color>을 시전할 수 있다. [잔화] 획득 효과는 20초 동안 최대 1회 발동된다. <color=#FFFFFF>[지원 돌격]</color>이 적에게 명중 시 주는 <color=#FF5521>불 속성 피해</color>가 3% 증가한다. 지속 시간: 8초, 최대 중첩: 5스택, 중복 발동 시 지속 시간이 갱신된다.",
+   "desc2": "지난날 고독했던 용기의 꿈을 넘어, 마나토는 소중한 친구들을 품게 됐다.\n\n하지만 간혹 그 「친구」로 인해 좌절하기도 하는데, 예를 들면… 와이페이 반도의 탕을 파는 정통 가게에서다.\n「내가 『뒤를 맡겠다』고 한 건, 코코넛 닭고기탕 마실 때 뒤에 있겠다는 게 아니라고」\n「근데 왜 또 전갈탕 마실 때는 내가 앞장서야 하는 건데?」\n…하지만 그는 결국 앞장서고 말았다."
+  }
+ },
+ "passive": {
+  "level": {
+   "1441501": {
+    "level": 1,
+    "id": 1441501,
+    "name": [
+     "핵심 패시브: 달궈진 칼날의 기세",
+     "추가 능력: 다시 타오르는 마음"
+    ],
+    "desc": [
+     "마나토는 자신의 HP 최대치에 따라 추가로 관입력이 증가하며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n마나토가 스킬을 시전하여 주는 <color=#FF5521>불 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고 스킬 피해 배율로서 관입력을 사용한다.\n마나토가 <color=#FFFFFF>[특수 스킬: 잔재·희생]</color> 혹은 <color=#FFFFFF>[패링 지원]</color>을 시전하면 <color=#FFFFFF>[뜨거운 마음]</color>이 누적되며, 최대 100pt까지 누적된다. <color=#FFFFFF>[뜨거운 마음]</color>이 75pt 누적되면 마나토는 <color=#FFFFFF>[달궈진 칼날]</color> 상태에 진입하며, <color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토는 1초마다 <color=#FFFFFF>[뜨거운 마음]</color>을 3.3pt 소모한다. <color=#FFFFFF>[뜨거운 마음]</color> 소진 시 <color=#FFFFFF>[달궈진 칼날]</color> 상태가 종료된다.\n<color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토의 <color=#FFFFFF>[일반 공격]</color>이 강화되며, <color=#FFFFFF>[강화 특수 스킬: 잔재·추락]</color>을 시전할 수 있다.\n마나토가 <color=#FFFFFF>[일반 공격: 열풍·어둠 베기]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color>의 연속 베기 중에 HP를 소모하면 이번 공격의 치명타 피해가 <color=#2BAD00>25%</color> 증가하고, 기운 회복 효율이 100% 증가한다.\n<color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토의 치명타 확률이 10% 증가하고, <color=#FF5521>불 속성 피해</color>가 <color=#2BAD00>10</color>% 증가한다.",
+     "파티에 <color=#FFFFFF>[지원]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n마나토가 궁극기를 시전할 때 [잔화] 8스택을 획득하고, 콤보 스킬 시전 시 [잔화] 4스택을 획득한다. 지속 시간: 60초, 최대 중첩: 20스택, 중복 발동 시 지속 시간이 갱신된다.\n마나토가 <color=#FFFFFF>[일반 공격: 열풍·어둠 베기]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color>의 연속 베기를 시전할 때, HP가 HP 최대치의 100% 미만이면 [잔화] 1스택을 소모하여 HP 최대치의 2%를 회복한다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1441502": {
+    "level": 2,
+    "id": 1441502,
+    "name": [
+     "핵심 패시브: 달궈진 칼날의 기세",
+     "추가 능력: 다시 타오르는 마음"
+    ],
+    "desc": [
+     "마나토는 자신의 HP 최대치에 따라 추가로 관입력이 증가하며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n마나토가 스킬을 시전하여 주는 <color=#FF5521>불 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고 스킬 피해 배율로서 관입력을 사용한다.\n마나토가 <color=#FFFFFF>[특수 스킬: 잔재·희생]</color> 혹은 <color=#FFFFFF>[패링 지원]</color>을 시전하면 <color=#FFFFFF>[뜨거운 마음]</color>이 누적되며, 최대 100pt까지 누적된다. <color=#FFFFFF>[뜨거운 마음]</color>이 75pt 누적되면 마나토는 <color=#FFFFFF>[달궈진 칼날]</color> 상태에 진입하며, <color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토는 1초마다 <color=#FFFFFF>[뜨거운 마음]</color>을 3.3pt 소모한다. <color=#FFFFFF>[뜨거운 마음]</color> 소진 시 <color=#FFFFFF>[달궈진 칼날]</color> 상태가 종료된다.\n<color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토의 <color=#FFFFFF>[일반 공격]</color>이 강화되며, <color=#FFFFFF>[강화 특수 스킬: 잔재·추락]</color>을 시전할 수 있다.\n마나토가 <color=#FFFFFF>[일반 공격: 열풍·어둠 베기]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color>의 연속 베기 중에 HP를 소모하면 이번 공격의 치명타 피해가 <color=#2BAD00>29.2%</color> 증가하고, 기운 회복 효율이 100% 증가한다.\n<color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토의 치명타 확률이 10% 증가하고, <color=#FF5521>불 속성 피해</color>가 <color=#2BAD00>11.7</color>% 증가한다.",
+     "파티에 <color=#FFFFFF>[지원]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n마나토가 궁극기를 시전할 때 [잔화] 8스택을 획득하고, 콤보 스킬 시전 시 [잔화] 4스택을 획득한다. 지속 시간: 60초, 최대 중첩: 20스택, 중복 발동 시 지속 시간이 갱신된다.\n마나토가 <color=#FFFFFF>[일반 공격: 열풍·어둠 베기]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color>의 연속 베기를 시전할 때, HP가 HP 최대치의 100% 미만이면 [잔화] 1스택을 소모하여 HP 최대치의 2%를 회복한다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1441503": {
+    "level": 3,
+    "id": 1441503,
+    "name": [
+     "핵심 패시브: 달궈진 칼날의 기세",
+     "추가 능력: 다시 타오르는 마음"
+    ],
+    "desc": [
+     "마나토는 자신의 HP 최대치에 따라 추가로 관입력이 증가하며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n마나토가 스킬을 시전하여 주는 <color=#FF5521>불 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고 스킬 피해 배율로서 관입력을 사용한다.\n마나토가 <color=#FFFFFF>[특수 스킬: 잔재·희생]</color> 혹은 <color=#FFFFFF>[패링 지원]</color>을 시전하면 <color=#FFFFFF>[뜨거운 마음]</color>이 누적되며, 최대 100pt까지 누적된다. <color=#FFFFFF>[뜨거운 마음]</color>이 75pt 누적되면 마나토는 <color=#FFFFFF>[달궈진 칼날]</color> 상태에 진입하며, <color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토는 1초마다 <color=#FFFFFF>[뜨거운 마음]</color>을 3.3pt 소모한다. <color=#FFFFFF>[뜨거운 마음]</color> 소진 시 <color=#FFFFFF>[달궈진 칼날]</color> 상태가 종료된다.\n<color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토의 <color=#FFFFFF>[일반 공격]</color>이 강화되며, <color=#FFFFFF>[강화 특수 스킬: 잔재·추락]</color>을 시전할 수 있다.\n마나토가 <color=#FFFFFF>[일반 공격: 열풍·어둠 베기]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color>의 연속 베기 중에 HP를 소모하면 이번 공격의 치명타 피해가 <color=#2BAD00>33.3%</color> 증가하고, 기운 회복 효율이 100% 증가한다.\n<color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토의 치명타 확률이 10% 증가하고, <color=#FF5521>불 속성 피해</color>가 <color=#2BAD00>13.3</color>% 증가한다.",
+     "파티에 <color=#FFFFFF>[지원]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n마나토가 궁극기를 시전할 때 [잔화] 8스택을 획득하고, 콤보 스킬 시전 시 [잔화] 4스택을 획득한다. 지속 시간: 60초, 최대 중첩: 20스택, 중복 발동 시 지속 시간이 갱신된다.\n마나토가 <color=#FFFFFF>[일반 공격: 열풍·어둠 베기]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color>의 연속 베기를 시전할 때, HP가 HP 최대치의 100% 미만이면 [잔화] 1스택을 소모하여 HP 최대치의 2%를 회복한다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1441504": {
+    "level": 4,
+    "id": 1441504,
+    "name": [
+     "핵심 패시브: 달궈진 칼날의 기세",
+     "추가 능력: 다시 타오르는 마음"
+    ],
+    "desc": [
+     "마나토는 자신의 HP 최대치에 따라 추가로 관입력이 증가하며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n마나토가 스킬을 시전하여 주는 <color=#FF5521>불 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고 스킬 피해 배율로서 관입력을 사용한다.\n마나토가 <color=#FFFFFF>[특수 스킬: 잔재·희생]</color> 혹은 <color=#FFFFFF>[패링 지원]</color>을 시전하면 <color=#FFFFFF>[뜨거운 마음]</color>이 누적되며, 최대 100pt까지 누적된다. <color=#FFFFFF>[뜨거운 마음]</color>이 75pt 누적되면 마나토는 <color=#FFFFFF>[달궈진 칼날]</color> 상태에 진입하며, <color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토는 1초마다 <color=#FFFFFF>[뜨거운 마음]</color>을 3.3pt 소모한다. <color=#FFFFFF>[뜨거운 마음]</color> 소진 시 <color=#FFFFFF>[달궈진 칼날]</color> 상태가 종료된다.\n<color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토의 <color=#FFFFFF>[일반 공격]</color>이 강화되며, <color=#FFFFFF>[강화 특수 스킬: 잔재·추락]</color>을 시전할 수 있다.\n마나토가 <color=#FFFFFF>[일반 공격: 열풍·어둠 베기]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color>의 연속 베기 중에 HP를 소모하면 이번 공격의 치명타 피해가 <color=#2BAD00>37.5%</color> 증가하고, 기운 회복 효율이 100% 증가한다.\n<color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토의 치명타 확률이 10% 증가하고, <color=#FF5521>불 속성 피해</color>가 <color=#2BAD00>15</color>% 증가한다.",
+     "파티에 <color=#FFFFFF>[지원]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n마나토가 궁극기를 시전할 때 [잔화] 8스택을 획득하고, 콤보 스킬 시전 시 [잔화] 4스택을 획득한다. 지속 시간: 60초, 최대 중첩: 20스택, 중복 발동 시 지속 시간이 갱신된다.\n마나토가 <color=#FFFFFF>[일반 공격: 열풍·어둠 베기]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color>의 연속 베기를 시전할 때, HP가 HP 최대치의 100% 미만이면 [잔화] 1스택을 소모하여 HP 최대치의 2%를 회복한다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1441505": {
+    "level": 5,
+    "id": 1441505,
+    "name": [
+     "핵심 패시브: 달궈진 칼날의 기세",
+     "추가 능력: 다시 타오르는 마음"
+    ],
+    "desc": [
+     "마나토는 자신의 HP 최대치에 따라 추가로 관입력이 증가하며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n마나토가 스킬을 시전하여 주는 <color=#FF5521>불 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고 스킬 피해 배율로서 관입력을 사용한다.\n마나토가 <color=#FFFFFF>[특수 스킬: 잔재·희생]</color> 혹은 <color=#FFFFFF>[패링 지원]</color>을 시전하면 <color=#FFFFFF>[뜨거운 마음]</color>이 누적되며, 최대 100pt까지 누적된다. <color=#FFFFFF>[뜨거운 마음]</color>이 75pt 누적되면 마나토는 <color=#FFFFFF>[달궈진 칼날]</color> 상태에 진입하며, <color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토는 1초마다 <color=#FFFFFF>[뜨거운 마음]</color>을 3.3pt 소모한다. <color=#FFFFFF>[뜨거운 마음]</color> 소진 시 <color=#FFFFFF>[달궈진 칼날]</color> 상태가 종료된다.\n<color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토의 <color=#FFFFFF>[일반 공격]</color>이 강화되며, <color=#FFFFFF>[강화 특수 스킬: 잔재·추락]</color>을 시전할 수 있다.\n마나토가 <color=#FFFFFF>[일반 공격: 열풍·어둠 베기]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color>의 연속 베기 중에 HP를 소모하면 이번 공격의 치명타 피해가 <color=#2BAD00>41.7%</color> 증가하고, 기운 회복 효율이 100% 증가한다.\n<color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토의 치명타 확률이 10% 증가하고, <color=#FF5521>불 속성 피해</color>가 <color=#2BAD00>16.7</color>% 증가한다.",
+     "파티에 <color=#FFFFFF>[지원]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n마나토가 궁극기를 시전할 때 [잔화] 8스택을 획득하고, 콤보 스킬 시전 시 [잔화] 4스택을 획득한다. 지속 시간: 60초, 최대 중첩: 20스택, 중복 발동 시 지속 시간이 갱신된다.\n마나토가 <color=#FFFFFF>[일반 공격: 열풍·어둠 베기]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color>의 연속 베기를 시전할 때, HP가 HP 최대치의 100% 미만이면 [잔화] 1스택을 소모하여 HP 최대치의 2%를 회복한다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1441506": {
+    "level": 6,
+    "id": 1441506,
+    "name": [
+     "핵심 패시브: 달궈진 칼날의 기세",
+     "추가 능력: 다시 타오르는 마음"
+    ],
+    "desc": [
+     "마나토는 자신의 HP 최대치에 따라 추가로 관입력이 증가하며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n마나토가 스킬을 시전하여 주는 <color=#FF5521>불 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고 스킬 피해 배율로서 관입력을 사용한다.\n마나토가 <color=#FFFFFF>[특수 스킬: 잔재·희생]</color> 혹은 <color=#FFFFFF>[패링 지원]</color>을 시전하면 <color=#FFFFFF>[뜨거운 마음]</color>이 누적되며, 최대 100pt까지 누적된다. <color=#FFFFFF>[뜨거운 마음]</color>이 75pt 누적되면 마나토는 <color=#FFFFFF>[달궈진 칼날]</color> 상태에 진입하며, <color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토는 1초마다 <color=#FFFFFF>[뜨거운 마음]</color>을 3.3pt 소모한다. <color=#FFFFFF>[뜨거운 마음]</color> 소진 시 <color=#FFFFFF>[달궈진 칼날]</color> 상태가 종료된다.\n<color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토의 <color=#FFFFFF>[일반 공격]</color>이 강화되며, <color=#FFFFFF>[강화 특수 스킬: 잔재·추락]</color>을 시전할 수 있다.\n마나토가 <color=#FFFFFF>[일반 공격: 열풍·어둠 베기]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color>의 연속 베기 중에 HP를 소모하면 이번 공격의 치명타 피해가 <color=#2BAD00>45.8%</color> 증가하고, 기운 회복 효율이 100% 증가한다.\n<color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토의 치명타 확률이 10% 증가하고, <color=#FF5521>불 속성 피해</color>가 <color=#2BAD00>18.3</color>% 증가한다.",
+     "파티에 <color=#FFFFFF>[지원]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n마나토가 궁극기를 시전할 때 [잔화] 8스택을 획득하고, 콤보 스킬 시전 시 [잔화] 4스택을 획득한다. 지속 시간: 60초, 최대 중첩: 20스택, 중복 발동 시 지속 시간이 갱신된다.\n마나토가 <color=#FFFFFF>[일반 공격: 열풍·어둠 베기]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color>의 연속 베기를 시전할 때, HP가 HP 최대치의 100% 미만이면 [잔화] 1스택을 소모하여 HP 최대치의 2%를 회복한다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1441507": {
+    "level": 7,
+    "id": 1441507,
+    "name": [
+     "핵심 패시브: 달궈진 칼날의 기세",
+     "추가 능력: 다시 타오르는 마음"
+    ],
+    "desc": [
+     "마나토는 자신의 HP 최대치에 따라 추가로 관입력이 증가하며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n마나토가 스킬을 시전하여 주는 <color=#FF5521>불 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고 스킬 피해 배율로서 관입력을 사용한다.\n마나토가 <color=#FFFFFF>[특수 스킬: 잔재·희생]</color> 혹은 <color=#FFFFFF>[패링 지원]</color>을 시전하면 <color=#FFFFFF>[뜨거운 마음]</color>이 누적되며, 최대 100pt까지 누적된다. <color=#FFFFFF>[뜨거운 마음]</color>이 75pt 누적되면 마나토는 <color=#FFFFFF>[달궈진 칼날]</color> 상태에 진입하며, <color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토는 1초마다 <color=#FFFFFF>[뜨거운 마음]</color>을 3.3pt 소모한다. <color=#FFFFFF>[뜨거운 마음]</color> 소진 시 <color=#FFFFFF>[달궈진 칼날]</color> 상태가 종료된다.\n<color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토의 <color=#FFFFFF>[일반 공격]</color>이 강화되며, <color=#FFFFFF>[강화 특수 스킬: 잔재·추락]</color>을 시전할 수 있다.\n마나토가 <color=#FFFFFF>[일반 공격: 열풍·어둠 베기]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color>의 연속 베기 중에 HP를 소모하면 이번 공격의 치명타 피해가 <color=#2BAD00>50%</color> 증가하고, 기운 회복 효율이 100% 증가한다.\n<color=#FFFFFF>[달궈진 칼날]</color> 상태에서 마나토의 치명타 확률이 10% 증가하고, <color=#FF5521>불 속성 피해</color>가 <color=#2BAD00>20</color>% 증가한다.",
+     "파티에 <color=#FFFFFF>[지원]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n마나토가 궁극기를 시전할 때 [잔화] 8스택을 획득하고, 콤보 스킬 시전 시 [잔화] 4스택을 획득한다. 지속 시간: 60초, 최대 중첩: 20스택, 중복 발동 시 지속 시간이 갱신된다.\n마나토가 <color=#FFFFFF>[일반 공격: 열풍·어둠 베기]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color>의 연속 베기를 시전할 때, HP가 HP 최대치의 100% 미만이면 [잔화] 1스택을 소모하여 HP 최대치의 2%를 회복한다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110512": 2
+   },
+   "3": {
+    "10": 28000,
+    "110512": 4
+   },
+   "4": {
+    "10": 60000,
+    "110007": 2,
+    "110512": 9
+   },
+   "5": {
+    "10": 100000,
+    "110007": 3,
+    "110512": 15
+   },
+   "6": {
+    "10": 200000,
+    "110007": 4,
+    "110512": 30
+   }
+  }
+ },
+ "skin": {
+  "3114410": {
+   "name": "코마노 마나토·거친 혼에 숨긴 진심",
+   "desc": "차룽와이 비공식 중재자의 평소 옷차림으로, 악당들에게 위압감을 주기에 충분하다.\n단, 가끔은 사람들의 곁눈질을 받기도 한다.",
+   "obtain_desc": "",
+   "image": "IconRole51"
+  },
+  "3114411": {
+   "name": "코마노 마나토·화이트 하트 실루엣",
+   "desc": "어린 시절의 마나토는 홀로 자신과 맹세했다—— 그렇게, 꿈속에서 희고 외로운 그림자가 태어났다.\n그의 차림새를 모방하면, 원래도 뛰어났던 위압감이 한층 더 강해진다.",
+   "obtain_desc": "",
+   "image": "IconRole51_01"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1441001": {
+   "name": "일반 공격: 열풍참",
+   "desc": "<IconMap:Icon_Normal>;<IconMap:Icon_Normal>;<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1441002": {
+   "name": "일반 공격: 열풍·어둠 베기",
+   "desc": "<IconMap:Icon_Normal>;<IconMap:Icon_Normal>;<IconMap:Icon_Normal>;<IconMap:Icon_Normal>([달궈진 칼날] 상태일 때)",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1441003": {
+   "name": "특수 스킬: 잔재",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1441004": {
+   "name": "특수 스킬: 잔재·희생",
+   "desc": "<IconMap:Icon_Special>(홀드)",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1441005": {
+   "name": "강화 특수 스킬: 잔재·추락",
+   "desc": "<IconMap:Icon_SpecialReady_Rp>([달궈진 칼날] 상태일 때)",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1441006": {
+   "name": "회피: 빛나는 칼날",
+   "desc": "<IconMap:Icon_Evade>",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1441007": {
+   "name": "대시 공격: 빛나는 칼날·잔심",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1441008": {
+   "name": "회피 반격: 빛나는 칼날·교란",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1441009": {
+   "name": "콤보 스킬: 맹렬한 폭발",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1441010": {
+   "name": "궁극기: 무상의 거친 혼",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1441011": {
+   "name": "빠른 지원: 고영·진영 복귀",
+   "desc": "<IconMap:Icon_Switch>(빠른 지원 발동 시)",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1441012": {
+   "name": "패링 지원: 고영·우뚝 솟은 산",
+   "desc": "<IconMap:Icon_Switch>(패링 지원 발동 시)",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1441013": {
+   "name": "지원 돌격: 고영·송곳니 끊기",
+   "desc": "<IconMap:Icon_Normal>(연타 가능)(패링 지원 시전 후)",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1441001,
+   "avatar_id": 1441,
+   "first_priority": [
+    5,
+    0,
+    6
+   ],
+   "second_priority": [
+    1,
+    3
+   ],
+   "third_priority": [
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33100,
+  "slot2": 31000,
+  "slot_sub": 32700,
+  "part_sub_list": [
+   20103,
+   21103,
+   11102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33100,
+     32700
+    ],
+    "part_sub_list": [
+     20103,
+     21103
+    ]
+   },
+   {
+    "suit_list": [
+     33100,
+     31000
+    ],
+    "part_sub_list": [
+     31603,
+     11102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     11102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "치명타 확률",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 21103,
+   "name": "치명타 피해",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  },
+  "part6": {
+   "prop": 31603,
+   "name": "불 속성 피해 보너스",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconFire.png"
+  },
+  "part_sub": {
+   "prop": 11102,
+   "name": "HP",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconHpMax.png"
+  }
+ },
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Fire>불 속성, HP를 소모하는 필드 딜러",
+  "HP를 소모하여 불 속성 피해 획득"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100216": 4
+   }
+  },
+  "2": {
+   "hp_max": 426,
+   "attack": 39,
+   "defence": 24,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100226": 12
+   }
+  },
+  "3": {
+   "hp_max": 852,
+   "attack": 78,
+   "defence": 49,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100226": 20
+   }
+  },
+  "4": {
+   "hp_max": 1279,
+   "attack": 116,
+   "defence": 73,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100236": 10
+   }
+  },
+  "5": {
+   "hp_max": 1705,
+   "attack": 155,
+   "defence": 98,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100236": 20
+   }
+  },
+  "6": {
+   "hp_max": 2131,
+   "attack": 194,
+   "defence": 122,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "11102": {
+     "prop": 11102,
+     "name": "HP",
+     "format": "{0:0.#%}",
+     "value": 600
+    },
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "11102": {
+     "prop": 11102,
+     "name": "HP",
+     "format": "{0:0.#%}",
+     "value": 600
+    },
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "11102": {
+     "prop": 11102,
+     "name": "HP",
+     "format": "{0:0.#%}",
+     "value": 1200
+    },
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "11102": {
+     "prop": 11102,
+     "name": "HP",
+     "format": "{0:0.#%}",
+     "value": 1200
+    },
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "11102": {
+     "prop": 11102,
+     "name": "HP",
+     "format": "{0:0.#%}",
+     "value": 1800
+    },
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "11102": {
+     "prop": 11102,
+     "name": "HP",
+     "format": "{0:0.#%}",
+     "value": 1800
+    },
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 75
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": ""
+}

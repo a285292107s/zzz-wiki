@@ -1,0 +1,2207 @@
+{
+ "id": 1321,
+ "icon": "IconRole37",
+ "name": "イヴリン",
+ "code_name": "Evelyn",
+ "rarity": 4,
+ "weapon_type": {
+  "1": "Attack"
+ },
+ "element_type": {
+  "201": "Fire"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "8": "スターズ・オブ・リラ"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "10月7日",
+  "full_name": "イヴリン・シェヴァリエ",
+  "gender": "女性",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle37.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0037.png",
+  "impression_f": "イヴリンさんってカッコいいよね！\nアストラさんと一緒にデビューしたりしないのかな？\n2人揃って写真撮ってるとこ見たいな～！",
+  "impression_m": "そんなことを自然に言える…女の子が羨ましいな。\n僕が言ったらパンチをお見舞いされるかもしれない。",
+  "impressions": [
+   "イヴリンに対するイメージ：\n・アストラに近付こうとする如何なる動きも、彼女の目から逃れられない…",
+   "・日々付き合っているなか、徐々に警戒心が薄れていった{M#らしい}{F#みたい}。",
+   "・彼女にとって、この世には頼れるものが少ない。{M#僕}{F#私}たちはそのうちの一つだ。"
+  ],
+  "profile_desc": "新エリー都随一の歌姫、アストラ・ヤオのマネージャー兼身辺警護、イヴリン。\n冷静かつ果断、テキパキとしたプロらしさで知られ、アストラにとって、陰ながら支えるかけがえのない存在です。\n「商業価値で言えば、最初の桁の『1』がアストラだとしたら、それに続くすべての『0』がイヴリンだ」と、とある娯楽雑誌の記者は評しています。\n\nスケジュールの調整やアンバサダー活動の計画も、緊急事態における安全対策も、イヴリンはそつなくこなしてきました。「アストラに近付きたくば、まずはイヴリン・シェヴァリエからだ」というのはよく知られています。イヴリンは多忙でも調子を乱すことはありません。彼女は何事も細部までこだわり、アストラの毎回のライブから宣伝している商品の品質に至るまで、厳しく確認しています。ところが奇妙なことに、これほど優秀なマネージャーであるにもかかわらず、事務所である帝高エンターテインメントには信頼されていないようです。\n\n情報：イヴリンは単なる「マネージャー兼身辺警護」ではなく、その背後には何らかの「組織」の影がみられます。\n\nアストラのコアなファン「アストラーズ」の中では、2人の関係性にお熱な人々が多いとのこと。",
+  "role_icon": "IconRole/UnPacker/IconRole37",
+  "stature": "173",
+  "unlock_condition": [
+   "エージェント招集",
+   "メインストーリー「ゆったりとしたひと時・カナリアの脱走計画」（メインストーリー第五章クリア後に進行可能）をクリアする",
+   "特別劇場「輝きのモーメント」をクリア",
+   "依頼「アンビーの当惑」を達成する"
+  ],
+  "trust_lv": {
+   "1": "新エリー都随一の歌姫、アストラ・ヤオのマネージャー兼身辺警護、イヴリン。\n冷静かつ果断、テキパキとしたプロらしさで知られ、アストラにとって、陰ながら支えるかけがえのない存在です。\n「商業価値で言えば、最初の桁の『1』がアストラだとしたら、それに続くすべての『0』がイヴリンだ」と、とある娯楽雑誌の記者は評しています。\n\nスケジュールの調整やアンバサダー活動の計画も、緊急事態における安全対策も、イヴリンはそつなくこなしてきました。「アストラに近付きたくば、まずはイヴリン・シェヴァリエからだ」というのはよく知られています。イヴリンは多忙でも調子を乱すことはありません。彼女は何事も細部までこだわり、アストラの毎回のライブから宣伝している商品の品質に至るまで、厳しく確認しています。ところが奇妙なことに、これほど優秀なマネージャーであるにもかかわらず、事務所である帝高エンターテインメントには信頼されていないようです。\n\n情報：イヴリンは単なる「マネージャー兼身辺警護」ではなく、その背後には何らかの「組織」の影がみられます。\n\nアストラのコアなファン「アストラーズ」の中では、2人の関係性にお熱な人々が多いとのこと。",
+   "2": "",
+   "3": "イヴリンが所属する「組織」に関する情報は未だに乏しいです。\n現在確認できたのは、イヴリンは幼少期に「組織」に吸収され、厳しい訓練を経て、あらゆるシチュエーションでも迅速に決断し、任務を遂行できる技量を叩き込まれたことのみです。\nそれらの経歴が見えない傷跡を残しましたが、彼女の並外れた戦闘能力と冷静な頭脳もその賜物です。\n\n思考：「組織」の正体を調べる必要があるかと。",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 134,
+  "attack_growth": 81654,
+  "avatar_piece_id": 5321,
+  "break_stun": 93,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66882,
+  "element_abnormal_power": 92,
+  "element_mystery": 90,
+  "endurance": 0,
+  "hp_growth": 849779,
+  "hp_max": 626,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Evelyn",
+   "Cut",
+   "Fire",
+   "Female",
+   "Camp8",
+   "Size3",
+   "AidTypeParry",
+   "Evelyn",
+   "EtherEyesSize3"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "通常攻撃：シャープ・ストリング",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方に最大5段の攻撃を放ち、<color=#F0D12B>物理属性ダメージ</color>と<color=#FF5521>炎属性ダメージ</color>を与える。\n5段目の攻撃が敵に命中した時、<color=#FFFFFF>『輝夜の糸・弦』</color>でメインターゲットと自分を繋げて、相手と<color=#FFFFFF>「纏わりつく牽制」</color>状態に入る。",
+     "potential": []
+    },
+    {
+     "name": "パッシブ：拘束",
+     "desc": "イヴリンがスキルを発動して敵にダメージを与えた時、<color=#FFFFFF>「燎火」</color>が溜まる。\n<color=#FFFFFF>「燎火」</color>を消費して<color=#FFFFFF>『絞式』</color>を発動、または<color=#FFFFFF>「デシベル値」</color>を消費して<color=#FFFFFF>『終結スキル』</color>を発動した時、<color=#FFFFFF>「燎索ポイント」</color>が1Pt溜まる。\n<color=#FFFFFF>「燎索ポイント」</color>を3Pt所持している場合、次に<color=#FFFFFF>『絞式』</color>を発動した時、全ての<color=#FFFFFF>「燎索ポイント」</color>を消費し、今回のスキルが中断レベルの低い<color=#FFFFFF>『連携スキル：輝夜の糸・絆』</color>に変わる。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：<ruby=こうしき>絞式</ruby>・I型",
+     "desc": "<color=#FFFFFF>「燎火」</color>が50%以上溜まっている状態で <IconMap:Icon_Normal> または <IconMap:Icon_Special> を長押しして発動：\n<color=#FFFFFF>「燎火」</color>を50%消費し、<color=#FFFFFF>『輝夜の糸・弦』</color>で斬撃を行い、<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、中断耐性レベルがアップし、被ダメージ-40%。\nスキル発動後、<color=#FFFFFF>「燎索ポイント」</color>が1Pt溜まる。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：絞式・II型",
+     "desc": "<color=#FFFFFF>「燎火」</color>が50%以上溜まっている状態で、<color=#FFFFFF>『通常攻撃：絞式・I型』</color>発動後、引き続き <IconMap:Icon_Normal> または <IconMap:Icon_Special> を長押しして発動：\n<color=#FFFFFF>「燎火」</color>を50%消費し、<color=#FFFFFF>『輝夜の糸・弦』</color>で追撃を行い、<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、中断耐性レベルがアップし、被ダメージ-40%。\nスキル発動後、<color=#FFFFFF>「燎索ポイント」</color>が1Pt溜まる。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：シャープ・ストリング",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1321001, Prop:1001}",
+       "param": {
+        "1321001": {
+         "main": 5120,
+         "growth": 470,
+         "format": "%",
+         "damage_percentage": 5120,
+         "damage_percentage_growth": 470,
+         "stun_ratio": 2560,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 8380,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 64075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2328
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1321002, Prop:1001}",
+       "param": {
+        "1321002": {
+         "main": 6210,
+         "growth": 570,
+         "format": "%",
+         "damage_percentage": 6210,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 5380,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 17610,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 134475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4890
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1321003, Prop:1001}",
+       "param": {
+        "1321003": {
+         "main": 7820,
+         "growth": 720,
+         "format": "%",
+         "damage_percentage": 7820,
+         "damage_percentage_growth": 720,
+         "stun_ratio": 6210,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 20310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 155375,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5642
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率",
+       "desc": "{Skill:1321004, Prop:1001}",
+       "param": {
+        "1321004": {
+         "main": 18670,
+         "growth": 1700,
+         "format": "%",
+         "damage_percentage": 18670,
+         "damage_percentage_growth": 1700,
+         "stun_ratio": 15300,
+         "stun_ratio_growth": 700,
+         "sp_recovery": 50060,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 382525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13903,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13904
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5段ダメージ倍率",
+       "desc": "{Skill:1321005, Prop:1001}",
+       "param": {
+        "1321005": {
+         "main": 22340,
+         "growth": 2040,
+         "format": "%",
+         "damage_percentage": 22340,
+         "damage_percentage_growth": 2040,
+         "stun_ratio": 16830,
+         "stun_ratio_growth": 770,
+         "sp_recovery": 55050,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 420750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15291,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15292
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1321001, Prop:1002}",
+       "param": {
+        "1321001": {
+         "main": 2560,
+         "growth": 120,
+         "format": "%",
+         "damage_percentage": 5120,
+         "damage_percentage_growth": 470,
+         "stun_ratio": 2560,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 8380,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 64075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2328
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1321002, Prop:1002}",
+       "param": {
+        "1321002": {
+         "main": 5380,
+         "growth": 250,
+         "format": "%",
+         "damage_percentage": 6210,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 5380,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 17610,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 134475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4890
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1321003, Prop:1002}",
+       "param": {
+        "1321003": {
+         "main": 6210,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 7820,
+         "damage_percentage_growth": 720,
+         "stun_ratio": 6210,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 20310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 155375,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5642
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率",
+       "desc": "{Skill:1321004, Prop:1002}",
+       "param": {
+        "1321004": {
+         "main": 15300,
+         "growth": 700,
+         "format": "%",
+         "damage_percentage": 18670,
+         "damage_percentage_growth": 1700,
+         "stun_ratio": 15300,
+         "stun_ratio_growth": 700,
+         "sp_recovery": 50060,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 382525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13903,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13904
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5段ブレイク倍率",
+       "desc": "{Skill:1321005, Prop:1002}",
+       "param": {
+        "1321005": {
+         "main": 16830,
+         "growth": 770,
+         "format": "%",
+         "damage_percentage": 22340,
+         "damage_percentage_growth": 2040,
+         "stun_ratio": 16830,
+         "stun_ratio_growth": 770,
+         "sp_recovery": 55050,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 420750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15291,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15292
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：<ruby=こうしき>絞式</ruby>・I型",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1321006, Prop:1001}",
+       "param": {
+        "1321006": {
+         "main": 22640,
+         "growth": 2060,
+         "format": "%",
+         "damage_percentage": 22640,
+         "damage_percentage_growth": 2060,
+         "stun_ratio": 12110,
+         "stun_ratio_growth": 560,
+         "sp_recovery": 39620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 302775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1321006, Prop:1002}",
+       "param": {
+        "1321006": {
+         "main": 12110,
+         "growth": 560,
+         "format": "%",
+         "damage_percentage": 22640,
+         "damage_percentage_growth": 2060,
+         "stun_ratio": 12110,
+         "stun_ratio_growth": 560,
+         "sp_recovery": 39620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 302775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11004
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：絞式・II型",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1321007, Prop:1001}",
+       "param": {
+        "1321007": {
+         "main": 24520,
+         "growth": 2230,
+         "format": "%",
+         "damage_percentage": 24520,
+         "damage_percentage_growth": 2230,
+         "stun_ratio": 12480,
+         "stun_ratio_growth": 570,
+         "sp_recovery": 40820,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 311850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1321007, Prop:1002}",
+       "param": {
+        "1321007": {
+         "main": 12480,
+         "growth": 570,
+         "format": "%",
+         "damage_percentage": 24520,
+         "damage_percentage_growth": 2230,
+         "stun_ratio": 12480,
+         "stun_ratio_growth": 570,
+         "sp_recovery": 40820,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 311850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11337
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "回避：フォックストロット",
+     "desc": " <IconMap:Icon_Evade> を押して発動：\nダッシュで高速回避する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：スリップ・アンブッシュ",
+     "desc": "回避時に <IconMap:Icon_Normal> を押して発動：\n前方の敵に蹴り技を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "回避反撃：反攻の<ruby=こうやく>絞扼</ruby>",
+     "desc": "<color=#FFFFFF>『極限回避』</color>後に <IconMap:Icon_Normal> を押して発動：\n<color=#FFFFFF>『輝夜の糸・弦』</color>で周囲の敵に斬撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。\n攻撃が敵に命中した時、イヴリンは<color=#FFFFFF>『輝夜の糸・弦』</color>でメインターゲットと自分を繋げて、相手と<color=#FFFFFF>「纏わりつく牽制」</color>状態に入る。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：スリップ・アンブッシュ",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1321013, Prop:1001}",
+       "param": {
+        "1321013": {
+         "main": 6050,
+         "growth": 550,
+         "format": "%",
+         "damage_percentage": 6050,
+         "damage_percentage_growth": 550,
+         "stun_ratio": 3030,
+         "stun_ratio_growth": 140,
+         "sp_recovery": 9900,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 75625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2749
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1321013, Prop:1002}",
+       "param": {
+        "1321013": {
+         "main": 3030,
+         "growth": 140,
+         "format": "%",
+         "damage_percentage": 6050,
+         "damage_percentage_growth": 550,
+         "stun_ratio": 3030,
+         "stun_ratio_growth": 140,
+         "sp_recovery": 9900,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 75625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2749
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "回避反撃：反攻の<ruby=こうやく>絞扼</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1321014, Prop:1001}",
+       "param": {
+        "1321014": {
+         "main": 21020,
+         "growth": 1920,
+         "format": "%",
+         "damage_percentage": 21020,
+         "damage_percentage_growth": 1920,
+         "stun_ratio": 18710,
+         "stun_ratio_growth": 860,
+         "sp_recovery": 25220,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 192775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1321014, Prop:1002}",
+       "param": {
+        "1321014": {
+         "main": 18710,
+         "growth": 860,
+         "format": "%",
+         "damage_percentage": 21020,
+         "damage_percentage_growth": 1920,
+         "stun_ratio": 18710,
+         "stun_ratio_growth": 860,
+         "sp_recovery": 25220,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 192775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22004
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "特殊スキル：ロック・ポジション",
+     "desc": "<color=#FFFFFF>「纏わりつく牽制」</color>状態ではない時、<IconMap:Icon_Special> または <IconMap:Icon_SpecialReady> を押して発動：\n<color=#FFFFFF>『輝夜の糸・弦』</color>で敵をとらえて、距離を詰めて蹴り技を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。\n攻撃が敵に命中した時、イヴリンは<color=#FFFFFF>『輝夜の糸・弦』</color>でメインターゲットと自分を繋げて、相手と<color=#FFFFFF>「纏わりつく牽制」</color>状態に入る。\nスキル発動中、中断耐性レベルがアップする。",
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：<ruby=ばくれつしき>縛裂式</ruby>・I型",
+     "desc": "<color=#FFFFFF>「纏わりつく牽制」</color>状態に入った後、<IconMap:Icon_Special> を短押しまたは長押しして発動：\n<color=#FFFFFF>「纏わりつく牽制」</color>状態に入ったターゲットを中心に周囲の敵をとらえ、爆発を起こして<color=#FF5521>炎属性ダメージ</color>を与え、爆発後に<color=#FFFFFF>「纏わりつく牽制」</color>を終える。\nスキル発動時、敵の攻撃を回避することが可能。<color=#FFFFFF>『極限回避』</color>が発動した場合、追加で<color=#FFFFFF>「燎火」</color>を25%溜める。\n周囲の敵をとらえた後に <IconMap:Icon_Normal> を押すと、爆発をキャンセルして、そのまま<color=#FFFFFF>『通常攻撃』</color>3段目に繋げることが可能。\nスキル発動中、中断耐性レベルがアップする。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：縛裂式・終型",
+     "desc": "<color=#FFFFFF>「纏わりつく牽制」</color>状態に入った後に、エネルギーが十分な時、 <IconMap:Icon_SpecialReady> を短押しまたは長押しして発動：\n<color=#FFFFFF>「纏わりつく牽制」</color>状態に入ったターゲットを中心に周囲の敵をとらえ、爆発を起こして<color=#FF5521>炎属性ダメージ</color>を大量に与え、爆発後に<color=#FFFFFF>「纏わりつく牽制」</color>を終える。\nスキル発動時、敵の攻撃を回避することが可能。<color=#FFFFFF>『極限回避』</color>が発動した場合、追加で<color=#FFFFFF>「燎火」</color>を25%溜める。\n周囲の敵をとらえた後に <IconMap:Icon_Normal> を押すと、爆発をキャンセルして、そのまま<color=#FFFFFF>『通常攻撃』</color>3段目に繋げることが可能。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：ロック・ポジション",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1321008, Prop:1001}",
+       "param": {
+        "1321008": {
+         "main": 5230,
+         "growth": 480,
+         "format": "%",
+         "damage_percentage": 5230,
+         "damage_percentage_growth": 480,
+         "stun_ratio": 5230,
+         "stun_ratio_growth": 240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 261250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4748,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4749
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1321008, Prop:1002}",
+       "param": {
+        "1321008": {
+         "main": 5230,
+         "growth": 240,
+         "format": "%",
+         "damage_percentage": 5230,
+         "damage_percentage_growth": 480,
+         "stun_ratio": 5230,
+         "stun_ratio_growth": 240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 261250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4748,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4749
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：<ruby=ばくれつしき>縛裂式</ruby>・I型",
+     "param": [
+      {
+       "name": "絡み付きダメージ倍率",
+       "desc": "{Skill:1321009, Prop:1001}",
+       "param": {
+        "1321009": {
+         "main": 4040,
+         "growth": 370,
+         "format": "%",
+         "damage_percentage": 4040,
+         "damage_percentage_growth": 370,
+         "stun_ratio": 4040,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 201575,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3664,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3665
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "起爆ダメージ倍率",
+       "desc": "{Skill:1321010, Prop:1001}",
+       "param": {
+        "1321010": {
+         "main": 3400,
+         "growth": 310,
+         "format": "%",
+         "damage_percentage": 3400,
+         "damage_percentage_growth": 310,
+         "stun_ratio": 3400,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 169675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3084,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3085
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "絡み付きブレイク倍率",
+       "desc": "{Skill:1321009, Prop:1002}",
+       "param": {
+        "1321009": {
+         "main": 4040,
+         "growth": 190,
+         "format": "%",
+         "damage_percentage": 4040,
+         "damage_percentage_growth": 370,
+         "stun_ratio": 4040,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 201575,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3664,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3665
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "起爆ブレイク倍率",
+       "desc": "{Skill:1321010, Prop:1002}",
+       "param": {
+        "1321010": {
+         "main": 3400,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 3400,
+         "damage_percentage_growth": 310,
+         "stun_ratio": 3400,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 169675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3084,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3085
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：縛裂式・終型",
+     "param": [
+      {
+       "name": "絡み付きダメージ倍率",
+       "desc": "{Skill:1321011, Prop:1001}",
+       "param": {
+        "1321011": {
+         "main": 54120,
+         "growth": 4920,
+         "format": "%",
+         "damage_percentage": 54120,
+         "damage_percentage_growth": 4920,
+         "stun_ratio": 43710,
+         "stun_ratio_growth": 1990,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1613425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 44462,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11331
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "起爆ダメージ倍率",
+       "desc": "{Skill:1321012, Prop:1001}",
+       "param": {
+        "1321012": {
+         "main": 5960,
+         "growth": 550,
+         "format": "%",
+         "damage_percentage": 5960,
+         "damage_percentage_growth": 550,
+         "stun_ratio": 5960,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 171875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5620,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4164
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "絡み付きブレイク倍率",
+       "desc": "{Skill:1321011, Prop:1002}",
+       "param": {
+        "1321011": {
+         "main": 43710,
+         "growth": 1990,
+         "format": "%",
+         "damage_percentage": 54120,
+         "damage_percentage_growth": 4920,
+         "stun_ratio": 43710,
+         "stun_ratio_growth": 1990,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1613425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 44462,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11331
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "起爆ブレイク倍率",
+       "desc": "{Skill:1321012, Prop:1002}",
+       "param": {
+        "1321012": {
+         "main": 5960,
+         "growth": 280,
+         "format": "%",
+         "damage_percentage": 5960,
+         "damage_percentage_growth": 550,
+         "stun_ratio": 5960,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 171875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5620,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4164
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "エネルギー消費",
+       "desc": "60Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "連携スキル：輝夜の糸・絆",
+     "desc": "<color=#FFFFFF>『連携スキル』</color>開始時に、対応するエージェントを選択して発動：\n複数の<color=#FFFFFF>『輝夜の糸・弦』</color>で前方範囲内の敵に連続斬撃を放ち、爆発を起こして<color=#FF5521>炎属性ダメージ</color>を大量に与える。\n攻撃が敵に命中した時、イヴリンは<color=#FFFFFF>『輝夜の糸・弦』</color>でメインターゲットと自分を繋げて、相手と<color=#FFFFFF>「纏わりつく牽制」</color>状態に入る。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "終結スキル：輝夜の糸・弦音",
+     "desc": "デシベルレートが<color=#FFFFFF>『Maximum』</color>に達した時に <IconMap:Icon_UltimateReady> を押して発動：\n複数の<color=#FFFFFF>『輝夜の糸・弦』</color>で前方範囲内の敵に連続斬撃を放ち、爆発を起こして<color=#FF5521>炎属性ダメージ</color>を大量に与える。\nスキル発動時、イヴリンはジャケットを脱ぎ捨て、<color=#FFFFFF>「炎舞覚醒」</color>状態に入る。この状態は戦闘が終わるまで継続する。\n<color=#FFFFFF>「炎舞覚醒」</color>状態で<color=#FFFFFF>「燎索ポイント」</color>を消費して<color=#FFFFFF>『連携スキル：輝夜の糸・絆』</color>を発動した時、<color=#FFFFFF>「燎索ポイント」</color>が1Pt残される。\n攻撃が敵に命中した時、イヴリンは<color=#FFFFFF>『輝夜の糸・弦』</color>でメインターゲットと自分を繋げて、相手と<color=#FFFFFF>「纏わりつく牽制」</color>状態に入る。\nスキル発動中、無敵効果を得る。\nスキル発動後、<color=#FFFFFF>「燎索ポイント」</color>が1Pt溜まる。",
+     "potential": []
+    },
+    {
+     "name": "終結スキル：輝夜の糸・弦影",
+     "desc": "<color=#FFFFFF>「炎舞覚醒」</color>状態で、デシベルレートが<color=#FFFFFF>『Maximum』</color>に達した時に <IconMap:Icon_UltimateReady> を押して発動：\n複数の<color=#FFFFFF>『輝夜の糸・弦』</color>で前方範囲内の敵に連続斬撃を放ち、爆発を起こして<color=#FF5521>炎属性ダメージ</color>を大量に与える。\n攻撃が敵に命中した時、イヴリンは<color=#FFFFFF>『輝夜の糸・弦』</color>でメインターゲットと自分を繋げて、相手と<color=#FFFFFF>「纏わりつく牽制」</color>状態に入る。\nスキル発動中、無敵効果を得る。\nスキル発動後、<color=#FFFFFF>「燎索ポイント」</color>が1Pt溜まる。",
+     "potential": []
+    },
+    {
+     "name": "連携スキル：輝夜の糸・絆",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1321015, Prop:1001}",
+       "param": {
+        "1321015": {
+         "main": 82930,
+         "growth": 7540,
+         "format": "%",
+         "damage_percentage": 82930,
+         "damage_percentage_growth": 7540,
+         "stun_ratio": 23660,
+         "stun_ratio_growth": 1080,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1694275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 29017,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1321015, Prop:1002}",
+       "param": {
+        "1321015": {
+         "main": 23660,
+         "growth": 1080,
+         "format": "%",
+         "damage_percentage": 82930,
+         "damage_percentage_growth": 7540,
+         "stun_ratio": 23660,
+         "stun_ratio_growth": 1080,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1694275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 29017,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21504
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "終結スキル：輝夜の糸・弦音",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1321016, Prop:1001}",
+       "param": {
+        "1321016": {
+         "main": 198850,
+         "growth": 18080,
+         "format": "%",
+         "damage_percentage": 198850,
+         "damage_percentage_growth": 18080,
+         "stun_ratio": 26040,
+         "stun_ratio_growth": 1190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 23670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 73671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1321016, Prop:1002}",
+       "param": {
+        "1321016": {
+         "main": 26040,
+         "growth": 1190,
+         "format": "%",
+         "damage_percentage": 198850,
+         "damage_percentage_growth": 18080,
+         "stun_ratio": 26040,
+         "stun_ratio_growth": 1190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 23670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 73671
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "終結スキル：輝夜の糸・弦影",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1321016, Prop:1001}",
+       "param": {
+        "1321016": {
+         "main": 198850,
+         "growth": 18080,
+         "format": "%",
+         "damage_percentage": 198850,
+         "damage_percentage_growth": 18080,
+         "stun_ratio": 26040,
+         "stun_ratio_growth": 1190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 23670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 73671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1321016, Prop:1002}",
+       "param": {
+        "1321016": {
+         "main": 26040,
+         "growth": 1190,
+         "format": "%",
+         "damage_percentage": 198850,
+         "damage_percentage_growth": 18080,
+         "stun_ratio": 26040,
+         "stun_ratio_growth": 1190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 23670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 73671
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "クイック支援：フィアース・ブレード",
+     "desc": "操作しているメンバーが吹き飛ばされた時に、 <IconMap:Icon_Switch> を押して発動：\n<color=#FFFFFF>『輝夜の糸・弦』</color>で周囲の敵に斬撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。\n攻撃が敵に命中した時、イヴリンは<color=#FFFFFF>『輝夜の糸・弦』</color>でメインターゲットと自分を繋げて、相手と<color=#FFFFFF>「纏わりつく牽制」</color>状態に入る。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：静かなる援護",
+     "desc": "出場中のメンバーが攻撃されそうになった時に、 <IconMap:Icon_Switch> を押して発動：\n敵の攻撃をパリィし、ブレイク値を大量に蓄積させる。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援突撃：軌道干渉",
+     "desc": "<color=#FFFFFF>『パリィ支援』</color>発動後、 <IconMap:Icon_Normal> を押して発動：\n<color=#FFFFFF>『輝夜の糸・弦』</color>で斬撃を放った後、前方に爆発を起こし、<color=#FF5521>炎属性ダメージ</color>を与える。\n攻撃が敵に命中した時、イヴリンは<color=#FFFFFF>『輝夜の糸・弦』</color>でメインターゲットと自分を繋げて、相手と<color=#FFFFFF>「纏わりつく牽制」</color>状態に入る。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "クイック支援：フィアース・ブレード",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1321017, Prop:1001}",
+       "param": {
+        "1321017": {
+         "main": 7710,
+         "growth": 710,
+         "format": "%",
+         "damage_percentage": 7710,
+         "damage_percentage_growth": 710,
+         "stun_ratio": 7710,
+         "stun_ratio_growth": 360,
+         "sp_recovery": 25220,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 192775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3502
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1321017, Prop:1002}",
+       "param": {
+        "1321017": {
+         "main": 7710,
+         "growth": 360,
+         "format": "%",
+         "damage_percentage": 7710,
+         "damage_percentage_growth": 710,
+         "stun_ratio": 7710,
+         "stun_ratio_growth": 360,
+         "sp_recovery": 25220,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 192775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3502
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：静かなる援護",
+     "param": [
+      {
+       "name": "パリィ・軽 ブレイク倍率",
+       "desc": "{Skill:1321018, Prop:1002}",
+       "param": {
+        "1321018": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・重 ブレイク倍率",
+       "desc": "{Skill:1321019, Prop:1002}",
+       "param": {
+        "1321019": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・連続 ブレイク倍率",
+       "desc": "{Skill:1321020, Prop:1002}",
+       "param": {
+        "1321020": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：軌道干渉",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1321021, Prop:1001}",
+       "param": {
+        "1321021": {
+         "main": 29160,
+         "growth": 2660,
+         "format": "%",
+         "damage_percentage": 29160,
+         "damage_percentage_growth": 2660,
+         "stun_ratio": 24900,
+         "stun_ratio_growth": 1140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 835725,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 24567,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1321021, Prop:1002}",
+       "param": {
+        "1321021": {
+         "main": 24900,
+         "growth": 1140,
+         "format": "%",
+         "damage_percentage": 29160,
+         "damage_percentage_growth": 2660,
+         "stun_ratio": 24900,
+         "stun_ratio_growth": 1140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 835725,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 24567,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10997
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "織りなす夢",
+   "desc": "フィールド入場時、イヴリンは即座にデシベル値を1500Pt獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。<color=#FFFFFF>「纏わりつく牽制」</color>状態に入った敵は<color=#FFFFFF>「束縛」</color>効果を付与される。イヴリンが<color=#FFFFFF>「束縛」</color>効果を付与された敵を攻撃する時、ターゲットの防御力を12%無視する。<color=#FFFFFF>『特殊スキル：縛裂式・I型』</color>または<color=#FFFFFF>『強化特殊スキル：縛裂式・終型』</color>を発動した時、命中した敵全員に<color=#FFFFFF>「束縛」</color>効果を付与する。この方法で付与された<color=#FFFFFF>「束縛」</color>効果は10秒継続する。",
+   "desc2": "遠くおぼろげな光は彼女が創り出した夢であり、\n触れることのできない未来のように思えた。\nそれは贖罪ではなく、自由への渇望…\n「きみだって、心の中では憧れてるんでしょ？\n『ほんとの日常』ってやつ」——イヴリンのとある元同僚の言葉"
+  },
+  "2": {
+   "level": 2,
+   "name": "飛んで火に舞う",
+   "desc": "イヴリンの攻撃力+15%。\n<color=#FFFFFF>『通常攻撃：絞式・I型』</color>または<color=#FFFFFF>『通常攻撃：絞式・II型』</color>を発動した時、消費した<color=#FFFFFF>「燎火」</color>が返還される、25秒に1回のみ発動可能。\n<color=#FFFFFF>「燎索ポイント」</color>を消費して<color=#FFFFFF>『連携スキル：輝夜の糸・絆』</color>を発動した時、スキルの中断レベルがアップする。",
+   "desc2": "「あんな輝きがあることを、私は知らなかった。\n触れてはならないと思っていたが…その輝きはあらゆる壁を壊し\n私の心に直接触れた――そのとき思い出したんだ、\n暗闇の外にも、追い求めるに値するものがあるのだと」\n初めてアストラと出会ったときを回想するイヴリンの声は\nいつになく優しげだった。"
+  },
+  "3": {
+   "level": 3,
+   "name": "繭を破る",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "その瞬間、彼女は自らを縛るものから解放され、\n「本当の自分」になった。張りつめていた縄は千切れ、\nかつての鎖——いわば繭は、ついに破られた。\n生まれ変わったイヴリンの鋭い目つきには、\nしかし柔らかい光が僅かに宿っていた。"
+  },
+  "4": {
+   "level": 4,
+   "name": "運命の音",
+   "desc": "<color=#FFFFFF>『連携スキル』</color>または<color=#FFFFFF>『終結スキル』</color>発動時、イヴリンは即座に自身のHP上限10%分のシールドを生成する。\nこのシールドがある時、イヴリンの会心ダメージ+40%。",
+   "desc2": "「あのねイヴ、私…誰かに会って、\n『あっ、この人は私の人生で大切な人になる…』ってとき\n胸の中で『ドクン』って音がするの！」\nイヴリンはため息をつき、時間がないんだぞ、と催促し\nそれを聞いたアストラはファスナーを閉め、慌てて部屋を出る。\n一人メイク室に残されたイヴリンは、小さい声で反芻した。\n「…ドクン」"
+  },
+  "5": {
+   "level": 5,
+   "name": "朝焼け色の糸",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "イヴリンが操る糸は、朝焼けに染まった雲と同じ色をしていた。\n攻撃のたびに颯爽と身を翻し、朝焼けの如き火花を散らす。\n言葉はいらない。彼女の「守る」という決意は、\nとうに燃え盛る光と化していた。"
+  },
+  "6": {
+   "level": 6,
+   "name": "光と影の繋がり",
+   "desc": "<color=#FFFFFF>『連携スキル』</color>または<color=#FFFFFF>『終結スキル』</color>発動時、イヴリンが<color=#FFFFFF>「糸の鋒鋩」</color>を獲得する、継続時間20秒。\n<color=#FFFFFF>「糸の鋒鋩」</color>期間中、イヴリンの<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>、<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>がメインターゲットに命中した時、追加で<color=#FFFFFF>『輝夜の糸・弦』</color>を1段放って追撃し、範囲内の敵にイヴリンの攻撃力375%分の<color=#FF5521>炎属性ダメージ</color>を与える。該当ダメージは<color=#FFFFFF>『連携スキル』</color>によるダメージとみなされる、最大16回まで発動可能。\n再び<color=#FFFFFF>「糸の鋒鋩」</color>を獲得した時、発動可能回数がリセットされる。",
+   "desc2": "光あるところに影あり。\n影は息を潜めて身を隠し、光の進む道を追いかける。\nまばゆく輝く光の背後には、いつも影の守護があった。\n影が光のまばゆさを奪うことは決してない。\nその代わり、光の及ばない場所は影が埋める。\n光は影によって補完され、影は光によって存在する。\n今までも、これからも離れることはない。\n人知れぬ絆が途絶えることはなく、影は永遠に光を追いかけるだろう。"
+  }
+ },
+ "passive": {
+  "level": {
+   "1321501": {
+    "level": 1,
+    "id": 1321501,
+    "name": [
+     "コアパッシブ：絡まる糸",
+     "追加能力：急襲支点"
+    ],
+    "desc": [
+     "<color=#FFFFFF>「纏わりつく牽制」</color>状態に突入した時、イヴリンの会心率+<color=#2BAD00>12.5%</color>。<color=#FFFFFF>「纏わりつく牽制」</color>状態が終了しても、バフ効果は10秒間継続する。\n<color=#FFFFFF>「纏わりつく牽制」</color>状態継続中に他のメンバーに切り替えた時、イヴリンは自動で<color=#FFFFFF>『特殊スキル：縛裂式・I型』</color>を発動する。",
+     "チームに<color=#FFFFFF>[撃破]</color>または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\nイヴリンの<color=#FFFFFF>『連携スキル』</color>および<color=#FFFFFF>『終結スキル』</color>の与ダメージ+30%。\nイヴリンの会心率が80%以上の時、<color=#FFFFFF>『連携スキル：輝夜の糸・絆』</color>、<color=#FFFFFF>『終結スキル：輝夜の糸・弦音』</color>および<color=#FFFFFF>『終結スキル：輝夜の糸・弦影』</color>のダメージ倍率が本来の125%になる。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1321502": {
+    "level": 2,
+    "id": 1321502,
+    "name": [
+     "コアパッシブ：絡まる糸",
+     "追加能力：急襲支点"
+    ],
+    "desc": [
+     "<color=#FFFFFF>「纏わりつく牽制」</color>状態に突入した時、イヴリンの会心率+<color=#2BAD00>14.6%</color>。<color=#FFFFFF>「纏わりつく牽制」</color>状態が終了しても、バフ効果は10秒間継続する。\n<color=#FFFFFF>「纏わりつく牽制」</color>状態継続中に他のメンバーに切り替えた時、イヴリンは自動で<color=#FFFFFF>『特殊スキル：縛裂式・I型』</color>を発動する。",
+     "チームに<color=#FFFFFF>[撃破]</color>または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\nイヴリンの<color=#FFFFFF>『連携スキル』</color>および<color=#FFFFFF>『終結スキル』</color>の与ダメージ+30%。\nイヴリンの会心率が80%以上の時、<color=#FFFFFF>『連携スキル：輝夜の糸・絆』</color>、<color=#FFFFFF>『終結スキル：輝夜の糸・弦音』</color>および<color=#FFFFFF>『終結スキル：輝夜の糸・弦影』</color>のダメージ倍率が本来の125%になる。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1321503": {
+    "level": 3,
+    "id": 1321503,
+    "name": [
+     "コアパッシブ：絡まる糸",
+     "追加能力：急襲支点"
+    ],
+    "desc": [
+     "<color=#FFFFFF>「纏わりつく牽制」</color>状態に突入した時、イヴリンの会心率+<color=#2BAD00>16.7%</color>。<color=#FFFFFF>「纏わりつく牽制」</color>状態が終了しても、バフ効果は10秒間継続する。\n<color=#FFFFFF>「纏わりつく牽制」</color>状態継続中に他のメンバーに切り替えた時、イヴリンは自動で<color=#FFFFFF>『特殊スキル：縛裂式・I型』</color>を発動する。",
+     "チームに<color=#FFFFFF>[撃破]</color>または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\nイヴリンの<color=#FFFFFF>『連携スキル』</color>および<color=#FFFFFF>『終結スキル』</color>の与ダメージ+30%。\nイヴリンの会心率が80%以上の時、<color=#FFFFFF>『連携スキル：輝夜の糸・絆』</color>、<color=#FFFFFF>『終結スキル：輝夜の糸・弦音』</color>および<color=#FFFFFF>『終結スキル：輝夜の糸・弦影』</color>のダメージ倍率が本来の125%になる。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1321504": {
+    "level": 4,
+    "id": 1321504,
+    "name": [
+     "コアパッシブ：絡まる糸",
+     "追加能力：急襲支点"
+    ],
+    "desc": [
+     "<color=#FFFFFF>「纏わりつく牽制」</color>状態に突入した時、イヴリンの会心率+<color=#2BAD00>18.8%</color>。<color=#FFFFFF>「纏わりつく牽制」</color>状態が終了しても、バフ効果は10秒間継続する。\n<color=#FFFFFF>「纏わりつく牽制」</color>状態継続中に他のメンバーに切り替えた時、イヴリンは自動で<color=#FFFFFF>『特殊スキル：縛裂式・I型』</color>を発動する。",
+     "チームに<color=#FFFFFF>[撃破]</color>または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\nイヴリンの<color=#FFFFFF>『連携スキル』</color>および<color=#FFFFFF>『終結スキル』</color>の与ダメージ+30%。\nイヴリンの会心率が80%以上の時、<color=#FFFFFF>『連携スキル：輝夜の糸・絆』</color>、<color=#FFFFFF>『終結スキル：輝夜の糸・弦音』</color>および<color=#FFFFFF>『終結スキル：輝夜の糸・弦影』</color>のダメージ倍率が本来の125%になる。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1321505": {
+    "level": 5,
+    "id": 1321505,
+    "name": [
+     "コアパッシブ：絡まる糸",
+     "追加能力：急襲支点"
+    ],
+    "desc": [
+     "<color=#FFFFFF>「纏わりつく牽制」</color>状態に突入した時、イヴリンの会心率+<color=#2BAD00>20.8%</color>。<color=#FFFFFF>「纏わりつく牽制」</color>状態が終了しても、バフ効果は10秒間継続する。\n<color=#FFFFFF>「纏わりつく牽制」</color>状態継続中に他のメンバーに切り替えた時、イヴリンは自動で<color=#FFFFFF>『特殊スキル：縛裂式・I型』</color>を発動する。",
+     "チームに<color=#FFFFFF>[撃破]</color>または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\nイヴリンの<color=#FFFFFF>『連携スキル』</color>および<color=#FFFFFF>『終結スキル』</color>の与ダメージ+30%。\nイヴリンの会心率が80%以上の時、<color=#FFFFFF>『連携スキル：輝夜の糸・絆』</color>、<color=#FFFFFF>『終結スキル：輝夜の糸・弦音』</color>および<color=#FFFFFF>『終結スキル：輝夜の糸・弦影』</color>のダメージ倍率が本来の125%になる。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1321506": {
+    "level": 6,
+    "id": 1321506,
+    "name": [
+     "コアパッシブ：絡まる糸",
+     "追加能力：急襲支点"
+    ],
+    "desc": [
+     "<color=#FFFFFF>「纏わりつく牽制」</color>状態に突入した時、イヴリンの会心率+<color=#2BAD00>23%</color>。<color=#FFFFFF>「纏わりつく牽制」</color>状態が終了しても、バフ効果は10秒間継続する。\n<color=#FFFFFF>「纏わりつく牽制」</color>状態継続中に他のメンバーに切り替えた時、イヴリンは自動で<color=#FFFFFF>『特殊スキル：縛裂式・I型』</color>を発動する。",
+     "チームに<color=#FFFFFF>[撃破]</color>または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\nイヴリンの<color=#FFFFFF>『連携スキル』</color>および<color=#FFFFFF>『終結スキル』</color>の与ダメージ+30%。\nイヴリンの会心率が80%以上の時、<color=#FFFFFF>『連携スキル：輝夜の糸・絆』</color>、<color=#FFFFFF>『終結スキル：輝夜の糸・弦音』</color>および<color=#FFFFFF>『終結スキル：輝夜の糸・弦影』</color>のダメージ倍率が本来の125%になる。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1321507": {
+    "level": 7,
+    "id": 1321507,
+    "name": [
+     "コアパッシブ：絡まる糸",
+     "追加能力：急襲支点"
+    ],
+    "desc": [
+     "<color=#FFFFFF>「纏わりつく牽制」</color>状態に突入した時、イヴリンの会心率+<color=#2BAD00>25%</color>。<color=#FFFFFF>「纏わりつく牽制」</color>状態が終了しても、バフ効果は10秒間継続する。\n<color=#FFFFFF>「纏わりつく牽制」</color>状態継続中に他のメンバーに切り替えた時、イヴリンは自動で<color=#FFFFFF>『特殊スキル：縛裂式・I型』</color>を発動する。",
+     "チームに<color=#FFFFFF>[撃破]</color>または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\nイヴリンの<color=#FFFFFF>『連携スキル』</color>および<color=#FFFFFF>『終結スキル』</color>の与ダメージ+30%。\nイヴリンの会心率が80%以上の時、<color=#FFFFFF>『連携スキル：輝夜の糸・絆』</color>、<color=#FFFFFF>『終結スキル：輝夜の糸・弦音』</color>および<color=#FFFFFF>『終結スキル：輝夜の糸・弦影』</color>のダメージ倍率が本来の125%になる。"
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110504": 2
+   },
+   "3": {
+    "10": 28000,
+    "110504": 4
+   },
+   "4": {
+    "10": 60000,
+    "110004": 2,
+    "110504": 9
+   },
+   "5": {
+    "10": 100000,
+    "110004": 3,
+    "110504": 15
+   },
+   "6": {
+    "10": 200000,
+    "110004": 4,
+    "110504": 30
+   }
+  }
+ },
+ "skin": {
+  "3113210": {
+   "name": "イヴリン・「蛾は光を追い求め」",
+   "desc": "鋭く洗練されたマネージャーの衣装。\n服の内側に秘めた危険性は、窺う者の歩みを止めさせる。\n纏められた木の葉色の髪は網のように、一筋の星光に絡み取り、安眠を守っている。",
+   "obtain_desc": "",
+   "image": "IconRole37"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1321001": {
+   "name": "通常攻撃：シャープ・ストリング（1、2、3段）",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1321002": {
+   "name": "通常攻撃：シャープ・ストリング（4、5段）",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1321003": {
+   "name": "通常攻撃：シャープ・ストリング（縛裂式の起爆をキャンセル）",
+   "desc": "<IconMap:Icon_Special>（縛裂式） ; <IconMap:Icon_Normal>（縛裂式起爆前に） ; <IconMap:Icon_Normal> ; <IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1321004": {
+   "name": "通常攻撃：絞式",
+   "desc": "<IconMap:Icon_Normal>（長押し）",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1321005": {
+   "name": "通常攻撃：絞式",
+   "desc": "<IconMap:Icon_Special>（縛裂式で敵をとらえた時に長押し）",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1321006": {
+   "name": "特殊スキル：ロック・ポジション",
+   "desc": "<IconMap:Icon_Special>（「纏わりつく牽制」状態ではない時）",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1321007": {
+   "name": "特殊スキル：縛裂式・I型",
+   "desc": "<IconMap:Icon_Special>（「纏わりつく牽制」状態にある時）",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1321008": {
+   "name": "強化特殊スキル：縛裂式・終型",
+   "desc": "<IconMap:Icon_SpecialReady>（「纏わりつく牽制」状態にある時）",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1321009": {
+   "name": "ダッシュ攻撃：スリップ・アンブッシュ",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1321010": {
+   "name": "回避反撃：反攻の絞扼",
+   "desc": "<IconMap:Icon_Evade>（極限回避成功） ; <IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1321011": {
+   "name": "連携スキル：輝夜の糸・絆",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1321012": {
+   "name": "終結スキル：輝夜の糸・弦音",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1321013": {
+   "name": "終結スキル：輝夜の糸・弦影",
+   "desc": "<IconMap:Icon_UltimateReady>（炎舞覚醒にある時）",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1321014": {
+   "name": "クイック支援：フィアース・ブレード",
+   "desc": "<IconMap:Icon_Switch>（クイック支援の発動条件を満たした時）",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1321015": {
+   "name": "パリィ支援：静かなる援護",
+   "desc": "<IconMap:Icon_Switch>（パリィ支援の発動条件を満たした時）",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1321016": {
+   "name": "支援突撃：軌道干渉",
+   "desc": "<IconMap:Icon_Normal>（パリィ支援を発動した後に）",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1321001,
+   "avatar_id": 1321,
+   "first_priority": [
+    5,
+    3
+   ],
+   "second_priority": [
+    0,
+    1
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 31000,
+  "slot2": 32700,
+  "slot_sub": 32800,
+  "part_sub_list": [
+   20103,
+   12102,
+   21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31000,
+     32700
+    ],
+    "part_sub_list": [
+     21103,
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31603
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "会心率",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 21103,
+   "name": "会心ダメージ",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  },
+  "part6": {
+   "prop": 31603,
+   "name": "炎属性ダメージボーナス",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconFire.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "攻撃力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Fire>炎属性、表アタッカー",
+  "継続火力と瞬間火力の両立",
+  "ブレイクせずに『連携スキル』を発動可能"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100211": 4
+   }
+  },
+  "2": {
+   "hp_max": 430,
+   "attack": 48,
+   "defence": 34,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100221": 12
+   }
+  },
+  "3": {
+   "hp_max": 859,
+   "attack": 95,
+   "defence": 68,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100221": 20
+   }
+  },
+  "4": {
+   "hp_max": 1289,
+   "attack": 143,
+   "defence": 101,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100231": 10
+   }
+  },
+  "5": {
+   "hp_max": 1719,
+   "attack": 191,
+   "defence": 135,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100231": 20
+   }
+  },
+  "6": {
+   "hp_max": 2149,
+   "attack": 239,
+   "defence": 169,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpineEvelyn"
+}

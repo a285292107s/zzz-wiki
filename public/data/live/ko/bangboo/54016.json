@@ -1,0 +1,519 @@
+{
+ "id": 54016,
+ "code_name": "Robin",
+ "name": "로빈",
+ "desc": "3——2——1! 눈 깜빡이지 마!",
+ "rarity": 4,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole31.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 396,
+  "hpupgrade": 471237,
+  "attack": 70,
+  "attack_upgrade": 350579,
+  "break_stun": 117,
+  "element_abnormal_power": 117,
+  "defence": 28,
+  "def_upgrade": 78871,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 207,
+   "attack": 65,
+   "defence": 35,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 414,
+   "attack": 324,
+   "defence": 69,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 621,
+   "attack": 973,
+   "defence": 104,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 828,
+   "attack": 2593,
+   "defence": 139,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 1034,
+   "attack": 6483,
+   "defence": 173,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "아름다운 엔딩",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시, 마술총으로 랜덤 카드를 연속 발사하며 카드의 타입에 따라 각기 다른 효과를 준다.\n<color=#FFFFFF>[하트]</color>는 대량의 <color=#F0D12B>물리 피해</color>를 준다.\n<color=#FFFFFF>[스페이드]</color>는 <color=#F0D12B>물리 피해</color>를 주고 대량의 그로기 수치를 누적한다.\n<color=#FFFFFF>[크라운]</color>은 <color=#FE437E>에테르 피해</color>를 주고 대량의 <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "[하트] 피해 배율",
+      "[하트] 그로기 배율",
+      "[스페이드] 피해 배율",
+      "[스페이드] 그로기 배율",
+      "[크라운] 피해 배율",
+      "[크라운] 그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5401601, Prop:1001}|{Skill:5401601, Prop:1002}|{Skill:5401602, Prop:1001}|{Skill:5401602, Prop:1002}|{Skill:5401603, Prop:1001}|{Skill:5401603, Prop:1002}|26초"
+    },
+    "2": {
+     "name": "아름다운 엔딩",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시, 마술총으로 랜덤 카드를 연속 발사하며 카드의 타입에 따라 각기 다른 효과를 준다.\n<color=#FFFFFF>[하트]</color>는 대량의 <color=#F0D12B>물리 피해</color>를 준다.\n<color=#FFFFFF>[스페이드]</color>는 <color=#F0D12B>물리 피해</color>를 주고 대량의 그로기 수치를 누적한다.\n<color=#FFFFFF>[크라운]</color>은 <color=#FE437E>에테르 피해</color>를 주고 대량의 <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "[하트] 피해 배율",
+      "[하트] 그로기 배율",
+      "[스페이드] 피해 배율",
+      "[스페이드] 그로기 배율",
+      "[크라운] 피해 배율",
+      "[크라운] 그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5401601, Prop:1001}|{Skill:5401601, Prop:1002}|{Skill:5401602, Prop:1001}|{Skill:5401602, Prop:1002}|{Skill:5401603, Prop:1001}|{Skill:5401603, Prop:1002}|26초"
+    },
+    "3": {
+     "name": "아름다운 엔딩",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시, 마술총으로 랜덤 카드를 연속 발사하며 카드의 타입에 따라 각기 다른 효과를 준다.\n<color=#FFFFFF>[하트]</color>는 대량의 <color=#F0D12B>물리 피해</color>를 준다.\n<color=#FFFFFF>[스페이드]</color>는 <color=#F0D12B>물리 피해</color>를 주고 대량의 그로기 수치를 누적한다.\n<color=#FFFFFF>[크라운]</color>은 <color=#FE437E>에테르 피해</color>를 주고 대량의 <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "[하트] 피해 배율",
+      "[하트] 그로기 배율",
+      "[스페이드] 피해 배율",
+      "[스페이드] 그로기 배율",
+      "[크라운] 피해 배율",
+      "[크라운] 그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5401601, Prop:1001}|{Skill:5401601, Prop:1002}|{Skill:5401602, Prop:1001}|{Skill:5401602, Prop:1002}|{Skill:5401603, Prop:1001}|{Skill:5401603, Prop:1002}|26초"
+    },
+    "4": {
+     "name": "아름다운 엔딩",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시, 마술총으로 랜덤 카드를 연속 발사하며 카드의 타입에 따라 각기 다른 효과를 준다.\n<color=#FFFFFF>[하트]</color>는 대량의 <color=#F0D12B>물리 피해</color>를 준다.\n<color=#FFFFFF>[스페이드]</color>는 <color=#F0D12B>물리 피해</color>를 주고 대량의 그로기 수치를 누적한다.\n<color=#FFFFFF>[크라운]</color>은 <color=#FE437E>에테르 피해</color>를 주고 대량의 <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "[하트] 피해 배율",
+      "[하트] 그로기 배율",
+      "[스페이드] 피해 배율",
+      "[스페이드] 그로기 배율",
+      "[크라운] 피해 배율",
+      "[크라운] 그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5401601, Prop:1001}|{Skill:5401601, Prop:1002}|{Skill:5401602, Prop:1001}|{Skill:5401602, Prop:1002}|{Skill:5401603, Prop:1001}|{Skill:5401603, Prop:1002}|26초"
+    },
+    "5": {
+     "name": "아름다운 엔딩",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시, 마술총으로 랜덤 카드를 연속 발사하며 카드의 타입에 따라 각기 다른 효과를 준다.\n<color=#FFFFFF>[하트]</color>는 대량의 <color=#F0D12B>물리 피해</color>를 준다.\n<color=#FFFFFF>[스페이드]</color>는 <color=#F0D12B>물리 피해</color>를 주고 대량의 그로기 수치를 누적한다.\n<color=#FFFFFF>[크라운]</color>은 <color=#FE437E>에테르 피해</color>를 주고 대량의 <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "[하트] 피해 배율",
+      "[하트] 그로기 배율",
+      "[스페이드] 피해 배율",
+      "[스페이드] 그로기 배율",
+      "[크라운] 피해 배율",
+      "[크라운] 그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5401601, Prop:1001}|{Skill:5401601, Prop:1002}|{Skill:5401602, Prop:1001}|{Skill:5401602, Prop:1002}|{Skill:5401603, Prop:1001}|{Skill:5401603, Prop:1002}|26초"
+    },
+    "6": {
+     "name": "아름다운 엔딩",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시, 마술총으로 랜덤 카드를 연속 발사하며 카드의 타입에 따라 각기 다른 효과를 준다.\n<color=#FFFFFF>[하트]</color>는 대량의 <color=#F0D12B>물리 피해</color>를 준다.\n<color=#FFFFFF>[스페이드]</color>는 <color=#F0D12B>물리 피해</color>를 주고 대량의 그로기 수치를 누적한다.\n<color=#FFFFFF>[크라운]</color>은 <color=#FE437E>에테르 피해</color>를 주고 대량의 <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "[하트] 피해 배율",
+      "[하트] 그로기 배율",
+      "[스페이드] 피해 배율",
+      "[스페이드] 그로기 배율",
+      "[크라운] 피해 배율",
+      "[크라운] 그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5401601, Prop:1001}|{Skill:5401601, Prop:1002}|{Skill:5401602, Prop:1001}|{Skill:5401602, Prop:1002}|{Skill:5401603, Prop:1001}|{Skill:5401603, Prop:1002}|26초"
+    },
+    "7": {
+     "name": "아름다운 엔딩",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시, 마술총으로 랜덤 카드를 연속 발사하며 카드의 타입에 따라 각기 다른 효과를 준다.\n<color=#FFFFFF>[하트]</color>는 대량의 <color=#F0D12B>물리 피해</color>를 준다.\n<color=#FFFFFF>[스페이드]</color>는 <color=#F0D12B>물리 피해</color>를 주고 대량의 그로기 수치를 누적한다.\n<color=#FFFFFF>[크라운]</color>은 <color=#FE437E>에테르 피해</color>를 주고 대량의 <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "[하트] 피해 배율",
+      "[하트] 그로기 배율",
+      "[스페이드] 피해 배율",
+      "[스페이드] 그로기 배율",
+      "[크라운] 피해 배율",
+      "[크라운] 그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5401601, Prop:1001}|{Skill:5401601, Prop:1002}|{Skill:5401602, Prop:1001}|{Skill:5401602, Prop:1002}|{Skill:5401603, Prop:1001}|{Skill:5401603, Prop:1002}|26초"
+    },
+    "8": {
+     "name": "아름다운 엔딩",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시, 마술총으로 랜덤 카드를 연속 발사하며 카드의 타입에 따라 각기 다른 효과를 준다.\n<color=#FFFFFF>[하트]</color>는 대량의 <color=#F0D12B>물리 피해</color>를 준다.\n<color=#FFFFFF>[스페이드]</color>는 <color=#F0D12B>물리 피해</color>를 주고 대량의 그로기 수치를 누적한다.\n<color=#FFFFFF>[크라운]</color>은 <color=#FE437E>에테르 피해</color>를 주고 대량의 <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "[하트] 피해 배율",
+      "[하트] 그로기 배율",
+      "[스페이드] 피해 배율",
+      "[스페이드] 그로기 배율",
+      "[크라운] 피해 배율",
+      "[크라운] 그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5401601, Prop:1001}|{Skill:5401601, Prop:1002}|{Skill:5401602, Prop:1001}|{Skill:5401602, Prop:1002}|{Skill:5401603, Prop:1001}|{Skill:5401603, Prop:1002}|26초"
+    },
+    "9": {
+     "name": "아름다운 엔딩",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시, 마술총으로 랜덤 카드를 연속 발사하며 카드의 타입에 따라 각기 다른 효과를 준다.\n<color=#FFFFFF>[하트]</color>는 대량의 <color=#F0D12B>물리 피해</color>를 준다.\n<color=#FFFFFF>[스페이드]</color>는 <color=#F0D12B>물리 피해</color>를 주고 대량의 그로기 수치를 누적한다.\n<color=#FFFFFF>[크라운]</color>은 <color=#FE437E>에테르 피해</color>를 주고 대량의 <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "[하트] 피해 배율",
+      "[하트] 그로기 배율",
+      "[스페이드] 피해 배율",
+      "[스페이드] 그로기 배율",
+      "[크라운] 피해 배율",
+      "[크라운] 그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5401601, Prop:1001}|{Skill:5401601, Prop:1002}|{Skill:5401602, Prop:1001}|{Skill:5401602, Prop:1002}|{Skill:5401603, Prop:1001}|{Skill:5401603, Prop:1002}|26초"
+    },
+    "10": {
+     "name": "아름다운 엔딩",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시, 마술총으로 랜덤 카드를 연속 발사하며 카드의 타입에 따라 각기 다른 효과를 준다.\n<color=#FFFFFF>[하트]</color>는 대량의 <color=#F0D12B>물리 피해</color>를 준다.\n<color=#FFFFFF>[스페이드]</color>는 <color=#F0D12B>물리 피해</color>를 주고 대량의 그로기 수치를 누적한다.\n<color=#FFFFFF>[크라운]</color>은 <color=#FE437E>에테르 피해</color>를 주고 대량의 <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "[하트] 피해 배율",
+      "[하트] 그로기 배율",
+      "[스페이드] 피해 배율",
+      "[스페이드] 그로기 배율",
+      "[크라운] 피해 배율",
+      "[크라운] 그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5401601, Prop:1001}|{Skill:5401601, Prop:1002}|{Skill:5401602, Prop:1001}|{Skill:5401602, Prop:1002}|{Skill:5401603, Prop:1001}|{Skill:5401603, Prop:1002}|26초"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "변신의 귀재",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티에 <color=#FFFFFF>[모킹버드]</color> 진영의 캐릭터가 1명 이상 존재 시 발동: 출전 에이전트의 특성이 조건을 만족할 시 <color=#FFFFFF>[액티브 스킬]</color>은 지정된 카드를 발사하고 버프 효과를 획득한다.\n<color=#FFFFFF>[강공]</color>: <color=#FFFFFF>[하트]</color>만 발사하며 주는 피해가 45% 증가한다.\n<color=#FFFFFF>[격파]</color>: <color=#FFFFFF>[스페이드]</color>만 발사하며 주는 그로기 수치가 27% 증가한다.\n<color=#FFFFFF>[이상]</color>: <color=#FFFFFF>[크라운]</color>만 발사하며 누적하는 속성 이상 축적치가 90% 증가한다.",
+     "property": [
+      "피해 증가",
+      "그로기 수치 증가",
+      "속성 이상 축적치 증가"
+     ],
+     "param": "45%|27%|90%"
+    },
+    "2": {
+     "name": "변신의 귀재",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티에 <color=#FFFFFF>[모킹버드]</color> 진영의 캐릭터가 1명 이상 존재 시 발동: 출전 에이전트의 특성이 조건을 만족할 시 <color=#FFFFFF>[액티브 스킬]</color>은 지정된 카드를 발사하고 버프 효과를 획득한다.\n<color=#FFFFFF>[강공]</color>: <color=#FFFFFF>[하트]</color>만 발사하며 주는 피해가 56% 증가한다.\n<color=#FFFFFF>[격파]</color>: <color=#FFFFFF>[스페이드]</color>만 발사하며 주는 그로기 수치가 34% 증가한다.\n<color=#FFFFFF>[이상]</color>: <color=#FFFFFF>[크라운]</color>만 발사하며 누적하는 속성 이상 축적치가 112.5% 증가한다.",
+     "property": [
+      "피해 증가",
+      "그로기 수치 증가",
+      "속성 이상 축적치 증가"
+     ],
+     "param": "56%|34%|112.5%"
+    },
+    "3": {
+     "name": "변신의 귀재",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티에 <color=#FFFFFF>[모킹버드]</color> 진영의 캐릭터가 1명 이상 존재 시 발동: 출전 에이전트의 특성이 조건을 만족할 시 <color=#FFFFFF>[액티브 스킬]</color>은 지정된 카드를 발사하고 버프 효과를 획득한다.\n<color=#FFFFFF>[강공]</color>: <color=#FFFFFF>[하트]</color>만 발사하며 주는 피해가 67% 증가한다.\n<color=#FFFFFF>[격파]</color>: <color=#FFFFFF>[스페이드]</color>만 발사하며 주는 그로기 수치가 40% 증가한다.\n<color=#FFFFFF>[이상]</color>: <color=#FFFFFF>[크라운]</color>만 발사하며 누적하는 속성 이상 축적치가 135% 증가한다.",
+     "property": [
+      "피해 증가",
+      "그로기 수치 증가",
+      "속성 이상 축적치 증가"
+     ],
+     "param": "67%|40%|135%"
+    },
+    "4": {
+     "name": "변신의 귀재",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티에 <color=#FFFFFF>[모킹버드]</color> 진영의 캐릭터가 1명 이상 존재 시 발동: 출전 에이전트의 특성이 조건을 만족할 시 <color=#FFFFFF>[액티브 스킬]</color>은 지정된 카드를 발사하고 버프 효과를 획득한다.\n<color=#FFFFFF>[강공]</color>: <color=#FFFFFF>[하트]</color>만 발사하며 주는 피해가 78% 증가한다.\n<color=#FFFFFF>[격파]</color>: <color=#FFFFFF>[스페이드]</color>만 발사하며 주는 그로기 수치가 47% 증가한다.\n<color=#FFFFFF>[이상]</color>: <color=#FFFFFF>[크라운]</color>만 발사하며 누적하는 속성 이상 축적치가 157.5% 증가한다.",
+     "property": [
+      "피해 증가",
+      "그로기 수치 증가",
+      "속성 이상 축적치 증가"
+     ],
+     "param": "78%|47%|157.5%"
+    },
+    "5": {
+     "name": "변신의 귀재",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티에 <color=#FFFFFF>[모킹버드]</color> 진영의 캐릭터가 1명 이상 존재 시 발동: 출전 에이전트의 특성이 조건을 만족할 시 <color=#FFFFFF>[액티브 스킬]</color>은 지정된 카드를 발사하고 버프 효과를 획득한다.\n<color=#FFFFFF>[강공]</color>: <color=#FFFFFF>[하트]</color>만 발사하며 주는 피해가 90% 증가한다.\n<color=#FFFFFF>[격파]</color>: <color=#FFFFFF>[스페이드]</color>만 발사하며 주는 그로기 수치가 54% 증가한다.\n<color=#FFFFFF>[이상]</color>: <color=#FFFFFF>[크라운]</color>만 발사하며 누적하는 속성 이상 축적치가 180% 증가한다.",
+     "property": [
+      "피해 증가",
+      "그로기 수치 증가",
+      "속성 이상 축적치 증가"
+     ],
+     "param": "90%|54%|180%"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "환상의 막을 열어라!",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전방에 마술 수류탄을 던져 <color=#FE437E>에테르 피해</color>를 주고, <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401604, Prop:1001}|{Skill:5401604, Prop:1002}"
+    },
+    "2": {
+     "name": "환상의 막을 열어라!",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전방에 마술 수류탄을 던져 <color=#FE437E>에테르 피해</color>를 주고, <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401604, Prop:1001}|{Skill:5401604, Prop:1002}"
+    },
+    "3": {
+     "name": "환상의 막을 열어라!",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전방에 마술 수류탄을 던져 <color=#FE437E>에테르 피해</color>를 주고, <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401604, Prop:1001}|{Skill:5401604, Prop:1002}"
+    },
+    "4": {
+     "name": "환상의 막을 열어라!",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전방에 마술 수류탄을 던져 <color=#FE437E>에테르 피해</color>를 주고, <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401604, Prop:1001}|{Skill:5401604, Prop:1002}"
+    },
+    "5": {
+     "name": "환상의 막을 열어라!",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전방에 마술 수류탄을 던져 <color=#FE437E>에테르 피해</color>를 주고, <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401604, Prop:1001}|{Skill:5401604, Prop:1002}"
+    },
+    "6": {
+     "name": "환상의 막을 열어라!",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전방에 마술 수류탄을 던져 <color=#FE437E>에테르 피해</color>를 주고, <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401604, Prop:1001}|{Skill:5401604, Prop:1002}"
+    },
+    "7": {
+     "name": "환상의 막을 열어라!",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전방에 마술 수류탄을 던져 <color=#FE437E>에테르 피해</color>를 주고, <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401604, Prop:1001}|{Skill:5401604, Prop:1002}"
+    },
+    "8": {
+     "name": "환상의 막을 열어라!",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전방에 마술 수류탄을 던져 <color=#FE437E>에테르 피해</color>를 주고, <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401604, Prop:1001}|{Skill:5401604, Prop:1002}"
+    },
+    "9": {
+     "name": "환상의 막을 열어라!",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전방에 마술 수류탄을 던져 <color=#FE437E>에테르 피해</color>를 주고, <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401604, Prop:1001}|{Skill:5401604, Prop:1002}"
+    },
+    "10": {
+     "name": "환상의 막을 열어라!",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전방에 마술 수류탄을 던져 <color=#FE437E>에테르 피해</color>를 주고, <color=#FE437E>에테르 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401604, Prop:1001}|{Skill:5401604, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5401601": {
+   "1001": {
+    "main": 85500,
+    "growth": 8550,
+    "format": "%"
+   },
+   "1002": {
+    "main": 21300,
+    "growth": 2130,
+    "format": "%"
+   },
+   "element_accumulation_value": 31200
+  },
+  "5401602": {
+   "1001": {
+    "main": 58200,
+    "growth": 5820,
+    "format": "%"
+   },
+   "1002": {
+    "main": 32200,
+    "growth": 3220,
+    "format": "%"
+   },
+   "element_accumulation_value": 27300
+  },
+  "5401603": {
+   "1001": {
+    "main": 66600,
+    "growth": 6660,
+    "format": "%"
+   },
+   "1002": {
+    "main": 21300,
+    "growth": 2130,
+    "format": "%"
+   },
+   "element_accumulation_value": 41200
+  },
+  "5401604": {
+   "1001": {
+    "main": 68800,
+    "growth": 6880,
+    "format": "%"
+   },
+   "1002": {
+    "main": 9800,
+    "growth": 980,
+    "format": "%"
+   },
+   "element_accumulation_value": 29500
+  }
+ }
+}

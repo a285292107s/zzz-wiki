@@ -1,0 +1,2370 @@
+{
+ "id": 1051,
+ "icon": "IconRole52",
+ "name": "이드하리",
+ "code_name": "Yidhari",
+ "rarity": 4,
+ "weapon_type": {
+  "6": "Rupture"
+ },
+ "element_type": {
+  "202": "Ice"
+ },
+ "hit_type": {
+  "102": "Strike"
+ },
+ "camp": {
+  "11": "괴담방"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "3/19",
+  "full_name": "이드하리 머피",
+  "gender": "여성",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle52.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0052.png",
+  "impression_f": "이드하리 씨는 뭐든 별로 신경 쓰지 않는 것처럼 보이지만, 사실 엄청 꼼꼼하고 남을 잘 챙기는 사람이야!\n한번은 내가 비디오를 옮기다가 실수로 손이 살짝 베였는데, 내가 미처 발견하기도 전에 반창고를 가져와서 붙여주더라니까!",
+  "impression_m": "동감이야… 전에 같이 외출했을 때, 급하게 나오느라 점심을 못 먹은 걸 알아채더라. 내 입술이 하얀 게 분명 아무것도 안 먹고 온 거라나. 난 하나도 모르겠던데…",
+  "impressions": [
+   "이드하리에 대한 인상:\n · 어둠 속에서 느껴진 건 서늘한 감촉이었다. 하지만 그녀에게는 뜨거운 경험이 되었다",
+   " · 그녀는 비 오는 날을 맞이하진 못했지만, 당신을 맞이했다",
+   " · 소중한 사람과 함께 걸어가고 싶다"
+  ],
+  "profile_desc": "이드하리는 에이전트라는 신분 외에도 로프꾼과 괴담방의 투고 작가를 겸하고 있다.\n남들이 보기에 이드하리의 평소 태도는 뭔가 느긋하고 나태해 보인다. 하지만 기록된 자료를 기반으로 볼 때, 이건 나태함이라기보다는 주변 환경에 녹아들지 못하는 공허감에 휩싸여 있는 것에 가깝다.\n대부분의 사람들은 이를 창작에 몰두하는 사람들의 고질병으로 여긴다——천부적인 괴담 작가로서, 이드하리가 남들보다 자신이 만든 판타지 세계에 더 쉽게 빠져드는 건 당연해 보인다.\n하지만 실제로 그녀의 이상 행동은 대부분 자신의 능력이 가져온 부담 때문이다.\n그녀는 공동에서 일반인은 상상하기 힘든 방대한 정보를 접할 수 있는데, 그 정보들은 공동 속에 오랫동안 쌓여온 과거와 얽혀있다. 이 수많은 과거가 쌓아온 부하는 끊임없이 그녀의 현실 인식과 충돌하며, 결국 감정마저도 점차 무뎌지게 만든 것이다.\n이런 부담을 견뎌내고 자신의 능력으로 만들면서, 더 나아가 자기 방식으로 정상적인 삶을 살아간다는 것은 일반인을 아득히 뛰어넘는 이드하리만의 재능일 것이다.",
+  "role_icon": "IconRole/UnPacker/IconRole52",
+  "stature": "171",
+  "unlock_condition": [
+   "에이전트 획득",
+   "메인 의뢰 시즌 2 제4장 완료",
+   "「엔비의 고민」 의뢰 완료"
+  ],
+  "trust_lv": {
+   "1": "이드하리는 에이전트라는 신분 외에도 로프꾼과 괴담방의 투고 작가를 겸하고 있다.\n남들이 보기에 이드하리의 평소 태도는 뭔가 느긋하고 나태해 보인다. 하지만 기록된 자료를 기반으로 볼 때, 이건 나태함이라기보다는 주변 환경에 녹아들지 못하는 공허감에 휩싸여 있는 것에 가깝다.\n대부분의 사람들은 이를 창작에 몰두하는 사람들의 고질병으로 여긴다——천부적인 괴담 작가로서, 이드하리가 남들보다 자신이 만든 판타지 세계에 더 쉽게 빠져드는 건 당연해 보인다.\n하지만 실제로 그녀의 이상 행동은 대부분 자신의 능력이 가져온 부담 때문이다.\n그녀는 공동에서 일반인은 상상하기 힘든 방대한 정보를 접할 수 있는데, 그 정보들은 공동 속에 오랫동안 쌓여온 과거와 얽혀있다. 이 수많은 과거가 쌓아온 부하는 끊임없이 그녀의 현실 인식과 충돌하며, 결국 감정마저도 점차 무뎌지게 만든 것이다.\n이런 부담을 견뎌내고 자신의 능력으로 만들면서, 더 나아가 자기 방식으로 정상적인 삶을 살아간다는 것은 일반인을 아득히 뛰어넘는 이드하리만의 재능일 것이다.",
+   "2": "",
+   "3": "이드하리는 비 오는 날과 목욕을 몹시도 사랑한다.\n이 두 가지 취미는 현실 세계에서 잠시나마 평안과 고요함을 선사했고, 머릿속 복잡한 정보의 흐름에서 벗어나 잠시의 여유를 누릴 수 있게 해주기 때문이다.\n\n하지만 최근의 만남 속에서 이 두 가지 사랑은 조금씩 바뀌어 갔다.\n더는 고독에 익숙하지 않게 됐고, 불안과 기대를 안고 비 오는 날을 찾지도 않게 됐으며, 더는 따뜻한 물에 의지해 자신을 치유하지도 않게 됐다.\n맑은 하늘 아래를 거닐기 시작했고, 북적이는 사람들 사이를 여유롭게 지나다닐 수 있게 됐으며… 자신에게 새로운 모든 것을 시도해 보고 싶어 하게 됐다.\n\n그리고 이드하리의 이 모든 변화의 시작은, 당신과의 만남에서 비롯되었다.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 124,
+  "attack_growth": 74561,
+  "avatar_piece_id": 5051,
+  "break_stun": 95,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 36,
+  "defence_growth": 48889,
+  "element_abnormal_power": 87,
+  "element_mystery": 90,
+  "endurance": 0,
+  "hp_growth": 927143,
+  "hp_max": 683,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 0,
+  "sp_recover": 0,
+  "stun": 0,
+  "tags": [
+   "Yidhari",
+   "Punch",
+   "Ice",
+   "Female",
+   "Camp11",
+   "Size3",
+   "AidTypeParry",
+   "Yidhari",
+   "EtherEyesSize3"
+  ],
+  "rp_max": 120,
+  "rp_recover": 200,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "일반 공격: 망연함을 깨부수는 침격",
+     "desc": "<IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방에 최대 3단까지 타격을 펼쳐 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n세 번째 타격이 명중하면 이드하리가 HP를 10% 회복한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 서릿발의 포옹",
+     "desc": "<IconMap:Icon_Normal>을 홀드해 시전:\n이드하리가 차지를 시작하며, 차지하는 동안 HP가 지속적으로 소모된다. 최대 3단까지 차지할 수 있으며 <IconMap:Icon_Normal>에서 손을 떼면 이드하리가 현재 차지 단계에 따라 전방으로 강력한 차지 망치질을 시전하여 대량의 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n이드하리의 HP가 많을수록 차지 시 HP 소모 속도가 더 빨라지며, 최대 HP 최대치의 25%까지 소모된다.\n차지 단계가 2단에 도달했을 때, 스킬 시전 후 <IconMap:Icon_Normal>을 누르면 바로 세 번째 <color=#FFFFFF>[일반 공격: 망연함을 깨부수는 침격]</color>을 이어서 시전할 수 있다. 해당 방식으로 시전한 <color=#FFFFFF>[일반 공격: 망연함을 깨부수는 침격]</color>의 피해량은 현재 차지 단계에 따라 증가하며, 최대 30% 증가한다.\n차지 단계가 3단에 도달했을 때, 차지 스킬을 시전하는 동안 경직 저항 레벨이 증가하며 <IconMap:Icon_Normal>을 누르면 미리 종결의 내려찍기를 시전할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "짓누르는 서리",
+     "desc": "<color=#FFFFFF>[일반 공격: 서릿발의 포옹]</color>의 차지 또는 회전 가로베기 중에 적의 공격을 받을 시 촉수로 가드하여 받는 피해가 25% 감소한다.\n이때 차지 중이거나 차지 단계가 가득 차지 않은 경우, 촉수로 반격하여 차지 자세로 돌아가고 즉시 차지 레벨이 1단 증가하며, 전방의 적에게 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n짓누르는 서리 기간 중 <IconMap:Icon_Normal>을 누르면 이드하리가 현재 차지 레벨에 따라 즉시 <color=#FFFFFF>[일반 공격: 서릿발의 포옹]</color>의 내려찍기 종결 공격을 시전한다.\n짓누르는 서리 기간 중 <IconMap:Icon_Special>, <IconMap:Icon_SpecialReady_Rp>을 누르면 이드하리는 [한기] 발동이 확정된 <color=#FFFFFF>[특수 스킬: 추격하는 한기]</color>를 시전한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 망연함을 깨부수는 침격",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1051001, Prop:1001}",
+       "param": {
+        "1051001": {
+         "main": 6070,
+         "growth": 560,
+         "format": "%",
+         "damage_percentage": 6070,
+         "damage_percentage_growth": 560,
+         "stun_ratio": 5940,
+         "stun_ratio_growth": 270,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 72875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5396,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 21590,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5397
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 피해 배율(파생)",
+       "desc": "{Skill:1051004, Prop:1001}",
+       "param": {
+        "1051004": {
+         "main": 6240,
+         "growth": 570,
+         "format": "%",
+         "damage_percentage": 6240,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 6110,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 74800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5546,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 22190,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5547
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1051002, Prop:1001}",
+       "param": {
+        "1051002": {
+         "main": 8600,
+         "growth": 790,
+         "format": "%",
+         "damage_percentage": 8600,
+         "damage_percentage_growth": 790,
+         "stun_ratio": 8730,
+         "stun_ratio_growth": 400,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 106975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7933,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 31740,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7934
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1051003, Prop:1001}",
+       "param": {
+        "1051003": {
+         "main": 20780,
+         "growth": 1890,
+         "format": "%",
+         "damage_percentage": 20780,
+         "damage_percentage_growth": 1890,
+         "stun_ratio": 17050,
+         "stun_ratio_growth": 780,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 209000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 62000,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1051001, Prop:1002}",
+       "param": {
+        "1051001": {
+         "main": 5940,
+         "growth": 270,
+         "format": "%",
+         "damage_percentage": 6070,
+         "damage_percentage_growth": 560,
+         "stun_ratio": 5940,
+         "stun_ratio_growth": 270,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 72875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5396,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 21590,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5397
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율(파생)",
+       "desc": "{Skill:1051004, Prop:1002}",
+       "param": {
+        "1051004": {
+         "main": 6110,
+         "growth": 280,
+         "format": "%",
+         "damage_percentage": 6240,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 6110,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 74800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5546,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 22190,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5547
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1051002, Prop:1002}",
+       "param": {
+        "1051002": {
+         "main": 8730,
+         "growth": 400,
+         "format": "%",
+         "damage_percentage": 8600,
+         "damage_percentage_growth": 790,
+         "stun_ratio": 8730,
+         "stun_ratio_growth": 400,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 106975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7933,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 31740,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7934
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1051003, Prop:1002}",
+       "param": {
+        "1051003": {
+         "main": 17050,
+         "growth": 780,
+         "format": "%",
+         "damage_percentage": 20780,
+         "damage_percentage_growth": 1890,
+         "stun_ratio": 17050,
+         "stun_ratio_growth": 780,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 209000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 62000,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15500
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 서릿발의 포옹",
+     "param": [
+      {
+       "name": "Lv.1 차지 피해 배율",
+       "desc": "{Skill:1051005, Prop:1001}",
+       "param": {
+        "1051005": {
+         "main": 16140,
+         "growth": 1470,
+         "format": "%",
+         "damage_percentage": 16140,
+         "damage_percentage_growth": 1470,
+         "stun_ratio": 14820,
+         "stun_ratio_growth": 680,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 181500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13469,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 31460,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13470
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Lv.2 차지 피해 배율",
+       "desc": "{Skill:1051006, Prop:1001}",
+       "param": {
+        "1051006": {
+         "main": 25410,
+         "growth": 2310,
+         "format": "%",
+         "damage_percentage": 25410,
+         "damage_percentage_growth": 2310,
+         "stun_ratio": 26240,
+         "stun_ratio_growth": 1200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 321475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 23852,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 47900,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23853
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Lv.3 차지 내려찍기 피해 배율",
+       "desc": "{Skill:1051007, Prop:1001}",
+       "param": {
+        "1051007": {
+         "main": 34590,
+         "growth": 3150,
+         "format": "%",
+         "damage_percentage": 34590,
+         "damage_percentage_growth": 3150,
+         "stun_ratio": 28420,
+         "stun_ratio_growth": 1300,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 348150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 25833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 63170,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Lv.3 차지 회전 피해 배율",
+       "desc": "{Skill:1051008, Prop:1001}",
+       "param": {
+        "1051008": {
+         "main": 23580,
+         "growth": 2150,
+         "format": "%",
+         "damage_percentage": 23580,
+         "damage_percentage_growth": 2150,
+         "stun_ratio": 17780,
+         "stun_ratio_growth": 810,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 218075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 16163,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 64660,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16164
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Lv.1 차지 그로기 배율",
+       "desc": "{Skill:1051005, Prop:1002}",
+       "param": {
+        "1051005": {
+         "main": 14820,
+         "growth": 680,
+         "format": "%",
+         "damage_percentage": 16140,
+         "damage_percentage_growth": 1470,
+         "stun_ratio": 14820,
+         "stun_ratio_growth": 680,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 181500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13469,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 31460,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13470
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Lv.2 차지 그로기 배율",
+       "desc": "{Skill:1051006, Prop:1002}",
+       "param": {
+        "1051006": {
+         "main": 26240,
+         "growth": 1200,
+         "format": "%",
+         "damage_percentage": 25410,
+         "damage_percentage_growth": 2310,
+         "stun_ratio": 26240,
+         "stun_ratio_growth": 1200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 321475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 23852,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 47900,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23853
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Lv.3 차지 내려찍기 그로기 배율",
+       "desc": "{Skill:1051007, Prop:1002}",
+       "param": {
+        "1051007": {
+         "main": 28420,
+         "growth": 1300,
+         "format": "%",
+         "damage_percentage": 34590,
+         "damage_percentage_growth": 3150,
+         "stun_ratio": 28420,
+         "stun_ratio_growth": 1300,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 348150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 25833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 63170,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Lv.3 차지 회전 그로기 배율",
+       "desc": "{Skill:1051008, Prop:1002}",
+       "param": {
+        "1051008": {
+         "main": 17780,
+         "growth": 810,
+         "format": "%",
+         "damage_percentage": 23580,
+         "damage_percentage_growth": 2150,
+         "stun_ratio": 17780,
+         "stun_ratio_growth": 810,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 218075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 16163,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 64660,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16164
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "짓누르는 서리",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1051026, Prop:1001}",
+       "param": {
+        "1051026": {
+         "main": 4870,
+         "growth": 450,
+         "format": "%",
+         "damage_percentage": 4870,
+         "damage_percentage_growth": 450,
+         "stun_ratio": 3670,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 45100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 13340,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1051026, Prop:1002}",
+       "param": {
+        "1051026": {
+         "main": 3670,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 4870,
+         "damage_percentage_growth": 450,
+         "stun_ratio": 3670,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 45100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 13340,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3334
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "회피: 움직이는 꿈",
+     "desc": "<IconMap:Icon_Evade>을 짧게 탭하여 시전:\n빠른 대시로 회피한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 요동치는 서릿발",
+     "desc": "회피 시 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 타격해 <color=#98EFF0>얼음 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 얼음의 잔향",
+     "desc": "<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적을 타격해 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 요동치는 서릿발",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1051013, Prop:1001}",
+       "param": {
+        "1051013": {
+         "main": 7050,
+         "growth": 650,
+         "format": "%",
+         "damage_percentage": 7050,
+         "damage_percentage_growth": 650,
+         "stun_ratio": 4410,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 54175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4001,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 16010,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4002
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1051013, Prop:1002}",
+       "param": {
+        "1051013": {
+         "main": 4410,
+         "growth": 210,
+         "format": "%",
+         "damage_percentage": 7050,
+         "damage_percentage_growth": 650,
+         "stun_ratio": 4410,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 54175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4001,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 16010,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4002
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 얼음의 잔향",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1051014, Prop:1001}",
+       "param": {
+        "1051014": {
+         "main": 18530,
+         "growth": 1690,
+         "format": "%",
+         "damage_percentage": 18530,
+         "damage_percentage_growth": 1690,
+         "stun_ratio": 20360,
+         "stun_ratio_growth": 930,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 114675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8503,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 34020,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1051014, Prop:1002}",
+       "param": {
+        "1051014": {
+         "main": 20360,
+         "growth": 930,
+         "format": "%",
+         "damage_percentage": 18530,
+         "damage_percentage_growth": 1690,
+         "stun_ratio": 20360,
+         "stun_ratio_growth": 930,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 114675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8503,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 34020,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23504
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "특수 스킬: 단상",
+     "desc": "<IconMap:Icon_Special>을 짧게 탭하여 시전:\n전방의 적을 튕겨내어 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 서리감기",
+     "desc": "기운이 충분할 때 <IconMap:Icon_SpecialReady_Rp>을 짧게 탭하여 시전:\n연속으로 두 번 올려치며, 얼음 안개를 내뿜어 대량의 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n[강화 특수 스킬: 서리감기]가 적 명중 시, 스킬이 종료될 때 이드하리가 잃은 HP의 33%만큼 HP를 회복한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 추격하는 한기",
+     "desc": "<color=#FFFFFF>[일반 공격: 서릿발의 포옹]</color>의 차지 혹은 회전 가로베기 중에 <IconMap:Icon_Special>, <IconMap:Icon_SpecialReady_Rp>을 짧게 탭하거나 <IconMap:Icon_Normal>을 누른 상태에서 <IconMap:Icon_Evade>을 짧게 탭하여 시전:\n전방의 적을 튕겨내어 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬의 공격과 적의 공격이 충돌하면 [한기]가 발동된다.\n스킬 공격이 그로기 상태의 적에게 명중하고 기운이 충분하면 [추격]이 발동된다.\n[한기] 또는 [추격] 발동 시 즉시 차지 레벨이 최대치로 증가한다.\n스킬 시전 중 <IconMap:Icon_Normal>을 누르면 이드하리가 현재 차지 레벨에 따라 즉시 <color=#FFFFFF>[일반 공격: 서릿발의 포옹]</color>의 내려찍기 종결 공격을 시전한다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 극한의 중압",
+     "desc": "[한기] 혹은 [추격]이 발동되고 기운이 충분할 때, <IconMap:Icon_SpecialReady_Rp> 혹은 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방으로 대시하여 빠르게 올려치고 공중으로 뛰어올라 강력한 내려찍기 공격으로 대량의 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n<color=#FFFFFF>[강화 특수 스킬: 극한의 중압]</color>이 적 명중 시, 스킬 시전이 종료될 때 이드하리가 잃은 HP의 33%만큼 HP를 회복한다.\n[한기] 이후 스킬을 시전하면 기운을 15pt 추가 회복한다. 1초 동안 최대 1회 발동한다.\n스킬 시전 후 <IconMap:Icon_Normal>을 누르면 현재 차지 레벨에 따라 즉시 <color=#FFFFFF>[일반 공격: 서릿발의 포옹]</color>의 내려찍기 종결 공격을 시전한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 단상",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1051009, Prop:1001}",
+       "param": {
+        "1051009": {
+         "main": 3960,
+         "growth": 360,
+         "format": "%",
+         "damage_percentage": 3960,
+         "damage_percentage_growth": 360,
+         "stun_ratio": 4950,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 60775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4499,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1051009, Prop:1002}",
+       "param": {
+        "1051009": {
+         "main": 4950,
+         "growth": 230,
+         "format": "%",
+         "damage_percentage": 3960,
+         "damage_percentage_growth": 360,
+         "stun_ratio": 4950,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 60775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4499,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4500
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 서리감기",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1051010, Prop:1001}",
+       "param": {
+        "1051010": {
+         "main": 51020,
+         "growth": 4640,
+         "format": "%",
+         "damage_percentage": 51020,
+         "damage_percentage_growth": 4640,
+         "stun_ratio": 51360,
+         "stun_ratio_growth": 2340,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 933350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 52324,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1051010, Prop:1002}",
+       "param": {
+        "1051010": {
+         "main": 51360,
+         "growth": 2340,
+         "format": "%",
+         "damage_percentage": 51020,
+         "damage_percentage_growth": 4640,
+         "stun_ratio": 51360,
+         "stun_ratio_growth": 2340,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 933350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 52324,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "기운 소모",
+       "desc": "60pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 추격하는 한기",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1051011, Prop:1001}",
+       "param": {
+        "1051011": {
+         "main": 8370,
+         "growth": 770,
+         "format": "%",
+         "damage_percentage": 8370,
+         "damage_percentage_growth": 770,
+         "stun_ratio": 10460,
+         "stun_ratio_growth": 480,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 64075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9503,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1051011, Prop:1002}",
+       "param": {
+        "1051011": {
+         "main": 10460,
+         "growth": 480,
+         "format": "%",
+         "damage_percentage": 8370,
+         "damage_percentage_growth": 770,
+         "stun_ratio": 10460,
+         "stun_ratio_growth": 480,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 64075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9503,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9504
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 극한의 중압",
+     "param": [
+      {
+       "name": "강화 특수 스킬: 극한의 중압 피해 배율",
+       "desc": "{Skill:1051012, Prop:1001}",
+       "param": {
+        "1051012": {
+         "main": 100760,
+         "growth": 9160,
+         "format": "%",
+         "damage_percentage": 100760,
+         "damage_percentage_growth": 9160,
+         "stun_ratio": 70180,
+         "stun_ratio_growth": 3190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1199275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 70095,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "추가 능력 얼음 촉수 피해 배율",
+       "desc": "{Skill:1051024, Prop:1001}",
+       "param": {
+        "1051024": {
+         "main": 7920,
+         "growth": 720,
+         "format": "%",
+         "damage_percentage": 7920,
+         "damage_percentage_growth": 720,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강화 특수 스킬: 극한의 중압 그로기 배율",
+       "desc": "{Skill:1051012, Prop:1002}",
+       "param": {
+        "1051012": {
+         "main": 70180,
+         "growth": 3190,
+         "format": "%",
+         "damage_percentage": 100760,
+         "damage_percentage_growth": 9160,
+         "stun_ratio": 70180,
+         "stun_ratio_growth": 3190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1199275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 70095,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "기운 소모",
+       "desc": "60pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "콤보 스킬: 한랭의 맹세",
+     "desc": "<color=#FFFFFF>[콤보 스킬]</color> 발동 시 해당 캐릭터를 선택해 시전:\n전방 작은 범위 내 적에게 강력한 타격으로 대량의 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n<color=#FFFFFF>[에테르 장막·용천]</color> 중에 있을 때, 촉수를 소환하여 협동 공격을 하며 스킬의 위력이 한층 더 강화된다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "에테르 장막·용천",
+     "desc": "데시벨 레벨이 <color=#FFFFFF>[Maximum]</color>에 도달한 상태에서 <color=#FFFFFF>[일반 공격: 서릿발의 포옹]</color>, <color=#FFFFFF>[강화 특수 스킬: 서리감기]</color>, <color=#FFFFFF>[강화 특수 스킬: 극한의 중압]</color>, <color=#FFFFFF>[콤보 스킬: 한랭의 맹세]</color>의 마지막 일격이 적 명중 시 데시벨을 3,000pt 소모하고 <color=#FFFFFF>[에테르 장막·용천]</color>을 발동한다. <color=#FFFFFF>[에테르 장막·용천]</color> 적용 기간 동안, 파티 내 모든 캐릭터의 HP 최대치가 5% 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 연장되며 최대 300초까지 연장할 수 있다.\n이드하리가 <color=#FFFFFF>[에테르 장막·용천]</color> 중에 있을 때, <color=#FFFFFF>[일반 공격: 서릿발의 포옹]</color>의 차지 속도와 차지 시 HP 소모 속도가 증가한다.",
+     "potential": []
+    },
+    {
+     "name": "궁극기: 종막·망연한 꿈을 건너",
+     "desc": "이드하리가 데시벨을 소모하여 <color=#FFFFFF>[에테르 장막·용천]</color>을 발동한 후, 30초 내에 <IconMap:Icon_UltimateReady>을 짧게 탭하여 시전:\n전방 넓은 범위 내 적을 강력하게 타격해 대량의 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.\n이드하리가 데시벨을 소모하여 <color=#FFFFFF>[에테르 장막·용천]</color>을 발동할 때마다 <color=#FFFFFF>[궁극기: 종막·망연한 꿈을 건너]</color>를 최대 1회 시전할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 한랭의 맹세",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1051015, Prop:1001}",
+       "param": {
+        "1051015": {
+         "main": 57270,
+         "growth": 5210,
+         "format": "%",
+         "damage_percentage": 57270,
+         "damage_percentage_growth": 5210,
+         "stun_ratio": 27690,
+         "stun_ratio_growth": 1260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1235300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 45120,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1051015, Prop:1002}",
+       "param": {
+        "1051015": {
+         "main": 27690,
+         "growth": 1260,
+         "format": "%",
+         "damage_percentage": 57270,
+         "damage_percentage_growth": 5210,
+         "stun_ratio": 27690,
+         "stun_ratio_growth": 1260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1235300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 45120,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "[에테르 장막·용천] 중 피해 배율",
+       "desc": "{Skill:1051025, Prop:1001}",
+       "param": {
+        "1051025": {
+         "main": 62990,
+         "growth": 5730,
+         "format": "%",
+         "damage_percentage": 62990,
+         "damage_percentage_growth": 5730,
+         "stun_ratio": 27690,
+         "stun_ratio_growth": 1260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1235300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 45120,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "[에테르 장막·용천] 중 그로기 배율",
+       "desc": "{Skill:1051025, Prop:1002}",
+       "param": {
+        "1051025": {
+         "main": 27690,
+         "growth": 1260,
+         "format": "%",
+         "damage_percentage": 62990,
+         "damage_percentage_growth": 5730,
+         "stun_ratio": 27690,
+         "stun_ratio_growth": 1260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1235300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 45120,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25171
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "궁극기: 종막·망연한 꿈을 건너",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1051016, Prop:1001}",
+       "param": {
+        "1051016": {
+         "main": 152210,
+         "growth": 13840,
+         "format": "%",
+         "damage_percentage": 152210,
+         "damage_percentage_growth": 13840,
+         "stun_ratio": 19430,
+         "stun_ratio_growth": 890,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17663,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 67664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1051016, Prop:1002}",
+       "param": {
+        "1051016": {
+         "main": 19430,
+         "growth": 890,
+         "format": "%",
+         "damage_percentage": 152210,
+         "damage_percentage_growth": 13840,
+         "stun_ratio": 19430,
+         "stun_ratio_growth": 890,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17663,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 67664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "빠른 지원: 서리를 뒤흔드는 돌격",
+     "desc": "현재 조작 중인 캐릭터가 넉업되면 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n전방의 적을 타격해 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 벼락 같은 방어",
+     "desc": "출전 캐릭터 피격 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적의 공격을 패링하고 대량의 그로기 수치를 누적한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 한기 서린 통격",
+     "desc": "<color=#FFFFFF>[패링 지원]</color> 시전 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적에게 얼음 망치질을 시전해 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 서리를 뒤흔드는 돌격",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1051017, Prop:1001}",
+       "param": {
+        "1051017": {
+         "main": 8220,
+         "growth": 750,
+         "format": "%",
+         "damage_percentage": 8220,
+         "damage_percentage_growth": 750,
+         "stun_ratio": 5140,
+         "stun_ratio_growth": 240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 62975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4668,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 18680,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4669
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1051017, Prop:1002}",
+       "param": {
+        "1051017": {
+         "main": 5140,
+         "growth": 240,
+         "format": "%",
+         "damage_percentage": 8220,
+         "damage_percentage_growth": 750,
+         "stun_ratio": 5140,
+         "stun_ratio_growth": 240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 62975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4668,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 18680,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4669
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 벼락 같은 방어",
+     "param": [
+      {
+       "name": "가벼운 패링 그로기 배율",
+       "desc": "{Skill:1051018, Prop:1002}",
+       "param": {
+        "1051018": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강한 패링 그로기 배율",
+       "desc": "{Skill:1051019, Prop:1002}",
+       "param": {
+        "1051019": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 패링 그로기 배율",
+       "desc": "{Skill:1051020, Prop:1002}",
+       "param": {
+        "1051020": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 한기 서린 통격",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1051021, Prop:1001}",
+       "param": {
+        "1051021": {
+         "main": 31340,
+         "growth": 2850,
+         "format": "%",
+         "damage_percentage": 31340,
+         "damage_percentage_growth": 2850,
+         "stun_ratio": 34190,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 540925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 33342,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 17497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1051021, Prop:1002}",
+       "param": {
+        "1051021": {
+         "main": 34190,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 31340,
+         "damage_percentage_growth": 2850,
+         "stun_ratio": 34190,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 540925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 33342,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 17497
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "심연 아래 잠긴 과거",
+   "desc": "이드하리 <color=#FFFFFF>[강화 특수 스킬]</color> 시전에 필요한 기운 소모량이 10pt 감소한다. <color=#FFFFFF>[강화 특수 스킬: 서리감기]</color> 혹은 <color=#FFFFFF>[강화 특수 스킬: 극한의 중압]</color> 시전 후 「일반 공격」 혹은 「특수 공격」 버튼을 홀드하면 기운 35pt를 소모하여 HP 회복을 포기하고 즉시 <color=#FFFFFF>[강화 특수 스킬: 극한의 중압]</color>을 이어서 1회 시전할 수 있으며, 이번 <color=#FFFFFF>[강화 특수 스킬: 극한의 중압]</color>의 HP 회복량이 100% 추가 증가한다. 이드하리의 <color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[강화 특수 스킬]</color>이 타깃의 <color=#98EFF0>얼음 속성 피해</color> 저항을 20% 무시한다.",
+   "desc2": "그녀는 깊이를 알 수 없는 비경 속으로 떨어지고 있다.\n——여긴 어디일까? 또 어디로 떨어지는 걸까?\n마음속에 이런 의문이 생겼을 때, 어둠 속에서 어느 목소리가 대답하는 듯했다.\n「이곳은 알 수 없는 곳이요, 모든 것을 알게 되는 곳으로 통할 것이다」\n그리고 그림자들이 그녀의 곁을 따라 함께 떨어지고 있었다. 그것은 겹치고 겹쳐서 그 끝이 보이지 않았다.\n——저들은 또 누구이고, 왜 저들의 그림자가 이곳에 떨어지는 걸까?\n머릿속에 이런 의문이 떠오르자, 그 목소리가 다시 말했다.\n「그들은 운명이 끊어진 이들이요, 여기 떨어지는 것은 그들의 과거이다」\n그리하여 작은 소녀는 외롭게 자신을 끌어안은 채, 수많은 사라진 과거에 휩쓸려 아래로 떨어졌다.\n그녀는 멍하니 눈을 크게 뜨고 주위를 둘러보았다. 이 심연의 밑바닥에서 피어나는 것은 차가움, 적막, 그리고 고독뿐이었다."
+  },
+  "2": {
+   "level": 2,
+   "name": "누가 이곳에서 사색하는가",
+   "desc": "이드하리의 치명타 피해가 40% 증가한다. <color=#FFFFFF>[한기]</color> 혹은 <color=#FFFFFF>[추격]</color>이 발동되면 초당 0.5pt씩 기운을 지속적으로 회복한다. 최대 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.",
+   "desc2": "어둠 속에서 깊이 잠든 소녀의 사색.\n그것은 순수한 동심의 기발한 상상도, 구속 없는 자유로운 상상도 아니었다.\n그녀는 볼 수 있는 과거들을 생각하고 있었다.\n「내가 무엇을 해야 하지? 내가 무엇을 짊어져야 하지?」\n「다른 사람이 아니라 나라서 다행이야」\n「난 이 외로움을 잘 다룰 수 있으니까… 아마도 그렇겠지」\n그 과거들을 살펴보며, 소녀는 다소 무거운 재능을 담담히 받아들였다."
+  },
+  "3": {
+   "level": 3,
+   "name": "듣는 이가 없는 이야기",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "인간이란 이렇게나 복잡한 존재였구나.\n한평생 이토록 많은 기쁨과 그토록 많은 슬픔을 품을 수 있다니.\n하지만 지금 그 모든 게 이 공허 속으로 떨어져, 삼켜지고, 사라지며, 묻힐 것이다.\n이제는 아무도 그 기쁨의 웃음소리와 비통한 울음소리에 관심을 두지 않을 것이다.\n하지만, 듣는 이가 없는 이야기들은, 모두 이 심연에 새겨져 있다."
+  },
+  "4": {
+   "level": 4,
+   "name": "고요 속에 피어나다",
+   "desc": "<color=#FFFFFF>[핵심 패시브: 꿈을 줍는 공상]</color> 중, HP가 감소할 때 이드하리가 획득하는 데시벨이 10% 증가한다. <color=#FFFFFF>[에테르 장막·용천]</color> 중에 있을 때 이드하리의 HP 최대치가 추가로 5% 증가한다.",
+   "desc2": "그 꽃은 어둠 속에서 흔들리며 피어나고 있었다. 하얗고 투명한 그 꽃은 마치 이 심연의 바닥을 비추는 유일한 빛과도 같았다.\n연약하면서도 강인한 영혼이었다.\n무수히 추락하는 그림자들 속에서, 끊임없이 씻겨 내려가는 과거 속에서… 그녀는 물들지 않고, 여전히 꿋꿋하게 자신을 피워내고 있었다.\n하지만 결국 그녀도… 의지할 곳 없는 흔들림 속에서 사라져 버릴까?"
+  },
+  "5": {
+   "level": 5,
+   "name": "허구가 아닌 위로",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "「정말 예쁜 눈동자네… 난 아직 꿈속에 있는 건가…」\n이것은 첫 만남이자, 「진실」과의 조우였다.\n허망함과 기괴함, 모든 것을 삼켜버릴 것만 같은 황량한 심연의 바닥에서, 그녀는 그 눈동자를 바라보았다.\n마치 뜨거운 사막에서 솟아난 한 줄기 푸르름처럼, 메마른 강바닥에서 솟아오른 맑은 샘물처럼.\n「얻은 것 같아… 내게 응답해 줄 거란 기대를」"
+  },
+  "6": {
+   "level": 6,
+   "name": "마침내 평안을 만난 꿈",
+   "desc": "이드하리가 데시벨을 소모하여 <color=#FFFFFF>[에테르 장막·용천]</color>을 발동하거나 지속 시간을 연장한 후 <color=#FFFFFF>[깨우침]</color>을 획득한다. 지속 시간: 30초\n<color=#FFFFFF>[깨우침]</color> 기간 중, 이드하리가 주는 관입 피해가 25% 증가하고, 처음 치명상을 받을 때 HP가 최소 1까지만 감소하며, 5초 동안 전투 불능으로 퇴장하지 않고 HP 25%를 지속적으로 회복한다.",
+   "desc2": "격동하는 과거에 잠겨있을 때, 그녀는 찰나의 평온조차 얻지 못했다.\n오직 고독에 기대어, 세상의 소란을 피해, 기괴한 이야기에 빠진 채, 흐릿한 비안개 속에서, 혹은 따스한 물결에 감싸인 채로 잠시나마 고요함을 바랐다.\n하지만 이제 그녀는 인파 속을 평온하게 거닐 수 있고, 소리와 빛의 소란스러움도, 햇살의 따가움도 더는 신경 쓰이지 않게 되었다. 「허상」이 더는 그녀의 정신을 옭아매지 않고, 「진실」이 그녀의 영혼에 의지가 되어주었으니까."
+  }
+ },
+ "passive": {
+  "level": {
+   "1051501": {
+    "level": 1,
+    "id": 1051501,
+    "name": [
+     "핵심 패시브: 꿈을 줍는 공상",
+     "추가 능력: 완성형 서사"
+    ],
+    "desc": [
+     "이드하리는 자신의 HP 최대치에 따라 추가 관입력을 얻으며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n이드하리가 시전하는 스킬로 주는 <color=#98EFF0>얼음 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고, 스킬 피해 배율로서 관입력을 사용한다. 이드하리는 전장 진입 시 기운을 60pt 회복하며, 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다.\n이드하리의 현재 HP 백분율이 낮을수록 스킬로 주는 피해가 증가한다.\n이드하리의 HP가 50% 미만일 때 버프 효과가 최대치에 도달하여 공격으로 주는 피해가 최대 <color=#2BAD00>50%</color> 증가한다. 이드하리의 HP가 50%로 다시 회복된 후에도 최대치 버프 효과가 5초 동안 지속된다.\n이드하리는 스킬 명중 시 얻는 데시벨이 감소하며, 이드하리 HP가 감소할 때 데시벨을 획득한다. HP가 1% 감소할 때마다 데시벨을 10pt 획득한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 혹은 <color=#FFFFFF>[지원]</color> 캐릭터가 존재할 때 발동:\n이드하리의 HP가 50% 미만일 때, 치명타 피해가 30% 증가하고, 받는 피해가 25% 감소한다.\n이드하리가 <color=#FFFFFF>[에테르 장막·용천]</color> 중에 있을 때, 추가로 다음 효과를 획득한다:\n이드하리의 <color=#FFFFFF>[일반 공격: 서릿발의 포옹]</color> 세 번째 차지 공격, <color=#FFFFFF>[강화 특수 스킬: 극한의 중압]</color>의 스킬 종료 후, 얼음 촉수를 소환하여 공격하고 추가 피해를 준다. 12초 동안 최대 1회 발동된다.\n상술한 스킬 시전 시 <color=#FFFFFF>[강화 특수 스킬]</color>로 간주하며, 피해 배율은 강화 특수 스킬의 스킬 레벨에 따라 증가한다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1051502": {
+    "level": 2,
+    "id": 1051502,
+    "name": [
+     "핵심 패시브: 꿈을 줍는 공상",
+     "추가 능력: 완성형 서사"
+    ],
+    "desc": [
+     "이드하리는 자신의 HP 최대치에 따라 추가 관입력을 얻으며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n이드하리가 시전하는 스킬로 주는 <color=#98EFF0>얼음 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고, 스킬 피해 배율로서 관입력을 사용한다. 이드하리는 전장 진입 시 기운을 60pt 회복하며, 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다.\n이드하리의 현재 HP 백분율이 낮을수록 스킬로 주는 피해가 증가한다.\n이드하리의 HP가 50% 미만일 때 버프 효과가 최대치에 도달하여 공격으로 주는 피해가 최대 <color=#2BAD00>58%</color> 증가한다. 이드하리의 HP가 50%로 다시 회복된 후에도 최대치 버프 효과가 5초 동안 지속된다.\n이드하리는 스킬 명중 시 얻는 데시벨이 감소하며, 이드하리 HP가 감소할 때 데시벨을 획득한다. HP가 1% 감소할 때마다 데시벨을 10pt 획득한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 혹은 <color=#FFFFFF>[지원]</color> 캐릭터가 존재할 때 발동:\n이드하리의 HP가 50% 미만일 때, 치명타 피해가 30% 증가하고, 받는 피해가 25% 감소한다.\n이드하리가 <color=#FFFFFF>[에테르 장막·용천]</color> 중에 있을 때, 추가로 다음 효과를 획득한다:\n이드하리의 <color=#FFFFFF>[일반 공격: 서릿발의 포옹]</color> 세 번째 차지 공격, <color=#FFFFFF>[강화 특수 스킬: 극한의 중압]</color>의 스킬 종료 후, 얼음 촉수를 소환하여 공격하고 추가 피해를 준다. 12초 동안 최대 1회 발동된다.\n상술한 스킬 시전 시 <color=#FFFFFF>[강화 특수 스킬]</color>로 간주하며, 피해 배율은 강화 특수 스킬의 스킬 레벨에 따라 증가한다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1051503": {
+    "level": 3,
+    "id": 1051503,
+    "name": [
+     "핵심 패시브: 꿈을 줍는 공상",
+     "추가 능력: 완성형 서사"
+    ],
+    "desc": [
+     "이드하리는 자신의 HP 최대치에 따라 추가 관입력을 얻으며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n이드하리가 시전하는 스킬로 주는 <color=#98EFF0>얼음 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고, 스킬 피해 배율로서 관입력을 사용한다. 이드하리는 전장 진입 시 기운을 60pt 회복하며, 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다.\n이드하리의 현재 HP 백분율이 낮을수록 스킬로 주는 피해가 증가한다.\n이드하리의 HP가 50% 미만일 때 버프 효과가 최대치에 도달하여 공격으로 주는 피해가 최대 <color=#2BAD00>66%</color> 증가한다. 이드하리의 HP가 50%로 다시 회복된 후에도 최대치 버프 효과가 5초 동안 지속된다.\n이드하리는 스킬 명중 시 얻는 데시벨이 감소하며, 이드하리 HP가 감소할 때 데시벨을 획득한다. HP가 1% 감소할 때마다 데시벨을 10pt 획득한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 혹은 <color=#FFFFFF>[지원]</color> 캐릭터가 존재할 때 발동:\n이드하리의 HP가 50% 미만일 때, 치명타 피해가 30% 증가하고, 받는 피해가 25% 감소한다.\n이드하리가 <color=#FFFFFF>[에테르 장막·용천]</color> 중에 있을 때, 추가로 다음 효과를 획득한다:\n이드하리의 <color=#FFFFFF>[일반 공격: 서릿발의 포옹]</color> 세 번째 차지 공격, <color=#FFFFFF>[강화 특수 스킬: 극한의 중압]</color>의 스킬 종료 후, 얼음 촉수를 소환하여 공격하고 추가 피해를 준다. 12초 동안 최대 1회 발동된다.\n상술한 스킬 시전 시 <color=#FFFFFF>[강화 특수 스킬]</color>로 간주하며, 피해 배율은 강화 특수 스킬의 스킬 레벨에 따라 증가한다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1051504": {
+    "level": 4,
+    "id": 1051504,
+    "name": [
+     "핵심 패시브: 꿈을 줍는 공상",
+     "추가 능력: 완성형 서사"
+    ],
+    "desc": [
+     "이드하리는 자신의 HP 최대치에 따라 추가 관입력을 얻으며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n이드하리가 시전하는 스킬로 주는 <color=#98EFF0>얼음 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고, 스킬 피해 배율로서 관입력을 사용한다. 이드하리는 전장 진입 시 기운을 60pt 회복하며, 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다.\n이드하리의 현재 HP 백분율이 낮을수록 스킬로 주는 피해가 증가한다.\n이드하리의 HP가 50% 미만일 때 버프 효과가 최대치에 도달하여 공격으로 주는 피해가 최대 <color=#2BAD00>74%</color> 증가한다. 이드하리의 HP가 50%로 다시 회복된 후에도 최대치 버프 효과가 5초 동안 지속된다.\n이드하리는 스킬 명중 시 얻는 데시벨이 감소하며, 이드하리 HP가 감소할 때 데시벨을 획득한다. HP가 1% 감소할 때마다 데시벨을 10pt 획득한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 혹은 <color=#FFFFFF>[지원]</color> 캐릭터가 존재할 때 발동:\n이드하리의 HP가 50% 미만일 때, 치명타 피해가 30% 증가하고, 받는 피해가 25% 감소한다.\n이드하리가 <color=#FFFFFF>[에테르 장막·용천]</color> 중에 있을 때, 추가로 다음 효과를 획득한다:\n이드하리의 <color=#FFFFFF>[일반 공격: 서릿발의 포옹]</color> 세 번째 차지 공격, <color=#FFFFFF>[강화 특수 스킬: 극한의 중압]</color>의 스킬 종료 후, 얼음 촉수를 소환하여 공격하고 추가 피해를 준다. 12초 동안 최대 1회 발동된다.\n상술한 스킬 시전 시 <color=#FFFFFF>[강화 특수 스킬]</color>로 간주하며, 피해 배율은 강화 특수 스킬의 스킬 레벨에 따라 증가한다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1051505": {
+    "level": 5,
+    "id": 1051505,
+    "name": [
+     "핵심 패시브: 꿈을 줍는 공상",
+     "추가 능력: 완성형 서사"
+    ],
+    "desc": [
+     "이드하리는 자신의 HP 최대치에 따라 추가 관입력을 얻으며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n이드하리가 시전하는 스킬로 주는 <color=#98EFF0>얼음 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고, 스킬 피해 배율로서 관입력을 사용한다. 이드하리는 전장 진입 시 기운을 60pt 회복하며, 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다.\n이드하리의 현재 HP 백분율이 낮을수록 스킬로 주는 피해가 증가한다.\n이드하리의 HP가 50% 미만일 때 버프 효과가 최대치에 도달하여 공격으로 주는 피해가 최대 <color=#2BAD00>82%</color> 증가한다. 이드하리의 HP가 50%로 다시 회복된 후에도 최대치 버프 효과가 5초 동안 지속된다.\n이드하리는 스킬 명중 시 얻는 데시벨이 감소하며, 이드하리 HP가 감소할 때 데시벨을 획득한다. HP가 1% 감소할 때마다 데시벨을 10pt 획득한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 혹은 <color=#FFFFFF>[지원]</color> 캐릭터가 존재할 때 발동:\n이드하리의 HP가 50% 미만일 때, 치명타 피해가 30% 증가하고, 받는 피해가 25% 감소한다.\n이드하리가 <color=#FFFFFF>[에테르 장막·용천]</color> 중에 있을 때, 추가로 다음 효과를 획득한다:\n이드하리의 <color=#FFFFFF>[일반 공격: 서릿발의 포옹]</color> 세 번째 차지 공격, <color=#FFFFFF>[강화 특수 스킬: 극한의 중압]</color>의 스킬 종료 후, 얼음 촉수를 소환하여 공격하고 추가 피해를 준다. 12초 동안 최대 1회 발동된다.\n상술한 스킬 시전 시 <color=#FFFFFF>[강화 특수 스킬]</color>로 간주하며, 피해 배율은 강화 특수 스킬의 스킬 레벨에 따라 증가한다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1051506": {
+    "level": 6,
+    "id": 1051506,
+    "name": [
+     "핵심 패시브: 꿈을 줍는 공상",
+     "추가 능력: 완성형 서사"
+    ],
+    "desc": [
+     "이드하리는 자신의 HP 최대치에 따라 추가 관입력을 얻으며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n이드하리가 시전하는 스킬로 주는 <color=#98EFF0>얼음 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고, 스킬 피해 배율로서 관입력을 사용한다. 이드하리는 전장 진입 시 기운을 60pt 회복하며, 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다.\n이드하리의 현재 HP 백분율이 낮을수록 스킬로 주는 피해가 증가한다.\n이드하리의 HP가 50% 미만일 때 버프 효과가 최대치에 도달하여 공격으로 주는 피해가 최대 <color=#2BAD00>90%</color> 증가한다. 이드하리의 HP가 50%로 다시 회복된 후에도 최대치 버프 효과가 5초 동안 지속된다.\n이드하리는 스킬 명중 시 얻는 데시벨이 감소하며, 이드하리 HP가 감소할 때 데시벨을 획득한다. HP가 1% 감소할 때마다 데시벨을 10pt 획득한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 혹은 <color=#FFFFFF>[지원]</color> 캐릭터가 존재할 때 발동:\n이드하리의 HP가 50% 미만일 때, 치명타 피해가 30% 증가하고, 받는 피해가 25% 감소한다.\n이드하리가 <color=#FFFFFF>[에테르 장막·용천]</color> 중에 있을 때, 추가로 다음 효과를 획득한다:\n이드하리의 <color=#FFFFFF>[일반 공격: 서릿발의 포옹]</color> 세 번째 차지 공격, <color=#FFFFFF>[강화 특수 스킬: 극한의 중압]</color>의 스킬 종료 후, 얼음 촉수를 소환하여 공격하고 추가 피해를 준다. 12초 동안 최대 1회 발동된다.\n상술한 스킬 시전 시 <color=#FFFFFF>[강화 특수 스킬]</color>로 간주하며, 피해 배율은 강화 특수 스킬의 스킬 레벨에 따라 증가한다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1051507": {
+    "level": 7,
+    "id": 1051507,
+    "name": [
+     "핵심 패시브: 꿈을 줍는 공상",
+     "추가 능력: 완성형 서사"
+    ],
+    "desc": [
+     "이드하리는 자신의 HP 최대치에 따라 추가 관입력을 얻으며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n이드하리가 시전하는 스킬로 주는 <color=#98EFF0>얼음 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고, 스킬 피해 배율로서 관입력을 사용한다. 이드하리는 전장 진입 시 기운을 60pt 회복하며, 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다.\n이드하리의 현재 HP 백분율이 낮을수록 스킬로 주는 피해가 증가한다.\n이드하리의 HP가 50% 미만일 때 버프 효과가 최대치에 도달하여 공격으로 주는 피해가 최대 <color=#2BAD00>100%</color> 증가한다. 이드하리의 HP가 50%로 다시 회복된 후에도 최대치 버프 효과가 5초 동안 지속된다.\n이드하리는 스킬 명중 시 얻는 데시벨이 감소하며, 이드하리 HP가 감소할 때 데시벨을 획득한다. HP가 1% 감소할 때마다 데시벨을 10pt 획득한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 혹은 <color=#FFFFFF>[지원]</color> 캐릭터가 존재할 때 발동:\n이드하리의 HP가 50% 미만일 때, 치명타 피해가 30% 증가하고, 받는 피해가 25% 감소한다.\n이드하리가 <color=#FFFFFF>[에테르 장막·용천]</color> 중에 있을 때, 추가로 다음 효과를 획득한다:\n이드하리의 <color=#FFFFFF>[일반 공격: 서릿발의 포옹]</color> 세 번째 차지 공격, <color=#FFFFFF>[강화 특수 스킬: 극한의 중압]</color>의 스킬 종료 후, 얼음 촉수를 소환하여 공격하고 추가 피해를 준다. 12초 동안 최대 1회 발동된다.\n상술한 스킬 시전 시 <color=#FFFFFF>[강화 특수 스킬]</color>로 간주하며, 피해 배율은 강화 특수 스킬의 스킬 레벨에 따라 증가한다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110512": 2
+   },
+   "3": {
+    "10": 28000,
+    "110512": 4
+   },
+   "4": {
+    "10": 60000,
+    "110007": 2,
+    "110512": 9
+   },
+   "5": {
+    "10": 100000,
+    "110007": 3,
+    "110512": 15
+   },
+   "6": {
+    "10": 200000,
+    "110007": 4,
+    "110512": 30
+   }
+  }
+ },
+ "skin": {
+  "3110510": {
+   "name": "이드하리·상념의 기록",
+   "desc": "옛 기억과 새로운 꿈이 물밀듯이 밀려와 유혹하고, 종이 위에 뒤엉킨다. 그녀는 빈 종이를 펼쳐 허상과 실재가 만나는 곳에 이야기의 첫 획을 그었다.",
+   "obtain_desc": "",
+   "image": "IconRole52"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1051001": {
+   "name": "일반 공격: 망연함을 깨부수는 침격",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1051002": {
+   "name": "일반 공격: 서릿발의 포옹",
+   "desc": "<IconMap:Icon_Normal>(홀드) ; <IconMap:Icon_Normal>(차지 완료 후 손가락 떼기)",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1051003": {
+   "name": "일반 공격: 서릿발의 포옹(쾌속)",
+   "desc": "<IconMap:Icon_Normal>(홀드) ; <IconMap:Icon_Normal>(피격 후 [짓누르는 서리] 발동 시 다시 누르기)",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1051004": {
+   "name": "특수 스킬: 단상",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1051005": {
+   "name": "강화 특수 스킬: 서리감기",
+   "desc": "<IconMap:Icon_SpecialReady_Rp>",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1051006": {
+   "name": "특수 스킬: 추격하는 한기",
+   "desc": "<IconMap:Icon_Normal>(홀드) ; <IconMap:Icon_Normal>(차지 완료 후 손가락 떼기) ; <IconMap:Icon_Special>([일반 공격: 서릿발의 포옹] 차지 공격 회전 가로베기 기간)",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1051007": {
+   "name": "특수 스킬: 추격하는 한기",
+   "desc": "<IconMap:Icon_Normal>(홀드) ; <IconMap:Icon_Evade>(「일반 공격」 버튼 홀드 유지)",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1051008": {
+   "name": "특수 스킬: 추격하는 한기(반드시 [한기] 발동)",
+   "desc": "<IconMap:Icon_Normal>(홀드) ; <IconMap:Icon_Special>(피격 후 [짓누르는 서리] 발동 후 탭)",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1051009": {
+   "name": "강화 특수 스킬: 극한의 중압",
+   "desc": "<IconMap:Icon_Normal>([한기] 혹은 [추격] 발동 및 에너지가 충분한 상태에서)",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1051010": {
+   "name": "강화 특수 스킬: 극한의 중압",
+   "desc": "<IconMap:Icon_SpecialReady_Rp>([한기] 혹은 [추격] 발동 및 에너지가 충분한 상태에서)",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1051011": {
+   "name": "회피: 움직이는 꿈",
+   "desc": "<IconMap:Icon_Evade>",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1051012": {
+   "name": "대시 공격: 요동치는 서릿발",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1051013": {
+   "name": "회피 반격: 얼음의 잔향",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1051014": {
+   "name": "콤보 스킬: 한랭의 맹세",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1051015": {
+   "name": "궁극기: 종막·망연한 꿈을 건너",
+   "desc": "<IconMap:Icon_UltimateReady>(데시벨을 소모하여 [에테르 장막·용천]을 발동 후)",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1051016": {
+   "name": "빠른 지원: 서리를 뒤흔드는 돌격",
+   "desc": "<IconMap:Icon_Switch>(빠른 지원 발동 시)",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1051017": {
+   "name": "패링 지원: 벼락 같은 방어",
+   "desc": "<IconMap:Icon_Switch>(패링 지원 발동 시)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1051018": {
+   "name": "지원 돌격: 한기 서린 통격",
+   "desc": "<IconMap:Icon_Normal>(패링 지원 시전 후)",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1051001,
+   "avatar_id": 1051,
+   "first_priority": [
+    5,
+    0,
+    1
+   ],
+   "second_priority": [
+    3
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33100,
+  "slot2": 31000,
+  "slot_sub": 32700,
+  "part_sub_list": [
+   20103,
+   21103,
+   11102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33100,
+     31000
+    ],
+    "part_sub_list": [
+     20103,
+     21103
+    ]
+   },
+   {
+    "suit_list": [
+     33100,
+     31000
+    ],
+    "part_sub_list": [
+     31703,
+     11102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     11102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "치명타 확률",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 21103,
+   "name": "치명타 피해",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  },
+  "part6": {
+   "prop": 11102,
+   "name": "HP",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconHpMax.png"
+  },
+  "part_sub": {
+   "prop": 31703,
+   "name": "얼음 속성 피해 보너스",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconIce.png"
+  }
+ },
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Ice>얼음 속성, HP를 소모하는 필드 딜러",
+  "HP를 소모하여 자신의 피해 증가",
+  "스킬 충돌을 통해 스킬 피해 증가"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100216": 4
+   }
+  },
+  "2": {
+   "hp_max": 469,
+   "attack": 44,
+   "defence": 25,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100226": 12
+   }
+  },
+  "3": {
+   "hp_max": 938,
+   "attack": 88,
+   "defence": 49,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100226": 20
+   }
+  },
+  "4": {
+   "hp_max": 1407,
+   "attack": 132,
+   "defence": 74,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100236": 10
+   }
+  },
+  "5": {
+   "hp_max": 1875,
+   "attack": 177,
+   "defence": 99,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100236": 20
+   }
+  },
+  "6": {
+   "hp_max": 2344,
+   "attack": 221,
+   "defence": 124,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpine_Yidhari"
+}

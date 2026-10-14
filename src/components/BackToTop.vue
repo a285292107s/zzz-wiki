@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
+import { useUiText } from '@/composables/useUiText'
 
+const { t } = useUiText()
 const visible = ref(false)
 let onScroll: (() => void) | null = null
 
@@ -35,7 +37,7 @@ onUnmounted(() => {
          会触发 axe label-content-name-mismatch（可见文本须包含于可访问名） -->
     <span class="arrow" aria-hidden="true">↑</span>
     <span class="word">TOP</span>
-    <span class="sr-only">，回到顶部</span>
+    <span class="sr-only">{{ t.common.backToTopSr }}</span>
   </button>
 </template>
 

@@ -89,11 +89,13 @@ export async function pruneStaleCache(currentVer: string): Promise<void> {
 }
 
 export async function resetOut(vers: readonly string[]): Promise<void> {
-  // 精确清理本管线产物：根 manifest + 根目录旧版名录/zh（历史单版本布局遗留，当前只产出 live 版本目录）
-  // + 各版本名录/zh 详情；保留 img/（download:icons 的本地化图标，曾因整体 rm OUT
+  // 精确清理本管线产物：根 manifest + 根目录旧版名录/noun/zh（历史单版本布局遗留——
+  // 名录与名词表现已迁入各语言目录 live/{lang}/，根下只剩 manifest）
+  // + 各版本目录整体（live/ 下即四语全套：名录 + noun + 详情）；
+  // 保留 img/（download:icons 的本地化图标，曾因整体 rm OUT
   // 被连带删除导致 272 个已跟踪图标消失）
   await fsp.rm(path.join(OUT, 'manifest.json'), { force: true })
-  for (const f of ['character.json', 'weapon.json', 'bangboo.json', 'equipment.json']) {
+  for (const f of ['character.json', 'weapon.json', 'bangboo.json', 'equipment.json', 'noun.json']) {
     await fsp.rm(path.join(OUT, f), { force: true })
   }
   await fsp.rm(path.join(OUT, 'zh'), { recursive: true, force: true })
@@ -103,8 +105,11 @@ export async function resetOut(vers: readonly string[]): Promise<void> {
   }
 }
 
-export function dump(ver: string, name: string, dict: unknown): Promise<void> {
-  return fsp.writeFile(path.join(outDir(ver), name), JSON.stringify(dict, null, 1))
+/** 写 JSON 产物。name 可含语言目录（如 `zh/character.json`），故先建父目录。 */
+export async function dump(ver: string, name: string, dict: unknown): Promise<void> {
+  const dest = path.join(outDir(ver), name)
+  await fsp.mkdir(path.dirname(dest), { recursive: true })
+  return fsp.writeFile(dest, JSON.stringify(dict, null, 1))
 }
 
 export async function writeDetails(

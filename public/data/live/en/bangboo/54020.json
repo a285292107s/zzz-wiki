@@ -1,0 +1,461 @@
+{
+ "id": 54020,
+ "code_name": "Birkblick",
+ "name": "Birkblick",
+ "desc": "We're both caught in the camera's eye.",
+ "rarity": 4,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole42.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 396,
+  "hpupgrade": 471237,
+  "attack": 64,
+  "attack_upgrade": 321091,
+  "break_stun": 123,
+  "element_abnormal_power": 97,
+  "defence": 28,
+  "def_upgrade": 78871,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 207,
+   "attack": 59,
+   "defence": 35,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 414,
+   "attack": 297,
+   "defence": 69,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 621,
+   "attack": 891,
+   "defence": 104,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 828,
+   "attack": 2375,
+   "defence": 139,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 1034,
+   "attack": 5938,
+   "defence": 173,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "Montage Combo",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nDeploys a floating turret that can fire up to 3 laser volleys at the target, dealing <color=#F0D12B>Physical DMG</color> and accumulating a large amount of Daze.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5402001, Prop:1001}*2+{Skill:5402002, Prop:1001}|{Skill:5402001, Prop:1002}*2+{Skill:5402002, Prop:1002}|28s"
+    },
+    "2": {
+     "name": "Montage Combo",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nDeploys a floating turret that can fire up to 3 laser volleys at the target, dealing <color=#F0D12B>Physical DMG</color> and accumulating a large amount of Daze.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5402001, Prop:1001}*2+{Skill:5402002, Prop:1001}|{Skill:5402001, Prop:1002}*2+{Skill:5402002, Prop:1002}|28s"
+    },
+    "3": {
+     "name": "Montage Combo",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nDeploys a floating turret that can fire up to 3 laser volleys at the target, dealing <color=#F0D12B>Physical DMG</color> and accumulating a large amount of Daze.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5402001, Prop:1001}*2+{Skill:5402002, Prop:1001}|{Skill:5402001, Prop:1002}*2+{Skill:5402002, Prop:1002}|28s"
+    },
+    "4": {
+     "name": "Montage Combo",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nDeploys a floating turret that can fire up to 3 laser volleys at the target, dealing <color=#F0D12B>Physical DMG</color> and accumulating a large amount of Daze.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5402001, Prop:1001}*2+{Skill:5402002, Prop:1001}|{Skill:5402001, Prop:1002}*2+{Skill:5402002, Prop:1002}|28s"
+    },
+    "5": {
+     "name": "Montage Combo",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nDeploys a floating turret that can fire up to 3 laser volleys at the target, dealing <color=#F0D12B>Physical DMG</color> and accumulating a large amount of Daze.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5402001, Prop:1001}*2+{Skill:5402002, Prop:1001}|{Skill:5402001, Prop:1002}*2+{Skill:5402002, Prop:1002}|28s"
+    },
+    "6": {
+     "name": "Montage Combo",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nDeploys a floating turret that can fire up to 3 laser volleys at the target, dealing <color=#F0D12B>Physical DMG</color> and accumulating a large amount of Daze.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5402001, Prop:1001}*2+{Skill:5402002, Prop:1001}|{Skill:5402001, Prop:1002}*2+{Skill:5402002, Prop:1002}|28s"
+    },
+    "7": {
+     "name": "Montage Combo",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nDeploys a floating turret that can fire up to 3 laser volleys at the target, dealing <color=#F0D12B>Physical DMG</color> and accumulating a large amount of Daze.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5402001, Prop:1001}*2+{Skill:5402002, Prop:1001}|{Skill:5402001, Prop:1002}*2+{Skill:5402002, Prop:1002}|28s"
+    },
+    "8": {
+     "name": "Montage Combo",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nDeploys a floating turret that can fire up to 3 laser volleys at the target, dealing <color=#F0D12B>Physical DMG</color> and accumulating a large amount of Daze.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5402001, Prop:1001}*2+{Skill:5402002, Prop:1001}|{Skill:5402001, Prop:1002}*2+{Skill:5402002, Prop:1002}|28s"
+    },
+    "9": {
+     "name": "Montage Combo",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nDeploys a floating turret that can fire up to 3 laser volleys at the target, dealing <color=#F0D12B>Physical DMG</color> and accumulating a large amount of Daze.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5402001, Prop:1001}*2+{Skill:5402002, Prop:1001}|{Skill:5402001, Prop:1002}*2+{Skill:5402002, Prop:1002}|28s"
+    },
+    "10": {
+     "name": "Montage Combo",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nDeploys a floating turret that can fire up to 3 laser volleys at the target, dealing <color=#F0D12B>Physical DMG</color> and accumulating a large amount of Daze.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5402001, Prop:1001}*2+{Skill:5402002, Prop:1001}|{Skill:5402001, Prop:1002}*2+{Skill:5402002, Prop:1002}|28s"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "Observer Effect",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#FFFFFF>Krampus Compliance Authority</color> characters in your squad: When an Agent uses an <color=#FFFFFF>EX Special Attack</color>, Birkblick's Daze inflicted increases by 4%, stacking up to 3 times and lasting 15s. Repeated triggers reset the duration. At 3 stacks, DMG increases by 10%.",
+     "property": [
+      "Required Krampus Characters",
+      "Daze Increase Per Stack"
+     ],
+     "param": "2|4%"
+    },
+    "2": {
+     "name": "Observer Effect",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#FFFFFF>Krampus Compliance Authority</color> characters in your squad: When an Agent uses an <color=#FFFFFF>EX Special Attack</color>, Birkblick's Daze inflicted increases by 5%, stacking up to 3 times and lasting 15s. Repeated triggers reset the duration. At 3 stacks, DMG increases by 12.5%.",
+     "property": [
+      "Required Krampus Characters",
+      "Daze Increase Per Stack"
+     ],
+     "param": "2|5%"
+    },
+    "3": {
+     "name": "Observer Effect",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 1 <color=#FFFFFF>Krampus Compliance Authority</color> characters in your squad: When an Agent uses an <color=#FFFFFF>EX Special Attack</color>, Birkblick's Daze inflicted increases by 6%, stacking up to 3 times and lasting 15s. Repeated triggers reset the duration. At 3 stacks, DMG increases by 15%.",
+     "property": [
+      "Required Krampus Characters",
+      "Daze Increase Per Stack"
+     ],
+     "param": "1|6%"
+    },
+    "4": {
+     "name": "Observer Effect",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 1 <color=#FFFFFF>Krampus Compliance Authority</color> characters in your squad: When an Agent uses an <color=#FFFFFF>EX Special Attack</color>, Birkblick's Daze inflicted increases by 7%, stacking up to 3 times and lasting 15s. Repeated triggers reset the duration. At 3 stacks, DMG increases by 17.5%.",
+     "property": [
+      "Required Krampus Characters",
+      "Daze Increase Per Stack"
+     ],
+     "param": "1|7%"
+    },
+    "5": {
+     "name": "Observer Effect",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 1 <color=#FFFFFF>Krampus Compliance Authority</color> characters in your squad: When an Agent uses an <color=#FFFFFF>EX Special Attack</color>, Birkblick's Daze inflicted increases by 8%, stacking up to 3 times and lasting 15s. Repeated triggers reset the duration. At 3 stacks, DMG increases by 20%.",
+     "property": [
+      "Required Krampus Characters",
+      "Daze Increase Per Stack"
+     ],
+     "param": "1|8%"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "Battlefield Close-Up",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nFires a powerful laser from the floating turret, dealing massive <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5402003, Prop:1001}|{Skill:5402003, Prop:1002}"
+    },
+    "2": {
+     "name": "Battlefield Close-Up",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nFires a powerful laser from the floating turret, dealing massive <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5402003, Prop:1001}|{Skill:5402003, Prop:1002}"
+    },
+    "3": {
+     "name": "Battlefield Close-Up",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nFires a powerful laser from the floating turret, dealing massive <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5402003, Prop:1001}|{Skill:5402003, Prop:1002}"
+    },
+    "4": {
+     "name": "Battlefield Close-Up",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nFires a powerful laser from the floating turret, dealing massive <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5402003, Prop:1001}|{Skill:5402003, Prop:1002}"
+    },
+    "5": {
+     "name": "Battlefield Close-Up",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nFires a powerful laser from the floating turret, dealing massive <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5402003, Prop:1001}|{Skill:5402003, Prop:1002}"
+    },
+    "6": {
+     "name": "Battlefield Close-Up",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nFires a powerful laser from the floating turret, dealing massive <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5402003, Prop:1001}|{Skill:5402003, Prop:1002}"
+    },
+    "7": {
+     "name": "Battlefield Close-Up",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nFires a powerful laser from the floating turret, dealing massive <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5402003, Prop:1001}|{Skill:5402003, Prop:1002}"
+    },
+    "8": {
+     "name": "Battlefield Close-Up",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nFires a powerful laser from the floating turret, dealing massive <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5402003, Prop:1001}|{Skill:5402003, Prop:1002}"
+    },
+    "9": {
+     "name": "Battlefield Close-Up",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nFires a powerful laser from the floating turret, dealing massive <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5402003, Prop:1001}|{Skill:5402003, Prop:1002}"
+    },
+    "10": {
+     "name": "Battlefield Close-Up",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nFires a powerful laser from the floating turret, dealing massive <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5402003, Prop:1001}|{Skill:5402003, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5402001": {
+   "1001": {
+    "main": 26900,
+    "growth": 2690,
+    "format": "%"
+   },
+   "1002": {
+    "main": 9800,
+    "growth": 980,
+    "format": "%"
+   },
+   "element_accumulation_value": 12600
+  },
+  "5402002": {
+   "1001": {
+    "main": 35800,
+    "growth": 3580,
+    "format": "%"
+   },
+   "1002": {
+    "main": 13100,
+    "growth": 1310,
+    "format": "%"
+   },
+   "element_accumulation_value": 16800
+  },
+  "5402003": {
+   "1001": {
+    "main": 94500,
+    "growth": 9450,
+    "format": "%"
+   },
+   "1002": {
+    "main": 13500,
+    "growth": 1350,
+    "format": "%"
+   },
+   "element_accumulation_value": 40500
+  }
+ }
+}

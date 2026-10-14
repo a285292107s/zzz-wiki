@@ -1,0 +1,433 @@
+{
+ "id": 54015,
+ "code_name": "Snap",
+ "name": "Snap",
+ "desc": "Its flash only shines for true superstars.",
+ "rarity": 4,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole30.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 479,
+  "hpupgrade": 570196,
+  "attack": 64,
+  "attack_upgrade": 321091,
+  "break_stun": 110,
+  "element_abnormal_power": 110,
+  "defence": 28,
+  "def_upgrade": 78871,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 250,
+   "attack": 59,
+   "defence": 35,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 501,
+   "attack": 297,
+   "defence": 69,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 751,
+   "attack": 891,
+   "defence": 104,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 1001,
+   "attack": 2375,
+   "defence": 139,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 1252,
+   "attack": 5938,
+   "defence": 173,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "Snap! Look at the Camera!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nWipes the lens, obtaining 3 <color=#FFFFFF>Film</color>. While Snap has <color=#FFFFFF>Film</color>, when an Agent triggers a <color=#FFFFFF>Dodge Counter</color>, <color=#FFFFFF>Quick Assist</color>, or <color=#FFFFFF>Assist Follow-Up</color>, Snap will consume 1 <color=#FFFFFF>Film</color> to take a snapshot and apply the <color=#FFFFFF>Superstar</color> status to the Agent, increasing their DMG for 10s.",
+     "property": [
+      "Agent DMG Increase",
+      "Cooldown"
+     ],
+     "param": "2.8%|22s"
+    },
+    "2": {
+     "name": "Snap! Look at the Camera!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nWipes the lens, obtaining 3 <color=#FFFFFF>Film</color>. While Snap has <color=#FFFFFF>Film</color>, when an Agent triggers a <color=#FFFFFF>Dodge Counter</color>, <color=#FFFFFF>Quick Assist</color>, or <color=#FFFFFF>Assist Follow-Up</color>, Snap will consume 1 <color=#FFFFFF>Film</color> to take a snapshot and apply the <color=#FFFFFF>Superstar</color> status to the Agent, increasing their DMG for 10s.",
+     "property": [
+      "Agent DMG Increase",
+      "Cooldown"
+     ],
+     "param": "3.6%|22s"
+    },
+    "3": {
+     "name": "Snap! Look at the Camera!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nWipes the lens, obtaining 3 <color=#FFFFFF>Film</color>. While Snap has <color=#FFFFFF>Film</color>, when an Agent triggers a <color=#FFFFFF>Dodge Counter</color>, <color=#FFFFFF>Quick Assist</color>, or <color=#FFFFFF>Assist Follow-Up</color>, Snap will consume 1 <color=#FFFFFF>Film</color> to take a snapshot and apply the <color=#FFFFFF>Superstar</color> status to the Agent, increasing their DMG for 10s.",
+     "property": [
+      "Agent DMG Increase",
+      "Cooldown"
+     ],
+     "param": "4.4%|22s"
+    },
+    "4": {
+     "name": "Snap! Look at the Camera!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nWipes the lens, obtaining 3 <color=#FFFFFF>Film</color>. While Snap has <color=#FFFFFF>Film</color>, when an Agent triggers a <color=#FFFFFF>Dodge Counter</color>, <color=#FFFFFF>Quick Assist</color>, or <color=#FFFFFF>Assist Follow-Up</color>, Snap will consume 1 <color=#FFFFFF>Film</color> to take a snapshot and apply the <color=#FFFFFF>Superstar</color> status to the Agent, increasing their DMG for 10s.",
+     "property": [
+      "Agent DMG Increase",
+      "Cooldown"
+     ],
+     "param": "5.2%|22s"
+    },
+    "5": {
+     "name": "Snap! Look at the Camera!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nWipes the lens, obtaining 3 <color=#FFFFFF>Film</color>. While Snap has <color=#FFFFFF>Film</color>, when an Agent triggers a <color=#FFFFFF>Dodge Counter</color>, <color=#FFFFFF>Quick Assist</color>, or <color=#FFFFFF>Assist Follow-Up</color>, Snap will consume 1 <color=#FFFFFF>Film</color> to take a snapshot and apply the <color=#FFFFFF>Superstar</color> status to the Agent, increasing their DMG for 10s.",
+     "property": [
+      "Agent DMG Increase",
+      "Cooldown"
+     ],
+     "param": "6%|22s"
+    },
+    "6": {
+     "name": "Snap! Look at the Camera!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nWipes the lens, obtaining 3 <color=#FFFFFF>Film</color>. While Snap has <color=#FFFFFF>Film</color>, when an Agent triggers a <color=#FFFFFF>Dodge Counter</color>, <color=#FFFFFF>Quick Assist</color>, or <color=#FFFFFF>Assist Follow-Up</color>, Snap will consume 1 <color=#FFFFFF>Film</color> to take a snapshot and apply the <color=#FFFFFF>Superstar</color> status to the Agent, increasing their DMG for 10s.",
+     "property": [
+      "Agent DMG Increase",
+      "Cooldown"
+     ],
+     "param": "6.8%|22s"
+    },
+    "7": {
+     "name": "Snap! Look at the Camera!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nWipes the lens, obtaining 3 <color=#FFFFFF>Film</color>. While Snap has <color=#FFFFFF>Film</color>, when an Agent triggers a <color=#FFFFFF>Dodge Counter</color>, <color=#FFFFFF>Quick Assist</color>, or <color=#FFFFFF>Assist Follow-Up</color>, Snap will consume 1 <color=#FFFFFF>Film</color> to take a snapshot and apply the <color=#FFFFFF>Superstar</color> status to the Agent, increasing their DMG for 10s.",
+     "property": [
+      "Agent DMG Increase",
+      "Cooldown"
+     ],
+     "param": "7.6%|22s"
+    },
+    "8": {
+     "name": "Snap! Look at the Camera!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nWipes the lens, obtaining 3 <color=#FFFFFF>Film</color>. While Snap has <color=#FFFFFF>Film</color>, when an Agent triggers a <color=#FFFFFF>Dodge Counter</color>, <color=#FFFFFF>Quick Assist</color>, or <color=#FFFFFF>Assist Follow-Up</color>, Snap will consume 1 <color=#FFFFFF>Film</color> to take a snapshot and apply the <color=#FFFFFF>Superstar</color> status to the Agent, increasing their DMG for 10s.",
+     "property": [
+      "Agent DMG Increase",
+      "Cooldown"
+     ],
+     "param": "8.4%|22s"
+    },
+    "9": {
+     "name": "Snap! Look at the Camera!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nWipes the lens, obtaining 3 <color=#FFFFFF>Film</color>. While Snap has <color=#FFFFFF>Film</color>, when an Agent triggers a <color=#FFFFFF>Dodge Counter</color>, <color=#FFFFFF>Quick Assist</color>, or <color=#FFFFFF>Assist Follow-Up</color>, Snap will consume 1 <color=#FFFFFF>Film</color> to take a snapshot and apply the <color=#FFFFFF>Superstar</color> status to the Agent, increasing their DMG for 10s.",
+     "property": [
+      "Agent DMG Increase",
+      "Cooldown"
+     ],
+     "param": "9.2%|22s"
+    },
+    "10": {
+     "name": "Snap! Look at the Camera!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nWipes the lens, obtaining 3 <color=#FFFFFF>Film</color>. While Snap has <color=#FFFFFF>Film</color>, when an Agent triggers a <color=#FFFFFF>Dodge Counter</color>, <color=#FFFFFF>Quick Assist</color>, or <color=#FFFFFF>Assist Follow-Up</color>, Snap will consume 1 <color=#FFFFFF>Film</color> to take a snapshot and apply the <color=#FFFFFF>Superstar</color> status to the Agent, increasing their DMG for 10s.",
+     "property": [
+      "Agent DMG Increase",
+      "Cooldown"
+     ],
+     "param": "10%|22s"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "Superstar Moment",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#FFFFFF>Stars of Lyra</color> characters in the squad: When Snap applies the <color=#FFFFFF>Superstar</color> status to an Agent, immediately restore the Agent's Health equal to 4% of its Max HP.",
+     "property": [
+      "HP Recovery"
+     ],
+     "param": "4% HP"
+    },
+    "2": {
+     "name": "Superstar Moment",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#FFFFFF>Stars of Lyra</color> characters in the squad: When Snap applies the <color=#FFFFFF>Superstar</color> status to an Agent, immediately restore the Agent's Health equal to 5% of its Max HP.",
+     "property": [
+      "HP Recovery"
+     ],
+     "param": "5% HP"
+    },
+    "3": {
+     "name": "Superstar Moment",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#FFFFFF>Stars of Lyra</color> characters in the squad: When Snap applies the <color=#FFFFFF>Superstar</color> status to an Agent, immediately restore the Agent's Health equal to 6% of its Max HP.",
+     "property": [
+      "HP Recovery"
+     ],
+     "param": "6% HP"
+    },
+    "4": {
+     "name": "Superstar Moment",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#FFFFFF>Stars of Lyra</color> characters in the squad: When Snap applies the <color=#FFFFFF>Superstar</color> status to an Agent, immediately restore the Agent's Health equal to 7% of its Max HP.",
+     "property": [
+      "HP Recovery"
+     ],
+     "param": "7% HP"
+    },
+    "5": {
+     "name": "Superstar Moment",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#FFFFFF>Stars of Lyra</color> characters in the squad: When Snap applies the <color=#FFFFFF>Superstar</color> status to an Agent, immediately restore the Agent's Health equal to 8% of its Max HP.",
+     "property": [
+      "HP Recovery"
+     ],
+     "param": "8% HP"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "Snap! Don't Blink!",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nUse a powerful flash against the target, dealing <color=#FE437E>Ether DMG</color> and accumulating <color=#FE437E>Ether Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "2": {
+     "name": "Snap! Don't Blink!",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nUse a powerful flash against the target, dealing <color=#FE437E>Ether DMG</color> and accumulating <color=#FE437E>Ether Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "3": {
+     "name": "Snap! Don't Blink!",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nUse a powerful flash against the target, dealing <color=#FE437E>Ether DMG</color> and accumulating <color=#FE437E>Ether Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "4": {
+     "name": "Snap! Don't Blink!",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nUse a powerful flash against the target, dealing <color=#FE437E>Ether DMG</color> and accumulating <color=#FE437E>Ether Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "5": {
+     "name": "Snap! Don't Blink!",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nUse a powerful flash against the target, dealing <color=#FE437E>Ether DMG</color> and accumulating <color=#FE437E>Ether Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "6": {
+     "name": "Snap! Don't Blink!",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nUse a powerful flash against the target, dealing <color=#FE437E>Ether DMG</color> and accumulating <color=#FE437E>Ether Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "7": {
+     "name": "Snap! Don't Blink!",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nUse a powerful flash against the target, dealing <color=#FE437E>Ether DMG</color> and accumulating <color=#FE437E>Ether Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "8": {
+     "name": "Snap! Don't Blink!",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nUse a powerful flash against the target, dealing <color=#FE437E>Ether DMG</color> and accumulating <color=#FE437E>Ether Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "9": {
+     "name": "Snap! Don't Blink!",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nUse a powerful flash against the target, dealing <color=#FE437E>Ether DMG</color> and accumulating <color=#FE437E>Ether Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "10": {
+     "name": "Snap! Don't Blink!",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nUse a powerful flash against the target, dealing <color=#FE437E>Ether DMG</color> and accumulating <color=#FE437E>Ether Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5401501": {
+   "1001": {
+    "main": 0,
+    "growth": 0,
+    "format": "%"
+   },
+   "1002": {
+    "main": 0,
+    "growth": 0,
+    "format": "%"
+   },
+   "element_accumulation_value": 0
+  },
+  "5401502": {
+   "1001": {
+    "main": 74700,
+    "growth": 7470,
+    "format": "%"
+   },
+   "1002": {
+    "main": 10700,
+    "growth": 1070,
+    "format": "%"
+   },
+   "element_accumulation_value": 32000
+  }
+ }
+}

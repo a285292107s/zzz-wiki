@@ -266,8 +266,8 @@ describe('buildFeaturedCards', () => {
     const cards = buildFeaturedCards(seed, list)
     expect(cards.map((c) => c.id)).toEqual([1011, 1051]) // 9999 被丢弃
     expect(cards.map((c) => c.no)).toEqual(['01', '02']) // 重排后紧凑编号
-    expect(cards[0]!.zh).toBe('安比')
-    expect(cards[0]!.elementZh).toBe(ELEMENTS[203].zh) // 基础元素中文
+    expect(cards[0]!.name).toBe('安比')
+    expect(cards[0]!.element).toBe(ELEMENTS[203].label.zh) // 默认语言下是基础属性中文名
     expect(cards[0]!.elementColor).toBe(ELEMENTS[203].color)
     // 候选链三级：本地派生档（srcset：card 800w / wide 1600w / 原图）→ 本地原图 → CDN
     // （见 scripts/build/hero-cards.mjs 的两档规格与 useFeaturedAgents.heroSources）
@@ -283,9 +283,9 @@ describe('buildFeaturedCards', () => {
     const cards = buildFeaturedCards(seed, null)
     expect(cards.map((c) => c.id)).toEqual([1011, 9999, 1051]) // 无真值依据，不丢 id
     expect(cards.map((c) => c.no)).toEqual(['01', '02', '03'])
-    expect(cards[0]!.zh).toBe('')
+    expect(cards[0]!.name).toBe('')
     expect(cards[0]!.en).toBe('')
-    expect(cards[0]!.elementZh).toBe('')
+    expect(cards[0]!.element).toBe('')
     expect(cards[0]!.srcs[0]!.src).toMatch(/hero\/wide\/Mindscape_1011_2\.webp$/)
     expect(cards[0]!.srcs[2]!.src).toContain('static.nanoka.cc')
     expect(cards[0]!.to).toBe('/agents/1011')
@@ -294,7 +294,7 @@ describe('buildFeaturedCards', () => {
   it('特殊属性显示特殊名，且不套基础元素色', () => {
     const list = [makeItem(1371, { zh: '仪玄', en: 'Yixuan', element: 205, special_element: '玄墨' })]
     const cards = buildFeaturedCards([{ id: 1371, pos: '40%', zoom: 1.2, originY: 30.2 }], list)
-    expect(cards[0]!.elementZh).toBe('玄墨')
+    expect(cards[0]!.element).toBe('玄墨')
     expect(cards[0]!.elementColor).toBe('')
   })
 

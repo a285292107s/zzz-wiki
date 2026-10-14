@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { ELEMENTS, PROFESSIONS, type AttrCode, type SpecCode } from '@/data/types'
+import { pickText } from '@/domain/lang'
+import { useLocale } from '@/composables/useLocale'
 
 const props = defineProps<{
   element?: AttrCode | number | null
@@ -9,16 +11,18 @@ const props = defineProps<{
   specialty?: SpecCode | number | null
 }>()
 
+const { lang } = useLocale()
+
 const el = computed(() => {
   if (props.element == null) return null
   const base = ELEMENTS[props.element as AttrCode]
   if (!base) return null
-  const label = props.elementLabel ?? base.zh
-  return { ...base, zh: label }
+  // 特殊属性名来自数据（已随语言），无则取基础属性当前语言名
+  return { color: base.color, text: props.elementLabel ?? pickText(base.label, lang.value) }
 })
 
 const spec = computed(() =>
-  props.specialty != null ? PROFESSIONS[props.specialty as SpecCode] : null,
+  props.specialty != null ? (PROFESSIONS[props.specialty as SpecCode] ?? null) : null,
 )
 </script>
 
@@ -30,9 +34,9 @@ const spec = computed(() =>
       :style="{ '--tag-color': el.color }"
     >
       <span class="swatch" />
-      {{ el.zh }}
+      {{ el.text }}
     </span>
-    <span v-if="spec" class="tag prof">{{ spec.zh }}</span>
+    <span v-if="spec" class="tag prof">{{ pickText(spec.label, lang) }}</span>
   </span>
 </template>
 

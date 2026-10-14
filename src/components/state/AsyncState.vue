@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useUiText } from '@/composables/useUiText'
 import type { AsyncStatus } from '@/composables/useAsyncResource'
 
 const props = defineProps<{
@@ -23,6 +24,8 @@ const props = defineProps<{
   retry?: () => void
 }>()
 
+const { t } = useUiText()
+
 const showEmpty = computed(() => props.empty === true)
 
 /** HTTP 404：错误消息形如 "HTTP 404 · /data/..."，识别后展示友好文案 */
@@ -38,11 +41,10 @@ const isNotFound = computed(
  */
 const errorHint = computed(() => {
   const e = (props.error ?? '').toLowerCase()
-  if (/failed to fetch|networkerror|err_internet|load failed/.test(e))
-    return '网络请求没有完成——可能是连接中断或数据未就绪。重新加载通常即可恢复。'
-  if (/timeout|超时|aborted/.test(e)) return '请求超时——数据源响应过慢，请重试。'
-  if (/HTTP 5\d\d/.test(props.error ?? '')) return '数据源暂时不可用，请稍后重试。'
-  return '数据未能载入。请重新加载；若持续失败，可稍后再访问。'
+  if (/failed to fetch|networkerror|err_internet|load failed/.test(e)) return t.value.state.network
+  if (/timeout|超时|aborted/.test(e)) return t.value.state.timeout
+  if (/HTTP 5\d\d/.test(props.error ?? '')) return t.value.state.unavailable
+  return t.value.state.generic
 })
 </script>
 
@@ -60,19 +62,19 @@ const errorHint = computed(() => {
            （实测 /agents/9999 的 h1 为空 → 读屏与 SEO 都缺主标题）。
            ⚠ 作装饰 aria-hidden，标题的可访问名只留文案。 -->
       <h1 v-if="stateAsHeading" class="err-title mono">
-        <span aria-hidden="true">⚠ </span>{{ notFoundText ?? '目标不存在或已被移除' }}
+        <span aria-hidden="true">⚠ </span>{{ notFoundText ?? t.state.missingTarget }}
       </h1>
-      <p v-else class="err-title mono">⚠ {{ notFoundText ?? '目标不存在或已被移除' }}</p>
-      <RouterLink v-if="backTo" class="err-link mono" :to="backTo">{{ backText ?? '返回名录' }}</RouterLink>
+      <p v-else class="err-title mono">⚠ {{ notFoundText ?? t.state.missingTarget }}</p>
+      <RouterLink v-if="backTo" class="err-link mono" :to="backTo">{{ backText ?? t.state.backToList }}</RouterLink>
     </template>
     <template v-else>
       <!-- 其它失败态同理需要 h1（实测 /agents/1011 断网时 h1Count 也是 0） -->
       <h1 v-if="stateAsHeading" class="err-title mono">
-        <span aria-hidden="true">⚠ </span>{{ errorTitle ?? '数据加载失败' }}
+        <span aria-hidden="true">⚠ </span>{{ errorTitle ?? t.state.loadFailedTitle }}
       </h1>
-      <p v-else class="err-title mono">⚠ {{ errorTitle ?? '数据加载失败' }}</p>
+      <p v-else class="err-title mono">⚠ {{ errorTitle ?? t.state.loadFailedTitle }}</p>
       <p class="err-hint">{{ errorHint }}</p>
-      <button v-if="retry" type="button" class="err-retry mono" @click="retry()">重新加载</button>
+      <button v-if="retry" type="button" class="err-retry mono" @click="retry()">{{ t.state.reload }}</button>
       <p v-if="error" class="err-detail mono">{{ error }}</p>
     </template>
   </div>

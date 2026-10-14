@@ -1,0 +1,1973 @@
+{
+ "id": 1511,
+ "icon": "IconRole59",
+ "name": "남궁우",
+ "code_name": "Nangong Yu",
+ "rarity": 4,
+ "weapon_type": {
+  "2": "Stun"
+ },
+ "element_type": {
+  "205": "Ether"
+ },
+ "hit_type": {
+  "102": "Strike"
+ },
+ "camp": {
+  "13": "AOD"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "9/29",
+  "full_name": "남궁우",
+  "gender": "여성",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle59.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0059.png",
+  "impression_f": "남궁은 뭐든 쉽고 완벽하게 해내는 것 같아. 오빠도 그런 재능이 있으면 내가 좀 편해질 텐데… 농담이야, 오빠도 이미 충분히 멋져~",
+  "impression_m": "벨의 근심을 덜어주지 못한 건 내 잘못이야… 남궁에게 더 많이 배워야겠어!",
+  "impressions": [
+   "남궁우에 대한 인상:\n · 탁월한 업무 능력을 가진 아이돌 리더, 취미로 즐기는 「인생의 승리자」",
+   " · 그녀는 무대를 빛나게 하는 모든 법칙을 알고 있다. 스포트라이트 아래 적히지 않은 노력까지도 포함해서",
+   " · 빌려온 꿈을 손에 꼭 쥐는 것. 그 자체로 대체 불가능한 재능이다"
+  ],
+  "profile_desc": "남궁우, 아이돌 그룹 「AOD」의 리더 겸 안무 담당. 희귀한 에테르 적성 체질과 예리한 사업 감각, 아이돌로서의 탁월한 재능을 지닌 「천재」다.\n\n늘 느긋한 모습으로 멤버들을 놀리고 농담을 던지지만, 정작 받는 악플은 그룹 내에서 가장 적다. 자신의 꿈이 「빌려온 것」이라고 말하면서도, 이 작은 무대를 위해 남들보다 훨씬 더 많은 노력과 감정을 쏟아부었다.\n\n남궁은 무거운 것을 가볍게 다루는 타고난 재능을 지녔다—— 춤, 랩, 투자, 사람의 마음을 꿰뚫어 보는 일까지. 이런 타고난 재능은 한때 「리더」라는 캐릭터를 쉽게 연기할 수 있게 해주는 가면이었지만, 동시에 그녀를 내면의 진짜 갈망과 멀어지게 만들기도 했다.\n\n처음엔 친구에 대한 책임감으로 시작해서, 그게 나중엔 무대에 대한 떨칠 수 없는 애착이 되었을진 몰라도, 남궁은 이미 스포트라이트와 관객의 주목 속에서 빌려온 불씨를 자신만의 빛으로 만들었다.",
+  "role_icon": "IconRole/UnPacker/IconRole59",
+  "stature": "156",
+  "unlock_condition": [
+   "에이전트 획득",
+   "메인 의뢰 시즌 2·중간장 「오랜 꿈의 앙코르」 완료",
+   "「엔비의 고민」 의뢰 완료"
+  ],
+  "trust_lv": {
+   "1": "남궁우, 아이돌 그룹 「AOD」의 리더 겸 안무 담당. 희귀한 에테르 적성 체질과 예리한 사업 감각, 아이돌로서의 탁월한 재능을 지닌 「천재」다.\n\n늘 느긋한 모습으로 멤버들을 놀리고 농담을 던지지만, 정작 받는 악플은 그룹 내에서 가장 적다. 자신의 꿈이 「빌려온 것」이라고 말하면서도, 이 작은 무대를 위해 남들보다 훨씬 더 많은 노력과 감정을 쏟아부었다.\n\n남궁은 무거운 것을 가볍게 다루는 타고난 재능을 지녔다—— 춤, 랩, 투자, 사람의 마음을 꿰뚫어 보는 일까지. 이런 타고난 재능은 한때 「리더」라는 캐릭터를 쉽게 연기할 수 있게 해주는 가면이었지만, 동시에 그녀를 내면의 진짜 갈망과 멀어지게 만들기도 했다.\n\n처음엔 친구에 대한 책임감으로 시작해서, 그게 나중엔 무대에 대한 떨칠 수 없는 애착이 되었을진 몰라도, 남궁은 이미 스포트라이트와 관객의 주목 속에서 빌려온 불씨를 자신만의 빛으로 만들었다.",
+   "2": "",
+   "3": "「타고난 재능」은 남궁을 여유롭게 만들어주는 후광이자, 진심을 알아차리지 못하게 가로막는 안개였다. 그녀는 모든 것의 가치를 평가하고 계획하는 데 능했지만, 유독 「꿈」이라는 허무해 보이는 개념에는 값어치를 매길 수 없었다.\n\nAOD가 막 설립됐을 때, 연습생에게 레슨비를 거꾸로 받아내야 할 정도로 쪼들리는 기획사를 마주한 남궁우는 처음으로 자신의 「언제나 상업적 기회를 포착하는」 재능이 무용지물이 되었음을 느꼈다. 그녀는 최적의 안무 동선을 계산할 수 있었고, 어떤 주식이 오를지 예측할 수 있었지만, 수나의 꿈을 담은 이 연약한 그룹을 어떻게 살려내야 할지는 계산할 수 없었다. 모아뒀던 마지막 자금이 바닥나고, 유일한 메인 보컬이 경제적 부담으로 탈퇴 직전에 이르렀을 때, 위험한 「기회」가 찾아왔다——등록되지 않은 그녀들의 에테르 적성 체질을 이용해 공동에 들어가, 높은 보수를 받고 「물자 회수」 의뢰를 수행하는 것.\n\n그곳은 연습실이 아닌, 진정한 생사를 걸고 싸우는 현장이었다. 호신용으로 쥔 조잡한 무기의 무게는 무대 소품과는 천지 차이였고, 곁에서 들리는 수나가 두려움에 떠는 숨소리는 어떤 관객의 환호보다도 그녀의 신경을 더 압박해 왔다. 그들은 결국 운 좋게 임무를 완수했고, 그룹의 존속이 가능한 보수를 가져왔다. 하지만 비틀거리며 안전 구역으로 돌아와 먼지투성이 보수를 손에 쥐었을 때, 남궁이 느낀 것은 기쁨이 아니었다.\n\n남궁은 깨달았다. 자신이 목숨을 걸고, 공포를 감수하며 지키고자 했던 건 「친구의 꿈을 실현해 주는 것」이라는 추상적인 책임이 아니게 되었다는 걸. 그건 낡은 연습실에서 수나가 써 내린 멜로디, 아리아가 불러낸 노랫소리, 아직 오지 않은, 세 사람만의 노래와 무대였다. 그 갈망은 이미 투자 수익률 따위로는 저울질할 수 없는 무게를 지니게 되었다. 그날부터 남궁은 계산을 계속했다. 어떻게 하면 최소한의 대가로, 자신이 직접 끌어들였고 이제는 포기할 수 없게 된 이 「값싼 꿈」을 지킬 수 있을지를.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 107,
+  "attack_growth": 63136,
+  "avatar_piece_id": 5511,
+  "break_stun": 120,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 50,
+  "defence_growth": 67901,
+  "element_abnormal_power": 90,
+  "element_mystery": 93,
+  "endurance": 0,
+  "hp_growth": 913706,
+  "hp_max": 673,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "NangongYu",
+   "Punch",
+   "Ether",
+   "Female",
+   "Camp13",
+   "Size1",
+   "AidTypeParry",
+   "NangongYu",
+   "EtherEyesSize1"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "일반 공격: 유성 스텝",
+     "desc": "<IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 향해 최대 3단까지 공격을 펼쳐 <color=#FE437E>에테르 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 날아라, 귀여운 지뢰",
+     "desc": "<IconMap:Icon_Normal>을 홀드하여 차지 공격을 시전해 <color=#FE437E>에테르 속성 피해</color>를 주며, 적절한 타이밍에 버튼에서 손을 떼면 정밀 차지를 발동해 스킬로 주는 그로기 수치가 20% 증가한다.\n남궁우는 최대 3단 공격을 시전할 수 있으며, 두 번째와 세 번째 공격은 각각 <color=#FFFFFF>[악센트]</color>를 50pt 소모한다.\n<color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[궁극기]</color>, <color=#FFFFFF>[강화 특수 스킬]</color> 시전 후 <color=#FFFFFF>[악센트]</color>가 충분하면 <IconMap:Icon_Normal>을 홀드하여 첫 번째 공격은 생략하고, 바로 두 번째와 세 번째 공격을 시전할 수 있으며, 반드시 정밀 차지가 발동된다.\n남궁우가 조작 중인 캐릭터일 때 <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[궁극기]</color>, <color=#FFFFFF>[강화 특수 스킬]</color>은 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color>의 연격 카운트를 끊지 않는다.\n첫 번째 공격 차지 중 경직 저항 레벨이 증가하고, 받는 피해가 60% 감소한다.\n두 번째와 세 번째 공격 차지 중에는 무적 효과를 보유한다.\n첫 번째 공격의 대시 단계에서 적의 공격을 가드할 수 있으며, 가드 성공 시 해당 공격도 정밀 차지 공격으로 간주된다.\n모든 공격 시전 중에는 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 유성 스텝",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1511001, Prop:1001}",
+       "param": {
+        "1511001": {
+         "main": 11490,
+         "growth": 1050,
+         "format": "%",
+         "damage_percentage": 11490,
+         "damage_percentage_growth": 1050,
+         "stun_ratio": 8270,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 27050,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 186175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5933,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7512
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1511002, Prop:1001}",
+       "param": {
+        "1511002": {
+         "main": 13690,
+         "growth": 1250,
+         "format": "%",
+         "damage_percentage": 13690,
+         "damage_percentage_growth": 1250,
+         "stun_ratio": 8410,
+         "stun_ratio_growth": 390,
+         "sp_recovery": 27530,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 189475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6215,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7645
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1511003, Prop:1001}",
+       "param": {
+        "1511003": {
+         "main": 26380,
+         "growth": 2400,
+         "format": "%",
+         "damage_percentage": 26380,
+         "damage_percentage_growth": 2400,
+         "stun_ratio": 16890,
+         "stun_ratio_growth": 770,
+         "sp_recovery": 55260,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 380050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12907,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15348
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1511001, Prop:1002}",
+       "param": {
+        "1511001": {
+         "main": 8270,
+         "growth": 380,
+         "format": "%",
+         "damage_percentage": 11490,
+         "damage_percentage_growth": 1050,
+         "stun_ratio": 8270,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 27050,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 186175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5933,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7512
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1511002, Prop:1002}",
+       "param": {
+        "1511002": {
+         "main": 8410,
+         "growth": 390,
+         "format": "%",
+         "damage_percentage": 13690,
+         "damage_percentage_growth": 1250,
+         "stun_ratio": 8410,
+         "stun_ratio_growth": 390,
+         "sp_recovery": 27530,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 189475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6215,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7645
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1511003, Prop:1002}",
+       "param": {
+        "1511003": {
+         "main": 16890,
+         "growth": 770,
+         "format": "%",
+         "damage_percentage": 26380,
+         "damage_percentage_growth": 2400,
+         "stun_ratio": 16890,
+         "stun_ratio_growth": 770,
+         "sp_recovery": 55260,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 380050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12907,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15348
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 날아라, 귀여운 지뢰",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1511004, Prop:1001}",
+       "param": {
+        "1511004": {
+         "main": 10400,
+         "growth": 950,
+         "format": "%",
+         "damage_percentage": 10400,
+         "damage_percentage_growth": 950,
+         "stun_ratio": 4400,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 10080,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 99000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1511005, Prop:1001}",
+       "param": {
+        "1511005": {
+         "main": 30440,
+         "growth": 2770,
+         "format": "%",
+         "damage_percentage": 30440,
+         "damage_percentage_growth": 2770,
+         "stun_ratio": 21080,
+         "stun_ratio_growth": 960,
+         "sp_recovery": 16800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 288750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19163,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1511006, Prop:1001}",
+       "param": {
+        "1511006": {
+         "main": 51080,
+         "growth": 4650,
+         "format": "%",
+         "damage_percentage": 51080,
+         "damage_percentage_growth": 4650,
+         "stun_ratio": 41080,
+         "stun_ratio_growth": 1870,
+         "sp_recovery": 26710,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 367400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14837
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율(협동)",
+       "desc": "{Skill:1511006, Prop:1001} + {Skill:1511018, Prop:1001}",
+       "param": {
+        "1511006": {
+         "main": 51080,
+         "growth": 4650,
+         "format": "%",
+         "damage_percentage": 51080,
+         "damage_percentage_growth": 4650,
+         "stun_ratio": 41080,
+         "stun_ratio_growth": 1870,
+         "sp_recovery": 26710,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 367400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14837
+        },
+        "1511018": {
+         "main": 7670,
+         "growth": 700,
+         "format": "%",
+         "damage_percentage": 7670,
+         "damage_percentage_growth": 700,
+         "stun_ratio": 2060,
+         "stun_ratio_growth": 100,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1511004, Prop:1002}",
+       "param": {
+        "1511004": {
+         "main": 4400,
+         "growth": 200,
+         "format": "%",
+         "damage_percentage": 10400,
+         "damage_percentage_growth": 950,
+         "stun_ratio": 4400,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 10080,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 99000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1511005, Prop:1002}",
+       "param": {
+        "1511005": {
+         "main": 21080,
+         "growth": 960,
+         "format": "%",
+         "damage_percentage": 30440,
+         "damage_percentage_growth": 2770,
+         "stun_ratio": 21080,
+         "stun_ratio_growth": 960,
+         "sp_recovery": 16800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 288750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19163,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1511006, Prop:1002}",
+       "param": {
+        "1511006": {
+         "main": 41080,
+         "growth": 1870,
+         "format": "%",
+         "damage_percentage": 51080,
+         "damage_percentage_growth": 4650,
+         "stun_ratio": 41080,
+         "stun_ratio_growth": 1870,
+         "sp_recovery": 26710,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 367400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14837
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율(협동)",
+       "desc": "{Skill:1511006, Prop:1002}+{Skill:1511018, Prop:1002}",
+       "param": {
+        "1511006": {
+         "main": 41080,
+         "growth": 1870,
+         "format": "%",
+         "damage_percentage": 51080,
+         "damage_percentage_growth": 4650,
+         "stun_ratio": 41080,
+         "stun_ratio_growth": 1870,
+         "sp_recovery": 26710,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 367400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14837
+        },
+        "1511018": {
+         "main": 2060,
+         "growth": 100,
+         "format": "%",
+         "damage_percentage": 7670,
+         "damage_percentage_growth": 700,
+         "stun_ratio": 2060,
+         "stun_ratio_growth": 100,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "회피: 타고난 댄서",
+     "desc": "<IconMap:Icon_Evade>을 짧게 탭하여 시전:\n빠른 대시로 회피한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 회전하는 유성",
+     "desc": "회피 시 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 빠르게 공격해 <color=#FE437E>에테르 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 유성 왈츠",
+     "desc": "<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n타깃을 연속 공격해 <color=#FE437E>에테르 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 회전하는 유성",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1511009, Prop:1001}",
+       "param": {
+        "1511009": {
+         "main": 19070,
+         "growth": 1740,
+         "format": "%",
+         "damage_percentage": 19070,
+         "damage_percentage_growth": 1740,
+         "stun_ratio": 2570,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 8400,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 57750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2331,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2332
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1511009, Prop:1002}",
+       "param": {
+        "1511009": {
+         "main": 2570,
+         "growth": 120,
+         "format": "%",
+         "damage_percentage": 19070,
+         "damage_percentage_growth": 1740,
+         "stun_ratio": 2570,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 8400,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 57750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2331,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2332
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 유성 왈츠",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1511010, Prop:1001}",
+       "param": {
+        "1511010": {
+         "main": 35530,
+         "growth": 3230,
+         "format": "%",
+         "damage_percentage": 35530,
+         "damage_percentage_growth": 3230,
+         "stun_ratio": 25670,
+         "stun_ratio_growth": 1170,
+         "sp_recovery": 47990,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 330000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13330,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 28331
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1511010, Prop:1002}",
+       "param": {
+        "1511010": {
+         "main": 25670,
+         "growth": 1170,
+         "format": "%",
+         "damage_percentage": 35530,
+         "damage_percentage_growth": 3230,
+         "stun_ratio": 25670,
+         "stun_ratio_growth": 1170,
+         "sp_recovery": 47990,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 330000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13330,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 28331
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "특수 스킬: 조금 무거운 애정",
+     "desc": "<IconMap:Icon_Special>을 짧게 탭하여 시전:\n철퇴를 휘둘러 공격해 <color=#FE437E>에테르 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 상당히 무거운 애정",
+     "desc": "에너지가 충분한 상태에서 <IconMap:Icon_SpecialReady>을 짧게 탭하여 시전:\n철퇴를 휘둘러 공격해 <color=#FE437E>에테르 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 조금 무거운 애정",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1511007, Prop:1001}",
+       "param": {
+        "1511007": {
+         "main": 8350,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 8350,
+         "damage_percentage_growth": 760,
+         "stun_ratio": 7070,
+         "stun_ratio_growth": 330,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 158950,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6418,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6419
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1511007, Prop:1002}",
+       "param": {
+        "1511007": {
+         "main": 7070,
+         "growth": 330,
+         "format": "%",
+         "damage_percentage": 8350,
+         "damage_percentage_growth": 760,
+         "stun_ratio": 7070,
+         "stun_ratio_growth": 330,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 158950,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6418,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6419
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 상당히 무거운 애정",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1511008, Prop:1001}",
+       "param": {
+        "1511008": {
+         "main": 53300,
+         "growth": 4850,
+         "format": "%",
+         "damage_percentage": 53300,
+         "damage_percentage_growth": 4850,
+         "stun_ratio": 41430,
+         "stun_ratio_growth": 1890,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 948750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 46327,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1511008, Prop:1002}",
+       "param": {
+        "1511008": {
+         "main": 41430,
+         "growth": 1890,
+         "format": "%",
+         "damage_percentage": 53300,
+         "damage_percentage_growth": 4850,
+         "stun_ratio": 41430,
+         "stun_ratio_growth": 1890,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 948750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 46327,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "에너지 소모",
+       "desc": "40pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "콤보 스킬: 혜성 인력",
+     "desc": "<color=#FFFFFF>[콤보 스킬]</color> 발동 시 해당 캐릭터를 선택해 시전:\n전방을 여러 차례 공격해 대량의 <color=#FE437E>에테르 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "궁극기: 쏟아지는 별무리",
+     "desc": "데시벨 레벨 <color=#FFFFFF>[Maximum]</color> 달성 시 <IconMap:Icon_UltimateReady>을 짧게 탭하여 시전:\n전방을 여러 차례 공격해 대량의 <color=#FE437E>에테르 속성 피해</color>를 준다.\n스킬 시전 시 남궁우는 <color=#FFFFFF>[에테르 장막·망상 앙상블]</color>을 발동하며, <color=#FFFFFF>[에테르 장막·망상 앙상블]</color> 적용 중 파티 내 모든 캐릭터의 공격력이 추가로 50pt 증가한다. 지속 시간: 30초, 남궁우가 <color=#FFFFFF>[에테르 장막·망상 앙상블]</color>을 중복 발동하기 전에 기존의 <color=#FFFFFF>[에테르 장막·망상 앙상블]</color>은 종료된다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 혜성 인력",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1511011, Prop:1001}",
+       "param": {
+        "1511011": {
+         "main": 79820,
+         "growth": 7260,
+         "format": "%",
+         "damage_percentage": 79820,
+         "damage_percentage_growth": 7260,
+         "stun_ratio": 23650,
+         "stun_ratio_growth": 1080,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2178000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 41446,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1511011, Prop:1002}",
+       "param": {
+        "1511011": {
+         "main": 23650,
+         "growth": 1080,
+         "format": "%",
+         "damage_percentage": 79820,
+         "damage_percentage_growth": 7260,
+         "stun_ratio": 23650,
+         "stun_ratio_growth": 1080,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2178000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 41446,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21497
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "궁극기: 쏟아지는 별무리",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1511012, Prop:1001}",
+       "param": {
+        "1511012": {
+         "main": 210170,
+         "growth": 19110,
+         "format": "%",
+         "damage_percentage": 210170,
+         "damage_percentage_growth": 19110,
+         "stun_ratio": 119610,
+         "stun_ratio_growth": 5440,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 29333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 64667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1511012, Prop:1002}",
+       "param": {
+        "1511012": {
+         "main": 119610,
+         "growth": 5440,
+         "format": "%",
+         "damage_percentage": 210170,
+         "damage_percentage_growth": 19110,
+         "stun_ratio": 119610,
+         "stun_ratio_growth": 5440,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 29333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 64667
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "빠른 지원: 구원의 기술",
+     "desc": "현재 조작 중인 캐릭터가 넉업되면 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n타깃을 연속 공격해 <color=#FE437E>에테르 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 완벽한 춤",
+     "desc": "출전 캐릭터 피격 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적의 공격을 패링하고 대량의 그로기 수치를 누적한다.\n우수한 패링 능력을 갖추고 있어 고강도 공격 패링 시 <color=#FFFFFF>[지원 포인트]</color>의 소모량이 감소한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 즉흥 공연",
+     "desc": "<color=#FFFFFF>[패링 지원]</color> 시전 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n타깃을 연속으로 공격해 대량의 <color=#FE437E>에테르 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 구원의 기술",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1511013, Prop:1001}",
+       "param": {
+        "1511013": {
+         "main": 7480,
+         "growth": 680,
+         "format": "%",
+         "damage_percentage": 7480,
+         "damage_percentage_growth": 680,
+         "stun_ratio": 6330,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 20700,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 142450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5748,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5749
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1511013, Prop:1002}",
+       "param": {
+        "1511013": {
+         "main": 6330,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 7480,
+         "damage_percentage_growth": 680,
+         "stun_ratio": 6330,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 20700,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 142450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5748,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5749
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 완벽한 춤",
+     "param": [
+      {
+       "name": "가벼운 패링 그로기 배율",
+       "desc": "{Skill:1511014, Prop:1002}",
+       "param": {
+        "1511014": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강한 패링 그로기 배율",
+       "desc": "{Skill:1511015, Prop:1002}",
+       "param": {
+        "1511015": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 패링 그로기 배율",
+       "desc": "{Skill:1511016, Prop:1002}",
+       "param": {
+        "1511016": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 즉흥 공연",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1511017, Prop:1001}",
+       "param": {
+        "1511017": {
+         "main": 53580,
+         "growth": 4880,
+         "format": "%",
+         "damage_percentage": 53580,
+         "damage_percentage_growth": 4880,
+         "stun_ratio": 39920,
+         "stun_ratio_growth": 1820,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1142075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 38747,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1511017, Prop:1002}",
+       "param": {
+        "1511017": {
+         "main": 39920,
+         "growth": 1820,
+         "format": "%",
+         "damage_percentage": 53580,
+         "damage_percentage_growth": 4880,
+         "stun_ratio": 39920,
+         "stun_ratio_growth": 1820,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1142075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 38747,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21500
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "나른한 스포트라이트",
+   "desc": "<color=#FFFFFF>[강화 특수 스킬: 상당히 무거운 애정]</color> 혹은 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color>로 적 명중 시, 적의 모든 속성 피해 저항이 18% 감소한다. 지속 시간: 40초, 중복 발동 시 지속 시간이 갱신된다. 전장 진입 시, 남궁우의 <color=#FFFFFF>[악센트]</color>가 최대치까지 회복되며, 답사 모드에서는 해당 효과가 180초 동안 최대 1회 발동한다.",
+   "desc2": "꿈이란 너무 귀찮고도 귀중한 것이고, 스포트라이트를 받아도 그저 좀 따뜻하다는 느낌을 받을 뿐이다. 그보다는 놀림받은 수나의 빨개지는 얼굴을 보거나, 아리아가 긴장해서 멈추는 걸 보거나, 아니면 다음 황금의 날에 마주할 행운을 발견하는 게 더 재밌을지도 모른다."
+  },
+  "2": {
+   "level": 2,
+   "name": "아픔 없는 눈물",
+   "desc": "<color=#FFFFFF>[트릴로]</color> 스택마다 <color=#FFFFFF>[핵심 패시브: 천재 아이돌]</color>의 <color=#FFFFFF>[난개]</color> 피해 비율이 추가로 10% 증가한다.\n<color=#FFFFFF>[추가 능력: 천사 리더]</color>가 제공하는 그로기 약체화 배율이 추가로 30% 증가한다. 조작 중인 캐릭터의 <color=#FFFFFF>[콤보 스킬]</color> 강공격이 속성 이상과 그로기 상태에 동시에 처해있는 적에게 명중 시, 적에게 <color=#FFFFFF>[극성 혼돈]</color>을 발동하여 타깃에게 기존 <color=#FFFFFF>[혼돈]</color> 효과의 25%만큼 피해를 준다. 해당 효과는 적의 동일한 그로기 지속 시간 동안 1회만 발동한다.",
+   "desc2": "눈물은 귀중한 공연 도구지만, 안타깝게도 그녀의 눈물은 천성적으로 재고가 부족하다. 다행히 이 아이돌의 연기력은 충분히 훌륭해서, 필요할 때 눈물을 적절히 떨어뜨릴 수 있다——진짜 울보를 달래거나, 혹은 관객의 동정심을 조금 얻어낼 때 말이다."
+  },
+  "3": {
+   "level": 3,
+   "name": "저울 위의 칩",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "스텝은 짜면 되고, 동선은 설계할 수 있으며, 심지어 인기와 미래조차 돈으로 해결할 수 있을 것만 같았다. 계좌에서 춤추는 숫자들은 안심할 수 있는 게임이었다. 가격표가 붙지 않는 난제를 발견하기 전까지는 그랬다… 가장 잘 다루던 「칩」들을 만지작거리며, 「그저 비즈니스」였던 저울이 동요했다."
+  },
+  "4": {
+   "level": 4,
+   "name": "공범의 스텝",
+   "desc": "이상 마스터리가 40pt 증가한다.\n<color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color>로 적 명중 시 주는 속성 이상 축적치가 35% 증가한다.",
+   "desc2": "항상 수나를 위해 가장 눈부신 포지션을 짜고, 아리아를 위해 밤하늘을 꿰뚫는 고음을 준비한다. 나의 「꿈」은 그 애들한테서 빌려온 거지만, 빌려온 이 꿈을 지키겠다는 결심만큼은 100% 나 자신의 것이다."
+  },
+  "5": {
+   "level": 5,
+   "name": "무대 중앙",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "새해를 알리는 등불이 하늘로 올라가고, 마침내 무대의 막이 열린다. 무대, 조명, 그 애들의 옆모습… 모든 것이 이토록 선명했던 적이 없었다. 나는 이미 빛의 중심에 서 있었고, 결코 방관한 적이 없었다."
+  },
+  "6": {
+   "level": 6,
+   "name": "천사의 망상",
+   "desc": "남궁우의 공격으로 주는 그로기 수치가 50% 증가한다. 적이 그로기 상태가 아닐 때, 임의의 캐릭터가 해당 적에게 <color=#FFFFFF>[난개]</color> 피해 혹은 <color=#FFFFFF>[혼돈]</color> 피해를 1회 주거나, 해당 적을 속성 이상 상태에 진입시키면 해당 적에게 1스택의 <color=#FFFFFF>[트릴로: 개조]</color>를 누적하며, <color=#FFFFFF>[강화 특수 스킬: 상당히 무거운 애정]</color> 혹은 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color>의 강공격이 명중 시 1스택의 <color=#FFFFFF>[트릴로: 개조]</color>를 누적하고, <color=#FFFFFF>[궁극기: 쏟아지는 별무리]</color>의 강공격이 명중 시 2스택의 <color=#FFFFFF>[트릴로: 개조]</color>를 누적한다. <color=#FFFFFF>[트릴로: 개조]</color>는 최대 4스택까지 누적할 수 있으며, 적이 그로기 상태에 진입할 시 <color=#FFFFFF>[트릴로: 개조]</color>는 전부 제거된다. <color=#FFFFFF>[트릴로: 개조]</color>가 제거될 때 만약 적이 <color=#FE437E>에테르 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>라면, 남궁우는 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산한다. 추가 속성 이상 피해 비율은 기존 속성 이상 피해의 <color=#FE437E>800%</color>/<color=#2EB6FF>400%</color>/<color=#FF5521>1000%</color>/<color=#F0D12B>70%</color>/<color=#98EFF0>100%</color>/<color=#A6C5FD>40%</color>이며, 적이 보유한 <color=#FFFFFF>[트릴로: 개조]</color> 1스택마다 해당 <color=#FFFFFF>[난개]</color> 피해 비율이 추가로 25% 증가한다. <color=#FFFFFF>[트릴로: 개조]</color>와 <color=#FFFFFF>[트릴로]</color>는 서로 중첩되지 않는다.",
+   "desc2": "카메라 렌즈, 환호성, 야광봉… 아득한 온기가 이글거리는 불꽃으로 변한다. 다른 사람에게 빌린 꿈은 이미 나의 뼈와 살이 되었다. 황홀한 「망상」은 지금부터 리더 남궁이 직접 정의한다."
+  }
+ },
+ "passive": {
+  "level": {
+   "1511049": {
+    "level": 1,
+    "id": 1511049,
+    "name": [
+     "핵심 패시브: 천재 아이돌",
+     "추가 능력: 천사 리더"
+    ],
+    "desc": [
+     "남궁우의 이상 마스터리가 <color=#2BAD00>60</color>pt 증가한다.\n남궁우의 초기 이상 장악력이 110pt 초과 시, 초과한 초기 이상 장악력 1pt당 자신의 충격력이 1pt 증가한다.\n적이 그로기 상태일 때, 임의의 캐릭터가 해당 적에게 <color=#FFFFFF>[난개]</color> 피해 혹은 <color=#FFFFFF>[혼돈]</color> 피해를 1회 주거나 해당 적을 속성 이상 상태에 1회 진입시키면 해당 적에게 <color=#FFFFFF>[트릴로]</color> 1스택이 누적된다.\n동일한 적에게 최대 4스택의 <color=#FFFFFF>[트릴로]</color>를 중첩할 수 있다.\n<color=#FFFFFF>[트릴로]</color>가 최대 스택에 도달하고 적이 <color=#FE437E>에테르 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>일 때 혹은 적이 <color=#FFFFFF>[트릴로]</color>를 보유한 채로 그로기 상태에서 회복될 때, 모든 <color=#FFFFFF>[트릴로]</color>가 소멸한다.\n<color=#FFFFFF>[트릴로]</color>가 소멸할 때, 적이 해당 속성 이상 상태라면 남궁우는 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산한다. 추가 속성 이상 피해 비율은 기존 속성 이상 피해의 <color=#FE437E>720%</color>/<color=#2EB6FF>360%</color>/<color=#FF5521>900%</color>/<color=#F0D12B>63%</color>/<color=#98EFF0>90%</color>/<color=#A6C5FD>36%</color>이며, 적이 보유한 <color=#FFFFFF>[트릴로]</color> 1스택당 해당 <color=#FFFFFF>[난개]</color> 피해 비율이 추가로 25% 증가한다. 동일한 그로기 지속 기간 동안 <color=#FFFFFF>[트릴로]</color>가 이미 소멸했다면 적에게 <color=#FFFFFF>[트릴로]</color>를 더 이상 부여할 수 없다.\n남궁우의 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 혹은 <color=#FFFFFF>[강화 특수 스킬: 상당히 무거운 애정]</color>으로 적 명중 시, 자신의 속성 이상 축적 효율이 <color=#2BAD00>17%</color> 증가하고, 주는 그로기 수치가 <color=#2BAD00>11%</color> 증가하며, 모든 파티원이 주는 피해가 <color=#2BAD00>13%</color> 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.\n교전 상태일 때, 남궁우는 매초 <color=#FFFFFF>[악센트]</color>를 3.8pt 회복하며, 파티 내 임의의 캐릭터가 적을 속성 이상 상태로 만들 시 남궁우의 <color=#FFFFFF>[악센트]</color>가 12pt 추가로 회복된다. 해당 효과는 6초 동안 최대 1회 발동한다.\n남궁우는 최대 100pt의 <color=#FFFFFF>[악센트]</color>를 보유할 수 있으며, 전장 진입 시 초기 <color=#FFFFFF>[악센트]</color>를 30pt 보유한다.",
+     "파티에 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n파티 내 임의의 캐릭터 공격이 그로기 상태의 적 명중 시 주는 속성 이상 축적치가 30% 증가하고, <color=#FFFFFF>[콤보 스킬]</color> 공격으로 그로기 상태의 적 명중 시 주는 속성 이상 축적치가 추가로 30% 증가한다.\n파티 내 임의의 캐릭터가 적을 그로기 상태로 만들 시 남궁우는 <color=#FFFFFF>[전력 댄스]</color> 효과를 2스택 획득한다. 최대 보유: 2스택, 지속 시간: 15초, 중복 발동 시 지속 시간이 갱신된다. <color=#FFFFFF>[전력 댄스]</color>를 보유한 상태에서 남궁우가 <color=#FFFFFF>[강화 특수 스킬: 상당히 무거운 애정]</color>, <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 혹은 <color=#FFFFFF>[빠른 지원: 구원의 기술]</color>을 시전하고, 강공격이 속성 이상과 그로기 상태에 동시에 처해있는 적에게 명중 시, <color=#FFFFFF>[전력 댄스]</color> 1스택을 소모해 조건을 충족하는 모든 적에게 특수 <color=#FFFFFF>[혼돈]</color> 효과인 <color=#FFFFFF>[극성 혼돈]</color>을 발동해 타깃에게 기존 <color=#FFFFFF>[혼돈]</color> 효과의 25%만큼 피해를 준다. 또한 파티 내 이전 캐릭터의 <color=#FFFFFF>[빠른 지원]</color>이 발동된다. <color=#FFFFFF>[극성 혼돈]</color>은 타깃의 속성 이상 상태를 제거하지 않는다. 만약 해당 스킬로 <color=#FFFFFF>[극성 혼돈]</color>이 발동하지 않으면, <color=#FFFFFF>[전력 댄스]</color>를 소모하지 않고, 남궁우가 <color=#FFFFFF>[전력 댄스]</color> 보유 시 다음번에 교체 진입할 때 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 첫 번째 차지 공격을 시전하며 반드시 정밀 차지를 발동한다.\n파티 내 임의의 캐릭터가 적을 그로기 상태로 만든 후, 남궁우가 다음번에 시전하는 <color=#FFFFFF>[강화 특수 스킬]</color>은 에너지를 소모하지 않는다. 해당 효과는 15초 동안 지속되며, 15초 동안 최대 1회 발동한다.\n남궁우와 아리아가 함께 파티에 있는 상태에서 아리아의 <color=#FFFFFF>[일반 공격: 절대 음감]</color> 강공격이 속성 이상과 그로기 상태에 처해있는 적 명중 시에도, 남궁우가 이번 공격을 끊지 않고 온전히 참여했다면 <color=#FFFFFF>[전력 댄스]</color>를 1스택 소모하여 조건을 충족하는 모든 적에게 <color=#FFFFFF>[극성 혼돈]</color>을 발동한다.\n남궁우의 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 세 번째 공격 혹은 <color=#FFFFFF>[궁극기: 쏟아지는 별무리]</color>로 적 명중 시, 적이 <color=#FFFFFF>[휘청]</color> 효과를 획득하고, 그로기 약체화 배율이 30% 증가한다. 해당 효과를 보유한 적은 그로기 상태 진입 후 그로기 지속 시간이 3초 증가한다. 그로기 상태에서 회복하기 전에 <color=#FFFFFF>[휘청]</color> 효과는 동일한 타깃에게 최대 1회만 발동하며, 그로기 지속 시간 증가 효과는 동일한 효과와 중첩되지 않는다. <color=#FFFFFF>[휘청]</color> 효과를 보유한 적의 그로기 종료 시 <color=#FFFFFF>[휘청]</color> 효과가 종료된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1511050": {
+    "level": 2,
+    "id": 1511050,
+    "name": [
+     "핵심 패시브: 천재 아이돌",
+     "추가 능력: 천사 리더"
+    ],
+    "desc": [
+     "남궁우의 이상 마스터리가 <color=#2BAD00>70</color>pt 증가한다.\n남궁우의 초기 이상 장악력이 110pt 초과 시, 초과한 초기 이상 장악력 1pt당 자신의 충격력이 1pt 증가한다.\n적이 그로기 상태일 때, 임의의 캐릭터가 해당 적에게 <color=#FFFFFF>[난개]</color> 피해 혹은 <color=#FFFFFF>[혼돈]</color> 피해를 1회 주거나 해당 적을 속성 이상 상태에 1회 진입시키면 해당 적에게 <color=#FFFFFF>[트릴로]</color> 1스택이 누적된다.\n동일한 적에게 최대 4스택의 <color=#FFFFFF>[트릴로]</color>를 중첩할 수 있다.\n<color=#FFFFFF>[트릴로]</color>가 최대 스택에 도달하고 적이 <color=#FE437E>에테르 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>일 때 혹은 적이 <color=#FFFFFF>[트릴로]</color>를 보유한 채로 그로기 상태에서 회복될 때, 모든 <color=#FFFFFF>[트릴로]</color>가 소멸한다.\n<color=#FFFFFF>[트릴로]</color>가 소멸할 때, 적이 해당 속성 이상 상태라면 남궁우는 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산한다. 추가 속성 이상 피해 비율은 기존 속성 이상 피해의 <color=#FE437E>720%</color>/<color=#2EB6FF>360%</color>/<color=#FF5521>900%</color>/<color=#F0D12B>63%</color>/<color=#98EFF0>90%</color>/<color=#A6C5FD>36%</color>이며, 적이 보유한 <color=#FFFFFF>[트릴로]</color> 1스택당 해당 <color=#FFFFFF>[난개]</color> 피해 비율이 추가로 25% 증가한다. 동일한 그로기 지속 기간 동안 <color=#FFFFFF>[트릴로]</color>가 이미 소멸했다면 적에게 <color=#FFFFFF>[트릴로]</color>를 더 이상 부여할 수 없다.\n남궁우의 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 혹은 <color=#FFFFFF>[강화 특수 스킬: 상당히 무거운 애정]</color>으로 적 명중 시, 자신의 속성 이상 축적 효율이 <color=#2BAD00>20%</color> 증가하고, 주는 그로기 수치가 <color=#2BAD00>12.5%</color> 증가하며, 모든 파티원이 주는 피해가 <color=#2BAD00>15%</color> 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.\n교전 상태일 때, 남궁우는 매초 <color=#FFFFFF>[악센트]</color>를 3.8pt 회복하며, 파티 내 임의의 캐릭터가 적을 속성 이상 상태로 만들 시 남궁우의 <color=#FFFFFF>[악센트]</color>가 12pt 추가로 회복된다. 해당 효과는 6초 동안 최대 1회 발동한다.\n남궁우는 최대 100pt의 <color=#FFFFFF>[악센트]</color>를 보유할 수 있으며, 전장 진입 시 초기 <color=#FFFFFF>[악센트]</color>를 30pt 보유한다.",
+     "파티에 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n파티 내 임의의 캐릭터 공격이 그로기 상태의 적 명중 시 주는 속성 이상 축적치가 30% 증가하고, <color=#FFFFFF>[콤보 스킬]</color> 공격으로 그로기 상태의 적 명중 시 주는 속성 이상 축적치가 추가로 30% 증가한다.\n파티 내 임의의 캐릭터가 적을 그로기 상태로 만들 시 남궁우는 <color=#FFFFFF>[전력 댄스]</color> 효과를 2스택 획득한다. 최대 보유: 2스택, 지속 시간: 15초, 중복 발동 시 지속 시간이 갱신된다. <color=#FFFFFF>[전력 댄스]</color>를 보유한 상태에서 남궁우가 <color=#FFFFFF>[강화 특수 스킬: 상당히 무거운 애정]</color>, <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 혹은 <color=#FFFFFF>[빠른 지원: 구원의 기술]</color>을 시전하고, 강공격이 속성 이상과 그로기 상태에 동시에 처해있는 적에게 명중 시, <color=#FFFFFF>[전력 댄스]</color> 1스택을 소모해 조건을 충족하는 모든 적에게 특수 <color=#FFFFFF>[혼돈]</color> 효과인 <color=#FFFFFF>[극성 혼돈]</color>을 발동해 타깃에게 기존 <color=#FFFFFF>[혼돈]</color> 효과의 25%만큼 피해를 준다. 또한 파티 내 이전 캐릭터의 <color=#FFFFFF>[빠른 지원]</color>이 발동된다. <color=#FFFFFF>[극성 혼돈]</color>은 타깃의 속성 이상 상태를 제거하지 않는다. 만약 해당 스킬로 <color=#FFFFFF>[극성 혼돈]</color>이 발동하지 않으면, <color=#FFFFFF>[전력 댄스]</color>를 소모하지 않고, 남궁우가 <color=#FFFFFF>[전력 댄스]</color> 보유 시 다음번에 교체 진입할 때 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 첫 번째 차지 공격을 시전하며 반드시 정밀 차지를 발동한다.\n파티 내 임의의 캐릭터가 적을 그로기 상태로 만든 후, 남궁우가 다음번에 시전하는 <color=#FFFFFF>[강화 특수 스킬]</color>은 에너지를 소모하지 않는다. 해당 효과는 15초 동안 지속되며, 15초 동안 최대 1회 발동한다.\n남궁우와 아리아가 함께 파티에 있는 상태에서 아리아의 <color=#FFFFFF>[일반 공격: 절대 음감]</color> 강공격이 속성 이상과 그로기 상태에 처해있는 적 명중 시에도, 남궁우가 이번 공격을 끊지 않고 온전히 참여했다면 <color=#FFFFFF>[전력 댄스]</color>를 1스택 소모하여 조건을 충족하는 모든 적에게 <color=#FFFFFF>[극성 혼돈]</color>을 발동한다.\n남궁우의 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 세 번째 공격 혹은 <color=#FFFFFF>[궁극기: 쏟아지는 별무리]</color>로 적 명중 시, 적이 <color=#FFFFFF>[휘청]</color> 효과를 획득하고, 그로기 약체화 배율이 30% 증가한다. 해당 효과를 보유한 적은 그로기 상태 진입 후 그로기 지속 시간이 3초 증가한다. 그로기 상태에서 회복하기 전에 <color=#FFFFFF>[휘청]</color> 효과는 동일한 타깃에게 최대 1회만 발동하며, 그로기 지속 시간 증가 효과는 동일한 효과와 중첩되지 않는다. <color=#FFFFFF>[휘청]</color> 효과를 보유한 적의 그로기 종료 시 <color=#FFFFFF>[휘청]</color> 효과가 종료된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1511051": {
+    "level": 3,
+    "id": 1511051,
+    "name": [
+     "핵심 패시브: 천재 아이돌",
+     "추가 능력: 천사 리더"
+    ],
+    "desc": [
+     "남궁우의 이상 마스터리가 <color=#2BAD00>80</color>pt 증가한다.\n남궁우의 초기 이상 장악력이 110pt 초과 시, 초과한 초기 이상 장악력 1pt당 자신의 충격력이 1pt 증가한다.\n적이 그로기 상태일 때, 임의의 캐릭터가 해당 적에게 <color=#FFFFFF>[난개]</color> 피해 혹은 <color=#FFFFFF>[혼돈]</color> 피해를 1회 주거나 해당 적을 속성 이상 상태에 1회 진입시키면 해당 적에게 <color=#FFFFFF>[트릴로]</color> 1스택이 누적된다.\n동일한 적에게 최대 4스택의 <color=#FFFFFF>[트릴로]</color>를 중첩할 수 있다.\n<color=#FFFFFF>[트릴로]</color>가 최대 스택에 도달하고 적이 <color=#FE437E>에테르 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>일 때 혹은 적이 <color=#FFFFFF>[트릴로]</color>를 보유한 채로 그로기 상태에서 회복될 때, 모든 <color=#FFFFFF>[트릴로]</color>가 소멸한다.\n<color=#FFFFFF>[트릴로]</color>가 소멸할 때, 적이 해당 속성 이상 상태라면 남궁우는 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산한다. 추가 속성 이상 피해 비율은 기존 속성 이상 피해의 <color=#FE437E>720%</color>/<color=#2EB6FF>360%</color>/<color=#FF5521>900%</color>/<color=#F0D12B>63%</color>/<color=#98EFF0>90%</color>/<color=#A6C5FD>36%</color>이며, 적이 보유한 <color=#FFFFFF>[트릴로]</color> 1스택당 해당 <color=#FFFFFF>[난개]</color> 피해 비율이 추가로 25% 증가한다. 동일한 그로기 지속 기간 동안 <color=#FFFFFF>[트릴로]</color>가 이미 소멸했다면 적에게 <color=#FFFFFF>[트릴로]</color>를 더 이상 부여할 수 없다.\n남궁우의 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 혹은 <color=#FFFFFF>[강화 특수 스킬: 상당히 무거운 애정]</color>으로 적 명중 시, 자신의 속성 이상 축적 효율이 <color=#2BAD00>23%</color> 증가하고, 주는 그로기 수치가 <color=#2BAD00>14%</color> 증가하며, 모든 파티원이 주는 피해가 <color=#2BAD00>17%</color> 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.\n교전 상태일 때, 남궁우는 매초 <color=#FFFFFF>[악센트]</color>를 3.8pt 회복하며, 파티 내 임의의 캐릭터가 적을 속성 이상 상태로 만들 시 남궁우의 <color=#FFFFFF>[악센트]</color>가 12pt 추가로 회복된다. 해당 효과는 6초 동안 최대 1회 발동한다.\n남궁우는 최대 100pt의 <color=#FFFFFF>[악센트]</color>를 보유할 수 있으며, 전장 진입 시 초기 <color=#FFFFFF>[악센트]</color>를 30pt 보유한다.",
+     "파티에 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n파티 내 임의의 캐릭터 공격이 그로기 상태의 적 명중 시 주는 속성 이상 축적치가 30% 증가하고, <color=#FFFFFF>[콤보 스킬]</color> 공격으로 그로기 상태의 적 명중 시 주는 속성 이상 축적치가 추가로 30% 증가한다.\n파티 내 임의의 캐릭터가 적을 그로기 상태로 만들 시 남궁우는 <color=#FFFFFF>[전력 댄스]</color> 효과를 2스택 획득한다. 최대 보유: 2스택, 지속 시간: 15초, 중복 발동 시 지속 시간이 갱신된다. <color=#FFFFFF>[전력 댄스]</color>를 보유한 상태에서 남궁우가 <color=#FFFFFF>[강화 특수 스킬: 상당히 무거운 애정]</color>, <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 혹은 <color=#FFFFFF>[빠른 지원: 구원의 기술]</color>을 시전하고, 강공격이 속성 이상과 그로기 상태에 동시에 처해있는 적에게 명중 시, <color=#FFFFFF>[전력 댄스]</color> 1스택을 소모해 조건을 충족하는 모든 적에게 특수 <color=#FFFFFF>[혼돈]</color> 효과인 <color=#FFFFFF>[극성 혼돈]</color>을 발동해 타깃에게 기존 <color=#FFFFFF>[혼돈]</color> 효과의 25%만큼 피해를 준다. 또한 파티 내 이전 캐릭터의 <color=#FFFFFF>[빠른 지원]</color>이 발동된다. <color=#FFFFFF>[극성 혼돈]</color>은 타깃의 속성 이상 상태를 제거하지 않는다. 만약 해당 스킬로 <color=#FFFFFF>[극성 혼돈]</color>이 발동하지 않으면, <color=#FFFFFF>[전력 댄스]</color>를 소모하지 않고, 남궁우가 <color=#FFFFFF>[전력 댄스]</color> 보유 시 다음번에 교체 진입할 때 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 첫 번째 차지 공격을 시전하며 반드시 정밀 차지를 발동한다.\n파티 내 임의의 캐릭터가 적을 그로기 상태로 만든 후, 남궁우가 다음번에 시전하는 <color=#FFFFFF>[강화 특수 스킬]</color>은 에너지를 소모하지 않는다. 해당 효과는 15초 동안 지속되며, 15초 동안 최대 1회 발동한다.\n남궁우와 아리아가 함께 파티에 있는 상태에서 아리아의 <color=#FFFFFF>[일반 공격: 절대 음감]</color> 강공격이 속성 이상과 그로기 상태에 처해있는 적 명중 시에도, 남궁우가 이번 공격을 끊지 않고 온전히 참여했다면 <color=#FFFFFF>[전력 댄스]</color>를 1스택 소모하여 조건을 충족하는 모든 적에게 <color=#FFFFFF>[극성 혼돈]</color>을 발동한다.\n남궁우의 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 세 번째 공격 혹은 <color=#FFFFFF>[궁극기: 쏟아지는 별무리]</color>로 적 명중 시, 적이 <color=#FFFFFF>[휘청]</color> 효과를 획득하고, 그로기 약체화 배율이 30% 증가한다. 해당 효과를 보유한 적은 그로기 상태 진입 후 그로기 지속 시간이 3초 증가한다. 그로기 상태에서 회복하기 전에 <color=#FFFFFF>[휘청]</color> 효과는 동일한 타깃에게 최대 1회만 발동하며, 그로기 지속 시간 증가 효과는 동일한 효과와 중첩되지 않는다. <color=#FFFFFF>[휘청]</color> 효과를 보유한 적의 그로기 종료 시 <color=#FFFFFF>[휘청]</color> 효과가 종료된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1511052": {
+    "level": 4,
+    "id": 1511052,
+    "name": [
+     "핵심 패시브: 천재 아이돌",
+     "추가 능력: 천사 리더"
+    ],
+    "desc": [
+     "남궁우의 이상 마스터리가 <color=#2BAD00>90</color>pt 증가한다.\n남궁우의 초기 이상 장악력이 110pt 초과 시, 초과한 초기 이상 장악력 1pt당 자신의 충격력이 1pt 증가한다.\n적이 그로기 상태일 때, 임의의 캐릭터가 해당 적에게 <color=#FFFFFF>[난개]</color> 피해 혹은 <color=#FFFFFF>[혼돈]</color> 피해를 1회 주거나 해당 적을 속성 이상 상태에 1회 진입시키면 해당 적에게 <color=#FFFFFF>[트릴로]</color> 1스택이 누적된다.\n동일한 적에게 최대 4스택의 <color=#FFFFFF>[트릴로]</color>를 중첩할 수 있다.\n<color=#FFFFFF>[트릴로]</color>가 최대 스택에 도달하고 적이 <color=#FE437E>에테르 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>일 때 혹은 적이 <color=#FFFFFF>[트릴로]</color>를 보유한 채로 그로기 상태에서 회복될 때, 모든 <color=#FFFFFF>[트릴로]</color>가 소멸한다.\n<color=#FFFFFF>[트릴로]</color>가 소멸할 때, 적이 해당 속성 이상 상태라면 남궁우는 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산한다. 추가 속성 이상 피해 비율은 기존 속성 이상 피해의 <color=#FE437E>720%</color>/<color=#2EB6FF>360%</color>/<color=#FF5521>900%</color>/<color=#F0D12B>63%</color>/<color=#98EFF0>90%</color>/<color=#A6C5FD>36%</color>이며, 적이 보유한 <color=#FFFFFF>[트릴로]</color> 1스택당 해당 <color=#FFFFFF>[난개]</color> 피해 비율이 추가로 25% 증가한다. 동일한 그로기 지속 기간 동안 <color=#FFFFFF>[트릴로]</color>가 이미 소멸했다면 적에게 <color=#FFFFFF>[트릴로]</color>를 더 이상 부여할 수 없다.\n남궁우의 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 혹은 <color=#FFFFFF>[강화 특수 스킬: 상당히 무거운 애정]</color>으로 적 명중 시, 자신의 속성 이상 축적 효율이 <color=#2BAD00>26%</color> 증가하고, 주는 그로기 수치가 <color=#2BAD00>15.5%</color> 증가하며, 모든 파티원이 주는 피해가 <color=#2BAD00>19%</color> 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.\n교전 상태일 때, 남궁우는 매초 <color=#FFFFFF>[악센트]</color>를 3.8pt 회복하며, 파티 내 임의의 캐릭터가 적을 속성 이상 상태로 만들 시 남궁우의 <color=#FFFFFF>[악센트]</color>가 12pt 추가로 회복된다. 해당 효과는 6초 동안 최대 1회 발동한다.\n남궁우는 최대 100pt의 <color=#FFFFFF>[악센트]</color>를 보유할 수 있으며, 전장 진입 시 초기 <color=#FFFFFF>[악센트]</color>를 30pt 보유한다.",
+     "파티에 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n파티 내 임의의 캐릭터 공격이 그로기 상태의 적 명중 시 주는 속성 이상 축적치가 30% 증가하고, <color=#FFFFFF>[콤보 스킬]</color> 공격으로 그로기 상태의 적 명중 시 주는 속성 이상 축적치가 추가로 30% 증가한다.\n파티 내 임의의 캐릭터가 적을 그로기 상태로 만들 시 남궁우는 <color=#FFFFFF>[전력 댄스]</color> 효과를 2스택 획득한다. 최대 보유: 2스택, 지속 시간: 15초, 중복 발동 시 지속 시간이 갱신된다. <color=#FFFFFF>[전력 댄스]</color>를 보유한 상태에서 남궁우가 <color=#FFFFFF>[강화 특수 스킬: 상당히 무거운 애정]</color>, <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 혹은 <color=#FFFFFF>[빠른 지원: 구원의 기술]</color>을 시전하고, 강공격이 속성 이상과 그로기 상태에 동시에 처해있는 적에게 명중 시, <color=#FFFFFF>[전력 댄스]</color> 1스택을 소모해 조건을 충족하는 모든 적에게 특수 <color=#FFFFFF>[혼돈]</color> 효과인 <color=#FFFFFF>[극성 혼돈]</color>을 발동해 타깃에게 기존 <color=#FFFFFF>[혼돈]</color> 효과의 25%만큼 피해를 준다. 또한 파티 내 이전 캐릭터의 <color=#FFFFFF>[빠른 지원]</color>이 발동된다. <color=#FFFFFF>[극성 혼돈]</color>은 타깃의 속성 이상 상태를 제거하지 않는다. 만약 해당 스킬로 <color=#FFFFFF>[극성 혼돈]</color>이 발동하지 않으면, <color=#FFFFFF>[전력 댄스]</color>를 소모하지 않고, 남궁우가 <color=#FFFFFF>[전력 댄스]</color> 보유 시 다음번에 교체 진입할 때 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 첫 번째 차지 공격을 시전하며 반드시 정밀 차지를 발동한다.\n파티 내 임의의 캐릭터가 적을 그로기 상태로 만든 후, 남궁우가 다음번에 시전하는 <color=#FFFFFF>[강화 특수 스킬]</color>은 에너지를 소모하지 않는다. 해당 효과는 15초 동안 지속되며, 15초 동안 최대 1회 발동한다.\n남궁우와 아리아가 함께 파티에 있는 상태에서 아리아의 <color=#FFFFFF>[일반 공격: 절대 음감]</color> 강공격이 속성 이상과 그로기 상태에 처해있는 적 명중 시에도, 남궁우가 이번 공격을 끊지 않고 온전히 참여했다면 <color=#FFFFFF>[전력 댄스]</color>를 1스택 소모하여 조건을 충족하는 모든 적에게 <color=#FFFFFF>[극성 혼돈]</color>을 발동한다.\n남궁우의 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 세 번째 공격 혹은 <color=#FFFFFF>[궁극기: 쏟아지는 별무리]</color>로 적 명중 시, 적이 <color=#FFFFFF>[휘청]</color> 효과를 획득하고, 그로기 약체화 배율이 30% 증가한다. 해당 효과를 보유한 적은 그로기 상태 진입 후 그로기 지속 시간이 3초 증가한다. 그로기 상태에서 회복하기 전에 <color=#FFFFFF>[휘청]</color> 효과는 동일한 타깃에게 최대 1회만 발동하며, 그로기 지속 시간 증가 효과는 동일한 효과와 중첩되지 않는다. <color=#FFFFFF>[휘청]</color> 효과를 보유한 적의 그로기 종료 시 <color=#FFFFFF>[휘청]</color> 효과가 종료된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1511053": {
+    "level": 5,
+    "id": 1511053,
+    "name": [
+     "핵심 패시브: 천재 아이돌",
+     "추가 능력: 천사 리더"
+    ],
+    "desc": [
+     "남궁우의 이상 마스터리가 <color=#2BAD00>100</color>pt 증가한다.\n남궁우의 초기 이상 장악력이 110pt 초과 시, 초과한 초기 이상 장악력 1pt당 자신의 충격력이 1pt 증가한다.\n적이 그로기 상태일 때, 임의의 캐릭터가 해당 적에게 <color=#FFFFFF>[난개]</color> 피해 혹은 <color=#FFFFFF>[혼돈]</color> 피해를 1회 주거나 해당 적을 속성 이상 상태에 1회 진입시키면 해당 적에게 <color=#FFFFFF>[트릴로]</color> 1스택이 누적된다.\n동일한 적에게 최대 4스택의 <color=#FFFFFF>[트릴로]</color>를 중첩할 수 있다.\n<color=#FFFFFF>[트릴로]</color>가 최대 스택에 도달하고 적이 <color=#FE437E>에테르 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>일 때 혹은 적이 <color=#FFFFFF>[트릴로]</color>를 보유한 채로 그로기 상태에서 회복될 때, 모든 <color=#FFFFFF>[트릴로]</color>가 소멸한다.\n<color=#FFFFFF>[트릴로]</color>가 소멸할 때, 적이 해당 속성 이상 상태라면 남궁우는 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산한다. 추가 속성 이상 피해 비율은 기존 속성 이상 피해의 <color=#FE437E>720%</color>/<color=#2EB6FF>360%</color>/<color=#FF5521>900%</color>/<color=#F0D12B>63%</color>/<color=#98EFF0>90%</color>/<color=#A6C5FD>36%</color>이며, 적이 보유한 <color=#FFFFFF>[트릴로]</color> 1스택당 해당 <color=#FFFFFF>[난개]</color> 피해 비율이 추가로 25% 증가한다. 동일한 그로기 지속 기간 동안 <color=#FFFFFF>[트릴로]</color>가 이미 소멸했다면 적에게 <color=#FFFFFF>[트릴로]</color>를 더 이상 부여할 수 없다.\n남궁우의 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 혹은 <color=#FFFFFF>[강화 특수 스킬: 상당히 무거운 애정]</color>으로 적 명중 시, 자신의 속성 이상 축적 효율이 <color=#2BAD00>29%</color> 증가하고, 주는 그로기 수치가 <color=#2BAD00>17%</color> 증가하며, 모든 파티원이 주는 피해가 <color=#2BAD00>21%</color> 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.\n교전 상태일 때, 남궁우는 매초 <color=#FFFFFF>[악센트]</color>를 3.8pt 회복하며, 파티 내 임의의 캐릭터가 적을 속성 이상 상태로 만들 시 남궁우의 <color=#FFFFFF>[악센트]</color>가 12pt 추가로 회복된다. 해당 효과는 6초 동안 최대 1회 발동한다.\n남궁우는 최대 100pt의 <color=#FFFFFF>[악센트]</color>를 보유할 수 있으며, 전장 진입 시 초기 <color=#FFFFFF>[악센트]</color>를 30pt 보유한다.",
+     "파티에 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n파티 내 임의의 캐릭터 공격이 그로기 상태의 적 명중 시 주는 속성 이상 축적치가 30% 증가하고, <color=#FFFFFF>[콤보 스킬]</color> 공격으로 그로기 상태의 적 명중 시 주는 속성 이상 축적치가 추가로 30% 증가한다.\n파티 내 임의의 캐릭터가 적을 그로기 상태로 만들 시 남궁우는 <color=#FFFFFF>[전력 댄스]</color> 효과를 2스택 획득한다. 최대 보유: 2스택, 지속 시간: 15초, 중복 발동 시 지속 시간이 갱신된다. <color=#FFFFFF>[전력 댄스]</color>를 보유한 상태에서 남궁우가 <color=#FFFFFF>[강화 특수 스킬: 상당히 무거운 애정]</color>, <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 혹은 <color=#FFFFFF>[빠른 지원: 구원의 기술]</color>을 시전하고, 강공격이 속성 이상과 그로기 상태에 동시에 처해있는 적에게 명중 시, <color=#FFFFFF>[전력 댄스]</color> 1스택을 소모해 조건을 충족하는 모든 적에게 특수 <color=#FFFFFF>[혼돈]</color> 효과인 <color=#FFFFFF>[극성 혼돈]</color>을 발동해 타깃에게 기존 <color=#FFFFFF>[혼돈]</color> 효과의 25%만큼 피해를 준다. 또한 파티 내 이전 캐릭터의 <color=#FFFFFF>[빠른 지원]</color>이 발동된다. <color=#FFFFFF>[극성 혼돈]</color>은 타깃의 속성 이상 상태를 제거하지 않는다. 만약 해당 스킬로 <color=#FFFFFF>[극성 혼돈]</color>이 발동하지 않으면, <color=#FFFFFF>[전력 댄스]</color>를 소모하지 않고, 남궁우가 <color=#FFFFFF>[전력 댄스]</color> 보유 시 다음번에 교체 진입할 때 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 첫 번째 차지 공격을 시전하며 반드시 정밀 차지를 발동한다.\n파티 내 임의의 캐릭터가 적을 그로기 상태로 만든 후, 남궁우가 다음번에 시전하는 <color=#FFFFFF>[강화 특수 스킬]</color>은 에너지를 소모하지 않는다. 해당 효과는 15초 동안 지속되며, 15초 동안 최대 1회 발동한다.\n남궁우와 아리아가 함께 파티에 있는 상태에서 아리아의 <color=#FFFFFF>[일반 공격: 절대 음감]</color> 강공격이 속성 이상과 그로기 상태에 처해있는 적 명중 시에도, 남궁우가 이번 공격을 끊지 않고 온전히 참여했다면 <color=#FFFFFF>[전력 댄스]</color>를 1스택 소모하여 조건을 충족하는 모든 적에게 <color=#FFFFFF>[극성 혼돈]</color>을 발동한다.\n남궁우의 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 세 번째 공격 혹은 <color=#FFFFFF>[궁극기: 쏟아지는 별무리]</color>로 적 명중 시, 적이 <color=#FFFFFF>[휘청]</color> 효과를 획득하고, 그로기 약체화 배율이 30% 증가한다. 해당 효과를 보유한 적은 그로기 상태 진입 후 그로기 지속 시간이 3초 증가한다. 그로기 상태에서 회복하기 전에 <color=#FFFFFF>[휘청]</color> 효과는 동일한 타깃에게 최대 1회만 발동하며, 그로기 지속 시간 증가 효과는 동일한 효과와 중첩되지 않는다. <color=#FFFFFF>[휘청]</color> 효과를 보유한 적의 그로기 종료 시 <color=#FFFFFF>[휘청]</color> 효과가 종료된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1511054": {
+    "level": 6,
+    "id": 1511054,
+    "name": [
+     "핵심 패시브: 천재 아이돌",
+     "추가 능력: 천사 리더"
+    ],
+    "desc": [
+     "남궁우의 이상 마스터리가 <color=#2BAD00>110</color>pt 증가한다.\n남궁우의 초기 이상 장악력이 110pt 초과 시, 초과한 초기 이상 장악력 1pt당 자신의 충격력이 1pt 증가한다.\n적이 그로기 상태일 때, 임의의 캐릭터가 해당 적에게 <color=#FFFFFF>[난개]</color> 피해 혹은 <color=#FFFFFF>[혼돈]</color> 피해를 1회 주거나 해당 적을 속성 이상 상태에 1회 진입시키면 해당 적에게 <color=#FFFFFF>[트릴로]</color> 1스택이 누적된다.\n동일한 적에게 최대 4스택의 <color=#FFFFFF>[트릴로]</color>를 중첩할 수 있다.\n<color=#FFFFFF>[트릴로]</color>가 최대 스택에 도달하고 적이 <color=#FE437E>에테르 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>일 때 혹은 적이 <color=#FFFFFF>[트릴로]</color>를 보유한 채로 그로기 상태에서 회복될 때, 모든 <color=#FFFFFF>[트릴로]</color>가 소멸한다.\n<color=#FFFFFF>[트릴로]</color>가 소멸할 때, 적이 해당 속성 이상 상태라면 남궁우는 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산한다. 추가 속성 이상 피해 비율은 기존 속성 이상 피해의 <color=#FE437E>720%</color>/<color=#2EB6FF>360%</color>/<color=#FF5521>900%</color>/<color=#F0D12B>63%</color>/<color=#98EFF0>90%</color>/<color=#A6C5FD>36%</color>이며, 적이 보유한 <color=#FFFFFF>[트릴로]</color> 1스택당 해당 <color=#FFFFFF>[난개]</color> 피해 비율이 추가로 25% 증가한다. 동일한 그로기 지속 기간 동안 <color=#FFFFFF>[트릴로]</color>가 이미 소멸했다면 적에게 <color=#FFFFFF>[트릴로]</color>를 더 이상 부여할 수 없다.\n남궁우의 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 혹은 <color=#FFFFFF>[강화 특수 스킬: 상당히 무거운 애정]</color>으로 적 명중 시, 자신의 속성 이상 축적 효율이 <color=#2BAD00>32%</color> 증가하고, 주는 그로기 수치가 <color=#2BAD00>18.5%</color> 증가하며, 모든 파티원이 주는 피해가 <color=#2BAD00>23%</color> 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.\n교전 상태일 때, 남궁우는 매초 <color=#FFFFFF>[악센트]</color>를 3.8pt 회복하며, 파티 내 임의의 캐릭터가 적을 속성 이상 상태로 만들 시 남궁우의 <color=#FFFFFF>[악센트]</color>가 12pt 추가로 회복된다. 해당 효과는 6초 동안 최대 1회 발동한다.\n남궁우는 최대 100pt의 <color=#FFFFFF>[악센트]</color>를 보유할 수 있으며, 전장 진입 시 초기 <color=#FFFFFF>[악센트]</color>를 30pt 보유한다.",
+     "파티에 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n파티 내 임의의 캐릭터 공격이 그로기 상태의 적 명중 시 주는 속성 이상 축적치가 30% 증가하고, <color=#FFFFFF>[콤보 스킬]</color> 공격으로 그로기 상태의 적 명중 시 주는 속성 이상 축적치가 추가로 30% 증가한다.\n파티 내 임의의 캐릭터가 적을 그로기 상태로 만들 시 남궁우는 <color=#FFFFFF>[전력 댄스]</color> 효과를 2스택 획득한다. 최대 보유: 2스택, 지속 시간: 15초, 중복 발동 시 지속 시간이 갱신된다. <color=#FFFFFF>[전력 댄스]</color>를 보유한 상태에서 남궁우가 <color=#FFFFFF>[강화 특수 스킬: 상당히 무거운 애정]</color>, <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 혹은 <color=#FFFFFF>[빠른 지원: 구원의 기술]</color>을 시전하고, 강공격이 속성 이상과 그로기 상태에 동시에 처해있는 적에게 명중 시, <color=#FFFFFF>[전력 댄스]</color> 1스택을 소모해 조건을 충족하는 모든 적에게 특수 <color=#FFFFFF>[혼돈]</color> 효과인 <color=#FFFFFF>[극성 혼돈]</color>을 발동해 타깃에게 기존 <color=#FFFFFF>[혼돈]</color> 효과의 25%만큼 피해를 준다. 또한 파티 내 이전 캐릭터의 <color=#FFFFFF>[빠른 지원]</color>이 발동된다. <color=#FFFFFF>[극성 혼돈]</color>은 타깃의 속성 이상 상태를 제거하지 않는다. 만약 해당 스킬로 <color=#FFFFFF>[극성 혼돈]</color>이 발동하지 않으면, <color=#FFFFFF>[전력 댄스]</color>를 소모하지 않고, 남궁우가 <color=#FFFFFF>[전력 댄스]</color> 보유 시 다음번에 교체 진입할 때 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 첫 번째 차지 공격을 시전하며 반드시 정밀 차지를 발동한다.\n파티 내 임의의 캐릭터가 적을 그로기 상태로 만든 후, 남궁우가 다음번에 시전하는 <color=#FFFFFF>[강화 특수 스킬]</color>은 에너지를 소모하지 않는다. 해당 효과는 15초 동안 지속되며, 15초 동안 최대 1회 발동한다.\n남궁우와 아리아가 함께 파티에 있는 상태에서 아리아의 <color=#FFFFFF>[일반 공격: 절대 음감]</color> 강공격이 속성 이상과 그로기 상태에 처해있는 적 명중 시에도, 남궁우가 이번 공격을 끊지 않고 온전히 참여했다면 <color=#FFFFFF>[전력 댄스]</color>를 1스택 소모하여 조건을 충족하는 모든 적에게 <color=#FFFFFF>[극성 혼돈]</color>을 발동한다.\n남궁우의 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 세 번째 공격 혹은 <color=#FFFFFF>[궁극기: 쏟아지는 별무리]</color>로 적 명중 시, 적이 <color=#FFFFFF>[휘청]</color> 효과를 획득하고, 그로기 약체화 배율이 30% 증가한다. 해당 효과를 보유한 적은 그로기 상태 진입 후 그로기 지속 시간이 3초 증가한다. 그로기 상태에서 회복하기 전에 <color=#FFFFFF>[휘청]</color> 효과는 동일한 타깃에게 최대 1회만 발동하며, 그로기 지속 시간 증가 효과는 동일한 효과와 중첩되지 않는다. <color=#FFFFFF>[휘청]</color> 효과를 보유한 적의 그로기 종료 시 <color=#FFFFFF>[휘청]</color> 효과가 종료된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1511055": {
+    "level": 7,
+    "id": 1511055,
+    "name": [
+     "핵심 패시브: 천재 아이돌",
+     "추가 능력: 천사 리더"
+    ],
+    "desc": [
+     "남궁우의 이상 마스터리가 <color=#2BAD00>120</color>pt 증가한다.\n남궁우의 초기 이상 장악력이 110pt 초과 시, 초과한 초기 이상 장악력 1pt당 자신의 충격력이 1pt 증가한다.\n적이 그로기 상태일 때, 임의의 캐릭터가 해당 적에게 <color=#FFFFFF>[난개]</color> 피해 혹은 <color=#FFFFFF>[혼돈]</color> 피해를 1회 주거나 해당 적을 속성 이상 상태에 1회 진입시키면 해당 적에게 <color=#FFFFFF>[트릴로]</color> 1스택이 누적된다.\n동일한 적에게 최대 4스택의 <color=#FFFFFF>[트릴로]</color>를 중첩할 수 있다.\n<color=#FFFFFF>[트릴로]</color>가 최대 스택에 도달하고 적이 <color=#FE437E>에테르 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>일 때 혹은 적이 <color=#FFFFFF>[트릴로]</color>를 보유한 채로 그로기 상태에서 회복될 때, 모든 <color=#FFFFFF>[트릴로]</color>가 소멸한다.\n<color=#FFFFFF>[트릴로]</color>가 소멸할 때, 적이 해당 속성 이상 상태라면 남궁우는 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산한다. 추가 속성 이상 피해 비율은 기존 속성 이상 피해의 <color=#FE437E>720%</color>/<color=#2EB6FF>360%</color>/<color=#FF5521>900%</color>/<color=#F0D12B>63%</color>/<color=#98EFF0>90%</color>/<color=#A6C5FD>36%</color>이며, 적이 보유한 <color=#FFFFFF>[트릴로]</color> 1스택당 해당 <color=#FFFFFF>[난개]</color> 피해 비율이 추가로 25% 증가한다. 동일한 그로기 지속 기간 동안 <color=#FFFFFF>[트릴로]</color>가 이미 소멸했다면 적에게 <color=#FFFFFF>[트릴로]</color>를 더 이상 부여할 수 없다.\n남궁우의 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 혹은 <color=#FFFFFF>[강화 특수 스킬: 상당히 무거운 애정]</color>으로 적 명중 시, 자신의 속성 이상 축적 효율이 <color=#2BAD00>35%</color> 증가하고, 주는 그로기 수치가 <color=#2BAD00>20%</color> 증가하며, 모든 파티원이 주는 피해가 <color=#2BAD00>25%</color> 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.\n교전 상태일 때, 남궁우는 매초 <color=#FFFFFF>[악센트]</color>를 3.8pt 회복하며, 파티 내 임의의 캐릭터가 적을 속성 이상 상태로 만들 시 남궁우의 <color=#FFFFFF>[악센트]</color>가 12pt 추가로 회복된다. 해당 효과는 6초 동안 최대 1회 발동한다.\n남궁우는 최대 100pt의 <color=#FFFFFF>[악센트]</color>를 보유할 수 있으며, 전장 진입 시 초기 <color=#FFFFFF>[악센트]</color>를 30pt 보유한다.",
+     "파티에 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n파티 내 임의의 캐릭터 공격이 그로기 상태의 적 명중 시 주는 속성 이상 축적치가 30% 증가하고, <color=#FFFFFF>[콤보 스킬]</color> 공격으로 그로기 상태의 적 명중 시 주는 속성 이상 축적치가 추가로 30% 증가한다.\n파티 내 임의의 캐릭터가 적을 그로기 상태로 만들 시 남궁우는 <color=#FFFFFF>[전력 댄스]</color> 효과를 2스택 획득한다. 최대 보유: 2스택, 지속 시간: 15초, 중복 발동 시 지속 시간이 갱신된다. <color=#FFFFFF>[전력 댄스]</color>를 보유한 상태에서 남궁우가 <color=#FFFFFF>[강화 특수 스킬: 상당히 무거운 애정]</color>, <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 혹은 <color=#FFFFFF>[빠른 지원: 구원의 기술]</color>을 시전하고, 강공격이 속성 이상과 그로기 상태에 동시에 처해있는 적에게 명중 시, <color=#FFFFFF>[전력 댄스]</color> 1스택을 소모해 조건을 충족하는 모든 적에게 특수 <color=#FFFFFF>[혼돈]</color> 효과인 <color=#FFFFFF>[극성 혼돈]</color>을 발동해 타깃에게 기존 <color=#FFFFFF>[혼돈]</color> 효과의 25%만큼 피해를 준다. 또한 파티 내 이전 캐릭터의 <color=#FFFFFF>[빠른 지원]</color>이 발동된다. <color=#FFFFFF>[극성 혼돈]</color>은 타깃의 속성 이상 상태를 제거하지 않는다. 만약 해당 스킬로 <color=#FFFFFF>[극성 혼돈]</color>이 발동하지 않으면, <color=#FFFFFF>[전력 댄스]</color>를 소모하지 않고, 남궁우가 <color=#FFFFFF>[전력 댄스]</color> 보유 시 다음번에 교체 진입할 때 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 첫 번째 차지 공격을 시전하며 반드시 정밀 차지를 발동한다.\n파티 내 임의의 캐릭터가 적을 그로기 상태로 만든 후, 남궁우가 다음번에 시전하는 <color=#FFFFFF>[강화 특수 스킬]</color>은 에너지를 소모하지 않는다. 해당 효과는 15초 동안 지속되며, 15초 동안 최대 1회 발동한다.\n남궁우와 아리아가 함께 파티에 있는 상태에서 아리아의 <color=#FFFFFF>[일반 공격: 절대 음감]</color> 강공격이 속성 이상과 그로기 상태에 처해있는 적 명중 시에도, 남궁우가 이번 공격을 끊지 않고 온전히 참여했다면 <color=#FFFFFF>[전력 댄스]</color>를 1스택 소모하여 조건을 충족하는 모든 적에게 <color=#FFFFFF>[극성 혼돈]</color>을 발동한다.\n남궁우의 <color=#FFFFFF>[일반 공격: 날아라, 귀여운 지뢰]</color> 세 번째 공격 혹은 <color=#FFFFFF>[궁극기: 쏟아지는 별무리]</color>로 적 명중 시, 적이 <color=#FFFFFF>[휘청]</color> 효과를 획득하고, 그로기 약체화 배율이 30% 증가한다. 해당 효과를 보유한 적은 그로기 상태 진입 후 그로기 지속 시간이 3초 증가한다. 그로기 상태에서 회복하기 전에 <color=#FFFFFF>[휘청]</color> 효과는 동일한 타깃에게 최대 1회만 발동하며, 그로기 지속 시간 증가 효과는 동일한 효과와 중첩되지 않는다. <color=#FFFFFF>[휘청]</color> 효과를 보유한 적의 그로기 종료 시 <color=#FFFFFF>[휘청]</color> 효과가 종료된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110513": 2
+   },
+   "3": {
+    "10": 28000,
+    "110513": 4
+   },
+   "4": {
+    "10": 60000,
+    "110009": 2,
+    "110513": 9
+   },
+   "5": {
+    "10": 100000,
+    "110009": 3,
+    "110513": 15
+   },
+   "6": {
+    "10": 200000,
+    "110009": 4,
+    "110513": 30
+   }
+  }
+ },
+ "skin": {
+  "3115110": {
+   "name": "남궁우·달콤한 꿈의 메인 댄서",
+   "desc": "꿈은 값싸면서도 귀하고, 손에 닿지 않기에 땅 위의 사람들은 꿈을 별이라 부른다.\n그렇게 천사는 별들 사이를 거닐며, 무한히 먼 은하에서 한 줌의 망상을 떠올렸다——그것이 바로 그녀를 처음 비춘 무지갯빛이었다.",
+   "obtain_desc": "",
+   "image": "IconRole59"
+  },
+  "3115111": {
+   "name": "남궁우·광상곡의 뮤즈",
+   "desc": "무질서한 박자 속에서 춤을 추며, 광상의 무대 위를 선회한다.\n천사와 악마의 경계는 기울어지는 조명을 따라, 그녀의 그림자 속으로 녹아든다.",
+   "obtain_desc": "",
+   "image": "IconRole59_01"
+  },
+  "3115112": {
+   "name": "남궁우·심쿵 응원 중",
+   "desc": "천사들의 규칙 제1조: 문어 리더는 꼭 본보기가 될 것! 핑크를 끌어안고, 여름을 만끽하기!",
+   "obtain_desc": "",
+   "image": "IconRole59_02"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1511001": {
+   "name": "일반 공격: 유성 스텝",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1511002": {
+   "name": "일반 공격: 날아라, 귀여운 지뢰",
+   "desc": "<IconMap:Icon_Normal>(홀드) ; <IconMap:Icon_Normal>(홀드, [악센트]가 충분할 때) ; <IconMap:Icon_Normal>(홀드, [악센트]가 충분할 때)",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1511003": {
+   "name": "특수 스킬: 조금 무거운 애정",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1511004": {
+   "name": "강화 특수 스킬: 상당히 무거운 애정",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1511005": {
+   "name": "대시 공격: 회전하는 유성",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1511006": {
+   "name": "회피 반격: 유성 왈츠",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1511007": {
+   "name": "콤보 스킬: 혜성 인력",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1511008": {
+   "name": "궁극기: 쏟아지는 별무리",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1511009": {
+   "name": "빠른 지원: 구원의 기술",
+   "desc": "<IconMap:Icon_Switch>(빠른 지원 발동 시)",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1511010": {
+   "name": "패링 지원: 완벽한 춤",
+   "desc": "<IconMap:Icon_Switch>(패링 지원 발동 시)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1511011": {
+   "name": "지원 돌격: 즉흥 공연",
+   "desc": "<IconMap:Icon_Normal>(패링 지원 시전 후)",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1511001,
+   "avatar_id": 1511,
+   "first_priority": [
+    5,
+    0
+   ],
+   "second_priority": [
+    3,
+    1
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33600,
+  "slot2": 33000,
+  "slot_sub": 33200,
+  "part_sub_list": [
+   31203,
+   12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33000,
+     31300
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31903
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31402
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 31402,
+   "name": "이상 장악력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementAbnormalPower.png"
+  },
+  "part5": {
+   "prop": 31203,
+   "name": "이상 마스터리",
+   "format": "{0:0}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementMystery.png"
+  },
+  "part6": {
+   "prop": 31903,
+   "name": "에테르 피해 보너스",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconDungeonBuffEther.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "공격력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "07",
+  "<IconMap:Icon_GeneralBuff_DungeonBuffEther>에테르 속성, 빠른 교체 격파",
+  "그로기 지속 시간 및 그로기 약체화 배율 증가",
+  "[난개]와 [극성 혼돈] 발동 가능"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100212": 4
+   }
+  },
+  "2": {
+   "hp_max": 462,
+   "attack": 38,
+   "defence": 34,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100222": 12
+   }
+  },
+  "3": {
+   "hp_max": 924,
+   "attack": 77,
+   "defence": 69,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100222": 20
+   }
+  },
+  "4": {
+   "hp_max": 1386,
+   "attack": 115,
+   "defence": 103,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100232": 10
+   }
+  },
+  "5": {
+   "hp_max": 1848,
+   "attack": 153,
+   "defence": 137,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100232": 20
+   }
+  },
+  "6": {
+   "hp_max": 2310,
+   "attack": 192,
+   "defence": 172,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 24
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 24
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 36
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 36
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpine_NangongYu"
+}

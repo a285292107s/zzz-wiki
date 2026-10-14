@@ -1,0 +1,2193 @@
+{
+ "id": 1401,
+ "icon": "IconRole46",
+ "name": "앨리스",
+ "code_name": "Alice",
+ "rarity": 4,
+ "weapon_type": {
+  "3": "Anomaly"
+ },
+ "element_type": {
+  "200": "Physical"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "11": "괴담방"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "8/30",
+  "full_name": "앨리스 타임필드",
+  "gender": "여성",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle46.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0046.png",
+  "impression_f": "오빠처럼 공포 영화라면 까무러치는 사람이 또 있네~ 그래도 앨리스는 궁금증을 못 참고 내가 추천하는 건, 무서워하면서도 나를 꼭 안고 비명을 지르면서 보는데… 오빠는 매번 핑계만 대고…",
+  "impression_m": "모험심이 없어서 미안하다… 근데 앨리스는 정말 오컬트에 푹 빠져있는 것 같아. 가만 보면 깜짝깜짝 놀라는 걸 즐기는 것 같단 말이지?",
+  "impressions": [
+   "앨리스에 대한 인상:\n · 친구를 돕기 위해 거액을 내는 건 앨리스에게 밥 먹듯 흔한 일인 것 같다…",
+   " · 이렇게 겁이 많은 사람이 무슨 마음으로 괴담 조직에 가입한 걸까?",
+   " · 대칭을 이루는 별자리 아래 두 시선이 교차한다. 더 이상 방황하지 않는 미소는 또 얼마나 눈이 부신지"
+  ],
+  "profile_desc": "앨리스 타임필드는 괴담방의 새로운 멤버이자 뉴에리두의 명문가 타임필드 가문의 영애이다.\n앨리스는 어릴 때부터 펜싱과 에테르 과학을 배웠으며, 이 분야에서 뛰어난 재능을 보였다. 현재 하이엠비션 산하의 셀레스티아 여학교에 재학 중이며, 품행과 학업 모두 우수한 모범생이다. 훗날 가업을 이어받아 뉴에리두의 차세대 에테르 학자가 될 것으로 예상된다.\n앨리스는 질서와 규칙을 매우 중요시하며, 특히 사물의 대칭에 대해서는 거의 집착에 가까운 모습을 보인다. 이런 대칭 강박증은 앨리스의 미적 기준에도 영향을 미쳐, 사물의 아름다움을 판단할 때 대칭 여부를 가장 우선시한다.\n또한, 겁이 많아서 귀신 이야기에 대한 내성이 거의 0에 가깝다. 그럼에도 불구하고, 괴담에 상당한 흥미를 보이는 것 같다. \n제안: 대화 주제로 괴담을 다뤄보는 것을 추천드려요. 처음에 아무리 거절하더라도, 결국에는 호기심을 이기지 못하고 다가올 것으로 추측됩니다.",
+  "role_icon": "IconRole/UnPacker/IconRole46",
+  "stature": "163(귀 포함)",
+  "unlock_condition": [
+   "에이전트 획득",
+   "메인 스토리 의뢰 시즌 2 제2장 완료",
+   "「엔비의 고민」 의뢰 완료"
+  ],
+  "trust_lv": {
+   "1": "앨리스 타임필드는 괴담방의 새로운 멤버이자 뉴에리두의 명문가 타임필드 가문의 영애이다.\n앨리스는 어릴 때부터 펜싱과 에테르 과학을 배웠으며, 이 분야에서 뛰어난 재능을 보였다. 현재 하이엠비션 산하의 셀레스티아 여학교에 재학 중이며, 품행과 학업 모두 우수한 모범생이다. 훗날 가업을 이어받아 뉴에리두의 차세대 에테르 학자가 될 것으로 예상된다.\n앨리스는 질서와 규칙을 매우 중요시하며, 특히 사물의 대칭에 대해서는 거의 집착에 가까운 모습을 보인다. 이런 대칭 강박증은 앨리스의 미적 기준에도 영향을 미쳐, 사물의 아름다움을 판단할 때 대칭 여부를 가장 우선시한다.\n또한, 겁이 많아서 귀신 이야기에 대한 내성이 거의 0에 가깝다. 그럼에도 불구하고, 괴담에 상당한 흥미를 보이는 것 같다. \n제안: 대화 주제로 괴담을 다뤄보는 것을 추천드려요. 처음에 아무리 거절하더라도, 결국에는 호기심을 이기지 못하고 다가올 것으로 추측됩니다.",
+   "2": "",
+   "3": "조사에 따르면, 앨리스의 대칭 강박증은 어릴 적부터 있었던 성향이었지만, 어린 시절 대칭 모양의 머리핀을 잃어버린 후 아버지가 사고로 사망하게 되면서 앨리스는 사고의 원인을 대칭적인 물건을 잃어버린 것으로 연결하면서 대칭에 대한 집착이 더욱 강해졌다고 한다.\n에테르 과학 연구로 유명한 명문가인 타임필드 가문은 현재 몰락 위기에 처해 있다. 부모님을 일찍 여의고 할아버지는 병을 앓고 있는 가운데, 앨리스는 친구를 구하기 위해 가문의 특허를 무료로 공개한 후, 자신의 힘으로 가문을 다시 일으켜 세우기로 결심한다.\n비록 소심한 성격이지만, 무언가를 하기로 결심하면 반드시 끝까지 밀고 나가는 성격이다. 또한 동료를 매우 소중히 여기며, 동료가 어려움에 부딪혔을 때 절대로 그냥 두고 보고만 있지 않는다…\n제안: 마스터, 앨리스와 좋은 관계를 맺고 저희가 현재 전기 요금으로 인해 경제적으로 어려운 상황임을 알릴 것을 강력히 추천드립니다.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 127,
+  "attack_growth": 76728,
+  "avatar_piece_id": 5401,
+  "break_stun": 86,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66203,
+  "element_abnormal_power": 106,
+  "element_mystery": 118,
+  "endurance": 0,
+  "hp_growth": 837238,
+  "hp_max": 617,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Alice",
+   "Cut",
+   "Physics",
+   "Female",
+   "Camp11",
+   "Size2",
+   "AidTypeParry",
+   "Alice",
+   "EtherEyesSize2"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "일반 공격: 별의 서곡",
+     "desc": "<IconMap:Icon_Normal>을 짧게 탭하여 시전: \n전방을 향해 최대 5단까지 베기를 펼쳐 <color=#F0D12B>물리 피해</color>를 준다.\n앨리스가 속성 이상 축적을 통해 <color=#F0D12B>[강타]</color> 발동 시, 다음번에 시전하는 다섯 번째 <color=#FFFFFF>[일반 공격]</color>이 강화된다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 별빛 원무곡",
+     "desc": "앨리스의 <color=#FFFFFF>[검의]</color>가 1칸 도달 시 <IconMap:Icon_Normal>을 홀드해 시전:\n홀드하여 차지 상태로 진입한다. 최대 3칸의 <color=#FFFFFF>[검의]</color>를 소모하며, <IconMap:Icon_Normal>에서 손을 떼거나 <color=#FFFFFF>[검의]</color>가 1칸 미만일 시, 앨리스는 현재 차지 단계에 따라 타깃 적을 중심으로 여러 차례 베기를 시전하여 대량의 <color=#F0D12B>물리 피해</color>를 준다.\n3단 차지 <color=#FFFFFF>[일반 공격: 별빛 원무곡]</color>의 종결의 일격이 적 명중 시, 특수한 <color=#F0D12B>[강타]</color> 효과인 <color=#F0D12B>[극성 강타]</color>를 발동하며, 속성 축적 진도를 무시하고 기존 <color=#F0D12B>[강타]</color> 효과의 {CAL:0+100,1,2}%에 해당하는 피해를 1회 준다. 해당 효과는 물리 이상 효과를 포함한 다른 속성 이상 효과와 함께 <color=#FFFFFF>[혼돈]</color>을 결산할 수 있다.\n적 명중 시 <color=#FFFFFF>[검의]</color>가 누적되지 않는다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 별의 서곡",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1401001, Prop:1001}",
+       "param": {
+        "1401001": {
+         "main": 5510,
+         "growth": 510,
+         "format": "%",
+         "damage_percentage": 5510,
+         "damage_percentage_growth": 510,
+         "stun_ratio": 3970,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 14410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 77275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2976,
+         "sp_consume": 0,
+         "attack_data": [
+          98177
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4003
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1401002, Prop:1001}",
+       "param": {
+        "1401002": {
+         "main": 8800,
+         "growth": 800,
+         "format": "%",
+         "damage_percentage": 8800,
+         "damage_percentage_growth": 800,
+         "stun_ratio": 6980,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 25380,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 135850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5213,
+         "sp_consume": 0,
+         "attack_data": [
+          156912
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7048
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1401003, Prop:1001}",
+       "param": {
+        "1401003": {
+         "main": 6610,
+         "growth": 610,
+         "format": "%",
+         "damage_percentage": 6610,
+         "damage_percentage_growth": 610,
+         "stun_ratio": 5990,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 21790,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 116600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4445,
+         "sp_consume": 0,
+         "attack_data": [
+          117733
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6051
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 피해 배율",
+       "desc": "{Skill:1401004, Prop:1001}",
+       "param": {
+        "1401004": {
+         "main": 11190,
+         "growth": 1020,
+         "format": "%",
+         "damage_percentage": 11190,
+         "damage_percentage_growth": 1020,
+         "stun_ratio": 10510,
+         "stun_ratio_growth": 480,
+         "sp_recovery": 38200,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 204325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7781,
+         "sp_consume": 0,
+         "attack_data": [
+          199492
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10609
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5단 피해 배율",
+       "desc": "{Skill:1401005, Prop:1001}",
+       "param": {
+        "1401005": {
+         "main": 13030,
+         "growth": 1190,
+         "format": "%",
+         "damage_percentage": 13030,
+         "damage_percentage_growth": 1190,
+         "stun_ratio": 13170,
+         "stun_ratio_growth": 600,
+         "sp_recovery": 47870,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 256025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9720,
+         "sp_consume": 0,
+         "attack_data": [
+          232261
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13295
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5단(강화) 피해 배율",
+       "desc": "{Skill:1401006, Prop:1001}",
+       "param": {
+        "1401006": {
+         "main": 21830,
+         "growth": 1990,
+         "format": "%",
+         "damage_percentage": 21830,
+         "damage_percentage_growth": 1990,
+         "stun_ratio": 21090,
+         "stun_ratio_growth": 960,
+         "sp_recovery": 76670,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 410025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15600,
+         "sp_consume": 0,
+         "attack_data": [
+          389238
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21296
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1401001, Prop:1002}",
+       "param": {
+        "1401001": {
+         "main": 3970,
+         "growth": 190,
+         "format": "%",
+         "damage_percentage": 5510,
+         "damage_percentage_growth": 510,
+         "stun_ratio": 3970,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 14410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 77275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2976,
+         "sp_consume": 0,
+         "attack_data": [
+          98177
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4003
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1401002, Prop:1002}",
+       "param": {
+        "1401002": {
+         "main": 6980,
+         "growth": 320,
+         "format": "%",
+         "damage_percentage": 8800,
+         "damage_percentage_growth": 800,
+         "stun_ratio": 6980,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 25380,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 135850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5213,
+         "sp_consume": 0,
+         "attack_data": [
+          156912
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7048
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1401003, Prop:1002}",
+       "param": {
+        "1401003": {
+         "main": 5990,
+         "growth": 280,
+         "format": "%",
+         "damage_percentage": 6610,
+         "damage_percentage_growth": 610,
+         "stun_ratio": 5990,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 21790,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 116600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4445,
+         "sp_consume": 0,
+         "attack_data": [
+          117733
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6051
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 그로기 배율",
+       "desc": "{Skill:1401004, Prop:1002}",
+       "param": {
+        "1401004": {
+         "main": 10510,
+         "growth": 480,
+         "format": "%",
+         "damage_percentage": 11190,
+         "damage_percentage_growth": 1020,
+         "stun_ratio": 10510,
+         "stun_ratio_growth": 480,
+         "sp_recovery": 38200,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 204325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7781,
+         "sp_consume": 0,
+         "attack_data": [
+          199492
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10609
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5단 그로기 배율",
+       "desc": "{Skill:1401005, Prop:1002}",
+       "param": {
+        "1401005": {
+         "main": 13170,
+         "growth": 600,
+         "format": "%",
+         "damage_percentage": 13030,
+         "damage_percentage_growth": 1190,
+         "stun_ratio": 13170,
+         "stun_ratio_growth": 600,
+         "sp_recovery": 47870,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 256025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9720,
+         "sp_consume": 0,
+         "attack_data": [
+          232261
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13295
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5단(강화) 그로기 배율",
+       "desc": "{Skill:1401006, Prop:1002}",
+       "param": {
+        "1401006": {
+         "main": 21090,
+         "growth": 960,
+         "format": "%",
+         "damage_percentage": 21830,
+         "damage_percentage_growth": 1990,
+         "stun_ratio": 21090,
+         "stun_ratio_growth": 960,
+         "sp_recovery": 76670,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 410025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15600,
+         "sp_consume": 0,
+         "attack_data": [
+          389238
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21296
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 별빛 원무곡",
+     "param": [
+      {
+       "name": "1단 차지 피해 배율",
+       "desc": "{Skill:1401010, Prop:1001}",
+       "param": {
+        "1401010": {
+         "main": 18890,
+         "growth": 1720,
+         "format": "%",
+         "damage_percentage": 18890,
+         "damage_percentage_growth": 1720,
+         "stun_ratio": 5530,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 215050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7816,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 차지 피해 배율",
+       "desc": "{Skill:1401011, Prop:1001}",
+       "param": {
+        "1401011": {
+         "main": 30440,
+         "growth": 2770,
+         "format": "%",
+         "damage_percentage": 30440,
+         "damage_percentage_growth": 2770,
+         "stun_ratio": 7760,
+         "stun_ratio_growth": 360,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 301675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10966,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 차지 피해 배율",
+       "desc": "{Skill:1401012, Prop:1001}",
+       "param": {
+        "1401012": {
+         "main": 96570,
+         "growth": 8780,
+         "format": "%",
+         "damage_percentage": 96570,
+         "damage_percentage_growth": 8780,
+         "stun_ratio": 19720,
+         "stun_ratio_growth": 900,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 766975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 46783,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 39834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 차지 그로기 배율",
+       "desc": "{Skill:1401010, Prop:1002}",
+       "param": {
+        "1401010": {
+         "main": 5530,
+         "growth": 260,
+         "format": "%",
+         "damage_percentage": 18890,
+         "damage_percentage_growth": 1720,
+         "stun_ratio": 5530,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 215050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7816,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 차지 그로기 배율",
+       "desc": "{Skill:1401011, Prop:1002}",
+       "param": {
+        "1401011": {
+         "main": 7760,
+         "growth": 360,
+         "format": "%",
+         "damage_percentage": 30440,
+         "damage_percentage_growth": 2770,
+         "stun_ratio": 7760,
+         "stun_ratio_growth": 360,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 301675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10966,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 차지 그로기 배율",
+       "desc": "{Skill:1401012, Prop:1002}",
+       "param": {
+        "1401012": {
+         "main": 19720,
+         "growth": 900,
+         "format": "%",
+         "damage_percentage": 96570,
+         "damage_percentage_growth": 8780,
+         "stun_ratio": 19720,
+         "stun_ratio_growth": 900,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 766975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 46783,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 39834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "회피: 깡총대는 토끼",
+     "desc": "<IconMap:Icon_Evade>을 짧게 탭하여 시전:\n빠른 대시로 회피한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 검무의 바람",
+     "desc": "회피 시 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 베어 <color=#F0D12B>물리 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 검빛 의례",
+     "desc": "<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적을 향해 베기 및 발차기를 시전해 <color=#F0D12B>물리 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 검무의 바람",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1401013, Prop:1001}",
+       "param": {
+        "1401013": {
+         "main": 7530,
+         "growth": 690,
+         "format": "%",
+         "damage_percentage": 7530,
+         "damage_percentage_growth": 690,
+         "stun_ratio": 3390,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 12310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 66000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2392,
+         "sp_consume": 0,
+         "attack_data": [
+          57675
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3419
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1401013, Prop:1002}",
+       "param": {
+        "1401013": {
+         "main": 3390,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 7530,
+         "damage_percentage_growth": 690,
+         "stun_ratio": 3390,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 12310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 66000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2392,
+         "sp_consume": 0,
+         "attack_data": [
+          57675
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3419
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 검빛 의례",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1401014, Prop:1001}",
+       "param": {
+        "1401014": {
+         "main": 28400,
+         "growth": 2590,
+         "format": "%",
+         "damage_percentage": 28400,
+         "damage_percentage_growth": 2590,
+         "stun_ratio": 21950,
+         "stun_ratio_growth": 1000,
+         "sp_recovery": 43800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 234300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8516,
+         "sp_consume": 0,
+         "attack_data": [
+          238736
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 27167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1401014, Prop:1002}",
+       "param": {
+        "1401014": {
+         "main": 21950,
+         "growth": 1000,
+         "format": "%",
+         "damage_percentage": 28400,
+         "damage_percentage_growth": 2590,
+         "stun_ratio": 21950,
+         "stun_ratio_growth": 1000,
+         "sp_recovery": 43800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 234300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8516,
+         "sp_consume": 0,
+         "attack_data": [
+          238736
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 27167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "특수 스킬: 여명 찌르기",
+     "desc": "<IconMap:Icon_Special>을 짧게 탭하여 시전:\n검을 던져 공격하여 전방의 적을 관통해 <color=#F0D12B>물리 피해</color>를 준다.\n스킬 시전 시 <color=#FFFFFF>[극한 회피]</color>를 발동할 수 있다.\n<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 누르면 다섯 번째 <color=#FFFFFF>[일반 공격]</color>을 이어서 시전할 수 있다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 오로라 찌르기·북십자성",
+     "desc": "에너지가 충분한 상태에서 {LAYOUT_CONSOLECONTROLLER#스틱을}{LAYOUT_FALLBACK#방향키를} 전방으로 조작하며 <IconMap:Icon_SpecialReady>을 짧게 탭하여 시전:\n찌르기 공격으로 전방의 적을 관통하고 대량의 <color=#F0D12B>물리 피해</color>를 준다.\n스킬 시전 시 <color=#FFFFFF>[극한 회피]</color>를 발동하고 <color=#FFFFFF>[검의]</color>를 10pt 회복할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 오로라 찌르기·남십자성",
+     "desc": "에너지가 충분한 상태에서 {LAYOUT_CONSOLECONTROLLER#스틱을}{LAYOUT_FALLBACK#방향키를} 후방으로 조작하거나 혹은 조작하지 않은 채 <IconMap:Icon_SpecialReady>을 짧게 탭하여 시전:\n뒤로 물러나 베기 시전 후 전방을 찔러 대량의 <color=#F0D12B>물리 피해</color>를 준다.\n스킬 시전 시 <color=#FFFFFF>[극한 회피]</color>를 발동하고 <color=#FFFFFF>[검의]</color>를 10pt 회복할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 여명 찌르기",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1401008, Prop:1001}",
+       "param": {
+        "1401008": {
+         "main": 6240,
+         "growth": 570,
+         "format": "%",
+         "damage_percentage": 6240,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 5610,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 218350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3965,
+         "sp_consume": 0,
+         "attack_data": [
+          95580
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5666
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1401008, Prop:1002}",
+       "param": {
+        "1401008": {
+         "main": 5610,
+         "growth": 260,
+         "format": "%",
+         "damage_percentage": 6240,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 5610,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 218350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3965,
+         "sp_consume": 0,
+         "attack_data": [
+          95580
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5666
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 오로라 찌르기·북십자성",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1401009, Prop:1001}",
+       "param": {
+        "1401009": {
+         "main": 46000,
+         "growth": 4190,
+         "format": "%",
+         "damage_percentage": 46000,
+         "damage_percentage_growth": 4190,
+         "stun_ratio": 34520,
+         "stun_ratio_growth": 1570,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 939125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 31706,
+         "sp_consume": 0,
+         "attack_data": [
+          1003584
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1401009, Prop:1002}",
+       "param": {
+        "1401009": {
+         "main": 34520,
+         "growth": 1570,
+         "format": "%",
+         "damage_percentage": 46000,
+         "damage_percentage_growth": 4190,
+         "stun_ratio": 34520,
+         "stun_ratio_growth": 1570,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 939125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 31706,
+         "sp_consume": 0,
+         "attack_data": [
+          1003584
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "에너지 소모",
+       "desc": "40pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 오로라 찌르기·남십자성",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1401007, Prop:1001}",
+       "param": {
+        "1401007": {
+         "main": 53200,
+         "growth": 4840,
+         "format": "%",
+         "damage_percentage": 53200,
+         "damage_percentage_growth": 4840,
+         "stun_ratio": 40530,
+         "stun_ratio_growth": 1850,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1073875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 36446,
+         "sp_consume": 0,
+         "attack_data": [
+          1064254
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1401007, Prop:1002}",
+       "param": {
+        "1401007": {
+         "main": 40530,
+         "growth": 1850,
+         "format": "%",
+         "damage_percentage": 53200,
+         "damage_percentage_growth": 4840,
+         "stun_ratio": 40530,
+         "stun_ratio_growth": 1850,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1073875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 36446,
+         "sp_consume": 0,
+         "attack_data": [
+          1064254
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "에너지 소모",
+       "desc": "40pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "콤보 스킬: 별의 중간장",
+     "desc": "<color=#FFFFFF>[콤보 스킬]</color> 발동 시 해당 캐릭터를 선택해 시전:\n전방의 적을 강력하게 여러 차례 베어 대량의 <color=#F0D12B>물리 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "궁극기: 별빛 피날레",
+     "desc": "데시벨 레벨 <color=#FFFFFF>[Maximum]</color> 달성 시 <IconMap:Icon_UltimateReady>을 짧게 탭하여 시전:\n전방 넓은 범위 내 적을 강력하게 여러 차례 베어 대량의 <color=#F0D12B>물리 피해</color>를 준다.\n스킬 시전 시 <color=#FFFFFF>[검의]</color>를 200pt 회복한다.\n적 명중 시 <color=#FFFFFF>[검의]</color>가 누적되지 않는다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 별의 중간장",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1401015, Prop:1001}",
+       "param": {
+        "1401015": {
+         "main": 66630,
+         "growth": 6060,
+         "format": "%",
+         "damage_percentage": 66630,
+         "damage_percentage_growth": 6060,
+         "stun_ratio": 20470,
+         "stun_ratio_growth": 940,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1678050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 28434,
+         "sp_consume": 0,
+         "attack_data": [
+          405590
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1401015, Prop:1002}",
+       "param": {
+        "1401015": {
+         "main": 20470,
+         "growth": 940,
+         "format": "%",
+         "damage_percentage": 66630,
+         "damage_percentage_growth": 6060,
+         "stun_ratio": 20470,
+         "stun_ratio_growth": 940,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1678050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 28434,
+         "sp_consume": 0,
+         "attack_data": [
+          405590
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20671
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "궁극기: 별빛 피날레",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1401016, Prop:1001}",
+       "param": {
+        "1401016": {
+         "main": 226200,
+         "growth": 20570,
+         "format": "%",
+         "damage_percentage": 226200,
+         "damage_percentage_growth": 20570,
+         "stun_ratio": 24260,
+         "stun_ratio_growth": 1110,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 72225,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 74504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1401016, Prop:1002}",
+       "param": {
+        "1401016": {
+         "main": 24260,
+         "growth": 1110,
+         "format": "%",
+         "damage_percentage": 226200,
+         "damage_percentage_growth": 20570,
+         "stun_ratio": 24260,
+         "stun_ratio_growth": 1110,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 72225,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 74504
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "빠른 지원: 얼터네이트 스탭",
+     "desc": "현재 조작 중인 캐릭터가 넉업되면 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n전방의 적을 향해 베기 및 발차기를 시전해 <color=#F0D12B>물리 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 패리 가드",
+     "desc": "출전 캐릭터 피격 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적의 공격을 패링하고 대량의 그로기 수치를 누적한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 크로스 리포스트",
+     "desc": "<color=#FFFFFF>[패링 지원]</color> 시전 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적에게 돌진 베기로 <color=#F0D12B>물리 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 얼터네이트 스탭",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1401017, Prop:1001}",
+       "param": {
+        "1401017": {
+         "main": 16330,
+         "growth": 1490,
+         "format": "%",
+         "damage_percentage": 16330,
+         "damage_percentage_growth": 1490,
+         "stun_ratio": 14690,
+         "stun_ratio_growth": 670,
+         "sp_recovery": 26710,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 285725,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10385,
+         "sp_consume": 0,
+         "attack_data": [
+          125163
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7419
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1401017, Prop:1002}",
+       "param": {
+        "1401017": {
+         "main": 14690,
+         "growth": 670,
+         "format": "%",
+         "damage_percentage": 16330,
+         "damage_percentage_growth": 1490,
+         "stun_ratio": 14690,
+         "stun_ratio_growth": 670,
+         "sp_recovery": 26710,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 285725,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10385,
+         "sp_consume": 0,
+         "attack_data": [
+          125163
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7419
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 패리 가드",
+     "param": [
+      {
+       "name": "가벼운 패링 그로기 배율",
+       "desc": "{Skill:1401018, Prop:1002}",
+       "param": {
+        "1401018": {
+         "main": 24420,
+         "growth": 1110,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 24420,
+         "stun_ratio_growth": 1110,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강한 패링 그로기 배율",
+       "desc": "{Skill:1401019, Prop:1002}",
+       "param": {
+        "1401019": {
+         "main": 30860,
+         "growth": 1410,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 30860,
+         "stun_ratio_growth": 1410,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 패링 그로기 배율",
+       "desc": "{Skill:1401020, Prop:1002}",
+       "param": {
+        "1401020": {
+         "main": 15020,
+         "growth": 690,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 15020,
+         "stun_ratio_growth": 690,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 크로스 리포스트",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1401021, Prop:1001}",
+       "param": {
+        "1401021": {
+         "main": 33270,
+         "growth": 3030,
+         "format": "%",
+         "damage_percentage": 33270,
+         "damage_percentage_growth": 3030,
+         "stun_ratio": 25840,
+         "stun_ratio_growth": 1180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 661925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19717,
+         "sp_consume": 0,
+         "attack_data": [
+          813164
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1401021, Prop:1002}",
+       "param": {
+        "1401021": {
+         "main": 25840,
+         "growth": 1180,
+         "format": "%",
+         "damage_percentage": 33270,
+         "damage_percentage_growth": 3030,
+         "stun_ratio": 25840,
+         "stun_ratio_growth": 1180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 661925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19717,
+         "sp_consume": 0,
+         "attack_data": [
+          813164
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "손바닥 위의 고수풀",
+   "desc": "앨리스가 <color=#F0D12B>[극성 강타]</color> 발동 시 <color=#FFFFFF>[검의]</color>를 25pt 회복한다. 앨리스가 <color=#F0D12B>[강타]</color> 발동 시 타깃의 방어력이 20% 감소한다. 지속 시간: 30초",
+   "desc2": "한 송이 고수풀이 새로 태어난 초록별처럼 흔들렸다.\n손끝은 마치 다음 순간 그것을 꿰뚫을 수 있을 것만 같았다.\n그녀는 미세하게 떨리는 두 손을 펼쳐,\n그 떨림을 손바닥에 품었다.\n소녀의 심장은 비 갠 새벽에 땅을 뚫고 나온 봄의 새싹처럼 뛰었다."
+  },
+  "2": {
+   "level": 2,
+   "name": "검 끝의 세이지",
+   "desc": "<color=#FFFFFF>[궁극기: 별빛 피날레]</color>의 종결의 일격이 적 명중 시 <color=#F0D12B>[극성 강타]</color>를 발동한다. 파티 내 모든 캐릭터가 주는 <color=#F0D12B>[강타]</color> 피해가 15% 증가한다. <color=#F0D12B>물리 이상 상태</color>의 적에게 결산되는 <color=#FFFFFF>[혼돈]</color> 피해가 15% 증가한다. 전장 진입 시, 앨리스가 즉시 데시벨을 1000pt 획득하며, 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다.",
+   "desc2": "은빛 검 끝이 세이지 잎 위의 서리를 가볍게 스치고,\n전투 전의 의식은 소녀의 여유로움을 보여주네.\n두려움과 무력함은 어제의 꿈속에 얼어붙었고,\n검이 요동치며, 별들의 윤곽을 그려낸다.\n여명이 다가오고, 꽃봉오리는 만개를 기다리고 있구나."
+  },
+  "3": {
+   "level": 3,
+   "name": "대칭주의",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "그녀는 완벽한 대칭을 거부할 수 없었다.\n대칭 속에는 질서와 규칙이 존재한다. 만약 대칭을 볼 수 없다면, 그녀의 토끼 귀와 꼬리는 부드러움과 윤기를 잃을 것이다. 마치 다음 순간, 아름다운 것들이 그녀를 떠나버릴 것처럼——\n「그러니까… 그런 이유로 제 양말이 너무 거슬린다고요? 제 가터링도 빼고 싶고요?」\n「네 비대칭은 정말 못 참겠어! 잠깐만, 진짜 잠깐이면 돼!」"
+  },
+  "4": {
+   "level": 4,
+   "name": "입술 사이 로즈메리",
+   "desc": "앨리스가 타깃의 <color=#F0D12B>물리 피해 저항</color>을 10% 무시한다. 강화된 <color=#FFFFFF>[일반 공격: 별의 서곡]</color>으로 누적하는 <color=#F0D12B>물리 이상 축적치</color>가 25% 증가한다.",
+   "desc2": "입술 사이에 로즈메리의 향기가 남아있다.\n맹세는 뜨겁고 굳건하여, 하얀 입김 속에 새겨졌다.\n폐 속으로 들이마시는 공기가 차갑고 무겁다 해도,\n소녀는 사랑이란 이름의 저주를 절대 잊지 않으리.\n「타임필드의 이름으로… 난 결코 배신하지 않겠어」"
+  },
+  "5": {
+   "level": 5,
+   "name": "불가사의를 향한 열망",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "그녀는 무시무시한 초자연적인 현상을 거부할 수 없었다.\n초자연적인 현상 속에는 미지의 것과 위험이 숨겨져 있었다. 초자연적인 현상을 감지하면, 그녀의 토끼 귀와 꼬리가 전율로 쫑긋 솟아올랐지만, 진정된 후에는 저도 모르게 더욱 부드러워졌다.\n「그러니까… 무서워 죽을 것 같으면서도, 매번 괴담 모험에 저를 꼭 따라다니는 이유가 이거였군요?」\n「그냥 무슨 일이 생길지 궁금했던 것뿐이야… 근데 너무 무서워서 후회하고 있어! 진짜 딱 한 번만이야, 다음엔 절대 안 와!」"
+  },
+  "6": {
+   "level": 6,
+   "name": "마음속 백리향",
+   "desc": "앨리스가 3단 차지 <color=#FFFFFF>[일반 공격: 별빛 원무곡]</color> 혹은 <color=#FFFFFF>[궁극기: 별빛 피날레]</color> 시전 시 30초 동안 <color=#FFFFFF>[승리 상태]</color>에 진입한다. 지속 기간 동안 파티 내 임의의 캐릭터의 공격이 타깃에게 명중하면, 짧은 시간 내에 앨리스가 타깃에게 추가 공격을 1회 시전하여 앨리스 이상 마스터리의 3300%에 해당하는 물리 피해를 주고 반드시 치명타를 발동한다. 해당 효과는 1초 동안 최대 1회 발동하며, 최대 6회 발동할 수 있다. 다시 <color=#FFFFFF>[승리 상태]</color> 획득 시 발동 가능 횟수가 갱신된다.",
+   "desc2": "백리향이 가득한 그 저택에서,\n천체를 관측하던 그 밤에,\n용기가 무엇인지 알게 된 그 순간.\n따뜻한 바람이 먹구름을 걷어내고, 햇살이 화려한 샹들리에를 가리니,\n소녀는 지난날에 살며시 인사를 건넸다.\n그리고 백리향 꽃밭 속으로 천천히 사라졌다."
+  }
+ },
+ "passive": {
+  "level": {
+   "1401501": {
+    "level": 1,
+    "id": 1401501,
+    "name": [
+     "핵심 패시브: 쌍둥이 무지개의 검심",
+     "추가 능력: 기묘한 곳을 찾아서"
+    ],
+    "desc": [
+     "파티 내 임의의 캐릭터가 적에게 <color=#F0D12B>물리 이상 상태</color> 부여 후, 이상 상태가 지속되는 동안 앨리스가 해당 적에게 0.95초마다 해당 물리 이상 피해 비율의 2.5%에 해당하는 추가 피해를 주며, <color=#F0D12B>물리 이상 상태</color>의 적에게 <color=#FFFFFF>[혼돈]</color> 효과 발동 시 <color=#F0D12B>물리 이상 상태</color>의 남은 시간 중, 매 1초마다 <color=#FFFFFF>[혼돈]</color> 효과의 피해 배율이 18% 증가한다. 최대 증가: {CAL:18*10,1,2}%\n앨리스의 공격이 적 명중 시 <color=#FFFFFF>[검의]</color>가 누적되며, 앨리스가 속성 이상 축적으로 <color=#F0D12B>[강타]</color> 발동 시 <color=#FFFFFF>[검의]</color>를 10pt 회복한다. <color=#FFFFFF>[검의]</color> 최대치는 300pt이며, 100pt당 1칸이다.\n3단 차지 <color=#FFFFFF>[일반 공격: 별빛 원무곡]</color>의 종결의 일격이 적 명중 시, 특수한 <color=#F0D12B>[강타]</color> 효과인 <color=#F0D12B>[극성 강타]</color>를 발동하며, 속성 축적 진도를 무시하고 기존 <color=#F0D12B>[강타]</color> 효과의 {CAL:0+100,1,2}%에 해당하는 피해를 1회 준다. 해당 효과는 물리 이상 효과를 포함한 다른 속성 이상 효과와 함께 <color=#FFFFFF>[혼돈]</color>을 결산할 수 있다.\n앨리스가 <color=#F0D12B>[강타]</color> 발동 시 <color=#F0D12B>물리 이상 축적 효율</color>이 <color=#2BAD00>12.5%</color> 증가한다. 지속 시간: 30초",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 혹은 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동:\n파티 내 임의의 캐릭터가 <color=#FFFFFF>[혼돈]</color> 효과 발동 시, 앨리스가 <color=#FFFFFF>[검의]</color>를 30pt 회복한다.\n앨리스의 이상 장악력이 140pt를 초과할 경우, 초과한 이상 장악력 1pt마다 이상 마스터리가 1.6pt 증가한다.\n전장 진입 시, 앨리스가 <color=#FFFFFF>[검의]</color>를 300pt 획득하며, 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1401502": {
+    "level": 2,
+    "id": 1401502,
+    "name": [
+     "핵심 패시브: 쌍둥이 무지개의 검심",
+     "추가 능력: 기묘한 곳을 찾아서"
+    ],
+    "desc": [
+     "파티 내 임의의 캐릭터가 적에게 <color=#F0D12B>물리 이상 상태</color> 부여 후, 이상 상태가 지속되는 동안 앨리스가 해당 적에게 0.95초마다 해당 물리 이상 피해 비율의 2.5%에 해당하는 추가 피해를 주며, <color=#F0D12B>물리 이상 상태</color>의 적에게 <color=#FFFFFF>[혼돈]</color> 효과 발동 시 <color=#F0D12B>물리 이상 상태</color>의 남은 시간 중, 매 1초마다 <color=#FFFFFF>[혼돈]</color> 효과의 피해 배율이 18% 증가한다. 최대 증가: {CAL:18*10,1,2}%\n앨리스의 공격이 적 명중 시 <color=#FFFFFF>[검의]</color>가 누적되며, 앨리스가 속성 이상 축적으로 <color=#F0D12B>[강타]</color> 발동 시 <color=#FFFFFF>[검의]</color>를 10pt 회복한다. <color=#FFFFFF>[검의]</color> 최대치는 300pt이며, 100pt당 1칸이다.\n3단 차지 <color=#FFFFFF>[일반 공격: 별빛 원무곡]</color>의 종결의 일격이 적 명중 시, 특수한 <color=#F0D12B>[강타]</color> 효과인 <color=#F0D12B>[극성 강타]</color>를 발동하며, 속성 축적 진도를 무시하고 기존 <color=#F0D12B>[강타]</color> 효과의 {CAL:0+100,1,2}%에 해당하는 피해를 1회 준다. 해당 효과는 물리 이상 효과를 포함한 다른 속성 이상 효과와 함께 <color=#FFFFFF>[혼돈]</color>을 결산할 수 있다.\n앨리스가 <color=#F0D12B>[강타]</color> 발동 시 <color=#F0D12B>물리 이상 축적 효율</color>이 <color=#2BAD00>14.6%</color> 증가한다. 지속 시간: 30초",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 혹은 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동:\n파티 내 임의의 캐릭터가 <color=#FFFFFF>[혼돈]</color> 효과 발동 시, 앨리스가 <color=#FFFFFF>[검의]</color>를 30pt 회복한다.\n앨리스의 이상 장악력이 140pt를 초과할 경우, 초과한 이상 장악력 1pt마다 이상 마스터리가 1.6pt 증가한다.\n전장 진입 시, 앨리스가 <color=#FFFFFF>[검의]</color>를 300pt 획득하며, 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1401503": {
+    "level": 3,
+    "id": 1401503,
+    "name": [
+     "핵심 패시브: 쌍둥이 무지개의 검심",
+     "추가 능력: 기묘한 곳을 찾아서"
+    ],
+    "desc": [
+     "파티 내 임의의 캐릭터가 적에게 <color=#F0D12B>물리 이상 상태</color> 부여 후, 이상 상태가 지속되는 동안 앨리스가 해당 적에게 0.95초마다 해당 물리 이상 피해 비율의 2.5%에 해당하는 추가 피해를 주며, <color=#F0D12B>물리 이상 상태</color>의 적에게 <color=#FFFFFF>[혼돈]</color> 효과 발동 시 <color=#F0D12B>물리 이상 상태</color>의 남은 시간 중, 매 1초마다 <color=#FFFFFF>[혼돈]</color> 효과의 피해 배율이 18% 증가한다. 최대 증가: {CAL:18*10,1,2}%\n앨리스의 공격이 적 명중 시 <color=#FFFFFF>[검의]</color>가 누적되며, 앨리스가 속성 이상 축적으로 <color=#F0D12B>[강타]</color> 발동 시 <color=#FFFFFF>[검의]</color>를 10pt 회복한다. <color=#FFFFFF>[검의]</color> 최대치는 300pt이며, 100pt당 1칸이다.\n3단 차지 <color=#FFFFFF>[일반 공격: 별빛 원무곡]</color>의 종결의 일격이 적 명중 시, 특수한 <color=#F0D12B>[강타]</color> 효과인 <color=#F0D12B>[극성 강타]</color>를 발동하며, 속성 축적 진도를 무시하고 기존 <color=#F0D12B>[강타]</color> 효과의 {CAL:0+100,1,2}%에 해당하는 피해를 1회 준다. 해당 효과는 물리 이상 효과를 포함한 다른 속성 이상 효과와 함께 <color=#FFFFFF>[혼돈]</color>을 결산할 수 있다.\n앨리스가 <color=#F0D12B>[강타]</color> 발동 시 <color=#F0D12B>물리 이상 축적 효율</color>이 <color=#2BAD00>16.7%</color> 증가한다. 지속 시간: 30초",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 혹은 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동:\n파티 내 임의의 캐릭터가 <color=#FFFFFF>[혼돈]</color> 효과 발동 시, 앨리스가 <color=#FFFFFF>[검의]</color>를 30pt 회복한다.\n앨리스의 이상 장악력이 140pt를 초과할 경우, 초과한 이상 장악력 1pt마다 이상 마스터리가 1.6pt 증가한다.\n전장 진입 시, 앨리스가 <color=#FFFFFF>[검의]</color>를 300pt 획득하며, 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1401504": {
+    "level": 4,
+    "id": 1401504,
+    "name": [
+     "핵심 패시브: 쌍둥이 무지개의 검심",
+     "추가 능력: 기묘한 곳을 찾아서"
+    ],
+    "desc": [
+     "파티 내 임의의 캐릭터가 적에게 <color=#F0D12B>물리 이상 상태</color> 부여 후, 이상 상태가 지속되는 동안 앨리스가 해당 적에게 0.95초마다 해당 물리 이상 피해 비율의 2.5%에 해당하는 추가 피해를 주며, <color=#F0D12B>물리 이상 상태</color>의 적에게 <color=#FFFFFF>[혼돈]</color> 효과 발동 시 <color=#F0D12B>물리 이상 상태</color>의 남은 시간 중, 매 1초마다 <color=#FFFFFF>[혼돈]</color> 효과의 피해 배율이 18% 증가한다. 최대 증가: {CAL:18*10,1,2}%\n앨리스의 공격이 적 명중 시 <color=#FFFFFF>[검의]</color>가 누적되며, 앨리스가 속성 이상 축적으로 <color=#F0D12B>[강타]</color> 발동 시 <color=#FFFFFF>[검의]</color>를 10pt 회복한다. <color=#FFFFFF>[검의]</color> 최대치는 300pt이며, 100pt당 1칸이다.\n3단 차지 <color=#FFFFFF>[일반 공격: 별빛 원무곡]</color>의 종결의 일격이 적 명중 시, 특수한 <color=#F0D12B>[강타]</color> 효과인 <color=#F0D12B>[극성 강타]</color>를 발동하며, 속성 축적 진도를 무시하고 기존 <color=#F0D12B>[강타]</color> 효과의 {CAL:0+100,1,2}%에 해당하는 피해를 1회 준다. 해당 효과는 물리 이상 효과를 포함한 다른 속성 이상 효과와 함께 <color=#FFFFFF>[혼돈]</color>을 결산할 수 있다.\n앨리스가 <color=#F0D12B>[강타]</color> 발동 시 <color=#F0D12B>물리 이상 축적 효율</color>이 <color=#2BAD00>18.8%</color> 증가한다. 지속 시간: 30초",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 혹은 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동:\n파티 내 임의의 캐릭터가 <color=#FFFFFF>[혼돈]</color> 효과 발동 시, 앨리스가 <color=#FFFFFF>[검의]</color>를 30pt 회복한다.\n앨리스의 이상 장악력이 140pt를 초과할 경우, 초과한 이상 장악력 1pt마다 이상 마스터리가 1.6pt 증가한다.\n전장 진입 시, 앨리스가 <color=#FFFFFF>[검의]</color>를 300pt 획득하며, 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1401505": {
+    "level": 5,
+    "id": 1401505,
+    "name": [
+     "핵심 패시브: 쌍둥이 무지개의 검심",
+     "추가 능력: 기묘한 곳을 찾아서"
+    ],
+    "desc": [
+     "파티 내 임의의 캐릭터가 적에게 <color=#F0D12B>물리 이상 상태</color> 부여 후, 이상 상태가 지속되는 동안 앨리스가 해당 적에게 0.95초마다 해당 물리 이상 피해 비율의 2.5%에 해당하는 추가 피해를 주며, <color=#F0D12B>물리 이상 상태</color>의 적에게 <color=#FFFFFF>[혼돈]</color> 효과 발동 시 <color=#F0D12B>물리 이상 상태</color>의 남은 시간 중, 매 1초마다 <color=#FFFFFF>[혼돈]</color> 효과의 피해 배율이 18% 증가한다. 최대 증가: {CAL:18*10,1,2}%\n앨리스의 공격이 적 명중 시 <color=#FFFFFF>[검의]</color>가 누적되며, 앨리스가 속성 이상 축적으로 <color=#F0D12B>[강타]</color> 발동 시 <color=#FFFFFF>[검의]</color>를 10pt 회복한다. <color=#FFFFFF>[검의]</color> 최대치는 300pt이며, 100pt당 1칸이다.\n3단 차지 <color=#FFFFFF>[일반 공격: 별빛 원무곡]</color>의 종결의 일격이 적 명중 시, 특수한 <color=#F0D12B>[강타]</color> 효과인 <color=#F0D12B>[극성 강타]</color>를 발동하며, 속성 축적 진도를 무시하고 기존 <color=#F0D12B>[강타]</color> 효과의 {CAL:0+100,1,2}%에 해당하는 피해를 1회 준다. 해당 효과는 물리 이상 효과를 포함한 다른 속성 이상 효과와 함께 <color=#FFFFFF>[혼돈]</color>을 결산할 수 있다.\n앨리스가 <color=#F0D12B>[강타]</color> 발동 시 <color=#F0D12B>물리 이상 축적 효율</color>이 <color=#2BAD00>20.8%</color> 증가한다. 지속 시간: 30초",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 혹은 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동:\n파티 내 임의의 캐릭터가 <color=#FFFFFF>[혼돈]</color> 효과 발동 시, 앨리스가 <color=#FFFFFF>[검의]</color>를 30pt 회복한다.\n앨리스의 이상 장악력이 140pt를 초과할 경우, 초과한 이상 장악력 1pt마다 이상 마스터리가 1.6pt 증가한다.\n전장 진입 시, 앨리스가 <color=#FFFFFF>[검의]</color>를 300pt 획득하며, 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1401506": {
+    "level": 6,
+    "id": 1401506,
+    "name": [
+     "핵심 패시브: 쌍둥이 무지개의 검심",
+     "추가 능력: 기묘한 곳을 찾아서"
+    ],
+    "desc": [
+     "파티 내 임의의 캐릭터가 적에게 <color=#F0D12B>물리 이상 상태</color> 부여 후, 이상 상태가 지속되는 동안 앨리스가 해당 적에게 0.95초마다 해당 물리 이상 피해 비율의 2.5%에 해당하는 추가 피해를 주며, <color=#F0D12B>물리 이상 상태</color>의 적에게 <color=#FFFFFF>[혼돈]</color> 효과 발동 시 <color=#F0D12B>물리 이상 상태</color>의 남은 시간 중, 매 1초마다 <color=#FFFFFF>[혼돈]</color> 효과의 피해 배율이 18% 증가한다. 최대 증가: {CAL:18*10,1,2}%\n앨리스의 공격이 적 명중 시 <color=#FFFFFF>[검의]</color>가 누적되며, 앨리스가 속성 이상 축적으로 <color=#F0D12B>[강타]</color> 발동 시 <color=#FFFFFF>[검의]</color>를 10pt 회복한다. <color=#FFFFFF>[검의]</color> 최대치는 300pt이며, 100pt당 1칸이다.\n3단 차지 <color=#FFFFFF>[일반 공격: 별빛 원무곡]</color>의 종결의 일격이 적 명중 시, 특수한 <color=#F0D12B>[강타]</color> 효과인 <color=#F0D12B>[극성 강타]</color>를 발동하며, 속성 축적 진도를 무시하고 기존 <color=#F0D12B>[강타]</color> 효과의 {CAL:0+100,1,2}%에 해당하는 피해를 1회 준다. 해당 효과는 물리 이상 효과를 포함한 다른 속성 이상 효과와 함께 <color=#FFFFFF>[혼돈]</color>을 결산할 수 있다.\n앨리스가 <color=#F0D12B>[강타]</color> 발동 시 <color=#F0D12B>물리 이상 축적 효율</color>이 <color=#2BAD00>22.9%</color> 증가한다. 지속 시간: 30초",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 혹은 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동:\n파티 내 임의의 캐릭터가 <color=#FFFFFF>[혼돈]</color> 효과 발동 시, 앨리스가 <color=#FFFFFF>[검의]</color>를 30pt 회복한다.\n앨리스의 이상 장악력이 140pt를 초과할 경우, 초과한 이상 장악력 1pt마다 이상 마스터리가 1.6pt 증가한다.\n전장 진입 시, 앨리스가 <color=#FFFFFF>[검의]</color>를 300pt 획득하며, 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1401507": {
+    "level": 7,
+    "id": 1401507,
+    "name": [
+     "핵심 패시브: 쌍둥이 무지개의 검심",
+     "추가 능력: 기묘한 곳을 찾아서"
+    ],
+    "desc": [
+     "파티 내 임의의 캐릭터가 적에게 <color=#F0D12B>물리 이상 상태</color> 부여 후, 이상 상태가 지속되는 동안 앨리스가 해당 적에게 0.95초마다 해당 물리 이상 피해 비율의 2.5%에 해당하는 추가 피해를 주며, <color=#F0D12B>물리 이상 상태</color>의 적에게 <color=#FFFFFF>[혼돈]</color> 효과 발동 시 <color=#F0D12B>물리 이상 상태</color>의 남은 시간 중, 매 1초마다 <color=#FFFFFF>[혼돈]</color> 효과의 피해 배율이 18% 증가한다. 최대 증가: {CAL:18*10,1,2}%\n앨리스의 공격이 적 명중 시 <color=#FFFFFF>[검의]</color>가 누적되며, 앨리스가 속성 이상 축적으로 <color=#F0D12B>[강타]</color> 발동 시 <color=#FFFFFF>[검의]</color>를 10pt 회복한다. <color=#FFFFFF>[검의]</color> 최대치는 300pt이며, 100pt당 1칸이다.\n3단 차지 <color=#FFFFFF>[일반 공격: 별빛 원무곡]</color>의 종결의 일격이 적 명중 시, 특수한 <color=#F0D12B>[강타]</color> 효과인 <color=#F0D12B>[극성 강타]</color>를 발동하며, 속성 축적 진도를 무시하고 기존 <color=#F0D12B>[강타]</color> 효과의 {CAL:0+100,1,2}%에 해당하는 피해를 1회 준다. 해당 효과는 물리 이상 효과를 포함한 다른 속성 이상 효과와 함께 <color=#FFFFFF>[혼돈]</color>을 결산할 수 있다.\n앨리스가 <color=#F0D12B>[강타]</color> 발동 시 <color=#F0D12B>물리 이상 축적 효율</color>이 <color=#2BAD00>25%</color> 증가한다. 지속 시간: 30초",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 혹은 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동:\n파티 내 임의의 캐릭터가 <color=#FFFFFF>[혼돈]</color> 효과 발동 시, 앨리스가 <color=#FFFFFF>[검의]</color>를 30pt 회복한다.\n앨리스의 이상 장악력이 140pt를 초과할 경우, 초과한 이상 장악력 1pt마다 이상 마스터리가 1.6pt 증가한다.\n전장 진입 시, 앨리스가 <color=#FFFFFF>[검의]</color>를 300pt 획득하며, 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110511": 2
+   },
+   "3": {
+    "10": 28000,
+    "110511": 4
+   },
+   "4": {
+    "10": 60000,
+    "110005": 2,
+    "110511": 9
+   },
+   "5": {
+    "10": 100000,
+    "110005": 3,
+    "110511": 15
+   },
+   "6": {
+    "10": 200000,
+    "110005": 4,
+    "110511": 30
+   }
+  }
+ },
+ "skin": {
+  "3114010": {
+   "name": "앨리스·셀레스티아의 에티켓",
+   "desc": "소녀는 오직 학교 배지를 착용할 때만 자신의 완벽한 대칭 미학을 잠시 내려놓는다. 이것이 바로 우아하고 고귀한 타임필드의 정신이다.",
+   "obtain_desc": "",
+   "image": "IconRole46"
+  },
+  "3114011": {
+   "name": "앨리스·백리향의 바다",
+   "desc": "완벽한 대칭은 아니었지만, 친구가 준 선물은 의외로 그리 거부감이 들지 않았다.\n소녀는 굳게 닫힌 문을 열고, 폭우가 그친 뒤의 분홍빛 모래사장을 걷는다. 조금 차가운 파도가 그녀의 발목을 간지럽힌다. 더는 그 어떤 미지도 그녀를 두렵게 할 수 없다.",
+   "obtain_desc": "",
+   "image": "IconRole46_01"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1401001": {
+   "name": "일반 공격: 별의 서곡",
+   "desc": "<IconMap:Icon_Normal>;<IconMap:Icon_Normal>;<IconMap:Icon_Normal>;<IconMap:Icon_Normal>;<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1401002": {
+   "name": "일반 공격: 별빛 원무곡",
+   "desc": "<IconMap:Icon_Normal>(홀드)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1401003": {
+   "name": "특수 스킬: 여명 찌르기",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1401004": {
+   "name": "강화 특수 스킬: 오로라 찌르기·북십자성",
+   "desc": "<IconMap:Icon_SpecialReady>(방향키를 앞으로 움직일 때)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1401005": {
+   "name": "강화 특수 스킬: 오로라 찌르기·남십자성",
+   "desc": "<IconMap:Icon_SpecialReady>(방향키를 뒤쪽으로 혹은 방향키를 움직이지 않을 때)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1401006": {
+   "name": "회피: 깡총대는 토끼",
+   "desc": "<IconMap:Icon_Evade>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1401007": {
+   "name": "대시 공격: 검무의 바람",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1401008": {
+   "name": "회피 반격: 검빛 의례",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1401009": {
+   "name": "콤보 스킬: 별의 중간장",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1401010": {
+   "name": "궁극기: 별빛 피날레",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1401011": {
+   "name": "빠른 지원: 얼터네이트 스탭",
+   "desc": "<IconMap:Icon_Switch>(빠른 지원 발동 시)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1401012": {
+   "name": "패링 지원: 패리 가드",
+   "desc": "<IconMap:Icon_Switch>(패링 지원 발동 시)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1401013": {
+   "name": "지원 돌격: 크로스 리포스트",
+   "desc": "<IconMap:Icon_Normal>(패링 지원 시전 후)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1401001,
+   "avatar_id": 1401,
+   "first_priority": [
+    5,
+    0
+   ],
+   "second_priority": [
+    1,
+    3
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 32600,
+  "slot2": 31300,
+  "slot_sub": 33000,
+  "part_sub_list": [
+   12102,
+   31203
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32600,
+     33000
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31503
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31402
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 31203,
+   "name": "이상 마스터리",
+   "format": "{0:0}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementMystery.png"
+  },
+  "part5": {
+   "prop": 31503,
+   "name": "물리 피해 보너스",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconPhysDmg.png"
+  },
+  "part6": {
+   "prop": 31402,
+   "name": "이상 장악력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementAbnormalPower.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "공격력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_PhysDmg>물리 속성, 필드 딜러",
+  "이상 축적을 무시하고 바로 [강타] 결산",
+  "높은 빈도로 [혼돈] 피해 발생 가능"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100213": 4
+   }
+  },
+  "2": {
+   "hp_max": 423,
+   "attack": 45,
+   "defence": 33,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100223": 12
+   }
+  },
+  "3": {
+   "hp_max": 847,
+   "attack": 90,
+   "defence": 67,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100223": 20
+   }
+  },
+  "4": {
+   "hp_max": 1270,
+   "attack": 136,
+   "defence": 100,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100233": 10
+   }
+  },
+  "5": {
+   "hp_max": 1694,
+   "attack": 181,
+   "defence": 134,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100233": 20
+   }
+  },
+  "6": {
+   "hp_max": 2117,
+   "attack": 226,
+   "defence": 167,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 24
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 24
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 36
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 36
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpineAlice"
+}

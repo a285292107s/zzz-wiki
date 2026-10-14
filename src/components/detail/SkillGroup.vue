@@ -14,6 +14,8 @@ import {
 } from '@/domain/sections'
 import HollowImage from '../HollowImage.vue'
 import LevelSlider from './LevelSlider.vue'
+import { fmt } from '@/domain/uiText'
+import { useUiText } from '@/composables/useUiText'
 
 const props = defineProps<{
   row: SkillRow
@@ -31,6 +33,7 @@ const props = defineProps<{
 
 /** 技能等级：支持外部 v-model:level（连携技/终结技共享同一槽位等级时由父级注入）；
  *  未绑定时内部自管，默认取 defaultLevel（角色 12 级；邦布 10/5 级 = 上限即满级） */
+const { t } = useUiText()
 const levelModel = defineModel<number>('level')
 const internalLevel = ref(props.defaultLevel ?? props.levelCount ?? SKILL_LEVEL_DEFAULT)
 
@@ -87,8 +90,10 @@ function potTag(grp: SkillGroup): string | null {
   const lv = potentialStartLevel(grp.potential)
   if (!lv) return null
   if (grp.potentialType === 'enhance' && variant.value !== 'pot') return null
-  const kind = grp.potentialType === 'new' ? '新增' : '强化'
-  return `潜能${lv}·${kind}`
+  const kind = grp.potentialType === 'new' ? t.value.detail.additive : t.value.detail.enhance
+  // 整条徽标走文案表（「潜能{lv}·{kind}」/「Potential {lv} · {kind}」…）：原先前缀「潜能」
+  // 与分隔点写死中文，非中文页面会得到「潜能I·Enhancement」这种半中半外的徽标
+  return fmt(t.value.detail.potentialTag, { lv, kind })
 }
 </script>
 
@@ -98,23 +103,23 @@ function potTag(grp: SkillGroup): string | null {
       <span class="key-glyph">
         <!-- 图标位：默认 HollowImage 候选链；邦布等可经 #glyph 插槽替换（如字母占位框） -->
         <slot name="glyph">
-          <HollowImage :srcs="props.srcs" :alt="row.zh" :fallback="props.glyph" />
+          <HollowImage :srcs="props.srcs" :alt="row.label" :fallback="props.glyph" />
         </slot>
         <em v-if="row.keyEn" class="mono">{{ row.keyEn }}</em>
       </span>
-      <h3 class="skill-kind serif">{{ row.zh }}</h3>
+      <h3 class="skill-kind serif">{{ row.label }}</h3>
       <!-- 大类含受潜能影像影响的技能时，显示「潜能激发」切换开关（默认打开） -->
       <button
         v-if="hasPot"
         type="button"
         class="pot-switch mono"
         role="switch"
-        aria-label="潜能激发"
+        :aria-label="t.detail.potentialAwaken"
         :aria-checked="variant === 'pot'"
         @click="variant = variant === 'pot' ? 'base' : 'pot'"
       >
         <span class="sw-track" :class="{ on: variant === 'pot' }"><span class="sw-thumb"></span></span>
-        <span class="sw-label">潜能激发</span>
+        <span class="sw-label">{{ t.detail.potentialAwaken }}</span>
       </button>
       <!-- 等级滑块与技能名同条，靠右对齐；窄屏允许换行 -->
       <div v-if="row.hasNumbers" class="level-row">
@@ -122,7 +127,7 @@ function potTag(grp: SkillGroup): string | null {
           v-model="level"
           :min="SKILL_LEVEL_MIN"
           :max="levelCount ?? SKILL_LEVEL_MAX"
-          :label="`${row.zh}等级`"
+          :label="fmt(t.detail.skillLevelOf, { name: row.label })"
         />
         <span class="level-val mono">Lv.{{ level }}</span>
       </div>
@@ -138,7 +143,7 @@ function potTag(grp: SkillGroup): string | null {
         <div class="body">
           <h4 class="title title-skill">
             {{ grp.name }}
-            <span v-if="grp.derived" class="pot-badge derived-badge mono">派生技能</span>
+            <span v-if="grp.derived" class="pot-badge derived-badge mono">{{ t.detail.derivedSkill }}</span>
             <span
               v-if="potTag(grp)"
               class="pot-badge mono"
@@ -149,11 +154,11 @@ function potTag(grp: SkillGroup): string | null {
                补充行（充能计数等）紧随表格，仅当可转置时出现，列表用 v-else 保证互斥 -->
           <template v-if="table">
             <table class="metric-table">
-              <!-- caption：读屏用户表格语境（ grp.name 为技能组名，如「 entrepreneurs的特殊技」） -->
-              <caption class="sr-only">「{{ grp.name }}」段次×指标数值表（随等级变化）</caption>
+              <!-- caption：读屏用户表格语境（grp.name 为技能组名，如「特殊技：电磁引擎」） -->
+              <caption class="sr-only">{{ fmt(t.detail.metricTableCaption, { name: grp.name }) }}</caption>
               <thead>
                 <tr>
-                  <th class="metric-row-head" scope="col">{{ table.rowLabel || '段次' }}</th>
+                  <th class="metric-row-head" scope="col">{{ table.rowLabel || t.detail.segments }}</th>
                   <th
                     v-for="c in table.columns"
                     :key="c.propId"

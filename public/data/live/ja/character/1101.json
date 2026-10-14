@@ -1,0 +1,2558 @@
+{
+ "id": 1101,
+ "icon": "IconRole14",
+ "name": "クレタ",
+ "code_name": "Koleda",
+ "rarity": 4,
+ "weapon_type": {
+  "2": "Stun"
+ },
+ "element_type": {
+  "201": "Fire"
+ },
+ "hit_type": {
+  "102": "Strike"
+ },
+ "camp": {
+  "3": "白祇重工"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "8月10日",
+  "full_name": "クレタ・ベロボーグ",
+  "gender": "女性",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle14.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0014.png",
+  "impression_f": "お兄ちゃん、何だっけ？前に観た探偵モノの、有名なくだり…\n「見た目は子供～…」…まあ見た目も歳も、実際クレタは子供だし。\nとにかくかわいいってことで！",
+  "impression_m": "そのコメント、本人には絶対見られてはだめだよ。\n怒り狂った彼女のハンマーに、うちの看板がぐしゃぐしゃにされてしまう。",
+  "impressions": [
+   "クレタに対するイメージ：\n・クレタは、スイーツへの愛を\n素直に認めようとしない",
+   "・部下の前では、頼りになる社長でいたいと思って{M#い}る",
+   "・眼帯の下には、世界を滅ぼす魔眼が隠れて——いない。本当によかった"
+  ],
+  "profile_desc": "クレタ、白祇重工の現社長であり、同社を創設したホルス・ベロボーグの実娘です。\n父親の「持ち逃げ」疑惑による失踪で会社は大きな打撃を受け、倒産寸前にまでなりました。\nその時、ようやく法定年齢に達したクレタは、自ら「傾いた屋台骨」を引き継ぎ、\nわずかに残った会社の人員と資産を整理して、\n経営資金も名声も風前の灯火だった白祇重工を再開したのです。\n\nやがて新たな中核メンバーの協力のもと、白祇重工はついに業界の関連分野で\n再び頭角を現します。全盛期の輝きには及ばないものの、\n現在の白祇重工は業界内における注目すべき新星です。\nその過程で、クレタは着実に生活と仕事の両面で経験を積み、彼女についてきてくれる\n家族同然の従業員たちに恵まれました。それでもなお彼女は\n小柄な自分を「社長らしく」見せるため、\n常に厳しい口調で社員たちとコミュニケーションを取ることに余念がないようです。\nこのような特殊な経歴は、クレタをいくつかの面で同世代より成熟させました。\nもちろんいくつかの面では、年齢相応に見えることもあるようです。\n\n推定：クレタが同世代より細身の体なのは、長期間ホロウで活動してきた影響かもしれません。\nこの観点を補足する公開論文や研究はまだ見つかっていませんが、継続的に注視していきます。",
+  "role_icon": "IconRole/UnPacker/IconRole14",
+  "stature": "150",
+  "unlock_condition": [
+   "エージェント招集",
+   "依頼「アンビーの当惑」を達成する",
+   "エージェント秘話「レベルカンスト小学生」をクリアする"
+  ],
+  "trust_lv": {
+   "1": "クレタ、白祇重工の現社長であり、同社を創設したホルス・ベロボーグの実娘です。\n父親の「持ち逃げ」疑惑による失踪で会社は大きな打撃を受け、倒産寸前にまでなりました。\nその時、ようやく法定年齢に達したクレタは、自ら「傾いた屋台骨」を引き継ぎ、\nわずかに残った会社の人員と資産を整理して、\n経営資金も名声も風前の灯火だった白祇重工を再開したのです。\n\nやがて新たな中核メンバーの協力のもと、白祇重工はついに業界の関連分野で\n再び頭角を現します。全盛期の輝きには及ばないものの、\n現在の白祇重工は業界内における注目すべき新星です。\nその過程で、クレタは着実に生活と仕事の両面で経験を積み、彼女についてきてくれる\n家族同然の従業員たちに恵まれました。それでもなお彼女は\n小柄な自分を「社長らしく」見せるため、\n常に厳しい口調で社員たちとコミュニケーションを取ることに余念がないようです。\nこのような特殊な経歴は、クレタをいくつかの面で同世代より成熟させました。\nもちろんいくつかの面では、年齢相応に見えることもあるようです。\n\n推定：クレタが同世代より細身の体なのは、長期間ホロウで活動してきた影響かもしれません。\nこの観点を補足する公開論文や研究はまだ見つかっていませんが、継続的に注視していきます。",
+   "2": "",
+   "3": "行動解析によると、実際のところクレタは甘いものが大好きのようですが、\nそれを素直に認めようとはしません。\n推測される原因として、彼女にとって甘いものを好むことは幼稚なことであり、\n人にそうした印象を与えたくないためだと思われます。\nまた、クレタは「子供」に関連するすべての形容詞に過度な反応を示します。\nそれに言及することは、彼女の逆鱗に触れる可能性があることを意味します。\n「先に言っとくが、お前の足の骨なんて簡単に折れんだ。\n『ガキみてぇだ』とかほざく前に、よーく考えてからその口を開きな！」",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 106,
+  "attack_growth": 62007,
+  "avatar_piece_id": 5101,
+  "break_stun": 116,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 48,
+  "defence_growth": 64845,
+  "element_abnormal_power": 97,
+  "element_mystery": 96,
+  "endurance": 0,
+  "hp_growth": 886832,
+  "hp_max": 653,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "OokumaMari",
+   "Punch",
+   "Fire",
+   "Female",
+   "Camp3",
+   "Size1",
+   "AidTypeParry",
+   "Koleda",
+   "EtherEyesSize1"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "通常攻撃：打ち砕いて、ぶちのめす",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方に最大4段の打撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\nクレタが<color=#FFFFFF>「溶炉昇温」</color>効果を持っている時、2段目の攻撃の後に強化された<color=#FFFFFF>『通常攻撃』</color>を発動できる。発動すると<color=#FFFFFF>「溶炉昇温」</color>効果を消費し、<color=#FF5521>炎属性ダメージ</color>を大量に与える。\nクレタとベンが同時に出撃している際に、強化された<color=#FFFFFF>『通常攻撃』</color>を発動した時は、お互いに息を合わせ、より威力の高い協力攻撃を発動できる。\n<color=#FFFFFF>『通常攻撃』</color>第4段および強化された<color=#FFFFFF>『通常攻撃』</color>発動中、無敵効果を得る。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "通常攻撃：打ち砕いて、ぶちのめす",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方に最大4段の打撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\nクレタが<color=#FFFFFF>「溶炉昇温」</color>効果を持っている時、2段目の攻撃後に強化<color=#FFFFFF>『通常攻撃』</color>を発動できる。発動すると<color=#FFFFFF>「溶炉昇温」</color>効果を消費し、<color=#FF5521>炎属性ダメージ</color>を大量に与える。\n強化<color=#FFFFFF>『通常攻撃』</color>は2段に分かれており、1段目の発動後に <IconMap:Icon_Normal> を短押しまたは長押しすると、2段目に繋げることが可能。また、強化<color=#FFFFFF>『通常攻撃』</color>1段目の追撃効果が強化される。\n<color=#FFFFFF>「溶炉昇温」</color>効果は最大2重まで所持できる。強化<color=#FFFFFF>『通常攻撃』</color>を発動すると、すべての<color=#FFFFFF>「溶炉昇温」</color>が消費される。\n<color=#FFFFFF>「溶炉昇温」</color>を消費すると、メンバー全員の与ダメージ+35%、継続時間40秒、重複して発動すると継続時間が更新される。また、消費した<color=#FFFFFF>「溶炉昇温」</color>1重につき、強化<color=#FFFFFF>『通常攻撃』</color>2段目の与ダメージ+10%、与えるブレイク値+20%。\n強化<color=#FFFFFF>『通常攻撃』</color>1段目発動中に交代すると、クレタはフィールドに残り、自動的に強化<color=#FFFFFF>『通常攻撃』</color>2段目を発動する。\nクレタとベンが同時に出撃している際、強化<color=#FFFFFF>『通常攻撃』</color>を発動し、かつ強化<color=#FFFFFF>『通常攻撃』</color>1段目の発動中に交代しなかった場合、お互いに息を合わせ、より威力の高い協力攻撃を発動できる。\n<color=#FFFFFF>『通常攻撃』</color>4段目、および強化<color=#FFFFFF>『通常攻撃』</color>発動中、無敵効果を得る。\n強化<color=#FFFFFF>『通常攻撃』</color>2段目の無敵効果の継続時間が延長される。",
+     "potential": [
+      110100,
+      110101,
+      110102,
+      110103,
+      110104,
+      110105
+     ]
+    },
+    {
+     "name": "通常攻撃：打ち砕いて、ぶちのめす",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1101001, Prop:1001}",
+       "param": {
+        "1101001": {
+         "main": 6360,
+         "growth": 580,
+         "format": "%",
+         "damage_percentage": 6360,
+         "damage_percentage_growth": 580,
+         "stun_ratio": 3180,
+         "stun_ratio_growth": 150,
+         "sp_recovery": 10900,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 83325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3027
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1101002, Prop:1001}",
+       "param": {
+        "1101002": {
+         "main": 7920,
+         "growth": 720,
+         "format": "%",
+         "damage_percentage": 7920,
+         "damage_percentage_growth": 720,
+         "stun_ratio": 6550,
+         "stun_ratio_growth": 300,
+         "sp_recovery": 22460,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 171600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6238
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1101003, Prop:1001}",
+       "param": {
+        "1101003": {
+         "main": 12610,
+         "growth": 1150,
+         "format": "%",
+         "damage_percentage": 12610,
+         "damage_percentage_growth": 1150,
+         "stun_ratio": 10430,
+         "stun_ratio_growth": 480,
+         "sp_recovery": 35740,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 273075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9927
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率",
+       "desc": "{Skill:1101004, Prop:1001}",
+       "param": {
+        "1101004": {
+         "main": 31740,
+         "growth": 2890,
+         "format": "%",
+         "damage_percentage": 31740,
+         "damage_percentage_growth": 2890,
+         "stun_ratio": 24930,
+         "stun_ratio_growth": 1140,
+         "sp_recovery": 85470,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 653125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23741
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "強化通常攻撃1段ダメージ倍率",
+       "desc": "{Skill:1101005, Prop:1001}",
+       "param": {
+        "1101005": {
+         "main": 16080,
+         "growth": 1470,
+         "format": "%",
+         "damage_percentage": 16080,
+         "damage_percentage_growth": 1470,
+         "stun_ratio": 6140,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 21050,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 160875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4435,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5846
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "強化通常攻撃2段ダメージ倍率",
+       "desc": "{Skill:1101006, Prop:1001}",
+       "param": {
+        "1101006": {
+         "main": 40490,
+         "growth": 3690,
+         "format": "%",
+         "damage_percentage": 40490,
+         "damage_percentage_growth": 3690,
+         "stun_ratio": 15660,
+         "stun_ratio_growth": 720,
+         "sp_recovery": 59720,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 456225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14908,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16588
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "強化通常攻撃2段ダメージ倍率(協力攻撃)",
+       "desc": "{Skill:1101007, Prop:1001}",
+       "param": {
+        "1101007": {
+         "main": 50130,
+         "growth": 4560,
+         "format": "%",
+         "damage_percentage": 50130,
+         "damage_percentage_growth": 4560,
+         "stun_ratio": 23460,
+         "stun_ratio_growth": 1070,
+         "sp_recovery": 73110,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 558525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18629,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20308
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1101001, Prop:1002}",
+       "param": {
+        "1101001": {
+         "main": 3180,
+         "growth": 150,
+         "format": "%",
+         "damage_percentage": 6360,
+         "damage_percentage_growth": 580,
+         "stun_ratio": 3180,
+         "stun_ratio_growth": 150,
+         "sp_recovery": 10900,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 83325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3027
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1101002, Prop:1002}",
+       "param": {
+        "1101002": {
+         "main": 6550,
+         "growth": 300,
+         "format": "%",
+         "damage_percentage": 7920,
+         "damage_percentage_growth": 720,
+         "stun_ratio": 6550,
+         "stun_ratio_growth": 300,
+         "sp_recovery": 22460,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 171600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6238
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1101003, Prop:1002}",
+       "param": {
+        "1101003": {
+         "main": 10430,
+         "growth": 480,
+         "format": "%",
+         "damage_percentage": 12610,
+         "damage_percentage_growth": 1150,
+         "stun_ratio": 10430,
+         "stun_ratio_growth": 480,
+         "sp_recovery": 35740,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 273075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9927
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率",
+       "desc": "{Skill:1101004, Prop:1002}",
+       "param": {
+        "1101004": {
+         "main": 24930,
+         "growth": 1140,
+         "format": "%",
+         "damage_percentage": 31740,
+         "damage_percentage_growth": 2890,
+         "stun_ratio": 24930,
+         "stun_ratio_growth": 1140,
+         "sp_recovery": 85470,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 653125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23741
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "強化通常攻撃1段ブレイク倍率",
+       "desc": "{Skill:1101005, Prop:1002}",
+       "param": {
+        "1101005": {
+         "main": 6140,
+         "growth": 280,
+         "format": "%",
+         "damage_percentage": 16080,
+         "damage_percentage_growth": 1470,
+         "stun_ratio": 6140,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 21050,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 160875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4435,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5846
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "強化通常攻撃2段ブレイク倍率",
+       "desc": "{Skill:1101006, Prop:1002}",
+       "param": {
+        "1101006": {
+         "main": 15660,
+         "growth": 720,
+         "format": "%",
+         "damage_percentage": 40490,
+         "damage_percentage_growth": 3690,
+         "stun_ratio": 15660,
+         "stun_ratio_growth": 720,
+         "sp_recovery": 59720,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 456225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14908,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16588
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "強化通常攻撃2段ブレイク倍率(協力攻撃)",
+       "desc": "{Skill:1101007, Prop:1002}",
+       "param": {
+        "1101007": {
+         "main": 23460,
+         "growth": 1070,
+         "format": "%",
+         "damage_percentage": 50130,
+         "damage_percentage_growth": 4560,
+         "stun_ratio": 23460,
+         "stun_ratio_growth": 1070,
+         "sp_recovery": 73110,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 558525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18629,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20308
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "回避：今に見てな！",
+     "desc": " <IconMap:Icon_Evade> を押して発動：\nダッシュで高速回避する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：震えろ",
+     "desc": "回避時に <IconMap:Icon_Normal> を押して発動：\n前方に打撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "ダッシュ攻撃：震えろ",
+     "desc": "回避時に <IconMap:Icon_Normal> を押して発動：\n前方に打撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動中、<color=#FFFFFF>「溶炉昇温」</color>を所持している場合、中断耐性レベルがアップするほか、 <IconMap:Icon_Normal> を長押しすると、強化<color=#FFFFFF>『通常攻撃』</color>に繋げることが可能。",
+     "potential": [
+      110100,
+      110101,
+      110102,
+      110103,
+      110104,
+      110105
+     ]
+    },
+    {
+     "name": "回避反撃：見くびるな！",
+     "desc": "<color=#FFFFFF>『極限回避』</color>後に <IconMap:Icon_Normal> を押して発動：\n前方の敵に打撃を放つと同時に起爆させ、<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "回避反撃：見くびるな！",
+     "desc": "<color=#FFFFFF>『極限回避』</color>後に <IconMap:Icon_Normal> を押して発動：\n前方の敵に打撃を放つと同時に起爆させ、<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得るほか、<color=#FFFFFF>『溶炉昇温』</color>を所持している場合、 <IconMap:Icon_Normal> を長押しすると、強化<color=#FFFFFF>『通常攻撃』</color>に繋げることが可能。",
+     "potential": [
+      110100,
+      110101,
+      110102,
+      110103,
+      110104,
+      110105
+     ]
+    },
+    {
+     "name": "ダッシュ攻撃：震えろ",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1101201, Prop:1001}",
+       "param": {
+        "1101201": {
+         "main": 5610,
+         "growth": 510,
+         "format": "%",
+         "damage_percentage": 5610,
+         "damage_percentage_growth": 510,
+         "stun_ratio": 2810,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 9610,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 73425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1101201, Prop:1002}",
+       "param": {
+        "1101201": {
+         "main": 2810,
+         "growth": 130,
+         "format": "%",
+         "damage_percentage": 5610,
+         "damage_percentage_growth": 510,
+         "stun_ratio": 2810,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 9610,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 73425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2667
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "回避反撃：見くびるな！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1101202, Prop:1001}",
+       "param": {
+        "1101202": {
+         "main": 34390,
+         "growth": 3130,
+         "format": "%",
+         "damage_percentage": 34390,
+         "damage_percentage_growth": 3130,
+         "stun_ratio": 28880,
+         "stun_ratio_growth": 1320,
+         "sp_recovery": 62990,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 481250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17496,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 32497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1101202, Prop:1002}",
+       "param": {
+        "1101202": {
+         "main": 28880,
+         "growth": 1320,
+         "format": "%",
+         "damage_percentage": 34390,
+         "damage_percentage_growth": 3130,
+         "stun_ratio": 28880,
+         "stun_ratio_growth": 1320,
+         "sp_recovery": 62990,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 481250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17496,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 32497
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "特殊スキル：爆破！ハンマータイム",
+     "desc": " <IconMap:Icon_Special> を押して発動：\n前方に打撃を放つと同時に起爆させ、<color=#FF5521>炎属性ダメージ</color>を与える。\n<color=#FFFFFF>『通常攻撃』</color>2段目、4段目、または強化された<color=#FFFFFF>『通常攻撃』</color>の後に繋げると、素早くスキルを発動し、即座に爆発を起こせる。\nクレタとベンが同時に出場している場合、強化された<color=#FFFFFF>『通常攻撃』</color>の後に素早く特殊スキルを発動すると、お互いに息を合わせ、より威力の高い協力攻撃を発動できる。\nスキル発動中、中断耐性レベルがアップする。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "特殊スキル：爆破！ハンマータイム",
+     "desc": " <IconMap:Icon_Special> を押して発動：\n前方に打撃を放つと同時に起爆させ、<color=#FF5521>炎属性ダメージ</color>を与える。\n<color=#FFFFFF>『通常攻撃』</color>2段目、4段目、または強化<color=#FFFFFF>『通常攻撃』</color>の後に繋げると、素早くスキルを発動し、即座に爆発を起こせる。\n<color=#FFFFFF>『通常攻撃』</color>2段目の発動中、 <IconMap:Icon_Normal> を長押しすることでも爆発を直接起こせる。\nクレタとベンが同時に出場している場合、強化<color=#FFFFFF>『通常攻撃』</color>の後に素早く特殊スキルを発動すると、お互いに息を合わせ、より威力の高い協力攻撃を発動できる。\nスキル発動中、中断耐性レベルがアップする。",
+     "potential": [
+      110100,
+      110101,
+      110102,
+      110103,
+      110104,
+      110105
+     ]
+    },
+    {
+     "name": "強化特殊スキル：<ruby=ふっとうようろ>沸騰溶炉</ruby>",
+     "desc": "エネルギーが十分な時、 <IconMap:Icon_SpecialReady> を押して発動：\n前方に打撃を放つと同時に起爆させ、<color=#FF5521>炎属性ダメージ</color>を大量に与える。その際、<color=#FFFFFF>「溶炉昇温」</color>効果を得る。\n<color=#FFFFFF>『通常攻撃』</color>2段目、4段目または強化された<color=#FFFFFF>『通常攻撃』</color>の後に繋げると、素早くスキルを発動し、即座に爆発を起こせる。\nクレタとベンが同時に出場している場合、強化された<color=#FFFFFF>『通常攻撃』</color>の後に素早く強化特殊スキルを発動すると、お互いに息を合わせ、より威力の高い協力攻撃を発動できる。\nスキル発動中、無敵効果を得る。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "強化特殊スキル：<ruby=ふっとうようろ>沸騰溶炉</ruby>",
+     "desc": "エネルギーが十分な時、 <IconMap:Icon_SpecialReady> を押して発動：\n前方に打撃を放つと同時に起爆させ、<color=#FF5521>炎属性ダメージ</color>を大量に与える。その際、<color=#FFFFFF>「溶炉昇温」</color>効果を得る。\n<color=#FFFFFF>『通常攻撃』</color>2段目、4段目または強化<color=#FFFFFF>『通常攻撃』</color>の後に繋げると、素早くスキルを発動し、即座に爆発を起こせる。この方法で起こした爆発が与えるブレイク値+10%。\nクレタとベンが同時に出場している場合、強化<color=#FFFFFF>『通常攻撃』</color>の後に素早く強化特殊スキルを発動すると、お互いに息を合わせ、より威力の高い協力攻撃を発動できる。\nスキル発動中、無敵効果を得るほか、 <IconMap:Icon_Normal> を長押しすると、<color=#FFFFFF>『ダッシュ攻撃：震えろ』</color>に繋げることが可能。",
+     "potential": [
+      110100,
+      110101,
+      110102,
+      110103,
+      110104,
+      110105
+     ]
+    },
+    {
+     "name": "特殊スキル：爆破！ハンマータイム",
+     "param": [
+      {
+       "name": "打撃ダメージ倍率",
+       "desc": "{Skill:1101101, Prop:1001}",
+       "param": {
+        "1101101": {
+         "main": 5190,
+         "growth": 480,
+         "format": "%",
+         "damage_percentage": 5190,
+         "damage_percentage_growth": 480,
+         "stun_ratio": 5190,
+         "stun_ratio_growth": 240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 135850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6418,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4935
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "起爆ダメージ倍率",
+       "desc": "{Skill:1101102, Prop:1001}",
+       "param": {
+        "1101102": {
+         "main": 7780,
+         "growth": 710,
+         "format": "%",
+         "damage_percentage": 7780,
+         "damage_percentage_growth": 710,
+         "stun_ratio": 7780,
+         "stun_ratio_growth": 360,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 203775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5918,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7402
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "起爆ダメージ倍率(協力攻撃)",
+       "desc": "{Skill:1101103, Prop:1001}",
+       "param": {
+        "1101103": {
+         "main": 8550,
+         "growth": 780,
+         "format": "%",
+         "damage_percentage": 8550,
+         "damage_percentage_growth": 780,
+         "stun_ratio": 7780,
+         "stun_ratio_growth": 360,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 203775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5918,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7402
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "打撃ブレイク倍率",
+       "desc": "{Skill:1101101, Prop:1002}",
+       "param": {
+        "1101101": {
+         "main": 5190,
+         "growth": 240,
+         "format": "%",
+         "damage_percentage": 5190,
+         "damage_percentage_growth": 480,
+         "stun_ratio": 5190,
+         "stun_ratio_growth": 240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 135850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6418,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4935
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "起爆ブレイク倍率",
+       "desc": "{Skill:1101102, Prop:1002}",
+       "param": {
+        "1101102": {
+         "main": 7780,
+         "growth": 360,
+         "format": "%",
+         "damage_percentage": 7780,
+         "damage_percentage_growth": 710,
+         "stun_ratio": 7780,
+         "stun_ratio_growth": 360,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 203775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5918,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7402
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "起爆ブレイク倍率(協力攻撃)",
+       "desc": "{Skill:1101103, Prop:1002}",
+       "param": {
+        "1101103": {
+         "main": 7780,
+         "growth": 360,
+         "format": "%",
+         "damage_percentage": 8550,
+         "damage_percentage_growth": 780,
+         "stun_ratio": 7780,
+         "stun_ratio_growth": 360,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 203775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5918,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7402
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：<ruby=ふっとうようろ>沸騰溶炉</ruby>",
+     "param": [
+      {
+       "name": "打撃ダメージ倍率",
+       "desc": "{Skill:1101104, Prop:1001}",
+       "param": {
+        "1101104": {
+         "main": 15230,
+         "growth": 1390,
+         "format": "%",
+         "damage_percentage": 15230,
+         "damage_percentage_growth": 1390,
+         "stun_ratio": 15230,
+         "stun_ratio_growth": 700,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 398750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7248,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "起爆ダメージ倍率",
+       "desc": "{Skill:1101105, Prop:1001}",
+       "param": {
+        "1101105": {
+         "main": 60600,
+         "growth": 5510,
+         "format": "%",
+         "damage_percentage": 60600,
+         "damage_percentage_growth": 5510,
+         "stun_ratio": 49400,
+         "stun_ratio_growth": 2250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1709675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 47612,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "起爆ダメージ倍率(協力攻撃)",
+       "desc": "{Skill:1101106, Prop:1001}",
+       "param": {
+        "1101106": {
+         "main": 66660,
+         "growth": 6060,
+         "format": "%",
+         "damage_percentage": 66660,
+         "damage_percentage_growth": 6060,
+         "stun_ratio": 49400,
+         "stun_ratio_growth": 2250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1709675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 47612,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "打撃ブレイク倍率",
+       "desc": "{Skill:1101104, Prop:1002}",
+       "param": {
+        "1101104": {
+         "main": 15230,
+         "growth": 700,
+         "format": "%",
+         "damage_percentage": 15230,
+         "damage_percentage_growth": 1390,
+         "stun_ratio": 15230,
+         "stun_ratio_growth": 700,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 398750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7248,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "起爆ブレイク倍率",
+       "desc": "{Skill:1101105, Prop:1002}",
+       "param": {
+        "1101105": {
+         "main": 49400,
+         "growth": 2250,
+         "format": "%",
+         "damage_percentage": 60600,
+         "damage_percentage_growth": 5510,
+         "stun_ratio": 49400,
+         "stun_ratio_growth": 2250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1709675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 47612,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "起爆ブレイク倍率(協力攻撃)",
+       "desc": "{Skill:1101106, Prop:1002}",
+       "param": {
+        "1101106": {
+         "main": 49400,
+         "growth": 2250,
+         "format": "%",
+         "damage_percentage": 66660,
+         "damage_percentage_growth": 6060,
+         "stun_ratio": 49400,
+         "stun_ratio_growth": 2250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1709675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 47612,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "エネルギー消費",
+       "desc": "60Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "連携スキル：<ruby=てんほう>天崩</ruby>・<ruby=ちれつ>地裂</ruby>",
+     "desc": "<color=#FFFFFF>『連携スキル』</color>開始時に、対応するエージェントを選択して発動：\n前方広範囲に強力な爆発を起こし、<color=#FF5521>炎属性ダメージ</color>を大量に与える。その際、<color=#FFFFFF>「溶炉昇温」</color>効果を得る。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "終結スキル：地の底にぶちこんでやる！",
+     "desc": "デシベルレートが<color=#FFFFFF>『Maximum』</color>に達した時に <IconMap:Icon_UltimateReady> を押して発動：\n前方広範囲に強力な爆発を起こし、<color=#FF5521>炎属性ダメージ</color>を大量に与える。その際、<color=#FFFFFF>「溶炉昇温」</color>効果を得る。\nクレタとベンが同時に出撃している時は、お互いに息を合わせ、より威力の高い協力攻撃を発動できる。\nスキル発動中、無敵効果を得る。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "終結スキル：地の底にぶちこんでやる！",
+     "desc": "デシベルレートが<color=#FFFFFF>『Maximum』</color>に達した時に <IconMap:Icon_UltimateReady> を押して発動：\n前方広範囲に強力な爆発を起こし、<color=#FF5521>炎属性ダメージ</color>を大量に与える。その際、<color=#FFFFFF>「溶炉昇温」</color>効果を得る。\nクレタとベンが同時に出撃している時は、お互いに息を合わせ、より威力の高い協力攻撃を発動できる。\nスキル発動中、無敵効果を得るほか、 <IconMap:Icon_Normal> を長押しすると、<color=#FFFFFF>『ダッシュ攻撃：震えろ』</color>に繋げることが可能。",
+     "potential": [
+      110100,
+      110101,
+      110102,
+      110103,
+      110104,
+      110105
+     ]
+    },
+    {
+     "name": "連携スキル：<ruby=てんほう>天崩</ruby>・<ruby=ちれつ>地裂</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1101301, Prop:1001}",
+       "param": {
+        "1101301": {
+         "main": 63600,
+         "growth": 5790,
+         "format": "%",
+         "damage_percentage": 63600,
+         "damage_percentage_growth": 5790,
+         "stun_ratio": 21700,
+         "stun_ratio_growth": 990,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2397175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 40613,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1101301, Prop:1002}",
+       "param": {
+        "1101301": {
+         "main": 21700,
+         "growth": 990,
+         "format": "%",
+         "damage_percentage": 63600,
+         "damage_percentage_growth": 5790,
+         "stun_ratio": 21700,
+         "stun_ratio_growth": 990,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2397175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 40613,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "終結スキル：地の底にぶちこんでやる！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1101401, Prop:1001}",
+       "param": {
+        "1101401": {
+         "main": 154880,
+         "growth": 14080,
+         "format": "%",
+         "damage_percentage": 154880,
+         "damage_percentage_growth": 14080,
+         "stun_ratio": 100490,
+         "stun_ratio_growth": 4570,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 68004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ダメージ倍率(協力攻撃)",
+       "desc": "{Skill:1101402, Prop:1001}",
+       "param": {
+        "1101402": {
+         "main": 169400,
+         "growth": 15400,
+         "format": "%",
+         "damage_percentage": 169400,
+         "damage_percentage_growth": 15400,
+         "stun_ratio": 109650,
+         "stun_ratio_growth": 4990,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19066,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 67334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1101401, Prop:1002}",
+       "param": {
+        "1101401": {
+         "main": 100490,
+         "growth": 4570,
+         "format": "%",
+         "damage_percentage": 154880,
+         "damage_percentage_growth": 14080,
+         "stun_ratio": 100490,
+         "stun_ratio_growth": 4570,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 68004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率(協力攻撃)",
+       "desc": "{Skill:1101402, Prop:1002}",
+       "param": {
+        "1101402": {
+         "main": 109650,
+         "growth": 4990,
+         "format": "%",
+         "damage_percentage": 169400,
+         "damage_percentage_growth": 15400,
+         "stun_ratio": 109650,
+         "stun_ratio_growth": 4990,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19066,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 67334
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "クイック支援：あたしがやる！",
+     "desc": "操作しているメンバーが吹き飛ばされた時に、 <IconMap:Icon_Switch> を押して発動：\n前方の敵に打撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：<ruby=ごしんつい>護身槌</ruby>",
+     "desc": "出場中のメンバーが攻撃されそうになった時に、 <IconMap:Icon_Switch> を押して発動：\n敵の攻撃をパリィし、ブレイク値を大量に蓄積させる。\nパリィ性能はかなり高い。激しい攻撃を受けている際は、<color=#FFFFFF>「支援ポイント」</color>の消費量が減少する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援突撃：<ruby=かねうち>鐘打</ruby>",
+     "desc": "<color=#FFFFFF>『パリィ支援』</color>発動後、 <IconMap:Icon_Normal> を押して発動：\n前方の敵に突進打撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。その際、<color=#FFFFFF>「溶炉昇温」</color>効果を得る。\nスキル発動中、無敵効果を得る。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "支援突撃：<ruby=かねうち>鐘打</ruby>",
+     "desc": "<color=#FFFFFF>『パリィ支援』</color>発動後、 <IconMap:Icon_Normal> を押して発動：\n前方の敵に突進打撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。その際、<color=#FFFFFF>「溶炉昇温」</color>効果を得る。\nスキル発動中、無敵効果を得るほか、 <IconMap:Icon_Normal> を長押しすると、<color=#FFFFFF>『ダッシュ攻撃：震えろ』</color>に繋げることが可能。",
+     "potential": [
+      110100,
+      110101,
+      110102,
+      110103,
+      110104,
+      110105
+     ]
+    },
+    {
+     "name": "クイック支援：あたしがやる！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1101501, Prop:1001}",
+       "param": {
+        "1101501": {
+         "main": 18380,
+         "growth": 1680,
+         "format": "%",
+         "damage_percentage": 18380,
+         "damage_percentage_growth": 1680,
+         "stun_ratio": 18380,
+         "stun_ratio_growth": 840,
+         "sp_recovery": 62990,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 481250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17496,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8749
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1101501, Prop:1002}",
+       "param": {
+        "1101501": {
+         "main": 18380,
+         "growth": 840,
+         "format": "%",
+         "damage_percentage": 18380,
+         "damage_percentage_growth": 1680,
+         "stun_ratio": 18380,
+         "stun_ratio_growth": 840,
+         "sp_recovery": 62990,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 481250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17496,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8749
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：<ruby=ごしんつい>護身槌</ruby>",
+     "param": [
+      {
+       "name": "パリィ・軽 ブレイク倍率",
+       "desc": "{Skill:1101502, Prop:1002}",
+       "param": {
+        "1101502": {
+         "main": 25900,
+         "growth": 1180,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 25900,
+         "stun_ratio_growth": 1180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・重 ブレイク倍率",
+       "desc": "{Skill:1101503, Prop:1002}",
+       "param": {
+        "1101503": {
+         "main": 32730,
+         "growth": 1490,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 32730,
+         "stun_ratio_growth": 1490,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・連続 ブレイク倍率",
+       "desc": "{Skill:1101504, Prop:1002}",
+       "param": {
+        "1101504": {
+         "main": 15930,
+         "growth": 730,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 15930,
+         "stun_ratio_growth": 730,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：<ruby=かねうち>鐘打</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1101505, Prop:1001}",
+       "param": {
+        "1101505": {
+         "main": 35920,
+         "growth": 3270,
+         "format": "%",
+         "damage_percentage": 35920,
+         "damage_percentage_growth": 3270,
+         "stun_ratio": 31270,
+         "stun_ratio_growth": 1430,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1062600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 31992,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1101505, Prop:1002}",
+       "param": {
+        "1101505": {
+         "main": 31270,
+         "growth": 1430,
+         "format": "%",
+         "damage_percentage": 35920,
+         "damage_percentage_growth": 3270,
+         "stun_ratio": 31270,
+         "stun_ratio_growth": 1430,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1062600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 31992,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16497
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "ハンマリングリズム",
+   "desc": "<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を、<color=#FFFFFF>『通常攻撃』</color>2段目、4段目、または強化された<color=#FFFFFF>『通常攻撃』</color>の後に繋げると、スキルの与えるブレイク値+15%。",
+   "desc2": "気性の荒さはただの表面に過ぎない。実は、クレタはとても繊細な心の持ち主だ。\n例えば、いつハンマーを振れば、相手を一番痛く叩けるか、彼女はよく知っている。"
+  },
+  "2": {
+   "level": 2,
+   "name": "運動エネルギー回生",
+   "desc": "<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中した時、クレタはエネルギーを60Pt回復する、45秒に1回のみ発動可能。",
+   "desc2": "クレタにとって、ハンマーの攻撃には独特のリズムがある。\nタンバリンを叩くのと同じように、一撃ごとに力を蓄え、加速しながらパワフルな次の一撃に繋げていく。\nそれを何回繰り返せるかは、目の前にある「おもちゃ」の耐久力次第である。"
+  },
+  "3": {
+   "level": 3,
+   "name": "「あたしを怒らせるな」",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "クレタの攻撃が勢いに乗ってきた時、彼女の「おもちゃ」となる者は、\n大人しくハンマーで殴られておくのが賢明である。\n——たとえ反抗したところで、徒労に終わるか、\nもっとひどい目に遭うだけだからだ。"
+  },
+  "4": {
+   "level": 4,
+   "name": "溶炉の余熱",
+   "desc": "<color=#FFFFFF>「溶炉昇温」</color>を消費して強化された<color=#FFFFFF>『通常攻撃』</color>を発動した時、クレタはパワーを1重獲得する（最大2重）。<color=#FFFFFF>『連携スキル：天崩・地裂』</color>または<color=#FFFFFF>『終結スキル：地の底にぶちこんでやる！』</color>が敵に命中した時、すべてのパワーを消費し、パワー1重につき、その攻撃の与ダメージ+18%。",
+   "desc2": "焼けつくようなハンマーの一振りで周囲の温度を爆上げし、\nクレタは戦闘状態に入った。\n今の彼女はエーテル爆薬よりも燃えやすく、そして爆ぜやすい。"
+  },
+  "5": {
+   "level": 5,
+   "name": "「あたしを見くびるな！」",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "リーダーである自分の若さのせいで、白祇重工が外の人間にナメられるのではないか…とクレタは非常に気にしている。故にその若さを補うべく、彼女は常に人知れず、懸命なトレーニングに励んでいる。"
+  },
+  "6": {
+   "level": 6,
+   "name": "飽和爆発",
+   "desc": "<color=#FFFFFF>『強化特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>または<color=#FFFFFF>『終結スキル』</color>による爆発が敵に命中した時、クレタの攻撃力360%分のダメージを追加で与える。",
+   "desc2": "クレタの嫌いな人間は、2つのタイプに分けられる。\nバカと、救いようのないバカである。\n幸い、白祇重工には強烈なエーテル爆薬がいくらでもある。\n余った分は、これらのバカ共をわからせるのにもってこいだ。"
+  }
+ },
+ "passive": {
+  "level": {
+   "1101501": {
+    "level": 1,
+    "id": 1101501,
+    "name": [
+     "コアパッシブ：<ruby=ばくさいつい>爆砕槌</ruby>",
+     "追加能力：白祇式経営学"
+    ],
+    "desc": [
+     "クレタが<color=#FFFFFF>『強化特殊スキル』</color>、または<color=#FFFFFF>「溶炉昇温」</color>を消費し強化された<color=#FFFFFF>『通常攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>30%</color>。",
+     "チームに自身と同じ属性、同じ陣営、または<color=#FFFFFF>[命破]</color>のメンバーがいる時に発動：\nクレタの<color=#FFFFFF>『強化特殊スキル』</color>による爆発を敵に命中させると、ターゲットにデバフ効果を付与する。ターゲットがブレイク状態になった時、該当ターゲットに対して<color=#FFFFFF>『連携スキル』</color>の与ダメージ+35%、最大2重まで重ね掛け可能。ブレイク状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1101502": {
+    "level": 2,
+    "id": 1101502,
+    "name": [
+     "コアパッシブ：<ruby=ばくさいつい>爆砕槌</ruby>",
+     "追加能力：白祇式経営学"
+    ],
+    "desc": [
+     "クレタが<color=#FFFFFF>『強化特殊スキル』</color>、または<color=#FFFFFF>「溶炉昇温」</color>を消費し強化された<color=#FFFFFF>『通常攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>35%</color>。",
+     "チームに自身と同じ属性、同じ陣営、または<color=#FFFFFF>[命破]</color>のメンバーがいる時に発動：\nクレタの<color=#FFFFFF>『強化特殊スキル』</color>による爆発を敵に命中させると、ターゲットにデバフ効果を付与する。ターゲットがブレイク状態になった時、該当ターゲットに対して<color=#FFFFFF>『連携スキル』</color>の与ダメージ+35%、最大2重まで重ね掛け可能。ブレイク状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1101503": {
+    "level": 3,
+    "id": 1101503,
+    "name": [
+     "コアパッシブ：<ruby=ばくさいつい>爆砕槌</ruby>",
+     "追加能力：白祇式経営学"
+    ],
+    "desc": [
+     "クレタが<color=#FFFFFF>『強化特殊スキル』</color>、または<color=#FFFFFF>「溶炉昇温」</color>を消費し強化された<color=#FFFFFF>『通常攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>40%</color>。",
+     "チームに自身と同じ属性、同じ陣営、または<color=#FFFFFF>[命破]</color>のメンバーがいる時に発動：\nクレタの<color=#FFFFFF>『強化特殊スキル』</color>による爆発を敵に命中させると、ターゲットにデバフ効果を付与する。ターゲットがブレイク状態になった時、該当ターゲットに対して<color=#FFFFFF>『連携スキル』</color>の与ダメージ+35%、最大2重まで重ね掛け可能。ブレイク状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1101504": {
+    "level": 4,
+    "id": 1101504,
+    "name": [
+     "コアパッシブ：<ruby=ばくさいつい>爆砕槌</ruby>",
+     "追加能力：白祇式経営学"
+    ],
+    "desc": [
+     "クレタが<color=#FFFFFF>『強化特殊スキル』</color>、または<color=#FFFFFF>「溶炉昇温」</color>を消費し強化された<color=#FFFFFF>『通常攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>45%</color>。",
+     "チームに自身と同じ属性、同じ陣営、または<color=#FFFFFF>[命破]</color>のメンバーがいる時に発動：\nクレタの<color=#FFFFFF>『強化特殊スキル』</color>による爆発を敵に命中させると、ターゲットにデバフ効果を付与する。ターゲットがブレイク状態になった時、該当ターゲットに対して<color=#FFFFFF>『連携スキル』</color>の与ダメージ+35%、最大2重まで重ね掛け可能。ブレイク状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1101505": {
+    "level": 5,
+    "id": 1101505,
+    "name": [
+     "コアパッシブ：<ruby=ばくさいつい>爆砕槌</ruby>",
+     "追加能力：白祇式経営学"
+    ],
+    "desc": [
+     "クレタが<color=#FFFFFF>『強化特殊スキル』</color>、または<color=#FFFFFF>「溶炉昇温」</color>を消費し強化された<color=#FFFFFF>『通常攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>50%</color>。",
+     "チームに自身と同じ属性、同じ陣営、または<color=#FFFFFF>[命破]</color>のメンバーがいる時に発動：\nクレタの<color=#FFFFFF>『強化特殊スキル』</color>による爆発を敵に命中させると、ターゲットにデバフ効果を付与する。ターゲットがブレイク状態になった時、該当ターゲットに対して<color=#FFFFFF>『連携スキル』</color>の与ダメージ+35%、最大2重まで重ね掛け可能。ブレイク状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1101506": {
+    "level": 6,
+    "id": 1101506,
+    "name": [
+     "コアパッシブ：<ruby=ばくさいつい>爆砕槌</ruby>",
+     "追加能力：白祇式経営学"
+    ],
+    "desc": [
+     "クレタが<color=#FFFFFF>『強化特殊スキル』</color>、または<color=#FFFFFF>「溶炉昇温」</color>を消費し強化された<color=#FFFFFF>『通常攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>55%</color>。",
+     "チームに自身と同じ属性、同じ陣営、または<color=#FFFFFF>[命破]</color>のメンバーがいる時に発動：\nクレタの<color=#FFFFFF>『強化特殊スキル』</color>による爆発を敵に命中させると、ターゲットにデバフ効果を付与する。ターゲットがブレイク状態になった時、該当ターゲットに対して<color=#FFFFFF>『連携スキル』</color>の与ダメージ+35%、最大2重まで重ね掛け可能。ブレイク状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1101507": {
+    "level": 7,
+    "id": 1101507,
+    "name": [
+     "コアパッシブ：<ruby=ばくさいつい>爆砕槌</ruby>",
+     "追加能力：白祇式経営学"
+    ],
+    "desc": [
+     "クレタが<color=#FFFFFF>『強化特殊スキル』</color>、または<color=#FFFFFF>「溶炉昇温」</color>を消費し強化された<color=#FFFFFF>『通常攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>60%</color>。",
+     "チームに自身と同じ属性、同じ陣営、または<color=#FFFFFF>[命破]</color>のメンバーがいる時に発動：\nクレタの<color=#FFFFFF>『強化特殊スキル』</color>による爆発を敵に命中させると、ターゲットにデバフ効果を付与する。ターゲットがブレイク状態になった時、該当ターゲットに対して<color=#FFFFFF>『連携スキル』</color>の与ダメージ+35%、最大2重まで重ね掛け可能。ブレイク状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1101508": {
+    "level": 1,
+    "id": 1101508,
+    "name": [
+     "コアパッシブ：<ruby=ばくさいつい>爆砕槌</ruby>",
+     "追加能力：白祇式経営学"
+    ],
+    "desc": [
+     "クレタが<color=#FFFFFF>『強化特殊スキル』</color>、または<color=#FFFFFF>「溶炉昇温」</color>を消費し強化された<color=#FFFFFF>『通常攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>30%</color>。",
+     "チームに自身と同じ属性、同じ陣営、<color=#FFFFFF>[命破]</color>または<color=#FFFFFF>[鋭御]</color>のメンバーがいる時に発動：\nクレタの<color=#FFFFFF>『強化特殊スキル』</color>による爆発を敵に命中させると、ターゲットにデバフ効果を付与する。ターゲットがブレイク状態になった時、該当ターゲットに対して<color=#FFFFFF>『連携スキル』</color>の与ダメージ+35%、最大2重まで重ね掛け可能。ブレイク状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     110100,
+     110101,
+     110102,
+     110103,
+     110104,
+     110105
+    ]
+   },
+   "1101509": {
+    "level": 2,
+    "id": 1101509,
+    "name": [
+     "コアパッシブ：<ruby=ばくさいつい>爆砕槌</ruby>",
+     "追加能力：白祇式経営学"
+    ],
+    "desc": [
+     "クレタが<color=#FFFFFF>『強化特殊スキル』</color>、または<color=#FFFFFF>「溶炉昇温」</color>を消費し強化された<color=#FFFFFF>『通常攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>35%</color>。",
+     "チームに自身と同じ属性、同じ陣営、<color=#FFFFFF>[命破]</color>または<color=#FFFFFF>[鋭御]</color>のメンバーがいる時に発動：\nクレタの<color=#FFFFFF>『強化特殊スキル』</color>による爆発を敵に命中させると、ターゲットにデバフ効果を付与する。ターゲットがブレイク状態になった時、該当ターゲットに対して<color=#FFFFFF>『連携スキル』</color>の与ダメージ+35%、最大2重まで重ね掛け可能。ブレイク状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     110100,
+     110101,
+     110102,
+     110103,
+     110104,
+     110105
+    ]
+   },
+   "1101510": {
+    "level": 3,
+    "id": 1101510,
+    "name": [
+     "コアパッシブ：<ruby=ばくさいつい>爆砕槌</ruby>",
+     "追加能力：白祇式経営学"
+    ],
+    "desc": [
+     "クレタが<color=#FFFFFF>『強化特殊スキル』</color>、または<color=#FFFFFF>「溶炉昇温」</color>を消費し強化された<color=#FFFFFF>『通常攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>40%</color>。",
+     "チームに自身と同じ属性、同じ陣営、<color=#FFFFFF>[命破]</color>または<color=#FFFFFF>[鋭御]</color>のメンバーがいる時に発動：\nクレタの<color=#FFFFFF>『強化特殊スキル』</color>による爆発を敵に命中させると、ターゲットにデバフ効果を付与する。ターゲットがブレイク状態になった時、該当ターゲットに対して<color=#FFFFFF>『連携スキル』</color>の与ダメージ+35%、最大2重まで重ね掛け可能。ブレイク状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     110100,
+     110101,
+     110102,
+     110103,
+     110104,
+     110105
+    ]
+   },
+   "1101511": {
+    "level": 4,
+    "id": 1101511,
+    "name": [
+     "コアパッシブ：<ruby=ばくさいつい>爆砕槌</ruby>",
+     "追加能力：白祇式経営学"
+    ],
+    "desc": [
+     "クレタが<color=#FFFFFF>『強化特殊スキル』</color>、または<color=#FFFFFF>「溶炉昇温」</color>を消費し強化された<color=#FFFFFF>『通常攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>45%</color>。",
+     "チームに自身と同じ属性、同じ陣営、<color=#FFFFFF>[命破]</color>または<color=#FFFFFF>[鋭御]</color>のメンバーがいる時に発動：\nクレタの<color=#FFFFFF>『強化特殊スキル』</color>による爆発を敵に命中させると、ターゲットにデバフ効果を付与する。ターゲットがブレイク状態になった時、該当ターゲットに対して<color=#FFFFFF>『連携スキル』</color>の与ダメージ+35%、最大2重まで重ね掛け可能。ブレイク状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     110100,
+     110101,
+     110102,
+     110103,
+     110104,
+     110105
+    ]
+   },
+   "1101512": {
+    "level": 5,
+    "id": 1101512,
+    "name": [
+     "コアパッシブ：<ruby=ばくさいつい>爆砕槌</ruby>",
+     "追加能力：白祇式経営学"
+    ],
+    "desc": [
+     "クレタが<color=#FFFFFF>『強化特殊スキル』</color>、または<color=#FFFFFF>「溶炉昇温」</color>を消費し強化された<color=#FFFFFF>『通常攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>50%</color>。",
+     "チームに自身と同じ属性、同じ陣営、<color=#FFFFFF>[命破]</color>または<color=#FFFFFF>[鋭御]</color>のメンバーがいる時に発動：\nクレタの<color=#FFFFFF>『強化特殊スキル』</color>による爆発を敵に命中させると、ターゲットにデバフ効果を付与する。ターゲットがブレイク状態になった時、該当ターゲットに対して<color=#FFFFFF>『連携スキル』</color>の与ダメージ+35%、最大2重まで重ね掛け可能。ブレイク状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     110100,
+     110101,
+     110102,
+     110103,
+     110104,
+     110105
+    ]
+   },
+   "1101513": {
+    "level": 6,
+    "id": 1101513,
+    "name": [
+     "コアパッシブ：<ruby=ばくさいつい>爆砕槌</ruby>",
+     "追加能力：白祇式経営学"
+    ],
+    "desc": [
+     "クレタが<color=#FFFFFF>『強化特殊スキル』</color>、または<color=#FFFFFF>「溶炉昇温」</color>を消費し強化された<color=#FFFFFF>『通常攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>55%</color>。",
+     "チームに自身と同じ属性、同じ陣営、<color=#FFFFFF>[命破]</color>または<color=#FFFFFF>[鋭御]</color>のメンバーがいる時に発動：\nクレタの<color=#FFFFFF>『強化特殊スキル』</color>による爆発を敵に命中させると、ターゲットにデバフ効果を付与する。ターゲットがブレイク状態になった時、該当ターゲットに対して<color=#FFFFFF>『連携スキル』</color>の与ダメージ+35%、最大2重まで重ね掛け可能。ブレイク状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     110100,
+     110101,
+     110102,
+     110103,
+     110104,
+     110105
+    ]
+   },
+   "1101514": {
+    "level": 7,
+    "id": 1101514,
+    "name": [
+     "コアパッシブ：<ruby=ばくさいつい>爆砕槌</ruby>",
+     "追加能力：白祇式経営学"
+    ],
+    "desc": [
+     "クレタが<color=#FFFFFF>『強化特殊スキル』</color>、または<color=#FFFFFF>「溶炉昇温」</color>を消費し強化された<color=#FFFFFF>『通常攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>60%</color>。",
+     "チームに自身と同じ属性、同じ陣営、<color=#FFFFFF>[命破]</color>または<color=#FFFFFF>[鋭御]</color>のメンバーがいる時に発動：\nクレタの<color=#FFFFFF>『強化特殊スキル』</color>による爆発を敵に命中させると、ターゲットにデバフ効果を付与する。ターゲットがブレイク状態になった時、該当ターゲットに対して<color=#FFFFFF>『連携スキル』</color>の与ダメージ+35%、最大2重まで重ね掛け可能。ブレイク状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     110100,
+     110101,
+     110102,
+     110103,
+     110104,
+     110105
+    ]
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110504": 2
+   },
+   "3": {
+    "10": 28000,
+    "110504": 4
+   },
+   "4": {
+    "10": 60000,
+    "110002": 2,
+    "110504": 9
+   },
+   "5": {
+    "10": 100000,
+    "110002": 3,
+    "110504": 15
+   },
+   "6": {
+    "10": 200000,
+    "110002": 4,
+    "110504": 30
+   }
+  }
+ },
+ "skin": {
+  "3111010": {
+   "name": "クレタ・「無垢の鉄槌」",
+   "desc": "双槌を振るう赤い姿、力強い一撃は時間さえも砕いてしまう。\nしかし君はこんなにも若く、まだ人生の登り坂にいるんだ。\n焦って大人になる必要はない。いずれ君は、なりたい自分になれるのだから。",
+   "obtain_desc": "",
+   "image": "IconRole14"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1101001": {
+   "name": "通常攻撃：打ち砕いて、ぶちのめす",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1101002": {
+   "name": "特殊スキル：爆破！ハンマータイム",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1101003": {
+   "name": "特殊スキル：爆破！ハンマータイム（クイック起爆）",
+   "desc": "<IconMap:Icon_Special>（通常攻撃のコンボ中に）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1101004": {
+   "name": "強化特殊スキル：沸騰溶炉",
+   "desc": "<IconMap:Icon_SpecialReady>（エネルギー消費）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1101005": {
+   "name": "強化特殊スキル：沸騰溶炉（クイック起爆）",
+   "desc": "<IconMap:Icon_SpecialReady>（通常攻撃のコンボ中に）（エネルギー消費）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1101006": {
+   "name": "ダッシュ攻撃：震えろ",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1101007": {
+   "name": "回避反撃：見くびるな！",
+   "desc": "<IconMap:Icon_Evade>（極限回避成功） ; <IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1101008": {
+   "name": "連携スキル：天崩・地裂",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1101009": {
+   "name": "終結スキル：地の底にぶちこんでやる！",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1101010": {
+   "name": "クイック支援：あたしがやる！",
+   "desc": "<IconMap:Icon_Switch>（クイック支援の発動条件を満たした時）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1101011": {
+   "name": "パリィ支援：護身槌",
+   "desc": "<IconMap:Icon_Switch>（パリィ支援の発動条件を満たした時）",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1101012": {
+   "name": "支援突撃：鐘打",
+   "desc": "<IconMap:Icon_Normal>（パリィ支援を発動した後に）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1101001,
+   "avatar_id": 1101,
+   "first_priority": [
+    5,
+    1,
+    0
+   ],
+   "second_priority": [
+    3
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33200,
+  "slot2": 31200,
+  "slot_sub": 31000,
+  "part_sub_list": [
+   20103,
+   12102,
+   21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31200,
+     31600
+    ],
+    "part_sub_list": [
+     20103
+    ]
+   },
+   {
+    "suit_list": [
+     33200,
+     31200
+    ],
+    "part_sub_list": [
+     31603,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12202
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "会心率",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 31603,
+   "name": "炎属性ダメージボーナス",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconFire.png"
+  },
+  "part6": {
+   "prop": 12202,
+   "name": "衝撃力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconBreakStun.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "攻撃力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "07",
+  "<IconMap:Icon_GeneralBuff_Fire>炎属性、撃破サポーター",
+  "素早くブレイク値を蓄積可能",
+  "ベンと協力攻撃で火力アップ"
+ ],
+ "potential": [
+  110100,
+  110101,
+  110102,
+  110103,
+  110104,
+  110105
+ ],
+ "potential_detail": {
+  "110100": {
+   "id": 110100,
+   "name": "",
+   "desc": "",
+   "image": "Koleda",
+   "level_show_name": "施工開始！ I",
+   "level": 1,
+   "ability_list": [
+    11101401
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20110,
+     "number": 1
+    }
+   ]
+  },
+  "110101": {
+   "id": 110101,
+   "name": "ポテンシャル覚醒：発破作業",
+   "desc": "チーム内の[鋭御]メンバーの暴傷ダメージ+<color=#2BAD00>4%</color>、[鋭御]以外のメンバーの会心ダメージ+<color=#2BAD00>11%</color>。",
+   "image": "Koleda",
+   "level_show_name": "施工開始！ II",
+   "level": 2,
+   "ability_list": [
+    11101401,
+    11101501
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20110,
+     "number": 1
+    }
+   ]
+  },
+  "110102": {
+   "id": 110102,
+   "name": "ポテンシャル覚醒：発破作業",
+   "desc": "チーム内の[鋭御]メンバーの暴傷ダメージ+<color=#2BAD00>6%</color>、[鋭御]以外のメンバーの会心ダメージ+<color=#2BAD00>17%</color>。",
+   "image": "Koleda",
+   "level_show_name": "施工開始！ III",
+   "level": 3,
+   "ability_list": [
+    11101401,
+    11101502
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20110,
+     "number": 1
+    }
+   ]
+  },
+  "110103": {
+   "id": 110103,
+   "name": "ポテンシャル覚醒：発破作業",
+   "desc": "チーム内の[鋭御]メンバーの暴傷ダメージ+<color=#2BAD00>8%</color>、[鋭御]以外のメンバーの会心ダメージ+<color=#2BAD00>23%</color>。",
+   "image": "Koleda",
+   "level_show_name": "施工開始！ IV",
+   "level": 4,
+   "ability_list": [
+    11101401,
+    11101503
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20110,
+     "number": 1
+    }
+   ]
+  },
+  "110104": {
+   "id": 110104,
+   "name": "ポテンシャル覚醒：発破作業",
+   "desc": "チーム内の[鋭御]メンバーの暴傷ダメージ+<color=#2BAD00>10%</color>、[鋭御]以外のメンバーの会心ダメージ+<color=#2BAD00>29%</color>。",
+   "image": "Koleda",
+   "level_show_name": "施工開始！ V",
+   "level": 5,
+   "ability_list": [
+    11101401,
+    11101504
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20110,
+     "number": 1
+    }
+   ]
+  },
+  "110105": {
+   "id": 110105,
+   "name": "ポテンシャル覚醒：発破作業",
+   "desc": "チーム内の[鋭御]メンバーの暴傷ダメージ+<color=#2BAD00>12%</color>、[鋭御]以外のメンバーの会心ダメージ+<color=#2BAD00>35%</color>。",
+   "image": "Koleda",
+   "level_show_name": "施工開始！ VI",
+   "level": 6,
+   "ability_list": [
+    11101401,
+    11101505
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20110,
+     "number": 1
+    }
+   ]
+  }
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100212": 4
+   }
+  },
+  "2": {
+   "hp_max": 448,
+   "attack": 38,
+   "defence": 33,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100222": 12
+   }
+  },
+  "3": {
+   "hp_max": 897,
+   "attack": 76,
+   "defence": 66,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100222": 20
+   }
+  },
+  "4": {
+   "hp_max": 1345,
+   "attack": 113,
+   "defence": 98,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100232": 10
+   }
+  },
+  "5": {
+   "hp_max": 1794,
+   "attack": 151,
+   "defence": 131,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100232": 20
+   }
+  },
+  "6": {
+   "hp_max": 2242,
+   "attack": 189,
+   "defence": 164,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 6
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 6
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 18
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 18
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": ""
+}

@@ -1,0 +1,2097 @@
+{
+ "id": 1061,
+ "icon": "IconRole09",
+ "name": "코린",
+ "code_name": "Corin",
+ "rarity": 3,
+ "weapon_type": {
+  "1": "Attack"
+ },
+ "element_type": {
+  "200": "Physical"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "2": "빅토리아 하우스키핑"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "6/2",
+  "full_name": "코린 위크스",
+  "gender": "여성",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle09.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0009.png",
+  "impression_f": "코린은 뛰어난 능력을 가진 데에 비해, 자신감이 부족해서 항상 주변의 허락을 구하는 것 같아…\n코린에게 내 자신감의 절반을 나눠주고 싶다~",
+  "impression_m": "어떤 사람들은 타고나길 내성적이고 예민한 성격을 지니고 있어. 다행히도 코린의 동료들은 코린의 능력을 전적으로 신뢰하고 있지.\n벨, 기회가 될 때마다 더 많이 격려해줘",
+  "impressions": [
+   "코린에 대한 인상:\n· 코린은 자신감이 부족한 건가? 무슨 일을 하든 허둥지둥 대는 것 같다…",
+   " · 충분한 격려를 받은 코린은 강력한 힘을 발휘할 수 있다. 물론, 충분한 놀라움도 효과가 있다…",
+   " · 코린이 용기를 내서 의뢰를 완수하는 모습은 정말 귀엽다!"
+  ],
+  "profile_desc": "코린은 빅토리아 하우스키핑의 메이드 중 한 명이다.\n매우 순종적이면서도 극도로 자신감이 부족해 미움을 사게 될까 두려워한다. 언제나 초조해 보이고 급할 때는 말을 더듬기도 한다.\n어떤 상황에서든 코린은 사과하는 말을 입에 달고 다닌다.\n「정말 죄송해요! 저 같은 사람은… 역시 안 되는 거겠죠…」\n\n하지만 실제로 코린은 임무를 잘 수행해 빅토리아 하우스키핑 내에서 매우 신뢰할 수 있고 믿음직한 멤버 중 한 명이다.\n하지만 임무를 완벽하게 수행해도 코린은 자신의 능력에 대해 의심하며, 항상 동료들의 짐이 될까 걱정한다. 그녀의 이런 성격은 리카온에게도 고민거리를 주고 있다.\n\n생각: 코린의 이런 성격은 타고난 걸까요 아니면 환경에 의해 형성된 걸까요?",
+  "role_icon": "IconRole/UnPacker/IconRole09",
+  "stature": "141",
+  "unlock_condition": [
+   "에이전트 획득",
+   "메인 스토리 의뢰 제3장 완료",
+   "「엔비의 고민」 의뢰 완료"
+  ],
+  "trust_lv": {
+   "1": "코린은 빅토리아 하우스키핑의 메이드 중 한 명이다.\n매우 순종적이면서도 극도로 자신감이 부족해 미움을 사게 될까 두려워한다. 언제나 초조해 보이고 급할 때는 말을 더듬기도 한다.\n어떤 상황에서든 코린은 사과하는 말을 입에 달고 다닌다.\n「정말 죄송해요! 저 같은 사람은… 역시 안 되는 거겠죠…」\n\n하지만 실제로 코린은 임무를 잘 수행해 빅토리아 하우스키핑 내에서 매우 신뢰할 수 있고 믿음직한 멤버 중 한 명이다.\n하지만 임무를 완벽하게 수행해도 코린은 자신의 능력에 대해 의심하며, 항상 동료들의 짐이 될까 걱정한다. 그녀의 이런 성격은 리카온에게도 고민거리를 주고 있다.\n\n생각: 코린의 이런 성격은 타고난 걸까요 아니면 환경에 의해 형성된 걸까요?",
+   "2": "",
+   "3": "코린의 공중 보건 기록에 따르면 빅토리아 하우스키핑에 합류하기 전에 생명을 위협하는 질병을 앓았고 중대한 수술을 받고나서야 건강을 회복했다.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 116,
+  "attack_growth": 69346,
+  "avatar_piece_id": 5061,
+  "break_stun": 93,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 65864,
+  "element_abnormal_power": 93,
+  "element_mystery": 96,
+  "endurance": 0,
+  "hp_growth": 761177,
+  "hp_max": 561,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Corin",
+   "Cut",
+   "Physics",
+   "Female",
+   "Camp2",
+   "Size1",
+   "AidTypeParry",
+   "Corin",
+   "EtherEyesSize1"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "일반 공격: 청소 시작",
+     "desc": "<IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 향해 최대 5단까지 베기를 펼쳐 <color=#F0D12B>물리 피해</color>를 준다.\n세 번째, 다섯 번째 공격에서 연타 혹은 홀드 시 전기톱으로 적을 지속해서 벨 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 청소 시작",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1061001, Prop:1001}",
+       "param": {
+        "1061001": {
+         "main": 8200,
+         "growth": 750,
+         "format": "%",
+         "damage_percentage": 8200,
+         "damage_percentage_growth": 750,
+         "stun_ratio": 4100,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 14760,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 112750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4099,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4100
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1061002, Prop:1001}",
+       "param": {
+        "1061002": {
+         "main": 7660,
+         "growth": 700,
+         "format": "%",
+         "damage_percentage": 7660,
+         "damage_percentage_growth": 700,
+         "stun_ratio": 7020,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 25260,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 193050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7016,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7017
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1061003, Prop:1001}",
+       "param": {
+        "1061003": {
+         "main": 17920,
+         "growth": 1630,
+         "format": "%",
+         "damage_percentage": 17920,
+         "damage_percentage_growth": 1630,
+         "stun_ratio": 12380,
+         "stun_ratio_growth": 570,
+         "sp_recovery": 44560,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 340450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12376,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12377
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 피해 배율",
+       "desc": "{Skill:1061004, Prop:1001}",
+       "param": {
+        "1061004": {
+         "main": 23340,
+         "growth": 2130,
+         "format": "%",
+         "damage_percentage": 23340,
+         "damage_percentage_growth": 2130,
+         "stun_ratio": 18640,
+         "stun_ratio_growth": 850,
+         "sp_recovery": 67090,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 512600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18633,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18634
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5단 피해 배율",
+       "desc": "{Skill:1061006, Prop:1001}",
+       "param": {
+        "1061006": {
+         "main": 42120,
+         "growth": 3830,
+         "format": "%",
+         "damage_percentage": 42120,
+         "damage_percentage_growth": 3830,
+         "stun_ratio": 34200,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 123100,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 940500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 34194,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 34195
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1061001, Prop:1002}",
+       "param": {
+        "1061001": {
+         "main": 4100,
+         "growth": 190,
+         "format": "%",
+         "damage_percentage": 8200,
+         "damage_percentage_growth": 750,
+         "stun_ratio": 4100,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 14760,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 112750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4099,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4100
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1061002, Prop:1002}",
+       "param": {
+        "1061002": {
+         "main": 7020,
+         "growth": 320,
+         "format": "%",
+         "damage_percentage": 7660,
+         "damage_percentage_growth": 700,
+         "stun_ratio": 7020,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 25260,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 193050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7016,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7017
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1061003, Prop:1002}",
+       "param": {
+        "1061003": {
+         "main": 12380,
+         "growth": 570,
+         "format": "%",
+         "damage_percentage": 17920,
+         "damage_percentage_growth": 1630,
+         "stun_ratio": 12380,
+         "stun_ratio_growth": 570,
+         "sp_recovery": 44560,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 340450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12376,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12377
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 그로기 배율",
+       "desc": "{Skill:1061004, Prop:1002}",
+       "param": {
+        "1061004": {
+         "main": 18640,
+         "growth": 850,
+         "format": "%",
+         "damage_percentage": 23340,
+         "damage_percentage_growth": 2130,
+         "stun_ratio": 18640,
+         "stun_ratio_growth": 850,
+         "sp_recovery": 67090,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 512600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18633,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18634
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5단 그로기 배율",
+       "desc": "{Skill:1061006, Prop:1002}",
+       "param": {
+        "1061006": {
+         "main": 34200,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 42120,
+         "damage_percentage_growth": 3830,
+         "stun_ratio": 34200,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 123100,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 940500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 34194,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 34195
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "회피: [벗어나기]",
+     "desc": "<IconMap:Icon_Evade>을 짧게 탭하여 시전:\n빠른 대시로 회피한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: [끊기]",
+     "desc": "회피 시 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 베어 <color=#F0D12B>물리 피해</color>를 준다.\n연타 혹은 홀드 시 전기톱으로 적을 지속해서 벨 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: [버리기]",
+     "desc": "<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적을 벤 후 전기톱을 기폭시켜 <color=#F0D12B>물리 피해</color>를 준다.\n연타 혹은 홀드 시 전기톱으로 적을 지속해서 벨 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: [끊기]",
+     "param": [
+      {
+       "name": "최대 피해 배율",
+       "desc": "{Skill:1061014, Prop:1001}",
+       "param": {
+        "1061014": {
+         "main": 9670,
+         "growth": 880,
+         "format": "%",
+         "damage_percentage": 9670,
+         "damage_percentage_growth": 880,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 17410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 133100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4834,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4835
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "최대 그로기 배율",
+       "desc": "{Skill:1061014, Prop:1002}",
+       "param": {
+        "1061014": {
+         "main": 4840,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 9670,
+         "damage_percentage_growth": 880,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 17410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 133100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4834,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4835
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: [버리기]",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{{Skill:1061015, Prop:1001} + {Skill:1061016, Prop:1001}}",
+       "param": {
+        "1061015": {
+         "main": 13560,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 13560,
+         "damage_percentage_growth": 1240,
+         "stun_ratio": 6590,
+         "stun_ratio_growth": 300,
+         "sp_recovery": 23700,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 181225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6581,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14082
+        },
+        "1061016": {
+         "main": 13560,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 13560,
+         "damage_percentage_growth": 1240,
+         "stun_ratio": 6590,
+         "stun_ratio_growth": 300,
+         "sp_recovery": 23700,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 181225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6581,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14082
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{{Skill:1061015, Prop:1002} + {Skill:1061016, Prop:1002}}",
+       "param": {
+        "1061015": {
+         "main": 6590,
+         "growth": 300,
+         "format": "%",
+         "damage_percentage": 13560,
+         "damage_percentage_growth": 1240,
+         "stun_ratio": 6590,
+         "stun_ratio_growth": 300,
+         "sp_recovery": 23700,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 181225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6581,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14082
+        },
+        "1061016": {
+         "main": 6590,
+         "growth": 300,
+         "format": "%",
+         "damage_percentage": 13560,
+         "damage_percentage_growth": 1240,
+         "stun_ratio": 6590,
+         "stun_ratio_growth": 300,
+         "sp_recovery": 23700,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 181225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6581,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14082
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "특수 스킬: 초강력 청소",
+     "desc": "<IconMap:Icon_Special>을 짧게 탭하여 시전:\n전방을 지속해서 벤 후 전기톱을 기폭시켜 <color=#F0D12B>물리 피해</color>를 준다.\n연타 혹은 홀드 시 전기톱으로 적을 지속해서 벨 수 있다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가하고, 받는 피해가 40% 감소한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 치맛자락 조심하세요",
+     "desc": "에너지가 충분한 상태에서 <IconMap:Icon_SpecialReady>을 짧게 탭하여 시전:\n전방을 강력하게 지속적으로 벤 후 전기톱을 기폭시켜 대량의 <color=#F0D12B>물리 피해</color>를 준다.\n연타 혹은 홀드 시 전기톱으로 적을 지속해서 벨 수 있으며 스킬이 타깃에게 명중함에 따라 에너지를 점차 소모한다.\n회전 베기를 하는 동안 무적 효과를 보유한다.\n지속 베기를 하는 동안 경직 저항 레벨이 증가하고, 받는 피해가 40% 감소한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 초강력 청소",
+     "param": [
+      {
+       "name": "회전 베기 피해 배율",
+       "desc": "{Skill:1061008, Prop:1001}",
+       "param": {
+        "1061008": {
+         "main": 6670,
+         "growth": 610,
+         "format": "%",
+         "damage_percentage": 6670,
+         "damage_percentage_growth": 610,
+         "stun_ratio": 6670,
+         "stun_ratio_growth": 310,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 183425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6668,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6669
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "지속 베기 최대 피해 배율",
+       "desc": "{Skill:1061009, Prop:1001}",
+       "param": {
+        "1061009": {
+         "main": 3750,
+         "growth": 350,
+         "format": "%",
+         "damage_percentage": 3750,
+         "damage_percentage_growth": 350,
+         "stun_ratio": 3750,
+         "stun_ratio_growth": 180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 103125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3750,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3750
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "폭발 피해 배율",
+       "desc": "{Skill:1061010, Prop:1001}",
+       "param": {
+        "1061010": {
+         "main": 2500,
+         "growth": 230,
+         "format": "%",
+         "damage_percentage": 2500,
+         "damage_percentage_growth": 230,
+         "stun_ratio": 2500,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 68750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2499,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "회전 베기 그로기 배율",
+       "desc": "{Skill:1061008, Prop:1002}",
+       "param": {
+        "1061008": {
+         "main": 6670,
+         "growth": 310,
+         "format": "%",
+         "damage_percentage": 6670,
+         "damage_percentage_growth": 610,
+         "stun_ratio": 6670,
+         "stun_ratio_growth": 310,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 183425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6668,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6669
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "지속 베기 최대 그로기 배율",
+       "desc": "{Skill:1061009, Prop:1002}",
+       "param": {
+        "1061009": {
+         "main": 3750,
+         "growth": 180,
+         "format": "%",
+         "damage_percentage": 3750,
+         "damage_percentage_growth": 350,
+         "stun_ratio": 3750,
+         "stun_ratio_growth": 180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 103125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3750,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3750
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "폭발 그로기 배율",
+       "desc": "{Skill:1061010, Prop:1002}",
+       "param": {
+        "1061010": {
+         "main": 2500,
+         "growth": 120,
+         "format": "%",
+         "damage_percentage": 2500,
+         "damage_percentage_growth": 230,
+         "stun_ratio": 2500,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 68750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2499,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2500
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 치맛자락 조심하세요",
+     "param": [
+      {
+       "name": "회전 베기 피해 배율",
+       "desc": "{Skill:1061011, Prop:1001}",
+       "param": {
+        "1061011": {
+         "main": 34510,
+         "growth": 3140,
+         "format": "%",
+         "damage_percentage": 34510,
+         "damage_percentage_growth": 3140,
+         "stun_ratio": 20640,
+         "stun_ratio_growth": 940,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 689425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9301
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "지속 베기 최대 피해 배율",
+       "desc": "{Skill:1061012, Prop:1001}",
+       "param": {
+        "1061012": {
+         "main": 103520,
+         "growth": 9420,
+         "format": "%",
+         "damage_percentage": 103520,
+         "damage_percentage_growth": 9420,
+         "stun_ratio": 61900,
+         "stun_ratio_growth": 2820,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2067725,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 61001,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 27903
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "폭발 피해 배율",
+       "desc": "{Skill:1061013, Prop:1001}",
+       "param": {
+        "1061013": {
+         "main": 34510,
+         "growth": 3140,
+         "format": "%",
+         "damage_percentage": 34510,
+         "damage_percentage_growth": 3140,
+         "stun_ratio": 20640,
+         "stun_ratio_growth": 940,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 689425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9301
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "회전 베기 그로기 배율",
+       "desc": "{Skill:1061011, Prop:1002}",
+       "param": {
+        "1061011": {
+         "main": 20640,
+         "growth": 940,
+         "format": "%",
+         "damage_percentage": 34510,
+         "damage_percentage_growth": 3140,
+         "stun_ratio": 20640,
+         "stun_ratio_growth": 940,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 689425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9301
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "지속 베기 최대 그로기 배율",
+       "desc": "{Skill:1061012, Prop:1002}",
+       "param": {
+        "1061012": {
+         "main": 61900,
+         "growth": 2820,
+         "format": "%",
+         "damage_percentage": 103520,
+         "damage_percentage_growth": 9420,
+         "stun_ratio": 61900,
+         "stun_ratio_growth": 2820,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2067725,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 61001,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 27903
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "폭발 그로기 배율",
+       "desc": "{Skill:1061013, Prop:1002}",
+       "param": {
+        "1061013": {
+         "main": 20640,
+         "growth": 940,
+         "format": "%",
+         "damage_percentage": 34510,
+         "damage_percentage_growth": 3140,
+         "stun_ratio": 20640,
+         "stun_ratio_growth": 940,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 689425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9301
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "회전 베기 에너지 소모",
+       "desc": "20pt",
+       "potential": []
+      },
+      {
+       "name": "지속 베기 최대 에너지 소모",
+       "desc": "40pt",
+       "potential": []
+      },
+      {
+       "name": "기폭 에너지 소모",
+       "desc": "20pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "콤보 스킬: 죄송해요…",
+     "desc": "<color=#FFFFFF>[콤보 스킬]</color> 발동 시 해당 캐릭터를 선택해 시전:\n전방 작은 범위 내 적을 강력하게 베어 대량의 <color=#F0D12B>물리 피해</color>를 준다.\n연타 혹은 홀드 시 전기톱으로 적을 지속해서 벨 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "궁극기: 진, 진짜 죄송해요!",
+     "desc": "데시벨 레벨 <color=#FFFFFF>[Maximum]</color> 달성 시 <IconMap:Icon_UltimateReady>을 짧게 탭하여 시전:\n전방 작은 범위 내 적을 강력하게 베어 대량의 <color=#F0D12B>물리 피해</color>를 준다.\n연타 혹은 홀드 시 전기톱으로 적을 지속해서 벨 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 죄송해요…",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1061017, Prop:1001}",
+       "param": {
+        "1061017": {
+         "main": 68730,
+         "growth": 6250,
+         "format": "%",
+         "damage_percentage": 68730,
+         "damage_percentage_growth": 6250,
+         "stun_ratio": 28830,
+         "stun_ratio_growth": 1320,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2621575,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 48779,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 28830
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1061017, Prop:1002}",
+       "param": {
+        "1061017": {
+         "main": 28830,
+         "growth": 1320,
+         "format": "%",
+         "damage_percentage": 68730,
+         "damage_percentage_growth": 6250,
+         "stun_ratio": 28830,
+         "stun_ratio_growth": 1320,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2621575,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 48779,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 28830
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "궁극기: 진, 진짜 죄송해요!",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1061018, Prop:1001}",
+       "param": {
+        "1061018": {
+         "main": 202880,
+         "growth": 18450,
+         "format": "%",
+         "damage_percentage": 202880,
+         "damage_percentage_growth": 18450,
+         "stun_ratio": 40680,
+         "stun_ratio_growth": 1850,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 40670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 90671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1061018, Prop:1002}",
+       "param": {
+        "1061018": {
+         "main": 40680,
+         "growth": 1850,
+         "format": "%",
+         "damage_percentage": 202880,
+         "damage_percentage_growth": 18450,
+         "stun_ratio": 40680,
+         "stun_ratio_growth": 1850,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 40670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 90671
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "빠른 지원: 긴급 조치",
+     "desc": "현재 조작 중인 캐릭터가 넉업되면 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n전방의 적을 벤 후 전기톱을 기폭시켜 <color=#F0D12B>물리 피해</color>를 준다.\n연타 혹은 홀드 시 전기톱으로 적을 지속해서 벨 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 제, 제가 할게요!",
+     "desc": "출전 캐릭터 피격 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적의 공격을 패링하고 대량의 그로기 수치를 누적한다.\n우수한 패링 능력을 갖추고 있어 고강도 공격 패링 시 <color=#FFFFFF>[지원 포인트]</color>의 소모량이 감소한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 빠른 청소",
+     "desc": "<color=#FFFFFF>[패링 지원]</color> 시전 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적을 연속으로 벤 후 전기톱을 기폭시켜 <color=#F0D12B>물리 피해</color>를 준다.\n연타 혹은 홀드 시 전기톱으로 적을 지속해서 벨 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 긴급 조치",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{{Skill:1061019, Prop:1001} + {Skill:1061020, Prop:1001}}",
+       "param": {
+        "1061019": {
+         "main": 13170,
+         "growth": 1200,
+         "format": "%",
+         "damage_percentage": 13170,
+         "damage_percentage_growth": 1200,
+         "stun_ratio": 13170,
+         "stun_ratio_growth": 600,
+         "sp_recovery": 47390,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 362175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13163,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6582
+        },
+        "1061020": {
+         "main": 8330,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 8330,
+         "damage_percentage_growth": 760,
+         "stun_ratio": 8330,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 29990,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 229075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8329,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4165
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{{Skill:1061019, Prop:1002} + {Skill:1061020, Prop:1002}}",
+       "param": {
+        "1061019": {
+         "main": 13170,
+         "growth": 600,
+         "format": "%",
+         "damage_percentage": 13170,
+         "damage_percentage_growth": 1200,
+         "stun_ratio": 13170,
+         "stun_ratio_growth": 600,
+         "sp_recovery": 47390,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 362175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13163,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6582
+        },
+        "1061020": {
+         "main": 8330,
+         "growth": 380,
+         "format": "%",
+         "damage_percentage": 8330,
+         "damage_percentage_growth": 760,
+         "stun_ratio": 8330,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 29990,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 229075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8329,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4165
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 제, 제가 할게요!",
+     "param": [
+      {
+       "name": "가벼운 패링 그로기 배율",
+       "desc": "{Skill:1061021, Prop:1002}",
+       "param": {
+        "1061021": {
+         "main": 24670,
+         "growth": 1130,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 24670,
+         "stun_ratio_growth": 1130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강한 패링 그로기 배율",
+       "desc": "{Skill:1061022, Prop:1002}",
+       "param": {
+        "1061022": {
+         "main": 31170,
+         "growth": 1420,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 31170,
+         "stun_ratio_growth": 1420,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 패링 그로기 배율",
+       "desc": "{Skill:1061023, Prop:1002}",
+       "param": {
+        "1061023": {
+         "main": 15170,
+         "growth": 690,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 15170,
+         "stun_ratio_growth": 690,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 빠른 청소",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1061024, Prop:1001}",
+       "param": {
+        "1061024": {
+         "main": 54750,
+         "growth": 4980,
+         "format": "%",
+         "damage_percentage": 54750,
+         "damage_percentage_growth": 4980,
+         "stun_ratio": 48860,
+         "stun_ratio_growth": 2230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1667875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 51801,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 31171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1061024, Prop:1002}",
+       "param": {
+        "1061024": {
+         "main": 48860,
+         "growth": 2230,
+         "format": "%",
+         "damage_percentage": 54750,
+         "damage_percentage_growth": 4980,
+         "stun_ratio": 48860,
+         "stun_ratio_growth": 2230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1667875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 51801,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 31171
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "개방성 외상",
+   "desc": "<color=#FFFFFF>[콤보 스킬]</color> 혹은 <color=#FFFFFF>[궁극기]</color>가 적에게 명중 시 코린이 타깃에게 주는 피해가 12% 증가한다. 지속 시간: 15초",
+   "desc2": "「아가씨께서 일할 때는 주변의 영향을 받지 말고 집중하라고 하셨어요」\n「코린은 꽤 오랫동안 연습했는데, 드디어 할 수 있게 됐어요!」\n「그렇지만… 보이시나요, 아가씨…」"
+  },
+  "2": {
+   "level": 2,
+   "name": "열분해 효과",
+   "desc": "<color=#FFFFFF>[강화 특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color> 혹은 <color=#FFFFFF>[궁극기]</color>가 적에게 명중 시 타깃의 <color=#F0D12B>물리 피해 저항</color>이 0.5% 감소한다. 최대 중첩: 20스택, 지속 시간: 5초, 각 스택의 지속 시간은 따로 계산된다.",
+   "desc2": "「에테리얼님, 죄송해요!」\n「하지만 코린은 임무를 완수해야 해요… 정말 죄송합니다!」\n소녀는 죄책감을 느끼는 듯 눈앞의 몬스터에게 진심 어린 사과를 했다——\n그리곤 손에 든 전기톱을 휘둘러 앞의 적들을 모조리 처치한다."
+  },
+  "3": {
+   "level": 3,
+   "name": "초보 메이드",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "「어, 어엿한 메이드가 될 수 있도록 코린이 파이팅 할게요!」\n——코린이 한 손에 톱을 들고 에테리얼에게 다가가며 말한다."
+  },
+  "4": {
+   "level": 4,
+   "name": "전장의 시종",
+   "desc": "<color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[패링 지원]</color> 혹은 <color=#FFFFFF>[콤보 스킬]</color> 시전 시 코린이 에너지를 7.2pt 회복한다. 16초 동안 최대 1회 발동한다.",
+   "desc2": "부지런하고 성실한 메이드 아가씨는 모든 일에 정성을 다한다.\n전장에서 적을 대할 때도 마찬가지다."
+  },
+  "5": {
+   "level": 5,
+   "name": "특수요원 메이드",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "「아… 죄, 죄송해요. 코린이 많이 서툴러서 같은 모양으로 썰어내지 못했어요…」\n——발밑에 흩어진 에테리얼 잔해들을 보며 코린이 낙심한 듯 말한다."
+  },
+  "6": {
+   "level": 6,
+   "name": "내실 다지기",
+   "desc": "지속 베기가 적에게 명중 시 코린은 충전을 1스택 획득한다. (최대치: 40스택) <color=#FFFFFF>[회피 반격]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[강화 특수 스킬]</color>, <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[지원 돌격]</color> 중 기폭된 전기톱이 적에게 명중 시 모든 충전을 소모하고 충전 스택당 이번 공격에서 코린 공격력의 3%에 해당하는 피해를 추가로 준다.",
+   "desc2": "코린은 자신이 제일 훌륭한 메이드도 제일 똑똑한 메이드도 아니라는 걸 알고 있다.\n하지만 그녀는 제일 노력하는 메이드가 되길 바라고 있다.\n전부터 쌓아온 노력은 모두 존재의 의미가 있는 것이다."
+  }
+ },
+ "passive": {
+  "level": {
+   "1061501": {
+    "level": 1,
+    "id": 1061501,
+    "name": [
+     "핵심 패시브: 집중",
+     "추가 능력: 청소 도우미"
+    ],
+    "desc": [
+     "연타 혹은 홀드 후, 코린이 전기톱으로 적을 지속해서 벨 시 스킬로 주는 피해가 <color=#2BAD00>18.7%</color> 증가한다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n코린의 공격이 그로기 상태의 적에게 명중 시 자신이 주는 피해가 35% 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1061502": {
+    "level": 2,
+    "id": 1061502,
+    "name": [
+     "핵심 패시브: 집중",
+     "추가 능력: 청소 도우미"
+    ],
+    "desc": [
+     "연타 혹은 홀드 후, 코린이 전기톱으로 적을 지속해서 벨 시 스킬로 주는 피해가 <color=#2BAD00>21.8%</color> 증가한다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n코린의 공격이 그로기 상태의 적에게 명중 시 자신이 주는 피해가 35% 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1061503": {
+    "level": 3,
+    "id": 1061503,
+    "name": [
+     "핵심 패시브: 집중",
+     "추가 능력: 청소 도우미"
+    ],
+    "desc": [
+     "연타 혹은 홀드 후, 코린이 전기톱으로 적을 지속해서 벨 시 스킬로 주는 피해가 <color=#2BAD00>25%</color> 증가한다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n코린의 공격이 그로기 상태의 적에게 명중 시 자신이 주는 피해가 35% 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1061504": {
+    "level": 4,
+    "id": 1061504,
+    "name": [
+     "핵심 패시브: 집중",
+     "추가 능력: 청소 도우미"
+    ],
+    "desc": [
+     "연타 혹은 홀드 후, 코린이 전기톱으로 적을 지속해서 벨 시 스킬로 주는 피해가 <color=#2BAD00>28.1%</color> 증가한다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n코린의 공격이 그로기 상태의 적에게 명중 시 자신이 주는 피해가 35% 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1061505": {
+    "level": 5,
+    "id": 1061505,
+    "name": [
+     "핵심 패시브: 집중",
+     "추가 능력: 청소 도우미"
+    ],
+    "desc": [
+     "연타 혹은 홀드 후, 코린이 전기톱으로 적을 지속해서 벨 시 스킬로 주는 피해가 <color=#2BAD00>31.2%</color> 증가한다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n코린의 공격이 그로기 상태의 적에게 명중 시 자신이 주는 피해가 35% 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1061506": {
+    "level": 6,
+    "id": 1061506,
+    "name": [
+     "핵심 패시브: 집중",
+     "추가 능력: 청소 도우미"
+    ],
+    "desc": [
+     "연타 혹은 홀드 후, 코린이 전기톱으로 적을 지속해서 벨 시 스킬로 주는 피해가 <color=#2BAD00>34.3%</color> 증가한다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n코린의 공격이 그로기 상태의 적에게 명중 시 자신이 주는 피해가 35% 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1061507": {
+    "level": 7,
+    "id": 1061507,
+    "name": [
+     "핵심 패시브: 집중",
+     "추가 능력: 청소 도우미"
+    ],
+    "desc": [
+     "연타 혹은 홀드 후, 코린이 전기톱으로 적을 지속해서 벨 시 스킬로 주는 피해가 <color=#2BAD00>37.5%</color> 증가한다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n코린의 공격이 그로기 상태의 적에게 명중 시 자신이 주는 피해가 35% 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110502": 2
+   },
+   "3": {
+    "10": 28000,
+    "110502": 4
+   },
+   "4": {
+    "10": 60000,
+    "110003": 2,
+    "110502": 9
+   },
+   "5": {
+    "10": 100000,
+    "110003": 3,
+    "110502": 15
+   },
+   "6": {
+    "10": 200000,
+    "110003": 4,
+    "110502": 30
+   }
+  }
+ },
+ "skin": {
+  "3110610": {
+   "name": "코린·말차 슈",
+   "desc": "작은 체구에서 강한 에너지가 터져 나와, 전기톱이 훌쩍이는 소리를 삼킨다. 성실하고 전문적인 메이드는 늘 자신감이 부족하니, 잠시 멈춰서 그녀를 기다려주자.",
+   "obtain_desc": "",
+   "image": "IconRole09"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1061001": {
+   "name": "일반 공격: 청소 시작",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1061002": {
+   "name": "특수 스킬: 초강력 청소",
+   "desc": "<IconMap:Icon_Special>(홀드 가능)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1061003": {
+   "name": "강화 특수 스킬: 치맛자락 조심하세요",
+   "desc": "<IconMap:Icon_SpecialReady>(홀드 가능)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1061004": {
+   "name": "대시 공격: [끊기]",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1061005": {
+   "name": "회피 반격: [버리기]",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1061006": {
+   "name": "콤보 스킬: 죄송해요…",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1061007": {
+   "name": "궁극기: 진, 진짜 죄송해요!",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1061008": {
+   "name": "빠른 지원: 긴급 조치",
+   "desc": "<IconMap:Icon_Switch>(빠른 지원 발동 시)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1061009": {
+   "name": "패링 지원: 제, 제가 할게요!",
+   "desc": "<IconMap:Icon_Switch>(패링 지원 발동 시)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1061010": {
+   "name": "지원 돌격: 빠른 청소",
+   "desc": "<IconMap:Icon_Normal>(패링 지원 시전 후)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1061001,
+   "avatar_id": 1061,
+   "first_priority": [
+    5,
+    1,
+    3
+   ],
+   "second_priority": [
+    0
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 31400,
+  "slot2": 31000,
+  "slot_sub": 32600,
+  "part_sub_list": [
+   12102,
+   20103,
+   21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32600,
+     31000
+    ],
+    "part_sub_list": [
+     20103,
+     21103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31503,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "치명타 확률",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 31503,
+   "name": "물리 피해 보너스",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconPhysDmg.png"
+  },
+  "part6": {
+   "prop": 12102,
+   "name": "공격력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  },
+  "part_sub": {
+   "prop": 21103,
+   "name": "치명타 피해",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  }
+ },
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_PhysDmg>물리 속성, 그로기 단계 딜러",
+  "그로기 상태의 적 명중 시 자신의 피해 증가"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100211": 4
+   }
+  },
+  "2": {
+   "hp_max": 385,
+   "attack": 41,
+   "defence": 33,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100221": 12
+   }
+  },
+  "3": {
+   "hp_max": 770,
+   "attack": 83,
+   "defence": 67,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100221": 20
+   }
+  },
+  "4": {
+   "hp_max": 1155,
+   "attack": 124,
+   "defence": 100,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100231": 10
+   }
+  },
+  "5": {
+   "hp_max": 1540,
+   "attack": 166,
+   "defence": 133,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100231": 20
+   }
+  },
+  "6": {
+   "hp_max": 1925,
+   "attack": 207,
+   "defence": 167,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 1920
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 1920
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2880
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2880
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": ""
+}

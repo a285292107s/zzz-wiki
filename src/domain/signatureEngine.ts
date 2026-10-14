@@ -30,7 +30,7 @@ export const SIGNATURE_ENGINE_OWNER_OVERRIDES: Record<number, number> = Object.f
 /**
  * 由武器名录解析某代理人的专属音擎；无则返回 null。
  * @param agentId 代理人 id（详情 detail.id）
- * @param weapons 武器名录条目（WEngineListItem[]，来自 /data/live/weapon.json）
+ * @param weapons 武器名录条目（WEngineListItem[]，来自 /data/live/{lang}/weapon.json）
  */
 export function signatureEngineFor(
   agentId: number | null | undefined,
@@ -55,7 +55,7 @@ export function signatureEngineFor(
  * 与 signatureEngineFor 互逆（命名约定 + 覆盖表转置），供音擎详情 head 反向交叉引用。
  * @param weaponId 音擎 id（详情 id）
  * @param engineCodeName 音擎 code_name（详情的 Weapon_[A|S]_<agentId> 命名）
- * @param agents 代理人名录条目（CharacterListItem[]，来自 /data/live/character.json）
+ * @param agents 代理人名录条目（CharacterListItem[]，来自 /data/live/{lang}/character.json）
  */
 export function ownerAgentForEngine(
   engineId: number | null | undefined,

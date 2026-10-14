@@ -1,12 +1,22 @@
 import { describe, expect, it } from 'vitest'
+
+import type { Lang } from '../src/domain/lang'
+
+/* 本文件的历史断言按**中文**口径写（文案四语化后，语言需显式传入）：
+ * 下面把 domain 函数包一层同名壳固定传 'zh'，断言因此逐字不变；
+ * 四语齐全与各语言文案由 tests/sections-constants.test.ts 与 tests/ui-text.test.ts 守。 */
+const synthesizePotentialCinema = (arg0: Parameters<typeof synthesizePotentialCinemaLang>[0], arg1: Parameters<typeof synthesizePotentialCinemaLang>[1], arg2?: Parameters<typeof synthesizePotentialCinemaLang>[2]) => synthesizePotentialCinemaLang(arg0, arg1, arg2, 'zh' as Lang)
+const buildSkillRows = (arg0: Parameters<typeof buildSkillRowsLang>[0]) => buildSkillRowsLang(arg0, 'zh' as Lang)
+const buildCoreSkill = (arg0: Parameters<typeof buildCoreSkillLang>[0]) => buildCoreSkillLang(arg0, 'zh' as Lang)
+const buildBangbooSkills = (arg0: Parameters<typeof buildBangbooSkillsLang>[0], arg1?: Parameters<typeof buildBangbooSkillsLang>[1]) => buildBangbooSkillsLang(arg0, arg1, 'zh' as Lang)
 import {
-  buildBangbooSkills,
-  buildCoreSkill,
+  buildBangbooSkills as buildBangbooSkillsLang,
+  buildCoreSkill as buildCoreSkillLang,
   buildSkillMetricTable,
-  buildSkillRows,
+  buildSkillRows as buildSkillRowsLang,
   isPotentialGated,
   potentialStartLevel,
-  synthesizePotentialCinema,
+  synthesizePotentialCinema as synthesizePotentialCinemaLang,
   bangbooSkillStatValue,
   type SkillGroup
 } from '../src/domain/sections'
@@ -76,10 +86,10 @@ describe('skill helpers', () => {
       },
     })
     expect(rows.map((r) => r.key)).toEqual(['chain', 'ultimate'])
-    expect(rows[0].zh).toBe('连携技')
+    expect(rows[0].label).toBe('连携技')
     expect(rows[0].groups?.map((g) => g.name)).toEqual(['连携技：行军仪仗'])
     expect(rows[0].hasNumbers).toBe(true)
-    expect(rows[1].zh).toBe('终结技')
+    expect(rows[1].label).toBe('终结技')
     expect(rows[1].groups?.map((g) => g.name)).toEqual(['终结技：万军诛绝', '终结技：凯旋坦途'])
   })
 
@@ -88,7 +98,7 @@ describe('skill helpers', () => {
       chain: { description: [{ name: '连携技：行军仪仗', desc: '说明。', potential: [] }] },
     })
     expect(rows.map((r) => r.key)).toEqual(['chain'])
-    expect(rows[0].zh).toBe('连携技')
+    expect(rows[0].label).toBe('连携技')
   })
 
   it('buildSkillRows 把描述中引用「[终结技：…]」的派生招式并入终结技行', () => {
@@ -520,6 +530,39 @@ describe('potential-gated skills（潜能影像门控招式）', () => {
     expect(cinema[0].desc).not.toContain('基础倍率')
   })
 
+  it('倍率后缀按语言识别：英文数据的「Base Multiplier」同样被剥掉（不是只认中文）', () => {
+    // 详情 JSON 是按语言落盘的，派生技能名在 en 里写作「… Base Multiplier」，
+    // 写死中文后缀会让英文页把后缀一起当技能名显示出来。
+    const rows = buildSkillRowsLang(
+      {
+        special: {
+          description: [
+            {
+              name: 'EX Special Attack: Overclocked Wrecking',
+              desc: 'Throws a grenade, plus one extra [Vortex Cluster Grenade].',
+              potential: [0],
+            },
+            {
+              name: 'Vortex Cluster Grenade Base Multiplier',
+              param: [{ name: 'DMG Multiplier', desc: '{Skill:2, Prop:1001}', param: { '2': { main: 8750, growth: 800, format: '%' } } }],
+              potential: [119100],
+            },
+          ],
+        },
+      },
+      'en',
+    )
+    const cinema = synthesizePotentialCinemaLang(
+      rows,
+      [{ no: 'I', label: 'xxx I', name: '', desc: '' }],
+      undefined,
+      'en',
+    )
+    expect(cinema[0].desc).toContain('New: Vortex Cluster Grenade')
+    expect(cinema[0].desc).not.toContain('Base Multiplier')
+    expect(cinema[0].desc).not.toContain('倍率')
+  })
+
   it('synthesizePotentialCinema 档 I 概述含「扩展：核心被动、额外能力」（核心技潜能）', () => {
     const rows = buildSkillRows({
       basic: { description: [{ name: '普通攻击：冰刃浪', desc: '新招式。', potential: [119100] }] },
@@ -901,8 +944,8 @@ describe('buildBangbooSkills', () => {
       },
     })
     expect(rows.map((r) => r.key)).toEqual(['a', 'c'])
-    expect(rows[0]).toMatchObject({ key: 'a', zh: '主动技', names: ['冰刀舞'], desc: 'da1' })
-    expect(rows[1].zh).toBe('邦布连携技')
+    expect(rows[0]).toMatchObject({ key: 'a', label: '主动技', names: ['冰刀舞'], desc: 'da1' })
+    expect(rows[1].label).toBe('邦布连携技')
   })
 
   it('returns [] for empty/missing input', () => {

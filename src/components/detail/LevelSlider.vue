@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { fmt } from '@/domain/uiText'
+import { useUiText } from '@/composables/useUiText'
 /** 等级滑条：发丝线轨道 + 方形钮（与"档案标本"细线框语言一致），
  *  可选突破刻度（marks）。供技能/基础属性等按等级查看数值的区块复用。 */
 
@@ -26,6 +28,8 @@ withDefaults(
   { min: 1, max: 60, marks: undefined, valueText: undefined },
 )
 
+const { t } = useUiText()
+
 const emit = defineEmits<{ 'update:modelValue': [number] }>()
 
 function onChange(e: Event) {
@@ -43,7 +47,7 @@ function onChange(e: Event) {
       :max="max"
       :value="modelValue"
       :aria-label="label"
-      :aria-valuetext="valueText ?? `等级 ${modelValue}`"
+      :aria-valuetext="valueText ?? fmt(t.detail.levelOf, { n: modelValue })"
       @input="onChange"
     />
     <div v-if="marks?.length" class="slider-marks" aria-hidden="true">

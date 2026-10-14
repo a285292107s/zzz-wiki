@@ -9,6 +9,11 @@
  * 采集来源（超集策略，宁多勿漏）：
  *   - public/data/**.json 全部字符串值（名录/详情/术语等动态内容）
  *   - public/data/manifest.json
+ *   - src/**.json 全部字符串值（**界面文案表**：src/domain/uiText.{zh,en,ja,ko}.json、
+ *     src/data/*.json 的策展表）。⚠ 必须与下面的 .ts/.vue 一起收：
+ *     文案表是**渲染面**（导航/表头/空错态/技能槽位名…），只收 .ts/.vue 会让
+ *     「只写在文案表里的字」整类逃出字符集 —— 它们既不会进字体分片、
+ *     也不会被 verify-cjk-fonts 的覆盖校验发现（门禁复核的是同一份字符集，只报空真）。
  *   - index.html（骨架期的静态文本）
  *   - src/**.{ts,vue} 的**去注释后原文**（注释不是渲染内容，必须先剔除，
  *     否则中文注释会让字符集虚胖数倍）
@@ -77,8 +82,16 @@ export function collectCharset({ root = process.cwd(), verbose = false } = {}) {
     for (const ch of stripComments(fs.readFileSync(f, 'utf8'))) set.add(ch.codePointAt(0))
   }
   stats.afterSrc = set.size
+
+  // src 下的 JSON 与 public/data 同一口径（collectFromJson 取字符串字面量，无需剔注释）。
+  // 单列一步而不是并进 srcFiles：两者读取方式不同，且 stats 分开可看出「文案表收了多少字」。
+  const srcJsonFiles = walk(path.join(root, 'src'), (p) => p.endsWith('.json'))
+  for (const f of srcJsonFiles) collectFromJson(fs.readFileSync(f, 'utf8'), set)
+  stats.afterSrcJson = set.size
+
   stats.dataFiles = dataFiles.length
   stats.srcFiles = srcFiles.length
+  stats.srcJsonFiles = srcJsonFiles.length
 
   if (verbose) console.log('  字符集采集：', JSON.stringify(stats))
   return set

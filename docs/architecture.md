@@ -15,7 +15,7 @@
 views ──────────▶ components(30) composables(51) data(38) domain(26) utils(19)
 components ─────▶ composables(20) data(13) domain(17) utils(7)
 composables ────▶ data(10) domain(10) utils(2) components(1) router(1) directives(1)
-domain ─────────▶ data(3)
+domain ─────────▶ data(3) utils(1)
 data ───────────▶ domain(7) utils(1)
 utils ──────────▶ data(3) domain(2) composables(1)
 router ─────────▶ views(1) domain(2) composables(1)
@@ -29,7 +29,7 @@ directives ─────▶ （无）
 | 目录 | 核心职责 | 允许依赖 | **严禁** | 实测违规 |
 |---|---|---|---|---|
 | `src/directives/` | 无状态 DOM 指令 | 无 | 任何业务层 | 无（实测零出边） |
-| `src/domain/` | 单一事实源：枚举、目录元信息、zod 契约、区块构建、公式求值、检索 | 自身、zod、**`data` 的少量类型/JSON 资产** | **Vue**（实测零） | 无 Vue 依赖 ✅ |
+| `src/domain/` | 单一事实源：枚举、目录元信息、界面文案表（`uiText.*.json`）、zod 契约、区块构建、公式求值、检索 | 自身、zod、**`data` 的少量类型/JSON 资产**、`utils` 的纯函数（1 处） | **Vue**（实测零） | 无 Vue 依赖 ✅ |
 | `src/data/` | 请求层、类别驱动表、图标候选链、术语词典 | `domain`、`utils`、自身 JSON | 组件、路由 | 无 ✅ |
 | `src/utils/` | 纯函数：文本、富文本、命名、对比、取景、手势、标记词法 | `data`、`domain` | **Vue**、上层 | ⚠ `viewTransition/index.ts:31` 导入 Vue；`utils → composables` 1 处 |
 | `src/composables/` | 状态与交互逻辑（异步状态机、筛选、路由参数、页元信息） | `domain`、`data`、`utils`、`router` | — | ⚠ 反向依赖 `components` 1 处 |
@@ -62,6 +62,7 @@ directives ─────▶ （无）
 | `utils → Vue`（1 处） | `src/utils/viewTransition/index.ts:31` | `viewTransition/` 是**有状态编排层**（依赖 Vue、`data`、`composables`），放在 `utils/` 下名不副实。两条出路：把它迁出 `utils/`，或把边界规则改为「其余 utils 为纯函数，`viewTransition/` 为显式例外」——**尚未拍板** |
 | `composables → components`（1 处） | `useDetailPager.ts:11`（仅 `import type { DetailPagerItem }`） | 仅类型导入，无运行时回跳 |
 | `composables ↔ router`（各 1 处） | `composables → router`(1)、`router → composables`(1) | 懒加载映射与锚点偏移互相需要，未造成分层坍塌 |
+| `domain → utils`（1 处） | `search.ts:19`（`@/utils/names` 的 `pickName` / `fieldName`） | 检索索引的展示名必须与页面用**同一份**回退序；此前 `search.ts` 自己复制了一份名称提取（含驱动盘 `{name}` 子对象形态），正是 §3.5「同一功能禁止多处实现」的违例。改为复用后新增这条边——纯函数、无状态、不碰 Vue |
 
 ## 5. 与 `DESIGN.md` §4.1 的差异（必须知道）
 

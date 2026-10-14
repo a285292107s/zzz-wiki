@@ -3,38 +3,47 @@
  * App.vue 导航、HomeView 目录、路由、列表页全部由此派生，
  * 不再允许手写第二份类目清单。
  * 纯数据模块：不依赖 Vue / api（避免循环依赖）。
+ *
+ * `label` / `desc` 是四语 `Loc`（决策记录 0011）：导航、首页目录与页面标题都取这一份。
+ * `en` 仍是语言无关的拉丁文标识（AGENTS / W-ENGINES…），是排版元素不是译文。
  * ============================================================ */
 
 import type { IconCategory } from '@/data/icons'
+import type { Loc } from './lang'
 
 export interface CatalogEntry {
   /** 档案编号，如 '01' */
   no: string
-  /** 中文名 */
-  label: string
-  /** 英文标识（导航/首页排版用） */
+  /** 类目名（四语） */
+  label: Loc
+  /** 英文标识（导航/首页排版用，语言无关） */
   en: string
   /** 路由路径 */
   path: string
-  /** 首页目录描述 */
-  desc: string
+  /** 首页目录描述（四语） */
+  desc: Loc
   /** 首页目录卡的图标候选数据 */
   icon: { Id: number; icon: string }
   /** 图标分类（icons.ts 候选规则用） */
   iconCategory: IconCategory
-  /** 名录文件名（public/data/live/{file}.json） */
+  /** 名录文件名（public/data/live/{lang}/{file}.json） */
   listFile: string
-  /** 详情目录（public/data/live/zh/{dir}/{id}.json） */
+  /** 详情目录（public/data/live/{lang}/{dir}/{id}.json） */
   detailDir: string
 }
 
 export const CATALOG: readonly CatalogEntry[] = [
   {
     no: '01',
-    label: '代理人',
+    label: { zh: '代理人', en: 'Agents', ja: '代理人', ko: '에이전트' },
     en: 'AGENTS',
     path: '/agents',
-    desc: '新艾利都的代理人档案：属性、职业、阵营与战斗数据。',
+    desc: {
+      zh: '新艾利都的代理人档案：属性、职业、阵营与战斗数据。',
+      en: 'Agent files of New Eridu: attributes, professions, factions and combat data.',
+      ja: '新エリー都の代理人アーカイブ。属性・職種・陣営・戦闘データ。',
+      ko: '뉴에리두 에이전트 아카이브: 속성, 직업, 진영, 전투 데이터.',
+    },
     icon: { Id: 1011, icon: 'IconRole01' },
     iconCategory: 'character',
     listFile: 'character',
@@ -42,10 +51,15 @@ export const CATALOG: readonly CatalogEntry[] = [
   },
   {
     no: '02',
-    label: '音擎',
+    label: { zh: '音擎', en: 'W-Engines', ja: '音動機', ko: 'W-엔진' },
     en: 'W-ENGINES',
     path: '/w-engines',
-    desc: '驱动代理人的武装终端，按职业与稀有度编目。',
+    desc: {
+      zh: '驱动代理人的武装终端，按职业与稀有度编目。',
+      en: 'The armed terminals Agents wield, catalogued by profession and rarity.',
+      ja: '代理人を駆動する武装端末。職種とレアリティで整理。',
+      ko: '에이전트를 구동하는 무장 단말. 직업과 등급으로 정리.',
+    },
     icon: { Id: 12001, icon: 'Weapon_B_Common_01' },
     iconCategory: 'weapon',
     listFile: 'weapon',
@@ -53,10 +67,15 @@ export const CATALOG: readonly CatalogEntry[] = [
   },
   {
     no: '03',
-    label: '驱动盘',
+    label: { zh: '驱动盘', en: 'Drive Discs', ja: 'ドライブディスク', ko: '드라이브 디스크' },
     en: 'DISK DRIVES',
     path: '/disks',
-    desc: '驱动盘的套装效果与词条一览。',
+    desc: {
+      zh: '驱动盘的套装效果与词条一览。',
+      en: 'Drive Disc set bonuses and stat lines at a glance.',
+      ja: 'ドライブディスクのセット効果とオプション一覧。',
+      ko: '드라이브 디스크 세트 효과와 옵션 목록.',
+    },
     icon: { Id: 31000, icon: 'SuitWoodpeckerElectro' },
     iconCategory: 'disc',
     listFile: 'equipment',
@@ -64,10 +83,15 @@ export const CATALOG: readonly CatalogEntry[] = [
   },
   {
     no: '04',
-    label: '邦布',
+    label: { zh: '邦布', en: 'Bangboos', ja: 'ボンプ', ko: '뱅부' },
     en: 'BANGBOO',
     path: '/bangboos',
-    desc: '空洞探索的忠实伙伴，收录全部型号与数据。',
+    desc: {
+      zh: '空洞探索的忠实伙伴，收录全部型号与数据。',
+      en: 'Faithful Hollow-diving companions — every model and its data.',
+      ja: 'ホロウ探索の頼れる相棒。全機種とデータを収録。',
+      ko: '공동 탐사의 든든한 동료. 모든 기종과 데이터 수록.',
+    },
     icon: { Id: 53001, icon: 'IconBangbooPiece12' },
     iconCategory: 'bangboo',
     listFile: 'bangboo',
@@ -87,10 +111,11 @@ export const CATALOG: readonly CatalogEntry[] = [
  */
 export interface GuideEntry {
   no: string
-  label: string
+  /** 板块名（四语）；正文长文仍只有中文（决策记录 0011） */
+  label: Loc
   en: string
   path: string
-  desc: string
+  desc: Loc
   glyph: string
   nav: boolean
 }
@@ -98,28 +123,43 @@ export interface GuideEntry {
 export const GUIDE_ENTRIES: readonly GuideEntry[] = [
   {
     no: '05',
-    label: '战斗公式',
+    label: { zh: '战斗公式', en: 'Combat Formulas', ja: '戦闘公式', ko: '전투 공식' },
     en: 'FORMULAS',
     path: '/formulas',
-    desc: '从伤害乘区到失衡、属性异常与命破，逐段拆解战斗数值构成。',
+    desc: {
+      zh: '从伤害乘区到失衡、属性异常与命破，逐段拆解战斗数值构成。',
+      en: 'Damage multipliers, Daze, Attribute Anomaly and Rupture, broken down step by step.',
+      ja: 'ダメージ乗算区から怯み・属性異常・命破まで、戦闘数値の構成を順に分解。',
+      ko: '피해 배율부터 그로기, 속성 이상, 명파까지 전투 수치 구성을 단계별로 해설.',
+    },
     glyph: '×',
     nav: true,
   },
   {
     no: '06',
-    label: '设置',
+    label: { zh: '设置', en: 'Settings', ja: '設定', ko: '설정' },
     en: 'SETTINGS',
     path: '/settings',
-    desc: '本机偏好：代理人名录的陈列版本与佩洛伊斯立绘形态。',
+    desc: {
+      zh: '本机偏好：代理人名录版式、佩洛伊斯立绘形态与展示语言。',
+      en: 'On-device preferences: Agent index layout, Pyrois portrait form and display language.',
+      ja: '本端末の設定：代理人一覧のレイアウト、ピュロイスの立ち絵形態、表示言語。',
+      ko: '이 기기 설정: 에이전트 목록 레이아웃, 피로이스 일러스트 형태, 표시 언어.',
+    },
     glyph: '⋮',
     nav: true,
   },
   {
     no: '07',
-    label: '数据说明',
+    label: { zh: '数据说明', en: 'About the data', ja: 'データについて', ko: '데이터 안내' },
     en: 'COLOPHON',
     path: '/about',
-    desc: '数据来源与覆盖范围、更新机制、校验门禁与版权声明。',
+    desc: {
+      zh: '数据来源与覆盖范围、更新机制、校验门禁与版权声明。',
+      en: 'Data sources and coverage, the update pipeline, validation gates and copyright.',
+      ja: 'データの出典と範囲、更新の仕組み、検証ゲート、著作権表示。',
+      ko: '데이터 출처와 범위, 업데이트 구조, 검증 게이트, 저작권 고지.',
+    },
     glyph: '§',
     nav: false,
   },
@@ -131,7 +171,7 @@ export const GUIDE_ENTRIES: readonly GuideEntry[] = [
  * 两处必须是同一份清单，改这里即两处同步。检索面板**不**列这一份——
  * 导航入口归站头一处，面板只做检索（见 QuickSearch 头部注释）。
  */
-export const NAV_ENTRIES: readonly { no: string; label: string; en: string; to: string }[] = [
+export const NAV_ENTRIES: readonly { no: string; label: Loc; en: string; to: string }[] = [
   ...CATALOG.map((c) => ({ no: c.no, label: c.label, en: c.en, to: c.path })),
   ...GUIDE_ENTRIES.filter((g) => g.nav).map((g) => ({
     no: g.no,

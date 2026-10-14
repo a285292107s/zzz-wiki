@@ -1,0 +1,2784 @@
+{
+ "id": 1141,
+ "icon": "IconRole18",
+ "name": "ライカン",
+ "code_name": "Lycaon",
+ "rarity": 4,
+ "weapon_type": {
+  "2": "Stun"
+ },
+ "element_type": {
+  "202": "Ice"
+ },
+ "hit_type": {
+  "102": "Strike"
+ },
+ "camp": {
+  "2": "ヴィクトリア家政"
+ },
+ "gender": 1,
+ "partner_info": {
+  "birthday": "10月4日",
+  "full_name": "フォン・ライカン",
+  "gender": "男性",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle18.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0018.png",
+  "impression_f": "ライカンさんに「参った」を言わせられるものなんて、この世にあるのかな？\nあの人なら、どんな難題でも（しっぽを撫でれば）ぜんぶ解決してくれる気がするよ！",
+  "impression_m": "リン、個人的な本音が混じっていないかい…それとFairyが撫でろと\nアドバイスをしているのは、彼の頭とあごであって、しっぽじゃないぞ。",
+  "impressions": [
+   "ライカンに対するイメージ：\n・ライカンさんくらい自分を律することが\nできても、抜け毛には悩む{M#のか}{F#んだ}…",
+   "・万能執事ライカンさんとはいえ、雇い主の魂を報酬として欲しがることはない",
+   "・どんな過去があっても、今のライカンさんはとても頼りになる仲間だ{F#よ}"
+  ],
+  "profile_desc": "ライカン。ヴィクトリア家政の実質的リーダーにして、渉外責任者です。\nメンバーの全業務を一元的に管理しています。\n理性的で頼りがいがあり、その所作は優雅にして紳士的。\nほぼ万能な執事と言ってよく、どのようなことにも適切に対処できます。\n同組織の最も堅実な後ろ盾として、心強い存在です。\nやや潔癖症のきらいがあり、常習的に身の回りの整理清掃を行うほか、\n汚れた場所にいることが耐えられません。\n\nどのようなことにも優雅さを崩さないように見える彼ですが、イヌ科の生理的本能によって、その本心が露になることが往々にしてあります。\n格別の幸福を感じる時、しっぽと耳が無意識に動いてしまうのです。\n当人もこのことをはっきり自覚しているようで、頭を悩ませているとか。\nこのほか、大多数のモフモフしたシリオン同様、\n彼もまた自身の体毛の状況を常に気にかけています。\n\n提言：イヌ科のシリオンが好む傾向からして、頭、又はあごを撫でることで、\n感情的結びつきを強められる可能性があります\n（あくまで可能性です。保証はいたしかねます）。\n※リスク：ライカンは比較的身長が高いため、貴方様がつま先立ちをしても\n該当部位に手が届かない可能性があります。",
+  "role_icon": "IconRole/UnPacker/IconRole18",
+  "stature": "198",
+  "unlock_condition": [
+   "エージェント招集",
+   "エージェント秘話「そしてヒーローは暗幕に帰る」をクリアする",
+   "依頼「アンビーの当惑」を達成する"
+  ],
+  "trust_lv": {
+   "1": "ライカン。ヴィクトリア家政の実質的リーダーにして、渉外責任者です。\nメンバーの全業務を一元的に管理しています。\n理性的で頼りがいがあり、その所作は優雅にして紳士的。\nほぼ万能な執事と言ってよく、どのようなことにも適切に対処できます。\n同組織の最も堅実な後ろ盾として、心強い存在です。\nやや潔癖症のきらいがあり、常習的に身の回りの整理清掃を行うほか、\n汚れた場所にいることが耐えられません。\n\nどのようなことにも優雅さを崩さないように見える彼ですが、イヌ科の生理的本能によって、その本心が露になることが往々にしてあります。\n格別の幸福を感じる時、しっぽと耳が無意識に動いてしまうのです。\n当人もこのことをはっきり自覚しているようで、頭を悩ませているとか。\nこのほか、大多数のモフモフしたシリオン同様、\n彼もまた自身の体毛の状況を常に気にかけています。\n\n提言：イヌ科のシリオンが好む傾向からして、頭、又はあごを撫でることで、\n感情的結びつきを強められる可能性があります\n（あくまで可能性です。保証はいたしかねます）。\n※リスク：ライカンは比較的身長が高いため、貴方様がつま先立ちをしても\n該当部位に手が届かない可能性があります。",
+   "2": "",
+   "3": "ライカンには、ひた隠しにしている過去があります。\n優雅で紳士的な執事という現在の姿とは対照的に、過去のライカンには傍若無人、\nやりたい放題の時代があり、そして背中を預けるに足る盟友がいたようです。\nしかし、そんな刎頸の交わりを契った盟友にもかかわらず、\n今では一触即発の宿敵となっている模様。\n\n備考：ライカンの過去については情報が不足しており、詳細は判明していません。\n様々な方面から当事者たちに探りを入れ、より多くの情報を入手するよう提言します。",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 105,
+  "attack_growth": 61287,
+  "avatar_piece_id": 5141,
+  "break_stun": 119,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66203,
+  "element_abnormal_power": 91,
+  "element_mystery": 90,
+  "endurance": 0,
+  "hp_growth": 918185,
+  "hp_max": 677,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Lycaon",
+   "Punch",
+   "Ice",
+   "Male",
+   "Camp2",
+   "Size3",
+   "AidTypeParry",
+   "Lycaon",
+   "EtherEyesSize2"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "通常攻撃：<ruby=げっかゆうりょう>月下遊猟</ruby>",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方に最大5段の打撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\n <IconMap:Icon_Normal> を長押しすると、チャージ状態に入り、スキルの威力がアップし、<color=#98EFF0>氷属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：<ruby=げっかゆうりょう>月下遊猟</ruby>",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1141001, Prop:1001}",
+       "param": {
+        "1141001": {
+         "main": 2920,
+         "growth": 270,
+         "format": "%",
+         "damage_percentage": 2920,
+         "damage_percentage_growth": 270,
+         "stun_ratio": 1460,
+         "stun_ratio_growth": 70,
+         "sp_recovery": 5010,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 38225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1390
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段チャージダメージ倍率",
+       "desc": "{Skill:1141002, Prop:1001}",
+       "param": {
+        "1141002": {
+         "main": 3710,
+         "growth": 340,
+         "format": "%",
+         "damage_percentage": 3710,
+         "damage_percentage_growth": 340,
+         "stun_ratio": 1210,
+         "stun_ratio_growth": 60,
+         "sp_recovery": 4140,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 31625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1148,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1149
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1141003, Prop:1001}",
+       "param": {
+        "1141003": {
+         "main": 3490,
+         "growth": 320,
+         "format": "%",
+         "damage_percentage": 3490,
+         "damage_percentage_growth": 320,
+         "stun_ratio": 3030,
+         "stun_ratio_growth": 140,
+         "sp_recovery": 10390,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 79475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2885
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段チャージダメージ倍率",
+       "desc": "{Skill:1141004, Prop:1001}",
+       "param": {
+        "1141004": {
+         "main": 5640,
+         "growth": 520,
+         "format": "%",
+         "damage_percentage": 5640,
+         "damage_percentage_growth": 520,
+         "stun_ratio": 3290,
+         "stun_ratio_growth": 150,
+         "sp_recovery": 11270,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 86075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3128,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3129
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1141005, Prop:1001}",
+       "param": {
+        "1141005": {
+         "main": 5840,
+         "growth": 540,
+         "format": "%",
+         "damage_percentage": 5840,
+         "damage_percentage_growth": 540,
+         "stun_ratio": 4560,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 15630,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 119625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4341
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段チャージダメージ倍率",
+       "desc": "{Skill:1141006, Prop:1001}",
+       "param": {
+        "1141006": {
+         "main": 9950,
+         "growth": 910,
+         "format": "%",
+         "damage_percentage": 9950,
+         "damage_percentage_growth": 910,
+         "stun_ratio": 5370,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 18410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 140800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5113,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5114
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率",
+       "desc": "{Skill:1141007, Prop:1001}",
+       "param": {
+        "1141007": {
+         "main": 15200,
+         "growth": 1390,
+         "format": "%",
+         "damage_percentage": 15200,
+         "damage_percentage_growth": 1390,
+         "stun_ratio": 11200,
+         "stun_ratio_growth": 510,
+         "sp_recovery": 38380,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 293150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10660
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段チャージダメージ倍率",
+       "desc": "{Skill:1141008, Prop:1001}",
+       "param": {
+        "1141008": {
+         "main": 21090,
+         "growth": 1920,
+         "format": "%",
+         "damage_percentage": 21090,
+         "damage_percentage_growth": 1920,
+         "stun_ratio": 10710,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 36720,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 280500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10198,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10199
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5段ダメージ倍率",
+       "desc": "{Skill:1141009, Prop:1001}",
+       "param": {
+        "1141009": {
+         "main": 18070,
+         "growth": 1650,
+         "format": "%",
+         "damage_percentage": 18070,
+         "damage_percentage_growth": 1650,
+         "stun_ratio": 14770,
+         "stun_ratio_growth": 680,
+         "sp_recovery": 50620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 386650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14059
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5段Lv.1チャージダメージ倍率",
+       "desc": "{Skill:1141010, Prop:1001}",
+       "param": {
+        "1141010": {
+         "main": 27760,
+         "growth": 2530,
+         "format": "%",
+         "damage_percentage": 27760,
+         "damage_percentage_growth": 2530,
+         "stun_ratio": 16310,
+         "stun_ratio_growth": 750,
+         "sp_recovery": 55890,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 427075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15524,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15525
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5段Lv.2チャージダメージ倍率",
+       "desc": "{Skill:1141011, Prop:1001}",
+       "param": {
+        "1141011": {
+         "main": 35570,
+         "growth": 3240,
+         "format": "%",
+         "damage_percentage": 35570,
+         "damage_percentage_growth": 3240,
+         "stun_ratio": 20560,
+         "stun_ratio_growth": 940,
+         "sp_recovery": 70480,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 538450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19575,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19576
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1141001, Prop:1002}",
+       "param": {
+        "1141001": {
+         "main": 1460,
+         "growth": 70,
+         "format": "%",
+         "damage_percentage": 2920,
+         "damage_percentage_growth": 270,
+         "stun_ratio": 1460,
+         "stun_ratio_growth": 70,
+         "sp_recovery": 5010,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 38225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1390
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段チャージブレイク倍率",
+       "desc": "{Skill:1141002, Prop:1002}",
+       "param": {
+        "1141002": {
+         "main": 1210,
+         "growth": 60,
+         "format": "%",
+         "damage_percentage": 3710,
+         "damage_percentage_growth": 340,
+         "stun_ratio": 1210,
+         "stun_ratio_growth": 60,
+         "sp_recovery": 4140,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 31625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1148,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1149
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1141003, Prop:1002}",
+       "param": {
+        "1141003": {
+         "main": 3030,
+         "growth": 140,
+         "format": "%",
+         "damage_percentage": 3490,
+         "damage_percentage_growth": 320,
+         "stun_ratio": 3030,
+         "stun_ratio_growth": 140,
+         "sp_recovery": 10390,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 79475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2885
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段チャージブレイク倍率",
+       "desc": "{Skill:1141004, Prop:1002}",
+       "param": {
+        "1141004": {
+         "main": 3290,
+         "growth": 150,
+         "format": "%",
+         "damage_percentage": 5640,
+         "damage_percentage_growth": 520,
+         "stun_ratio": 3290,
+         "stun_ratio_growth": 150,
+         "sp_recovery": 11270,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 86075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3128,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3129
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1141005, Prop:1002}",
+       "param": {
+        "1141005": {
+         "main": 4560,
+         "growth": 210,
+         "format": "%",
+         "damage_percentage": 5840,
+         "damage_percentage_growth": 540,
+         "stun_ratio": 4560,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 15630,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 119625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4341
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段チャージブレイク倍率",
+       "desc": "{Skill:1141006, Prop:1002}",
+       "param": {
+        "1141006": {
+         "main": 5370,
+         "growth": 250,
+         "format": "%",
+         "damage_percentage": 9950,
+         "damage_percentage_growth": 910,
+         "stun_ratio": 5370,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 18410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 140800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5113,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5114
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率",
+       "desc": "{Skill:1141007, Prop:1002}",
+       "param": {
+        "1141007": {
+         "main": 11200,
+         "growth": 510,
+         "format": "%",
+         "damage_percentage": 15200,
+         "damage_percentage_growth": 1390,
+         "stun_ratio": 11200,
+         "stun_ratio_growth": 510,
+         "sp_recovery": 38380,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 293150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10660
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段チャージブレイク倍率",
+       "desc": "{Skill:1141008, Prop:1002}",
+       "param": {
+        "1141008": {
+         "main": 10710,
+         "growth": 490,
+         "format": "%",
+         "damage_percentage": 21090,
+         "damage_percentage_growth": 1920,
+         "stun_ratio": 10710,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 36720,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 280500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10198,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10199
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5段ブレイク倍率",
+       "desc": "{Skill:1141009, Prop:1002}",
+       "param": {
+        "1141009": {
+         "main": 14770,
+         "growth": 680,
+         "format": "%",
+         "damage_percentage": 18070,
+         "damage_percentage_growth": 1650,
+         "stun_ratio": 14770,
+         "stun_ratio_growth": 680,
+         "sp_recovery": 50620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 386650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14059
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5段Lv.1チャージブレイク倍率",
+       "desc": "{Skill:1141010, Prop:1002}",
+       "param": {
+        "1141010": {
+         "main": 16310,
+         "growth": 750,
+         "format": "%",
+         "damage_percentage": 27760,
+         "damage_percentage_growth": 2530,
+         "stun_ratio": 16310,
+         "stun_ratio_growth": 750,
+         "sp_recovery": 55890,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 427075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15524,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15525
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5段Lv.2チャージブレイク倍率",
+       "desc": "{Skill:1141011, Prop:1002}",
+       "param": {
+        "1141011": {
+         "main": 20560,
+         "growth": 940,
+         "format": "%",
+         "damage_percentage": 35570,
+         "damage_percentage_growth": 3240,
+         "stun_ratio": 20560,
+         "stun_ratio_growth": 940,
+         "sp_recovery": 70480,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 538450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19575,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19576
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "回避：弁えた所作",
+     "desc": " <IconMap:Icon_Evade> を押して発動：\nダッシュで高速回避する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：清潔を保つ",
+     "desc": "回避時に <IconMap:Icon_Normal> を押して発動：\n前方にスライディングし、連続打撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "回避反撃：礼儀の躾",
+     "desc": "<color=#FFFFFF>『極限回避』</color>後に <IconMap:Icon_Normal> を押して発動：\n前方の敵に打撃を放ち、<color=#98EFF0>氷属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：清潔を保つ",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1141018, Prop:1001}",
+       "param": {
+        "1141018": {
+         "main": 4730,
+         "growth": 430,
+         "format": "%",
+         "damage_percentage": 4730,
+         "damage_percentage_growth": 430,
+         "stun_ratio": 2370,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 8110,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 62150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2251
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1141018, Prop:1002}",
+       "param": {
+        "1141018": {
+         "main": 2370,
+         "growth": 110,
+         "format": "%",
+         "damage_percentage": 4730,
+         "damage_percentage_growth": 430,
+         "stun_ratio": 2370,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 8110,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 62150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2251
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "回避反撃：礼儀の躾",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1141019, Prop:1001}",
+       "param": {
+        "1141019": {
+         "main": 18700,
+         "growth": 1700,
+         "format": "%",
+         "damage_percentage": 18700,
+         "damage_percentage_growth": 1700,
+         "stun_ratio": 16810,
+         "stun_ratio_growth": 770,
+         "sp_recovery": 21620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 165275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1141019, Prop:1002}",
+       "param": {
+        "1141019": {
+         "main": 16810,
+         "growth": 770,
+         "format": "%",
+         "damage_percentage": 18700,
+         "damage_percentage_growth": 1700,
+         "stun_ratio": 16810,
+         "stun_ratio_growth": 770,
+         "sp_recovery": 21620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 165275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21004
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "特殊スキル：狩人の刻",
+     "desc": " <IconMap:Icon_Special> を押して発動：\n前方に連続打撃を放ち、<color=#98EFF0>氷属性ダメージ</color>を与える。\n <IconMap:Icon_Special> を長押しすると、チャージ状態に入り、スキルの威力がアップする。\nスキル発動中、中断耐性レベルがアップする。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：人狼の刻",
+     "desc": "エネルギーが十分な時、 <IconMap:Icon_SpecialReady> を押して発動：\n前方に強力な連続打撃を放ち、<color=#98EFF0>氷属性ダメージ</color>を大量に与える。\n <IconMap:Icon_SpecialReady> を長押しすると、チャージ状態に入り、エネルギーを消費してスキルの威力をアップする。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：狩人の刻",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{{Skill:1141012, Prop:1001} + {Skill:1141013, Prop:1001}}",
+       "param": {
+        "1141012": {
+         "main": 2280,
+         "growth": 210,
+         "format": "%",
+         "damage_percentage": 2280,
+         "damage_percentage_growth": 210,
+         "stun_ratio": 2280,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 59675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2166,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2167
+        },
+        "1141013": {
+         "main": 5430,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 5430,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 5430,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 142175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2583,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2584
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "チャージダメージ倍率",
+       "desc": "{{Skill:1141012, Prop:1001} + {Skill:1141014, Prop:1001}}",
+       "param": {
+        "1141012": {
+         "main": 2280,
+         "growth": 210,
+         "format": "%",
+         "damage_percentage": 2280,
+         "damage_percentage_growth": 210,
+         "stun_ratio": 2280,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 59675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2166,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2167
+        },
+        "1141014": {
+         "main": 11030,
+         "growth": 1010,
+         "format": "%",
+         "damage_percentage": 11030,
+         "damage_percentage_growth": 1010,
+         "stun_ratio": 11030,
+         "stun_ratio_growth": 510,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 289025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5250,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5251
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{{Skill:1141012, Prop:1002} + {Skill:1141013, Prop:1002}}",
+       "param": {
+        "1141012": {
+         "main": 2280,
+         "growth": 110,
+         "format": "%",
+         "damage_percentage": 2280,
+         "damage_percentage_growth": 210,
+         "stun_ratio": 2280,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 59675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2166,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2167
+        },
+        "1141013": {
+         "main": 5430,
+         "growth": 250,
+         "format": "%",
+         "damage_percentage": 5430,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 5430,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 142175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2583,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2584
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "チャージブレイク倍率",
+       "desc": "{{Skill:1141012, Prop:1002} + {Skill:1141014, Prop:1002}}",
+       "param": {
+        "1141012": {
+         "main": 2280,
+         "growth": 110,
+         "format": "%",
+         "damage_percentage": 2280,
+         "damage_percentage_growth": 210,
+         "stun_ratio": 2280,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 59675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2166,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2167
+        },
+        "1141014": {
+         "main": 11030,
+         "growth": 510,
+         "format": "%",
+         "damage_percentage": 11030,
+         "damage_percentage_growth": 1010,
+         "stun_ratio": 11030,
+         "stun_ratio_growth": 510,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 289025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5250,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5251
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：人狼の刻",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{{Skill:1141015, Prop:1001} + {Skill:1141016, Prop:1001}}",
+       "param": {
+        "1141015": {
+         "main": 25240,
+         "growth": 2300,
+         "format": "%",
+         "damage_percentage": 25240,
+         "damage_percentage_growth": 2300,
+         "stun_ratio": 21150,
+         "stun_ratio_growth": 970,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 698500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20076,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7670
+        },
+        "1141016": {
+         "main": 28190,
+         "growth": 2570,
+         "format": "%",
+         "damage_percentage": 28190,
+         "damage_percentage_growth": 2570,
+         "stun_ratio": 23890,
+         "stun_ratio_growth": 1090,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 773850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 22542,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "チャージダメージ倍率",
+       "desc": "{{Skill:1141015, Prop:1001} + {Skill:1141017, Prop:1001}}",
+       "param": {
+        "1141015": {
+         "main": 25240,
+         "growth": 2300,
+         "format": "%",
+         "damage_percentage": 25240,
+         "damage_percentage_growth": 2300,
+         "stun_ratio": 21150,
+         "stun_ratio_growth": 970,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 698500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20076,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7670
+        },
+        "1141017": {
+         "main": 53710,
+         "growth": 4890,
+         "format": "%",
+         "damage_percentage": 53710,
+         "damage_percentage_growth": 4890,
+         "stun_ratio": 45290,
+         "stun_ratio_growth": 2060,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1479225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 42848,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 17337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{{Skill:1141015, Prop:1002} + {Skill:1141016, Prop:1002}}",
+       "param": {
+        "1141015": {
+         "main": 21150,
+         "growth": 970,
+         "format": "%",
+         "damage_percentage": 25240,
+         "damage_percentage_growth": 2300,
+         "stun_ratio": 21150,
+         "stun_ratio_growth": 970,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 698500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20076,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7670
+        },
+        "1141016": {
+         "main": 23890,
+         "growth": 1090,
+         "format": "%",
+         "damage_percentage": 28190,
+         "damage_percentage_growth": 2570,
+         "stun_ratio": 23890,
+         "stun_ratio_growth": 1090,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 773850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 22542,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "チャージブレイク倍率",
+       "desc": "{{Skill:1141015, Prop:1002} + {Skill:1141017, Prop:1002}}",
+       "param": {
+        "1141015": {
+         "main": 21150,
+         "growth": 970,
+         "format": "%",
+         "damage_percentage": 25240,
+         "damage_percentage_growth": 2300,
+         "stun_ratio": 21150,
+         "stun_ratio_growth": 970,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 698500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20076,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7670
+        },
+        "1141017": {
+         "main": 45290,
+         "growth": 2060,
+         "format": "%",
+         "damage_percentage": 53710,
+         "damage_percentage_growth": 4890,
+         "stun_ratio": 45290,
+         "stun_ratio_growth": 2060,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1479225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 42848,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 17337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "発動時エネルギー消費",
+       "desc": "40Pt",
+       "potential": []
+      },
+      {
+       "name": "チャージエネルギー消費",
+       "desc": "20Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "連携スキル：御意に",
+     "desc": "<color=#FFFFFF>『連携スキル』</color>開始時に、対応するエージェントを選択して発動：\n前方小範囲の敵に強力な連続打撃を放ち、<color=#98EFF0>氷属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "終結スキル：使命を果たす",
+     "desc": "デシベルレートが<color=#FFFFFF>『Maximum』</color>に達した時に <IconMap:Icon_UltimateReady> を押して発動：\n前方広範囲の敵に強力な連続打撃を放ち、<color=#98EFF0>氷属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "連携スキル：御意に",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1141020, Prop:1001}",
+       "param": {
+        "1141020": {
+         "main": 63780,
+         "growth": 5800,
+         "format": "%",
+         "damage_percentage": 63780,
+         "damage_percentage_growth": 5800,
+         "stun_ratio": 21880,
+         "stun_ratio_growth": 1000,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2401850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 40786,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20837
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1141020, Prop:1002}",
+       "param": {
+        "1141020": {
+         "main": 21880,
+         "growth": 1000,
+         "format": "%",
+         "damage_percentage": 63780,
+         "damage_percentage_growth": 5800,
+         "stun_ratio": 21880,
+         "stun_ratio_growth": 1000,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2401850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 40786,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20837
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "終結スキル：使命を果たす",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1141021, Prop:1001}",
+       "param": {
+        "1141021": {
+         "main": 169410,
+         "growth": 15410,
+         "format": "%",
+         "damage_percentage": 169410,
+         "damage_percentage_growth": 15410,
+         "stun_ratio": 109660,
+         "stun_ratio_growth": 4990,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 67337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1141021, Prop:1002}",
+       "param": {
+        "1141021": {
+         "main": 109660,
+         "growth": 4990,
+         "format": "%",
+         "damage_percentage": 169410,
+         "damage_percentage_growth": 15410,
+         "stun_ratio": 109660,
+         "stun_ratio_growth": 4990,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 67337
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "クイック支援：群狼",
+     "desc": "操作しているメンバーが吹き飛ばされた時に、 <IconMap:Icon_Switch> を押して発動：\n前方の敵に打撃を放ち、<color=#98EFF0>氷属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：狩りへの介入",
+     "desc": "出場中のメンバーが攻撃されそうになった時に、 <IconMap:Icon_Switch> を押して発動：\n敵の攻撃をパリィし、ブレイク値を大量に蓄積させる。\nスキル発動中、無敵効果を得る。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "パリィ支援：狩りへの介入",
+     "desc": "出場中のメンバーが攻撃されそうになった時に、 <IconMap:Icon_Switch> を押して発動：\n敵の攻撃をパリィし、ブレイク値を大量に蓄積させる。\nパリィ性能はかなり高い。激しい攻撃を受けている際は、<color=#FFFFFF>「支援ポイント」</color>の消費量が減少する。\nスキル発動中、無敵効果を得る。",
+     "potential": [
+      114100,
+      114101,
+      114102,
+      114103,
+      114104,
+      114105
+     ]
+    },
+    {
+     "name": "支援突撃：復讐の反攻",
+     "desc": "<color=#FFFFFF>『パリィ支援』</color>発動後、 <IconMap:Icon_Normal> を押して発動：\n前方に氷柱を生成し、エリア内の敵に打撃を放ち、<color=#98EFF0>氷属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援突撃：復讐の反攻・氷のワルツ",
+     "desc": "<color=#FFFFFF>『パリィ支援』</color>発動後、 <IconMap:Icon_Normal> を長押しして発動：\n前方の敵に複数段の打撃を素早く放ち、<color=#98EFF0>氷属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": [
+      114100,
+      114101,
+      114102,
+      114103,
+      114104,
+      114105
+     ]
+    },
+    {
+     "name": "クイック支援：群狼",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1141022, Prop:1001}",
+       "param": {
+        "1141022": {
+         "main": 6310,
+         "growth": 580,
+         "format": "%",
+         "damage_percentage": 6310,
+         "damage_percentage_growth": 580,
+         "stun_ratio": 6310,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 21620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 165275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3002
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1141022, Prop:1002}",
+       "param": {
+        "1141022": {
+         "main": 6310,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 6310,
+         "damage_percentage_growth": 580,
+         "stun_ratio": 6310,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 21620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 165275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3002
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：狩りへの介入",
+     "param": [
+      {
+       "name": "パリィ・軽 ブレイク倍率",
+       "desc": "{Skill:1141023, Prop:1002}",
+       "param": {
+        "1141023": {
+         "main": 25900,
+         "growth": 1180,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 25900,
+         "stun_ratio_growth": 1180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・重 ブレイク倍率",
+       "desc": "{Skill:1141024, Prop:1002}",
+       "param": {
+        "1141024": {
+         "main": 32730,
+         "growth": 1490,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 32730,
+         "stun_ratio_growth": 1490,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・連続 ブレイク倍率",
+       "desc": "{Skill:1141025, Prop:1002}",
+       "param": {
+        "1141025": {
+         "main": 15930,
+         "growth": 730,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 15930,
+         "stun_ratio_growth": 730,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：復讐の反攻",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1141026, Prop:1001}",
+       "param": {
+        "1141026": {
+         "main": 28830,
+         "growth": 2630,
+         "format": "%",
+         "damage_percentage": 28830,
+         "damage_percentage_growth": 2630,
+         "stun_ratio": 24680,
+         "stun_ratio_growth": 1130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 863500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 25476,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1141026, Prop:1002}",
+       "param": {
+        "1141026": {
+         "main": 24680,
+         "growth": 1130,
+         "format": "%",
+         "damage_percentage": 28830,
+         "damage_percentage_growth": 2630,
+         "stun_ratio": 24680,
+         "stun_ratio_growth": 1130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 863500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 25476,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11671
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：復讐の反攻・氷のワルツ",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1141027, Prop:1001}",
+       "param": {
+        "1141027": {
+         "main": 41070,
+         "growth": 3740,
+         "format": "%",
+         "damage_percentage": 41070,
+         "damage_percentage_growth": 3740,
+         "stun_ratio": 36050,
+         "stun_ratio_growth": 1640,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1206975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 36722,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20000
+        }
+       },
+       "potential": [
+        114100,
+        114101,
+        114102,
+        114103,
+        114104,
+        114105
+       ]
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1141027, Prop:1002}",
+       "param": {
+        "1141027": {
+         "main": 36050,
+         "growth": 1640,
+         "format": "%",
+         "damage_percentage": 41070,
+         "damage_percentage_growth": 3740,
+         "stun_ratio": 36050,
+         "stun_ratio_growth": 1640,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1206975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 36722,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20000
+        }
+       },
+       "potential": [
+        114100,
+        114101,
+        114102,
+        114103,
+        114104,
+        114105
+       ]
+      }
+     ],
+     "potential": [
+      114100,
+      114101,
+      114102,
+      114103,
+      114104,
+      114105
+     ]
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "満月に備えよ",
+   "desc": "<color=#FFFFFF>『強化特殊スキル：人狼の刻』</color>が敵に命中すると、スキルの与えるブレイク値+12%、8秒に1回のみ発動可能。チャージした<color=#FFFFFF>『強化特殊スキル：人狼の刻』</color>の場合、この効果が追加で+10%。",
+   "desc2": "記録によると、狼男の攻撃性は満月の夜に著しく高まる。\n「月を、直視してはならない」"
+  },
+  "2": {
+   "level": 2,
+   "name": "エネルギー還元",
+   "desc": "敵をブレイク状態にする、またはメンバーの<color=#FFFFFF>『連携スキル』</color>を発動した時に、ライカンがエネルギーを5Pt回復する、1秒に1回のみ発動可能。",
+   "desc2": "「イヌ科動物が難しい課題をクリアすると、脳が刺激されて高揚感が生まれ、一時的な精神の充足を得る」\n「この時、主人が頭をなでて褒めてやれば、彼らはさらに喜ぶだろう…」\n——『イヌ科動物の不確かな研究ノート』より"
+  },
+  "3": {
+   "level": 3,
+   "name": "執事の教養",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "穏やかな一挙手一投足、春風が吹き抜けるような話し方…\nそれらすべては、執事としての教養によってコントロールされたものである。"
+  },
+  "4": {
+   "level": 4,
+   "name": "優雅たれ",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『特殊スキル』</color>中に敵からの攻撃を受けると、ライカンは即座に自身のHP上限7.5%分のシールドを生成する、継続時間15秒。シールド継続中、中断耐性レベルがアップする、15秒に1回のみ発動可能。",
+   "desc2": "「優秀な執事とは、常に優雅に立ち振る舞うことを忘れないのです」"
+  },
+  "5": {
+   "level": 5,
+   "name": "アルファの本性",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "瞳に秘めた野生、低く唸る喉…\n目の前でいかに優雅に振る舞おうとも、礼服の下の彼は依然として獰猛なままだ。"
+  },
+  "6": {
+   "level": 6,
+   "name": "冷酷な猟人",
+   "desc": "チャージ攻撃が敵に命中した時、ライカンがターゲットに与えるダメージ+10%、最大5重まで重ね掛け可能、継続時間12秒。1回の攻撃で1重のみ重ね掛け可能。重複して発動すると継続時間が更新される。",
+   "desc2": "「申し訳ありませんが、手心を加えるようなことは致しません」\n「何しろここは、ホロウ——弱者を慮る場所では、ございませんので」"
+  }
+ },
+ "passive": {
+  "level": {
+   "1141501": {
+    "level": 1,
+    "id": 1141501,
+    "name": [
+     "コアパッシブ：フルメタル・レッグ",
+     "追加能力：優雅なる狩人"
+    ],
+    "desc": [
+     "ライカンのチャージした<color=#FFFFFF>『通常攻撃』</color>の与えるブレイク値+<color=#2BAD00>40%</color>。\n<color=#FFFFFF>『強化特殊スキル：人狼の刻』</color>または<color=#FFFFFF>『支援突撃：復讐の反攻』</color>が敵に命中すると、ターゲットの<color=#98EFF0>氷属性ダメージ耐性</color>-25%、継続時間30秒。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\nライカンの攻撃がブレイク状態の敵に命中した時、ターゲットのブレイク弱体倍率+35%。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1141502": {
+    "level": 2,
+    "id": 1141502,
+    "name": [
+     "コアパッシブ：フルメタル・レッグ",
+     "追加能力：優雅なる狩人"
+    ],
+    "desc": [
+     "ライカンのチャージした<color=#FFFFFF>『通常攻撃』</color>の与えるブレイク値+<color=#2BAD00>46.6%</color>。\n<color=#FFFFFF>『強化特殊スキル：人狼の刻』</color>または<color=#FFFFFF>『支援突撃：復讐の反攻』</color>が敵に命中すると、ターゲットの<color=#98EFF0>氷属性ダメージ耐性</color>-25%、継続時間30秒。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\nライカンの攻撃がブレイク状態の敵に命中した時、ターゲットのブレイク弱体倍率+35%。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1141503": {
+    "level": 3,
+    "id": 1141503,
+    "name": [
+     "コアパッシブ：フルメタル・レッグ",
+     "追加能力：優雅なる狩人"
+    ],
+    "desc": [
+     "ライカンのチャージした<color=#FFFFFF>『通常攻撃』</color>の与えるブレイク値+<color=#2BAD00>53.3%</color>。\n<color=#FFFFFF>『強化特殊スキル：人狼の刻』</color>または<color=#FFFFFF>『支援突撃：復讐の反攻』</color>が敵に命中すると、ターゲットの<color=#98EFF0>氷属性ダメージ耐性</color>-25%、継続時間30秒。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\nライカンの攻撃がブレイク状態の敵に命中した時、ターゲットのブレイク弱体倍率+35%。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1141504": {
+    "level": 4,
+    "id": 1141504,
+    "name": [
+     "コアパッシブ：フルメタル・レッグ",
+     "追加能力：優雅なる狩人"
+    ],
+    "desc": [
+     "ライカンのチャージした<color=#FFFFFF>『通常攻撃』</color>の与えるブレイク値+<color=#2BAD00>60%</color>。\n<color=#FFFFFF>『強化特殊スキル：人狼の刻』</color>または<color=#FFFFFF>『支援突撃：復讐の反攻』</color>が敵に命中すると、ターゲットの<color=#98EFF0>氷属性ダメージ耐性</color>-25%、継続時間30秒。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\nライカンの攻撃がブレイク状態の敵に命中した時、ターゲットのブレイク弱体倍率+35%。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1141505": {
+    "level": 5,
+    "id": 1141505,
+    "name": [
+     "コアパッシブ：フルメタル・レッグ",
+     "追加能力：優雅なる狩人"
+    ],
+    "desc": [
+     "ライカンのチャージした<color=#FFFFFF>『通常攻撃』</color>の与えるブレイク値+<color=#2BAD00>66.6%</color>。\n<color=#FFFFFF>『強化特殊スキル：人狼の刻』</color>または<color=#FFFFFF>『支援突撃：復讐の反攻』</color>が敵に命中すると、ターゲットの<color=#98EFF0>氷属性ダメージ耐性</color>-25%、継続時間30秒。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\nライカンの攻撃がブレイク状態の敵に命中した時、ターゲットのブレイク弱体倍率+35%。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1141506": {
+    "level": 6,
+    "id": 1141506,
+    "name": [
+     "コアパッシブ：フルメタル・レッグ",
+     "追加能力：優雅なる狩人"
+    ],
+    "desc": [
+     "ライカンのチャージした<color=#FFFFFF>『通常攻撃』</color>の与えるブレイク値+<color=#2BAD00>73.3%</color>。\n<color=#FFFFFF>『強化特殊スキル：人狼の刻』</color>または<color=#FFFFFF>『支援突撃：復讐の反攻』</color>が敵に命中すると、ターゲットの<color=#98EFF0>氷属性ダメージ耐性</color>-25%、継続時間30秒。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\nライカンの攻撃がブレイク状態の敵に命中した時、ターゲットのブレイク弱体倍率+35%。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1141507": {
+    "level": 7,
+    "id": 1141507,
+    "name": [
+     "コアパッシブ：フルメタル・レッグ",
+     "追加能力：優雅なる狩人"
+    ],
+    "desc": [
+     "ライカンのチャージした<color=#FFFFFF>『通常攻撃』</color>の与えるブレイク値+<color=#2BAD00>80%</color>。\n<color=#FFFFFF>『強化特殊スキル：人狼の刻』</color>または<color=#FFFFFF>『支援突撃：復讐の反攻』</color>が敵に命中すると、ターゲットの<color=#98EFF0>氷属性ダメージ耐性</color>-25%、継続時間30秒。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\nライカンの攻撃がブレイク状態の敵に命中した時、ターゲットのブレイク弱体倍率+35%。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1141508": {
+    "level": 1,
+    "id": 1141508,
+    "name": [
+     "コアパッシブ：フルメタル・レッグ",
+     "追加能力：優雅なる狩人"
+    ],
+    "desc": [
+     "ライカンが<color=#FFFFFF>『通常攻撃』</color>でチャージを完了、または<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>40%</color>。\n<color=#FFFFFF>『強化特殊スキル：人狼の刻』</color>、<color=#FFFFFF>『支援突撃：復讐の反攻』</color>または<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が敵に命中した時、ターゲットの<color=#98EFF0>氷属性ダメージ耐性</color>-25%、ターゲットが受ける他の属性ダメージ+<color=#FFFFFF>30%</color>、継続時間30秒。\nフィールド入場時、ライカンは<color=#FFFFFF>「挟撃」</color>状態の発動回数を1回分獲得する。\n<color=#FFFFFF>「挟撃」</color>状態の発動回数を所持している場合、<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が敵に命中すると、前のメンバーの<color=#FFFFFF>『クイック支援』</color>が発動可能になる。スキル発動中、他のメンバーが<color=#FFFFFF>『クイック支援』</color>で入場すると、ライカンは<color=#FFFFFF>「挟撃」</color>状態に入る、継続時間8秒。\n精鋭またはボス級の敵がブレイク状態に入った時、<color=#FFFFFF>「挟撃」</color>状態の発動回数を1回分獲得する。<color=#FFFFFF>「挟撃」</color>状態の発動回数は最大1回まで所持可能。\n<color=#FFFFFF>「挟撃」</color>状態終了時、ライカンは自動的に<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>を発動する。継続時間が残っている状態で<color=#FFFFFF>「挟撃」</color>状態が早期終了した場合、残りの継続時間1秒につき、次に発動する<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が与えるブレイク値+<color=#FFFFFF>6%</color>。\n操作中のメンバーが攻撃を停止、または<color=#FFFFFF>『連携スキル』</color>あるいは<color=#FFFFFF>『終結スキル』</color>を発動した時、ライカンは<color=#FFFFFF>「挟撃」</color>状態を早期終了する。\nライカンが自ら<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>を発動した時も<color=#FFFFFF>「挟撃」</color>状態は早期終了するが、自動的な<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>の発動は行われない。\n<color=#FFFFFF>「挟撃」</color>状態継続中、ライカンは操作中のメンバーが発動したスキルに応じて、それぞれ<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>、<color=#FFFFFF>『回避反撃』</color>を発動する。\n操作中のメンバーが<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、ライカンは同時に<color=#FFFFFF>『通常攻撃』</color>の1段目から3段目を発動する。\n操作中のメンバーが<color=#FFFFFF>『回避』</color>および<color=#FFFFFF>『回避反撃』</color>を発動した時、ライカンは同時に<color=#FFFFFF>『回避』</color>と<color=#FFFFFF>『回避反撃』</color>を発動する。<color=#FFFFFF>「挟撃」</color>状態中、<color=#FFFFFF>『回避反撃』</color>発動後、ライカンはそのまま<color=#FFFFFF>『通常攻撃』</color>3段目に繋げることが可能。\n<color=#FFFFFF>「挟撃」</color>状態中、ライカンが操作中のメンバーでない場合に発動したスキルは、ダメージとブレイク値のみを与える。ライカンが操作中のメンバーである場合、<color=#FFFFFF>「挟撃」</color>の継続時間は減少しなくなる。",
+     "チームに自身と同じ属性、同じ陣営、または「異常」のメンバーがいる時に発動：\nライカンの攻撃がブレイク状態の敵に命中した時、ターゲットのブレイク弱体倍率+35%。"
+    ],
+    "extra_property": {},
+    "potential": [
+     114100,
+     114101,
+     114102,
+     114103,
+     114104,
+     114105
+    ]
+   },
+   "1141509": {
+    "level": 2,
+    "id": 1141509,
+    "name": [
+     "コアパッシブ：フルメタル・レッグ",
+     "追加能力：優雅なる狩人"
+    ],
+    "desc": [
+     "ライカンが<color=#FFFFFF>『通常攻撃』</color>でチャージを完了、または<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>46.6%</color>。\n<color=#FFFFFF>『強化特殊スキル：人狼の刻』</color>、<color=#FFFFFF>『支援突撃：復讐の反攻』</color>または<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が敵に命中した時、ターゲットの<color=#98EFF0>氷属性ダメージ耐性</color>-25%、ターゲットが受ける他の属性ダメージ+<color=#FFFFFF>30%</color>、継続時間30秒。\nフィールド入場時、ライカンは<color=#FFFFFF>「挟撃」</color>状態の発動回数を1回分獲得する。\n<color=#FFFFFF>「挟撃」</color>状態の発動回数を所持している場合、<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が敵に命中すると、前のメンバーの<color=#FFFFFF>『クイック支援』</color>が発動可能になる。スキル発動中、他のメンバーが<color=#FFFFFF>『クイック支援』</color>で入場すると、ライカンは<color=#FFFFFF>「挟撃」</color>状態に入る、継続時間8秒。\n精鋭またはボス級の敵がブレイク状態に入った時、<color=#FFFFFF>「挟撃」</color>状態の発動回数を1回分獲得する。<color=#FFFFFF>「挟撃」</color>状態の発動回数は最大1回まで所持可能。\n<color=#FFFFFF>「挟撃」</color>状態終了時、ライカンは自動的に<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>を発動する。継続時間が残っている状態で<color=#FFFFFF>「挟撃」</color>状態が早期終了した場合、残りの継続時間1秒につき、次に発動する<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が与えるブレイク値+<color=#FFFFFF>6%</color>。\n操作中のメンバーが攻撃を停止、または<color=#FFFFFF>『連携スキル』</color>あるいは<color=#FFFFFF>『終結スキル』</color>を発動した時、ライカンは<color=#FFFFFF>「挟撃」</color>状態を早期終了する。\nライカンが自ら<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>を発動した時も<color=#FFFFFF>「挟撃」</color>状態は早期終了するが、自動的な<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>の発動は行われない。\n<color=#FFFFFF>「挟撃」</color>状態継続中、ライカンは操作中のメンバーが発動したスキルに応じて、それぞれ<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>、<color=#FFFFFF>『回避反撃』</color>を発動する。\n操作中のメンバーが<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、ライカンは同時に<color=#FFFFFF>『通常攻撃』</color>の1段目から3段目を発動する。\n操作中のメンバーが<color=#FFFFFF>『回避』</color>および<color=#FFFFFF>『回避反撃』</color>を発動した時、ライカンは同時に<color=#FFFFFF>『回避』</color>と<color=#FFFFFF>『回避反撃』</color>を発動する。<color=#FFFFFF>「挟撃」</color>状態中、<color=#FFFFFF>『回避反撃』</color>発動後、ライカンはそのまま<color=#FFFFFF>『通常攻撃』</color>3段目に繋げることが可能。\n<color=#FFFFFF>「挟撃」</color>状態中、ライカンが操作中のメンバーでない場合に発動したスキルは、ダメージとブレイク値のみを与える。ライカンが操作中のメンバーである場合、<color=#FFFFFF>「挟撃」</color>の継続時間は減少しなくなる。",
+     "チームに自身と同じ属性、同じ陣営、または「異常」のメンバーがいる時に発動：\nライカンの攻撃がブレイク状態の敵に命中した時、ターゲットのブレイク弱体倍率+35%。"
+    ],
+    "extra_property": {},
+    "potential": [
+     114100,
+     114101,
+     114102,
+     114103,
+     114104,
+     114105
+    ]
+   },
+   "1141510": {
+    "level": 3,
+    "id": 1141510,
+    "name": [
+     "コアパッシブ：フルメタル・レッグ",
+     "追加能力：優雅なる狩人"
+    ],
+    "desc": [
+     "ライカンが<color=#FFFFFF>『通常攻撃』</color>でチャージを完了、または<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>53.3%</color>。\n<color=#FFFFFF>『強化特殊スキル：人狼の刻』</color>、<color=#FFFFFF>『支援突撃：復讐の反攻』</color>または<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が敵に命中した時、ターゲットの<color=#98EFF0>氷属性ダメージ耐性</color>-25%、ターゲットが受ける他の属性ダメージ+<color=#FFFFFF>30%</color>、継続時間30秒。\nフィールド入場時、ライカンは<color=#FFFFFF>「挟撃」</color>状態の発動回数を1回分獲得する。\n<color=#FFFFFF>「挟撃」</color>状態の発動回数を所持している場合、<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が敵に命中すると、前のメンバーの<color=#FFFFFF>『クイック支援』</color>が発動可能になる。スキル発動中、他のメンバーが<color=#FFFFFF>『クイック支援』</color>で入場すると、ライカンは<color=#FFFFFF>「挟撃」</color>状態に入る、継続時間8秒。\n精鋭またはボス級の敵がブレイク状態に入った時、<color=#FFFFFF>「挟撃」</color>状態の発動回数を1回分獲得する。<color=#FFFFFF>「挟撃」</color>状態の発動回数は最大1回まで所持可能。\n<color=#FFFFFF>「挟撃」</color>状態終了時、ライカンは自動的に<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>を発動する。継続時間が残っている状態で<color=#FFFFFF>「挟撃」</color>状態が早期終了した場合、残りの継続時間1秒につき、次に発動する<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が与えるブレイク値+<color=#FFFFFF>6%</color>。\n操作中のメンバーが攻撃を停止、または<color=#FFFFFF>『連携スキル』</color>あるいは<color=#FFFFFF>『終結スキル』</color>を発動した時、ライカンは<color=#FFFFFF>「挟撃」</color>状態を早期終了する。\nライカンが自ら<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>を発動した時も<color=#FFFFFF>「挟撃」</color>状態は早期終了するが、自動的な<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>の発動は行われない。\n<color=#FFFFFF>「挟撃」</color>状態継続中、ライカンは操作中のメンバーが発動したスキルに応じて、それぞれ<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>、<color=#FFFFFF>『回避反撃』</color>を発動する。\n操作中のメンバーが<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、ライカンは同時に<color=#FFFFFF>『通常攻撃』</color>の1段目から3段目を発動する。\n操作中のメンバーが<color=#FFFFFF>『回避』</color>および<color=#FFFFFF>『回避反撃』</color>を発動した時、ライカンは同時に<color=#FFFFFF>『回避』</color>と<color=#FFFFFF>『回避反撃』</color>を発動する。<color=#FFFFFF>「挟撃」</color>状態中、<color=#FFFFFF>『回避反撃』</color>発動後、ライカンはそのまま<color=#FFFFFF>『通常攻撃』</color>3段目に繋げることが可能。\n<color=#FFFFFF>「挟撃」</color>状態中、ライカンが操作中のメンバーでない場合に発動したスキルは、ダメージとブレイク値のみを与える。ライカンが操作中のメンバーである場合、<color=#FFFFFF>「挟撃」</color>の継続時間は減少しなくなる。",
+     "チームに自身と同じ属性、同じ陣営、または「異常」のメンバーがいる時に発動：\nライカンの攻撃がブレイク状態の敵に命中した時、ターゲットのブレイク弱体倍率+35%。"
+    ],
+    "extra_property": {},
+    "potential": [
+     114100,
+     114101,
+     114102,
+     114103,
+     114104,
+     114105
+    ]
+   },
+   "1141511": {
+    "level": 4,
+    "id": 1141511,
+    "name": [
+     "コアパッシブ：フルメタル・レッグ",
+     "追加能力：優雅なる狩人"
+    ],
+    "desc": [
+     "ライカンが<color=#FFFFFF>『通常攻撃』</color>でチャージを完了、または<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>60%</color>。\n<color=#FFFFFF>『強化特殊スキル：人狼の刻』</color>、<color=#FFFFFF>『支援突撃：復讐の反攻』</color>または<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が敵に命中した時、ターゲットの<color=#98EFF0>氷属性ダメージ耐性</color>-25%、ターゲットが受ける他の属性ダメージ+<color=#FFFFFF>30%</color>、継続時間30秒。\nフィールド入場時、ライカンは<color=#FFFFFF>「挟撃」</color>状態の発動回数を1回分獲得する。\n<color=#FFFFFF>「挟撃」</color>状態の発動回数を所持している場合、<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が敵に命中すると、前のメンバーの<color=#FFFFFF>『クイック支援』</color>が発動可能になる。スキル発動中、他のメンバーが<color=#FFFFFF>『クイック支援』</color>で入場すると、ライカンは<color=#FFFFFF>「挟撃」</color>状態に入る、継続時間8秒。\n精鋭またはボス級の敵がブレイク状態に入った時、<color=#FFFFFF>「挟撃」</color>状態の発動回数を1回分獲得する。<color=#FFFFFF>「挟撃」</color>状態の発動回数は最大1回まで所持可能。\n<color=#FFFFFF>「挟撃」</color>状態終了時、ライカンは自動的に<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>を発動する。継続時間が残っている状態で<color=#FFFFFF>「挟撃」</color>状態が早期終了した場合、残りの継続時間1秒につき、次に発動する<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が与えるブレイク値+<color=#FFFFFF>6%</color>。\n操作中のメンバーが攻撃を停止、または<color=#FFFFFF>『連携スキル』</color>あるいは<color=#FFFFFF>『終結スキル』</color>を発動した時、ライカンは<color=#FFFFFF>「挟撃」</color>状態を早期終了する。\nライカンが自ら<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>を発動した時も<color=#FFFFFF>「挟撃」</color>状態は早期終了するが、自動的な<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>の発動は行われない。\n<color=#FFFFFF>「挟撃」</color>状態継続中、ライカンは操作中のメンバーが発動したスキルに応じて、それぞれ<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>、<color=#FFFFFF>『回避反撃』</color>を発動する。\n操作中のメンバーが<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、ライカンは同時に<color=#FFFFFF>『通常攻撃』</color>の1段目から3段目を発動する。\n操作中のメンバーが<color=#FFFFFF>『回避』</color>および<color=#FFFFFF>『回避反撃』</color>を発動した時、ライカンは同時に<color=#FFFFFF>『回避』</color>と<color=#FFFFFF>『回避反撃』</color>を発動する。<color=#FFFFFF>「挟撃」</color>状態中、<color=#FFFFFF>『回避反撃』</color>発動後、ライカンはそのまま<color=#FFFFFF>『通常攻撃』</color>3段目に繋げることが可能。\n<color=#FFFFFF>「挟撃」</color>状態中、ライカンが操作中のメンバーでない場合に発動したスキルは、ダメージとブレイク値のみを与える。ライカンが操作中のメンバーである場合、<color=#FFFFFF>「挟撃」</color>の継続時間は減少しなくなる。",
+     "チームに自身と同じ属性、同じ陣営、または「異常」のメンバーがいる時に発動：\nライカンの攻撃がブレイク状態の敵に命中した時、ターゲットのブレイク弱体倍率+35%。"
+    ],
+    "extra_property": {},
+    "potential": [
+     114100,
+     114101,
+     114102,
+     114103,
+     114104,
+     114105
+    ]
+   },
+   "1141512": {
+    "level": 5,
+    "id": 1141512,
+    "name": [
+     "コアパッシブ：フルメタル・レッグ",
+     "追加能力：優雅なる狩人"
+    ],
+    "desc": [
+     "ライカンが<color=#FFFFFF>『通常攻撃』</color>でチャージを完了、または<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>66.6%</color>。\n<color=#FFFFFF>『強化特殊スキル：人狼の刻』</color>、<color=#FFFFFF>『支援突撃：復讐の反攻』</color>または<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が敵に命中した時、ターゲットの<color=#98EFF0>氷属性ダメージ耐性</color>-25%、ターゲットが受ける他の属性ダメージ+<color=#FFFFFF>30%</color>、継続時間30秒。\nフィールド入場時、ライカンは<color=#FFFFFF>「挟撃」</color>状態の発動回数を1回分獲得する。\n<color=#FFFFFF>「挟撃」</color>状態の発動回数を所持している場合、<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が敵に命中すると、前のメンバーの<color=#FFFFFF>『クイック支援』</color>が発動可能になる。スキル発動中、他のメンバーが<color=#FFFFFF>『クイック支援』</color>で入場すると、ライカンは<color=#FFFFFF>「挟撃」</color>状態に入る、継続時間8秒。\n精鋭またはボス級の敵がブレイク状態に入った時、<color=#FFFFFF>「挟撃」</color>状態の発動回数を1回分獲得する。<color=#FFFFFF>「挟撃」</color>状態の発動回数は最大1回まで所持可能。\n<color=#FFFFFF>「挟撃」</color>状態終了時、ライカンは自動的に<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>を発動する。継続時間が残っている状態で<color=#FFFFFF>「挟撃」</color>状態が早期終了した場合、残りの継続時間1秒につき、次に発動する<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が与えるブレイク値+<color=#FFFFFF>6%</color>。\n操作中のメンバーが攻撃を停止、または<color=#FFFFFF>『連携スキル』</color>あるいは<color=#FFFFFF>『終結スキル』</color>を発動した時、ライカンは<color=#FFFFFF>「挟撃」</color>状態を早期終了する。\nライカンが自ら<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>を発動した時も<color=#FFFFFF>「挟撃」</color>状態は早期終了するが、自動的な<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>の発動は行われない。\n<color=#FFFFFF>「挟撃」</color>状態継続中、ライカンは操作中のメンバーが発動したスキルに応じて、それぞれ<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>、<color=#FFFFFF>『回避反撃』</color>を発動する。\n操作中のメンバーが<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、ライカンは同時に<color=#FFFFFF>『通常攻撃』</color>の1段目から3段目を発動する。\n操作中のメンバーが<color=#FFFFFF>『回避』</color>および<color=#FFFFFF>『回避反撃』</color>を発動した時、ライカンは同時に<color=#FFFFFF>『回避』</color>と<color=#FFFFFF>『回避反撃』</color>を発動する。<color=#FFFFFF>「挟撃」</color>状態中、<color=#FFFFFF>『回避反撃』</color>発動後、ライカンはそのまま<color=#FFFFFF>『通常攻撃』</color>3段目に繋げることが可能。\n<color=#FFFFFF>「挟撃」</color>状態中、ライカンが操作中のメンバーでない場合に発動したスキルは、ダメージとブレイク値のみを与える。ライカンが操作中のメンバーである場合、<color=#FFFFFF>「挟撃」</color>の継続時間は減少しなくなる。",
+     "チームに自身と同じ属性、同じ陣営、または「異常」のメンバーがいる時に発動：\nライカンの攻撃がブレイク状態の敵に命中した時、ターゲットのブレイク弱体倍率+35%。"
+    ],
+    "extra_property": {},
+    "potential": [
+     114100,
+     114101,
+     114102,
+     114103,
+     114104,
+     114105
+    ]
+   },
+   "1141513": {
+    "level": 6,
+    "id": 1141513,
+    "name": [
+     "コアパッシブ：フルメタル・レッグ",
+     "追加能力：優雅なる狩人"
+    ],
+    "desc": [
+     "ライカンが<color=#FFFFFF>『通常攻撃』</color>でチャージを完了、または<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>73.3%</color>。\n<color=#FFFFFF>『強化特殊スキル：人狼の刻』</color>、<color=#FFFFFF>『支援突撃：復讐の反攻』</color>または<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が敵に命中した時、ターゲットの<color=#98EFF0>氷属性ダメージ耐性</color>-25%、ターゲットが受ける他の属性ダメージ+<color=#FFFFFF>30%</color>、継続時間30秒。\nフィールド入場時、ライカンは<color=#FFFFFF>「挟撃」</color>状態の発動回数を1回分獲得する。\n<color=#FFFFFF>「挟撃」</color>状態の発動回数を所持している場合、<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が敵に命中すると、前のメンバーの<color=#FFFFFF>『クイック支援』</color>が発動可能になる。スキル発動中、他のメンバーが<color=#FFFFFF>『クイック支援』</color>で入場すると、ライカンは<color=#FFFFFF>「挟撃」</color>状態に入る、継続時間8秒。\n精鋭またはボス級の敵がブレイク状態に入った時、<color=#FFFFFF>「挟撃」</color>状態の発動回数を1回分獲得する。<color=#FFFFFF>「挟撃」</color>状態の発動回数は最大1回まで所持可能。\n<color=#FFFFFF>「挟撃」</color>状態終了時、ライカンは自動的に<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>を発動する。継続時間が残っている状態で<color=#FFFFFF>「挟撃」</color>状態が早期終了した場合、残りの継続時間1秒につき、次に発動する<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が与えるブレイク値+<color=#FFFFFF>6%</color>。\n操作中のメンバーが攻撃を停止、または<color=#FFFFFF>『連携スキル』</color>あるいは<color=#FFFFFF>『終結スキル』</color>を発動した時、ライカンは<color=#FFFFFF>「挟撃」</color>状態を早期終了する。\nライカンが自ら<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>を発動した時も<color=#FFFFFF>「挟撃」</color>状態は早期終了するが、自動的な<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>の発動は行われない。\n<color=#FFFFFF>「挟撃」</color>状態継続中、ライカンは操作中のメンバーが発動したスキルに応じて、それぞれ<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>、<color=#FFFFFF>『回避反撃』</color>を発動する。\n操作中のメンバーが<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、ライカンは同時に<color=#FFFFFF>『通常攻撃』</color>の1段目から3段目を発動する。\n操作中のメンバーが<color=#FFFFFF>『回避』</color>および<color=#FFFFFF>『回避反撃』</color>を発動した時、ライカンは同時に<color=#FFFFFF>『回避』</color>と<color=#FFFFFF>『回避反撃』</color>を発動する。<color=#FFFFFF>「挟撃」</color>状態中、<color=#FFFFFF>『回避反撃』</color>発動後、ライカンはそのまま<color=#FFFFFF>『通常攻撃』</color>3段目に繋げることが可能。\n<color=#FFFFFF>「挟撃」</color>状態中、ライカンが操作中のメンバーでない場合に発動したスキルは、ダメージとブレイク値のみを与える。ライカンが操作中のメンバーである場合、<color=#FFFFFF>「挟撃」</color>の継続時間は減少しなくなる。",
+     "チームに自身と同じ属性、同じ陣営、または「異常」のメンバーがいる時に発動：\nライカンの攻撃がブレイク状態の敵に命中した時、ターゲットのブレイク弱体倍率+35%。"
+    ],
+    "extra_property": {},
+    "potential": [
+     114100,
+     114101,
+     114102,
+     114103,
+     114104,
+     114105
+    ]
+   },
+   "1141514": {
+    "level": 7,
+    "id": 1141514,
+    "name": [
+     "コアパッシブ：フルメタル・レッグ",
+     "追加能力：優雅なる狩人"
+    ],
+    "desc": [
+     "ライカンが<color=#FFFFFF>『通常攻撃』</color>でチャージを完了、または<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>を発動した時、スキルの与えるブレイク値+<color=#2BAD00>80%</color>。\n<color=#FFFFFF>『強化特殊スキル：人狼の刻』</color>、<color=#FFFFFF>『支援突撃：復讐の反攻』</color>または<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が敵に命中した時、ターゲットの<color=#98EFF0>氷属性ダメージ耐性</color>-25%、ターゲットが受ける他の属性ダメージ+<color=#FFFFFF>30%</color>、継続時間30秒。\nフィールド入場時、ライカンは<color=#FFFFFF>「挟撃」</color>状態の発動回数を1回分獲得する。\n<color=#FFFFFF>「挟撃」</color>状態の発動回数を所持している場合、<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が敵に命中すると、前のメンバーの<color=#FFFFFF>『クイック支援』</color>が発動可能になる。スキル発動中、他のメンバーが<color=#FFFFFF>『クイック支援』</color>で入場すると、ライカンは<color=#FFFFFF>「挟撃」</color>状態に入る、継続時間8秒。\n精鋭またはボス級の敵がブレイク状態に入った時、<color=#FFFFFF>「挟撃」</color>状態の発動回数を1回分獲得する。<color=#FFFFFF>「挟撃」</color>状態の発動回数は最大1回まで所持可能。\n<color=#FFFFFF>「挟撃」</color>状態終了時、ライカンは自動的に<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>を発動する。継続時間が残っている状態で<color=#FFFFFF>「挟撃」</color>状態が早期終了した場合、残りの継続時間1秒につき、次に発動する<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>が与えるブレイク値+<color=#FFFFFF>6%</color>。\n操作中のメンバーが攻撃を停止、または<color=#FFFFFF>『連携スキル』</color>あるいは<color=#FFFFFF>『終結スキル』</color>を発動した時、ライカンは<color=#FFFFFF>「挟撃」</color>状態を早期終了する。\nライカンが自ら<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>を発動した時も<color=#FFFFFF>「挟撃」</color>状態は早期終了するが、自動的な<color=#FFFFFF>『支援突撃：復讐の反攻・氷のワルツ』</color>の発動は行われない。\n<color=#FFFFFF>「挟撃」</color>状態継続中、ライカンは操作中のメンバーが発動したスキルに応じて、それぞれ<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>、<color=#FFFFFF>『回避反撃』</color>を発動する。\n操作中のメンバーが<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、ライカンは同時に<color=#FFFFFF>『通常攻撃』</color>の1段目から3段目を発動する。\n操作中のメンバーが<color=#FFFFFF>『回避』</color>および<color=#FFFFFF>『回避反撃』</color>を発動した時、ライカンは同時に<color=#FFFFFF>『回避』</color>と<color=#FFFFFF>『回避反撃』</color>を発動する。<color=#FFFFFF>「挟撃」</color>状態中、<color=#FFFFFF>『回避反撃』</color>発動後、ライカンはそのまま<color=#FFFFFF>『通常攻撃』</color>3段目に繋げることが可能。\n<color=#FFFFFF>「挟撃」</color>状態中、ライカンが操作中のメンバーでない場合に発動したスキルは、ダメージとブレイク値のみを与える。ライカンが操作中のメンバーである場合、<color=#FFFFFF>「挟撃」</color>の継続時間は減少しなくなる。",
+     "チームに自身と同じ属性、同じ陣営、または「異常」のメンバーがいる時に発動：\nライカンの攻撃がブレイク状態の敵に命中した時、ターゲットのブレイク弱体倍率+35%。"
+    ],
+    "extra_property": {},
+    "potential": [
+     114100,
+     114101,
+     114102,
+     114103,
+     114104,
+     114105
+    ]
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110503": 2
+   },
+   "3": {
+    "10": 28000,
+    "110503": 4
+   },
+   "4": {
+    "10": 60000,
+    "110003": 2,
+    "110503": 9
+   },
+   "5": {
+    "10": 100000,
+    "110003": 3,
+    "110503": 15
+   },
+   "6": {
+    "10": 200000,
+    "110003": 4,
+    "110503": 30
+   }
+  }
+ },
+ "skin": {
+  "3111410": {
+   "name": "ライカン・「夜を往く蒼月」",
+   "desc": "月光がすべてを洗い流すように、執事の優雅さもまた完璧を極める。\n紅き月が昇る時、スーツの下に潜む野性もまた、自ずからなる余裕と品格を湛える。",
+   "obtain_desc": "",
+   "image": "IconRole18"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1141001": {
+   "name": "通常攻撃：月下遊猟",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1141002": {
+   "name": "通常攻撃：月下遊猟（チャージ）",
+   "desc": "<IconMap:Icon_Normal>（長押し）",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1141003": {
+   "name": "特殊スキル：狩人の刻",
+   "desc": "<IconMap:Icon_Special>（溜め押し可）",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1141004": {
+   "name": "強化特殊スキル：人狼の刻",
+   "desc": "<IconMap:Icon_SpecialReady>（溜め押し可）",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1141005": {
+   "name": "ダッシュ攻撃：清潔を保つ",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1141006": {
+   "name": "回避反撃：礼儀の躾",
+   "desc": "<IconMap:Icon_Evade>（極限回避成功） ; <IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1141007": {
+   "name": "連携スキル：御意に",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1141008": {
+   "name": "終結スキル：使命を果たす",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1141009": {
+   "name": "クイック支援：群狼",
+   "desc": "<IconMap:Icon_Switch>（クイック支援の発動条件を満たした時）",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1141010": {
+   "name": "パリィ支援：狩りへの介入",
+   "desc": "<IconMap:Icon_Switch>（パリィ支援の発動条件を満たした時）",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1141011": {
+   "name": "支援突撃：復讐の反攻",
+   "desc": "<IconMap:Icon_Normal>（パリィ支援を発動した後に）",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1141012": {
+   "name": "支援突撃：復讐の反攻・氷のワルツ",
+   "desc": "<IconMap:Icon_Normal>（パリィ支援発動後に長押し）",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": [
+    114100,
+    114101,
+    114102,
+    114103,
+    114104,
+    114105
+   ]
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1141001,
+   "avatar_id": 1141,
+   "first_priority": [
+    5,
+    0,
+    1
+   ],
+   "second_priority": [
+    3
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33200,
+  "slot2": 31200,
+  "slot_sub": 31000,
+  "part_sub_list": [
+   20103,
+   12102,
+   21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31200,
+     32500
+    ],
+    "part_sub_list": [
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31703,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12202
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "会心率",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 31703,
+   "name": "氷属性ダメージボーナス",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconIce.png"
+  },
+  "part6": {
+   "prop": 12202,
+   "name": "衝撃力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconBreakStun.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "攻撃力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "07",
+  "<IconMap:Icon_GeneralBuff_Ice>氷属性、撃破サポーター",
+  "素早くブレイク値を蓄積可能",
+  "氷属性ダメージ耐性デバフ"
+ ],
+ "potential": [
+  114100,
+  114101,
+  114102,
+  114103,
+  114104,
+  114105
+ ],
+ "potential_detail": {
+  "114100": {
+   "id": 114100,
+   "name": "",
+   "desc": "",
+   "image": "Lycaon",
+   "level_show_name": "狩りの流儀 I",
+   "level": 1,
+   "ability_list": [
+    11141401,
+    11141601
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20114,
+     "number": 1
+    }
+   ]
+  },
+  "114101": {
+   "id": 114101,
+   "name": "ポテンシャル覚醒：氷迅",
+   "desc": "<color=#FFFFFF>「挟撃」</color>状態中、ライカンが操作中のメンバーでない時に<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>、<color=#FFFFFF>『回避反撃』</color>を発動した時、衝撃力+<color=#2BAD00>5%</color>。",
+   "image": "Lycaon",
+   "level_show_name": "狩りの流儀 II",
+   "level": 2,
+   "ability_list": [
+    11141401,
+    11141501,
+    11141601
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20114,
+     "number": 1
+    }
+   ]
+  },
+  "114102": {
+   "id": 114102,
+   "name": "ポテンシャル覚醒：氷迅",
+   "desc": "<color=#FFFFFF>「挟撃」</color>状態中、ライカンが操作中のメンバーでない時に<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>、<color=#FFFFFF>『回避反撃』</color>を発動した時、衝撃力+<color=#2BAD00>7.5%</color>。",
+   "image": "Lycaon",
+   "level_show_name": "狩りの流儀 III",
+   "level": 3,
+   "ability_list": [
+    11141401,
+    11141502,
+    11141601
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20114,
+     "number": 1
+    }
+   ]
+  },
+  "114103": {
+   "id": 114103,
+   "name": "ポテンシャル覚醒：氷迅",
+   "desc": "<color=#FFFFFF>「挟撃」</color>状態中、ライカンが操作中のメンバーでない時に<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>、<color=#FFFFFF>『回避反撃』</color>を発動した時、衝撃力+<color=#2BAD00>10%</color>。",
+   "image": "Lycaon",
+   "level_show_name": "狩りの流儀 IV",
+   "level": 4,
+   "ability_list": [
+    11141401,
+    11141503,
+    11141601
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20114,
+     "number": 1
+    }
+   ]
+  },
+  "114104": {
+   "id": 114104,
+   "name": "ポテンシャル覚醒：氷迅",
+   "desc": "<color=#FFFFFF>「挟撃」</color>状態中、ライカンが操作中のメンバーでない時に<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>、<color=#FFFFFF>『回避反撃』</color>を発動した時、衝撃力+<color=#2BAD00>12.5%</color>。",
+   "image": "Lycaon",
+   "level_show_name": "狩りの流儀 V",
+   "level": 5,
+   "ability_list": [
+    11141401,
+    11141504,
+    11141601
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20114,
+     "number": 1
+    }
+   ]
+  },
+  "114105": {
+   "id": 114105,
+   "name": "ポテンシャル覚醒：氷迅",
+   "desc": "<color=#FFFFFF>「挟撃」</color>状態中、ライカンが操作中のメンバーでない時に<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>、<color=#FFFFFF>『回避反撃』</color>を発動した時、衝撃力+<color=#2BAD00>15%</color>。",
+   "image": "Lycaon",
+   "level_show_name": "狩りの流儀 VI",
+   "level": 6,
+   "ability_list": [
+    11141401,
+    11141505,
+    11141601
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20114,
+     "number": 1
+    }
+   ]
+  }
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100212": 4
+   }
+  },
+  "2": {
+   "hp_max": 464,
+   "attack": 37,
+   "defence": 33,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100222": 12
+   }
+  },
+  "3": {
+   "hp_max": 929,
+   "attack": 75,
+   "defence": 67,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100222": 20
+   }
+  },
+  "4": {
+   "hp_max": 1393,
+   "attack": 112,
+   "defence": 100,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100232": 10
+   }
+  },
+  "5": {
+   "hp_max": 1857,
+   "attack": 150,
+   "defence": 134,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100232": 20
+   }
+  },
+  "6": {
+   "hp_max": 2322,
+   "attack": 187,
+   "defence": 167,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 6
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 6
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 18
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 18
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": ""
+}

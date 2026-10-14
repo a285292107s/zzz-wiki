@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { HIT_TYPES } from '@/domain/enums'
 import type { AttrCode, HitCode, SpecCode } from '@/domain/enums'
+import { pickText } from '@/domain/lang'
 import { catalogEntry } from '@/domain/catalog'
 import type { CharacterDetail, WEngineListItem } from '@/data/types'
 import { iconSources } from '@/data/icons'
@@ -10,11 +11,16 @@ import { heroFileForForm } from '@/data/heroGenderVariants'
 import { heroDetailSources } from '@/data/heroImageSources'
 import { getHeroCalibration, type HeroCalibration } from '@/data/heroCalibration'
 import { useHeroForm } from '@/composables/useHeroForm'
+import { useLocale } from '@/composables/useLocale'
 import { useMediaQuery } from '@/composables/useMediaQuery'
 import HollowImage from '@/components/HollowImage.vue'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
 import SignatureRef from '@/components/detail/SignatureRef.vue'
+import { fmt } from '@/domain/uiText'
+import { useUiText } from '@/composables/useUiText'
+
+const { t } = useUiText()
 
 const props = defineProps<{
   detail: CharacterDetail
@@ -41,10 +47,11 @@ const specCode = computed<SpecCode | null>(() => {
   return key ? (Number(key) as SpecCode) : null
 })
 
-const hitZh = computed<string | null>(() => {
+const hitText = computed<string | null>(() => {
   const h = props.detail.hit_type
   const key = h ? Object.keys(h)[0] : null
-  return key ? (HIT_TYPES[Number(key) as HitCode]?.zh ?? null) : null
+  const meta = key ? HIT_TYPES[Number(key) as HitCode] : undefined
+  return meta ? pickText(meta.label, lang.value) : null
 })
 
 const codeName = computed(() => props.detail.code_name?.toUpperCase() ?? '')
@@ -59,8 +66,11 @@ const signatureTo = computed(() =>
 const signatureIconSrcs = computed(() =>
   signature.value ? iconSources(signature.value, 'weapon') : [],
 )
-/** 专属音擎展示名（zh → en → … 回退） */
-const signatureName = computed(() => (signature.value ? pickName(signature.value) : ''))
+/** 专属音擎展示名（当前语言 → 其余语言 → 代号 回退） */
+const { lang } = useLocale()
+const signatureName = computed(() =>
+  signature.value ? pickName(signature.value, lang.value) : '',
+)
 
 /**
  * 双形态角色 hero 头图：源站未提供裸名 Mindscape_{id}_2.webp，而是按性别后缀区分
@@ -156,7 +166,7 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
           <!-- 稀有度置于标签组首位：与属性/职业并列，避免档案行右侧孤悬 -->
           <Rarity :rank="detail.rarity" />
           <Tags :element="attrCode" :element-label="specialElementName" :specialty="specCode" />
-          <span v-if="hitZh" class="tag mono">{{ hitZh }}</span>
+          <span v-if="hitText" class="tag mono">{{ hitText }}</span>
         </div>
 
         <!-- 专属音擎（签名 W-Engine）· 边缘注记式交叉引用：点击跳转对应音擎详情页。
@@ -164,10 +174,10 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
         <SignatureRef
           v-if="signature"
           :to="signatureTo"
-          label="专属音擎"
+          :label="t.detail.signature"
           :name="signatureName"
           :icon-srcs="signatureIconSrcs"
-          :aria-label="`专属音擎：${signatureName}，前往音擎详情`"
+          :aria-label="fmt(t.detail.signatureHint, { name: signatureName })"
         />
       </div>
     </div>

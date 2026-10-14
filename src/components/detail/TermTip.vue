@@ -10,6 +10,7 @@
 import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
 import { richDesc } from '@/utils/rich'
 import { nounDict, type NounEntry } from '@/data/terms'
+import { useLocale } from '@/composables/useLocale'
 
 /** 单张名词悬浮卡片的运行时状态（卡片统一放在 .term-tip-list 容器内文档流堆叠，不再各自 fixed 定位） */
 interface Tip {
@@ -49,6 +50,9 @@ let hideTimer: number | undefined
 /** 单调递增令牌：每次 hide()/新一轮 openTip 自增，令在途的 await 回调失效（防止指针离开后浮层迟滞弹出） */
 let session = 0
 
+/** 当前展示语言：释义取该语言的词典（源站名词表按语言提供，构建期逐语言下沉） */
+const { lang } = useLocale()
+
 /**
  * 打开一张卡片。
  * 命中页面名词 → 重置为单张卡片；命中卡片内的名词 → 追加一张对齐在当前卡片正下方的新卡（多卡并存）。
@@ -61,7 +65,7 @@ async function openTip(el: Element): Promise<void> {
   clearTimeout(showTimer)
   showTimer = window.setTimeout(async () => {
     showTimer = undefined // 已执行：此后滚动收起恢复正常判定（见 onScroll 守卫）
-    const dict = await nounDict()
+    const dict = await nounDict(lang.value)
     // 等待词典期间已 hide 或切到别的术语，丢弃本次陈旧请求
     if (my !== session) return
     const e = dict[termId]

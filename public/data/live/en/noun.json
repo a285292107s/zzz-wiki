@@ -1,0 +1,452 @@
+{
+ "1000008": {
+  "name": "Windbloom",
+  "title": "Windbloom",
+  "desc": "When Velina enters the battlefield, she gains 45 points of <color=#FFFFFF>Windbloom</color>. Using <color=#FFFFFF>EX Special Attack: Wind Shear - Purifying Rise</color> or <color=#FFFFFF>EX Special Attack: Wind Shear - Triple Deathblow</color> grants 45 points of <color=#FFFFFF>Windbloom</color>, up to a maximum of 135 points. With enough <color=#FFFFFF>Windbloom</color>, hold <IconMap:Icon_Special> or <IconMap:Icon_Normal> to launch <color=#FFFFFF>EX Special Attack: Wind Shear - Eye of the Storm</color>.",
+  "skill": "Core Passive: Breeze in Bloom"
+ },
+ "1000009": {
+  "name": "Top Hat Companion",
+  "title": "Top Hat Companion",
+  "desc": "When using <color=#FFFFFF>Basic Attack: Hat Trick</color>, the thrown hat:\nIs actually a Bangboo. While Top Hat Companion is on the field, it accumulates Preheated Chamber in Norma's place. When Norma retrieves the Top Hat Companion, all accumulated Preheated Chamber is transferred to her.\nTop Hat Companion inherits all of Norma's stats.",
+  "skill": "Basic Attack: Hat Trick"
+ },
+ "1000010": {
+  "name": "En-Nah Turret",
+  "title": "En-Nah Turret",
+  "desc": "The white turret summoned by <color=#FFFFFF>EX Special Attack: En-Nah Barrage</color>:\nAutomatically uses Special Attack: Target Practice at regular intervals. After deploying its missile bay, this skill is replaced with EX Special Attack: Explosive Experiment.\nEn-Nah Turrets inherit all of Norma's stats.",
+  "skill": "EX Special Attack: En-Nah Barrage"
+ },
+ "1000011": {
+  "name": "Preheated Chamber",
+  "title": "Preheated Chamber",
+  "desc": "While Norma or her Top Hat Companion is on the field, gain 1.5% Preheated Chamber per second.\nWhen Preheated Chamber reaches 80% or higher, the Quick Assist triggered by Basic Attack: Hat Trick is <color=#FFFFFF>replaced with a Chain Attack</color>.",
+  "skill": "Basic Attack: Hat Trick"
+ },
+ "1000012": {
+  "name": "En-Nah Barrage",
+  "title": "En-Nah Barrage",
+  "desc": "The buff gained from <color=#FFFFFF>EX Special Attack: En-Nah Barrage</color>:\nDuring its active duration, two En-Nah Turrets are summoned to fight alongside Norma.\nWhen <color=#FFFFFF>Additional Ability: Advantage in Numbers</color> is triggered, Norma's ATK is further increased, and all squad members deal increased DMG.",
+  "skill": "EX Special Attack: En-Nah Barrage"
+ },
+ "1000013": {
+  "name": "Tech Divide",
+  "title": "Tech Divide",
+  "desc": "The debuff applied when Norma or her creations hit an enemy:\nFor the duration of the effect, the target's Stun DMG Multiplier is increased, and the duration of its Stunned state is extended.",
+  "skill": "Additional Ability: Advantage in Numbers"
+ },
+ "1000014": {
+  "name": "Windbite",
+  "title": "Windbite",
+  "desc": "When Velina triggers <color=#FFFFFF>Vortex</color>, she gains 1 point of <color=#FFFFFF>Windbite</color>. When Velina has 2 points of <color=#FFFFFF>Windbite</color>, the next time she triggers <color=#FFFFFF>Vortex</color>, she consumes 2 points of <color=#FFFFFF>Windbite</color> to increase that instance's DMG Multiplier.",
+  "skill": "Core Passive: Breeze in Bloom"
+ },
+ "1000015": {
+  "name": "Condensed Cyclone",
+  "title": "Condensed Cyclone",
+  "desc": "When Velina triggers <color=#FFFFFF>Vortex</color>, she summons a <color=#FFFFFF>Condensed Cyclone</color> that deals <color=#A6C5FD>Wind DMG</color>. When the <color=#FFFFFF>Condensed Cyclone</color> dissipates, it triggers an explosion. If the explosion hits an enemy afflicted with a <color=#A6C5FD>Wind Anomaly</color>, it deals one instance of <color=#FFFFFF>Abloom</color> DMG.",
+  "skill": "Core Passive: Breeze in Bloom"
+ },
+ "1000016": {
+  "name": "Sweeping Cyclone",
+  "title": "Sweeping Cyclone",
+  "desc": "When Velina uses <color=#FFFFFF>EX Special Attack: Wind Shear - Eye of the Storm</color> or triggers <color=#FFFFFF>Vortex</color> while consuming 2 points of <Term:1000014>Windbite</Term>, she summons a <color=#FFFFFF>Sweeping Cyclone</color> to continuously deal <color=#A6C5FD>Wind DMG</color> that is capable of triggering the <Term:1000017>Chromatic Tint</Term> effect. When <color=#FFFFFF>Sweeping Cyclone</color> attacks hit enemies, the enemy's <color=#A6C5FD>Wind Anomaly Buildup RES</color> and the corresponding <color=#FFFFFF>Attribute Anomaly Buildup RES</color> from <color=#FFFFFF>Chromatic Tint</color> are reduced. When <color=#FFFFFF>Sweeping Cyclone</color> dissipates, it triggers an explosion. If the explosion hits an enemy suffering a <color=#A6C5FD>Wind Anomaly</color>, it deals one instance of <color=#FFFFFF>Abloom</color> DMG.",
+  "skill": "Core Passive: Breeze in Bloom"
+ },
+ "1000017": {
+  "name": "Chromatic Tint",
+  "title": "Chromatic Tint",
+  "desc": "When <Term:1000016>Sweeping Cyclone</Term> hits an enemy afflicted with <color=#FFFFFF>Contamination</color> for the first time, it triggers the <color=#FFFFFF>Chromatic Tint</color> effect, converting into a <color=#FFFFFF>Sweeping Cyclone</color> of the corresponding attribute and dealing the corresponding attribute's DMG.",
+  "skill": "Core Passive: Breeze in Bloom"
+ },
+ "1000018": {
+  "name": "Solar Prominence",
+  "title": "Solar Prominence",
+  "desc": "Upon entering the battlefield, Pyrois gains 30 <color=#FFFFFF>Solar Prominence</color>. Different attacks grant a certain amount of <color=#FFFFFF>Solar Prominence</color> when they hit enemies, and Pyrois also gains a certain amount of <color=#FFFFFF>Solar Prominence</color> every second.\nWith 30 or more Solar Prominence, hold <IconMap:Icon_Normal> to activate Basic Attack: Celestial Light. Each hit from Basic Attack: Celestial Light consumes a certain amount of Solar Prominence.",
+  "skill": "Core Passive: Radiant Chariot"
+ },
+ "1000019": {
+  "name": "Mirage",
+  "title": "Mirage",
+  "desc": "Pyrois enters the Mirage state when using Ultimate: Total Annihilation. While in the Mirage state, Pyrois' Ultimate deals increased CRIT DMG against Stunned enemies.",
+  "skill": "Core Passive: Radiant Chariot"
+ },
+ "1000020": {
+  "name": "Sunflare",
+  "title": "Sunflare",
+  "desc": "Pyrois enters the Sunflare state when using Ultimate: Triumphant Return. While Sunflare is active, Energy Generation Rate and DMG dealt increase, and triggering a Perfect Block with an EX Special Attack restores additional <Term:1000018><color=#FFFFFF>Solar Prominence</color></Term>.",
+  "skill": "Core Passive: Radiant Chariot"
+ },
+ "1000021": {
+  "name": "Totalize",
+  "title": "Totalize",
+  "desc": "Grants a special effect against Stunned enemies.\nWhen Pyrois triggers Totalize, additional DMG is dealt, and the target's Stunned state ends.",
+  "skill": "Core Passive: Radiant Chariot"
+ },
+ "1000022": {
+  "name": "Cinderfire",
+  "title": "Cinderfire",
+  "desc": "Gain Cinderfire when using a Chain Attack. All Cinderfire stacks are consumed upon using an Ultimate, granting a certain amount of <color=#FFFFFF>Decibels</color> for each stack consumed.",
+  "skill": "Additional Ability: Glorious Legion"
+ },
+ "1000023": {
+  "name": "Anomaly Effect Strength",
+  "title": "Anomaly Effect Strength",
+  "desc": "When applying Attribute Anomaly Buildup to an enemy, each attack's ATK, PEN, Anomaly Proficiency, DMG Bonus, and other effects proportionally increase the resulting <color=#FFFFFF>Anomaly Effect Strength</color> based on that attack's contribution to the total Attribute Anomaly Buildup.\nPEN effects: Includes PEN and PEN Ratio\nDMG Bonus: Includes both non-Attribute DMG Bonus and Attribute DMG Bonus",
+  "skill": ""
+ },
+ "1000024": {
+  "name": "Purr Energy",
+  "title": "Purr Energy",
+  "desc": "Nekomata gains 40 Purr Energy upon entering the battlefield. She recovers 1 <color=#FFFFFF>Purr Energy</color> every second, and different skills restore different amounts of Purr Energy on hit.\nWhen Purr Energy is at least 40, press <IconMap:Icon_Evade> after triggering a <color=#FFFFFF>Perfect Dodge</color> to consume 30 Purr Energy and activate Dodge: Disappearing Tail.\nWhen Purr Energy is at least 40, hold <IconMap:Icon_Normal> to consume 40 Purr Energy and directly activate Dodge Counter: Fluffy Piercing Claw.",
+  "skill": "Core Passive: Stealthy Paws"
+ },
+ "1000025": {
+  "name": "Pawpad Ambush",
+  "title": "Pawpad Ambush",
+  "desc": "Nekomata enters Pawpad Ambush state for 40s after using Dodge Counter: Fluffy Piercing Claw. Repeated triggers reset the duration.\nWhile Pawpad Ambush is active, all of Nekomata's attacks count as hitting from behind and trigger Super Mean Pawprint, dealing <color=#F0D12B>Physical DMG</color> equal to 30% of Nekomata's ATK. This effect can trigger once every 1s.",
+  "skill": "Core Passive: Stealthy Paws"
+ },
+ "1000026": {
+  "name": "Fright",
+  "title": "Fright",
+  "desc": "While <Term:1000027><color=#FFFFFF>Spotless</color></Term> is active, each activation of Drusilla or Anastella's <color=#FFFFFF>Basic Attack: Morning Cleanup</color> grants 1 stack of <color=#FFFFFF>Fright</color>. Upon reaching 6 stacks, the next <color=#FFFFFF>Basic Attack: Morning Cleanup</color> consumes all <color=#FFFFFF>Fright</color> stacks and is replaced with <color=#FFFFFF>Basic Attack: Midnight Cleanup</color>.",
+  "skill": "Basic Attack: Morning Cleanup"
+ },
+ "1000027": {
+  "name": "Spotless",
+  "title": "Spotless",
+  "desc": "While this is active, Drusilla or Anastella automatically uses <color=#FFFFFF>Basic Attack: Morning Cleanup</color> to attack enemies and gain <Term:1000026><color=#FFFFFF>Fright</color></Term>. After using the skill, Drusilla and Anastella's exit timer resets.",
+  "skill": "Basic Attack: Morning Cleanup"
+ },
+ "1000028": {
+  "name": "Formation Breaker",
+  "title": "Formation Breaker",
+  "desc": "When <color=#FFFFFF>Chain Attack: Encroaching Ice</color> hits a Stunned elite or boss enemy for the first time, Sigrid enters the <color=#FFFFFF>Formation Breaker</color> state.\nWhile in <color=#FFFFFF>Formation Breaker</color> state, hold <IconMap:Icon_Normal> to continuously use the 1st through 3rd stages of <color=#FFFFFF>Basic Attack: Converging Spear</color>.",
+  "skill": "Chain Attack: Encroaching Ice"
+ },
+ "1000029": {
+  "name": "Unbridled Spear",
+  "title": "Unbridled Spear",
+  "desc": "The 4th hit of the <color=#FFFFFF>Basic Attack</color>, the <color=#FFFFFF>EX Special Attack</color>, <color=#FFFFFF>Assist Follow-Up</color>, <color=#FFFFFF>Chain Attack</color>, <color=#FFFFFF>Ultimate</color>, and <color=#FFFFFF>Dodge Counter</color> are considered <color=#FFFFFF>Unbridled Spear</color> skills.\nWhen Sigrid hits an enemy with any <color=#FFFFFF>Unbridled Spear</color>, if she is not currently in the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state, she enters the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state and gains 1 activation of <color=#FFFFFF>Basic Attack: Converging Spear</color>, up to 1 activation can be stored.",
+  "skill": "Core Passive: Sky Knight"
+ },
+ "1000030": {
+  "name": "Aerial Patrol Spear",
+  "title": "Aerial Patrol Spear",
+  "desc": "While in the <color=#FFFFFF>Aerial Patrol Spear</color> state, hold <IconMap:Icon_Normal> to use <color=#FFFFFF>Basic Attack: Converging Spear</color>. When Sigrid uses any <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term>, the <color=#FFFFFF>Aerial Patrol Spear</color> state is refreshed, and she gains 1 activation of <color=#FFFFFF>Basic Attack: Converging Spear</color>. Up to 1 activation can be stored.",
+  "skill": "Core Passive: Sky Knight"
+ },
+ "1000031": {
+  "name": "Refringe",
+  "title": "Refringe",
+  "desc": "If an enemy has <color=#FFA9DD>Lumiflux Buildup</color>, when they're about to be inflicted with an Anomaly, that Anomaly is <color=#FFA9DD>Refringed</color>. After being <color=#FFA9DD>Refringed</color>, the Anomaly's <Term:1000023><color=#FFFFFF>Anomaly Effect Strength</color></Term> is enhanced based on the provider's <color=#FFA9DD>Refringe Coefficient</color>, increasing the total DMG that Anomaly can deal.",
+  "skill": ""
+ },
+ "1000032": {
+  "name": "Floating Radiance",
+  "title": "Floating Radiance",
+  "desc": "Remielle can gain <color=#FFFFFF>Floating Radiance</color> through <color=#FFFFFF>Basic Attacks</color>.\nWhen <color=#FFFFFF>Floating Radiance</color> reaches its maximum of 120, Remielle can enter the <Term:1000035><color=#FFFFFF>Phase Flow</color></Term> state.\nWhile in the <color=#FFFFFF>Phase Flow</color> state, <color=#FFFFFF>Floating Radiance</color> is consumed over time. When <color=#FFFFFF>Floating Radiance</color> is fully consumed, Remielle exits the <color=#FFFFFF>Phase Flow</color> state.",
+  "skill": "Special Attack: Ode to Dawn - Radiant Turn"
+ },
+ "1000033": {
+  "name": "Voidflare",
+  "title": "Voidflare",
+  "desc": "When a squad member triggers Remielle's <color=#FFA9DD>Lumiflux</color> <Term:1000031><color=#FFFFFF>Refringe</color></Term> reaction, Remielle generates <color=#FFFFFF>Voidflare</color> based on the enhanced <Term:1000023><color=#FFFFFF>Anomaly Effect Strength</color></Term> of that Attribute Anomaly after it has been <color=#FFA9DD>Refringed</color>. Up to the 3 most recently generated <color=#FFFFFF>Voidflares</color> can be stored.",
+  "skill": "Core Passive: Temporal Patterns = Stilled Colors"
+ },
+ "1000034": {
+  "name": "Luminize",
+  "title": "Luminize",
+  "desc": "Deals Attribute Anomaly DMG to enemies using the skill's DMG Multiplier, based on the <Term:1000023><color=#FFFFFF>Anomaly Effect Strength</color></Term> of all stored <Term:1000033><color=#FFFFFF>Voidflare</color></Term>.",
+  "skill": "Core Passive: Temporal Patterns = Stilled Colors"
+ },
+ "1000035": {
+  "name": "Phase Flow",
+  "title": "Phase Flow",
+  "desc": "While in the <color=#FFFFFF>Phase Flow</color> state, Remielle acts autonomously to assist in combat. During this, some attacks can also apply <color=#FFA9DD>Lumiflux Buildup</color> to the target. While in the <color=#FFFFFF>Phase Flow</color> state, <Term:1000032><color=#FFFFFF>Floating Radiance</color></Term> is consumed over time. When <color=#FFFFFF>Floating Radiance</color> is fully depleted, she exits the <color=#FFFFFF>Phase Flow</color> state. Before exiting the <color=#FFFFFF>Phase Flow</color> state, she cannot be actively switched in except through <color=#FFFFFF>Chain Attacks</color>.",
+  "skill": "Special Attack: Ode to Dawn - Radiant Turn"
+ },
+ "1000036": {
+  "name": "Crimson Inscription",
+  "title": "Crimson Inscription",
+  "desc": "Transforms her weapon into a Blood Axe, replacing Claret's attacks with Bloodbloom Oath skills and increasing her CRIT Rate and Gash Buildup Rate.",
+  "skill": "EX Special Attack: Bloodbloom Oath - Secret Forging Techniques"
+ },
+ "1000037": {
+  "name": "Remnant Edge",
+  "title": "",
+  "desc": "When any squad member triggers Maim, Armorer Agents enter Remnant Edge, during which Laceration DMG increases.",
+  "skill": "Additional Ability: Bloodline Legacy"
+ },
+ "1000038": {
+  "name": "Cleanse",
+  "title": "Cleanse",
+  "desc": "Reverts the enemy's <color=#FFFFFF>Windswept</color> state to an uncontaminated <color=#FFFFFF>Windswept</color> state.",
+  "skill": ""
+ },
+ "1000039": {
+  "name": "Wind Energy",
+  "title": "Wind Energy",
+  "desc": "For every set amount of Energy consumed, gain 1 point of <color=#FFFFFF>Wind Energy</color>. <color=#FFFFFF>EX Special Attack: Kindly Rest in Peace</color> consumes all <color=#FFFFFF>Wind Energy</color> to generate the corresponding number of <Term:1000040>Eyes of the Storm</Term>.",
+  "skill": "Core Passive: Warm Night's Embrace"
+ },
+ "1000040": {
+  "name": "Eye of the Storm",
+  "title": "Eye of the Storm",
+  "desc": "<color=#FFFFFF>EX Special Attack: Kindly Rest in Peace</color> consumes all <Term:1000039><color=#FFFFFF>Wind Energy</color></Term>, leaving the corresponding number of <color=#FFFFFF>Eyes of the Storm</color> on the field. When hit by <color=#FFFFFF>Special Attack: Forgive Me for Not Seeing You Off</color>, they detonate to generate Miniature Windstorms or Giant Windstorms.",
+  "skill": "Core Passive: Warm Night's Embrace"
+ },
+ "2000001": {
+  "name": "Corruptive Barrier",
+  "title": "Corruptive Barrier",
+  "desc": "· <color=#FFAF2C>CRIT DMG RES, ATK, and Anti-Interrupt</color> are increased while all Agents in the squad lose HP over time.\n· When the Corruptive Barrier is broken, a portion of HP is converted into HP for all Agents in the squad, and Energy is restored.",
+  "skill": "Enemy Intelligence"
+ },
+ "2000002": {
+  "name": "Miasmic Shield",
+  "title": "Miasmic Shield",
+  "desc": "· <color=#FFAF2C>DEF, DMG reduction</color>, and <color=#FFAF2C>Anti-Interrupt</color> are significantly enhanced, and the enemy will not be Stunned. Agents can deplete the Miasmic Shield through attacks.\n· When the Miasmic Shield is broken, enemies take <color=#FFAF2C>Purify</color> DMG, and Agents <color=#FFAF2C>recover Energy or Adrenaline</color>.",
+  "skill": "Enemy Intelligence"
+ },
+ "2000003": {
+  "name": "Control Skill",
+  "title": "Control Skills",
+  "desc": "· Skills <color=#FFAF2C>ignore the Invulnerable effect</color> and have no flash prompts. Agents cannot activate their Ultimates during this time. Only one Agent switch is allowed per enemy attack, and each Agent can only perform one dodge.\n· <color=#FFAF2C>Defensive Assist</color> or <color=#FFAF2C>Evasive Assist</color> can be used to counter this skill. Successfully countering all skills inflicts the <color=#FFAF2C>Shutdown</color> effect on the enemy, dealing massive DMG and accumulating a large amount of Daze.",
+  "skill": "Enemy Intelligence"
+ },
+ "2000004": {
+  "name": "Chain Parry",
+  "title": "Chain Parry",
+  "desc": "· When an <color=#FFAF2C>×-shape golden light</color> prompt appears on an enemy attack, <color=#FFAF2C>tap twice</color> in quick succession on <IconMap:Icon_Switch> to trigger a Chain Parry. Both Agents will parry the attack together and <color=#FFAF2C>accumulate a large amount of Daze</color>;\n· After successfully triggering a Chain Parry, tap <IconMap:Icon_Normal> to launch a Chain Assault.",
+  "skill": "Enemy Intelligence"
+ },
+ "2000005": {
+  "name": "Rift Assault",
+  "title": "Rift Assault",
+  "desc": "After Kusarikku slips into a spatial fissure, it unleashes a series of powerful attacks. Use <color=#FFAF2C>Defensive Assists</color> to counter them and rapidly reduce its <Term:2000001><color=#FFFFFF>Corruptive Barrier</color></Term>. Repeatedly countering them successfully can allow you to seize the initiative in battle.",
+  "skill": "Enemy Intelligence"
+ },
+ "2000006": {
+  "name": "Counter Assist",
+  "title": "Counter Assist",
+  "desc": "When an enemy uses a <color=#FFAF2C>Control Skill</color> to attack, if a specific Agent is in your squad, a <color=#FFAF2C>golden flash</color> prompt will appear. Press <IconMap:Icon_Switch> within a short window to switch to that specific Agent and trigger <color=#FFAF2C>Counter Assist</color>. Then press <IconMap:Icon_Normal> to engage in a tug-of-war with the enemy. Succeed, and you'll break free from the enemy's <color=#FFAF2C>Control Skill</color>.",
+  "skill": "Enemy Intelligence"
+ },
+ "4000001": {
+  "name": "Basic Technique",
+  "title": "Basic Technique",
+  "desc": "There are 3 buffs that can reduce the required score of an order, making the order <IconMap:Icon_SummerTide_SIcon01> -1, <IconMap:Icon_SummerTide_SIcon02> -1, and <IconMap:Icon_SummerTide_SIcon03> -1",
+  "skill": ""
+ },
+ "4000002": {
+  "name": "Starfish",
+  "title": "Starfish",
+  "desc": "A type of Sea Materials used to make souvenirs, providing the scores needed to fulfill orders",
+  "skill": ""
+ },
+ "4000003": {
+  "name": "Bottle Cap",
+  "title": "Bottle Cap",
+  "desc": "A type of Sea Materials used to make souvenirs, providing the scores needed to fulfill orders",
+  "skill": ""
+ },
+ "4000004": {
+  "name": "Giant Crab Claw",
+  "title": "Giant Crab Claw",
+  "desc": "A type of Sea Materials used to make souvenirs, providing the scores needed to fulfill orders",
+  "skill": ""
+ },
+ "4000005": {
+  "name": "Conch",
+  "title": "Conch",
+  "desc": "A type of Sea Materials used to make souvenirs, providing the scores needed to fulfill orders",
+  "skill": ""
+ },
+ "4000006": {
+  "name": "Pebble",
+  "title": "Pebble",
+  "desc": "A type of Sea Materials used to make souvenirs, providing the scores needed to fulfill orders",
+  "skill": ""
+ },
+ "4000007": {
+  "name": "Overflow Score",
+  "title": "Overflow Score",
+  "desc": "The portion of the Sea Materials score that exceeds the order score requirement when an order is completed",
+  "skill": ""
+ },
+ "4000008": {
+  "name": "Single-Color Order",
+  "title": "Single-Color Order",
+  "desc": "Orders with only one score requirement, using the order's original required score as the benchmark",
+  "skill": ""
+ },
+ "4000009": {
+  "name": "Three-Color Order",
+  "title": "Three-Color Order",
+  "desc": "Orders with three types of score requirements, judged by the order's original required score",
+  "skill": ""
+ },
+ "4000010": {
+  "name": "White Feather",
+  "title": "White Feather",
+  "desc": "When a skill is released, current order <IconMap:Icon_SummerTide_SIcon01><IconMap:Icon_SummerTide_SIcon02><IconMap:Icon_SummerTide_SIcon03> randomly -1",
+  "skill": ""
+ },
+ "4000011": {
+  "name": "Black Feather",
+  "title": "Black Feather",
+  "desc": "When a skill is released, a random Sea Materials <IconMap:Icon_SummerTide_SIcon01><IconMap:Icon_SummerTide_SIcon02><IconMap:Icon_SummerTide_SIcon03> randomly +1",
+  "skill": ""
+ },
+ "4000012": {
+  "name": "Durability",
+  "title": "Durability",
+  "desc": "Reduces the Durability consumed by this Gear by 1, to a minimum of 1.",
+  "skill": ""
+ },
+ "4000013": {
+  "name": "Core",
+  "title": "Core",
+  "desc": "Increases the Agent's Core Skill level by <color=#2BAD00>1</color>.",
+  "skill": ""
+ },
+ "4000014": {
+  "name": "Skill",
+  "title": "Skill",
+  "desc": "Increases the level of all the Agent's skills except Core Skill by <color=#2BAD00>1</color>.",
+  "skill": ""
+ },
+ "4000015": {
+  "name": "Shield",
+  "title": "Shield",
+  "desc": "After this Agent remains out of combat for <color=#2BAD00>10</color>s, they gain a shield equal to <color=#2BAD00>3%</color> of their Max HP. This effect can be triggered once every <color=#2BAD00>30</color>s.",
+  "skill": ""
+ },
+ "4000016": {
+  "name": "Corruption Resistance",
+  "title": "Corruption Resistance",
+  "desc": "Each time when receiving Corruption, this Agent takes <color=#2BAD00>10%</color> less DMG for <color=#2BAD00>15</color>s.",
+  "skill": ""
+ },
+ "4000017": {
+  "name": "Dodge",
+  "title": "Dodge",
+  "desc": "Gain 1 additional Dodge use. <color=#FFFFFF>Dodge</color> is more likely to trigger a <color=#FFFFFF>Perfect Dodge</color>.",
+  "skill": ""
+ },
+ "4000018": {
+  "name": "Charge Up",
+  "title": "Charge Up",
+  "desc": "While this Agent's HP is above <color=#2BAD00>80%</color>, they deal <color=#2BAD00>10%</color> more DMG and inflict <color=#2BAD00>20%</color> more Anomaly Buildup.",
+  "skill": ""
+ },
+ "4000019": {
+  "name": "Curtain",
+  "title": "Curtain",
+  "desc": "While Ether Veil is active, hitting an enemy increases their Stun DMG Multiplier by <color=#2BAD00>15%</color> for <color=#2BAD00>15</color>s. Repeated triggers reset the duration.",
+  "skill": ""
+ },
+ "4000020": {
+  "name": "Skill",
+  "title": "Skill",
+  "desc": "Increases the level of all the Agent's skills except Core Skill by <color=#2BAD00>2</color>.",
+  "skill": ""
+ },
+ "4000021": {
+  "name": "Shield",
+  "title": "Shield",
+  "desc": "After this Agent remains out of combat for <color=#2BAD00>10</color>s, they gain a shield equal to <color=#2BAD00>6%</color> of their Max HP. This effect can be triggered once every <color=#2BAD00>30</color>s.",
+  "skill": ""
+ },
+ "4000022": {
+  "name": "Corruption Resistance",
+  "title": "Corruption Resistance",
+  "desc": "Each time when receiving Corruption, this Agent takes <color=#2BAD00>10%</color> less DMG for <color=#2BAD00>30</color>s.",
+  "skill": ""
+ },
+ "4000023": {
+  "name": "Charge Up",
+  "title": "Charge Up",
+  "desc": "While this Agent's HP is above <color=#2BAD00>50%</color>, they deal <color=#2BAD00>10%</color> more DMG and inflict <color=#2BAD00>20%</color> more Anomaly Buildup.",
+  "skill": ""
+ },
+ "4000024": {
+  "name": "Swift",
+  "title": "Swift",
+  "desc": "After triggering a Perfect Dodge, this Agent's CRIT Rate increases by <color=#2BAD00>8%</color> for <color=#2BAD00>10</color>s. Repeated triggers reset the duration.",
+  "skill": ""
+ },
+ "4000025": {
+  "name": "Basic Attack",
+  "title": "Basic Attack",
+  "desc": "When a Basic Attack hits an enemy, this Agent's ATK increases by <color=#2BAD00>4%</color> for <color=#2BAD00>10</color>s. This effect can stack up to <color=#2BAD00>3</color> times.",
+  "skill": ""
+ },
+ "4000026": {
+  "name": "Abloom",
+  "title": "Abloom",
+  "desc": "After triggering Abloom, this Agent's Anomaly DMG increases by <color=#2BAD00>6%</color> for <color=#2BAD00>12</color>s. This effect can stack up to <color=#2BAD00>2</color> times.",
+  "skill": ""
+ },
+ "4000027": {
+  "name": "Disorder",
+  "title": "Disorder",
+  "desc": "After triggering Disorder, this Agent's DMG ignores <color=#2BAD00>6%</color> of the target's All-Attribute RES for <color=#2BAD00>12</color>s. Repeated triggers reset the duration.",
+  "skill": ""
+ },
+ "4000028": {
+  "name": "Follow-up Attack",
+  "title": "Follow-up Attack",
+  "desc": "When Aftershock hits an enemy, this Agent's DMG ignores <color=#2BAD00>8%</color> of the target's DEF for <color=#2BAD00>10</color>s. Repeated triggers reset the duration.",
+  "skill": ""
+ },
+ "4000029": {
+  "name": "Pierce",
+  "title": "Pierce",
+  "desc": "After performing an EX Special Attack, this Agent's Sheer DMG increases by <color=#2BAD00>3%</color> for <color=#2BAD00>15</color>s. This effect can stack up to <color=#2BAD00>2</color> times.",
+  "skill": ""
+ },
+ "4000030": {
+  "name": "Chain Attack",
+  "title": "Chain Attack",
+  "desc": "When an Agent performs a Chain Attack, their CRIT DMG increases by <color=#2BAD00>16%</color> for <color=#2BAD00>12</color>s. Gaining this effect again resets its duration.",
+  "skill": ""
+ },
+ "4000031": {
+  "name": "Blood Rage",
+  "title": "Blood Rage",
+  "desc": "When this Agent loses HP, their CRIT DMG increases by <color=#2BAD00>16%</color> for <color=#2BAD00>8</color>s. Gaining this effect again resets its duration.",
+  "skill": ""
+ },
+ "4000032": {
+  "name": "Vortex",
+  "title": "Vortex",
+  "desc": "When triggering a Vortex, this Agent's Anomaly DMG increases by <color=#2BAD00>12%</color> for <color=#2BAD00>15</color>s. Gaining this effect again resets its duration.",
+  "skill": ""
+ },
+ "4000033": {
+  "name": "Energy Generation",
+  "title": "Energy Generation",
+  "desc": "Performing an Ultimate restores <color=#2BAD00>20</color> Energy for this Agent.",
+  "skill": ""
+ },
+ "4000034": {
+  "name": "Stun",
+  "title": "Stun",
+  "desc": "Stunning an enemy restores <color=#2BAD00>300</color> Decibels. This effect can trigger once every <color=#2BAD00>30</color>s.",
+  "skill": ""
+ },
+ "4000035": {
+  "name": "Strong Shield",
+  "title": "Strong Shield",
+  "desc": "While an Agent has a shield, their CRIT Rate increases by <color=#2BAD00>10%</color>.",
+  "skill": ""
+ },
+ "10000081": {
+  "name": "Windbloom",
+  "title": "Windbloom",
+  "desc": "When Velina enters the battlefield, she gains 45 points of <color=#FFFFFF>Windbloom</color>. Using <color=#FFFFFF>EX Special Attack: Wind Shear - Purifying Rise</color> or <color=#FFFFFF>EX Special Attack: Wind Shear - Triple Deathblow</color> grants 45 points of <color=#FFFFFF>Windbloom</color>, up to a maximum of 135 points. With enough <color=#FFFFFF>Windbloom</color>, hold <IconMap:Icon_Special> or <IconMap:Icon_Normal> to launch <color=#FFFFFF>EX Special Attack: Wind Shear - Eye of the Storm</color>.",
+  "skill": "Core Passive: Breeze in Bloom"
+ }
+}

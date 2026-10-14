@@ -7,7 +7,7 @@ import { SKILL_LEVEL_CAP, SKILL_LEVEL_DEFAULT, type SkillRow } from '../src/doma
 /** 带数值条目的技能行样本（伤害倍率 = main + growth*(lv-1)） */
 const row: SkillRow = {
   key: 'chain',
-  zh: '连携技',
+  label: '连携技',
   keyEn: 'CHAIN',
   hasNumbers: true,
   groups: [
@@ -90,7 +90,7 @@ describe('SkillGroup {CAL:…} 内嵌公式（如 曙色颂·转辉 伤害提升
   /** 蕾米埃尔「特殊技：曙色颂·转辉」同款结构：描述内嵌 CAL 公式 + 无数值表的 CAL 条目 */
   const calRow: SkillRow = {
     key: 'special',
-    zh: '特殊技',
+    label: '特殊技',
     keyEn: 'SPECIAL',
     hasNumbers: true,
     groups: [

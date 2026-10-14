@@ -2,8 +2,14 @@
  * 详情页区块通用类型与纯函数 — 单一定义（DESIGN.md P2）。
  * AgentDetailView / WEngineDetailView 共用的行结构、网格项、
  * 技能槽位常量与字典→行转换。无 Vue 依赖，可单测。
+ *
+ * 区块/槽位/数值标签是**四语**（决策记录 0011）：文案存在 `domain/uiText`，
+ * 这里用 `uiLoc('…')` 取整条 `Loc`，再由调用方传入 `lang` 解析成具体字符串
+ * （与名录/详情取数同一个「语言显式传入」的口径，不做隐式全局读）。
  * ============================================================ */
 
+import { pickText, type Lang, type Loc } from './lang'
+import { fmt, uiLoc } from './uiText'
 import { evaluateSkillFormula, formatSkillScalar, replaceCalTokens, type SkillParamEntry } from './skillFormula'
 
 // 公式求值引擎已拆至 ./skillFormula（单一职责，独立单测）；此处原样再导出保持 API 兼容
@@ -60,10 +66,11 @@ export interface SkillGroup {
   strongDesc?: string
 }
 
-/** 技能行（键位、中文名、有序展示组） */
+/** 技能行（键位、槽位名（当前语言）、有序展示组） */
 export interface SkillRow {
   key: string
-  zh: string
+  /** 槽位展示名（按调用方传入的 lang 解析） */
+  label: string
   keyEn: string
   groups?: SkillGroup[]
   /** 该技能是否存在数值条目（决定是否显示等级滑块） */
@@ -135,14 +142,15 @@ export const SKILL_ORDER = ['basic', 'special', 'chain', 'ultimate', 'assist', '
 export type SkillSlotKey = (typeof SKILL_ORDER)[number]
 
 
-export const SKILL_ZH: Record<SkillSlotKey, string> = {
-  basic: '普通攻击',
-  dodge: '闪避',
-  special: '特殊技',
-  chain: '连携技',
-  ultimate: '终结技',
-  assist: '支援技',
-  core: '核心技',
+/** 技能槽位标签（四语；文案表在 domain/uiText，此处只做槽位→文案的映射） */
+export const SKILL_LABELS: Record<SkillSlotKey, Loc> = {
+  basic: uiLoc('detail.skillBasic'),
+  dodge: uiLoc('detail.skillDodge'),
+  special: uiLoc('detail.skillSpecial'),
+  chain: uiLoc('detail.skillChain'),
+  ultimate: uiLoc('detail.skillUltimate'),
+  assist: uiLoc('detail.skillAssist'),
+  core: uiLoc('detail.skillCore'),
 }
 
 /** 技能键位纹章：排印几何符号 + 等宽键名（无图片依赖，与档案风格同构） */
@@ -159,9 +167,19 @@ export const SKILL_KEYS: Record<SkillSlotKey, { glyph: string; en: string }> = {
 const SKILL_REF_RE = /\{Skill:(\d+),\s*Prop:\d+\}/
 
 /** 纯数值子块的机制名：去「基础倍率/倍率」后缀（如「涡流集束手雷基础倍率」→「涡流集束手雷」）；
- *  既用于按机制名关联父招式，也用于潜能概述中代指派生技能子块 */
-function mechanismName(name: string): string {
-  return name.replace(/基础倍率$/, '').replace(/倍率$/, '')
+ *  既用于按机制名关联父招式，也用于潜能概述中代指派生技能子块。
+ *  ⚠ 后缀是**数据里的游戏用词**（随语言落盘）：zh「基础倍率/倍率」、en「Base Multiplier/Multiplier」、
+ *  ja「(の)基礎倍率/倍率」、ko「기본 배율/배율」。写死中文会在 en/ja/ko 数据上失配——
+ *  派生名会连着后缀一起显示（潜能概述里读成「…Base Multiplier」），吸附也会退到 ID 兜底那条路。 */
+const MULTIPLIER_SUFFIX: Loc = {
+  zh: '(?:基础)?倍率',
+  en: '(?:Base )?Multiplier',
+  ja: '(?:の)?(?:基礎)?倍率',
+  ko: '(?:기본 )?배율',
+}
+
+function mechanismName(name: string, lang: Lang): string {
+  return name.replace(new RegExp(`${pickText(MULTIPLIER_SUFFIX, lang)}$`), '').trim()
 }
 
 /** 吸附退化匹配的文本归一化：剥富文本标记与装饰标点（term 与父文本同归一，保证 includes 一致） */
@@ -216,7 +234,8 @@ export function potentialStartLevel(potential: unknown): string | undefined {
  * 同名下同时存在「基础版 + 强化版」时：基础版保留在 desc，强化版存入 strongDesc，供基础/潜能切换。
  */
 function buildSkillGroups(
-  descriptions?: Array<{ name?: string; desc?: string; param?: unknown; potential?: unknown }>,
+  descriptions: Array<{ name?: string; desc?: string; param?: unknown; potential?: unknown }> | undefined,
+  lang: Lang,
 ): SkillGroup[] | undefined {
   if (!descriptions) return undefined
   /** 简单描述块的 name→desc 映射（说明文字源） */
@@ -289,7 +308,7 @@ function buildSkillGroups(
             })
             return out
           }
-          let matched = hit(mechanismName(gname))
+          let matched = hit(mechanismName(gname, lang))
           if (matched.length === 1) {
             attach.push({ parent: matched[0], child: groups.length })
           } else if (matched.length === 0) {
@@ -376,21 +395,26 @@ function buildSkillGroups(
   return groups.length ? groups : undefined
 }
 
-/** 明确引用某个具名终结技的文本（如「[终结技：残心]发动后自动派生」）：视为终结技的派生/关联招式 */
-const ULTIMATE_NAMED_REF_RE = /\[终结技[：:]/
+/** 明确引用某个具名终结技的文本（如「[终结技：残心]发动后自动派生」）：视为终结技的派生/关联招式。
+ *  ⚠ 判据必须用**当前语言**的槽位名：详情 JSON 是按语言落盘的（en/ja/ko 的组名与引用
+ *  都是该语言的写法），写死中文会在非中文页面失配、把终结技并回连携技那一行。 */
+function ultimateNamedRefRe(lang: Lang): RegExp {
+  const label = pickText(SKILL_LABELS.ultimate, lang)
+  return new RegExp('\\[' + label + '[：:]')
+}
 
 /** 是否为终结技及其派生/关联招式（与连携技同处 game 的 chain 槽，需拆分为独立行）。
  *  招式名以「终结技：」开头，或描述里明确引用某个具名终结技（如自动派生招）都归入终结技行。 */
-function isUltimateGroup(g: SkillGroup): boolean {
-  if (g.name.startsWith('终结技')) return true
-  return ULTIMATE_NAMED_REF_RE.test(`${g.desc ?? ''}\n${g.strongDesc ?? ''}`)
+function isUltimateGroup(g: SkillGroup, lang: Lang, namedRef: RegExp): boolean {
+  if (g.name.startsWith(pickText(SKILL_LABELS.ultimate, lang))) return true
+  return namedRef.test(`${g.desc ?? ''}\n${g.strongDesc ?? ''}`)
 }
 
 /** 由槽位 key + 语义组构建一行技能（供 buildSkillRows 复用） */
-function makeSkillRow(k: SkillSlotKey, groups: SkillGroup[] | undefined): SkillRow {
+function makeSkillRow(k: SkillSlotKey, groups: SkillGroup[] | undefined, lang: Lang): SkillRow {
   return {
     key: k,
-    zh: SKILL_ZH[k] ?? k,
+    label: pickText(SKILL_LABELS[k], lang),
     keyEn: SKILL_KEYS[k]?.en ?? k.toUpperCase(),
     groups,
     hasNumbers: !!groups?.some((g) => g.entries?.length),
@@ -400,6 +424,7 @@ function makeSkillRow(k: SkillSlotKey, groups: SkillGroup[] | undefined): SkillR
 /** 从角色详情的 skill 字典构建有序 SkillRow[]（按游戏 UI 顺序） */
 export function buildSkillRows(
   skill: Record<string, unknown> | undefined | null,
+  lang: Lang,
 ): SkillRow[] {
   if (!skill) return []
   const rows: SkillRow[] = []
@@ -408,16 +433,17 @@ export function buildSkillRows(
     const desc = (skill[k] as
       | { description?: Array<{ name?: string; desc?: string; param?: unknown }> }
       | undefined)?.description
-    const groups = buildSkillGroups(desc)
+    const groups = buildSkillGroups(desc, lang)
     // 终结技与连携技在数据里合并为一个 chain 槽，但语义不同：按名称前缀拆成
     // 「连携技（CHAIN）」与「终结技（ULTIMATE）」两行，终结技独立成组。
     if (k === 'chain' && groups) {
-      const chain = groups.filter((g) => !isUltimateGroup(g))
-      const ultimate = groups.filter((g) => isUltimateGroup(g))
-      if (chain.length) rows.push(makeSkillRow('chain', chain))
-      if (ultimate.length) rows.push(makeSkillRow('ultimate', ultimate))
+      const namedRef = ultimateNamedRefRe(lang)
+      const chain = groups.filter((g) => !isUltimateGroup(g, lang, namedRef))
+      const ultimate = groups.filter((g) => isUltimateGroup(g, lang, namedRef))
+      if (chain.length) rows.push(makeSkillRow('chain', chain, lang))
+      if (ultimate.length) rows.push(makeSkillRow('ultimate', ultimate, lang))
     } else {
-      rows.push(makeSkillRow(k, groups))
+      rows.push(makeSkillRow(k, groups, lang))
     }
   }
   return rows
@@ -700,15 +726,20 @@ export function buildSkinRows(
 export const BANGBOO_SKILL_ORDER = ['a', 'b', 'c'] as const
 export type BangbooSkillKey = (typeof BANGBOO_SKILL_ORDER)[number]
 
-export const BANGBOO_SKILL_ZH: Record<BangbooSkillKey, string> = {
-  a: '主动技',
-  b: '额外能力',
-  c: '邦布连携技',
+/** 邦布技能槽位标签（四语；文案表在 domain/uiText） */
+export const BANGBOO_SKILL_LABELS: Record<BangbooSkillKey, Loc> = {
+  a: uiLoc('detail.bangbooActiveSkill'),
+  b: uiLoc('detail.bangbooExtraAbility'),
+  c: uiLoc('detail.bangbooChain'),
 }
+
+/** 邦布技能数值条目缺 property 列时的占位名（四语：「属性 {n}」） */
+const PROP_PLACEHOLDER = uiLoc('detail.propN')
 
 export interface BangbooSkillRow {
   key: BangbooSkillKey
-  zh: string
+  /** 槽位展示名（按调用方传入的 lang 解析） */
+  label: string
   names: string[]
   /** 各级描述去重（不同级仅数值变化，取原文） */
   desc: string
@@ -739,7 +770,8 @@ export interface BangbooSkillStat {
  */
 export function buildBangbooSkills(
   skill: Record<string, unknown> | undefined | null,
-  skillProp?: unknown,
+  skillProp: unknown,
+  lang: Lang,
 ): BangbooSkillRow[] {
   if (!skill) return []
   const propMap = (skillProp ?? {}) as Record<string, Record<string, SkillParamEntry>>
@@ -759,13 +791,13 @@ export function buildBangbooSkills(
     for (let i = 0; i < tokenCount; i++) {
       const prop = ordered[0]?.property?.[i]
       stats.push({
-        name: prop && prop.trim() ? prop : `属性 ${i + 1}`,
+        name: prop && prop.trim() ? prop : fmt(PROP_PLACEHOLDER[lang], { n: i + 1 }),
         referenced: tokens.some((t) => t[i]?.includes('{Skill:')),
       })
     }
     return {
       key: k,
-      zh: BANGBOO_SKILL_ZH[k] ?? k.toUpperCase(),
+      label: pickText(BANGBOO_SKILL_LABELS[k], lang),
       names,
       desc: ordered[0]?.desc ?? '',
       descs: ordered.map((l) => l?.desc ?? ''),
@@ -823,6 +855,10 @@ export interface CoreSkillLevel {
   desc: [string, string]
 }
 
+/** 核心技两组名称的兜底（数据缺 name 时用；四语） */
+const CORE_PASSIVE_NAME = uiLoc('detail.corePassive')
+const EXTRA_ABILITY_NAME = uiLoc('detail.bangbooExtraAbility')
+
 /** 核心技聚合数据 */
 export interface CoreSkill {
   /** 核心被动名（各级一致） */
@@ -840,6 +876,7 @@ export interface CoreSkill {
 /** 从 passive 字典构建核心技数据；无数据时返回 null */
 export function buildCoreSkill(
   passive: Record<string, unknown> | undefined | null,
+  lang: Lang,
 ): CoreSkill | null {
   const level = (passive as { level?: Record<string, unknown> } | undefined)?.level
   if (!level) return null
@@ -849,8 +886,8 @@ export function buildCoreSkill(
     .map((v) => ({
       level: Number(v?.level) || 0,
       potential: v?.potential,
-      coreName: String((v.name as string[])[0] ?? '核心被动'),
-      extraName: String((v.name as string[])[1] ?? '额外能力'),
+      coreName: String((v.name as string[])[0] ?? CORE_PASSIVE_NAME[lang]),
+      extraName: String((v.name as string[])[1] ?? EXTRA_ABILITY_NAME[lang]),
       desc: [(v.desc as string[])[0] ?? '', (v.desc as string[])[1] ?? ''] as [string, string],
     }))
   if (!records.length) return null
@@ -1055,7 +1092,8 @@ export function buildPotentialCinema(
 export function synthesizePotentialCinema(
   skills: readonly SkillRow[],
   cinema: readonly PotentialCinema[],
-  core?: CoreSkill | null,
+  core: CoreSkill | null | undefined,
+  lang: Lang,
 ): PotentialCinema[] {
   if (!cinema.length) return [...cinema]
   const added = new Map<string, string[]>()
@@ -1067,7 +1105,7 @@ export function synthesizePotentialCinema(
       const map = g.potentialType === 'new' ? added : enhanced
       const list = map.get(lv) ?? []
       // 纯数值门控子块（派生技能）以机制名入概述，不暴露「…基础倍率」类伪名
-      list.push(g.derived && g.potentialType === 'new' ? mechanismName(g.name) : g.name)
+      list.push(g.derived && g.potentialType === 'new' ? mechanismName(g.name, lang) : g.name)
       map.set(lv, list)
     }
   }
@@ -1078,12 +1116,21 @@ export function synthesizePotentialCinema(
   return cinema.map((p) => {
     if (p.desc) return p
     const parts: string[] = []
+    const sep = pickText(LIST_SEP, lang)
     const a = added.get(p.no)
-    if (a?.length) parts.push(`新增：${a.join('、')}`)
+    if (a?.length) parts.push(fmt(pickText(POT_ADDED, lang), { list: a.join(sep) }))
     const e = enhanced.get(p.no)
-    if (e?.length) parts.push(`强化：${e.join('、')}`)
-    if (coreStart === p.no) parts.push('扩展：核心被动、额外能力')
-    return parts.length ? { ...p, desc: parts.join('；') } : p
+    if (e?.length) parts.push(fmt(pickText(POT_ENHANCED, lang), { list: e.join(sep) }))
+    if (coreStart === p.no) {
+      parts.push(
+        fmt(pickText(POT_EXTENDED, lang), {
+          list: [pickText(CORE_PASSIVE_NAME, lang), pickText(EXTRA_ABILITY_NAME, lang)].join(sep),
+        }),
+      )
+    }
+    // 概述是**当前语言的句子**，句间分隔符也得随语言（写死中文「；」会让英文页出现
+    // 「New: …；Enhanced: …」这种全角中文标点；与 listSep 同属标点，一并进文案表）
+    return parts.length ? { ...p, desc: parts.join(pickText(SENTENCE_SEP, lang)) } : p
   })
 }
 
@@ -1177,27 +1224,43 @@ function pct(v: number): string {
  * 角色在指定等级下的基础面板（含突破加成；潜能为独立系统，不并入本表）。
  * 输出与 KeyValueGrid 直接兼容的 StatItem[]；stats 缺失时返回 []。
  */
+/** 角色面板数值名（四语；文案表在 domain/uiText） */
+const STAT_LABELS = {
+  hp: uiLoc('detail.hp'),
+  atk: uiLoc('detail.atk'),
+  def: uiLoc('detail.def'),
+  impact: uiLoc('detail.impact'),
+  critRate: uiLoc('detail.critRate'),
+  critDmg: uiLoc('detail.critDmg'),
+  penRate: uiLoc('detail.penRate'),
+  anomalyControl: uiLoc('detail.anomalyControl'),
+  anomalyMastery: uiLoc('detail.anomalyMastery'),
+  energyRegen: uiLoc('detail.energyRegen'),
+} as const
+
 export function characterStatsAtLevel(
   stats: Record<string, StatCell> | undefined,
   levelDict: Record<string, unknown> | undefined | null,
   lv: number,
+  lang: Lang,
 ): StatItem[] {
   if (!stats) return []
   const seg = charBreakSegment(levelDict, lv)
   const segHp = seg?.hp ?? 0
   const segAtk = seg?.attack ?? 0
   const segDef = seg?.defence ?? 0
+  const s = (k: keyof typeof STAT_LABELS) => pickText(STAT_LABELS[k], lang)
   const rows: Array<[string, string | null]> = [
-    ['生命值', numStr(cell(stats, 'hp_max'), cell(stats, 'hp_growth'), segHp, lv)],
-    ['攻击力', numStr(cell(stats, 'attack'), cell(stats, 'attack_growth'), segAtk, lv)],
-    ['防御力', numStr(cell(stats, 'defence'), cell(stats, 'defence_growth'), segDef, lv)],
-    ['冲击力', cell(stats, 'break_stun') != null ? String(cell(stats, 'break_stun')) : null],
-    ['暴击率', pctOrNull(cell(stats, 'crit'))],
-    ['暴击伤害', pctOrNull(cell(stats, 'crit_damage'))],
-    ['穿透率', pctOrNull(cell(stats, 'pen_rate'))],
-    ['异常掌控', cell(stats, 'element_mystery') != null ? String(cell(stats, 'element_mystery')) : null],
-    ['异常精通', cell(stats, 'element_abnormal_power') != null ? String(cell(stats, 'element_abnormal_power')) : null],
-    ['能量回复', cell(stats, 'sp_recover') != null ? String(cell(stats, 'sp_recover')) : null],
+    [s('hp'), numStr(cell(stats, 'hp_max'), cell(stats, 'hp_growth'), segHp, lv)],
+    [s('atk'), numStr(cell(stats, 'attack'), cell(stats, 'attack_growth'), segAtk, lv)],
+    [s('def'), numStr(cell(stats, 'defence'), cell(stats, 'defence_growth'), segDef, lv)],
+    [s('impact'), cell(stats, 'break_stun') != null ? String(cell(stats, 'break_stun')) : null],
+    [s('critRate'), pctOrNull(cell(stats, 'crit'))],
+    [s('critDmg'), pctOrNull(cell(stats, 'crit_damage'))],
+    [s('penRate'), pctOrNull(cell(stats, 'pen_rate'))],
+    [s('anomalyControl'), cell(stats, 'element_mystery') != null ? String(cell(stats, 'element_mystery')) : null],
+    [s('anomalyMastery'), cell(stats, 'element_abnormal_power') != null ? String(cell(stats, 'element_abnormal_power')) : null],
+    [s('energyRegen'), cell(stats, 'sp_recover') != null ? String(cell(stats, 'sp_recover')) : null],
   ]
   return rows
     .filter((r): r is [string, string] => r[1] != null)
@@ -1260,6 +1323,18 @@ export function wEngineBreakCount(lv: number): number {
   return Math.min(Math.max(Math.floor(lv / 10), 0), 5)
 }
 
+/** 潜能概述合成用的前缀与列举分隔符（四语；见 synthesizePotentialCinema） */
+const POT_ADDED = uiLoc('detail.potentialAdded')
+const POT_ENHANCED = uiLoc('detail.potentialEnhanced')
+const POT_EXTENDED = uiLoc('detail.potentialExtended')
+const LIST_SEP = uiLoc('common.listSep')
+/** 句间分隔符（与 listSep 成对：一个是列举项之间，一个是句子之间） */
+const SENTENCE_SEP = uiLoc('common.sentenceSep')
+
+/** 音擎属性账目的两类角标（四语） */
+const MAIN_PROP_TAG = uiLoc('detail.mainProp')
+const SUB_PROP_TAG = uiLoc('detail.subProp')
+
 /**
  * 音擎在指定等级下的基础属性（主属性 + 副属性），输出与 KeyValueGrid 兼容。
  * 缺满级值（atk_max 未注入）时回退 Lv.1 静态值；% 格式按万分比 /100 显示。
@@ -1269,13 +1344,14 @@ export function wEnginePropsAtLevel(
   base: { name?: string; value?: number } | undefined | null,
   rand: { name?: string; value?: number; format?: string } | undefined | null,
   max: number | undefined,
+  lang: Lang,
 ): StatItem[] {
   const items: StatItem[] = []
   const mainName = base?.name
   const randName = rand?.name
   if (mainName && base?.value != null) {
     const v = max != null ? wEngineMainAt(lv, base.value, max) : base.value
-    items.push({ label: mainName, value: String(v), tag: '主属性' })
+    items.push({ label: mainName, value: String(v), tag: pickText(MAIN_PROP_TAG, lang) })
   }
   if (randName && rand?.value != null) {
     const v = wEngineRandAt(lv, rand.value)
@@ -1283,7 +1359,7 @@ export function wEnginePropsAtLevel(
     items.push({
       label: randName,
       value: fmt.includes('%') ? `${(v / 100).toFixed(2)}%` : String(v),
-      tag: '副属性',
+      tag: pickText(SUB_PROP_TAG, lang),
     })
   }
   return items
@@ -1331,6 +1407,7 @@ export function bangbooStatsAtLevel(
   stats: Record<string, StatCell> | undefined,
   levelDict: Record<string, unknown> | undefined | null,
   lv: number,
+  lang: Lang,
 ): StatItem[] {
   if (!stats) return []
   const L = Math.min(Math.max(lv, BANGBOO_LEVEL_MIN), BANGBOO_LEVEL_MAX)
@@ -1357,16 +1434,17 @@ export function bangbooStatsAtLevel(
   const grow = (key: string) => cell(stats, key) ?? 0
   const num = (v: number) => String(v)
   const pct2 = (v: number) => `${(v / 100).toFixed(2)}%`
+  const s = (k: keyof typeof STAT_LABELS) => pickText(STAT_LABELS[k], lang)
 
   const rows: Array<[string, string | null]> = [
-    ['生命值', hp != null ? num(statAtLevel(hp, grow('hpupgrade'), segHp, L)) : null],
-    ['攻击力', atk != null ? num(statAtLevel(atk, grow('attack_upgrade'), segAtk, L)) : null],
-    ['防御力', def != null ? num(statAtLevel(def, grow('def_upgrade'), segDef, L)) : null],
-    ['冲击力', cell(stats, 'break_stun') != null ? num(cell(stats, 'break_stun')!) : null],
-    ['暴击率', cell(stats, 'crit') != null ? pct2(cell(stats, 'crit')! + extraCrit) : null],
-    ['暴击伤害', cell(stats, 'crit_dmg') != null ? pct2(cell(stats, 'crit_dmg')! + extraCritDmg) : null],
-    ['异常掌控', cell(stats, 'element_abnormal_power') != null ? num(cell(stats, 'element_abnormal_power')!) : null],
-    ['能量回复', cell(stats, 'endurance') != null ? num(cell(stats, 'endurance')!) : null],
+    [s('hp'), hp != null ? num(statAtLevel(hp, grow('hpupgrade'), segHp, L)) : null],
+    [s('atk'), atk != null ? num(statAtLevel(atk, grow('attack_upgrade'), segAtk, L)) : null],
+    [s('def'), def != null ? num(statAtLevel(def, grow('def_upgrade'), segDef, L)) : null],
+    [s('impact'), cell(stats, 'break_stun') != null ? num(cell(stats, 'break_stun')!) : null],
+    [s('critRate'), cell(stats, 'crit') != null ? pct2(cell(stats, 'crit')! + extraCrit) : null],
+    [s('critDmg'), cell(stats, 'crit_dmg') != null ? pct2(cell(stats, 'crit_dmg')! + extraCritDmg) : null],
+    [s('anomalyControl'), cell(stats, 'element_abnormal_power') != null ? num(cell(stats, 'element_abnormal_power')!) : null],
+    [s('energyRegen'), cell(stats, 'endurance') != null ? num(cell(stats, 'endurance')!) : null],
   ]
   return rows
     .filter((r): r is [string, string] => r[1] != null)

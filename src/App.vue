@@ -7,7 +7,10 @@ import TermTip from '@/components/detail/TermTip.vue'
 import QuickSearch from '@/components/QuickSearch.vue'
 import { ErrorBoundary } from '@/components'
 import { useQuickSearch } from '@/composables/useQuickSearch'
+import { useUiText } from '@/composables/useUiText'
 import { VT_ROOT_CLASS, useViewTransition } from '@/utils/viewTransition'
+
+const { t } = useUiText()
 
 /* 站尾延迟到初始导航就绪后渲染：懒路由 chunk 到位前 footer 先落地、内容到达再下坠，
    是名录页 CLS 的主要来源（实测 0.061→目标 0）。isReady 后不再变化，无后续位移。 */
@@ -50,7 +53,7 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onGlobalKeydown))
 <template>
   <div class="shell" :class="{ [VT_ROOT_CLASS]: viewTransitionActive }">
     <!-- 键盘跳转链接：首个 Tab 即达正文，免于逐个穿过站头导航；获焦前视觉隐藏 -->
-    <a class="skip-link mono" href="#main">跳至档案正文</a>
+    <a class="skip-link mono" href="#main">{{ t.app.skipToContent }}</a>
 
     <!-- 站头：品牌 + 主排导航（窄屏收进 ☰ 菜单）+ 检索（SiteHeader） -->
     <SiteHeader />

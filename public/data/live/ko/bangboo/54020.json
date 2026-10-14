@@ -1,0 +1,461 @@
+{
+ "id": 54020,
+ "code_name": "Birkblick",
+ "name": "비르크블리크",
+ "desc": "우린 모두 렌즈 속의 피사체다.",
+ "rarity": 4,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole42.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 396,
+  "hpupgrade": 471237,
+  "attack": 64,
+  "attack_upgrade": 321091,
+  "break_stun": 123,
+  "element_abnormal_power": 97,
+  "defence": 28,
+  "def_upgrade": 78871,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 207,
+   "attack": 59,
+   "defence": 35,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 414,
+   "attack": 297,
+   "defence": 69,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 621,
+   "attack": 891,
+   "defence": 104,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 828,
+   "attack": 2375,
+   "defence": 139,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 1034,
+   "attack": 5938,
+   "defence": 173,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "몽타주 연격",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 부유포를 투척한다. 부유포는 최대 3단 레이저를 발사해 적 타깃을 공격하고 <color=#F0D12B>물리 피해</color>와 함께 대량의 그로기 수치를 누적시킨다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5402001, Prop:1001}*2+{Skill:5402002, Prop:1001}|{Skill:5402001, Prop:1002}*2+{Skill:5402002, Prop:1002}|28초"
+    },
+    "2": {
+     "name": "몽타주 연격",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 부유포를 투척한다. 부유포는 최대 3단 레이저를 발사해 적 타깃을 공격하고 <color=#F0D12B>물리 피해</color>와 함께 대량의 그로기 수치를 누적시킨다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5402001, Prop:1001}*2+{Skill:5402002, Prop:1001}|{Skill:5402001, Prop:1002}*2+{Skill:5402002, Prop:1002}|28초"
+    },
+    "3": {
+     "name": "몽타주 연격",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 부유포를 투척한다. 부유포는 최대 3단 레이저를 발사해 적 타깃을 공격하고 <color=#F0D12B>물리 피해</color>와 함께 대량의 그로기 수치를 누적시킨다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5402001, Prop:1001}*2+{Skill:5402002, Prop:1001}|{Skill:5402001, Prop:1002}*2+{Skill:5402002, Prop:1002}|28초"
+    },
+    "4": {
+     "name": "몽타주 연격",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 부유포를 투척한다. 부유포는 최대 3단 레이저를 발사해 적 타깃을 공격하고 <color=#F0D12B>물리 피해</color>와 함께 대량의 그로기 수치를 누적시킨다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5402001, Prop:1001}*2+{Skill:5402002, Prop:1001}|{Skill:5402001, Prop:1002}*2+{Skill:5402002, Prop:1002}|28초"
+    },
+    "5": {
+     "name": "몽타주 연격",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 부유포를 투척한다. 부유포는 최대 3단 레이저를 발사해 적 타깃을 공격하고 <color=#F0D12B>물리 피해</color>와 함께 대량의 그로기 수치를 누적시킨다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5402001, Prop:1001}*2+{Skill:5402002, Prop:1001}|{Skill:5402001, Prop:1002}*2+{Skill:5402002, Prop:1002}|28초"
+    },
+    "6": {
+     "name": "몽타주 연격",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 부유포를 투척한다. 부유포는 최대 3단 레이저를 발사해 적 타깃을 공격하고 <color=#F0D12B>물리 피해</color>와 함께 대량의 그로기 수치를 누적시킨다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5402001, Prop:1001}*2+{Skill:5402002, Prop:1001}|{Skill:5402001, Prop:1002}*2+{Skill:5402002, Prop:1002}|28초"
+    },
+    "7": {
+     "name": "몽타주 연격",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 부유포를 투척한다. 부유포는 최대 3단 레이저를 발사해 적 타깃을 공격하고 <color=#F0D12B>물리 피해</color>와 함께 대량의 그로기 수치를 누적시킨다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5402001, Prop:1001}*2+{Skill:5402002, Prop:1001}|{Skill:5402001, Prop:1002}*2+{Skill:5402002, Prop:1002}|28초"
+    },
+    "8": {
+     "name": "몽타주 연격",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 부유포를 투척한다. 부유포는 최대 3단 레이저를 발사해 적 타깃을 공격하고 <color=#F0D12B>물리 피해</color>와 함께 대량의 그로기 수치를 누적시킨다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5402001, Prop:1001}*2+{Skill:5402002, Prop:1001}|{Skill:5402001, Prop:1002}*2+{Skill:5402002, Prop:1002}|28초"
+    },
+    "9": {
+     "name": "몽타주 연격",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 부유포를 투척한다. 부유포는 최대 3단 레이저를 발사해 적 타깃을 공격하고 <color=#F0D12B>물리 피해</color>와 함께 대량의 그로기 수치를 누적시킨다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5402001, Prop:1001}*2+{Skill:5402002, Prop:1001}|{Skill:5402001, Prop:1002}*2+{Skill:5402002, Prop:1002}|28초"
+    },
+    "10": {
+     "name": "몽타주 연격",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 부유포를 투척한다. 부유포는 최대 3단 레이저를 발사해 적 타깃을 공격하고 <color=#F0D12B>물리 피해</color>와 함께 대량의 그로기 수치를 누적시킨다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5402001, Prop:1001}*2+{Skill:5402002, Prop:1001}|{Skill:5402001, Prop:1002}*2+{Skill:5402002, Prop:1002}|28초"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "관찰자 효과",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[크람푸스의 검은 가지]</color> 진영의 캐릭터가 2명 이상 존재 시 발동: 에이전트가 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시, 비르크블리크가 주는 그로기 수치가 4% 증가한다. 최대 중첩: 3스택, 지속 시간: 15초. 중복 발동 시 지속 시간이 갱신되며, 3스택 보유 시 주는 피해가 10% 증가한다.",
+     "property": [
+      "필요한 [크람푸스의 검은 가지] 캐릭터 수",
+      "스택당 그로기 수치 증가"
+     ],
+     "param": "2|4%"
+    },
+    "2": {
+     "name": "관찰자 효과",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[크람푸스의 검은 가지]</color> 진영의 캐릭터가 2명 이상 존재 시 발동: 에이전트가 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시, 비르크블리크가 주는 그로기 수치가 5% 증가한다. 최대 중첩: 3스택, 지속 시간: 15초. 중복 발동 시 지속 시간이 갱신되며, 3스택 보유 시 주는 피해가 12.5% 증가한다.",
+     "property": [
+      "필요한 [크람푸스의 검은 가지] 캐릭터 수",
+      "스택당 그로기 수치 증가"
+     ],
+     "param": "2|5%"
+    },
+    "3": {
+     "name": "관찰자 효과",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[크람푸스의 검은 가지]</color> 진영의 캐릭터가 1명 이상 존재 시 발동: 에이전트가 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시, 비르크블리크가 주는 그로기 수치가 6% 증가한다. 최대 중첩: 3스택, 지속 시간: 15초. 중복 발동 시 지속 시간이 갱신되며, 3스택 보유 시 주는 피해가 15% 증가한다.",
+     "property": [
+      "필요한 [크람푸스의 검은 가지] 캐릭터 수",
+      "스택당 그로기 수치 증가"
+     ],
+     "param": "1|6%"
+    },
+    "4": {
+     "name": "관찰자 효과",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[크람푸스의 검은 가지]</color> 진영의 캐릭터가 1명 이상 존재 시 발동: 에이전트가 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시, 비르크블리크가 주는 그로기 수치가 7% 증가한다. 최대 중첩: 3스택, 지속 시간: 15초. 중복 발동 시 지속 시간이 갱신되며, 3스택 보유 시 주는 피해가 17.5% 증가한다.",
+     "property": [
+      "필요한 [크람푸스의 검은 가지] 캐릭터 수",
+      "스택당 그로기 수치 증가"
+     ],
+     "param": "1|7%"
+    },
+    "5": {
+     "name": "관찰자 효과",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[크람푸스의 검은 가지]</color> 진영의 캐릭터가 1명 이상 존재 시 발동: 에이전트가 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시, 비르크블리크가 주는 그로기 수치가 8% 증가한다. 최대 중첩: 3스택, 지속 시간: 15초. 중복 발동 시 지속 시간이 갱신되며, 3스택 보유 시 주는 피해가 20% 증가한다.",
+     "property": [
+      "필요한 [크람푸스의 검은 가지] 캐릭터 수",
+      "스택당 그로기 수치 증가"
+     ],
+     "param": "1|8%"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "전장 클로즈업",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n부유포를 사용해 강력한 레이저를 발사하여 전방의 적에게 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5402003, Prop:1001}|{Skill:5402003, Prop:1002}"
+    },
+    "2": {
+     "name": "전장 클로즈업",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n부유포를 사용해 강력한 레이저를 발사하여 전방의 적에게 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5402003, Prop:1001}|{Skill:5402003, Prop:1002}"
+    },
+    "3": {
+     "name": "전장 클로즈업",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n부유포를 사용해 강력한 레이저를 발사하여 전방의 적에게 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5402003, Prop:1001}|{Skill:5402003, Prop:1002}"
+    },
+    "4": {
+     "name": "전장 클로즈업",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n부유포를 사용해 강력한 레이저를 발사하여 전방의 적에게 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5402003, Prop:1001}|{Skill:5402003, Prop:1002}"
+    },
+    "5": {
+     "name": "전장 클로즈업",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n부유포를 사용해 강력한 레이저를 발사하여 전방의 적에게 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5402003, Prop:1001}|{Skill:5402003, Prop:1002}"
+    },
+    "6": {
+     "name": "전장 클로즈업",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n부유포를 사용해 강력한 레이저를 발사하여 전방의 적에게 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5402003, Prop:1001}|{Skill:5402003, Prop:1002}"
+    },
+    "7": {
+     "name": "전장 클로즈업",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n부유포를 사용해 강력한 레이저를 발사하여 전방의 적에게 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5402003, Prop:1001}|{Skill:5402003, Prop:1002}"
+    },
+    "8": {
+     "name": "전장 클로즈업",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n부유포를 사용해 강력한 레이저를 발사하여 전방의 적에게 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5402003, Prop:1001}|{Skill:5402003, Prop:1002}"
+    },
+    "9": {
+     "name": "전장 클로즈업",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n부유포를 사용해 강력한 레이저를 발사하여 전방의 적에게 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5402003, Prop:1001}|{Skill:5402003, Prop:1002}"
+    },
+    "10": {
+     "name": "전장 클로즈업",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n부유포를 사용해 강력한 레이저를 발사하여 전방의 적에게 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5402003, Prop:1001}|{Skill:5402003, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5402001": {
+   "1001": {
+    "main": 26900,
+    "growth": 2690,
+    "format": "%"
+   },
+   "1002": {
+    "main": 9800,
+    "growth": 980,
+    "format": "%"
+   },
+   "element_accumulation_value": 12600
+  },
+  "5402002": {
+   "1001": {
+    "main": 35800,
+    "growth": 3580,
+    "format": "%"
+   },
+   "1002": {
+    "main": 13100,
+    "growth": 1310,
+    "format": "%"
+   },
+   "element_accumulation_value": 16800
+  },
+  "5402003": {
+   "1001": {
+    "main": 94500,
+    "growth": 9450,
+    "format": "%"
+   },
+   "1002": {
+    "main": 13500,
+    "growth": 1350,
+    "format": "%"
+   },
+   "element_accumulation_value": 40500
+  }
+ }
+}

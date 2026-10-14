@@ -1,6 +1,8 @@
 <script setup lang="ts" generic="T extends Record<string, unknown>">
 import { computed } from 'vue'
 import type { SortDir } from '@/composables/useCatalogSort'
+import { fmt } from '@/domain/uiText'
+import { useUiText } from '@/composables/useUiText'
 import NoMatchState from './NoMatchState.vue'
 
 export interface CatalogColumn {
@@ -35,9 +37,11 @@ const emit = defineEmits<{
   (e: 'clear'): void
 }>()
 
+const { t } = useUiText()
+
 const bodyColumns = computed(() => props.columns.filter((c) => c.key !== 'idx'))
-/** 空态标题：未显式传入时用默认文案 */
-const emptyText = computed(() => props.emptyText ?? '无匹配档案')
+/** 空态标题：未显式传入时用当前语言的通用文案 */
+const emptyText = computed(() => props.emptyText ?? t.value.noMatch.archives)
 
 /* ---------- 移动端堆叠行（<721px）：主体列 + 尾列(右对齐列优先) + 其余列 meta 行 ---------- */
 
@@ -144,8 +148,8 @@ function onHeadClick(c: CatalogColumn) {
               {{ String(row[rightColumn.key] ?? '—') }}
             </slot>
             <span class="sr-only">
-              ，按{{ rightColumn.label }}排序{{
-                sort === rightColumn.key ? (sortDir === 'asc' ? '，当前升序' : '，当前降序') : ''
+              {{ fmt(t.list.sortBySr, { col: rightColumn.label }) }}{{
+                sort === rightColumn.key ? (sortDir === 'asc' ? t.list.sortAsc : t.list.sortDesc) : ''
               }}
             </span>
           </button>

@@ -1,6 +1,13 @@
 import { describe, expect, it } from 'vitest'
+
+import type { Lang } from '../src/domain/lang'
+
+/* 本文件的历史断言按**中文**口径写（文案四语化后，语言需显式传入）：
+ * 下面把 domain 函数包一层同名壳固定传 'zh'，断言因此逐字不变；
+ * 四语齐全与各语言文案由 tests/sections-constants.test.ts 与 tests/ui-text.test.ts 守。 */
+const buildSkillRows = (arg0: Parameters<typeof buildSkillRowsLang>[0]) => buildSkillRowsLang(arg0, 'zh' as Lang)
 import {
-  buildSkillRows,
+  buildSkillRows as buildSkillRowsLang,
   buildSkinRows,
   dictToRows
 } from '../src/domain/sections'

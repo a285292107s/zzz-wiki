@@ -4,9 +4,11 @@
  * SPA + Vercel rewrite 的站点，路由清单在构建期是**完全可知**的：
  *   - 静态路由：/（首页）、/formulas
  *   - 类目名录：/agents /w-engines /bangboos /disks（catalog.ts 派生）
- *   - 详情页：读 public/data/live/{character,weapon,bangboo,equipment}.json
+ *   - 详情页：读 public/data/live/{lang}/{character,weapon,bangboo,equipment}.json
  *     的名录 Id（与站点运行时同源，策展隐藏条目按 HIDDEN_ITEM_IDS 过滤——
- *     名录页不陈列的条目不进 sitemap，口径与 UI 一致）
+ *     名录页不陈列的条目不进 sitemap，口径与 UI 一致）。
+ *     枚举只用**一种**语言：id 集合四语同源（verify:data 守这条），
+ *     而站点是单 URL 集合（语言是本机偏好，不进 URL），故不产生多语言 URL。
  *
  * 域名从 `VITE_SITE_ORIGIN` 环境变量取——**与前端 canonical/og:url 同一来源**
  * （vercel.json 的 env 注入，src/composables/usePageMeta.ts 读同一个变量）；
@@ -19,6 +21,7 @@
  * ============================================================ */
 
 import fs from 'node:fs'
+import { DEFAULT_LANG } from './build/langs.mjs'
 
 const ENV_ORIGIN = process.env.VITE_SITE_ORIGIN || process.env.SITE_ORIGIN
 const DEPLOYING = Boolean(process.env.VERCEL || process.env.CI)
@@ -45,7 +48,7 @@ function urls() {
   const list = ['/', '/formulas', '/about']
   for (const c of CATALOG) {
     list.push(c.path)
-    const p = `public/data/live/${c.file}`
+    const p = `public/data/live/${DEFAULT_LANG}/${c.file}`
     if (!fs.existsSync(p)) {
       console.warn(`  ⚠ ${p} 缺失，跳过该类目详情 URL`)
       continue

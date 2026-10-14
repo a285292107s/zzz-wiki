@@ -1,12 +1,25 @@
 import { nextTick } from 'vue'
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
-import { CATALOG } from '@/domain/catalog'
+import { CATALOG, GUIDE_ENTRIES } from '@/domain/catalog'
+import { joinLoc, type Loc } from '@/domain/lang'
+import { uiLoc } from '@/domain/uiText'
 import { DEV_ROUTES } from '@/domain/devRoutes'
 import { resolveAnchorOffset } from '@/composables/anchorOffset'
 // 首页是着陆页：静态编入主包（其余路由保持懒加载）。懒 chunk 到位前 main 只有站头+页脚，
 // 内容到达时整页弹入、页脚下坠（实测 CLS 0.031 的来源）；着陆页 +2.5KB gzip 换首帧稳定。
 import HomeView from '@/views/HomeView.vue'
 import { catalogViews } from './views'
+
+/** 路由标题是**四语 `Loc`**（决策记录 0011）：标签页标题在运行时按当前语言解析
+ *  （见 usePageMeta）。类目/板块标题直接复用 catalog.ts 那一份，不另写一遍中文。 */
+type TitleLoc = Loc
+
+/** 板块页标题：catalog 与 GUIDE_ENTRIES 的单一事实源里取（缺失即抛错）。 */
+function guideLabel(path: string): TitleLoc {
+  const g = GUIDE_ENTRIES.find((x) => x.path === path)
+  if (!g) throw new Error(`[router] 未登记的板块路径：${path}`)
+  return g.label
+}
 
 /** 由 catalog 条目生成「名录 + 详情」两条路由（视图映射见 ./views.ts） */
 function catalogRoutes(): RouteRecordRaw[] {
@@ -27,7 +40,7 @@ function catalogRoutes(): RouteRecordRaw[] {
         name: `${name}-detail`,
         component: pair[1],
         props: true,
-        meta: { title: `${c.label}详情` },
+        meta: { title: joinLoc(c.label, uiLoc('meta.detailSuffix')) },
       },
     ] as unknown as RouteRecordRaw[]
   })
@@ -68,20 +81,20 @@ export const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
-      meta: { title: '首页' },
+      meta: { title: uiLoc('nav.home') },
     },
     ...catalogRoutes(),
     {
       path: '/formulas',
       name: 'formulas',
       component: () => import('@/views/FormulasView.vue'),
-      meta: { title: '战斗公式' },
+      meta: { title: guideLabel('/formulas') },
     },
     {
       path: '/about',
       name: 'about',
       component: () => import('@/views/AboutView.vue'),
-      meta: { title: '数据说明' },
+      meta: { title: guideLabel('/about') },
     },
     /* 设置：本机偏好（代理人名录版本、佩洛伊斯立绘形态）的落点。
        是真路由（≠ dev 页）：读者可以从站头导航或首页目录直达，Vercel 的 rewrites 覆盖它；
@@ -91,7 +104,7 @@ export const router = createRouter({
       path: '/settings',
       name: 'settings',
       component: () => import('@/views/SettingsView.vue'),
-      meta: { title: '设置' },
+      meta: { title: guideLabel('/settings') },
     },
     {
       path: '/:pathMatch(.*)*',

@@ -27,12 +27,21 @@ import {
 import { PROFESSIONS, type SpecCode } from '@/data/types'
 import type { CharacterListItem, WEngineDetail } from '@/data/types'
 import { pickName } from '@/utils/names'
+import { pickText } from '@/domain/lang'
+import { useLocale } from '@/composables/useLocale'
+import { useUiText } from '@/composables/useUiText'
+import { fmt } from '@/domain/uiText'
 import { DetailHead, DetailPager, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SignatureRef, StatLevelPanel } from '@/components'
 import Rarity from '@/components/Rarity.vue'
 import Tags from '@/components/Tags.vue'
 
 const id = useRouteParam('id')
-const { data: detail, status, error, reload } = useAsyncResource(() => detailFor<WEngineDetail>(catalogEntry('/w-engines'), id.value))
+/** 当前展示语言：详情正文（概述/精炼效果/属性名）按语言落盘，语言一变由 watchEffect 重新取数 */
+const { lang } = useLocale()
+const { t } = useUiText()
+const { data: detail, status, error, reload } = useAsyncResource(() =>
+  detailFor<WEngineDetail>(catalogEntry('/w-engines'), id.value, lang.value),
+)
 
 /** 404 与「加载失败」要分开说：档案确实不存在 vs 数据没到位（标题不能都说「缺失」） */
 const isNotFound = computed(() => /HTTP 404\b/.test(error.value ?? ''))
@@ -40,17 +49,19 @@ const isNotFound = computed(() => /HTTP 404\b/.test(error.value ?? ''))
 usePageMeta(
   // 404（档案不存在）时标题给「档案缺失」：与路由级 404 一致，也让标签页/书签说真话；
   // 加载中仍走路由 meta 的默认标题（不能提前显示「缺失」）
-  () => detail.value?.name ?? (status.value === 'error' ? (isNotFound.value ? '档案缺失' : '载入失败') : undefined),
+  () => detail.value?.name ?? (status.value === 'error' ? (isNotFound.value ? t.value.detail.missing : t.value.detail.loadFailed) : undefined),
   () => {
     const name = detail.value?.name
     const d = detail.value?.desc
-    return name && d ? `${name} — ${stripRichText(d).slice(0, 110)}… · 绳网档案` : undefined
+    return name && d ? `${name} — ${stripRichText(d).slice(0, 110)}… · ${t.value.meta.siteName}` : undefined
   },
 )
 
 /** 代理人名录：用于反查归属该音擎的代理人（domain/signatureEngine 命名约定 + 覆盖表转置）。
  *  作为独立资源，避免阻塞音擎详情主链路。 */
-const { data: agents } = useAsyncResource(() => listFor<CharacterListItem>(catalogEntry('/agents')))
+const { data: agents } = useAsyncResource(() =>
+  listFor<CharacterListItem>(catalogEntry('/agents'), lang.value),
+)
 
 /** 归属代理人（音擎拥有者）名录条目；名录未加载/未覆盖（如公共池通用音擎）时为空，head 静默不展示 */
 const ownerAgent = computed(() =>
@@ -63,9 +74,10 @@ const specCode = computed<SpecCode | null>(() => {
   return key ? (Number(key) as SpecCode) : null
 })
 
-const specName = computed(() =>
-  (specCode.value != null ? PROFESSIONS[specCode.value]?.zh : null) ?? null,
-)
+const specName = computed(() => {
+  const meta = specCode.value != null ? PROFESSIONS[specCode.value] : undefined
+  return meta ? pickText(meta.label, lang.value) : null
+})
 
 /** 基础属性：等级滑条（默认满级；切换音擎时重置）与突破刻度 */
 const { level: wLevel, levelMarks } = useEntityLevel({
@@ -82,6 +94,7 @@ const propItems = computed<StatItem[]>(() =>
     detail.value?.base_property,
     detail.value?.rand_property,
     detail.value?.atk_max,
+    lang.value,
   ),
 )
 
@@ -101,7 +114,9 @@ const { level: refineLevel } = useEntityLevel({
 const refineTalent = computed<DetailRow | null>(() => refineRowAt(talents.value, refineLevel.value))
 
 /** 档位标签取**档位行自身的序号**：正常数据下恒等于滑条值，缺档回退时也如实标注实际阶数 */
-const refineLabel = computed(() => (refineTalent.value ? `精炼 ${refineTalent.value.no} 阶` : ''))
+const refineLabel = computed(() =>
+  refineTalent.value ? fmt(t.value.detail.refineRank, { n: refineTalent.value.no }) : '',
+)
 
 /** 概述仅承载 lore 正文（desc）；desc3 为主题句、desc2 为功能提示，均已上移至头部 sub 区 */
 const hasBody = computed(() => !!detail.value?.desc)
@@ -126,8 +141,8 @@ const ownerTo = computed(() =>
 const ownerIconSrcs = computed(() =>
   ownerAgent.value ? iconSources(ownerAgent.value, 'character') : [],
 )
-/** 归属代理人展示名（zh → en → … 回退） */
-const ownerName = computed(() => (ownerAgent.value ? pickName(ownerAgent.value) : ''))
+/** 归属代理人展示名（当前语言 → 其余语言 → 代号 回退） */
+const ownerName = computed(() => (ownerAgent.value ? pickName(ownerAgent.value, lang.value) : ''))
 
 /* ---------- 区块导航（条件区块）+ scrollspy + reveal ---------- */
 
@@ -136,9 +151,9 @@ const navItems = computed(() => {
   let n = 0
   const add = (id: string, label: string) =>
     items.push({ id, no: String(++n).padStart(2, '0'), label })
-  if (hasBody.value) add('overview', '概述')
-  add('props', '基础属性')
-  add('talents', '精炼效果')
+  if (hasBody.value) add('overview', t.value.detail.overview)
+  add('props', t.value.detail.baseProps)
+  add('talents', t.value.detail.refineEffect)
   return items
 })
 
@@ -146,7 +161,9 @@ const { activeSection, revealDir: vReveal, noOf } = useDetailSections(navItems, 
 
 /** 相邻条目翻页：名录 Id 序，名录走 api 缓存 */
 const catWEngines = catalogEntry('/w-engines')
-const { prev: pagerPrev, next: pagerNext } = useDetailPager(catWEngines, id, pickName)
+const { prev: pagerPrev, next: pagerNext } = useDetailPager(catWEngines, id, (r) =>
+  pickName(r, lang.value),
+)
 
 /** 404 时返回音擎图鉴 */
 const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
@@ -155,7 +172,7 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
 <template>
   <DetailPage
     back-to="/w-engines"
-    back-label="返回音擎图鉴"
+    :back-label="t.detail.backToWEngines"
     :nav="detail ? navItems : []"
     :active="activeSection"
     :status="status"
@@ -187,23 +204,23 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
           <SignatureRef
             v-if="ownerAgent"
             :to="ownerTo"
-            label="归属代理人"
+            :label="t.detail.ownerAgent"
             :name="ownerName"
             :icon-srcs="ownerIconSrcs"
             thumb="banner"
-            :aria-label="`归属代理人：${ownerName}，前往代理人详情`"
+            :aria-label="fmt(t.detail.ownerAgentHint, { name: ownerName })"
           />
         </template>
       </DetailHead>
 
-      <DetailSection v-if="hasBody" id="overview" :no="noOf('overview')" title="概述" en="Lore">
+      <DetailSection v-if="hasBody" id="overview" :no="noOf('overview')" :title="t.detail.overview" en="Lore">
         <p class="story">{{ bodyText }}</p>
       </DetailSection>
 
-      <DetailSection v-reveal id="props" :no="noOf('props')" title="基础属性" en="Specs">
+      <DetailSection v-reveal id="props" :no="noOf('props')" :title="t.detail.baseProps" en="Specs">
         <StatLevelPanel
           :lv-label="`Lv.${wLevel}`"
-          :meta="hasLevels ? (breakCount === 0 ? '未突破' : `突破 ${breakCount} 阶`) : undefined"
+          :meta="hasLevels ? (breakCount === 0 ? t.detail.notBroken : fmt(t.detail.breakCount, { n: breakCount })) : undefined"
         >
           <template #control>
             <LevelSlider
@@ -211,7 +228,7 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
               v-model="wLevel"
               :min="W_ENGINE_LEVEL_MIN"
               :max="W_ENGINE_LEVEL_MAX"
-              label="音擎等级"
+              :label="t.detail.wengineLevel"
               :marks="levelMarks"
             />
           </template>
@@ -219,7 +236,7 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
         <KeyValueGrid :items="propItems" variant="ledger" />
       </DetailSection>
 
-      <DetailSection v-reveal id="talents" :no="noOf('talents')" title="精炼效果" en="Refine">
+      <DetailSection v-reveal id="talents" :no="noOf('talents')" :title="t.detail.refineEffect" en="Refine">
         <!-- 1-5 阶只有数值不同、效果名与文案骨架完全一致，逐阶并列 5 行是同一段话抄 5 遍：
              改为「一阶一段」——滑条选阶，正文只渲染当前阶那一份 -->
         <StatLevelPanel v-if="refineTalent" :lv-label="refineLabel">
@@ -228,11 +245,11 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
               v-model="refineLevel"
               :min="W_ENGINE_REFINE_MIN"
               :max="W_ENGINE_REFINE_MAX"
-              label="精炼等级"
+              :label="t.detail.refineLevel"
               :value-text="refineLabel"
             />
           </template>
-          <h3 class="refine-name serif">{{ refineTalent.name ?? '未命名' }}</h3>
+          <h3 class="refine-name serif">{{ refineTalent.name ?? t.common.unnamed }}</h3>
           <p class="refine-desc" v-html="richDesc(refineTalent.desc)" />
         </StatLevelPanel>
         <p v-else class="empty mono">—</p>

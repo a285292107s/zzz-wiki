@@ -1,0 +1,2509 @@
+{
+ "id": 1611,
+ "icon": "IconRole1611",
+ "name": "클라렛",
+ "code_name": "Claret",
+ "rarity": 4,
+ "weapon_type": {
+  "7": "Armorer"
+ },
+ "element_type": {
+  "203": "Electric"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "16": "로스캘리퍼"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "7/23",
+  "full_name": "클라렛 플린트",
+  "gender": "여성",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle1611.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0069.png",
+  "impression_f": "오빠, 전에 피로이스가 포르셀로이를 꽤 많이 썼던 것 같은데, 정확한 수량은…",
+  "impression_m": "그만 고민하자, 벨, 얼마나 갚아야 할지도 모르는 상황이니까… 예외가 없는 이상, 클라렛 씨는 우리의 평생 「채권자」가 될 거야…",
+  "impressions": [
+   "클라렛에 대한 인상:\n · 2억 데니짜리 케이크가 실제로 존재할 줄이야…",
+   " · 빚 독촉을 서두르지 않는 관대한 채권자를 원하지 않을 사람이 있을까?",
+   " · 천재 가주의 스트레스도 디저트 한 입이면 싹 날아간다"
+  ],
+  "profile_desc": "클라렛, 플린트 공방의 공방주이자 현 가주, 전설적인 포르셀로이 단조사이다.\n\n가문에 대한 자부심과 책임감이 강하고, 포르셀로이와 가문, 그리고 대대로 이어져 온 단조 기술을 소중히 여긴다. 그렇기에 포르셀로이를 낭비하거나 무의미하게 소모하는 행위를 몹시 혐오한다.\n\n로스캘리퍼의 일상적인 운영은 포르셀로이에 의존하고 있으며, 플린트는 세상 모든 포르셀로이의 원천이다. 자연스럽게 클라렛은 이 천공의 연산 중추에서 가장 큰 「채권자」가 되었다. 하늘을 동요시킬 수 있는 칩을 손에 쥐고 있으면서도, 그것을 이용해 더 많은 권력이나 지위를 요구한 적이 없다. 그녀는 이 오래된 가문이 처음 세운 맹세를 따르고 있다.\n\n클라렛은 겉보기에는 도도해 보이지만, 가주의 위세를 내세우는 일이 없어 그녀를 잘 아는 사람들은 대체로 기꺼이 가까이하려 한다. 자신의 마음을 솔직하게 표현하는 데 서툴고, 말과 속마음이 다르며, 타인의 부탁에 쉽게 마음이 약해져 들어주고 마는데, 그것이 자신을 난처한 상황에 빠뜨릴 수 있더라도 그렇다.",
+  "role_icon": "IconRole/UnPacker/IconRole1611",
+  "stature": "166",
+  "unlock_condition": [
+   "에이전트 획득",
+   "메인 스토리 시즌 3 제3장 그녀들의 숨겨진 과거 완료",
+   "「엔비의 고민」 의뢰 완료"
+  ],
+  "trust_lv": {
+   "1": "클라렛, 플린트 공방의 공방주이자 현 가주, 전설적인 포르셀로이 단조사이다.\n\n가문에 대한 자부심과 책임감이 강하고, 포르셀로이와 가문, 그리고 대대로 이어져 온 단조 기술을 소중히 여긴다. 그렇기에 포르셀로이를 낭비하거나 무의미하게 소모하는 행위를 몹시 혐오한다.\n\n로스캘리퍼의 일상적인 운영은 포르셀로이에 의존하고 있으며, 플린트는 세상 모든 포르셀로이의 원천이다. 자연스럽게 클라렛은 이 천공의 연산 중추에서 가장 큰 「채권자」가 되었다. 하늘을 동요시킬 수 있는 칩을 손에 쥐고 있으면서도, 그것을 이용해 더 많은 권력이나 지위를 요구한 적이 없다. 그녀는 이 오래된 가문이 처음 세운 맹세를 따르고 있다.\n\n클라렛은 겉보기에는 도도해 보이지만, 가주의 위세를 내세우는 일이 없어 그녀를 잘 아는 사람들은 대체로 기꺼이 가까이하려 한다. 자신의 마음을 솔직하게 표현하는 데 서툴고, 말과 속마음이 다르며, 타인의 부탁에 쉽게 마음이 약해져 들어주고 마는데, 그것이 자신을 난처한 상황에 빠뜨릴 수 있더라도 그렇다.",
+   "2": "",
+   "3": "클라렛은 디저트를 매우 좋아하며 맛에 있어서도 상당히 까다롭다. 「천재」와 「가주」라는 신분은 이 소녀에게 많은 고민과 걱정을 안겨주었고, 단것을 많이 먹는 것은 스트레스를 해소하는 효과적인 방법이다.\n비고: 조수의 관찰에 따르면, 디저트 맛이 좋지 않을 경우 오히려 역효과가 나는 경우가 많다고 한다.\n\n전문 분야가 아닐 때, 클라렛은 때때로 다소 덜렁대는 면이 있어, 소문처럼 고귀하고 신비로우며 완벽한 리더는 아니다. 하지만 그녀는 사람들이 자신에 대해 가지고 있는 기존의 인상을 유지하기 위해 전력을 다하며, 이를 통해 플린트 가문의 이미지를 지켜나가고 있다.\n\n클라렛은 가문을 이끌어 포르셀로이 단조 기술을 계승하고 발전시키는 데 힘쓰고 있다. 오랫동안 포르셀로이 단조에는 족인의 피를 촉매 매개로 사용해야 했는데, 클라렛은 핏줄에 의존하지 않고 포르셀로이를 제련하는 방법을 찾아 족인들을 오랜 사명으로부터 해방시키고자 하고 있다.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 101,
+  "attack_growth": 58479,
+  "avatar_piece_id": 5611,
+  "break_stun": 93,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 35,
+  "defence_growth": 48155,
+  "element_abnormal_power": 80,
+  "element_mystery": 79,
+  "endurance": 0,
+  "hp_growth": 616711,
+  "hp_max": 454,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 0,
+  "sp_recover": 0,
+  "stun": 0,
+  "tags": [
+   "Claret",
+   "Cut",
+   "Electric",
+   "Female",
+   "Camp16",
+   "Size02",
+   "AidTypeParry",
+   "Claret",
+   "EtherEyesSize2",
+   "Armorer",
+   "Punch"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 120,
+  "ep_recover": 150,
+  "sharp_critical_damage": 15000
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "일반 공격: 피의 단조·4식",
+     "desc": "<IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 향해 최대 4단까지 망치질을 시전해 <color=#2EB6FF>전기 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 피의 맹세·단조의 별",
+     "desc": "<Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 상태에서 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n피의 도끼로 전방에 최대 3단 베기를 펼쳐 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n두 번째 공격 시전 시, 클라렛이 뒤로 물러나면서 피의 도끼를 던지며, 후퇴 기간 동안 극한 회피 효과를 발동할 수 있다.\n세 번째 공격 시전 시, 클라렛이 연속 베기 후 도약하여 내리찍으며, 연속 베기 중 경직 저항 레벨이 증가하고, 받는 피해가 40% 감소한다. <IconMap:Icon_Normal>을 연타하거나 홀드하면 연속 베기의 지속 시간을 연장할 수 있으며, 연타를 멈추거나 <IconMap:Icon_Normal>에서 손을 떼면 클라렛이 즉시 도약하여 내리찍고, 도약하는 동안 극한 회피 효과를 발동할 수 있으며, 극한 회피 발동 성공 후 <IconMap:Icon_Normal>을 짧게 탭하거나 홀드하여 [일반 공격: 피의 맹세·단조의 별] 세 번째로 연계할 수 있다.\n시전하는 동안 [진홍 각인] 상태가 종료되지 않는다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 피의 맹세·도끼의 처단",
+     "desc": "<Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 상태에서 [특수 스킬: 피의 맹세·금과 철] 혹은 [특수 스킬: 피의 맹세·묻힌 피]를 시전하고 [파상] 발동 성공 후 <IconMap:Icon_Normal>을 짧은 탭 혹은 홀드하여 시전:\n피의 도끼로 회전하며 뛰어올라 내리찍고 타깃 적을 베어 <color=#2EB6FF>전기 속성 피해</color>를 준다. 도약하는 동안 극한 회피 효과를 발동할 수 있다.\n스킬 시전 후, <IconMap:Icon_Normal>을 짧게 탭 혹은 홀드하여 [일반 공격: 피의 맹세·단조의 별] 세 번째로 연계할 수 있다.\n시전하는 동안 [진홍 각인] 상태가 종료되지 않는다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 피의 단조·4식",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1611001, Prop:1001}",
+       "param": {
+        "1611001": {
+         "main": 5440,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 5440,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 3470,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 95425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3150,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3151
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1611002, Prop:1001}",
+       "param": {
+        "1611002": {
+         "main": 6720,
+         "growth": 620,
+         "format": "%",
+         "damage_percentage": 6720,
+         "damage_percentage_growth": 620,
+         "stun_ratio": 4290,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 117975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3899,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3900
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1611003, Prop:1001}",
+       "param": {
+        "1611003": {
+         "main": 9520,
+         "growth": 870,
+         "format": "%",
+         "damage_percentage": 9520,
+         "damage_percentage_growth": 870,
+         "stun_ratio": 6090,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 167475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5529,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5530
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 피해 배율",
+       "desc": "{Skill:1611004, Prop:1001}",
+       "param": {
+        "1611004": {
+         "main": 28950,
+         "growth": 2640,
+         "format": "%",
+         "damage_percentage": 28950,
+         "damage_percentage_growth": 2640,
+         "stun_ratio": 17880,
+         "stun_ratio_growth": 820,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 491700,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 16253,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16254
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1611001, Prop:1002}",
+       "param": {
+        "1611001": {
+         "main": 3470,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 5440,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 3470,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 95425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3150,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3151
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1611002, Prop:1002}",
+       "param": {
+        "1611002": {
+         "main": 4290,
+         "growth": 200,
+         "format": "%",
+         "damage_percentage": 6720,
+         "damage_percentage_growth": 620,
+         "stun_ratio": 4290,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 117975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3899,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3900
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1611003, Prop:1002}",
+       "param": {
+        "1611003": {
+         "main": 6090,
+         "growth": 280,
+         "format": "%",
+         "damage_percentage": 9520,
+         "damage_percentage_growth": 870,
+         "stun_ratio": 6090,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 167475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5529,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5530
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 그로기 배율",
+       "desc": "{Skill:1611004, Prop:1002}",
+       "param": {
+        "1611004": {
+         "main": 17880,
+         "growth": 820,
+         "format": "%",
+         "damage_percentage": 28950,
+         "damage_percentage_growth": 2640,
+         "stun_ratio": 17880,
+         "stun_ratio_growth": 820,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 491700,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 16253,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16254
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 피의 맹세·단조의 별",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1611005, Prop:1001}",
+       "param": {
+        "1611005": {
+         "main": 10770,
+         "growth": 980,
+         "format": "%",
+         "damage_percentage": 10770,
+         "damage_percentage_growth": 980,
+         "stun_ratio": 5500,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 151250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4996,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1611006, Prop:1001}",
+       "param": {
+        "1611006": {
+         "main": 28740,
+         "growth": 2620,
+         "format": "%",
+         "damage_percentage": 28740,
+         "damage_percentage_growth": 2620,
+         "stun_ratio": 14670,
+         "stun_ratio_growth": 670,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 403425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 연속 베기 피해 배율",
+       "desc": "{Skill:1611007, Prop:1001}",
+       "param": {
+        "1611007": {
+         "main": 45210,
+         "growth": 4110,
+         "format": "%",
+         "damage_percentage": 45210,
+         "damage_percentage_growth": 4110,
+         "stun_ratio": 18700,
+         "stun_ratio_growth": 850,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 514250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 17000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 내려찍기 피해 배율",
+       "desc": "{Skill:1611029, Prop:1001}",
+       "param": {
+        "1611029": {
+         "main": 17730,
+         "growth": 1620,
+         "format": "%",
+         "damage_percentage": 17730,
+         "damage_percentage_growth": 1620,
+         "stun_ratio": 7340,
+         "stun_ratio_growth": 340,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 201850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1611005, Prop:1002}",
+       "param": {
+        "1611005": {
+         "main": 5500,
+         "growth": 250,
+         "format": "%",
+         "damage_percentage": 10770,
+         "damage_percentage_growth": 980,
+         "stun_ratio": 5500,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 151250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4996,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1611006, Prop:1002}",
+       "param": {
+        "1611006": {
+         "main": 14670,
+         "growth": 670,
+         "format": "%",
+         "damage_percentage": 28740,
+         "damage_percentage_growth": 2620,
+         "stun_ratio": 14670,
+         "stun_ratio_growth": 670,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 403425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 연속 베기 그로기 배율",
+       "desc": "{Skill:1611007, Prop:1002}",
+       "param": {
+        "1611007": {
+         "main": 18700,
+         "growth": 850,
+         "format": "%",
+         "damage_percentage": 45210,
+         "damage_percentage_growth": 4110,
+         "stun_ratio": 18700,
+         "stun_ratio_growth": 850,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 514250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 17000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 내려찍기 그로기 배율",
+       "desc": "{Skill:1611029, Prop:1002}",
+       "param": {
+        "1611029": {
+         "main": 7340,
+         "growth": 340,
+         "format": "%",
+         "damage_percentage": 17730,
+         "damage_percentage_growth": 1620,
+         "stun_ratio": 7340,
+         "stun_ratio_growth": 340,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 201850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6667
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 피의 맹세·도끼의 처단",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1611008, Prop:1001}",
+       "param": {
+        "1611008": {
+         "main": 32800,
+         "growth": 2990,
+         "format": "%",
+         "damage_percentage": 32800,
+         "damage_percentage_growth": 2990,
+         "stun_ratio": 13570,
+         "stun_ratio_growth": 620,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 373175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1611008, Prop:1002}",
+       "param": {
+        "1611008": {
+         "main": 13570,
+         "growth": 620,
+         "format": "%",
+         "damage_percentage": 32800,
+         "damage_percentage_growth": 2990,
+         "stun_ratio": 13570,
+         "stun_ratio_growth": 620,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 373175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12334
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "회피: 야간 시야",
+     "desc": "<IconMap:Icon_Evade>을 짧게 탭하여 시전:\n빠른 대시로 회피한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 담금질",
+     "desc": "<Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 상태가 아닐 때 회피 시 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방에 망치질을 시전하여 <color=#2EB6FF>전기 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 되받는 칼날",
+     "desc": "<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n망치 자루로 전방에 강력한 반격을 시전해 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 피의 맹세·되받는 칼날",
+     "desc": "<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n피의 도끼로 전방에 강력한 반격을 시전해 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n시전하는 동안 <Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 상태가 종료되지 않는다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 담금질",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1611016, Prop:1001}",
+       "param": {
+        "1611016": {
+         "main": 5290,
+         "growth": 490,
+         "format": "%",
+         "damage_percentage": 5290,
+         "damage_percentage_growth": 490,
+         "stun_ratio": 4310,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 118525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3915,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3916
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1611016, Prop:1002}",
+       "param": {
+        "1611016": {
+         "main": 4310,
+         "growth": 200,
+         "format": "%",
+         "damage_percentage": 5290,
+         "damage_percentage_growth": 490,
+         "stun_ratio": 4310,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 118525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3915,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3916
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 되받는 칼날",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1611018, Prop:1001}",
+       "param": {
+        "1611018": {
+         "main": 27250,
+         "growth": 2480,
+         "format": "%",
+         "damage_percentage": 27250,
+         "damage_percentage_growth": 2480,
+         "stun_ratio": 19620,
+         "stun_ratio_growth": 900,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 237050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1611018, Prop:1002}",
+       "param": {
+        "1611018": {
+         "main": 19620,
+         "growth": 900,
+         "format": "%",
+         "damage_percentage": 27250,
+         "damage_percentage_growth": 2480,
+         "stun_ratio": 19620,
+         "stun_ratio_growth": 900,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 237050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 피의 맹세·되받는 칼날",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1611019, Prop:1001}",
+       "param": {
+        "1611019": {
+         "main": 33000,
+         "growth": 3000,
+         "format": "%",
+         "damage_percentage": 33000,
+         "damage_percentage_growth": 3000,
+         "stun_ratio": 19070,
+         "stun_ratio_growth": 870,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 221925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1611019, Prop:1002}",
+       "param": {
+        "1611019": {
+         "main": 19070,
+         "growth": 870,
+         "format": "%",
+         "damage_percentage": 33000,
+         "damage_percentage_growth": 3000,
+         "stun_ratio": 19070,
+         "stun_ratio_growth": 870,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 221925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22334
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "특수 스킬: 포르셀룸의 첫음",
+     "desc": "<IconMap:Icon_Special>을 짧게 탭하여 시전:\n전방을 향해 2단 망치질로 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 피의 맹세·단조비술",
+     "desc": "예리가 충분하고 [진홍 각인] 상태가 아닐 때 <IconMap:Icon_SpecialReady_Ep>을 짧게 탭하여 시전:\n단조 망치를 피의 도끼로 변형하고 타깃 적을 베어 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n스킬 시전 후 16초 동안 [진홍 각인] 상태에 진입하며, 대기 캐릭터일 때 지속 시간이 감소하지 않는다. 클라렛의 공격으로 적 명중 시, 적이 0.5초 이내에 처치되고 자신의 [진홍 각인] 지속 시간이 0이 아니라면, [진홍 각인] 지속 시간이 3초 연장된다. 3초 동안 최대 1회 발동한다.\n스킬 시전 시 <IconMap:Icon_SpecialReady_Ep> 홀드를 유지하면 베기를 건너뛰고 [특수 스킬: 피의 맹세·금과 철]과 [특수 스킬: 피의 맹세·묻힌 피]를 빠르게 파생할 수 있다.\n스킬 시전 후 <IconMap:Icon_Normal>을 짧은 탭 혹은 홀드하면 [일반 공격: 피의 맹세·단조의 별] 세 번째로 연계할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 피의 맹세·금과 철",
+     "desc": "<Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 상태에서 <IconMap:Icon_Special> 혹은 <IconMap:Icon_SpecialReady_Ep>을 짧게 탭하여 시전:\n전방을 향해 강력한 올려치기 후 횡으로 베어 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n횡베기가 [잔흔]을 보유한 적에게 명중 시, 타깃에게 [파상]을 발동하며, 추가로 범위 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n시전하는 동안 [진홍 각인] 상태가 종료되지 않는다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가하며, [파상] 발동에 성공한 후, 스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 피의 맹세·묻힌 피",
+     "desc": "<Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 상태에서 [특수 스킬: 피의 맹세·금과 철] 올려치기 중 <IconMap:Icon_Special> 혹은 <IconMap:Icon_SpecialReady_Ep> 홀드를 유지하여 시전:\n전방으로 연속 3회 횡으로 베기를 시전해 대량의 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n횡베기가 [잔흔]을 보유한 적에게 명중할 때마다 타깃에게 [파상]을 발동하며, 추가로 범위 <color=#2EB6FF>전기 속성 피해</color>를 준다. 한 번의 스킬 중 최대 연속 3회 [파상]을 발동할 수 있으며, 세 번째 [파상]은 더 높은 경직 레벨을 지닌다.\n시전하는 동안 <Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 상태가 종료되지 않는다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가하며, [파상] 발동 성공 후, 스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 포르셀룸의 첫음",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1611009, Prop:1001}",
+       "param": {
+        "1611009": {
+         "main": 9010,
+         "growth": 820,
+         "format": "%",
+         "damage_percentage": 9010,
+         "damage_percentage_growth": 820,
+         "stun_ratio": 3670,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 100925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3334,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3335
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1611009, Prop:1002}",
+       "param": {
+        "1611009": {
+         "main": 3670,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 9010,
+         "damage_percentage_growth": 820,
+         "stun_ratio": 3670,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 100925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3334,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3335
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 피의 맹세·단조비술",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1611010, Prop:1001}",
+       "param": {
+        "1611010": {
+         "main": 62480,
+         "growth": 5680,
+         "format": "%",
+         "damage_percentage": 62480,
+         "damage_percentage_growth": 5680,
+         "stun_ratio": 25850,
+         "stun_ratio_growth": 1180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 710875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 23496,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1611010, Prop:1002}",
+       "param": {
+        "1611010": {
+         "main": 25850,
+         "growth": 1180,
+         "format": "%",
+         "damage_percentage": 62480,
+         "damage_percentage_growth": 5680,
+         "stun_ratio": 25850,
+         "stun_ratio_growth": 1180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 710875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 23496,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "예리 소모",
+       "desc": "60pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 피의 맹세·금과 철",
+     "param": [
+      {
+       "name": "올려치기 피해 배율",
+       "desc": "{Skill:1611011, Prop:1001}",
+       "param": {
+        "1611011": {
+         "main": 7660,
+         "growth": 700,
+         "format": "%",
+         "damage_percentage": 7660,
+         "damage_percentage_growth": 700,
+         "stun_ratio": 3120,
+         "stun_ratio_growth": 150,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 171600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "횡베기 피해 배율",
+       "desc": "{Skill:1611012, Prop:1001}",
+       "param": {
+        "1611012": {
+         "main": 8770,
+         "growth": 800,
+         "format": "%",
+         "damage_percentage": 8770,
+         "damage_percentage_growth": 800,
+         "stun_ratio": 3580,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 196625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6494
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "올려치기 그로기 배율",
+       "desc": "{Skill:1611011, Prop:1002}",
+       "param": {
+        "1611011": {
+         "main": 3120,
+         "growth": 150,
+         "format": "%",
+         "damage_percentage": 7660,
+         "damage_percentage_growth": 700,
+         "stun_ratio": 3120,
+         "stun_ratio_growth": 150,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 171600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "횡베기 그로기 배율",
+       "desc": "{Skill:1611012, Prop:1002}",
+       "param": {
+        "1611012": {
+         "main": 3580,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 8770,
+         "damage_percentage_growth": 800,
+         "stun_ratio": 3580,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 196625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6494
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "파상 피해 배율",
+       "desc": "{Skill:1611013, Prop:1001}",
+       "param": {
+        "1611013": {
+         "main": 81270,
+         "growth": 7390,
+         "format": "%",
+         "damage_percentage": 81270,
+         "damage_percentage_growth": 7390,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 피의 맹세·묻힌 피",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1611014, Prop:1001}",
+       "param": {
+        "1611014": {
+         "main": 31280,
+         "growth": 2850,
+         "format": "%",
+         "damage_percentage": 31280,
+         "damage_percentage_growth": 2850,
+         "stun_ratio": 25490,
+         "stun_ratio_growth": 1160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 700975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1611014, Prop:1002}",
+       "param": {
+        "1611014": {
+         "main": 25490,
+         "growth": 1160,
+         "format": "%",
+         "damage_percentage": 31280,
+         "damage_percentage_growth": 2850,
+         "stun_ratio": 25490,
+         "stun_ratio_growth": 1160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 700975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23171
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "콤보 스킬: 피의 맹세·혈맥의 공명",
+     "desc": "<color=#FFFFFF>[콤보 스킬]</color> 발동 시 해당 캐릭터를 선택해 시전:\n전방의 적을 연속으로 베어 대량의 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n시전하는 동안 <Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 지속 시간이 감소하지 않으며, <Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 상태가 종료되지 않는다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "궁극기: 피의 맹세·수천 번의 재련",
+     "desc": "데시벨 레벨 <color=#FFFFFF>[Maximum]</color> 달성 시 <IconMap:Icon_UltimateReady>을 짧게 탭하여 시전:\n전방의 적을 연속으로 베어 대량의 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n시전하는 동안 <Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 지속 시간이 감소하지 않으며, <Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 상태가 종료되지 않는다.\n스킬 시전 시, 예리를 10pt 회복한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 피의 맹세·혈맥의 공명",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1611020, Prop:1001}",
+       "param": {
+        "1611020": {
+         "main": 105800,
+         "growth": 9620,
+         "format": "%",
+         "damage_percentage": 105800,
+         "damage_percentage_growth": 9620,
+         "stun_ratio": 27690,
+         "stun_ratio_growth": 1260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2773100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 45116,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1611020, Prop:1002}",
+       "param": {
+        "1611020": {
+         "main": 27690,
+         "growth": 1260,
+         "format": "%",
+         "damage_percentage": 105800,
+         "damage_percentage_growth": 9620,
+         "stun_ratio": 27690,
+         "stun_ratio_growth": 1260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2773100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 45116,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "궁극기: 피의 맹세·수천 번의 재련",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1611021, Prop:1001}",
+       "param": {
+        "1611021": {
+         "main": 225200,
+         "growth": 20480,
+         "format": "%",
+         "damage_percentage": 225200,
+         "damage_percentage_growth": 20480,
+         "stun_ratio": 35380,
+         "stun_ratio_growth": 1610,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 32163,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 82164
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1611021, Prop:1002}",
+       "param": {
+        "1611021": {
+         "main": 35380,
+         "growth": 1610,
+         "format": "%",
+         "damage_percentage": 225200,
+         "damage_percentage_growth": 20480,
+         "stun_ratio": 35380,
+         "stun_ratio_growth": 1610,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 32163,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 82164
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "빠른 지원: 액월의 재림",
+     "desc": "현재 조작 중인 캐릭터가 넉업될 때 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n<color=#2EB6FF>전기 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 피의 맹세·액월의 재림",
+     "desc": "현재 조작 중인 캐릭터가 넉업될 때 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n<color=#2EB6FF>전기 속성 피해</color>를 준다.\n시전하는 동안 <Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 상태가 종료되지 않는다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 불굴의 노심",
+     "desc": "출전 캐릭터 피격 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적의 공격을 패링하고 대량의 그로기 수치를 누적한다.\n시전하는 동안 <Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 지속 시간이 감소하지 않는다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 피의 맹세·무구한 칼날",
+     "desc": "<color=#FFFFFF>[패링 지원]</color> 시전 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n대량의 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n시전하는 동안 <Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 상태가 종료되지 않는다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "반격 지원: 꿋꿋한 쇠붙이",
+     "desc": "자신 혹은 출전 캐릭터가 일부 적의 제어 스킬 공격을 받기 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n몬스터와 힘겨루기 후 성공 시, 적의 제어 스킬을 제거하고 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n시전하는 동안 <Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 지속 시간이 감소하지 않는다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 피의 맹세·단조의 형태",
+     "desc": "<color=#FFFFFF>[반격 지원]</color>을 시전한 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n대량의 <color=#2EB6FF>전기 속성 피해</color>를 주며, 강공격이 적 명중 시 타깃에게 [잔흔] 1스택을 바로 부여한다.\n시전하는 동안 <Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 지속 시간이 감소하지 않는다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 액월의 재림",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1611022, Prop:1001}",
+       "param": {
+        "1611022": {
+         "main": 5290,
+         "growth": 490,
+         "format": "%",
+         "damage_percentage": 5290,
+         "damage_percentage_growth": 490,
+         "stun_ratio": 4310,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 118525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3916,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3917
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1611022, Prop:1002}",
+       "param": {
+        "1611022": {
+         "main": 4310,
+         "growth": 200,
+         "format": "%",
+         "damage_percentage": 5290,
+         "damage_percentage_growth": 490,
+         "stun_ratio": 4310,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 118525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3916,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3917
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 피의 맹세·액월의 재림",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1611023, Prop:1001}",
+       "param": {
+        "1611023": {
+         "main": 11580,
+         "growth": 1060,
+         "format": "%",
+         "damage_percentage": 11580,
+         "damage_percentage_growth": 1060,
+         "stun_ratio": 4040,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 111100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1611023, Prop:1002}",
+       "param": {
+        "1611023": {
+         "main": 4040,
+         "growth": 190,
+         "format": "%",
+         "damage_percentage": 11580,
+         "damage_percentage_growth": 1060,
+         "stun_ratio": 4040,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 111100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7334
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 불굴의 노심",
+     "param": [
+      {
+       "name": "가벼운 패링 그로기 배율",
+       "desc": "{Skill:1611024, Prop:1002}",
+       "param": {
+        "1611024": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강한 패링 그로기 배율",
+       "desc": "{Skill:1611025, Prop:1002}",
+       "param": {
+        "1611025": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 패링 그로기 배율",
+       "desc": "{Skill:1611026, Prop:1002}",
+       "param": {
+        "1611026": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 피의 맹세·무구한 칼날",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1611027, Prop:1001}",
+       "param": {
+        "1611027": {
+         "main": 44620,
+         "growth": 4060,
+         "format": "%",
+         "damage_percentage": 44620,
+         "damage_percentage_growth": 4060,
+         "stun_ratio": 31580,
+         "stun_ratio_growth": 1440,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1131075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 30872,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1611027, Prop:1002}",
+       "param": {
+        "1611027": {
+         "main": 31580,
+         "growth": 1440,
+         "format": "%",
+         "damage_percentage": 44620,
+         "damage_percentage_growth": 4060,
+         "stun_ratio": 31580,
+         "stun_ratio_growth": 1440,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1131075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 30872,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15667
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "반격 지원: 꿋꿋한 쇠붙이",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1611028, Prop:1001}",
+       "param": {
+        "1611028": {
+         "main": 115300,
+         "growth": 10490,
+         "format": "%",
+         "damage_percentage": 115300,
+         "damage_percentage_growth": 10490,
+         "stun_ratio": 71490,
+         "stun_ratio_growth": 3250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2526975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 69619,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 67167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1611028, Prop:1002}",
+       "param": {
+        "1611028": {
+         "main": 71490,
+         "growth": 3250,
+         "format": "%",
+         "damage_percentage": 115300,
+         "damage_percentage_growth": 10490,
+         "stun_ratio": 71490,
+         "stun_ratio_growth": 3250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2526975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 69619,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 67167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 피의 맹세·단조의 형태",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1611030, Prop:1001}",
+       "param": {
+        "1611030": {
+         "main": 85630,
+         "growth": 7790,
+         "format": "%",
+         "damage_percentage": 85630,
+         "damage_percentage_growth": 7790,
+         "stun_ratio": 52640,
+         "stun_ratio_growth": 2400,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2187350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 53963,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1611030, Prop:1002}",
+       "param": {
+        "1611030": {
+         "main": 52640,
+         "growth": 2400,
+         "format": "%",
+         "damage_percentage": 85630,
+         "damage_percentage_growth": 7790,
+         "stun_ratio": 52640,
+         "stun_ratio_growth": 2400,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2187350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 53963,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "피로 물든 숙원",
+   "desc": "클라렛의 공격이 적에게 명중하고 절상을 줄 시, 잔흔 축적 효율이 20% 증가한다. 클라렛이 [파상]을 발동하여 주는 피해 배율이 기존의 130%로 증가한다.",
+   "desc2": "소녀는 고풍스러운 일족의 기록을 넘겨본다. 거친 종이가 그녀의 손바닥을 집어삼킨다.\n한 방울의 피가 첫 페이지에 떨어졌고, 수많은 핏방울이 남은 페이지를 물들였다."
+  },
+  "2": {
+   "level": 2,
+   "name": "전승의 왕관",
+   "desc": "[진홍 각인] 최대 지속 시간이 2초 연장된다. 클라렛이 [진홍 각인] 상태이거나 [콤보 스킬], [궁극기], [반격 지원], [지원 돌격]을 시전하는 동안, 공격이 명중 시 타깃의 <color=#2EB6FF>전기 속성 피해 저항</color>을 18% 무시한다.",
+   "desc2": "혈통이 선택한 천재가 전당에 들어서자, 흘러넘치는 빛이 얼굴을 밝게 비췄다.\n그녀는 말없이 왕관과 지팡이를 받아 들고, 몸을 돌려 다음 단련의 장으로 향했다."
+  },
+  "3": {
+   "level": 3,
+   "name": "달콤한 선언",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "화로의 불은 밤낮없이 타올랐고, 가문의 무게는 소녀의 어깨를 짓눌렀다.\n그녀는 마음을 달랠 방법을 몰랐다. 어느 날 천재의 조수가 정교한 디저트를 들고 와 쓰디쓴 나날에 은은하게 달콤한 뒷맛을 선사해 주기 전까지는."
+  },
+  "4": {
+   "level": 4,
+   "name": "붉은 달의 방황",
+   "desc": "[일반 공격: 피의 맹세·단조의 별] 세 번째 스킬 시전 중, 연속 베기의 연장 가능 지속 시간이 증가한다. [일반 공격: 피의 맹세·단조의 별] 세 번째, [콤보 스킬: 피의 맹세·혈맥의 공명], [궁극기: 피의 맹세·수천 번의 재련]으로 주는 피해가 20% 증가한다.",
+   "desc2": "망치 소리가 멈춘 긴 밤에는 붉은 달만이 높이 걸려 있었다.\n소녀는 붉은 눈동자를 들어 올렸다. 잔인한 달빛이 비웃듯 창살을 넘어 흘러들었다."
+  },
+  "5": {
+   "level": 5,
+   "name": "황혼색 용광로",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "역대 장인들은 모두 피로 용광로를 적셨지만, 그녀는 화염이 스스로 타오르도록 만들겠다 맹세했다.\n망치 소리가 다시 공방에 울려 퍼진다. 불은 계속해서 타오르지만, 더 이상 생명을 땔감으로 삼을 필요는 없어졌다."
+  },
+  "6": {
+   "level": 6,
+   "name": "열야의 꿈",
+   "desc": "클라렛이 시전한 [콤보 스킬: 피의 맹세·혈맥의 공명], [궁극기: 피의 맹세·수천 번의 재련] 강공격으로 적 명중 시, [잔흔]을 소모하지 않고 바로 단일 대상 [파상]을 1회 발동한다.",
+   "desc2": "소녀는 마침내 깊은 잠에 빠져들었다.\n그녀는 꿈에서 보름달과 끝없이 펼쳐진 대지를 보았다.\n붉은 달빛은 이미 사라져 없었다. 은빛 밤하늘은 마치 여명 같았다."
+  }
+ },
+ "passive": {
+  "level": {
+   "1611501": {
+    "level": 1,
+    "id": 1611501,
+    "name": [
+     "핵심 패시브: 창백한 피의 연회",
+     "추가 능력: 혈맥 계승"
+    ],
+    "desc": [
+     "클라렛이 시전하는 스킬로 주는 피해는 모두 예리 피해이며, 방어력을 스킬 피해 배율로 사용한다. 일부 예리 피해는 잔흔 수치를 축적하며, 잔흔 수치가 가득 차면 적이 [잔흔] 상태에 진입한다. [잔흔]은 최대 3스택 중첩되며, [특수 스킬: 피의 맹세·금과 철]이나 [특수 스킬: 피의 맹세·묻힌 피]를 시전하여 [잔흔] 상태의 적에게 명중할 시, [잔흔] 1스택을 소모하고 [파상]을 발동하며 범위 피해를 1회 준다.\n치명타 발동 시, 예리 피해는 치명타 피해 보너스를 받지 않고 절상 피해 보너스를 계산한다. 치명타 확률이 100%를 초과한 상태에서 치명타가 발동되면, 초과된 치명타 확률을 기반으로 절상 판정을 다시 1회 수행하며, 절상 발동 시 절상 피해 보너스를 1회 추가로 계산한다. 클라렛이 보유한 초기 치명타 피해 1%당 초기 치명타 확률이 0.35% 증가한다.\n클라렛은 전장 진입 시 바로 예리를 60pt 회복할 수 있으며, 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n클라렛은 <Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 기간 동안 경직 저항 레벨이 증가하며, 클라렛이 [콤보 스킬] 시전 시 [진홍 각인] 지속 시간이 2초 연장된다.\n클라렛이 [진홍 각인] 상태이거나, [콤보 스킬], [궁극기], [반격 지원], [지원 돌격]을 시전하는 동안, 치명타 확률이 <color=#2BAD00>15%</color> 증가하고, 잔흔 축적 효율이 <color=#2BAD00>20%</color> 증가하며, [일반 공격: 피의 맹세·단조의 별]과 [일반 공격: 피의 맹세·도끼의 처단] 스킬 공격 중 극한 회피 발동 시, 스킬 잔여 시간 동안 주는 피해가 15% 증가한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 캐릭터, 다른 <color=#FFFFFF>[단조]</color> 혹은 자신과 같은 속성의 캐릭터 존재 시 발동:\n파티 내 모든 에이전트가 [오염] 발동 시, 클라렛이 데시벨을 300pt 회복하며, 18초 동안 최대 1회 발동한다.\n클라렛 혹은 파티원이 [파상] 발동 시, 파티 내 모든 [단조] 에이전트가 [잔혹한 날] 상태에 진입하며, [잔혹한 날] 상태에서 절상 피해가 <color=#FFFFFF>25%</color> 증가한다. 지속 시간: 40초. [잔혹한 날] 상태에 중복 진입 시 [잔혹한 날]의 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1611502": {
+    "level": 2,
+    "id": 1611502,
+    "name": [
+     "핵심 패시브: 창백한 피의 연회",
+     "추가 능력: 혈맥 계승"
+    ],
+    "desc": [
+     "클라렛이 시전하는 스킬로 주는 피해는 모두 예리 피해이며, 방어력을 스킬 피해 배율로 사용한다. 일부 예리 피해는 잔흔 수치를 축적하며, 잔흔 수치가 가득 차면 적이 [잔흔] 상태에 진입한다. [잔흔]은 최대 3스택 중첩되며, [특수 스킬: 피의 맹세·금과 철]이나 [특수 스킬: 피의 맹세·묻힌 피]를 시전하여 [잔흔] 상태의 적에게 명중할 시, [잔흔] 1스택을 소모하고 [파상]을 발동하며 범위 피해를 1회 준다.\n치명타 발동 시, 예리 피해는 치명타 피해 보너스를 받지 않고 절상 피해 보너스를 계산한다. 치명타 확률이 100%를 초과한 상태에서 치명타가 발동되면, 초과된 치명타 확률을 기반으로 절상 판정을 다시 1회 수행하며, 절상 발동 시 절상 피해 보너스를 1회 추가로 계산한다. 클라렛이 보유한 초기 치명타 피해 1%당 초기 치명타 확률이 0.35% 증가한다.\n클라렛은 전장 진입 시 바로 예리를 60pt 회복할 수 있으며, 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n클라렛은 <Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 기간 동안 경직 저항 레벨이 증가하며, 클라렛이 [콤보 스킬] 시전 시 [진홍 각인] 지속 시간이 2초 연장된다.\n클라렛이 [진홍 각인] 상태이거나, [콤보 스킬], [궁극기], [반격 지원], [지원 돌격]을 시전하는 동안, 치명타 확률이 <color=#2BAD00>17.5%</color> 증가하고, 잔흔 축적 효율이 <color=#2BAD00>25%</color> 증가하며, [일반 공격: 피의 맹세·단조의 별]과 [일반 공격: 피의 맹세·도끼의 처단] 스킬 공격 중 극한 회피 발동 시, 스킬 잔여 시간 동안 주는 피해가 15% 증가한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 캐릭터, 다른 <color=#FFFFFF>[단조]</color> 혹은 자신과 같은 속성의 캐릭터 존재 시 발동:\n파티 내 모든 에이전트가 [오염] 발동 시, 클라렛이 데시벨을 300pt 회복하며, 18초 동안 최대 1회 발동한다.\n클라렛 혹은 파티원이 [파상] 발동 시, 파티 내 모든 [단조] 에이전트가 [잔혹한 날] 상태에 진입하며, [잔혹한 날] 상태에서 절상 피해가 <color=#FFFFFF>25%</color> 증가한다. 지속 시간: 40초. [잔혹한 날] 상태에 중복 진입 시 [잔혹한 날]의 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1611503": {
+    "level": 3,
+    "id": 1611503,
+    "name": [
+     "핵심 패시브: 창백한 피의 연회",
+     "추가 능력: 혈맥 계승"
+    ],
+    "desc": [
+     "클라렛이 시전하는 스킬로 주는 피해는 모두 예리 피해이며, 방어력을 스킬 피해 배율로 사용한다. 일부 예리 피해는 잔흔 수치를 축적하며, 잔흔 수치가 가득 차면 적이 [잔흔] 상태에 진입한다. [잔흔]은 최대 3스택 중첩되며, [특수 스킬: 피의 맹세·금과 철]이나 [특수 스킬: 피의 맹세·묻힌 피]를 시전하여 [잔흔] 상태의 적에게 명중할 시, [잔흔] 1스택을 소모하고 [파상]을 발동하며 범위 피해를 1회 준다.\n치명타 발동 시, 예리 피해는 치명타 피해 보너스를 받지 않고 절상 피해 보너스를 계산한다. 치명타 확률이 100%를 초과한 상태에서 치명타가 발동되면, 초과된 치명타 확률을 기반으로 절상 판정을 다시 1회 수행하며, 절상 발동 시 절상 피해 보너스를 1회 추가로 계산한다. 클라렛이 보유한 초기 치명타 피해 1%당 초기 치명타 확률이 0.35% 증가한다.\n클라렛은 전장 진입 시 바로 예리를 60pt 회복할 수 있으며, 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n클라렛은 <Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 기간 동안 경직 저항 레벨이 증가하며, 클라렛이 [콤보 스킬] 시전 시 [진홍 각인] 지속 시간이 2초 연장된다.\n클라렛이 [진홍 각인] 상태이거나, [콤보 스킬], [궁극기], [반격 지원], [지원 돌격]을 시전하는 동안, 치명타 확률이 <color=#2BAD00>20%</color> 증가하고, 잔흔 축적 효율이 <color=#2BAD00>30%</color> 증가하며, [일반 공격: 피의 맹세·단조의 별]과 [일반 공격: 피의 맹세·도끼의 처단] 스킬 공격 중 극한 회피 발동 시, 스킬 잔여 시간 동안 주는 피해가 15% 증가한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 캐릭터, 다른 <color=#FFFFFF>[단조]</color> 혹은 자신과 같은 속성의 캐릭터 존재 시 발동:\n파티 내 모든 에이전트가 [오염] 발동 시, 클라렛이 데시벨을 300pt 회복하며, 18초 동안 최대 1회 발동한다.\n클라렛 혹은 파티원이 [파상] 발동 시, 파티 내 모든 [단조] 에이전트가 [잔혹한 날] 상태에 진입하며, [잔혹한 날] 상태에서 절상 피해가 <color=#FFFFFF>25%</color> 증가한다. 지속 시간: 40초. [잔혹한 날] 상태에 중복 진입 시 [잔혹한 날]의 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1611504": {
+    "level": 4,
+    "id": 1611504,
+    "name": [
+     "핵심 패시브: 창백한 피의 연회",
+     "추가 능력: 혈맥 계승"
+    ],
+    "desc": [
+     "클라렛이 시전하는 스킬로 주는 피해는 모두 예리 피해이며, 방어력을 스킬 피해 배율로 사용한다. 일부 예리 피해는 잔흔 수치를 축적하며, 잔흔 수치가 가득 차면 적이 [잔흔] 상태에 진입한다. [잔흔]은 최대 3스택 중첩되며, [특수 스킬: 피의 맹세·금과 철]이나 [특수 스킬: 피의 맹세·묻힌 피]를 시전하여 [잔흔] 상태의 적에게 명중할 시, [잔흔] 1스택을 소모하고 [파상]을 발동하며 범위 피해를 1회 준다.\n치명타 발동 시, 예리 피해는 치명타 피해 보너스를 받지 않고 절상 피해 보너스를 계산한다. 치명타 확률이 100%를 초과한 상태에서 치명타가 발동되면, 초과된 치명타 확률을 기반으로 절상 판정을 다시 1회 수행하며, 절상 발동 시 절상 피해 보너스를 1회 추가로 계산한다. 클라렛이 보유한 초기 치명타 피해 1%당 초기 치명타 확률이 0.35% 증가한다.\n클라렛은 전장 진입 시 바로 예리를 60pt 회복할 수 있으며, 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n클라렛은 <Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 기간 동안 경직 저항 레벨이 증가하며, 클라렛이 [콤보 스킬] 시전 시 [진홍 각인] 지속 시간이 2초 연장된다.\n클라렛이 [진홍 각인] 상태이거나, [콤보 스킬], [궁극기], [반격 지원], [지원 돌격]을 시전하는 동안, 치명타 확률이 <color=#2BAD00>22.5%</color> 증가하고, 잔흔 축적 효율이 <color=#2BAD00>35%</color> 증가하며, [일반 공격: 피의 맹세·단조의 별]과 [일반 공격: 피의 맹세·도끼의 처단] 스킬 공격 중 극한 회피 발동 시, 스킬 잔여 시간 동안 주는 피해가 15% 증가한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 캐릭터, 다른 <color=#FFFFFF>[단조]</color> 혹은 자신과 같은 속성의 캐릭터 존재 시 발동:\n파티 내 모든 에이전트가 [오염] 발동 시, 클라렛이 데시벨을 300pt 회복하며, 18초 동안 최대 1회 발동한다.\n클라렛 혹은 파티원이 [파상] 발동 시, 파티 내 모든 [단조] 에이전트가 [잔혹한 날] 상태에 진입하며, [잔혹한 날] 상태에서 절상 피해가 <color=#FFFFFF>25%</color> 증가한다. 지속 시간: 40초. [잔혹한 날] 상태에 중복 진입 시 [잔혹한 날]의 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1611505": {
+    "level": 5,
+    "id": 1611505,
+    "name": [
+     "핵심 패시브: 창백한 피의 연회",
+     "추가 능력: 혈맥 계승"
+    ],
+    "desc": [
+     "클라렛이 시전하는 스킬로 주는 피해는 모두 예리 피해이며, 방어력을 스킬 피해 배율로 사용한다. 일부 예리 피해는 잔흔 수치를 축적하며, 잔흔 수치가 가득 차면 적이 [잔흔] 상태에 진입한다. [잔흔]은 최대 3스택 중첩되며, [특수 스킬: 피의 맹세·금과 철]이나 [특수 스킬: 피의 맹세·묻힌 피]를 시전하여 [잔흔] 상태의 적에게 명중할 시, [잔흔] 1스택을 소모하고 [파상]을 발동하며 범위 피해를 1회 준다.\n치명타 발동 시, 예리 피해는 치명타 피해 보너스를 받지 않고 절상 피해 보너스를 계산한다. 치명타 확률이 100%를 초과한 상태에서 치명타가 발동되면, 초과된 치명타 확률을 기반으로 절상 판정을 다시 1회 수행하며, 절상 발동 시 절상 피해 보너스를 1회 추가로 계산한다. 클라렛이 보유한 초기 치명타 피해 1%당 초기 치명타 확률이 0.35% 증가한다.\n클라렛은 전장 진입 시 바로 예리를 60pt 회복할 수 있으며, 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n클라렛은 <Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 기간 동안 경직 저항 레벨이 증가하며, 클라렛이 [콤보 스킬] 시전 시 [진홍 각인] 지속 시간이 2초 연장된다.\n클라렛이 [진홍 각인] 상태이거나, [콤보 스킬], [궁극기], [반격 지원], [지원 돌격]을 시전하는 동안, 치명타 확률이 <color=#2BAD00>25%</color> 증가하고, 잔흔 축적 효율이 <color=#2BAD00>40%</color> 증가하며, [일반 공격: 피의 맹세·단조의 별]과 [일반 공격: 피의 맹세·도끼의 처단] 스킬 공격 중 극한 회피 발동 시, 스킬 잔여 시간 동안 주는 피해가 15% 증가한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 캐릭터, 다른 <color=#FFFFFF>[단조]</color> 혹은 자신과 같은 속성의 캐릭터 존재 시 발동:\n파티 내 모든 에이전트가 [오염] 발동 시, 클라렛이 데시벨을 300pt 회복하며, 18초 동안 최대 1회 발동한다.\n클라렛 혹은 파티원이 [파상] 발동 시, 파티 내 모든 [단조] 에이전트가 [잔혹한 날] 상태에 진입하며, [잔혹한 날] 상태에서 절상 피해가 <color=#FFFFFF>25%</color> 증가한다. 지속 시간: 40초. [잔혹한 날] 상태에 중복 진입 시 [잔혹한 날]의 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1611506": {
+    "level": 6,
+    "id": 1611506,
+    "name": [
+     "핵심 패시브: 창백한 피의 연회",
+     "추가 능력: 혈맥 계승"
+    ],
+    "desc": [
+     "클라렛이 시전하는 스킬로 주는 피해는 모두 예리 피해이며, 방어력을 스킬 피해 배율로 사용한다. 일부 예리 피해는 잔흔 수치를 축적하며, 잔흔 수치가 가득 차면 적이 [잔흔] 상태에 진입한다. [잔흔]은 최대 3스택 중첩되며, [특수 스킬: 피의 맹세·금과 철]이나 [특수 스킬: 피의 맹세·묻힌 피]를 시전하여 [잔흔] 상태의 적에게 명중할 시, [잔흔] 1스택을 소모하고 [파상]을 발동하며 범위 피해를 1회 준다.\n치명타 발동 시, 예리 피해는 치명타 피해 보너스를 받지 않고 절상 피해 보너스를 계산한다. 치명타 확률이 100%를 초과한 상태에서 치명타가 발동되면, 초과된 치명타 확률을 기반으로 절상 판정을 다시 1회 수행하며, 절상 발동 시 절상 피해 보너스를 1회 추가로 계산한다. 클라렛이 보유한 초기 치명타 피해 1%당 초기 치명타 확률이 0.35% 증가한다.\n클라렛은 전장 진입 시 바로 예리를 60pt 회복할 수 있으며, 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n클라렛은 <Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 기간 동안 경직 저항 레벨이 증가하며, 클라렛이 [콤보 스킬] 시전 시 [진홍 각인] 지속 시간이 2초 연장된다.\n클라렛이 [진홍 각인] 상태이거나, [콤보 스킬], [궁극기], [반격 지원], [지원 돌격]을 시전하는 동안, 치명타 확률이 <color=#2BAD00>27.5%</color> 증가하고, 잔흔 축적 효율이 <color=#2BAD00>45%</color> 증가하며, [일반 공격: 피의 맹세·단조의 별]과 [일반 공격: 피의 맹세·도끼의 처단] 스킬 공격 중 극한 회피 발동 시, 스킬 잔여 시간 동안 주는 피해가 15% 증가한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 캐릭터, 다른 <color=#FFFFFF>[단조]</color> 혹은 자신과 같은 속성의 캐릭터 존재 시 발동:\n파티 내 모든 에이전트가 [오염] 발동 시, 클라렛이 데시벨을 300pt 회복하며, 18초 동안 최대 1회 발동한다.\n클라렛 혹은 파티원이 [파상] 발동 시, 파티 내 모든 [단조] 에이전트가 [잔혹한 날] 상태에 진입하며, [잔혹한 날] 상태에서 절상 피해가 <color=#FFFFFF>25%</color> 증가한다. 지속 시간: 40초. [잔혹한 날] 상태에 중복 진입 시 [잔혹한 날]의 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1611507": {
+    "level": 7,
+    "id": 1611507,
+    "name": [
+     "핵심 패시브: 창백한 피의 연회",
+     "추가 능력: 혈맥 계승"
+    ],
+    "desc": [
+     "클라렛이 시전하는 스킬로 주는 피해는 모두 예리 피해이며, 방어력을 스킬 피해 배율로 사용한다. 일부 예리 피해는 잔흔 수치를 축적하며, 잔흔 수치가 가득 차면 적이 [잔흔] 상태에 진입한다. [잔흔]은 최대 3스택 중첩되며, [특수 스킬: 피의 맹세·금과 철]이나 [특수 스킬: 피의 맹세·묻힌 피]를 시전하여 [잔흔] 상태의 적에게 명중할 시, [잔흔] 1스택을 소모하고 [파상]을 발동하며 범위 피해를 1회 준다.\n치명타 발동 시, 예리 피해는 치명타 피해 보너스를 받지 않고 절상 피해 보너스를 계산한다. 치명타 확률이 100%를 초과한 상태에서 치명타가 발동되면, 초과된 치명타 확률을 기반으로 절상 판정을 다시 1회 수행하며, 절상 발동 시 절상 피해 보너스를 1회 추가로 계산한다. 클라렛이 보유한 초기 치명타 피해 1%당 초기 치명타 확률이 0.35% 증가한다.\n클라렛은 전장 진입 시 바로 예리를 60pt 회복할 수 있으며, 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n클라렛은 <Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 기간 동안 경직 저항 레벨이 증가하며, 클라렛이 [콤보 스킬] 시전 시 [진홍 각인] 지속 시간이 2초 연장된다.\n클라렛이 [진홍 각인] 상태이거나, [콤보 스킬], [궁극기], [반격 지원], [지원 돌격]을 시전하는 동안, 치명타 확률이 <color=#2BAD00>30%</color> 증가하고, 잔흔 축적 효율이 <color=#2BAD00>50%</color> 증가하며, [일반 공격: 피의 맹세·단조의 별]과 [일반 공격: 피의 맹세·도끼의 처단] 스킬 공격 중 극한 회피 발동 시, 스킬 잔여 시간 동안 주는 피해가 15% 증가한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 캐릭터, 다른 <color=#FFFFFF>[단조]</color> 혹은 자신과 같은 속성의 캐릭터 존재 시 발동:\n파티 내 모든 에이전트가 [오염] 발동 시, 클라렛이 데시벨을 300pt 회복하며, 18초 동안 최대 1회 발동한다.\n클라렛 혹은 파티원이 [파상] 발동 시, 파티 내 모든 [단조] 에이전트가 [잔혹한 날] 상태에 진입하며, [잔혹한 날] 상태에서 절상 피해가 <color=#FFFFFF>25%</color> 증가한다. 지속 시간: 40초. [잔혹한 날] 상태에 중복 진입 시 [잔혹한 날]의 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110516": 2
+   },
+   "3": {
+    "10": 28000,
+    "110516": 4
+   },
+   "4": {
+    "10": 60000,
+    "110011": 2,
+    "110516": 9
+   },
+   "5": {
+    "10": 100000,
+    "110011": 3,
+    "110516": 15
+   },
+   "6": {
+    "10": 200000,
+    "110011": 4,
+    "110516": 30
+   }
+  }
+ },
+ "skin": {
+  "3116110": {
+   "name": "클라렛·작열하는 불꽃",
+   "desc": "전해지는 이야기에 따르면, 플린트 가문 가주의 옷깃에는 항상 잿불이 가득했다고 한다… 물론 그건 낭만적인 상상일 뿐이다. 젊은 천재 단조사가 그토록 눈에 띄는 실수를 용납할 리 없으니까.",
+   "obtain_desc": "",
+   "image": "IconRole1611"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1611001": {
+   "name": "일반 공격: 피의 단조·4식",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1611002": {
+   "name": "일반 공격: 피의 맹세·단조의 별",
+   "desc": "<IconMap:Icon_Normal>([진홍 각인] 상태에서)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611003": {
+   "name": "일반 공격: 피의 맹세·도끼의 처단",
+   "desc": "<IconMap:Icon_Special> ; <IconMap:Icon_Normal>([진홍 각인] 상태에서)([파상] 성공 후)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611004": {
+   "name": "특수 스킬: 포르셀룸의 첫음",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611005": {
+   "name": "강화 특수 스킬: 피의 맹세·단조비술",
+   "desc": "<IconMap:Icon_SpecialReady_Ep>(예리가 충분하고 [진홍 각인] 상태가 아닐 때)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611006": {
+   "name": "특수 스킬: 피의 맹세·금과 철",
+   "desc": "<IconMap:Icon_Special> 혹은 <IconMap:Icon_SpecialReady_Ep>([진홍 각인] 상태에서)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611007": {
+   "name": "특수 스킬: 피의 맹세·묻힌 피",
+   "desc": "<IconMap:Icon_Special> 혹은 <IconMap:Icon_SpecialReady_Ep>([진홍 각인] 상태에서)(홀드 유지)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611008": {
+   "name": "대시 공격: 담금질",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1611009": {
+   "name": "회피 반격: 되받는 칼날",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1611010": {
+   "name": "회피 반격: 피의 맹세·되받는 칼날([진홍 각인] 상태에서)",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611011": {
+   "name": "콤보 스킬: 피의 맹세·혈맥의 공명",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611012": {
+   "name": "궁극기: 피의 맹세·수천 번의 재련",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611013": {
+   "name": "빠른 지원: 액월의 재림",
+   "desc": "<IconMap:Icon_Switch>(빠른 지원 발동 시)",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1611014": {
+   "name": "빠른 지원: 피의 맹세·액월의 재림",
+   "desc": "<IconMap:Icon_Switch>([진홍 각인] 상태에서)(빠른 지원 발동 시)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611015": {
+   "name": "패링 지원: 불굴의 노심",
+   "desc": "<IconMap:Icon_Switch>(패링 지원 발동 시)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1611016": {
+   "name": "반격 지원: 꿋꿋한 쇠붙이",
+   "desc": "<IconMap:Icon_Switch>(반격 지원 발동 시)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1611017": {
+   "name": "지원 돌격: 피의 맹세·무구한 칼날",
+   "desc": "<IconMap:Icon_Normal>(패링 지원 시전 후)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611018": {
+   "name": "지원 돌격: 피의 맹세·단조의 형태",
+   "desc": "<IconMap:Icon_Normal>(반격 지원 시전 후)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1611001,
+   "avatar_id": 1611,
+   "first_priority": [
+    5,
+    1
+   ],
+   "second_priority": [
+    3,
+    0,
+    6
+   ],
+   "third_priority": [
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 34200,
+  "slot2": 31000,
+  "slot_sub": 31100,
+  "part_sub_list": [
+   20103,
+   13102,
+   21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     34200,
+     31000
+    ],
+    "part_sub_list": [
+     20103
+    ]
+   },
+   {
+    "suit_list": [
+     34200,
+     32700
+    ],
+    "part_sub_list": [
+     23103,
+     31803
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     13102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "치명타 확률",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 23103,
+   "name": "관통률",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconPenRatio.png"
+  },
+  "part6": {
+   "prop": 31803,
+   "name": "전기 속성 피해 보너스",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconThunder.png"
+  },
+  "part_sub": {
+   "prop": 13102,
+   "name": "방어력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconDef.png"
+  }
+ },
+ "strategy": {},
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100217": 4
+   }
+  },
+  "2": {
+   "hp_max": 312,
+   "attack": 36,
+   "defence": 24,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100227": 12
+   }
+  },
+  "3": {
+   "hp_max": 624,
+   "attack": 72,
+   "defence": 49,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100227": 20
+   }
+  },
+  "4": {
+   "hp_max": 936,
+   "attack": 108,
+   "defence": 73,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100237": 10
+   }
+  },
+  "5": {
+   "hp_max": 1248,
+   "attack": 144,
+   "defence": 97,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100237": 20
+   }
+  },
+  "6": {
+   "hp_max": 1559,
+   "attack": 180,
+   "defence": 122,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 1920
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 2400
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 2880
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": ""
+}

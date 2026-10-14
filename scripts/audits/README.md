@@ -50,6 +50,14 @@ RULES 表里（不靠猜返回结构）；**新增审计脚本必须同时补判
   现已设防：取不到任何 `<loc>` 时 `content-sweep` **显式返回 `failed: true` 与原因**，
   不再「0 页 / 0 异常」地绿着通过（负向验证：移走 `dist/sitemap.xml` → 立刻报错）。
 
+⚠ **审计默认跑在「没改过语言偏好」的干净档**（2026-10，多语言上线后）：playwright-cli 的 profile
+  会跨 `open` 保留 localStorage，人工切过展示语言、之后忘了清，后续审计就都在那个语言下跑。
+  `content-sweep` 的泄漏判据是 `/undefined|null|NaN|\[object Object\]|\{\{/`（**没有大小写忽略**），
+  英文正文里的 **null**ify / **null**ified 会被判成泄漏——实测 `zzz-wiki:lang=en` 下拉出 2 条假阳性
+  （`/agents/1191`、`/agents/1551`），清掉偏好后同一份产物 238 页 0 异常。
+  跑审计前先清：`localStorage.removeItem('zzz-wiki:lang')`，并确认 `document.documentElement.lang`
+  已回到 `zh-CN`。
+
 ⚠ **run-code 探针里不要在事件回调中抛异常**：`page.on` / `cdp.on` 的回调一旦抛错会
   直接让 playwright-cli 会话崩溃（"Session closed"，无堆栈）。需要计数请求时优先用
   `performance.getEntriesByType('resource')` 的 `transferSize` / `workerStart` 字段，

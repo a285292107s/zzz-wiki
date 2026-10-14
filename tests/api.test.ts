@@ -108,7 +108,7 @@ describe('api.list / api.detail', () => {
     })
   })
 
-  it('serves the single live layout: list at /data/live/{kind}.json', async () => {
+  it('serves the single live layout: list at /data/live/{lang}/{kind}.json', async () => {
     const { api } = await import('../src/data/api')
     const seen: string[] = []
     mockFetch((url) => {
@@ -118,9 +118,23 @@ describe('api.list / api.detail', () => {
     })
     await api.list('character')
     await api.list('character')
-    expect(seen.some((u) => u.endsWith('/data/live/character.json'))).toBe(true)
-    // 单版本固定路径 + 模块级缓存：名录只请求一次
-    expect(seen.filter((u) => u.endsWith('/data/live/character.json'))).toHaveLength(1)
+    expect(seen.some((u) => u.endsWith('/data/live/zh/character.json'))).toBe(true)
+    // 单版本固定路径 + 模块级缓存：同一语言的名录只请求一次
+    expect(seen.filter((u) => u.endsWith('/data/live/zh/character.json'))).toHaveLength(1)
+  })
+
+  it('list/detail 按语言取数：语言码进路径，四语各一份', async () => {
+    const { api } = await import('../src/data/api')
+    const seen: string[] = []
+    mockFetch((url) => {
+      seen.push(url)
+      if (url.endsWith('/manifest.json')) return MANIFEST
+      return { 1: { zh: 'a' } }
+    })
+    await api.list('character', 'en')
+    await api.detail('character', 1011, 'ja')
+    expect(seen.some((u) => u.endsWith('/data/live/en/character.json'))).toBe(true)
+    expect(seen.some((u) => u.endsWith('/data/live/ja/character/1011.json'))).toBe(true)
   })
 
   it('dataVersions exposes live version number from root manifest', async () => {
@@ -149,7 +163,7 @@ describe('resources (catalog-driven)', () => {
       return {}
     })
     const entry = CATALOG.find((c) => c.path === '/agents')!
-    const rows = await listFor<{ Id: number }>(entry)
+    const rows = await listFor<{ Id: number }>(entry, 'zh')
     expect(rows[0].Id).toBe(1)
   })
 
@@ -162,7 +176,7 @@ describe('resources (catalog-driven)', () => {
       return { name: 'x' }
     })
     const entry = CATALOG.find((c) => c.path === '/agents')!
-    await detailFor<{ name?: string }>(entry, 1011)
+    await detailFor<{ name?: string }>(entry, 1011, 'zh')
     expect(seen.some((u) => u.endsWith('/data/live/zh/character/1011.json'))).toBe(true)
     expect(fetchMock().mock.calls.length).toBeLessThanOrEqual(2)
   })

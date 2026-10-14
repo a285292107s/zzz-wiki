@@ -1,0 +1,2190 @@
+{
+ "id": 1151,
+ "icon": "IconRole27",
+ "name": "ルーシー",
+ "code_name": "Lucy",
+ "rarity": 3,
+ "weapon_type": {
+  "4": "Support"
+ },
+ "element_type": {
+  "201": "Fire"
+ },
+ "hit_type": {
+  "102": "Strike"
+ },
+ "camp": {
+  "4": "カリュドーンの子"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "8月14日",
+  "full_name": "ルシアーナ・デ・\nモンテフィーノ",
+  "gender": "女性",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle27.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0027.png",
+  "impression_f": "ルーシーのノックノック、すっごく美人さんのアイコンだよね！\nあれってお嬢様時代の写真かな？",
+  "impression_m": "前にシーザーから聞いた限り、\nルーシーがあのアイコンを使っているのは\n仕事のやりとりが「劇的にスムーズになる」からだそうだ…",
+  "impressions": [
+   "ルーシーに対するイメージ：\n・彼女の勝負欲、決して甘く見{M#ては}{F#ちゃ}いけない…",
+   "・ルーシーと家族の関係には、興味が尽きない",
+   "・郊外の星空、そしてポテチを食べる自由のために！"
+  ],
+  "profile_desc": "カリュドーンの子において、ルーシーは主に渉外とイノシシの管理を担当しています。\n長大なフルネームと、家族との関わりを断ちたいという思いから、郊外では\n自らのことを「ルーシー」と呼んでいます。\n傍にいる3匹のイノシシは「ヘルバ」、「アルボル」、「ラテレム」といい、\nルーシーに忠誠を誓っている様子です。\n基本的に言葉遣いは上品ですが、ときに汚い言葉も口にし、\n一挙手一投足からは、上流階級的教育を受けた形跡が見え隠れしています。\n\n非常に裕福な家庭の出であるルーシーは、生まれながらにして\nすべてを手中に収めたかのように見えますが、「自由」だけは例外でした。\n良好なエーテル適性が検出され、ルーシーはホロウ調査員を志望するも\n家族には強く反対されます。叱責に軟禁など様々な圧力をかけられた果てに、\n彼女は自由を求め家を出ました。\n「家に帰るかですって？馬鹿もほどほどにおっしゃいなさい。\n家族に見つかったら、私の自由も、夢も、すべて水泡と帰すんですの。\n家業を継ぐなんてちゃんちゃら御免でしてよ！」\n\nルーシーは勝利に異常な執着を見せ、たいへんな負けず嫌いです。\n今のところ、そんな彼女に最大の苦汁を舐めさせたのはシーザーであり\nルーシーはことあるごとに決闘を挑んでは、連戦連敗を重ねています。",
+  "role_icon": "IconRole/UnPacker/IconRole27",
+  "stature": "152",
+  "unlock_condition": [
+   "エージェント招集",
+   "メインストーリー「ゆったりとしたひと時・予期せぬ新規顧客」（メインストーリー第四章クリア後に進行可能）クリア後に開放",
+   "依頼「アンビーの当惑」を達成する"
+  ],
+  "trust_lv": {
+   "1": "カリュドーンの子において、ルーシーは主に渉外とイノシシの管理を担当しています。\n長大なフルネームと、家族との関わりを断ちたいという思いから、郊外では\n自らのことを「ルーシー」と呼んでいます。\n傍にいる3匹のイノシシは「ヘルバ」、「アルボル」、「ラテレム」といい、\nルーシーに忠誠を誓っている様子です。\n基本的に言葉遣いは上品ですが、ときに汚い言葉も口にし、\n一挙手一投足からは、上流階級的教育を受けた形跡が見え隠れしています。\n\n非常に裕福な家庭の出であるルーシーは、生まれながらにして\nすべてを手中に収めたかのように見えますが、「自由」だけは例外でした。\n良好なエーテル適性が検出され、ルーシーはホロウ調査員を志望するも\n家族には強く反対されます。叱責に軟禁など様々な圧力をかけられた果てに、\n彼女は自由を求め家を出ました。\n「家に帰るかですって？馬鹿もほどほどにおっしゃいなさい。\n家族に見つかったら、私の自由も、夢も、すべて水泡と帰すんですの。\n家業を継ぐなんてちゃんちゃら御免でしてよ！」\n\nルーシーは勝利に異常な執着を見せ、たいへんな負けず嫌いです。\n今のところ、そんな彼女に最大の苦汁を舐めさせたのはシーザーであり\nルーシーはことあるごとに決闘を挑んでは、連戦連敗を重ねています。",
+   "2": "",
+   "3": "ルーシーがカリュドーンの子に入った経緯はとてもドラマチックなものでした。\n家から逃げ出すため、ルーシーは自ら「誘拐犯」を雇って\n誘拐事件を仕立て上げましたが、そこへ偶然にもカリュドーンの子が現れて\n計画は脱線しました——シーザーが「誘拐犯」を全員張り倒して、\nルーシーを「救出」してしまったのです。\n関係者の証言ではそのとき、バイクに乗ったシーザーがドアを突き破り\n後光を背にしている光景が、ルーシーの脳裏に強く焼き付いたとのことです。\n「あの瞬間、私は『自由』を見たんですの！」\nそれからというものルーシーは、カリュドーンの子に入りたい一心で\nシーザーに付きまとうようになりました。",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 95,
+  "attack_growth": 54230,
+  "avatar_piece_id": 5151,
+  "break_stun": 86,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66882,
+  "element_abnormal_power": 94,
+  "element_mystery": 93,
+  "endurance": 0,
+  "hp_growth": 875757,
+  "hp_max": 645,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Lucy",
+   "Punch",
+   "Fire",
+   "Female",
+   "Camp4",
+   "Size1",
+   "AidTypeParry",
+   "Lucy",
+   "EtherEyesSize1"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "通常攻撃：淑女のおバット",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方に最大4段の打撃を放ち、<color=#F0D12B>物理属性ダメージ</color>と<color=#FF5521>炎属性ダメージ</color>を与える。\nルーシーが<color=#FFFFFF>『通常攻撃』</color>4段目を発動すると同時に、フィールド上にいる親衛隊のイノシシも<color=#FFFFFF>『イノシシ親衛隊：回転打法！』</color>を発動する。",
+     "potential": []
+    },
+    {
+     "name": "イノシシ親衛隊：エモノを構えなさい！",
+     "desc": "戦闘中、親衛隊のイノシシは野球バット、グローブ、パチンコをランダムで使って敵を自動的に攻撃し、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "イノシシ親衛隊：回転打法！",
+     "desc": "ルーシーが<color=#FFFFFF>『通常攻撃』</color>4段目を繰り出す、または自身が<color=#FFFFFF>「かっとばせ！」</color>状態に入ると、親衛隊のイノシシが野球バットをスイングしながら回転し、周囲の敵に<color=#F0D12B>物理属性ダメージ</color>を与える。即座に発動できない場合は、次の機会まで持ち越される。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：淑女のおバット",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1151001, Prop:1001}",
+       "param": {
+        "1151001": {
+         "main": 5660,
+         "growth": 520,
+         "format": "%",
+         "damage_percentage": 5660,
+         "damage_percentage_growth": 520,
+         "stun_ratio": 2830,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 10190,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 77825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2830
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1151002, Prop:1001}",
+       "param": {
+        "1151002": {
+         "main": 7780,
+         "growth": 710,
+         "format": "%",
+         "damage_percentage": 7780,
+         "damage_percentage_growth": 710,
+         "stun_ratio": 6500,
+         "stun_ratio_growth": 300,
+         "sp_recovery": 23400,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 178750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6498
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1151004, Prop:1001}",
+       "param": {
+        "1151004": {
+         "main": 18890,
+         "growth": 1720,
+         "format": "%",
+         "damage_percentage": 18890,
+         "damage_percentage_growth": 1720,
+         "stun_ratio": 15740,
+         "stun_ratio_growth": 720,
+         "sp_recovery": 56660,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 432850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13401,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15738
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段(派生)ダメージ倍率",
+       "desc": "{Skill:1151003, Prop:1001}",
+       "param": {
+        "1151003": {
+         "main": 21150,
+         "growth": 1930,
+         "format": "%",
+         "damage_percentage": 21150,
+         "damage_percentage_growth": 1930,
+         "stun_ratio": 16230,
+         "stun_ratio_growth": 740,
+         "sp_recovery": 58420,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 446325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16227
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率",
+       "desc": "{Skill:1151005, Prop:1001}",
+       "param": {
+        "1151005": {
+         "main": 27260,
+         "growth": 2480,
+         "format": "%",
+         "damage_percentage": 27260,
+         "damage_percentage_growth": 2480,
+         "stun_ratio": 20800,
+         "stun_ratio_growth": 950,
+         "sp_recovery": 74880,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 572000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18625,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20799
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1151001, Prop:1002}",
+       "param": {
+        "1151001": {
+         "main": 2830,
+         "growth": 130,
+         "format": "%",
+         "damage_percentage": 5660,
+         "damage_percentage_growth": 520,
+         "stun_ratio": 2830,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 10190,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 77825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2830
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1151002, Prop:1002}",
+       "param": {
+        "1151002": {
+         "main": 6500,
+         "growth": 300,
+         "format": "%",
+         "damage_percentage": 7780,
+         "damage_percentage_growth": 710,
+         "stun_ratio": 6500,
+         "stun_ratio_growth": 300,
+         "sp_recovery": 23400,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 178750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6498
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1151004, Prop:1002}",
+       "param": {
+        "1151004": {
+         "main": 15740,
+         "growth": 720,
+         "format": "%",
+         "damage_percentage": 18890,
+         "damage_percentage_growth": 1720,
+         "stun_ratio": 15740,
+         "stun_ratio_growth": 720,
+         "sp_recovery": 56660,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 432850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13401,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15738
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段(派生)ブレイク倍率",
+       "desc": "{Skill:1151003, Prop:1002}",
+       "param": {
+        "1151003": {
+         "main": 16230,
+         "growth": 740,
+         "format": "%",
+         "damage_percentage": 21150,
+         "damage_percentage_growth": 1930,
+         "stun_ratio": 16230,
+         "stun_ratio_growth": 740,
+         "sp_recovery": 58420,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 446325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16227
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率",
+       "desc": "{Skill:1151005, Prop:1002}",
+       "param": {
+        "1151005": {
+         "main": 20800,
+         "growth": 950,
+         "format": "%",
+         "damage_percentage": 27260,
+         "damage_percentage_growth": 2480,
+         "stun_ratio": 20800,
+         "stun_ratio_growth": 950,
+         "sp_recovery": 74880,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 572000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18625,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20799
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "イノシシ親衛隊：エモノを構えなさい！",
+     "param": [
+      {
+       "name": "野球バットダメージ倍率",
+       "desc": "{Skill:1151023, Prop:1001}",
+       "param": {
+        "1151023": {
+         "main": 9250,
+         "growth": 850,
+         "format": "%",
+         "damage_percentage": 9250,
+         "damage_percentage_growth": 850,
+         "stun_ratio": 1550,
+         "stun_ratio_growth": 80,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "グローブダメージ倍率",
+       "desc": "{Skill:1151024, Prop:1001}",
+       "param": {
+        "1151024": {
+         "main": 12750,
+         "growth": 1160,
+         "format": "%",
+         "damage_percentage": 12750,
+         "damage_percentage_growth": 1160,
+         "stun_ratio": 2130,
+         "stun_ratio_growth": 100,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パチンコダメージ倍率",
+       "desc": "{Skill:1151025, Prop:1001}",
+       "param": {
+        "1151025": {
+         "main": 17500,
+         "growth": 1600,
+         "format": "%",
+         "damage_percentage": 17500,
+         "damage_percentage_growth": 1600,
+         "stun_ratio": 2920,
+         "stun_ratio_growth": 140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "野球バットブレイク倍率",
+       "desc": "{Skill:1151023, Prop:1002}",
+       "param": {
+        "1151023": {
+         "main": 1550,
+         "growth": 80,
+         "format": "%",
+         "damage_percentage": 9250,
+         "damage_percentage_growth": 850,
+         "stun_ratio": 1550,
+         "stun_ratio_growth": 80,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "グローブブレイク倍率",
+       "desc": "{Skill:1151024, Prop:1002}",
+       "param": {
+        "1151024": {
+         "main": 2130,
+         "growth": 100,
+         "format": "%",
+         "damage_percentage": 12750,
+         "damage_percentage_growth": 1160,
+         "stun_ratio": 2130,
+         "stun_ratio_growth": 100,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パチンコブレイク倍率",
+       "desc": "{Skill:1151025, Prop:1002}",
+       "param": {
+        "1151025": {
+         "main": 2920,
+         "growth": 140,
+         "format": "%",
+         "damage_percentage": 17500,
+         "damage_percentage_growth": 1600,
+         "stun_ratio": 2920,
+         "stun_ratio_growth": 140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "イノシシ親衛隊：回転打法！",
+     "param": [
+      {
+       "name": "回転打法ダメージ倍率",
+       "desc": "{Skill:1151026, Prop:1001}",
+       "param": {
+        "1151026": {
+         "main": 25000,
+         "growth": 2280,
+         "format": "%",
+         "damage_percentage": 25000,
+         "damage_percentage_growth": 2280,
+         "stun_ratio": 2000,
+         "stun_ratio_growth": 100,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "回転打法ブレイク倍率",
+       "desc": "{Skill:1151026, Prop:1002}",
+       "param": {
+        "1151026": {
+         "main": 2000,
+         "growth": 100,
+         "format": "%",
+         "damage_percentage": 25000,
+         "damage_percentage_growth": 2280,
+         "stun_ratio": 2000,
+         "stun_ratio_growth": 100,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "回避：ファール！",
+     "desc": " <IconMap:Icon_Evade> を押して発動：\nダッシュで高速回避する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：猪突豪勇！",
+     "desc": "回避時に <IconMap:Icon_Normal> を押して発動：\n前方に素早く打撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "回避反撃：牙を剥く！",
+     "desc": "極限回避時に <IconMap:Icon_Normal> を押して発動：\n前方の敵に打撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：猪突豪勇！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1151014, Prop:1001}",
+       "param": {
+        "1151014": {
+         "main": 7840,
+         "growth": 720,
+         "format": "%",
+         "damage_percentage": 7840,
+         "damage_percentage_growth": 720,
+         "stun_ratio": 3920,
+         "stun_ratio_growth": 180,
+         "sp_recovery": 14110,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 107800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3919
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1151014, Prop:1002}",
+       "param": {
+        "1151014": {
+         "main": 3920,
+         "growth": 180,
+         "format": "%",
+         "damage_percentage": 7840,
+         "damage_percentage_growth": 720,
+         "stun_ratio": 3920,
+         "stun_ratio_growth": 180,
+         "sp_recovery": 14110,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 107800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3919
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "回避反撃：牙を剥く！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1151015, Prop:1001}",
+       "param": {
+        "1151015": {
+         "main": 30800,
+         "growth": 2800,
+         "format": "%",
+         "damage_percentage": 30800,
+         "damage_percentage_growth": 2800,
+         "stun_ratio": 26000,
+         "stun_ratio_growth": 1190,
+         "sp_recovery": 57590,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 440000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15996,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 30997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1151015, Prop:1002}",
+       "param": {
+        "1151015": {
+         "main": 26000,
+         "growth": 1190,
+         "format": "%",
+         "damage_percentage": 30800,
+         "damage_percentage_growth": 2800,
+         "stun_ratio": 26000,
+         "stun_ratio_growth": 1190,
+         "sp_recovery": 57590,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 440000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15996,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 30997
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "特殊スキル：ヒット！",
+     "desc": " <IconMap:Icon_Special> を押して発動：\n親衛隊のイノシシを呼び戻し、<color=#FFFFFF>「ライナー」</color>を打つ。親衛隊のイノシシが敵または障害物に命中すると爆発を起こし、<color=#FF5521>炎属性ダメージ</color>を与える。\n <IconMap:Icon_Special> を長押しして発動：\n親衛隊のイノシシを呼び戻し、<color=#FFFFFF>「フライ」</color>を打つ。親衛隊のイノシシが着地すると爆発を起こし、<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：ホームラン！",
+     "desc": "エネルギーが十分な時、 <IconMap:Icon_SpecialReady> を押して発動：\n親衛隊のイノシシを呼び戻し、<color=#FFFFFF>「ライナー」</color>を打つ。親衛隊のイノシシが敵または障害物に命中すると爆発を起こし、<color=#FF5521>炎属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。\nスキルが敵に命中すると、<color=#FFFFFF>『クイック支援』</color>が発動可能になる。\nエネルギーが十分な時、 <IconMap:Icon_SpecialReady> を長押しして発動：\n親衛隊のイノシシを呼び戻し、<color=#FFFFFF>「フライ」</color>を打つ。親衛隊のイノシシが着地すると爆発を起こし、<color=#FF5521>炎属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。\nスキルが敵に命中すると、<color=#FFFFFF>『クイック支援』</color>が発動可能になる。",
+     "potential": []
+    },
+    {
+     "name": "かっとばせ！",
+     "desc": "<color=#FFFFFF>『強化特殊スキル』</color>発動後、親衛隊のイノシシが爆発を起こした時、メンバー全員、ボンプおよび親衛隊のイノシシを<color=#FFFFFF>「かっとばせ！」</color>状態にする。<color=#FFFFFF>「かっとばせ！」</color>状態では攻撃力が上昇する。上昇量はルーシーの開幕攻撃力<color=#2BAD00>{CAL:13+AvatarSkillLevel(1)*0.8,1,2}%</color>+<color=#2BAD00>{CAL:40+AvatarSkillLevel(1)*4,1,2}</color>Ptに相当、最大600Ptまで。<color=#FFFFFF>「ライナー」</color>を打った場合、<color=#FFFFFF>「かっとばせ！」</color>状態の継続時間は10秒。<color=#FFFFFF>「フライ」</color>を打った場合、<color=#FFFFFF>「かっとばせ！」</color>状態の継続時間は15秒となる。重複して発動すると継続時間が更新される。",
+     "potential": []
+    },
+    {
+     "name": "かっとばせ！",
+     "param": [
+      {
+       "name": "攻撃力アップ",
+       "desc": "ルーシーの攻撃力の{CAL:13+AvatarSkillLevel(1)*0.8,1,2}%+{CAL:40+AvatarSkillLevel(1)*4,1,2}",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：ヒット！",
+     "param": [
+      {
+       "name": "ライナーダメージ倍率",
+       "desc": "{Skill:1151008, Prop:1001}",
+       "param": {
+        "1151008": {
+         "main": 6170,
+         "growth": 570,
+         "format": "%",
+         "damage_percentage": 6170,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 6170,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 169675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6165,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6166
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "フライダメージ倍率",
+       "desc": "{Skill:1151009, Prop:1001}",
+       "param": {
+        "1151009": {
+         "main": 6920,
+         "growth": 630,
+         "format": "%",
+         "damage_percentage": 6920,
+         "damage_percentage_growth": 630,
+         "stun_ratio": 6920,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 190300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6915,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6915
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ライナーブレイク倍率",
+       "desc": "{Skill:1151008, Prop:1002}",
+       "param": {
+        "1151008": {
+         "main": 6170,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 6170,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 6170,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 169675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6165,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6166
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "フライブレイク倍率",
+       "desc": "{Skill:1151009, Prop:1002}",
+       "param": {
+        "1151009": {
+         "main": 6920,
+         "growth": 320,
+         "format": "%",
+         "damage_percentage": 6920,
+         "damage_percentage_growth": 630,
+         "stun_ratio": 6920,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 190300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6915,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6915
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：ホームラン！",
+     "param": [
+      {
+       "name": "ライナーダメージ倍率",
+       "desc": "{Skill:1151012, Prop:1001}",
+       "param": {
+        "1151012": {
+         "main": 50840,
+         "growth": 4630,
+         "format": "%",
+         "damage_percentage": 50840,
+         "damage_percentage_growth": 4630,
+         "stun_ratio": 36460,
+         "stun_ratio_growth": 1660,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1661550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 33541,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12501
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "フライダメージ倍率",
+       "desc": "{Skill:1151013, Prop:1001}",
+       "param": {
+        "1151013": {
+         "main": 53640,
+         "growth": 4880,
+         "format": "%",
+         "damage_percentage": 53640,
+         "damage_percentage_growth": 4880,
+         "stun_ratio": 38960,
+         "stun_ratio_growth": 1780,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1744050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 34241,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ライナーブレイク倍率",
+       "desc": "{Skill:1151012, Prop:1002}",
+       "param": {
+        "1151012": {
+         "main": 36460,
+         "growth": 1660,
+         "format": "%",
+         "damage_percentage": 50840,
+         "damage_percentage_growth": 4630,
+         "stun_ratio": 36460,
+         "stun_ratio_growth": 1660,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1661550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 33541,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12501
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "フライブレイク倍率",
+       "desc": "{Skill:1151013, Prop:1002}",
+       "param": {
+        "1151013": {
+         "main": 38960,
+         "growth": 1780,
+         "format": "%",
+         "damage_percentage": 53640,
+         "damage_percentage_growth": 4880,
+         "stun_ratio": 38960,
+         "stun_ratio_growth": 1780,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1744050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 34241,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "エネルギー消費",
+       "desc": "60Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "連携スキル：満塁ホームラン！",
+     "desc": "<color=#FFFFFF>『連携スキル』</color>開始時に、対応するエージェントを選択して発動：\nルーシーが飛び上がり、フィールド上にいる親衛隊のイノシシを打って、前方広範囲の敵に<color=#FF5521>炎属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。\nスキルが敵に命中すると、<color=#FFFFFF>『クイック支援』</color>が発動可能になる。",
+     "potential": []
+    },
+    {
+     "name": "終結スキル：サヨナラホームラン！",
+     "desc": "デシベルレートが『Maximum』に達した時に <IconMap:Icon_UltimateReady> を押して発動：\nイノシシ親衛隊の全員を順番に打ち出し、前方広範囲の敵に<color=#FF5521>炎属性ダメージ</color>を大量に与える。\nスキル発動時、チーム内にいるほかの味方がエネルギーを10Pt回復し、次に出場したエージェントはさらに追加で20Pt回復する。\nスキル発動中、無敵効果を得る。\nスキルが敵に命中すると、<color=#FFFFFF>『クイック支援』</color>が発動可能になる。",
+     "potential": []
+    },
+    {
+     "name": "連携スキル：満塁ホームラン！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{{Skill:1151016, Prop:1001}/3}*3",
+       "param": {
+        "1151016": {
+         "main": 49240,
+         "growth": 4480,
+         "format": "%",
+         "damage_percentage": 49240,
+         "damage_percentage_growth": 4480,
+         "stun_ratio": 9340,
+         "stun_ratio_growth": 430,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2085600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 29280,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9331
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{{Skill:1151016, Prop:1002}/3}*3",
+       "param": {
+        "1151016": {
+         "main": 9340,
+         "growth": 430,
+         "format": "%",
+         "damage_percentage": 49240,
+         "damage_percentage_growth": 4480,
+         "stun_ratio": 9340,
+         "stun_ratio_growth": 430,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2085600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 29280,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9331
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "終結スキル：サヨナラホームラン！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{{Skill:1151017, Prop:1001}/3}*3",
+       "param": {
+        "1151017": {
+         "main": 171860,
+         "growth": 15630,
+         "format": "%",
+         "damage_percentage": 171860,
+         "damage_percentage_growth": 15630,
+         "stun_ratio": 28350,
+         "stun_ratio_growth": 1290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 31500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 81500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{{Skill:1151017, Prop:1002}/3}*3",
+       "param": {
+        "1151017": {
+         "main": 28350,
+         "growth": 1290,
+         "format": "%",
+         "damage_percentage": 171860,
+         "damage_percentage_growth": 15630,
+         "stun_ratio": 28350,
+         "stun_ratio_growth": 1290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 31500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 81500
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "クイック支援：デッドボール！",
+     "desc": "操作しているメンバーが吹き飛ばされた時に、 <IconMap:Icon_Switch> を押して発動：\n前方の敵に打撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：セーフ！",
+     "desc": "出場中のメンバーが攻撃されそうになった時に、<IconMap:Icon_Switch> を押して発動：\n敵の攻撃をパリィし、ブレイク値を大量に蓄積させる。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援突撃：ホームイン！",
+     "desc": "<color=#FFFFFF>『パリィ支援』</color>発動後、<IconMap:Icon_Normal> を押して発動：\n前方の敵に打撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "クイック支援：デッドボール！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1151018, Prop:1001}",
+       "param": {
+        "1151018": {
+         "main": 16000,
+         "growth": 1460,
+         "format": "%",
+         "damage_percentage": 16000,
+         "damage_percentage_growth": 1460,
+         "stun_ratio": 16000,
+         "stun_ratio_growth": 730,
+         "sp_recovery": 57590,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 440000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15996,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7999
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1151018, Prop:1002}",
+       "param": {
+        "1151018": {
+         "main": 16000,
+         "growth": 730,
+         "format": "%",
+         "damage_percentage": 16000,
+         "damage_percentage_growth": 1460,
+         "stun_ratio": 16000,
+         "stun_ratio_growth": 730,
+         "sp_recovery": 57590,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 440000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15996,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7999
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：セーフ！",
+     "param": [
+      {
+       "name": "パリィ・軽 ブレイク倍率",
+       "desc": "{Skill:1151019, Prop:1002}",
+       "param": {
+        "1151019": {
+         "main": 20770,
+         "growth": 950,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 20770,
+         "stun_ratio_growth": 950,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 33664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・重 ブレイク倍率",
+       "desc": "{Skill:1151020, Prop:1002}",
+       "param": {
+        "1151020": {
+         "main": 22940,
+         "growth": 1050,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 22940,
+         "stun_ratio_growth": 1050,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 35334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・連続 ブレイク倍率",
+       "desc": "{Skill:1151021, Prop:1002}",
+       "param": {
+        "1151021": {
+         "main": 6940,
+         "growth": 320,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 6940,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5334
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：ホームイン！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1151022, Prop:1001}",
+       "param": {
+        "1151022": {
+         "main": 34910,
+         "growth": 3180,
+         "format": "%",
+         "damage_percentage": 34910,
+         "damage_percentage_growth": 3180,
+         "stun_ratio": 30430,
+         "stun_ratio_growth": 1390,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1083225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 32667,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1151022, Prop:1002}",
+       "param": {
+        "1151022": {
+         "main": 30430,
+         "growth": 1390,
+         "format": "%",
+         "damage_percentage": 34910,
+         "damage_percentage_growth": 3180,
+         "stun_ratio": 30430,
+         "stun_ratio_growth": 1390,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1083225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 32667,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16997
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "フォーメーション練習中",
+   "desc": "親衛隊のイノシシが<color=#FFFFFF>『イノシシ親衛隊：回転打法！』</color>を発動した時、ルーシーのエネルギーを2Pt回復する、15秒に1回のみ発動可能。クールタイムは親衛隊の各イノシシごとに計算される。",
+   "desc2": "「ヘルバ、右向け右！…そっちは左ですわ！このトンコツ！！！」\n鶴の一声、左右は二択、悲鳴が三声、四方にこだます。"
+  },
+  "2": {
+   "level": 2,
+   "name": "イノシシ大隊長",
+   "desc": "ルーシーが<color=#FFFFFF>『連携スキル』</color>または<color=#FFFFFF>『終結スキル』</color>を発動した時、メンバー全員、ボンプおよび親衛隊のイノシシを<color=#FFFFFF>「かっとばせ！」</color>状態にする、継続時間10秒。",
+   "desc2": "「ルーシー隊長は紛れもなく、カリュドーンのイノシシたちにとって最高の指導者でやんす！」\n—アルボルによる、「カリュドーンの子 年間業務報告」の締めくくり。"
+  },
+  "3": {
+   "level": 3,
+   "name": "鉄腕の世話係",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "「おれらをかっとばす時はもっと手加減してくれると、なお最高でやんす！」\n—アルボルが言わずにそっと心にしまった、締めくくりの後半部分"
+  },
+  "4": {
+   "level": 4,
+   "name": "無法試合",
+   "desc": "<color=#FFFFFF>「かっとばせ！」</color>状態にある味方の会心ダメージが追加で+10%。",
+   "desc2": "ルールか、審判の肋骨か——\nこの戦い、必ずどちらかが折れる。"
+  },
+  "5": {
+   "level": 5,
+   "name": "荒野のプリンセス",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "バットの下敷きとなった者にも敬意を忘れず、\n這いつくばる敵にも詫びを入れよ。\nこれぞ、令嬢の完璧な作法なり。"
+  },
+  "6": {
+   "level": 6,
+   "name": "牙は烈火にも勝る",
+   "desc": "<color=#FFFFFF>「かっとばせ！」</color>状態の味方の<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中すると、親衛隊のイノシシが1匹空中から落下して爆発を起こし、親衛隊のイノシシの攻撃力300%分の<color=#FF5521>炎属性ダメージ</color>を与える。それと同時に、メンバー全員、ボンプおよび親衛隊のイノシシの<color=#FFFFFF>「かっとばせ！」</color>状態の継続時間が5秒延長される。延長可能回数は最大で3回、継続時間は最大30秒。<color=#FFFFFF>「かっとばせ！」</color>状態を重複して獲得すると、継続時間の延長可能回数がリセットされる。親衛隊のイノシシが着地して爆発を起こした後、さらに<color=#FFFFFF>『イノシシ親衛隊：回転打法！』</color>を一回発動する。",
+   "desc2": "通称「赤鬣親衛隊」と呼ばれるイノシシたちは、常に最前線に立つ！\nバットでぶっ飛ばされる彼らの心境は、本望か無念か。\n知る由もないが——勇敢なイノシシたちよ、一番乗りは任せた！"
+  }
+ },
+ "passive": {
+  "level": {
+   "1151501": {
+    "level": 1,
+    "id": 1151501,
+    "name": [
+     "コアパッシブ：<ruby=あかたてがみ>赤鬣</ruby>親衛隊",
+     "追加能力：打席に立て！"
+    ],
+    "desc": [
+     "ルーシーが<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動すると、親衛隊のイノシシが戦闘に加わり、他の2匹も召喚する。親衛隊のイノシシはルーシーの攻撃力、衝撃力と異常マスタリーを受け継ぐことができる。親衛隊のイノシシが<color=#FFFFFF>「かっとばせ！」</color>によって得られるバフ効果が本来の<color=#2BAD00>140%</color>になり、攻撃頻度も高くなる。",
+     "チームに自身と同じ属性、同じ陣営または<color=#FFFFFF>[命破]</color>のメンバーがいる時に発動：\n親衛隊のイノシシはルーシーの会心率と会心ダメージを受け継ぐことができる。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1151502": {
+    "level": 2,
+    "id": 1151502,
+    "name": [
+     "コアパッシブ：<ruby=あかたてがみ>赤鬣</ruby>親衛隊",
+     "追加能力：打席に立て！"
+    ],
+    "desc": [
+     "ルーシーが<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動すると、親衛隊のイノシシが戦闘に加わり、他の2匹も召喚する。親衛隊のイノシシはルーシーの攻撃力、衝撃力と異常マスタリーを受け継ぐことができる。親衛隊のイノシシが<color=#FFFFFF>「かっとばせ！」</color>によって得られるバフ効果が本来の<color=#2BAD00>150%</color>になり、攻撃頻度も高くなる。",
+     "チームに自身と同じ属性、同じ陣営または<color=#FFFFFF>[命破]</color>のメンバーがいる時に発動：\n親衛隊のイノシシはルーシーの会心率と会心ダメージを受け継ぐことができる。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1151503": {
+    "level": 3,
+    "id": 1151503,
+    "name": [
+     "コアパッシブ：<ruby=あかたてがみ>赤鬣</ruby>親衛隊",
+     "追加能力：打席に立て！"
+    ],
+    "desc": [
+     "ルーシーが<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動すると、親衛隊のイノシシが戦闘に加わり、他の2匹も召喚する。親衛隊のイノシシはルーシーの攻撃力、衝撃力と異常マスタリーを受け継ぐことができる。親衛隊のイノシシが<color=#FFFFFF>「かっとばせ！」</color>によって得られるバフ効果が本来の<color=#2BAD00>160%</color>になり、攻撃頻度も高くなる。",
+     "チームに自身と同じ属性、同じ陣営または<color=#FFFFFF>[命破]</color>のメンバーがいる時に発動：\n親衛隊のイノシシはルーシーの会心率と会心ダメージを受け継ぐことができる。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1151504": {
+    "level": 4,
+    "id": 1151504,
+    "name": [
+     "コアパッシブ：<ruby=あかたてがみ>赤鬣</ruby>親衛隊",
+     "追加能力：打席に立て！"
+    ],
+    "desc": [
+     "ルーシーが<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動すると、親衛隊のイノシシが戦闘に加わり、他の2匹も召喚する。親衛隊のイノシシはルーシーの攻撃力、衝撃力と異常マスタリーを受け継ぐことができる。親衛隊のイノシシが<color=#FFFFFF>「かっとばせ！」</color>によって得られるバフ効果が本来の<color=#2BAD00>170%</color>になり、攻撃頻度も高くなる。",
+     "チームに自身と同じ属性、同じ陣営または<color=#FFFFFF>[命破]</color>のメンバーがいる時に発動：\n親衛隊のイノシシはルーシーの会心率と会心ダメージを受け継ぐことができる。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1151505": {
+    "level": 5,
+    "id": 1151505,
+    "name": [
+     "コアパッシブ：<ruby=あかたてがみ>赤鬣</ruby>親衛隊",
+     "追加能力：打席に立て！"
+    ],
+    "desc": [
+     "ルーシーが<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動すると、親衛隊のイノシシが戦闘に加わり、他の2匹も召喚する。親衛隊のイノシシはルーシーの攻撃力、衝撃力と異常マスタリーを受け継ぐことができる。親衛隊のイノシシが<color=#FFFFFF>「かっとばせ！」</color>によって得られるバフ効果が本来の<color=#2BAD00>180%</color>になり、攻撃頻度も高くなる。",
+     "チームに自身と同じ属性、同じ陣営または<color=#FFFFFF>[命破]</color>のメンバーがいる時に発動：\n親衛隊のイノシシはルーシーの会心率と会心ダメージを受け継ぐことができる。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1151506": {
+    "level": 6,
+    "id": 1151506,
+    "name": [
+     "コアパッシブ：<ruby=あかたてがみ>赤鬣</ruby>親衛隊",
+     "追加能力：打席に立て！"
+    ],
+    "desc": [
+     "ルーシーが<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動すると、親衛隊のイノシシが戦闘に加わり、他の2匹も召喚する。親衛隊のイノシシはルーシーの攻撃力、衝撃力と異常マスタリーを受け継ぐことができる。親衛隊のイノシシが<color=#FFFFFF>「かっとばせ！」</color>によって得られるバフ効果が本来の<color=#2BAD00>190%</color>になり、攻撃頻度も高くなる。",
+     "チームに自身と同じ属性、同じ陣営または<color=#FFFFFF>[命破]</color>のメンバーがいる時に発動：\n親衛隊のイノシシはルーシーの会心率と会心ダメージを受け継ぐことができる。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1151507": {
+    "level": 7,
+    "id": 1151507,
+    "name": [
+     "コアパッシブ：<ruby=あかたてがみ>赤鬣</ruby>親衛隊",
+     "追加能力：打席に立て！"
+    ],
+    "desc": [
+     "ルーシーが<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動すると、親衛隊のイノシシが戦闘に加わり、他の2匹も召喚する。親衛隊のイノシシはルーシーの攻撃力、衝撃力と異常マスタリーを受け継ぐことができる。親衛隊のイノシシが<color=#FFFFFF>「かっとばせ！」</color>によって得られるバフ効果が本来の<color=#2BAD00>200%</color>になり、攻撃頻度も高くなる。",
+     "チームに自身と同じ属性、同じ陣営または<color=#FFFFFF>[命破]</color>のメンバーがいる時に発動：\n親衛隊のイノシシはルーシーの会心率と会心ダメージを受け継ぐことができる。"
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110504": 2
+   },
+   "3": {
+    "10": 28000,
+    "110504": 4
+   },
+   "4": {
+    "10": 60000,
+    "110001": 2,
+    "110504": 9
+   },
+   "5": {
+    "10": 100000,
+    "110001": 3,
+    "110504": 15
+   },
+   "6": {
+    "10": 200000,
+    "110001": 4,
+    "110504": 30
+   }
+  }
+ },
+ "skin": {
+  "3111510": {
+   "name": "ルーシー・「鉄壁にして才腕の淑女」",
+   "desc": "走り屋の中ではやや凝ったデザインの服。対外交渉の際に大いに役立つらしい。\n家出をした姫は郊外で自由を見つけた。\n夜空の星々の中から、燃え盛る夕焼けの果てから、足元に転がる砂粒から、その自由は姫を静かに見守っている。",
+   "obtain_desc": "",
+   "image": "IconRole27"
+  },
+  "3111511": {
+   "name": "ルーシー・「プリンセスの休日」",
+   "desc": "ビーチバレーにバットは確かに不要。だが、\n荒野の令嬢のバカンスを邪魔する不届き者がいるなら…\nぶっ飛ばす！\n「ヘルバ、アルボル、ラテレム！バカンス作戦モードですわよ！」",
+   "obtain_desc": "",
+   "image": "IconRole27_01"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1151001": {
+   "name": "通常攻撃：淑女のおバット",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1151002": {
+   "name": "特殊スキル：ヒット！（ライナー）",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1151003": {
+   "name": "特殊スキル：ヒット！（フライ）",
+   "desc": "<IconMap:Icon_Special>（長押し）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1151004": {
+   "name": "強化特殊スキル：ホームラン！（ライナー）",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1151005": {
+   "name": "強化特殊スキル：ホームラン！（フライ）",
+   "desc": "<IconMap:Icon_SpecialReady>（長押し）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1151006": {
+   "name": "ダッシュ攻撃：猪突豪勇！",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1151007": {
+   "name": "回避反撃：牙を剥く！",
+   "desc": "<IconMap:Icon_Evade>（極限回避成功） ; <IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1151008": {
+   "name": "連携スキル：満塁ホームラン！",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1151009": {
+   "name": "終結スキル：サヨナラホームラン！",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1151010": {
+   "name": "クイック支援：デッドボール！",
+   "desc": "<IconMap:Icon_Switch>（クイック支援の発動条件を満たした時）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1151011": {
+   "name": "パリィ支援：セーフ！",
+   "desc": "<IconMap:Icon_Switch>（パリィ支援の発動条件を満たした時）",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1151012": {
+   "name": "支援突撃：ホームイン！",
+   "desc": "<IconMap:Icon_Normal>（パリィ支援を発動した後に）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1151001,
+   "avatar_id": 1151,
+   "first_priority": [
+    1
+   ],
+   "second_priority": [
+    5,
+    0,
+    3
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1
+   ]
+  },
+  {
+   "id": 1151002,
+   "avatar_id": 1151,
+   "first_priority": [
+    1,
+    3
+   ],
+   "second_priority": [
+    5,
+    0
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33400,
+  "slot2": 32800,
+  "slot_sub": 31400,
+  "part_sub_list": [
+   12102,
+   12103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31600,
+     31400
+    ],
+    "part_sub_list": [
+     12102,
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102,
+     30502
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 12102,
+   "name": "攻撃力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  },
+  "part5": {
+   "prop": 30502,
+   "name": "エネルギー自動回復",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconSpRecover.png"
+  },
+  "part6": {
+   "prop": 20103,
+   "name": "会心率",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part_sub": {
+   "prop": 31603,
+   "name": "炎属性ダメージボーナス",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconFire.png"
+  }
+ },
+ "strategy": [
+  "04",
+  "<IconMap:Icon_GeneralBuff_Fire>炎属性、汎用サポーター",
+  "イノシシ親衛隊を召喚して共闘"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100214": 4
+   }
+  },
+  "2": {
+   "hp_max": 443,
+   "attack": 34,
+   "defence": 34,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100224": 12
+   }
+  },
+  "3": {
+   "hp_max": 886,
+   "attack": 68,
+   "defence": 68,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100224": 20
+   }
+  },
+  "4": {
+   "hp_max": 1329,
+   "attack": 102,
+   "defence": 101,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100234": 10
+   }
+  },
+  "5": {
+   "hp_max": 1772,
+   "attack": 135,
+   "defence": 135,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100234": 20
+   }
+  },
+  "6": {
+   "hp_max": 2214,
+   "attack": 169,
+   "defence": 169,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "基礎エネルギー自動回復",
+     "format": "{0:0.##}",
+     "value": 12
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "基礎エネルギー自動回復",
+     "format": "{0:0.##}",
+     "value": 12
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "基礎エネルギー自動回復",
+     "format": "{0:0.##}",
+     "value": 24
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "基礎エネルギー自動回復",
+     "format": "{0:0.##}",
+     "value": 24
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "基礎エネルギー自動回復",
+     "format": "{0:0.##}",
+     "value": 36
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "基礎エネルギー自動回復",
+     "format": "{0:0.##}",
+     "value": 36
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": ""
+}

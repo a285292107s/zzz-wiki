@@ -10,11 +10,14 @@ import { computed } from 'vue'
 import type { CharacterListItem } from '@/data/types'
 import type { ImageSource } from '@/utils/imageSource'
 import { ELEMENTS } from '@/domain/enums'
+import { DEFAULT_LANG, pickText, type Lang } from '@/domain/lang'
+import { pickName } from '@/utils/names'
 import { listFor } from '@/data/resources'
 import { catalogEntry } from '@/domain/catalog'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { heroFileForForm, type HeroForm } from '@/data/heroGenderVariants'
 import { useHeroForm, DEFAULT_HERO_FORM } from '@/composables/useHeroForm'
+import { useLocale } from '@/composables/useLocale'
 import type { FeaturedPool, PoolItem } from '@/domain/featuredPool'
 import poolJson from '@/data/featured-pool.json'
 import featuredBirthdays from '@/data/featured-birthdays.json'
@@ -27,9 +30,12 @@ export const FEATURED_POOL: PoolItem[] = Array.isArray((poolJson as FeaturedPool
 export interface FeaturedCard {
   id: number
   no: string
-  zh: string
+  /** 主名：**当前语言**的名录名（标本签第一行的衬线大字） */
+  name: string
+  /** 英文名：标本签第二行的等宽小字（档案感的一部分；与主名同值时视图不重复印） */
   en: string
-  elementZh: string
+  /** 属性展示名：**当前语言**（有特殊属性时是它的名字，无专属色） */
+  element: string
   elementColor: string
   srcs: ImageSource[]
   pos: string
@@ -190,6 +196,7 @@ export function pickFeatured(
  * 好让卡片与降落端同图、共享元素飞行不出现「女性溶解成男性」。非双形态角色不受影响。
  * `birthdayKey` 为「今天」的 `MM-DD`（默认取当前日期）：调用方传入与选片**同一个**基准日，
  * 免得标志与选片跨零点各说各话。
+ * `lang` 为当前展示语言：标本签第一行取该语言的名录名（第二行仍是英文档案名）。
  */
 export function buildFeaturedCards(
   seed: PoolItem[],
@@ -197,6 +204,7 @@ export function buildFeaturedCards(
   sizes: string = deckSizes(),
   form: HeroForm = DEFAULT_HERO_FORM,
   birthdayKey: string = monthDayKey(),
+  lang: Lang = DEFAULT_LANG,
 ): FeaturedCard[] {
   const byId = new Map((list ?? []).map((x) => [x.Id, x]))
   const cards: FeaturedCard[] = []
@@ -206,12 +214,15 @@ export function buildFeaturedCards(
     const el = item?.element !== undefined ? ELEMENTS[item.element] : undefined
     const hasSpecial = Boolean(item?.special_element)
     const file = heroFileForForm(n.id, form)
+    // 名录未就绪时留空（视图渲染条形占位）；就绪后按当前语言解析真名
+    const rawName = item ? pickName(item, lang) : ''
     cards.push({
       id: n.id,
       no: '', // 末尾统一重排
-      zh: item?.zh ?? '',
+      name: rawName === '—' ? '' : rawName,
       en: item?.en ?? '',
-      elementZh: item?.special_element ?? el?.zh ?? '',
+      // 属性展示名（当前语言）；有特殊属性（如 玄墨）时用它的名字（来自数据、已随语言）
+      element: item?.special_element ?? (el ? pickText(el.label, lang) : ''),
       // 特殊属性（如 玄墨）无专属色，不套基础元素色，落回标签默认 ink
       elementColor: hasSpecial ? '' : (el?.color ?? ''),
       srcs: heroSources(file, sizes),
@@ -262,7 +273,11 @@ export function useFeaturedAgents() {
     })
   }
 
-  const { data: list } = useAsyncResource<CharacterListItem[]>(() => listFor<CharacterListItem>(catalogEntry('/agents')))
-  const featured = computed(() => buildFeaturedCards(picks, list.value, sizes, heroForm.value, monthDayKey(date)))
+  /** 名录名取当前语言（卡片上的角色名随语言切换；选片本身与语言无关） */
+  const { lang } = useLocale()
+  const { data: list } = useAsyncResource<CharacterListItem[]>(() =>
+    listFor<CharacterListItem>(catalogEntry('/agents'), lang.value),
+  )
+  const featured = computed(() => buildFeaturedCards(picks, list.value, sizes, heroForm.value, monthDayKey(date), lang.value))
   return { featured, picks }
 }

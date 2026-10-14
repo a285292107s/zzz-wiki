@@ -1,0 +1,443 @@
+{
+ "id": 53019,
+ "code_name": "Bild N. Boolok",
+ "name": "블록부",
+ "desc": "블록을 맨발로 밟지 말자.",
+ "rarity": 3,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole41.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 360,
+  "hpupgrade": 428397,
+  "attack": 53,
+  "attack_upgrade": 267156,
+  "break_stun": 94,
+  "element_abnormal_power": 100,
+  "defence": 32,
+  "def_upgrade": 92587,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 188,
+   "attack": 49,
+   "defence": 41,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 376,
+   "attack": 247,
+   "defence": 81,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 564,
+   "attack": 741,
+   "defence": 122,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 752,
+   "attack": 1976,
+   "defence": 163,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 940,
+   "attack": 4941,
+   "defence": 203,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "블록 사방치기",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시, 지팡이를 휘둘러 블록을 거대한 망치로 조립한 뒤 적에게 내려친다. 적을 4회 타격하거나 거대한 망치를 3회 휘두른 뒤 도약해 내려찍고, 사방으로 <color=#FFFFFF>[블록 스파이크]</color>를 폭발시켜 <color=#FFFFFF>[블록 스파이크]</color>에 닿은 적에게 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5301901, Prop:1001}|{Skill:5301901, Prop:1002}|24초"
+    },
+    "2": {
+     "name": "블록 사방치기",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시, 지팡이를 휘둘러 블록을 거대한 망치로 조립한 뒤 적에게 내려친다. 적을 4회 타격하거나 거대한 망치를 3회 휘두른 뒤 도약해 내려찍고, 사방으로 <color=#FFFFFF>[블록 스파이크]</color>를 폭발시켜 <color=#FFFFFF>[블록 스파이크]</color>에 닿은 적에게 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5301901, Prop:1001}|{Skill:5301901, Prop:1002}|24초"
+    },
+    "3": {
+     "name": "블록 사방치기",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시, 지팡이를 휘둘러 블록을 거대한 망치로 조립한 뒤 적에게 내려친다. 적을 4회 타격하거나 거대한 망치를 3회 휘두른 뒤 도약해 내려찍고, 사방으로 <color=#FFFFFF>[블록 스파이크]</color>를 폭발시켜 <color=#FFFFFF>[블록 스파이크]</color>에 닿은 적에게 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5301901, Prop:1001}|{Skill:5301901, Prop:1002}|24초"
+    },
+    "4": {
+     "name": "블록 사방치기",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시, 지팡이를 휘둘러 블록을 거대한 망치로 조립한 뒤 적에게 내려친다. 적을 4회 타격하거나 거대한 망치를 3회 휘두른 뒤 도약해 내려찍고, 사방으로 <color=#FFFFFF>[블록 스파이크]</color>를 폭발시켜 <color=#FFFFFF>[블록 스파이크]</color>에 닿은 적에게 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5301901, Prop:1001}|{Skill:5301901, Prop:1002}|24초"
+    },
+    "5": {
+     "name": "블록 사방치기",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시, 지팡이를 휘둘러 블록을 거대한 망치로 조립한 뒤 적에게 내려친다. 적을 4회 타격하거나 거대한 망치를 3회 휘두른 뒤 도약해 내려찍고, 사방으로 <color=#FFFFFF>[블록 스파이크]</color>를 폭발시켜 <color=#FFFFFF>[블록 스파이크]</color>에 닿은 적에게 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5301901, Prop:1001}|{Skill:5301901, Prop:1002}|24초"
+    },
+    "6": {
+     "name": "블록 사방치기",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시, 지팡이를 휘둘러 블록을 거대한 망치로 조립한 뒤 적에게 내려친다. 적을 4회 타격하거나 거대한 망치를 3회 휘두른 뒤 도약해 내려찍고, 사방으로 <color=#FFFFFF>[블록 스파이크]</color>를 폭발시켜 <color=#FFFFFF>[블록 스파이크]</color>에 닿은 적에게 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5301901, Prop:1001}|{Skill:5301901, Prop:1002}|24초"
+    },
+    "7": {
+     "name": "블록 사방치기",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시, 지팡이를 휘둘러 블록을 거대한 망치로 조립한 뒤 적에게 내려친다. 적을 4회 타격하거나 거대한 망치를 3회 휘두른 뒤 도약해 내려찍고, 사방으로 <color=#FFFFFF>[블록 스파이크]</color>를 폭발시켜 <color=#FFFFFF>[블록 스파이크]</color>에 닿은 적에게 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5301901, Prop:1001}|{Skill:5301901, Prop:1002}|24초"
+    },
+    "8": {
+     "name": "블록 사방치기",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시, 지팡이를 휘둘러 블록을 거대한 망치로 조립한 뒤 적에게 내려친다. 적을 4회 타격하거나 거대한 망치를 3회 휘두른 뒤 도약해 내려찍고, 사방으로 <color=#FFFFFF>[블록 스파이크]</color>를 폭발시켜 <color=#FFFFFF>[블록 스파이크]</color>에 닿은 적에게 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5301901, Prop:1001}|{Skill:5301901, Prop:1002}|24초"
+    },
+    "9": {
+     "name": "블록 사방치기",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시, 지팡이를 휘둘러 블록을 거대한 망치로 조립한 뒤 적에게 내려친다. 적을 4회 타격하거나 거대한 망치를 3회 휘두른 뒤 도약해 내려찍고, 사방으로 <color=#FFFFFF>[블록 스파이크]</color>를 폭발시켜 <color=#FFFFFF>[블록 스파이크]</color>에 닿은 적에게 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5301901, Prop:1001}|{Skill:5301901, Prop:1002}|24초"
+    },
+    "10": {
+     "name": "블록 사방치기",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시, 지팡이를 휘둘러 블록을 거대한 망치로 조립한 뒤 적에게 내려친다. 적을 4회 타격하거나 거대한 망치를 3회 휘두른 뒤 도약해 내려찍고, 사방으로 <color=#FFFFFF>[블록 스파이크]</color>를 폭발시켜 <color=#FFFFFF>[블록 스파이크]</color>에 닿은 적에게 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5301901, Prop:1001}|{Skill:5301901, Prop:1002}|24초"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "무궁화꽃이 피었습니다!",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동: 블록부의 <color=#FFFFFF>[액티브 스킬]</color>로 생성되는 <color=#FFFFFF>[블록 스파이크]</color> 개수가 7개로 증가하고, <color=#FFFFFF>[액티브 스킬]</color>이 주는 피해가 30% 증가한다.",
+     "property": [
+      "피해 증가"
+     ],
+     "param": "30%"
+    },
+    "2": {
+     "name": "무궁화꽃이 피었습니다!",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동: 블록부의 <color=#FFFFFF>[액티브 스킬]</color>로 생성되는 <color=#FFFFFF>[블록 스파이크]</color> 개수가 7개로 증가하고, <color=#FFFFFF>[액티브 스킬]</color>이 주는 피해가 37.5% 증가한다.",
+     "property": [
+      "피해 증가"
+     ],
+     "param": "37.5%"
+    },
+    "3": {
+     "name": "무궁화꽃이 피었습니다!",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동: 블록부의 <color=#FFFFFF>[액티브 스킬]</color>로 생성되는 <color=#FFFFFF>[블록 스파이크]</color> 개수가 7개로 증가하고, <color=#FFFFFF>[액티브 스킬]</color>이 주는 피해가 45% 증가한다.",
+     "property": [
+      "피해 증가"
+     ],
+     "param": "45%"
+    },
+    "4": {
+     "name": "무궁화꽃이 피었습니다!",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동: 블록부의 <color=#FFFFFF>[액티브 스킬]</color>로 생성되는 <color=#FFFFFF>[블록 스파이크]</color> 개수가 7개로 증가하고, <color=#FFFFFF>[액티브 스킬]</color>이 주는 피해가 52.5% 증가한다.",
+     "property": [
+      "피해 증가"
+     ],
+     "param": "52.5%"
+    },
+    "5": {
+     "name": "무궁화꽃이 피었습니다!",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동: 블록부의 <color=#FFFFFF>[액티브 스킬]</color>로 생성되는 <color=#FFFFFF>[블록 스파이크]</color> 개수가 7개로 증가하고, <color=#FFFFFF>[액티브 스킬]</color>이 주는 피해가 60% 증가한다.",
+     "property": [
+      "피해 증가"
+     ],
+     "param": "60%"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "캐슬 피구",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전력으로 지팡이를 휘둘러 전방의 블록을 날리고, 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5301902, Prop:1001}|{Skill:5301902, Prop:1002}"
+    },
+    "2": {
+     "name": "캐슬 피구",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전력으로 지팡이를 휘둘러 전방의 블록을 날리고, 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5301902, Prop:1001}|{Skill:5301902, Prop:1002}"
+    },
+    "3": {
+     "name": "캐슬 피구",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전력으로 지팡이를 휘둘러 전방의 블록을 날리고, 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5301902, Prop:1001}|{Skill:5301902, Prop:1002}"
+    },
+    "4": {
+     "name": "캐슬 피구",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전력으로 지팡이를 휘둘러 전방의 블록을 날리고, 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5301902, Prop:1001}|{Skill:5301902, Prop:1002}"
+    },
+    "5": {
+     "name": "캐슬 피구",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전력으로 지팡이를 휘둘러 전방의 블록을 날리고, 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5301902, Prop:1001}|{Skill:5301902, Prop:1002}"
+    },
+    "6": {
+     "name": "캐슬 피구",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전력으로 지팡이를 휘둘러 전방의 블록을 날리고, 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5301902, Prop:1001}|{Skill:5301902, Prop:1002}"
+    },
+    "7": {
+     "name": "캐슬 피구",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전력으로 지팡이를 휘둘러 전방의 블록을 날리고, 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5301902, Prop:1001}|{Skill:5301902, Prop:1002}"
+    },
+    "8": {
+     "name": "캐슬 피구",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전력으로 지팡이를 휘둘러 전방의 블록을 날리고, 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5301902, Prop:1001}|{Skill:5301902, Prop:1002}"
+    },
+    "9": {
+     "name": "캐슬 피구",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전력으로 지팡이를 휘둘러 전방의 블록을 날리고, 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5301902, Prop:1001}|{Skill:5301902, Prop:1002}"
+    },
+    "10": {
+     "name": "캐슬 피구",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전력으로 지팡이를 휘둘러 전방의 블록을 날리고, 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5301902, Prop:1001}|{Skill:5301902, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5301901": {
+   "1001": {
+    "main": 40000,
+    "growth": 4000,
+    "format": "%"
+   },
+   "1002": {
+    "main": 23400,
+    "growth": 2340,
+    "format": "%"
+   },
+   "element_accumulation_value": 30000
+  },
+  "5301902": {
+   "1001": {
+    "main": 85800,
+    "growth": 8580,
+    "format": "%"
+   },
+   "1002": {
+    "main": 12300,
+    "growth": 1230,
+    "format": "%"
+   },
+   "element_accumulation_value": 36800
+  }
+ }
+}

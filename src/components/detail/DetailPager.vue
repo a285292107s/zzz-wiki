@@ -6,6 +6,7 @@
  * 悬停即预热目标详情（useDetailPrefetch）——翻页回路与名录→详情同速。
  */
 import { onBeforeUnmount, onMounted } from 'vue'
+import { useUiText } from '@/composables/useUiText'
 import { RouterLink, useRouter } from 'vue-router'
 import { prefetchDetail } from '@/composables/useDetailPrefetch'
 import type { CatalogEntry } from '@/domain/catalog'
@@ -18,6 +19,8 @@ export interface DetailPagerItem {
   /** 展示名 */
   label: string
 }
+
+const { t } = useUiText()
 
 const props = defineProps<{
   prev?: DetailPagerItem | null
@@ -64,8 +67,8 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onKeydown))
 </script>
 
 <template>
-  <nav v-if="prev || next" class="detail-pager" aria-label="相邻条目">
-    <p class="pg-hint mono" aria-hidden="true">← → 翻页</p>
+  <nav v-if="prev || next" class="detail-pager" :aria-label="t.detail.pager">
+    <p class="pg-hint mono" aria-hidden="true">{{ t.detail.pagerHint }}</p>
     <div class="pg-row">
     <RouterLink v-if="prev" :to="prev.to" class="pg" rel="prev" @pointerenter="warm(prev)" @focus="warm(prev)">
       <span class="pg-dir mono">← PREV</span>

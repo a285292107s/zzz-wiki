@@ -1,0 +1,443 @@
+{
+ "id": 53001,
+ "code_name": "Penguinboo",
+ "name": "펭귄부",
+ "desc": "흔들흔들, 휘청휘청. 얼음처럼 차가움",
+ "rarity": 3,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole12.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 360,
+  "hpupgrade": 428397,
+  "attack": 50,
+  "attack_upgrade": 252034,
+  "break_stun": 90,
+  "element_abnormal_power": 120,
+  "defence": 30,
+  "def_upgrade": 85729,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 188,
+   "attack": 47,
+   "defence": 38,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 376,
+   "attack": 233,
+   "defence": 75,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 564,
+   "attack": 699,
+   "defence": 113,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 752,
+   "attack": 1864,
+   "defence": 151,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 940,
+   "attack": 4661,
+   "defence": 188,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "얼음 칼날의 춤",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 얼음 칼날을 휘두르며 적을 연속으로 베어 <color=#98EFF0>얼음 속성 피해</color>를 주고, <color=#98EFF0>얼음 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5300101, Prop:1001}|{Skill:5300101, Prop:1002}|20초"
+    },
+    "2": {
+     "name": "얼음 칼날의 춤",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 얼음 칼날을 휘두르며 적을 연속으로 베어 <color=#98EFF0>얼음 속성 피해</color>를 주고, <color=#98EFF0>얼음 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5300101, Prop:1001}|{Skill:5300101, Prop:1002}|20초"
+    },
+    "3": {
+     "name": "얼음 칼날의 춤",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 얼음 칼날을 휘두르며 적을 연속으로 베어 <color=#98EFF0>얼음 속성 피해</color>를 주고, <color=#98EFF0>얼음 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5300101, Prop:1001}|{Skill:5300101, Prop:1002}|20초"
+    },
+    "4": {
+     "name": "얼음 칼날의 춤",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 얼음 칼날을 휘두르며 적을 연속으로 베어 <color=#98EFF0>얼음 속성 피해</color>를 주고, <color=#98EFF0>얼음 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5300101, Prop:1001}|{Skill:5300101, Prop:1002}|20초"
+    },
+    "5": {
+     "name": "얼음 칼날의 춤",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 얼음 칼날을 휘두르며 적을 연속으로 베어 <color=#98EFF0>얼음 속성 피해</color>를 주고, <color=#98EFF0>얼음 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5300101, Prop:1001}|{Skill:5300101, Prop:1002}|20초"
+    },
+    "6": {
+     "name": "얼음 칼날의 춤",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 얼음 칼날을 휘두르며 적을 연속으로 베어 <color=#98EFF0>얼음 속성 피해</color>를 주고, <color=#98EFF0>얼음 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5300101, Prop:1001}|{Skill:5300101, Prop:1002}|20초"
+    },
+    "7": {
+     "name": "얼음 칼날의 춤",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 얼음 칼날을 휘두르며 적을 연속으로 베어 <color=#98EFF0>얼음 속성 피해</color>를 주고, <color=#98EFF0>얼음 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5300101, Prop:1001}|{Skill:5300101, Prop:1002}|20초"
+    },
+    "8": {
+     "name": "얼음 칼날의 춤",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 얼음 칼날을 휘두르며 적을 연속으로 베어 <color=#98EFF0>얼음 속성 피해</color>를 주고, <color=#98EFF0>얼음 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5300101, Prop:1001}|{Skill:5300101, Prop:1002}|20초"
+    },
+    "9": {
+     "name": "얼음 칼날의 춤",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 얼음 칼날을 휘두르며 적을 연속으로 베어 <color=#98EFF0>얼음 속성 피해</color>를 주고, <color=#98EFF0>얼음 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5300101, Prop:1001}|{Skill:5300101, Prop:1002}|20초"
+    },
+    "10": {
+     "name": "얼음 칼날의 춤",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 얼음 칼날을 휘두르며 적을 연속으로 베어 <color=#98EFF0>얼음 속성 피해</color>를 주고, <color=#98EFF0>얼음 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5300101, Prop:1001}|{Skill:5300101, Prop:1002}|20초"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "드라이아이스 필드",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#98EFF0>[얼음 속성]</color> 캐릭터가 2명 이상 존재 시 발동: <color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>이 누적하는 속성 이상 축적치가 60% 증가한다.",
+     "property": [
+      "속성 이상 축적치 증가"
+     ],
+     "param": "60%"
+    },
+    "2": {
+     "name": "드라이아이스 필드",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#98EFF0>[얼음 속성]</color> 캐릭터가 2명 이상 존재 시 발동: <color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>이 누적하는 속성 이상 축적치가 75% 증가한다.",
+     "property": [
+      "속성 이상 축적치 증가"
+     ],
+     "param": "75%"
+    },
+    "3": {
+     "name": "드라이아이스 필드",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#98EFF0>[얼음 속성]</color> 캐릭터가 2명 이상 존재 시 발동: <color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>이 누적하는 속성 이상 축적치가 90% 증가한다.",
+     "property": [
+      "속성 이상 축적치 증가"
+     ],
+     "param": "90%"
+    },
+    "4": {
+     "name": "드라이아이스 필드",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#98EFF0>[얼음 속성]</color> 캐릭터가 2명 이상 존재 시 발동: <color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>이 누적하는 속성 이상 축적치가 105% 증가한다.",
+     "property": [
+      "속성 이상 축적치 증가"
+     ],
+     "param": "105%"
+    },
+    "5": {
+     "name": "드라이아이스 필드",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#98EFF0>[얼음 속성]</color> 캐릭터가 2명 이상 존재 시 발동: <color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>이 누적하는 속성 이상 축적치가 120% 증가한다.",
+     "property": [
+      "속성 이상 축적치 증가"
+     ],
+     "param": "120%"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "얼음 폭풍",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n타깃을 지속적으로 베어 <color=#98EFF0>얼음 속성 피해</color>를 주고 대량의 <color=#98EFF0>얼음 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5300102, Prop:1001}|{Skill:5300102, Prop:1002}"
+    },
+    "2": {
+     "name": "얼음 폭풍",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n타깃을 지속적으로 베어 <color=#98EFF0>얼음 속성 피해</color>를 주고 대량의 <color=#98EFF0>얼음 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5300102, Prop:1001}|{Skill:5300102, Prop:1002}"
+    },
+    "3": {
+     "name": "얼음 폭풍",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n타깃을 지속적으로 베어 <color=#98EFF0>얼음 속성 피해</color>를 주고 대량의 <color=#98EFF0>얼음 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5300102, Prop:1001}|{Skill:5300102, Prop:1002}"
+    },
+    "4": {
+     "name": "얼음 폭풍",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n타깃을 지속적으로 베어 <color=#98EFF0>얼음 속성 피해</color>를 주고 대량의 <color=#98EFF0>얼음 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5300102, Prop:1001}|{Skill:5300102, Prop:1002}"
+    },
+    "5": {
+     "name": "얼음 폭풍",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n타깃을 지속적으로 베어 <color=#98EFF0>얼음 속성 피해</color>를 주고 대량의 <color=#98EFF0>얼음 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5300102, Prop:1001}|{Skill:5300102, Prop:1002}"
+    },
+    "6": {
+     "name": "얼음 폭풍",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n타깃을 지속적으로 베어 <color=#98EFF0>얼음 속성 피해</color>를 주고 대량의 <color=#98EFF0>얼음 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5300102, Prop:1001}|{Skill:5300102, Prop:1002}"
+    },
+    "7": {
+     "name": "얼음 폭풍",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n타깃을 지속적으로 베어 <color=#98EFF0>얼음 속성 피해</color>를 주고 대량의 <color=#98EFF0>얼음 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5300102, Prop:1001}|{Skill:5300102, Prop:1002}"
+    },
+    "8": {
+     "name": "얼음 폭풍",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n타깃을 지속적으로 베어 <color=#98EFF0>얼음 속성 피해</color>를 주고 대량의 <color=#98EFF0>얼음 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5300102, Prop:1001}|{Skill:5300102, Prop:1002}"
+    },
+    "9": {
+     "name": "얼음 폭풍",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n타깃을 지속적으로 베어 <color=#98EFF0>얼음 속성 피해</color>를 주고 대량의 <color=#98EFF0>얼음 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5300102, Prop:1001}|{Skill:5300102, Prop:1002}"
+    },
+    "10": {
+     "name": "얼음 폭풍",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n타깃을 지속적으로 베어 <color=#98EFF0>얼음 속성 피해</color>를 주고 대량의 <color=#98EFF0>얼음 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5300102, Prop:1001}|{Skill:5300102, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5300101": {
+   "1001": {
+    "main": 46200,
+    "growth": 4620,
+    "format": "%"
+   },
+   "1002": {
+    "main": 27000,
+    "growth": 2700,
+    "format": "%"
+   },
+   "element_accumulation_value": 34600
+  },
+  "5300102": {
+   "1001": {
+    "main": 95700,
+    "growth": 9570,
+    "format": "%"
+   },
+   "1002": {
+    "main": 13700,
+    "growth": 1370,
+    "format": "%"
+   },
+   "element_accumulation_value": 41000
+  }
+ }
+}

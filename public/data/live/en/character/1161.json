@@ -1,0 +1,2456 @@
+{
+ "id": 1161,
+ "icon": "IconRole26",
+ "name": "Lighter",
+ "code_name": "Lighter",
+ "rarity": 4,
+ "weapon_type": {
+  "2": "Stun"
+ },
+ "element_type": {
+  "201": "Fire"
+ },
+ "hit_type": {
+  "102": "Strike"
+ },
+ "camp": {
+  "4": "Sons of Calydon"
+ },
+ "gender": 1,
+ "partner_info": {
+  "birthday": "DEC 27",
+  "full_name": "Lighter",
+  "gender": "Male",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle26.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0026.png",
+  "impression_f": "Didn't Lighter say that he'd faint at the sight of blood? And that's why he always keeps his shades on?\nCan someone who faints at the sight of blood really be a Champion? And even fight underground boxing matches...?",
+  "impression_m": "This feels like a poorly crafted excuse...",
+  "impressions": [
+   "Impressions of Lighter:\n · So... how many people has Lighter defeated?",
+   " · His shades make him look cool, but also bring trouble.",
+   " · I hope time heals all wounds."
+  ],
+  "profile_desc": "Lighter, the Champion of the Sons of Calydon and an ex-mercenary.\nIn the Outer Ring, the Champion of a team refers to the one responsible for dealing with the opponent's strongest fighter in a gang fight, and they often need to participate in one-on-one duels. Their victory is crucial, as it brings glory and morale to the entire team.\n\"The Champion can perish, but cannot lose.\"\n\nA red scarf is what identifies the Champion of the Sons of Calydon.\nEven if the opponent doesn't know Lighter, they'll know who he is just from seeing that red scarf.\n\nFrom what is currently known, Lighter is actually very low profile. He only steals the spotlight on the battlefield when he acts on his obligations as Champion.\nNote: Lighter is the second Red Scarf of the Sons of Calydon. He teasingly refers to the previous Red Scarf as \"Brother\" or \"predecessor.\"",
+  "role_icon": "IconRole/UnPacker/IconRole26",
+  "stature": "185",
+  "unlock_condition": [
+   "Obtain Agent",
+   "Complete Main Story \"Leisurely Lull: Unexpected New Customer\" (available after completing Main Story Chapter 4) to unlock",
+   "Complete the \"Anby's Problem\" commission"
+  ],
+  "trust_lv": {
+   "1": "Lighter, the Champion of the Sons of Calydon and an ex-mercenary.\nIn the Outer Ring, the Champion of a team refers to the one responsible for dealing with the opponent's strongest fighter in a gang fight, and they often need to participate in one-on-one duels. Their victory is crucial, as it brings glory and morale to the entire team.\n\"The Champion can perish, but cannot lose.\"\n\nA red scarf is what identifies the Champion of the Sons of Calydon.\nEven if the opponent doesn't know Lighter, they'll know who he is just from seeing that red scarf.\n\nFrom what is currently known, Lighter is actually very low profile. He only steals the spotlight on the battlefield when he acts on his obligations as Champion.\nNote: Lighter is the second Red Scarf of the Sons of Calydon. He teasingly refers to the previous Red Scarf as \"Brother\" or \"predecessor.\"",
+   "2": "",
+   "3": "Lighter was once the leader of a mercenary troupe.\nAfter a certain accident, Lighter disbanded his group of mercenaries and ended up in serious debt. Lighter chose to fight in an underground arena to pay back what he owed.\nLater, Lighter was discovered by Big Daddy, who paid a huge sum to hire him to join the Sons of Calydon and take Billy's previous position.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 109,
+  "attack_growth": 63891,
+  "avatar_piece_id": 5161,
+  "break_stun": 119,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66882,
+  "element_abnormal_power": 91,
+  "element_mystery": 90,
+  "endurance": 0,
+  "hp_growth": 918185,
+  "hp_max": 677,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Lighter",
+   "Punch",
+   "Fire",
+   "Male",
+   "Camp4",
+   "Size2",
+   "AidTypeParry",
+   "Lighter",
+   "EtherEyesSize2"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "Basic Attack: L-Form Thundering Fist",
+     "desc": "Press or hold <IconMap:Icon_Normal> to activate:\nPerform up to five forward strikes, dealing <color=#F0D12B>Physical DMG</color> and <color=#FF5521>Fire DMG</color>.\nDuring the 3rd hit of the <color=#FFFFFF>Basic Attack</color>, drag the {LAYOUT_CONSOLECONTROLLER#stick}{LAYOUT_FALLBACK#joystick}, and repeatedly press or hold <IconMap:Icon_Normal> to unleash a series of melee follow-up attacks. Release the {LAYOUT_CONSOLECONTROLLER#stick}{LAYOUT_FALLBACK#joystick} to follow up with the 4th hit of the <color=#FFFFFF>Basic Attack</color>.\nWhile performing the startup light punch in the 5th hit of the <color=#FFFFFF>Basic Attack</color>, drag the {LAYOUT_CONSOLECONTROLLER#stick}{LAYOUT_FALLBACK#joystick} and repeatedly press or hold <IconMap:Icon_Normal> to keep alternating between the light punch and 4th hit of the <color=#FFFFFF>Basic Attack</color>. Release the {LAYOUT_CONSOLECONTROLLER#stick}{LAYOUT_FALLBACK#joystick} to follow up with the subsequent jab combo.\nContinue repeatedly pressing or holding <IconMap:Icon_Normal> to extend the duration of the jab combo.\nWhen you stop pressing or holding <IconMap:Icon_Normal>, or when the combo reaches its maximum duration, launches a Finishing Move forward. Lighter is invulnerable during the Finishing Move.\nDuring the 5th hit of the <color=#FFFFFF>Basic Attack</color>, Lighter takes 40% less DMG.\nWhile in the <color=#FFFFFF>Morale Burst</color> state, Anti-Interrupt Level is increased during the 5th hit of his <color=#FFFFFF>Basic Attack</color>, and the DMG reduction effect is increased to 80%.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: L-Form Thundering Fist",
+     "param": [
+      {
+       "name": "1st-Hit DMG Multiplier",
+       "desc": "{Skill:1161001, Prop:1001}",
+       "param": {
+        "1161001": {
+         "main": 3920,
+         "growth": 360,
+         "format": "%",
+         "damage_percentage": 3920,
+         "damage_percentage_growth": 360,
+         "stun_ratio": 1960,
+         "stun_ratio_growth": 90,
+         "sp_recovery": 6410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 49225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1781
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit DMG Multiplier",
+       "desc": "{Skill:1161002, Prop:1001}",
+       "param": {
+        "1161002": {
+         "main": 4800,
+         "growth": 440,
+         "format": "%",
+         "damage_percentage": 4800,
+         "damage_percentage_growth": 440,
+         "stun_ratio": 3290,
+         "stun_ratio_growth": 150,
+         "sp_recovery": 10750,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 82225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2986
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd-Hit DMG Multiplier",
+       "desc": "{Skill:1161003, Prop:1001}",
+       "param": {
+        "1161003": {
+         "main": 5530,
+         "growth": 510,
+         "format": "%",
+         "damage_percentage": 5530,
+         "damage_percentage_growth": 510,
+         "stun_ratio": 4670,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 15260,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 116600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4238
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Follow-Up 1st-Hit DMG Multiplier",
+       "desc": "{Skill:1161004, Prop:1001}",
+       "param": {
+        "1161004": {
+         "main": 8690,
+         "growth": 790,
+         "format": "%",
+         "damage_percentage": 8690,
+         "damage_percentage_growth": 790,
+         "stun_ratio": 6050,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 19780,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 151250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5495
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Follow-Up 2nd-Hit DMG Multiplier",
+       "desc": "{Skill:1161005, Prop:1001}",
+       "param": {
+        "1161005": {
+         "main": 4770,
+         "growth": 440,
+         "format": "%",
+         "damage_percentage": 4770,
+         "damage_percentage_growth": 440,
+         "stun_ratio": 3320,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 10850,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 83050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3013
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Follow-Up 3rd-Hit DMG Multiplier",
+       "desc": "{Skill:1161006, Prop:1001}",
+       "param": {
+        "1161006": {
+         "main": 5810,
+         "growth": 530,
+         "format": "%",
+         "damage_percentage": 5810,
+         "damage_percentage_growth": 530,
+         "stun_ratio": 4040,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 13210,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 100925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3669
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Follow-Up 4th-Hit DMG Multiplier",
+       "desc": "{Skill:1161007, Prop:1001}",
+       "param": {
+        "1161007": {
+         "main": 3280,
+         "growth": 300,
+         "format": "%",
+         "damage_percentage": 3280,
+         "damage_percentage_growth": 300,
+         "stun_ratio": 2280,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 7450,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 56925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2069
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Follow-Up 5th-Hit DMG Multiplier",
+       "desc": "{Skill:1161008, Prop:1001}",
+       "param": {
+        "1161008": {
+         "main": 8900,
+         "growth": 810,
+         "format": "%",
+         "damage_percentage": 8900,
+         "damage_percentage_growth": 810,
+         "stun_ratio": 6190,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 20250,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 154825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5623
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4th-Hit DMG Multiplier",
+       "desc": "{Skill:1161009, Prop:1001}",
+       "param": {
+        "1161009": {
+         "main": 7890,
+         "growth": 720,
+         "format": "%",
+         "damage_percentage": 7890,
+         "damage_percentage_growth": 720,
+         "stun_ratio": 7610,
+         "stun_ratio_growth": 350,
+         "sp_recovery": 24910,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 190300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5505,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6918
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5th-Hit Startup DMG Multiplier",
+       "desc": "{Skill:1161010, Prop:1001}",
+       "param": {
+        "1161010": {
+         "main": 16360,
+         "growth": 1490,
+         "format": "%",
+         "damage_percentage": 16360,
+         "damage_percentage_growth": 1490,
+         "stun_ratio": 12950,
+         "stun_ratio_growth": 590,
+         "sp_recovery": 47620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 363825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12387,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13226
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5th-Hit Combo DMG Multiplier",
+       "desc": "{Skill:1161011, Prop:1001}",
+       "param": {
+        "1161011": {
+         "main": 12290,
+         "growth": 1120,
+         "format": "%",
+         "damage_percentage": 12290,
+         "damage_percentage_growth": 1120,
+         "stun_ratio": 8130,
+         "stun_ratio_growth": 370,
+         "sp_recovery": 27980,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 213950,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7770,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7771
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5th-Hit Finisher DMG Multiplier",
+       "desc": "{Skill:1161012, Prop:1001}",
+       "param": {
+        "1161012": {
+         "main": 10460,
+         "growth": 960,
+         "format": "%",
+         "damage_percentage": 10460,
+         "damage_percentage_growth": 960,
+         "stun_ratio": 7950,
+         "stun_ratio_growth": 370,
+         "sp_recovery": 27380,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 209275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7605,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7606
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5th-Hit Startup DMG Multiplier (Morale Burst)",
+       "desc": "{Skill:1161026, Prop:1001}",
+       "param": {
+        "1161026": {
+         "main": 17720,
+         "growth": 1620,
+         "format": "%",
+         "damage_percentage": 17720,
+         "damage_percentage_growth": 1620,
+         "stun_ratio": 13630,
+         "stun_ratio_growth": 620,
+         "sp_recovery": 44600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 340725,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12387,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12388
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5th-Hit Combo DMG Multiplier (Morale Burst)",
+       "desc": "{Skill:1161027, Prop:1001}",
+       "param": {
+        "1161027": {
+         "main": 36430,
+         "growth": 3320,
+         "format": "%",
+         "damage_percentage": 36430,
+         "damage_percentage_growth": 3320,
+         "stun_ratio": 8550,
+         "stun_ratio_growth": 390,
+         "sp_recovery": 27980,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 213950,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7770,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7771
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5th-Hit Finisher DMG Multiplier (Morale Burst)",
+       "desc": "{Skill:1161028, Prop:1001}",
+       "param": {
+        "1161028": {
+         "main": 11970,
+         "growth": 1090,
+         "format": "%",
+         "damage_percentage": 11970,
+         "damage_percentage_growth": 1090,
+         "stun_ratio": 9210,
+         "stun_ratio_growth": 420,
+         "sp_recovery": 30120,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 230175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8366,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8367
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5th-Hit Powerful Finisher DMG Multiplier (Morale Burst)",
+       "desc": "{Skill:1161025, Prop:1001}",
+       "param": {
+        "1161025": {
+         "main": 43540,
+         "growth": 3960,
+         "format": "%",
+         "damage_percentage": 43540,
+         "damage_percentage_growth": 3960,
+         "stun_ratio": 13240,
+         "stun_ratio_growth": 610,
+         "sp_recovery": 36090,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 275825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10023,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10024
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1st-Hit Daze Multiplier",
+       "desc": "{Skill:1161001, Prop:1002}",
+       "param": {
+        "1161001": {
+         "main": 1960,
+         "growth": 90,
+         "format": "%",
+         "damage_percentage": 3920,
+         "damage_percentage_growth": 360,
+         "stun_ratio": 1960,
+         "stun_ratio_growth": 90,
+         "sp_recovery": 6410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 49225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1781
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit Daze Multiplier",
+       "desc": "{Skill:1161002, Prop:1002}",
+       "param": {
+        "1161002": {
+         "main": 3290,
+         "growth": 150,
+         "format": "%",
+         "damage_percentage": 4800,
+         "damage_percentage_growth": 440,
+         "stun_ratio": 3290,
+         "stun_ratio_growth": 150,
+         "sp_recovery": 10750,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 82225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2986
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd-Hit Daze Multiplier",
+       "desc": "{Skill:1161003, Prop:1002}",
+       "param": {
+        "1161003": {
+         "main": 4670,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 5530,
+         "damage_percentage_growth": 510,
+         "stun_ratio": 4670,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 15260,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 116600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4238
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Follow-Up 1st-Hit Daze Multiplier",
+       "desc": "{Skill:1161004, Prop:1002}",
+       "param": {
+        "1161004": {
+         "main": 6050,
+         "growth": 280,
+         "format": "%",
+         "damage_percentage": 8690,
+         "damage_percentage_growth": 790,
+         "stun_ratio": 6050,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 19780,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 151250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5495
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Follow-Up 2nd-Hit Daze Multiplier",
+       "desc": "{Skill:1161005, Prop:1002}",
+       "param": {
+        "1161005": {
+         "main": 3320,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 4770,
+         "damage_percentage_growth": 440,
+         "stun_ratio": 3320,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 10850,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 83050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3013
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Follow-Up 3rd-Hit Daze Multiplier",
+       "desc": "{Skill:1161006, Prop:1002}",
+       "param": {
+        "1161006": {
+         "main": 4040,
+         "growth": 190,
+         "format": "%",
+         "damage_percentage": 5810,
+         "damage_percentage_growth": 530,
+         "stun_ratio": 4040,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 13210,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 100925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3669
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Follow-Up 4th-Hit Daze Multiplier",
+       "desc": "{Skill:1161007, Prop:1002}",
+       "param": {
+        "1161007": {
+         "main": 2280,
+         "growth": 110,
+         "format": "%",
+         "damage_percentage": 3280,
+         "damage_percentage_growth": 300,
+         "stun_ratio": 2280,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 7450,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 56925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2069
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Follow-Up 5th-Hit Daze Multiplier",
+       "desc": "{Skill:1161008, Prop:1002}",
+       "param": {
+        "1161008": {
+         "main": 6190,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 8900,
+         "damage_percentage_growth": 810,
+         "stun_ratio": 6190,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 20250,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 154825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5623
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4th-Hit Daze Multiplier",
+       "desc": "{Skill:1161009, Prop:1002}",
+       "param": {
+        "1161009": {
+         "main": 7610,
+         "growth": 350,
+         "format": "%",
+         "damage_percentage": 7890,
+         "damage_percentage_growth": 720,
+         "stun_ratio": 7610,
+         "stun_ratio_growth": 350,
+         "sp_recovery": 24910,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 190300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5505,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6918
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5th-Hit Startup Daze Multiplier",
+       "desc": "{Skill:1161010, Prop:1002}",
+       "param": {
+        "1161010": {
+         "main": 12950,
+         "growth": 590,
+         "format": "%",
+         "damage_percentage": 16360,
+         "damage_percentage_growth": 1490,
+         "stun_ratio": 12950,
+         "stun_ratio_growth": 590,
+         "sp_recovery": 47620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 363825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12387,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13226
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5th-Hit Combo Daze Multiplier",
+       "desc": "{Skill:1161011, Prop:1002}",
+       "param": {
+        "1161011": {
+         "main": 8130,
+         "growth": 370,
+         "format": "%",
+         "damage_percentage": 12290,
+         "damage_percentage_growth": 1120,
+         "stun_ratio": 8130,
+         "stun_ratio_growth": 370,
+         "sp_recovery": 27980,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 213950,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7770,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7771
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5th-Hit Finisher Daze Multiplier",
+       "desc": "{Skill:1161012, Prop:1002}",
+       "param": {
+        "1161012": {
+         "main": 7950,
+         "growth": 370,
+         "format": "%",
+         "damage_percentage": 10460,
+         "damage_percentage_growth": 960,
+         "stun_ratio": 7950,
+         "stun_ratio_growth": 370,
+         "sp_recovery": 27380,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 209275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7605,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7606
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5th-Hit Startup Daze Multiplier (Morale Burst)",
+       "desc": "{Skill:1161026, Prop:1002}",
+       "param": {
+        "1161026": {
+         "main": 13630,
+         "growth": 620,
+         "format": "%",
+         "damage_percentage": 17720,
+         "damage_percentage_growth": 1620,
+         "stun_ratio": 13630,
+         "stun_ratio_growth": 620,
+         "sp_recovery": 44600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 340725,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12387,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12388
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5th-Hit Combo Daze Multiplier (Morale Burst)",
+       "desc": "{Skill:1161027, Prop:1002}",
+       "param": {
+        "1161027": {
+         "main": 8550,
+         "growth": 390,
+         "format": "%",
+         "damage_percentage": 36430,
+         "damage_percentage_growth": 3320,
+         "stun_ratio": 8550,
+         "stun_ratio_growth": 390,
+         "sp_recovery": 27980,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 213950,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7770,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7771
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5th-Hit Finisher Daze Multiplier (Morale Burst)",
+       "desc": "{Skill:1161028, Prop:1002}",
+       "param": {
+        "1161028": {
+         "main": 9210,
+         "growth": 420,
+         "format": "%",
+         "damage_percentage": 11970,
+         "damage_percentage_growth": 1090,
+         "stun_ratio": 9210,
+         "stun_ratio_growth": 420,
+         "sp_recovery": 30120,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 230175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8366,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8367
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5th-Hit Powerful Finisher Daze Multiplier (Morale Burst)",
+       "desc": "{Skill:1161025, Prop:1002}",
+       "param": {
+        "1161025": {
+         "main": 13240,
+         "growth": 610,
+         "format": "%",
+         "damage_percentage": 43540,
+         "damage_percentage_growth": 3960,
+         "stun_ratio": 13240,
+         "stun_ratio_growth": 610,
+         "sp_recovery": 36090,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 275825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10023,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10024
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "Dodge: Shadowed Slide",
+     "desc": "Press <IconMap:Icon_Evade> to activate:\nA quick dash dodge.\nCharacter is invulnerable while using this skill.\nPress <IconMap:Icon_Evade> while the character is attacking to activate:\nPerform a quick shuffle dodge in the direction of the {LAYOUT_CONSOLECONTROLLER#stick}{LAYOUT_FALLBACK#Joystick}.\nThis skill will not interrupt the combo count for <color=#FFFFFF>Basic Attacks</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Dash Attack: Charging Slam",
+     "desc": "Press <IconMap:Icon_Normal> during a dodge to activate:\nRapidly strikes enemies in front, dealing <color=#F0D12B>Physical DMG</color>.",
+     "potential": []
+    },
+    {
+     "name": "Dodge Counter: Blazing Flash",
+     "desc": "Press <IconMap:Icon_Normal> during a <color=#FFFFFF>Perfect Dodge</color> to activate:\nStrike enemies in front, dealing <color=#FF5521>Fire DMG</color>.\nCharacter is invulnerable while using this skill.\nAfter using the skill, press or hold <IconMap:Icon_Normal> to immediately follow up with the 5th hit of the <color=#FFFFFF>Basic Attack</color>.",
+     "potential": []
+    },
+    {
+     "name": "Dash Attack: Charging Slam",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1161016, Prop:1001}",
+       "param": {
+        "1161016": {
+         "main": 8990,
+         "growth": 820,
+         "format": "%",
+         "damage_percentage": 8990,
+         "damage_percentage_growth": 820,
+         "stun_ratio": 4500,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 14710,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 112475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4085
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1161016, Prop:1002}",
+       "param": {
+        "1161016": {
+         "main": 4500,
+         "growth": 210,
+         "format": "%",
+         "damage_percentage": 8990,
+         "damage_percentage_growth": 820,
+         "stun_ratio": 4500,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 14710,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 112475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4085
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Dodge Counter: Blazing Flash",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1161017, Prop:1001}",
+       "param": {
+        "1161017": {
+         "main": 18630,
+         "growth": 1700,
+         "format": "%",
+         "damage_percentage": 18630,
+         "damage_percentage_growth": 1700,
+         "stun_ratio": 16870,
+         "stun_ratio_growth": 770,
+         "sp_recovery": 19210,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 146850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1161017, Prop:1002}",
+       "param": {
+        "1161017": {
+         "main": 16870,
+         "growth": 770,
+         "format": "%",
+         "damage_percentage": 18630,
+         "damage_percentage_growth": 1700,
+         "stun_ratio": 16870,
+         "stun_ratio_growth": 770,
+         "sp_recovery": 19210,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 146850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20334
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "Special Attack: V-Form Sunrise Uppercut",
+     "desc": "Press <IconMap:Icon_Special> to activate:\nStrikes enemies in front with an uppercut, dealing <color=#FF5521>Fire DMG</color>.\nAnti-Interrupt level is increased while using this skill.\nPress <IconMap:Icon_Special> during a shuffle dodge to activate:\nStrike forward with a series of punches, dealing <color=#FF5521>Fire DMG</color>.\nThis skill will not interrupt the combo count for <color=#FFFFFF>Basic Attacks</color>.\nAnti-Interrupt level is increased while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: V-Form Sunrise Uppercut - Full Distance",
+     "desc": "With enough Energy, press <IconMap:Icon_SpecialReady> to activate:\nStrikes enemies in front with a powerful uppercut, leaping into the air and dealing massive <color=#FF5521>Fire DMG</color>.\nDuring the move, press <IconMap:Icon_SpecialReady> again to spend additional Energy to perform a powerful follow-up attack, dealing massive <color=#FF5521>Fire DMG</color>.\nCharacter is invulnerable while using this skill\nAfter using the move, press or hold <IconMap:Icon_Normal> to transition to the 4th hit of the <color=#FFFFFF>Basic Attack</color>.\nDuring the shuffle dodge, with enough Energy, press <IconMap:Icon_SpecialReady> to activate:\nPerform a powerful combo punch forward, dealing massive <color=#FF5521>Fire DMG</color>. Using this skill will not break the combo count for <color=#FFFFFF>Basic Attacks</color>.\nCharacter is invulnerable while using this skill.\nAfter the attack, press or hold <IconMap:Icon_Normal> to immediately transition into the 5th hit of the <color=#FFFFFF>Basic Attack</color>. ",
+     "potential": []
+    },
+    {
+     "name": "Special Attack: V-Form Sunrise Uppercut",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1161013, Prop:1001}",
+       "param": {
+        "1161013": {
+         "main": 3630,
+         "growth": 330,
+         "format": "%",
+         "damage_percentage": 3630,
+         "damage_percentage_growth": 330,
+         "stun_ratio": 3630,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 82500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1161013, Prop:1002}",
+       "param": {
+        "1161013": {
+         "main": 3630,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 3630,
+         "damage_percentage_growth": 330,
+         "stun_ratio": 3630,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 82500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3000
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: V-Form Sunrise Uppercut - Full Distance",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1161014, Prop:1001}",
+       "param": {
+        "1161014": {
+         "main": 48630,
+         "growth": 4430,
+         "format": "%",
+         "damage_percentage": 48630,
+         "damage_percentage_growth": 4430,
+         "stun_ratio": 40350,
+         "stun_ratio_growth": 1840,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1293325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 36764,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12831
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Follow-Up DMG Multiplier",
+       "desc": "{Skill:1161015, Prop:1001}",
+       "param": {
+        "1161015": {
+         "main": 29270,
+         "growth": 2670,
+         "format": "%",
+         "damage_percentage": 29270,
+         "damage_percentage_growth": 2670,
+         "stun_ratio": 24770,
+         "stun_ratio_growth": 1130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 767250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 22326,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1161014, Prop:1002}",
+       "param": {
+        "1161014": {
+         "main": 40350,
+         "growth": 1840,
+         "format": "%",
+         "damage_percentage": 48630,
+         "damage_percentage_growth": 4430,
+         "stun_ratio": 40350,
+         "stun_ratio_growth": 1840,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1293325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 36764,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12831
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Follow-Up Daze Multiplier",
+       "desc": "{Skill:1161015, Prop:1002}",
+       "param": {
+        "1161015": {
+         "main": 24770,
+         "growth": 1130,
+         "format": "%",
+         "damage_percentage": 29270,
+         "damage_percentage_growth": 2670,
+         "stun_ratio": 24770,
+         "stun_ratio_growth": 1130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 767250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 22326,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Activation Energy Cost",
+       "desc": "40",
+       "potential": []
+      },
+      {
+       "name": "Follow-Up Energy Cost",
+       "desc": "20",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "Chain Attack: V-Form Scorching Sun",
+     "desc": "When a <color=#FFFFFF>Chain Attack</color> is triggered, select the character to activate:\nUnleashes a powerful strike at enemies in front in a small area, dealing massive <color=#FF5521>Fire DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Ultimate: W-Form Crowned Inferno",
+     "desc": "When Decibel Rating is at Maximum, press <IconMap:Icon_UltimateReady> to activate:\nUnleashes a powerful strike in a large area around, dealing massive <color=#FF5521>Fire DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Chain Attack: V-Form Scorching Sun",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1161018, Prop:1001}",
+       "param": {
+        "1161018": {
+         "main": 71210,
+         "growth": 6480,
+         "format": "%",
+         "damage_percentage": 71210,
+         "damage_percentage_growth": 6480,
+         "stun_ratio": 27320,
+         "stun_ratio_growth": 1250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2511850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 44783,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1161018, Prop:1002}",
+       "param": {
+        "1161018": {
+         "main": 27320,
+         "growth": 1250,
+         "format": "%",
+         "damage_percentage": 71210,
+         "damage_percentage_growth": 6480,
+         "stun_ratio": 27320,
+         "stun_ratio_growth": 1250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2511850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 44783,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Ultimate: W-Form Crowned Inferno",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1161019, Prop:1001}",
+       "param": {
+        "1161019": {
+         "main": 150800,
+         "growth": 13710,
+         "format": "%",
+         "damage_percentage": 150800,
+         "damage_percentage_growth": 13710,
+         "stun_ratio": 94740,
+         "stun_ratio_growth": 4310,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9669,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 59670
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1161019, Prop:1002}",
+       "param": {
+        "1161019": {
+         "main": 94740,
+         "growth": 4310,
+         "format": "%",
+         "damage_percentage": 150800,
+         "damage_percentage_growth": 13710,
+         "stun_ratio": 94740,
+         "stun_ratio_growth": 4310,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9669,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 59670
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "Quick Assist: Blazing Flash - Guard",
+     "desc": "When the active character is launched, press <IconMap:Icon_Switch> to activate:\nStrike enemies in front, dealing <color=#FF5521>Fire DMG</color>.\nCharacter is invulnerable while using this skill.\nAfter using the skill, press or hold <IconMap:Icon_Normal> to immediately follow up with the 5th hit of the <color=#FFFFFF>Basic Attack</color>.",
+     "potential": []
+    },
+    {
+     "name": "Defensive Assist: Swift Break",
+     "desc": "When the on-field character is about to be attacked, press <IconMap:Icon_Switch> to activate:\nParries the enemy's attack, dealing massive Daze.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Charging Slam - Stab",
+     "desc": "Press <IconMap:Icon_Normal> after a <color=#FFFFFF>Defensive Assist</color> to activate:\nStrike enemies in front, dealing <color=#FF5521>Fire DMG</color>.\nCharacter is invulnerable while using this skill.\nAfter using this skill, press or hold <IconMap:Icon_Normal> to immediately follow up with the 5th hit of the <color=#FFFFFF>Basic Attack</color>.",
+     "potential": []
+    },
+    {
+     "name": "Quick Assist: Blazing Flash - Guard",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1161020, Prop:1001}",
+       "param": {
+        "1161020": {
+         "main": 6970,
+         "growth": 640,
+         "format": "%",
+         "damage_percentage": 6970,
+         "damage_percentage_growth": 640,
+         "stun_ratio": 6970,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 22800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 174350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1161020, Prop:1002}",
+       "param": {
+        "1161020": {
+         "main": 6970,
+         "growth": 320,
+         "format": "%",
+         "damage_percentage": 6970,
+         "damage_percentage_growth": 640,
+         "stun_ratio": 6970,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 22800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 174350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Defensive Assist: Swift Break",
+     "param": [
+      {
+       "name": "Light Defensive Daze Multiplier",
+       "desc": "{Skill:1161021, Prop:1002}",
+       "param": {
+        "1161021": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Heavy Defensive Daze Multiplier",
+       "desc": "{Skill:1161022, Prop:1002}",
+       "param": {
+        "1161022": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Chain Defensive Daze Multiplier",
+       "desc": "{Skill:1161023, Prop:1002}",
+       "param": {
+        "1161023": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Charging Slam - Stab",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1161024, Prop:1001}",
+       "param": {
+        "1161024": {
+         "main": 21980,
+         "growth": 2000,
+         "format": "%",
+         "damage_percentage": 21980,
+         "damage_percentage_growth": 2000,
+         "stun_ratio": 18230,
+         "stun_ratio_growth": 830,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 643225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18272,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1161024, Prop:1002}",
+       "param": {
+        "1161024": {
+         "main": 18230,
+         "growth": 830,
+         "format": "%",
+         "damage_percentage": 21980,
+         "damage_percentage_growth": 2000,
+         "stun_ratio": 18230,
+         "stun_ratio_growth": 830,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 643225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18272,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6334
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "The Champion",
+   "desc": "Among the debuffs imposed by <color=#FFFFFF>Core Passive: Accelerant</color>, the <color=#FFFFFF>Collapse</color> effect increases Stun duration by 5s, while further reducing <color=#98EFF0>Ice RES</color> and <color=#FF5521>Fire RES</color> by 10%. The more powerful Finishing Move that follows when Lighter's <color=#FFFFFF>Morale</color> is completely exhausted during a startup light punch or jab combo deals 30% increased DMG.",
+   "desc2": "Victory for the champion is crucial. By facing off against the strongest fighter from the opposing side, he eliminates the threat to his leader — bringing an immense morale uplift to the team.\nFor him, only victory deserves recognition.\n\"The Champion cannot be defeated.\""
+  },
+  "2": {
+   "level": 2,
+   "name": "Red Scarf",
+   "desc": "When applying <color=#FFFFFF>Collapse</color> via <color=#FFFFFF>Core Passive: Accelerant</color> to enemies, the target's Stun DMG Multiplier increases by 25%. The increase to <color=#98EFF0>Ice DMG</color> and <color=#FF5521>Fire DMG</color> provided by <color=#FFFFFF>Elation</color> from <color=#FFFFFF>Additional Ability: Fighting Spirit</color> increases to 120% of the original.",
+   "desc2": "As the \"Red Scarf\" of the Sons of Calydon, Lighter is quite famous in the Outer Ring, and not just because of his fists, but also due to... his unique way of speaking.\n\"I enjoy taking it easy... but you wouldn't manage without me, would you?\""
+  },
+  "3": {
+   "level": 3,
+   "name": "Mercenary Leader",
+   "desc": "<color=#FFFFFF>Basic Attack</color>, <color=#FFFFFF>Dodge</color>, <color=#FFFFFF>Assist</color>, <color=#FFFFFF>Special Attack</color>, and <color=#FFFFFF>Chain Attack</color> Lv. +2",
+   "desc2": "\"I'm probably the last person anyone should pick as their leader.\""
+  },
+  "4": {
+   "level": 4,
+   "name": "Sunglasses",
+   "desc": "When Lighter is off-field, the Energy Regen for the on-field character is increased by 10%. Upon entering the <color=#FFFFFF>Morale Burst</color> state, Lighter restores 4 Energy for off-field characters. This effect can trigger once every 18s.",
+   "desc2": "\"You're asking why I wear sunglasses? Uh... it's because I get queasy at the sight of blood, I guess.\""
+  },
+  "5": {
+   "level": 5,
+   "name": "Decision Maker",
+   "desc": "<color=#FFFFFF>Basic Attack</color>, <color=#FFFFFF>Dodge</color>, <color=#FFFFFF>Assist</color>, <color=#FFFFFF>Special Attack</color>, and <color=#FFFFFF>Chain Attack</color> Lv. +2",
+   "desc2": "\"Give me an order, and I'll carry it out. It's that simple.\"\nLighter adjusted his sunglasses with a carefree smile.\n\"Just don't put me in charge of making decisions.\""
+  },
+  "6": {
+   "level": 6,
+   "name": "Survivor",
+   "desc": "Lighter's <color=#FFFFFF>Morale</color> recovery efficiency is increased to 200% of its original value. When Lighter lands a heavy strike on enemies during a <color=#FFFFFF>Basic Attack</color>, <color=#FFFFFF>Dodge Counter</color>, <color=#FFFFFF>Special Attack</color>, <color=#FFFFFF>EX Special Attack</color>, <color=#FFFFFF>Quick Assist</color>, <color=#FFFFFF>Assist Follow-Up</color>, <color=#FFFFFF>Chain Attack</color>, or <color=#FFFFFF>Ultimate</color>, it will trigger the <color=#FFFFFF>Blazing Impact</color> effect, dealing 250% of ATK as <color=#FF5521>Fire DMG</color>. This effect can trigger once every 8s on each enemy. If Lighter's Impact exceeds 170 points, each additional point will further increase the multiplier of <color=#FFFFFF>Blazing Impact</color> by 5%, up to a maximum increase of 500%. The more powerful Finishing Move that follows when Lighter's <color=#FFFFFF>Morale</color> is completely exhausted during a light punch or jab combo will trigger an additional activation of <color=#FFFFFF>Blazing Impact</color> when hitting an enemy, ignoring the effect's cooldown.",
+   "desc2": "If given the chance to do it all over again, he would never opt to be the only survivor.\nUnfortunately, fate is rarely a choice."
+  }
+ },
+ "passive": {
+  "level": {
+   "1161501": {
+    "level": 1,
+    "id": 1161501,
+    "name": [
+     "Core Passive: Accelerant",
+     "Additional Ability: Fighting Spirit"
+    ],
+    "desc": [
+     "Lighter automatically gains <color=#FFFFFF>Morale</color> over time, at a rate of 2.9 points per second. For each point of Energy consumed by any squad member, Lighter recovers an additional 0.26 <color=#FFFFFF>Morale</color>, up to a maximum of 100. When <color=#FFFFFF>Morale</color> reaches 80, the next time Lighter switches into battle he immediately launches a <color=#FFFFFF>Quick Assist</color>. Once <color=#FFFFFF>Morale</color> is 80 or higher, executing the 5th hit of his <color=#FFFFFF>Basic Attack</color> puts Lighter in the <color=#FFFFFF>Morale Burst</color> state, enhancing the power of the startup light punch, jab combo, and the Finishing Move of the 5th hit of his <color=#FFFFFF>Basic Attack</color>. When a skill hits an enemy with its power increased, it will continuously consume <color=#FFFFFF>Morale</color>. With every 10 points of <color=#FFFFFF>Morale</color> consumed, Lighter's Impact increases by <color=#2BAD00>1%</color>, up to a maximum increase of <color=#2BAD00>10%</color>, and lasting 6s.\nIn the <color=#FFFFFF>Morale Burst</color> state, Lighter will no longer automatically gain <color=#FFFFFF>Morale</color> over time. If his <color=#FFFFFF>Morale</color> is exhausted during a startup light punch or jab combo, he will automatically follow up with a more powerful Finishing Move.\nIn the <color=#FFFFFF>Morale Burst</color> state, when startup light punches or jab combos hit enemies, the target's <color=#98EFF0>Ice RES</color> and <color=#FF5521>Fire RES</color> are reduced by 15%, lasting 30s.\nIn the <color=#FFFFFF>Morale Burst</color> state, when the Finishing Move hits an enemy, it applies the <color=#FFFFFF>Collapse</color> effect on the target, extending its Stunned duration by 3s. The <color=#FFFFFF>Collapse</color> effect can trigger only once on the same target before they recover from Stun.\nWhen the Finishing Move of the 5th hit of his <color=#FFFFFF>Basic Attack</color> hits an enemy, when he switches off field, or when his <color=#FFFFFF>Morale</color> runs out, Lighter will leave the <color=#FFFFFF>Morale Burst</color> state, keeping any unspent <color=#FFFFFF>Morale</color>.",
+     "When another character in your squad is an <color=#FFFFFF>Attack</color> character or shares the same Faction:\nWhile under the <color=#FFFFFF>Morale Burst</color> state, when the 5th hit of Lighter's <color=#FFFFFF>Basic Attack</color> hits an enemy, all squad members gain a stack of <color=#FFFFFF>Elation</color>, stacking up to 20 times and lasting 30s. Repeated triggers reset the duration. For each stack of <color=#FFFFFF>Elation</color>, an Agent's <color=#98EFF0>Ice DMG</color> and <color=#FF5521>Fire DMG</color> increase by 1.25%.\nWhen obtaining <color=#FFFFFF>Elation</color>, if Lighter's Impact exceeds 170, every additional 10 points of Impact will increase the buff effect provided by each stack of <color=#FFFFFF>Elation</color> by an extra 0.25%. When any squad member launches a <color=#FFFFFF>Chain Attack</color>, it will refresh the duration of all squad members' <color=#FFFFFF>Elation</color>. <color=#FFFFFF>Elation</color> can increase the <color=#98EFF0>Ice DMG</color> and <color=#FF5521>Fire DMG</color> of Agents by a maximum of 75%."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1161502": {
+    "level": 2,
+    "id": 1161502,
+    "name": [
+     "Core Passive: Accelerant",
+     "Additional Ability: Fighting Spirit"
+    ],
+    "desc": [
+     "Lighter automatically gains <color=#FFFFFF>Morale</color> over time, at a rate of 2.9 points per second. For each point of Energy consumed by any squad member, Lighter recovers an additional 0.26 <color=#FFFFFF>Morale</color>, up to a maximum of 100. When <color=#FFFFFF>Morale</color> reaches 80, the next time Lighter switches into battle he immediately launches a <color=#FFFFFF>Quick Assist</color>. Once <color=#FFFFFF>Morale</color> is 80 or higher, executing the 5th hit of his <color=#FFFFFF>Basic Attack</color> puts Lighter in the <color=#FFFFFF>Morale Burst</color> state, enhancing the power of the startup light punch, jab combo, and the Finishing Move of the 5th hit of his <color=#FFFFFF>Basic Attack</color>. When a skill hits an enemy with its power increased, it will continuously consume <color=#FFFFFF>Morale</color>. With every 10 points of <color=#FFFFFF>Morale</color> consumed, Lighter's Impact increases by <color=#2BAD00>1.17%</color>, up to a maximum increase of <color=#2BAD00>11.7%</color>, and lasting 6s.\nIn the <color=#FFFFFF>Morale Burst</color> state, Lighter will no longer automatically gain <color=#FFFFFF>Morale</color> over time. If his <color=#FFFFFF>Morale</color> is exhausted during a startup light punch or jab combo, he will automatically follow up with a more powerful Finishing Move.\nIn the <color=#FFFFFF>Morale Burst</color> state, when startup light punches or jab combos hit enemies, the target's <color=#98EFF0>Ice RES</color> and <color=#FF5521>Fire RES</color> are reduced by 15%, lasting 30s.\nIn the <color=#FFFFFF>Morale Burst</color> state, when the Finishing Move hits an enemy, it applies the <color=#FFFFFF>Collapse</color> effect on the target, extending its Stunned duration by 3s. The <color=#FFFFFF>Collapse</color> effect can trigger only once on the same target before they recover from Stun.\nWhen the Finishing Move of the 5th hit of his <color=#FFFFFF>Basic Attack</color> hits an enemy, when he switches off field, or when his <color=#FFFFFF>Morale</color> runs out, Lighter will leave the <color=#FFFFFF>Morale Burst</color> state, keeping any unspent <color=#FFFFFF>Morale</color>.",
+     "When another character in your squad is an <color=#FFFFFF>Attack</color> character or shares the same Faction:\nWhile under the <color=#FFFFFF>Morale Burst</color> state, when the 5th hit of Lighter's <color=#FFFFFF>Basic Attack</color> hits an enemy, all squad members gain a stack of <color=#FFFFFF>Elation</color>, stacking up to 20 times and lasting 30s. Repeated triggers reset the duration. For each stack of <color=#FFFFFF>Elation</color>, an Agent's <color=#98EFF0>Ice DMG</color> and <color=#FF5521>Fire DMG</color> increase by 1.25%.\nWhen obtaining <color=#FFFFFF>Elation</color>, if Lighter's Impact exceeds 170, every additional 10 points of Impact will increase the buff effect provided by each stack of <color=#FFFFFF>Elation</color> by an extra 0.25%. When any squad member launches a <color=#FFFFFF>Chain Attack</color>, it will refresh the duration of all squad members' <color=#FFFFFF>Elation</color>. <color=#FFFFFF>Elation</color> can increase the <color=#98EFF0>Ice DMG</color> and <color=#FF5521>Fire DMG</color> of Agents by a maximum of 75%."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1161503": {
+    "level": 3,
+    "id": 1161503,
+    "name": [
+     "Core Passive: Accelerant",
+     "Additional Ability: Fighting Spirit"
+    ],
+    "desc": [
+     "Lighter automatically gains <color=#FFFFFF>Morale</color> over time, at a rate of 2.9 points per second. For each point of Energy consumed by any squad member, Lighter recovers an additional 0.26 <color=#FFFFFF>Morale</color>, up to a maximum of 100. When <color=#FFFFFF>Morale</color> reaches 80, the next time Lighter switches into battle he immediately launches a <color=#FFFFFF>Quick Assist</color>. Once <color=#FFFFFF>Morale</color> is 80 or higher, executing the 5th hit of his <color=#FFFFFF>Basic Attack</color> puts Lighter in the <color=#FFFFFF>Morale Burst</color> state, enhancing the power of the startup light punch, jab combo, and the Finishing Move of the 5th hit of his <color=#FFFFFF>Basic Attack</color>. When a skill hits an enemy with its power increased, it will continuously consume <color=#FFFFFF>Morale</color>. With every 10 points of <color=#FFFFFF>Morale</color> consumed, Lighter's Impact increases by <color=#2BAD00>1.33%</color>, up to a maximum increase of <color=#2BAD00>13.3%</color>, and lasting 6s.\nIn the <color=#FFFFFF>Morale Burst</color> state, Lighter will no longer automatically gain <color=#FFFFFF>Morale</color> over time. If his <color=#FFFFFF>Morale</color> is exhausted during a startup light punch or jab combo, he will automatically follow up with a more powerful Finishing Move.\nIn the <color=#FFFFFF>Morale Burst</color> state, when startup light punches or jab combos hit enemies, the target's <color=#98EFF0>Ice RES</color> and <color=#FF5521>Fire RES</color> are reduced by 15%, lasting 30s.\nIn the <color=#FFFFFF>Morale Burst</color> state, when the Finishing Move hits an enemy, it applies the <color=#FFFFFF>Collapse</color> effect on the target, extending its Stunned duration by 3s. The <color=#FFFFFF>Collapse</color> effect can trigger only once on the same target before they recover from Stun.\nWhen the Finishing Move of the 5th hit of his <color=#FFFFFF>Basic Attack</color> hits an enemy, when he switches off field, or when his <color=#FFFFFF>Morale</color> runs out, Lighter will leave the <color=#FFFFFF>Morale Burst</color> state, keeping any unspent <color=#FFFFFF>Morale</color>.",
+     "When another character in your squad is an <color=#FFFFFF>Attack</color> character or shares the same Faction:\nWhile under the <color=#FFFFFF>Morale Burst</color> state, when the 5th hit of Lighter's <color=#FFFFFF>Basic Attack</color> hits an enemy, all squad members gain a stack of <color=#FFFFFF>Elation</color>, stacking up to 20 times and lasting 30s. Repeated triggers reset the duration. For each stack of <color=#FFFFFF>Elation</color>, an Agent's <color=#98EFF0>Ice DMG</color> and <color=#FF5521>Fire DMG</color> increase by 1.25%.\nWhen obtaining <color=#FFFFFF>Elation</color>, if Lighter's Impact exceeds 170, every additional 10 points of Impact will increase the buff effect provided by each stack of <color=#FFFFFF>Elation</color> by an extra 0.25%. When any squad member launches a <color=#FFFFFF>Chain Attack</color>, it will refresh the duration of all squad members' <color=#FFFFFF>Elation</color>. <color=#FFFFFF>Elation</color> can increase the <color=#98EFF0>Ice DMG</color> and <color=#FF5521>Fire DMG</color> of Agents by a maximum of 75%."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1161504": {
+    "level": 4,
+    "id": 1161504,
+    "name": [
+     "Core Passive: Accelerant",
+     "Additional Ability: Fighting Spirit"
+    ],
+    "desc": [
+     "Lighter automatically gains <color=#FFFFFF>Morale</color> over time, at a rate of 2.9 points per second. For each point of Energy consumed by any squad member, Lighter recovers an additional 0.26 <color=#FFFFFF>Morale</color>, up to a maximum of 100. When <color=#FFFFFF>Morale</color> reaches 80, the next time Lighter switches into battle he immediately launches a <color=#FFFFFF>Quick Assist</color>. Once <color=#FFFFFF>Morale</color> is 80 or higher, executing the 5th hit of his <color=#FFFFFF>Basic Attack</color> puts Lighter in the <color=#FFFFFF>Morale Burst</color> state, enhancing the power of the startup light punch, jab combo, and the Finishing Move of the 5th hit of his <color=#FFFFFF>Basic Attack</color>. When a skill hits an enemy with its power increased, it will continuously consume <color=#FFFFFF>Morale</color>. With every 10 points of <color=#FFFFFF>Morale</color> consumed, Lighter's Impact increases by <color=#2BAD00>1.5%</color>, up to a maximum increase of <color=#2BAD00>15%</color>, and lasting 6s.\nIn the <color=#FFFFFF>Morale Burst</color> state, Lighter will no longer automatically gain <color=#FFFFFF>Morale</color> over time. If his <color=#FFFFFF>Morale</color> is exhausted during a startup light punch or jab combo, he will automatically follow up with a more powerful Finishing Move.\nIn the <color=#FFFFFF>Morale Burst</color> state, when startup light punches or jab combos hit enemies, the target's <color=#98EFF0>Ice RES</color> and <color=#FF5521>Fire RES</color> are reduced by 15%, lasting 30s.\nIn the <color=#FFFFFF>Morale Burst</color> state, when the Finishing Move hits an enemy, it applies the <color=#FFFFFF>Collapse</color> effect on the target, extending its Stunned duration by 3s. The <color=#FFFFFF>Collapse</color> effect can trigger only once on the same target before they recover from Stun.\nWhen the Finishing Move of the 5th hit of his <color=#FFFFFF>Basic Attack</color> hits an enemy, when he switches off field, or when his <color=#FFFFFF>Morale</color> runs out, Lighter will leave the <color=#FFFFFF>Morale Burst</color> state, keeping any unspent <color=#FFFFFF>Morale</color>.",
+     "When another character in your squad is an <color=#FFFFFF>Attack</color> character or shares the same Faction:\nWhile under the <color=#FFFFFF>Morale Burst</color> state, when the 5th hit of Lighter's <color=#FFFFFF>Basic Attack</color> hits an enemy, all squad members gain a stack of <color=#FFFFFF>Elation</color>, stacking up to 20 times and lasting 30s. Repeated triggers reset the duration. For each stack of <color=#FFFFFF>Elation</color>, an Agent's <color=#98EFF0>Ice DMG</color> and <color=#FF5521>Fire DMG</color> increase by 1.25%.\nWhen obtaining <color=#FFFFFF>Elation</color>, if Lighter's Impact exceeds 170, every additional 10 points of Impact will increase the buff effect provided by each stack of <color=#FFFFFF>Elation</color> by an extra 0.25%. When any squad member launches a <color=#FFFFFF>Chain Attack</color>, it will refresh the duration of all squad members' <color=#FFFFFF>Elation</color>. <color=#FFFFFF>Elation</color> can increase the <color=#98EFF0>Ice DMG</color> and <color=#FF5521>Fire DMG</color> of Agents by a maximum of 75%."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1161505": {
+    "level": 5,
+    "id": 1161505,
+    "name": [
+     "Core Passive: Accelerant",
+     "Additional Ability: Fighting Spirit"
+    ],
+    "desc": [
+     "Lighter automatically gains <color=#FFFFFF>Morale</color> over time, at a rate of 2.9 points per second. For each point of Energy consumed by any squad member, Lighter recovers an additional 0.26 <color=#FFFFFF>Morale</color>, up to a maximum of 100. When <color=#FFFFFF>Morale</color> reaches 80, the next time Lighter switches into battle he immediately launches a <color=#FFFFFF>Quick Assist</color>. Once <color=#FFFFFF>Morale</color> is 80 or higher, executing the 5th hit of his <color=#FFFFFF>Basic Attack</color> puts Lighter in the <color=#FFFFFF>Morale Burst</color> state, enhancing the power of the startup light punch, jab combo, and the Finishing Move of the 5th hit of his <color=#FFFFFF>Basic Attack</color>. When a skill hits an enemy with its power increased, it will continuously consume <color=#FFFFFF>Morale</color>. With every 10 points of <color=#FFFFFF>Morale</color> consumed, Lighter's Impact increases by <color=#2BAD00>1.67%</color>, up to a maximum increase of <color=#2BAD00>16.7%</color>, and lasting 6s.\nIn the <color=#FFFFFF>Morale Burst</color> state, Lighter will no longer automatically gain <color=#FFFFFF>Morale</color> over time. If his <color=#FFFFFF>Morale</color> is exhausted during a startup light punch or jab combo, he will automatically follow up with a more powerful Finishing Move.\nIn the <color=#FFFFFF>Morale Burst</color> state, when startup light punches or jab combos hit enemies, the target's <color=#98EFF0>Ice RES</color> and <color=#FF5521>Fire RES</color> are reduced by 15%, lasting 30s.\nIn the <color=#FFFFFF>Morale Burst</color> state, when the Finishing Move hits an enemy, it applies the <color=#FFFFFF>Collapse</color> effect on the target, extending its Stunned duration by 3s. The <color=#FFFFFF>Collapse</color> effect can trigger only once on the same target before they recover from Stun.\nWhen the Finishing Move of the 5th hit of his <color=#FFFFFF>Basic Attack</color> hits an enemy, when he switches off field, or when his <color=#FFFFFF>Morale</color> runs out, Lighter will leave the <color=#FFFFFF>Morale Burst</color> state, keeping any unspent <color=#FFFFFF>Morale</color>.",
+     "When another character in your squad is an <color=#FFFFFF>Attack</color> character or shares the same Faction:\nWhile under the <color=#FFFFFF>Morale Burst</color> state, when the 5th hit of Lighter's <color=#FFFFFF>Basic Attack</color> hits an enemy, all squad members gain a stack of <color=#FFFFFF>Elation</color>, stacking up to 20 times and lasting 30s. Repeated triggers reset the duration. For each stack of <color=#FFFFFF>Elation</color>, an Agent's <color=#98EFF0>Ice DMG</color> and <color=#FF5521>Fire DMG</color> increase by 1.25%.\nWhen obtaining <color=#FFFFFF>Elation</color>, if Lighter's Impact exceeds 170, every additional 10 points of Impact will increase the buff effect provided by each stack of <color=#FFFFFF>Elation</color> by an extra 0.25%. When any squad member launches a <color=#FFFFFF>Chain Attack</color>, it will refresh the duration of all squad members' <color=#FFFFFF>Elation</color>. <color=#FFFFFF>Elation</color> can increase the <color=#98EFF0>Ice DMG</color> and <color=#FF5521>Fire DMG</color> of Agents by a maximum of 75%."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1161506": {
+    "level": 6,
+    "id": 1161506,
+    "name": [
+     "Core Passive: Accelerant",
+     "Additional Ability: Fighting Spirit"
+    ],
+    "desc": [
+     "Lighter automatically gains <color=#FFFFFF>Morale</color> over time, at a rate of 2.9 points per second. For each point of Energy consumed by any squad member, Lighter recovers an additional 0.26 <color=#FFFFFF>Morale</color>, up to a maximum of 100. When <color=#FFFFFF>Morale</color> reaches 80, the next time Lighter switches into battle he immediately launches a <color=#FFFFFF>Quick Assist</color>. Once <color=#FFFFFF>Morale</color> is 80 or higher, executing the 5th hit of his <color=#FFFFFF>Basic Attack</color> puts Lighter in the <color=#FFFFFF>Morale Burst</color> state, enhancing the power of the startup light punch, jab combo, and the Finishing Move of the 5th hit of his <color=#FFFFFF>Basic Attack</color>. When a skill hits an enemy with its power increased, it will continuously consume <color=#FFFFFF>Morale</color>. With every 10 points of <color=#FFFFFF>Morale</color> consumed, Lighter's Impact increases by <color=#2BAD00>1.83%</color>, up to a maximum increase of <color=#2BAD00>18.3%</color>, and lasting 6s.\nIn the <color=#FFFFFF>Morale Burst</color> state, Lighter will no longer automatically gain <color=#FFFFFF>Morale</color> over time. If his <color=#FFFFFF>Morale</color> is exhausted during a startup light punch or jab combo, he will automatically follow up with a more powerful Finishing Move.\nIn the <color=#FFFFFF>Morale Burst</color> state, when startup light punches or jab combos hit enemies, the target's <color=#98EFF0>Ice RES</color> and <color=#FF5521>Fire RES</color> are reduced by 15%, lasting 30s.\nIn the <color=#FFFFFF>Morale Burst</color> state, when the Finishing Move hits an enemy, it applies the <color=#FFFFFF>Collapse</color> effect on the target, extending its Stunned duration by 3s. The <color=#FFFFFF>Collapse</color> effect can trigger only once on the same target before they recover from Stun.\nWhen the Finishing Move of the 5th hit of his <color=#FFFFFF>Basic Attack</color> hits an enemy, when he switches off field, or when his <color=#FFFFFF>Morale</color> runs out, Lighter will leave the <color=#FFFFFF>Morale Burst</color> state, keeping any unspent <color=#FFFFFF>Morale</color>.",
+     "When another character in your squad is an <color=#FFFFFF>Attack</color> character or shares the same Faction:\nWhile under the <color=#FFFFFF>Morale Burst</color> state, when the 5th hit of Lighter's <color=#FFFFFF>Basic Attack</color> hits an enemy, all squad members gain a stack of <color=#FFFFFF>Elation</color>, stacking up to 20 times and lasting 30s. Repeated triggers reset the duration. For each stack of <color=#FFFFFF>Elation</color>, an Agent's <color=#98EFF0>Ice DMG</color> and <color=#FF5521>Fire DMG</color> increase by 1.25%.\nWhen obtaining <color=#FFFFFF>Elation</color>, if Lighter's Impact exceeds 170, every additional 10 points of Impact will increase the buff effect provided by each stack of <color=#FFFFFF>Elation</color> by an extra 0.25%. When any squad member launches a <color=#FFFFFF>Chain Attack</color>, it will refresh the duration of all squad members' <color=#FFFFFF>Elation</color>. <color=#FFFFFF>Elation</color> can increase the <color=#98EFF0>Ice DMG</color> and <color=#FF5521>Fire DMG</color> of Agents by a maximum of 75%."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1161507": {
+    "level": 7,
+    "id": 1161507,
+    "name": [
+     "Core Passive: Accelerant",
+     "Additional Ability: Fighting Spirit"
+    ],
+    "desc": [
+     "Lighter automatically gains <color=#FFFFFF>Morale</color> over time, at a rate of 2.9 points per second. For each point of Energy consumed by any squad member, Lighter recovers an additional 0.26 <color=#FFFFFF>Morale</color>, up to a maximum of 100. When <color=#FFFFFF>Morale</color> reaches 80, the next time Lighter switches into battle he immediately launches a <color=#FFFFFF>Quick Assist</color>. Once <color=#FFFFFF>Morale</color> is 80 or higher, executing the 5th hit of his <color=#FFFFFF>Basic Attack</color> puts Lighter in the <color=#FFFFFF>Morale Burst</color> state, enhancing the power of the startup light punch, jab combo, and the Finishing Move of the 5th hit of his <color=#FFFFFF>Basic Attack</color>. When a skill hits an enemy with its power increased, it will continuously consume <color=#FFFFFF>Morale</color>. With every 10 points of <color=#FFFFFF>Morale</color> consumed, Lighter's Impact increases by <color=#2BAD00>2%</color>, up to a maximum increase of <color=#2BAD00>20%</color>, and lasting 6s.\nIn the <color=#FFFFFF>Morale Burst</color> state, Lighter will no longer automatically gain <color=#FFFFFF>Morale</color> over time. If his <color=#FFFFFF>Morale</color> is exhausted during a startup light punch or jab combo, he will automatically follow up with a more powerful Finishing Move.\nIn the <color=#FFFFFF>Morale Burst</color> state, when startup light punches or jab combos hit enemies, the target's <color=#98EFF0>Ice RES</color> and <color=#FF5521>Fire RES</color> are reduced by 15%, lasting 30s.\nIn the <color=#FFFFFF>Morale Burst</color> state, when the Finishing Move hits an enemy, it applies the <color=#FFFFFF>Collapse</color> effect on the target, extending its Stunned duration by 3s. The <color=#FFFFFF>Collapse</color> effect can trigger only once on the same target before they recover from Stun.\nWhen the Finishing Move of the 5th hit of his <color=#FFFFFF>Basic Attack</color> hits an enemy, when he switches off field, or when his <color=#FFFFFF>Morale</color> runs out, Lighter will leave the <color=#FFFFFF>Morale Burst</color> state, keeping any unspent <color=#FFFFFF>Morale</color>.",
+     "When another character in your squad is an <color=#FFFFFF>Attack</color> character or shares the same Faction:\nWhile under the <color=#FFFFFF>Morale Burst</color> state, when the 5th hit of Lighter's <color=#FFFFFF>Basic Attack</color> hits an enemy, all squad members gain a stack of <color=#FFFFFF>Elation</color>, stacking up to 20 times and lasting 30s. Repeated triggers reset the duration. For each stack of <color=#FFFFFF>Elation</color>, an Agent's <color=#98EFF0>Ice DMG</color> and <color=#FF5521>Fire DMG</color> increase by 1.25%.\nWhen obtaining <color=#FFFFFF>Elation</color>, if Lighter's Impact exceeds 170, every additional 10 points of Impact will increase the buff effect provided by each stack of <color=#FFFFFF>Elation</color> by an extra 0.25%. When any squad member launches a <color=#FFFFFF>Chain Attack</color>, it will refresh the duration of all squad members' <color=#FFFFFF>Elation</color>. <color=#FFFFFF>Elation</color> can increase the <color=#98EFF0>Ice DMG</color> and <color=#FF5521>Fire DMG</color> of Agents by a maximum of 75%."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110502": 2
+   },
+   "3": {
+    "10": 28000,
+    "110502": 4
+   },
+   "4": {
+    "10": 60000,
+    "110004": 2,
+    "110502": 9
+   },
+   "5": {
+    "10": 100000,
+    "110004": 3,
+    "110502": 15
+   },
+   "6": {
+    "10": 200000,
+    "110004": 4,
+    "110502": 30
+   }
+  }
+ },
+ "skin": {
+  "3111610": {
+   "name": "Lighter: Everburn Embers",
+   "desc": "The undefeated champion never takes off his sunglasses... or his scarf. Glory stopped mattering long ago, but the countless dusks shared with his companions are still worth waiting for.",
+   "obtain_desc": "",
+   "image": "IconRole26"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1161001": {
+   "name": "Basic Attack: L-Form Thundering Fist",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1161002": {
+   "name": "Dodge: Shadowed Slide (Shuffle Dodge)",
+   "desc": "<IconMap:Icon_Evade>(During Attack)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1161003": {
+   "name": "Special Attack: V-Form Sunrise Uppercut",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1161004": {
+   "name": "Special Attack: V-Form Sunrise Uppercut (Punch Combo)",
+   "desc": "<IconMap:Icon_Special> (During Shuffle Dodge)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1161005": {
+   "name": "EX Special Attack: V-Form Sunrise Uppercut - Full Distance",
+   "desc": "<IconMap:Icon_SpecialReady> ; <IconMap:Icon_SpecialReady>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1161006": {
+   "name": "EX Special Attack: V-Form Sunrise Uppercut - Full Distance (Punch Combo)",
+   "desc": "<IconMap:Icon_SpecialReady> (During Shuffle Dodge)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1161007": {
+   "name": "Dash Attack: Charging Slam",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1161008": {
+   "name": "Dodge Counter: Blazing Flash",
+   "desc": "<IconMap:Icon_Evade> (Perfect) ; <IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1161009": {
+   "name": "Chain Attack: V-Form Scorching Sun",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1161010": {
+   "name": "Ultimate: W-Form Crowned Inferno",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1161011": {
+   "name": "Quick Assist: Blazing Flash - Guard",
+   "desc": "<IconMap:Icon_Switch> (When Triggering Quick Assist)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1161012": {
+   "name": "Defensive Assist: Swift Break",
+   "desc": "<IconMap:Icon_Switch> (When Triggering Defensive Assist)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1161013": {
+   "name": "Assist Follow-Up: Charging Slam - Stab",
+   "desc": "<IconMap:Icon_Normal> (After Defensive Assist)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1161001,
+   "avatar_id": 1161,
+   "first_priority": [
+    5,
+    0,
+    1
+   ],
+   "second_priority": [
+    3
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33200,
+  "slot2": 31200,
+  "slot_sub": 31000,
+  "part_sub_list": [
+   20103,
+   12102,
+   21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31200,
+     31600
+    ],
+    "part_sub_list": [
+     20103
+    ]
+   },
+   {
+    "suit_list": [
+     33200,
+     31200
+    ],
+    "part_sub_list": [
+     31603,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12202
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 12202,
+   "name": "Impact",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconBreakStun.png"
+  },
+  "part5": {
+   "prop": 31603,
+   "name": "Fire DMG Bonus",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconFire.png"
+  },
+  "part6": {
+   "prop": 20103,
+   "name": "CRIT Rate",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "ATK",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "07",
+  "<IconMap:Icon_GeneralBuff_Fire>Fire, quick-swap Stun support",
+  "Additionally extends Stun duration on targets",
+  "Boosts all squad members' Ice and Fire DMG and lowers targets' Ice and Fire RES"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100212": 4
+   }
+  },
+  "2": {
+   "hp_max": 432,
+   "attack": 47,
+   "defence": 34,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100222": 12
+   }
+  },
+  "3": {
+   "hp_max": 864,
+   "attack": 95,
+   "defence": 68,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100222": 20
+   }
+  },
+  "4": {
+   "hp_max": 1296,
+   "attack": 142,
+   "defence": 101,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100232": 10
+   }
+  },
+  "5": {
+   "hp_max": 1727,
+   "attack": 190,
+   "defence": 135,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100232": 20
+   }
+  },
+  "6": {
+   "hp_max": 2159,
+   "attack": 237,
+   "defence": 169,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "Impact",
+     "format": "{0:0.#}",
+     "value": 6
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "Impact",
+     "format": "{0:0.#}",
+     "value": 6
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "Impact",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "Impact",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "Impact",
+     "format": "{0:0.#}",
+     "value": 18
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "Impact",
+     "format": "{0:0.#}",
+     "value": 18
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpine_Lighter"
+}

@@ -3,21 +3,18 @@
     <template v-if="hasError">
       <div class="eb-card">
         <p class="eb-eyebrow mono">ARCHIVE · ERROR</p>
-        <h1 class="eb-title serif">档案读取出错</h1>
-        <p class="eb-desc">
-          当前页面的数据渲染遇到了意外情况。这可能是数据文件暂时异常，
-          刷新页面或返回名录重试即可。
-        </p>
+        <h1 class="eb-title serif">{{ t.state.errorTitle }}</h1>
+        <p class="eb-desc">{{ t.state.errorBody }}</p>
         <div class="eb-actions">
           <button type="button" class="eb-btn mono" @click="retry">
-            ↻ 重试
+            ↻ {{ t.state.retry }}
           </button>
           <RouterLink to="/" class="eb-btn eb-btn-ghost mono">
-            ← 返回首页
+            ← {{ t.state.backHome }}
           </RouterLink>
         </div>
         <details v-if="errInfo" class="eb-detail">
-          <summary class="eb-detail-sum mono">错误详情</summary>
+          <summary class="eb-detail-sum mono">{{ t.state.errorDetail }}</summary>
           <pre class="eb-detail-pre">{{ errInfo }}</pre>
         </details>
       </div>
@@ -31,6 +28,9 @@
 <script setup lang="ts">
 import { onErrorCaptured, ref } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useUiText } from '@/composables/useUiText'
+
+const { t } = useUiText()
 
 const hasError = ref(false)
 const errInfo = ref('')

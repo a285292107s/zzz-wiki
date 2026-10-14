@@ -2,6 +2,8 @@
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { usePageMeta } from '@/composables/usePageMeta'
+import { useLocale } from '@/composables/useLocale'
+import { useUiText } from '@/composables/useUiText'
 import { resolveAnchorOffset } from '@/composables/anchorOffset'
 import { useNavScrollable } from '@/composables/useNavScrollable'
 import { FORMULA_GUIDE } from '@/data/formulaGuide'
@@ -9,6 +11,9 @@ import { dataVersions } from '@/data/api'
 import { ListPage, DetailSection } from '@/components'
 import NavScrollButton from '@/components/NavScrollButton.vue'
 import FormulaEq from '@/components/FormulaEq.vue'
+
+const { lang } = useLocale()
+const { t } = useUiText()
 
 const title = FORMULA_GUIDE.title
 usePageMeta(title, FORMULA_GUIDE.sub)
@@ -91,6 +96,12 @@ onBeforeUnmount(() => {
       <p class="page-sub">{{ FORMULA_GUIDE.sub }}</p>
     </header>
 
+    <!-- 长文不翻译（决策记录 0011）：非中文读者先读到「这页只有中文」，中文读者不需要 -->
+    <p v-if="lang !== 'zh'" v-reveal="40" class="zh-only" role="note">
+      <b class="mono">{{ t.longform.chineseOnly }}</b>
+      <span>{{ t.longform.chineseOnlyNote }}</span>
+    </p>
+
     <!-- 出处与提示：纯细线盒，无卡片堆叠 -->
     <aside v-reveal="90" class="notice" aria-label="阅读提示">
       <p class="notice-source">
@@ -156,6 +167,22 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
+/* 「本页仅中文」提示条：一行注记，不抢 header 的层级（细线 + 弱墨） */
+.zh-only {
+  margin-top: 18px;
+  padding: 10px 12px;
+  border-left: 2px solid var(--amber);
+  background: var(--bg-1);
+  font-size: var(--fs-caption);
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+.zh-only b {
+  display: block;
+  color: var(--amber-hi);
+  letter-spacing: 0.08em;
+}
+
 .notice {
   border: var(--rule);
   border-radius: 2px;

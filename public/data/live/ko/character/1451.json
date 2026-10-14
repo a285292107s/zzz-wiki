@@ -1,0 +1,2235 @@
+{
+ "id": 1451,
+ "icon": "IconRole50",
+ "name": "루시아",
+ "code_name": "Lucia",
+ "rarity": 4,
+ "weapon_type": {
+  "4": "Support"
+ },
+ "element_type": {
+  "205": "Ether"
+ },
+ "hit_type": {
+  "102": "Strike"
+ },
+ "camp": {
+  "11": "괴담방"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "3/17",
+  "full_name": "루시아 엘로웬",
+  "gender": "여성",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle50.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0050.png",
+  "impression_f": "루시아는 공동을 혼자 누비며 에테리얼을 찾는 걸 좋아해. 간식을 든 채 비디오 가게의 창문을 두들기고 들어와 영화를 보는 것도 좋아하고…\n늘 신나는 모습으로 여기저기에 나타나는 게, 꼭 밤하늘을 날아다니는 작은 요정 같아!",
+  "impression_m": "루시아의 「Bangboo」 괴담에 빠진 이후로, 이아스는 제때 잠들지 못하게 됐어…\n이젠 시도 때도 없이 안내 데스크에서 창문을 두드리는 소리가 안 들리나 귀를 쫑긋 세우고 있다니까. 정말 골치 아파",
+  "impressions": [
+   "루시아에 대한 인상:\n · 밤빛을 타고 찾아온, 별하늘 아래의 수수께끼 같다",
+   " · 무수한 이야기를 넘나들며, 끝없는 꿈속을 거닌다",
+   " · 너의 여정이 영원히 끝나지 않기를"
+  ],
+  "profile_desc": "루시아, 괴담방의 멤버 중 하나. 로프넷 닉네임은 「나이트메어 전령」으로, 배낭 여행가이자 에테리얼 이야기 애호가, 그리고 야식 노점의 권위 있는 미식가다.\n자료에 따르면 루시아는 도시 변두리에 살고 있는 부족 출신으로, 이 부족의 선조들은 일찍이 「나이트메어」라는 에테리얼을 만났는데(공동 조사 길드 문서에 기록 없음), 이로 인해 쉽게 에테리얼에게 발각되지 않는 특별한 능력을 얻게 되었다고 한다. 하지만 그 대가로 밤에 「나이트메어」의 꿈을 꾸게 됐고, 「나이트메어」의 유혹에 이끌려 몽유병 상태로 공동으로 들어가 침식당하곤 했다.\n이런 이유로, 부족민들은 「야경꾼」이 되었다. 그들은 낮에 쉬고 심야에 사냥하는 것을 습관으로 삼았고 그렇게 「나이트메어」의 유혹을 피했다. 간혹 도저히 버티지 못하고 밤에 잠들려 하는 이가 있다면, 가족들이 날이 밝을 때까지 그의 곁을 지켰다.\n\n부족민들의 보살핌 속에서 자란 루시아는 뉴에리두에 와서도 「야경꾼」의 전통을 이어가며 밤에 잠드는 것을 피하고, 소중히 여기는 친구들 곁에서 그들이 나이트메어에게 공격받지 않도록 지킨다.\n마스터, 만약 한밤중에 창문을 두드리는 소리가 들려도 놀라지 마세요. 어쩌면 잠 못 이루는 야경꾼이 인사를 건네는 것일 테니까요.\n\n보충 정보: 루시아의 반려동물인 「밤송이」는 체구가 작고 성격이 우호적인 하티입니다. 과거 공동 외곽에 살았지만, 지금은 공동 심층으로 이동했으며, 저조차도 현재 정확한 위치를 파악할 수 없습니다.",
+  "role_icon": "IconRole/UnPacker/IconRole50",
+  "stature": "160",
+  "unlock_condition": [
+   "에이전트 획득",
+   "메인 의뢰 시즌 2 제4장 완료",
+   "「엔비의 고민」 의뢰 완료"
+  ],
+  "trust_lv": {
+   "1": "루시아, 괴담방의 멤버 중 하나. 로프넷 닉네임은 「나이트메어 전령」으로, 배낭 여행가이자 에테리얼 이야기 애호가, 그리고 야식 노점의 권위 있는 미식가다.\n자료에 따르면 루시아는 도시 변두리에 살고 있는 부족 출신으로, 이 부족의 선조들은 일찍이 「나이트메어」라는 에테리얼을 만났는데(공동 조사 길드 문서에 기록 없음), 이로 인해 쉽게 에테리얼에게 발각되지 않는 특별한 능력을 얻게 되었다고 한다. 하지만 그 대가로 밤에 「나이트메어」의 꿈을 꾸게 됐고, 「나이트메어」의 유혹에 이끌려 몽유병 상태로 공동으로 들어가 침식당하곤 했다.\n이런 이유로, 부족민들은 「야경꾼」이 되었다. 그들은 낮에 쉬고 심야에 사냥하는 것을 습관으로 삼았고 그렇게 「나이트메어」의 유혹을 피했다. 간혹 도저히 버티지 못하고 밤에 잠들려 하는 이가 있다면, 가족들이 날이 밝을 때까지 그의 곁을 지켰다.\n\n부족민들의 보살핌 속에서 자란 루시아는 뉴에리두에 와서도 「야경꾼」의 전통을 이어가며 밤에 잠드는 것을 피하고, 소중히 여기는 친구들 곁에서 그들이 나이트메어에게 공격받지 않도록 지킨다.\n마스터, 만약 한밤중에 창문을 두드리는 소리가 들려도 놀라지 마세요. 어쩌면 잠 못 이루는 야경꾼이 인사를 건네는 것일 테니까요.\n\n보충 정보: 루시아의 반려동물인 「밤송이」는 체구가 작고 성격이 우호적인 하티입니다. 과거 공동 외곽에 살았지만, 지금은 공동 심층으로 이동했으며, 저조차도 현재 정확한 위치를 파악할 수 없습니다.",
+   "2": "",
+   "3": "루시아의 아버지는 방위군 특수부대에서 일했고, 업무가 바빠 일 년에 한 번만 집에 돌아왔다. 어린 루시아에게는 아버지와 함께하는 시간 자체가 하나의 선물이었다.\n어느 휴가 중, 루시아의 아버지는 긴급 명령을 받아 즉시 떠나야만 했다. 떠나기 전, 울음을 그치지 않는 딸을 달래기 위해 아버지는 루시아에게 눈을 가리고 숨바꼭질을 하자고 했다. 루시아가 숫자를 세고 눈을 떴을 때 아버지는 이미 떠난 뒤였고, 그렇게 다시는 돌아오지 못했다.\n수년 후, 「마을」로 향하는 임무에서 루시아는 「방황하는 사냥꾼」이 되어버린 아버지와 재회했다. 경쾌한 동요가 울려 퍼지는 가운데, 루시아는 오랜 세월이 지나서야 끝내지 못했던 숨바꼭질을 마무리했다. 「방황하는 사냥꾼」은 미아즈마에 물든 집착을 내려놓고 서서히 사라졌다. 그들은 그곳에서 재회했고, 또 그곳에서 이별했다.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 109,
+  "attack_growth": 64272,
+  "avatar_piece_id": 5451,
+  "break_stun": 83,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 48,
+  "defence_growth": 64845,
+  "element_abnormal_power": 96,
+  "element_mystery": 95,
+  "endurance": 0,
+  "hp_growth": 924944,
+  "hp_max": 681,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Lucia",
+   "Punch",
+   "Ether",
+   "Female",
+   "Camp11",
+   "Size2",
+   "AidTypeParry",
+   "Lucia",
+   "EtherEyesSize2"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "일반 공격: 별 궤적 콤보",
+     "desc": "<IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방으로 최대 5단까지 타격을 펼쳐 <color=#FE437E>에테르 피해</color>를 준다.\n이때 다섯 번째 공격은 <color=#FFFFFF>[구상]</color>으로, 시전 시 에테리얼 형상을 재현해 전방 원형 구역의 적에게 <color=#FE437E>에테르 피해</color>를 준다.\n교전 상태이며 <color=#FFFFFF>[꿈세계]</color> 상태가 아닐 때, 루시아가 해당 <color=#FFFFFF>[구상]</color>을 시전하면 <color=#FFFFFF>[꿈세계 게이지]</color>를 40pt 획득한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 별 궤적 콤보",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1451001, Prop:1001}",
+       "param": {
+        "1451001": {
+         "main": 4090,
+         "growth": 380,
+         "format": "%",
+         "damage_percentage": 4090,
+         "damage_percentage_growth": 380,
+         "stun_ratio": 6610,
+         "stun_ratio_growth": 310,
+         "sp_recovery": 21610,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 165275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3144,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6003
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1451002, Prop:1001}",
+       "param": {
+        "1451002": {
+         "main": 2780,
+         "growth": 260,
+         "format": "%",
+         "damage_percentage": 2780,
+         "damage_percentage_growth": 260,
+         "stun_ratio": 3670,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 12020,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 91850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2025,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1451003, Prop:1001}",
+       "param": {
+        "1451003": {
+         "main": 8350,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 8350,
+         "damage_percentage_growth": 760,
+         "stun_ratio": 10770,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 35250,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 269225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5921,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9790
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 피해 배율",
+       "desc": "{Skill:1451004, Prop:1001}",
+       "param": {
+        "1451004": {
+         "main": 8010,
+         "growth": 730,
+         "format": "%",
+         "damage_percentage": 8010,
+         "damage_percentage_growth": 730,
+         "stun_ratio": 11190,
+         "stun_ratio_growth": 510,
+         "sp_recovery": 31070,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 237325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5650,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "구상 피해 배율",
+       "desc": "{Skill:1451005, Prop:1001}",
+       "param": {
+        "1451005": {
+         "main": 17290,
+         "growth": 1580,
+         "format": "%",
+         "damage_percentage": 17290,
+         "damage_percentage_growth": 1580,
+         "stun_ratio": 20760,
+         "stun_ratio_growth": 950,
+         "sp_recovery": 73500,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 561550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14224,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18873
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "합창 피해 배율",
+       "desc": "{Skill:1451006, Prop:1001}",
+       "param": {
+        "1451006": {
+         "main": 41250,
+         "growth": 3750,
+         "format": "%",
+         "damage_percentage": 41250,
+         "damage_percentage_growth": 3750,
+         "stun_ratio": 20760,
+         "stun_ratio_growth": 950,
+         "sp_recovery": 73500,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 561550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14224,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18873
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "여진 공격 피해 배율",
+       "desc": "{Skill:1451007, Prop:1001}",
+       "param": {
+        "1451007": {
+         "main": 55000,
+         "growth": 5000,
+         "format": "%",
+         "damage_percentage": 55000,
+         "damage_percentage_growth": 5000,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1451001, Prop:1002}",
+       "param": {
+        "1451001": {
+         "main": 6610,
+         "growth": 310,
+         "format": "%",
+         "damage_percentage": 4090,
+         "damage_percentage_growth": 380,
+         "stun_ratio": 6610,
+         "stun_ratio_growth": 310,
+         "sp_recovery": 21610,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 165275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3144,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6003
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1451002, Prop:1002}",
+       "param": {
+        "1451002": {
+         "main": 3670,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 2780,
+         "damage_percentage_growth": 260,
+         "stun_ratio": 3670,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 12020,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 91850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2025,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1451003, Prop:1002}",
+       "param": {
+        "1451003": {
+         "main": 10770,
+         "growth": 490,
+         "format": "%",
+         "damage_percentage": 8350,
+         "damage_percentage_growth": 760,
+         "stun_ratio": 10770,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 35250,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 269225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5921,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9790
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 그로기 배율",
+       "desc": "{Skill:1451004, Prop:1002}",
+       "param": {
+        "1451004": {
+         "main": 11190,
+         "growth": 510,
+         "format": "%",
+         "damage_percentage": 8010,
+         "damage_percentage_growth": 730,
+         "stun_ratio": 11190,
+         "stun_ratio_growth": 510,
+         "sp_recovery": 31070,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 237325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5650,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "구상 그로기 배율",
+       "desc": "{Skill:1451005, Prop:1002}",
+       "param": {
+        "1451005": {
+         "main": 20760,
+         "growth": 950,
+         "format": "%",
+         "damage_percentage": 17290,
+         "damage_percentage_growth": 1580,
+         "stun_ratio": 20760,
+         "stun_ratio_growth": 950,
+         "sp_recovery": 73500,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 561550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14224,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18873
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "합창 그로기 배율",
+       "desc": "{Skill:1451006, Prop:1002}",
+       "param": {
+        "1451006": {
+         "main": 20760,
+         "growth": 950,
+         "format": "%",
+         "damage_percentage": 41250,
+         "damage_percentage_growth": 3750,
+         "stun_ratio": 20760,
+         "stun_ratio_growth": 950,
+         "sp_recovery": 73500,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 561550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14224,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18873
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "여진 공격 그로기 배율",
+       "desc": "{Skill:1451007, Prop:1002}",
+       "param": {
+        "1451007": {
+         "main": 0,
+         "growth": 0,
+         "format": "%",
+         "damage_percentage": 55000,
+         "damage_percentage_growth": 5000,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "회피: 그림자 끌기",
+     "desc": "<IconMap:Icon_Evade>을 짧게 탭하여 시전:\n빠른 대시로 회피한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 빛의 굴절",
+     "desc": "회피 시 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 빠르게 타격해 <color=#FE437E>에테르 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 별가루 메아리",
+     "desc": "<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n회피 반격은 <color=#FFFFFF>[구상]</color>으로, 시전 시 에테리얼 형상을 재현해 전방의 원형 구역에 낙하 공격을 시전하여 <color=#FE437E>에테르 피해</color>를 준다.\n<color=#FFFFFF>[꿈세계]</color> 상태가 아닐 때, 루시아가 해당 <color=#FFFFFF>[구상]</color>을 시전하면 <color=#FFFFFF>[꿈세계 게이지]</color>를 20pt 획득한다. 5초 동안 최대 1회 획득할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 빛의 굴절",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1451012, Prop:1001}",
+       "param": {
+        "1451012": {
+         "main": 8630,
+         "growth": 790,
+         "format": "%",
+         "damage_percentage": 8630,
+         "damage_percentage_growth": 790,
+         "stun_ratio": 4320,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 14110,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 107800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3918,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3919
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1451012, Prop:1002}",
+       "param": {
+        "1451012": {
+         "main": 4320,
+         "growth": 200,
+         "format": "%",
+         "damage_percentage": 8630,
+         "damage_percentage_growth": 790,
+         "stun_ratio": 4320,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 14110,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 107800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3918,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3919
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 별가루 메아리",
+     "param": [
+      {
+       "name": "구상 피해 배율",
+       "desc": "{Skill:1451013, Prop:1001}",
+       "param": {
+        "1451013": {
+         "main": 24830,
+         "growth": 2260,
+         "format": "%",
+         "damage_percentage": 24830,
+         "damage_percentage_growth": 2260,
+         "stun_ratio": 21640,
+         "stun_ratio_growth": 990,
+         "sp_recovery": 34820,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 266200,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "합창 피해 배율",
+       "desc": "{Skill:1451014, Prop:1001}",
+       "param": {
+        "1451014": {
+         "main": 38580,
+         "growth": 3510,
+         "format": "%",
+         "damage_percentage": 38580,
+         "damage_percentage_growth": 3510,
+         "stun_ratio": 21640,
+         "stun_ratio_growth": 990,
+         "sp_recovery": 34820,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 266200,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "구상 그로기 배율",
+       "desc": "{Skill:1451013, Prop:1002}",
+       "param": {
+        "1451013": {
+         "main": 21640,
+         "growth": 990,
+         "format": "%",
+         "damage_percentage": 24830,
+         "damage_percentage_growth": 2260,
+         "stun_ratio": 21640,
+         "stun_ratio_growth": 990,
+         "sp_recovery": 34820,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 266200,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "합창 그로기 배율",
+       "desc": "{Skill:1451014, Prop:1002}",
+       "param": {
+        "1451014": {
+         "main": 21640,
+         "growth": 990,
+         "format": "%",
+         "damage_percentage": 38580,
+         "damage_percentage_growth": 3510,
+         "stun_ratio": 21640,
+         "stun_ratio_growth": 990,
+         "sp_recovery": 34820,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 266200,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24671
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "특수 스킬: 사신 협주곡·폭풍",
+     "desc": "<IconMap:Icon_Special>을 짧게 탭하여 시전:\n특수 스킬은 <color=#FFFFFF>[구상]</color>으로, 시전 시 에테리얼 형상을 재현해 전방 직선 구역에 베기를 시전하여 <color=#FE437E>에테르 피해</color>를 준다.\n교전 상태이며 <color=#FFFFFF>[꿈세계]</color> 상태가 아닐 때, 루시아가 해당 <color=#FFFFFF>[구상]</color>을 시전하면 <color=#FFFFFF>[꿈세계 게이지]</color>를 20pt 획득한다. 5초 동안 최대 1회 획득할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 사신 협주곡·여명",
+     "desc": "에너지가 충분한 상태에서 <IconMap:Icon_SpecialReady>을 짧게 탭하여 시전:\n강화 특수 스킬은 <color=#FFFFFF>[합창]</color>으로, 시전 시 에테리얼 형상을 재현해 전방 직선 구역에 강력한 베기를 시전하여 <color=#FE437E>에테르 피해</color>를 준다.\n루시아가 <color=#FFFFFF>[합창]</color> 시전 시 파티 내 모든 캐릭터에게 <color=#FFFFFF>[어둠 돌파]</color> 상태를 부여한다. <color=#FFFFFF>[어둠 돌파]</color> 상태에서는 관입력이 12pt 증가하며, 루시아의 초기 HP 최대치 200pt마다 관입력이 추가로 <color=#2BAD00>{CAL:5+AvatarSkillLevel(1)*0.2,1,1}</color>pt 증가한다. <color=#FFFFFF>[어둠 돌파]</color> 상태는 최대 <color=#2BAD00>{CAL:612+AvatarSkillLevel(1)*24,1,2}</color>pt의 관입력을 증가시킨다. 상태 지속 시간: 20초, 중복 발동 시 지속 시간이 갱신된다. 루시아의 초기 HP 최대치가 24000pt에 도달 시, 상술한 버프 효과가 최대치에 도달한다.\n<color=#FFFFFF>[합창]</color>으로 피해를 줄 때, 루시아는 HP 최대치의 <color=#2BAD00>{CAL:0.34+AvatarSkillLevel(1)*0.03,100,2}%</color>만큼 마지막 단계 공격의 피해를 추가로 증가시킨다.\n루시아가 강화 특수 스킬을 시전한 후, 자신이 <color=#FFFFFF>[꿈세계]</color> 상태이고 <color=#FFFFFF>[에테르 장막·용천]</color>이 적용 중이라면 <color=#FFFFFF>[에테르 장막·용천]</color>의 지속 시간이 16초 연장된다.\n루시아는 강화 특수 스킬을 시전한 후 바로 다섯 번째 <color=#FFFFFF>[일반 공격]</color>을 이어서 시전할 수 있다.\n<color=#FFFFFF>[꿈세계]</color> 상태가 아닐 때, 루시아가 해당 <color=#FFFFFF>[합창]</color>을 시전하면 <color=#FFFFFF>[꿈세계 게이지]</color>를 60pt 획득한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 사신 협주곡·폭풍",
+     "param": [
+      {
+       "name": "구상 피해 배율",
+       "desc": "{Skill:1451008, Prop:1001}",
+       "param": {
+        "1451008": {
+         "main": 4590,
+         "growth": 420,
+         "format": "%",
+         "damage_percentage": 4590,
+         "damage_percentage_growth": 420,
+         "stun_ratio": 4590,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 114675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4165,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4166
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "합창 피해 배율",
+       "desc": "{Skill:1451009, Prop:1001}",
+       "param": {
+        "1451009": {
+         "main": 18340,
+         "growth": 1670,
+         "format": "%",
+         "damage_percentage": 18340,
+         "damage_percentage_growth": 1670,
+         "stun_ratio": 4590,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 114675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4165,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4166
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "여진 공격 피해 배율",
+       "desc": "{Skill:1451010, Prop:1001}",
+       "param": {
+        "1451010": {
+         "main": 55000,
+         "growth": 5000,
+         "format": "%",
+         "damage_percentage": 55000,
+         "damage_percentage_growth": 5000,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "구상 그로기 배율",
+       "desc": "{Skill:1451008, Prop:1002}",
+       "param": {
+        "1451008": {
+         "main": 4590,
+         "growth": 210,
+         "format": "%",
+         "damage_percentage": 4590,
+         "damage_percentage_growth": 420,
+         "stun_ratio": 4590,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 114675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4165,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4166
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "합창 그로기 배율",
+       "desc": "{Skill:1451009, Prop:1002}",
+       "param": {
+        "1451009": {
+         "main": 4590,
+         "growth": 210,
+         "format": "%",
+         "damage_percentage": 18340,
+         "damage_percentage_growth": 1670,
+         "stun_ratio": 4590,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 114675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4165,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4166
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "여진 공격 그로기 배율",
+       "desc": "{Skill:1451010, Prop:1002}",
+       "param": {
+        "1451010": {
+         "main": 0,
+         "growth": 0,
+         "format": "%",
+         "damage_percentage": 55000,
+         "damage_percentage_growth": 5000,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 사신 협주곡·여명",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1451011, Prop:1001}",
+       "param": {
+        "1451011": {
+         "main": 63810,
+         "growth": 5810,
+         "format": "%",
+         "damage_percentage": 63810,
+         "damage_percentage_growth": 5810,
+         "stun_ratio": 44190,
+         "stun_ratio_growth": 2010,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1627450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 44921,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1451011, Prop:1002}",
+       "param": {
+        "1451011": {
+         "main": 44190,
+         "growth": 2010,
+         "format": "%",
+         "damage_percentage": 63810,
+         "damage_percentage_growth": 5810,
+         "stun_ratio": 44190,
+         "stun_ratio_growth": 2010,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1627450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 44921,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "에너지 소모",
+       "desc": "60pt",
+       "potential": []
+      },
+      {
+       "name": "관입력 추가 증가 최대치",
+       "desc": "{CAL:612+AvatarSkillLevel(1)*24,1,2}pt",
+       "potential": []
+      },
+      {
+       "name": "[합창] 추가 피해 배율",
+       "desc": "{CAL:0.34+AvatarSkillLevel(1)*0.03,100,2}%",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "콤보 스킬: 영롱한 무대",
+     "desc": "<color=#FFFFFF>[콤보 스킬]</color> 발동 시 해당 캐릭터를 선택해 시전:\n콤보 스킬은 <color=#FFFFFF>[합창]</color>으로, 시전 시 에테리얼 형상을 재현해 전방 원형 구역의 적을 끌어당기고 <color=#FE437E>에테르 피해</color>를 준다.\n<color=#FFFFFF>[꿈세계]</color> 상태가 아닐 때, 루시아가 해당 <color=#FFFFFF>[합창]</color>을 시전하면 <color=#FFFFFF>[꿈세계 게이지]</color>를 40pt 획득한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "궁극기: 거대한 갑옷, 진격!",
+     "desc": "데시벨 레벨 [Maximum] 달성 시 <IconMap:Icon_UltimateReady>을 짧게 탭하여 시전:\n궁극기는 <color=#FFFFFF>[합창]</color>으로, 시전 시 에테리얼 형상을 재현하고 루시아가 올라타 돌진한다. 방향키를 홀드하면 돌진 방향을 제어할 수 있으며 돌진 시간이 최대 3초까지 연장된다. 돌진 중에는 경직 저항 레벨이 증가하고, 받는 피해가 40% 감소하며, 루시아가 치명상을 입을 시 전투 불능으로 퇴장하지 않고 HP가 최소 1까지만 감소한다.\n돌진을 멈추면 주변 넓은 범위에 강력한 타격을 시전해 <color=#FE437E>에테르 피해</color>를 주고, 스킬이 적 명중 시 <color=#FFFFFF>[빠른 지원]</color>이 발동되며, 스킬 시전 후 <color=#FFFFFF>[별빛이 모이는 곳]</color>을 남긴다. <color=#FFFFFF>[별빛이 모이는 곳]</color>은 8초 동안 지속되며, 현재 조작 중인 캐릭터가 <color=#FFFFFF>[별빛이 모이는 곳]</color>에 있으면 HP 회복 효과를 얻어 초당 루시아 HP 최대치의 <color=#2BAD00>{CAL:0.01+AvatarSkillLevel(3)*0.0005,100,2}%</color>를 회복한다. 해당 회복 효과는 캐릭터가 <color=#FFFFFF>[별빛이 모이는 곳]</color>을 벗어난 후 4초가 지나거나 퇴장할 때 사라진다.\n시전 후 루시아가 <color=#FFFFFF>[꿈세계]</color> 상태이고 <color=#FFFFFF>[에테르 장막·용천]</color>이 적용 중이라면, <color=#FFFFFF>[에테르 장막·용천]</color>의 지속 시간이 32초 연장된다.\n<color=#FFFFFF>[꿈세계]</color> 상태가 아닐 때, 루시아가 해당 <color=#FFFFFF>[합창]</color>을 시전하면 <color=#FFFFFF>[꿈세계 게이지]</color>를 100pt 획득하며, 해당 <color=#FFFFFF>[합창]</color> 시전 시 자신이 <color=#FFFFFF>[꿈세계]</color> 상태라면 다음번에 <color=#FFFFFF>[꿈세계]</color> 상태가 종료될 때 <color=#FFFFFF>[꿈세계 게이지]</color>를 100pt 획득하고 다시 <color=#FFFFFF>[꿈세계]</color> 상태에 진입한다. 해당 효과는 중복 획득할 수 없다.\n강력한 타격을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 영롱한 무대",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1451016, Prop:1001}",
+       "param": {
+        "1451016": {
+         "main": 61670,
+         "growth": 5610,
+         "format": "%",
+         "damage_percentage": 61670,
+         "damage_percentage_growth": 5610,
+         "stun_ratio": 17780,
+         "stun_ratio_growth": 810,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2273425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 36113,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16164
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1451016, Prop:1002}",
+       "param": {
+        "1451016": {
+         "main": 17780,
+         "growth": 810,
+         "format": "%",
+         "damage_percentage": 61670,
+         "damage_percentage_growth": 5610,
+         "stun_ratio": 17780,
+         "stun_ratio_growth": 810,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2273425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 36113,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16164
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "궁극기: 거대한 갑옷, 진격!",
+     "param": [
+      {
+       "name": "돌진 단일 충돌 피해 배율",
+       "desc": "{Skill:1451024, Prop:1001}",
+       "param": {
+        "1451024": {
+         "main": 9300,
+         "growth": 850,
+         "format": "%",
+         "damage_percentage": 9300,
+         "damage_percentage_growth": 850,
+         "stun_ratio": 7150,
+         "stun_ratio_growth": 330,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4875,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "궁극기 피해 배율",
+       "desc": "{Skill:1451017, Prop:1001}",
+       "param": {
+        "1451017": {
+         "main": 190270,
+         "growth": 17300,
+         "format": "%",
+         "damage_percentage": 190270,
+         "damage_percentage_growth": 17300,
+         "stun_ratio": 19440,
+         "stun_ratio_growth": 890,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 67671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "돌진 단일 충돌 그로기 배율",
+       "desc": "{Skill:1451024, Prop:1002}",
+       "param": {
+        "1451024": {
+         "main": 7150,
+         "growth": 330,
+         "format": "%",
+         "damage_percentage": 9300,
+         "damage_percentage_growth": 850,
+         "stun_ratio": 7150,
+         "stun_ratio_growth": 330,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4875,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "궁극기 그로기 배율",
+       "desc": "{Skill:1451017, Prop:1002}",
+       "param": {
+        "1451017": {
+         "main": 19440,
+         "growth": 890,
+         "format": "%",
+         "damage_percentage": 190270,
+         "damage_percentage_growth": 17300,
+         "stun_ratio": 19440,
+         "stun_ratio_growth": 890,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 67671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "초당 HP 회복 백분율",
+       "desc": "{CAL:0.01+AvatarSkillLevel(3)*0.0005,100,2}%",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "빠른 지원: 안개의 충격",
+     "desc": "현재 조작 중인 캐릭터가 넉업되면 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n빠른 지원은 <color=#FFFFFF>[구상]</color>으로, 시전 시 에테리얼 형상을 재현해 전방의 원형 구역에 낙하 공격을 시전하여 <color=#FE437E>에테르 피해</color>를 준다.\n<color=#FFFFFF>[꿈세계]</color> 상태가 아닐 때, 루시아가 해당 <color=#FFFFFF>[구상]</color>을 시전하면 <color=#FFFFFF>[꿈세계 게이지]</color>를 20pt 획득하며, 5초 동안 최대 1회 획득할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 환몽의 목소리",
+     "desc": "출전 캐릭터 피격 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적의 공격을 패링하고 대량의 그로기 수치를 누적한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 꿈을 그리는 화음",
+     "desc": "<color=#FFFFFF>[패링 지원]</color>을 시전한 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n지원 돌격은 <color=#FFFFFF>[합창]</color>으로, 시전 시 에테리얼 형상을 재현해 전방의 원형 구역에 강력한 낙하 공격을 시전하여 <color=#FE437E>에테르 피해</color>를 준다.\n<color=#FFFFFF>[꿈세계]</color> 상태가 아닐 때, 루시아가 해당 <color=#FFFFFF>[합창]</color>을 시전하면 <color=#FFFFFF>[꿈세계 게이지]</color>를 40pt 획득한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 안개의 충격",
+     "param": [
+      {
+       "name": "구상 피해 배율",
+       "desc": "{Skill:1451018, Prop:1001}",
+       "param": {
+        "1451018": {
+         "main": 10640,
+         "growth": 970,
+         "format": "%",
+         "damage_percentage": 10640,
+         "damage_percentage_growth": 970,
+         "stun_ratio": 5320,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 17410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 133100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4835,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4836
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "합창 피해 배율",
+       "desc": "{Skill:1451023, Prop:1001}",
+       "param": {
+        "1451023": {
+         "main": 24390,
+         "growth": 2220,
+         "format": "%",
+         "damage_percentage": 24390,
+         "damage_percentage_growth": 2220,
+         "stun_ratio": 5320,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 17410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 133100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4835,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4836
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "여진 공격 피해 배율",
+       "desc": "{Skill:1451015, Prop:1001}",
+       "param": {
+        "1451015": {
+         "main": 55000,
+         "growth": 5000,
+         "format": "%",
+         "damage_percentage": 55000,
+         "damage_percentage_growth": 5000,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "구상 그로기 배율",
+       "desc": "{Skill:1451018, Prop:1002}",
+       "param": {
+        "1451018": {
+         "main": 5320,
+         "growth": 250,
+         "format": "%",
+         "damage_percentage": 10640,
+         "damage_percentage_growth": 970,
+         "stun_ratio": 5320,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 17410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 133100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4835,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4836
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "합창 그로기 배율",
+       "desc": "{Skill:1451023, Prop:1002}",
+       "param": {
+        "1451023": {
+         "main": 5320,
+         "growth": 250,
+         "format": "%",
+         "damage_percentage": 24390,
+         "damage_percentage_growth": 2220,
+         "stun_ratio": 5320,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 17410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 133100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4835,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4836
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "여진 공격 그로기 배율",
+       "desc": "{Skill:1451015, Prop:1002}",
+       "param": {
+        "1451015": {
+         "main": 0,
+         "growth": 0,
+         "format": "%",
+         "damage_percentage": 55000,
+         "damage_percentage_growth": 5000,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 환몽의 목소리",
+     "param": [
+      {
+       "name": "가벼운 패링 그로기 배율",
+       "desc": "{Skill:1451019, Prop:1002}",
+       "param": {
+        "1451019": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강한 패링 그로기 배율",
+       "desc": "{Skill:1451020, Prop:1002}",
+       "param": {
+        "1451020": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 패링 그로기 배율",
+       "desc": "{Skill:1451021, Prop:1002}",
+       "param": {
+        "1451021": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 꿈을 그리는 화음",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1451022, Prop:1001}",
+       "param": {
+        "1451022": {
+         "main": 32770,
+         "growth": 2980,
+         "format": "%",
+         "damage_percentage": 32770,
+         "damage_percentage_growth": 2980,
+         "stun_ratio": 28240,
+         "stun_ratio_growth": 1290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 932250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 27726,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1451022, Prop:1002}",
+       "param": {
+        "1451022": {
+         "main": 28240,
+         "growth": 1290,
+         "format": "%",
+         "damage_percentage": 32770,
+         "damage_percentage_growth": 2980,
+         "stun_ratio": 28240,
+         "stun_ratio_growth": 1290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 932250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 27726,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13337
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "비밀 친구",
+   "desc": "<color=#FFFFFF>[꿈을 맴도는 동요]</color> 상태가 추가로 피해를 줄 시 적의 모든 속성 피해 저항을 18% 무시하고 데시벨 획득 효율이 5% 증가한다. 또한 루시아가 스킬 업그레이드를 시전할 때 <color=#FFFFFF>[메아리]</color> 1스택을 획득하며, 최대 4스택까지 중첩된다. <color=#FFFFFF>[꿈을 맴도는 동요]</color> 상태가 종료될 때 루시아가 <color=#FFFFFF>[메아리]</color>를 보유하고 있다면 자동으로 1스택을 소모해 파티 내 모든 캐릭터에게 <color=#FFFFFF>[꿈을 맴도는 동요]</color> 상태를 다시금 부여한다.",
+   "desc2": "아직 어린아이였을 때, 할머니는 루시아의 손을 잡고 그녀를 공동으로 데려갔다.\n그때부터 그녀는 어두운 골목을 누비며 끝없는 공동에서 사냥했다. 붓끝이 스친 자리에는 에테리얼이 그려졌고, 에테르 불빛은 어린 시절의 모든 빛깔이 되었다.\n「어렸을 때, 내겐 세 명의 친구가 있었어. 아주 강인한 검은 방패, 순간 이동이 가능한 타나, 그리고 아주아주 멋진 거대한 갑옷!」\n「근데, 나중에 모두 사라졌어…」\n「하지만 괜찮아! 모두 노트에 그려뒀거든——이젠 지팡이만 휘두르면 모두를 불러 올 수 있어!」"
+  },
+  "2": {
+   "level": 2,
+   "name": "마술의 대가",
+   "desc": "루시아가 <color=#FFFFFF>[에테르 장막·용천]</color> 중에 있을 때 <color=#FFFFFF>[합창]</color>이 주는 피해가 15% 증가한다. <color=#FFFFFF>[어둠 돌파]</color> 상태를 보유한 에이전트가 <color=#FFFFFF>[에테르 장막·용천]</color> 중에 있을 때, 추가로 관입 피해 15% 증가 효과를 얻는다.",
+   "desc2": "최근 뉴에리두에는 「나이트메어 전령」에 관한 소문이 퍼지고 있다.\n「밤 12시만 되면, 나이트메어 전령이 거리에 나타나서 우리에게 여러 가지 이야기를 들려줘!」\n「나이트메어 전령은 엄청난 마법사이기도 해! 주문을 외우면 『휘리릭』 하고 수많은 에테리얼을 소환해서 우리를 위해 싸우게 하지!」\n「저번에 공동에서 길을 잃었을 때도, 나이트메어 전령이 그 마법으로 우리를 구해줬어!」\n——by 아보카부, 데빌부, 과녁부"
+  },
+  "3": {
+   "level": 3,
+   "name": "최고의 파트너",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "——똑, 똑똑.\n규칙적인 노크 소리와 함께 창문으로 꼬치구이 하나가 건네졌다.\n「로프꾼, 받아! 갓 구운 꼬치와 레몬 팝핑 캔디의 조합은, 듀라한의 왼손 검과 오른손 방패만큼이나 찰떡이지!」\n「다 먹었으면… 우리 나가서 놀자!」\n「오늘 밤엔 분명 대박 괴담 소재를 찾을 수 있을 거야. 『팡』하고 포럼을 뒤집어엎을 정도로 대단한 그런 거!」"
+  },
+  "4": {
+   "level": 4,
+   "name": "심야 시간",
+   "desc": "전장에 <color=#FFFFFF>[에테르 장막]</color>이 발동되거나 연장될 시, 루시아는 파티 내 모든 캐릭터에게 100pt의 데시벨을 제공한다. 해당 효과는 15초 동안 최대 1회 발동된다.",
+   "desc2": "「괴담 학자」에게 있어서, 왕성한 호기심, 넘치는 실행력 그리고 과감한 결단력은 모두 필수 자질이다. 이는 루시아에게도 마찬가지이다.\n그런 이유로 뉴에리두에 처음 왔을 때부터 그녀는 치안국의 단골이 되었다.\n「몇 번을 말씀드려요. 괴담을 추적하는 중이더라도 멋대로 공사장에 들어가면 안 된다니까요——」\n「길에서 자면 안 돼요! 한밤중에 돌아다니면 안 되고, 사람들 앞에서 공동으로 뛰어들어도 안 되죠… 이건 전부 『뉴에리두 생활 수칙』이라고요. 꼭 지켜주세요!」\n「정 잠이 안 온다면… 음, 타임필드 저택을 탐험하면서 겸사겸사 앨리스한테 괴담을 들려주는 건 어때요?」"
+  },
+  "5": {
+   "level": 5,
+   "name": "꿈세계 파수꾼",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "밤하늘은 먹빛처럼 깊고, 별들은 영롱하게 빛났다.\n그녀는 먼 곳에서부터 걸어왔다. 이야기와 노래, 그리고 미완성의 시를 가지고서.\n그녀는 꽃을 따서, 이슬이 맺힌 꽃잎을 창가에 두었다.\n그녀는 당신의 꿈을, 따뜻하고 안전하게 지켰다.\n\n「좋은 아침… 음, 루시아는 언제 온 거야?」\n「기억 안 나, 아마 얼마 안 됐겠지 뭐… 왜냐면, 로프꾼이랑 같이 있을 땐 시간이 항상 빨리 가니까」"
+  },
+  "6": {
+   "level": 6,
+   "name": "영원히 끝나지 않는 여정",
+   "desc": "루시아가 임의의 <color=#FFFFFF>[에테르 장막]</color> 중에 있을 때, 자신의 초기 HP 최대치의 2%만큼 자신의 공격력이 증가하며, <color=#FFFFFF>[합창]</color>은 반드시 치명타가 발생하고, <color=#FFFFFF>[합창]</color>으로 치명타를 줄 시 치명타 피해가 30% 증가한다.",
+   "desc2": "루시아의 삶이란 끝이 보이지 않는 여정이다. 달빛 아래 이 거리 저 거리를 내달리며 찾아 헤맸고, 이 도시 저 도시를 걸어 다녔다.\n이야기의 실이 수많은 아름다운 꿈을 엮어내고, 가벼운 노랫소리는 어두운 밤의 등불 아래에 흘렀다.\n찾아 헤매는 발걸음은 멈춘 적 없다. 별하늘 아래의 여정은 영원할 것이다.\n\n그러나 밤이 걷히고 햇살이 비쳐오자, 소녀는 그제야 기지개를 켜며 공동에서 나왔다.\n「하아암… 너무 졸려… 근데 다들 공동에서 자면 안 된다고 했는데…」\n「그럼, 비디오 가게에 자리라도 깔아야겠다!」"
+  }
+ },
+ "passive": {
+  "level": {
+   "1451501": {
+    "level": 1,
+    "id": 1451501,
+    "name": [
+     "핵심 패시브: 길 잃은 밤의 찬가",
+     "추가 능력: 긴 밤의 시집"
+    ],
+    "desc": [
+     "전장 진입 시 루시아는 즉시 <color=#FFFFFF>[꿈세계 게이지]</color> 60pt를 획득하며, <color=#FFFFFF>[구상]</color> 혹은 <color=#FFFFFF>[합창]</color> 시전 시 루시아의 <color=#FFFFFF>[꿈세계 게이지]</color>가 100pt에 도달하면 <color=#FFFFFF>[꿈세계]</color> 상태에 진입한다.\n<color=#FFFFFF>[꿈세계]</color> 상태 진입 시 <color=#FFFFFF>[빠른 지원]</color>이 발동되며, 동시에 <color=#FFFFFF>[에테르 장막·용천]</color>이 발동된다. <color=#FFFFFF>[에테르 장막·용천]</color> 적용 기간 동안, 파티 내 모든 캐릭터의 HP 최대치가 5% 증가한다. 지속 시간: 40초, 중복 발동 시 지속 시간이 최대 300초까지 연장된다.\n루시아가 <color=#FFFFFF>[꿈세계]</color> 상태일 때, 임의의 <color=#FFFFFF>[구상]</color> 시전 시 <color=#FFFFFF>[꿈세계 게이지]</color> 25pt를 소모해 <color=#FFFFFF>[구상]</color>을 <color=#FFFFFF>[합창]</color>으로 업그레이드한다.\n다른 조작 중인 캐릭터의 공격이 적 명중 시 <color=#FFFFFF>[꿈세계 게이지]</color> 25pt를 소모해 <color=#FFFFFF>[여진 공격]</color>을 시전한다. <color=#FFFFFF>[여진 공격]</color>은 <color=#FFFFFF>[합창]</color>이며, 루시아가 스킬 업그레이드 혹은 <color=#FFFFFF>[여진 공격]</color> 시전 후 8초 동안은 <color=#FFFFFF>[여진 공격]</color>이 발동되지 않는다.\n루시아가 스킬 업그레이드 혹은 <color=#FFFFFF>[여진 공격]</color> 시전 시, 파티 내 모든 캐릭터에게 <color=#FFFFFF>[꿈을 맴도는 동요]</color> 상태를 부여하며, <color=#FFFFFF>[꿈을 맴도는 동요]</color> 상태에서 캐릭터가 주는 피해가 <color=#2BAD00>10%</color> 증가한다. 지속 시간: 12초, 중복 발동 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[꿈세계 게이지]</color> 부족 혹은 <color=#FFFFFF>[에테르 장막]</color>에서 벗어날 시, 루시아의 <color=#FFFFFF>[꿈세계]</color> 상태가 종료된다.",
+     "파티에 <color=#FFFFFF>[명파]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n<color=#FFFFFF>[어둠 돌파]</color> 상태 부여 시, 추가로 치명타 피해 30% 증가 효과를 제공한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1451502": {
+    "level": 2,
+    "id": 1451502,
+    "name": [
+     "핵심 패시브: 길 잃은 밤의 찬가",
+     "추가 능력: 긴 밤의 시집"
+    ],
+    "desc": [
+     "전장 진입 시 루시아는 즉시 <color=#FFFFFF>[꿈세계 게이지]</color> 60pt를 획득하며, <color=#FFFFFF>[구상]</color> 혹은 <color=#FFFFFF>[합창]</color> 시전 시 루시아의 <color=#FFFFFF>[꿈세계 게이지]</color>가 100pt에 도달하면 <color=#FFFFFF>[꿈세계]</color> 상태에 진입한다.\n<color=#FFFFFF>[꿈세계]</color> 상태 진입 시 <color=#FFFFFF>[빠른 지원]</color>이 발동되며, 동시에 <color=#FFFFFF>[에테르 장막·용천]</color>이 발동된다. <color=#FFFFFF>[에테르 장막·용천]</color> 적용 기간 동안, 파티 내 모든 캐릭터의 HP 최대치가 5% 증가한다. 지속 시간: 40초, 중복 발동 시 지속 시간이 최대 300초까지 연장된다.\n루시아가 <color=#FFFFFF>[꿈세계]</color> 상태일 때, 임의의 <color=#FFFFFF>[구상]</color> 시전 시 <color=#FFFFFF>[꿈세계 게이지]</color> 25pt를 소모해 <color=#FFFFFF>[구상]</color>을 <color=#FFFFFF>[합창]</color>으로 업그레이드한다.\n다른 조작 중인 캐릭터의 공격이 적 명중 시 <color=#FFFFFF>[꿈세계 게이지]</color> 25pt를 소모해 <color=#FFFFFF>[여진 공격]</color>을 시전한다. <color=#FFFFFF>[여진 공격]</color>은 <color=#FFFFFF>[합창]</color>이며, 루시아가 스킬 업그레이드 혹은 <color=#FFFFFF>[여진 공격]</color> 시전 후 8초 동안은 <color=#FFFFFF>[여진 공격]</color>이 발동되지 않는다.\n루시아가 스킬 업그레이드 혹은 <color=#FFFFFF>[여진 공격]</color> 시전 시, 파티 내 모든 캐릭터에게 <color=#FFFFFF>[꿈을 맴도는 동요]</color> 상태를 부여하며, <color=#FFFFFF>[꿈을 맴도는 동요]</color> 상태에서 캐릭터가 주는 피해가 <color=#2BAD00>11.7%</color> 증가한다. 지속 시간: 12초, 중복 발동 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[꿈세계 게이지]</color> 부족 혹은 <color=#FFFFFF>[에테르 장막]</color>에서 벗어날 시, 루시아의 <color=#FFFFFF>[꿈세계]</color> 상태가 종료된다.",
+     "파티에 <color=#FFFFFF>[명파]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n<color=#FFFFFF>[어둠 돌파]</color> 상태 부여 시, 추가로 치명타 피해 30% 증가 효과를 제공한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1451503": {
+    "level": 3,
+    "id": 1451503,
+    "name": [
+     "핵심 패시브: 길 잃은 밤의 찬가",
+     "추가 능력: 긴 밤의 시집"
+    ],
+    "desc": [
+     "전장 진입 시 루시아는 즉시 <color=#FFFFFF>[꿈세계 게이지]</color> 60pt를 획득하며, <color=#FFFFFF>[구상]</color> 혹은 <color=#FFFFFF>[합창]</color> 시전 시 루시아의 <color=#FFFFFF>[꿈세계 게이지]</color>가 100pt에 도달하면 <color=#FFFFFF>[꿈세계]</color> 상태에 진입한다.\n<color=#FFFFFF>[꿈세계]</color> 상태 진입 시 <color=#FFFFFF>[빠른 지원]</color>이 발동되며, 동시에 <color=#FFFFFF>[에테르 장막·용천]</color>이 발동된다. <color=#FFFFFF>[에테르 장막·용천]</color> 적용 기간 동안, 파티 내 모든 캐릭터의 HP 최대치가 5% 증가한다. 지속 시간: 40초, 중복 발동 시 지속 시간이 최대 300초까지 연장된다.\n루시아가 <color=#FFFFFF>[꿈세계]</color> 상태일 때, 임의의 <color=#FFFFFF>[구상]</color> 시전 시 <color=#FFFFFF>[꿈세계 게이지]</color> 25pt를 소모해 <color=#FFFFFF>[구상]</color>을 <color=#FFFFFF>[합창]</color>으로 업그레이드한다.\n다른 조작 중인 캐릭터의 공격이 적 명중 시 <color=#FFFFFF>[꿈세계 게이지]</color> 25pt를 소모해 <color=#FFFFFF>[여진 공격]</color>을 시전한다. <color=#FFFFFF>[여진 공격]</color>은 <color=#FFFFFF>[합창]</color>이며, 루시아가 스킬 업그레이드 혹은 <color=#FFFFFF>[여진 공격]</color> 시전 후 8초 동안은 <color=#FFFFFF>[여진 공격]</color>이 발동되지 않는다.\n루시아가 스킬 업그레이드 혹은 <color=#FFFFFF>[여진 공격]</color> 시전 시, 파티 내 모든 캐릭터에게 <color=#FFFFFF>[꿈을 맴도는 동요]</color> 상태를 부여하며, <color=#FFFFFF>[꿈을 맴도는 동요]</color> 상태에서 캐릭터가 주는 피해가 <color=#2BAD00>13.3%</color> 증가한다. 지속 시간: 12초, 중복 발동 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[꿈세계 게이지]</color> 부족 혹은 <color=#FFFFFF>[에테르 장막]</color>에서 벗어날 시, 루시아의 <color=#FFFFFF>[꿈세계]</color> 상태가 종료된다.",
+     "파티에 <color=#FFFFFF>[명파]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n<color=#FFFFFF>[어둠 돌파]</color> 상태 부여 시, 추가로 치명타 피해 30% 증가 효과를 제공한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1451504": {
+    "level": 4,
+    "id": 1451504,
+    "name": [
+     "핵심 패시브: 길 잃은 밤의 찬가",
+     "추가 능력: 긴 밤의 시집"
+    ],
+    "desc": [
+     "전장 진입 시 루시아는 즉시 <color=#FFFFFF>[꿈세계 게이지]</color> 60pt를 획득하며, <color=#FFFFFF>[구상]</color> 혹은 <color=#FFFFFF>[합창]</color> 시전 시 루시아의 <color=#FFFFFF>[꿈세계 게이지]</color>가 100pt에 도달하면 <color=#FFFFFF>[꿈세계]</color> 상태에 진입한다.\n<color=#FFFFFF>[꿈세계]</color> 상태 진입 시 <color=#FFFFFF>[빠른 지원]</color>이 발동되며, 동시에 <color=#FFFFFF>[에테르 장막·용천]</color>이 발동된다. <color=#FFFFFF>[에테르 장막·용천]</color> 적용 기간 동안, 파티 내 모든 캐릭터의 HP 최대치가 5% 증가한다. 지속 시간: 40초, 중복 발동 시 지속 시간이 최대 300초까지 연장된다.\n루시아가 <color=#FFFFFF>[꿈세계]</color> 상태일 때, 임의의 <color=#FFFFFF>[구상]</color> 시전 시 <color=#FFFFFF>[꿈세계 게이지]</color> 25pt를 소모해 <color=#FFFFFF>[구상]</color>을 <color=#FFFFFF>[합창]</color>으로 업그레이드한다.\n다른 조작 중인 캐릭터의 공격이 적 명중 시 <color=#FFFFFF>[꿈세계 게이지]</color> 25pt를 소모해 <color=#FFFFFF>[여진 공격]</color>을 시전한다. <color=#FFFFFF>[여진 공격]</color>은 <color=#FFFFFF>[합창]</color>이며, 루시아가 스킬 업그레이드 혹은 <color=#FFFFFF>[여진 공격]</color> 시전 후 8초 동안은 <color=#FFFFFF>[여진 공격]</color>이 발동되지 않는다.\n루시아가 스킬 업그레이드 혹은 <color=#FFFFFF>[여진 공격]</color> 시전 시, 파티 내 모든 캐릭터에게 <color=#FFFFFF>[꿈을 맴도는 동요]</color> 상태를 부여하며, <color=#FFFFFF>[꿈을 맴도는 동요]</color> 상태에서 캐릭터가 주는 피해가 <color=#2BAD00>15%</color> 증가한다. 지속 시간: 12초, 중복 발동 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[꿈세계 게이지]</color> 부족 혹은 <color=#FFFFFF>[에테르 장막]</color>에서 벗어날 시, 루시아의 <color=#FFFFFF>[꿈세계]</color> 상태가 종료된다.",
+     "파티에 <color=#FFFFFF>[명파]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n<color=#FFFFFF>[어둠 돌파]</color> 상태 부여 시, 추가로 치명타 피해 30% 증가 효과를 제공한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1451505": {
+    "level": 5,
+    "id": 1451505,
+    "name": [
+     "핵심 패시브: 길 잃은 밤의 찬가",
+     "추가 능력: 긴 밤의 시집"
+    ],
+    "desc": [
+     "전장 진입 시 루시아는 즉시 <color=#FFFFFF>[꿈세계 게이지]</color> 60pt를 획득하며, <color=#FFFFFF>[구상]</color> 혹은 <color=#FFFFFF>[합창]</color> 시전 시 루시아의 <color=#FFFFFF>[꿈세계 게이지]</color>가 100pt에 도달하면 <color=#FFFFFF>[꿈세계]</color> 상태에 진입한다.\n<color=#FFFFFF>[꿈세계]</color> 상태 진입 시 <color=#FFFFFF>[빠른 지원]</color>이 발동되며, 동시에 <color=#FFFFFF>[에테르 장막·용천]</color>이 발동된다. <color=#FFFFFF>[에테르 장막·용천]</color> 적용 기간 동안, 파티 내 모든 캐릭터의 HP 최대치가 5% 증가한다. 지속 시간: 40초, 중복 발동 시 지속 시간이 최대 300초까지 연장된다.\n루시아가 <color=#FFFFFF>[꿈세계]</color> 상태일 때, 임의의 <color=#FFFFFF>[구상]</color> 시전 시 <color=#FFFFFF>[꿈세계 게이지]</color> 25pt를 소모해 <color=#FFFFFF>[구상]</color>을 <color=#FFFFFF>[합창]</color>으로 업그레이드한다.\n다른 조작 중인 캐릭터의 공격이 적 명중 시 <color=#FFFFFF>[꿈세계 게이지]</color> 25pt를 소모해 <color=#FFFFFF>[여진 공격]</color>을 시전한다. <color=#FFFFFF>[여진 공격]</color>은 <color=#FFFFFF>[합창]</color>이며, 루시아가 스킬 업그레이드 혹은 <color=#FFFFFF>[여진 공격]</color> 시전 후 8초 동안은 <color=#FFFFFF>[여진 공격]</color>이 발동되지 않는다.\n루시아가 스킬 업그레이드 혹은 <color=#FFFFFF>[여진 공격]</color> 시전 시, 파티 내 모든 캐릭터에게 <color=#FFFFFF>[꿈을 맴도는 동요]</color> 상태를 부여하며, <color=#FFFFFF>[꿈을 맴도는 동요]</color> 상태에서 캐릭터가 주는 피해가 <color=#2BAD00>16.7%</color> 증가한다. 지속 시간: 12초, 중복 발동 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[꿈세계 게이지]</color> 부족 혹은 <color=#FFFFFF>[에테르 장막]</color>에서 벗어날 시, 루시아의 <color=#FFFFFF>[꿈세계]</color> 상태가 종료된다.",
+     "파티에 <color=#FFFFFF>[명파]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n<color=#FFFFFF>[어둠 돌파]</color> 상태 부여 시, 추가로 치명타 피해 30% 증가 효과를 제공한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1451506": {
+    "level": 6,
+    "id": 1451506,
+    "name": [
+     "핵심 패시브: 길 잃은 밤의 찬가",
+     "추가 능력: 긴 밤의 시집"
+    ],
+    "desc": [
+     "전장 진입 시 루시아는 즉시 <color=#FFFFFF>[꿈세계 게이지]</color> 60pt를 획득하며, <color=#FFFFFF>[구상]</color> 혹은 <color=#FFFFFF>[합창]</color> 시전 시 루시아의 <color=#FFFFFF>[꿈세계 게이지]</color>가 100pt에 도달하면 <color=#FFFFFF>[꿈세계]</color> 상태에 진입한다.\n<color=#FFFFFF>[꿈세계]</color> 상태 진입 시 <color=#FFFFFF>[빠른 지원]</color>이 발동되며, 동시에 <color=#FFFFFF>[에테르 장막·용천]</color>이 발동된다. <color=#FFFFFF>[에테르 장막·용천]</color> 적용 기간 동안, 파티 내 모든 캐릭터의 HP 최대치가 5% 증가한다. 지속 시간: 40초, 중복 발동 시 지속 시간이 최대 300초까지 연장된다.\n루시아가 <color=#FFFFFF>[꿈세계]</color> 상태일 때, 임의의 <color=#FFFFFF>[구상]</color> 시전 시 <color=#FFFFFF>[꿈세계 게이지]</color> 25pt를 소모해 <color=#FFFFFF>[구상]</color>을 <color=#FFFFFF>[합창]</color>으로 업그레이드한다.\n다른 조작 중인 캐릭터의 공격이 적 명중 시 <color=#FFFFFF>[꿈세계 게이지]</color> 25pt를 소모해 <color=#FFFFFF>[여진 공격]</color>을 시전한다. <color=#FFFFFF>[여진 공격]</color>은 <color=#FFFFFF>[합창]</color>이며, 루시아가 스킬 업그레이드 혹은 <color=#FFFFFF>[여진 공격]</color> 시전 후 8초 동안은 <color=#FFFFFF>[여진 공격]</color>이 발동되지 않는다.\n루시아가 스킬 업그레이드 혹은 <color=#FFFFFF>[여진 공격]</color> 시전 시, 파티 내 모든 캐릭터에게 <color=#FFFFFF>[꿈을 맴도는 동요]</color> 상태를 부여하며, <color=#FFFFFF>[꿈을 맴도는 동요]</color> 상태에서 캐릭터가 주는 피해가 <color=#2BAD00>18.3%</color> 증가한다. 지속 시간: 12초, 중복 발동 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[꿈세계 게이지]</color> 부족 혹은 <color=#FFFFFF>[에테르 장막]</color>에서 벗어날 시, 루시아의 <color=#FFFFFF>[꿈세계]</color> 상태가 종료된다.",
+     "파티에 <color=#FFFFFF>[명파]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n<color=#FFFFFF>[어둠 돌파]</color> 상태 부여 시, 추가로 치명타 피해 30% 증가 효과를 제공한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1451507": {
+    "level": 7,
+    "id": 1451507,
+    "name": [
+     "핵심 패시브: 길 잃은 밤의 찬가",
+     "추가 능력: 긴 밤의 시집"
+    ],
+    "desc": [
+     "전장 진입 시 루시아는 즉시 <color=#FFFFFF>[꿈세계 게이지]</color> 60pt를 획득하며, <color=#FFFFFF>[구상]</color> 혹은 <color=#FFFFFF>[합창]</color> 시전 시 루시아의 <color=#FFFFFF>[꿈세계 게이지]</color>가 100pt에 도달하면 <color=#FFFFFF>[꿈세계]</color> 상태에 진입한다.\n<color=#FFFFFF>[꿈세계]</color> 상태 진입 시 <color=#FFFFFF>[빠른 지원]</color>이 발동되며, 동시에 <color=#FFFFFF>[에테르 장막·용천]</color>이 발동된다. <color=#FFFFFF>[에테르 장막·용천]</color> 적용 기간 동안, 파티 내 모든 캐릭터의 HP 최대치가 5% 증가한다. 지속 시간: 40초, 중복 발동 시 지속 시간이 최대 300초까지 연장된다.\n루시아가 <color=#FFFFFF>[꿈세계]</color> 상태일 때, 임의의 <color=#FFFFFF>[구상]</color> 시전 시 <color=#FFFFFF>[꿈세계 게이지]</color> 25pt를 소모해 <color=#FFFFFF>[구상]</color>을 <color=#FFFFFF>[합창]</color>으로 업그레이드한다.\n다른 조작 중인 캐릭터의 공격이 적 명중 시 <color=#FFFFFF>[꿈세계 게이지]</color> 25pt를 소모해 <color=#FFFFFF>[여진 공격]</color>을 시전한다. <color=#FFFFFF>[여진 공격]</color>은 <color=#FFFFFF>[합창]</color>이며, 루시아가 스킬 업그레이드 혹은 <color=#FFFFFF>[여진 공격]</color> 시전 후 8초 동안은 <color=#FFFFFF>[여진 공격]</color>이 발동되지 않는다.\n루시아가 스킬 업그레이드 혹은 <color=#FFFFFF>[여진 공격]</color> 시전 시, 파티 내 모든 캐릭터에게 <color=#FFFFFF>[꿈을 맴도는 동요]</color> 상태를 부여하며, <color=#FFFFFF>[꿈을 맴도는 동요]</color> 상태에서 캐릭터가 주는 피해가 <color=#2BAD00>20%</color> 증가한다. 지속 시간: 12초, 중복 발동 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[꿈세계 게이지]</color> 부족 혹은 <color=#FFFFFF>[에테르 장막]</color>에서 벗어날 시, 루시아의 <color=#FFFFFF>[꿈세계]</color> 상태가 종료된다.",
+     "파티에 <color=#FFFFFF>[명파]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n<color=#FFFFFF>[어둠 돌파]</color> 상태 부여 시, 추가로 치명타 피해 30% 증가 효과를 제공한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110512": 2
+   },
+   "3": {
+    "10": 28000,
+    "110512": 4
+   },
+   "4": {
+    "10": 60000,
+    "110007": 2,
+    "110512": 9
+   },
+   "5": {
+    "10": 100000,
+    "110007": 3,
+    "110512": 15
+   },
+   "6": {
+    "10": 200000,
+    "110007": 4,
+    "110512": 30
+   }
+  }
+ },
+ "skin": {
+  "3114510": {
+   "name": "루시아·밤과 꿈을 노래하는 자",
+   "desc": "망토는 밤의 장막이요, 후드 아래엔 세상의 속삭임이 숨어있으니, 그녀는 밤을 노래하는 자이자 몽상의 시인. 잠든 이들이 흘린 생각들을 모아 별빛 속 광채와 수수께끼로 엮어낸다.",
+   "obtain_desc": "",
+   "image": "IconRole50"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1451001": {
+   "name": "일반 공격: 별 궤적 콤보",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1451002": {
+   "name": "특수 스킬: 사신 협주곡·폭풍",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 205,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1451003": {
+   "name": "강화 특수 스킬: 사신 협주곡·여명",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 205,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1451004": {
+   "name": "대시 공격: 빛의 굴절",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1451005": {
+   "name": "회피 반격: 별가루 메아리",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1451006": {
+   "name": "콤보 스킬: 영롱한 무대",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1451007": {
+   "name": "궁극기: 거대한 갑옷, 진격!",
+   "desc": "<IconMap:Icon_UltimateReady>(방향키 드래그로 돌진 시간 연장)",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1451008": {
+   "name": "빠른 지원: 안개의 충격",
+   "desc": "<IconMap:Icon_Switch>(빠른 지원 발동 시)",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1451009": {
+   "name": "패링 지원: 환몽의 목소리",
+   "desc": "<IconMap:Icon_Switch>(패링 지원 발동 시)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1451010": {
+   "name": "지원 돌격: 꿈을 그리는 화음",
+   "desc": "<IconMap:Icon_Normal>(패링 지원 시전 후)",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1451001,
+   "avatar_id": 1451,
+   "first_priority": [
+    5,
+    1
+   ],
+   "second_priority": [
+    3,
+    0,
+    6
+   ],
+   "third_priority": [
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33400,
+  "slot2": 33100,
+  "slot_sub": 31600,
+  "part_sub_list": [
+   11102,
+   11103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33400,
+     33100
+    ],
+    "part_sub_list": [
+     11102
+    ]
+   },
+   {
+    "suit_list": [
+     33400,
+     31600
+    ],
+    "part_sub_list": [
+     11102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     11102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 11102,
+   "name": "HP",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconHpMax.png"
+  },
+  "part5": {
+   "prop": 30502,
+   "name": "에너지 자동 회복",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconSpRecover.png"
+  },
+  "part6": {
+   "prop": 20103,
+   "name": "치명타 확률",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "공격력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "04",
+  "<IconMap:Icon_GeneralBuff_DungeonBuffEther>에테르 속성, 명파 체계 서포터",
+  "[에테르 장막] 발동 시 HP 최대치 증가",
+  "관입력과 치명타 피해 보너스 제공"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100214": 4
+   }
+  },
+  "2": {
+   "hp_max": 468,
+   "attack": 39,
+   "defence": 33,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100224": 12
+   }
+  },
+  "3": {
+   "hp_max": 936,
+   "attack": 78,
+   "defence": 66,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100224": 20
+   }
+  },
+  "4": {
+   "hp_max": 1403,
+   "attack": 117,
+   "defence": 98,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100234": 10
+   }
+  },
+  "5": {
+   "hp_max": 1871,
+   "attack": 156,
+   "defence": 131,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100234": 20
+   }
+  },
+  "6": {
+   "hp_max": 2339,
+   "attack": 195,
+   "defence": 164,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 12
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 12
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 24
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 24
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 36
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 36
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpineLucia"
+}

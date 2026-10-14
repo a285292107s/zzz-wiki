@@ -4,7 +4,12 @@ import App from './App.vue'
 import { router } from './router'
 import { reveal } from './directives/reveal'
 import { installViewTransition } from './utils/viewTransition'
+import { bootstrapLocale } from './composables/useLocale'
 import './styles/base.css'
+
+/* 展示语言在本机已有偏好 → 落到 <html lang>（挂载前，读屏/爬虫拿到的是最终值）。
+   数据面（名录、详情、名词表）按语言分目录，取数时读的就是这个值。 */
+bootstrapLocale()
 
 /* ============================================================
  * 富文本键位图标降级（rich.ts 生成 <img class="rich-key" data-cdn=…>）

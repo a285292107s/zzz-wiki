@@ -1,0 +1,2188 @@
+{
+ "id": 1541,
+ "icon": "IconRole61",
+ "name": "프로미아",
+ "code_name": "Promeia",
+ "rarity": 4,
+ "weapon_type": {
+  "3": "Anomaly"
+ },
+ "element_type": {
+  "202": "Ice"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "12": "크람푸스의 검은 가지"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "12/23",
+  "full_name": "프로미아",
+  "gender": "여성",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle61.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0061.png",
+  "impression_f": "말수는 적지만, 프로미아 씨의 표현은 의외로 명확해… 정말 대단한 기술이야!",
+  "impression_m": "만약 선택하기 어려운 상황에 처하면, 주저하지 말고 우리한테 와 줬으면 좋겠어! 검은 가지 심판관으로서든, 친구인 프로미아 씨로서든 상관없으니까~",
+  "impressions": [
+   "프로미아에 대한 인상:\n · 이 실력자는 조금 차갑다!",
+   " · 열심히 일하는 심판관은 마땅히 보상을 받아야 한다",
+   " · 콧노래를 부르며 가볍게 떠오르는 무거운 영혼"
+  ],
+  "profile_desc": "프로미아, 크람푸스의 검은 가지 심판관으로 주로 「처형」 업무를 담당한다.\n\n검은 가지 내 다른 개성 강한 심판관들과 비교하면, 프로미아는 수면 아래 숨어 있는 빙산에 가깝다. 그녀는 과묵하며 개인적인 취미 활동을 거의 하지 않는다.\n\nTOPS 연합 대부분의 사람들은 프로미아와 접점이 생기는 것을 바라지 않는다. 불운하게도 사건이 들통나 크람푸스의 검은 가지에 찍히게 된다면, 겁에 질린 범칙자들이 가장 먼저 비는 소원의 내용은 사건 심사를 담당하는 심판관이 프로미아가 아니기를 바라는 것이다.\n\n회사 내부에 은밀히 떠도는 소문이 하나 있다. 바로, 크람푸스의 검은 가지에 들어오기 전 프로미아가 악명 높은 청소부, 즉 칼리돈을 위해 「불안정 요소」를 제거하는 임무를 맡은 외환선 조직 출신이라는 것이다. 하지만 그 누구도 이 일을 공개적인 자리에서 입에 올리지 않는다.",
+  "role_icon": "IconRole/UnPacker/IconRole61",
+  "stature": "174",
+  "unlock_condition": [
+   "에이전트 획득",
+   "메인 의뢰 시즌 2·에필로그 뉴: 에리두의 일몰(하) 완료",
+   "「엔비의 고민」 의뢰 완료"
+  ],
+  "trust_lv": {
+   "1": "프로미아, 크람푸스의 검은 가지 심판관으로 주로 「처형」 업무를 담당한다.\n\n검은 가지 내 다른 개성 강한 심판관들과 비교하면, 프로미아는 수면 아래 숨어 있는 빙산에 가깝다. 그녀는 과묵하며 개인적인 취미 활동을 거의 하지 않는다.\n\nTOPS 연합 대부분의 사람들은 프로미아와 접점이 생기는 것을 바라지 않는다. 불운하게도 사건이 들통나 크람푸스의 검은 가지에 찍히게 된다면, 겁에 질린 범칙자들이 가장 먼저 비는 소원의 내용은 사건 심사를 담당하는 심판관이 프로미아가 아니기를 바라는 것이다.\n\n회사 내부에 은밀히 떠도는 소문이 하나 있다. 바로, 크람푸스의 검은 가지에 들어오기 전 프로미아가 악명 높은 청소부, 즉 칼리돈을 위해 「불안정 요소」를 제거하는 임무를 맡은 외환선 조직 출신이라는 것이다. 하지만 그 누구도 이 일을 공개적인 자리에서 입에 올리지 않는다.",
+   "2": "",
+   "3": "프로미아의 수갑은 검은 가지에 합류할 때 채워진 것으로, 이는 그녀가 제시한 검은 가지 가입의 유일한 조건이었다. 검은 가지는 수갑의 열쇠를 회수하지 않았지만, 임무 외에는 프로미아가 스스로 수갑을 푸는 일이 거의 없다. 그녀에게 이것은 속박이자, 동시에 심판이다.\n\n소문은 사실이었다.\n청소부인 프로미아에게 과거 가장 주된 업무는 돌이킬 수 없는 침식증에 걸린 「에테리얼」을 처리하고, 그들의 생명과 고통을 끝내는 것이었다. 그녀는 이것이 어떤 거대한 사명을 위한 것이며, 자신이 서 있는 땅을 위한 것이라 믿었다. 떨리는 손으로, 그녀는 이토록 무거운 운명을 받아들였다.\n진실이 밝혀지기 전까지는.\n자만에 차 있던, 날카로운 칼날을 드러내던 살인자는 죽었다. 살아남은 건 운명과 죄책감을 짊어진 죄수일 뿐이다.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 126,
+  "attack_growth": 75860,
+  "avatar_piece_id": 5541,
+  "break_stun": 86,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66882,
+  "element_abnormal_power": 112,
+  "element_mystery": 114,
+  "endurance": 0,
+  "hp_growth": 849779,
+  "hp_max": 626,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Promeia",
+   "Cut",
+   "Ice",
+   "Female",
+   "Camp12",
+   "Size3",
+   "AidTypeParry",
+   "Promeia",
+   "EtherEyesSize3"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "일반 공격: 편봉",
+     "desc": "<IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 향해 최대 5단까지 공격을 펼쳐 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n다섯 번째 공격은 낙하 공격이며, 착지 후 <IconMap:Icon_Special> 혹은 <IconMap:Icon_Normal> 홀드를 유지하고, <color=#FFFFFF>[서리 형벌]</color>이 충분할 경우 <color=#FFFFFF>[강화 특수 스킬: 처형식·단행]</color>으로 연계할 수 있다.\n네 번째 공격은 망토를 던진 후 <color=#FFFFFF>[족쇄 사면]</color> 상태로 진입한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 선회하는 칼날",
+     "desc": "<IconMap:Icon_Normal>을 홀드하여 시전:\n프로미아가 위로 뛰어올라 공격하며, 망토를 적 쪽으로 던져 <color=#FFFFFF>[족쇄 사면]</color> 상태에 진입하고 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n적 명중 시 <color=#FFFFFF>[한랭 침식]</color>을 누적하지 않는다.",
+     "potential": []
+    },
+    {
+     "name": "족쇄 사면",
+     "desc": "프로미아가 일부 스킬을 시전할 때 망토를 던져 적을 지속적으로 베며 <color=#98EFF0>얼음 속성 피해</color>를 준다. 적 명중 시 <color=#FFFFFF>[한랭 침식]</color>을 누적하지 않는다.\n망토를 던진 기간 동안 프로미아는 천천히 이동할 수 있다.\n해당 기간 동안 <IconMap:Icon_Normal> 혹은 <IconMap:Icon_Special>을 짧게 탭하면 <color=#FFFFFF>[일반 공격: 편봉]</color> 다섯 번째 공격으로 바로 연계할 수 있다.\n해당 기간 동안 피격되면 <color=#FFFFFF>[극한 회피]</color>가 자동으로 발동되며, 회피 효과는 20초 동안 최대 1회 발동한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 편봉",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1541001, Prop:1001}",
+       "param": {
+        "1541001": {
+         "main": 4980,
+         "growth": 460,
+         "format": "%",
+         "damage_percentage": 4980,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 3380,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11040,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 84425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4348,
+         "sp_consume": 0,
+         "attack_data": [
+          12257
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3065
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1541002, Prop:1001}",
+       "param": {
+        "1541002": {
+         "main": 10320,
+         "growth": 940,
+         "format": "%",
+         "damage_percentage": 10320,
+         "damage_percentage_growth": 940,
+         "stun_ratio": 6910,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 22610,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 172975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8600,
+         "sp_consume": 0,
+         "attack_data": [
+          25122
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6281
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1541003, Prop:1001}",
+       "param": {
+        "1541003": {
+         "main": 19090,
+         "growth": 1740,
+         "format": "%",
+         "damage_percentage": 19090,
+         "damage_percentage_growth": 1740,
+         "stun_ratio": 12490,
+         "stun_ratio_growth": 570,
+         "sp_recovery": 40870,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 312400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15115,
+         "sp_consume": 0,
+         "attack_data": [
+          45411
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11353
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 피해 배율",
+       "desc": "{Skill:1541004, Prop:1001}",
+       "param": {
+        "1541004": {
+         "main": 20470,
+         "growth": 1870,
+         "format": "%",
+         "damage_percentage": 20470,
+         "damage_percentage_growth": 1870,
+         "stun_ratio": 13630,
+         "stun_ratio_growth": 620,
+         "sp_recovery": 44600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 309100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15916,
+         "sp_consume": 0,
+         "attack_data": [
+          49554
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12389
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5단 피해 배율",
+       "desc": "{Skill:1541005, Prop:1001}",
+       "param": {
+        "1541005": {
+         "main": 24150,
+         "growth": 2200,
+         "format": "%",
+         "damage_percentage": 24150,
+         "damage_percentage_growth": 2200,
+         "stun_ratio": 16040,
+         "stun_ratio_growth": 730,
+         "sp_recovery": 52490,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 353100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18236,
+         "sp_consume": 0,
+         "attack_data": [
+          58313
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14579
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1541001, Prop:1002}",
+       "param": {
+        "1541001": {
+         "main": 3380,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 4980,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 3380,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11040,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 84425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4348,
+         "sp_consume": 0,
+         "attack_data": [
+          12257
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3065
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1541002, Prop:1002}",
+       "param": {
+        "1541002": {
+         "main": 6910,
+         "growth": 320,
+         "format": "%",
+         "damage_percentage": 10320,
+         "damage_percentage_growth": 940,
+         "stun_ratio": 6910,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 22610,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 172975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8600,
+         "sp_consume": 0,
+         "attack_data": [
+          25122
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6281
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1541003, Prop:1002}",
+       "param": {
+        "1541003": {
+         "main": 12490,
+         "growth": 570,
+         "format": "%",
+         "damage_percentage": 19090,
+         "damage_percentage_growth": 1740,
+         "stun_ratio": 12490,
+         "stun_ratio_growth": 570,
+         "sp_recovery": 40870,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 312400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15115,
+         "sp_consume": 0,
+         "attack_data": [
+          45411
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11353
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 그로기 배율",
+       "desc": "{Skill:1541004, Prop:1002}",
+       "param": {
+        "1541004": {
+         "main": 13630,
+         "growth": 620,
+         "format": "%",
+         "damage_percentage": 20470,
+         "damage_percentage_growth": 1870,
+         "stun_ratio": 13630,
+         "stun_ratio_growth": 620,
+         "sp_recovery": 44600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 309100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15916,
+         "sp_consume": 0,
+         "attack_data": [
+          49554
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12389
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5단 그로기 배율",
+       "desc": "{Skill:1541005, Prop:1002}",
+       "param": {
+        "1541005": {
+         "main": 16040,
+         "growth": 730,
+         "format": "%",
+         "damage_percentage": 24150,
+         "damage_percentage_growth": 2200,
+         "stun_ratio": 16040,
+         "stun_ratio_growth": 730,
+         "sp_recovery": 52490,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 353100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18236,
+         "sp_consume": 0,
+         "attack_data": [
+          58313
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14579
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "망토 베기 초당 피해 배율",
+       "desc": "{Skill:1541008, Prop:1001}",
+       "param": {
+        "1541008": {
+         "main": 1950,
+         "growth": 180,
+         "format": "%",
+         "damage_percentage": 1950,
+         "damage_percentage_growth": 180,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 선회하는 칼날",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1541006, Prop:1001}",
+       "param": {
+        "1541006": {
+         "main": 17550,
+         "growth": 1600,
+         "format": "%",
+         "damage_percentage": 17550,
+         "damage_percentage_growth": 1600,
+         "stun_ratio": 8250,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 27000,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 206250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6373,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7499
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1541006, Prop:1002}",
+       "param": {
+        "1541006": {
+         "main": 8250,
+         "growth": 380,
+         "format": "%",
+         "damage_percentage": 17550,
+         "damage_percentage_growth": 1600,
+         "stun_ratio": 8250,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 27000,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 206250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6373,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7499
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "회피: 흩날리는 걸음",
+     "desc": "<IconMap:Icon_Evade>을 짧게 탭하여 시전:\n빠른 대시로 회피한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 냉혹한 사자",
+     "desc": "회피 시 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 빠르게 공격해 <color=#98EFF0>얼음 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 날아오르는 박쥐",
+     "desc": "<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n타깃을 연속 공격해 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬 시전 후 다섯 번째 <color=#FFFFFF>[일반 공격: 편봉]</color>으로 바로 연계할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 냉혹한 사자",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1541015, Prop:1001}",
+       "param": {
+        "1541015": {
+         "main": 5630,
+         "growth": 520,
+         "format": "%",
+         "damage_percentage": 5630,
+         "damage_percentage_growth": 520,
+         "stun_ratio": 2390,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 7800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 59675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1840,
+         "sp_consume": 0,
+         "attack_data": [
+          8661
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2166
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1541015, Prop:1002}",
+       "param": {
+        "1541015": {
+         "main": 2390,
+         "growth": 110,
+         "format": "%",
+         "damage_percentage": 5630,
+         "damage_percentage_growth": 520,
+         "stun_ratio": 2390,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 7800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 59675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1840,
+         "sp_consume": 0,
+         "attack_data": [
+          8661
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2166
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 날아오르는 박쥐",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1541016, Prop:1001}",
+       "param": {
+        "1541016": {
+         "main": 33570,
+         "growth": 3060,
+         "format": "%",
+         "damage_percentage": 33570,
+         "damage_percentage_growth": 3060,
+         "stun_ratio": 24390,
+         "stun_ratio_growth": 1110,
+         "sp_recovery": 43800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 334675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15881,
+         "sp_consume": 0,
+         "attack_data": [
+          148667
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 27167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1541016, Prop:1002}",
+       "param": {
+        "1541016": {
+         "main": 24390,
+         "growth": 1110,
+         "format": "%",
+         "damage_percentage": 33570,
+         "damage_percentage_growth": 3060,
+         "stun_ratio": 24390,
+         "stun_ratio_growth": 1110,
+         "sp_recovery": 43800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 334675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15881,
+         "sp_consume": 0,
+         "attack_data": [
+          148667
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 27167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "특수 스킬: 처형식·냉혹한 섬광",
+     "desc": "<IconMap:Icon_Special>을 짧게 탭하여 시전:\n표창 공격으로 <color=#98EFF0>얼음 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 처형식·숨 막히는 서릿길",
+     "desc": "에너지가 충분한 상태에서 <IconMap:Icon_SpecialReady>을 짧게 탭하여 시전:\n표창 공격을 시전하고, 망토를 적 쪽으로 던져 <color=#FFFFFF>[족쇄 사면]</color> 상태에 진입하여 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬을 시전한 직후 짧은 시간 내에 적의 공격을 받으면 자동으로 <color=#FFFFFF>[강화 특수 스킬: 처형식·은신]</color>으로 연계된다.\n스킬 시전 시, 프로미아가 <color=#FFFFFF>[철칙]</color> 효과를 획득한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 처형식·은신",
+     "desc": "<color=#FFFFFF>[강화 특수 스킬: 처형식·숨 막히는 서릿길]</color> 시전 직후 짧은 시간 내 피격 시 자동 시전:\n짧은 시간 동안 <color=#FFFFFF>[극한 시야]</color>를 개방하고, 빠르게 적의 뒤쪽으로 이동한다.\n<color=#FFFFFF>[극한 회피]</color> 발동 후 에너지가 충분하면 <IconMap:Icon_SpecialReady>을 눌러 40pt의 에너지를 소모해 <color=#FFFFFF>[강화 특수 스킬: 처형식·은신]</color>을 발동하고, <color=#FFFFFF>[철칙]</color> 효과를 획득할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 처형식·떨어지는 서리",
+     "desc": "<color=#FFFFFF>[철칙]</color> 효과를 보유 중이며 <color=#FFFFFF>[족쇄 사면]</color> 상태일 때 <IconMap:Icon_Normal> 혹은 <IconMap:Icon_Special>을 짧게 탭하여 시전:\n적에게 도약하고, 망토를 거두는 동시에 낙하 공격으로 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n착지 후 <color=#FFFFFF>[서리 형벌]</color>을 보유한 상태라면 <IconMap:Icon_Normal>, <IconMap:Icon_Special> 홀드를 유지하여 <color=#FFFFFF>[강화 특수 스킬: 처형식·단행]</color>으로 연계할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 처형식·쌓이는 서리",
+     "desc": "<color=#FFFFFF>[강화 특수 스킬: 처형식·은신]</color> 발동 후 <IconMap:Icon_Normal> 혹은 <IconMap:Icon_Special>을 짧게 탭하여 시전:\n빠르게 다단 공격을 시전한 후 적에게 도약하고, 망토를 거두는 동시에 더 강력한 낙하 공격으로 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n착지 후 <color=#FFFFFF>[서리 형벌]</color>을 보유한 상태라면 <IconMap:Icon_Normal>, <IconMap:Icon_Special> 홀드를 유지하여 <color=#FFFFFF>[강화 특수 스킬: 처형식·단행]</color>으로 연계할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 처형식·단행",
+     "desc": "<color=#FFFFFF>[서리 형벌]</color>이 충분할 때 시전한 <color=#FFFFFF>[일반 공격: 편봉]</color>의 마지막 단 공격, <color=#FFFFFF>[특수 스킬: 처형식·떨어지는 서리]</color>, <color=#FFFFFF>[특수 스킬: 처형식·쌓이는 서리]</color> 착지 후 <IconMap:Icon_Normal>, <IconMap:Icon_Special> 홀드를 유지하여 시전:\n빠르게 섬광처럼 뒤로 도약하며 더 강력한 종결의 일격으로 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n적 명중 시 <color=#FFFFFF>[한랭 침식]</color>을 누적하지 않는다.\n스킬 시전 후 <IconMap:Icon_Normal>, <IconMap:Icon_Special> 홀드 혹은 <IconMap:Icon_Normal>을 짧게 탭하여 다섯 번째 <color=#FFFFFF>[일반 공격: 편봉]</color>으로 바로 연계할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 처형식·냉혹한 섬광",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1541007, Prop:1001}",
+       "param": {
+        "1541007": {
+         "main": 12780,
+         "growth": 1170,
+         "format": "%",
+         "damage_percentage": 12780,
+         "damage_percentage_growth": 1170,
+         "stun_ratio": 5410,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 135300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4177,
+         "sp_consume": 0,
+         "attack_data": [
+          19661
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4916
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1541007, Prop:1002}",
+       "param": {
+        "1541007": {
+         "main": 5410,
+         "growth": 250,
+         "format": "%",
+         "damage_percentage": 12780,
+         "damage_percentage_growth": 1170,
+         "stun_ratio": 5410,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 135300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4177,
+         "sp_consume": 0,
+         "attack_data": [
+          19661
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4916
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 처형식·숨 막히는 서릿길",
+     "param": [
+      {
+       "name": "표창 던지기 총 피해 배율",
+       "desc": "{Skill:1541009, Prop:1001}",
+       "param": {
+        "1541009": {
+         "main": 7930,
+         "growth": 730,
+         "format": "%",
+         "damage_percentage": 7930,
+         "damage_percentage_growth": 730,
+         "stun_ratio": 7700,
+         "stun_ratio_growth": 350,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 192500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5949,
+         "sp_consume": 0,
+         "attack_data": [
+          28000
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "에너지 소모",
+       "desc": "40pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 처형식·떨어지는 서리",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1541010, Prop:1001}",
+       "param": {
+        "1541010": {
+         "main": 38380,
+         "growth": 3490,
+         "format": "%",
+         "damage_percentage": 38380,
+         "damage_percentage_growth": 3490,
+         "stun_ratio": 27430,
+         "stun_ratio_growth": 1250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 938025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 23139,
+         "sp_consume": 0,
+         "attack_data": [
+          44654
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11164
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1541010, Prop:1002}",
+       "param": {
+        "1541010": {
+         "main": 27430,
+         "growth": 1250,
+         "format": "%",
+         "damage_percentage": 38380,
+         "damage_percentage_growth": 3490,
+         "stun_ratio": 27430,
+         "stun_ratio_growth": 1250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 938025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 23139,
+         "sp_consume": 0,
+         "attack_data": [
+          44654
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11164
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 처형식·쌓이는 서리",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1541011, Prop:1001}",
+       "param": {
+        "1541011": {
+         "main": 60820,
+         "growth": 5530,
+         "format": "%",
+         "damage_percentage": 60820,
+         "damage_percentage_growth": 5530,
+         "stun_ratio": 45060,
+         "stun_ratio_growth": 2050,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1446775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37292,
+         "sp_consume": 0,
+         "attack_data": [
+          93987
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1541011, Prop:1002}",
+       "param": {
+        "1541011": {
+         "main": 45060,
+         "growth": 2050,
+         "format": "%",
+         "damage_percentage": 60820,
+         "damage_percentage_growth": 5530,
+         "stun_ratio": 45060,
+         "stun_ratio_growth": 2050,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1446775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37292,
+         "sp_consume": 0,
+         "attack_data": [
+          93987
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "표창 베기 총 피해 배율",
+       "desc": "{Skill:1541012, Prop:1001}",
+       "param": {
+        "1541012": {
+         "main": 1210,
+         "growth": 110,
+         "format": "%",
+         "damage_percentage": 1210,
+         "damage_percentage_growth": 110,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 처형식·단행",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1541014, Prop:1001}",
+       "param": {
+        "1541014": {
+         "main": 51230,
+         "growth": 4660,
+         "format": "%",
+         "damage_percentage": 51230,
+         "damage_percentage_growth": 4660,
+         "stun_ratio": 12160,
+         "stun_ratio_growth": 560,
+         "sp_recovery": 30620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 234025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7227,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1541014, Prop:1002}",
+       "param": {
+        "1541014": {
+         "main": 12160,
+         "growth": 560,
+         "format": "%",
+         "damage_percentage": 51230,
+         "damage_percentage_growth": 4660,
+         "stun_ratio": 12160,
+         "stun_ratio_growth": 560,
+         "sp_recovery": 30620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 234025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7227,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8504
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "콤보 스킬: 매달린 청산",
+     "desc": "<color=#FFFFFF>[콤보 스킬]</color> 발동 시 해당 캐릭터를 선택해 시전:\n표창을 던지고, 적 상공에서 거꾸로 매달려 다단 공격을 한 뒤, 종결의 일격으로 대량의 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n강공격이 <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#FE437E>에테르 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>의 적에게 명중하면 <color=#FFFFFF>[난개]</color> 효과를 1회 발동하여 해당 속성의 속성 이상 피해를 100% 배율로 1회 결산한다.\n스킬 시전 후 다섯 번째 <color=#FFFFFF>[일반 공격: 편봉]</color>으로 바로 연계할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "궁극기: 사무치는 형벌",
+     "desc": "데시벨 레벨 <color=#FFFFFF>[Maximum]</color> 달성 시 <IconMap:Icon_UltimateReady>을 짧게 탭하여 시전:\n전방으로 다단 공격을 펼쳐 대량의 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n강공격이 <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#FE437E>에테르 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>의 적에게 명중하면 <color=#FFFFFF>[난개]</color> 효과를 1회 발동하여 해당 속성의 속성 이상 피해를 250% 배율로 1회 결산한다.\n스킬 시전 후 다섯 번째 <color=#FFFFFF>[일반 공격: 편봉]</color>으로 바로 연계할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 매달린 청산",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1541017, Prop:1001}",
+       "param": {
+        "1541017": {
+         "main": 83080,
+         "growth": 7560,
+         "format": "%",
+         "damage_percentage": 83080,
+         "damage_percentage_growth": 7560,
+         "stun_ratio": 26410,
+         "stun_ratio_growth": 1210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2489025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37360,
+         "sp_consume": 0,
+         "attack_data": [
+          48007
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1541017, Prop:1002}",
+       "param": {
+        "1541017": {
+         "main": 26410,
+         "growth": 1210,
+         "format": "%",
+         "damage_percentage": 83080,
+         "damage_percentage_growth": 7560,
+         "stun_ratio": 26410,
+         "stun_ratio_growth": 1210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2489025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37360,
+         "sp_consume": 0,
+         "attack_data": [
+          48007
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24004
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "궁극기: 사무치는 형벌",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1541018, Prop:1001}",
+       "param": {
+        "1541018": {
+         "main": 153840,
+         "growth": 13990,
+         "format": "%",
+         "damage_percentage": 153840,
+         "damage_percentage_growth": 13990,
+         "stun_ratio": 24940,
+         "stun_ratio_growth": 1140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 60409,
+         "sp_consume": 0,
+         "attack_data": [
+          45340
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 72670
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1541018, Prop:1002}",
+       "param": {
+        "1541018": {
+         "main": 24940,
+         "growth": 1140,
+         "format": "%",
+         "damage_percentage": 153840,
+         "damage_percentage_growth": 13990,
+         "stun_ratio": 24940,
+         "stun_ratio_growth": 1140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 60409,
+         "sp_consume": 0,
+         "attack_data": [
+          45340
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 72670
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "빠른 지원: 기습의 칼날",
+     "desc": "현재 조작 중인 캐릭터가 넉업되면 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n타깃을 연속 공격해 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 금지령",
+     "desc": "출전 캐릭터 피격 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적의 공격을 패링하고 대량의 그로기 수치를 누적한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 요격의 칼날",
+     "desc": "<color=#FFFFFF>[패링 지원]</color> 시전 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n타깃을 연속으로 공격해 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬 시전 후 다섯 번째 <color=#FFFFFF>[일반 공격: 편봉]</color>으로 바로 연계할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 기습의 칼날",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1541019, Prop:1001}",
+       "param": {
+        "1541019": {
+         "main": 7910,
+         "growth": 720,
+         "format": "%",
+         "damage_percentage": 7910,
+         "damage_percentage_growth": 720,
+         "stun_ratio": 6700,
+         "stun_ratio_growth": 310,
+         "sp_recovery": 21900,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 167475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5170,
+         "sp_consume": 0,
+         "attack_data": [
+          24334
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6084
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1541019, Prop:1002}",
+       "param": {
+        "1541019": {
+         "main": 6700,
+         "growth": 310,
+         "format": "%",
+         "damage_percentage": 7910,
+         "damage_percentage_growth": 720,
+         "stun_ratio": 6700,
+         "stun_ratio_growth": 310,
+         "sp_recovery": 21900,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 167475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5170,
+         "sp_consume": 0,
+         "attack_data": [
+          24334
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6084
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 금지령",
+     "param": [
+      {
+       "name": "가벼운 패링 그로기 배율",
+       "desc": "{Skill:1541020, Prop:1002}",
+       "param": {
+        "1541020": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강한 패링 그로기 배율",
+       "desc": "{Skill:1541021, Prop:1002}",
+       "param": {
+        "1541021": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 패링 그로기 배율",
+       "desc": "{Skill:1541022, Prop:1002}",
+       "param": {
+        "1541022": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 요격의 칼날",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1541023, Prop:1001}",
+       "param": {
+        "1541023": {
+         "main": 46900,
+         "growth": 4270,
+         "format": "%",
+         "damage_percentage": 46900,
+         "damage_percentage_growth": 4270,
+         "stun_ratio": 34670,
+         "stun_ratio_growth": 1580,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2319075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 28723,
+         "sp_consume": 0,
+         "attack_data": [
+          71320
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 17830
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1541023, Prop:1002}",
+       "param": {
+        "1541023": {
+         "main": 34670,
+         "growth": 1580,
+         "format": "%",
+         "damage_percentage": 46900,
+         "damage_percentage_growth": 4270,
+         "stun_ratio": 34670,
+         "stun_ratio_growth": 1580,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2319075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 28723,
+         "sp_consume": 0,
+         "attack_data": [
+          71320
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 17830
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "순진한 이상",
+   "desc": "프로미아가 <color=#FFFFFF>[궁극기: 사무치는 형벌]</color> 시전 시 다음과 같은 추가 효과를 획득한다:\n<color=#FFFFFF>[서리 형벌]</color>이 가득 차지 않았을 때 <color=#FFFFFF>[서리 형벌]</color>을 1pt 획득한다. 해당 효과는 <color=#FFFFFF>[궁극기: 사무치는 형벌]</color> 시전 후 1회 발동할 수 있다.\n파티 내 모든 캐릭터가 <color=#FFFFFF>[유죄 추정]</color> 상태의 적에게 <color=#FFFFFF>[난개]</color> 효과를 줄 시 추가로 20%의 방어력을 무시한다.",
+   "desc2": "이곳은 혼란으로 뒤덮인 주인 없는 땅이다.\n굉음을 내며 달리는 엔진과 흩날리는 먼지, 철근과 육체의 충돌, 분쟁과 폭력이 밤낮으로 펼쳐진다.\n앳된 아이는 똑같이 앳된 무기를 꽉 쥐고, 붉은 황무지를 방황하며 걷고 있다.\n「이곳의 평화를 위해 힘을 보태줄 수 있겠나?」"
+  },
+  "2": {
+   "level": 2,
+   "name": "흔들리는 신념",
+   "desc": "프로미아의 이상 마스터리가 40pt 증가한다. <color=#FFFFFF>[서리 형벌]</color> 소모로 주는 <color=#FFFFFF>[난개]</color> 효과의 배율이 120% 증가한다.",
+   "desc2": "그녀는 뛰어난 청소부가 되었다. 깔끔하고 빠르고, 그 어떤 소리도 내지 않을 수 있었다. 타깃은 명확하고 수없이 많았다. 에테리얼, 비가역적인 침식증에 감염된 환자들, 결국 이변할 에테리얼, 튀어 오르는 핏방울과 귓가의 비명까지.\n하지만, 이게 옳은 걸까?\n「이건 청소부의 책임이야!」, 「그냥… 여기 있는 대다수의 사람들을 위한 거라고 생각하라고!」, 「그 녀석들은 어차피 죽을 거야」… 「이건 필요한 희생이야」"
+  },
+  "3": {
+   "level": 3,
+   "name": "잔혹한 달빛",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "진실은 종종 사소한 사고 하나에서 드러나기 마련이다.\n「그저 쓸모없는 에테리얼 쓰레기만 처리했다면, 청소부가 지금처럼 떼돈을 벌 수 있었을 것 같아?!」\n「갱단 싸움은 절대 손해 볼 일 없는 장사거든. 넌 네 손을 더럽히는 게 두렵겠지만, 『검은 늑대』는 군침을 흘리고 있을걸…」\n모든 이가 예상했던 것보다 빠르게, 밤은 찾아왔다.\n청소부, 칼리돈, 이름을 댈 수 있는 조직과 이름조차 없는 조직들, 혼란의 시대 모두가 끝없이 펼쳐진 어둠 속으로 사라지는 듯했다."
+  },
+  "4": {
+   "level": 4,
+   "name": "냉혹한 죄명",
+   "desc": "프로미아가 <color=#FFFFFF>[난개]</color> 효과 발동 시, <color=#FFFFFF>[한랭 침식]</color>을 5pt 회복한다. 0.5초 동안 최대 1회 발동한다.",
+   "desc2": "한 통의 초대장이 나방에게 심판을 내렸다.\n선택의 권리, 빛, 정의, 그리고 「프로미아」로서의 모든 것.\n그녀는 수갑을 차고, 스스로를 유배하는 길을 선택했다.\n「이게, 제 마지막 선택입니다」"
+  },
+  "5": {
+   "level": 5,
+   "name": "죽어가는 나방",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "그녀는 자신을 일에 묻어버렸다.\n조사, 심문, 심판, 끝이 없는 듯했다.\n동료가 걱정스러운 눈빛으로 그녀를 바라보았다.\n「언제까지… 이렇게 할 생각이야?」\n「모든 죄를 갚을 때까지, 혹은 죽음을 맞이할 때까지」"
+  },
+  "6": {
+   "level": 6,
+   "name": "계속될 이야기",
+   "desc": "프로미아가 <color=#FFFFFF>[서리 형벌]</color>을 소모하여 <color=#FFFFFF>[난개]</color> 효과 발동 시, 특수한 <color=#FFFFFF>[난개]</color> 효과를 추가로 1회 발동하며, 해당 속성의 속성 이상 피해를 200% 배율로 고정 결산한다. 동시에 5pt의 <color=#FFFFFF>[한랭 침식]</color>, 100pt의 데시벨을 회복한다. 해당 효과는 15초 동안 최대 1회 발동한다. 또한, 프로미아가 주는 속성 이상 피해, <color=#FFFFFF>[혼돈]</color> 피해가 적의 모든 속성 피해 저항을 15% 무시한다.",
+   "desc2": "종착점은 예정대로 찾아오지 않았고, 밤도 상상했던 것만큼 칠흑 같지는 않았다.\n동료, 옛 지인, 늦은 밤에 켜진 등불과 새로운 친구들…\n「불쌍한」 나방은 아직 이토록 묵직한 선물에서 벗어나지 못한 듯하고, 오랫동안 기다려온 결말은 조금 더 멀어진 것만 같았다.\n하지만 이런 운명도 나쁘지 않을지도 모른다."
+  }
+ },
+ "passive": {
+  "level": {
+   "1541501": {
+    "level": 1,
+    "id": 1541501,
+    "name": [
+     "핵심 패시브: 불을 훔치는 자",
+     "추가 능력: 얼음을 삼키는 마음"
+    ],
+    "desc": [
+     "프로미아의 초기 이상 장악력이 150pt 초과 시, 초과한 초기 이상 장악력 1pt당 자신의 이상 마스터리가 1.5pt 증가하고, 모든 파티원이 주는 <color=#FFFFFF>[난개]</color> 피해가 0.35% 증가한다.\n프로미아의 각기 다른 공격이 적에게 명중 시 일정량의 <color=#FFFFFF>[한랭 침식]</color>을 회복하며, 파티 내 캐릭터가 <color=#98EFF0>[빙결]</color> 효과 발동, <color=#FFFFFF>[혼돈]</color> 효과 발동, 적이 <color=#FFFFFF>[난류]</color> 효과를 받을 때, 자신이 <color=#FFFFFF>[강화 특수 스킬: 처형식·은신]</color>을 발동했을 때 추가로 <color=#FFFFFF>[한랭 침식]</color>을 5/5/5/10pt 회복한다. <color=#FFFFFF>[한랭 침식]</color>은 최대 100pt까지 누적할 수 있다.\n파티원이 발동한 <color=#FFFFFF>[난개]</color> 효과가 적 명중 시, 프로미아가 추가로 <color=#FFFFFF>[한랭 침식]</color>을 15pt 회복한다.\n<color=#FFFFFF>[한랭 침식]</color>이 50pt 이상일 시, 50pt의 <color=#FFFFFF>[한랭 침식]</color>을 소모하여 1pt의 <color=#FFFFFF>[서리 형벌]</color>로 전환한다. <color=#FFFFFF>[서리 형벌]</color>은 최대 2pt까지 획득할 수 있다.\n전장 진입 시, 프로미아가 <color=#FFFFFF>[서리 형벌]</color>을 2pt 획득한다.\n시전한 <color=#FFFFFF>[강화 특수 스킬: 처형식·단행]</color>의 종결의 일격이 <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#FE437E>에테르 속성 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>의 적 명중 시 <color=#FFFFFF>[난개]</color> 효과를 1회 발동하고 해당 속성의 속성 이상 피해를 <color=#2BAD00>330%</color> 배율로 고정 결산한다. 스킬 시전 시 <color=#FFFFFF>[서리 형벌]</color>을 1pt 소모한다.\n프로미아가 발동한 <color=#FFFFFF>[난개]</color> 효과가 적 명중 시 추가로 데시벨을 100pt 회복한다. 해당 효과는 0.5초 동안 최대 1회 발동한다. <color=#FFFFFF>[궁극기: 사무치는 형벌]</color> 시전 시 <color=#FFFFFF>[시린 맹세]</color> 효과를 획득한다. <color=#FFFFFF>[시린 맹세]</color> 효과를 보유한 상태에서 <color=#FFFFFF>[강화 특수 스킬: 처형식·단행]</color>, <color=#FFFFFF>[콤보 스킬: 매달린 청산]</color>, <color=#FFFFFF>[궁극기: 사무치는 형벌]</color> 시전 후 <IconMap:Icon_Special>을 짧은 탭 혹은 홀드하면 <color=#FFFFFF>[시린 맹세]</color> 효과를 소모하고 <color=#FFFFFF>[특수 스킬: 처형식·쌓이는 서리]</color>로 바로 연계할 수 있다. <color=#FFFFFF>[시린 맹세]</color> 효과 최대 획득: 1스택",
+     "파티 내 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동:\n<color=#FFFFFF>[강화 특수 스킬]</color> 시전 시, 프로미아의 <color=#98EFF0>얼음 이상 축적 효율</color>이 30% 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.\n파티 내 임의의 캐릭터가 적에게 <color=#98EFF0>[서릿발]</color> 효과를 부여할 시, 해당 효과의 지속 시간이 3초 증가한다. \n프로미아가 시전한 <color=#FFFFFF>[강화 특수 스킬]</color>이 적 명중 시, 적이 <color=#FFFFFF>[유죄 추정]</color> 상태를 획득하며, 파티 내 모든 캐릭터가 <color=#FFFFFF>[유죄 추정]</color> 상태의 적에게 <color=#FFFFFF>[난개]</color> 효과를 줄 시, 방어력을 40% 무시한다. <color=#FFFFFF>[유죄 추정]</color> 상태는 30초간 지속되며, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1541502": {
+    "level": 2,
+    "id": 1541502,
+    "name": [
+     "핵심 패시브: 불을 훔치는 자",
+     "추가 능력: 얼음을 삼키는 마음"
+    ],
+    "desc": [
+     "프로미아의 초기 이상 장악력이 150pt 초과 시, 초과한 초기 이상 장악력 1pt당 자신의 이상 마스터리가 1.5pt 증가하고, 모든 파티원이 주는 <color=#FFFFFF>[난개]</color> 피해가 0.35% 증가한다.\n프로미아의 각기 다른 공격이 적에게 명중 시 일정량의 <color=#FFFFFF>[한랭 침식]</color>을 회복하며, 파티 내 캐릭터가 <color=#98EFF0>[빙결]</color> 효과 발동, <color=#FFFFFF>[혼돈]</color> 효과 발동, 적이 <color=#FFFFFF>[난류]</color> 효과를 받을 때, 자신이 <color=#FFFFFF>[강화 특수 스킬: 처형식·은신]</color>을 발동했을 때 추가로 <color=#FFFFFF>[한랭 침식]</color>을 5/5/5/10pt 회복한다. <color=#FFFFFF>[한랭 침식]</color>은 최대 100pt까지 누적할 수 있다.\n파티원이 발동한 <color=#FFFFFF>[난개]</color> 효과가 적 명중 시, 프로미아가 추가로 <color=#FFFFFF>[한랭 침식]</color>을 15pt 회복한다.\n<color=#FFFFFF>[한랭 침식]</color>이 50pt 이상일 시, 50pt의 <color=#FFFFFF>[한랭 침식]</color>을 소모하여 1pt의 <color=#FFFFFF>[서리 형벌]</color>로 전환한다. <color=#FFFFFF>[서리 형벌]</color>은 최대 2pt까지 획득할 수 있다.\n전장 진입 시, 프로미아가 <color=#FFFFFF>[서리 형벌]</color>을 2pt 획득한다.\n시전한 <color=#FFFFFF>[강화 특수 스킬: 처형식·단행]</color>의 종결의 일격이 <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#FE437E>에테르 속성 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>의 적 명중 시 <color=#FFFFFF>[난개]</color> 효과를 1회 발동하고 해당 속성의 속성 이상 피해를 <color=#2BAD00>385%</color> 배율로 고정 결산한다. 스킬 시전 시 <color=#FFFFFF>[서리 형벌]</color>을 1pt 소모한다.\n프로미아가 발동한 <color=#FFFFFF>[난개]</color> 효과가 적 명중 시 추가로 데시벨을 100pt 회복한다. 해당 효과는 0.5초 동안 최대 1회 발동한다. <color=#FFFFFF>[궁극기: 사무치는 형벌]</color> 시전 시 <color=#FFFFFF>[시린 맹세]</color> 효과를 획득한다. <color=#FFFFFF>[시린 맹세]</color> 효과를 보유한 상태에서 <color=#FFFFFF>[강화 특수 스킬: 처형식·단행]</color>, <color=#FFFFFF>[콤보 스킬: 매달린 청산]</color>, <color=#FFFFFF>[궁극기: 사무치는 형벌]</color> 시전 후 <IconMap:Icon_Special>을 짧은 탭 혹은 홀드하면 <color=#FFFFFF>[시린 맹세]</color> 효과를 소모하고 <color=#FFFFFF>[특수 스킬: 처형식·쌓이는 서리]</color>로 바로 연계할 수 있다. <color=#FFFFFF>[시린 맹세]</color> 효과 최대 획득: 1스택",
+     "파티 내 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동:\n<color=#FFFFFF>[강화 특수 스킬]</color> 시전 시, 프로미아의 <color=#98EFF0>얼음 이상 축적 효율</color>이 30% 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.\n파티 내 임의의 캐릭터가 적에게 <color=#98EFF0>[서릿발]</color> 효과를 부여할 시, 해당 효과의 지속 시간이 3초 증가한다. \n프로미아가 시전한 <color=#FFFFFF>[강화 특수 스킬]</color>이 적 명중 시, 적이 <color=#FFFFFF>[유죄 추정]</color> 상태를 획득하며, 파티 내 모든 캐릭터가 <color=#FFFFFF>[유죄 추정]</color> 상태의 적에게 <color=#FFFFFF>[난개]</color> 효과를 줄 시, 방어력을 40% 무시한다. <color=#FFFFFF>[유죄 추정]</color> 상태는 30초간 지속되며, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1541503": {
+    "level": 3,
+    "id": 1541503,
+    "name": [
+     "핵심 패시브: 불을 훔치는 자",
+     "추가 능력: 얼음을 삼키는 마음"
+    ],
+    "desc": [
+     "프로미아의 초기 이상 장악력이 150pt 초과 시, 초과한 초기 이상 장악력 1pt당 자신의 이상 마스터리가 1.5pt 증가하고, 모든 파티원이 주는 <color=#FFFFFF>[난개]</color> 피해가 0.35% 증가한다.\n프로미아의 각기 다른 공격이 적에게 명중 시 일정량의 <color=#FFFFFF>[한랭 침식]</color>을 회복하며, 파티 내 캐릭터가 <color=#98EFF0>[빙결]</color> 효과 발동, <color=#FFFFFF>[혼돈]</color> 효과 발동, 적이 <color=#FFFFFF>[난류]</color> 효과를 받을 때, 자신이 <color=#FFFFFF>[강화 특수 스킬: 처형식·은신]</color>을 발동했을 때 추가로 <color=#FFFFFF>[한랭 침식]</color>을 5/5/5/10pt 회복한다. <color=#FFFFFF>[한랭 침식]</color>은 최대 100pt까지 누적할 수 있다.\n파티원이 발동한 <color=#FFFFFF>[난개]</color> 효과가 적 명중 시, 프로미아가 추가로 <color=#FFFFFF>[한랭 침식]</color>을 15pt 회복한다.\n<color=#FFFFFF>[한랭 침식]</color>이 50pt 이상일 시, 50pt의 <color=#FFFFFF>[한랭 침식]</color>을 소모하여 1pt의 <color=#FFFFFF>[서리 형벌]</color>로 전환한다. <color=#FFFFFF>[서리 형벌]</color>은 최대 2pt까지 획득할 수 있다.\n전장 진입 시, 프로미아가 <color=#FFFFFF>[서리 형벌]</color>을 2pt 획득한다.\n시전한 <color=#FFFFFF>[강화 특수 스킬: 처형식·단행]</color>의 종결의 일격이 <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#FE437E>에테르 속성 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>의 적 명중 시 <color=#FFFFFF>[난개]</color> 효과를 1회 발동하고 해당 속성의 속성 이상 피해를 <color=#2BAD00>435%</color> 배율로 고정 결산한다. 스킬 시전 시 <color=#FFFFFF>[서리 형벌]</color>을 1pt 소모한다.\n프로미아가 발동한 <color=#FFFFFF>[난개]</color> 효과가 적 명중 시 추가로 데시벨을 100pt 회복한다. 해당 효과는 0.5초 동안 최대 1회 발동한다. <color=#FFFFFF>[궁극기: 사무치는 형벌]</color> 시전 시 <color=#FFFFFF>[시린 맹세]</color> 효과를 획득한다. <color=#FFFFFF>[시린 맹세]</color> 효과를 보유한 상태에서 <color=#FFFFFF>[강화 특수 스킬: 처형식·단행]</color>, <color=#FFFFFF>[콤보 스킬: 매달린 청산]</color>, <color=#FFFFFF>[궁극기: 사무치는 형벌]</color> 시전 후 <IconMap:Icon_Special>을 짧은 탭 혹은 홀드하면 <color=#FFFFFF>[시린 맹세]</color> 효과를 소모하고 <color=#FFFFFF>[특수 스킬: 처형식·쌓이는 서리]</color>로 바로 연계할 수 있다. <color=#FFFFFF>[시린 맹세]</color> 효과 최대 획득: 1스택",
+     "파티 내 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동:\n<color=#FFFFFF>[강화 특수 스킬]</color> 시전 시, 프로미아의 <color=#98EFF0>얼음 이상 축적 효율</color>이 30% 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.\n파티 내 임의의 캐릭터가 적에게 <color=#98EFF0>[서릿발]</color> 효과를 부여할 시, 해당 효과의 지속 시간이 3초 증가한다. \n프로미아가 시전한 <color=#FFFFFF>[강화 특수 스킬]</color>이 적 명중 시, 적이 <color=#FFFFFF>[유죄 추정]</color> 상태를 획득하며, 파티 내 모든 캐릭터가 <color=#FFFFFF>[유죄 추정]</color> 상태의 적에게 <color=#FFFFFF>[난개]</color> 효과를 줄 시, 방어력을 40% 무시한다. <color=#FFFFFF>[유죄 추정]</color> 상태는 30초간 지속되며, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1541504": {
+    "level": 4,
+    "id": 1541504,
+    "name": [
+     "핵심 패시브: 불을 훔치는 자",
+     "추가 능력: 얼음을 삼키는 마음"
+    ],
+    "desc": [
+     "프로미아의 초기 이상 장악력이 150pt 초과 시, 초과한 초기 이상 장악력 1pt당 자신의 이상 마스터리가 1.5pt 증가하고, 모든 파티원이 주는 <color=#FFFFFF>[난개]</color> 피해가 0.35% 증가한다.\n프로미아의 각기 다른 공격이 적에게 명중 시 일정량의 <color=#FFFFFF>[한랭 침식]</color>을 회복하며, 파티 내 캐릭터가 <color=#98EFF0>[빙결]</color> 효과 발동, <color=#FFFFFF>[혼돈]</color> 효과 발동, 적이 <color=#FFFFFF>[난류]</color> 효과를 받을 때, 자신이 <color=#FFFFFF>[강화 특수 스킬: 처형식·은신]</color>을 발동했을 때 추가로 <color=#FFFFFF>[한랭 침식]</color>을 5/5/5/10pt 회복한다. <color=#FFFFFF>[한랭 침식]</color>은 최대 100pt까지 누적할 수 있다.\n파티원이 발동한 <color=#FFFFFF>[난개]</color> 효과가 적 명중 시, 프로미아가 추가로 <color=#FFFFFF>[한랭 침식]</color>을 15pt 회복한다.\n<color=#FFFFFF>[한랭 침식]</color>이 50pt 이상일 시, 50pt의 <color=#FFFFFF>[한랭 침식]</color>을 소모하여 1pt의 <color=#FFFFFF>[서리 형벌]</color>로 전환한다. <color=#FFFFFF>[서리 형벌]</color>은 최대 2pt까지 획득할 수 있다.\n전장 진입 시, 프로미아가 <color=#FFFFFF>[서리 형벌]</color>을 2pt 획득한다.\n시전한 <color=#FFFFFF>[강화 특수 스킬: 처형식·단행]</color>의 종결의 일격이 <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#FE437E>에테르 속성 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>의 적 명중 시 <color=#FFFFFF>[난개]</color> 효과를 1회 발동하고 해당 속성의 속성 이상 피해를 <color=#2BAD00>485%</color> 배율로 고정 결산한다. 스킬 시전 시 <color=#FFFFFF>[서리 형벌]</color>을 1pt 소모한다.\n프로미아가 발동한 <color=#FFFFFF>[난개]</color> 효과가 적 명중 시 추가로 데시벨을 100pt 회복한다. 해당 효과는 0.5초 동안 최대 1회 발동한다. <color=#FFFFFF>[궁극기: 사무치는 형벌]</color> 시전 시 <color=#FFFFFF>[시린 맹세]</color> 효과를 획득한다. <color=#FFFFFF>[시린 맹세]</color> 효과를 보유한 상태에서 <color=#FFFFFF>[강화 특수 스킬: 처형식·단행]</color>, <color=#FFFFFF>[콤보 스킬: 매달린 청산]</color>, <color=#FFFFFF>[궁극기: 사무치는 형벌]</color> 시전 후 <IconMap:Icon_Special>을 짧은 탭 혹은 홀드하면 <color=#FFFFFF>[시린 맹세]</color> 효과를 소모하고 <color=#FFFFFF>[특수 스킬: 처형식·쌓이는 서리]</color>로 바로 연계할 수 있다. <color=#FFFFFF>[시린 맹세]</color> 효과 최대 획득: 1스택",
+     "파티 내 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동:\n<color=#FFFFFF>[강화 특수 스킬]</color> 시전 시, 프로미아의 <color=#98EFF0>얼음 이상 축적 효율</color>이 30% 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.\n파티 내 임의의 캐릭터가 적에게 <color=#98EFF0>[서릿발]</color> 효과를 부여할 시, 해당 효과의 지속 시간이 3초 증가한다. \n프로미아가 시전한 <color=#FFFFFF>[강화 특수 스킬]</color>이 적 명중 시, 적이 <color=#FFFFFF>[유죄 추정]</color> 상태를 획득하며, 파티 내 모든 캐릭터가 <color=#FFFFFF>[유죄 추정]</color> 상태의 적에게 <color=#FFFFFF>[난개]</color> 효과를 줄 시, 방어력을 40% 무시한다. <color=#FFFFFF>[유죄 추정]</color> 상태는 30초간 지속되며, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1541505": {
+    "level": 5,
+    "id": 1541505,
+    "name": [
+     "핵심 패시브: 불을 훔치는 자",
+     "추가 능력: 얼음을 삼키는 마음"
+    ],
+    "desc": [
+     "프로미아의 초기 이상 장악력이 150pt 초과 시, 초과한 초기 이상 장악력 1pt당 자신의 이상 마스터리가 1.5pt 증가하고, 모든 파티원이 주는 <color=#FFFFFF>[난개]</color> 피해가 0.35% 증가한다.\n프로미아의 각기 다른 공격이 적에게 명중 시 일정량의 <color=#FFFFFF>[한랭 침식]</color>을 회복하며, 파티 내 캐릭터가 <color=#98EFF0>[빙결]</color> 효과 발동, <color=#FFFFFF>[혼돈]</color> 효과 발동, 적이 <color=#FFFFFF>[난류]</color> 효과를 받을 때, 자신이 <color=#FFFFFF>[강화 특수 스킬: 처형식·은신]</color>을 발동했을 때 추가로 <color=#FFFFFF>[한랭 침식]</color>을 5/5/5/10pt 회복한다. <color=#FFFFFF>[한랭 침식]</color>은 최대 100pt까지 누적할 수 있다.\n파티원이 발동한 <color=#FFFFFF>[난개]</color> 효과가 적 명중 시, 프로미아가 추가로 <color=#FFFFFF>[한랭 침식]</color>을 15pt 회복한다.\n<color=#FFFFFF>[한랭 침식]</color>이 50pt 이상일 시, 50pt의 <color=#FFFFFF>[한랭 침식]</color>을 소모하여 1pt의 <color=#FFFFFF>[서리 형벌]</color>로 전환한다. <color=#FFFFFF>[서리 형벌]</color>은 최대 2pt까지 획득할 수 있다.\n전장 진입 시, 프로미아가 <color=#FFFFFF>[서리 형벌]</color>을 2pt 획득한다.\n시전한 <color=#FFFFFF>[강화 특수 스킬: 처형식·단행]</color>의 종결의 일격이 <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#FE437E>에테르 속성 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>의 적 명중 시 <color=#FFFFFF>[난개]</color> 효과를 1회 발동하고 해당 속성의 속성 이상 피해를 <color=#2BAD00>535%</color> 배율로 고정 결산한다. 스킬 시전 시 <color=#FFFFFF>[서리 형벌]</color>을 1pt 소모한다.\n프로미아가 발동한 <color=#FFFFFF>[난개]</color> 효과가 적 명중 시 추가로 데시벨을 100pt 회복한다. 해당 효과는 0.5초 동안 최대 1회 발동한다. <color=#FFFFFF>[궁극기: 사무치는 형벌]</color> 시전 시 <color=#FFFFFF>[시린 맹세]</color> 효과를 획득한다. <color=#FFFFFF>[시린 맹세]</color> 효과를 보유한 상태에서 <color=#FFFFFF>[강화 특수 스킬: 처형식·단행]</color>, <color=#FFFFFF>[콤보 스킬: 매달린 청산]</color>, <color=#FFFFFF>[궁극기: 사무치는 형벌]</color> 시전 후 <IconMap:Icon_Special>을 짧은 탭 혹은 홀드하면 <color=#FFFFFF>[시린 맹세]</color> 효과를 소모하고 <color=#FFFFFF>[특수 스킬: 처형식·쌓이는 서리]</color>로 바로 연계할 수 있다. <color=#FFFFFF>[시린 맹세]</color> 효과 최대 획득: 1스택",
+     "파티 내 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동:\n<color=#FFFFFF>[강화 특수 스킬]</color> 시전 시, 프로미아의 <color=#98EFF0>얼음 이상 축적 효율</color>이 30% 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.\n파티 내 임의의 캐릭터가 적에게 <color=#98EFF0>[서릿발]</color> 효과를 부여할 시, 해당 효과의 지속 시간이 3초 증가한다. \n프로미아가 시전한 <color=#FFFFFF>[강화 특수 스킬]</color>이 적 명중 시, 적이 <color=#FFFFFF>[유죄 추정]</color> 상태를 획득하며, 파티 내 모든 캐릭터가 <color=#FFFFFF>[유죄 추정]</color> 상태의 적에게 <color=#FFFFFF>[난개]</color> 효과를 줄 시, 방어력을 40% 무시한다. <color=#FFFFFF>[유죄 추정]</color> 상태는 30초간 지속되며, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1541506": {
+    "level": 6,
+    "id": 1541506,
+    "name": [
+     "핵심 패시브: 불을 훔치는 자",
+     "추가 능력: 얼음을 삼키는 마음"
+    ],
+    "desc": [
+     "프로미아의 초기 이상 장악력이 150pt 초과 시, 초과한 초기 이상 장악력 1pt당 자신의 이상 마스터리가 1.5pt 증가하고, 모든 파티원이 주는 <color=#FFFFFF>[난개]</color> 피해가 0.35% 증가한다.\n프로미아의 각기 다른 공격이 적에게 명중 시 일정량의 <color=#FFFFFF>[한랭 침식]</color>을 회복하며, 파티 내 캐릭터가 <color=#98EFF0>[빙결]</color> 효과 발동, <color=#FFFFFF>[혼돈]</color> 효과 발동, 적이 <color=#FFFFFF>[난류]</color> 효과를 받을 때, 자신이 <color=#FFFFFF>[강화 특수 스킬: 처형식·은신]</color>을 발동했을 때 추가로 <color=#FFFFFF>[한랭 침식]</color>을 5/5/5/10pt 회복한다. <color=#FFFFFF>[한랭 침식]</color>은 최대 100pt까지 누적할 수 있다.\n파티원이 발동한 <color=#FFFFFF>[난개]</color> 효과가 적 명중 시, 프로미아가 추가로 <color=#FFFFFF>[한랭 침식]</color>을 15pt 회복한다.\n<color=#FFFFFF>[한랭 침식]</color>이 50pt 이상일 시, 50pt의 <color=#FFFFFF>[한랭 침식]</color>을 소모하여 1pt의 <color=#FFFFFF>[서리 형벌]</color>로 전환한다. <color=#FFFFFF>[서리 형벌]</color>은 최대 2pt까지 획득할 수 있다.\n전장 진입 시, 프로미아가 <color=#FFFFFF>[서리 형벌]</color>을 2pt 획득한다.\n시전한 <color=#FFFFFF>[강화 특수 스킬: 처형식·단행]</color>의 종결의 일격이 <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#FE437E>에테르 속성 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>의 적 명중 시 <color=#FFFFFF>[난개]</color> 효과를 1회 발동하고 해당 속성의 속성 이상 피해를 <color=#2BAD00>585%</color> 배율로 고정 결산한다. 스킬 시전 시 <color=#FFFFFF>[서리 형벌]</color>을 1pt 소모한다.\n프로미아가 발동한 <color=#FFFFFF>[난개]</color> 효과가 적 명중 시 추가로 데시벨을 100pt 회복한다. 해당 효과는 0.5초 동안 최대 1회 발동한다. <color=#FFFFFF>[궁극기: 사무치는 형벌]</color> 시전 시 <color=#FFFFFF>[시린 맹세]</color> 효과를 획득한다. <color=#FFFFFF>[시린 맹세]</color> 효과를 보유한 상태에서 <color=#FFFFFF>[강화 특수 스킬: 처형식·단행]</color>, <color=#FFFFFF>[콤보 스킬: 매달린 청산]</color>, <color=#FFFFFF>[궁극기: 사무치는 형벌]</color> 시전 후 <IconMap:Icon_Special>을 짧은 탭 혹은 홀드하면 <color=#FFFFFF>[시린 맹세]</color> 효과를 소모하고 <color=#FFFFFF>[특수 스킬: 처형식·쌓이는 서리]</color>로 바로 연계할 수 있다. <color=#FFFFFF>[시린 맹세]</color> 효과 최대 획득: 1스택",
+     "파티 내 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동:\n<color=#FFFFFF>[강화 특수 스킬]</color> 시전 시, 프로미아의 <color=#98EFF0>얼음 이상 축적 효율</color>이 30% 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.\n파티 내 임의의 캐릭터가 적에게 <color=#98EFF0>[서릿발]</color> 효과를 부여할 시, 해당 효과의 지속 시간이 3초 증가한다. \n프로미아가 시전한 <color=#FFFFFF>[강화 특수 스킬]</color>이 적 명중 시, 적이 <color=#FFFFFF>[유죄 추정]</color> 상태를 획득하며, 파티 내 모든 캐릭터가 <color=#FFFFFF>[유죄 추정]</color> 상태의 적에게 <color=#FFFFFF>[난개]</color> 효과를 줄 시, 방어력을 40% 무시한다. <color=#FFFFFF>[유죄 추정]</color> 상태는 30초간 지속되며, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1541507": {
+    "level": 7,
+    "id": 1541507,
+    "name": [
+     "핵심 패시브: 불을 훔치는 자",
+     "추가 능력: 얼음을 삼키는 마음"
+    ],
+    "desc": [
+     "프로미아의 초기 이상 장악력이 150pt 초과 시, 초과한 초기 이상 장악력 1pt당 자신의 이상 마스터리가 1.5pt 증가하고, 모든 파티원이 주는 <color=#FFFFFF>[난개]</color> 피해가 0.35% 증가한다.\n프로미아의 각기 다른 공격이 적에게 명중 시 일정량의 <color=#FFFFFF>[한랭 침식]</color>을 회복하며, 파티 내 캐릭터가 <color=#98EFF0>[빙결]</color> 효과 발동, <color=#FFFFFF>[혼돈]</color> 효과 발동, 적이 <color=#FFFFFF>[난류]</color> 효과를 받을 때, 자신이 <color=#FFFFFF>[강화 특수 스킬: 처형식·은신]</color>을 발동했을 때 추가로 <color=#FFFFFF>[한랭 침식]</color>을 5/5/5/10pt 회복한다. <color=#FFFFFF>[한랭 침식]</color>은 최대 100pt까지 누적할 수 있다.\n파티원이 발동한 <color=#FFFFFF>[난개]</color> 효과가 적 명중 시, 프로미아가 추가로 <color=#FFFFFF>[한랭 침식]</color>을 15pt 회복한다.\n<color=#FFFFFF>[한랭 침식]</color>이 50pt 이상일 시, 50pt의 <color=#FFFFFF>[한랭 침식]</color>을 소모하여 1pt의 <color=#FFFFFF>[서리 형벌]</color>로 전환한다. <color=#FFFFFF>[서리 형벌]</color>은 최대 2pt까지 획득할 수 있다.\n전장 진입 시, 프로미아가 <color=#FFFFFF>[서리 형벌]</color>을 2pt 획득한다.\n시전한 <color=#FFFFFF>[강화 특수 스킬: 처형식·단행]</color>의 종결의 일격이 <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#FE437E>에테르 속성 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>의 적 명중 시 <color=#FFFFFF>[난개]</color> 효과를 1회 발동하고 해당 속성의 속성 이상 피해를 <color=#2BAD00>635%</color> 배율로 고정 결산한다. 스킬 시전 시 <color=#FFFFFF>[서리 형벌]</color>을 1pt 소모한다.\n프로미아가 발동한 <color=#FFFFFF>[난개]</color> 효과가 적 명중 시 추가로 데시벨을 100pt 회복한다. 해당 효과는 0.5초 동안 최대 1회 발동한다. <color=#FFFFFF>[궁극기: 사무치는 형벌]</color> 시전 시 <color=#FFFFFF>[시린 맹세]</color> 효과를 획득한다. <color=#FFFFFF>[시린 맹세]</color> 효과를 보유한 상태에서 <color=#FFFFFF>[강화 특수 스킬: 처형식·단행]</color>, <color=#FFFFFF>[콤보 스킬: 매달린 청산]</color>, <color=#FFFFFF>[궁극기: 사무치는 형벌]</color> 시전 후 <IconMap:Icon_Special>을 짧은 탭 혹은 홀드하면 <color=#FFFFFF>[시린 맹세]</color> 효과를 소모하고 <color=#FFFFFF>[특수 스킬: 처형식·쌓이는 서리]</color>로 바로 연계할 수 있다. <color=#FFFFFF>[시린 맹세]</color> 효과 최대 획득: 1스택",
+     "파티 내 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동:\n<color=#FFFFFF>[강화 특수 스킬]</color> 시전 시, 프로미아의 <color=#98EFF0>얼음 이상 축적 효율</color>이 30% 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.\n파티 내 임의의 캐릭터가 적에게 <color=#98EFF0>[서릿발]</color> 효과를 부여할 시, 해당 효과의 지속 시간이 3초 증가한다. \n프로미아가 시전한 <color=#FFFFFF>[강화 특수 스킬]</color>이 적 명중 시, 적이 <color=#FFFFFF>[유죄 추정]</color> 상태를 획득하며, 파티 내 모든 캐릭터가 <color=#FFFFFF>[유죄 추정]</color> 상태의 적에게 <color=#FFFFFF>[난개]</color> 효과를 줄 시, 방어력을 40% 무시한다. <color=#FFFFFF>[유죄 추정]</color> 상태는 30초간 지속되며, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110511": 2
+   },
+   "3": {
+    "10": 28000,
+    "110511": 4
+   },
+   "4": {
+    "10": 60000,
+    "110009": 2,
+    "110511": 9
+   },
+   "5": {
+    "10": 100000,
+    "110009": 3,
+    "110511": 15
+   },
+   "6": {
+    "10": 200000,
+    "110009": 4,
+    "110511": 30
+   }
+  }
+ },
+ "skin": {
+  "3115410": {
+   "name": "프로미아·그림자 속 서리",
+   "desc": "어둠은 편리한 무기로, 처형인은 이미 밤에 익숙하지만, 무거운 족쇄를 짊어진 채라면, 길을 잃을 수도 있다.",
+   "obtain_desc": "",
+   "image": "IconRole61"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1541001": {
+   "name": "일반 공격: 편봉",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541002": {
+   "name": "일반 공격: 선회하는 칼날",
+   "desc": "<IconMap:Icon_Normal>(홀드)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541003": {
+   "name": "특수 스킬: 처형식·냉혹한 섬광",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541004": {
+   "name": "강화 특수 스킬: 처형식·숨 막히는 서릿길",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541005": {
+   "name": "강화 특수 스킬: 처형식·은신",
+   "desc": "[강화 특수 스킬: 처형식·숨 막히는 서릿길] 시전 후 짧은 시간 내에 피격 시 자동 시전",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1541006": {
+   "name": "특수 스킬: 처형식·떨어지는 서리",
+   "desc": "<IconMap:Icon_Normal> 혹은 <IconMap:Icon_Special>([족쇄 사면] 상태 및 [철칙] 보유 시)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541007": {
+   "name": "특수 스킬: 처형식·쌓이는 서리",
+   "desc": "<IconMap:Icon_Normal> 혹은 <IconMap:Icon_Special>([강화 특수 스킬: 처형식·은신] 발동 후)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541008": {
+   "name": "강화 특수 스킬: 처형식·단행",
+   "desc": "<IconMap:Icon_Normal> 혹은 <IconMap:Icon_Special>([서리 형벌]이 충분할 때, 낙하 공격 후 홀드 유지)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541009": {
+   "name": "대시 공격: 냉혹한 사자",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541010": {
+   "name": "회피 반격: 날아오르는 박쥐",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541011": {
+   "name": "콤보 스킬: 매달린 청산",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541012": {
+   "name": "궁극기: 사무치는 형벌",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541013": {
+   "name": "빠른 지원: 기습의 칼날",
+   "desc": "<IconMap:Icon_Switch>(빠른 지원 발동 시)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541014": {
+   "name": "패링 지원: 금지령",
+   "desc": "<IconMap:Icon_Switch>(패링 지원 발동 시)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1541015": {
+   "name": "지원 돌격: 요격의 칼날",
+   "desc": "<IconMap:Icon_Normal>(패링 지원 시전 후)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1541001,
+   "avatar_id": 1541,
+   "first_priority": [
+    5,
+    1
+   ],
+   "second_priority": [
+    3,
+    0
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33800,
+  "slot2": 33000,
+  "slot_sub": 31300,
+  "part_sub_list": [
+   31203,
+   12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33800,
+     33000
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31703
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31402
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 31402,
+   "name": "이상 장악력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementAbnormalPower.png"
+  },
+  "part5": {
+   "prop": 31203,
+   "name": "이상 마스터리",
+   "format": "{0:0}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementMystery.png"
+  },
+  "part6": {
+   "prop": 31703,
+   "name": "얼음 속성 피해 보너스",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconIce.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "공격력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Ice>얼음 속성, 필드 딜러",
+  "파티 내 모든 캐릭터에게 난개 피해 버프 제공",
+  "다른 속성 이상 상태의 적에게 [난개] 피해를 여러 차례 줌"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100213": 4
+   }
+  },
+  "2": {
+   "hp_max": 430,
+   "attack": 45,
+   "defence": 34,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100223": 12
+   }
+  },
+  "3": {
+   "hp_max": 859,
+   "attack": 90,
+   "defence": 68,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100223": 20
+   }
+  },
+  "4": {
+   "hp_max": 1289,
+   "attack": 134,
+   "defence": 101,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100233": 10
+   }
+  },
+  "5": {
+   "hp_max": 1719,
+   "attack": 179,
+   "defence": 135,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100233": 20
+   }
+  },
+  "6": {
+   "hp_max": 2149,
+   "attack": 224,
+   "defence": 169,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 24
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 24
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 36
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 36
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpinePromeia"
+}

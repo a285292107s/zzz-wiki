@@ -1,0 +1,2097 @@
+{
+ "id": 1561,
+ "icon": "IconRole64",
+ "name": "ヴェリナ",
+ "code_name": "Velina",
+ "rarity": 4,
+ "weapon_type": {
+  "3": "Anomaly"
+ },
+ "element_type": {
+  "204": "Wind"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "16": "ロスカリファ"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "9月22日",
+  "full_name": "ヴェリナ・エガード",
+  "gender": "女性",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle64.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0064.png",
+  "impression_f": "たとえ接待のプロでも、慣れない飲み物ってあるんだねぇ。\nそっかあ、ニトロフューエルかぁ…",
+  "impression_m": "ヴェリナさんの弱点を知ったところで、悪用厳禁だぞ。\nこの間、彼女を外計局まで送り届けたときのひと騒動は…\n君も記憶に新しいだろう？",
+  "impressions": [
+   "ヴェリナに対するイメージ：\n・「紅茶」と「優雅」は、同義語と言えるかもしれない。",
+   "・隙のない総務官にも、苦手なことはある。",
+   "・「天使」と「魔女」、2つの顔は同時に存在できる？"
+  ],
+  "profile_desc": "ヴェリナ、外務計策局の総務官としてロスカリファと新エリー都間における\n連携・協力事項を統括しています。\n\n名門エガード家の末裔であるヴェリナは一族の厳格な家風を受け継ぎ、\n非の打ち所がほとんどない作業効率と現場管理能力で知られています。\n首席技術者のノルムーの言葉を借りれば、\n「会議に出席担当、書類にサイン担当、あとめんどくさい大人のあしらい担当」の全てをこなす\n頼れる人物です。\n\n彼女の仕事ぶりは的確で明快、人当たりは穏やかで上品ですが、優雅で余裕ある微笑みの裏には\n無視できない威圧感が潜んでいます。どれほど厄介な対外事務や突発的なトラブルであろうと、\n彼女は余裕綽々で収拾してみせるでしょう。しかし、彼女に助力を求める代償は——\n求めた側が支払いきれるものとは限りません。\n\nヴェリナは各種紅茶に特別なこだわりを見せており、暇を見つけては友人を招きお茶会を催しています。\n\n特記事項：「総務官」としての立場から招待を受けたお茶会にはご注意ください——\nそれはただの余興ではなく、情勢を調整し、水面下で事態を進めるための場であることが\n予想されるためです。",
+  "role_icon": "IconRole/UnPacker/IconRole64",
+  "stature": "172",
+  "unlock_condition": [
+   "エージェント招集",
+   "メイン依頼シーズン3・第一章をクリアする",
+   "依頼「アンビーの当惑」を達成する"
+  ],
+  "trust_lv": {
+   "1": "ヴェリナ、外務計策局の総務官としてロスカリファと新エリー都間における\n連携・協力事項を統括しています。\n\n名門エガード家の末裔であるヴェリナは一族の厳格な家風を受け継ぎ、\n非の打ち所がほとんどない作業効率と現場管理能力で知られています。\n首席技術者のノルムーの言葉を借りれば、\n「会議に出席担当、書類にサイン担当、あとめんどくさい大人のあしらい担当」の全てをこなす\n頼れる人物です。\n\n彼女の仕事ぶりは的確で明快、人当たりは穏やかで上品ですが、優雅で余裕ある微笑みの裏には\n無視できない威圧感が潜んでいます。どれほど厄介な対外事務や突発的なトラブルであろうと、\n彼女は余裕綽々で収拾してみせるでしょう。しかし、彼女に助力を求める代償は——\n求めた側が支払いきれるものとは限りません。\n\nヴェリナは各種紅茶に特別なこだわりを見せており、暇を見つけては友人を招きお茶会を催しています。\n\n特記事項：「総務官」としての立場から招待を受けたお茶会にはご注意ください——\nそれはただの余興ではなく、情勢を調整し、水面下で事態を進めるための場であることが\n予想されるためです。",
+   "2": "",
+   "3": "マルセルグループの管理機関として、\n外計局はボンプの退役審査・承認業務を担当しています。そのためボンプ市民の目に\nヴェリナこそが伝説における、ボンプたちを震え上がらせるお茶会の主催者——\n「死を告げる魔女」として映ることはある種の必然であると言えます。\n\n一方で実際のところ、ボンプ界隈で語り継がれる「天使様」もまた、ヴェリナその人です。\n彼女自身は悪名を厭わず、むしろボンプ関連の業務の多くで「魔女」の名は\n都合が良いと考えているふしもあります。ボンプたちに「天使」と崇められるより、\n物言わぬ守護者であることを彼女は選んだのです。\n\nなお、ヴェリナは日常生活において、意外なほど不器用な一面を見せることがあります。\n特に動植物の世話は苦手なようで、「シリアルプラントキラー」の異名を持つほどだとか。\n\nヒント：この情報は、彼女と距離を縮めるきっかけとして活用できるでしょう。",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 126,
+  "attack_growth": 75860,
+  "avatar_piece_id": 5561,
+  "break_stun": 86,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66882,
+  "element_abnormal_power": 112,
+  "element_mystery": 111,
+  "endurance": 0,
+  "hp_growth": 849779,
+  "hp_max": 626,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Velina",
+   "Cut",
+   "Wind",
+   "Female",
+   "Camp16",
+   "Size03",
+   "AidTypeParry",
+   "Velina",
+   "EtherEyesSize3"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "通常攻撃：扇の舞",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方に最大5段の攻撃を放ち、<color=#A6C5FD>風属性ダメージ</color>を与える。\n5段目の攻撃発動中、ヴェリナの中断耐性レベルがアップし、被ダメージ-40%。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：扇の舞",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1561001, Prop:1001}",
+       "param": {
+        "1561001": {
+         "main": 5170,
+         "growth": 470,
+         "format": "%",
+         "damage_percentage": 5170,
+         "damage_percentage_growth": 470,
+         "stun_ratio": 2360,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 6960,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 106425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1708,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3867
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1561002, Prop:1001}",
+       "param": {
+        "1561002": {
+         "main": 4890,
+         "growth": 450,
+         "format": "%",
+         "damage_percentage": 4890,
+         "damage_percentage_growth": 450,
+         "stun_ratio": 2350,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 6310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 96525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1788,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3501
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1561003, Prop:1001}",
+       "param": {
+        "1561003": {
+         "main": 16910,
+         "growth": 1540,
+         "format": "%",
+         "damage_percentage": 16910,
+         "damage_percentage_growth": 1540,
+         "stun_ratio": 8050,
+         "stun_ratio_growth": 370,
+         "sp_recovery": 21310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 325600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6180,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11837
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率",
+       "desc": "{Skill:1561004, Prop:1001}",
+       "param": {
+        "1561004": {
+         "main": 12560,
+         "growth": 1150,
+         "format": "%",
+         "damage_percentage": 12560,
+         "damage_percentage_growth": 1150,
+         "stun_ratio": 6290,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 17950,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 204875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5013,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8512
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5段ダメージ倍率",
+       "desc": "{Skill:1561005, Prop:1001}",
+       "param": {
+        "1561005": {
+         "main": 22960,
+         "growth": 2090,
+         "format": "%",
+         "damage_percentage": 22960,
+         "damage_percentage_growth": 2090,
+         "stun_ratio": 11270,
+         "stun_ratio_growth": 520,
+         "sp_recovery": 24600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 375925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6316,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15126
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1561001, Prop:1002}",
+       "param": {
+        "1561001": {
+         "main": 2360,
+         "growth": 110,
+         "format": "%",
+         "damage_percentage": 5170,
+         "damage_percentage_growth": 470,
+         "stun_ratio": 2360,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 6960,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 106425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1708,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3867
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1561002, Prop:1002}",
+       "param": {
+        "1561002": {
+         "main": 2350,
+         "growth": 110,
+         "format": "%",
+         "damage_percentage": 4890,
+         "damage_percentage_growth": 450,
+         "stun_ratio": 2350,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 6310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 96525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1788,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3501
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1561003, Prop:1002}",
+       "param": {
+        "1561003": {
+         "main": 8050,
+         "growth": 370,
+         "format": "%",
+         "damage_percentage": 16910,
+         "damage_percentage_growth": 1540,
+         "stun_ratio": 8050,
+         "stun_ratio_growth": 370,
+         "sp_recovery": 21310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 325600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6180,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11837
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率",
+       "desc": "{Skill:1561004, Prop:1002}",
+       "param": {
+        "1561004": {
+         "main": 6290,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 12560,
+         "damage_percentage_growth": 1150,
+         "stun_ratio": 6290,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 17950,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 204875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5013,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8512
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5段ブレイク倍率",
+       "desc": "{Skill:1561005, Prop:1002}",
+       "param": {
+        "1561005": {
+         "main": 11270,
+         "growth": 520,
+         "format": "%",
+         "damage_percentage": 22960,
+         "damage_percentage_growth": 2090,
+         "stun_ratio": 11270,
+         "stun_ratio_growth": 520,
+         "sp_recovery": 24600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 375925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6316,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15126
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100116": 2
+    },
+    "2": {
+     "10": 3000,
+     "100116": 3
+    },
+    "3": {
+     "10": 6000,
+     "100126": 2
+    },
+    "4": {
+     "10": 9000,
+     "100126": 3
+    },
+    "5": {
+     "10": 12000,
+     "100126": 4
+    },
+    "6": {
+     "10": 18000,
+     "100126": 6
+    },
+    "7": {
+     "10": 45000,
+     "100136": 5
+    },
+    "8": {
+     "10": 67500,
+     "100136": 8
+    },
+    "9": {
+     "10": 90000,
+     "100136": 10
+    },
+    "10": {
+     "10": 112500,
+     "100136": 12
+    },
+    "11": {
+     "10": 135000,
+     "100136": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "回避：霞払い",
+     "desc": " <IconMap:Icon_Evade> を押して発動：\nダッシュで高速回避する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：風渡り",
+     "desc": "回避時に <IconMap:Icon_Normal> を押して発動：\n前方に素早く攻撃を放ち、<color=#A6C5FD>風属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "回避反撃：雲流し",
+     "desc": "<color=#FFFFFF>『極限回避』</color>後に <IconMap:Icon_Normal> を押して発動：\nターゲットに連続攻撃を放ち、<color=#A6C5FD>風属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：風渡り",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1561011, Prop:1001}",
+       "param": {
+        "1561011": {
+         "main": 9970,
+         "growth": 910,
+         "format": "%",
+         "damage_percentage": 9970,
+         "damage_percentage_growth": 910,
+         "stun_ratio": 4220,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 13810,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 105600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1561011, Prop:1002}",
+       "param": {
+        "1561011": {
+         "main": 4220,
+         "growth": 200,
+         "format": "%",
+         "damage_percentage": 9970,
+         "damage_percentage_growth": 910,
+         "stun_ratio": 4220,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 13810,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 105600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "回避反撃：雲流し",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1561012, Prop:1001}",
+       "param": {
+        "1561012": {
+         "main": 39490,
+         "growth": 3590,
+         "format": "%",
+         "damage_percentage": 39490,
+         "damage_percentage_growth": 3590,
+         "stun_ratio": 28240,
+         "stun_ratio_growth": 1290,
+         "sp_recovery": 56420,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 430925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15669,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 30670
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1561012, Prop:1002}",
+       "param": {
+        "1561012": {
+         "main": 28240,
+         "growth": 1290,
+         "format": "%",
+         "damage_percentage": 39490,
+         "damage_percentage_growth": 3590,
+         "stun_ratio": 28240,
+         "stun_ratio_growth": 1290,
+         "sp_recovery": 56420,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 430925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15669,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 30670
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100116": 2
+    },
+    "2": {
+     "10": 3000,
+     "100116": 3
+    },
+    "3": {
+     "10": 6000,
+     "100126": 2
+    },
+    "4": {
+     "10": 9000,
+     "100126": 3
+    },
+    "5": {
+     "10": 12000,
+     "100126": 4
+    },
+    "6": {
+     "10": 18000,
+     "100126": 6
+    },
+    "7": {
+     "10": 45000,
+     "100136": 5
+    },
+    "8": {
+     "10": 67500,
+     "100136": 8
+    },
+    "9": {
+     "10": 90000,
+     "100136": 10
+    },
+    "10": {
+     "10": 112500,
+     "100136": 12
+    },
+    "11": {
+     "10": 135000,
+     "100136": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "特殊スキル：ウィンドシア・サージ",
+     "desc": " <IconMap:Icon_Special> を押して発動：\n前方へ風を巻き起こし、<color=#A6C5FD>風属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：ウィンドシア・ルセント",
+     "desc": "エネルギーが十分な時、 <IconMap:Icon_SpecialReady> を押して発動：\n後方に回避した直後、敵に向けて突風を放ち、<color=#A6C5FD>風属性ダメージ</color>を与える。\n後方への回避中は回避判定があり、攻撃の回避に成功すると、<color=#FFFFFF>『極限視界』</color>が発動する。\nスキル発動後に <IconMap:Icon_Normal> を押すと、<color=#FFFFFF>『通常攻撃』</color>5段目に繋げることが可能。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：ウィンドシア・スリーアクト",
+     "desc": "エネルギーが十分な時、<color=#FFFFFF>『強化特殊スキル：ウィンドシア・ルセント』</color>発動後に <IconMap:Icon_SpecialReady> を短押しまたは長押しして発動：\n連続で扇を振るい、敵に<color=#A6C5FD>風属性ダメージ</color>を与える。\nスキル発動後に <IconMap:Icon_Normal> を押すと、<color=#FFFFFF>『通常攻撃』</color>5段目に繋げることが可能。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：ウィンドシア・ストームアイ",
+     "desc": "<Term:1000008>「風雅」</Term>が90Pt以上の時、 <IconMap:Icon_Special> または <IconMap:Icon_Normal> を長押しして発動：\nヴェリナが風を収束させて、敵を持続的に攻撃する<Term:1000016>「竜巻」</Term>を召喚すると同時に、前のメンバーの<color=#FFFFFF>『クイック支援』</color>が発動可能になる。\n<color=#FFFFFF>「竜巻」</color>は5秒間継続し、0.5秒ごとに周囲の敵に<color=#A6C5FD>風属性ダメージ</color>を1回与える。",
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：ウィンドシア・サージ",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1561008, Prop:1001}",
+       "param": {
+        "1561008": {
+         "main": 5860,
+         "growth": 540,
+         "format": "%",
+         "damage_percentage": 5860,
+         "damage_percentage_growth": 540,
+         "stun_ratio": 4960,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 124025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4501,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4502
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1561008, Prop:1002}",
+       "param": {
+        "1561008": {
+         "main": 4960,
+         "growth": 230,
+         "format": "%",
+         "damage_percentage": 5860,
+         "damage_percentage_growth": 540,
+         "stun_ratio": 4960,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 124025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4501,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4502
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：ウィンドシア・ルセント",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1561009, Prop:1001}",
+       "param": {
+        "1561009": {
+         "main": 44050,
+         "growth": 4010,
+         "format": "%",
+         "damage_percentage": 44050,
+         "damage_percentage_growth": 4010,
+         "stun_ratio": 30250,
+         "stun_ratio_growth": 1380,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 775500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 30689,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8331
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1561009, Prop:1002}",
+       "param": {
+        "1561009": {
+         "main": 30250,
+         "growth": 1380,
+         "format": "%",
+         "damage_percentage": 44050,
+         "damage_percentage_growth": 4010,
+         "stun_ratio": 30250,
+         "stun_ratio_growth": 1380,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 775500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 30689,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8331
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "エネルギー消費",
+       "desc": "45Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：ウィンドシア・スリーアクト",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1561010, Prop:1001}",
+       "param": {
+        "1561010": {
+         "main": 72520,
+         "growth": 6600,
+         "format": "%",
+         "damage_percentage": 72520,
+         "damage_percentage_growth": 6600,
+         "stun_ratio": 51520,
+         "stun_ratio_growth": 2350,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1246025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 51305,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1561010, Prop:1002}",
+       "param": {
+        "1561010": {
+         "main": 51520,
+         "growth": 2350,
+         "format": "%",
+         "damage_percentage": 72520,
+         "damage_percentage_growth": 6600,
+         "stun_ratio": 51520,
+         "stun_ratio_growth": 2350,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1246025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 51305,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "エネルギー消費",
+       "desc": "45Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：ウィンドシア・ストームアイ",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1561006, Prop:1001}",
+       "param": {
+        "1561006": {
+         "main": 21670,
+         "growth": 1970,
+         "format": "%",
+         "damage_percentage": 21670,
+         "damage_percentage_growth": 1970,
+         "stun_ratio": 18340,
+         "stun_ratio_growth": 840,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 320925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 16666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1561006, Prop:1002}",
+       "param": {
+        "1561006": {
+         "main": 18340,
+         "growth": 840,
+         "format": "%",
+         "damage_percentage": 21670,
+         "damage_percentage_growth": 1970,
+         "stun_ratio": 18340,
+         "stun_ratio_growth": 840,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 320925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 16666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "「風雅」消費",
+       "desc": "90Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "「竜巻」",
+     "param": [
+      {
+       "name": "「竜巻」風属性単発攻撃ダメージ倍率",
+       "desc": "{Skill:1561007, Prop:1001}",
+       "param": {
+        "1561007": {
+         "main": 3900,
+         "growth": 360,
+         "format": "%",
+         "damage_percentage": 3900,
+         "damage_percentage_growth": 360,
+         "stun_ratio": 8250,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "「竜巻」風属性単発攻撃ブレイク倍率",
+       "desc": "{Skill:1561007, Prop:1002}",
+       "param": {
+        "1561007": {
+         "main": 8250,
+         "growth": 380,
+         "format": "%",
+         "damage_percentage": 3900,
+         "damage_percentage_growth": 360,
+         "stun_ratio": 8250,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "「竜巻」の「彩色」対応属性単発攻撃ダメージ倍率",
+       "desc": "{{Skill:1561020, Prop:1001}*0.2}",
+       "param": {
+        "1561020": {
+         "main": 9750,
+         "growth": 890,
+         "format": "%",
+         "damage_percentage": 9750,
+         "damage_percentage_growth": 890,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11250,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "「旋風」",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1561021, Prop:1001}",
+       "param": {
+        "1561021": {
+         "main": 3250,
+         "growth": 300,
+         "format": "%",
+         "damage_percentage": 3250,
+         "damage_percentage_growth": 300,
+         "stun_ratio": 13750,
+         "stun_ratio_growth": 630,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5625,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1561021, Prop:1002}",
+       "param": {
+        "1561021": {
+         "main": 13750,
+         "growth": 630,
+         "format": "%",
+         "damage_percentage": 3250,
+         "damage_percentage_growth": 300,
+         "stun_ratio": 13750,
+         "stun_ratio_growth": 630,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5625,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100116": 2
+    },
+    "2": {
+     "10": 3000,
+     "100116": 3
+    },
+    "3": {
+     "10": 6000,
+     "100126": 2
+    },
+    "4": {
+     "10": 9000,
+     "100126": 3
+    },
+    "5": {
+     "10": 12000,
+     "100126": 4
+    },
+    "6": {
+     "10": 18000,
+     "100126": 6
+    },
+    "7": {
+     "10": 45000,
+     "100136": 5
+    },
+    "8": {
+     "10": 67500,
+     "100136": 8
+    },
+    "9": {
+     "10": 90000,
+     "100136": 10
+    },
+    "10": {
+     "10": 112500,
+     "100136": 12
+    },
+    "11": {
+     "10": 135000,
+     "100136": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "連携スキル：風に舞うレトリック",
+     "desc": "<color=#FFFFFF>『連携スキル』</color>開始時に、対応するエージェントを選択して発動：\nヴェリナはハリケーンと化し、多段攻撃を繰り出した後にとどめの一撃を放ち、<color=#A6C5FD>風属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "終結スキル：風の咆哮を聞いて",
+     "desc": "デシベルレートが<color=#FFFFFF>『Maximum』</color>に達した時に <IconMap:Icon_UltimateReady> を押して発動：\n前方に多段攻撃を繰り出し、<color=#A6C5FD>風属性ダメージ</color>を大量に与える。\nスキル発動後、前のメンバーの<color=#FFFFFF>『クイック支援』</color>が発動可能になる。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "連携スキル：風に舞うレトリック",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1561013, Prop:1001}",
+       "param": {
+        "1561013": {
+         "main": 80040,
+         "growth": 7280,
+         "format": "%",
+         "damage_percentage": 80040,
+         "damage_percentage_growth": 7280,
+         "stun_ratio": 23840,
+         "stun_ratio_growth": 1090,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2424675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 41616,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1561013, Prop:1002}",
+       "param": {
+        "1561013": {
+         "main": 23840,
+         "growth": 1090,
+         "format": "%",
+         "damage_percentage": 80040,
+         "damage_percentage_growth": 7280,
+         "stun_ratio": 23840,
+         "stun_ratio_growth": 1090,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2424675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 41616,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21667
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "終結スキル：風の咆哮を聞いて",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1561014, Prop:1001}",
+       "param": {
+        "1561014": {
+         "main": 218830,
+         "growth": 19900,
+         "format": "%",
+         "damage_percentage": 218830,
+         "damage_percentage_growth": 19900,
+         "stun_ratio": 38130,
+         "stun_ratio_growth": 1740,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 114862,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 84664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1561014, Prop:1002}",
+       "param": {
+        "1561014": {
+         "main": 38130,
+         "growth": 1740,
+         "format": "%",
+         "damage_percentage": 218830,
+         "damage_percentage_growth": 19900,
+         "stun_ratio": 38130,
+         "stun_ratio_growth": 1740,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 114862,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 84664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100116": 2
+    },
+    "2": {
+     "10": 3000,
+     "100116": 3
+    },
+    "3": {
+     "10": 6000,
+     "100126": 2
+    },
+    "4": {
+     "10": 9000,
+     "100126": 3
+    },
+    "5": {
+     "10": 12000,
+     "100126": 4
+    },
+    "6": {
+     "10": 18000,
+     "100126": 6
+    },
+    "7": {
+     "10": 45000,
+     "100136": 5
+    },
+    "8": {
+     "10": 67500,
+     "100136": 8
+    },
+    "9": {
+     "10": 90000,
+     "100136": 10
+    },
+    "10": {
+     "10": 112500,
+     "100136": 12
+    },
+    "11": {
+     "10": 135000,
+     "100136": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "クイック支援：緊急時対応",
+     "desc": "操作しているメンバーが吹き飛ばされた時に、 <IconMap:Icon_Switch> を押して発動：\nターゲットに連続攻撃を放ち、<color=#A6C5FD>風属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：裁量的介入",
+     "desc": "出場中のメンバーが攻撃されそうになった時に、 <IconMap:Icon_Switch> を押して発動：\n敵の攻撃をパリィし、ブレイク値を大量に蓄積させる。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援突撃：対外交渉術",
+     "desc": "<color=#FFFFFF>『パリィ支援』</color>発動後、 <IconMap:Icon_Normal> を押して発動：\nターゲットに連続攻撃を放ち、<color=#A6C5FD>風属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "クイック支援：緊急時対応",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1561015, Prop:1001}",
+       "param": {
+        "1561015": {
+         "main": 20380,
+         "growth": 1860,
+         "format": "%",
+         "damage_percentage": 20380,
+         "damage_percentage_growth": 1860,
+         "stun_ratio": 8620,
+         "stun_ratio_growth": 400,
+         "sp_recovery": 28210,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 215600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7834,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7835
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1561015, Prop:1002}",
+       "param": {
+        "1561015": {
+         "main": 8620,
+         "growth": 400,
+         "format": "%",
+         "damage_percentage": 20380,
+         "damage_percentage_growth": 1860,
+         "stun_ratio": 8620,
+         "stun_ratio_growth": 400,
+         "sp_recovery": 28210,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 215600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7834,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7835
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：裁量的介入",
+     "param": [
+      {
+       "name": "パリィ・軽 ブレイク倍率",
+       "desc": "{Skill:1561016, Prop:1002}",
+       "param": {
+        "1561016": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・重 ブレイク倍率",
+       "desc": "{Skill:1561017, Prop:1002}",
+       "param": {
+        "1561017": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・連続 ブレイク倍率",
+       "desc": "{Skill:1561018, Prop:1002}",
+       "param": {
+        "1561018": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：対外交渉術",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1561019, Prop:1001}",
+       "param": {
+        "1561019": {
+         "main": 53270,
+         "growth": 4850,
+         "format": "%",
+         "damage_percentage": 53270,
+         "damage_percentage_growth": 4850,
+         "stun_ratio": 39670,
+         "stun_ratio_growth": 1810,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 883300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 38517,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21330
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1561019, Prop:1002}",
+       "param": {
+        "1561019": {
+         "main": 39670,
+         "growth": 1810,
+         "format": "%",
+         "damage_percentage": 53270,
+         "damage_percentage_growth": 4850,
+         "stun_ratio": 39670,
+         "stun_ratio_growth": 1810,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 883300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 38517,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21330
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100116": 2
+    },
+    "2": {
+     "10": 3000,
+     "100116": 3
+    },
+    "3": {
+     "10": 6000,
+     "100126": 2
+    },
+    "4": {
+     "10": 9000,
+     "100126": 3
+    },
+    "5": {
+     "10": 12000,
+     "100126": 4
+    },
+    "6": {
+     "10": 18000,
+     "100126": 6
+    },
+    "7": {
+     "10": 45000,
+     "100136": 5
+    },
+    "8": {
+     "10": 67500,
+     "100136": 8
+    },
+    "9": {
+     "10": 90000,
+     "100136": 10
+    },
+    "10": {
+     "10": 112500,
+     "100136": 12
+    },
+    "11": {
+     "10": 135000,
+     "100136": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "規律する優雅",
+   "desc": "<color=#FFFFFF>『追加能力：お茶会の礼節』</color>における<color=#FFFFFF>「竜巻」</color>の与えるブレイク値が追加で+20%。ヴェリナが<color=#FFFFFF>「乱流」</color>を発動させた時、ターゲットの<color=#FFFFFF>全属性ダメージ耐性</color>を20%無視する。チーム全体が<color=#A6C5FD>「風化」</color>ダメージを与える時、ターゲットの<color=#A6C5FD>風属性ダメージ耐性</color>を20%無視する。",
+   "desc2": "あらゆる言葉と振る舞いがあるべき場所に精密に配置されていると、\n相手は気づく間もなく、彼女の定めた境界、リズム、\nそして結末を快く受け入れてしまう——\n「優雅とは…秩序が滞りなく巡るとき、\n最も自然に現れるもののことを言うのよ」"
+  },
+  "2": {
+   "level": 2,
+   "name": "飽和する計画",
+   "desc": "ヴェリナが<color=#A6C5FD>「風化」</color>効果を発動した時、<color=#FFFFFF>「風食」</color>を1Pt獲得できる。この効果は5秒に1回のみ発動可能。<color=#FFFFFF>「彩色」</color>効果発動後の<color=#FFFFFF>「竜巻」</color>は、対応する属性の状態異常蓄積値を蓄積できるようになる。なお、この攻撃による状態異常蓄積値は、状態異常ダメージの計算に含まれない。<color=#FFFFFF>『追加能力：お茶会の礼節』</color>における、ヴェリナの<color=#A6C5FD>「風化」</color>と<color=#FFFFFF>「乱流」</color>のダメージアップ効果が追加で+15%。",
+   "desc2": "あらゆる可能性を想定し、すべての変数を網羅し、\n制御が効かなくなる余地さえも織り込み済み…　\n彼女は決して偶然を当てにせず、物事の結末はすべて定められた行く末を辿る。\nたとえ局面が逸れたように見えても、\nそれは予め敷かれた別の道へと誘い込まれたにすぎない。\n「はぁ、やはりこうなるのね…幸いなことに、備えがないわけではないわ」"
+  },
+  "3": {
+   "level": 3,
+   "name": "征服する礼儀",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "力で押さえつける必要はなく、感情や威嚇に頼る必要もない。\nたった一つの礼を尽くした応答、あるいは絶妙な譲歩…\nそれだけで局面はいつの間にか収束し、やがて定められた征服へと至る。\n「礼儀とは、単に形を変えた暴力なのかしら？」\n「それとも…より洗練された暴力こそが、礼儀？」"
+  },
+  "4": {
+   "level": 4,
+   "name": "審判する茶会",
+   "desc": "ヴェリナが<color=#FFFFFF>『強化特殊スキル』</color>を発動すると、自身の攻撃力+15%、継続時間40秒。重複して発動すると継続時間が更新される。",
+   "desc2": "言葉を交わすうちに、均衡は崩れ始めていた。\nそして紅茶が冷める間もなく、結論は下される。\n「『何か』が煩わしいのなら、適切に処理すればいいだけよ。\nもし、それが『誰か』なら、ふふ…」"
+  },
+  "5": {
+   "level": 5,
+   "name": "死を告げる魔女",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "「彼女の足音は、裁きの前触れ！」\n「彼女の招待は、棺への直行便！」\n銀髪の魔女はボンプたちの王国、その劇場の端に腰を下ろす。\n自分を公然と非難する小さな役者たちを眺めながら、\n彼女はただ華やかな扇をそっと揺らし、微笑むだけだった。"
+  },
+  "6": {
+   "level": 6,
+   "name": "天使様",
+   "desc": "ヴェリナが<color=#FFFFFF>「風食」</color>を2Pt消費して<color=#FFFFFF>「乱流」</color>のダメージ倍率をアップさせた時、<color=#FFFFFF>「風食」</color>を1Pt獲得する。この効果は6秒に1回のみ発動可能。ヴェリナの攻撃が<color=#A6C5FD>風属性状態異常</color>の敵に命中した時、与える<color=#A6C5FD>風属性状態異常蓄積値</color>+20%。ヴェリナが<color=#A6C5FD>「風化」</color>状態の敵に再度<color=#A6C5FD>「風化」</color>を付与した時、前回の<color=#A6C5FD>「風化」</color>の残り継続時間に応じて、今回の<color=#A6C5FD>「風化」</color>ダメージがアップする。残り継続時間1秒につき、「風化」ダメージ+2.5%、最大+40%。",
+   "desc2": "「天使様の名を問う必要はない。彼女はうわさの中に、\n訓戒の続きに、君が救いを求める手紙の影に…\n必ずいらっしゃるのだから」"
+  }
+ },
+ "passive": {
+  "level": {
+   "1561501": {
+    "level": 1,
+    "id": 1561501,
+    "name": [
+     "コアパッシブ：花風を袖に受けて",
+     "追加能力：お茶会の礼節"
+    ],
+    "desc": [
+     "ヴェリナの開幕エネルギー自動回復が1.2を上回る場合、0.01Pt上回るごとに、与ダメージ+0.21%、異常掌握+0.5Pt。与ダメージは最大+35%、異常掌握は最大+84Pt。\nフィールド入場時、ヴェリナは<Term:1000008>「風雅」</Term>を45Pt獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。ヴェリナが<color=#FFFFFF>『強化特殊スキル：ウィンドシア・ルセント』</color>または<color=#FFFFFF>『強化特殊スキル：ウィンドシア・スリーアクト』</color>を発動すると、<color=#FFFFFF>「風雅」</color>を45Pt獲得する。<color=#FFFFFF>「風雅」</color>の上限は135Pt。\nヴェリナが<color=#FFFFFF>「乱流」</color>を発動させた時、<Term:1000014>「風食」</Term>を1Pt獲得し、<color=#A6C5FD>風属性ダメージ</color>を与える<Term:1000015>「旋風」</Term>を召喚する。この効果は3秒に1回のみ発動可能。ヴェリナが<color=#FFFFFF>「風食」</color>を2Pt所持している場合、次に<color=#FFFFFF>「乱流」</color>を発動させた時、<color=#FFFFFF>「風食」</color>を2Pt消費して、その<color=#FFFFFF>「乱流」</color>のダメージ倍率を<color=#2BAD00>90%</color>アップさせるほか、<color=#FFFFFF>「旋風」</color>の代わりに<Term:1000016>「竜巻」</Term>を召喚する。この時は<color=#FFFFFF>「風食」</color>を獲得しない。\nヴェリナが召喚した<color=#FFFFFF>「竜巻」</color>が<color=#FFFFFF>「浸透」</color>状態の敵に初めて命中した時、<Term:1000017>「彩色」</Term>効果が発動し、<color=#FFFFFF>「竜巻」</color>の属性が「浸透」の対応属性に変化し、その属性のダメージを与えるようになる。<color=#FFFFFF>「竜巻」</color>の攻撃が敵に命中した時、敵の<color=#A6C5FD>風属性状態異常蓄積耐性</color>-7%、継続時間35秒、重複して発動すると継続時間が更新される。<color=#FFFFFF>「彩色」</color>発動後の<color=#FFFFFF>「竜巻」</color>の攻撃が敵に命中した場合、敵の<color=#FFFFFF>対応する属性の状態異常蓄積耐性も同時に</color>-7%、継続時間35秒、重複して発動すると継続時間が更新される。\n<color=#FFFFFF>「竜巻」</color>の影響を受けている敵が撃破された時、その<color=#FFFFFF>「竜巻」</color>の継続時間+5秒。この効果は同一の<color=#FFFFFF>「竜巻」</color>に対して1回のみ発動可能。同時に存在できる<color=#FFFFFF>「竜巻」</color>は1つまで。\n<color=#FFFFFF>「旋風」</color>/<color=#FFFFFF>「竜巻」</color>が霧散する時、爆発が1回発生する。この爆発が<color=#A6C5FD>風属性状態異常</color>の敵に命中した場合、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、追加でターゲットに<color=#A6C5FD>風属性状態異常ダメージ</color>を1回与える。そのダメージ倍率はそれぞれ<color=#2BAD00>85%</color>/<color=#2BAD00>135%</color>となる。",
+     "チームに他の<color=#FFFFFF>[異常]</color>メンバー、または自身と同じ属性のメンバーがいる時に発動：\nヴェリナが与える<color=#A6C5FD>「風化」</color>と<color=#FFFFFF>「乱流」</color>のダメージ+10%。<color=#FFFFFF>『終結スキル』</color>の重撃が<color=#A6C5FD>風属性状態異常</color>の敵に命中した時、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、追加でターゲットに<color=#A6C5FD>風属性状態異常ダメージ</color>を1回与える。ダメージ倍率は<color=#A6C5FD>680%</color>となる。\n<color=#FFFFFF>『コアパッシブ：花風を袖に受けて』</color>における、<Term:1000016>「竜巻」</Term>の<color=#FFFFFF>状態異常蓄積耐性</color>ダウン効果の倍率+7%、与えるブレイク値+30%、蓄積する状態異常蓄積値+15%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1561502": {
+    "level": 2,
+    "id": 1561502,
+    "name": [
+     "コアパッシブ：花風を袖に受けて",
+     "追加能力：お茶会の礼節"
+    ],
+    "desc": [
+     "ヴェリナの開幕エネルギー自動回復が1.2を上回る場合、0.01Pt上回るごとに、与ダメージ+0.21%、異常掌握+0.5Pt。与ダメージは最大+35%、異常掌握は最大+84Pt。\nフィールド入場時、ヴェリナは<Term:1000008>「風雅」</Term>を45Pt獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。ヴェリナが<color=#FFFFFF>『強化特殊スキル：ウィンドシア・ルセント』</color>または<color=#FFFFFF>『強化特殊スキル：ウィンドシア・スリーアクト』</color>を発動すると、<color=#FFFFFF>「風雅」</color>を45Pt獲得する。<color=#FFFFFF>「風雅」</color>の上限は135Pt。\nヴェリナが<color=#FFFFFF>「乱流」</color>を発動させた時、<Term:1000014>「風食」</Term>を1Pt獲得し、<color=#A6C5FD>風属性ダメージ</color>を与える<Term:1000015>「旋風」</Term>を召喚する。この効果は3秒に1回のみ発動可能。ヴェリナが<color=#FFFFFF>「風食」</color>を2Pt所持している場合、次に<color=#FFFFFF>「乱流」</color>を発動させた時、<color=#FFFFFF>「風食」</color>を2Pt消費して、その<color=#FFFFFF>「乱流」</color>のダメージ倍率を<color=#2BAD00>100%</color>アップさせるほか、<color=#FFFFFF>「旋風」</color>の代わりに<Term:1000016>「竜巻」</Term>を召喚する。この時は<color=#FFFFFF>「風食」</color>を獲得しない。\nヴェリナが召喚した<color=#FFFFFF>「竜巻」</color>が<color=#FFFFFF>「浸透」</color>状態の敵に初めて命中した時、<Term:1000017>「彩色」</Term>効果が発動し、<color=#FFFFFF>「竜巻」</color>の属性が「浸透」の対応属性に変化し、その属性のダメージを与えるようになる。<color=#FFFFFF>「竜巻」</color>の攻撃が敵に命中した時、敵の<color=#A6C5FD>風属性状態異常蓄積耐性</color>-7%、継続時間35秒、重複して発動すると継続時間が更新される。<color=#FFFFFF>「彩色」</color>発動後の<color=#FFFFFF>「竜巻」</color>の攻撃が敵に命中した場合、敵の<color=#FFFFFF>対応する属性の状態異常蓄積耐性も同時に</color>-7%、継続時間35秒、重複して発動すると継続時間が更新される。\n<color=#FFFFFF>「竜巻」</color>の影響を受けている敵が撃破された時、その<color=#FFFFFF>「竜巻」</color>の継続時間+5秒。この効果は同一の<color=#FFFFFF>「竜巻」</color>に対して1回のみ発動可能。同時に存在できる<color=#FFFFFF>「竜巻」</color>は1つまで。\n<color=#FFFFFF>「旋風」</color>/<color=#FFFFFF>「竜巻」</color>が霧散する時、爆発が1回発生する。この爆発が<color=#A6C5FD>風属性状態異常</color>の敵に命中した場合、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、追加でターゲットに<color=#A6C5FD>風属性状態異常ダメージ</color>を1回与える。そのダメージ倍率はそれぞれ<color=#2BAD00>95%</color>/<color=#2BAD00>155%</color>となる。",
+     "チームに他の<color=#FFFFFF>[異常]</color>メンバー、または自身と同じ属性のメンバーがいる時に発動：\nヴェリナが与える<color=#A6C5FD>「風化」</color>と<color=#FFFFFF>「乱流」</color>のダメージ+10%。<color=#FFFFFF>『終結スキル』</color>の重撃が<color=#A6C5FD>風属性状態異常</color>の敵に命中した時、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、追加でターゲットに<color=#A6C5FD>風属性状態異常ダメージ</color>を1回与える。ダメージ倍率は<color=#A6C5FD>680%</color>となる。\n<color=#FFFFFF>『コアパッシブ：花風を袖に受けて』</color>における、<Term:1000016>「竜巻」</Term>の<color=#FFFFFF>状態異常蓄積耐性</color>ダウン効果の倍率+7%、与えるブレイク値+30%、蓄積する状態異常蓄積値+15%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1561503": {
+    "level": 3,
+    "id": 1561503,
+    "name": [
+     "コアパッシブ：花風を袖に受けて",
+     "追加能力：お茶会の礼節"
+    ],
+    "desc": [
+     "ヴェリナの開幕エネルギー自動回復が1.2を上回る場合、0.01Pt上回るごとに、与ダメージ+0.21%、異常掌握+0.5Pt。与ダメージは最大+35%、異常掌握は最大+84Pt。\nフィールド入場時、ヴェリナは<Term:1000008>「風雅」</Term>を45Pt獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。ヴェリナが<color=#FFFFFF>『強化特殊スキル：ウィンドシア・ルセント』</color>または<color=#FFFFFF>『強化特殊スキル：ウィンドシア・スリーアクト』</color>を発動すると、<color=#FFFFFF>「風雅」</color>を45Pt獲得する。<color=#FFFFFF>「風雅」</color>の上限は135Pt。\nヴェリナが<color=#FFFFFF>「乱流」</color>を発動させた時、<Term:1000014>「風食」</Term>を1Pt獲得し、<color=#A6C5FD>風属性ダメージ</color>を与える<Term:1000015>「旋風」</Term>を召喚する。この効果は3秒に1回のみ発動可能。ヴェリナが<color=#FFFFFF>「風食」</color>を2Pt所持している場合、次に<color=#FFFFFF>「乱流」</color>を発動させた時、<color=#FFFFFF>「風食」</color>を2Pt消費して、その<color=#FFFFFF>「乱流」</color>のダメージ倍率を<color=#2BAD00>110%</color>アップさせるほか、<color=#FFFFFF>「旋風」</color>の代わりに<Term:1000016>「竜巻」</Term>を召喚する。この時は<color=#FFFFFF>「風食」</color>を獲得しない。\nヴェリナが召喚した<color=#FFFFFF>「竜巻」</color>が<color=#FFFFFF>「浸透」</color>状態の敵に初めて命中した時、<Term:1000017>「彩色」</Term>効果が発動し、<color=#FFFFFF>「竜巻」</color>の属性が「浸透」の対応属性に変化し、その属性のダメージを与えるようになる。<color=#FFFFFF>「竜巻」</color>の攻撃が敵に命中した時、敵の<color=#A6C5FD>風属性状態異常蓄積耐性</color>-7%、継続時間35秒、重複して発動すると継続時間が更新される。<color=#FFFFFF>「彩色」</color>発動後の<color=#FFFFFF>「竜巻」</color>の攻撃が敵に命中した場合、敵の<color=#FFFFFF>対応する属性の状態異常蓄積耐性も同時に</color>-7%、継続時間35秒、重複して発動すると継続時間が更新される。\n<color=#FFFFFF>「竜巻」</color>の影響を受けている敵が撃破された時、その<color=#FFFFFF>「竜巻」</color>の継続時間+5秒。この効果は同一の<color=#FFFFFF>「竜巻」</color>に対して1回のみ発動可能。同時に存在できる<color=#FFFFFF>「竜巻」</color>は1つまで。\n<color=#FFFFFF>「旋風」</color>/<color=#FFFFFF>「竜巻」</color>が霧散する時、爆発が1回発生する。この爆発が<color=#A6C5FD>風属性状態異常</color>の敵に命中した場合、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、追加でターゲットに<color=#A6C5FD>風属性状態異常ダメージ</color>を1回与える。そのダメージ倍率はそれぞれ<color=#2BAD00>105%</color>/<color=#2BAD00>175%</color>となる。",
+     "チームに他の<color=#FFFFFF>[異常]</color>メンバー、または自身と同じ属性のメンバーがいる時に発動：\nヴェリナが与える<color=#A6C5FD>「風化」</color>と<color=#FFFFFF>「乱流」</color>のダメージ+10%。<color=#FFFFFF>『終結スキル』</color>の重撃が<color=#A6C5FD>風属性状態異常</color>の敵に命中した時、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、追加でターゲットに<color=#A6C5FD>風属性状態異常ダメージ</color>を1回与える。ダメージ倍率は<color=#A6C5FD>680%</color>となる。\n<color=#FFFFFF>『コアパッシブ：花風を袖に受けて』</color>における、<Term:1000016>「竜巻」</Term>の<color=#FFFFFF>状態異常蓄積耐性</color>ダウン効果の倍率+7%、与えるブレイク値+30%、蓄積する状態異常蓄積値+15%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1561504": {
+    "level": 4,
+    "id": 1561504,
+    "name": [
+     "コアパッシブ：花風を袖に受けて",
+     "追加能力：お茶会の礼節"
+    ],
+    "desc": [
+     "ヴェリナの開幕エネルギー自動回復が1.2を上回る場合、0.01Pt上回るごとに、与ダメージ+0.21%、異常掌握+0.5Pt。与ダメージは最大+35%、異常掌握は最大+84Pt。\nフィールド入場時、ヴェリナは<Term:1000008>「風雅」</Term>を45Pt獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。ヴェリナが<color=#FFFFFF>『強化特殊スキル：ウィンドシア・ルセント』</color>または<color=#FFFFFF>『強化特殊スキル：ウィンドシア・スリーアクト』</color>を発動すると、<color=#FFFFFF>「風雅」</color>を45Pt獲得する。<color=#FFFFFF>「風雅」</color>の上限は135Pt。\nヴェリナが<color=#FFFFFF>「乱流」</color>を発動させた時、<Term:1000014>「風食」</Term>を1Pt獲得し、<color=#A6C5FD>風属性ダメージ</color>を与える<Term:1000015>「旋風」</Term>を召喚する。この効果は3秒に1回のみ発動可能。ヴェリナが<color=#FFFFFF>「風食」</color>を2Pt所持している場合、次に<color=#FFFFFF>「乱流」</color>を発動させた時、<color=#FFFFFF>「風食」</color>を2Pt消費して、その<color=#FFFFFF>「乱流」</color>のダメージ倍率を<color=#2BAD00>120%</color>アップさせるほか、<color=#FFFFFF>「旋風」</color>の代わりに<Term:1000016>「竜巻」</Term>を召喚する。この時は<color=#FFFFFF>「風食」</color>を獲得しない。\nヴェリナが召喚した<color=#FFFFFF>「竜巻」</color>が<color=#FFFFFF>「浸透」</color>状態の敵に初めて命中した時、<Term:1000017>「彩色」</Term>効果が発動し、<color=#FFFFFF>「竜巻」</color>の属性が「浸透」の対応属性に変化し、その属性のダメージを与えるようになる。<color=#FFFFFF>「竜巻」</color>の攻撃が敵に命中した時、敵の<color=#A6C5FD>風属性状態異常蓄積耐性</color>-7%、継続時間35秒、重複して発動すると継続時間が更新される。<color=#FFFFFF>「彩色」</color>発動後の<color=#FFFFFF>「竜巻」</color>の攻撃が敵に命中した場合、敵の<color=#FFFFFF>対応する属性の状態異常蓄積耐性も同時に</color>-7%、継続時間35秒、重複して発動すると継続時間が更新される。\n<color=#FFFFFF>「竜巻」</color>の影響を受けている敵が撃破された時、その<color=#FFFFFF>「竜巻」</color>の継続時間+5秒。この効果は同一の<color=#FFFFFF>「竜巻」</color>に対して1回のみ発動可能。同時に存在できる<color=#FFFFFF>「竜巻」</color>は1つまで。\n<color=#FFFFFF>「旋風」</color>/<color=#FFFFFF>「竜巻」</color>が霧散する時、爆発が1回発生する。この爆発が<color=#A6C5FD>風属性状態異常</color>の敵に命中した場合、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、追加でターゲットに<color=#A6C5FD>風属性状態異常ダメージ</color>を1回与える。そのダメージ倍率はそれぞれ<color=#2BAD00>115%</color>/<color=#2BAD00>195%</color>となる。",
+     "チームに他の<color=#FFFFFF>[異常]</color>メンバー、または自身と同じ属性のメンバーがいる時に発動：\nヴェリナが与える<color=#A6C5FD>「風化」</color>と<color=#FFFFFF>「乱流」</color>のダメージ+10%。<color=#FFFFFF>『終結スキル』</color>の重撃が<color=#A6C5FD>風属性状態異常</color>の敵に命中した時、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、追加でターゲットに<color=#A6C5FD>風属性状態異常ダメージ</color>を1回与える。ダメージ倍率は<color=#A6C5FD>680%</color>となる。\n<color=#FFFFFF>『コアパッシブ：花風を袖に受けて』</color>における、<Term:1000016>「竜巻」</Term>の<color=#FFFFFF>状態異常蓄積耐性</color>ダウン効果の倍率+7%、与えるブレイク値+30%、蓄積する状態異常蓄積値+15%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1561505": {
+    "level": 5,
+    "id": 1561505,
+    "name": [
+     "コアパッシブ：花風を袖に受けて",
+     "追加能力：お茶会の礼節"
+    ],
+    "desc": [
+     "ヴェリナの開幕エネルギー自動回復が1.2を上回る場合、0.01Pt上回るごとに、与ダメージ+0.21%、異常掌握+0.5Pt。与ダメージは最大+35%、異常掌握は最大+84Pt。\nフィールド入場時、ヴェリナは<Term:1000008>「風雅」</Term>を45Pt獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。ヴェリナが<color=#FFFFFF>『強化特殊スキル：ウィンドシア・ルセント』</color>または<color=#FFFFFF>『強化特殊スキル：ウィンドシア・スリーアクト』</color>を発動すると、<color=#FFFFFF>「風雅」</color>を45Pt獲得する。<color=#FFFFFF>「風雅」</color>の上限は135Pt。\nヴェリナが<color=#FFFFFF>「乱流」</color>を発動させた時、<Term:1000014>「風食」</Term>を1Pt獲得し、<color=#A6C5FD>風属性ダメージ</color>を与える<Term:1000015>「旋風」</Term>を召喚する。この効果は3秒に1回のみ発動可能。ヴェリナが<color=#FFFFFF>「風食」</color>を2Pt所持している場合、次に<color=#FFFFFF>「乱流」</color>を発動させた時、<color=#FFFFFF>「風食」</color>を2Pt消費して、その<color=#FFFFFF>「乱流」</color>のダメージ倍率を<color=#2BAD00>130%</color>アップさせるほか、<color=#FFFFFF>「旋風」</color>の代わりに<Term:1000016>「竜巻」</Term>を召喚する。この時は<color=#FFFFFF>「風食」</color>を獲得しない。\nヴェリナが召喚した<color=#FFFFFF>「竜巻」</color>が<color=#FFFFFF>「浸透」</color>状態の敵に初めて命中した時、<Term:1000017>「彩色」</Term>効果が発動し、<color=#FFFFFF>「竜巻」</color>の属性が「浸透」の対応属性に変化し、その属性のダメージを与えるようになる。<color=#FFFFFF>「竜巻」</color>の攻撃が敵に命中した時、敵の<color=#A6C5FD>風属性状態異常蓄積耐性</color>-7%、継続時間35秒、重複して発動すると継続時間が更新される。<color=#FFFFFF>「彩色」</color>発動後の<color=#FFFFFF>「竜巻」</color>の攻撃が敵に命中した場合、敵の<color=#FFFFFF>対応する属性の状態異常蓄積耐性も同時に</color>-7%、継続時間35秒、重複して発動すると継続時間が更新される。\n<color=#FFFFFF>「竜巻」</color>の影響を受けている敵が撃破された時、その<color=#FFFFFF>「竜巻」</color>の継続時間+5秒。この効果は同一の<color=#FFFFFF>「竜巻」</color>に対して1回のみ発動可能。同時に存在できる<color=#FFFFFF>「竜巻」</color>は1つまで。\n<color=#FFFFFF>「旋風」</color>/<color=#FFFFFF>「竜巻」</color>が霧散する時、爆発が1回発生する。この爆発が<color=#A6C5FD>風属性状態異常</color>の敵に命中した場合、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、追加でターゲットに<color=#A6C5FD>風属性状態異常ダメージ</color>を1回与える。そのダメージ倍率はそれぞれ<color=#2BAD00>125%</color>/<color=#2BAD00>215%</color>となる。",
+     "チームに他の<color=#FFFFFF>[異常]</color>メンバー、または自身と同じ属性のメンバーがいる時に発動：\nヴェリナが与える<color=#A6C5FD>「風化」</color>と<color=#FFFFFF>「乱流」</color>のダメージ+10%。<color=#FFFFFF>『終結スキル』</color>の重撃が<color=#A6C5FD>風属性状態異常</color>の敵に命中した時、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、追加でターゲットに<color=#A6C5FD>風属性状態異常ダメージ</color>を1回与える。ダメージ倍率は<color=#A6C5FD>680%</color>となる。\n<color=#FFFFFF>『コアパッシブ：花風を袖に受けて』</color>における、<Term:1000016>「竜巻」</Term>の<color=#FFFFFF>状態異常蓄積耐性</color>ダウン効果の倍率+7%、与えるブレイク値+30%、蓄積する状態異常蓄積値+15%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1561506": {
+    "level": 6,
+    "id": 1561506,
+    "name": [
+     "コアパッシブ：花風を袖に受けて",
+     "追加能力：お茶会の礼節"
+    ],
+    "desc": [
+     "ヴェリナの開幕エネルギー自動回復が1.2を上回る場合、0.01Pt上回るごとに、与ダメージ+0.21%、異常掌握+0.5Pt。与ダメージは最大+35%、異常掌握は最大+84Pt。\nフィールド入場時、ヴェリナは<Term:1000008>「風雅」</Term>を45Pt獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。ヴェリナが<color=#FFFFFF>『強化特殊スキル：ウィンドシア・ルセント』</color>または<color=#FFFFFF>『強化特殊スキル：ウィンドシア・スリーアクト』</color>を発動すると、<color=#FFFFFF>「風雅」</color>を45Pt獲得する。<color=#FFFFFF>「風雅」</color>の上限は135Pt。\nヴェリナが<color=#FFFFFF>「乱流」</color>を発動させた時、<Term:1000014>「風食」</Term>を1Pt獲得し、<color=#A6C5FD>風属性ダメージ</color>を与える<Term:1000015>「旋風」</Term>を召喚する。この効果は3秒に1回のみ発動可能。ヴェリナが<color=#FFFFFF>「風食」</color>を2Pt所持している場合、次に<color=#FFFFFF>「乱流」</color>を発動させた時、<color=#FFFFFF>「風食」</color>を2Pt消費して、その<color=#FFFFFF>「乱流」</color>のダメージ倍率を<color=#2BAD00>140%</color>アップさせるほか、<color=#FFFFFF>「旋風」</color>の代わりに<Term:1000016>「竜巻」</Term>を召喚する。この時は<color=#FFFFFF>「風食」</color>を獲得しない。\nヴェリナが召喚した<color=#FFFFFF>「竜巻」</color>が<color=#FFFFFF>「浸透」</color>状態の敵に初めて命中した時、<Term:1000017>「彩色」</Term>効果が発動し、<color=#FFFFFF>「竜巻」</color>の属性が「浸透」の対応属性に変化し、その属性のダメージを与えるようになる。<color=#FFFFFF>「竜巻」</color>の攻撃が敵に命中した時、敵の<color=#A6C5FD>風属性状態異常蓄積耐性</color>-7%、継続時間35秒、重複して発動すると継続時間が更新される。<color=#FFFFFF>「彩色」</color>発動後の<color=#FFFFFF>「竜巻」</color>の攻撃が敵に命中した場合、敵の<color=#FFFFFF>対応する属性の状態異常蓄積耐性も同時に</color>-7%、継続時間35秒、重複して発動すると継続時間が更新される。\n<color=#FFFFFF>「竜巻」</color>の影響を受けている敵が撃破された時、その<color=#FFFFFF>「竜巻」</color>の継続時間+5秒。この効果は同一の<color=#FFFFFF>「竜巻」</color>に対して1回のみ発動可能。同時に存在できる<color=#FFFFFF>「竜巻」</color>は1つまで。\n<color=#FFFFFF>「旋風」</color>/<color=#FFFFFF>「竜巻」</color>が霧散する時、爆発が1回発生する。この爆発が<color=#A6C5FD>風属性状態異常</color>の敵に命中した場合、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、追加でターゲットに<color=#A6C5FD>風属性状態異常ダメージ</color>を1回与える。そのダメージ倍率はそれぞれ<color=#2BAD00>135%</color>/<color=#2BAD00>235%</color>となる。",
+     "チームに他の<color=#FFFFFF>[異常]</color>メンバー、または自身と同じ属性のメンバーがいる時に発動：\nヴェリナが与える<color=#A6C5FD>「風化」</color>と<color=#FFFFFF>「乱流」</color>のダメージ+10%。<color=#FFFFFF>『終結スキル』</color>の重撃が<color=#A6C5FD>風属性状態異常</color>の敵に命中した時、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、追加でターゲットに<color=#A6C5FD>風属性状態異常ダメージ</color>を1回与える。ダメージ倍率は<color=#A6C5FD>680%</color>となる。\n<color=#FFFFFF>『コアパッシブ：花風を袖に受けて』</color>における、<Term:1000016>「竜巻」</Term>の<color=#FFFFFF>状態異常蓄積耐性</color>ダウン効果の倍率+7%、与えるブレイク値+30%、蓄積する状態異常蓄積値+15%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1561507": {
+    "level": 7,
+    "id": 1561507,
+    "name": [
+     "コアパッシブ：花風を袖に受けて",
+     "追加能力：お茶会の礼節"
+    ],
+    "desc": [
+     "ヴェリナの開幕エネルギー自動回復が1.2を上回る場合、0.01Pt上回るごとに、与ダメージ+0.21%、異常掌握+0.5Pt。与ダメージは最大+35%、異常掌握は最大+84Pt。\nフィールド入場時、ヴェリナは<Term:1000008>「風雅」</Term>を45Pt獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。ヴェリナが<color=#FFFFFF>『強化特殊スキル：ウィンドシア・ルセント』</color>または<color=#FFFFFF>『強化特殊スキル：ウィンドシア・スリーアクト』</color>を発動すると、<color=#FFFFFF>「風雅」</color>を45Pt獲得する。<color=#FFFFFF>「風雅」</color>の上限は135Pt。\nヴェリナが<color=#FFFFFF>「乱流」</color>を発動させた時、<Term:1000014>「風食」</Term>を1Pt獲得し、<color=#A6C5FD>風属性ダメージ</color>を与える<Term:1000015>「旋風」</Term>を召喚する。この効果は3秒に1回のみ発動可能。ヴェリナが<color=#FFFFFF>「風食」</color>を2Pt所持している場合、次に<color=#FFFFFF>「乱流」</color>を発動させた時、<color=#FFFFFF>「風食」</color>を2Pt消費して、その<color=#FFFFFF>「乱流」</color>のダメージ倍率を<color=#2BAD00>150%</color>アップさせるほか、<color=#FFFFFF>「旋風」</color>の代わりに<Term:1000016>「竜巻」</Term>を召喚する。この時は<color=#FFFFFF>「風食」</color>を獲得しない。\nヴェリナが召喚した<color=#FFFFFF>「竜巻」</color>が<color=#FFFFFF>「浸透」</color>状態の敵に初めて命中した時、<Term:1000017>「彩色」</Term>効果が発動し、<color=#FFFFFF>「竜巻」</color>の属性が「浸透」の対応属性に変化し、その属性のダメージを与えるようになる。<color=#FFFFFF>「竜巻」</color>の攻撃が敵に命中した時、敵の<color=#A6C5FD>風属性状態異常蓄積耐性</color>-7%、継続時間35秒、重複して発動すると継続時間が更新される。<color=#FFFFFF>「彩色」</color>発動後の<color=#FFFFFF>「竜巻」</color>の攻撃が敵に命中した場合、敵の<color=#FFFFFF>対応する属性の状態異常蓄積耐性も同時に</color>-7%、継続時間35秒、重複して発動すると継続時間が更新される。\n<color=#FFFFFF>「竜巻」</color>の影響を受けている敵が撃破された時、その<color=#FFFFFF>「竜巻」</color>の継続時間+5秒。この効果は同一の<color=#FFFFFF>「竜巻」</color>に対して1回のみ発動可能。同時に存在できる<color=#FFFFFF>「竜巻」</color>は1つまで。\n<color=#FFFFFF>「旋風」</color>/<color=#FFFFFF>「竜巻」</color>が霧散する時、爆発が1回発生する。この爆発が<color=#A6C5FD>風属性状態異常</color>の敵に命中した場合、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、追加でターゲットに<color=#A6C5FD>風属性状態異常ダメージ</color>を1回与える。そのダメージ倍率はそれぞれ<color=#2BAD00>145%</color>/<color=#2BAD00>255%</color>となる。",
+     "チームに他の<color=#FFFFFF>[異常]</color>メンバー、または自身と同じ属性のメンバーがいる時に発動：\nヴェリナが与える<color=#A6C5FD>「風化」</color>と<color=#FFFFFF>「乱流」</color>のダメージ+10%。<color=#FFFFFF>『終結スキル』</color>の重撃が<color=#A6C5FD>風属性状態異常</color>の敵に命中した時、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、追加でターゲットに<color=#A6C5FD>風属性状態異常ダメージ</color>を1回与える。ダメージ倍率は<color=#A6C5FD>680%</color>となる。\n<color=#FFFFFF>『コアパッシブ：花風を袖に受けて』</color>における、<Term:1000016>「竜巻」</Term>の<color=#FFFFFF>状態異常蓄積耐性</color>ダウン効果の倍率+7%、与えるブレイク値+30%、蓄積する状態異常蓄積値+15%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110515": 2
+   },
+   "3": {
+    "10": 28000,
+    "110515": 4
+   },
+   "4": {
+    "10": 60000,
+    "110010": 2,
+    "110515": 9
+   },
+   "5": {
+    "10": 100000,
+    "110010": 3,
+    "110515": 15
+   },
+   "6": {
+    "10": 200000,
+    "110010": 4,
+    "110515": 30
+   }
+  }
+ },
+ "skin": {
+  "3115610": {
+   "name": "ヴェリナ・「優銀のカスケード」",
+   "desc": "「総務官が外計局の制服をお召しにならないのは、\n家柄を誇示するためだ」…\nそんな噂が物好きの間ではまことしやかに囁かれていた。\n一方ヴェリナ自身は、もとより華美であることに関心が薄い。\n社交の場を彩る煌びやかな衣装より、彼女は簡素な装いを好む。\n——無駄も隙もなく、終わりなき公務に向き合う正装として。",
+   "obtain_desc": "",
+   "image": "IconRole64"
+  },
+  "3115611": {
+   "name": "ヴェリナ・「余暇のシルエット」",
+   "desc": "仕事の手が空いた時、ヴェリナは親しい友人たちをお茶会に招く。\nその時はカジュアルな装いに着替え、余暇のひとときを\n過ごすのだが…ボンプたちにとってはそれさえも、\n「魔女が別の恐ろしい皮を被っただけ」とのことだ。",
+   "obtain_desc": "",
+   "image": "IconRole64_01"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1561001": {
+   "name": "通常攻撃：扇の舞",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1561002": {
+   "name": "特殊スキル：ウィンドシア・サージ",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1561003": {
+   "name": "強化特殊スキル：ウィンドシア・ルセント",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1561004": {
+   "name": "強化特殊スキル：ウィンドシア・スリーアクト",
+   "desc": "<IconMap:Icon_SpecialReady> ; <IconMap:Icon_SpecialReady>または<IconMap:Icon_SpecialReady>（長押し）",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1561005": {
+   "name": "強化特殊スキル：ウィンドシア・ストームアイ",
+   "desc": "<IconMap:Icon_Special>（長押し）または<IconMap:Icon_Normal>（長押し）",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1561006": {
+   "name": "ダッシュ攻撃：風渡り",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1561007": {
+   "name": "回避反撃：雲流し",
+   "desc": "<IconMap:Icon_Evade>（極限回避成功） ; <IconMap:Icon_Normal>",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1561008": {
+   "name": "連携スキル：風に舞うレトリック",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1561009": {
+   "name": "終結スキル：風の咆哮を聞いて",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1561010": {
+   "name": "クイック支援：緊急時対応",
+   "desc": "<IconMap:Icon_Switch>（クイック支援の発動条件を満たした時）",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1561011": {
+   "name": "パリィ支援：裁量的介入",
+   "desc": "<IconMap:Icon_Switch>（パリィ支援の発動条件を満たした時）",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1561012": {
+   "name": "支援突撃：対外交渉術",
+   "desc": "<IconMap:Icon_Normal>（パリィ支援を発動した後に）",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1561001,
+   "avatar_id": 1561,
+   "first_priority": [
+    5,
+    1
+   ],
+   "second_priority": [
+    3
+   ],
+   "third_priority": [
+    0,
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33900,
+  "slot2": 31600,
+  "slot_sub": 33400,
+  "part_sub_list": [
+   31203,
+   12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33900,
+     31600
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [
+     33900,
+     33400
+    ],
+    "part_sub_list": [
+     32303
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     30502
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 30502,
+   "name": "エネルギー自動回復",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconSpRecover.png"
+  },
+  "part5": {
+   "prop": 31203,
+   "name": "異常マスタリー",
+   "format": "{0:0}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementMystery.png"
+  },
+  "part6": {
+   "prop": 32303,
+   "name": "風属性ダメージボーナス",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconWind.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "攻撃力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": {},
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100213": 4
+   }
+  },
+  "2": {
+   "hp_max": 430,
+   "attack": 45,
+   "defence": 34,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100223": 12
+   }
+  },
+  "3": {
+   "hp_max": 859,
+   "attack": 90,
+   "defence": 68,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100223": 20
+   }
+  },
+  "4": {
+   "hp_max": 1289,
+   "attack": 134,
+   "defence": 101,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100233": 10
+   }
+  },
+  "5": {
+   "hp_max": 1719,
+   "attack": 179,
+   "defence": 135,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100233": 20
+   }
+  },
+  "6": {
+   "hp_max": 2149,
+   "attack": 224,
+   "defence": 169,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "31201": {
+     "prop": 31201,
+     "name": "異常マスタリー",
+     "format": "{0:0}",
+     "value": 18
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31201": {
+     "prop": 31201,
+     "name": "異常マスタリー",
+     "format": "{0:0}",
+     "value": 18
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31201": {
+     "prop": 31201,
+     "name": "異常マスタリー",
+     "format": "{0:0}",
+     "value": 36
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31201": {
+     "prop": 31201,
+     "name": "異常マスタリー",
+     "format": "{0:0}",
+     "value": 36
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31201": {
+     "prop": 31201,
+     "name": "異常マスタリー",
+     "format": "{0:0}",
+     "value": 54
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "31201": {
+     "prop": 31201,
+     "name": "異常マスタリー",
+     "format": "{0:0}",
+     "value": 54
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpineVelina"
+}

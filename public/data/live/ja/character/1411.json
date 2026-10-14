@@ -1,0 +1,2233 @@
+{
+ "id": 1411,
+ "icon": "IconRole47",
+ "name": "浮波柚葉",
+ "code_name": "Yuzuha",
+ "rarity": 4,
+ "weapon_type": {
+  "4": "Support"
+ },
+ "element_type": {
+  "200": "Physical"
+ },
+ "hit_type": {
+  "102": "Strike"
+ },
+ "camp": {
+  "11": "怪啖屋"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "11月2日",
+  "full_name": "浮波柚葉",
+  "gender": "女性",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle47.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0047.png",
+  "impression_f": "最初に柚葉と会ったとき、パッと見は人懐っこそうなのに\nなんか距離を感じるなあ…って思ったんだよね。\n今は全然そんなことないけど！",
+  "impression_m": "柚葉の妹さん…楓ちゃんにも、このあいだ会ったとき聞かれたんだ。\nこのところ柚葉がよく笑うようになったけど、\n学校の成績がよかったのかな？とね。",
+  "impressions": [
+   "浮波柚葉に対するイメージ：\n・イタズラの達人だけど、悪ふざけではない。",
+   "・頼れる仲間だけど、時には弱さを見せることもある。",
+   "・そんな柚葉の人生が、いつも自由で輝かしいものでありますように。"
+  ],
+  "profile_desc": "浮波柚葉、衛非地区・澄輝坪の住民です。\n現在は学費の安い市内の企業アカデミーに通っています。\nインターノットフォーラム「怪啖屋」以外の組織には所属していませんが、\nそもそもフォーラムを正式な「組織」と呼べるかは諸説あり、\nあくまで同好会・サークルの範囲に留まると考えるのが妥当と思われます。\n\n柚葉は輝磁工芸品店「奇々解々」の店主——黎宝栄（リー・バオロン）の養女です。\n澄輝坪で噂されているところによると、旧都陥落の際に妻と二人の娘を失った\n宝栄は、新エリー都で五人の子供をそれぞれ養子に迎えました。\n柚葉はその長女として、兄と弟、二人の妹と共に暮らしているようです。\n「奇々解々」は集合住宅の1階にあり、柚葉の家はその2階にあります。\n寝室が2部屋しかないため、柚葉は二人の妹と同じ部屋を、\n兄弟は宝栄の部屋を共有していましたが、最近は兄が独立し\n柚葉も学校の寮で過ごすことが多くなったため、家はだいぶ広くなった模様。\nそれでも柚葉は週末や休暇には澄輝坪に戻り、父親の店の手伝いをしています。\n\n柚葉は幼い頃から年不相応に大人びており、話上手で明るい性格から\n近所の人々に愛され、澄輝坪と泅瓏囲の子供たちの間でもかなりの人気者でした。\nフォーラム怪啖屋では「柚子こしょう」というハンドルネームを使用し、\n現実で交友のある狛野真斗とアリスの他に、\nハンドルネーム「夜魔の語り部」、「いちごパフェ」とも親しくしているようです。",
+  "role_icon": "IconRole/UnPacker/IconRole47",
+  "stature": "162",
+  "unlock_condition": [
+   "エージェント招集",
+   "メイン依頼 シーズン2・第二章をクリアする",
+   "依頼「アンビーの当惑」を達成する"
+  ],
+  "trust_lv": {
+   "1": "浮波柚葉、衛非地区・澄輝坪の住民です。\n現在は学費の安い市内の企業アカデミーに通っています。\nインターノットフォーラム「怪啖屋」以外の組織には所属していませんが、\nそもそもフォーラムを正式な「組織」と呼べるかは諸説あり、\nあくまで同好会・サークルの範囲に留まると考えるのが妥当と思われます。\n\n柚葉は輝磁工芸品店「奇々解々」の店主——黎宝栄（リー・バオロン）の養女です。\n澄輝坪で噂されているところによると、旧都陥落の際に妻と二人の娘を失った\n宝栄は、新エリー都で五人の子供をそれぞれ養子に迎えました。\n柚葉はその長女として、兄と弟、二人の妹と共に暮らしているようです。\n「奇々解々」は集合住宅の1階にあり、柚葉の家はその2階にあります。\n寝室が2部屋しかないため、柚葉は二人の妹と同じ部屋を、\n兄弟は宝栄の部屋を共有していましたが、最近は兄が独立し\n柚葉も学校の寮で過ごすことが多くなったため、家はだいぶ広くなった模様。\nそれでも柚葉は週末や休暇には澄輝坪に戻り、父親の店の手伝いをしています。\n\n柚葉は幼い頃から年不相応に大人びており、話上手で明るい性格から\n近所の人々に愛され、澄輝坪と泅瓏囲の子供たちの間でもかなりの人気者でした。\nフォーラム怪啖屋では「柚子こしょう」というハンドルネームを使用し、\n現実で交友のある狛野真斗とアリスの他に、\nハンドルネーム「夜魔の語り部」、「いちごパフェ」とも親しくしているようです。",
+   "2": "",
+   "3": "柚葉の話によると、彼女は物心ついた頃からファヌス区を放浪し、\n数人の子供たちで構成された浮浪児グループの一員として暮らしていたそうです。\n幼い頃の柚葉には名前がなく、栄養失調による夜盲症を患っていたため、\n常に蝋燭を持ち歩いていたことから「ロウソクちゃん」というあだ名で\n呼ばれていました。\n後に柚葉は「プロジェクト・ニューリーフ」と呼ばれる実験に参加し、\n正式な呼び名のなかった彼女に、世話係の研究員が「柚葉」と名付けました。\n実験対象である子供たちを世話する下級研究員以外、フェロクスをはじめとした\n研究所の上層部はこの名前を存在すら知らず、一貫して「ES-07」という番号で\n彼女を呼んでいました。研究所で付けられた名前ではありましたが、\n「柚葉」という名前に込められた生命の息吹を彼女は気に入り、\nそれこそが彼女の幸運の一端でもありました。\n柚葉の二人の妹は養子に迎えられた時点でまだ赤子であったため、\n宝栄は「柚葉」にちなみ、同様に植物の名前を付けました。",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 109,
+  "attack_growth": 64272,
+  "avatar_piece_id": 5411,
+  "break_stun": 86,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66882,
+  "element_abnormal_power": 88,
+  "element_mystery": 93,
+  "endurance": 0,
+  "hp_growth": 963300,
+  "hp_max": 710,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Yuzuha",
+   "Punch",
+   "Physics",
+   "Female",
+   "Camp11",
+   "Size2",
+   "AidTypeParry",
+   "Yuzuha",
+   "EtherEyesSize2"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "通常攻撃：狸の爪痕",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方に最大5段の打撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：狸の覆い",
+     "desc": " <IconMap:Icon_Normal> を長押しして発動：\n防御態勢に入る、最大で1.5秒継続。発動中に敵の攻撃を受けた場合、攻撃をパリィし、大量のブレイク値を蓄積させる。\nパリィに成功した時、<color=#FFFFFF>「糖度ポイント」</color>を1Pt獲得する。\nパリィに成功した時、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：キャンディーシュート",
+     "desc": "柚葉が<color=#FFFFFF>「糖度ポイント」</color>を所持している時、操作している他のメンバーの攻撃が敵に命中すると、柚葉は敵を中心に傘を回転させて攻撃した後、強力な砲弾を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。この攻撃の重撃が敵に命中すると、柚葉は<color=#FFFFFF>「糖度ポイント」</color>を1Pt消費する。\n<color=#FFFFFF>『通常攻撃：キャンディーシュート』</color>は<color=#FFFFFF>『追加攻撃』</color>とみなされる。\n<color=#FFFFFF>『通常攻撃：キャンディーシュート』</color>は8秒に1回のみ発動可能。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：スパークルキャンディー",
+     "desc": "<color=#FFFFFF>「スイートパニック」</color>状態の敵は1秒ごとに<color=#FFFFFF>『通常攻撃：スパークルキャンディー』</color>を1回受ける。\n<color=#FFFFFF>『通常攻撃：スパークルキャンディー』</color>は初期状態では<color=#F0D12B>物理属性ダメージ</color>を与える。\n<color=#FFFFFF>『通常攻撃：スパークルキャンディー』</color>による状態異常蓄積値は、異常ダメージ計算に含まれない。\n<color=#FFFFFF>『通常攻撃：スパークルキャンディー』</color>の状態異常蓄積効率+<color=#2BAD00>{CAL:0.07+AvatarSkillLevel(0)*0.015,100,4}%</color>。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：スパークルキャンディー・極",
+     "desc": "<color=#FFFFFF>「スイートパニック」</color>状態の敵に<color=#FFFFFF>『通常攻撃：キャンディーシュート』</color>または<color=#FFFFFF>『支援突撃：ミックスキャンディーシュート』</color>の重撃が命中すると、その敵は<color=#FFFFFF>『通常攻撃：スパークルキャンディー・極』</color>を1回受ける。\n<color=#FFFFFF>『通常攻撃：スパークルキャンディー・極』</color>は初期状態では<color=#F0D12B>物理属性ダメージ</color>を与える。\n<color=#FFFFFF>『通常攻撃：スパークルキャンディー・極』</color>による状態異常蓄積値は、異常ダメージの計算に含まれない。\n<color=#FFFFFF>『通常攻撃：スパークルキャンディー・極』</color>の状態異常蓄積効率+<color=#2BAD00>{CAL:0.07+AvatarSkillLevel(0)*0.015,100,4}%</color>。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：狸の助け",
+     "desc": "柚葉が控えにいる時、狸の釜之助は操作中のメンバーの攻撃をサポートし、<color=#F0D12B>物理属性ダメージ</color>を与える。\n柚葉が<color=#FFFFFF>『通常攻撃：狸の覆い』</color>を発動すると、釜之助は柚葉の攻撃をサポートし、<color=#F0D12B>物理属性ダメージ</color>を与える。\n釜之助は柚葉の開幕攻撃力を受け継ぐことができる。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：狸の爪痕",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1411001, Prop:1001}",
+       "param": {
+        "1411001": {
+         "main": 3770,
+         "growth": 350,
+         "format": "%",
+         "damage_percentage": 3770,
+         "damage_percentage_growth": 350,
+         "stun_ratio": 4400,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 14400,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 110000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1618,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3998
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1411002, Prop:1001}",
+       "param": {
+        "1411002": {
+         "main": 5770,
+         "growth": 530,
+         "format": "%",
+         "damage_percentage": 5770,
+         "damage_percentage_growth": 530,
+         "stun_ratio": 6310,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 20640,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 157850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2682,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5734
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1411003, Prop:1001}",
+       "param": {
+        "1411003": {
+         "main": 6600,
+         "growth": 600,
+         "format": "%",
+         "damage_percentage": 6600,
+         "damage_percentage_growth": 600,
+         "stun_ratio": 6600,
+         "stun_ratio_growth": 300,
+         "sp_recovery": 21570,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 165000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3164,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5992
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率",
+       "desc": "{Skill:1411004, Prop:1001}",
+       "param": {
+        "1411004": {
+         "main": 9810,
+         "growth": 900,
+         "format": "%",
+         "damage_percentage": 9810,
+         "damage_percentage_growth": 900,
+         "stun_ratio": 11270,
+         "stun_ratio_growth": 520,
+         "sp_recovery": 36860,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 281600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6296,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10239
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5段ダメージ倍率",
+       "desc": "{Skill:1411005, Prop:1001}",
+       "param": {
+        "1411005": {
+         "main": 16410,
+         "growth": 1500,
+         "format": "%",
+         "damage_percentage": 16410,
+         "damage_percentage_growth": 1500,
+         "stun_ratio": 16360,
+         "stun_ratio_growth": 750,
+         "sp_recovery": 53520,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 408925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8839,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14867
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1411001, Prop:1002}",
+       "param": {
+        "1411001": {
+         "main": 4400,
+         "growth": 200,
+         "format": "%",
+         "damage_percentage": 3770,
+         "damage_percentage_growth": 350,
+         "stun_ratio": 4400,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 14400,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 110000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1618,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3998
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1411002, Prop:1002}",
+       "param": {
+        "1411002": {
+         "main": 6310,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 5770,
+         "damage_percentage_growth": 530,
+         "stun_ratio": 6310,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 20640,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 157850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2682,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5734
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1411003, Prop:1002}",
+       "param": {
+        "1411003": {
+         "main": 6600,
+         "growth": 300,
+         "format": "%",
+         "damage_percentage": 6600,
+         "damage_percentage_growth": 600,
+         "stun_ratio": 6600,
+         "stun_ratio_growth": 300,
+         "sp_recovery": 21570,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 165000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3164,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5992
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率",
+       "desc": "{Skill:1411004, Prop:1002}",
+       "param": {
+        "1411004": {
+         "main": 11270,
+         "growth": 520,
+         "format": "%",
+         "damage_percentage": 9810,
+         "damage_percentage_growth": 900,
+         "stun_ratio": 11270,
+         "stun_ratio_growth": 520,
+         "sp_recovery": 36860,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 281600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6296,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10239
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5段ブレイク倍率",
+       "desc": "{Skill:1411005, Prop:1002}",
+       "param": {
+        "1411005": {
+         "main": 16360,
+         "growth": 750,
+         "format": "%",
+         "damage_percentage": 16410,
+         "damage_percentage_growth": 1500,
+         "stun_ratio": 16360,
+         "stun_ratio_growth": 750,
+         "sp_recovery": 53520,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 408925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8839,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14867
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：狸の覆い",
+     "param": [
+      {
+       "name": "パリィ・ブレイク倍率",
+       "desc": "{Skill:1411019, Prop:1002}",
+       "param": {
+        "1411019": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：キャンディーシュート",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1411018, Prop:1001}",
+       "param": {
+        "1411018": {
+         "main": 13200,
+         "growth": 1200,
+         "format": "%",
+         "damage_percentage": 13200,
+         "damage_percentage_growth": 1200,
+         "stun_ratio": 8800,
+         "stun_ratio_growth": 400,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1411018, Prop:1002}",
+       "param": {
+        "1411018": {
+         "main": 8800,
+         "growth": 400,
+         "format": "%",
+         "damage_percentage": 13200,
+         "damage_percentage_growth": 1200,
+         "stun_ratio": 8800,
+         "stun_ratio_growth": 400,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：スパークルキャンディー",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1411020, Prop:1001}",
+       "param": {
+        "1411020": {
+         "main": 2750,
+         "growth": 250,
+         "format": "%",
+         "damage_percentage": 2750,
+         "damage_percentage_growth": 250,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1766,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "状態異常蓄積効率アップ",
+       "desc": "{CAL:0.07+AvatarSkillLevel(0)*0.015,100,4}%",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：スパークルキャンディー・極",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1411021, Prop:1001}",
+       "param": {
+        "1411021": {
+         "main": 30800,
+         "growth": 2800,
+         "format": "%",
+         "damage_percentage": 30800,
+         "damage_percentage_growth": 2800,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "状態異常蓄積効率アップ",
+       "desc": "{CAL:0.07+AvatarSkillLevel(0)*0.015,100,4}%",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：狸の助け",
+     "param": [
+      {
+       "name": "柚葉への釜之助のサポート攻撃ダメージ倍率",
+       "desc": "{Skill:1411022, Prop:1001}",
+       "param": {
+        "1411022": {
+         "main": 11000,
+         "growth": 1000,
+         "format": "%",
+         "damage_percentage": 11000,
+         "damage_percentage_growth": 1000,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "釜之助のサポート攻撃ダメージ倍率",
+       "desc": "{Skill:1411023, Prop:1001}",
+       "param": {
+        "1411023": {
+         "main": 11000,
+         "growth": 1000,
+         "format": "%",
+         "damage_percentage": 11000,
+         "damage_percentage_growth": 1000,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "回避：びっくりしたぁ？",
+     "desc": " <IconMap:Icon_Evade> を押して発動：\nダッシュで高速回避する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：ついてないね～！",
+     "desc": "回避時に <IconMap:Icon_Normal> を押して発動：\n前方に素早く打撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "回避反撃：仕返し、はじめ！",
+     "desc": "<color=#FFFFFF>『極限回避』</color>後に <IconMap:Icon_Normal> を押して発動：\n前方に素早く打撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：ついてないね～！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1411009, Prop:1001}",
+       "param": {
+        "1411009": {
+         "main": 6980,
+         "growth": 640,
+         "format": "%",
+         "damage_percentage": 6980,
+         "damage_percentage_growth": 640,
+         "stun_ratio": 3490,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 87175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3168,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3169
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1411009, Prop:1002}",
+       "param": {
+        "1411009": {
+         "main": 3490,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 6980,
+         "damage_percentage_growth": 640,
+         "stun_ratio": 3490,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 87175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3168,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3169
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "回避反撃：仕返し、はじめ！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1411010, Prop:1001}",
+       "param": {
+        "1411010": {
+         "main": 27690,
+         "growth": 2520,
+         "format": "%",
+         "damage_percentage": 27690,
+         "damage_percentage_growth": 2520,
+         "stun_ratio": 23840,
+         "stun_ratio_growth": 1090,
+         "sp_recovery": 42020,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 320925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11669,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26670
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1411010, Prop:1002}",
+       "param": {
+        "1411010": {
+         "main": 23840,
+         "growth": 1090,
+         "format": "%",
+         "damage_percentage": 27690,
+         "damage_percentage_growth": 2520,
+         "stun_ratio": 23840,
+         "stun_ratio_growth": 1090,
+         "sp_recovery": 42020,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 320925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11669,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26670
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "特殊スキル：グミ・ブラスト",
+     "desc": " <IconMap:Icon_Special> を押して発動：\n前方に砲撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：虫歯注意報",
+     "desc": "エネルギーが十分な時、 <IconMap:Icon_SpecialReady> を押して発動：\n敵に爆弾を投げつけ、<color=#F0D12B>物理属性ダメージ</color>を与える。\n重撃が敵に命中すると、ターゲットを<color=#FFFFFF>「スイートパニック」</color>状態にする。\n発動時、<color=#FFFFFF>「糖度ポイント」</color>を2Pt獲得する。\nスキルが敵に命中すると、<color=#FFFFFF>『クイック支援』</color>が発動可能になる。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：虫歯注意報、今がチャンス！",
+     "desc": "<color=#FFFFFF>『回避反撃：仕返し、はじめ！』</color>、<color=#FFFFFF>『クイック支援：おやつの時間』</color>、<color=#FFFFFF>『支援突撃：クッキーどぞ！』</color>、<color=#FFFFFF>『支援突撃：ミックスキャンディーシュート』</color>攻撃後、または<color=#FFFFFF>『極限回避』</color>発動時に、 <IconMap:Icon_SpecialReady> を押して発動：\n敵に向かって素早く爆弾を投げ、<color=#F0D12B>物理属性ダメージ</color>を与える。\n重撃が敵に命中すると、ターゲットを<color=#FFFFFF>「スイートパニック」</color>状態にする。\n発動時、<color=#FFFFFF>「糖度ポイント」</color>を2Pt獲得する。\nスキルが敵に命中すると、<color=#FFFFFF>『クイック支援』</color>が発動可能になる。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "スイートパニック",
+     "desc": "<color=#FFFFFF>「スイートパニック」</color>状態の継続時間は<color=#2BAD00>{CAL:16+AvatarSkillLevel(1)*2,1,2}</color>秒、重複して発動すると継続時間が更新される。\n操作中のメンバーが初めて自身と同じ属性の攻撃を<color=#FFFFFF>「スイートパニック」</color>状態の敵に命中させた時、その敵に対して<color=#FFFFFF>「十人十色」</color>を発動させ、その敵に対する<color=#FFFFFF>『通常攻撃：スパークルキャンディー』</color>と<color=#FFFFFF>『通常攻撃：スパークルキャンディー・極』</color>の攻撃属性が今回の「十人十色」を発動させたメンバーの属性に変わる。\n敵の<color=#FFFFFF>「スイートパニック」</color>状態が重複して発動した場合、既存の<color=#FFFFFF>「十人十色」</color>状態は解除され、上記の操作を再度行うことで<color=#FFFFFF>『通常攻撃：スパークルキャンディー』</color>と<color=#FFFFFF>『通常攻撃：スパークルキャンディー・極』</color>の属性を変更できる。",
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：グミ・ブラスト",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1411006, Prop:1001}",
+       "param": {
+        "1411006": {
+         "main": 5050,
+         "growth": 460,
+         "format": "%",
+         "damage_percentage": 5050,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 5050,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 126225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4583,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4584
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1411006, Prop:1002}",
+       "param": {
+        "1411006": {
+         "main": 5050,
+         "growth": 230,
+         "format": "%",
+         "damage_percentage": 5050,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 5050,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 126225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4583,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4584
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：虫歯注意報",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1411007, Prop:1001}",
+       "param": {
+        "1411007": {
+         "main": 42100,
+         "growth": 3830,
+         "format": "%",
+         "damage_percentage": 42100,
+         "damage_percentage_growth": 3830,
+         "stun_ratio": 42100,
+         "stun_ratio_growth": 1920,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1888425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 48208,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1411007, Prop:1002}",
+       "param": {
+        "1411007": {
+         "main": 42100,
+         "growth": 1920,
+         "format": "%",
+         "damage_percentage": 42100,
+         "damage_percentage_growth": 3830,
+         "stun_ratio": 42100,
+         "stun_ratio_growth": 1920,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1888425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 48208,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "エネルギー消費",
+       "desc": "60Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：虫歯注意報、今がチャンス！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1411008, Prop:1001}",
+       "param": {
+        "1411008": {
+         "main": 24140,
+         "growth": 2200,
+         "format": "%",
+         "damage_percentage": 24140,
+         "damage_percentage_growth": 2200,
+         "stun_ratio": 26700,
+         "stun_ratio_growth": 1220,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1407450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 32462,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1411008, Prop:1002}",
+       "param": {
+        "1411008": {
+         "main": 26700,
+         "growth": 1220,
+         "format": "%",
+         "damage_percentage": 24140,
+         "damage_percentage_growth": 2200,
+         "stun_ratio": 26700,
+         "stun_ratio_growth": 1220,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1407450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 32462,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "エネルギー消費",
+       "desc": "60Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "スイートパニック",
+     "param": [
+      {
+       "name": "「スイートパニック」状態の継続時間",
+       "desc": "{CAL:16+AvatarSkillLevel(1)*2,1,2}秒",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "連携スキル：いたずら合戦",
+     "desc": "<color=#FFFFFF>『連携スキル』</color>開始時に、対応するエージェントを選択して発動：\n前方小範囲の敵に強力な打撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\nスキル発動時、<color=#FFFFFF>「糖度ポイント」</color>を1Pt獲得する。\nスキルが敵に命中すると、<color=#FFFFFF>『クイック支援』</color>が発動可能になる。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "終結スキル：トリック・オア・ギブ",
+     "desc": "デシベルレートが<color=#FFFFFF>『Maximum』</color>に達した時に <IconMap:Icon_UltimateReady> を押して発動：\n周囲広範囲の敵に強力な打撃を与え、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\n重撃が敵に命中すると、ターゲットを<color=#FFFFFF>「スイートパニック」</color>状態にする。\nスキル発動時、他のメンバーはエネルギーを<color=#2BAD00>{CAL:7+AvatarSkillLevel(3)*1.5,1,2}</color>Pt回復する。\nスキル発動時、<color=#FFFFFF>「糖度ポイント」</color>を2Pt獲得する。\nスキルが敵に命中すると、<color=#FFFFFF>『クイック支援』</color>が発動可能になる。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "連携スキル：いたずら合戦",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1411011, Prop:1001}",
+       "param": {
+        "1411011": {
+         "main": 59870,
+         "growth": 5450,
+         "format": "%",
+         "damage_percentage": 59870,
+         "damage_percentage_growth": 5450,
+         "stun_ratio": 23290,
+         "stun_ratio_growth": 1060,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2410925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 34469,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21170
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1411011, Prop:1002}",
+       "param": {
+        "1411011": {
+         "main": 23290,
+         "growth": 1060,
+         "format": "%",
+         "damage_percentage": 59870,
+         "damage_percentage_growth": 5450,
+         "stun_ratio": 23290,
+         "stun_ratio_growth": 1060,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2410925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 34469,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21170
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "終結スキル：トリック・オア・ギブ",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1411012, Prop:1001}",
+       "param": {
+        "1411012": {
+         "main": 144320,
+         "growth": 13120,
+         "format": "%",
+         "damage_percentage": 144320,
+         "damage_percentage_growth": 13120,
+         "stun_ratio": 28600,
+         "stun_ratio_growth": 1300,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 25996,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 75997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1411012, Prop:1002}",
+       "param": {
+        "1411012": {
+         "main": 28600,
+         "growth": 1300,
+         "format": "%",
+         "damage_percentage": 144320,
+         "damage_percentage_growth": 13120,
+         "stun_ratio": 28600,
+         "stun_ratio_growth": 1300,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 25996,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 75997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "他のメンバーのエネルギー回復",
+       "desc": "{CAL:7+AvatarSkillLevel(3)*1.5,1,2}Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "クイック支援：おやつの時間",
+     "desc": "操作しているメンバーが吹き飛ばされた時に、 <IconMap:Icon_Switch> を押して発動：\n前方の敵に打撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：はじける栄養バー",
+     "desc": "出場中のメンバーが攻撃されそうになった時に、 <IconMap:Icon_Switch> を押して発動：\n敵の攻撃をパリィし、ブレイク値を大量に蓄積させる。\nパリィに成功した時、<color=#FFFFFF>「糖度ポイント」</color>を1Pt獲得する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援突撃：クッキーどぞ！",
+     "desc": "<color=#FFFFFF>『パリィ支援』</color>を発動、または<color=#FFFFFF>『通常攻撃：狸の覆い』</color>で敵の攻撃をパリィした後、適切なタイミングで <IconMap:Icon_Normal> を押して発動：\n前方の敵に打撃を与え、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援突撃：ミックスキャンディーシュート",
+     "desc": "<color=#FFFFFF>『パリィ支援』</color>を発動、または<color=#FFFFFF>『通常攻撃：狸の覆い』</color>で敵の攻撃をパリィした後、適切なタイミングで <IconMap:Icon_Normal> を押して発動：\n傘を回転させて攻撃した後、強力な砲弾を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "クイック支援：おやつの時間",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1411013, Prop:1001}",
+       "param": {
+        "1411013": {
+         "main": 12290,
+         "growth": 1120,
+         "format": "%",
+         "damage_percentage": 12290,
+         "damage_percentage_growth": 1120,
+         "stun_ratio": 6150,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 20110,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 153725,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5584,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5585
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1411013, Prop:1002}",
+       "param": {
+        "1411013": {
+         "main": 6150,
+         "growth": 280,
+         "format": "%",
+         "damage_percentage": 12290,
+         "damage_percentage_growth": 1120,
+         "stun_ratio": 6150,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 20110,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 153725,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5584,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5585
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：はじける栄養バー",
+     "param": [
+      {
+       "name": "パリィ・軽 ブレイク倍率",
+       "desc": "{Skill:1411014, Prop:1002}",
+       "param": {
+        "1411014": {
+         "main": 29520,
+         "growth": 1350,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 29520,
+         "stun_ratio_growth": 1350,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 38334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・重 ブレイク倍率",
+       "desc": "{Skill:1411015, Prop:1002}",
+       "param": {
+        "1411015": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・連続 ブレイク倍率",
+       "desc": "{Skill:1411016, Prop:1002}",
+       "param": {
+        "1411016": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：クッキーどぞ！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1411017, Prop:1001}",
+       "param": {
+        "1411017": {
+         "main": 29430,
+         "growth": 2680,
+         "format": "%",
+         "damage_percentage": 29430,
+         "damage_percentage_growth": 2680,
+         "stun_ratio": 25140,
+         "stun_ratio_growth": 1150,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 842875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 24801,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11170
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1411017, Prop:1002}",
+       "param": {
+        "1411017": {
+         "main": 25140,
+         "growth": 1150,
+         "format": "%",
+         "damage_percentage": 29430,
+         "damage_percentage_growth": 2680,
+         "stun_ratio": 25140,
+         "stun_ratio_growth": 1150,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 842875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 24801,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11170
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：ミックスキャンディーシュート",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1411024, Prop:1001}",
+       "param": {
+        "1411024": {
+         "main": 46360,
+         "growth": 4220,
+         "format": "%",
+         "damage_percentage": 46360,
+         "damage_percentage_growth": 4220,
+         "stun_ratio": 40870,
+         "stun_ratio_growth": 1860,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1296350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 39642,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22164
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1411024, Prop:1002}",
+       "param": {
+        "1411024": {
+         "main": 40870,
+         "growth": 1860,
+         "format": "%",
+         "damage_percentage": 46360,
+         "damage_percentage_growth": 4220,
+         "stun_ratio": 40870,
+         "stun_ratio_growth": 1860,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1296350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 39642,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22164
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "ラッキー体質",
+   "desc": "フィールド入場時、柚葉はエネルギーを30Pt回復する。探査モードにおいて、この効果は180秒に1回のみ発動可能。<color=#FFFFFF>「スイートパニック」</color>状態の敵の全属性ダメージ耐性-10%。<color=#FFFFFF>『追加能力』</color>による状態異常ダメージと<color=#FFFFFF>「混沌」</color>ダメージのアップ効果が本来の130%になる。",
+   "desc2": "「あ～あ、やっちゃったなぁ」\n「柚葉もテストだめだった？…って、92点じゃん！？\nなによ、イヤミなため息なんかついちゃって！」\n「違うって、ラッキーにもバランスが大事なんだから。\nこの科目はあんま高得点とるつもりなかったんだよね…\nこれ勘だけど、午後のテストはもう選択問題ないかも？」"
+  },
+  "2": {
+   "level": 2,
+   "name": "柚葉と愉快な仲間たち",
+   "desc": "柚葉の<color=#FFFFFF>『強化特殊スキル：虫歯注意報』</color>、<color=#FFFFFF>『強化特殊スキル：虫歯注意報、今がチャンス！』</color>と<color=#FFFFFF>『終結スキル：トリック・オア・ギブ』</color>が敵に命中すると、メンバー全員の与ダメージ+15%、状態異常蓄積効率+15%、継続時間40秒、重複して発動すると継続時間が更新される。重撃がブレイク状態でない敵に命中すると、強制的に<color=#FFFFFF>『連携スキル』</color>が発動する。この方法で発動した<color=#FFFFFF>『連携スキル』</color>は中断レベルが下がる。強制発動効果は20秒に1回のみ発動可能。他のメンバーが<color=#FFFFFF>『連携スキル』</color>で入場した時、柚葉は<color=#FFFFFF>「糖度ポイント」</color>を1Pt獲得する。柚葉の<color=#FFFFFF>『通常攻撃：キャンディーシュート』</color>のクールタイムが25%短縮される。",
+   "desc2": "「{M#釜之助}{F#かまちー}はずっとそこにいたのに、\nどうやって一瞬で何度も入れ替わった{M#んだい}{F#の}？」\n「ふふん、それはね…かまちーにもたくさんお友達がいるんだよ！\nほらほら、みんな出ておいで～？左から順に紹介するね。\n竹之助でしょ、伊之助、それに百之助…」\n「ちょ、ちょっと待っ{M#た}{F#て}。早すぎて覚えら{M#れ}{F#ん}ない{F#よ}…」\n「じゃあもう一回だね。いい？左から信之助でしょ、喜之助、それに春之助…」\n「{M#さっきと全然違うじゃないか…}{F#さっきと全然違うじゃん！}」"
+  },
+  "3": {
+   "level": 3,
+   "name": "とあるお城のおとぎ話",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "「…お姫様は毎日がとても忙しい。\n朝早くから、物静かな侍女たちに手伝われて\n豪華なドレスに着替え、重たい魔法の冠を被る。\n色んなアクセを身につけて、そのまま玉座に座るの。そこでお姫様は\n不思議な力を使って、何の変哲もない石ころを、宝石に変えるんだよ」\n「柚葉おねえちゃん、お姫様ってまいにち石を宝石に変えなきゃいけないの？\nお店番しながら宿題やるより、ずっとつまんないね」\n「うーん…でもそうしないと、王国が貧乏になって滅んじゃうかもでしょ？」\n「お姫様がひとりで頑張らないとだめな王国なんて、\n滅んじゃったほうがいいよ！」\nそれを聞いた彼女は思わず声をあげて笑った。\nそうだね。そんな王国、滅んじゃえばいいよね。"
+  },
+  "4": {
+   "level": 4,
+   "name": "奇跡が落ちてきた",
+   "desc": "柚葉の<color=#FFFFFF>『支援突撃：ミックスキャンディーシュート』</color>と<color=#FFFFFF>『支援突撃：クッキーどぞ！』</color>の与ダメージ+30%、状態異常蓄積効率+20%。このスキルが敵に命中すると、<color=#FFFFFF>『クイック支援』</color>が発動可能になる。",
+   "desc2": "ダクトの狭い隙間から見えたあの子は、\nまるで童話の世界から抜け出してきたみたいに輝いてた。\nそう、あの子こそが本物のお姫様で、私はただの囚人。\nひどいよ神様。あの子はあんなにたくさん持ってるのに…\n少しくらい、私に分けてくれてもいいじゃん。\nそう思った瞬間だった…あのヘアピンが、音もなく落ちてきたのは。"
+  },
+  "5": {
+   "level": 5,
+   "name": "冬の名残り、夢の足跡",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "TOPSの幹部と調査監督チームが到着したその場に、\nちょうど学校帰りの柚葉と真斗もいた。\nVIPを迎える車のために場所を空けなければならず、\n柚葉たちの乗った飛行船が空中での旋回を強いられたあとだった。\nヘトヘトになりながら歩道橋を渡ると、大勢の報道陣たちが\nVIPを取り囲んで下を通り過ぎる。人だかりの中でも、\nひと目であの子だとわかった。\nその夜、柚葉は夢を見た。記者たちに囲まれて\n歩道橋の下を行くのは、あの子ではなく自分…そして道の果てには、\n柚葉のために用意された「玉座」が……\nもうずいぶん長いこと、こんな夢は見ていなかった。\n起き上がって水分を取りながら、昼間に誰かが言っていたことを思い出す。\n「なにが専門家を集めた調査チームだ！人数合わせか知らんが、\nお金持ちのお嬢様なんか入れやがって！」…\n\n「ねぇかまちー、いる？」\n窓を開けて小声で呼びかけると、\n小さなモフモフが窓の外から顔を覗かせた。\n「ちょっと思いついちゃった。\n明日の夜、面白いことしよっか？」"
+  },
+  "6": {
+   "level": 6,
+   "name": "ここに深く根を下ろす",
+   "desc": "<color=#FFFFFF>『パリィ支援』</color>または<color=#FFFFFF>『通常攻撃：狸の覆い』</color>で敵の攻撃をパリィした時に追加で<color=#FFFFFF>「糖度ポイント」</color>を1Pt獲得する。<color=#FFFFFF>『支援突撃：ミックスキャンディーシュート』</color>発動時に<IconMap:Icon_Normal>を長押しすることでチャージすることができ、最大0.8秒までチャージ可能。<IconMap:Icon_Normal>を離すか、または最大チャージ時間に達すると、柚葉は追加で強力な砲弾を放つ。0.4秒チャージするごとに、柚葉は<color=#FFFFFF>「糖度ポイント」</color>を1Pt消費して追加で1枚の強力な砲弾を放つ。追加の強力な砲弾は柚葉の攻撃力300%分の<color=#F0D12B>物理属性ダメージ</color>を与える。<color=#FFFFFF>『支援突撃：ミックスキャンディーシュート』</color>の任意の強力な砲弾が敵に命中すると、メンバー全員の<color=#FFFFFF>「混沌」</color>ダメージ倍率+105%、継続時間40秒。この効果は最大3重まで重ね掛け可能で、各重の継続時間は別々でカウントされる。追加の強力な砲弾が<color=#FFFFFF>「スイートパニック」</color>状態の敵に命中すると<color=#FFFFFF>『通常攻撃：スパークルキャンディー・極』</color>が1回発動する。チャージ中に敵の攻撃を受けた場合、柚葉は自動で攻撃を回避し、即座に最大チャージ時間に達した攻撃を放つ。",
+   "desc2": "公聴会が終わったその夜、パパは\n楓が奨学金を貰えるからお祝いだ、と早めに店を閉め、\n家族はみんなで飲茶仙に向かった。\nしばらくするとファヌス区にいるお兄ちゃんからお祝いの電話が来て、\n菫と文は今日のできごとを楽しそうに語る。\n学校にいる三毛猫ママの子猫がいなくなり、みんなで必死に探してたら\n昼になって何事もなかったかのように帰ってきたと――\nお兄ちゃんが電話越しについた溜息が聞こえる。\n「文、おまえ成績の話になるとすぐ話をそらすよな。\n父さんと柚葉は甘やかしてるけど、俺は違うぞ！」\nみんながどっと笑うなか、パパだけがそっと呟いた。\n「戻ってきてくれて、本当によかった…」"
+  }
+ },
+ "passive": {
+  "level": {
+   "1411049": {
+    "level": 1,
+    "id": 1411049,
+    "name": [
+     "コアパッシブ：ビビッド・カラフル",
+     "追加能力：みんなで大騒ぎ！"
+    ],
+    "desc": [
+     "フィールド入場時、柚葉は即座に<color=#FFFFFF>「糖度ポイント」</color>を3Pt獲得する。\n<color=#FFFFFF>「糖度ポイント」</color>は最大で6Ptまで所持できる。\n柚葉の<color=#FFFFFF>『強化特殊スキル：虫歯注意報』</color>、<color=#FFFFFF>『強化特殊スキル：虫歯注意報、今がチャンス！』</color>と<color=#FFFFFF>『終結スキル：トリック・オア・ギブ』</color>が敵に命中した時、メンバー全員に<color=#FFFFFF>「狸の願い」</color>効果を付与する。\n<color=#FFFFFF>「狸の願い」</color>：所持者の攻撃力が柚葉の開幕攻撃力40%分アップする、最大+<color=#2BAD00>600</color>Pt。さらに所持者の与ダメージ+15%。継続時間40秒、重複して発動すると継続時間が更新される。\n柚葉の開幕攻撃力が1500Ptに達すると、メンバー全員に与える攻撃力アップ効果も最大値に達する。",
+     "チームに<color=#FFFFFF>[異常]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n柚葉の異常掌握が100Ptを超えている場合、1Pt超えるごとに<color=#FFFFFF>「狸の願い」</color>を所持しているメンバーの状態異常蓄積効率+<color=#2BAD00>0.2%</color>、最大+<color=#2BAD00>20%</color>。さらにそのメンバーの全属性の状態異常ダメージと<color=#FFFFFF>「混沌」</color>ダメージ+<color=#2BAD00>0.2%</color>、最大+<color=#2BAD00>20%</color>。柚葉の異常掌握が200Ptに達すると、上記の効果も最大値に達する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1411050": {
+    "level": 2,
+    "id": 1411050,
+    "name": [
+     "コアパッシブ：ビビッド・カラフル",
+     "追加能力：みんなで大騒ぎ！"
+    ],
+    "desc": [
+     "フィールド入場時、柚葉は即座に<color=#FFFFFF>「糖度ポイント」</color>を3Pt獲得する。\n<color=#FFFFFF>「糖度ポイント」</color>は最大で6Ptまで所持できる。\n柚葉の<color=#FFFFFF>『強化特殊スキル：虫歯注意報』</color>、<color=#FFFFFF>『強化特殊スキル：虫歯注意報、今がチャンス！』</color>と<color=#FFFFFF>『終結スキル：トリック・オア・ギブ』</color>が敵に命中した時、メンバー全員に<color=#FFFFFF>「狸の願い」</color>効果を付与する。\n<color=#FFFFFF>「狸の願い」</color>：所持者の攻撃力が柚葉の開幕攻撃力40%分アップする、最大+<color=#2BAD00>700</color>Pt。さらに所持者の与ダメージ+15%。継続時間40秒、重複して発動すると継続時間が更新される。\n柚葉の開幕攻撃力が1750Ptに達すると、メンバー全員に与える攻撃力アップ効果も最大値に達する。",
+     "チームに<color=#FFFFFF>[異常]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n柚葉の異常掌握が100Ptを超えている場合、1Pt超えるごとに<color=#FFFFFF>「狸の願い」</color>を所持しているメンバーの状態異常蓄積効率+<color=#2BAD00>0.2%</color>、最大+<color=#2BAD00>20%</color>。さらにそのメンバーの全属性の状態異常ダメージと<color=#FFFFFF>「混沌」</color>ダメージ+<color=#2BAD00>0.2%</color>、最大+<color=#2BAD00>20%</color>。柚葉の異常掌握が200Ptに達すると、上記の効果も最大値に達する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1411051": {
+    "level": 3,
+    "id": 1411051,
+    "name": [
+     "コアパッシブ：ビビッド・カラフル",
+     "追加能力：みんなで大騒ぎ！"
+    ],
+    "desc": [
+     "フィールド入場時、柚葉は即座に<color=#FFFFFF>「糖度ポイント」</color>を3Pt獲得する。\n<color=#FFFFFF>「糖度ポイント」</color>は最大で6Ptまで所持できる。\n柚葉の<color=#FFFFFF>『強化特殊スキル：虫歯注意報』</color>、<color=#FFFFFF>『強化特殊スキル：虫歯注意報、今がチャンス！』</color>と<color=#FFFFFF>『終結スキル：トリック・オア・ギブ』</color>が敵に命中した時、メンバー全員に<color=#FFFFFF>「狸の願い」</color>効果を付与する。\n<color=#FFFFFF>「狸の願い」</color>：所持者の攻撃力が柚葉の開幕攻撃力40%分アップする、最大+<color=#2BAD00>800</color>Pt。さらに所持者の与ダメージ+15%。継続時間40秒、重複して発動すると継続時間が更新される。\n柚葉の開幕攻撃力が2000Ptに達すると、メンバー全員に与える攻撃力アップ効果も最大値に達する。",
+     "チームに<color=#FFFFFF>[異常]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n柚葉の異常掌握が100Ptを超えている場合、1Pt超えるごとに<color=#FFFFFF>「狸の願い」</color>を所持しているメンバーの状態異常蓄積効率+<color=#2BAD00>0.2%</color>、最大+<color=#2BAD00>20%</color>。さらにそのメンバーの全属性の状態異常ダメージと<color=#FFFFFF>「混沌」</color>ダメージ+<color=#2BAD00>0.2%</color>、最大+<color=#2BAD00>20%</color>。柚葉の異常掌握が200Ptに達すると、上記の効果も最大値に達する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1411052": {
+    "level": 4,
+    "id": 1411052,
+    "name": [
+     "コアパッシブ：ビビッド・カラフル",
+     "追加能力：みんなで大騒ぎ！"
+    ],
+    "desc": [
+     "フィールド入場時、柚葉は即座に<color=#FFFFFF>「糖度ポイント」</color>を3Pt獲得する。\n<color=#FFFFFF>「糖度ポイント」</color>は最大で6Ptまで所持できる。\n柚葉の<color=#FFFFFF>『強化特殊スキル：虫歯注意報』</color>、<color=#FFFFFF>『強化特殊スキル：虫歯注意報、今がチャンス！』</color>と<color=#FFFFFF>『終結スキル：トリック・オア・ギブ』</color>が敵に命中した時、メンバー全員に<color=#FFFFFF>「狸の願い」</color>効果を付与する。\n<color=#FFFFFF>「狸の願い」</color>：所持者の攻撃力が柚葉の開幕攻撃力40%分アップする、最大+<color=#2BAD00>900</color>Pt。さらに所持者の与ダメージ+15%。継続時間40秒、重複して発動すると継続時間が更新される。\n柚葉の開幕攻撃力が2250Ptに達すると、メンバー全員に与える攻撃力アップ効果も最大値に達する。",
+     "チームに<color=#FFFFFF>[異常]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n柚葉の異常掌握が100Ptを超えている場合、1Pt超えるごとに<color=#FFFFFF>「狸の願い」</color>を所持しているメンバーの状態異常蓄積効率+<color=#2BAD00>0.2%</color>、最大+<color=#2BAD00>20%</color>。さらにそのメンバーの全属性の状態異常ダメージと<color=#FFFFFF>「混沌」</color>ダメージ+<color=#2BAD00>0.2%</color>、最大+<color=#2BAD00>20%</color>。柚葉の異常掌握が200Ptに達すると、上記の効果も最大値に達する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1411053": {
+    "level": 5,
+    "id": 1411053,
+    "name": [
+     "コアパッシブ：ビビッド・カラフル",
+     "追加能力：みんなで大騒ぎ！"
+    ],
+    "desc": [
+     "フィールド入場時、柚葉は即座に<color=#FFFFFF>「糖度ポイント」</color>を3Pt獲得する。\n<color=#FFFFFF>「糖度ポイント」</color>は最大で6Ptまで所持できる。\n柚葉の<color=#FFFFFF>『強化特殊スキル：虫歯注意報』</color>、<color=#FFFFFF>『強化特殊スキル：虫歯注意報、今がチャンス！』</color>と<color=#FFFFFF>『終結スキル：トリック・オア・ギブ』</color>が敵に命中した時、メンバー全員に<color=#FFFFFF>「狸の願い」</color>効果を付与する。\n<color=#FFFFFF>「狸の願い」</color>：所持者の攻撃力が柚葉の開幕攻撃力40%分アップする、最大+<color=#2BAD00>1000</color>Pt。さらに所持者の与ダメージ+15%。継続時間40秒、重複して発動すると継続時間が更新される。\n柚葉の開幕攻撃力が2500Ptに達すると、メンバー全員に与える攻撃力アップ効果も最大値に達する。",
+     "チームに<color=#FFFFFF>[異常]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n柚葉の異常掌握が100Ptを超えている場合、1Pt超えるごとに<color=#FFFFFF>「狸の願い」</color>を所持しているメンバーの状態異常蓄積効率+<color=#2BAD00>0.2%</color>、最大+<color=#2BAD00>20%</color>。さらにそのメンバーの全属性の状態異常ダメージと<color=#FFFFFF>「混沌」</color>ダメージ+<color=#2BAD00>0.2%</color>、最大+<color=#2BAD00>20%</color>。柚葉の異常掌握が200Ptに達すると、上記の効果も最大値に達する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1411054": {
+    "level": 6,
+    "id": 1411054,
+    "name": [
+     "コアパッシブ：ビビッド・カラフル",
+     "追加能力：みんなで大騒ぎ！"
+    ],
+    "desc": [
+     "フィールド入場時、柚葉は即座に<color=#FFFFFF>「糖度ポイント」</color>を3Pt獲得する。\n<color=#FFFFFF>「糖度ポイント」</color>は最大で6Ptまで所持できる。\n柚葉の<color=#FFFFFF>『強化特殊スキル：虫歯注意報』</color>、<color=#FFFFFF>『強化特殊スキル：虫歯注意報、今がチャンス！』</color>と<color=#FFFFFF>『終結スキル：トリック・オア・ギブ』</color>が敵に命中した時、メンバー全員に<color=#FFFFFF>「狸の願い」</color>効果を付与する。\n<color=#FFFFFF>「狸の願い」</color>：所持者の攻撃力が柚葉の開幕攻撃力40%分アップする、最大+<color=#2BAD00>1100</color>Pt。さらに所持者の与ダメージ+15%。継続時間40秒、重複して発動すると継続時間が更新される。\n柚葉の開幕攻撃力が2750Ptに達すると、メンバー全員に与える攻撃力アップ効果も最大値に達する。",
+     "チームに<color=#FFFFFF>[異常]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n柚葉の異常掌握が100Ptを超えている場合、1Pt超えるごとに<color=#FFFFFF>「狸の願い」</color>を所持しているメンバーの状態異常蓄積効率+<color=#2BAD00>0.2%</color>、最大+<color=#2BAD00>20%</color>。さらにそのメンバーの全属性の状態異常ダメージと<color=#FFFFFF>「混沌」</color>ダメージ+<color=#2BAD00>0.2%</color>、最大+<color=#2BAD00>20%</color>。柚葉の異常掌握が200Ptに達すると、上記の効果も最大値に達する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1411055": {
+    "level": 7,
+    "id": 1411055,
+    "name": [
+     "コアパッシブ：ビビッド・カラフル",
+     "追加能力：みんなで大騒ぎ！"
+    ],
+    "desc": [
+     "フィールド入場時、柚葉は即座に<color=#FFFFFF>「糖度ポイント」</color>を3Pt獲得する。\n<color=#FFFFFF>「糖度ポイント」</color>は最大で6Ptまで所持できる。\n柚葉の<color=#FFFFFF>『強化特殊スキル：虫歯注意報』</color>、<color=#FFFFFF>『強化特殊スキル：虫歯注意報、今がチャンス！』</color>と<color=#FFFFFF>『終結スキル：トリック・オア・ギブ』</color>が敵に命中した時、メンバー全員に<color=#FFFFFF>「狸の願い」</color>効果を付与する。\n<color=#FFFFFF>「狸の願い」</color>：所持者の攻撃力が柚葉の開幕攻撃力40%分アップする、最大+<color=#2BAD00>1200</color>Pt。さらに所持者の与ダメージ+15%。継続時間40秒、重複して発動すると継続時間が更新される。\n柚葉の開幕攻撃力が3000Ptに達すると、メンバー全員に与える攻撃力アップ効果も最大値に達する。",
+     "チームに<color=#FFFFFF>[異常]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n柚葉の異常掌握が100Ptを超えている場合、1Pt超えるごとに<color=#FFFFFF>「狸の願い」</color>を所持しているメンバーの状態異常蓄積効率+<color=#2BAD00>0.2%</color>、最大+<color=#2BAD00>20%</color>。さらにそのメンバーの全属性の状態異常ダメージと<color=#FFFFFF>「混沌」</color>ダメージ+<color=#2BAD00>0.2%</color>、最大+<color=#2BAD00>20%</color>。柚葉の異常掌握が200Ptに達すると、上記の効果も最大値に達する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110511": 2
+   },
+   "3": {
+    "10": 28000,
+    "110511": 4
+   },
+   "4": {
+    "10": 60000,
+    "110005": 2,
+    "110511": 9
+   },
+   "5": {
+    "10": 100000,
+    "110005": 3,
+    "110511": 15
+   },
+   "6": {
+    "10": 200000,
+    "110005": 4,
+    "110511": 30
+   }
+  }
+ },
+ "skin": {
+  "3114110": {
+   "name": "柚葉・「傘下でまどろむ狸」",
+   "desc": "傘の下に隠れているのは何だろう…狸、罠、オバケ、それとも少女の憎めないイタズラっぽい笑顔？",
+   "obtain_desc": "",
+   "image": "IconRole47"
+  },
+  "3114111": {
+   "name": "柚葉・「晴天の化け狸」",
+   "desc": "怪談は、決まって日陰の中だけに生まれるわけではない。信じられないのなら、あの水遊びに興じる少女と目を合わせてみるといい…そうすれば、あなたの心は彼女に、あなたの手にあるドリンクはかまちーに奪われるだろう。",
+   "obtain_desc": "",
+   "image": "IconRole47_01"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1411001": {
+   "name": "通常攻撃：狸の爪痕（1、2、3、4、5段）",
+   "desc": "<IconMap:Icon_Normal>;<IconMap:Icon_Normal>;<IconMap:Icon_Normal>;<IconMap:Icon_Normal>;<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1411002": {
+   "name": "通常攻撃：狸の覆い",
+   "desc": "<IconMap:Icon_Normal>（長押し）",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1411003": {
+   "name": "特殊スキル：グミ・ブラスト",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1411004": {
+   "name": "強化特殊スキル：虫歯注意報",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1411005": {
+   "name": "強化特殊スキル：虫歯注意報、今がチャンス！",
+   "desc": "<IconMap:Icon_SpecialReady>（『支援突撃：ミックスキャンディーシュート』、『支援突撃：クッキーどぞ！』、『クイック支援：おやつの時間』、『回避反撃：仕返し、はじめ！』発動後、または極限回避発動後）",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1411006": {
+   "name": "回避：びっくりしたぁ？",
+   "desc": "<IconMap:Icon_Evade>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1411007": {
+   "name": "回避反撃：仕返し、はじめ！",
+   "desc": "<IconMap:Icon_Evade>（極限回避成功） ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1411008": {
+   "name": "連携スキル：いたずら合戦",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1411009": {
+   "name": "終結スキル：トリック・オア・ギブ",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1411010": {
+   "name": "クイック支援：おやつの時間",
+   "desc": "<IconMap:Icon_Switch>（クイック支援の発動条件を満たした時）",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1411011": {
+   "name": "パリィ支援：はじける栄養バー",
+   "desc": "<IconMap:Icon_Switch>（パリィ支援の発動条件を満たした時）",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1411012": {
+   "name": "支援突撃：クッキーどぞ！",
+   "desc": "<IconMap:Icon_Normal>（パリィ支援を発動後、または『通常攻撃：狸の覆い』で敵の攻撃をパリィした後）",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1411013": {
+   "name": "支援突撃：ミックスキャンディーシュート",
+   "desc": "<IconMap:Icon_Normal>（パリィ支援を発動後、または『通常攻撃：狸の覆い』で敵の攻撃をパリィした後に適切なタイミングで）",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1411001,
+   "avatar_id": 1411,
+   "first_priority": [
+    5,
+    0
+   ],
+   "second_priority": [
+    1,
+    3,
+    6
+   ],
+   "third_priority": [
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33400,
+  "slot2": 33000,
+  "slot_sub": 31600,
+  "part_sub_list": [
+   12102,
+   31203
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31600,
+     33000
+    ],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [
+     33400,
+     33000
+    ],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [
+     32800,
+     33000
+    ],
+    "part_sub_list": [
+     31402
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 31402,
+   "name": "異常掌握",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementAbnormalPower.png"
+  },
+  "part5": {
+   "prop": 12102,
+   "name": "攻撃力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  },
+  "part6": {
+   "prop": 30502,
+   "name": "エネルギー自動回復",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconSpRecover.png"
+  },
+  "part_sub": {
+   "prop": 31203,
+   "name": "異常マスタリー",
+   "format": "{0:0}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementMystery.png"
+  }
+ },
+ "strategy": [
+  "04",
+  "<IconMap:Icon_GeneralBuff_PhysDmg>物理属性、裏サポーター",
+  "異常編成のスキル回しと火力を全面的にアップ",
+  "メンバーの状態異常蓄積効率をアップ"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100214": 4
+   }
+  },
+  "2": {
+   "hp_max": 487,
+   "attack": 39,
+   "defence": 34,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100224": 12
+   }
+  },
+  "3": {
+   "hp_max": 974,
+   "attack": 78,
+   "defence": 68,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100224": 20
+   }
+  },
+  "4": {
+   "hp_max": 1461,
+   "attack": 117,
+   "defence": 101,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100234": 10
+   }
+  },
+  "5": {
+   "hp_max": 1949,
+   "attack": 156,
+   "defence": 135,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100234": 20
+   }
+  },
+  "6": {
+   "hp_max": 2436,
+   "attack": 195,
+   "defence": 169,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "異常掌握",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "異常掌握",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "異常掌握",
+     "format": "{0:0.#}",
+     "value": 24
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "異常掌握",
+     "format": "{0:0.#}",
+     "value": 24
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "異常掌握",
+     "format": "{0:0.#}",
+     "value": 36
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "異常掌握",
+     "format": "{0:0.#}",
+     "value": 36
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpine_Youye"
+}

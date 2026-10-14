@@ -6,6 +6,7 @@ import { heroIdsFromList } from '@/domain/heroCatalog'
 import { heroImageFile } from '@/data/heroGenderVariants'
 import { listFor } from '@/data/resources'
 import { catalogEntry } from '@/domain/catalog'
+import { DEFAULT_LANG } from '@/domain/lang'
 import type { CharacterListItem } from '@/data/types'
 
 // 开发环境专属校准页：路由仅在 DEV 分支注册（见 router/index.ts），生产构建不可达。
@@ -270,7 +271,8 @@ async function togglePool(id: number) {
 onMounted(async () => {
   await loadPool()
   try {
-    const list = await listFor<CharacterListItem>(catalogEntry('/agents'))
+    // 取景校准只需要候选 id 清单（与语言无关），故固定默认语言
+    const list = await listFor<CharacterListItem>(catalogEntry('/agents'), DEFAULT_LANG)
     heroIds.value = heroIdsFromList(list)
   } catch {
     heroIds.value = []

@@ -7,6 +7,9 @@ import { listFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
 import type { CharacterListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
+import { pickText } from '@/domain/lang'
+import { useLocale } from '@/composables/useLocale'
+import { useUiText } from '@/composables/useUiText'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { catalogEntry } from '@/domain/catalog'
 import { AsyncState, CatalogTable, CatalogTableSkeleton, FilterDropdown, ListPage, NameCell, SearchField, type CatalogColumn } from '@/components'
@@ -19,7 +22,13 @@ usePageMeta()
 const cat = catalogEntry('/agents')
 const base = cat.path
 
-const { data, status, error, reload } = useAsyncResource(() => listFor<CharacterListItem>(cat))
+/** 当前展示语言：名录与详情都按语言落盘，语言一变下面的取数会重新拉（见 useAsyncResource） */
+const { lang } = useLocale()
+const { t } = useUiText()
+
+const { data, status, error, reload } = useAsyncResource(() =>
+  listFor<CharacterListItem>(cat, lang.value),
+)
 
 const { attrFilter, profFilter, campFilter, query, filtered, count, hasActiveFilter, reset } =
   useCatalogList<CharacterListItem>({
@@ -45,13 +54,13 @@ const camps = computed(() => {
 /** 列配置：**不声明 sortable**——表格版与本页卡片版一致，不提供排序控件
  *  （点表头排序需要读者先知道「表头能点」，且与卡片版的陈列语言不统一）。
  *  陈列顺序见下方 useCatalogSort 的默认值。 */
-const columns: CatalogColumn[] = [
-  { key: 'name', label: '代号' },
-  { key: 'attr', label: '属性' },
-  { key: 'prof', label: '职业' },
-  { key: 'camp', label: '阵营', cls: 'camp mono' },
-  { key: 'rarity', label: '稀有度', align: 'right' },
-]
+const columns = computed<CatalogColumn[]>(() => [
+  { key: 'name', label: t.value.list.code },
+  { key: 'attr', label: t.value.list.element },
+  { key: 'prof', label: t.value.list.profession },
+  { key: 'camp', label: t.value.list.camp, cls: 'camp mono' },
+  { key: 'rarity', label: t.value.list.rarity, align: 'right' },
+])
 
 /** 陈列顺序：默认编号倒序（读一次，无控件可改）。键仍是 id/name/rarity，
  *  故旧链接里的 ?sort=&dir= 依旧照读——分享出去的排序视图不会因为这次改动变成另一份视图。 */
@@ -59,7 +68,7 @@ const { sorted } = useCatalogSort(
   filtered,
   [
     { key: 'id', value: (r) => r.Id },
-    { key: 'name', value: (r) => pickName(r) },
+    { key: 'name', value: (r) => pickName(r, lang.value) },
     { key: 'rarity', value: (r) => r.rank ?? -1 },
   ],
   { defaultKey: 'id', defaultDir: 'desc', syncRoute: true },
@@ -70,9 +79,9 @@ const { sorted } = useCatalogSort(
   <ListPage>
     <header v-reveal class="page-head">
       <p class="eyebrow mono">Agents</p>
-      <h1 class="page-title">代理人</h1>
+      <h1 class="page-title">{{ pickText(cat.label, lang) }}</h1>
       <p class="page-sub">
-        新艾利都登记在册的代理人名录。可按属性、职业、阵营筛选，或输入姓名检索。
+        {{ t.list.agentsIntro }}
       </p>
     </header>
 
@@ -88,7 +97,7 @@ const { sorted } = useCatalogSort(
           @update:camp="campFilter = $event"
         />
       </div>
-      <SearchField v-model="query" :count="count" placeholder="检索姓名…" />
+      <SearchField v-model="query" :count="count" :placeholder="t.list.searchName" />
     </div>
 
     <!-- 空态分工：AsyncState 只管「数据级为空」（接口没给数据）；
@@ -106,18 +115,18 @@ const { sorted } = useCatalogSort(
         v-reveal="160"
         :columns="columns"
         :items="sorted"
-        caption="代理人名录：代号、属性、职业、阵营与稀有度"
+        :caption="t.list.agentsSub"
         :show-clear="hasActiveFilter"
-        empty-text="无匹配代理人"
+        :empty-text="t.noMatch.agents"
         @clear="reset"
       >
         <template #cell-name="{ row }">
           <NameCell
             :to="`${base}/${row.Id}`"
             :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'character')"
-            :alt="pickName(row)"
-            :fallback="pickName(row)"
-            :name="pickName(row)"
+            :alt="pickName(row, lang)"
+            :fallback="pickName(row, lang)"
+            :name="pickName(row, lang)"
             thumb="banner"
           />
         </template>

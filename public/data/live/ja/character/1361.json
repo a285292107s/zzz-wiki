@@ -1,0 +1,2110 @@
+{
+ "id": 1361,
+ "icon": "IconRole39",
+ "name": "「トリガー」",
+ "code_name": "Trigger",
+ "rarity": 4,
+ "weapon_type": {
+  "2": "Stun"
+ },
+ "element_type": {
+  "203": "Electric"
+ },
+ "hit_type": {
+  "103": "Pierce"
+ },
+ "camp": {
+  "5": "新エリー都防衛軍"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "4月21日",
+  "full_name": "「トリガー」",
+  "gender": "女性",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle39.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0039.png",
+  "impression_f": "この前、ひとりで留守番してた時に熱が出ちゃって…寝込んでたら\n突然「トリガー」が店に来たの！体温計も使わずに38度6分ですね、とか言うし\nその日はずっと看病してくれたんだけど…なんでわかったんだろ？",
+  "impression_m": "君が熱を出したことかい？それとも正確に体温を言い当てたほう？\n僕もさっぱりだけれど、そういえば前に駐車場で足をくじいたとき\n急に「トリガー」が氷嚢を持って現れたっけな…",
+  "impressions": [
+   "「トリガー」に対するイメージ：\n・礼儀正しく、優しく、俊敏で頼もしい。\nこれが「トリガー」の、人に与える第一印象。",
+   "・{M#「トリガー」とは遥か昔に出会っていた}{F#「トリガー」とはずーっと昔に出会ってた。}\n{M#彼女は僕たちとの出会いを、}{F#あの人は私たちとの出会いを、}\n{M#大切な思い出だと思ってくれているようだ}{F#大切な思い出だと思ってくれてるみたい}。",
+   "・{M#僕たちの日程にあまりにも関心が強く、}{F#私たちの日程にすっごく関心が強くて、}\n{M#様々な手で偶然を装って会ってくれている…}{F#いろんな手で偶然を装って会ってくれてるの…}\n{M#エース狙撃手の素顔とは、案外こういうものかもしれない。}{F#エース狙撃手の素顔って、案外こういうものかもしれないね。}"
+  ],
+  "profile_desc": "「トリガー」、新エリー都防衛軍オブシディアン大隊・オボルス小隊の狙撃手です。\n「トリガー」はエリー都時代に与えられたコードネームであり、\n何らかの理由から引き続き使用しているものと思われます。\n眼球が極めて特殊な状態にある彼女は、視力をほとんど失っている一方で\nホロウ内でエーテル波動を放つすべての物体の位置と変化を\nはっきりと感知することができます。\n注意：エーテル波動を放つ物体とは、一般的に生命体、原生エーテル物質、\nエーテル製品、エーテリアスなどを指しています。\n俗に言う「失明」と変わらない状態ですが、「トリガー」は視力を除く五感を\n極限まで鍛え上げており、常人と遜色ない行動ができるばかりか\n周囲の変化をより俊敏に捉えることができます。こういった特殊な事情から彼女は\n狙撃手という戦闘ポジションとの適性が高く、潜入、監視、暗殺といった\n秘密裏に行われる任務を難なくこなすことができています。\nですが、精密かつ一撃必殺の戦闘スタイルとは裏腹に、彼女自身の性格は\n無害といっていいものです。\nときおり音もなくビデオ屋に姿を現して、助手二号を驚かせること以外、\n基本的に危険性はないとみていいでしょう。",
+  "role_icon": "IconRole/UnPacker/IconRole39",
+  "stature": "173",
+  "unlock_condition": [
+   "エージェント招集",
+   "メインストーリー・シーズン1・アウトロ「涙と過去を埋めて（上）」をクリアする",
+   "依頼「アンビーの当惑」を達成する"
+  ],
+  "trust_lv": {
+   "1": "「トリガー」、新エリー都防衛軍オブシディアン大隊・オボルス小隊の狙撃手です。\n「トリガー」はエリー都時代に与えられたコードネームであり、\n何らかの理由から引き続き使用しているものと思われます。\n眼球が極めて特殊な状態にある彼女は、視力をほとんど失っている一方で\nホロウ内でエーテル波動を放つすべての物体の位置と変化を\nはっきりと感知することができます。\n注意：エーテル波動を放つ物体とは、一般的に生命体、原生エーテル物質、\nエーテル製品、エーテリアスなどを指しています。\n俗に言う「失明」と変わらない状態ですが、「トリガー」は視力を除く五感を\n極限まで鍛え上げており、常人と遜色ない行動ができるばかりか\n周囲の変化をより俊敏に捉えることができます。こういった特殊な事情から彼女は\n狙撃手という戦闘ポジションとの適性が高く、潜入、監視、暗殺といった\n秘密裏に行われる任務を難なくこなすことができています。\nですが、精密かつ一撃必殺の戦闘スタイルとは裏腹に、彼女自身の性格は\n無害といっていいものです。\nときおり音もなくビデオ屋に姿を現して、助手二号を驚かせること以外、\n基本的に危険性はないとみていいでしょう。",
+   "2": "",
+   "3": "資料によれば「トリガー」は元々、エリー都防衛軍·クリソベリル大隊の\nライアー小隊に所属していました。小隊の他メンバーは旧都陥落の際に全滅し、\n彼女の目が侵蝕を受けたのもこのときです。「トリガー」は現在、\nオボルス小隊として現メンバーと共に旧都陥落の真相を追跡しています。\n彼女は仲間意識が非常に強く、仲間のためなら危険を犯すことを厭いません。\nマスター。「トリガー」の行動を分析する限り、貴方様も仲間として認識されており、\n明らかに平均を超える好感を向けられています。かつて何らかの出来事によって、\n彼女に貴方様が強く印象付けられたものと推測します。\n提案：あんぱんの食べ放題、ハーモニカ用の防音部屋を24時間提供することを条件に、\n長期的な協力関係を結ぶことをお勧めします。\nわずかな出費と引き換えに、最も信頼できる戦力が手に入ることでしょう。",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 108,
+  "attack_growth": 63517,
+  "avatar_piece_id": 5361,
+  "break_stun": 113,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 48,
+  "defence_growth": 65524,
+  "element_abnormal_power": 96,
+  "element_mystery": 95,
+  "endurance": 0,
+  "hp_growth": 864437,
+  "hp_max": 637,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Trigger",
+   "Pierce",
+   "Electric",
+   "Female",
+   "Camp5",
+   "Size3",
+   "AidTypeParry",
+   "Trigger",
+   "EtherEyesSize3"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "通常攻撃：コールドバレル・ショット",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方に最大4段の射撃を放つ。最初の3段は<color=#F0D12B>物理属性ダメージ</color>を与え、4段目は<color=#2EB6FF>電気属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：サイレント・スナイプ",
+     "desc": " <IconMap:Icon_Normal> を長押しして発動：\n「トリガー」が<color=#FFFFFF>「狙撃態勢」</color>に入り、前方に連続射撃を行って<color=#2EB6FF>電気属性ダメージ</color>を与える。\n連続射撃中に敵の攻撃を受けると、「トリガー」は自動で回避する、8秒に1回のみ発動可能。\n連続射撃中に{LAYOUT_CONSOLECONTROLLER#スティック}{LAYOUT_FALLBACK#スティック}を入力すると、左・右・後ろの3方向に位置を調整できる。\n自動回避が発動、または攻撃されそうになった瞬間に位置を調整すると、<color=#FFFFFF>『極限回避』</color>を発動でき、発動後はそのままチャージ反撃に繋がる。\n <IconMap:Icon_Normal> を離すと、「トリガー」は後ろへ伏せて銃を構え、とどめの一撃を放ち、その後<color=#FFFFFF>「狙撃態勢」</color>を解く。\nチャージ反撃およびとどめの一撃発動中、無敵効果を得る。\n連続射撃またはチャージ反撃が敵に命中した時、「トリガー」は<color=#FFFFFF>「絶意」</color>を25Pt獲得する。<color=#FFFFFF>「絶意」</color>の上限は100Pt。\nとどめの一撃が敵に命中した時、前のメンバーの<color=#FFFFFF>『クイック支援』</color>が発動可能になる。この方法で発動できる<color=#FFFFFF>『クイック支援』</color>は、25秒に1回のみ。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：狙撃協奏曲",
+     "desc": "「トリガー」が<color=#FFFFFF>「絶意」</color>を所持している場合、操作している他のエージェントの<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>、<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『クイック支援』</color>が敵に命中すると発動：\nターゲットを中心に高速射撃を連続で2回行い、<color=#2EB6FF>電気属性ダメージ</color>を与える。\nスキル発動時、<color=#FFFFFF>「絶意」</color>を3Pt消費する。\nスキル発動中、無敵効果を得る。\n<color=#FFFFFF>『通常攻撃：狙撃協奏曲』</color>は、<color=#FFFFFF>『追加攻撃』</color>である。\n「トリガー」の<color=#FFFFFF>『通常攻撃：狙撃協奏曲』</color>はチーム内において、3秒に1回のみ発動可能。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：狙撃協奏曲・奈落",
+     "desc": "「トリガー」が<color=#FFFFFF>「絶意」</color>を所持している場合、操作している他のエージェントの<color=#FFFFFF>『強化特殊スキル』</color>、<color=#FFFFFF>『支援突撃』</color>または<color=#FFFFFF>『終結スキル』</color>の重撃が敵に命中すると発動：\nターゲットを中心に高速射撃を連続で3回行い、その後とどめの一撃を放ち、<color=#2EB6FF>電気属性ダメージ</color>を与える。\nスキル発動時、<color=#FFFFFF>「絶意」</color>を5Pt消費する。\nスキル発動中、無敵効果を得る。\n<color=#FFFFFF>『通常攻撃：狙撃協奏曲・奈落』</color>は、<color=#FFFFFF>『追加攻撃』</color>である。\n「トリガー」の<color=#FFFFFF>『通常攻撃：狙撃協奏曲・奈落』</color>はチーム内において、各スキル別で20秒に2回のみ発動可能。\n<color=#FFFFFF>『通常攻撃：狙撃協奏曲』</color>の発動中に<color=#FFFFFF>『通常攻撃：狙撃協奏曲・奈落』</color>が発動された場合は、後者が優先される。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：コールドバレル・ショット",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1361001, Prop:1001}",
+       "param": {
+        "1361001": {
+         "main": 3450,
+         "growth": 320,
+         "format": "%",
+         "damage_percentage": 3450,
+         "damage_percentage_growth": 320,
+         "stun_ratio": 1730,
+         "stun_ratio_growth": 80,
+         "sp_recovery": 9870,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 75625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1959
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1361002, Prop:1001}",
+       "param": {
+        "1361002": {
+         "main": 5690,
+         "growth": 520,
+         "format": "%",
+         "damage_percentage": 5690,
+         "damage_percentage_growth": 520,
+         "stun_ratio": 2850,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 20020,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 153175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5825
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1361003, Prop:1001}",
+       "param": {
+        "1361003": {
+         "main": 11090,
+         "growth": 1010,
+         "format": "%",
+         "damage_percentage": 11090,
+         "damage_percentage_growth": 1010,
+         "stun_ratio": 6080,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 32810,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 250800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9631
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率",
+       "desc": "{Skill:1361004, Prop:1001}",
+       "param": {
+        "1361004": {
+         "main": 24300,
+         "growth": 2210,
+         "format": "%",
+         "damage_percentage": 24300,
+         "damage_percentage_growth": 2210,
+         "stun_ratio": 17690,
+         "stun_ratio_growth": 810,
+         "sp_recovery": 69760,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 532950,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17441,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19377
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1361001, Prop:1002}",
+       "param": {
+        "1361001": {
+         "main": 1730,
+         "growth": 80,
+         "format": "%",
+         "damage_percentage": 3450,
+         "damage_percentage_growth": 320,
+         "stun_ratio": 1730,
+         "stun_ratio_growth": 80,
+         "sp_recovery": 9870,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 75625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1959
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1361002, Prop:1002}",
+       "param": {
+        "1361002": {
+         "main": 2850,
+         "growth": 130,
+         "format": "%",
+         "damage_percentage": 5690,
+         "damage_percentage_growth": 520,
+         "stun_ratio": 2850,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 20020,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 153175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5825
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1361003, Prop:1002}",
+       "param": {
+        "1361003": {
+         "main": 6080,
+         "growth": 280,
+         "format": "%",
+         "damage_percentage": 11090,
+         "damage_percentage_growth": 1010,
+         "stun_ratio": 6080,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 32810,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 250800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9631
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率",
+       "desc": "{Skill:1361004, Prop:1002}",
+       "param": {
+        "1361004": {
+         "main": 17690,
+         "growth": 810,
+         "format": "%",
+         "damage_percentage": 24300,
+         "damage_percentage_growth": 2210,
+         "stun_ratio": 17690,
+         "stun_ratio_growth": 810,
+         "sp_recovery": 69760,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 532950,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17441,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19377
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：サイレント・スナイプ",
+     "param": [
+      {
+       "name": "射撃ダメージ倍率",
+       "desc": "{Skill:1361005, Prop:1001}",
+       "param": {
+        "1361005": {
+         "main": 4760,
+         "growth": 440,
+         "format": "%",
+         "damage_percentage": 4760,
+         "damage_percentage_growth": 440,
+         "stun_ratio": 2380,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 13620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 104225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2700,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2701
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "反撃ダメージ倍率",
+       "desc": "{Skill:1361006, Prop:1001}",
+       "param": {
+        "1361006": {
+         "main": 23390,
+         "growth": 2130,
+         "format": "%",
+         "damage_percentage": 23390,
+         "damage_percentage_growth": 2130,
+         "stun_ratio": 14880,
+         "stun_ratio_growth": 680,
+         "sp_recovery": 69570,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 531575,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19322,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19323
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "とどめの一撃ダメージ倍率",
+       "desc": "{Skill:1361007, Prop:1001}",
+       "param": {
+        "1361007": {
+         "main": 13120,
+         "growth": 1200,
+         "format": "%",
+         "damage_percentage": 13120,
+         "damage_percentage_growth": 1200,
+         "stun_ratio": 6560,
+         "stun_ratio_growth": 300,
+         "sp_recovery": 44890,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 342925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11926,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7455
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "射撃ブレイク倍率",
+       "desc": "{Skill:1361005, Prop:1002}",
+       "param": {
+        "1361005": {
+         "main": 2380,
+         "growth": 110,
+         "format": "%",
+         "damage_percentage": 4760,
+         "damage_percentage_growth": 440,
+         "stun_ratio": 2380,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 13620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 104225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2700,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2701
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "反撃ブレイク倍率",
+       "desc": "{Skill:1361006, Prop:1002}",
+       "param": {
+        "1361006": {
+         "main": 14880,
+         "growth": 680,
+         "format": "%",
+         "damage_percentage": 23390,
+         "damage_percentage_growth": 2130,
+         "stun_ratio": 14880,
+         "stun_ratio_growth": 680,
+         "sp_recovery": 69570,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 531575,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19322,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19323
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "とどめの一撃ブレイク倍率",
+       "desc": "{Skill:1361007, Prop:1002}",
+       "param": {
+        "1361007": {
+         "main": 6560,
+         "growth": 300,
+         "format": "%",
+         "damage_percentage": 13120,
+         "damage_percentage_growth": 1200,
+         "stun_ratio": 6560,
+         "stun_ratio_growth": 300,
+         "sp_recovery": 44890,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 342925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11926,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7455
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：狙撃協奏曲",
+     "param": [
+      {
+       "name": "連射ダメージ倍率",
+       "desc": "{Skill:1361008, Prop:1001}*2",
+       "param": {
+        "1361008": {
+         "main": 4790,
+         "growth": 440,
+         "format": "%",
+         "damage_percentage": 4790,
+         "damage_percentage_growth": 440,
+         "stun_ratio": 3590,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1086,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "連射ブレイク倍率",
+       "desc": "{Skill:1361008, Prop:1002}*2",
+       "param": {
+        "1361008": {
+         "main": 3590,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 4790,
+         "damage_percentage_growth": 440,
+         "stun_ratio": 3590,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1086,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：狙撃協奏曲・奈落",
+     "param": [
+      {
+       "name": "連射ダメージ倍率",
+       "desc": "{Skill:1361020, Prop:1001}*3",
+       "param": {
+        "1361020": {
+         "main": 2260,
+         "growth": 210,
+         "format": "%",
+         "damage_percentage": 2260,
+         "damage_percentage_growth": 210,
+         "stun_ratio": 1700,
+         "stun_ratio_growth": 80,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2049,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "とどめの一撃ダメージ倍率",
+       "desc": "{Skill:1361022, Prop:1001}",
+       "param": {
+        "1361022": {
+         "main": 4520,
+         "growth": 420,
+         "format": "%",
+         "damage_percentage": 4520,
+         "damage_percentage_growth": 420,
+         "stun_ratio": 3400,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4098,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "連射ブレイク倍率",
+       "desc": "{Skill:1361020, Prop:1002}*3",
+       "param": {
+        "1361020": {
+         "main": 1700,
+         "growth": 80,
+         "format": "%",
+         "damage_percentage": 2260,
+         "damage_percentage_growth": 210,
+         "stun_ratio": 1700,
+         "stun_ratio_growth": 80,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2049,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "とどめの一撃ブレイク倍率",
+       "desc": "{Skill:1361022, Prop:1002}",
+       "param": {
+        "1361022": {
+         "main": 3400,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 4520,
+         "damage_percentage_growth": 420,
+         "stun_ratio": 3400,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4098,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "回避：魂隠し",
+     "desc": " <IconMap:Icon_Evade> を押して発動：\nダッシュで高速回避する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：怨魂返し",
+     "desc": "回避時に <IconMap:Icon_Normal> を押して発動：\n素早く銃を構えて射撃を行い、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "回避反撃：<ruby=ごっこん>極魂</ruby>の罰",
+     "desc": "<color=#FFFFFF>『極限回避』</color>後に <IconMap:Icon_Normal> を押して発動：\n身を翻して前方の敵に高速射撃を行い、<color=#2EB6FF>電気属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：怨魂返し",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1361011, Prop:1001}",
+       "param": {
+        "1361011": {
+         "main": 5140,
+         "growth": 470,
+         "format": "%",
+         "damage_percentage": 5140,
+         "damage_percentage_growth": 470,
+         "stun_ratio": 2570,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 8410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 64350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2336
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1361011, Prop:1002}",
+       "param": {
+        "1361011": {
+         "main": 2570,
+         "growth": 120,
+         "format": "%",
+         "damage_percentage": 5140,
+         "damage_percentage_growth": 470,
+         "stun_ratio": 2570,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 8410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 64350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2336
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "回避反撃：<ruby=ごっこん>極魂</ruby>の罰",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1361012, Prop:1001}",
+       "param": {
+        "1361012": {
+         "main": 21970,
+         "growth": 2000,
+         "format": "%",
+         "damage_percentage": 21970,
+         "damage_percentage_growth": 2000,
+         "stun_ratio": 19440,
+         "stun_ratio_growth": 890,
+         "sp_recovery": 27600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 210925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1361012, Prop:1002}",
+       "param": {
+        "1361012": {
+         "main": 19440,
+         "growth": 890,
+         "format": "%",
+         "damage_percentage": 21970,
+         "damage_percentage_growth": 2000,
+         "stun_ratio": 19440,
+         "stun_ratio_growth": 890,
+         "sp_recovery": 27600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 210925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22667
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "特殊スキル：幽閃",
+     "desc": " <IconMap:Icon_Special> を押して発動：\n前方に突進斬撃を放ち、<color=#2EB6FF>電気属性ダメージ</color>を与える。\nスキル発動中、中断耐性レベルがアップする。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：<ruby=ゆうせんかそう>幽閃花葬</ruby>",
+     "desc": "エネルギーが十分な時、 <IconMap:Icon_SpecialReady> を押して発動：\n前方に突進斬撃を行い、飛び上がった後、地面に強力な射撃を追加で1段放ち、<color=#2EB6FF>電気属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。\nスキルが敵に命中すると、前のメンバーの<color=#FFFFFF>『クイック支援』</color>が発動可能になる。\nスキルが敵に命中すると、「トリガー」が<color=#FFFFFF>「共同戦線」</color>状態に入る。状態継続中、操作している他のエージェントの任意攻撃が敵に命中した時、<color=#FFFFFF>「絶意」</color>を消費せずに<color=#FFFFFF>『通常攻撃：狙撃協奏曲』</color>を発動でき、クールタイムもなくなる。\n<color=#FFFFFF>「共同戦線」</color>状態の継続時間は8秒、<color=#FFFFFF>『通常攻撃：狙撃協奏曲』</color>の発動可能回数は4回。重複して<color=#FFFFFF>「共同戦線」</color>状態に入ると継続時間が延長され、発動可能回数も増える。最大で20秒継続、10回まで発動できる。",
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：幽閃",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1361009, Prop:1001}",
+       "param": {
+        "1361009": {
+         "main": 7150,
+         "growth": 650,
+         "format": "%",
+         "damage_percentage": 7150,
+         "damage_percentage_growth": 650,
+         "stun_ratio": 7150,
+         "stun_ratio_growth": 330,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 178750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1361009, Prop:1002}",
+       "param": {
+        "1361009": {
+         "main": 7150,
+         "growth": 330,
+         "format": "%",
+         "damage_percentage": 7150,
+         "damage_percentage_growth": 650,
+         "stun_ratio": 7150,
+         "stun_ratio_growth": 330,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 178750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6500
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：<ruby=ゆうせんかそう>幽閃花葬</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1361010, Prop:1001}",
+       "param": {
+        "1361010": {
+         "main": 63440,
+         "growth": 5770,
+         "format": "%",
+         "damage_percentage": 63440,
+         "damage_percentage_growth": 5770,
+         "stun_ratio": 43270,
+         "stun_ratio_growth": 1970,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2108425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 35666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1361010, Prop:1002}",
+       "param": {
+        "1361010": {
+         "main": 43270,
+         "growth": 1970,
+         "format": "%",
+         "damage_percentage": 63440,
+         "damage_percentage_growth": 5770,
+         "stun_ratio": 43270,
+         "stun_ratio_growth": 1970,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2108425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 35666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "エネルギー消費",
+       "desc": "60Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "連携スキル：三途川の引導",
+     "desc": "<color=#FFFFFF>『連携スキル』</color>開始時に、対応するエージェントを選択して発動：\n前方に強力な射撃を連続で行い、<color=#2EB6FF>電気属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "終結スキル：冥府の挽歌",
+     "desc": "デシベルレートが<color=#FFFFFF>『Maximum』</color>に達した時に <IconMap:Icon_UltimateReady> を押して発動：\n前方広範囲の敵に強力な射撃を行い、<color=#2EB6FF>電気属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。\nスキルが敵に命中すると、前のメンバーの<color=#FFFFFF>『クイック支援』</color>が発動可能になる。\nスキルが敵に命中すると、「トリガー」が<color=#FFFFFF>「共同戦線」</color>状態に入る。状態継続中、操作している他のエージェントの任意攻撃が敵に命中した時、<color=#FFFFFF>「絶意」</color>を消費せずに<color=#FFFFFF>『通常攻撃：狙撃協奏曲』</color>を発動でき、クールタイムもなくなる。\n<color=#FFFFFF>「共同戦線」</color>状態の継続時間は12秒、<color=#FFFFFF>『通常攻撃：狙撃協奏曲』</color>の発動可能回数は6回。重複して<color=#FFFFFF>「共同戦線」</color>状態に入ると継続時間が延長され、発動可能回数も増える。最大で20秒継続、10回まで発動できる。",
+     "potential": []
+    },
+    {
+     "name": "連携スキル：三途川の引導",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1361013, Prop:1001}",
+       "param": {
+        "1361013": {
+         "main": 57470,
+         "growth": 5230,
+         "format": "%",
+         "damage_percentage": 57470,
+         "damage_percentage_growth": 5230,
+         "stun_ratio": 13580,
+         "stun_ratio_growth": 620,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2168100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 32286,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1361013, Prop:1002}",
+       "param": {
+        "1361013": {
+         "main": 13580,
+         "growth": 620,
+         "format": "%",
+         "damage_percentage": 57470,
+         "damage_percentage_growth": 5230,
+         "stun_ratio": 13580,
+         "stun_ratio_growth": 620,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2168100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 32286,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12337
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "終結スキル：冥府の挽歌",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1361014, Prop:1001}",
+       "param": {
+        "1361014": {
+         "main": 148050,
+         "growth": 13460,
+         "format": "%",
+         "damage_percentage": 148050,
+         "damage_percentage_growth": 13460,
+         "stun_ratio": 92200,
+         "stun_ratio_growth": 4200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 57667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1361014, Prop:1002}",
+       "param": {
+        "1361014": {
+         "main": 92200,
+         "growth": 4200,
+         "format": "%",
+         "damage_percentage": 148050,
+         "damage_percentage_growth": 13460,
+         "stun_ratio": 92200,
+         "stun_ratio_growth": 4200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 57667
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "クイック支援：コールドバレル・アシスト",
+     "desc": "操作しているメンバーが吹き飛ばされた時に、 <IconMap:Icon_Switch> を押して発動：\n身を翻して前方の敵に高速射撃を行い、<color=#2EB6FF>電気属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：死線偏移",
+     "desc": "出場中のメンバーが攻撃されそうになった時に、 <IconMap:Icon_Switch> を押して発動：\n敵の攻撃をパリィし、ブレイク値を大量に蓄積させる。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援突撃：射貫く霹靂",
+     "desc": "<color=#FFFFFF>『パリィ支援』</color>発動後、 <IconMap:Icon_Normal> を押して発動：\n前方の敵に連続斬撃を放った後、着地してチャージしたのちに強力な射撃を追加で1段放ち、<color=#2EB6FF>電気属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "クイック支援：コールドバレル・アシスト",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1361015, Prop:1001}",
+       "param": {
+        "1361015": {
+         "main": 8440,
+         "growth": 770,
+         "format": "%",
+         "damage_percentage": 8440,
+         "damage_percentage_growth": 770,
+         "stun_ratio": 8440,
+         "stun_ratio_growth": 390,
+         "sp_recovery": 27600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 210925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1361015, Prop:1002}",
+       "param": {
+        "1361015": {
+         "main": 8440,
+         "growth": 390,
+         "format": "%",
+         "damage_percentage": 8440,
+         "damage_percentage_growth": 770,
+         "stun_ratio": 8440,
+         "stun_ratio_growth": 390,
+         "sp_recovery": 27600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 210925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：死線偏移",
+     "param": [
+      {
+       "name": "パリィ・軽 ブレイク倍率",
+       "desc": "{Skill:1361016, Prop:1002}",
+       "param": {
+        "1361016": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・重 ブレイク倍率",
+       "desc": "{Skill:1361017, Prop:1002}",
+       "param": {
+        "1361017": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・連続 ブレイク倍率",
+       "desc": "{Skill:1361018, Prop:1002}",
+       "param": {
+        "1361018": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：射貫く霹靂",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1361019, Prop:1001}",
+       "param": {
+        "1361019": {
+         "main": 43290,
+         "growth": 3940,
+         "format": "%",
+         "damage_percentage": 43290,
+         "damage_percentage_growth": 3940,
+         "stun_ratio": 32740,
+         "stun_ratio_growth": 1490,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1214125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 36951,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20170
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1361019, Prop:1002}",
+       "param": {
+        "1361019": {
+         "main": 32740,
+         "growth": 1490,
+         "format": "%",
+         "damage_percentage": 43290,
+         "damage_percentage_growth": 3940,
+         "stun_ratio": 32740,
+         "stun_ratio_growth": 1490,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1214125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 36951,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20170
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "研ぎ澄まされた洞察",
+   "desc": "<color=#FFFFFF>『コアパッシブ：虚を突く幽目』</color>によるブレイク弱体倍率が追加で+20%。\n<color=#FFFFFF>『通常攻撃：狙撃協奏曲』</color>を発動した時、発動のクールタイムが2秒になる。\n<color=#FFFFFF>「狙撃態勢」</color>での連続射撃またはチャージ反撃が敵に命中した時、獲得できる<color=#FFFFFF>「絶意」</color>+25%、<color=#FFFFFF>「絶意」</color>の上限が125Ptになる。",
+   "desc2": "風の変化を聴覚で捉え、地面の振動を触覚で感じる。\n視覚を補うべく、その他の感覚は極限まで研ぎ澄まされている。\n「狙撃の腕だけが取り柄ですから…これだけは、\n誰にも引けを取りたくありません」"
+  },
+  "2": {
+   "level": 2,
+   "name": "「エーテル・サイト」",
+   "desc": "<color=#FFFFFF>『追加攻撃』</color>を発動した時、「トリガー」は<color=#FFFFFF>「狩人の眼」</color>を1重獲得する。<color=#FFFFFF>「狙撃態勢」</color>でとどめの一撃を発動した時、「トリガー」は<color=#FFFFFF>「狩人の眼」</color>を2重獲得する。<color=#FFFFFF>「狩人の眼」</color>1重につき、メンバー全員の会心ダメージ+6%、最大4重まで重ね掛け可能、継続時間10秒、重複して発動すると継続時間が更新される。",
+   "desc2": "ホロウの中にいる時、\n彼女はあらゆるエーテル波動を介して空間を観測している。\n「私の両目は苦難の象徴、呪われたものだと思っていましたが…」\n「今や目標を達成するために必要だった渡し賃であり、\n私が過去を置き去りにしなかった証です」"
+  },
+  "3": {
+   "level": 3,
+   "name": "『帰郷』",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "帰る場所はもはや、昔日の塵に埋もれた。\nかすかに冷えた彼女の唇がハーモニカに触れる。\n孤独な旋律は、記憶に刻まれた唯一の証明だった。"
+  },
+  "4": {
+   "level": 4,
+   "name": "息を潜めて",
+   "desc": "「トリガー」が<color=#FFFFFF>「共同戦線」</color>状態に突入、または<color=#FFFFFF>「共同戦線」</color>状態が延長された後、\n状態継続中、他のエージェントが次に発動させた<color=#FFFFFF>『通常攻撃：狙撃協奏曲』</color>/<color=#FFFFFF>『通常攻撃：狙撃協奏曲・奈落』</color>が敵に命中すると<color=#FFFFFF>「断絶」</color>効果が発動し、「トリガー」の攻撃力200%分のダメージを追加で与え、「トリガー」の衝撃力120%分のブレイク値を蓄積させる。\nスキルの中断レベルは比較的高い。",
+   "desc2": "足音、呼吸、鼓動。己の気配を一切消して\n環境に溶け込む「トリガー」は、神出鬼没な死神の如く戦場を渡り歩く。\nしかし戦場から離れてもこの習慣は抜けず、\n隊員たちは度々彼女に驚かされ、ついには禁止令が出された。\n…さすがの「トリガー」も会う口実がないからといって、\nビデオ屋の周囲をステルスしながら監視…なんてことはしない、はず。"
+  },
+  "5": {
+   "level": 5,
+   "name": "狙いを定める意志",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "ひとたびターゲットをロックオンすれば、\nたとえ激痛に苛まれようが、体が朽ちようが\n合わせた照準をずらすことは決してなく、\n宿敵から保護対象、敵から仲間まで、例外はない。ただし、\n最も暗い時代に彼女を明るく照らしてくれたプロキシを除いて。\n「狙いを定めた」というよりは、「惹かれた」と言うのが妥当だろう。\n見つめる理由がなくとも、照準を合わせていたい——\nそれは紛れもなく、少女の意志だ。"
+  },
+  "6": {
+   "level": 6,
+   "name": "<ruby=くら>冥</ruby>き河の向こう側",
+   "desc": "フィールド入場時、「トリガー」が<color=#FFFFFF>「徹甲凶弾」</color>を5発獲得する。<color=#FFFFFF>「絶意」</color>を25Pt消費するごとに、<color=#FFFFFF>「徹甲凶弾」</color>を追加で1発獲得する、最大5発獲得できる。\n<color=#FFFFFF>「徹甲凶弾」</color>を所持している時、<color=#FFFFFF>「狙撃態勢」</color>での攻撃がターゲットに命中すると、<color=#FFFFFF>「徹甲凶弾」</color>を1発消費して、ターゲットに対して「トリガー」の攻撃力1200%分の<color=#2EB6FF>電気属性ダメージ</color>を追加で与え、<color=#FFFFFF>「徹甲凶弾」</color>のダメージがさらに+50%、0.2秒に1回のみ発動可能。",
+   "desc2": "「ご存知ですか？ひとたび戦場で血に染まった者は、\n死後冥界にゆくことを余儀なくされます」\n「河の向こうには、美しい景色が広がっていることでしょう。\n満開の彼岸花と、故人たちに囲まれて…\n帰るべき場所で、安らかに最期を迎えるのです」\n「ですが、私にはあなたが…守りたいものがあります。\n…いましばらくは、その日が来ないことを願うばかりです」"
+  }
+ },
+ "passive": {
+  "level": {
+   "1361501": {
+    "level": 1,
+    "id": 1361501,
+    "name": [
+     "コアパッシブ：虚を突く<ruby=ゆうもく>幽目</ruby>",
+     "追加能力：<ruby=ぎんとう>銀灯</ruby>の<ruby=れいがん>霊眼</ruby>"
+    ],
+    "desc": [
+     "「トリガー」の<color=#FFFFFF>『追加攻撃』</color>が敵に命中した時、ターゲットのブレイク弱体倍率+<color=#2BAD00>20%</color>、継続時間5秒。この方法によるブレイク弱体倍率アップの効果は、ブレイク状態でないターゲットにも有効。",
+     "チームに<color=#FFFFFF>[強攻]</color>のメンバーまたは自身と同じ属性のメンバーがいる時に発動：\n「トリガー」の会心率が40%を上回る場合、1%上回るごとに自身の<color=#FFFFFF>『追加攻撃』</color>によるブレイク値+1.5%、この効果によってアップできるブレイク値は最大75%まで。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1361502": {
+    "level": 2,
+    "id": 1361502,
+    "name": [
+     "コアパッシブ：虚を突く<ruby=ゆうもく>幽目</ruby>",
+     "追加能力：<ruby=ぎんとう>銀灯</ruby>の<ruby=れいがん>霊眼</ruby>"
+    ],
+    "desc": [
+     "「トリガー」の<color=#FFFFFF>『追加攻撃』</color>が敵に命中した時、ターゲットのブレイク弱体倍率+<color=#2BAD00>22.5%</color>、継続時間5秒。この方法によるブレイク弱体倍率アップの効果は、ブレイク状態でないターゲットにも有効。",
+     "チームに<color=#FFFFFF>[強攻]</color>のメンバーまたは自身と同じ属性のメンバーがいる時に発動：\n「トリガー」の会心率が40%を上回る場合、1%上回るごとに自身の<color=#FFFFFF>『追加攻撃』</color>によるブレイク値+1.5%、この効果によってアップできるブレイク値は最大75%まで。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1361503": {
+    "level": 3,
+    "id": 1361503,
+    "name": [
+     "コアパッシブ：虚を突く<ruby=ゆうもく>幽目</ruby>",
+     "追加能力：<ruby=ぎんとう>銀灯</ruby>の<ruby=れいがん>霊眼</ruby>"
+    ],
+    "desc": [
+     "「トリガー」の<color=#FFFFFF>『追加攻撃』</color>が敵に命中した時、ターゲットのブレイク弱体倍率+<color=#2BAD00>25%</color>、継続時間5秒。この方法によるブレイク弱体倍率アップの効果は、ブレイク状態でないターゲットにも有効。",
+     "チームに<color=#FFFFFF>[強攻]</color>のメンバーまたは自身と同じ属性のメンバーがいる時に発動：\n「トリガー」の会心率が40%を上回る場合、1%上回るごとに自身の<color=#FFFFFF>『追加攻撃』</color>によるブレイク値+1.5%、この効果によってアップできるブレイク値は最大75%まで。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1361504": {
+    "level": 4,
+    "id": 1361504,
+    "name": [
+     "コアパッシブ：虚を突く<ruby=ゆうもく>幽目</ruby>",
+     "追加能力：<ruby=ぎんとう>銀灯</ruby>の<ruby=れいがん>霊眼</ruby>"
+    ],
+    "desc": [
+     "「トリガー」の<color=#FFFFFF>『追加攻撃』</color>が敵に命中した時、ターゲットのブレイク弱体倍率+<color=#2BAD00>27.5%</color>、継続時間5秒。この方法によるブレイク弱体倍率アップの効果は、ブレイク状態でないターゲットにも有効。",
+     "チームに<color=#FFFFFF>[強攻]</color>のメンバーまたは自身と同じ属性のメンバーがいる時に発動：\n「トリガー」の会心率が40%を上回る場合、1%上回るごとに自身の<color=#FFFFFF>『追加攻撃』</color>によるブレイク値+1.5%、この効果によってアップできるブレイク値は最大75%まで。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1361505": {
+    "level": 5,
+    "id": 1361505,
+    "name": [
+     "コアパッシブ：虚を突く<ruby=ゆうもく>幽目</ruby>",
+     "追加能力：<ruby=ぎんとう>銀灯</ruby>の<ruby=れいがん>霊眼</ruby>"
+    ],
+    "desc": [
+     "「トリガー」の<color=#FFFFFF>『追加攻撃』</color>が敵に命中した時、ターゲットのブレイク弱体倍率+<color=#2BAD00>30%</color>、継続時間5秒。この方法によるブレイク弱体倍率アップの効果は、ブレイク状態でないターゲットにも有効。",
+     "チームに<color=#FFFFFF>[強攻]</color>のメンバーまたは自身と同じ属性のメンバーがいる時に発動：\n「トリガー」の会心率が40%を上回る場合、1%上回るごとに自身の<color=#FFFFFF>『追加攻撃』</color>によるブレイク値+1.5%、この効果によってアップできるブレイク値は最大75%まで。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1361506": {
+    "level": 6,
+    "id": 1361506,
+    "name": [
+     "コアパッシブ：虚を突く<ruby=ゆうもく>幽目</ruby>",
+     "追加能力：<ruby=ぎんとう>銀灯</ruby>の<ruby=れいがん>霊眼</ruby>"
+    ],
+    "desc": [
+     "「トリガー」の<color=#FFFFFF>『追加攻撃』</color>が敵に命中した時、ターゲットのブレイク弱体倍率+<color=#2BAD00>32.5%</color>、継続時間5秒。この方法によるブレイク弱体倍率アップの効果は、ブレイク状態でないターゲットにも有効。",
+     "チームに<color=#FFFFFF>[強攻]</color>のメンバーまたは自身と同じ属性のメンバーがいる時に発動：\n「トリガー」の会心率が40%を上回る場合、1%上回るごとに自身の<color=#FFFFFF>『追加攻撃』</color>によるブレイク値+1.5%、この効果によってアップできるブレイク値は最大75%まで。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1361507": {
+    "level": 7,
+    "id": 1361507,
+    "name": [
+     "コアパッシブ：虚を突く<ruby=ゆうもく>幽目</ruby>",
+     "追加能力：<ruby=ぎんとう>銀灯</ruby>の<ruby=れいがん>霊眼</ruby>"
+    ],
+    "desc": [
+     "「トリガー」の<color=#FFFFFF>『追加攻撃』</color>が敵に命中した時、ターゲットのブレイク弱体倍率+<color=#2BAD00>35%</color>、継続時間5秒。この方法によるブレイク弱体倍率アップの効果は、ブレイク状態でないターゲットにも有効。",
+     "チームに<color=#FFFFFF>[強攻]</color>のメンバーまたは自身と同じ属性のメンバーがいる時に発動：\n「トリガー」の会心率が40%を上回る場合、1%上回るごとに自身の<color=#FFFFFF>『追加攻撃』</color>によるブレイク値+1.5%、この効果によってアップできるブレイク値は最大75%まで。"
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110509": 2
+   },
+   "3": {
+    "10": 28000,
+    "110509": 4
+   },
+   "4": {
+    "10": 60000,
+    "110001": 2,
+    "110509": 9
+   },
+   "5": {
+    "10": 100000,
+    "110001": 3,
+    "110509": 15
+   },
+   "6": {
+    "10": 200000,
+    "110001": 4,
+    "110509": 30
+   }
+  }
+ },
+ "skin": {
+  "3113610": {
+   "name": "「トリガー」・「暗闇を射抜く炯眼」",
+   "desc": "ブレることのない照準、ホロウでは安心して背中を預けることができる存在。\n六分街に戻れば、どこからともなく注がれるその視線はいつも優しく…気づかれる前にすっと消えていく。",
+   "obtain_desc": "",
+   "image": "IconRole39"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1361001": {
+   "name": "通常攻撃：コールドバレル・ショット（1、2、3段）",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1361002": {
+   "name": "通常攻撃：コールドバレル・ショット（4段）",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 203,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1361003": {
+   "name": "通常攻撃：サイレント・スナイプ",
+   "desc": "<IconMap:Icon_Normal>（長押し）",
+   "element_type": 203,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1361005": {
+   "name": "特殊スキル：幽閃",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1361006": {
+   "name": "強化特殊スキル：幽閃花葬",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 203,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1361007": {
+   "name": "ダッシュ攻撃：怨魂返し",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1361008": {
+   "name": "回避反撃：極魂の罰",
+   "desc": "<IconMap:Icon_Evade>（極限回避成功） ; <IconMap:Icon_Normal>",
+   "element_type": 203,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1361009": {
+   "name": "連携スキル：三途川の引導",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 203,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1361010": {
+   "name": "終結スキル：冥府の挽歌",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 203,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1361011": {
+   "name": "クイック支援：コールドバレル・アシスト",
+   "desc": "<IconMap:Icon_Switch>（クイック支援の発動条件を満たした時）",
+   "element_type": 203,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1361012": {
+   "name": "パリィ支援：死線偏移",
+   "desc": "<IconMap:Icon_Switch>（パリィ支援の発動条件を満たした時）",
+   "element_type": 203,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1361013": {
+   "name": "支援突撃：射貫く霹靂",
+   "desc": "<IconMap:Icon_Normal>（パリィ支援を発動した後に）",
+   "element_type": 203,
+   "hit_type": 103,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1361001,
+   "avatar_id": 1361,
+   "first_priority": [
+    5,
+    0
+   ],
+   "second_priority": [
+    1,
+    3
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33200,
+  "slot2": 31000,
+  "slot_sub": 31200,
+  "part_sub_list": [
+   20103,
+   12102,
+   21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32900,
+     31000
+    ],
+    "part_sub_list": [
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31803,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12202
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "会心率",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 31803,
+   "name": "電気属性ダメージボーナス",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconThunder.png"
+  },
+  "part6": {
+   "prop": 12202,
+   "name": "衝撃力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconBreakStun.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "攻撃力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "07",
+  "<IconMap:Icon_GeneralBuff_Thunder>電気属性、裏ブレイカー",
+  "ブレイク弱体倍率アップ可能",
+  "『追加攻撃』による高頻度の協力攻撃"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100212": 4
+   }
+  },
+  "2": {
+   "hp_max": 437,
+   "attack": 39,
+   "defence": 33,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100222": 12
+   }
+  },
+  "3": {
+   "hp_max": 874,
+   "attack": 77,
+   "defence": 66,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100222": 20
+   }
+  },
+  "4": {
+   "hp_max": 1311,
+   "attack": 116,
+   "defence": 99,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100232": 10
+   }
+  },
+  "5": {
+   "hp_max": 1749,
+   "attack": 154,
+   "defence": 133,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100232": 20
+   }
+  },
+  "6": {
+   "hp_max": 2186,
+   "attack": 193,
+   "defence": 166,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 6
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 6
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 18
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 18
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UIspineTrigger"
+}

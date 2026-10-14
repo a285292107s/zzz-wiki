@@ -36,7 +36,10 @@ import { heroGridSources } from '@/data/heroImageSources'
 import { getHeroCalibration } from '@/data/heroCalibration'
 import { iconSources } from '@/data/icons'
 import { pickName } from '@/utils/names'
+import { pickText } from '@/domain/lang'
 import { useHeroForm } from '@/composables/useHeroForm'
+import { useLocale } from '@/composables/useLocale'
+import { useUiText } from '@/composables/useUiText'
 import { useMediaQuery } from '@/composables/useMediaQuery'
 import HollowImage from '@/components/HollowImage.vue'
 import NoMatchState from '@/components/list/NoMatchState.vue'
@@ -55,13 +58,16 @@ const props = withDefaults(
     /** 是否有可清除的检索/筛选条件（true 才给「清除」按钮） */
     showClear?: boolean
   }>(),
-  { skeleton: false, skeletonCount: 12, emptyText: '无匹配代理人', showClear: false },
+  { skeleton: false, skeletonCount: 12, emptyText: undefined, showClear: false },
 )
 
 const emit = defineEmits<{ (e: 'clear'): void }>()
 
 /** 形态偏好：佩洛伊斯（1551）双形态，切换入口在设置页 */
 const { heroForm } = useHeroForm()
+/** 当前展示语言：标本签上的角色名取该语言的名录名（名录本身按语言落盘，由调用方取） */
+const { lang } = useLocale()
+const { t } = useUiText()
 /** 卡片档位判定：DPR≥1.5 走 wide/，否则 card/（见 heroGridSources 的取景说明） */
 const retina = useMediaQuery('(min-resolution: 1.5dppx)')
 
@@ -86,16 +92,17 @@ function iconSrcs(row: CharacterListItem) {
 }
 
 /** 属性：有特殊属性（如 星见雅→烈霜）时用它的名字，颜色仍随主属性 */
-function elInfo(row: CharacterListItem): { zh: string; color: string } | null {
+function elInfo(row: CharacterListItem): { text: string; color: string } | null {
   if (row.element == null) return null
   const el = ELEMENTS[row.element as AttrCode]
   if (!el) return null
-  return { zh: row.special_element ?? el.zh, color: el.color }
+  return { text: row.special_element ?? pickText(el.label, lang.value), color: el.color }
 }
 
-function profZh(row: CharacterListItem): string | null {
+function profText(row: CharacterListItem): string | null {
   if (row.type == null) return null
-  return PROFESSIONS[row.type as SpecCode]?.zh ?? null
+  const p = PROFESSIONS[row.type as SpecCode]
+  return p ? pickText(p.label, lang.value) : null
 }
 
 /** 稀有度：与同行属性/职业同款纯文字，颜色仍按档位走（S 金 / A 紫 / B 蓝） */
@@ -108,7 +115,7 @@ function rankInfo(row: CharacterListItem): { text: string; color: string } | nul
 /** 签条 hover 的完整信息：可见部分是「属性 · 职业 · 稀有度」，阵营（含 11 字长名）改由图标承载，
  *  故 title 这里给全四项（可见三项 + 阵营名） */
 function metaText(row: CharacterListItem): string {
-  return [elInfo(row)?.zh, profZh(row), rankInfo(row)?.text, row.camp_name]
+  return [elInfo(row)?.text, profText(row), rankInfo(row)?.text, row.camp_name]
     .filter(Boolean)
     .join(' · ')
 }
@@ -153,7 +160,7 @@ function campIcon(row: CharacterListItem): string | null {
 
             <span class="plate">
               <span class="plate-top">
-                <span class="plate-name">{{ pickName(row) }}</span>
+                <span class="plate-name">{{ pickName(row, lang) }}</span>
                 <!-- 阵营位：长名放不进签条，改用本地图标（原色原图、不套外框）；名字靠 title + 读屏文字兜住 -->
                 <span
                   v-if="row.camp_name || row.camp != null"
@@ -177,9 +184,9 @@ function campIcon(row: CharacterListItem): string | null {
               </span>
               <span class="plate-meta mono" :title="metaText(row)">
                 <span v-if="elInfo(row)" :style="{ color: elInfo(row)!.color }">{{
-                  elInfo(row)!.zh
+                  elInfo(row)!.text
                 }}</span>
-                <span v-if="profZh(row)">{{ profZh(row) }}</span>
+                <span v-if="profText(row)">{{ profText(row) }}</span>
                 <!-- 稀有度用纯文字：与同行属性/职业同一套排法，颜色仍按档位区分；不再套方框徽章 -->
                 <span v-if="rankInfo(row)" :style="{ color: rankInfo(row)!.color }">{{
                   rankInfo(row)!.text
@@ -193,7 +200,7 @@ function campIcon(row: CharacterListItem): string | null {
 
     <!-- 空态分工：AsyncState 管「数据级为空」；「筛掉全部结果」由这里承担 -->
     <div v-else class="grid-empty">
-      <NoMatchState :title="props.emptyText" :show-clear="props.showClear" @clear="emit('clear')" />
+      <NoMatchState :title="props.emptyText ?? t.noMatch.agents" :show-clear="props.showClear" @clear="emit('clear')" />
     </div>
   </div>
 </template>

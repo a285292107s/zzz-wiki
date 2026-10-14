@@ -2,7 +2,7 @@
  * verify-budget.mjs — 性能预算门禁（build:ci 末段，sitemap 之后）
  *
  * 把品质基线（[QUALITY.md](../QUALITY.md) 的可机器化子集）固化为硬约束：
- *   1) 主 JS 包（dist/assets/index-*.js）gzip 后 ≤ 上限（见下方 mainJsGzipKB，当前 70KB；不要在这里重复数字）
+ *   1) 主 JS 包（dist/assets/index-*.js）gzip 后 ≤ 上限（见下方 mainJsGzipKB，当前 96KB；不要在这里重复数字）
  *      （基线 55KB；+20% 余量。首页静态编入 +4KB 已含）
  *      **2026-10 由 62KB 提到 63KB**：新增「今日角色」选片小表
  *      （src/data/featured-elements.json，54 条 [属性码, 阵营] 紧凑数组 ≈0.4KB gzip）。
@@ -32,6 +32,19 @@
  *      选通用入口而非 `@vercel/analytics/vue` 组件：vue 入口把「筛选逐键写 query」
  *      也记成浏览（实测同一段操作 6 次 vs 3 次），与本站「同路径 query 变化不算换页」
  *      的约定冲突；理由见 src/main.ts。余量仅剩约 2KB——**下一次加功能先腾预算**。
+ *      **2026-10-14 由 70KB 提到 96KB（实测 92.0KB）**：界面短文案三语化
+ *      （决策记录 0011）——导航/按钮/区块标题/筛选标签/表头/空错态/检索面板/设置页
+ *      全部随展示语言切换。四语界面文案表（src/domain/uiText.{zh,en,ja,ko}.json，
+ *      约 500 键）+ 术语标签的四语 label（enums/catalog/sections）+ 50 余个组件改读文案树。
+ *      实测归因（同一构建、Vite gzip 口径）：
+ *        · 四语全量 92.0KB / 只带中文 82.1KB / 文案值全置空 79.3KB
+ *      即「文案载荷 ≈10KB、键结构与读取机制 + 各语言术语标签 ≈11KB」。
+ *      **只带中文也有 82KB**，故无可避免：本设计的运行期下限已经越过旧预算。
+ *      被否决的更省方案：非默认语言走 `import()` 懒加载（约省 10KB，主包回到 ~82KB）——
+ *      换来的是语言切换变成异步状态机（切语言要先 await 块、启动时要先 await 再挂载），
+ *      失败态是「切换后界面半中半外」，而收益只占首访 1.74MB 的 0.6%；
+ *      默认语言（zh）那条路两种方案完全一样。见 0011 的 Alternatives。
+ *      余量：92 → 96KB 约 4%，够下一次文案增补；**再要加界面文案之外的机制，先看这里**。
  *   2) 主 CSS 包 gzip 后 ≤ 22KB
  *      （基线 ~19KB；202 条 CJK @font-face 已含）
  *   3) sitemap.xml 存在且 URL 数 ≥ 230
@@ -50,8 +63,8 @@ import zlib from 'node:zlib'
 
 const DIST = 'dist'
 const BUDGET = {
-  /** 主 JS 包 gzip 上限 KB（基线 55.2 + 余量；2026-10 62 → 63 → 66 → 70，理由见文件头注释） */
-  mainJsGzipKB: 70,
+  /** 主 JS 包 gzip 上限 KB（基线 55.2 + 余量；2026-10 62 → 63 → 66 → 70 → 96，理由见文件头注释） */
+  mainJsGzipKB: 96,
   /** 主 CSS gzip 上限 KB（基线 ~11 + 余量） */
   mainCssGzipKB: 22,
   /** CJK 分片 CSS gzip 上限 KB——渲染阻塞资源，权重档位翻倍会直接翻倍它

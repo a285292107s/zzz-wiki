@@ -1,0 +1,476 @@
+{
+ "id": 54021,
+ "code_name": "Sprout",
+ "name": "싹싹",
+ "desc": "우리의 유대를 얕보지 마!",
+ "rarity": 4,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole43.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 396,
+  "hpupgrade": 471237,
+  "attack": 72,
+  "attack_upgrade": 360408,
+  "break_stun": 103,
+  "element_abnormal_power": 110,
+  "defence": 28,
+  "def_upgrade": 78871,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 207,
+   "attack": 67,
+   "defence": 35,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 414,
+   "attack": 333,
+   "defence": 69,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 621,
+   "attack": 1000,
+   "defence": 104,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 828,
+   "attack": 2666,
+   "defence": 139,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 1034,
+   "attack": 6665,
+   "defence": 173,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "천하를 나는 별",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 만약 필드에 [검]이 없으면, 싹싹이 비검 여섯 자루를 소환해 타깃 적을 공격하여 <color=#F0D12B>물리 피해</color>를 주고 <color=#F0D12B>물리 이상 축적치</color>를 누적한다.\n만약 필드에 [검]이 있으면, 싹싹이 검을 밟고 차지해 더욱 강력한 연속 베기 공격으로 대량의 <color=#F0D12B>물리 피해</color>를 주고, <color=#F0D12B>물리 이상 축적치</color>를 누적한다.",
+     "property": [
+      "비검 피해 배율",
+      "비검 그로기 배율",
+      "연속 베기 피해 배율",
+      "연속 베기 그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5402101, Prop:1001}|{Skill:5402101, Prop:1002}|{Skill:5402102, Prop:1001}|{Skill:5402102, Prop:1002}|28초"
+    },
+    "2": {
+     "name": "천하를 나는 별",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 만약 필드에 [검]이 없으면, 싹싹이 비검 여섯 자루를 소환해 타깃 적을 공격하여 <color=#F0D12B>물리 피해</color>를 주고 <color=#F0D12B>물리 이상 축적치</color>를 누적한다.\n만약 필드에 [검]이 있으면, 싹싹이 검을 밟고 차지해 더욱 강력한 연속 베기 공격으로 대량의 <color=#F0D12B>물리 피해</color>를 주고, <color=#F0D12B>물리 이상 축적치</color>를 누적한다.",
+     "property": [
+      "비검 피해 배율",
+      "비검 그로기 배율",
+      "연속 베기 피해 배율",
+      "연속 베기 그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5402101, Prop:1001}|{Skill:5402101, Prop:1002}|{Skill:5402102, Prop:1001}|{Skill:5402102, Prop:1002}|28초"
+    },
+    "3": {
+     "name": "천하를 나는 별",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 만약 필드에 [검]이 없으면, 싹싹이 비검 여섯 자루를 소환해 타깃 적을 공격하여 <color=#F0D12B>물리 피해</color>를 주고 <color=#F0D12B>물리 이상 축적치</color>를 누적한다.\n만약 필드에 [검]이 있으면, 싹싹이 검을 밟고 차지해 더욱 강력한 연속 베기 공격으로 대량의 <color=#F0D12B>물리 피해</color>를 주고, <color=#F0D12B>물리 이상 축적치</color>를 누적한다.",
+     "property": [
+      "비검 피해 배율",
+      "비검 그로기 배율",
+      "연속 베기 피해 배율",
+      "연속 베기 그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5402101, Prop:1001}|{Skill:5402101, Prop:1002}|{Skill:5402102, Prop:1001}|{Skill:5402102, Prop:1002}|28초"
+    },
+    "4": {
+     "name": "천하를 나는 별",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 만약 필드에 [검]이 없으면, 싹싹이 비검 여섯 자루를 소환해 타깃 적을 공격하여 <color=#F0D12B>물리 피해</color>를 주고 <color=#F0D12B>물리 이상 축적치</color>를 누적한다.\n만약 필드에 [검]이 있으면, 싹싹이 검을 밟고 차지해 더욱 강력한 연속 베기 공격으로 대량의 <color=#F0D12B>물리 피해</color>를 주고, <color=#F0D12B>물리 이상 축적치</color>를 누적한다.",
+     "property": [
+      "비검 피해 배율",
+      "비검 그로기 배율",
+      "연속 베기 피해 배율",
+      "연속 베기 그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5402101, Prop:1001}|{Skill:5402101, Prop:1002}|{Skill:5402102, Prop:1001}|{Skill:5402102, Prop:1002}|28초"
+    },
+    "5": {
+     "name": "천하를 나는 별",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 만약 필드에 [검]이 없으면, 싹싹이 비검 여섯 자루를 소환해 타깃 적을 공격하여 <color=#F0D12B>물리 피해</color>를 주고 <color=#F0D12B>물리 이상 축적치</color>를 누적한다.\n만약 필드에 [검]이 있으면, 싹싹이 검을 밟고 차지해 더욱 강력한 연속 베기 공격으로 대량의 <color=#F0D12B>물리 피해</color>를 주고, <color=#F0D12B>물리 이상 축적치</color>를 누적한다.",
+     "property": [
+      "비검 피해 배율",
+      "비검 그로기 배율",
+      "연속 베기 피해 배율",
+      "연속 베기 그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5402101, Prop:1001}|{Skill:5402101, Prop:1002}|{Skill:5402102, Prop:1001}|{Skill:5402102, Prop:1002}|28초"
+    },
+    "6": {
+     "name": "천하를 나는 별",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 만약 필드에 [검]이 없으면, 싹싹이 비검 여섯 자루를 소환해 타깃 적을 공격하여 <color=#F0D12B>물리 피해</color>를 주고 <color=#F0D12B>물리 이상 축적치</color>를 누적한다.\n만약 필드에 [검]이 있으면, 싹싹이 검을 밟고 차지해 더욱 강력한 연속 베기 공격으로 대량의 <color=#F0D12B>물리 피해</color>를 주고, <color=#F0D12B>물리 이상 축적치</color>를 누적한다.",
+     "property": [
+      "비검 피해 배율",
+      "비검 그로기 배율",
+      "연속 베기 피해 배율",
+      "연속 베기 그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5402101, Prop:1001}|{Skill:5402101, Prop:1002}|{Skill:5402102, Prop:1001}|{Skill:5402102, Prop:1002}|28초"
+    },
+    "7": {
+     "name": "천하를 나는 별",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 만약 필드에 [검]이 없으면, 싹싹이 비검 여섯 자루를 소환해 타깃 적을 공격하여 <color=#F0D12B>물리 피해</color>를 주고 <color=#F0D12B>물리 이상 축적치</color>를 누적한다.\n만약 필드에 [검]이 있으면, 싹싹이 검을 밟고 차지해 더욱 강력한 연속 베기 공격으로 대량의 <color=#F0D12B>물리 피해</color>를 주고, <color=#F0D12B>물리 이상 축적치</color>를 누적한다.",
+     "property": [
+      "비검 피해 배율",
+      "비검 그로기 배율",
+      "연속 베기 피해 배율",
+      "연속 베기 그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5402101, Prop:1001}|{Skill:5402101, Prop:1002}|{Skill:5402102, Prop:1001}|{Skill:5402102, Prop:1002}|28초"
+    },
+    "8": {
+     "name": "천하를 나는 별",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 만약 필드에 [검]이 없으면, 싹싹이 비검 여섯 자루를 소환해 타깃 적을 공격하여 <color=#F0D12B>물리 피해</color>를 주고 <color=#F0D12B>물리 이상 축적치</color>를 누적한다.\n만약 필드에 [검]이 있으면, 싹싹이 검을 밟고 차지해 더욱 강력한 연속 베기 공격으로 대량의 <color=#F0D12B>물리 피해</color>를 주고, <color=#F0D12B>물리 이상 축적치</color>를 누적한다.",
+     "property": [
+      "비검 피해 배율",
+      "비검 그로기 배율",
+      "연속 베기 피해 배율",
+      "연속 베기 그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5402101, Prop:1001}|{Skill:5402101, Prop:1002}|{Skill:5402102, Prop:1001}|{Skill:5402102, Prop:1002}|28초"
+    },
+    "9": {
+     "name": "천하를 나는 별",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 만약 필드에 [검]이 없으면, 싹싹이 비검 여섯 자루를 소환해 타깃 적을 공격하여 <color=#F0D12B>물리 피해</color>를 주고 <color=#F0D12B>물리 이상 축적치</color>를 누적한다.\n만약 필드에 [검]이 있으면, 싹싹이 검을 밟고 차지해 더욱 강력한 연속 베기 공격으로 대량의 <color=#F0D12B>물리 피해</color>를 주고, <color=#F0D12B>물리 이상 축적치</color>를 누적한다.",
+     "property": [
+      "비검 피해 배율",
+      "비검 그로기 배율",
+      "연속 베기 피해 배율",
+      "연속 베기 그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5402101, Prop:1001}|{Skill:5402101, Prop:1002}|{Skill:5402102, Prop:1001}|{Skill:5402102, Prop:1002}|28초"
+    },
+    "10": {
+     "name": "천하를 나는 별",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 만약 필드에 [검]이 없으면, 싹싹이 비검 여섯 자루를 소환해 타깃 적을 공격하여 <color=#F0D12B>물리 피해</color>를 주고 <color=#F0D12B>물리 이상 축적치</color>를 누적한다.\n만약 필드에 [검]이 있으면, 싹싹이 검을 밟고 차지해 더욱 강력한 연속 베기 공격으로 대량의 <color=#F0D12B>물리 피해</color>를 주고, <color=#F0D12B>물리 이상 축적치</color>를 누적한다.",
+     "property": [
+      "비검 피해 배율",
+      "비검 그로기 배율",
+      "연속 베기 피해 배율",
+      "연속 베기 그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5402101, Prop:1001}|{Skill:5402101, Prop:1002}|{Skill:5402102, Prop:1001}|{Skill:5402102, Prop:1002}|28초"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "같은 마음",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티에 <color=#FFFFFF>[엽빛나]</color>가 존재할 시 발동: 싹싹이 주는 피해가 30% 증가한다. 액티브 스킬 시전 시 만약 [에테르 장막·결단] 중이라면 필드에 [검]이 한 자루 생성된다.",
+     "property": [
+      "피해 증가"
+     ],
+     "param": "30%"
+    },
+    "2": {
+     "name": "같은 마음",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티에 <color=#FFFFFF>[엽빛나]</color>가 존재할 시 발동: 싹싹이 주는 피해가 37.5% 증가한다. 액티브 스킬 시전 시 만약 [에테르 장막·결단] 중이라면 필드에 [검]이 한 자루 생성된다.",
+     "property": [
+      "피해 증가"
+     ],
+     "param": "37.5%"
+    },
+    "3": {
+     "name": "같은 마음",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티에 <color=#FFFFFF>[엽빛나]</color>가 존재할 시 발동: 싹싹이 주는 피해가 45% 증가한다. 액티브 스킬 시전 시 만약 [에테르 장막·결단] 중이라면 필드에 [검]이 한 자루 생성된다.",
+     "property": [
+      "피해 증가"
+     ],
+     "param": "45%"
+    },
+    "4": {
+     "name": "같은 마음",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티에 <color=#FFFFFF>[엽빛나]</color>가 존재할 시 발동: 싹싹이 주는 피해가 52.5% 증가한다. 액티브 스킬 시전 시 만약 [에테르 장막·결단] 중이라면 필드에 [검]이 한 자루 생성된다.",
+     "property": [
+      "피해 증가"
+     ],
+     "param": "52.5%"
+    },
+    "5": {
+     "name": "같은 마음",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티에 <color=#FFFFFF>[엽빛나]</color>가 존재할 시 발동: 싹싹이 주는 피해가 60% 증가한다. 액티브 스킬 시전 시 만약 [에테르 장막·결단] 중이라면 필드에 [검]이 한 자루 생성된다.",
+     "property": [
+      "피해 증가"
+     ],
+     "param": "60%"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "합일의 검",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n거대한 합일의 검을 소환해 전방의 적을 찔러 대량의 <color=#F0D12B>물리 피해</color>를 주고, <color=#F0D12B>물리 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5402103, Prop:1001}|{Skill:5402103, Prop:1002}"
+    },
+    "2": {
+     "name": "합일의 검",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n거대한 합일의 검을 소환해 전방의 적을 찔러 대량의 <color=#F0D12B>물리 피해</color>를 주고, <color=#F0D12B>물리 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5402103, Prop:1001}|{Skill:5402103, Prop:1002}"
+    },
+    "3": {
+     "name": "합일의 검",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n거대한 합일의 검을 소환해 전방의 적을 찔러 대량의 <color=#F0D12B>물리 피해</color>를 주고, <color=#F0D12B>물리 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5402103, Prop:1001}|{Skill:5402103, Prop:1002}"
+    },
+    "4": {
+     "name": "합일의 검",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n거대한 합일의 검을 소환해 전방의 적을 찔러 대량의 <color=#F0D12B>물리 피해</color>를 주고, <color=#F0D12B>물리 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5402103, Prop:1001}|{Skill:5402103, Prop:1002}"
+    },
+    "5": {
+     "name": "합일의 검",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n거대한 합일의 검을 소환해 전방의 적을 찔러 대량의 <color=#F0D12B>물리 피해</color>를 주고, <color=#F0D12B>물리 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5402103, Prop:1001}|{Skill:5402103, Prop:1002}"
+    },
+    "6": {
+     "name": "합일의 검",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n거대한 합일의 검을 소환해 전방의 적을 찔러 대량의 <color=#F0D12B>물리 피해</color>를 주고, <color=#F0D12B>물리 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5402103, Prop:1001}|{Skill:5402103, Prop:1002}"
+    },
+    "7": {
+     "name": "합일의 검",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n거대한 합일의 검을 소환해 전방의 적을 찔러 대량의 <color=#F0D12B>물리 피해</color>를 주고, <color=#F0D12B>물리 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5402103, Prop:1001}|{Skill:5402103, Prop:1002}"
+    },
+    "8": {
+     "name": "합일의 검",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n거대한 합일의 검을 소환해 전방의 적을 찔러 대량의 <color=#F0D12B>물리 피해</color>를 주고, <color=#F0D12B>물리 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5402103, Prop:1001}|{Skill:5402103, Prop:1002}"
+    },
+    "9": {
+     "name": "합일의 검",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n거대한 합일의 검을 소환해 전방의 적을 찔러 대량의 <color=#F0D12B>물리 피해</color>를 주고, <color=#F0D12B>물리 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5402103, Prop:1001}|{Skill:5402103, Prop:1002}"
+    },
+    "10": {
+     "name": "합일의 검",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n거대한 합일의 검을 소환해 전방의 적을 찔러 대량의 <color=#F0D12B>물리 피해</color>를 주고, <color=#F0D12B>물리 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5402103, Prop:1001}|{Skill:5402103, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5402101": {
+   "1001": {
+    "main": 71700,
+    "growth": 7170,
+    "format": "%"
+   },
+   "1002": {
+    "main": 32800,
+    "growth": 3280,
+    "format": "%"
+   },
+   "element_accumulation_value": 42000
+  },
+  "5402102": {
+   "1001": {
+    "main": 98600,
+    "growth": 9860,
+    "format": "%"
+   },
+   "1002": {
+    "main": 32800,
+    "growth": 3280,
+    "format": "%"
+   },
+   "element_accumulation_value": 42000
+  },
+  "5402103": {
+   "1001": {
+    "main": 84600,
+    "growth": 8460,
+    "format": "%"
+   },
+   "1002": {
+    "main": 12100,
+    "growth": 1210,
+    "format": "%"
+   },
+   "element_accumulation_value": 36300
+  }
+ }
+}

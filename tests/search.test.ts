@@ -1,24 +1,35 @@
 import { describe, expect, it } from 'vitest'
 import { buildSearchIndex, highlightSegments, normalizeQuery, searchEntries } from '../src/domain/search'
+import type { Lang } from '../src/domain/lang'
 
 const ICON = (row: Record<string, unknown>) => [`icon/${String(row.Id)}.webp`]
 
-function fixture() {
-  return buildSearchIndex([
-    {
-      catPath: '/agents',
-      rows: [
-        { Id: 1011, zh: '安比', en: 'Anby', ja: 'アンビー', ko: '엔비', code: 'Anby', camp_name: '狡兔屋' },
-        { Id: 1041, zh: '「11号」', en: 'Soldier 11', ko: '솔저 11', ja: 'ソルジャー11' },
-      ],
-      iconSrcs: ICON,
-    },
-    {
-      catPath: '/w-engines',
-      rows: [{ Id: 12001, zh: '「月相」-望', en: '[Lunar] Pleniluna' }],
-      iconSrcs: ICON,
-    },
-  ])
+/** 默认按中文建索引；传语言可验「label 随语言、hay 不随语言」 */
+function fixture(lang: Lang = 'zh') {
+  return buildSearchIndex(
+    [
+      {
+        catPath: '/agents',
+        rows: [
+          { Id: 1011, zh: '安比', en: 'Anby', ja: 'アンビー', ko: '엔비', code: 'Anby', camp_name: '狡兔屋' },
+          { Id: 1041, zh: '「11号」', en: 'Soldier 11', ko: '솔저 11', ja: 'ソルジャー11' },
+        ],
+        iconSrcs: ICON,
+      },
+      {
+        catPath: '/w-engines',
+        rows: [{ Id: 12001, zh: '「月相」-望', en: '[Lunar] Pleniluna' }],
+        iconSrcs: ICON,
+      },
+      {
+        catPath: '/disks',
+        // 驱动盘名录形态：zh/en 是 {name,…} 子对象
+        rows: [{ Id: 31000, zh: { name: '啄木鸟电音' }, en: { name: 'Woodpecker Electro' } }],
+        iconSrcs: ICON,
+      },
+    ],
+    lang,
+  )
 }
 
 describe('normalizeQuery', () => {
@@ -32,9 +43,9 @@ describe('normalizeQuery', () => {
 describe('buildSearchIndex', () => {
   it('条目数与排序（类目序 → Id 升序）', () => {
     const idx = fixture()
-    expect(idx).toHaveLength(3)
-    expect(idx.map((e) => e.catPath)).toEqual(['/agents', '/agents', '/w-engines'])
-    expect(idx.map((e) => e.no)).toEqual(['1011', '1041', '12001'])
+    expect(idx).toHaveLength(4)
+    expect(idx.map((e) => e.catPath)).toEqual(['/agents', '/agents', '/w-engines', '/disks'])
+    expect(idx.map((e) => e.no)).toEqual(['1011', '1041', '12001', '31000'])
   })
 
   it('hay 合并四语 + 编号；label 取 pickName 同序回退', () => {
@@ -47,6 +58,22 @@ describe('buildSearchIndex', () => {
     expect(idx[2]!.label).toBe('「月相」-望')
   })
 
+  it('label 随语言切换，hay 不随语言（跨语言照样命中）', () => {
+    const ja = fixture('ja')
+    const en = fixture('en')
+    expect(ja[0]!.label).toBe('アンビー')
+    expect(en[0]!.label).toBe('Anby')
+    // 英文界面下输入中文名仍命中（hay 是四语合并串）
+    expect(searchEntries(en, '安比').map((e) => e.to)).toEqual(['/agents/1011'])
+    expect(searchEntries(ja, 'soldier').map((e) => e.to)).toEqual(['/agents/1041'])
+  })
+
+  it('驱动盘名录的 {name} 子对象形态也能取名', () => {
+    const en = fixture('en')
+    expect(en[3]!.label).toBe('Woodpecker Electro')
+    expect(searchEntries(en, '啄木鸟').map((e) => e.to)).toEqual(['/disks/31000'])
+  })
+
   it('详情路由由类目路径 + Id 派生', () => {
     const idx = fixture()
     expect(idx[0]!.to).toBe('/agents/1011')
@@ -56,7 +83,7 @@ describe('buildSearchIndex', () => {
 
 describe('searchEntries', () => {
   it('空查询返回全部（快速入口）', () => {
-    expect(searchEntries(fixture(), '')).toHaveLength(3)
+    expect(searchEntries(fixture(), '')).toHaveLength(4)
   })
 
   it('单词命中：中文 / 英文大小写无关 / 编号', () => {

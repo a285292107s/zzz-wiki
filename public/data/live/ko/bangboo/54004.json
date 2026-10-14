@@ -1,0 +1,433 @@
+{
+ "id": 54004,
+ "code_name": "Butler",
+ "name": "버틀러",
+ "desc": "완벽한 집사, 완벽한 당신",
+ "rarity": 4,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole09.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 479,
+  "hpupgrade": 570196,
+  "attack": 64,
+  "attack_upgrade": 321091,
+  "break_stun": 110,
+  "element_abnormal_power": 110,
+  "defence": 28,
+  "def_upgrade": 78871,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 250,
+   "attack": 59,
+   "defence": 35,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 501,
+   "attack": 297,
+   "defence": 69,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 751,
+   "attack": 891,
+   "defence": 104,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 1001,
+   "attack": 2375,
+   "defence": 139,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 1252,
+   "attack": 5938,
+   "defence": 173,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "티타임",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 즉시 사랑 듬뿍 디저트를 만들고, 디저트가 완성되어 배달되면 타깃 캐릭터의 에너지를 회복시킨다.",
+     "property": [
+      "에너지 회복",
+      "재사용 대기시간"
+     ],
+     "param": "[3+자신 레벨x0.08]pt|24초"
+    },
+    "2": {
+     "name": "티타임",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 즉시 사랑 듬뿍 디저트를 만들고, 디저트가 완성되어 배달되면 타깃 캐릭터의 에너지를 회복시킨다.",
+     "property": [
+      "에너지 회복",
+      "재사용 대기시간"
+     ],
+     "param": "[3.2+자신 레벨x0.08]pt|24초"
+    },
+    "3": {
+     "name": "티타임",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 즉시 사랑 듬뿍 디저트를 만들고, 디저트가 완성되어 배달되면 타깃 캐릭터의 에너지를 회복시킨다.",
+     "property": [
+      "에너지 회복",
+      "재사용 대기시간"
+     ],
+     "param": "[3.4+자신 레벨x0.08]pt|24초"
+    },
+    "4": {
+     "name": "티타임",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 즉시 사랑 듬뿍 디저트를 만들고, 디저트가 완성되어 배달되면 타깃 캐릭터의 에너지를 회복시킨다.",
+     "property": [
+      "에너지 회복",
+      "재사용 대기시간"
+     ],
+     "param": "[3.6+자신 레벨x0.08]pt|24초"
+    },
+    "5": {
+     "name": "티타임",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 즉시 사랑 듬뿍 디저트를 만들고, 디저트가 완성되어 배달되면 타깃 캐릭터의 에너지를 회복시킨다.",
+     "property": [
+      "에너지 회복",
+      "재사용 대기시간"
+     ],
+     "param": "[3.8+자신 레벨x0.08]pt|24초"
+    },
+    "6": {
+     "name": "티타임",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 즉시 사랑 듬뿍 디저트를 만들고, 디저트가 완성되어 배달되면 타깃 캐릭터의 에너지를 회복시킨다.",
+     "property": [
+      "에너지 회복",
+      "재사용 대기시간"
+     ],
+     "param": "[4+자신 레벨x0.08]pt|24초"
+    },
+    "7": {
+     "name": "티타임",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 즉시 사랑 듬뿍 디저트를 만들고, 디저트가 완성되어 배달되면 타깃 캐릭터의 에너지를 회복시킨다.",
+     "property": [
+      "에너지 회복",
+      "재사용 대기시간"
+     ],
+     "param": "[4.2+자신 레벨x0.08]pt|24초"
+    },
+    "8": {
+     "name": "티타임",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 즉시 사랑 듬뿍 디저트를 만들고, 디저트가 완성되어 배달되면 타깃 캐릭터의 에너지를 회복시킨다.",
+     "property": [
+      "에너지 회복",
+      "재사용 대기시간"
+     ],
+     "param": "[4.4+자신 레벨x0.08]pt|24초"
+    },
+    "9": {
+     "name": "티타임",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 즉시 사랑 듬뿍 디저트를 만들고, 디저트가 완성되어 배달되면 타깃 캐릭터의 에너지를 회복시킨다.",
+     "property": [
+      "에너지 회복",
+      "재사용 대기시간"
+     ],
+     "param": "[4.6+자신 레벨x0.08]pt|24초"
+    },
+    "10": {
+     "name": "티타임",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 즉시 사랑 듬뿍 디저트를 만들고, 디저트가 완성되어 배달되면 타깃 캐릭터의 에너지를 회복시킨다.",
+     "property": [
+      "에너지 회복",
+      "재사용 대기시간"
+     ],
+     "param": "[4.8+자신 레벨x0.08]pt|24초"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "개인 집사",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[빅토리아 하우스키핑]</color> 진영의 캐릭터가 2명 이상 존재 시 발동: <color=#FFFFFF>[액티브 스킬]</color>로 회복하는 에너지가 20% 증가한다.",
+     "property": [
+      "에너지 회복 수치 증가"
+     ],
+     "param": "20%"
+    },
+    "2": {
+     "name": "개인 집사",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[빅토리아 하우스키핑]</color> 진영의 캐릭터가 2명 이상 존재 시 발동: <color=#FFFFFF>[액티브 스킬]</color>로 회복하는 에너지가 25% 증가한다.",
+     "property": [
+      "에너지 회복 수치 증가"
+     ],
+     "param": "25%"
+    },
+    "3": {
+     "name": "개인 집사",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[빅토리아 하우스키핑]</color> 진영의 캐릭터가 2명 이상 존재 시 발동: <color=#FFFFFF>[액티브 스킬]</color>로 회복하는 에너지가 30% 증가한다.",
+     "property": [
+      "에너지 회복 수치 증가"
+     ],
+     "param": "30%"
+    },
+    "4": {
+     "name": "개인 집사",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[빅토리아 하우스키핑]</color> 진영의 캐릭터가 2명 이상 존재 시 발동: <color=#FFFFFF>[액티브 스킬]</color>로 회복하는 에너지가 35% 증가한다.",
+     "property": [
+      "에너지 회복 수치 증가"
+     ],
+     "param": "35%"
+    },
+    "5": {
+     "name": "개인 집사",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[빅토리아 하우스키핑]</color> 진영의 캐릭터가 2명 이상 존재 시 발동: <color=#FFFFFF>[액티브 스킬]</color>로 회복하는 에너지가 40% 증가한다.",
+     "property": [
+      "에너지 회복 수치 증가"
+     ],
+     "param": "40%"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "오후의 디저트",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n프라이팬과 팬케이크로 타깃을 원거리에서 공격해 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5400402, Prop:1001}|{Skill:5400402, Prop:1002}"
+    },
+    "2": {
+     "name": "오후의 디저트",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n프라이팬과 팬케이크로 타깃을 원거리에서 공격해 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5400402, Prop:1001}|{Skill:5400402, Prop:1002}"
+    },
+    "3": {
+     "name": "오후의 디저트",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n프라이팬과 팬케이크로 타깃을 원거리에서 공격해 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5400402, Prop:1001}|{Skill:5400402, Prop:1002}"
+    },
+    "4": {
+     "name": "오후의 디저트",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n프라이팬과 팬케이크로 타깃을 원거리에서 공격해 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5400402, Prop:1001}|{Skill:5400402, Prop:1002}"
+    },
+    "5": {
+     "name": "오후의 디저트",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n프라이팬과 팬케이크로 타깃을 원거리에서 공격해 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5400402, Prop:1001}|{Skill:5400402, Prop:1002}"
+    },
+    "6": {
+     "name": "오후의 디저트",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n프라이팬과 팬케이크로 타깃을 원거리에서 공격해 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5400402, Prop:1001}|{Skill:5400402, Prop:1002}"
+    },
+    "7": {
+     "name": "오후의 디저트",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n프라이팬과 팬케이크로 타깃을 원거리에서 공격해 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5400402, Prop:1001}|{Skill:5400402, Prop:1002}"
+    },
+    "8": {
+     "name": "오후의 디저트",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n프라이팬과 팬케이크로 타깃을 원거리에서 공격해 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5400402, Prop:1001}|{Skill:5400402, Prop:1002}"
+    },
+    "9": {
+     "name": "오후의 디저트",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n프라이팬과 팬케이크로 타깃을 원거리에서 공격해 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5400402, Prop:1001}|{Skill:5400402, Prop:1002}"
+    },
+    "10": {
+     "name": "오후의 디저트",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n프라이팬과 팬케이크로 타깃을 원거리에서 공격해 대량의 <color=#F0D12B>물리 피해</color>를 준다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5400402, Prop:1001}|{Skill:5400402, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5400401": {
+   "1001": {
+    "main": 0,
+    "growth": 0,
+    "format": "%"
+   },
+   "1002": {
+    "main": 0,
+    "growth": 0,
+    "format": "%"
+   },
+   "element_accumulation_value": 0
+  },
+  "5400402": {
+   "1001": {
+    "main": 68300,
+    "growth": 6830,
+    "format": "%"
+   },
+   "1002": {
+    "main": 9800,
+    "growth": 980,
+    "format": "%"
+   },
+   "element_accumulation_value": 29300
+  }
+ }
+}

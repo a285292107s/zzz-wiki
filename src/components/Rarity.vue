@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useUiText } from '@/composables/useUiText'
 import { RANK_TO_TIER } from '@/data/types'
+
+const { t } = useUiText()
 
 const props = defineProps<{ rank?: number }>()
 
@@ -14,7 +17,7 @@ const tier = computed(() =>
     v-if="tier"
     class="tier"
     :class="`t-${tier.toLowerCase()}`"
-    aria-label="稀有度"
+    :aria-label="t.list.rarity"
   >{{ tier }}</span>
 </template>
 

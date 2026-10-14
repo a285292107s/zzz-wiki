@@ -1,0 +1,2097 @@
+{
+ "id": 1561,
+ "icon": "IconRole64",
+ "name": "벨리나",
+ "code_name": "Velina",
+ "rarity": 4,
+ "weapon_type": {
+  "3": "Anomaly"
+ },
+ "element_type": {
+  "204": "Wind"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "16": "로스캘리퍼"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "09/22",
+  "full_name": "벨리나 에어기드",
+  "gender": "여성",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle64.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0064.png",
+  "impression_f": "벨리나 씨는 다양한 사람들과 어울려야 할 텐데, 니트로 퓨엘은 잘 못 마신다니… 왠지 의외네!",
+  "impression_m": "벨… 벨리나 씨의 약점을 알았다고 해서, 뭔가 장난칠 생각은 하지 마… 전에 한밤중에 외무전략국까지 데려다드릴 때 큰 소동이 좀 있었거든…",
+  "impressions": [
+   "벨리나에 대한 인상:\n · 홍차와 우아함은 동의어인 것 같다",
+   " · 완벽한 총무관도 서툰 일이 있다",
+   " · 천사와 마녀, 두 가지 정체성이 동시에 존재할 수 있을까?"
+  ],
+  "profile_desc": "벨리나, 외무전략국의 총무관으로, 로스캘리퍼와 뉴에리두 간의 교류 및 협력 업무를 총괄하고 있다.\n\n명문가 에어기드 가문의 후손으로서, 빈틈없는 가풍을 이어받은 벨리나는 거의 흠 잡을 데 없는 업무 이행 효율과 현장 통제 능력으로 명성이 자자하다. 기술 전문가 노르마가 말하는 「회의와 서명, 그리고 골치 아픈 어른을 처리」할 수 있는 믿음직한 어른이다.\n\n그녀는 일 처리가 능숙하고 조리 있으며, 사람을 대하는 태도도 온화하고 품위 있다. 우아하고 여유로운 미소 뒤에는 무시할 수 없는 위압감이 담겨 있는데, 아무리 까다로운 대외 업무나 황당한 사고도 능숙하게 해결해 내지만, 그녀에게 도움을 청한 대가가 반드시 의뢰인이 감당할 수 있는 수준은 아닐 수도 있다.\n\n벨리나는 각종 홍차를 특히 좋아해, 여가 시간에 종종 친구들을 초대해서 다과회를 열곤 한다.\n\n특별 주의사항: 그녀가 총무관 신분으로 보내는 다과회 초대는 주의할 필요가 있어요——단순한 여흥이 아닌, 상황을 중재하고 사태를 조용히 진전시키는 절호의 기회로 활용되기도 하니까요.",
+  "role_icon": "IconRole/UnPacker/IconRole64",
+  "stature": "172",
+  "unlock_condition": [
+   "에이전트 획득",
+   "메인 의뢰 시즌 3 제1장 완료",
+   "「엔비의 고민」 의뢰 완료"
+  ],
+  "trust_lv": {
+   "1": "벨리나, 외무전략국의 총무관으로, 로스캘리퍼와 뉴에리두 간의 교류 및 협력 업무를 총괄하고 있다.\n\n명문가 에어기드 가문의 후손으로서, 빈틈없는 가풍을 이어받은 벨리나는 거의 흠 잡을 데 없는 업무 이행 효율과 현장 통제 능력으로 명성이 자자하다. 기술 전문가 노르마가 말하는 「회의와 서명, 그리고 골치 아픈 어른을 처리」할 수 있는 믿음직한 어른이다.\n\n그녀는 일 처리가 능숙하고 조리 있으며, 사람을 대하는 태도도 온화하고 품위 있다. 우아하고 여유로운 미소 뒤에는 무시할 수 없는 위압감이 담겨 있는데, 아무리 까다로운 대외 업무나 황당한 사고도 능숙하게 해결해 내지만, 그녀에게 도움을 청한 대가가 반드시 의뢰인이 감당할 수 있는 수준은 아닐 수도 있다.\n\n벨리나는 각종 홍차를 특히 좋아해, 여가 시간에 종종 친구들을 초대해서 다과회를 열곤 한다.\n\n특별 주의사항: 그녀가 총무관 신분으로 보내는 다과회 초대는 주의할 필요가 있어요——단순한 여흥이 아닌, 상황을 중재하고 사태를 조용히 진전시키는 절호의 기회로 활용되기도 하니까요.",
+   "2": "",
+   "3": "마르셀 그룹의 관리 기관으로서, 외무전략국은 「Bangboo」의 은퇴 심사 업무를 담당하고 있다. 그 때문에 「Bangboo」 시민들의 눈에 벨리나는 온몸을 오싹하게 만드는 다과회의 주인, 전설 속의 「죽음을 고하는 마녀」로 비춰진다.\n\n사실 벨리나의 진짜 정체는 「Bangboo」들 사이에서 구전으로 전해지는 「수석 천사」다. 하지만 그녀는 악명을 뒤집어쓰는 것을 개의치 않는데, 마녀라는 칭호는 「Bangboo」 관련 업무에서 여러모로 편리하기 때문이고, 「Bangboo」들에게 천사로 불리기보다는 조용한 수호자로 남는 게 더 익숙하기 때문이다.\n\n별개로 벨리나는 일상 생활에서 의외로 서툰 면이 있는데, 특히 동식물 기르기를 매우 못해 「식물 킬러」라는 칭호도 갖고 있다.\n\n제안: 빠르게 관계를 좁힐 수 있는 대화 주제 중 하나로 활용할 수 있을 것 같아요.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 126,
+  "attack_growth": 75860,
+  "avatar_piece_id": 5561,
+  "break_stun": 86,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66882,
+  "element_abnormal_power": 112,
+  "element_mystery": 111,
+  "endurance": 0,
+  "hp_growth": 849779,
+  "hp_max": 626,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Velina",
+   "Cut",
+   "Wind",
+   "Female",
+   "Camp16",
+   "Size03",
+   "AidTypeParry",
+   "Velina",
+   "EtherEyesSize3"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "일반 공격: 부채춤",
+     "desc": "<IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방으로 최대 5단까지 공격을 펼쳐 <color=#A6C5FD>바람 속성 피해</color>를 준다.\n다섯 번째 공격 시전 중 벨리나의 경직 저항 레벨이 증가하고, 받는 피해가 40% 감소한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 부채춤",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1561001, Prop:1001}",
+       "param": {
+        "1561001": {
+         "main": 5170,
+         "growth": 470,
+         "format": "%",
+         "damage_percentage": 5170,
+         "damage_percentage_growth": 470,
+         "stun_ratio": 2360,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 6960,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 106425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1708,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3867
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1561002, Prop:1001}",
+       "param": {
+        "1561002": {
+         "main": 4890,
+         "growth": 450,
+         "format": "%",
+         "damage_percentage": 4890,
+         "damage_percentage_growth": 450,
+         "stun_ratio": 2350,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 6310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 96525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1788,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3501
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1561003, Prop:1001}",
+       "param": {
+        "1561003": {
+         "main": 16910,
+         "growth": 1540,
+         "format": "%",
+         "damage_percentage": 16910,
+         "damage_percentage_growth": 1540,
+         "stun_ratio": 8050,
+         "stun_ratio_growth": 370,
+         "sp_recovery": 21310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 325600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6180,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11837
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 피해 배율",
+       "desc": "{Skill:1561004, Prop:1001}",
+       "param": {
+        "1561004": {
+         "main": 12560,
+         "growth": 1150,
+         "format": "%",
+         "damage_percentage": 12560,
+         "damage_percentage_growth": 1150,
+         "stun_ratio": 6290,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 17950,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 204875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5013,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8512
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5단 피해 배율",
+       "desc": "{Skill:1561005, Prop:1001}",
+       "param": {
+        "1561005": {
+         "main": 22960,
+         "growth": 2090,
+         "format": "%",
+         "damage_percentage": 22960,
+         "damage_percentage_growth": 2090,
+         "stun_ratio": 11270,
+         "stun_ratio_growth": 520,
+         "sp_recovery": 24600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 375925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6316,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15126
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1561001, Prop:1002}",
+       "param": {
+        "1561001": {
+         "main": 2360,
+         "growth": 110,
+         "format": "%",
+         "damage_percentage": 5170,
+         "damage_percentage_growth": 470,
+         "stun_ratio": 2360,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 6960,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 106425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1708,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3867
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1561002, Prop:1002}",
+       "param": {
+        "1561002": {
+         "main": 2350,
+         "growth": 110,
+         "format": "%",
+         "damage_percentage": 4890,
+         "damage_percentage_growth": 450,
+         "stun_ratio": 2350,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 6310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 96525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1788,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3501
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1561003, Prop:1002}",
+       "param": {
+        "1561003": {
+         "main": 8050,
+         "growth": 370,
+         "format": "%",
+         "damage_percentage": 16910,
+         "damage_percentage_growth": 1540,
+         "stun_ratio": 8050,
+         "stun_ratio_growth": 370,
+         "sp_recovery": 21310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 325600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6180,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11837
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 그로기 배율",
+       "desc": "{Skill:1561004, Prop:1002}",
+       "param": {
+        "1561004": {
+         "main": 6290,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 12560,
+         "damage_percentage_growth": 1150,
+         "stun_ratio": 6290,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 17950,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 204875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5013,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8512
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5단 그로기 배율",
+       "desc": "{Skill:1561005, Prop:1002}",
+       "param": {
+        "1561005": {
+         "main": 11270,
+         "growth": 520,
+         "format": "%",
+         "damage_percentage": 22960,
+         "damage_percentage_growth": 2090,
+         "stun_ratio": 11270,
+         "stun_ratio_growth": 520,
+         "sp_recovery": 24600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 375925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6316,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15126
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100116": 2
+    },
+    "2": {
+     "10": 3000,
+     "100116": 3
+    },
+    "3": {
+     "10": 6000,
+     "100126": 2
+    },
+    "4": {
+     "10": 9000,
+     "100126": 3
+    },
+    "5": {
+     "10": 12000,
+     "100126": 4
+    },
+    "6": {
+     "10": 18000,
+     "100126": 6
+    },
+    "7": {
+     "10": 45000,
+     "100136": 5
+    },
+    "8": {
+     "10": 67500,
+     "100136": 8
+    },
+    "9": {
+     "10": 90000,
+     "100136": 10
+    },
+    "10": {
+     "10": 112500,
+     "100136": 12
+    },
+    "11": {
+     "10": 135000,
+     "100136": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "회피: 스치는 안개",
+     "desc": "<IconMap:Icon_Evade>을 짧게 탭하여 시전:\n빠른 대시로 회피한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 바람을 타고",
+     "desc": "회피 시 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 빠르게 공격해 <color=#A6C5FD>바람 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 구름 가르기",
+     "desc": "<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n타깃을 연속 공격해 <color=#A6C5FD>바람 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 바람을 타고",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1561011, Prop:1001}",
+       "param": {
+        "1561011": {
+         "main": 9970,
+         "growth": 910,
+         "format": "%",
+         "damage_percentage": 9970,
+         "damage_percentage_growth": 910,
+         "stun_ratio": 4220,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 13810,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 105600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1561011, Prop:1002}",
+       "param": {
+        "1561011": {
+         "main": 4220,
+         "growth": 200,
+         "format": "%",
+         "damage_percentage": 9970,
+         "damage_percentage_growth": 910,
+         "stun_ratio": 4220,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 13810,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 105600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 구름 가르기",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1561012, Prop:1001}",
+       "param": {
+        "1561012": {
+         "main": 39490,
+         "growth": 3590,
+         "format": "%",
+         "damage_percentage": 39490,
+         "damage_percentage_growth": 3590,
+         "stun_ratio": 28240,
+         "stun_ratio_growth": 1290,
+         "sp_recovery": 56420,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 430925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15669,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 30670
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1561012, Prop:1002}",
+       "param": {
+        "1561012": {
+         "main": 28240,
+         "growth": 1290,
+         "format": "%",
+         "damage_percentage": 39490,
+         "damage_percentage_growth": 3590,
+         "stun_ratio": 28240,
+         "stun_ratio_growth": 1290,
+         "sp_recovery": 56420,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 430925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15669,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 30670
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100116": 2
+    },
+    "2": {
+     "10": 3000,
+     "100116": 3
+    },
+    "3": {
+     "10": 6000,
+     "100126": 2
+    },
+    "4": {
+     "10": 9000,
+     "100126": 3
+    },
+    "5": {
+     "10": 12000,
+     "100126": 4
+    },
+    "6": {
+     "10": 18000,
+     "100126": 6
+    },
+    "7": {
+     "10": 45000,
+     "100136": 5
+    },
+    "8": {
+     "10": 67500,
+     "100136": 8
+    },
+    "9": {
+     "10": 90000,
+     "100136": 10
+    },
+    "10": {
+     "10": 112500,
+     "100136": 12
+    },
+    "11": {
+     "10": 135000,
+     "100136": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "특수 스킬: 윈드 시어·탁류",
+     "desc": "<IconMap:Icon_Special>을 짧게 탭하여 시전:\n전방으로 바람을 날려 <color=#A6C5FD>바람 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 윈드 시어·정화",
+     "desc": "에너지가 충분한 상태에서 <IconMap:Icon_SpecialReady>을 짧게 탭하여 시전:\n뒤로 회피한 후 거대한 바람 탄환을 날려 적을 공격하고 <color=#A6C5FD>바람 속성 피해</color>를 준다.\n뒤로 회피하는 동안 회피 판정이 적용되며, 적의 공격을 성공적으로 회피하면 <color=#FFFFFF>[극한 시야]</color>가 발동된다.\n해당 스킬 시전 후 <IconMap:Icon_Normal>을 짧게 탭하면 <color=#FFFFFF>[일반 공격]</color> 다섯 번째로 연계할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 윈드 시어·삼중 절식",
+     "desc": "에너지가 충분한 상태에서 <color=#FFFFFF>[강화 특수 스킬: 윈드 시어·정화]</color> 후 <IconMap:Icon_SpecialReady>을 짧은 탭 혹은 홀드하여 시전:\n부채를 연속으로 휘둘러 적에게 <color=#A6C5FD>바람 속성 피해</color>를 준다.\n해당 스킬 시전 후 <IconMap:Icon_Normal>을 짧게 탭하면 <color=#FFFFFF>[일반 공격]</color> 다섯 번째로 연계할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 윈드 시어·폭풍의 눈",
+     "desc": "<Term:1000008><color=#FFFFFF>[풍채]</color></Term>가 90pt 이상일 때, <IconMap:Icon_Special> 혹은 <IconMap:Icon_Normal>을 홀드하여 시전:\n벨리나가 회오리바람을 일으킨 후 <Term:1000016><color=#FFFFFF>[광역 사이클론]</color></Term>을 소환하여 적을 지속 공격하고, 이전 캐릭터의 <color=#FFFFFF>[빠른 지원]</color>을 발동한다.\n<color=#FFFFFF>[광역 사이클론]</color>은 5초 동안 지속되며, 0.5초마다 주변 적에게 <color=#A6C5FD>바람 속성 피해</color>를 1회 준다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 윈드 시어·탁류",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1561008, Prop:1001}",
+       "param": {
+        "1561008": {
+         "main": 5860,
+         "growth": 540,
+         "format": "%",
+         "damage_percentage": 5860,
+         "damage_percentage_growth": 540,
+         "stun_ratio": 4960,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 124025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4501,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4502
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1561008, Prop:1002}",
+       "param": {
+        "1561008": {
+         "main": 4960,
+         "growth": 230,
+         "format": "%",
+         "damage_percentage": 5860,
+         "damage_percentage_growth": 540,
+         "stun_ratio": 4960,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 124025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4501,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4502
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 윈드 시어·정화",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1561009, Prop:1001}",
+       "param": {
+        "1561009": {
+         "main": 44050,
+         "growth": 4010,
+         "format": "%",
+         "damage_percentage": 44050,
+         "damage_percentage_growth": 4010,
+         "stun_ratio": 30250,
+         "stun_ratio_growth": 1380,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 775500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 30689,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8331
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1561009, Prop:1002}",
+       "param": {
+        "1561009": {
+         "main": 30250,
+         "growth": 1380,
+         "format": "%",
+         "damage_percentage": 44050,
+         "damage_percentage_growth": 4010,
+         "stun_ratio": 30250,
+         "stun_ratio_growth": 1380,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 775500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 30689,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8331
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "에너지 소모",
+       "desc": "45pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 윈드 시어·삼중 절식",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1561010, Prop:1001}",
+       "param": {
+        "1561010": {
+         "main": 72520,
+         "growth": 6600,
+         "format": "%",
+         "damage_percentage": 72520,
+         "damage_percentage_growth": 6600,
+         "stun_ratio": 51520,
+         "stun_ratio_growth": 2350,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1246025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 51305,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1561010, Prop:1002}",
+       "param": {
+        "1561010": {
+         "main": 51520,
+         "growth": 2350,
+         "format": "%",
+         "damage_percentage": 72520,
+         "damage_percentage_growth": 6600,
+         "stun_ratio": 51520,
+         "stun_ratio_growth": 2350,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1246025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 51305,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "에너지 소모",
+       "desc": "45pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 윈드 시어·폭풍의 눈",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1561006, Prop:1001}",
+       "param": {
+        "1561006": {
+         "main": 21670,
+         "growth": 1970,
+         "format": "%",
+         "damage_percentage": 21670,
+         "damage_percentage_growth": 1970,
+         "stun_ratio": 18340,
+         "stun_ratio_growth": 840,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 320925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 16666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1561006, Prop:1002}",
+       "param": {
+        "1561006": {
+         "main": 18340,
+         "growth": 840,
+         "format": "%",
+         "damage_percentage": 21670,
+         "damage_percentage_growth": 1970,
+         "stun_ratio": 18340,
+         "stun_ratio_growth": 840,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 320925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 16666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "[풍채] 소모",
+       "desc": "90pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "광역 사이클론",
+     "param": [
+      {
+       "name": "[광역 사이클론] 바람 속성 단일 공격 피해 배율",
+       "desc": "{Skill:1561007, Prop:1001}",
+       "param": {
+        "1561007": {
+         "main": 3900,
+         "growth": 360,
+         "format": "%",
+         "damage_percentage": 3900,
+         "damage_percentage_growth": 360,
+         "stun_ratio": 8250,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "[광역 사이클론] 바람 속성 단일 공격 그로기 배율",
+       "desc": "{Skill:1561007, Prop:1002}",
+       "param": {
+        "1561007": {
+         "main": 8250,
+         "growth": 380,
+         "format": "%",
+         "damage_percentage": 3900,
+         "damage_percentage_growth": 360,
+         "stun_ratio": 8250,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "[광역 사이클론] 색염 속성 단일 공격 피해 배율",
+       "desc": "{{Skill:1561020, Prop:1001}*0.2}",
+       "param": {
+        "1561020": {
+         "main": 9750,
+         "growth": 890,
+         "format": "%",
+         "damage_percentage": 9750,
+         "damage_percentage_growth": 890,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11250,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "국소 사이클론",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1561021, Prop:1001}",
+       "param": {
+        "1561021": {
+         "main": 3250,
+         "growth": 300,
+         "format": "%",
+         "damage_percentage": 3250,
+         "damage_percentage_growth": 300,
+         "stun_ratio": 13750,
+         "stun_ratio_growth": 630,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5625,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1561021, Prop:1002}",
+       "param": {
+        "1561021": {
+         "main": 13750,
+         "growth": 630,
+         "format": "%",
+         "damage_percentage": 3250,
+         "damage_percentage_growth": 300,
+         "stun_ratio": 13750,
+         "stun_ratio_growth": 630,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5625,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100116": 2
+    },
+    "2": {
+     "10": 3000,
+     "100116": 3
+    },
+    "3": {
+     "10": 6000,
+     "100126": 2
+    },
+    "4": {
+     "10": 9000,
+     "100126": 3
+    },
+    "5": {
+     "10": 12000,
+     "100126": 4
+    },
+    "6": {
+     "10": 18000,
+     "100126": 6
+    },
+    "7": {
+     "10": 45000,
+     "100136": 5
+    },
+    "8": {
+     "10": 67500,
+     "100136": 8
+    },
+    "9": {
+     "10": 90000,
+     "100136": 10
+    },
+    "10": {
+     "10": 112500,
+     "100136": 12
+    },
+    "11": {
+     "10": 135000,
+     "100136": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "콤보 스킬: 흩날리는 은유",
+     "desc": "<color=#FFFFFF>[콤보 스킬]</color> 발동 시 해당 캐릭터를 선택해 시전:\n허리케인이 되어 적을 여러 단 공격한 후 종결의 일격으로 대량의 <color=#A6C5FD>바람 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "궁극기: 바람의 포효",
+     "desc": "데시벨 레벨 <color=#FFFFFF>[Maximum]</color> 달성 시 <IconMap:Icon_UltimateReady>을 짧게 탭하여 시전:\n전방에 다단 공격으로 대량의 <color=#A6C5FD>바람 속성 피해</color>를 준다.\n스킬 시전 후 이전 캐릭터의 <color=#FFFFFF>[빠른 지원]</color>이 발동된다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 흩날리는 은유",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1561013, Prop:1001}",
+       "param": {
+        "1561013": {
+         "main": 80040,
+         "growth": 7280,
+         "format": "%",
+         "damage_percentage": 80040,
+         "damage_percentage_growth": 7280,
+         "stun_ratio": 23840,
+         "stun_ratio_growth": 1090,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2424675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 41616,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1561013, Prop:1002}",
+       "param": {
+        "1561013": {
+         "main": 23840,
+         "growth": 1090,
+         "format": "%",
+         "damage_percentage": 80040,
+         "damage_percentage_growth": 7280,
+         "stun_ratio": 23840,
+         "stun_ratio_growth": 1090,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2424675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 41616,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21667
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "궁극기: 바람의 포효",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1561014, Prop:1001}",
+       "param": {
+        "1561014": {
+         "main": 218830,
+         "growth": 19900,
+         "format": "%",
+         "damage_percentage": 218830,
+         "damage_percentage_growth": 19900,
+         "stun_ratio": 38130,
+         "stun_ratio_growth": 1740,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 114862,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 84664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1561014, Prop:1002}",
+       "param": {
+        "1561014": {
+         "main": 38130,
+         "growth": 1740,
+         "format": "%",
+         "damage_percentage": 218830,
+         "damage_percentage_growth": 19900,
+         "stun_ratio": 38130,
+         "stun_ratio_growth": 1740,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 114862,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 84664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100116": 2
+    },
+    "2": {
+     "10": 3000,
+     "100116": 3
+    },
+    "3": {
+     "10": 6000,
+     "100126": 2
+    },
+    "4": {
+     "10": 9000,
+     "100126": 3
+    },
+    "5": {
+     "10": 12000,
+     "100126": 4
+    },
+    "6": {
+     "10": 18000,
+     "100126": 6
+    },
+    "7": {
+     "10": 45000,
+     "100136": 5
+    },
+    "8": {
+     "10": 67500,
+     "100136": 8
+    },
+    "9": {
+     "10": 90000,
+     "100136": 10
+    },
+    "10": {
+     "10": 112500,
+     "100136": 12
+    },
+    "11": {
+     "10": 135000,
+     "100136": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "빠른 지원: 긴급 대비책",
+     "desc": "현재 조작 중인 캐릭터가 넉업되면 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n타깃을 연속 공격해 <color=#A6C5FD>바람 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 재량 개입",
+     "desc": "출전 캐릭터 피격 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적의 공격을 패링하고 대량의 그로기 수치를 누적한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 협상 기술",
+     "desc": "<color=#FFFFFF>[패링 지원]</color> 시전 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n타깃을 연속 공격해 <color=#A6C5FD>바람 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 긴급 대비책",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1561015, Prop:1001}",
+       "param": {
+        "1561015": {
+         "main": 20380,
+         "growth": 1860,
+         "format": "%",
+         "damage_percentage": 20380,
+         "damage_percentage_growth": 1860,
+         "stun_ratio": 8620,
+         "stun_ratio_growth": 400,
+         "sp_recovery": 28210,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 215600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7834,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7835
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1561015, Prop:1002}",
+       "param": {
+        "1561015": {
+         "main": 8620,
+         "growth": 400,
+         "format": "%",
+         "damage_percentage": 20380,
+         "damage_percentage_growth": 1860,
+         "stun_ratio": 8620,
+         "stun_ratio_growth": 400,
+         "sp_recovery": 28210,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 215600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7834,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7835
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 재량 개입",
+     "param": [
+      {
+       "name": "가벼운 패링 그로기 배율",
+       "desc": "{Skill:1561016, Prop:1002}",
+       "param": {
+        "1561016": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강한 패링 그로기 배율",
+       "desc": "{Skill:1561017, Prop:1002}",
+       "param": {
+        "1561017": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 패링 그로기 배율",
+       "desc": "{Skill:1561018, Prop:1002}",
+       "param": {
+        "1561018": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 협상 기술",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1561019, Prop:1001}",
+       "param": {
+        "1561019": {
+         "main": 53270,
+         "growth": 4850,
+         "format": "%",
+         "damage_percentage": 53270,
+         "damage_percentage_growth": 4850,
+         "stun_ratio": 39670,
+         "stun_ratio_growth": 1810,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 883300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 38517,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21330
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1561019, Prop:1002}",
+       "param": {
+        "1561019": {
+         "main": 39670,
+         "growth": 1810,
+         "format": "%",
+         "damage_percentage": 53270,
+         "damage_percentage_growth": 4850,
+         "stun_ratio": 39670,
+         "stun_ratio_growth": 1810,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 883300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 38517,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21330
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100116": 2
+    },
+    "2": {
+     "10": 3000,
+     "100116": 3
+    },
+    "3": {
+     "10": 6000,
+     "100126": 2
+    },
+    "4": {
+     "10": 9000,
+     "100126": 3
+    },
+    "5": {
+     "10": 12000,
+     "100126": 4
+    },
+    "6": {
+     "10": 18000,
+     "100126": 6
+    },
+    "7": {
+     "10": 45000,
+     "100136": 5
+    },
+    "8": {
+     "10": 67500,
+     "100136": 8
+    },
+    "9": {
+     "10": 90000,
+     "100136": 10
+    },
+    "10": {
+     "10": 112500,
+     "100136": 12
+    },
+    "11": {
+     "10": 135000,
+     "100136": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "질서 있는 우아함",
+   "desc": "<color=#FFFFFF>[추가 능력: 다과회 예절]</color> 중 <color=#FFFFFF>[광역 사이클론]</color>으로 주는 그로기 수치가 추가로 20% 증가한다.\n벨리나가 <color=#FFFFFF>[난류]</color> 발동 시 타깃의 <color=#FFFFFF>모든 속성 피해 저항</color>을 20% 무시한다.\n모든 파티원이 <color=#A6C5FD>[풍화]</color> 피해를 줄 시 타깃의 <color=#A6C5FD>바람 속성 피해 저항</color>을 20% 무시한다.",
+   "desc2": "모든 언행은 마땅히 있어야 할 자리에 정확히 배치된다.\n상대방은 깨닫기도 전에, 그녀가 설정한 경계와 리듬, 그리고 결과를 기꺼이 받아들이게 된다——\n「우아함이란, 질서가 작동할 때 가장 자연스럽게 드러나는 모습에 불과해요」"
+  },
+  "2": {
+   "level": 2,
+   "name": "포화식 플랜",
+   "desc": "벨리나가 <color=#A6C5FD>[풍화]</color> 발동 시에도 <color=#FFFFFF>[풍식]</color>을 1pt 획득할 수 있다. 해당 효과는 5초 동안 최대 1회 발동한다. <color=#FFFFFF>[광역 사이클론]</color>이 <color=#FFFFFF>[채색]</color> 효과를 발동한 후, 상응하는 속성의 이상 축적치를 축적할 수 있으며, 해당 공격으로 누적하는 속성 이상 축적치는 이상 피해 결산에 포함되지 않는다. <color=#FFFFFF>[추가 능력: 다과회 예절]</color> 중 벨리나가 주는 <color=#A6C5FD>[풍화]</color> 및 <color=#FFFFFF>[난류]</color> 피해 증가 효과가 추가로 15% 증가한다.",
+   "desc2": "모든 가능성을 예측하고, 모든 변수를 포괄하며, 심지어 통제 불능의 상황에도 여지를 남겨둔다.\n그녀는 요행을 바라지 않으며, 어떤 결말이든 각자의 자리를 찾아간다.\n설령 상황이 잠시 어긋나더라도, 그것은 이미 준비된 또 다른 경로로 이어질 뿐이다.\n「아, 역시 그렇게 되는군요… 다행히 전혀 준비가 없었던 건 아니니까요」"
+  },
+  "3": {
+   "level": 3,
+   "name": "예의 바른 정복",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "힘으로 억누를 필요도 없고, 감정이나 위협에 의존할 필요도 없다.\n적절한 응대 하나, 딱 맞는 양보 한 번이면…\n상황은 어느새 수렴되어, 기정된 정복으로 귀결된다.\n「예의란 폭력을 감추는 수단인가요?」\n「아니면, 예의야말로 더 높은 차원의 폭력인가요?」"
+  },
+  "4": {
+   "level": 4,
+   "name": "티타임은 곧 심판",
+   "desc": "벨리나가 <color=#FFFFFF>[강화 특수 스킬]</color>을 시전하면 자신의 공격력이 15% 증가한다. 지속 시간: 40초, 중복 발동 시 지속 시간이 갱신된다.",
+   "desc2": "담소 속에 경중이 나뉜다.\n홍차가 식기도 전에 결론이 내려진다.\n「어떤 일이 저를 괴롭힌다면, 빨리 처리하면 돼요. 어떤 사람이 저를 괴롭힌다면, 후후…」"
+  },
+  "5": {
+   "level": 5,
+   "name": "죽음을 고하는 마녀",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "「그녀의 발소리를 듣는 것은, 판결을 듣는 것과 같다!」\n「그녀의 초대장을 받는 것은, 장례식에 발을 들이는 것과 같다!」\n은발의 마녀는 「Bangboo」 왕국의 극장 아래 단정히 앉아, 스스로를 굳게 믿으며 비방하는 작은 배우의 말에 귀를 기울인다.\n그녀는 화려한 부채를 살며시 흔들 뿐, 미소를 띤 채 아무 말도 하지 않았다."
+  },
+  "6": {
+   "level": 6,
+   "name": "수석 천사",
+   "desc": "벨리나가 <color=#FFFFFF>[풍식]</color>을 2pt 소모하여 <color=#FFFFFF>[난류]</color> 피해 배율을 증가시킬 때, <color=#FFFFFF>[풍식]</color> 1pt를 획득한다. 해당 효과는 6초 동안 최대 1회 발동한다. 벨리나의 공격이 <color=#A6C5FD>바람 속성 이상 상태</color>의 적 명중 시, 주는 <color=#A6C5FD>바람 속성 이상 축적치</color>가 20% 증가한다. 벨리나가 <color=#A6C5FD>[풍화]</color> 상태의 적에게 다시 <color=#A6C5FD>[풍화]</color>를 부여할 시, 이전 <color=#A6C5FD>[풍화]</color>의 남은 지속 시간에 따라 이번 <color=#A6C5FD>[풍화]</color>의 피해가 증가한다. 남은 지속 시간 1초당 피해가 2.5% 증가하고, 최대 40% 증가한다.",
+   "desc2": "「천사의 이름을 물을 필요는 없어요. 그녀는 소문 속에 숨어 있고, 훈계 뒤에 숨어 있으며, 당신이 두려움에 떨며 건넨 도움을 구하는 편지 속에 숨어 있거든요」"
+  }
+ },
+ "passive": {
+  "level": {
+   "1561501": {
+    "level": 1,
+    "id": 1561501,
+    "name": [
+     "핵심 패시브: 우아한 소맷자락",
+     "추가 능력: 다과회 예절"
+    ],
+    "desc": [
+     "벨리나의 초기 에너지 자동 회복이 1.2 초과 시, 초과한 0.01당 주는 피해가 0.21% 증가하며(최대 35% 증가), 이상 장악력이 0.5pt 증가한다(최대 84pt 증가).\n벨리나가 전장 진입 시 <Term:1000008><color=#FFFFFF>[풍채]</color></Term> 45pt를 획득하며, 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다. 벨리나가 <color=#FFFFFF>[강화 특수 스킬: 윈드 시어·정화]</color> 혹은 <color=#FFFFFF>[강화 특수 스킬: 윈드 시어·삼중 절식]</color>을 시전하면 <color=#FFFFFF>[풍채]</color>를 45pt 획득하며, <color=#FFFFFF>[풍채]</color> 최대치는 135pt이다.\n벨리나가 <color=#FFFFFF>[난류]</color> 발동 시 <Term:1000014><color=#FFFFFF>[풍식]</color></Term> 1pt를 획득하고 <Term:1000015><color=#FFFFFF>[국소 사이클론]</color></Term>을 소환하여 <color=#A6C5FD>바람 속성 피해</color>를 준다. 해당 효과는 3초 동안 최대 1회 발동한다. 벨리나가 <color=#FFFFFF>[풍식]</color>을 2pt 보유 시, 벨리나가 다음번에 <color=#FFFFFF>[난류]</color>를 발동할 때 <color=#FFFFFF>[풍식]</color>을 2pt 소모하여 해당 <color=#FFFFFF>[난류]</color>의 피해 배율이 <color=#2BAD00>90%</color> 증가한다. 또한 <color=#FFFFFF>[국소 사이클론]</color>을 소환하는 대신 <Term:1000016><color=#FFFFFF>[광역 사이클론]</color></Term>을 소환한다. 이때는 <color=#FFFFFF>[풍식]</color>을 획득하지 않는다.\n벨리나가 소환한 <color=#FFFFFF>[광역 사이클론]</color>이 <color=#FFFFFF>[오염]</color> 상태의 적에게 처음 명중 시 <Term:1000017><color=#FFFFFF>[채색]</color></Term> 효과가 발동해 상응하는 속성의 <color=#FFFFFF>[광역 사이클론]</color>으로 전환되어 해당 속성의 피해를 주고, <color=#FFFFFF>[광역 사이클론]</color> 공격이 적에게 명중 시 적의 <color=#A6C5FD>바람 속성 이상 축적 저항</color>이 7% 감소한다. 지속 시간: 35초, 중복 발동 시 지속 시간이 갱신된다. <color=#FFFFFF>[채색]</color> 후의 <color=#FFFFFF>[광역 사이클론]</color> 공격이 적 명중 시 적의 <color=#FFFFFF>상응하는 속성 이상 축적 저항</color>도 7% 감소한다. 지속 시간: 35초, 중복 발동 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[광역 사이클론]</color>의 영향을 받은 적이 처치될 때 해당 <color=#FFFFFF>[광역 사이클론]</color>의 지속 시간이 5초 연장된다. 해당 효과는 동일한 <color=#FFFFFF>[광역 사이클론]</color> 중 1회만 발동할 수 있으며, <color=#FFFFFF>[광역 사이클론]</color>은 동시에 1개만 존재할 수 있다.\n<color=#FFFFFF>[국소 사이클론]</color>과 <color=#FFFFFF>[광역 사이클론]</color>은 소멸 시 1회 폭발하며, 해당 폭발이 <color=#A6C5FD>바람 속성 이상 상태</color>의 적에게 명중 시 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산하며, <color=#2BAD00>85%</color>와 <color=#2BAD00>135%</color> 배율의 <color=#A6C5FD>바람 속성 이상 피해</color>를 고정 결산한다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 동일한 속성의 캐릭터가 존재할 시 발동:\n벨리나가 주는 <color=#A6C5FD>[풍화]</color>와 <color=#FFFFFF>[난류]</color> 피해가 10% 증가하며, <color=#FFFFFF>[궁극기]</color> 강공격이 <color=#A6C5FD>바람 속성 이상 상태</color>의 적 명중 시, 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산하며, <color=#A6C5FD>680%</color> 배율의 <color=#A6C5FD>바람 속성 이상 피해</color>를 고정 결산한다.\n<color=#FFFFFF>[핵심 패시브: 우아한 소맷자락]</color>에서 <Term:1000016><color=#FFFFFF>[광역 사이클론]</color></Term>으로 주는 <color=#FFFFFF>속성 이상 축적 저항</color> 감소 효과가 추가로 7% 증가하고, 주는 그로기 수치가 30% 증가하며, 누적하는 속성 이상 축적치가 15% 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1561502": {
+    "level": 2,
+    "id": 1561502,
+    "name": [
+     "핵심 패시브: 우아한 소맷자락",
+     "추가 능력: 다과회 예절"
+    ],
+    "desc": [
+     "벨리나의 초기 에너지 자동 회복이 1.2 초과 시, 초과한 0.01당 주는 피해가 0.21% 증가하며(최대 35% 증가), 이상 장악력이 0.5pt 증가한다(최대 84pt 증가).\n벨리나가 전장 진입 시 <Term:1000008><color=#FFFFFF>[풍채]</color></Term> 45pt를 획득하며, 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다. 벨리나가 <color=#FFFFFF>[강화 특수 스킬: 윈드 시어·정화]</color> 혹은 <color=#FFFFFF>[강화 특수 스킬: 윈드 시어·삼중 절식]</color>을 시전하면 <color=#FFFFFF>[풍채]</color>를 45pt 획득하며, <color=#FFFFFF>[풍채]</color> 최대치는 135pt이다.\n벨리나가 <color=#FFFFFF>[난류]</color> 발동 시 <Term:1000014><color=#FFFFFF>[풍식]</color></Term> 1pt를 획득하고 <Term:1000015><color=#FFFFFF>[국소 사이클론]</color></Term>을 소환하여 <color=#A6C5FD>바람 속성 피해</color>를 준다. 해당 효과는 3초 동안 최대 1회 발동한다. 벨리나가 <color=#FFFFFF>[풍식]</color>을 2pt 보유 시, 벨리나가 다음번에 <color=#FFFFFF>[난류]</color>를 발동할 때 <color=#FFFFFF>[풍식]</color>을 2pt 소모하여 해당 <color=#FFFFFF>[난류]</color>의 피해 배율이 <color=#2BAD00>100%</color> 증가한다. 또한 <color=#FFFFFF>[국소 사이클론]</color>을 소환하는 대신 <Term:1000016><color=#FFFFFF>[광역 사이클론]</color></Term>을 소환한다. 이때는 <color=#FFFFFF>[풍식]</color>을 획득하지 않는다.\n벨리나가 소환한 <color=#FFFFFF>[광역 사이클론]</color>이 <color=#FFFFFF>[오염]</color> 상태의 적에게 처음 명중 시 <Term:1000017><color=#FFFFFF>[채색]</color></Term> 효과가 발동해 상응하는 속성의 <color=#FFFFFF>[광역 사이클론]</color>으로 전환되어 해당 속성의 피해를 주고, <color=#FFFFFF>[광역 사이클론]</color> 공격이 적에게 명중 시 적의 <color=#A6C5FD>바람 속성 이상 축적 저항</color>이 7% 감소한다. 지속 시간: 35초, 중복 발동 시 지속 시간이 갱신된다. <color=#FFFFFF>[채색]</color> 후의 <color=#FFFFFF>[광역 사이클론]</color> 공격이 적 명중 시 적의 <color=#FFFFFF>상응하는 속성 이상 축적 저항</color>도 7% 감소한다. 지속 시간: 35초, 중복 발동 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[광역 사이클론]</color>의 영향을 받은 적이 처치될 때 해당 <color=#FFFFFF>[광역 사이클론]</color>의 지속 시간이 5초 연장된다. 해당 효과는 동일한 <color=#FFFFFF>[광역 사이클론]</color> 중 1회만 발동할 수 있으며, <color=#FFFFFF>[광역 사이클론]</color>은 동시에 1개만 존재할 수 있다.\n<color=#FFFFFF>[국소 사이클론]</color>과 <color=#FFFFFF>[광역 사이클론]</color>은 소멸 시 1회 폭발하며, 해당 폭발이 <color=#A6C5FD>바람 속성 이상 상태</color>의 적에게 명중 시 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산하며, <color=#2BAD00>95%</color>와 <color=#2BAD00>155%</color> 배율의 <color=#A6C5FD>바람 속성 이상 피해</color>를 고정 결산한다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 동일한 속성의 캐릭터가 존재할 시 발동:\n벨리나가 주는 <color=#A6C5FD>[풍화]</color>와 <color=#FFFFFF>[난류]</color> 피해가 10% 증가하며, <color=#FFFFFF>[궁극기]</color> 강공격이 <color=#A6C5FD>바람 속성 이상 상태</color>의 적 명중 시, 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산하며, <color=#A6C5FD>680%</color> 배율의 <color=#A6C5FD>바람 속성 이상 피해</color>를 고정 결산한다.\n<color=#FFFFFF>[핵심 패시브: 우아한 소맷자락]</color>에서 <Term:1000016><color=#FFFFFF>[광역 사이클론]</color></Term>으로 주는 <color=#FFFFFF>속성 이상 축적 저항</color> 감소 효과가 추가로 7% 증가하고, 주는 그로기 수치가 30% 증가하며, 누적하는 속성 이상 축적치가 15% 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1561503": {
+    "level": 3,
+    "id": 1561503,
+    "name": [
+     "핵심 패시브: 우아한 소맷자락",
+     "추가 능력: 다과회 예절"
+    ],
+    "desc": [
+     "벨리나의 초기 에너지 자동 회복이 1.2 초과 시, 초과한 0.01당 주는 피해가 0.21% 증가하며(최대 35% 증가), 이상 장악력이 0.5pt 증가한다(최대 84pt 증가).\n벨리나가 전장 진입 시 <Term:1000008><color=#FFFFFF>[풍채]</color></Term> 45pt를 획득하며, 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다. 벨리나가 <color=#FFFFFF>[강화 특수 스킬: 윈드 시어·정화]</color> 혹은 <color=#FFFFFF>[강화 특수 스킬: 윈드 시어·삼중 절식]</color>을 시전하면 <color=#FFFFFF>[풍채]</color>를 45pt 획득하며, <color=#FFFFFF>[풍채]</color> 최대치는 135pt이다.\n벨리나가 <color=#FFFFFF>[난류]</color> 발동 시 <Term:1000014><color=#FFFFFF>[풍식]</color></Term> 1pt를 획득하고 <Term:1000015><color=#FFFFFF>[국소 사이클론]</color></Term>을 소환하여 <color=#A6C5FD>바람 속성 피해</color>를 준다. 해당 효과는 3초 동안 최대 1회 발동한다. 벨리나가 <color=#FFFFFF>[풍식]</color>을 2pt 보유 시, 벨리나가 다음번에 <color=#FFFFFF>[난류]</color>를 발동할 때 <color=#FFFFFF>[풍식]</color>을 2pt 소모하여 해당 <color=#FFFFFF>[난류]</color>의 피해 배율이 <color=#2BAD00>110%</color> 증가한다. 또한 <color=#FFFFFF>[국소 사이클론]</color>을 소환하는 대신 <Term:1000016><color=#FFFFFF>[광역 사이클론]</color></Term>을 소환한다. 이때는 <color=#FFFFFF>[풍식]</color>을 획득하지 않는다.\n벨리나가 소환한 <color=#FFFFFF>[광역 사이클론]</color>이 <color=#FFFFFF>[오염]</color> 상태의 적에게 처음 명중 시 <Term:1000017><color=#FFFFFF>[채색]</color></Term> 효과가 발동해 상응하는 속성의 <color=#FFFFFF>[광역 사이클론]</color>으로 전환되어 해당 속성의 피해를 주고, <color=#FFFFFF>[광역 사이클론]</color> 공격이 적에게 명중 시 적의 <color=#A6C5FD>바람 속성 이상 축적 저항</color>이 7% 감소한다. 지속 시간: 35초, 중복 발동 시 지속 시간이 갱신된다. <color=#FFFFFF>[채색]</color> 후의 <color=#FFFFFF>[광역 사이클론]</color> 공격이 적 명중 시 적의 <color=#FFFFFF>상응하는 속성 이상 축적 저항</color>도 7% 감소한다. 지속 시간: 35초, 중복 발동 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[광역 사이클론]</color>의 영향을 받은 적이 처치될 때 해당 <color=#FFFFFF>[광역 사이클론]</color>의 지속 시간이 5초 연장된다. 해당 효과는 동일한 <color=#FFFFFF>[광역 사이클론]</color> 중 1회만 발동할 수 있으며, <color=#FFFFFF>[광역 사이클론]</color>은 동시에 1개만 존재할 수 있다.\n<color=#FFFFFF>[국소 사이클론]</color>과 <color=#FFFFFF>[광역 사이클론]</color>은 소멸 시 1회 폭발하며, 해당 폭발이 <color=#A6C5FD>바람 속성 이상 상태</color>의 적에게 명중 시 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산하며, <color=#2BAD00>105%</color>와 <color=#2BAD00>175%</color> 배율의 <color=#A6C5FD>바람 속성 이상 피해</color>를 고정 결산한다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 동일한 속성의 캐릭터가 존재할 시 발동:\n벨리나가 주는 <color=#A6C5FD>[풍화]</color>와 <color=#FFFFFF>[난류]</color> 피해가 10% 증가하며, <color=#FFFFFF>[궁극기]</color> 강공격이 <color=#A6C5FD>바람 속성 이상 상태</color>의 적 명중 시, 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산하며, <color=#A6C5FD>680%</color> 배율의 <color=#A6C5FD>바람 속성 이상 피해</color>를 고정 결산한다.\n<color=#FFFFFF>[핵심 패시브: 우아한 소맷자락]</color>에서 <Term:1000016><color=#FFFFFF>[광역 사이클론]</color></Term>으로 주는 <color=#FFFFFF>속성 이상 축적 저항</color> 감소 효과가 추가로 7% 증가하고, 주는 그로기 수치가 30% 증가하며, 누적하는 속성 이상 축적치가 15% 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1561504": {
+    "level": 4,
+    "id": 1561504,
+    "name": [
+     "핵심 패시브: 우아한 소맷자락",
+     "추가 능력: 다과회 예절"
+    ],
+    "desc": [
+     "벨리나의 초기 에너지 자동 회복이 1.2 초과 시, 초과한 0.01당 주는 피해가 0.21% 증가하며(최대 35% 증가), 이상 장악력이 0.5pt 증가한다(최대 84pt 증가).\n벨리나가 전장 진입 시 <Term:1000008><color=#FFFFFF>[풍채]</color></Term> 45pt를 획득하며, 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다. 벨리나가 <color=#FFFFFF>[강화 특수 스킬: 윈드 시어·정화]</color> 혹은 <color=#FFFFFF>[강화 특수 스킬: 윈드 시어·삼중 절식]</color>을 시전하면 <color=#FFFFFF>[풍채]</color>를 45pt 획득하며, <color=#FFFFFF>[풍채]</color> 최대치는 135pt이다.\n벨리나가 <color=#FFFFFF>[난류]</color> 발동 시 <Term:1000014><color=#FFFFFF>[풍식]</color></Term> 1pt를 획득하고 <Term:1000015><color=#FFFFFF>[국소 사이클론]</color></Term>을 소환하여 <color=#A6C5FD>바람 속성 피해</color>를 준다. 해당 효과는 3초 동안 최대 1회 발동한다. 벨리나가 <color=#FFFFFF>[풍식]</color>을 2pt 보유 시, 벨리나가 다음번에 <color=#FFFFFF>[난류]</color>를 발동할 때 <color=#FFFFFF>[풍식]</color>을 2pt 소모하여 해당 <color=#FFFFFF>[난류]</color>의 피해 배율이 <color=#2BAD00>120%</color> 증가한다. 또한 <color=#FFFFFF>[국소 사이클론]</color>을 소환하는 대신 <Term:1000016><color=#FFFFFF>[광역 사이클론]</color></Term>을 소환한다. 이때는 <color=#FFFFFF>[풍식]</color>을 획득하지 않는다.\n벨리나가 소환한 <color=#FFFFFF>[광역 사이클론]</color>이 <color=#FFFFFF>[오염]</color> 상태의 적에게 처음 명중 시 <Term:1000017><color=#FFFFFF>[채색]</color></Term> 효과가 발동해 상응하는 속성의 <color=#FFFFFF>[광역 사이클론]</color>으로 전환되어 해당 속성의 피해를 주고, <color=#FFFFFF>[광역 사이클론]</color> 공격이 적에게 명중 시 적의 <color=#A6C5FD>바람 속성 이상 축적 저항</color>이 7% 감소한다. 지속 시간: 35초, 중복 발동 시 지속 시간이 갱신된다. <color=#FFFFFF>[채색]</color> 후의 <color=#FFFFFF>[광역 사이클론]</color> 공격이 적 명중 시 적의 <color=#FFFFFF>상응하는 속성 이상 축적 저항</color>도 7% 감소한다. 지속 시간: 35초, 중복 발동 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[광역 사이클론]</color>의 영향을 받은 적이 처치될 때 해당 <color=#FFFFFF>[광역 사이클론]</color>의 지속 시간이 5초 연장된다. 해당 효과는 동일한 <color=#FFFFFF>[광역 사이클론]</color> 중 1회만 발동할 수 있으며, <color=#FFFFFF>[광역 사이클론]</color>은 동시에 1개만 존재할 수 있다.\n<color=#FFFFFF>[국소 사이클론]</color>과 <color=#FFFFFF>[광역 사이클론]</color>은 소멸 시 1회 폭발하며, 해당 폭발이 <color=#A6C5FD>바람 속성 이상 상태</color>의 적에게 명중 시 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산하며, <color=#2BAD00>115%</color>와 <color=#2BAD00>195%</color> 배율의 <color=#A6C5FD>바람 속성 이상 피해</color>를 고정 결산한다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 동일한 속성의 캐릭터가 존재할 시 발동:\n벨리나가 주는 <color=#A6C5FD>[풍화]</color>와 <color=#FFFFFF>[난류]</color> 피해가 10% 증가하며, <color=#FFFFFF>[궁극기]</color> 강공격이 <color=#A6C5FD>바람 속성 이상 상태</color>의 적 명중 시, 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산하며, <color=#A6C5FD>680%</color> 배율의 <color=#A6C5FD>바람 속성 이상 피해</color>를 고정 결산한다.\n<color=#FFFFFF>[핵심 패시브: 우아한 소맷자락]</color>에서 <Term:1000016><color=#FFFFFF>[광역 사이클론]</color></Term>으로 주는 <color=#FFFFFF>속성 이상 축적 저항</color> 감소 효과가 추가로 7% 증가하고, 주는 그로기 수치가 30% 증가하며, 누적하는 속성 이상 축적치가 15% 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1561505": {
+    "level": 5,
+    "id": 1561505,
+    "name": [
+     "핵심 패시브: 우아한 소맷자락",
+     "추가 능력: 다과회 예절"
+    ],
+    "desc": [
+     "벨리나의 초기 에너지 자동 회복이 1.2 초과 시, 초과한 0.01당 주는 피해가 0.21% 증가하며(최대 35% 증가), 이상 장악력이 0.5pt 증가한다(최대 84pt 증가).\n벨리나가 전장 진입 시 <Term:1000008><color=#FFFFFF>[풍채]</color></Term> 45pt를 획득하며, 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다. 벨리나가 <color=#FFFFFF>[강화 특수 스킬: 윈드 시어·정화]</color> 혹은 <color=#FFFFFF>[강화 특수 스킬: 윈드 시어·삼중 절식]</color>을 시전하면 <color=#FFFFFF>[풍채]</color>를 45pt 획득하며, <color=#FFFFFF>[풍채]</color> 최대치는 135pt이다.\n벨리나가 <color=#FFFFFF>[난류]</color> 발동 시 <Term:1000014><color=#FFFFFF>[풍식]</color></Term> 1pt를 획득하고 <Term:1000015><color=#FFFFFF>[국소 사이클론]</color></Term>을 소환하여 <color=#A6C5FD>바람 속성 피해</color>를 준다. 해당 효과는 3초 동안 최대 1회 발동한다. 벨리나가 <color=#FFFFFF>[풍식]</color>을 2pt 보유 시, 벨리나가 다음번에 <color=#FFFFFF>[난류]</color>를 발동할 때 <color=#FFFFFF>[풍식]</color>을 2pt 소모하여 해당 <color=#FFFFFF>[난류]</color>의 피해 배율이 <color=#2BAD00>130%</color> 증가한다. 또한 <color=#FFFFFF>[국소 사이클론]</color>을 소환하는 대신 <Term:1000016><color=#FFFFFF>[광역 사이클론]</color></Term>을 소환한다. 이때는 <color=#FFFFFF>[풍식]</color>을 획득하지 않는다.\n벨리나가 소환한 <color=#FFFFFF>[광역 사이클론]</color>이 <color=#FFFFFF>[오염]</color> 상태의 적에게 처음 명중 시 <Term:1000017><color=#FFFFFF>[채색]</color></Term> 효과가 발동해 상응하는 속성의 <color=#FFFFFF>[광역 사이클론]</color>으로 전환되어 해당 속성의 피해를 주고, <color=#FFFFFF>[광역 사이클론]</color> 공격이 적에게 명중 시 적의 <color=#A6C5FD>바람 속성 이상 축적 저항</color>이 7% 감소한다. 지속 시간: 35초, 중복 발동 시 지속 시간이 갱신된다. <color=#FFFFFF>[채색]</color> 후의 <color=#FFFFFF>[광역 사이클론]</color> 공격이 적 명중 시 적의 <color=#FFFFFF>상응하는 속성 이상 축적 저항</color>도 7% 감소한다. 지속 시간: 35초, 중복 발동 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[광역 사이클론]</color>의 영향을 받은 적이 처치될 때 해당 <color=#FFFFFF>[광역 사이클론]</color>의 지속 시간이 5초 연장된다. 해당 효과는 동일한 <color=#FFFFFF>[광역 사이클론]</color> 중 1회만 발동할 수 있으며, <color=#FFFFFF>[광역 사이클론]</color>은 동시에 1개만 존재할 수 있다.\n<color=#FFFFFF>[국소 사이클론]</color>과 <color=#FFFFFF>[광역 사이클론]</color>은 소멸 시 1회 폭발하며, 해당 폭발이 <color=#A6C5FD>바람 속성 이상 상태</color>의 적에게 명중 시 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산하며, <color=#2BAD00>125%</color>와 <color=#2BAD00>215%</color> 배율의 <color=#A6C5FD>바람 속성 이상 피해</color>를 고정 결산한다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 동일한 속성의 캐릭터가 존재할 시 발동:\n벨리나가 주는 <color=#A6C5FD>[풍화]</color>와 <color=#FFFFFF>[난류]</color> 피해가 10% 증가하며, <color=#FFFFFF>[궁극기]</color> 강공격이 <color=#A6C5FD>바람 속성 이상 상태</color>의 적 명중 시, 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산하며, <color=#A6C5FD>680%</color> 배율의 <color=#A6C5FD>바람 속성 이상 피해</color>를 고정 결산한다.\n<color=#FFFFFF>[핵심 패시브: 우아한 소맷자락]</color>에서 <Term:1000016><color=#FFFFFF>[광역 사이클론]</color></Term>으로 주는 <color=#FFFFFF>속성 이상 축적 저항</color> 감소 효과가 추가로 7% 증가하고, 주는 그로기 수치가 30% 증가하며, 누적하는 속성 이상 축적치가 15% 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1561506": {
+    "level": 6,
+    "id": 1561506,
+    "name": [
+     "핵심 패시브: 우아한 소맷자락",
+     "추가 능력: 다과회 예절"
+    ],
+    "desc": [
+     "벨리나의 초기 에너지 자동 회복이 1.2 초과 시, 초과한 0.01당 주는 피해가 0.21% 증가하며(최대 35% 증가), 이상 장악력이 0.5pt 증가한다(최대 84pt 증가).\n벨리나가 전장 진입 시 <Term:1000008><color=#FFFFFF>[풍채]</color></Term> 45pt를 획득하며, 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다. 벨리나가 <color=#FFFFFF>[강화 특수 스킬: 윈드 시어·정화]</color> 혹은 <color=#FFFFFF>[강화 특수 스킬: 윈드 시어·삼중 절식]</color>을 시전하면 <color=#FFFFFF>[풍채]</color>를 45pt 획득하며, <color=#FFFFFF>[풍채]</color> 최대치는 135pt이다.\n벨리나가 <color=#FFFFFF>[난류]</color> 발동 시 <Term:1000014><color=#FFFFFF>[풍식]</color></Term> 1pt를 획득하고 <Term:1000015><color=#FFFFFF>[국소 사이클론]</color></Term>을 소환하여 <color=#A6C5FD>바람 속성 피해</color>를 준다. 해당 효과는 3초 동안 최대 1회 발동한다. 벨리나가 <color=#FFFFFF>[풍식]</color>을 2pt 보유 시, 벨리나가 다음번에 <color=#FFFFFF>[난류]</color>를 발동할 때 <color=#FFFFFF>[풍식]</color>을 2pt 소모하여 해당 <color=#FFFFFF>[난류]</color>의 피해 배율이 <color=#2BAD00>140%</color> 증가한다. 또한 <color=#FFFFFF>[국소 사이클론]</color>을 소환하는 대신 <Term:1000016><color=#FFFFFF>[광역 사이클론]</color></Term>을 소환한다. 이때는 <color=#FFFFFF>[풍식]</color>을 획득하지 않는다.\n벨리나가 소환한 <color=#FFFFFF>[광역 사이클론]</color>이 <color=#FFFFFF>[오염]</color> 상태의 적에게 처음 명중 시 <Term:1000017><color=#FFFFFF>[채색]</color></Term> 효과가 발동해 상응하는 속성의 <color=#FFFFFF>[광역 사이클론]</color>으로 전환되어 해당 속성의 피해를 주고, <color=#FFFFFF>[광역 사이클론]</color> 공격이 적에게 명중 시 적의 <color=#A6C5FD>바람 속성 이상 축적 저항</color>이 7% 감소한다. 지속 시간: 35초, 중복 발동 시 지속 시간이 갱신된다. <color=#FFFFFF>[채색]</color> 후의 <color=#FFFFFF>[광역 사이클론]</color> 공격이 적 명중 시 적의 <color=#FFFFFF>상응하는 속성 이상 축적 저항</color>도 7% 감소한다. 지속 시간: 35초, 중복 발동 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[광역 사이클론]</color>의 영향을 받은 적이 처치될 때 해당 <color=#FFFFFF>[광역 사이클론]</color>의 지속 시간이 5초 연장된다. 해당 효과는 동일한 <color=#FFFFFF>[광역 사이클론]</color> 중 1회만 발동할 수 있으며, <color=#FFFFFF>[광역 사이클론]</color>은 동시에 1개만 존재할 수 있다.\n<color=#FFFFFF>[국소 사이클론]</color>과 <color=#FFFFFF>[광역 사이클론]</color>은 소멸 시 1회 폭발하며, 해당 폭발이 <color=#A6C5FD>바람 속성 이상 상태</color>의 적에게 명중 시 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산하며, <color=#2BAD00>135%</color>와 <color=#2BAD00>235%</color> 배율의 <color=#A6C5FD>바람 속성 이상 피해</color>를 고정 결산한다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 동일한 속성의 캐릭터가 존재할 시 발동:\n벨리나가 주는 <color=#A6C5FD>[풍화]</color>와 <color=#FFFFFF>[난류]</color> 피해가 10% 증가하며, <color=#FFFFFF>[궁극기]</color> 강공격이 <color=#A6C5FD>바람 속성 이상 상태</color>의 적 명중 시, 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산하며, <color=#A6C5FD>680%</color> 배율의 <color=#A6C5FD>바람 속성 이상 피해</color>를 고정 결산한다.\n<color=#FFFFFF>[핵심 패시브: 우아한 소맷자락]</color>에서 <Term:1000016><color=#FFFFFF>[광역 사이클론]</color></Term>으로 주는 <color=#FFFFFF>속성 이상 축적 저항</color> 감소 효과가 추가로 7% 증가하고, 주는 그로기 수치가 30% 증가하며, 누적하는 속성 이상 축적치가 15% 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1561507": {
+    "level": 7,
+    "id": 1561507,
+    "name": [
+     "핵심 패시브: 우아한 소맷자락",
+     "추가 능력: 다과회 예절"
+    ],
+    "desc": [
+     "벨리나의 초기 에너지 자동 회복이 1.2 초과 시, 초과한 0.01당 주는 피해가 0.21% 증가하며(최대 35% 증가), 이상 장악력이 0.5pt 증가한다(최대 84pt 증가).\n벨리나가 전장 진입 시 <Term:1000008><color=#FFFFFF>[풍채]</color></Term> 45pt를 획득하며, 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다. 벨리나가 <color=#FFFFFF>[강화 특수 스킬: 윈드 시어·정화]</color> 혹은 <color=#FFFFFF>[강화 특수 스킬: 윈드 시어·삼중 절식]</color>을 시전하면 <color=#FFFFFF>[풍채]</color>를 45pt 획득하며, <color=#FFFFFF>[풍채]</color> 최대치는 135pt이다.\n벨리나가 <color=#FFFFFF>[난류]</color> 발동 시 <Term:1000014><color=#FFFFFF>[풍식]</color></Term> 1pt를 획득하고 <Term:1000015><color=#FFFFFF>[국소 사이클론]</color></Term>을 소환하여 <color=#A6C5FD>바람 속성 피해</color>를 준다. 해당 효과는 3초 동안 최대 1회 발동한다. 벨리나가 <color=#FFFFFF>[풍식]</color>을 2pt 보유 시, 벨리나가 다음번에 <color=#FFFFFF>[난류]</color>를 발동할 때 <color=#FFFFFF>[풍식]</color>을 2pt 소모하여 해당 <color=#FFFFFF>[난류]</color>의 피해 배율이 <color=#2BAD00>150%</color> 증가한다. 또한 <color=#FFFFFF>[국소 사이클론]</color>을 소환하는 대신 <Term:1000016><color=#FFFFFF>[광역 사이클론]</color></Term>을 소환한다. 이때는 <color=#FFFFFF>[풍식]</color>을 획득하지 않는다.\n벨리나가 소환한 <color=#FFFFFF>[광역 사이클론]</color>이 <color=#FFFFFF>[오염]</color> 상태의 적에게 처음 명중 시 <Term:1000017><color=#FFFFFF>[채색]</color></Term> 효과가 발동해 상응하는 속성의 <color=#FFFFFF>[광역 사이클론]</color>으로 전환되어 해당 속성의 피해를 주고, <color=#FFFFFF>[광역 사이클론]</color> 공격이 적에게 명중 시 적의 <color=#A6C5FD>바람 속성 이상 축적 저항</color>이 7% 감소한다. 지속 시간: 35초, 중복 발동 시 지속 시간이 갱신된다. <color=#FFFFFF>[채색]</color> 후의 <color=#FFFFFF>[광역 사이클론]</color> 공격이 적 명중 시 적의 <color=#FFFFFF>상응하는 속성 이상 축적 저항</color>도 7% 감소한다. 지속 시간: 35초, 중복 발동 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[광역 사이클론]</color>의 영향을 받은 적이 처치될 때 해당 <color=#FFFFFF>[광역 사이클론]</color>의 지속 시간이 5초 연장된다. 해당 효과는 동일한 <color=#FFFFFF>[광역 사이클론]</color> 중 1회만 발동할 수 있으며, <color=#FFFFFF>[광역 사이클론]</color>은 동시에 1개만 존재할 수 있다.\n<color=#FFFFFF>[국소 사이클론]</color>과 <color=#FFFFFF>[광역 사이클론]</color>은 소멸 시 1회 폭발하며, 해당 폭발이 <color=#A6C5FD>바람 속성 이상 상태</color>의 적에게 명중 시 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산하며, <color=#2BAD00>145%</color>와 <color=#2BAD00>255%</color> 배율의 <color=#A6C5FD>바람 속성 이상 피해</color>를 고정 결산한다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 동일한 속성의 캐릭터가 존재할 시 발동:\n벨리나가 주는 <color=#A6C5FD>[풍화]</color>와 <color=#FFFFFF>[난류]</color> 피해가 10% 증가하며, <color=#FFFFFF>[궁극기]</color> 강공격이 <color=#A6C5FD>바람 속성 이상 상태</color>의 적 명중 시, 타깃에게 <color=#FFFFFF>[난개]</color> 피해를 1회 주어 속성 이상 피해를 추가로 1회 더 결산하며, <color=#A6C5FD>680%</color> 배율의 <color=#A6C5FD>바람 속성 이상 피해</color>를 고정 결산한다.\n<color=#FFFFFF>[핵심 패시브: 우아한 소맷자락]</color>에서 <Term:1000016><color=#FFFFFF>[광역 사이클론]</color></Term>으로 주는 <color=#FFFFFF>속성 이상 축적 저항</color> 감소 효과가 추가로 7% 증가하고, 주는 그로기 수치가 30% 증가하며, 누적하는 속성 이상 축적치가 15% 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110515": 2
+   },
+   "3": {
+    "10": 28000,
+    "110515": 4
+   },
+   "4": {
+    "10": 60000,
+    "110010": 2,
+    "110515": 9
+   },
+   "5": {
+    "10": 100000,
+    "110010": 3,
+    "110515": 15
+   },
+   "6": {
+    "10": 200000,
+    "110010": 4,
+    "110515": 30
+   }
+  }
+ },
+ "skin": {
+  "3115610": {
+   "name": "벨리나·우아한 은빛 폭포",
+   "desc": "호기심 많은 사람들 사이에선 총무관이 외무전략국의 제식 복장을 거부한 것이 가문의 위신을 드러내기 위해서라는 소문이 돌았다. 하지만 벨리나는 화려한 의복에 관심을 가졌던 적이 없다. 격식을 차리는 자리에서 화려한 복장보단 간결한 차림새를 더 선호했다——단정하고 단아하며, 끝없이 이어지는 공무에 충분히 대응할 수 있는 복장 말이다.",
+   "obtain_desc": "",
+   "image": "IconRole64"
+  },
+  "3115611": {
+   "name": "벨리나·여유로운 실루엣",
+   "desc": "벨리나는 업무 외 여가 시간이면 친구들을 오후 다과회에 초대해, 비교적 편한 복장으로 갈아입고 한가로운 시간을 즐기곤 한다… 「Bangboo」들에게는 이마저도 사신이 또 다른 무시무시한 모습으로 변장한 것처럼 보일 뿐이지만.",
+   "obtain_desc": "",
+   "image": "IconRole64_01"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1561001": {
+   "name": "일반 공격: 부채춤",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1561002": {
+   "name": "특수 스킬: 윈드 시어·탁류",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1561003": {
+   "name": "강화 특수 스킬: 윈드 시어·정화",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1561004": {
+   "name": "강화 특수 스킬: 윈드 시어·삼중 절식",
+   "desc": "<IconMap:Icon_SpecialReady> ; <IconMap:Icon_SpecialReady> 혹은 <IconMap:Icon_SpecialReady>(홀드)",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1561005": {
+   "name": "강화 특수 스킬: 윈드 시어·폭풍의 눈",
+   "desc": "<IconMap:Icon_Special>(홀드) 혹은 <IconMap:Icon_Normal>(홀드)",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1561006": {
+   "name": "대시 공격: 바람을 타고",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1561007": {
+   "name": "회피 반격: 구름 가르기",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1561008": {
+   "name": "콤보 스킬: 흩날리는 은유",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1561009": {
+   "name": "궁극기: 바람의 포효",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1561010": {
+   "name": "빠른 지원: 긴급 대비책",
+   "desc": "<IconMap:Icon_Switch>(빠른 지원 발동 시)",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1561011": {
+   "name": "패링 지원: 재량 개입",
+   "desc": "<IconMap:Icon_Switch>(패링 지원 발동 시)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1561012": {
+   "name": "지원 돌격: 협상 기술",
+   "desc": "<IconMap:Icon_Normal>(패링 지원 시전 후)",
+   "element_type": 204,
+   "hit_type": 101,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1561001,
+   "avatar_id": 1561,
+   "first_priority": [
+    5,
+    1
+   ],
+   "second_priority": [
+    3
+   ],
+   "third_priority": [
+    0,
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33900,
+  "slot2": 31600,
+  "slot_sub": 33400,
+  "part_sub_list": [
+   31203,
+   12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33900,
+     31600
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [
+     33900,
+     33400
+    ],
+    "part_sub_list": [
+     32303
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     30502
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 30502,
+   "name": "에너지 자동 회복",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconSpRecover.png"
+  },
+  "part5": {
+   "prop": 31203,
+   "name": "이상 마스터리",
+   "format": "{0:0}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementMystery.png"
+  },
+  "part6": {
+   "prop": 32303,
+   "name": "바람 속성 피해 보너스",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconWind.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "공격력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": {},
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100213": 4
+   }
+  },
+  "2": {
+   "hp_max": 430,
+   "attack": 45,
+   "defence": 34,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100223": 12
+   }
+  },
+  "3": {
+   "hp_max": 859,
+   "attack": 90,
+   "defence": 68,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100223": 20
+   }
+  },
+  "4": {
+   "hp_max": 1289,
+   "attack": 134,
+   "defence": 101,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100233": 10
+   }
+  },
+  "5": {
+   "hp_max": 1719,
+   "attack": 179,
+   "defence": 135,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100233": 20
+   }
+  },
+  "6": {
+   "hp_max": 2149,
+   "attack": 224,
+   "defence": 169,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "31201": {
+     "prop": 31201,
+     "name": "이상 마스터리",
+     "format": "{0:0}",
+     "value": 18
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31201": {
+     "prop": 31201,
+     "name": "이상 마스터리",
+     "format": "{0:0}",
+     "value": 18
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31201": {
+     "prop": 31201,
+     "name": "이상 마스터리",
+     "format": "{0:0}",
+     "value": 36
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31201": {
+     "prop": 31201,
+     "name": "이상 마스터리",
+     "format": "{0:0}",
+     "value": 36
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31201": {
+     "prop": 31201,
+     "name": "이상 마스터리",
+     "format": "{0:0}",
+     "value": 54
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "31201": {
+     "prop": 31201,
+     "name": "이상 마스터리",
+     "format": "{0:0}",
+     "value": 54
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpineVelina"
+}

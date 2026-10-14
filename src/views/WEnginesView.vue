@@ -13,6 +13,10 @@ import { listFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
 import type { WEngineListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
+import { pickText } from '@/domain/lang'
+import { fmt } from '@/domain/uiText'
+import { useLocale } from '@/composables/useLocale'
+import { useUiText } from '@/composables/useUiText'
 import { stripRichText } from '@/utils/text'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { catalogEntry } from '@/domain/catalog'
@@ -27,7 +31,13 @@ usePageMeta()
 const cat = catalogEntry('/w-engines')
 const base = cat.path
 
-const { data, status, error, reload } = useAsyncResource(() => listFor<WEngineListItem>(cat))
+/** 当前展示语言：名录里的音擎效果文本与主/副属性名都是构建期按语言注入的，故语言一变要重新取数 */
+const { lang } = useLocale()
+const { t } = useUiText()
+
+const { data, status, error, reload } = useAsyncResource(() =>
+  listFor<WEngineListItem>(cat, lang.value),
+)
 
 /** 检索面：名称 + 音擎效果（效果名与正文）。正文走 stripRichText，
  *  否则查询会命中 <color=#…> 这类标记本身（如输入 "color" 全表皆中）。 */
@@ -44,7 +54,7 @@ const { sorted } = useCatalogSort(
   filtered,
   [
     { key: 'id', value: (r) => r.Id },
-    { key: 'name', value: (r) => pickName(r) },
+    { key: 'name', value: (r) => pickName(r, lang.value) },
     { key: 'rarity', value: (r) => r.rank ?? -1 },
   ],
   { defaultKey: 'id', defaultDir: 'desc', syncRoute: true },
@@ -53,12 +63,16 @@ const { sorted } = useCatalogSort(
 /** 卡片「基础属性」块：复用详情页同一取值函数（sections.wEnginePropsAtLevel），
  *  故卡片上的满级面板与详情页默认档逐字一致；名录缺满级值（atk）时该函数回退 Lv.1 静态值。 */
 function specsOf(r: WEngineListItem): StatItem[] {
-  return wEnginePropsAtLevel(W_ENGINE_LEVEL_MAX, r.base_property, r.rand_property, r.atk)
+  return wEnginePropsAtLevel(W_ENGINE_LEVEL_MAX, r.base_property, r.rand_property, r.atk, lang.value)
 }
 
-/** 卡片标注的档位：有名录满级值才敢说「满级」，否则如实说回退档（Lv.1 静态值） */
+/** 卡片标注的档位：有名录满级值才敢说「满级」，否则如实说回退档（Lv.1 静态值）。
+ *  文案取当前语言的 `detail.maxLevelNote`（「满级 Lv.{n}」/「Max Lv.{n}」…）——
+ *  原先写死中文，非中文读者会在每张卡的属性块下看到中文。 */
 function specNoteOf(r: WEngineListItem): string {
-  return r.atk != null ? `满级 Lv.${W_ENGINE_LEVEL_MAX}` : `Lv.${W_ENGINE_LEVEL_MIN}`
+  return r.atk != null
+    ? fmt(t.value.detail.maxLevelNote, { n: W_ENGINE_LEVEL_MAX })
+    : `Lv.${W_ENGINE_LEVEL_MIN}`
 }
 </script>
 
@@ -66,9 +80,9 @@ function specNoteOf(r: WEngineListItem): string {
   <ListPage>
     <header v-reveal class="page-head">
       <p class="eyebrow mono">W-Engines</p>
-      <h1 class="page-title">音擎</h1>
+      <h1 class="page-title">{{ pickText(cat.label, lang) }}</h1>
       <p class="page-sub">
-        武装终端图鉴。满级面板与音擎效果直接陈列于卡片中；可按职业定位筛选，或按名称、效果检索。
+        {{ t.list.wenginesIntro }}
       </p>
     </header>
 
@@ -80,7 +94,7 @@ function specNoteOf(r: WEngineListItem): string {
           @update:prof="profFilter = $event"
         />
       </div>
-      <SearchField v-model="query" :count="count" placeholder="检索音擎或效果…" />
+      <SearchField v-model="query" :count="count" :placeholder="t.list.searchWEngine" />
     </section>
 
     <!-- 空态分工：AsyncState 只管「数据级为空」；「筛掉全部结果」由 CardGrid 承担 -->
@@ -99,7 +113,7 @@ function specNoteOf(r: WEngineListItem): string {
         :items="sorted"
         :key-of="(r) => r.Id"
         min-column="300px"
-        empty-text="无匹配音擎"
+        :empty-text="t.noMatch.wengines"
         :show-clear="hasActiveFilter"
         @clear="reset"
       >
@@ -108,8 +122,8 @@ function specNoteOf(r: WEngineListItem): string {
             :to="`${base}/${r.Id}`"
             :srcs="iconSources({ Id: r.Id, icon: r.icon }, 'weapon', 'thumb')"
             alt=""
-            :fallback="pickName(r)"
-            :name="pickName(r)"
+            :fallback="pickName(r, lang)"
+            :name="pickName(r, lang)"
             thumb="square"
             name-style="card"
           />
@@ -120,7 +134,7 @@ function specNoteOf(r: WEngineListItem): string {
           </div>
 
           <!-- 数值账目排印（点线规格表），与详情页基础属性同语言 -->
-          <CardBlock v-if="r.base_property?.value != null" label="基础属性" variant="plain">
+          <CardBlock v-if="r.base_property?.value != null" :label="t.detail.baseProps" variant="plain">
             <template #note>{{ specNoteOf(r) }}</template>
             <dl class="specs">
               <div v-for="s in specsOf(r)" :key="s.label" class="spec">
@@ -131,8 +145,11 @@ function specNoteOf(r: WEngineListItem): string {
             </dl>
           </CardBlock>
 
-          <CardBlock v-if="r.effect_desc" label="音擎效果">
-            <template #note>{{ r.effect_refine ? `精炼 ${r.effect_refine} 阶` : '' }}</template>
+          <CardBlock v-if="r.effect_desc" :label="t.list.wengineEffect">
+            <!-- 精炼档位：复用详情页同一条文案键（原先内联中文，与 t.detail.refineRank 重复） -->
+            <template #note>{{
+              r.effect_refine ? fmt(t.detail.refineRank, { n: r.effect_refine }) : ''
+            }}</template>
             <p v-if="r.effect_name" class="effect-name">{{ r.effect_name }}</p>
             <p class="effect-txt">{{ stripRichText(r.effect_desc) }}</p>
           </CardBlock>

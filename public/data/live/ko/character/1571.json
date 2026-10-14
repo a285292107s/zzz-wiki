@@ -1,0 +1,2269 @@
+{
+ "id": 1571,
+ "icon": "IconRole65",
+ "name": "노르마",
+ "code_name": "Norma",
+ "rarity": 4,
+ "weapon_type": {
+  "2": "Stun"
+ },
+ "element_type": {
+  "201": "Fire"
+ },
+ "hit_type": {
+  "102": "Strike"
+ },
+ "camp": {
+  "16": "로스캘리퍼"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "7/26",
+  "full_name": "노르마 할로웰",
+  "gender": "여성",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle65.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0065.png",
+  "impression_f": "이제 우리 집 「Bangboo」한테 무슨 복잡한 고장이 생겨도, 아이를 「진료」해 줄 곳이 없을까 봐 걱정할 필요 없겠네~!",
+  "impression_m": "난 이제 동물 병원에 가기 싫어하는 반려동물의 심정을 좀 이해할 것 같아",
+  "impressions": [
+   "노르마에 대한 인상:\n · 수석 「Bangboo」 전문가이자, 수석 트러블 메이커",
+   " · 오늘 일으킨 사고는 「웅나」로 얼버무리자",
+   " · 모든 회로를 만지는 것은, 심장 박동 하나하나를 만지는 것과 같다"
+  ],
+  "profile_desc": "노르마, 외무전략국 수석 기술관이자 마르셀 그룹 기술 센터의 핵심 인물이다. 타이틀이 아무리 길고 복잡해도, 어린 노르마 양은 의심할 여지 없이 현재 「Bangboo」 기술 분야의 일인자급 인물이다. 태양을 가져온 자 본인조차도 노르마보다 「Bangboo」 기체 속 모든 톱니바퀴와 칩을 더 잘 이해한다고 할 수 없을 것이다.\n\n천재 과학자에 대한 고정관념에 가장 부합하는 사람으로, 공학 기술의 뛰어난 역량과 대인 관계 능력이 반비례한다. 벨리나가 제정한 〈예절 지침서〉를 진지하게 대하지만, 진지하게 실행한 적은 단 한 번도 없다.\n\n성능 지상주의자로, 급진적인 「Bangboo」 개조 기술과 다소 배려가 부족한 행동 방식 때문에 한때 「Bangboo」들의 두려움을 샀으며, 수단과 방법을 가리지 않는 무서운 과학자로 여겨졌다——비슷한 견해를 가진 이들 중에는 외무전략국 실험실의 안전 엔지니어들이 있을지도 모른다.\n\n「수석 전문가」라는 타이틀이 노르마에게 「Bangboo」 기술자라는 왕관을 씌워준 것이 아니라, 노르마 자체가 마르셀 그룹 기술 정점의 상징이라고 할 수 있다.",
+  "role_icon": "IconRole/UnPacker/IconRole65",
+  "stature": "150",
+  "unlock_condition": [
+   "에이전트 획득",
+   "메인 의뢰 시즌 3 제1장 완료",
+   "「엔비의 고민」 의뢰 완료"
+  ],
+  "trust_lv": {
+   "1": "노르마, 외무전략국 수석 기술관이자 마르셀 그룹 기술 센터의 핵심 인물이다. 타이틀이 아무리 길고 복잡해도, 어린 노르마 양은 의심할 여지 없이 현재 「Bangboo」 기술 분야의 일인자급 인물이다. 태양을 가져온 자 본인조차도 노르마보다 「Bangboo」 기체 속 모든 톱니바퀴와 칩을 더 잘 이해한다고 할 수 없을 것이다.\n\n천재 과학자에 대한 고정관념에 가장 부합하는 사람으로, 공학 기술의 뛰어난 역량과 대인 관계 능력이 반비례한다. 벨리나가 제정한 〈예절 지침서〉를 진지하게 대하지만, 진지하게 실행한 적은 단 한 번도 없다.\n\n성능 지상주의자로, 급진적인 「Bangboo」 개조 기술과 다소 배려가 부족한 행동 방식 때문에 한때 「Bangboo」들의 두려움을 샀으며, 수단과 방법을 가리지 않는 무서운 과학자로 여겨졌다——비슷한 견해를 가진 이들 중에는 외무전략국 실험실의 안전 엔지니어들이 있을지도 모른다.\n\n「수석 전문가」라는 타이틀이 노르마에게 「Bangboo」 기술자라는 왕관을 씌워준 것이 아니라, 노르마 자체가 마르셀 그룹 기술 정점의 상징이라고 할 수 있다.",
+   "2": "",
+   "3": "자신의 기술에 대한 절대적인 자신감을 가지고 있으며, 항상 새로운 것을 좇고 경계를 탐색하려는 호기심을 품고 있다. 그 호기심을 충족시키는 수단은 입장에 따라 「천진함」과 「끔찍함」으로 각각 묘사될 수 있다.\n\n예리한 통찰력을 지녀 보통 사람은 이해하기 어려운 사물 간의 연관성을 포착할 수 있으며, 문제를 해결하는 방식 또한 기상천외하다.\n\n「Bangboo」들에게 두려움의 대상이지만, 그럼에도 수많은 「Bangboo」를 속여 자신의 실험 프로젝트에 참여시킬 수 있다. 비결은 모든 「Bangboo」 및 미취학 아동들과도 친해질 수 있는 뛰어난 사교 수완에 있다(세상 물정 모르는 「Bangboo」와 아이들 앞에서만 유효하다)\n\n노르마의 행동 방식은 그 사정을 모르는 사람과 「Bangboo」를 당황하게 만들지만, 그녀가 「Bangboo」 기술에 이토록 열정적인 이유는 과학자로서의 호기심 외에도 태양을 가져온 자의 「Bangboo」 기술을 계승한다는 무게감 때문이기도 하다.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 110,
+  "attack_growth": 64646,
+  "avatar_piece_id": 5571,
+  "break_stun": 106,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 47,
+  "defence_growth": 63487,
+  "element_abnormal_power": 99,
+  "element_mystery": 98,
+  "endurance": 0,
+  "hp_growth": 851001,
+  "hp_max": 627,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Norma",
+   "Punch",
+   "Fire",
+   "Female",
+   "Camp16",
+   "Size01",
+   "AidTypeParry",
+   "Norma",
+   "EtherEyesSize2"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "일반 공격: 공학적 안전장치",
+     "desc": "<IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 향해 최대 4단까지 공격을 펼쳐 <color=#FF5521>불 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 모자 트릭",
+     "desc": "노르마가 현재 조작 중인 캐릭터이며 교전 상태일 때, 매초 <color=#FFFFFF>[약실 예열]</color>을 1.5% 획득한다.\n머리에 <color=#FFFFFF>[동행하는 모자]</color>가 있을 때 <IconMap:Icon_Normal>을 홀드하여 시전: \n포격 후 <color=#FFFFFF>[동행하는 모자]</color>를 던져 <color=#FFFFFF>[동행하는 모자]</color>가 한 차례의 공중 사격을 시전하여 <color=#FF5521>불 속성 피해</color>를 주며 <color=#FFFFFF>[약실 예열]</color>을 임시 저장한다.\n스킬이 적 명중 시 이전 캐릭터의 <color=#FFFFFF>[빠른 지원]</color>이 발동된다. 5초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[동행하는 모자]</color>가 던져진 후, 노르마를 대신하여 동일한 속도로 <color=#FFFFFF>[약실 예열]</color>을 누적 및 임시 저장하며, 해당 기간 동안 노르마는 출전 상태일 필요가 없다.\n노르마가 <color=#FFFFFF>[동행하는 모자]</color>를 다시 집어 든 후, 임시 저장된 <color=#FFFFFF>[약실 예열]</color>을 즉시 획득한다.\n<IconMap:Icon_Normal>을 홀드할 시 <color=#FFFFFF>[동행하는 모자]</color>가 빠르게 노르마에게 달려온다.\n노르마가 <color=#FFFFFF>[동행하는 모자]</color>를 집어 든 후의 <color=#FFFFFF>[약실 예열]</color>이 80%에 도달할 수 있는 경우, <color=#FFFFFF>[동행하는 모자]</color>가 자동으로 빠르게 노르마에게 달려온다.\n노르마가 출전에서 대기로 교체되고 교전 상태일 때, <color=#FFFFFF>[약실 예열]</color>이 가득 차지 않은 경우, <color=#FFFFFF>[동행하는 모자]</color>가 자동으로 전장에 뛰어든다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 공학적 안전장치",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1571001, Prop:1001}",
+       "param": {
+        "1571001": {
+         "main": 2610,
+         "growth": 240,
+         "format": "%",
+         "damage_percentage": 2610,
+         "damage_percentage_growth": 240,
+         "stun_ratio": 1560,
+         "stun_ratio_growth": 80,
+         "sp_recovery": 7690,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 94050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2839,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4270
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1571002, Prop:1001}",
+       "param": {
+        "1571002": {
+         "main": 3780,
+         "growth": 350,
+         "format": "%",
+         "damage_percentage": 3780,
+         "damage_percentage_growth": 350,
+         "stun_ratio": 2030,
+         "stun_ratio_growth": 100,
+         "sp_recovery": 8130,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 99550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3175,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4515
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1571003, Prop:1001}",
+       "param": {
+        "1571003": {
+         "main": 7330,
+         "growth": 670,
+         "format": "%",
+         "damage_percentage": 7330,
+         "damage_percentage_growth": 670,
+         "stun_ratio": 3780,
+         "stun_ratio_growth": 180,
+         "sp_recovery": 13900,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 169950,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5575,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7720
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 피해 배율",
+       "desc": "{Skill:1571004, Prop:1001}",
+       "param": {
+        "1571004": {
+         "main": 14090,
+         "growth": 1290,
+         "format": "%",
+         "damage_percentage": 14090,
+         "damage_percentage_growth": 1290,
+         "stun_ratio": 8830,
+         "stun_ratio_growth": 410,
+         "sp_recovery": 27310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 333850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11598,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1571001, Prop:1002}",
+       "param": {
+        "1571001": {
+         "main": 1560,
+         "growth": 80,
+         "format": "%",
+         "damage_percentage": 2610,
+         "damage_percentage_growth": 240,
+         "stun_ratio": 1560,
+         "stun_ratio_growth": 80,
+         "sp_recovery": 7690,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 94050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2839,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4270
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1571002, Prop:1002}",
+       "param": {
+        "1571002": {
+         "main": 2030,
+         "growth": 100,
+         "format": "%",
+         "damage_percentage": 3780,
+         "damage_percentage_growth": 350,
+         "stun_ratio": 2030,
+         "stun_ratio_growth": 100,
+         "sp_recovery": 8130,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 99550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3175,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4515
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1571003, Prop:1002}",
+       "param": {
+        "1571003": {
+         "main": 3780,
+         "growth": 180,
+         "format": "%",
+         "damage_percentage": 7330,
+         "damage_percentage_growth": 670,
+         "stun_ratio": 3780,
+         "stun_ratio_growth": 180,
+         "sp_recovery": 13900,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 169950,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5575,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7720
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 그로기 배율",
+       "desc": "{Skill:1571004, Prop:1002}",
+       "param": {
+        "1571004": {
+         "main": 8830,
+         "growth": 410,
+         "format": "%",
+         "damage_percentage": 14090,
+         "damage_percentage_growth": 1290,
+         "stun_ratio": 8830,
+         "stun_ratio_growth": 410,
+         "sp_recovery": 27310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 333850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11598,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15171
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 모자 트릭",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1571005, Prop:1001}",
+       "param": {
+        "1571005": {
+         "main": 5690,
+         "growth": 520,
+         "format": "%",
+         "damage_percentage": 5690,
+         "damage_percentage_growth": 520,
+         "stun_ratio": 3400,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 16800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 205425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6208,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1571005, Prop:1002}",
+       "param": {
+        "1571005": {
+         "main": 3400,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 5690,
+         "damage_percentage_growth": 520,
+         "stun_ratio": 3400,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 16800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 205425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6208,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9334
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "회피: 개발 규범",
+     "desc": "<IconMap:Icon_Evade>을 짧게 탭하여 시전:\n빠른 대시로 회피한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 데드라인 러시",
+     "desc": "회피 중 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n회전하며 주변에 발포하여 <color=#FF5521>불 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 규정 준수 테스트",
+     "desc": "<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n쿵쿵 드릴이 지속적으로 공격해 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 데드라인 러시",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1571016, Prop:1001}",
+       "param": {
+        "1571016": {
+         "main": 8230,
+         "growth": 750,
+         "format": "%",
+         "damage_percentage": 8230,
+         "damage_percentage_growth": 750,
+         "stun_ratio": 3490,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11400,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 69850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3164,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3165
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1571016, Prop:1002}",
+       "param": {
+        "1571016": {
+         "main": 3490,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 8230,
+         "damage_percentage_growth": 750,
+         "stun_ratio": 3490,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11400,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 69850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3164,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3165
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 규정 준수 테스트",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1571017, Prop:1001}",
+       "param": {
+        "1571017": {
+         "main": 31310,
+         "growth": 2850,
+         "format": "%",
+         "damage_percentage": 31310,
+         "damage_percentage_growth": 2850,
+         "stun_ratio": 22920,
+         "stun_ratio_growth": 1050,
+         "sp_recovery": 39010,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 238425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1571017, Prop:1002}",
+       "param": {
+        "1571017": {
+         "main": 22920,
+         "growth": 1050,
+         "format": "%",
+         "damage_percentage": 31310,
+         "damage_percentage_growth": 2850,
+         "stun_ratio": 22920,
+         "stun_ratio_growth": 1050,
+         "sp_recovery": 39010,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 238425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "특수 스킬: 고온 용단",
+     "desc": "<IconMap:Icon_Special>을 짧게 탭하여 시전:\n포격으로 <color=#FF5521>불 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 웅나 탄막",
+     "desc": "에너지가 충분한 상태에서 <IconMap:Icon_SpecialReady>을 짧게 탭하여 시전:\n포탑을 조종하여 연속 사격하며 적의 상태에 따라 다른 타입의 미사일을 발사한다:\n주요 공격 타깃이 그로기 상태가 아닐 때, 파괴 탄두를 발사하여 <color=#FF5521>불 속성 피해</color>를 주고 <color=#FFFFFF>그로기 수치</color>를 다량 누적한다.\n주요 공격 타깃이 그로기 상태일 때, 고폭 탄두를 발사하여 더 높은 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬 시전 후, 노르마는 <Term:1000011><color=#FFFFFF>[약실 예열]</color></Term>을 16% 획득하고 <color=#FFFFFF>[웅나 탄막]</color> 상태에 진입한다. 지속 시간: 32초, <color=#FFFFFF>[웅나 탄막]</color> 상태 동안 노르마는 <color=#FFFFFF>[웅나 포탑]</color> 2개를 배치하여 전투에 가담시킨다.\n홀드를 유지하면 에너지를 지속 소모하며 최대 2초 사격 시간을 연장할 수 있다. 홀드로 소모하는 에너지 1pt당 노르마가 추가로 <color=#FFFFFF>[약실 예열]</color>을 0.4% 획득하고, 이번 <color=#FFFFFF>[웅나 탄막]</color> 상태의 지속 시간이 추가로 0.8초 증가한다. 최대 {CAL:2*20*0.8,1,2}초 증가한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 사격 연습",
+     "desc": "전투 중 <Term:1000010><color=#FFFFFF>[웅나 포탑]</color></Term>이 자동으로 적을 공격하여 <color=#FF5521>불 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 화력 실험",
+     "desc": "파티 내 임의의 캐릭터가 적을 그로기 상태로 만들거나, 노르마가 <Term:1000011><color=#FFFFFF>[약실 예열]</color></Term>을 소모하여 <color=#FFFFFF>[콤보 스킬]</color>을 발동할 시, <Term:1000010><color=#FFFFFF>[웅나 포탑]</color></Term>이 미사일 격납고를 연다. 지속 시간: 8초, 중복 발동 시 지속 시간이 갱신된다.\n해당 기간 동안 <color=#FFFFFF>[웅나 포탑]</color>의 자동 공격 간격이 감소하며, 자동 공격 시 적의 상태에 따라 서로 다른 타입의 미사일을 추가 발사한다:\n주요 공격 타깃이 그로기 상태가 아닐 때, 파괴 탄두를 발사하여 <color=#FF5521>불 속성 피해</color>를 주고 <color=#FFFFFF>그로기 수치</color>를 다량 누적한다.\n주요 공격 타깃이 그로기 상태일 때, 고폭 탄두를 발사하여 더 높은 <color=#FF5521>불 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 고온 용단",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1571006, Prop:1001}",
+       "param": {
+        "1571006": {
+         "main": 1500,
+         "growth": 140,
+         "format": "%",
+         "damage_percentage": 1500,
+         "damage_percentage_growth": 140,
+         "stun_ratio": 1690,
+         "stun_ratio_growth": 80,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 84425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2683,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1571006, Prop:1002}",
+       "param": {
+        "1571006": {
+         "main": 1690,
+         "growth": 80,
+         "format": "%",
+         "damage_percentage": 1500,
+         "damage_percentage_growth": 140,
+         "stun_ratio": 1690,
+         "stun_ratio_growth": 80,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 84425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2683,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 웅나 탄막",
+     "param": [
+      {
+       "name": "사격 피해 배율",
+       "desc": "{Skill:1571007, Prop:1001}",
+       "param": {
+        "1571007": {
+         "main": 20540,
+         "growth": 1870,
+         "format": "%",
+         "damage_percentage": 20540,
+         "damage_percentage_growth": 1870,
+         "stun_ratio": 14390,
+         "stun_ratio_growth": 660,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 407275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14435,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4933
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "사격 그로기 배율",
+       "desc": "{Skill:1571007, Prop:1002}",
+       "param": {
+        "1571007": {
+         "main": 14390,
+         "growth": 660,
+         "format": "%",
+         "damage_percentage": 20540,
+         "damage_percentage_growth": 1870,
+         "stun_ratio": 14390,
+         "stun_ratio_growth": 660,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 407275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14435,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4933
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "파괴 탄두 피해 배율",
+       "desc": "{Skill:1571008, Prop:1001}",
+       "param": {
+        "1571008": {
+         "main": 30800,
+         "growth": 2800,
+         "format": "%",
+         "damage_percentage": 30800,
+         "damage_percentage_growth": 2800,
+         "stun_ratio": 21580,
+         "stun_ratio_growth": 990,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 610910,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 21653,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7400
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "파괴 탄두 그로기 배율",
+       "desc": "{Skill:1571008, Prop:1002}",
+       "param": {
+        "1571008": {
+         "main": 21580,
+         "growth": 990,
+         "format": "%",
+         "damage_percentage": 30800,
+         "damage_percentage_growth": 2800,
+         "stun_ratio": 21580,
+         "stun_ratio_growth": 990,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 610910,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 21653,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7400
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "고폭 탄두 피해 배율",
+       "desc": "{Skill:1571009, Prop:1001}",
+       "param": {
+        "1571009": {
+         "main": 34140,
+         "growth": 3110,
+         "format": "%",
+         "damage_percentage": 34140,
+         "damage_percentage_growth": 3110,
+         "stun_ratio": 17270,
+         "stun_ratio_growth": 790,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 610910,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 21653,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7400
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "고폭 탄두 그로기 배율",
+       "desc": "{Skill:1571009, Prop:1002}",
+       "param": {
+        "1571009": {
+         "main": 17270,
+         "growth": 790,
+         "format": "%",
+         "damage_percentage": 34140,
+         "damage_percentage_growth": 3110,
+         "stun_ratio": 17270,
+         "stun_ratio_growth": 790,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 610910,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 21653,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7400
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "시전에 필요한 에너지",
+       "desc": "40pt",
+       "potential": []
+      },
+      {
+       "name": "연장 사격 초당 피해 배율",
+       "desc": "{Skill:1571010, Prop:1001}",
+       "param": {
+        "1571010": {
+         "main": 13060,
+         "growth": 1190,
+         "format": "%",
+         "damage_percentage": 13060,
+         "damage_percentage_growth": 1190,
+         "stun_ratio": 9390,
+         "stun_ratio_growth": 430,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 254375,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9288,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연장 사격 초당 그로기 배율",
+       "desc": "{Skill:1571010, Prop:1002}",
+       "param": {
+        "1571010": {
+         "main": 9390,
+         "growth": 430,
+         "format": "%",
+         "damage_percentage": 13060,
+         "damage_percentage_growth": 1190,
+         "stun_ratio": 9390,
+         "stun_ratio_growth": 430,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 254375,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9288,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연장 사격 파괴 탄두 초당 피해 배율",
+       "desc": "{Skill:1571011, Prop:1001}",
+       "param": {
+        "1571011": {
+         "main": 19590,
+         "growth": 1790,
+         "format": "%",
+         "damage_percentage": 19590,
+         "damage_percentage_growth": 1790,
+         "stun_ratio": 14090,
+         "stun_ratio_growth": 650,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 381560,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13932,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연장 사격 파괴 탄두 초당 그로기 배율",
+       "desc": "{Skill:1571011, Prop:1002}",
+       "param": {
+        "1571011": {
+         "main": 14090,
+         "growth": 650,
+         "format": "%",
+         "damage_percentage": 19590,
+         "damage_percentage_growth": 1790,
+         "stun_ratio": 14090,
+         "stun_ratio_growth": 650,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 381560,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13932,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연장 사격 고폭 탄두 초당 피해 배율",
+       "desc": "{Skill:1571012, Prop:1001}",
+       "param": {
+        "1571012": {
+         "main": 21670,
+         "growth": 1970,
+         "format": "%",
+         "damage_percentage": 21670,
+         "damage_percentage_growth": 1970,
+         "stun_ratio": 11270,
+         "stun_ratio_growth": 520,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 381560,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13932,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연장 사격 고폭 탄두 초당 그로기 배율",
+       "desc": "{Skill:1571012, Prop:1002}",
+       "param": {
+        "1571012": {
+         "main": 11270,
+         "growth": 520,
+         "format": "%",
+         "damage_percentage": 21670,
+         "damage_percentage_growth": 1970,
+         "stun_ratio": 11270,
+         "stun_ratio_growth": 520,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 381560,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13932,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연장 사격 초당 에너지 소모",
+       "desc": "20pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 사격 연습",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1571013, Prop:1001}",
+       "param": {
+        "1571013": {
+         "main": 19500,
+         "growth": 1780,
+         "format": "%",
+         "damage_percentage": 19500,
+         "damage_percentage_growth": 1780,
+         "stun_ratio": 15130,
+         "stun_ratio_growth": 690,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1571013, Prop:1002}",
+       "param": {
+        "1571013": {
+         "main": 15130,
+         "growth": 690,
+         "format": "%",
+         "damage_percentage": 19500,
+         "damage_percentage_growth": 1780,
+         "stun_ratio": 15130,
+         "stun_ratio_growth": 690,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "자동 사격 간격",
+       "desc": "3초",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 화력 실험",
+     "param": [
+      {
+       "name": "추가 파괴 탄두 피해 배율",
+       "desc": "{Skill:1571014, Prop:1001}",
+       "param": {
+        "1571014": {
+         "main": 8280,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 8280,
+         "damage_percentage_growth": 760,
+         "stun_ratio": 3500,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 954,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "추가 파괴 탄두 그로기 배율",
+       "desc": "{Skill:1571014, Prop:1002}",
+       "param": {
+        "1571014": {
+         "main": 3500,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 8280,
+         "damage_percentage_growth": 760,
+         "stun_ratio": 3500,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 954,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "추가 고폭 탄두 피해 배율",
+       "desc": "{Skill:1571015, Prop:1001}",
+       "param": {
+        "1571015": {
+         "main": 9230,
+         "growth": 840,
+         "format": "%",
+         "damage_percentage": 9230,
+         "damage_percentage_growth": 840,
+         "stun_ratio": 2800,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 954,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "추가 고폭 탄두 그로기 배율",
+       "desc": "{Skill:1571015, Prop:1002}",
+       "param": {
+        "1571015": {
+         "main": 2800,
+         "growth": 130,
+         "format": "%",
+         "damage_percentage": 9230,
+         "damage_percentage_growth": 840,
+         "stun_ratio": 2800,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 954,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강화 상태에서 자동 사격 간격",
+       "desc": "2초",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "콤보 스킬: 맹렬한 드릴링",
+     "desc": "<color=#FFFFFF>[콤보 스킬]</color> 발동 시 해당 캐릭터를 선택해 시전:\n대량의 쿵쿵 드릴에게 명령해 적을 여러 단 공격하여 대량의 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "궁극기: 우세 화력 학설",
+     "desc": "데시벨 레벨 <color=#FFFFFF>[Maximum]</color> 달성 시 <IconMap:Icon_UltimateReady>을 짧게 탭하여 시전:\n전술 화포를 소환하여 전방의 적을 포격하고 대량의 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬 시전 시 즉시 <Term:1000011><color=#FFFFFF>[약실 예열]</color></Term> 30%를 획득한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 맹렬한 드릴링",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1571018, Prop:1001}",
+       "param": {
+        "1571018": {
+         "main": 75270,
+         "growth": 6850,
+         "format": "%",
+         "damage_percentage": 75270,
+         "damage_percentage_growth": 6850,
+         "stun_ratio": 19800,
+         "stun_ratio_growth": 900,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1859000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37950,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1571018, Prop:1002}",
+       "param": {
+        "1571018": {
+         "main": 19800,
+         "growth": 900,
+         "format": "%",
+         "damage_percentage": 75270,
+         "damage_percentage_growth": 6850,
+         "stun_ratio": 19800,
+         "stun_ratio_growth": 900,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1859000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37950,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18000
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "궁극기: 우세 화력 학설",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1571019, Prop:1001}",
+       "param": {
+        "1571019": {
+         "main": 193650,
+         "growth": 17610,
+         "format": "%",
+         "damage_percentage": 193650,
+         "damage_percentage_growth": 17610,
+         "stun_ratio": 79250,
+         "stun_ratio_growth": 3610,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19166,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 69167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1571019, Prop:1002}",
+       "param": {
+        "1571019": {
+         "main": 79250,
+         "growth": 3610,
+         "format": "%",
+         "damage_percentage": 193650,
+         "damage_percentage_growth": 17610,
+         "stun_ratio": 79250,
+         "stun_ratio_growth": 3610,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19166,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 69167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "빠른 지원: 쿵쿵 엄호",
+     "desc": "현재 조작 중인 캐릭터가 넉업되면 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n쿵쿵 드릴이 지속적으로 공격해 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 기술 장벽",
+     "desc": "출전 캐릭터 피격 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적의 공격을 패링하고 대량의 그로기 수치를 누적한다.\n우수한 패링 능력을 갖추고 있어 고강도 공격 패링 시 <color=#FFFFFF>[지원 포인트]</color>의 소모량이 감소한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 기술 제압",
+     "desc": "<color=#FFFFFF>[패링 지원]</color> 시전 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n타깃을 연속 공격해 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 쿵쿵 엄호",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1571020, Prop:1001}",
+       "param": {
+        "1571020": {
+         "main": 7050,
+         "growth": 650,
+         "format": "%",
+         "damage_percentage": 7050,
+         "damage_percentage_growth": 650,
+         "stun_ratio": 5960,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 19510,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 119350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5416,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5417
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1571020, Prop:1002}",
+       "param": {
+        "1571020": {
+         "main": 5960,
+         "growth": 280,
+         "format": "%",
+         "damage_percentage": 7050,
+         "damage_percentage_growth": 650,
+         "stun_ratio": 5960,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 19510,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 119350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5416,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5417
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 기술 장벽",
+     "param": [
+      {
+       "name": "가벼운 패링 그로기 배율",
+       "desc": "{Skill:1571021, Prop:1002}",
+       "param": {
+        "1571021": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강한 패링 그로기 배율",
+       "desc": "{Skill:1571022, Prop:1002}",
+       "param": {
+        "1571022": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 패링 그로기 배율",
+       "desc": "{Skill:1571023, Prop:1002}",
+       "param": {
+        "1571023": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 기술 제압",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1571024, Prop:1001}",
+       "param": {
+        "1571024": {
+         "main": 45080,
+         "growth": 4100,
+         "format": "%",
+         "damage_percentage": 45080,
+         "damage_percentage_growth": 4100,
+         "stun_ratio": 33240,
+         "stun_ratio_growth": 1520,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1076350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 32442,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16830
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1571024, Prop:1002}",
+       "param": {
+        "1571024": {
+         "main": 33240,
+         "growth": 1520,
+         "format": "%",
+         "damage_percentage": 45080,
+         "damage_percentage_growth": 4100,
+         "stun_ratio": 33240,
+         "stun_ratio_growth": 1520,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1076350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 32442,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16830
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "극단적인 비전론자",
+   "desc": "<color=#FFFFFF>[강화 특수 스킬: 화력 실험]</color> 중 [웅나 포탑]이 미사일 격납고를 여는 지속 시간이 12초로 증가한다. 임의의 스킬 중 [파괴 탄두] 혹은 [고폭 탄두]가 적에게 명중 시 적의 모든 속성 피해 저항이 15% 감소한다. 지속 시간: 15초, 중복 발동 시 지속 시간이 갱신된다.",
+   "desc2": "전진! 수단과 방법을 가리지 않고 전진!\n종말 속에서 우리를 쫓는 것들은 너무도 많다. 칠흑 같은 경계, 짧은 수명.\n인류의 생명과 문명은 「Bangboo」의 로직 코어에 비해 깨지기 쉽다.\n수단과 방법을 가리지 않고 전진해야만, 멸망보다 조금이라도 앞설 수 있다.\n「그리고, 가장 먼저 보는 풍경이 언제나 가장 아름답지 않겠어?」"
+  },
+  "2": {
+   "level": 2,
+   "name": "보편적 통일성의 공리",
+   "desc": "<color=#FFFFFF>[추가 능력: 다수의 이점]</color> 중 <color=#FFFFFF>[기술 격차]</color> 스택당 제공하는 그로기 약체화 배율이 6%로 증가한다. 노르마가 교전 상태에서 <color=#FFFFFF>[일반 공격: 모자 트릭]</color> 시전 시 에너지를 25pt 회복한다. 20초 동안 최대 1회 발동한다.",
+   "desc2": "물리학자의 세계는 항상 새로운 이론에 의해 거듭 뒤집히고, 일반인의 질서 역시 새로운 사고와 분쟁으로 늘 무너지기 마련이다.\n만물의 연결은 언제나 예측하기 어렵고, 극도로 긴밀하면서도 극도로 취약하며, 이토록 헤아리기 힘들다.\n「『Bangboo』와 로스캘리퍼를 더욱 위대하게 만든다고? 『호기심을 좇는 것의 부산물』을 말하는 건가?」"
+  },
+  "3": {
+   "level": 3,
+   "name": "타고난 악당의 역설",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "화창하고 아름다운 로스캘리퍼의 또 하루가 평화롭고 고요하게 흘러가고 있었다. 천공의 도시에서 감히 소란을 피울 악당 따위는 없었다.\n그러나 「Bangboo」들에게 있어서는, 어쩌면 초대형 악당이 한 명 있었는지도 모른다——\n「어린이 애니메이션에 나오는 최고의 천재는 언제나 악당으로 전락하기 마련이지…」\n「제발, 머리카락이 예산처럼 빡빡한 가여운 미치광이 과학자가 도대체 뭐가 좋다는 거야?」"
+  },
+  "4": {
+   "level": 4,
+   "name": "우성 「Bangboo」 학설",
+   "desc": "노르마가 <color=#FFFFFF>[약실 예열]</color>을 소모해 <color=#FFFFFF>[콤보 스킬]</color> 발동 시 노르마와 상응하는 에이전트의 데시벨이 200pt 회복된다.",
+   "desc2": "「Bangboo」는 지난 백 년간 인류가 가질 수 있었던 가장 충직한 동료이자, 가장 효율적인 도구이며, 심지어는… 가장 강력한 무기였다.\n또한 교화되지 않은 모든 어린아이들처럼, 그리고 좋은 주인을 만나지 못한 검처럼, 「Bangboo」는 누구에게나 쓰일 수 있다. 정의로운 파에톤이든 극악무도한 악당이든 상관없이——\n「먼저, 나는 『Bangboo』를 사랑하는 평화주의자야」\n「그리고 내 일상 업무 중 하나는, 가장 날카로운 검이 항상 우리 손에 쥐어져 있도록 하는 것이지」"
+  },
+  "5": {
+   "level": 5,
+   "name": "웅나 대폭발",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "현존하는 외무전략국 문서에 기록된 바에 따르면, 젊은 연구원 노르마가 주도한 프로젝트는 양산형 「Bangboo」의 극한 성능 지표를 빠르게 끌어올렸다.\n외무전략국 수석 기술 전문가로 승진하기 전, 노르마에게 주어진 가장 중요한 임무는 자신이 언젠가 부아스트럼을 대기권 밖으로 날려버리지 않을 것임을 증명하는 것이었다.\n「더 높이, 더 빠르게, 더 강하게!」\n「상상력을 제한하는 건 오직 용기와 예산뿐이야!」"
+  },
+  "6": {
+   "level": 6,
+   "name": "천재의 제1원인",
+   "desc": "파티 내 임의의 캐릭터가 적을 그로기 상태로 만든 후, 노르마가 지속적으로 미사일을 소환하여 전장의 무작위 적을 폭격한다. 지속 시간: 6초, 미사일 1발당 간격은 0.75초이며, 범위 내 적에게 노르마 공격력의 200%에 해당하는 <color=#FF5521>불 속성 피해</color>를 준다. 해당 피해는 <color=#FFFFFF>[궁극기]</color> 피해로 간주되고, 중복 발동 시 지속 시간이 갱신되며, 30초 동안 최대 1회 발동한다. 노르마의 [파괴 탄두]로 주는 그로기 수치가 <color=#FFFFFF>30%</color> 증가하고, [고폭 탄두]로 주는 피해가 <color=#FFFFFF>30%</color> 증가한다.",
+   "desc2": "모든 위대한 창조는 호기심과 우연에서 비롯된다고 하듯, 최초의 「Bangboo」 영혼의 탄생 역시 생명의 신비에 대한 태양을 가져온 자의 의문에서 비롯된 것인지도 모른다."
+  }
+ },
+ "passive": {
+  "level": {
+   "1571501": {
+    "level": 1,
+    "id": 1571501,
+    "name": [
+     "핵심 패시브: 정밀 유도",
+     "추가 능력: 다수의 이점"
+    ],
+    "desc": [
+     "초기 치명타 확률이 50%를 초과한 경우, 초과한 1%당 치명타 피해가 <color=#2BAD00>0.86%</color> 증가한다. 최대 <color=#2BAD00>43%</color> 추가로 증가한다.\n초기 치명타 확률이 50%를 초과한 경우, 초과한 1%당 [강화 특수 스킬], [특수 스킬], [궁극기] 공격으로 적 명중 시 주는 그로기 수치가 <color=#2BAD00>0.44%</color> 증가한다. 최대 <color=#2BAD00>22%</color> 추가로 증가한다.\n노르마는 자신의 관입력에 따라 공격력이 추가로 증가하며, 관입력 1pt당 공격력이 1.25pt 증가한다. 공격력은 최대 1200pt 증가한다.\n전장 진입 시 노르마가 즉시 <Term:1000011><color=#FFFFFF>[약실 예열]</color></Term> 60%를 획득한다. 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[약실 예열]</color>이 80% 이상이 되면, 다음에 시전하는 <color=#FFFFFF>[일반 공격: 모자 트릭]</color>은 재사용 대기시간을 무시하고 <color=#FFFFFF>[빠른 지원]</color>을 발동하며, <color=#FFFFFF>[약실 예열]</color> 80%를 소모하여 [빠른 지원]을 <color=#FFFFFF>[콤보 스킬]</color>로 대체한다.",
+     "파티에 <color=#FFFFFF>[강공]</color>, <color=#FFFFFF>[명파]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동: \n노르마 및 노르마 창조물, 전투 「Bangboo」의 공격이 적에게 명중 시, 적에게 <color=#FFFFFF>[기술 격차]</color> 1스택을 부여하며, <color=#FFFFFF>[기술 격차]</color> 스택당 타깃의 그로기 약체화 배율이 3% 증가한다. 최대 중첩: 10스택, 0.5초 동안 최대 1스택 중첩된다.\n임의 스택의 <color=#FFFFFF>[기술 격차]</color>를 보유한 적이 그로기 상태에 진입한 후 그로기 지속 시간이 2초 증가하며, 그로기 지속 시간 증가 효과는 동일한 효과와 중첩되지 않는다. <color=#FFFFFF>[기술 격차]</color> 효과를 보유한 적의 그로기가 종료될 시 <color=#FFFFFF>[기술 격차]</color> 효과가 종료된다.\n<Term:1000012><color=#FFFFFF>[웅나 탄막]</color></Term> 기간 동안, 노르마의 공격력이 44pt 증가하며, 해당 효과는 캐릭터 레벨에 따라 증가하고, 레벨당 14pt 증가한다. 최대 870pt 증가한다.\n<color=#FFFFFF>[웅나 탄막]</color> 기간 동안, 파티 내 모든 에이전트가 주는 피해가 <color=#FFFFFF>20%</color> 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1571502": {
+    "level": 2,
+    "id": 1571502,
+    "name": [
+     "핵심 패시브: 정밀 유도",
+     "추가 능력: 다수의 이점"
+    ],
+    "desc": [
+     "초기 치명타 확률이 50%를 초과한 경우, 초과한 1%당 치명타 피해가 <color=#2BAD00>1%</color> 증가한다. 최대 <color=#2BAD00>50%</color> 추가로 증가한다.\n초기 치명타 확률이 50%를 초과한 경우, 초과한 1%당 [강화 특수 스킬], [특수 스킬], [궁극기] 공격으로 적 명중 시 주는 그로기 수치가 <color=#2BAD00>0.5%</color> 증가한다. 최대 <color=#2BAD00>25%</color> 추가로 증가한다.\n노르마는 자신의 관입력에 따라 공격력이 추가로 증가하며, 관입력 1pt당 공격력이 1.25pt 증가한다. 공격력은 최대 1200pt 증가한다.\n전장 진입 시 노르마가 즉시 <Term:1000011><color=#FFFFFF>[약실 예열]</color></Term> 60%를 획득한다. 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[약실 예열]</color>이 80% 이상이 되면, 다음에 시전하는 <color=#FFFFFF>[일반 공격: 모자 트릭]</color>은 재사용 대기시간을 무시하고 <color=#FFFFFF>[빠른 지원]</color>을 발동하며, <color=#FFFFFF>[약실 예열]</color> 80%를 소모하여 [빠른 지원]을 <color=#FFFFFF>[콤보 스킬]</color>로 대체한다.",
+     "파티에 <color=#FFFFFF>[강공]</color>, <color=#FFFFFF>[명파]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동: \n노르마 및 노르마 창조물, 전투 「Bangboo」의 공격이 적에게 명중 시, 적에게 <color=#FFFFFF>[기술 격차]</color> 1스택을 부여하며, <color=#FFFFFF>[기술 격차]</color> 스택당 타깃의 그로기 약체화 배율이 3% 증가한다. 최대 중첩: 10스택, 0.5초 동안 최대 1스택 중첩된다.\n임의 스택의 <color=#FFFFFF>[기술 격차]</color>를 보유한 적이 그로기 상태에 진입한 후 그로기 지속 시간이 2초 증가하며, 그로기 지속 시간 증가 효과는 동일한 효과와 중첩되지 않는다. <color=#FFFFFF>[기술 격차]</color> 효과를 보유한 적의 그로기가 종료될 시 <color=#FFFFFF>[기술 격차]</color> 효과가 종료된다.\n<Term:1000012><color=#FFFFFF>[웅나 탄막]</color></Term> 기간 동안, 노르마의 공격력이 44pt 증가하며, 해당 효과는 캐릭터 레벨에 따라 증가하고, 레벨당 14pt 증가한다. 최대 870pt 증가한다.\n<color=#FFFFFF>[웅나 탄막]</color> 기간 동안, 파티 내 모든 에이전트가 주는 피해가 <color=#FFFFFF>20%</color> 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1571503": {
+    "level": 3,
+    "id": 1571503,
+    "name": [
+     "핵심 패시브: 정밀 유도",
+     "추가 능력: 다수의 이점"
+    ],
+    "desc": [
+     "초기 치명타 확률이 50%를 초과한 경우, 초과한 1%당 치명타 피해가 <color=#2BAD00>1.14%</color> 증가한다. 최대 <color=#2BAD00>57%</color> 추가로 증가한다.\n초기 치명타 확률이 50%를 초과한 경우, 초과한 1%당 [강화 특수 스킬], [특수 스킬], [궁극기] 공격으로 적 명중 시 주는 그로기 수치가 <color=#2BAD00>0.56%</color> 증가한다. 최대 <color=#2BAD00>28%</color> 추가로 증가한다.\n노르마는 자신의 관입력에 따라 공격력이 추가로 증가하며, 관입력 1pt당 공격력이 1.25pt 증가한다. 공격력은 최대 1200pt 증가한다.\n전장 진입 시 노르마가 즉시 <Term:1000011><color=#FFFFFF>[약실 예열]</color></Term> 60%를 획득한다. 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[약실 예열]</color>이 80% 이상이 되면, 다음에 시전하는 <color=#FFFFFF>[일반 공격: 모자 트릭]</color>은 재사용 대기시간을 무시하고 <color=#FFFFFF>[빠른 지원]</color>을 발동하며, <color=#FFFFFF>[약실 예열]</color> 80%를 소모하여 [빠른 지원]을 <color=#FFFFFF>[콤보 스킬]</color>로 대체한다.",
+     "파티에 <color=#FFFFFF>[강공]</color>, <color=#FFFFFF>[명파]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동: \n노르마 및 노르마 창조물, 전투 「Bangboo」의 공격이 적에게 명중 시, 적에게 <color=#FFFFFF>[기술 격차]</color> 1스택을 부여하며, <color=#FFFFFF>[기술 격차]</color> 스택당 타깃의 그로기 약체화 배율이 3% 증가한다. 최대 중첩: 10스택, 0.5초 동안 최대 1스택 중첩된다.\n임의 스택의 <color=#FFFFFF>[기술 격차]</color>를 보유한 적이 그로기 상태에 진입한 후 그로기 지속 시간이 2초 증가하며, 그로기 지속 시간 증가 효과는 동일한 효과와 중첩되지 않는다. <color=#FFFFFF>[기술 격차]</color> 효과를 보유한 적의 그로기가 종료될 시 <color=#FFFFFF>[기술 격차]</color> 효과가 종료된다.\n<Term:1000012><color=#FFFFFF>[웅나 탄막]</color></Term> 기간 동안, 노르마의 공격력이 44pt 증가하며, 해당 효과는 캐릭터 레벨에 따라 증가하고, 레벨당 14pt 증가한다. 최대 870pt 증가한다.\n<color=#FFFFFF>[웅나 탄막]</color> 기간 동안, 파티 내 모든 에이전트가 주는 피해가 <color=#FFFFFF>20%</color> 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1571504": {
+    "level": 4,
+    "id": 1571504,
+    "name": [
+     "핵심 패시브: 정밀 유도",
+     "추가 능력: 다수의 이점"
+    ],
+    "desc": [
+     "초기 치명타 확률이 50%를 초과한 경우, 초과한 1%당 치명타 피해가 <color=#2BAD00>1.28%</color> 증가한다. 최대 <color=#2BAD00>64%</color> 추가로 증가한다.\n초기 치명타 확률이 50%를 초과한 경우, 초과한 1%당 [강화 특수 스킬], [특수 스킬], [궁극기] 공격으로 적 명중 시 주는 그로기 수치가 <color=#2BAD00>0.62%</color> 증가한다. 최대 <color=#2BAD00>31%</color> 추가로 증가한다.\n노르마는 자신의 관입력에 따라 공격력이 추가로 증가하며, 관입력 1pt당 공격력이 1.25pt 증가한다. 공격력은 최대 1200pt 증가한다.\n전장 진입 시 노르마가 즉시 <Term:1000011><color=#FFFFFF>[약실 예열]</color></Term> 60%를 획득한다. 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[약실 예열]</color>이 80% 이상이 되면, 다음에 시전하는 <color=#FFFFFF>[일반 공격: 모자 트릭]</color>은 재사용 대기시간을 무시하고 <color=#FFFFFF>[빠른 지원]</color>을 발동하며, <color=#FFFFFF>[약실 예열]</color> 80%를 소모하여 [빠른 지원]을 <color=#FFFFFF>[콤보 스킬]</color>로 대체한다.",
+     "파티에 <color=#FFFFFF>[강공]</color>, <color=#FFFFFF>[명파]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동: \n노르마 및 노르마 창조물, 전투 「Bangboo」의 공격이 적에게 명중 시, 적에게 <color=#FFFFFF>[기술 격차]</color> 1스택을 부여하며, <color=#FFFFFF>[기술 격차]</color> 스택당 타깃의 그로기 약체화 배율이 3% 증가한다. 최대 중첩: 10스택, 0.5초 동안 최대 1스택 중첩된다.\n임의 스택의 <color=#FFFFFF>[기술 격차]</color>를 보유한 적이 그로기 상태에 진입한 후 그로기 지속 시간이 2초 증가하며, 그로기 지속 시간 증가 효과는 동일한 효과와 중첩되지 않는다. <color=#FFFFFF>[기술 격차]</color> 효과를 보유한 적의 그로기가 종료될 시 <color=#FFFFFF>[기술 격차]</color> 효과가 종료된다.\n<Term:1000012><color=#FFFFFF>[웅나 탄막]</color></Term> 기간 동안, 노르마의 공격력이 44pt 증가하며, 해당 효과는 캐릭터 레벨에 따라 증가하고, 레벨당 14pt 증가한다. 최대 870pt 증가한다.\n<color=#FFFFFF>[웅나 탄막]</color> 기간 동안, 파티 내 모든 에이전트가 주는 피해가 <color=#FFFFFF>20%</color> 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1571505": {
+    "level": 5,
+    "id": 1571505,
+    "name": [
+     "핵심 패시브: 정밀 유도",
+     "추가 능력: 다수의 이점"
+    ],
+    "desc": [
+     "초기 치명타 확률이 50%를 초과한 경우, 초과한 1%당 치명타 피해가 <color=#2BAD00>1.42%</color> 증가한다. 최대 <color=#2BAD00>71%</color> 추가로 증가한다.\n초기 치명타 확률이 50%를 초과한 경우, 초과한 1%당 [강화 특수 스킬], [특수 스킬], [궁극기] 공격으로 적 명중 시 주는 그로기 수치가 <color=#2BAD00>0.68%</color> 증가한다. 최대 <color=#2BAD00>34%</color> 추가로 증가한다.\n노르마는 자신의 관입력에 따라 공격력이 추가로 증가하며, 관입력 1pt당 공격력이 1.25pt 증가한다. 공격력은 최대 1200pt 증가한다.\n전장 진입 시 노르마가 즉시 <Term:1000011><color=#FFFFFF>[약실 예열]</color></Term> 60%를 획득한다. 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[약실 예열]</color>이 80% 이상이 되면, 다음에 시전하는 <color=#FFFFFF>[일반 공격: 모자 트릭]</color>은 재사용 대기시간을 무시하고 <color=#FFFFFF>[빠른 지원]</color>을 발동하며, <color=#FFFFFF>[약실 예열]</color> 80%를 소모하여 [빠른 지원]을 <color=#FFFFFF>[콤보 스킬]</color>로 대체한다.",
+     "파티에 <color=#FFFFFF>[강공]</color>, <color=#FFFFFF>[명파]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동: \n노르마 및 노르마 창조물, 전투 「Bangboo」의 공격이 적에게 명중 시, 적에게 <color=#FFFFFF>[기술 격차]</color> 1스택을 부여하며, <color=#FFFFFF>[기술 격차]</color> 스택당 타깃의 그로기 약체화 배율이 3% 증가한다. 최대 중첩: 10스택, 0.5초 동안 최대 1스택 중첩된다.\n임의 스택의 <color=#FFFFFF>[기술 격차]</color>를 보유한 적이 그로기 상태에 진입한 후 그로기 지속 시간이 2초 증가하며, 그로기 지속 시간 증가 효과는 동일한 효과와 중첩되지 않는다. <color=#FFFFFF>[기술 격차]</color> 효과를 보유한 적의 그로기가 종료될 시 <color=#FFFFFF>[기술 격차]</color> 효과가 종료된다.\n<Term:1000012><color=#FFFFFF>[웅나 탄막]</color></Term> 기간 동안, 노르마의 공격력이 44pt 증가하며, 해당 효과는 캐릭터 레벨에 따라 증가하고, 레벨당 14pt 증가한다. 최대 870pt 증가한다.\n<color=#FFFFFF>[웅나 탄막]</color> 기간 동안, 파티 내 모든 에이전트가 주는 피해가 <color=#FFFFFF>20%</color> 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1571506": {
+    "level": 6,
+    "id": 1571506,
+    "name": [
+     "핵심 패시브: 정밀 유도",
+     "추가 능력: 다수의 이점"
+    ],
+    "desc": [
+     "초기 치명타 확률이 50%를 초과한 경우, 초과한 1%당 치명타 피해가 <color=#2BAD00>1.56%</color> 증가한다. 최대 <color=#2BAD00>78%</color> 추가로 증가한다.\n초기 치명타 확률이 50%를 초과한 경우, 초과한 1%당 [강화 특수 스킬], [특수 스킬], [궁극기] 공격으로 적 명중 시 주는 그로기 수치가 <color=#2BAD00>0.74%</color> 증가한다. 최대 <color=#2BAD00>37%</color> 추가로 증가한다.\n노르마는 자신의 관입력에 따라 공격력이 추가로 증가하며, 관입력 1pt당 공격력이 1.25pt 증가한다. 공격력은 최대 1200pt 증가한다.\n전장 진입 시 노르마가 즉시 <Term:1000011><color=#FFFFFF>[약실 예열]</color></Term> 60%를 획득한다. 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[약실 예열]</color>이 80% 이상이 되면, 다음에 시전하는 <color=#FFFFFF>[일반 공격: 모자 트릭]</color>은 재사용 대기시간을 무시하고 <color=#FFFFFF>[빠른 지원]</color>을 발동하며, <color=#FFFFFF>[약실 예열]</color> 80%를 소모하여 [빠른 지원]을 <color=#FFFFFF>[콤보 스킬]</color>로 대체한다.",
+     "파티에 <color=#FFFFFF>[강공]</color>, <color=#FFFFFF>[명파]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동: \n노르마 및 노르마 창조물, 전투 「Bangboo」의 공격이 적에게 명중 시, 적에게 <color=#FFFFFF>[기술 격차]</color> 1스택을 부여하며, <color=#FFFFFF>[기술 격차]</color> 스택당 타깃의 그로기 약체화 배율이 3% 증가한다. 최대 중첩: 10스택, 0.5초 동안 최대 1스택 중첩된다.\n임의 스택의 <color=#FFFFFF>[기술 격차]</color>를 보유한 적이 그로기 상태에 진입한 후 그로기 지속 시간이 2초 증가하며, 그로기 지속 시간 증가 효과는 동일한 효과와 중첩되지 않는다. <color=#FFFFFF>[기술 격차]</color> 효과를 보유한 적의 그로기가 종료될 시 <color=#FFFFFF>[기술 격차]</color> 효과가 종료된다.\n<Term:1000012><color=#FFFFFF>[웅나 탄막]</color></Term> 기간 동안, 노르마의 공격력이 44pt 증가하며, 해당 효과는 캐릭터 레벨에 따라 증가하고, 레벨당 14pt 증가한다. 최대 870pt 증가한다.\n<color=#FFFFFF>[웅나 탄막]</color> 기간 동안, 파티 내 모든 에이전트가 주는 피해가 <color=#FFFFFF>20%</color> 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1571507": {
+    "level": 7,
+    "id": 1571507,
+    "name": [
+     "핵심 패시브: 정밀 유도",
+     "추가 능력: 다수의 이점"
+    ],
+    "desc": [
+     "초기 치명타 확률이 50%를 초과한 경우, 초과한 1%당 치명타 피해가 <color=#2BAD00>1.7%</color> 증가한다. 최대 <color=#2BAD00>85%</color> 추가로 증가한다.\n초기 치명타 확률이 50%를 초과한 경우, 초과한 1%당 [강화 특수 스킬], [특수 스킬], [궁극기] 공격으로 적 명중 시 주는 그로기 수치가 <color=#2BAD00>0.8%</color> 증가한다. 최대 <color=#2BAD00>40%</color> 추가로 증가한다.\n노르마는 자신의 관입력에 따라 공격력이 추가로 증가하며, 관입력 1pt당 공격력이 1.25pt 증가한다. 공격력은 최대 1200pt 증가한다.\n전장 진입 시 노르마가 즉시 <Term:1000011><color=#FFFFFF>[약실 예열]</color></Term> 60%를 획득한다. 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[약실 예열]</color>이 80% 이상이 되면, 다음에 시전하는 <color=#FFFFFF>[일반 공격: 모자 트릭]</color>은 재사용 대기시간을 무시하고 <color=#FFFFFF>[빠른 지원]</color>을 발동하며, <color=#FFFFFF>[약실 예열]</color> 80%를 소모하여 [빠른 지원]을 <color=#FFFFFF>[콤보 스킬]</color>로 대체한다.",
+     "파티에 <color=#FFFFFF>[강공]</color>, <color=#FFFFFF>[명파]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동: \n노르마 및 노르마 창조물, 전투 「Bangboo」의 공격이 적에게 명중 시, 적에게 <color=#FFFFFF>[기술 격차]</color> 1스택을 부여하며, <color=#FFFFFF>[기술 격차]</color> 스택당 타깃의 그로기 약체화 배율이 3% 증가한다. 최대 중첩: 10스택, 0.5초 동안 최대 1스택 중첩된다.\n임의 스택의 <color=#FFFFFF>[기술 격차]</color>를 보유한 적이 그로기 상태에 진입한 후 그로기 지속 시간이 2초 증가하며, 그로기 지속 시간 증가 효과는 동일한 효과와 중첩되지 않는다. <color=#FFFFFF>[기술 격차]</color> 효과를 보유한 적의 그로기가 종료될 시 <color=#FFFFFF>[기술 격차]</color> 효과가 종료된다.\n<Term:1000012><color=#FFFFFF>[웅나 탄막]</color></Term> 기간 동안, 노르마의 공격력이 44pt 증가하며, 해당 효과는 캐릭터 레벨에 따라 증가하고, 레벨당 14pt 증가한다. 최대 870pt 증가한다.\n<color=#FFFFFF>[웅나 탄막]</color> 기간 동안, 파티 내 모든 에이전트가 주는 피해가 <color=#FFFFFF>20%</color> 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110515": 2
+   },
+   "3": {
+    "10": 28000,
+    "110515": 4
+   },
+   "4": {
+    "10": 60000,
+    "110010": 2,
+    "110515": 9
+   },
+   "5": {
+    "10": 100000,
+    "110010": 3,
+    "110515": 15
+   },
+   "6": {
+    "10": 200000,
+    "110010": 4,
+    "110515": 30
+   }
+  }
+ },
+ "skin": {
+  "3115710": {
+   "name": "노르마·멍청이 절연체",
+   "desc": "노르마의 실험 안전 수칙 제1조: 범인과 멍청이들의 의심과 견해를 멀리하라",
+   "obtain_desc": "",
+   "image": "IconRole65"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1571001": {
+   "name": "일반 공격: 공학적 안전장치",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1571002": {
+   "name": "일반 공격: 모자 트릭",
+   "desc": "<IconMap:Icon_Normal>([동행하는 모자]가 머리에 있을 때 홀드)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1571003": {
+   "name": "특수 스킬: 고온 용단",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1571004": {
+   "name": "강화 특수 스킬: 웅나 탄막",
+   "desc": "<IconMap:Icon_SpecialReady>(홀드 가능)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1571005": {
+   "name": "대시 공격: 데드라인 러시",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1571006": {
+   "name": "회피 반격: 규정 준수 테스트",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1571007": {
+   "name": "콤보 스킬: 맹렬한 드릴링",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1571008": {
+   "name": "궁극기: 우세 화력 학설",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1571009": {
+   "name": "빠른 지원: 쿵쿵 엄호",
+   "desc": "<IconMap:Icon_Switch>(빠른 지원 발동 시)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1571010": {
+   "name": "패링 지원: 기술 장벽",
+   "desc": "<IconMap:Icon_Switch>(패링 지원 발동 시)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1571011": {
+   "name": "지원 돌격: 기술 제압",
+   "desc": "<IconMap:Icon_Normal>(패링 지원 시전 후)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1571001,
+   "avatar_id": 1571,
+   "first_priority": [
+    5,
+    1
+   ],
+   "second_priority": [
+    3,
+    6
+   ],
+   "third_priority": [
+    0,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33200,
+  "slot2": 31000,
+  "slot_sub": 31200,
+  "part_sub_list": [
+   20103,
+   21103,
+   12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33200,
+     31000
+    ],
+    "part_sub_list": [
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31603,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     30502
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "치명타 확률",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 30502,
+   "name": "에너지 자동 회복",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconSpRecover.png"
+  },
+  "part6": {
+   "prop": 31603,
+   "name": "불 속성 피해 보너스",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconFire.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "공격력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": {},
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100212": 4
+   }
+  },
+  "2": {
+   "hp_max": 430,
+   "attack": 39,
+   "defence": 32,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100222": 12
+   }
+  },
+  "3": {
+   "hp_max": 861,
+   "attack": 78,
+   "defence": 64,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100222": 20
+   }
+  },
+  "4": {
+   "hp_max": 1291,
+   "attack": 117,
+   "defence": 96,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100232": 10
+   }
+  },
+  "5": {
+   "hp_max": 1721,
+   "attack": 156,
+   "defence": 128,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100232": 20
+   }
+  },
+  "6": {
+   "hp_max": 2152,
+   "attack": 196,
+   "defence": 161,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpine_nuomu"
+}

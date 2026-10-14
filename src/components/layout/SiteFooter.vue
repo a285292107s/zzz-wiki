@@ -5,17 +5,17 @@
     <div class="wrap foot-inner">
       <div class="foot-side foot-info">
         <p class="meta">
-          数据源 <a href="https://zzz.nanoka.cc" target="_blank" rel="noopener">zzz.nanoka.cc</a>
+          {{ t.footer.source }} <a href="https://zzz.nanoka.cc" target="_blank" rel="noopener">zzz.nanoka.cc</a>
         </p>
         <span class="sep" aria-hidden="true">/</span>
-        <p class="ver mono">数据版本 <span class="ver-key">LIVE {{ version || '···' }}</span></p>
+        <p class="ver mono">{{ t.footer.dataVersion }} <span class="ver-key">LIVE {{ version || '···' }}</span></p>
         <span class="sep" aria-hidden="true">/</span>
-        <p class="updated mono">数据更新 · {{ updatedAt || '···' }}</p>
+        <p class="updated mono">{{ t.footer.updated }} · {{ updatedAt || '···' }}</p>
         <span class="sep" aria-hidden="true">/</span>
-        <p class="disclaimer">游戏资产版权与商标归 HoYoverse 所有</p>
+        <p class="disclaimer">{{ t.footer.copyright }}</p>
       </div>
       <div class="foot-side foot-links">
-        <RouterLink to="/about" class="foot-link mono">数据说明</RouterLink>
+        <RouterLink to="/about" class="foot-link mono">{{ t.footer.colophon }}</RouterLink>
       </div>
       <div v-if="isDev" class="foot-actions">
         <RouterLink
@@ -34,6 +34,9 @@ import { onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { dataVersions } from '@/data/api'
 import { IS_DEV, DEV_FOOTER_ROUTES } from '@/domain/devRoutes'
+import { useUiText } from '@/composables/useUiText'
+
+const { t } = useUiText()
 
 // 开发环境专属入口：仅 DEV 显示，且由 DEV_ROUTES 单一事实源派生（新增页自动出现）
 const isDev = IS_DEV

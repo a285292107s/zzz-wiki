@@ -12,6 +12,7 @@
 import { computed, ref, watch, watchEffect, type ComputedRef, type Ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { pickName } from '@/utils/names'
+import { useLocale } from './useLocale'
 import { ATTR_CODES, SPEC_CODES, type AttrCode, type SpecCode } from '@/domain/enums'
 
 export type AttrFilter = 'all' | AttrCode
@@ -64,7 +65,9 @@ export function useCatalogList<T extends Record<string, unknown>>(
   const profFilter = ref<ProfFilter>('all')
   const campFilter = ref<CampFilter>('all')
   const query = ref('')
-  const nameOf = opts.name ?? ((x: T) => pickName(x))
+  /** 默认名称取自**当前语言**（切语言后检索词命中另一份译名，守卫在 pickName 的回退序里） */
+  const { lang } = useLocale()
+  const nameOf = opts.name ?? ((x: T) => pickName(x, lang.value))
   const keywordsOf = opts.keywords ?? (() => [])
 
   const withAttrs = opts.withAttrs ?? false

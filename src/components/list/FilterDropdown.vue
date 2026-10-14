@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue'
 import { ELEMENTS, PROFESSIONS, type AttrCode, type SpecCode } from '@/domain/enums'
+import { pickText } from '@/domain/lang'
 import { elementIconUrl, professionIconUrl, campIconUrl } from '@/domain/filterIcons'
+import { useUiText } from '@/composables/useUiText'
+import { useLocale } from '@/composables/useLocale'
 import type { CampFilter } from '@/composables/useCatalogList'
 
 /** 阵营筛选项（由列表页从数据动态提取：数字码 + 展示名） */
@@ -54,19 +57,22 @@ interface FilterGroup {
 const openGroup = ref<string | null>(null)
 const rootEl = ref<HTMLElement | null>(null)
 
+const { t } = useUiText()
+const { lang } = useLocale()
+
 const groups = computed<FilterGroup[]>(() => {
   const list: FilterGroup[] = []
   if (props.showAttr) {
     list.push({
       key: 'attr',
-      label: '属性',
-      allLabel: '全部属性',
+      label: t.value.filter.attr,
+      allLabel: t.value.filter.attrAll,
       current: props.attr ?? 'all',
       options: [
-        { value: 'all', label: '全部属性', iconUrl: null },
+        { value: 'all', label: t.value.filter.attrAll, iconUrl: null },
         ...Object.entries(ELEMENTS).map(([code, e]) => ({
           value: Number(code),
-          label: e.zh,
+          label: pickText(e.label, lang.value),
           iconUrl: elementIconUrl(Number(code) as AttrCode),
           color: e.color,
         })),
@@ -76,14 +82,14 @@ const groups = computed<FilterGroup[]>(() => {
   if (props.showProf) {
     list.push({
       key: 'prof',
-      label: '职业',
-      allLabel: '全部职业',
+      label: t.value.filter.prof,
+      allLabel: t.value.filter.profAll,
       current: props.prof ?? 'all',
       options: [
-        { value: 'all', label: '全部职业', iconUrl: null },
+        { value: 'all', label: t.value.filter.profAll, iconUrl: null },
         ...Object.entries(PROFESSIONS).map(([code, p]) => ({
           value: Number(code),
-          label: p.zh,
+          label: pickText(p.label, lang.value),
           iconUrl: professionIconUrl(Number(code) as SpecCode),
         })),
       ],
@@ -92,11 +98,11 @@ const groups = computed<FilterGroup[]>(() => {
   if (props.showCamp && props.camps?.length) {
     list.push({
       key: 'camp',
-      label: '阵营',
-      allLabel: '全部阵营',
+      label: t.value.filter.camp,
+      allLabel: t.value.filter.campAll,
       current: props.camp ?? 'all',
       options: [
-        { value: 'all', label: '全部阵营', iconUrl: null },
+        { value: 'all', label: t.value.filter.campAll, iconUrl: null },
         ...props.camps.map((c) => ({
           value: c.code,
           label: c.name,

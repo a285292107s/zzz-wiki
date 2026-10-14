@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { richDesc } from '@/utils/rich'
+import { fmt } from '@/domain/uiText'
+import { useUiText } from '@/composables/useUiText'
 import {
   CHAR_LEVEL_MAX,
   coreEnhanceTotal,
@@ -10,6 +12,8 @@ import {
   type PotentialCinema,
 } from '@/domain/sections'
 import LevelSlider from './LevelSlider.vue'
+
+const { t } = useUiText()
 
 const props = defineProps<{
   row: CoreSkill
@@ -50,8 +54,8 @@ const current = computed(() => {
 /** 徽标：潜能激发门控的核心技 → 「潜能I·扩展」（扩展核心被动/额外能力）；
  *  非潜能的双轮 → 「强化」；基础版为空 */
 const currentBadge = computed<string>(() => {
-  if (current.value.potentialTag) return `潜能${current.value.potentialTag}·扩展`
-  if (current.value.enhanced) return '强化'
+  if (current.value.potentialTag) return fmt(t.value.detail.potentialExtend, { tag: current.value.potentialTag })
+  if (current.value.enhanced) return t.value.detail.enhance
   return ''
 })
 
@@ -81,19 +85,19 @@ const unlockCount = computed(() =>
         <span class="core-glyph" aria-hidden="true">◒</span>
         <em class="mono">CORE</em>
       </span>
-      <h3 class="skill-kind serif">核心技</h3>
+      <h3 class="skill-kind serif">{{ t.detail.coreSkill }}</h3>
       <!-- 两轮核心或存在潜能影像强化时，显示「潜能激发」切换开关（默认打开） -->
       <button
         v-if="canVary"
         type="button"
         class="pot-switch mono"
         role="switch"
-        aria-label="潜能激发"
+        :aria-label="t.detail.potentialAwaken"
         :aria-checked="variant === 'pot'"
         @click="variant = variant === 'pot' ? 'base' : 'pot'"
       >
         <span class="sw-track" :class="{ on: variant === 'pot' }"><span class="sw-thumb"></span></span>
-        <span class="sw-label">潜能激发</span>
+        <span class="sw-label">{{ t.detail.potentialAwaken }}</span>
       </button>
       <!-- 等级滑块与技能名同条，靠右对齐；窄屏允许换行 -->
       <div class="level-row">
@@ -101,7 +105,7 @@ const unlockCount = computed(() =>
           v-model="level"
           :min="1"
           :max="maxLevel"
-          :label="`核心技等级`"
+          :label="fmt(t.detail.skillLevelOf, { name: t.detail.coreSkill })"
         />
         <!-- 等级标签：显示数据 level（1-7） -->
         <span class="level-val mono">Lv.{{ current.level }}</span>
@@ -131,21 +135,21 @@ const unlockCount = computed(() =>
       <li v-if="variant === 'pot' && potBoost" class="row">
         <span class="no mono">03</span>
         <div class="body">
-          <h4 class="title title-skill">{{ potBoost.name || '潜能觉醒' }}</h4>
+          <h4 class="title title-skill">{{ potBoost.name || t.detail.potentialUnlock }}</h4>
           <p class="desc" v-html="richDesc(potBoost.desc, level)"></p>
         </div>
       </li>
     </ul>
 
     <!-- 核心技强化：extra_level 档位（A-F），本档新增属性加成（累计值已换算为每档增量） -->
-    <section v-if="enhance?.length" class="enhance" aria-label="核心技强化">
+    <section v-if="enhance?.length" class="enhance" :aria-label="t.detail.coreSkillEnhance">
       <!-- 标题行：eyebrow + 已解锁进度计数（随角色等级实时联动） -->
       <div class="enhance-head">
-        <h4 class="enhance-title mono">核心技强化</h4>
+        <h4 class="enhance-title mono">{{ t.detail.coreSkillEnhance }}</h4>
         <span
           class="enhance-count mono"
           :class="{ 'is-full': unlockCount === enhance.length }"
-          :aria-label="`已解锁 ${unlockCount} 档，共 ${enhance.length} 档`"
+          :aria-label="fmt(t.detail.unlockedTiers, { a: unlockCount, b: enhance.length })"
         >{{ unlockCount }}/{{ enhance.length }}</span>
       </div>
       <!-- 档位清单：纵向一行一档（无卡片堆叠）；两态 = 已解锁（琥珀档号）/ 未解锁（弱化） -->
@@ -163,7 +167,7 @@ const unlockCount = computed(() =>
           <span class="tier-gate mono">Lv.{{ lv.unlockAt }}</span>
           <!-- 未解锁状态用**文字**表达，而不是只靠「变暗」：状态不得仅由颜色传达
                （WCAG 1.4.1），且弱墨文字对比度不足 AA（1.4.3）。 -->
-          <span v-if="!isUnlocked(lv)" class="tier-state mono">未解锁</span>
+          <span v-if="!isUnlocked(lv)" class="tier-state mono">{{ t.detail.locked }}</span>
           <span class="tier-bonus">
             <template v-for="(b, bi) in lv.bonus" :key="b.name">
               <span v-if="bi" class="sep" aria-hidden="true">·</span>
@@ -175,7 +179,7 @@ const unlockCount = computed(() =>
       </ul>
       <!-- 满级累计：全部档位新增量之和，独立一行置于清单之下 -->
       <p v-if="enhanceTotal.length" class="enhance-total mono">
-        <span class="total-label">满级累计</span>
+        <span class="total-label">{{ t.detail.maxTotal }}</span>
         <template v-for="(t, i) in enhanceTotal" :key="t.name">
           <span v-if="i" class="sep" aria-hidden="true">·</span>
           <span class="bn">{{ t.name }}</span>

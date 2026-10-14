@@ -1,0 +1,2509 @@
+{
+ "id": 1611,
+ "icon": "IconRole1611",
+ "name": "Claret",
+ "code_name": "Claret",
+ "rarity": 4,
+ "weapon_type": {
+  "7": "Armorer"
+ },
+ "element_type": {
+  "203": "Electric"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "16": "Roscaelifer"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "JUL 23",
+  "full_name": "Claret Flint",
+  "gender": "Female",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle1611.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0069.png",
+  "impression_f": "Wise, I remember Pyrois required quite a bit of Porcelloy, right? The exact amount was...",
+  "impression_m": "Best stop thinking about it, Belle. We're never ever going to be able to pay it all back... Barring any miracles, Claret's gonna be our creditor for life...",
+  "impressions": [
+   "Impressions of Claret:\n · I can't believe a cake worth 200 million Dennies actually exists...",
+   " · Who wouldn't want to meet a generous creditor who's in no hurry to collect?",
+   " · Even the pressures of being a genius family head can melt away over dessert."
+  ],
+  "profile_desc": "Claret, owner of Flint Workshop, the current head of the Flint family, and a legendary Porcelloy smith.\n\nShe has a strong sense of family honor and responsibility, and deeply treasures Porcelloy, her family, and the smithing techniques passed down through generations. For that very reason, she despises any act that wastes Porcelloy or causes it to be needlessly consumed.\n\nRoscaelifer's daily operations rely on Porcelloy, and the Flint family is the source of all Porcelloy in the world. Naturally, this makes Claret the greatest \"creditor\" of the Celestial Nexus. Though she holds leverage powerful enough to shake the heavens, she never uses it to demand greater power or status, instead abiding by the ancient family's original oath.\n\nClaret may appear aloof, but she doesn't act high and mighty just because she's the family head. People who know her tend to find her easy to get along with. She's bad at being honest about how she really feels, often saying one thing while meaning another, and she's quick to give in to other people's requests, even if it puts her in an awkward position.",
+  "role_icon": "IconRole/UnPacker/IconRole1611",
+  "stature": "166",
+  "unlock_condition": [
+   "Obtain Agent",
+   "Complete Main Story Season 3 Chapter 3 \"Their Secret Histories\"",
+   "Complete the \"Anby's Problem\" commission"
+  ],
+  "trust_lv": {
+   "1": "Claret, owner of Flint Workshop, the current head of the Flint family, and a legendary Porcelloy smith.\n\nShe has a strong sense of family honor and responsibility, and deeply treasures Porcelloy, her family, and the smithing techniques passed down through generations. For that very reason, she despises any act that wastes Porcelloy or causes it to be needlessly consumed.\n\nRoscaelifer's daily operations rely on Porcelloy, and the Flint family is the source of all Porcelloy in the world. Naturally, this makes Claret the greatest \"creditor\" of the Celestial Nexus. Though she holds leverage powerful enough to shake the heavens, she never uses it to demand greater power or status, instead abiding by the ancient family's original oath.\n\nClaret may appear aloof, but she doesn't act high and mighty just because she's the family head. People who know her tend to find her easy to get along with. She's bad at being honest about how she really feels, often saying one thing while meaning another, and she's quick to give in to other people's requests, even if it puts her in an awkward position.",
+   "2": "",
+   "3": "Claret has a fondness for desserts and is extremely particular about their flavor. The burdens of being both a \"genius\" and a \"family head\" bring the young woman no shortage of worries and stress, and indulging in sweets is one of her most effective ways to unwind.\nNote: According to her assistant, if the dessert doesn't taste good, it tends to have the opposite effect.\n\nOutside her area of expertise, Claret can sometimes be a little careless. She's not quite the noble, mysterious, flawless leader the rumors make her out to be, but she does everything she can to preserve that image in people's minds and, in turn, uphold the reputation of the Flint family.\n\nClaret is dedicated to leading her family in preserving and advancing the art of Porcelloy smithing. For generations, forging Porcelloy has required the blood of family members as a catalyst. Claret is searching for a way to forge Porcelloy without relying on their bloodline, hoping to free her family from this long-standing duty.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 101,
+  "attack_growth": 58479,
+  "avatar_piece_id": 5611,
+  "break_stun": 93,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 35,
+  "defence_growth": 48155,
+  "element_abnormal_power": 80,
+  "element_mystery": 79,
+  "endurance": 0,
+  "hp_growth": 616711,
+  "hp_max": 454,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 0,
+  "sp_recover": 0,
+  "stun": 0,
+  "tags": [
+   "Claret",
+   "Cut",
+   "Electric",
+   "Female",
+   "Camp16",
+   "Size02",
+   "AidTypeParry",
+   "Claret",
+   "EtherEyesSize2",
+   "Armorer",
+   "Punch"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 120,
+  "ep_recover": 150,
+  "sharp_critical_damage": 15000
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "Basic Attack: Bloodforging Four Forms",
+     "desc": "Press <IconMap:Icon_Normal> to activate:\nPerforms up to four strikes forward, dealing <color=#2EB6FF>Electric DMG</color>.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Bloodbloom Oath - Starforging",
+     "desc": "Press <IconMap:Icon_Normal> while in the <Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term> state to activate:\nPerforms up to three slashes forward with the Blood Axe, dealing <color=#2EB6FF>Electric DMG</color>.\nWhen the second attack is launched, Claret leaps backward and throws the Blood Axe. A Perfect Dodge can be triggered during the retreat.\nWhen the third attack is launched, Claret performs a series of slashes before leaping up and performing a downward smash. During the repeated slashes, Anti-Interrupt Level is increased, and DMG taken is reduced by 40%. Repeatedly press or hold <IconMap:Icon_Normal> to extend the duration of the repeated slashes. Stop pressing or release <IconMap:Icon_Normal> to make Claret immediately leap up and perform a downward smash. A Perfect Dodge can be triggered while leaping. After successfully triggering a Perfect Dodge, press or hold <IconMap:Icon_Normal> to follow up with the 3rd hit of Basic Attack: Bloodbloom Oath - Starforging.\nCrimson Inscription will not end during this skill.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Bloodbloom Oath - Subduing Axe",
+     "desc": "While in the <Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term> state, after launching Special Attack: Bloodbloom Oath - Cleaving Gold and Iron or Special Attack: Bloodbloom Oath - Blood Burial Assault to trigger Maim, press or hold <IconMap:Icon_Normal> to activate:\nSpins and leaps into the air with the Blood Axe, then slams down and slashes the target enemy, dealing <color=#2EB6FF>Electric DMG</color>. A Perfect Dodge can be triggered while leaping.\nAfter using the skill, press or hold <IconMap:Icon_Normal> to chain into the 3rd hit of Basic Attack: Bloodbloom Oath - Starforging.\nCrimson Inscription will not end during this skill.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Bloodforging Four Forms",
+     "param": [
+      {
+       "name": "1st-Hit DMG Multiplier",
+       "desc": "{Skill:1611001, Prop:1001}",
+       "param": {
+        "1611001": {
+         "main": 5440,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 5440,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 3470,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 95425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3150,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3151
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit DMG Multiplier",
+       "desc": "{Skill:1611002, Prop:1001}",
+       "param": {
+        "1611002": {
+         "main": 6720,
+         "growth": 620,
+         "format": "%",
+         "damage_percentage": 6720,
+         "damage_percentage_growth": 620,
+         "stun_ratio": 4290,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 117975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3899,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3900
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd-Hit DMG Multiplier",
+       "desc": "{Skill:1611003, Prop:1001}",
+       "param": {
+        "1611003": {
+         "main": 9520,
+         "growth": 870,
+         "format": "%",
+         "damage_percentage": 9520,
+         "damage_percentage_growth": 870,
+         "stun_ratio": 6090,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 167475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5529,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5530
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4th-Hit DMG Multiplier",
+       "desc": "{Skill:1611004, Prop:1001}",
+       "param": {
+        "1611004": {
+         "main": 28950,
+         "growth": 2640,
+         "format": "%",
+         "damage_percentage": 28950,
+         "damage_percentage_growth": 2640,
+         "stun_ratio": 17880,
+         "stun_ratio_growth": 820,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 491700,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 16253,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16254
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1st-Hit Daze Multiplier",
+       "desc": "{Skill:1611001, Prop:1002}",
+       "param": {
+        "1611001": {
+         "main": 3470,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 5440,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 3470,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 95425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3150,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3151
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit Daze Multiplier",
+       "desc": "{Skill:1611002, Prop:1002}",
+       "param": {
+        "1611002": {
+         "main": 4290,
+         "growth": 200,
+         "format": "%",
+         "damage_percentage": 6720,
+         "damage_percentage_growth": 620,
+         "stun_ratio": 4290,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 117975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3899,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3900
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd-Hit Daze Multiplier",
+       "desc": "{Skill:1611003, Prop:1002}",
+       "param": {
+        "1611003": {
+         "main": 6090,
+         "growth": 280,
+         "format": "%",
+         "damage_percentage": 9520,
+         "damage_percentage_growth": 870,
+         "stun_ratio": 6090,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 167475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5529,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5530
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4th-Hit Daze Multiplier",
+       "desc": "{Skill:1611004, Prop:1002}",
+       "param": {
+        "1611004": {
+         "main": 17880,
+         "growth": 820,
+         "format": "%",
+         "damage_percentage": 28950,
+         "damage_percentage_growth": 2640,
+         "stun_ratio": 17880,
+         "stun_ratio_growth": 820,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 491700,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 16253,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16254
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Bloodbloom Oath - Starforging",
+     "param": [
+      {
+       "name": "1st-Hit DMG Multiplier",
+       "desc": "{Skill:1611005, Prop:1001}",
+       "param": {
+        "1611005": {
+         "main": 10770,
+         "growth": 980,
+         "format": "%",
+         "damage_percentage": 10770,
+         "damage_percentage_growth": 980,
+         "stun_ratio": 5500,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 151250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4996,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit DMG Multiplier",
+       "desc": "{Skill:1611006, Prop:1001}",
+       "param": {
+        "1611006": {
+         "main": 28740,
+         "growth": 2620,
+         "format": "%",
+         "damage_percentage": 28740,
+         "damage_percentage_growth": 2620,
+         "stun_ratio": 14670,
+         "stun_ratio_growth": 670,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 403425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd Hit Consecutive Slashes DMG Multiplier",
+       "desc": "{Skill:1611007, Prop:1001}",
+       "param": {
+        "1611007": {
+         "main": 45210,
+         "growth": 4110,
+         "format": "%",
+         "damage_percentage": 45210,
+         "damage_percentage_growth": 4110,
+         "stun_ratio": 18700,
+         "stun_ratio_growth": 850,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 514250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 17000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd Hit Downward Strike DMG Multiplier",
+       "desc": "{Skill:1611029, Prop:1001}",
+       "param": {
+        "1611029": {
+         "main": 17730,
+         "growth": 1620,
+         "format": "%",
+         "damage_percentage": 17730,
+         "damage_percentage_growth": 1620,
+         "stun_ratio": 7340,
+         "stun_ratio_growth": 340,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 201850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1st-Hit Daze Multiplier",
+       "desc": "{Skill:1611005, Prop:1002}",
+       "param": {
+        "1611005": {
+         "main": 5500,
+         "growth": 250,
+         "format": "%",
+         "damage_percentage": 10770,
+         "damage_percentage_growth": 980,
+         "stun_ratio": 5500,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 151250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4996,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit Daze Multiplier",
+       "desc": "{Skill:1611006, Prop:1002}",
+       "param": {
+        "1611006": {
+         "main": 14670,
+         "growth": 670,
+         "format": "%",
+         "damage_percentage": 28740,
+         "damage_percentage_growth": 2620,
+         "stun_ratio": 14670,
+         "stun_ratio_growth": 670,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 403425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd Hit Consecutive Slashes Daze Multiplier",
+       "desc": "{Skill:1611007, Prop:1002}",
+       "param": {
+        "1611007": {
+         "main": 18700,
+         "growth": 850,
+         "format": "%",
+         "damage_percentage": 45210,
+         "damage_percentage_growth": 4110,
+         "stun_ratio": 18700,
+         "stun_ratio_growth": 850,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 514250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 17000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd Hit Downward Strikes Daze Multiplier",
+       "desc": "{Skill:1611029, Prop:1002}",
+       "param": {
+        "1611029": {
+         "main": 7340,
+         "growth": 340,
+         "format": "%",
+         "damage_percentage": 17730,
+         "damage_percentage_growth": 1620,
+         "stun_ratio": 7340,
+         "stun_ratio_growth": 340,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 201850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6667
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Bloodbloom Oath - Subduing Axe",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1611008, Prop:1001}",
+       "param": {
+        "1611008": {
+         "main": 32800,
+         "growth": 2990,
+         "format": "%",
+         "damage_percentage": 32800,
+         "damage_percentage_growth": 2990,
+         "stun_ratio": 13570,
+         "stun_ratio_growth": 620,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 373175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1611008, Prop:1002}",
+       "param": {
+        "1611008": {
+         "main": 13570,
+         "growth": 620,
+         "format": "%",
+         "damage_percentage": 32800,
+         "damage_percentage_growth": 2990,
+         "stun_ratio": 13570,
+         "stun_ratio_growth": 620,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 373175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12334
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "Dodge: Night Vision",
+     "desc": "Press <IconMap:Icon_Evade> to activate:\nA quick dash dodge.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Dash Attack: Tempering",
+     "desc": "While not in the <Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term> state, press <IconMap:Icon_Normal> during a Dodge to activate:\nPerforms a forward hammer strike, dealing <color=#2EB6FF>Electric DMG</color>.",
+     "potential": []
+    },
+    {
+     "name": "Dodge Counter: Returning Edge",
+     "desc": "Press <IconMap:Icon_Normal> during a <color=#FFFFFF>Perfect Dodge</color> to activate:\nUses the hammer handle to deliver a powerful forward counterattack, dealing <color=#2EB6FF>Electric DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Dodge Counter: Bloodbloom Oath - Returning Edge",
+     "desc": "Press <IconMap:Icon_Normal> during a <color=#FFFFFF>Perfect Dodge</color> to activate:\nDelivers a powerful forward counterattack with the Blood Axe, dealing <color=#2EB6FF>Electric DMG</color>.\n<Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term> will not end during this skill.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Dash Attack: Tempering",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1611016, Prop:1001}",
+       "param": {
+        "1611016": {
+         "main": 5290,
+         "growth": 490,
+         "format": "%",
+         "damage_percentage": 5290,
+         "damage_percentage_growth": 490,
+         "stun_ratio": 4310,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 118525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3915,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3916
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1611016, Prop:1002}",
+       "param": {
+        "1611016": {
+         "main": 4310,
+         "growth": 200,
+         "format": "%",
+         "damage_percentage": 5290,
+         "damage_percentage_growth": 490,
+         "stun_ratio": 4310,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 118525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3915,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3916
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Dodge Counter: Returning Edge",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1611018, Prop:1001}",
+       "param": {
+        "1611018": {
+         "main": 27250,
+         "growth": 2480,
+         "format": "%",
+         "damage_percentage": 27250,
+         "damage_percentage_growth": 2480,
+         "stun_ratio": 19620,
+         "stun_ratio_growth": 900,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 237050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1611018, Prop:1002}",
+       "param": {
+        "1611018": {
+         "main": 19620,
+         "growth": 900,
+         "format": "%",
+         "damage_percentage": 27250,
+         "damage_percentage_growth": 2480,
+         "stun_ratio": 19620,
+         "stun_ratio_growth": 900,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 237050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Dodge Counter: Bloodbloom Oath - Returning Edge",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1611019, Prop:1001}",
+       "param": {
+        "1611019": {
+         "main": 33000,
+         "growth": 3000,
+         "format": "%",
+         "damage_percentage": 33000,
+         "damage_percentage_growth": 3000,
+         "stun_ratio": 19070,
+         "stun_ratio_growth": 870,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 221925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1611019, Prop:1002}",
+       "param": {
+        "1611019": {
+         "main": 19070,
+         "growth": 870,
+         "format": "%",
+         "damage_percentage": 33000,
+         "damage_percentage_growth": 3000,
+         "stun_ratio": 19070,
+         "stun_ratio_growth": 870,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 221925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22334
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "Special Attack: Porcelume's First Call",
+     "desc": "Press <IconMap:Icon_Special> to activate:\nLaunches two bludgeoning attacks forward, dealing <color=#2EB6FF>Electric DMG</color>.\nAnti-Interrupt level is increased while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Bloodbloom Oath - Secret Forging Techniques",
+     "desc": "With enough Sharpness, and while Claret is not in the Crimson Inscription state, press <IconMap:Icon_SpecialReady_Ep> to activate:\nTransforms the forging hammer into the Blood Axe to slash the target enemy, dealing <color=#2EB6FF>Electric DMG</color>.\nAfter using this skill, Claret enters the Crimson Inscription state for 16s. While off-field, its duration no longer decreases. When Claret's attacks hit an enemy, if the enemy is defeated within 0.5s and Crimson Inscription's remaining duration is not 0, the duration of Crimson Inscription is extended by 3s. This effect can trigger once every 3s.\nDuring this skill, keep holding <IconMap:Icon_SpecialReady_Ep> to skip the slash and quickly chain into the alternate Special Attack: Bloodbloom Oath - Cleaving Gold and Iron and Special Attack: Bloodbloom Oath - Blood Burial Assault.\nAfter using this skill, press or hold <IconMap:Icon_Normal> to chain into the 3rd hit of Basic Attack: Bloodbloom Oath - Starforging.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Bloodbloom Oath - Cleaving Gold and Iron",
+     "desc": "While in the <Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term> state, press <IconMap:Icon_Special> or <IconMap:Icon_SpecialReady_Ep> to activate:\nPerforms a powerful upward slash forward, then follows up with a horizontal slash, dealing <color=#2EB6FF>Electric DMG</color>.\nIf the horizontal slash hits an enemy inflicted with Gash, triggers Maim on the target, dealing additional AoE <color=#2EB6FF>Electric DMG</color>.\nCrimson Inscription will not end during this skill.\nAnti-Interrupt Level is increased during this skill. After successfully inflicting Maim, the character is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Bloodbloom Oath - Blood Burial Assault",
+     "desc": "While in the <Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term> state and during the upward slash of Special Attack: Bloodbloom Oath - Cleaving Gold and Iron, keep holding <IconMap:Icon_Special> or <IconMap:Icon_SpecialReady_Ep> to activate:\nPerforms three consecutive horizontal slashes forward, dealing massive <color=#2EB6FF>Electric DMG</color>.\nEach horizontal slash that hits an enemy inflicted with Gash triggers Maim on the target, dealing additional AoE <color=#2EB6FF>Electric DMG</color>. Up to 3 consecutive instances of Maim can be triggered during this skill, with the third having a higher Interrupt Level.\n<Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term> will not end during this skill.\nAnti-Interrupt Level is increased while using this skill. After successfully inflicting Maim, the character is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Porcelume's First Call",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1611009, Prop:1001}",
+       "param": {
+        "1611009": {
+         "main": 9010,
+         "growth": 820,
+         "format": "%",
+         "damage_percentage": 9010,
+         "damage_percentage_growth": 820,
+         "stun_ratio": 3670,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 100925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3334,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3335
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1611009, Prop:1002}",
+       "param": {
+        "1611009": {
+         "main": 3670,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 9010,
+         "damage_percentage_growth": 820,
+         "stun_ratio": 3670,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 100925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3334,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3335
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Bloodbloom Oath - Secret Forging Techniques",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1611010, Prop:1001}",
+       "param": {
+        "1611010": {
+         "main": 62480,
+         "growth": 5680,
+         "format": "%",
+         "damage_percentage": 62480,
+         "damage_percentage_growth": 5680,
+         "stun_ratio": 25850,
+         "stun_ratio_growth": 1180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 710875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 23496,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1611010, Prop:1002}",
+       "param": {
+        "1611010": {
+         "main": 25850,
+         "growth": 1180,
+         "format": "%",
+         "damage_percentage": 62480,
+         "damage_percentage_growth": 5680,
+         "stun_ratio": 25850,
+         "stun_ratio_growth": 1180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 710875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 23496,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Sharpness Cost",
+       "desc": "60",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Bloodbloom Oath - Cleaving Gold and Iron",
+     "param": [
+      {
+       "name": "Upward Attack DMG Multiplier",
+       "desc": "{Skill:1611011, Prop:1001}",
+       "param": {
+        "1611011": {
+         "main": 7660,
+         "growth": 700,
+         "format": "%",
+         "damage_percentage": 7660,
+         "damage_percentage_growth": 700,
+         "stun_ratio": 3120,
+         "stun_ratio_growth": 150,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 171600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Horizontal Slash DMG Multiplier",
+       "desc": "{Skill:1611012, Prop:1001}",
+       "param": {
+        "1611012": {
+         "main": 8770,
+         "growth": 800,
+         "format": "%",
+         "damage_percentage": 8770,
+         "damage_percentage_growth": 800,
+         "stun_ratio": 3580,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 196625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6494
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Upward Attack Daze Multiplier",
+       "desc": "{Skill:1611011, Prop:1002}",
+       "param": {
+        "1611011": {
+         "main": 3120,
+         "growth": 150,
+         "format": "%",
+         "damage_percentage": 7660,
+         "damage_percentage_growth": 700,
+         "stun_ratio": 3120,
+         "stun_ratio_growth": 150,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 171600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Horizontal Slash Daze Multiplier",
+       "desc": "{Skill:1611012, Prop:1002}",
+       "param": {
+        "1611012": {
+         "main": 3580,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 8770,
+         "damage_percentage_growth": 800,
+         "stun_ratio": 3580,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 196625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6494
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Maim DMG Multiplier",
+       "desc": "{Skill:1611013, Prop:1001}",
+       "param": {
+        "1611013": {
+         "main": 81270,
+         "growth": 7390,
+         "format": "%",
+         "damage_percentage": 81270,
+         "damage_percentage_growth": 7390,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Bloodbloom Oath - Blood Burial Assault",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1611014, Prop:1001}",
+       "param": {
+        "1611014": {
+         "main": 31280,
+         "growth": 2850,
+         "format": "%",
+         "damage_percentage": 31280,
+         "damage_percentage_growth": 2850,
+         "stun_ratio": 25490,
+         "stun_ratio_growth": 1160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 700975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1611014, Prop:1002}",
+       "param": {
+        "1611014": {
+         "main": 25490,
+         "growth": 1160,
+         "format": "%",
+         "damage_percentage": 31280,
+         "damage_percentage_growth": 2850,
+         "stun_ratio": 25490,
+         "stun_ratio_growth": 1160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 700975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23171
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "Chain Attack: Bloodbloom Oath - Resonant Blood Pact",
+     "desc": "When a <color=#FFFFFF>Chain Attack</color> is triggered, select the character to activate:\nLaunches a series of slashes against enemies ahead, dealing massive <color=#2EB6FF>Electric DMG</color>.\n<Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term>'s duration does not decrease, and the state does not end during this skill.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Ultimate: Bloodbloom Oath - Trial After Trial",
+     "desc": "When Decibel Rating is at <color=#FFFFFF>Maximum</color>, press <IconMap:Icon_UltimateReady> to activate:\nLaunches a series of slashes against enemies ahead, dealing massive <color=#2EB6FF>Electric DMG</color>.\n<Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term>'s duration does not decrease, and the state does not end during this skill.\nUpon activating this skill, gain 10 Sharpness.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Chain Attack: Bloodbloom Oath - Resonant Blood Pact",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1611020, Prop:1001}",
+       "param": {
+        "1611020": {
+         "main": 105800,
+         "growth": 9620,
+         "format": "%",
+         "damage_percentage": 105800,
+         "damage_percentage_growth": 9620,
+         "stun_ratio": 27690,
+         "stun_ratio_growth": 1260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2773100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 45116,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1611020, Prop:1002}",
+       "param": {
+        "1611020": {
+         "main": 27690,
+         "growth": 1260,
+         "format": "%",
+         "damage_percentage": 105800,
+         "damage_percentage_growth": 9620,
+         "stun_ratio": 27690,
+         "stun_ratio_growth": 1260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2773100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 45116,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Ultimate: Bloodbloom Oath - Trial After Trial",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1611021, Prop:1001}",
+       "param": {
+        "1611021": {
+         "main": 225200,
+         "growth": 20480,
+         "format": "%",
+         "damage_percentage": 225200,
+         "damage_percentage_growth": 20480,
+         "stun_ratio": 35380,
+         "stun_ratio_growth": 1610,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 32163,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 82164
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1611021, Prop:1002}",
+       "param": {
+        "1611021": {
+         "main": 35380,
+         "growth": 1610,
+         "format": "%",
+         "damage_percentage": 225200,
+         "damage_percentage_growth": 20480,
+         "stun_ratio": 35380,
+         "stun_ratio_growth": 1610,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 32163,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 82164
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "Quick Assist: Return of the Dire Moon",
+     "desc": "When the active character is launched, press <IconMap:Icon_Switch> to activate:\nDeals <color=#2EB6FF>Electric DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Quick Assist: Bloodbloom Oath - Return of the Dire Moon",
+     "desc": "When the active character is launched, press <IconMap:Icon_Switch> to activate:\nDeals <color=#2EB6FF>Electric DMG</color>.\n<Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term> will not end during this skill.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Defensive Assist: Unyielding Heart of the Furnace",
+     "desc": "When the on-field character is about to be attacked, press <IconMap:Icon_Switch> to activate:\nParries the enemy's attack, dealing massive Daze.\n<Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term>'s duration does not decrease during this skill.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Bloodbloom Oath - Pureforged Edge",
+     "desc": "Press <IconMap:Icon_Normal> after a <color=#FFFFFF>Defensive Assist</color> to activate:\nDeals massive <color=#2EB6FF>Electric DMG</color>.\n<Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term> will not end during this skill.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Counter Assist: Give Not an Inch of Steel",
+     "desc": "When Claret or the on-field character is about to be hit by certain enemies' Control Skills, press <IconMap:Icon_Switch> to activate:\nEngages the enemy in a power struggle. Win the struggle to neutralize the enemy's Control Skill and deal <color=#2EB6FF>Electric DMG</color>.\n<Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term>'s duration does not decrease during this skill.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Bloodbloom Oath - Hammer Into Shape",
+     "desc": "After using a <color=#FFFFFF>Counter Assist</color>, press <IconMap:Icon_Normal> to activate:\nDeals massive <color=#2EB6FF>Electric DMG</color>. When the heavy attack hits an enemy, it adds one stack of Gash to the target.\n<Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term>'s duration does not decrease during this skill.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Quick Assist: Return of the Dire Moon",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1611022, Prop:1001}",
+       "param": {
+        "1611022": {
+         "main": 5290,
+         "growth": 490,
+         "format": "%",
+         "damage_percentage": 5290,
+         "damage_percentage_growth": 490,
+         "stun_ratio": 4310,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 118525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3916,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3917
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1611022, Prop:1002}",
+       "param": {
+        "1611022": {
+         "main": 4310,
+         "growth": 200,
+         "format": "%",
+         "damage_percentage": 5290,
+         "damage_percentage_growth": 490,
+         "stun_ratio": 4310,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 118525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3916,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3917
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Quick Assist: Bloodbloom Oath - Return of the Dire Moon",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1611023, Prop:1001}",
+       "param": {
+        "1611023": {
+         "main": 11580,
+         "growth": 1060,
+         "format": "%",
+         "damage_percentage": 11580,
+         "damage_percentage_growth": 1060,
+         "stun_ratio": 4040,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 111100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1611023, Prop:1002}",
+       "param": {
+        "1611023": {
+         "main": 4040,
+         "growth": 190,
+         "format": "%",
+         "damage_percentage": 11580,
+         "damage_percentage_growth": 1060,
+         "stun_ratio": 4040,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 111100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7334
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Defensive Assist: Unyielding Heart of the Furnace",
+     "param": [
+      {
+       "name": "Light Defensive Daze Multiplier",
+       "desc": "{Skill:1611024, Prop:1002}",
+       "param": {
+        "1611024": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Heavy Defensive Daze Multiplier",
+       "desc": "{Skill:1611025, Prop:1002}",
+       "param": {
+        "1611025": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Chain Defensive Daze Multiplier",
+       "desc": "{Skill:1611026, Prop:1002}",
+       "param": {
+        "1611026": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Bloodbloom Oath - Pureforged Edge",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1611027, Prop:1001}",
+       "param": {
+        "1611027": {
+         "main": 44620,
+         "growth": 4060,
+         "format": "%",
+         "damage_percentage": 44620,
+         "damage_percentage_growth": 4060,
+         "stun_ratio": 31580,
+         "stun_ratio_growth": 1440,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1131075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 30872,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1611027, Prop:1002}",
+       "param": {
+        "1611027": {
+         "main": 31580,
+         "growth": 1440,
+         "format": "%",
+         "damage_percentage": 44620,
+         "damage_percentage_growth": 4060,
+         "stun_ratio": 31580,
+         "stun_ratio_growth": 1440,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1131075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 30872,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15667
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Counter Assist: Give Not an Inch of Steel",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1611028, Prop:1001}",
+       "param": {
+        "1611028": {
+         "main": 115300,
+         "growth": 10490,
+         "format": "%",
+         "damage_percentage": 115300,
+         "damage_percentage_growth": 10490,
+         "stun_ratio": 71490,
+         "stun_ratio_growth": 3250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2526975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 69619,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 67167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1611028, Prop:1002}",
+       "param": {
+        "1611028": {
+         "main": 71490,
+         "growth": 3250,
+         "format": "%",
+         "damage_percentage": 115300,
+         "damage_percentage_growth": 10490,
+         "stun_ratio": 71490,
+         "stun_ratio_growth": 3250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2526975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 69619,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 67167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Bloodbloom Oath - Hammer Into Shape",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1611030, Prop:1001}",
+       "param": {
+        "1611030": {
+         "main": 85630,
+         "growth": 7790,
+         "format": "%",
+         "damage_percentage": 85630,
+         "damage_percentage_growth": 7790,
+         "stun_ratio": 52640,
+         "stun_ratio_growth": 2400,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2187350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 53963,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1611030, Prop:1002}",
+       "param": {
+        "1611030": {
+         "main": 52640,
+         "growth": 2400,
+         "format": "%",
+         "damage_percentage": 85630,
+         "damage_percentage_growth": 7790,
+         "stun_ratio": 52640,
+         "stun_ratio_growth": 2400,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2187350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 53963,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "Bloodstained Chronicle",
+   "desc": "When Claret's attacks hit enemies and trigger Laceration, Gash Buildup Rate increases by 20%. The DMG Multiplier of Maim triggered by Claret increases to 130% of its original value.",
+   "desc2": "The girl turns the pages of the weathered family chronicle, the coarse paper scraping at her palm.\nA single drop of blood falls onto the title page; countless more stain every page that follows."
+  },
+  "2": {
+   "level": 2,
+   "name": "Crown of Inherited Flame",
+   "desc": "The maximum duration of Crimson Inscription is extended by 2s. While Claret is in the Crimson Inscription state, or while using a Chain Attack, Ultimate, Counter Assist, or Assist Follow-Up, attacks ignore 18% of the target's <color=#2EB6FF>Electric RES</color>.",
+   "desc2": "The prodigy chosen by her bloodline steps into the great hall, radiant light spilling across her face.\nWithout a word, she accepts the crown and scepter, then turns and heads for the next forging ground."
+  },
+  "3": {
+   "level": 3,
+   "name": "Oath Written in Frosting",
+   "desc": "<color=#FFFFFF>Basic Attack</color>, <color=#FFFFFF>Dodge</color>, <color=#FFFFFF>Assist</color>, <color=#FFFFFF>Special Attack</color>, and <color=#FFFFFF>Chain Attack</color> Lv. +2",
+   "desc2": "The forge burns day and night, and the family's heavy burden falls upon the young woman's shoulders.\nShe has never known how to ease the feelings weighing on her heart, until one day, her brilliant assistant brings her an exquisite dessert, adding a lingering touch of sweetness to her bitter days."
+  },
+  "4": {
+   "level": 4,
+   "name": "Crimson Moon Wanderer",
+   "desc": "During the 3rd hit of Basic Attack: Bloodbloom Oath - Starforging, the time by which the consecutive slashes can be extended is increased. DMG dealt by Basic Attack: Bloodbloom Oath - Starforging's 3rd hit, Chain Attack: Bloodbloom Oath - Resonant Blood Pact, and Ultimate: Bloodbloom Oath - Trial After Trial increases by 20%.",
+   "desc2": "The hammering falls silent, and only the crimson moon hangs high in the long night.\nThe young woman raises her scarlet gaze while the merciless moonlight seems to mock her as it creeps across the window frame."
+  },
+  "5": {
+   "level": 5,
+   "name": "Duskblood Furnace",
+   "desc": "<color=#FFFFFF>Basic Attack</color>, <color=#FFFFFF>Dodge</color>, <color=#FFFFFF>Assist</color>, <color=#FFFFFF>Special Attack</color>, and <color=#FFFFFF>Chain Attack</color> Lv. +2",
+   "desc2": "Generations of artisans have fed the furnace with their blood, but she swears to teach the flames to burn on their own.\nThe sound of hammering rings through the workshop once more. The furnace still burns eternal, but no longer needs life itself as fuel."
+  },
+  "6": {
+   "level": 6,
+   "name": "Warm Night's Dream",
+   "desc": "When the heavy attacks of Chain Attack: Bloodbloom Oath - Resonant Blood Pact and Ultimate: Bloodbloom Oath - Trial After Trial hit an enemy, Claret directly triggers 1 instance of single-target Maim without consuming Gash.",
+   "desc2": "The young woman finally drifts into a deep sleep.\nShe dreams of a full moon and a vast land stretching on forever.\nThe crimson moonlight has long since faded, and the silver night sky seems almost like dawn."
+  }
+ },
+ "passive": {
+  "level": {
+   "1611501": {
+    "level": 1,
+    "id": 1611501,
+    "name": [
+     "Core Passive: Banquet of Pale Blood",
+     "Additional Ability: Bloodline Legacy"
+    ],
+    "desc": [
+     "All DMG dealt by Claret's skills is considered Sharp DMG, and skill DMG Multipliers are based on DEF. Certain Sharp DMG builds up Gash. When Gash buildup is full, the enemy is inflicted with Gash, which can stack up to 3 times. When Special Attack: Bloodbloom Oath - Cleaving Gold and Iron or Special Attack: Bloodbloom Oath - Blood Burial Assault hits an enemy inflicted with Gash, 1 stack of Gash is consumed to trigger Maim and deal AoE DMG.\nWhen a critical hit is triggered, Sharp DMG doesn't receive the CRIT DMG Bonus and instead uses the Laceration DMG Bonus. If CRIT Rate exceeds 100% and a critical hit has already been triggered, an additional Laceration check is performed based on the excess CRIT Rate. If Laceration is triggered, the Laceration DMG Bonus is applied an additional time. For every 1% of Claret's initial CRIT DMG, her initial CRIT Rate increases by 0.35%.\nWhen Claret enters the battlefield, she gains 60 Sharpness. In Investigation Zone Mode, this effect can trigger once every 180s.\nWhile Claret is in the <Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term> state, her Anti-Interrupt Level is increased. When Claret uses a Chain Attack, the duration of Crimson Inscription is extended by 2s.\nWhile Claret is in the Crimson Inscription state, or while using a Chain Attack, Ultimate, Counter Assist, or Assist Follow-Up, CRIT Rate increases by <color=#2BAD00>15%</color> and Gash Buildup Rate increases by <color=#2BAD00>20%</color>. Triggering a Perfect Dodge during Basic Attack: Bloodbloom Oath - Starforging or Basic Attack: Bloodbloom Oath - Subduing Axe increases DMG dealt for the remainder of the skill by 15%.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Armorer</color> character, or shares the same attribute:\nWhen any Agent in the squad triggers Contamination, Claret gains 300 Decibels. This effect can trigger once every 18s.\nWhen Claret or another squad member triggers Maim, all Armorer Agents in the squad enter Remnant Edge. While in the Remnant Edge state, Laceration DMG is increased by <color=#FFFFFF>25%</color>, lasting 40s. Triggering Remnant Edge again refreshes its duration."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1611502": {
+    "level": 2,
+    "id": 1611502,
+    "name": [
+     "Core Passive: Banquet of Pale Blood",
+     "Additional Ability: Bloodline Legacy"
+    ],
+    "desc": [
+     "All DMG dealt by Claret's skills is considered Sharp DMG, and skill DMG Multipliers are based on DEF. Certain Sharp DMG builds up Gash. When Gash buildup is full, the enemy is inflicted with Gash, which can stack up to 3 times. When Special Attack: Bloodbloom Oath - Cleaving Gold and Iron or Special Attack: Bloodbloom Oath - Blood Burial Assault hits an enemy inflicted with Gash, 1 stack of Gash is consumed to trigger Maim and deal AoE DMG.\nWhen a critical hit is triggered, Sharp DMG doesn't receive the CRIT DMG Bonus and instead uses the Laceration DMG Bonus. If CRIT Rate exceeds 100% and a critical hit has already been triggered, an additional Laceration check is performed based on the excess CRIT Rate. If Laceration is triggered, the Laceration DMG Bonus is applied an additional time. For every 1% of Claret's initial CRIT DMG, her initial CRIT Rate increases by 0.35%.\nWhen Claret enters the battlefield, she gains 60 Sharpness. In Investigation Zone Mode, this effect can trigger once every 180s.\nWhile Claret is in the <Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term> state, her Anti-Interrupt Level is increased. When Claret uses a Chain Attack, the duration of Crimson Inscription is extended by 2s.\nWhile Claret is in the Crimson Inscription state, or while using a Chain Attack, Ultimate, Counter Assist, or Assist Follow-Up, CRIT Rate increases by <color=#2BAD00>17.5%</color> and Gash Buildup Rate increases by <color=#2BAD00>25%</color>. Triggering a Perfect Dodge during Basic Attack: Bloodbloom Oath - Starforging or Basic Attack: Bloodbloom Oath - Subduing Axe increases DMG dealt for the remainder of the skill by 15%.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Armorer</color> character, or shares the same attribute:\nWhen any Agent in the squad triggers Contamination, Claret gains 300 Decibels. This effect can trigger once every 18s.\nWhen Claret or another squad member triggers Maim, all Armorer Agents in the squad enter Remnant Edge. While in the Remnant Edge state, Laceration DMG is increased by <color=#FFFFFF>25%</color>, lasting 40s. Triggering Remnant Edge again refreshes its duration."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1611503": {
+    "level": 3,
+    "id": 1611503,
+    "name": [
+     "Core Passive: Banquet of Pale Blood",
+     "Additional Ability: Bloodline Legacy"
+    ],
+    "desc": [
+     "All DMG dealt by Claret's skills is considered Sharp DMG, and skill DMG Multipliers are based on DEF. Certain Sharp DMG builds up Gash. When Gash buildup is full, the enemy is inflicted with Gash, which can stack up to 3 times. When Special Attack: Bloodbloom Oath - Cleaving Gold and Iron or Special Attack: Bloodbloom Oath - Blood Burial Assault hits an enemy inflicted with Gash, 1 stack of Gash is consumed to trigger Maim and deal AoE DMG.\nWhen a critical hit is triggered, Sharp DMG doesn't receive the CRIT DMG Bonus and instead uses the Laceration DMG Bonus. If CRIT Rate exceeds 100% and a critical hit has already been triggered, an additional Laceration check is performed based on the excess CRIT Rate. If Laceration is triggered, the Laceration DMG Bonus is applied an additional time. For every 1% of Claret's initial CRIT DMG, her initial CRIT Rate increases by 0.35%.\nWhen Claret enters the battlefield, she gains 60 Sharpness. In Investigation Zone Mode, this effect can trigger once every 180s.\nWhile Claret is in the <Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term> state, her Anti-Interrupt Level is increased. When Claret uses a Chain Attack, the duration of Crimson Inscription is extended by 2s.\nWhile Claret is in the Crimson Inscription state, or while using a Chain Attack, Ultimate, Counter Assist, or Assist Follow-Up, CRIT Rate increases by <color=#2BAD00>20%</color> and Gash Buildup Rate increases by <color=#2BAD00>30%</color>. Triggering a Perfect Dodge during Basic Attack: Bloodbloom Oath - Starforging or Basic Attack: Bloodbloom Oath - Subduing Axe increases DMG dealt for the remainder of the skill by 15%.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Armorer</color> character, or shares the same attribute:\nWhen any Agent in the squad triggers Contamination, Claret gains 300 Decibels. This effect can trigger once every 18s.\nWhen Claret or another squad member triggers Maim, all Armorer Agents in the squad enter Remnant Edge. While in the Remnant Edge state, Laceration DMG is increased by <color=#FFFFFF>25%</color>, lasting 40s. Triggering Remnant Edge again refreshes its duration."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1611504": {
+    "level": 4,
+    "id": 1611504,
+    "name": [
+     "Core Passive: Banquet of Pale Blood",
+     "Additional Ability: Bloodline Legacy"
+    ],
+    "desc": [
+     "All DMG dealt by Claret's skills is considered Sharp DMG, and skill DMG Multipliers are based on DEF. Certain Sharp DMG builds up Gash. When Gash buildup is full, the enemy is inflicted with Gash, which can stack up to 3 times. When Special Attack: Bloodbloom Oath - Cleaving Gold and Iron or Special Attack: Bloodbloom Oath - Blood Burial Assault hits an enemy inflicted with Gash, 1 stack of Gash is consumed to trigger Maim and deal AoE DMG.\nWhen a critical hit is triggered, Sharp DMG doesn't receive the CRIT DMG Bonus and instead uses the Laceration DMG Bonus. If CRIT Rate exceeds 100% and a critical hit has already been triggered, an additional Laceration check is performed based on the excess CRIT Rate. If Laceration is triggered, the Laceration DMG Bonus is applied an additional time. For every 1% of Claret's initial CRIT DMG, her initial CRIT Rate increases by 0.35%.\nWhen Claret enters the battlefield, she gains 60 Sharpness. In Investigation Zone Mode, this effect can trigger once every 180s.\nWhile Claret is in the <Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term> state, her Anti-Interrupt Level is increased. When Claret uses a Chain Attack, the duration of Crimson Inscription is extended by 2s.\nWhile Claret is in the Crimson Inscription state, or while using a Chain Attack, Ultimate, Counter Assist, or Assist Follow-Up, CRIT Rate increases by <color=#2BAD00>22.5%</color> and Gash Buildup Rate increases by <color=#2BAD00>35%</color>. Triggering a Perfect Dodge during Basic Attack: Bloodbloom Oath - Starforging or Basic Attack: Bloodbloom Oath - Subduing Axe increases DMG dealt for the remainder of the skill by 15%.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Armorer</color> character, or shares the same attribute:\nWhen any Agent in the squad triggers Contamination, Claret gains 300 Decibels. This effect can trigger once every 18s.\nWhen Claret or another squad member triggers Maim, all Armorer Agents in the squad enter Remnant Edge. While in the Remnant Edge state, Laceration DMG is increased by <color=#FFFFFF>25%</color>, lasting 40s. Triggering Remnant Edge again refreshes its duration."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1611505": {
+    "level": 5,
+    "id": 1611505,
+    "name": [
+     "Core Passive: Banquet of Pale Blood",
+     "Additional Ability: Bloodline Legacy"
+    ],
+    "desc": [
+     "All DMG dealt by Claret's skills is considered Sharp DMG, and skill DMG Multipliers are based on DEF. Certain Sharp DMG builds up Gash. When Gash buildup is full, the enemy is inflicted with Gash, which can stack up to 3 times. When Special Attack: Bloodbloom Oath - Cleaving Gold and Iron or Special Attack: Bloodbloom Oath - Blood Burial Assault hits an enemy inflicted with Gash, 1 stack of Gash is consumed to trigger Maim and deal AoE DMG.\nWhen a critical hit is triggered, Sharp DMG doesn't receive the CRIT DMG Bonus and instead uses the Laceration DMG Bonus. If CRIT Rate exceeds 100% and a critical hit has already been triggered, an additional Laceration check is performed based on the excess CRIT Rate. If Laceration is triggered, the Laceration DMG Bonus is applied an additional time. For every 1% of Claret's initial CRIT DMG, her initial CRIT Rate increases by 0.35%.\nWhen Claret enters the battlefield, she gains 60 Sharpness. In Investigation Zone Mode, this effect can trigger once every 180s.\nWhile Claret is in the <Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term> state, her Anti-Interrupt Level is increased. When Claret uses a Chain Attack, the duration of Crimson Inscription is extended by 2s.\nWhile Claret is in the Crimson Inscription state, or while using a Chain Attack, Ultimate, Counter Assist, or Assist Follow-Up, CRIT Rate increases by <color=#2BAD00>25%</color> and Gash Buildup Rate increases by <color=#2BAD00>40%</color>. Triggering a Perfect Dodge during Basic Attack: Bloodbloom Oath - Starforging or Basic Attack: Bloodbloom Oath - Subduing Axe increases DMG dealt for the remainder of the skill by 15%.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Armorer</color> character, or shares the same attribute:\nWhen any Agent in the squad triggers Contamination, Claret gains 300 Decibels. This effect can trigger once every 18s.\nWhen Claret or another squad member triggers Maim, all Armorer Agents in the squad enter Remnant Edge. While in the Remnant Edge state, Laceration DMG is increased by <color=#FFFFFF>25%</color>, lasting 40s. Triggering Remnant Edge again refreshes its duration."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1611506": {
+    "level": 6,
+    "id": 1611506,
+    "name": [
+     "Core Passive: Banquet of Pale Blood",
+     "Additional Ability: Bloodline Legacy"
+    ],
+    "desc": [
+     "All DMG dealt by Claret's skills is considered Sharp DMG, and skill DMG Multipliers are based on DEF. Certain Sharp DMG builds up Gash. When Gash buildup is full, the enemy is inflicted with Gash, which can stack up to 3 times. When Special Attack: Bloodbloom Oath - Cleaving Gold and Iron or Special Attack: Bloodbloom Oath - Blood Burial Assault hits an enemy inflicted with Gash, 1 stack of Gash is consumed to trigger Maim and deal AoE DMG.\nWhen a critical hit is triggered, Sharp DMG doesn't receive the CRIT DMG Bonus and instead uses the Laceration DMG Bonus. If CRIT Rate exceeds 100% and a critical hit has already been triggered, an additional Laceration check is performed based on the excess CRIT Rate. If Laceration is triggered, the Laceration DMG Bonus is applied an additional time. For every 1% of Claret's initial CRIT DMG, her initial CRIT Rate increases by 0.35%.\nWhen Claret enters the battlefield, she gains 60 Sharpness. In Investigation Zone Mode, this effect can trigger once every 180s.\nWhile Claret is in the <Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term> state, her Anti-Interrupt Level is increased. When Claret uses a Chain Attack, the duration of Crimson Inscription is extended by 2s.\nWhile Claret is in the Crimson Inscription state, or while using a Chain Attack, Ultimate, Counter Assist, or Assist Follow-Up, CRIT Rate increases by <color=#2BAD00>27.5%</color> and Gash Buildup Rate increases by <color=#2BAD00>45%</color>. Triggering a Perfect Dodge during Basic Attack: Bloodbloom Oath - Starforging or Basic Attack: Bloodbloom Oath - Subduing Axe increases DMG dealt for the remainder of the skill by 15%.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Armorer</color> character, or shares the same attribute:\nWhen any Agent in the squad triggers Contamination, Claret gains 300 Decibels. This effect can trigger once every 18s.\nWhen Claret or another squad member triggers Maim, all Armorer Agents in the squad enter Remnant Edge. While in the Remnant Edge state, Laceration DMG is increased by <color=#FFFFFF>25%</color>, lasting 40s. Triggering Remnant Edge again refreshes its duration."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1611507": {
+    "level": 7,
+    "id": 1611507,
+    "name": [
+     "Core Passive: Banquet of Pale Blood",
+     "Additional Ability: Bloodline Legacy"
+    ],
+    "desc": [
+     "All DMG dealt by Claret's skills is considered Sharp DMG, and skill DMG Multipliers are based on DEF. Certain Sharp DMG builds up Gash. When Gash buildup is full, the enemy is inflicted with Gash, which can stack up to 3 times. When Special Attack: Bloodbloom Oath - Cleaving Gold and Iron or Special Attack: Bloodbloom Oath - Blood Burial Assault hits an enemy inflicted with Gash, 1 stack of Gash is consumed to trigger Maim and deal AoE DMG.\nWhen a critical hit is triggered, Sharp DMG doesn't receive the CRIT DMG Bonus and instead uses the Laceration DMG Bonus. If CRIT Rate exceeds 100% and a critical hit has already been triggered, an additional Laceration check is performed based on the excess CRIT Rate. If Laceration is triggered, the Laceration DMG Bonus is applied an additional time. For every 1% of Claret's initial CRIT DMG, her initial CRIT Rate increases by 0.35%.\nWhen Claret enters the battlefield, she gains 60 Sharpness. In Investigation Zone Mode, this effect can trigger once every 180s.\nWhile Claret is in the <Term:1000036><color=#FFFFFF>Crimson Inscription</color></Term> state, her Anti-Interrupt Level is increased. When Claret uses a Chain Attack, the duration of Crimson Inscription is extended by 2s.\nWhile Claret is in the Crimson Inscription state, or while using a Chain Attack, Ultimate, Counter Assist, or Assist Follow-Up, CRIT Rate increases by <color=#2BAD00>30%</color> and Gash Buildup Rate increases by <color=#2BAD00>50%</color>. Triggering a Perfect Dodge during Basic Attack: Bloodbloom Oath - Starforging or Basic Attack: Bloodbloom Oath - Subduing Axe increases DMG dealt for the remainder of the skill by 15%.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Armorer</color> character, or shares the same attribute:\nWhen any Agent in the squad triggers Contamination, Claret gains 300 Decibels. This effect can trigger once every 18s.\nWhen Claret or another squad member triggers Maim, all Armorer Agents in the squad enter Remnant Edge. While in the Remnant Edge state, Laceration DMG is increased by <color=#FFFFFF>25%</color>, lasting 40s. Triggering Remnant Edge again refreshes its duration."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110516": 2
+   },
+   "3": {
+    "10": 28000,
+    "110516": 4
+   },
+   "4": {
+    "10": 60000,
+    "110011": 2,
+    "110516": 9
+   },
+   "5": {
+    "10": 100000,
+    "110011": 3,
+    "110516": 15
+   },
+   "6": {
+    "10": 200000,
+    "110011": 4,
+    "110516": 30
+   }
+  }
+ },
+ "skin": {
+  "3116110": {
+   "name": "Claret: Red Gold Blaze",
+   "desc": "Rumor has it that the head of the Flint family always has embers clinging to her clothes... Clearly, that's nothing more than a romantic fantasy. A young genius blacksmith would never allow such a glaring mistake.",
+   "obtain_desc": "",
+   "image": "IconRole1611"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1611001": {
+   "name": "Basic Attack: Bloodforging Four Forms",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1611002": {
+   "name": "Basic Attack: Bloodbloom Oath - Starforging",
+   "desc": "<IconMap:Icon_Normal> (In Crimson Inscription)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611003": {
+   "name": "Basic Attack: Bloodbloom Oath - Subduing Axe",
+   "desc": "<IconMap:Icon_Special> ; <IconMap:Icon_Normal> (In Crimson Inscription) (After successful Maim)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611004": {
+   "name": "Special Attack: Porcelume's First Call",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611005": {
+   "name": "EX Special Attack: Bloodbloom Oath - Secret Forging Techniques",
+   "desc": "<IconMap:Icon_SpecialReady_Ep> (With enough Sharpness while not in Crimson Inscription)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611006": {
+   "name": "Special Attack: Bloodbloom Oath - Cleaving Gold and Iron",
+   "desc": "<IconMap:Icon_Special> or <IconMap:Icon_SpecialReady_Ep> (In Crimson Inscription)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611007": {
+   "name": "Special Attack: Bloodbloom Oath - Blood Burial Assault",
+   "desc": "<IconMap:Icon_Special> or <IconMap:Icon_SpecialReady_Ep> (In Crimson Inscription) (Continue to Hold)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611008": {
+   "name": "Dash Attack: Tempering",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1611009": {
+   "name": "Dodge Counter: Returning Edge",
+   "desc": "<IconMap:Icon_Evade> (Perfect) ; <IconMap:Icon_Normal>",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1611010": {
+   "name": "Dodge Counter: Bloodbloom Oath - Returning Edge (In Crimson Inscription)",
+   "desc": "<IconMap:Icon_Evade> (Perfect) ; <IconMap:Icon_Normal>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611011": {
+   "name": "Chain Attack: Bloodbloom Oath - Resonant Blood Pact",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611012": {
+   "name": "Ultimate: Bloodbloom Oath - Trial After Trial",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611013": {
+   "name": "Quick Assist: Return of the Dire Moon",
+   "desc": "<IconMap:Icon_Switch> (When Triggering Quick Assist)",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1611014": {
+   "name": "Quick Assist Bloodbloom Oath - Return of the Dire Moon",
+   "desc": "<IconMap:Icon_Switch> (In Crimson Inscription) (When Triggering Quick Assist)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611015": {
+   "name": "Defensive Assist: Unyielding Heart of the Furnace",
+   "desc": "<IconMap:Icon_Switch> (When Triggering Defensive Assist)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1611016": {
+   "name": "Counter Assist: Give Not an Inch of Steel",
+   "desc": "<IconMap:Icon_Switch> (When Triggering Counter Assist)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1611017": {
+   "name": "Assist Follow-Up: Bloodbloom Oath - Pureforged Edge",
+   "desc": "<IconMap:Icon_Normal> (After Defensive Assist)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1611018": {
+   "name": "Assist Follow-Up: Bloodbloom Oath - Hammer Into Shape",
+   "desc": "<IconMap:Icon_Normal> (After Counter Assist)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1611001,
+   "avatar_id": 1611,
+   "first_priority": [
+    5,
+    1
+   ],
+   "second_priority": [
+    3,
+    0,
+    6
+   ],
+   "third_priority": [
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 34200,
+  "slot2": 31000,
+  "slot_sub": 31100,
+  "part_sub_list": [
+   20103,
+   13102,
+   21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     34200,
+     31000
+    ],
+    "part_sub_list": [
+     20103
+    ]
+   },
+   {
+    "suit_list": [
+     34200,
+     32700
+    ],
+    "part_sub_list": [
+     23103,
+     31803
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     13102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "CRIT Rate",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 23103,
+   "name": "PEN Ratio",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconPenRatio.png"
+  },
+  "part6": {
+   "prop": 31803,
+   "name": "Electric DMG Bonus",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconThunder.png"
+  },
+  "part_sub": {
+   "prop": 13102,
+   "name": "DEF",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconDef.png"
+  }
+ },
+ "strategy": {},
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100217": 4
+   }
+  },
+  "2": {
+   "hp_max": 312,
+   "attack": 36,
+   "defence": 24,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100227": 12
+   }
+  },
+  "3": {
+   "hp_max": 624,
+   "attack": 72,
+   "defence": 49,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100227": 20
+   }
+  },
+  "4": {
+   "hp_max": 936,
+   "attack": 108,
+   "defence": 73,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100237": 10
+   }
+  },
+  "5": {
+   "hp_max": 1248,
+   "attack": 144,
+   "defence": 97,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100237": 20
+   }
+  },
+  "6": {
+   "hp_max": 1559,
+   "attack": 180,
+   "defence": 122,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 1920
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 2400
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 2880
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": ""
+}

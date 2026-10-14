@@ -49,11 +49,14 @@ import {
   disarmDeckFlight,
 } from '@/utils/viewTransition'
 import { heroForm } from '@/composables/useHeroForm'
+
 import { useMediaQuery } from '@/composables/useMediaQuery'
 import { deckFigureStyle } from '@/utils/deckFraming'
 import { heroFileForForm } from '@/data/heroGenderVariants'
 import { awaitImageReady, heroDetailPrimarySrc, heroDetailViewport } from '@/data/heroImageSources'
 import { catalogByPath } from '@/domain/catalog'
+import { fmt } from '@/domain/uiText'
+import { useUiText } from '@/composables/useUiText'
 import HollowImage from '@/components/HollowImage.vue'
 import {
   DRAG_INTENT_PX,
@@ -65,6 +68,8 @@ import {
 } from '@/utils/deckGesture'
 
 const props = defineProps<{ cards: FeaturedCard[] }>()
+
+const { t } = useUiText()
 
 const viewport = ref<HTMLElement | null>(null)
 
@@ -362,11 +367,11 @@ function warmHero(id: number | undefined): void {
  *  WCAG 2.5.3（Label in Name）与 axe 的 label-content-name-mismatch 都稳。
  *  「生日」小签同样要带：标本签是 aria-hidden 的镜像，漏了它读屏就丢一条信息。 */
 function labelOf(card: FeaturedCard | undefined): string {
-  if (!card) return '待载入'
-  const parts = [card.zh || card.en || '待载入']
-  if (card.no) parts.push(`编号 ${card.no}`)
-  if (card.elementZh) parts.push(card.elementZh)
-  if (card.isBirthday) parts.push('生日')
+  if (!card) return t.value.common.pendingName
+  const parts = [card.name || card.en || t.value.common.pendingName]
+  if (card.no) parts.push(fmt(t.value.common.noLabel, { n: card.no }))
+  if (card.element) parts.push(card.element)
+  if (card.isBirthday) parts.push(t.value.home.birthday)
   return parts.join(' · ')
 }
 
@@ -394,8 +399,8 @@ onBeforeUnmount(() => {
         ref="viewport"
         class="deck-viewport"
         role="group"
-        aria-label="今日角色"
-        aria-roledescription="轮播"
+        :aria-label="t.home.today"
+        :aria-roledescription="t.home.carousel"
         tabindex="0"
         :class="{ 'is-dragging': dragging }"
         @pointerdown="onPointerDown"
@@ -417,8 +422,8 @@ onBeforeUnmount(() => {
             :key="s"
             class="deck-slide"
             role="group"
-            aria-roledescription="角色卡"
-            :aria-label="`第 ${s + 1} 位：${labelOf(cards[s])}`"
+            :aria-roledescription="t.home.characterCard"
+            :aria-label="fmt(t.home.position, { n: s + 1, label: labelOf(cards[s]) })"
             :style="slotVars(s)"
           >
             <RouterLink
@@ -487,7 +492,7 @@ onBeforeUnmount(() => {
             y="10"
             text-anchor="middle"
             dominant-baseline="central"
-          >生日</text>
+          >{{ t.home.birthdayBadge }}</text>
         </svg>
       </div>
 
@@ -501,16 +506,17 @@ onBeforeUnmount(() => {
         <p :key="active" class="deck-label" aria-hidden="true">
           <span class="no mono">{{ current?.no ?? '--' }}</span>
           <span
-            v-if="current?.elementZh"
+            v-if="current?.element"
             class="el mono"
             :style="current?.elementColor ? { color: current.elementColor } : undefined"
-          >{{ current!.elementZh }}</span>
-          <template v-if="current?.zh">
-            <span class="zh">{{ current!.zh }}</span>
-            <span class="en mono">{{ current!.en }}</span>
+          >{{ current!.element }}</span>
+          <template v-if="current?.name">
+            <span class="name">{{ current!.name }}</span>
+            <!-- 第二行是英文档案名（标本签的拉丁副题）。主名本身就是英文时不再重复印一遍。 -->
+            <span v-if="current!.en && current!.en !== current!.name" class="en mono">{{ current!.en }}</span>
           </template>
           <template v-else>
-            <span class="bar zh-bar" />
+            <span class="bar name-bar" />
             <span class="bar en-bar" />
           </template>
         </p>
@@ -521,7 +527,7 @@ onBeforeUnmount(() => {
              读数只作视觉陈列（aria-hidden）：位置信息由刻度的可访问名与轮播的 aria-live 承担。 -->
         <div class="deck-pager">
           <span class="mono deck-count" :style="{ '--deck-dir': dir }" aria-hidden="true"><span :key="active" class="deck-count-num">{{ String(active + 1).padStart(2, '0') }}</span> / <span class="deck-count-total">{{ String(count).padStart(2, '0') }}</span></span>
-          <span v-if="count > 1" class="deck-ticks" role="group" aria-label="选择要展示的角色">
+          <span v-if="count > 1" class="deck-ticks" role="group" :aria-label="t.home.pickCharacter">
             <button
               v-for="(c, i) in cards"
               :key="c.id"
@@ -530,7 +536,7 @@ onBeforeUnmount(() => {
               :class="{ 'is-active': i === active }"
               :aria-disabled="i === active ? 'true' : undefined"
               :aria-controls="slideId(i)"
-              :aria-label="`第 ${i + 1} 位：${c.zh || c.en || '待载入'}`"
+              :aria-label="fmt(t.home.position, { n: i + 1, label: c.name || c.en || t.common.pendingName })"
               @click.stop="goTo(i)"
             />
           </span>
@@ -947,7 +953,7 @@ onBeforeUnmount(() => {
   color: var(--ink-2);
 }
 
-.deck-label .zh {
+.deck-label .name {
   font-family: var(--serif);
   /* --fs-hero 的字面语义就是「首页人名」，这一行正是它唯一的用处 */
   font-size: var(--fs-hero);
@@ -971,7 +977,7 @@ onBeforeUnmount(() => {
   animation: skel-pulse var(--t-skel) ease-in-out infinite;
 }
 
-.deck-label .zh-bar {
+.deck-label .name-bar {
   height: 21px;
   width: 64px;
 }
@@ -1094,7 +1100,7 @@ onBeforeUnmount(() => {
     row-gap: 2px;
   }
 
-  .deck-label .zh,
+  .deck-label .name,
   .deck-label .en {
     flex: 1 0 100%;
   }

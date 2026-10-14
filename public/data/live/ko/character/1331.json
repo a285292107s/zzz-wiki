@@ -1,0 +1,1970 @@
+{
+ "id": 1331,
+ "icon": "IconRole41",
+ "name": "비비안",
+ "code_name": "Vivian",
+ "rarity": 4,
+ "weapon_type": {
+  "3": "Anomaly"
+ },
+ "element_type": {
+  "205": "Ether"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "9": "모킹버드"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "4/10",
+  "full_name": "비비안 밴시",
+  "gender": "여성",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle41.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0041.png",
+  "impression_f": "비비안은 친구도 많고, 아르바이트도 많이 해봤네… 비비안의 첫인상이랑 완전히 달라!",
+  "impression_m": "비비안이 숄의 선배라는 걸 알게 된 순간, 많은 의혹이 풀렸지…",
+  "impressions": [
+   "비비안에 대한 인상:\n · 비비안이 처한 상황은 부조리하지만, 사랑이 구원해 줄 것이다",
+   " · 대부분의 사람들은 시궁창 속에 살지만, 비비안은 여전히 별을 올려다본다",
+   " · 비비안은 단 한 번도 신앙이 없었던 사람처럼 당신을 추종할 것이다"
+  ],
+  "profile_desc": "비비안은 모킹버드의 일원으로 각종 정보를 수집하는 데 능하며 요리, 음료 제조, 번역, 예술품 카피, 전자 기기 수리 등을 포함한 여러 가지 기술을 보유하고 있다…\n하지만 소문에 의하면, 과거엔 정해진 거처 없이 곳곳을 떠돌며 「재앙을 가져오는 아이」라는 꼬리표를 단 채 「불행」의 화신으로 여겨졌다고 한다.\n비비안은 눈물로 불행을 예지할 수 있는 듯하지만, 이 능력은 과학적으로 검증되지 않았다.\n비비안은 「파에톤」의 열렬한 팬으로, 「파에톤」의 계정이 로프넷에서 활동을 멈추자 「파에톤」의 행방을 묻고 다니며 로프넷에서 「파에톤」과 관련된 흔적을 미친듯이 찾아다녔다. 하지만 어떠한 수확도 얻을 수 없었다. (마스터, 이건 제가 마스터의 네트워크 안전을 철저히 지켜준 덕분이라는 걸 잊지 마세요)\n\n제안: 비비안이 마스터를 찾는 진짜 목적을 알기 전까진, 「파에톤」의 신분을 드러내지 마세요.\n만약 이미 정체가 밝혀졌다면 방문을 꼭 잠그고, 잠옷을 챙겨 입고 잠을 청하시는 걸 추천드려요. 비비안이 과거 개인 블로그에 올린 글들로 미루어 볼 때, 과도하게 열정적이고 맹렬한 방식으로 마스터에 대한 추앙의 감정을 표현할지도 모릅니다.\n",
+  "role_icon": "IconRole/UnPacker/IconRole41",
+  "stature": "162",
+  "unlock_condition": [
+   "에이전트 획득",
+   "메인 스토리 완료: 「여유로운 순간·떠도는 나그네」(메인 스토리 시즌 1·에필로그(하) 완료 후 개방)",
+   "「엔비의 고민」 의뢰 완료"
+  ],
+  "trust_lv": {
+   "1": "비비안은 모킹버드의 일원으로 각종 정보를 수집하는 데 능하며 요리, 음료 제조, 번역, 예술품 카피, 전자 기기 수리 등을 포함한 여러 가지 기술을 보유하고 있다…\n하지만 소문에 의하면, 과거엔 정해진 거처 없이 곳곳을 떠돌며 「재앙을 가져오는 아이」라는 꼬리표를 단 채 「불행」의 화신으로 여겨졌다고 한다.\n비비안은 눈물로 불행을 예지할 수 있는 듯하지만, 이 능력은 과학적으로 검증되지 않았다.\n비비안은 「파에톤」의 열렬한 팬으로, 「파에톤」의 계정이 로프넷에서 활동을 멈추자 「파에톤」의 행방을 묻고 다니며 로프넷에서 「파에톤」과 관련된 흔적을 미친듯이 찾아다녔다. 하지만 어떠한 수확도 얻을 수 없었다. (마스터, 이건 제가 마스터의 네트워크 안전을 철저히 지켜준 덕분이라는 걸 잊지 마세요)\n\n제안: 비비안이 마스터를 찾는 진짜 목적을 알기 전까진, 「파에톤」의 신분을 드러내지 마세요.\n만약 이미 정체가 밝혀졌다면 방문을 꼭 잠그고, 잠옷을 챙겨 입고 잠을 청하시는 걸 추천드려요. 비비안이 과거 개인 블로그에 올린 글들로 미루어 볼 때, 과도하게 열정적이고 맹렬한 방식으로 마스터에 대한 추앙의 감정을 표현할지도 모릅니다.\n",
+   "2": "",
+   "3": "비비안은 어릴 때 칭송회의 랜던에게 입양되어 유년 시절의 친구 디나를 만났다.\n랜던의 모든 악행이 밝혀진 후에도 디나가 여전히 자신의 부친 랜던을 옹호하자, 비비안은 칭송회에서 도망쳐 나와 그들과의 인연을 끊었다.\n비비안이 자포자기한 채로 인생의 암흑기에 들어섰을 때, 「파에톤」은 비비안에게 댓글을 남겼고 비비안은 그로 인해 다시 열심히 살아갈 희망을 되찾았다.\n비비안 본인의 뜻에 따라 어떤 댓글인지는 밝힐 수 없다.\nFairy는 인간의 감정을 완전히 이해할 수 없지만, 마스터가 그녀에게 희망과 위로를 전해주었을 것이라는 점에 동의해요.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 127,
+  "attack_growth": 76728,
+  "avatar_piece_id": 5331,
+  "break_stun": 86,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66203,
+  "element_abnormal_power": 108,
+  "element_mystery": 118,
+  "endurance": 0,
+  "hp_growth": 837238,
+  "hp_max": 617,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Vivian",
+   "Cut",
+   "Ether",
+   "Female",
+   "Camp9",
+   "Size2",
+   "AidTypeParry",
+   "Vivian",
+   "EtherEyesSize2"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "일반 공격: 깃털의 쓸림",
+     "desc": "<IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방에 최대 4단까지 공격을 펼쳐 <color=#F0D12B>물리 피해</color> 및 <color=#FE437E>에테르 피해</color>를 준다.\n네 번째 공격 후 <color=#FFFFFF>[숙녀의 예법]</color> 상태에 진입한다.\n<color=#FFFFFF>[비상의 깃]</color>을 보유한 상태에서 네 번째 공격 과정 중 <IconMap:Icon_Normal>을 홀드하면 <color=#FFFFFF>[떠오르는 치맛자락]</color> 상태에 진입할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 숙녀의 예법·스텝",
+     "desc": "<color=#FFFFFF>[숙녀의 예법]</color> 상태에서 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방으로 돌진 공격해 <color=#FE437E>에테르 피해</color>를 주고, 타깃에게 명중 시 <color=#FFFFFF>[비상의 깃]</color>을 1pt 회복한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.\n돌진 기간 동안 극한 회피를 발동하면, 추가로 <color=#FFFFFF>[비상의 깃]</color>을 1pt 회복한다.\n스킬 시전 후 <color=#FFFFFF>[비상의 깃]</color>을 보유한 경우, <color=#FFFFFF>[떠오르는 치맛자락]</color> 상태에 진입하며, 스킬 시전 시 <IconMap:Icon_Evade> 홀드를 유지해 취소할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 떠오르는 치맛자락·낙하",
+     "desc": "<color=#FFFFFF>[떠오르는 치맛자락]</color> 상태에서 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방에 범위 공격으로 <color=#FE437E>에테르 피해</color>를 준다.\n스킬 시전 후 모든 <color=#FFFFFF>[비상의 깃]</color>을 소모하고, 소모한 <color=#FFFFFF>[비상의 깃]</color> 1pt당 <color=#FFFFFF>[수호의 깃]</color>을 1pt 획득한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.\n<color=#FFFFFF>[떠오르는 치맛자락]</color> 상태에서 캐릭터 교체 시, 비비안은 자동으로 <color=#FFFFFF>[일반 공격: 떠오르는 치맛자락·낙하]</color>를 시전한다.\n<color=#FFFFFF>[떠오르는 치맛자락]</color> 상태에서 <IconMap:Icon_Evade>을 짧게 탭하면 <color=#FFFFFF>[떠오르는 치맛자락]</color> 상태가 종료된다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 흩날리는 깃과 꽃",
+     "desc": "파티 내 임의의 캐릭터가 시전한 <color=#FFFFFF>[강화 특수 스킬]</color>이 타깃에게 명중 후, 비비안은 <color=#FFFFFF>[수호의 깃]</color>을 1pt 소모하고, 타깃에게 <color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>을 1회 시전해 <color=#FE437E>에테르 피해</color>를 준다. 동일한 공격 한 번에 최대 1회 발동할 수 있으며, 해당 효과는 비비안이 대기 캐릭터일 때 발동할 수 있다.\n<color=#FFFFFF>[수호의 깃]</color>은 최대 5pt 보유할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 깃털의 쓸림",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1331001, Prop:1001}",
+       "param": {
+        "1331001": {
+         "main": 3410,
+         "growth": 310,
+         "format": "%",
+         "damage_percentage": 3410,
+         "damage_percentage_growth": 310,
+         "stun_ratio": 4240,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 13870,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 106150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3851
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1331002, Prop:1001}",
+       "param": {
+        "1331002": {
+         "main": 2420,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 2420,
+         "damage_percentage_growth": 220,
+         "stun_ratio": 2810,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 9200,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 70400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2555
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1331003, Prop:1001}",
+       "param": {
+        "1331003": {
+         "main": 7690,
+         "growth": 700,
+         "format": "%",
+         "damage_percentage": 7690,
+         "damage_percentage_growth": 700,
+         "stun_ratio": 8180,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 26750,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 204600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7431
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 피해 배율",
+       "desc": "{Skill:1331004, Prop:1001}",
+       "param": {
+        "1331004": {
+         "main": 12840,
+         "growth": 1170,
+         "format": "%",
+         "damage_percentage": 12840,
+         "damage_percentage_growth": 1170,
+         "stun_ratio": 12720,
+         "stun_ratio_growth": 580,
+         "sp_recovery": 41600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 317900,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8661,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11555
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1331001, Prop:1002}",
+       "param": {
+        "1331001": {
+         "main": 4240,
+         "growth": 200,
+         "format": "%",
+         "damage_percentage": 3410,
+         "damage_percentage_growth": 310,
+         "stun_ratio": 4240,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 13870,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 106150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3851
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1331002, Prop:1002}",
+       "param": {
+        "1331002": {
+         "main": 2810,
+         "growth": 130,
+         "format": "%",
+         "damage_percentage": 2420,
+         "damage_percentage_growth": 220,
+         "stun_ratio": 2810,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 9200,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 70400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2555
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1331003, Prop:1002}",
+       "param": {
+        "1331003": {
+         "main": 8180,
+         "growth": 380,
+         "format": "%",
+         "damage_percentage": 7690,
+         "damage_percentage_growth": 700,
+         "stun_ratio": 8180,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 26750,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 204600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7431
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 그로기 배율",
+       "desc": "{Skill:1331004, Prop:1002}",
+       "param": {
+        "1331004": {
+         "main": 12720,
+         "growth": 580,
+         "format": "%",
+         "damage_percentage": 12840,
+         "damage_percentage_growth": 1170,
+         "stun_ratio": 12720,
+         "stun_ratio_growth": 580,
+         "sp_recovery": 41600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 317900,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8661,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11555
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 숙녀의 예법·스텝",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1331005, Prop:1001}",
+       "param": {
+        "1331005": {
+         "main": 4780,
+         "growth": 440,
+         "format": "%",
+         "damage_percentage": 4780,
+         "damage_percentage_growth": 440,
+         "stun_ratio": 3720,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 12150,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 92950,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3375,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3375
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1331005, Prop:1002}",
+       "param": {
+        "1331005": {
+         "main": 3720,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 4780,
+         "damage_percentage_growth": 440,
+         "stun_ratio": 3720,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 12150,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 92950,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3375,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3375
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 떠오르는 치맛자락·낙하",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1331006, Prop:1001}",
+       "param": {
+        "1331006": {
+         "main": 8020,
+         "growth": 730,
+         "format": "%",
+         "damage_percentage": 8020,
+         "damage_percentage_growth": 730,
+         "stun_ratio": 6240,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 20400,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 155925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5665,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5666
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1331006, Prop:1002}",
+       "param": {
+        "1331006": {
+         "main": 6240,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 8020,
+         "damage_percentage_growth": 730,
+         "stun_ratio": 6240,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 20400,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 155925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5665,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5666
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 흩날리는 깃과 꽃",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1331008, Prop:1001}",
+       "param": {
+        "1331008": {
+         "main": 22000,
+         "growth": 2000,
+         "format": "%",
+         "damage_percentage": 22000,
+         "damage_percentage_growth": 2000,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12600,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1331008, Prop:1002}",
+       "param": {
+        "1331008": {
+         "main": 0,
+         "growth": 0,
+         "format": "%",
+         "damage_percentage": 22000,
+         "damage_percentage_growth": 2000,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12600,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "회피: 흐르는 빛",
+     "desc": "<IconMap:Icon_Evade>을 짧게 탭하여 시전:\n빠른 대시로 회피한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 은빛 가시의 무곡",
+     "desc": "회피 시 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 찔러 <color=#F0D12B>물리 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 깃날의 반동",
+     "desc": "<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적을 공격해 <color=#F0D12B>물리 피해</color> 및 <color=#FE437E>에테르 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.\n스킬 시전 후 <color=#FFFFFF>[숙녀의 예법]</color> 상태에 진입한다.\n<color=#FFFFFF>[비상의 깃]</color>을 보유한 상태에서 스킬 시전 과정 중 <IconMap:Icon_Normal> 홀드를 유지하면 <color=#FFFFFF>[떠오르는 치맛자락]</color> 상태에 진입할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "회피: 숙녀의 걸음",
+     "desc": "<color=#FFFFFF>[숙녀의 예법]</color> 상태에서 피격 직전에 자동으로 회피하고, 해당 기간 동안 무적 효과를 보유한다.\n<color=#FFFFFF>[극한 회피]</color>는 발동하지 않는다.\n<color=#FFFFFF>[숙녀의 예법]</color> 상태에 진입할 때마다 1회만 발동할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 은빛 가시의 무곡",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1331011, Prop:1001}",
+       "param": {
+        "1331011": {
+         "main": 4960,
+         "growth": 460,
+         "format": "%",
+         "damage_percentage": 4960,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 2480,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 8110,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 62150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2251
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1331011, Prop:1002}",
+       "param": {
+        "1331011": {
+         "main": 2480,
+         "growth": 120,
+         "format": "%",
+         "damage_percentage": 4960,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 2480,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 8110,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 62150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2251
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 깃날의 반동",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1331012, Prop:1001}",
+       "param": {
+        "1331012": {
+         "main": 23640,
+         "growth": 2150,
+         "format": "%",
+         "damage_percentage": 23640,
+         "damage_percentage_growth": 2150,
+         "stun_ratio": 20730,
+         "stun_ratio_growth": 950,
+         "sp_recovery": 31820,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 243100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7069,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23837
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1331012, Prop:1002}",
+       "param": {
+        "1331012": {
+         "main": 20730,
+         "growth": 950,
+         "format": "%",
+         "damage_percentage": 23640,
+         "damage_percentage_growth": 2150,
+         "stun_ratio": 20730,
+         "stun_ratio_growth": 950,
+         "sp_recovery": 31820,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 243100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7069,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23837
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "특수 스킬: 은빛 날개의 노래",
+     "desc": "<IconMap:Icon_Special>을 짧게 탭하여 시전:\n전방을 향해 빠르게 공격해 <color=#F0D12B>물리 피해</color> 및 <color=#FE437E>에테르 피해</color>를 준다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 제비꽃의 애도",
+     "desc": "에너지가 충분한 상태에서 <IconMap:Icon_SpecialReady>을 짧게 탭하여 시전:\n전방을 강력하게 공격해 대량의 <color=#FE437E>에테르 피해</color>를 주고, <color=#FFFFFF>[비상의 깃]</color>을 3pt 회복한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.\n스킬 시전 후 <color=#FFFFFF>[떠오르는 치맛자락]</color> 상태에 진입하며, 스킬 시전 시 <IconMap:Icon_Evade> 홀드를 유지해 <color=#FFFFFF>[숙녀의 예법]</color> 상태에 진입할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 은빛 날개의 노래",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1331009, Prop:1001}",
+       "param": {
+        "1331009": {
+         "main": 5690,
+         "growth": 520,
+         "format": "%",
+         "damage_percentage": 5690,
+         "damage_percentage_growth": 520,
+         "stun_ratio": 5690,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 142175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4134,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5169
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1331009, Prop:1002}",
+       "param": {
+        "1331009": {
+         "main": 5690,
+         "growth": 260,
+         "format": "%",
+         "damage_percentage": 5690,
+         "damage_percentage_growth": 520,
+         "stun_ratio": 5690,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 142175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4134,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5169
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 제비꽃의 애도",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1331010, Prop:1001}",
+       "param": {
+        "1331010": {
+         "main": 59260,
+         "growth": 5390,
+         "format": "%",
+         "damage_percentage": 59260,
+         "damage_percentage_growth": 5390,
+         "stun_ratio": 48480,
+         "stun_ratio_growth": 2210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1751200,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 35256,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1331010, Prop:1002}",
+       "param": {
+        "1331010": {
+         "main": 48480,
+         "growth": 2210,
+         "format": "%",
+         "damage_percentage": 59260,
+         "damage_percentage_growth": 5390,
+         "stun_ratio": 48480,
+         "stun_ratio_growth": 2210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1751200,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 35256,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "에너지 소모",
+       "desc": "60pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "콤보 스킬: 별과 깃털의 화음",
+     "desc": "<color=#FFFFFF>[콤보 스킬]</color> 발동 시 해당 캐릭터를 선택해 시전:\n전방 넓은 범위의 적을 강력하게 공격해 대량의 <color=#FE437E>에테르 피해</color>를 주고, <color=#FFFFFF>[비상의 깃]</color>을 2pt 회복한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.\n스킬 시전 후 <color=#FFFFFF>[떠오르는 치맛자락]</color> 상태에 진입하며, 스킬 시전 시 <IconMap:Icon_Evade> 홀드를 유지해 취소할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "궁극기: 비조의 송가",
+     "desc": "데시벨 레벨 <color=#FFFFFF>[Maximum]</color> 달성 시 <IconMap:Icon_UltimateReady>을 짧게 탭하여 시전:\n전방 넓은 범위의 적을 강력하게 공격해 대량의 <color=#FE437E>에테르 피해</color>를 주고, <color=#FFFFFF>[비상의 깃]</color>을 5pt 회복한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.\n스킬 시전 후 <color=#FFFFFF>[떠오르는 치맛자락]</color> 상태에 진입하며, 스킬 시전 시 <IconMap:Icon_Evade> 홀드를 유지해 취소할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 별과 깃털의 화음",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1331013, Prop:1001}",
+       "param": {
+        "1331013": {
+         "main": 65890,
+         "growth": 5990,
+         "format": "%",
+         "damage_percentage": 65890,
+         "damage_percentage_growth": 5990,
+         "stun_ratio": 22000,
+         "stun_ratio_growth": 1000,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2378750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 31957,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1331013, Prop:1002}",
+       "param": {
+        "1331013": {
+         "main": 22000,
+         "growth": 1000,
+         "format": "%",
+         "damage_percentage": 65890,
+         "damage_percentage_growth": 5990,
+         "stun_ratio": 22000,
+         "stun_ratio_growth": 1000,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2378750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 31957,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19997
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "궁극기: 비조의 송가",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1331014, Prop:1001}",
+       "param": {
+        "1331014": {
+         "main": 168680,
+         "growth": 15340,
+         "format": "%",
+         "damage_percentage": 168680,
+         "damage_percentage_growth": 15340,
+         "stun_ratio": 24940,
+         "stun_ratio_growth": 1140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 80856,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 72671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1331014, Prop:1002}",
+       "param": {
+        "1331014": {
+         "main": 24940,
+         "growth": 1140,
+         "format": "%",
+         "damage_percentage": 168680,
+         "damage_percentage_growth": 15340,
+         "stun_ratio": 24940,
+         "stun_ratio_growth": 1140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 80856,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 72671
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "빠른 지원: 매서운 깃털의 수호",
+     "desc": "현재 조작 중인 캐릭터가 넉업되면 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n전방의 적을 공격해 <color=#F0D12B>물리 피해</color> 및 <color=#FE437E>에테르 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.\n스킬 시전 후 <color=#FFFFFF>[숙녀의 예법]</color> 상태에 진입한다.\n<color=#FFFFFF>[비상의 깃]</color>을 보유한 상태에서 스킬 시전 과정 중 <IconMap:Icon_Normal> 홀드를 유지하면 <color=#FFFFFF>[떠오르는 치맛자락]</color> 상태에 진입할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 은빛 양산 행진",
+     "desc": "출전 캐릭터 피격 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적의 공격을 패링하고 대량의 그로기 수치를 누적한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 심판의 깃날",
+     "desc": "<color=#FFFFFF>[패링 지원]</color> 시전 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적을 공격해 <color=#FE437E>에테르 피해</color>를 주고, <color=#FFFFFF>[비상의 깃]</color>을 2pt 회복한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.\n스킬 시전 후 <color=#FFFFFF>[떠오르는 치맛자락]</color> 상태에 진입하며, 스킬 시전 시 <IconMap:Icon_Evade> 홀드를 유지해 취소할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 매서운 깃털의 수호",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1331015, Prop:1001}",
+       "param": {
+        "1331015": {
+         "main": 9730,
+         "growth": 890,
+         "format": "%",
+         "damage_percentage": 9730,
+         "damage_percentage_growth": 890,
+         "stun_ratio": 4870,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 15910,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 121550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3534,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4419
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1331015, Prop:1002}",
+       "param": {
+        "1331015": {
+         "main": 4870,
+         "growth": 230,
+         "format": "%",
+         "damage_percentage": 9730,
+         "damage_percentage_growth": 890,
+         "stun_ratio": 4870,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 15910,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 121550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3534,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4419
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 은빛 양산 행진",
+     "param": [
+      {
+       "name": "가벼운 패링 그로기 배율",
+       "desc": "{Skill:1331016, Prop:1002}",
+       "param": {
+        "1331016": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강한 패링 그로기 배율",
+       "desc": "{Skill:1331017, Prop:1002}",
+       "param": {
+        "1331017": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 패링 그로기 배율",
+       "desc": "{Skill:1331018, Prop:1002}",
+       "param": {
+        "1331018": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 심판의 깃날",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1331019, Prop:1001}",
+       "param": {
+        "1331019": {
+         "main": 37390,
+         "growth": 3400,
+         "format": "%",
+         "damage_percentage": 37390,
+         "damage_percentage_growth": 3400,
+         "stun_ratio": 32530,
+         "stun_ratio_growth": 1480,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1056000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 23656,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1331019, Prop:1002}",
+       "param": {
+        "1331019": {
+         "main": 32530,
+         "growth": 1480,
+         "format": "%",
+         "damage_percentage": 37390,
+         "damage_percentage_growth": 3400,
+         "stun_ratio": 32530,
+         "stun_ratio_growth": 1480,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1056000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 23656,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16337
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "〈봄의 정원으로 오라〉",
+   "desc": "<color=#FFFFFF>[수호의 깃]</color>을 누적 4pt 소모 시, <color=#FFFFFF>[비상의 깃]</color>을 1pt 회복한다. <color=#FFFFFF>[비비안의 예언]</color> 상태의 타깃이 받는 모든 속성 이상 피해 및 <color=#FFFFFF>[혼돈]</color> 피해가 16% 증가한다.",
+   "desc2": "「매일 아침은 당신과의 첫 만남이고, 매일 밤은 당신과의 재회입니다」\n그녀는 한때 운명의 무상함을 엿보았다. 바꿀 수 없는 결말은 항상 눈물로 적셔졌다.\n하지만 당신의 등장으로 그녀는 더 이상 재앙을 예언하는 새가 되지 않으리라 결심했다. 그녀는 자신을 불 속으로 사라지게 하고, 빛 속에 잠들게 하며, 자신의 모든 것을 대가로 당신의 결말을 바꾸기를 원한다.\n그러니 창문을 닫지 말라. 새가 당신에게 사랑을 안겨주고, 죽음을 가져갈 것이다"
+  },
+  "2": {
+   "level": 2,
+   "name": "〈폭풍우의 밤, 폭풍우의 밤〉",
+   "desc": "비비안의 <color=#FE437E>에테르 이상 축적 효율</color>이 25% 증가한다. <color=#FFFFFF>[난개]</color>가 마스터리에 기반하여 획득하는 효과가 기존의 130%까지 증가하며 타깃의 모든 속성 피해 저항을 15% 무시한다.",
+   "desc2": "「만약 태양을 본 적이 없었다면, 전 어둠을 견딜 수 있었을 거예요」\n구원자라는 단어는 너무 무겁고, 착한 사람이라는 단어는 너무 가벼웠다.\n그러니, 당신은 그녀의 뱃사공이었다고 하겠다.\n악의와 후회라는 이름의 폭풍 속에서, 그대는 빛이 되어 그녀가 강을 건널 수 있도록 인도했으니까.\n그 이후로 그녀는 더 이상 저주와 악몽을 참아내지 않고, 당신을 찾는 여정을 시작했다."
+  },
+  "3": {
+   "level": 3,
+   "name": "〈타자, 그 자신〉",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "「우리는 황혼으로 서로의 그림자를 재고, 그것이 완전히 겹치는 것을 발견했다」\n당신이 모르는 무수한 황혼 속에서, 그녀는 당신과 같은 일몰이 바다를 아름답고 따뜻한 색으로 물들이는 것을 바라보았다.\n무수한 갈림길 위에서, 그녀는 당신의 곁으로 가는 길을 선택했다.\n그리고 이제, 그녀는 드디어 당신과 같은 곳에 놓이는 그림자를 갖게 되었다.\n그리고 석양은 여전히 밝게 빛난다."
+  },
+  "4": {
+   "level": 4,
+   "name": "〈갈대숲의 바람〉",
+   "desc": "<color=#FFFFFF>[일반 공격: 떠오르는 치맛자락·낙하]</color> 및 <color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>이 명중 시 반드시 치명타를 발동하며, 비비안의 공격력이 12% 증가한다. 지속 시간: 12초, 중복 발동 시 지속 시간이 갱신된다. 전장 진입 시, 비비안이 즉시 <color=#FFFFFF>[수호의 깃]</color>을 5pt 획득한다.",
+   "desc2": "「제 진심을 달빛에 담아, 당신의 걸음걸음마다 고이 깔겠어요」\n당신을 쫓는 길 위에서, 그녀는 홀로 설 수 있게 되었다.\n그녀는 많은 사랑을 가진 것도 아니고, 가진 것도 많지 않다.\n하지만 그대를 위해, 오직 그대를 위해, 그녀는 어둠 속에 달빛을 내려, 갈라진 틈을 채울 것이다.\n당신은 그녀의 유일한 관용이자, 그녀의 가장 큰 용기이기에."
+  },
+  "5": {
+   "level": 5,
+   "name": "〈소네트〉",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "「그대를 여름날에 비교할까요?」\n그녀는 하늘을 나는 새와 같다. 설렘과 기대를 품은 채 늦가을에 비행을 시작해, 겨울의 눈보라를 뚫고, 봄날의 꽃을 물고, 여름날의 뜨거운 태양 속으로 날갯짓한다.\n그대의 눈에 수많은 태양이 담겨 있기에, 그녀는 영원히 불타는 태양을 좇으며, 매서운 서리를 두려워하지 않을 수 있었다."
+  },
+  "6": {
+   "level": 6,
+   "name": "〈비비안〉",
+   "desc": "비비안이 주는 <color=#FE437E>에테르 피해</color>가 40% 증가한다. <color=#FFFFFF>[일반 공격: 숙녀의 예법·스텝]</color> 돌진 기간 동안 극한 회피 발동, <color=#FFFFFF>[강화 특수 스킬: 제비꽃의 애도]</color> 시전 시 각각 <color=#FFFFFF>[비상의 깃]</color>을 추가로 1pt 회복한다. <color=#FFFFFF>[일반 공격: 떠오르는 치맛자락·낙하]</color> 시전 시 모든 <color=#FFFFFF>[수호의 깃]</color>을 소모하고 낙하 공격의 범위가 대폭 증가하며, 명중 시 특수한 <color=#FFFFFF>[난개]</color>를 1회 발동하고 추가로 소모한 <color=#FFFFFF>[수호의 깃]</color>이 이번에 결산하는 <color=#FFFFFF>[난개]</color>의 추가 이상 피해 비율을 증가시킨다. <color=#FFFFFF>[수호의 깃]</color>은 최대 5pt 소모할 수 있으며, 피해 비율을 기존의 5배까지 증가시킨다.",
+   "desc2": "「비비안은 당신에게 바치는 서정시예요」\n「우리는 세상의 모든 시간을 가졌죠」\n「그러니, 남은 생을 당신의 주석으로 쓰는 걸 허락해 주세요」"
+  }
+ },
+ "passive": {
+  "level": {
+   "1331501": {
+    "level": 1,
+    "id": 1331501,
+    "name": [
+     "핵심 패시브: 운명의 비가",
+     "추가 능력: 예언의 눈물"
+    ],
+    "desc": [
+     "<color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>이 <color=#FE437E>에테르 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>의 타깃에게 명중 시 <color=#FFFFFF>[난개]</color>를 1회 발동하여 추가로 속성 이상 피해를 1회 결산한다. 추가 속성 이상 피해는 이상 마스터리 10pt당 기존 속성 이상 피해의 <color=#FE437E>3.07%</color>/<color=#2EB6FF>1.6%</color>/<color=#FF5521>4%</color>/<color=#F0D12B>0.37%</color>/<color=#98EFF0>0.54%</color>/<color=#A6C5FD>0.16%</color>이다.\n<color=#FFFFFF>[일반 공격: 떠오르는 치맛자락·낙하]</color> 혹은 <color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>이 임의의 속성 이상 상태의 타깃에게 명중 시 타깃이 <color=#FFFFFF>[비비안의 예언]</color> 상태에 진입하고, 0.55초마다 비비안 공격력의 55%만큼 <color=#FE437E>에테르 피해</color>를 받는다. 해당 피해는 속성 이상 효과의 추가 피해를 발동할 수 있다. 타깃이 더 이상 속성 이상 상태가 아닐 시 <color=#FFFFFF>[비비안의 예언]</color>이 종료된다.\n전장 진입 시, 비비안이 <color=#FFFFFF>[비상의 깃]</color>을 2pt 획득한다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 속성이 같은 캐릭터가 존재할 시 발동:\n파티 내 다른 캐릭터가 적에게 속성 이상 효과를 부여할 시, 비비안은 <color=#FFFFFF>[수호의 깃]</color>을 1pt 소모하고, 타깃에게 <color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>을 1회 시전한다. 0.5초 동안 최대 1회 발동한다.\n파티 내 모든 캐릭터가 주는 <color=#FE437E>[침식]</color> 피해 및 <color=#FE437E>[침식]</color> 상태가 결산된 <color=#FFFFFF>[혼돈]</color> 피해가 <color=#2BAD00>12%</color> 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1331502": {
+    "level": 2,
+    "id": 1331502,
+    "name": [
+     "핵심 패시브: 운명의 비가",
+     "추가 능력: 예언의 눈물"
+    ],
+    "desc": [
+     "<color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>이 <color=#FE437E>에테르 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>의 타깃에게 명중 시 <color=#FFFFFF>[난개]</color>를 1회 발동하여 추가로 속성 이상 피해를 1회 결산한다. 추가 속성 이상 피해는 이상 마스터리 10pt당 기존 속성 이상 피해의 <color=#FE437E>3.59%</color>/<color=#2EB6FF>1.86%</color>/<color=#FF5521>4.66%</color>/<color=#F0D12B>0.44%</color>/<color=#98EFF0>0.63%</color>/<color=#A6C5FD>0.18%</color>이다.\n<color=#FFFFFF>[일반 공격: 떠오르는 치맛자락·낙하]</color> 혹은 <color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>이 임의의 속성 이상 상태의 타깃에게 명중 시 타깃이 <color=#FFFFFF>[비비안의 예언]</color> 상태에 진입하고, 0.55초마다 비비안 공격력의 55%만큼 <color=#FE437E>에테르 피해</color>를 받는다. 해당 피해는 속성 이상 효과의 추가 피해를 발동할 수 있다. 타깃이 더 이상 속성 이상 상태가 아닐 시 <color=#FFFFFF>[비비안의 예언]</color>이 종료된다.\n전장 진입 시, 비비안이 <color=#FFFFFF>[비상의 깃]</color>을 2pt 획득한다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 속성이 같은 캐릭터가 존재할 시 발동:\n파티 내 다른 캐릭터가 적에게 속성 이상 효과를 부여할 시, 비비안은 <color=#FFFFFF>[수호의 깃]</color>을 1pt 소모하고, 타깃에게 <color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>을 1회 시전한다. 0.5초 동안 최대 1회 발동한다.\n파티 내 모든 캐릭터가 주는 <color=#FE437E>[침식]</color> 피해 및 <color=#FE437E>[침식]</color> 상태가 결산된 <color=#FFFFFF>[혼돈]</color> 피해가 <color=#2BAD00>12%</color> 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1331503": {
+    "level": 3,
+    "id": 1331503,
+    "name": [
+     "핵심 패시브: 운명의 비가",
+     "추가 능력: 예언의 눈물"
+    ],
+    "desc": [
+     "<color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>이 <color=#FE437E>에테르 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>의 타깃에게 명중 시 <color=#FFFFFF>[난개]</color>를 1회 발동하여 추가로 속성 이상 피해를 1회 결산한다. 추가 속성 이상 피해는 이상 마스터리 10pt당 기존 속성 이상 피해의 <color=#FE437E>4.11%</color>/<color=#2EB6FF>2.12%</color>/<color=#FF5521>5.32%</color>/<color=#F0D12B>0.51%</color>/<color=#98EFF0>0.72%</color>/<color=#A6C5FD>0.21%</color>이다.\n<color=#FFFFFF>[일반 공격: 떠오르는 치맛자락·낙하]</color> 혹은 <color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>이 임의의 속성 이상 상태의 타깃에게 명중 시 타깃이 <color=#FFFFFF>[비비안의 예언]</color> 상태에 진입하고, 0.55초마다 비비안 공격력의 55%만큼 <color=#FE437E>에테르 피해</color>를 받는다. 해당 피해는 속성 이상 효과의 추가 피해를 발동할 수 있다. 타깃이 더 이상 속성 이상 상태가 아닐 시 <color=#FFFFFF>[비비안의 예언]</color>이 종료된다.\n전장 진입 시, 비비안이 <color=#FFFFFF>[비상의 깃]</color>을 2pt 획득한다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 속성이 같은 캐릭터가 존재할 시 발동:\n파티 내 다른 캐릭터가 적에게 속성 이상 효과를 부여할 시, 비비안은 <color=#FFFFFF>[수호의 깃]</color>을 1pt 소모하고, 타깃에게 <color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>을 1회 시전한다. 0.5초 동안 최대 1회 발동한다.\n파티 내 모든 캐릭터가 주는 <color=#FE437E>[침식]</color> 피해 및 <color=#FE437E>[침식]</color> 상태가 결산된 <color=#FFFFFF>[혼돈]</color> 피해가 <color=#2BAD00>12%</color> 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1331504": {
+    "level": 4,
+    "id": 1331504,
+    "name": [
+     "핵심 패시브: 운명의 비가",
+     "추가 능력: 예언의 눈물"
+    ],
+    "desc": [
+     "<color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>이 <color=#FE437E>에테르 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>의 타깃에게 명중 시 <color=#FFFFFF>[난개]</color>를 1회 발동하여 추가로 속성 이상 피해를 1회 결산한다. 추가 속성 이상 피해는 이상 마스터리 10pt당 기존 속성 이상 피해의 <color=#FE437E>4.63%</color>/<color=#2EB6FF>2.38%</color>/<color=#FF5521>5.98%</color>/<color=#F0D12B>0.58%</color>/<color=#98EFF0>0.81%</color>/<color=#A6C5FD>0.24%</color>이다.\n<color=#FFFFFF>[일반 공격: 떠오르는 치맛자락·낙하]</color> 혹은 <color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>이 임의의 속성 이상 상태의 타깃에게 명중 시 타깃이 <color=#FFFFFF>[비비안의 예언]</color> 상태에 진입하고, 0.55초마다 비비안 공격력의 55%만큼 <color=#FE437E>에테르 피해</color>를 받는다. 해당 피해는 속성 이상 효과의 추가 피해를 발동할 수 있다. 타깃이 더 이상 속성 이상 상태가 아닐 시 <color=#FFFFFF>[비비안의 예언]</color>이 종료된다.\n전장 진입 시, 비비안이 <color=#FFFFFF>[비상의 깃]</color>을 2pt 획득한다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 속성이 같은 캐릭터가 존재할 시 발동:\n파티 내 다른 캐릭터가 적에게 속성 이상 효과를 부여할 시, 비비안은 <color=#FFFFFF>[수호의 깃]</color>을 1pt 소모하고, 타깃에게 <color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>을 1회 시전한다. 0.5초 동안 최대 1회 발동한다.\n파티 내 모든 캐릭터가 주는 <color=#FE437E>[침식]</color> 피해 및 <color=#FE437E>[침식]</color> 상태가 결산된 <color=#FFFFFF>[혼돈]</color> 피해가 <color=#2BAD00>12%</color> 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1331505": {
+    "level": 5,
+    "id": 1331505,
+    "name": [
+     "핵심 패시브: 운명의 비가",
+     "추가 능력: 예언의 눈물"
+    ],
+    "desc": [
+     "<color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>이 <color=#FE437E>에테르 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>의 타깃에게 명중 시 <color=#FFFFFF>[난개]</color>를 1회 발동하여 추가로 속성 이상 피해를 1회 결산한다. 추가 속성 이상 피해는 이상 마스터리 10pt당 기존 속성 이상 피해의 <color=#FE437E>5.15%</color>/<color=#2EB6FF>2.64%</color>/<color=#FF5521>6.64%</color>/<color=#F0D12B>0.65%</color>/<color=#98EFF0>0.9%</color>/<color=#A6C5FD>0.26%</color>이다.\n<color=#FFFFFF>[일반 공격: 떠오르는 치맛자락·낙하]</color> 혹은 <color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>이 임의의 속성 이상 상태의 타깃에게 명중 시 타깃이 <color=#FFFFFF>[비비안의 예언]</color> 상태에 진입하고, 0.55초마다 비비안 공격력의 55%만큼 <color=#FE437E>에테르 피해</color>를 받는다. 해당 피해는 속성 이상 효과의 추가 피해를 발동할 수 있다. 타깃이 더 이상 속성 이상 상태가 아닐 시 <color=#FFFFFF>[비비안의 예언]</color>이 종료된다.\n전장 진입 시, 비비안이 <color=#FFFFFF>[비상의 깃]</color>을 2pt 획득한다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 속성이 같은 캐릭터가 존재할 시 발동:\n파티 내 다른 캐릭터가 적에게 속성 이상 효과를 부여할 시, 비비안은 <color=#FFFFFF>[수호의 깃]</color>을 1pt 소모하고, 타깃에게 <color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>을 1회 시전한다. 0.5초 동안 최대 1회 발동한다.\n파티 내 모든 캐릭터가 주는 <color=#FE437E>[침식]</color> 피해 및 <color=#FE437E>[침식]</color> 상태가 결산된 <color=#FFFFFF>[혼돈]</color> 피해가 <color=#2BAD00>12%</color> 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1331506": {
+    "level": 6,
+    "id": 1331506,
+    "name": [
+     "핵심 패시브: 운명의 비가",
+     "추가 능력: 예언의 눈물"
+    ],
+    "desc": [
+     "<color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>이 <color=#FE437E>에테르 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>의 타깃에게 명중 시 <color=#FFFFFF>[난개]</color>를 1회 발동하여 추가로 속성 이상 피해를 1회 결산한다. 추가 속성 이상 피해는 이상 마스터리 10pt당 기존 속성 이상 피해의 <color=#FE437E>5.65%</color>/<color=#2EB6FF>2.9%</color>/<color=#FF5521>7.3%</color>/<color=#F0D12B>0.7%</color>/<color=#98EFF0>0.99%</color>/<color=#A6C5FD>0.29%</color>이다.\n<color=#FFFFFF>[일반 공격: 떠오르는 치맛자락·낙하]</color> 혹은 <color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>이 임의의 속성 이상 상태의 타깃에게 명중 시 타깃이 <color=#FFFFFF>[비비안의 예언]</color> 상태에 진입하고, 0.55초마다 비비안 공격력의 55%만큼 <color=#FE437E>에테르 피해</color>를 받는다. 해당 피해는 속성 이상 효과의 추가 피해를 발동할 수 있다. 타깃이 더 이상 속성 이상 상태가 아닐 시 <color=#FFFFFF>[비비안의 예언]</color>이 종료된다.\n전장 진입 시, 비비안이 <color=#FFFFFF>[비상의 깃]</color>을 2pt 획득한다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 속성이 같은 캐릭터가 존재할 시 발동:\n파티 내 다른 캐릭터가 적에게 속성 이상 효과를 부여할 시, 비비안은 <color=#FFFFFF>[수호의 깃]</color>을 1pt 소모하고, 타깃에게 <color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>을 1회 시전한다. 0.5초 동안 최대 1회 발동한다.\n파티 내 모든 캐릭터가 주는 <color=#FE437E>[침식]</color> 피해 및 <color=#FE437E>[침식]</color> 상태가 결산된 <color=#FFFFFF>[혼돈]</color> 피해가 <color=#2BAD00>12%</color> 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1331507": {
+    "level": 7,
+    "id": 1331507,
+    "name": [
+     "핵심 패시브: 운명의 비가",
+     "추가 능력: 예언의 눈물"
+    ],
+    "desc": [
+     "<color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>이 <color=#FE437E>에테르 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>의 타깃에게 명중 시 <color=#FFFFFF>[난개]</color>를 1회 발동하여 추가로 속성 이상 피해를 1회 결산한다. 추가 속성 이상 피해는 이상 마스터리 10pt당 기존 속성 이상 피해의 <color=#FE437E>6.15%</color>/<color=#2EB6FF>3.2%</color>/<color=#FF5521>8%</color>/<color=#F0D12B>0.75%</color>/<color=#98EFF0>1.08%</color>/<color=#A6C5FD>0.32%</color>이다.\n<color=#FFFFFF>[일반 공격: 떠오르는 치맛자락·낙하]</color> 혹은 <color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>이 임의의 속성 이상 상태의 타깃에게 명중 시 타깃이 <color=#FFFFFF>[비비안의 예언]</color> 상태에 진입하고, 0.55초마다 비비안 공격력의 55%만큼 <color=#FE437E>에테르 피해</color>를 받는다. 해당 피해는 속성 이상 효과의 추가 피해를 발동할 수 있다. 타깃이 더 이상 속성 이상 상태가 아닐 시 <color=#FFFFFF>[비비안의 예언]</color>이 종료된다.\n전장 진입 시, 비비안이 <color=#FFFFFF>[비상의 깃]</color>을 2pt 획득한다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 속성이 같은 캐릭터가 존재할 시 발동:\n파티 내 다른 캐릭터가 적에게 속성 이상 효과를 부여할 시, 비비안은 <color=#FFFFFF>[수호의 깃]</color>을 1pt 소모하고, 타깃에게 <color=#FFFFFF>[일반 공격: 흩날리는 깃과 꽃]</color>을 1회 시전한다. 0.5초 동안 최대 1회 발동한다.\n파티 내 모든 캐릭터가 주는 <color=#FE437E>[침식]</color> 피해 및 <color=#FE437E>[침식]</color> 상태가 결산된 <color=#FFFFFF>[혼돈]</color> 피해가 <color=#2BAD00>12%</color> 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110508": 2
+   },
+   "3": {
+    "10": 28000,
+    "110508": 4
+   },
+   "4": {
+    "10": 60000,
+    "110005": 2,
+    "110508": 9
+   },
+   "5": {
+    "10": 100000,
+    "110005": 3,
+    "110508": 15
+   },
+   "6": {
+    "10": 200000,
+    "110005": 4,
+    "110508": 30
+   }
+  }
+ },
+ "skin": {
+  "3113310": {
+   "name": "비비안·나풀거리는 제비꽃",
+   "desc": "우산 끝에서 치맛자락까지. 우아함을 잃지 마세요, 비비안 양. 어젯밤의 외로운 발걸음이든 오늘 나와 함께하는 순간이든. 용기를 잃지 마세요, 비비안 양.",
+   "obtain_desc": "",
+   "image": "IconRole41"
+  },
+  "3113311": {
+   "name": "비비안·못가에 핀 붓꽃",
+   "desc": "새들은 은하수로 날아가고, 붓꽃은 연못가에 피어나니. 찬란한 달밤이 짧더라도, 이 한 몸 꽃피우는 순간 그대 눈에 담긴 아쉬움과 기대를 보고 싶구나.",
+   "obtain_desc": "",
+   "image": "IconRole41_01"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1331001": {
+   "name": "일반 공격: 깃털의 쓸림(1, 2, 3단)",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1331002": {
+   "name": "일반 공격: 깃털의 쓸림(4단)",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 205,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1331003": {
+   "name": "일반 공격: 숙녀의 예법·스텝",
+   "desc": "<IconMap:Icon_Normal>([숙녀의 예법] 상태일 때)",
+   "element_type": 205,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1331004": {
+   "name": "일반 공격: 떠오르는 치맛자락·낙하",
+   "desc": "<IconMap:Icon_Normal>([떠오르는 치맛자락] 상태일 때)",
+   "element_type": 205,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1331005": {
+   "name": "특수 스킬: 은빛 날개의 노래",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 205,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1331006": {
+   "name": "강화 특수 스킬: 제비꽃의 애도",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 205,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1331007": {
+   "name": "대시 공격: 은빛 가시의 무곡",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1331008": {
+   "name": "회피 반격: 깃날의 반동",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 205,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1331009": {
+   "name": "콤보 스킬: 별과 깃털의 화음",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 205,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1331010": {
+   "name": "궁극기: 비조의 송가",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 205,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1331011": {
+   "name": "빠른 지원: 매서운 깃털의 수호",
+   "desc": "<IconMap:Icon_Switch>(빠른 지원 발동 시)",
+   "element_type": 205,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1331012": {
+   "name": "패링 지원: 은빛 양산 행진",
+   "desc": "<IconMap:Icon_Switch>(패링 지원 발동 시)",
+   "element_type": 205,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1331013": {
+   "name": "지원 돌격: 심판의 깃날",
+   "desc": "<IconMap:Icon_Normal>(패링 지원 시전 후)",
+   "element_type": 205,
+   "hit_type": 101,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1331001,
+   "avatar_id": 1331,
+   "first_priority": [
+    5,
+    0
+   ],
+   "second_priority": [
+    1,
+    3,
+    6
+   ],
+   "third_priority": [
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33000,
+  "slot2": 31300,
+  "slot_sub": 31600,
+  "part_sub_list": [
+   31203,
+   12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33000,
+     31300
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31903
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31402
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 31203,
+   "name": "이상 마스터리",
+   "format": "{0:0}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementMystery.png"
+  },
+  "part5": {
+   "prop": 31903,
+   "name": "에테르 피해 보너스",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconDungeonBuffEther.png"
+  },
+  "part6": {
+   "prop": 31402,
+   "name": "이상 장악력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementAbnormalPower.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "공격력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "04",
+  "<IconMap:Icon_GeneralBuff_DungeonBuffEther>에테르 속성, 이상 오프필드 딜러",
+  "[난개] 발동 시 추가로 이상 피해를 줌",
+  "오프필드에서 공격하고 빠르게 이상 축적치 누적"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100213": 4
+   }
+  },
+  "2": {
+   "hp_max": 423,
+   "attack": 45,
+   "defence": 33,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100223": 12
+   }
+  },
+  "3": {
+   "hp_max": 847,
+   "attack": 90,
+   "defence": 67,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100223": 20
+   }
+  },
+  "4": {
+   "hp_max": 1270,
+   "attack": 136,
+   "defence": 100,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100233": 10
+   }
+  },
+  "5": {
+   "hp_max": 1694,
+   "attack": 181,
+   "defence": 134,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100233": 20
+   }
+  },
+  "6": {
+   "hp_max": 2117,
+   "attack": 226,
+   "defence": 167,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 24
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 24
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 36
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "이상 장악력",
+     "format": "{0:0.#}",
+     "value": 36
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpine_Vivian"
+}

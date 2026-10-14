@@ -2,6 +2,9 @@
 import { computed, onMounted, ref } from 'vue'
 import { iconSources } from '@/data/icons'
 import { CATALOG, GUIDE_ENTRIES } from '@/domain/catalog'
+import { pickText } from '@/domain/lang'
+import { useUiText } from '@/composables/useUiText'
+import { useLocale } from '@/composables/useLocale'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { dataVersions } from '@/data/api'
 import { useFeaturedAgents } from '@/composables/useFeaturedAgents'
@@ -11,6 +14,9 @@ import HollowImage from '@/components/HollowImage.vue'
 import FeaturedDeck from '@/components/home/FeaturedDeck.vue'
 
 usePageMeta()
+
+const { t } = useUiText()
+const { lang } = useLocale()
 
 // 数据版本元信息（正式服版本号，来自根 manifest.json；站点只展示正式服数据）
 const versions = ref<{ live: string; generated?: string } | null>(null)
@@ -52,13 +58,13 @@ function warmList(path: string): void {
   if (entry) prefetchList(entry)
 }
 
-const sections = [
+const sections = computed(() => [
   ...CATALOG.map((c) => ({
     no: c.no,
-    label: c.label,
+    label: pickText(c.label, lang.value),
     en: c.en,
     to: c.path,
-    desc: c.desc,
+    desc: pickText(c.desc, lang.value),
     iconSrcs:
       c.no === '01'
         ? [AGENT_CIRCLE_ICON, ...iconSources(c.icon, c.iconCategory)]
@@ -70,15 +76,15 @@ const sections = [
   // 首页目录是站点索引，常设页面全部列入（站头导航只用 nav:true 的子集）。
   ...GUIDE_ENTRIES.map((g) => ({
     no: g.no,
-    label: g.label,
+    label: pickText(g.label, lang.value),
     en: g.en,
     to: g.path,
-    desc: g.desc,
+    desc: pickText(g.desc, lang.value),
     iconSrcs: [] as string[],
     guide: true as boolean,
     glyph: g.glyph,
   })),
-]
+])
 </script>
 
 <template>
@@ -93,19 +99,19 @@ const sections = [
         <div class="hero-text">
           <p v-reveal="0" class="eyebrow mono" data-vt-block>NEW Eridu · Data Terminal</p>
           <h1 v-reveal="60" class="page-title" data-vt-block>
-            绳网档案
+            {{ t.meta.siteName }}
             <span class="title-en">Ropeweb Archive</span>
           </h1>
           <p v-reveal="120" class="page-sub" data-vt-block>
-            基于开放数据源整理的绝区零资料库。以档案编号为纲，收录代理人、音擎、邦布与驱动盘的结构化数据——不含任何主观评述，只做客观陈列。
+            {{ t.home.heroSub }}
           </p>
 
           <div v-reveal="220" class="hero-meta mono" data-vt-block>
-            <span>游戏客户端数据</span>
+            <span>{{ t.home.clientData }}</span>
             <span class="dot">·</span>
-            <span>持续更新</span>
+            <span>{{ t.home.alwaysUpdated }}</span>
             <span class="dot">·</span>
-            <span>非官方项目</span>
+            <span>{{ t.home.unofficial }}</span>
             <!-- 版本位常驻（清单到达前占位「VER ···」）：若改用 v-if 等清单到达再插入，
                  窄屏这一行会从 1 行折成 2 行（+34px）并把下方整块推下去——实测即首页
                  CLS 0.023 的全部来源。占位与真值同为「VER + 版本号」量级宽度，折行数不变。 -->
@@ -119,23 +125,23 @@ const sections = [
              内容是「档案该有的规格信息」而不是装饰——与数据说明页的「档案规格」同一语言，
              角标沿用详情页 hero 的 ⌐ 框，形成跨页面的家族感。
              **窄屏隐藏**：移动端首屏本就紧凑干净，不需要它，也避免拉长首屏。 -->
-        <aside v-reveal="280" class="hero-spec" aria-label="档案规格" data-vt-block>
-          <p class="hs-title mono">档案规格</p>
+        <aside v-reveal="280" class="hero-spec" :aria-label="t.home.spec" data-vt-block>
+          <p class="hs-title mono">{{ t.home.spec }}</p>
           <dl class="hs-list">
             <div class="hs-row">
-              <dt>类目</dt>
+              <dt>{{ t.home.category }}</dt>
               <dd class="mono">{{ String(CATALOG.length).padStart(2, '0') }}</dd>
             </div>
             <div class="hs-row">
-              <dt>数据版本</dt>
+              <dt>{{ t.home.dataVersion }}</dt>
               <dd class="mono">{{ currentVersionLabel || '···' }}</dd>
             </div>
             <div class="hs-row">
-              <dt>最近更新</dt>
+              <dt>{{ t.home.updatedAt }}</dt>
               <dd class="mono">{{ currentUpdatedLabel || '···' }}</dd>
             </div>
             <div class="hs-row">
-              <dt>数据源</dt>
+              <dt>{{ t.home.source }}</dt>
               <dd class="mono">hakushin raw</dd>
             </div>
           </dl>
@@ -152,7 +158,7 @@ const sections = [
            逐图构图参数 pos/zoom/originY 与详情页 AgentHead 同一套校准（IMG_GUIDE.md）。池为空不渲染。 -->
       <section v-if="picks.length" class="banners">
         <div v-reveal class="section-head" data-vt-block>
-          <h2>今日角色</h2>
+          <h2>{{ t.home.today }}</h2>
           <span class="rule" />
           <!-- 右端英文标签是延伸线的收尾锚点（缺了它，延伸线就与上方基线成为两条平行线，
                见 base.css 的 .section-head .en）。词取 Featured：与 FeaturedDeck /
@@ -167,7 +173,7 @@ const sections = [
       <section class="index">
       <div v-reveal class="section-head" data-vt-block>
         <span class="no mono" aria-hidden="true">00</span>
-        <h2>目录</h2>
+        <h2>{{ t.home.contents }}</h2>
         <span class="rule" />
         <!-- 右端英文标签（同「今日角色」）。词取 Contents：这一栏就是站点的目录，
              与页脚「数据说明」的 Colophon 同一层语义，不复用类目页的 AGENTS 等「内容类目名」。 -->

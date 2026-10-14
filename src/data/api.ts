@@ -4,15 +4,18 @@
  *   - 输出：public/data/（契约见 DATA_GUIDE.md §3）
  * 运行时零外部依赖、零 CORS 问题。
  *
- *   manifest.json（根，版本元信息）
- *   live/character.json / weapon.json / bangboo.json / equipment.json / noun.json
- *   live/zh/character/{id}.json …
+ *   manifest.json（根，版本元信息，与语言无关）
+ *   live/{lang}/character.json / weapon.json / bangboo.json / equipment.json / noun.json
+ *   live/{lang}/{kind}/{id}.json …
+ * 每种语言一套完整数据面（ADR-004 / 决策记录 0010）：名录也是按语言落的
+ * （阵营名、音擎效果等展示文本在构建期按语言注入）。
  *
  * 单数据版本（合规约定 2026-08）：站点只展示**正式服（live）**数据，
  * 数据版本号从根 manifest.json 的 zzz.live 动态取，永不硬编码。
  *
  * P1 重构（DESIGN.md §6）：kind 式接口（list/detail）+ DataError 错误归一化
- * + 请求超时 + BASE_URL 派生 + lang 参数预留；旧的 api.characters() 等保持兼容。
+ * + 请求超时 + BASE_URL 派生；旧的 api.characters() 等保持兼容。
+ * 多语言（2026-10）：list/detail 均按语言取数，语言码定义在 domain/lang.ts。
  * ============================================================ */
 
 import type {
@@ -40,15 +43,15 @@ try {
 /* ---------- 领域类型 ---------- */
 
 import { CATALOG } from '@/domain/catalog'
+import { DEFAULT_LANG, type Lang } from '@/domain/lang'
 
 /** 数据类别——由 catalog 名录文件名派生（单一事实源；catalog 不反向依赖本模块，无环）。
  *  新增类别先在 domain/catalog.ts 登记，此处自动跟随。 */
 export type DataKind = (typeof CATALOG)[number]['listFile']
 
-/** 支持的语言（预留；当前站点只渲染 zh） */
-export type Lang = 'zh' | 'en' | 'ja' | 'ko'
-
-export const DEFAULT_LANG: Lang = 'zh'
+/** 语言码 / 默认语言的定义在 domain/lang.ts（语言集单一事实源）。
+ *  此处再导出以保留既有 import 面（`import { type Lang } from '@/data/api'`）。 */
+export type { Lang }
 
 /* ---------- 错误归一化 ---------- */
 
@@ -161,9 +164,12 @@ function normalize<T extends Record<string, unknown>>(dict: Record<string, T>): 
   return Object.entries(dict).map(([k, v]) => ({ ...v, Id: Number(k) }))
 }
 
-async function listRaw<T extends Record<string, unknown>>(kind: DataKind): Promise<T[]> {
+async function listRaw<T extends Record<string, unknown>>(
+  kind: DataKind,
+  lang: Lang,
+): Promise<T[]> {
   await dataVersions() // 存在性检查：本地 manifest 缺失时报错更早
-  const data = await getJson<Record<string, T>>(`${kind}.json`)
+  const data = await getJson<Record<string, T>>(`${lang}/${kind}.json`)
   return normalize<T>(data)
 }
 
@@ -175,35 +181,36 @@ async function detailRaw<T>(kind: DataKind, id: number | string, lang: Lang): Pr
 /* ---------- 公开接口 ---------- */
 
 export interface Api {
-  /** 名录（按类别） */
-  list<T extends Record<string, unknown>>(kind: DataKind): Promise<T[]>
+  /** 名录（按类别 + 语言，默认 zh）。名录是**该语言**的展示面：
+   *  阵营名 / 特殊属性名 / 音擎效果文本都在构建期按语言注入，故切换语言要重新取。 */
+  list<T extends Record<string, unknown>>(kind: DataKind, lang?: Lang): Promise<T[]>
   /** 详情（按类别 + id + 语言，默认 zh） */
   detail<T>(kind: DataKind, id: number | string, lang?: Lang): Promise<T>
 
   /* ---- 兼容接口（新代码请用 list / detail） ---- */
-  characters(): Promise<CharacterListItem[]>
-  character(id: number | string): Promise<CharacterDetail>
-  wengines(): Promise<WEngineListItem[]>
-  wengine(id: number | string): Promise<WEngineDetail>
-  bangboos(): Promise<BangbooListItem[]>
-  bangboo(id: number | string): Promise<BangbooDetail>
-  disks(): Promise<DiskDriveListItem[]>
-  disk(id: number | string): Promise<DiskDriveDetail>
+  characters(lang?: Lang): Promise<CharacterListItem[]>
+  character(id: number | string, lang?: Lang): Promise<CharacterDetail>
+  wengines(lang?: Lang): Promise<WEngineListItem[]>
+  wengine(id: number | string, lang?: Lang): Promise<WEngineDetail>
+  bangboos(lang?: Lang): Promise<BangbooListItem[]>
+  bangboo(id: number | string, lang?: Lang): Promise<BangbooDetail>
+  disks(lang?: Lang): Promise<DiskDriveListItem[]>
+  disk(id: number | string, lang?: Lang): Promise<DiskDriveDetail>
 }
 
 export const api: Api = {
-  list: listRaw,
+  list: (kind, lang = DEFAULT_LANG) => listRaw(kind, lang),
   detail: (kind, id, lang = DEFAULT_LANG) => detailRaw(kind, id, lang),
 
   /* ---- 兼容接口（新代码请用 list / detail） ---- */
-  characters: () => listRaw<CharacterListItem>('character'),
-  character: (id) => detailRaw<CharacterDetail>('character', id, DEFAULT_LANG),
-  wengines: () => listRaw<WEngineListItem>('weapon'),
-  wengine: (id) => detailRaw<WEngineDetail>('weapon', id, DEFAULT_LANG),
-  bangboos: () => listRaw<BangbooListItem>('bangboo'),
-  bangboo: (id) => detailRaw<BangbooDetail>('bangboo', id, DEFAULT_LANG),
-  disks: () => listRaw<DiskDriveListItem>('equipment'),
-  disk: (id) => detailRaw<DiskDriveDetail>('equipment', id, DEFAULT_LANG),
+  characters: (lang = DEFAULT_LANG) => listRaw<CharacterListItem>('character', lang),
+  character: (id, lang = DEFAULT_LANG) => detailRaw<CharacterDetail>('character', id, lang),
+  wengines: (lang = DEFAULT_LANG) => listRaw<WEngineListItem>('weapon', lang),
+  wengine: (id, lang = DEFAULT_LANG) => detailRaw<WEngineDetail>('weapon', id, lang),
+  bangboos: (lang = DEFAULT_LANG) => listRaw<BangbooListItem>('bangboo', lang),
+  bangboo: (id, lang = DEFAULT_LANG) => detailRaw<BangbooDetail>('bangboo', id, lang),
+  disks: (lang = DEFAULT_LANG) => listRaw<DiskDriveListItem>('equipment', lang),
+  disk: (id, lang = DEFAULT_LANG) => detailRaw<DiskDriveDetail>('equipment', id, lang),
 }
 
 /** Localised display name — 唯一实现在 utils/names.ts（DESIGN.md P0）。 */

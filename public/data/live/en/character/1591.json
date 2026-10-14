@@ -1,0 +1,2016 @@
+{
+ "id": 1591,
+ "icon": "IconRole66",
+ "name": "Sigrid",
+ "code_name": "Sigrid",
+ "rarity": 4,
+ "weapon_type": {
+  "1": "Attack"
+ },
+ "element_type": {
+  "202": "Ice"
+ },
+ "hit_type": {
+  "103": "Pierce"
+ },
+ "camp": {
+  "16": "Roscaelifer"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "APR 23",
+  "full_name": "Sigrid de L'Azur",
+  "gender": "Female",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle66.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0066.png",
+  "impression_f": "\"De L'Azur\" means \"Knight of the Skies,\" it's a perfect fit for Sigrid!",
+  "impression_m": "I agree! Though... \"Phaethon\" is a pretty cool title too, don't you think?",
+  "impressions": [
+   "Impressions of Sigrid:\n · The legendary knight really lives up to the legend!",
+   " · The legendary knight... doesn't quite match the legend?",
+   " · The legendary knight, let's write a new legend together!"
+  ],
+  "profile_desc": "Sigrid de L'Azur, the current Deputy Administrative Director of the Airspace Patrol Department, trusted adjutant to Lindverne Sunbringer, and heir apparent to House de L'Azur, one of Roscaelifer's most prestigious noble families.\n\nLike all those legendary figures, Sigrid has a long, long string of titles attached to her name. Yet even now, after serving for years as the Airspace Patrol Department's Deputy Administrative Director and earning top annual performance honors time and again, she still finds herself wondering whether she's truly worthy of the legendary hero \"Sigrid\" spoken of throughout the streets of Roscaelifer.\n\nYou can't exactly blame Sigrid for lacking confidence. After all, when the stories claim she can \"stand shoulder to shoulder with a Void Hunter,\" \"smash a building apart with one hand,\" or \"blast straight through a Hollow with a single stab of her spear,\" any honest and sensible warrior would question whether they could truly achieve such feats with the weapon in their hand.\n\nThere is, however, one legend Sigrid has never doubted: \"So long as my spear remains unbroken, the miracle of the skies shall never end.\"",
+  "role_icon": "IconRole/UnPacker/IconRole66",
+  "stature": "175",
+  "unlock_condition": [
+   "Obtain Agent",
+   "Complete Season 3 Chapter 2 \"The Long Goodbye\"",
+   "Complete the \"Anby's Problem\" commission"
+  ],
+  "trust_lv": {
+   "1": "Sigrid de L'Azur, the current Deputy Administrative Director of the Airspace Patrol Department, trusted adjutant to Lindverne Sunbringer, and heir apparent to House de L'Azur, one of Roscaelifer's most prestigious noble families.\n\nLike all those legendary figures, Sigrid has a long, long string of titles attached to her name. Yet even now, after serving for years as the Airspace Patrol Department's Deputy Administrative Director and earning top annual performance honors time and again, she still finds herself wondering whether she's truly worthy of the legendary hero \"Sigrid\" spoken of throughout the streets of Roscaelifer.\n\nYou can't exactly blame Sigrid for lacking confidence. After all, when the stories claim she can \"stand shoulder to shoulder with a Void Hunter,\" \"smash a building apart with one hand,\" or \"blast straight through a Hollow with a single stab of her spear,\" any honest and sensible warrior would question whether they could truly achieve such feats with the weapon in their hand.\n\nThere is, however, one legend Sigrid has never doubted: \"So long as my spear remains unbroken, the miracle of the skies shall never end.\"",
+   "2": "",
+   "3": "\"The de L'Azur family has followed Lindverne for generations,\" Sigrid says, just as her mother did before her, as has every heir of House de L'Azur.\n\nBut Lindverne dislikes the word \"follow.\" Her relationship with Sigrid, or with any member of House de L'Azur, has never been one of leader and follower. They're comrades who fight side by side, as well as trusted friends and mutual mentor and student. Every de L'Azur has regarded Lindverne as a teacher, and each has taught her a great deal in return.\n\nYet no matter how hard each generation of House de L'Azur strives, there's one thing they'll never surpass Lindverne in: lifespan. That's the subtle, roundabout way Lindverne chooses to conceal her unease. And so the de L'Azur oath never speaks a specific name, repeating instead the solemn vow to \"follow for generations.\"\n\nThe ever-irresponsible Lady Lindverne praised the achievements of each new Deputy Director of the Airspace Patrol Department so extravagantly that everyone came to believe every de L'Azur surpassed the last. The de L'Azurs take great pride in that legacy, but to Lindverne, every de L'Azur is one of a kind. One day, just as she once came to have Sigrid by her side, she'll lose her too. That is the inescapable curse of being loved by the House de L'Azur.\n\nBut Sigrid will always have Lindverne. That is the blessing of being a de L'Azur.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 135,
+  "attack_growth": 82578,
+  "avatar_piece_id": 5591,
+  "break_stun": 93,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66203,
+  "element_abnormal_power": 92,
+  "element_mystery": 90,
+  "endurance": 0,
+  "hp_growth": 849779,
+  "hp_max": 626,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Sigrid",
+   "Pierce",
+   "Ice",
+   "Female",
+   "Camp16",
+   "Size03",
+   "AidTypeParry",
+   "Sigrid",
+   "EtherEyesSize3"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "Basic Attack: Frost-Tipped Spear",
+     "desc": "Press <IconMap:Icon_Normal> to activate:\nLaunches up to four forward slashes, dealing <color=#98EFF0>Ice DMG</color>.\nThe 4th hit of <color=#FFFFFF>Basic Attack: Frost-Tipped Spear</color> is considered an <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> attack.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Converging Spear",
+     "desc": "While in the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state and <color=#FFFFFF>Basic Attack: Converging Spear</color> can be used, hold <IconMap:Icon_Normal> to activate:\nLaunches the corresponding <color=#FFFFFF>Basic Attack: Converging Spear</color> based on the current stage, dealing <color=#98EFF0>Ice DMG</color>.\n<color=#FFFFFF>Basic Attack: Converging Spear</color> has three stages. Each use advances it to the next stage. After performing the third stage of <color=#FFFFFF>Basic Attack: Converging Spear</color>, it resets to the first stage.\nIf Sigrid is attacked while charging the 1st or 2nd stage of <color=#FFFFFF>Basic Attack: Converging Spear</color>, she blocks with her shield. On a successful block, the attack's DMG is negated, the next <color=#FFFFFF>Basic Attack: Converging Spear</color> deals 100% more Daze, the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state is refreshed, and she gains one use of <color=#FFFFFF>Basic Attack: Converging Spear</color>. Press <IconMap:Icon_Normal> after a successful block to perform the corresponding stage of <color=#FFFFFF>Basic Attack: Converging Spear</color>.\n<color=#FFFFFF>Basic Attack: Converging Spear</color> performed after <color=#FFFFFF>Basic Attack: Frost-Tipped Spear</color> retains the current stage of <color=#FFFFFF>Basic Attack: Frost-Tipped Spear</color>.\nDMG taken is reduced by 60% during this skill.\nAnti-Interrupt level is increased while using this skill.\nCharacter is invulnerable during the third stage of <color=#FFFFFF>Basic Attack: Converging Spear</color>.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Frost-Tipped Spear",
+     "param": [
+      {
+       "name": "1st-Hit DMG Multiplier",
+       "desc": "{Skill:1591001, Prop:1001}",
+       "param": {
+        "1591001": {
+         "main": 7700,
+         "growth": 700,
+         "format": "%",
+         "damage_percentage": 7700,
+         "damage_percentage_growth": 700,
+         "stun_ratio": 4540,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 14850,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 113575,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4122,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit DMG Multiplier",
+       "desc": "{Skill:1591002, Prop:1001}",
+       "param": {
+        "1591002": {
+         "main": 14380,
+         "growth": 1310,
+         "format": "%",
+         "damage_percentage": 14380,
+         "damage_percentage_growth": 1310,
+         "stun_ratio": 8870,
+         "stun_ratio_growth": 410,
+         "sp_recovery": 29010,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 221650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8057,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7784
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd-Hit DMG Multiplier",
+       "desc": "{Skill:1591004, Prop:1001}",
+       "param": {
+        "1591004": {
+         "main": 10140,
+         "growth": 930,
+         "format": "%",
+         "damage_percentage": 10140,
+         "damage_percentage_growth": 930,
+         "stun_ratio": 5580,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 21710,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 165825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6027,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5070
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4th-Hit DMG Multiplier",
+       "desc": "{Skill:1591005, Prop:1001}",
+       "param": {
+        "1591005": {
+         "main": 22100,
+         "growth": 2010,
+         "format": "%",
+         "damage_percentage": 22100,
+         "damage_percentage_growth": 2010,
+         "stun_ratio": 13850,
+         "stun_ratio_growth": 630,
+         "sp_recovery": 41850,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 319825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11624,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12584
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1st-Hit Daze Multiplier",
+       "desc": "{Skill:1591001, Prop:1002}",
+       "param": {
+        "1591001": {
+         "main": 4540,
+         "growth": 210,
+         "format": "%",
+         "damage_percentage": 7700,
+         "damage_percentage_growth": 700,
+         "stun_ratio": 4540,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 14850,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 113575,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4122,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit Daze Multiplier",
+       "desc": "{Skill:1591002, Prop:1002}",
+       "param": {
+        "1591002": {
+         "main": 8870,
+         "growth": 410,
+         "format": "%",
+         "damage_percentage": 14380,
+         "damage_percentage_growth": 1310,
+         "stun_ratio": 8870,
+         "stun_ratio_growth": 410,
+         "sp_recovery": 29010,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 221650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8057,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7784
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd-Hit Daze Multiplier",
+       "desc": "{Skill:1591004, Prop:1002}",
+       "param": {
+        "1591004": {
+         "main": 5580,
+         "growth": 260,
+         "format": "%",
+         "damage_percentage": 10140,
+         "damage_percentage_growth": 930,
+         "stun_ratio": 5580,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 21710,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 165825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6027,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5070
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4th-Hit Daze Multiplier",
+       "desc": "{Skill:1591005, Prop:1002}",
+       "param": {
+        "1591005": {
+         "main": 13850,
+         "growth": 630,
+         "format": "%",
+         "damage_percentage": 22100,
+         "damage_percentage_growth": 2010,
+         "stun_ratio": 13850,
+         "stun_ratio_growth": 630,
+         "sp_recovery": 41850,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 319825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11624,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12584
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Converging Spear 1st Stage",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1591007, Prop:1001}",
+       "param": {
+        "1591007": {
+         "main": 35830,
+         "growth": 3260,
+         "format": "%",
+         "damage_percentage": 35830,
+         "damage_percentage_growth": 3260,
+         "stun_ratio": 8630,
+         "stun_ratio_growth": 400,
+         "sp_recovery": 28220,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 215600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7836,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7837
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1591007, Prop:1002}",
+       "param": {
+        "1591007": {
+         "main": 8630,
+         "growth": 400,
+         "format": "%",
+         "damage_percentage": 35830,
+         "damage_percentage_growth": 3260,
+         "stun_ratio": 8630,
+         "stun_ratio_growth": 400,
+         "sp_recovery": 28220,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 215600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7836,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7837
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Converging Spear 2nd Stage",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1591008, Prop:1001}",
+       "param": {
+        "1591008": {
+         "main": 60910,
+         "growth": 5540,
+         "format": "%",
+         "damage_percentage": 60910,
+         "damage_percentage_growth": 5540,
+         "stun_ratio": 14310,
+         "stun_ratio_growth": 660,
+         "sp_recovery": 46820,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 357775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1591008, Prop:1002}",
+       "param": {
+        "1591008": {
+         "main": 14310,
+         "growth": 660,
+         "format": "%",
+         "damage_percentage": 60910,
+         "damage_percentage_growth": 5540,
+         "stun_ratio": 14310,
+         "stun_ratio_growth": 660,
+         "sp_recovery": 46820,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 357775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13004
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Converging Spear 3rd Stage",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1591022, Prop:1001}",
+       "param": {
+        "1591022": {
+         "main": 81460,
+         "growth": 7410,
+         "format": "%",
+         "damage_percentage": 81460,
+         "damage_percentage_growth": 7410,
+         "stun_ratio": 19620,
+         "stun_ratio_growth": 900,
+         "sp_recovery": 64200,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 490600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 17834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1591022, Prop:1002}",
+       "param": {
+        "1591022": {
+         "main": 19620,
+         "growth": 900,
+         "format": "%",
+         "damage_percentage": 81460,
+         "damage_percentage_growth": 7410,
+         "stun_ratio": 19620,
+         "stun_ratio_growth": 900,
+         "sp_recovery": 64200,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 490600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 17834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "Dodge: Cloudstep",
+     "desc": "Press <IconMap:Icon_Evade> to activate:\nA quick dash dodge.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Dash Attack: Windchase",
+     "desc": "Press <IconMap:Icon_Normal> during a dodge to activate:\nPerforms a forward cleaving slash, dealing <color=#F0D12B>Physical DMG</color>.",
+     "potential": []
+    },
+    {
+     "name": "Dodge Counter: Counterthrust",
+     "desc": "Press <IconMap:Icon_Normal> during a <color=#FFFFFF>Perfect Dodge</color> to activate:\nCondenses frost around the spearhead before unleashing a powerful counterattack, dealing <color=#98EFF0>Ice DMG</color>.\nWhen performed after <color=#FFFFFF>Basic Attack: Frost-Tipped Spear</color>, <color=#FFFFFF>Dodge Counter: Counterthrust</color> retains the current stage of <color=#FFFFFF>Basic Attack: Frost-Tipped Spear</color>.\nThis skill is considered an <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> attack.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Dash Attack: Windchase",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1591013, Prop:1001}",
+       "param": {
+        "1591013": {
+         "main": 11900,
+         "growth": 1090,
+         "format": "%",
+         "damage_percentage": 11900,
+         "damage_percentage_growth": 1090,
+         "stun_ratio": 4680,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 15300,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 116875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4249
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1591013, Prop:1002}",
+       "param": {
+        "1591013": {
+         "main": 4680,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 11900,
+         "damage_percentage_growth": 1090,
+         "stun_ratio": 4680,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 15300,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 116875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4249
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Dodge Counter: Counterthrust",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1591014, Prop:1001}",
+       "param": {
+        "1591014": {
+         "main": 24310,
+         "growth": 2210,
+         "format": "%",
+         "damage_percentage": 24310,
+         "damage_percentage_growth": 2210,
+         "stun_ratio": 17230,
+         "stun_ratio_growth": 790,
+         "sp_recovery": 20390,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 155925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5663,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1591014, Prop:1002}",
+       "param": {
+        "1591014": {
+         "main": 17230,
+         "growth": 790,
+         "format": "%",
+         "damage_percentage": 24310,
+         "damage_percentage_growth": 2210,
+         "stun_ratio": 17230,
+         "stun_ratio_growth": 790,
+         "sp_recovery": 20390,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 155925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5663,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "Special Attack: Frostflower",
+     "desc": "Press <IconMap:Icon_Special> to activate:\nPerforms three forward thrusts, dealing <color=#98EFF0>Ice DMG</color>.\nAnti-Interrupt level is increased while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Scattered Jade",
+     "desc": "With enough Energy and while not in the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state, press <IconMap:Icon_SpecialReady> to activate:\nPerforms a series of powerful stabs ahead, dealing massive <color=#98EFF0>Ice DMG</color>.\nThis skill is considered an <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> attack.\nWhen <color=#FFFFFF>EX Special Attack: Scattered Jade</color> is chained after <color=#FFFFFF>Basic Attack: Frost-Tipped Spear</color>, <color=#FFFFFF>Basic Attack: Frost-Tipped Spear</color>'s hit count will be retained.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Shattered Jade",
+     "desc": "With enough Energy and while in the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state, press <IconMap:Icon_SpecialReady> to activate:\nPerforms a series of powerful lunging stabs ahead, dealing massive <color=#98EFF0>Ice DMG</color>.\nThis skill is considered an <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> attack.\nWhen <color=#FFFFFF>EX Special Attack: Shattered Jade</color> is chained after <color=#FFFFFF>Basic Attack: Frost-Tipped Spear</color>, <color=#FFFFFF>Basic Attack: Frost-Tipped Spear</color>'s hit count will be retained.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Frostflower",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1591010, Prop:1001}",
+       "param": {
+        "1591010": {
+         "main": 5370,
+         "growth": 490,
+         "format": "%",
+         "damage_percentage": 5370,
+         "damage_percentage_growth": 490,
+         "stun_ratio": 4220,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 210925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3831,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3832
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1591010, Prop:1002}",
+       "param": {
+        "1591010": {
+         "main": 4220,
+         "growth": 200,
+         "format": "%",
+         "damage_percentage": 5370,
+         "damage_percentage_growth": 490,
+         "stun_ratio": 4220,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 210925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3831,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3832
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Scattered Jade",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1591011, Prop:1001}",
+       "param": {
+        "1591011": {
+         "main": 43880,
+         "growth": 3990,
+         "format": "%",
+         "damage_percentage": 43880,
+         "damage_percentage_growth": 3990,
+         "stun_ratio": 27430,
+         "stun_ratio_growth": 1250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1038125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 40196,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8170
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1591011, Prop:1002}",
+       "param": {
+        "1591011": {
+         "main": 27430,
+         "growth": 1250,
+         "format": "%",
+         "damage_percentage": 43880,
+         "damage_percentage_growth": 3990,
+         "stun_ratio": 27430,
+         "stun_ratio_growth": 1250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1038125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 40196,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8170
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Energy Cost",
+       "desc": "60",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Shattered Jade",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1591012, Prop:1001}",
+       "param": {
+        "1591012": {
+         "main": 104780,
+         "growth": 9530,
+         "format": "%",
+         "damage_percentage": 104780,
+         "damage_percentage_growth": 9530,
+         "stun_ratio": 36260,
+         "stun_ratio_growth": 1650,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1339800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 36901,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9331
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1591012, Prop:1002}",
+       "param": {
+        "1591012": {
+         "main": 36260,
+         "growth": 1650,
+         "format": "%",
+         "damage_percentage": 104780,
+         "damage_percentage_growth": 9530,
+         "stun_ratio": 36260,
+         "stun_ratio_growth": 1650,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1339800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 36901,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9331
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Energy Cost",
+       "desc": "50",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "Chain Attack: Encroaching Ice",
+     "desc": "When a <color=#FFFFFF>Chain Attack</color> is triggered, select the character to activate:\nPerforms a powerful piercing attack against enemies ahead, dealing massive <color=#98EFF0>Ice DMG</color>.\nUpon activating this skill, gains the <color=#FFFFFF>Tempered</color> effect, increasing the DMG dealt by subsequent <color=#FFFFFF>Basic Attack: Converging Spear</color> attacks by 20% for 50s.\nWhen the current skill hits a Stunned elite or boss enemy for the first time, the current stage of <color=#FFFFFF>Basic Attack: Converging Spear</color> is recorded and then reset before entering the <Term:1000028><color=#FFFFFF>Formation Breaker</color></Term> state. While in <Term:1000028><color=#FFFFFF>Formation Breaker</color></Term>, <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term>'s duration will not be reduced. Hold <IconMap:Icon_Normal> to continuously activate the 1st through 3rd stage of <color=#FFFFFF>Basic Attack: Converging Spear</color>. After activating the 3rd stage of <color=#FFFFFF>Basic Attack: Converging Spear</color>, <Term:1000028><color=#FFFFFF>Formation Breaker</color></Term> ends and <color=#FFFFFF>Basic Attack: Converging Spear</color>'s stage is restored to the recorded stage.\n<Term:1000028><color=#FFFFFF>Formation Breaker</color></Term> can trigger at most once against the same target before the target recovers from Stun.\nThis skill is considered an <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> attack.\nWhile in the <Term:1000028><color=#FFFFFF>Formation Breaker</color></Term> state, <color=#FFFFFF>Basic Attack: Converging Spear</color> does not trigger the Chain Attack window when hitting Stunned enemies.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Ultimate: Frozen Heavens",
+     "desc": "When Decibel Rating is at <color=#FFFFFF>Maximum</color>, press <IconMap:Icon_UltimateReady> to activate:\nGathers the power of extreme cold before unleashing a devastating series of lunging attacks, dealing massive <color=#98EFF0>Ice DMG</color>.\nThis skill is considered an <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> attack.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Chain Attack: Encroaching Ice",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1591015, Prop:1001}",
+       "param": {
+        "1591015": {
+         "main": 94370,
+         "growth": 8580,
+         "format": "%",
+         "damage_percentage": 94370,
+         "damage_percentage_growth": 8580,
+         "stun_ratio": 13760,
+         "stun_ratio_growth": 630,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2172775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 32453,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1591015, Prop:1002}",
+       "param": {
+        "1591015": {
+         "main": 13760,
+         "growth": 630,
+         "format": "%",
+         "damage_percentage": 94370,
+         "damage_percentage_growth": 8580,
+         "stun_ratio": 13760,
+         "stun_ratio_growth": 630,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2172775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 32453,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12504
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Ultimate: Frozen Heavens",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1591016, Prop:1001}",
+       "param": {
+        "1591016": {
+         "main": 218980,
+         "growth": 19910,
+         "format": "%",
+         "damage_percentage": 218980,
+         "damage_percentage_growth": 19910,
+         "stun_ratio": 26580,
+         "stun_ratio_growth": 1210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 24163,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 74164
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1591016, Prop:1002}",
+       "param": {
+        "1591016": {
+         "main": 26580,
+         "growth": 1210,
+         "format": "%",
+         "damage_percentage": 218980,
+         "damage_percentage_growth": 19910,
+         "stun_ratio": 26580,
+         "stun_ratio_growth": 1210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 24163,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 74164
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "Quick Assist: Iron Sentinel",
+     "desc": "When the active character is launched, press <IconMap:Icon_Switch> to activate:\nCondenses ice before lunging forward, dealing <color=#98EFF0>Ice DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Defensive Assist: Dauntless Cold",
+     "desc": "When the on-field character is about to be attacked, press <IconMap:Icon_Switch> to activate:\nParries the enemy's attack, dealing massive Daze.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Devouring Frost",
+     "desc": "Press <IconMap:Icon_Normal> after a <color=#FFFFFF>Defensive Assist</color> to activate:\nSwings the spear upward before following with a powerful downward attack, dealing massive <color=#98EFF0>Ice DMG</color>.\nThis skill is considered an <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> attack.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Quick Assist: Iron Sentinel",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1591017, Prop:1001}",
+       "param": {
+        "1591017": {
+         "main": 3970,
+         "growth": 370,
+         "format": "%",
+         "damage_percentage": 3970,
+         "damage_percentage_growth": 370,
+         "stun_ratio": 3120,
+         "stun_ratio_growth": 150,
+         "sp_recovery": 10200,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 78100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2831,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2832
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1591017, Prop:1002}",
+       "param": {
+        "1591017": {
+         "main": 3120,
+         "growth": 150,
+         "format": "%",
+         "damage_percentage": 3970,
+         "damage_percentage_growth": 370,
+         "stun_ratio": 3120,
+         "stun_ratio_growth": 150,
+         "sp_recovery": 10200,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 78100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2831,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2832
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Defensive Assist: Dauntless Cold",
+     "param": [
+      {
+       "name": "Light Defensive Daze Multiplier",
+       "desc": "{Skill:1591018, Prop:1002}",
+       "param": {
+        "1591018": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Heavy Defensive Daze Multiplier",
+       "desc": "{Skill:1591019, Prop:1002}",
+       "param": {
+        "1591019": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Chain Defensive Daze Multiplier",
+       "desc": "{Skill:1591020, Prop:1002}",
+       "param": {
+        "1591020": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Devouring Frost",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1591021, Prop:1001}",
+       "param": {
+        "1591021": {
+         "main": 51490,
+         "growth": 4690,
+         "format": "%",
+         "damage_percentage": 51490,
+         "damage_percentage_growth": 4690,
+         "stun_ratio": 35380,
+         "stun_ratio_growth": 1610,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1138225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 34467,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18330
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1591021, Prop:1002}",
+       "param": {
+        "1591021": {
+         "main": 35380,
+         "growth": 1610,
+         "format": "%",
+         "damage_percentage": 51490,
+         "damage_percentage_growth": 4690,
+         "stun_ratio": 35380,
+         "stun_ratio_growth": 1610,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1138225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 34467,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18330
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "Long, Long Ago",
+   "desc": "Upon activating the 3rd stage of <color=#FFFFFF>Basic Attack: Converging Spear</color>, enters the <color=#FFFFFF>Aerial Patrol Spear</color> and gains 1 additional activation of <color=#FFFFFF>Basic Attack: Converging Spear</color>. When activations exceed the stored <color=#FFFFFF>Basic Attack: Converging Spear</color>'s activation limit, the next <color=#FFFFFF>Basic Attack: Converging Spear</color>'s final hit deals an additional <color=#FFFFFF>100%</color> of ATK as <color=#98EFF0>Ice DMG</color>. Sigrid's <color=#FFFFFF>ATK</color> increases by <color=#FFFFFF>25%</color>.",
+   "desc2": "Long, long ago, Lady Sunbringer lifted the very first handful of soil that would become this sky island...\nAlright, alright. The children have already heard the story of Lady Sunbringer creating Roscaelifer's first island a thousand times over.\nToday, we're telling the story of the warrior who stood at Lady Sunbringer's side. Clad in moon-bright silver armor, she looked just like an ancient knight from a fairy tale..."
+  },
+  "2": {
+   "level": 2,
+   "name": "Legend's First Act",
+   "desc": "PEN Ratio of <color=#FFFFFF>Unbridled Spear</color> attacks and <color=#FFFFFF>Basic Attack: Converging Spear</color> increases by <color=#FFFFFF>24%</color>. The duration of <color=#FFFFFF>Aerial Patrol Spear</color> is extended by 2s. Sigrid's Decibel Generation Rate increases by 10%.",
+   "desc2": "She was Roscaelifer's first soldier, its first spear. She stood on the first front line against the Hollows and led the very first charge.\nShe was the first wing to follow Lady Sunbringer, and with her own hands, she raised Roscaelifer's very first wall.\nShe was Roscaelifer's first blade broken. Her family name was de L'Azur.\nLike her legend, her descendants burn eternally in the night sky above Roscaelifer."
+  },
+  "3": {
+   "level": 3,
+   "name": "Protector of Miracles",
+   "desc": "<color=#FFFFFF>Basic Attack</color>, <color=#FFFFFF>Dodge</color>, <color=#FFFFFF>Assist</color>, <color=#FFFFFF>Special Attack</color>, and <color=#FFFFFF>Chain Attack</color> Lv. +2",
+   "desc2": "Roscaelifer is the miracle of the skies, and the title of those who protect that miracle has never belonged to only a select few.\nYet someone must lead those guardians. That was originally Lady Lindverne's duty, but with her bright and carefree nature, she was hardly suited to be a commanding general.\nFortunately, she had a dashing deputy. More accurately, she had one after another."
+  },
+  "4": {
+   "level": 4,
+   "name": "Hero in Training",
+   "desc": "Each time upon gaining <color=#FFFFFF>Aerial Patrol Spear</color>, DMG dealt increases by <color=#FFFFFF>18%</color> for <color=#FFFFFF>8</color>s. Repeated triggers extend the duration by <color=#FFFFFF>8</color>s, up to a maximum of <color=#FFFFFF>40</color>s.",
+   "desc2": "The soldiers and civilians couldn't help comparing the newly appointed Deputy Administrative Director to her predecessor. Who can blame them? After all, according to Lady Lindverne Sunbringer, every head of House de L'Azur was a legendary figure.\nBecause of that, everyone expected the young de L'Azur to surpass the last, proving worthy of the legendary guardian family's name.\nAnd so Lindverne continued weaving new, even more groundbreaking legends for Sigrid."
+  },
+  "5": {
+   "level": 5,
+   "name": "Skybound Oath",
+   "desc": "<color=#FFFFFF>Basic Attack</color>, <color=#FFFFFF>Dodge</color>, <color=#FFFFFF>Assist</color>, <color=#FFFFFF>Special Attack</color>, and <color=#FFFFFF>Chain Attack</color> Lv. +2",
+   "desc2": "Today, Lady Sunbringer commands countless followers through her reputation as a Void Hunter alone. But every renowned leader once stood with no one behind them.\nTo follow that young leader into the skies and build a miracle city that should never have been possible required either a brute's courage or a fool's innocence.\nAnd each time a new de L'Azur recites that oath to conquer the skies, those two qualities shine brilliantly once more."
+  },
+  "6": {
+   "level": 6,
+   "name": "Knight of the Skies",
+   "desc": "When <color=#FFFFFF>Basic Attack: Converging Spear</color>'s 1st/2nd/3rd stage's final hit lands, it deals an additional <color=#FFFFFF>80%</color>/<color=#FFFFFF>90%</color>/<color=#FFFFFF>100%</color> ATK as <color=#98EFF0>Ice DMG</color>. There is no more limit on the number of times Sigrid can enter the <color=#FFFFFF>Formation Breaker</color> state upon hitting a Stunned enemy with <color=#FFFFFF>Chain Attack: Encroaching Ice</color>. <color=#FFFFFF>Formation Breaker</color> state's <color=#FFFFFF>Basic Attack: Converging Spear</color> will activate faster.",
+   "desc2": "Ancient legends tell of a Knight of the Lake.\nIn the ballads of the distant future, a frostbound spear will also pierce the skies across time and space.\n\"Until this spear is broken, the miracle of the skies shall never end.\""
+  }
+ },
+ "passive": {
+  "level": {
+   "1591501": {
+    "level": 1,
+    "id": 1591501,
+    "name": [
+     "Core Passive: Sky Knight",
+     "Additional Ability: Legion of the Skies"
+    ],
+    "desc": [
+     "The 4th hit of <color=#FFFFFF>Basic Attack: Frost-Tipped Spear</color>, <color=#FFFFFF>EX Special Attack: Scattered Jade</color>, <color=#FFFFFF>EX Special Attack: Shattered Jade</color>, <color=#FFFFFF>Assist Follow-Up: Devouring Frost</color>, <color=#FFFFFF>Chain Attack: Encroaching Ice</color>, <color=#FFFFFF>Ultimate: Frozen Heavens</color>, and <color=#FFFFFF>Dodge Counter: Counterthrust</color> are considered <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> attacks.\nWhenever Sigrid hits an enemy with any <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> in combat while not in the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state, she enters the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state and gains 1 use of <color=#FFFFFF>Basic Attack: Converging Spear</color> that cannot be stacked.\nWhile in the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state, when Sigrid hits an enemy with an <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> skill, the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state is refreshed and she gains 1 use of <color=#FFFFFF>Basic Attack: Converging Spear</color> that cannot be stacked.\nWhen triggering or refreshing <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term>, its duration decreases as the stage of <color=#FFFFFF>Basic Attack: Converging Spear</color> increases. At stage 1/2/3, its duration is <color=#FFFFFF>8</color>/<color=#FFFFFF>7</color>/<color=#FFFFFF>6</color>s.\nWhen <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> ends, the stage of <color=#FFFFFF>Basic Attack: Converging Spear</color> is reduced by one, to a minimum of stage 1.\nActivating or refreshing <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> increases Sigrid's CRIT Rate by <color=#2BAD00>33%</color> for <color=#FFFFFF>8</color>s. Repeated triggers extend the duration by <color=#FFFFFF>8</color>s, up to a maximum of <color=#FFFFFF>40</color>s.\nWhen Sigrid hits a Stunned enemy while in <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term>, the Stun DMG Multiplier of her DMG dealt to the target is increased by 20%.",
+     "When another character in your squad is a <color=#FFFFFF>Support</color> or <color=#FFFFFF>Stun</color> character:\nSigrid's ATK increases by 120. This effect scales with character level, with each level providing an additional increase of 12, up to a maximum increase of 840.\nDMG increases by <color=#FFFFFF>15%</color> when hitting enemies in the <color=#FFFFFF>Contamination</color> state."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1591502": {
+    "level": 2,
+    "id": 1591502,
+    "name": [
+     "Core Passive: Sky Knight",
+     "Additional Ability: Legion of the Skies"
+    ],
+    "desc": [
+     "The 4th hit of <color=#FFFFFF>Basic Attack: Frost-Tipped Spear</color>, <color=#FFFFFF>EX Special Attack: Scattered Jade</color>, <color=#FFFFFF>EX Special Attack: Shattered Jade</color>, <color=#FFFFFF>Assist Follow-Up: Devouring Frost</color>, <color=#FFFFFF>Chain Attack: Encroaching Ice</color>, <color=#FFFFFF>Ultimate: Frozen Heavens</color>, and <color=#FFFFFF>Dodge Counter: Counterthrust</color> are considered <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> attacks.\nWhenever Sigrid hits an enemy with any <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> in combat while not in the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state, she enters the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state and gains 1 use of <color=#FFFFFF>Basic Attack: Converging Spear</color> that cannot be stacked.\nWhile in the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state, when Sigrid hits an enemy with an <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> skill, the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state is refreshed and she gains 1 use of <color=#FFFFFF>Basic Attack: Converging Spear</color> that cannot be stacked.\nWhen triggering or refreshing <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term>, its duration decreases as the stage of <color=#FFFFFF>Basic Attack: Converging Spear</color> increases. At stage 1/2/3, its duration is <color=#FFFFFF>8</color>/<color=#FFFFFF>7</color>/<color=#FFFFFF>6</color>s.\nWhen <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> ends, the stage of <color=#FFFFFF>Basic Attack: Converging Spear</color> is reduced by one, to a minimum of stage 1.\nActivating or refreshing <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> increases Sigrid's CRIT Rate by <color=#2BAD00>39%</color> for <color=#FFFFFF>8</color>s. Repeated triggers extend the duration by <color=#FFFFFF>8</color>s, up to a maximum of <color=#FFFFFF>40</color>s.\nWhen Sigrid hits a Stunned enemy while in <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term>, the Stun DMG Multiplier of her DMG dealt to the target is increased by 20%.",
+     "When another character in your squad is a <color=#FFFFFF>Support</color> or <color=#FFFFFF>Stun</color> character:\nSigrid's ATK increases by 120. This effect scales with character level, with each level providing an additional increase of 12, up to a maximum increase of 840.\nDMG increases by <color=#FFFFFF>15%</color> when hitting enemies in the <color=#FFFFFF>Contamination</color> state."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1591503": {
+    "level": 3,
+    "id": 1591503,
+    "name": [
+     "Core Passive: Sky Knight",
+     "Additional Ability: Legion of the Skies"
+    ],
+    "desc": [
+     "The 4th hit of <color=#FFFFFF>Basic Attack: Frost-Tipped Spear</color>, <color=#FFFFFF>EX Special Attack: Scattered Jade</color>, <color=#FFFFFF>EX Special Attack: Shattered Jade</color>, <color=#FFFFFF>Assist Follow-Up: Devouring Frost</color>, <color=#FFFFFF>Chain Attack: Encroaching Ice</color>, <color=#FFFFFF>Ultimate: Frozen Heavens</color>, and <color=#FFFFFF>Dodge Counter: Counterthrust</color> are considered <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> attacks.\nWhenever Sigrid hits an enemy with any <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> in combat while not in the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state, she enters the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state and gains 1 use of <color=#FFFFFF>Basic Attack: Converging Spear</color> that cannot be stacked.\nWhile in the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state, when Sigrid hits an enemy with an <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> skill, the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state is refreshed and she gains 1 use of <color=#FFFFFF>Basic Attack: Converging Spear</color> that cannot be stacked.\nWhen triggering or refreshing <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term>, its duration decreases as the stage of <color=#FFFFFF>Basic Attack: Converging Spear</color> increases. At stage 1/2/3, its duration is <color=#FFFFFF>8</color>/<color=#FFFFFF>7</color>/<color=#FFFFFF>6</color>s.\nWhen <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> ends, the stage of <color=#FFFFFF>Basic Attack: Converging Spear</color> is reduced by one, to a minimum of stage 1.\nActivating or refreshing <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> increases Sigrid's CRIT Rate by <color=#2BAD00>44%</color> for <color=#FFFFFF>8</color>s. Repeated triggers extend the duration by <color=#FFFFFF>8</color>s, up to a maximum of <color=#FFFFFF>40</color>s.\nWhen Sigrid hits a Stunned enemy while in <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term>, the Stun DMG Multiplier of her DMG dealt to the target is increased by 20%.",
+     "When another character in your squad is a <color=#FFFFFF>Support</color> or <color=#FFFFFF>Stun</color> character:\nSigrid's ATK increases by 120. This effect scales with character level, with each level providing an additional increase of 12, up to a maximum increase of 840.\nDMG increases by <color=#FFFFFF>15%</color> when hitting enemies in the <color=#FFFFFF>Contamination</color> state."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1591504": {
+    "level": 4,
+    "id": 1591504,
+    "name": [
+     "Core Passive: Sky Knight",
+     "Additional Ability: Legion of the Skies"
+    ],
+    "desc": [
+     "The 4th hit of <color=#FFFFFF>Basic Attack: Frost-Tipped Spear</color>, <color=#FFFFFF>EX Special Attack: Scattered Jade</color>, <color=#FFFFFF>EX Special Attack: Shattered Jade</color>, <color=#FFFFFF>Assist Follow-Up: Devouring Frost</color>, <color=#FFFFFF>Chain Attack: Encroaching Ice</color>, <color=#FFFFFF>Ultimate: Frozen Heavens</color>, and <color=#FFFFFF>Dodge Counter: Counterthrust</color> are considered <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> attacks.\nWhenever Sigrid hits an enemy with any <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> in combat while not in the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state, she enters the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state and gains 1 use of <color=#FFFFFF>Basic Attack: Converging Spear</color> that cannot be stacked.\nWhile in the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state, when Sigrid hits an enemy with an <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> skill, the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state is refreshed and she gains 1 use of <color=#FFFFFF>Basic Attack: Converging Spear</color> that cannot be stacked.\nWhen triggering or refreshing <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term>, its duration decreases as the stage of <color=#FFFFFF>Basic Attack: Converging Spear</color> increases. At stage 1/2/3, its duration is <color=#FFFFFF>8</color>/<color=#FFFFFF>7</color>/<color=#FFFFFF>6</color>s.\nWhen <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> ends, the stage of <color=#FFFFFF>Basic Attack: Converging Spear</color> is reduced by one, to a minimum of stage 1.\nActivating or refreshing <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> increases Sigrid's CRIT Rate by <color=#2BAD00>50%</color> for <color=#FFFFFF>8</color>s. Repeated triggers extend the duration by <color=#FFFFFF>8</color>s, up to a maximum of <color=#FFFFFF>40</color>s.\nWhen Sigrid hits a Stunned enemy while in <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term>, the Stun DMG Multiplier of her DMG dealt to the target is increased by 20%.",
+     "When another character in your squad is a <color=#FFFFFF>Support</color> or <color=#FFFFFF>Stun</color> character:\nSigrid's ATK increases by 120. This effect scales with character level, with each level providing an additional increase of 12, up to a maximum increase of 840.\nDMG increases by <color=#FFFFFF>15%</color> when hitting enemies in the <color=#FFFFFF>Contamination</color> state."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1591505": {
+    "level": 5,
+    "id": 1591505,
+    "name": [
+     "Core Passive: Sky Knight",
+     "Additional Ability: Legion of the Skies"
+    ],
+    "desc": [
+     "The 4th hit of <color=#FFFFFF>Basic Attack: Frost-Tipped Spear</color>, <color=#FFFFFF>EX Special Attack: Scattered Jade</color>, <color=#FFFFFF>EX Special Attack: Shattered Jade</color>, <color=#FFFFFF>Assist Follow-Up: Devouring Frost</color>, <color=#FFFFFF>Chain Attack: Encroaching Ice</color>, <color=#FFFFFF>Ultimate: Frozen Heavens</color>, and <color=#FFFFFF>Dodge Counter: Counterthrust</color> are considered <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> attacks.\nWhenever Sigrid hits an enemy with any <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> in combat while not in the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state, she enters the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state and gains 1 use of <color=#FFFFFF>Basic Attack: Converging Spear</color> that cannot be stacked.\nWhile in the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state, when Sigrid hits an enemy with an <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> skill, the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state is refreshed and she gains 1 use of <color=#FFFFFF>Basic Attack: Converging Spear</color> that cannot be stacked.\nWhen triggering or refreshing <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term>, its duration decreases as the stage of <color=#FFFFFF>Basic Attack: Converging Spear</color> increases. At stage 1/2/3, its duration is <color=#FFFFFF>8</color>/<color=#FFFFFF>7</color>/<color=#FFFFFF>6</color>s.\nWhen <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> ends, the stage of <color=#FFFFFF>Basic Attack: Converging Spear</color> is reduced by one, to a minimum of stage 1.\nActivating or refreshing <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> increases Sigrid's CRIT Rate by <color=#2BAD00>55%</color> for <color=#FFFFFF>8</color>s. Repeated triggers extend the duration by <color=#FFFFFF>8</color>s, up to a maximum of <color=#FFFFFF>40</color>s.\nWhen Sigrid hits a Stunned enemy while in <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term>, the Stun DMG Multiplier of her DMG dealt to the target is increased by 20%.",
+     "When another character in your squad is a <color=#FFFFFF>Support</color> or <color=#FFFFFF>Stun</color> character:\nSigrid's ATK increases by 120. This effect scales with character level, with each level providing an additional increase of 12, up to a maximum increase of 840.\nDMG increases by <color=#FFFFFF>15%</color> when hitting enemies in the <color=#FFFFFF>Contamination</color> state."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1591506": {
+    "level": 6,
+    "id": 1591506,
+    "name": [
+     "Core Passive: Sky Knight",
+     "Additional Ability: Legion of the Skies"
+    ],
+    "desc": [
+     "The 4th hit of <color=#FFFFFF>Basic Attack: Frost-Tipped Spear</color>, <color=#FFFFFF>EX Special Attack: Scattered Jade</color>, <color=#FFFFFF>EX Special Attack: Shattered Jade</color>, <color=#FFFFFF>Assist Follow-Up: Devouring Frost</color>, <color=#FFFFFF>Chain Attack: Encroaching Ice</color>, <color=#FFFFFF>Ultimate: Frozen Heavens</color>, and <color=#FFFFFF>Dodge Counter: Counterthrust</color> are considered <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> attacks.\nWhenever Sigrid hits an enemy with any <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> in combat while not in the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state, she enters the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state and gains 1 use of <color=#FFFFFF>Basic Attack: Converging Spear</color> that cannot be stacked.\nWhile in the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state, when Sigrid hits an enemy with an <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> skill, the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state is refreshed and she gains 1 use of <color=#FFFFFF>Basic Attack: Converging Spear</color> that cannot be stacked.\nWhen triggering or refreshing <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term>, its duration decreases as the stage of <color=#FFFFFF>Basic Attack: Converging Spear</color> increases. At stage 1/2/3, its duration is <color=#FFFFFF>8</color>/<color=#FFFFFF>7</color>/<color=#FFFFFF>6</color>s.\nWhen <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> ends, the stage of <color=#FFFFFF>Basic Attack: Converging Spear</color> is reduced by one, to a minimum of stage 1.\nActivating or refreshing <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> increases Sigrid's CRIT Rate by <color=#2BAD00>61%</color> for <color=#FFFFFF>8</color>s. Repeated triggers extend the duration by <color=#FFFFFF>8</color>s, up to a maximum of <color=#FFFFFF>40</color>s.\nWhen Sigrid hits a Stunned enemy while in <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term>, the Stun DMG Multiplier of her DMG dealt to the target is increased by 20%.",
+     "When another character in your squad is a <color=#FFFFFF>Support</color> or <color=#FFFFFF>Stun</color> character:\nSigrid's ATK increases by 120. This effect scales with character level, with each level providing an additional increase of 12, up to a maximum increase of 840.\nDMG increases by <color=#FFFFFF>15%</color> when hitting enemies in the <color=#FFFFFF>Contamination</color> state."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1591507": {
+    "level": 7,
+    "id": 1591507,
+    "name": [
+     "Core Passive: Sky Knight",
+     "Additional Ability: Legion of the Skies"
+    ],
+    "desc": [
+     "The 4th hit of <color=#FFFFFF>Basic Attack: Frost-Tipped Spear</color>, <color=#FFFFFF>EX Special Attack: Scattered Jade</color>, <color=#FFFFFF>EX Special Attack: Shattered Jade</color>, <color=#FFFFFF>Assist Follow-Up: Devouring Frost</color>, <color=#FFFFFF>Chain Attack: Encroaching Ice</color>, <color=#FFFFFF>Ultimate: Frozen Heavens</color>, and <color=#FFFFFF>Dodge Counter: Counterthrust</color> are considered <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> attacks.\nWhenever Sigrid hits an enemy with any <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> in combat while not in the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state, she enters the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state and gains 1 use of <color=#FFFFFF>Basic Attack: Converging Spear</color> that cannot be stacked.\nWhile in the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state, when Sigrid hits an enemy with an <Term:1000029><color=#FFFFFF>Unbridled Spear</color></Term> skill, the <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> state is refreshed and she gains 1 use of <color=#FFFFFF>Basic Attack: Converging Spear</color> that cannot be stacked.\nWhen triggering or refreshing <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term>, its duration decreases as the stage of <color=#FFFFFF>Basic Attack: Converging Spear</color> increases. At stage 1/2/3, its duration is <color=#FFFFFF>8</color>/<color=#FFFFFF>7</color>/<color=#FFFFFF>6</color>s.\nWhen <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> ends, the stage of <color=#FFFFFF>Basic Attack: Converging Spear</color> is reduced by one, to a minimum of stage 1.\nActivating or refreshing <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term> increases Sigrid's CRIT Rate by <color=#2BAD00>66%</color> for <color=#FFFFFF>8</color>s. Repeated triggers extend the duration by <color=#FFFFFF>8</color>s, up to a maximum of <color=#FFFFFF>40</color>s.\nWhen Sigrid hits a Stunned enemy while in <Term:1000030><color=#FFFFFF>Aerial Patrol Spear</color></Term>, the Stun DMG Multiplier of her DMG dealt to the target is increased by 20%.",
+     "When another character in your squad is a <color=#FFFFFF>Support</color> or <color=#FFFFFF>Stun</color> character:\nSigrid's ATK increases by 120. This effect scales with character level, with each level providing an additional increase of 12, up to a maximum increase of 840.\nDMG increases by <color=#FFFFFF>15%</color> when hitting enemies in the <color=#FFFFFF>Contamination</color> state."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110512": 2
+   },
+   "3": {
+    "10": 28000,
+    "110512": 4
+   },
+   "4": {
+    "10": 60000,
+    "110007": 2,
+    "110512": 9
+   },
+   "5": {
+    "10": 100000,
+    "110007": 3,
+    "110512": 15
+   },
+   "6": {
+    "10": 200000,
+    "110007": 4,
+    "110512": 30
+   }
+  }
+ },
+ "skin": {
+  "3115910": {
+   "name": "Sigrid: Legend of the Sky Island",
+   "desc": "The standard attire of the Airspace Patrol Department's Deputy Administrative Director. It serves as both a symbol of her authority over the department and an iconic figure immortalized in countless stories.",
+   "obtain_desc": "",
+   "image": "IconRole66"
+  },
+  "3115911": {
+   "name": "Sigrid: Majestic Wavechaser",
+   "desc": "A knight accustomed to galloping through the skies must now face a new challenge from the waves and the sun!",
+   "obtain_desc": "",
+   "image": "IconRole66_01"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1591001": {
+   "name": "Basic Attack: Frost-Tipped Spear",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1591002": {
+   "name": "Converging Spear",
+   "desc": "<IconMap:Icon_Normal> (After entering or refreshing the Aerial Patrol Spear state) (Hold)",
+   "element_type": 202,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1591003": {
+   "name": "Special Attack: Frostflower",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 202,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1591004": {
+   "name": "EX Special Attack: Scattered Jade",
+   "desc": "<IconMap:Icon_SpecialReady> (While not in the Aerial Patrol Spear state)",
+   "element_type": 202,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1591005": {
+   "name": "EX Special Attack: Shattered Jade",
+   "desc": "<IconMap:Icon_SpecialReady> (In the Aerial Patrol Spear state)",
+   "element_type": 202,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1591006": {
+   "name": "Dash Attack: Windchase",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1591007": {
+   "name": "Dodge Counter: Counterthrust",
+   "desc": "<IconMap:Icon_Evade> (Perfect) ; <IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1591008": {
+   "name": "Chain Attack: Encroaching Ice",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 202,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1591009": {
+   "name": "Ultimate: Frozen Heavens",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 202,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1591010": {
+   "name": "Quick Assist: Iron Sentinel",
+   "desc": "<IconMap:Icon_Switch> (When Triggering Quick Assist)",
+   "element_type": 202,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1591011": {
+   "name": "Defensive Assist: Dauntless Cold",
+   "desc": "<IconMap:Icon_Switch> (When Triggering Defensive Assist)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1591012": {
+   "name": "Assist Follow-Up: Devouring Frost",
+   "desc": "<IconMap:Icon_Normal> (After Defensive Assist)",
+   "element_type": 202,
+   "hit_type": 103,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1591001,
+   "avatar_id": 1591,
+   "first_priority": [
+    5,
+    0
+   ],
+   "second_priority": [
+    1,
+    3
+   ],
+   "third_priority": [
+    2,
+    6
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33300,
+  "slot2": 31100,
+  "slot_sub": 31400,
+  "part_sub_list": [
+   21103,
+   20103,
+   12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33300,
+     31100
+    ],
+    "part_sub_list": [
+     21103
+    ]
+   },
+   {
+    "suit_list": [
+     33300,
+     32700
+    ],
+    "part_sub_list": [
+     23103,
+     31703
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 21103,
+   "name": "CRIT DMG",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  },
+  "part5": {
+   "prop": 23103,
+   "name": "PEN Ratio",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconPenRatio.png"
+  },
+  "part6": {
+   "prop": 20103,
+   "name": "CRIT Rate",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "ATK",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": {},
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100211": 4
+   }
+  },
+  "2": {
+   "hp_max": 430,
+   "attack": 48,
+   "defence": 33,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100221": 12
+   }
+  },
+  "3": {
+   "hp_max": 859,
+   "attack": 96,
+   "defence": 67,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100221": 20
+   }
+  },
+  "4": {
+   "hp_max": 1289,
+   "attack": 145,
+   "defence": 100,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100231": 10
+   }
+  },
+  "5": {
+   "hp_max": 1719,
+   "attack": 193,
+   "defence": 134,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100231": 20
+   }
+  },
+  "6": {
+   "hp_max": 2149,
+   "attack": 241,
+   "defence": 167,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpine_Sigrid"
+}

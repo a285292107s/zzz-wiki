@@ -1,0 +1,2188 @@
+{
+ "id": 1541,
+ "icon": "IconRole61",
+ "name": "Promeia",
+ "code_name": "Promeia",
+ "rarity": 4,
+ "weapon_type": {
+  "3": "Anomaly"
+ },
+ "element_type": {
+  "202": "Ice"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "12": "Krampus Compliance Authority"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "DEC 23",
+  "full_name": "Promeia",
+  "gender": "Female",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle61.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0061.png",
+  "impression_f": "She doesn't say much, but Promeia gets her point across with surprising clarity... What a remarkable skill!",
+  "impression_m": "If you're ever struggling to make a choice, feel free to come to us! Whether it's as your role as a Krampus Judge, or simply as a friend~",
+  "impressions": [
+   "Impressions of Promeia:\n · This expert's kind of cold!",
+   " · A Judge who works hard deserves a reward.",
+   " · A heavy soul, humming softly as it drifts upward."
+  ],
+  "profile_desc": "Promeia, a Judge of the Krampus Compliance Authority, is primarily responsible for carrying out \"executions.\"\n\nUnlike the other Judges in Krampus, each with their own strong personalities, Promeia feels more like an iceberg lurking beneath the surface. Quiet and reserved, she seems to have no personal interests or hobbies.\n\nFor the majority within the TOPS Alliance, avoiding any involvement with her is a given. If their misdeeds are exposed and they end up under Krampus scrutiny, the first thing those anxious rulebreakers pray for is that Promeia won't be handling their case.\n\nThere's a rumor that circulates quietly within the company, but no one dares talk about it openly. Before joining the Krampus Compliance Authority, Promeia came from the infamous Sweepers, an Outer Ring group that served Calydon and specialized in eliminating \"unstable elements.\"",
+  "role_icon": "IconRole/UnPacker/IconRole61",
+  "stature": "174",
+  "unlock_condition": [
+   "Obtain Agent",
+   "Complete Main Commission Season 2 - Epilogue \"New: Eridan Sunset (B)\"",
+   "Complete the \"Anby's Problem\" commission"
+  ],
+  "trust_lv": {
+   "1": "Promeia, a Judge of the Krampus Compliance Authority, is primarily responsible for carrying out \"executions.\"\n\nUnlike the other Judges in Krampus, each with their own strong personalities, Promeia feels more like an iceberg lurking beneath the surface. Quiet and reserved, she seems to have no personal interests or hobbies.\n\nFor the majority within the TOPS Alliance, avoiding any involvement with her is a given. If their misdeeds are exposed and they end up under Krampus scrutiny, the first thing those anxious rulebreakers pray for is that Promeia won't be handling their case.\n\nThere's a rumor that circulates quietly within the company, but no one dares talk about it openly. Before joining the Krampus Compliance Authority, Promeia came from the infamous Sweepers, an Outer Ring group that served Calydon and specialized in eliminating \"unstable elements.\"",
+   "2": "",
+   "3": "Promeia received her handcuffs upon joining Krampus, something she personally insisted on as her only condition. Krampus didn't confiscate the key, but beyond duty to her mission, she almost never chooses to take them off. To her, they represent both restraint and judgment.\n\nThe rumors are true.\nBack when Promeia was a Sweeper, her primary duty was dealing with so-called \"Ethereals\" afflicted with irreversible corruption, ending both their lives and their suffering. She once believed it was all for some greater cause, for the land beneath her feet. Trembling, she accepted that heavy fate.\nUntil the truth came to light.\nThat arrogant, razor-sharp killer died. What remained was nothing more than a prisoner, burdened by fate and guilt.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 126,
+  "attack_growth": 75860,
+  "avatar_piece_id": 5541,
+  "break_stun": 86,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66882,
+  "element_abnormal_power": 112,
+  "element_mystery": 114,
+  "endurance": 0,
+  "hp_growth": 849779,
+  "hp_max": 626,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Promeia",
+   "Cut",
+   "Ice",
+   "Female",
+   "Camp12",
+   "Size3",
+   "AidTypeParry",
+   "Promeia",
+   "EtherEyesSize3"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "Basic Attack: Sweeping Edge",
+     "desc": "Press <IconMap:Icon_Normal> to activate:\nPerforms up to five attacks against enemies ahead, dealing <color=#98EFF0>Ice DMG</color>.\nAfter landing the fifth hit's downward attack, and with sufficient <color=#FFFFFF>Trial by Cold</color>, keep holding <IconMap:Icon_Special> or <IconMap:Icon_Normal> to chain into <color=#FFFFFF>EX Special Attack: Execution - Merciless Judgment</color>.\nEnters the <color=#FFFFFF>Bound Absolution</color> state after throwing the cape during the fourth hit.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Whirling Blade",
+     "desc": "Hold <IconMap:Icon_Normal> to activate:\nPromeia leaps into the air and attacks, throwing her cape beside the enemy and entering the <color=#FFFFFF>Bound Absolution</color> state, dealing <color=#98EFF0>Ice DMG</color>.\nHitting enemies does not accumulate <color=#FFFFFF>Corrosive Chill</color>.",
+     "potential": []
+    },
+    {
+     "name": "Bound Absolution",
+     "desc": "When using certain skills, Promeia throws her cape to continuously slice enemies, dealing <color=#98EFF0>Ice DMG</color>. Does not accumulate <color=#FFFFFF>Corrosive Chill</color> upon hit.\nWhile the cape remains out, Promeia can walk slowly.\nPress <IconMap:Icon_Normal> or <IconMap:Icon_Special> during this period to immediately follow up with the 5th hit of <color=#FFFFFF>Basic Attack: Sweeping Edge</color>.\nIf attacked during this period, Promeia triggers a <color=#FFFFFF>Perfect Dodge</color> automatically. The dodge can trigger once every 20s.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Sweeping Edge",
+     "param": [
+      {
+       "name": "1st-Hit DMG Multiplier",
+       "desc": "{Skill:1541001, Prop:1001}",
+       "param": {
+        "1541001": {
+         "main": 4980,
+         "growth": 460,
+         "format": "%",
+         "damage_percentage": 4980,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 3380,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11040,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 84425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4348,
+         "sp_consume": 0,
+         "attack_data": [
+          12257
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3065
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit DMG Multiplier",
+       "desc": "{Skill:1541002, Prop:1001}",
+       "param": {
+        "1541002": {
+         "main": 10320,
+         "growth": 940,
+         "format": "%",
+         "damage_percentage": 10320,
+         "damage_percentage_growth": 940,
+         "stun_ratio": 6910,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 22610,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 172975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8600,
+         "sp_consume": 0,
+         "attack_data": [
+          25122
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6281
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd-Hit DMG Multiplier",
+       "desc": "{Skill:1541003, Prop:1001}",
+       "param": {
+        "1541003": {
+         "main": 19090,
+         "growth": 1740,
+         "format": "%",
+         "damage_percentage": 19090,
+         "damage_percentage_growth": 1740,
+         "stun_ratio": 12490,
+         "stun_ratio_growth": 570,
+         "sp_recovery": 40870,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 312400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15115,
+         "sp_consume": 0,
+         "attack_data": [
+          45411
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11353
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4th-Hit DMG Multiplier",
+       "desc": "{Skill:1541004, Prop:1001}",
+       "param": {
+        "1541004": {
+         "main": 20470,
+         "growth": 1870,
+         "format": "%",
+         "damage_percentage": 20470,
+         "damage_percentage_growth": 1870,
+         "stun_ratio": 13630,
+         "stun_ratio_growth": 620,
+         "sp_recovery": 44600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 309100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15916,
+         "sp_consume": 0,
+         "attack_data": [
+          49554
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12389
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5th-Hit DMG Multiplier",
+       "desc": "{Skill:1541005, Prop:1001}",
+       "param": {
+        "1541005": {
+         "main": 24150,
+         "growth": 2200,
+         "format": "%",
+         "damage_percentage": 24150,
+         "damage_percentage_growth": 2200,
+         "stun_ratio": 16040,
+         "stun_ratio_growth": 730,
+         "sp_recovery": 52490,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 353100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18236,
+         "sp_consume": 0,
+         "attack_data": [
+          58313
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14579
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1st-Hit Daze Multiplier",
+       "desc": "{Skill:1541001, Prop:1002}",
+       "param": {
+        "1541001": {
+         "main": 3380,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 4980,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 3380,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11040,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 84425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4348,
+         "sp_consume": 0,
+         "attack_data": [
+          12257
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3065
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit Daze Multiplier",
+       "desc": "{Skill:1541002, Prop:1002}",
+       "param": {
+        "1541002": {
+         "main": 6910,
+         "growth": 320,
+         "format": "%",
+         "damage_percentage": 10320,
+         "damage_percentage_growth": 940,
+         "stun_ratio": 6910,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 22610,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 172975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8600,
+         "sp_consume": 0,
+         "attack_data": [
+          25122
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6281
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd-Hit Daze Multiplier",
+       "desc": "{Skill:1541003, Prop:1002}",
+       "param": {
+        "1541003": {
+         "main": 12490,
+         "growth": 570,
+         "format": "%",
+         "damage_percentage": 19090,
+         "damage_percentage_growth": 1740,
+         "stun_ratio": 12490,
+         "stun_ratio_growth": 570,
+         "sp_recovery": 40870,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 312400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15115,
+         "sp_consume": 0,
+         "attack_data": [
+          45411
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11353
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4th-Hit Daze Multiplier",
+       "desc": "{Skill:1541004, Prop:1002}",
+       "param": {
+        "1541004": {
+         "main": 13630,
+         "growth": 620,
+         "format": "%",
+         "damage_percentage": 20470,
+         "damage_percentage_growth": 1870,
+         "stun_ratio": 13630,
+         "stun_ratio_growth": 620,
+         "sp_recovery": 44600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 309100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15916,
+         "sp_consume": 0,
+         "attack_data": [
+          49554
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12389
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5th-Hit Daze Multiplier",
+       "desc": "{Skill:1541005, Prop:1002}",
+       "param": {
+        "1541005": {
+         "main": 16040,
+         "growth": 730,
+         "format": "%",
+         "damage_percentage": 24150,
+         "damage_percentage_growth": 2200,
+         "stun_ratio": 16040,
+         "stun_ratio_growth": 730,
+         "sp_recovery": 52490,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 353100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18236,
+         "sp_consume": 0,
+         "attack_data": [
+          58313
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14579
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Cloak Slash DMG Per Second Multiplier",
+       "desc": "{Skill:1541008, Prop:1001}",
+       "param": {
+        "1541008": {
+         "main": 1950,
+         "growth": 180,
+         "format": "%",
+         "damage_percentage": 1950,
+         "damage_percentage_growth": 180,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Whirling Blade",
+     "param": [
+      {
+       "name": "1st-Hit DMG Multiplier",
+       "desc": "{Skill:1541006, Prop:1001}",
+       "param": {
+        "1541006": {
+         "main": 17550,
+         "growth": 1600,
+         "format": "%",
+         "damage_percentage": 17550,
+         "damage_percentage_growth": 1600,
+         "stun_ratio": 8250,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 27000,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 206250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6373,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7499
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1st-Hit Daze Multiplier",
+       "desc": "{Skill:1541006, Prop:1002}",
+       "param": {
+        "1541006": {
+         "main": 8250,
+         "growth": 380,
+         "format": "%",
+         "damage_percentage": 17550,
+         "damage_percentage_growth": 1600,
+         "stun_ratio": 8250,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 27000,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 206250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6373,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7499
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "Dodge: Veiled Step",
+     "desc": "Press <IconMap:Icon_Evade> to activate:\nA quick dash dodge.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Dash Attack: Grim Reap",
+     "desc": "Press <IconMap:Icon_Normal> during a dodge to activate:\nDelivers a quick attack forward, dealing <color=#98EFF0>Ice DMG</color>.",
+     "potential": []
+    },
+    {
+     "name": "Dodge Counter: Soaring Bat",
+     "desc": "Press <IconMap:Icon_Normal> during a <color=#FFFFFF>Perfect Dodge</color> to activate:\nUnleashes consecutive attacks against the target, dealing <color=#98EFF0>Ice DMG</color>.\nAfter using this skill, it can be immediately followed up with the 5th hit of <color=#FFFFFF>Basic Attack: Sweeping Edge</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Dash Attack: Grim Reap",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1541015, Prop:1001}",
+       "param": {
+        "1541015": {
+         "main": 5630,
+         "growth": 520,
+         "format": "%",
+         "damage_percentage": 5630,
+         "damage_percentage_growth": 520,
+         "stun_ratio": 2390,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 7800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 59675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1840,
+         "sp_consume": 0,
+         "attack_data": [
+          8661
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2166
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1541015, Prop:1002}",
+       "param": {
+        "1541015": {
+         "main": 2390,
+         "growth": 110,
+         "format": "%",
+         "damage_percentage": 5630,
+         "damage_percentage_growth": 520,
+         "stun_ratio": 2390,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 7800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 59675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1840,
+         "sp_consume": 0,
+         "attack_data": [
+          8661
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2166
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Dodge Counter: Soaring Bat",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1541016, Prop:1001}",
+       "param": {
+        "1541016": {
+         "main": 33570,
+         "growth": 3060,
+         "format": "%",
+         "damage_percentage": 33570,
+         "damage_percentage_growth": 3060,
+         "stun_ratio": 24390,
+         "stun_ratio_growth": 1110,
+         "sp_recovery": 43800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 334675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15881,
+         "sp_consume": 0,
+         "attack_data": [
+          148667
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 27167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1541016, Prop:1002}",
+       "param": {
+        "1541016": {
+         "main": 24390,
+         "growth": 1110,
+         "format": "%",
+         "damage_percentage": 33570,
+         "damage_percentage_growth": 3060,
+         "stun_ratio": 24390,
+         "stun_ratio_growth": 1110,
+         "sp_recovery": 43800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 334675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15881,
+         "sp_consume": 0,
+         "attack_data": [
+          148667
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 27167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "Special Attack: Execution - Cold Flash",
+     "desc": "Press <IconMap:Icon_Special> to activate:\nLaunches a flying blade attack, dealing <color=#98EFF0>Ice DMG</color>.",
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Execution - Glacial Death",
+     "desc": "With enough Energy, press <IconMap:Icon_SpecialReady> to activate:\nPerforms a flying blade attack, throwing her cape beside the enemy and entering the <color=#FFFFFF>Bound Absolution</color> state, dealing <color=#98EFF0>Ice DMG</color>.\nIf attacked by an enemy shortly after using the move, automatically chains into <color=#FFFFFF>EX Special Attack: Execution - Shrouded in Shadow</color>.\nUpon use, Promeia gains the <color=#FFFFFF>Absolute Order</color> effect.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Execution - Shrouded in Shadow",
+     "desc": "Triggers automatically when hit shortly upon activating <color=#FFFFFF>EX Special Attack: Execution - Glacial Death</color>:\nEnters the <color=#FFFFFF>Vital View</color> state briefly and swiftly circles behind the enemy.\nAfter triggering a <color=#FFFFFF>Perfect Dodge</color>, and with enough Energy, press <IconMap:Icon_SpecialReady> to consume 40 Energy and activate <color=#FFFFFF>EX Special Attack: Execution - Shrouded in Shadow</color>, gaining the <color=#FFFFFF>Absolute Order</color> effect.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Execution - Descending Frost",
+     "desc": "While under the <color=#FFFFFF>Absolute Order</color> effect, press <IconMap:Icon_Normal> or <IconMap:Icon_Special> while in the <color=#FFFFFF>Bound Absolution</color> state to activate:\nLeaps toward the enemy, retrieving the cape while performing a descending attack that deals <color=#98EFF0>Ice DMG</color>.\nAfter landing, if Promeia possesses <color=#FFFFFF>Trial by Cold</color>, keep holding <IconMap:Icon_Normal> or <IconMap:Icon_Special> to chain into <color=#FFFFFF>EX Special Attack: Execution - Merciless Judgment</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Execution - Layered Frost",
+     "desc": "After triggering <color=#FFFFFF>EX Special Attack: Execution - Shrouded in Shadow</color>, press <IconMap:Icon_Normal> or <IconMap:Icon_Special> to activate:\nQuickly launches a flurry of attacks, then leaps toward the enemy, retrieving the cape while performing a more powerful downward attack that deals <color=#98EFF0>Ice DMG</color>.\nAfter landing, if Promeia possesses <color=#FFFFFF>Trial by Cold</color>, keep holding <IconMap:Icon_Normal> or <IconMap:Icon_Special> to chain into <color=#FFFFFF>EX Special Attack: Execution - Merciless Judgment</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Execution - Merciless Judgment",
+     "desc": "With enough <color=#FFFFFF>Trial by Cold</color> and after performing the final hit of <color=#FFFFFF>Basic Attack: Sweeping Edge</color>, <color=#FFFFFF>Special Attack: Execution - Descending Frost</color>, or <color=#FFFFFF>Special Attack: Execution - Layered Frost</color>, keep holding <IconMap:Icon_Normal> or <IconMap:Icon_Special> after landing to activate:\nQuickly leaps back while unleashing a more powerful finishing move, dealing <color=#98EFF0>Ice DMG</color>.\nHitting enemies does not accumulate <color=#FFFFFF>Corrosive Chill</color>.\nAfter using this skill, hold <IconMap:Icon_Normal> or <IconMap:Icon_Special>, or press <IconMap:Icon_Normal> to immediately follow up with the 5th hit of <color=#FFFFFF>Basic Attack: Sweeping Edge</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Execution - Cold Flash",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1541007, Prop:1001}",
+       "param": {
+        "1541007": {
+         "main": 12780,
+         "growth": 1170,
+         "format": "%",
+         "damage_percentage": 12780,
+         "damage_percentage_growth": 1170,
+         "stun_ratio": 5410,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 135300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4177,
+         "sp_consume": 0,
+         "attack_data": [
+          19661
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4916
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1541007, Prop:1002}",
+       "param": {
+        "1541007": {
+         "main": 5410,
+         "growth": 250,
+         "format": "%",
+         "damage_percentage": 12780,
+         "damage_percentage_growth": 1170,
+         "stun_ratio": 5410,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 135300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4177,
+         "sp_consume": 0,
+         "attack_data": [
+          19661
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4916
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Execution - Glacial Death",
+     "param": [
+      {
+       "name": "Blade Throw Total DMG Multiplier",
+       "desc": "{Skill:1541009, Prop:1001}",
+       "param": {
+        "1541009": {
+         "main": 7930,
+         "growth": 730,
+         "format": "%",
+         "damage_percentage": 7930,
+         "damage_percentage_growth": 730,
+         "stun_ratio": 7700,
+         "stun_ratio_growth": 350,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 192500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5949,
+         "sp_consume": 0,
+         "attack_data": [
+          28000
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Energy Cost",
+       "desc": "40",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Execution - Descending Frost",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1541010, Prop:1001}",
+       "param": {
+        "1541010": {
+         "main": 38380,
+         "growth": 3490,
+         "format": "%",
+         "damage_percentage": 38380,
+         "damage_percentage_growth": 3490,
+         "stun_ratio": 27430,
+         "stun_ratio_growth": 1250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 938025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 23139,
+         "sp_consume": 0,
+         "attack_data": [
+          44654
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11164
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1541010, Prop:1002}",
+       "param": {
+        "1541010": {
+         "main": 27430,
+         "growth": 1250,
+         "format": "%",
+         "damage_percentage": 38380,
+         "damage_percentage_growth": 3490,
+         "stun_ratio": 27430,
+         "stun_ratio_growth": 1250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 938025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 23139,
+         "sp_consume": 0,
+         "attack_data": [
+          44654
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11164
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Execution - Layered Frost",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1541011, Prop:1001}",
+       "param": {
+        "1541011": {
+         "main": 60820,
+         "growth": 5530,
+         "format": "%",
+         "damage_percentage": 60820,
+         "damage_percentage_growth": 5530,
+         "stun_ratio": 45060,
+         "stun_ratio_growth": 2050,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1446775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37292,
+         "sp_consume": 0,
+         "attack_data": [
+          93987
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1541011, Prop:1002}",
+       "param": {
+        "1541011": {
+         "main": 45060,
+         "growth": 2050,
+         "format": "%",
+         "damage_percentage": 60820,
+         "damage_percentage_growth": 5530,
+         "stun_ratio": 45060,
+         "stun_ratio_growth": 2050,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1446775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37292,
+         "sp_consume": 0,
+         "attack_data": [
+          93987
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Blade Slash Total DMG Multiplier",
+       "desc": "{Skill:1541012, Prop:1001}",
+       "param": {
+        "1541012": {
+         "main": 1210,
+         "growth": 110,
+         "format": "%",
+         "damage_percentage": 1210,
+         "damage_percentage_growth": 110,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Execution - Merciless Judgment",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1541014, Prop:1001}",
+       "param": {
+        "1541014": {
+         "main": 51230,
+         "growth": 4660,
+         "format": "%",
+         "damage_percentage": 51230,
+         "damage_percentage_growth": 4660,
+         "stun_ratio": 12160,
+         "stun_ratio_growth": 560,
+         "sp_recovery": 30620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 234025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7227,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1541014, Prop:1002}",
+       "param": {
+        "1541014": {
+         "main": 12160,
+         "growth": 560,
+         "format": "%",
+         "damage_percentage": 51230,
+         "damage_percentage_growth": 4660,
+         "stun_ratio": 12160,
+         "stun_ratio_growth": 560,
+         "sp_recovery": 30620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 234025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7227,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8504
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "Chain Attack: Hanging Judgment",
+     "desc": "When a <color=#FFFFFF>Chain Attack</color> is triggered, select the character to activate:\nThrows flying blades and hangs upside down above the enemy, unleashing a flurry of attacks and ending with a finishing move, dealing massive <color=#98EFF0>Ice DMG</color>.\nWhen the heavy attack hits an enemy afflicted with <color=#98EFF0>Ice Anomaly</color>, <color=#FE437E>Ether Anomaly</color>, <color=#2EB6FF>Electric Anomaly</color>, <color=#FF5521>Fire Anomaly</color>, <color=#F0D12B>Physical Anomaly</color>, or <color=#A6C5FD>Wind Anomaly</color>, it triggers <color=#FFFFFF>Abloom</color> once, dealing 100% Attribute Anomaly DMG of the corresponding attribute.\nAfter using this skill, it can be immediately followed up with the 5th hit of <color=#FFFFFF>Basic Attack: Sweeping Edge</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Ultimate: Glaciating Impalement",
+     "desc": "When Decibel Rating is at <color=#FFFFFF>Maximum</color>, press <IconMap:Icon_UltimateReady> to activate:\nLaunches a series of forward attacks, dealing massive <color=#98EFF0>Ice DMG</color>.\nWhen the heavy attack hits an enemy afflicted with <color=#98EFF0>Ice Anomaly</color>, <color=#FE437E>Ether Anomaly</color>, <color=#2EB6FF>Electric Anomaly</color>, <color=#FF5521>Fire Anomaly</color>, <color=#F0D12B>Physical Anomaly</color>, or <color=#A6C5FD>Wind Anomaly</color>, it triggers <color=#FFFFFF>Abloom</color> once, dealing 250% Attribute Anomaly DMG of the corresponding attribute.\nAfter using this skill, it can be immediately followed up with the 5th hit of <color=#FFFFFF>Basic Attack: Sweeping Edge</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Chain Attack: Hanging Judgment",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1541017, Prop:1001}",
+       "param": {
+        "1541017": {
+         "main": 83080,
+         "growth": 7560,
+         "format": "%",
+         "damage_percentage": 83080,
+         "damage_percentage_growth": 7560,
+         "stun_ratio": 26410,
+         "stun_ratio_growth": 1210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2489025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37360,
+         "sp_consume": 0,
+         "attack_data": [
+          48007
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1541017, Prop:1002}",
+       "param": {
+        "1541017": {
+         "main": 26410,
+         "growth": 1210,
+         "format": "%",
+         "damage_percentage": 83080,
+         "damage_percentage_growth": 7560,
+         "stun_ratio": 26410,
+         "stun_ratio_growth": 1210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2489025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37360,
+         "sp_consume": 0,
+         "attack_data": [
+          48007
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24004
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Ultimate: Glaciating Impalement",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1541018, Prop:1001}",
+       "param": {
+        "1541018": {
+         "main": 153840,
+         "growth": 13990,
+         "format": "%",
+         "damage_percentage": 153840,
+         "damage_percentage_growth": 13990,
+         "stun_ratio": 24940,
+         "stun_ratio_growth": 1140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 60409,
+         "sp_consume": 0,
+         "attack_data": [
+          45340
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 72670
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1541018, Prop:1002}",
+       "param": {
+        "1541018": {
+         "main": 24940,
+         "growth": 1140,
+         "format": "%",
+         "damage_percentage": 153840,
+         "damage_percentage_growth": 13990,
+         "stun_ratio": 24940,
+         "stun_ratio_growth": 1140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 60409,
+         "sp_consume": 0,
+         "attack_data": [
+          45340
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 72670
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "Quick Assist: Ambushing Strike",
+     "desc": "When the active character is launched, press <IconMap:Icon_Switch> to activate:\nUnleashes consecutive attacks against the target, dealing <color=#98EFF0>Ice DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Defensive Assist: Injunction",
+     "desc": "When the on-field character is about to be attacked, press <IconMap:Icon_Switch> to activate:\nParries the enemy's attack, dealing massive Daze.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Intercepting Strike",
+     "desc": "Press <IconMap:Icon_Normal> after a <color=#FFFFFF>Defensive Assist</color> to activate:\nUnleashes consecutive attacks against the target, dealing <color=#98EFF0>Ice DMG</color>.\nAfter using this skill, it can be immediately followed up with the 5th hit of <color=#FFFFFF>Basic Attack: Sweeping Edge</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Quick Assist: Ambushing Strike",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1541019, Prop:1001}",
+       "param": {
+        "1541019": {
+         "main": 7910,
+         "growth": 720,
+         "format": "%",
+         "damage_percentage": 7910,
+         "damage_percentage_growth": 720,
+         "stun_ratio": 6700,
+         "stun_ratio_growth": 310,
+         "sp_recovery": 21900,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 167475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5170,
+         "sp_consume": 0,
+         "attack_data": [
+          24334
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6084
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1541019, Prop:1002}",
+       "param": {
+        "1541019": {
+         "main": 6700,
+         "growth": 310,
+         "format": "%",
+         "damage_percentage": 7910,
+         "damage_percentage_growth": 720,
+         "stun_ratio": 6700,
+         "stun_ratio_growth": 310,
+         "sp_recovery": 21900,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 167475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5170,
+         "sp_consume": 0,
+         "attack_data": [
+          24334
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6084
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Defensive Assist: Injunction",
+     "param": [
+      {
+       "name": "Light Defensive Daze Multiplier",
+       "desc": "{Skill:1541020, Prop:1002}",
+       "param": {
+        "1541020": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Heavy Defensive Daze Multiplier",
+       "desc": "{Skill:1541021, Prop:1002}",
+       "param": {
+        "1541021": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Chain Defensive Daze Multiplier",
+       "desc": "{Skill:1541022, Prop:1002}",
+       "param": {
+        "1541022": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Intercepting Strike",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1541023, Prop:1001}",
+       "param": {
+        "1541023": {
+         "main": 46900,
+         "growth": 4270,
+         "format": "%",
+         "damage_percentage": 46900,
+         "damage_percentage_growth": 4270,
+         "stun_ratio": 34670,
+         "stun_ratio_growth": 1580,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2319075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 28723,
+         "sp_consume": 0,
+         "attack_data": [
+          71320
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 17830
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1541023, Prop:1002}",
+       "param": {
+        "1541023": {
+         "main": 34670,
+         "growth": 1580,
+         "format": "%",
+         "damage_percentage": 46900,
+         "damage_percentage_growth": 4270,
+         "stun_ratio": 34670,
+         "stun_ratio_growth": 1580,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2319075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 28723,
+         "sp_consume": 0,
+         "attack_data": [
+          71320
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 17830
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "Innocent Idealism",
+   "desc": "When Promeia uses <color=#FFFFFF>Ultimate: Glaciating Impalement</color>, she gains an additional effect: if <color=#FFFFFF>Trial by Cold</color> points are not at maximum, gain 1 point of <color=#FFFFFF>Trial by Cold</color>. This effect can trigger once after using <color=#FFFFFF>Ultimate: Glaciating Impalement</color>. When any squad member triggers <color=#FFFFFF>Abloom</color> on enemies with <color=#FFFFFF>Presumption of Guilt</color>, it ignores an additional 20% DEF.",
+   "desc2": "This is a chaotic, lawless land.\nRoaring engines and swirling dust, steel clashing with flesh. Conflict and violence play out day and night.\nAn innocent child grips an equally innocent weapon, wandering the same lost red earth.\n\"Would you be willing to do your part for the peace here?\""
+  },
+  "2": {
+   "level": 2,
+   "name": "Faltering Conviction",
+   "desc": "Promeia's Anomaly Proficiency increases by 40. The multiplier of <color=#FFFFFF>Abloom</color> triggered by consuming <color=#FFFFFF>Trial by Cold</color> increases by 120%.",
+   "desc2": "She became an exceptional Sweeper — swift, precise, and silent. Her targets were clear and countless: Ethereals, those infected with irreversible Corruption, those fated to turn into Ethereals... every kill marked by bloodshed and the echoes of their cries.\nBut... is it right?\n\"This is a Sweeper's duty!\" \"Just think of it as... for the greater good, got it?\" \"Those people were going to die anyway.\" ...\n\"It's a necessary sacrifice.\""
+  },
+  "3": {
+   "level": 3,
+   "name": "Cruel Moonlight",
+   "desc": "<color=#FFFFFF>Basic Attack</color>, <color=#FFFFFF>Dodge</color>, <color=#FFFFFF>Assist</color>, <color=#FFFFFF>Special Attack</color>, and <color=#FFFFFF>Chain Attack</color> Lv. +2",
+   "desc2": "The truth is often carved out from an unremarkable accident.\n\"You think the Sweepers could get rich just by dealing with worthless Ethereals?\"\n\"Gang wars are a guaranteed profit. If you're afraid of getting your hands dirty, the 'Black Wolf' is more than eager...\"\nNight fell soon after, earlier than anyone expected.\nThe Sweepers, Calydon, the gangs with names and those without... in this chaotic age, all seemed to vanish into the endless dark."
+  },
+  "4": {
+   "level": 4,
+   "name": "Ruthless Accusation",
+   "desc": "When Promeia triggers <color=#FFFFFF>Abloom</color>, she restores 5 <color=#FFFFFF>Corrosive Chill</color>. This effect can trigger once every 0.5s.",
+   "desc2": "An invitation arrived, summoning a moth to its judgment.\nThe right to choose, light, justice, and everything that made her \"Promeia.\"\nShe put on the handcuffs and chose exile for herself.\n\"This is my final choice.\""
+  },
+  "5": {
+   "level": 5,
+   "name": "The Dying Moth",
+   "desc": "<color=#FFFFFF>Basic Attack</color>, <color=#FFFFFF>Dodge</color>, <color=#FFFFFF>Assist</color>, <color=#FFFFFF>Special Attack</color>, and <color=#FFFFFF>Chain Attack</color> Lv. +2",
+   "desc2": "She buried herself in her work.\nInvestigations, interrogations, judgments... an endless list.\nHer colleagues watched her with concern.\n\"How long are you going to keep this up...?\"\n\"Until every last sin is atoned for... or until death takes me.\""
+  },
+  "6": {
+   "level": 6,
+   "name": "To Be Continued",
+   "desc": "When Promeia consumes <color=#FFFFFF>Trial by Cold</color> to trigger <color=#FFFFFF>Abloom</color>, it triggers an additional special <color=#FFFFFF>Abloom</color> effect, dealing Attribute Anomaly DMG of the corresponding attribute at a fixed 200% multiplier. 5 <color=#FFFFFF>Corrosive Chill</color> and 100 Decibels are also restored. This effect can trigger at most once every 15s. In addition, Attribute Anomaly DMG and <color=#FFFFFF>Disorder</color> DMG dealt by Promeia ignore 15% of enemies' All-Attribute RES.",
+   "desc2": "The end didn't arrive as expected, and the night wasn't as dark as imagined.\nColleagues, old acquaintances, late-night lights, and new friends...\nThe poor moth still couldn't shake off these heavy gifts, and that long-awaited ending now felt even further away.\nBut maybe... such a fate isn't so bad."
+  }
+ },
+ "passive": {
+  "level": {
+   "1541501": {
+    "level": 1,
+    "id": 1541501,
+    "name": [
+     "Core Passive: Thief of Flames",
+     "Additional Ability: Vessel of Ice"
+    ],
+    "desc": [
+     "If Promeia's initial Anomaly Mastery exceeds 150, each additional point increases her Anomaly Proficiency by 1.5 and increases the whole squad's <color=#FFFFFF>Abloom</color> DMG by 0.35%.\nPromeia gains a set amount of <color=#FFFFFF>Corrosive Chill</color> when her attacks hit enemies. When squad members trigger <color=#98EFF0>Freeze</color>/<color=#FFFFFF>Disorder</color>, when the enemy is inflicted with <color=#FFFFFF>Vortex</color>, or when Promeia triggers <color=#FFFFFF>EX Special Attack: Execution - Shrouded in Shadow</color>, she gains an additional 5/5/5/10 <color=#FFFFFF>Corrosive Chill</color>, up to a maximum of 100 <color=#FFFFFF>Corrosive Chill</color>.\nWhen a squad member triggers and hits an enemy with <color=#FFFFFF>Abloom</color>, Promeia gains an additional 15 <color=#FFFFFF>Corrosive Chill</color>.\nWhen <color=#FFFFFF>Corrosive Chill</color> reaches at least 50, 50 <color=#FFFFFF>Corrosive Chill</color> is consumed and converted into 1 point of <color=#FFFFFF>Trial by Cold</color>, up to a maximum of 2 points of <color=#FFFFFF>Trial by Cold</color>.\nUpon entering the battlefield, Promeia gains 2 points of <color=#FFFFFF>Trial by Cold</color>.\nWhen the finishing move of <color=#FFFFFF>EX Special Attack: Execution - Merciless Judgment</color> hits an enemy afflicted with <color=#98EFF0>Ice Anomaly</color>, <color=#FE437E>Ether Anomaly</color>, <color=#2EB6FF>Electric Anomaly</color>, <color=#FF5521>Fire Anomaly</color>, <color=#F0D12B>Physical Anomaly</color>, or <color=#A6C5FD>Wind Anomaly</color>, it triggers <color=#FFFFFF>Abloom</color> once, dealing <color=#2BAD00>330%</color> Attribute Anomaly DMG of the corresponding attribute. The skill consumes 1 <color=#FFFFFF>Trial by Cold</color> upon activation.\nWhen Promeia triggers and hits an enemy with <color=#FFFFFF>Abloom</color>, she gains an additional 100 Decibels. This effect can trigger once every 0.5s. Using <color=#FFFFFF>Ultimate: Glaciating Impalement</color> grants <color=#FFFFFF>Frost Oath</color>. With <color=#FFFFFF>Frost Oath</color>, after using <color=#FFFFFF>EX Special Attack: Execution - Merciless Judgment</color>, <color=#FFFFFF>Chain Attack: Hanging Judgment</color>, or <color=#FFFFFF>Ultimate: Glaciating Impalement</color>, press or hold <IconMap:Icon_Special> to consume <color=#FFFFFF>Frost Oath</color> and immediately follow up with <color=#FFFFFF>Special Attack: Execution - Layered Frost</color>. Only 1 stack of <color=#FFFFFF>Frost Oath</color> can be held.",
+     "When another character in your squad is an <color=#FFFFFF>Anomaly</color> or <color=#FFFFFF>Support</color> character:\nWhen using an <color=#FFFFFF>EX Special Attack</color>, Promeia's <color=#98EFF0>Ice Anomaly Buildup Rate</color> increases by 30% for 30s. Repeated triggers refresh the duration.\nWhen any squad member applies the <color=#98EFF0>Frostbite</color> effect to an enemy, its duration is increased by 3s.\nWhen Promeia's <color=#FFFFFF>EX Special Attack</color> hits an enemy, it inflicts <color=#FFFFFF>Presumption of Guilt</color>. When any squad member triggers <color=#FFFFFF>Abloom</color> on a target with <color=#FFFFFF>Presumption of Guilt</color>, it ignores 40% of the target's DEF. <color=#FFFFFF>Presumption of Guilt</color> lasts 30s, and repeated triggers refresh the duration."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1541502": {
+    "level": 2,
+    "id": 1541502,
+    "name": [
+     "Core Passive: Thief of Flames",
+     "Additional Ability: Vessel of Ice"
+    ],
+    "desc": [
+     "If Promeia's initial Anomaly Mastery exceeds 150, each additional point increases her Anomaly Proficiency by 1.5 and increases the whole squad's <color=#FFFFFF>Abloom</color> DMG by 0.35%.\nPromeia gains a set amount of <color=#FFFFFF>Corrosive Chill</color> when her attacks hit enemies. When squad members trigger <color=#98EFF0>Freeze</color>/<color=#FFFFFF>Disorder</color>, when the enemy is inflicted with <color=#FFFFFF>Vortex</color>, or when Promeia triggers <color=#FFFFFF>EX Special Attack: Execution - Shrouded in Shadow</color>, she gains an additional 5/5/5/10 <color=#FFFFFF>Corrosive Chill</color>, up to a maximum of 100 <color=#FFFFFF>Corrosive Chill</color>.\nWhen a squad member triggers and hits an enemy with <color=#FFFFFF>Abloom</color>, Promeia gains an additional 15 <color=#FFFFFF>Corrosive Chill</color>.\nWhen <color=#FFFFFF>Corrosive Chill</color> reaches at least 50, 50 <color=#FFFFFF>Corrosive Chill</color> is consumed and converted into 1 point of <color=#FFFFFF>Trial by Cold</color>, up to a maximum of 2 points of <color=#FFFFFF>Trial by Cold</color>.\nUpon entering the battlefield, Promeia gains 2 points of <color=#FFFFFF>Trial by Cold</color>.\nWhen the finishing move of <color=#FFFFFF>EX Special Attack: Execution - Merciless Judgment</color> hits an enemy afflicted with <color=#98EFF0>Ice Anomaly</color>, <color=#FE437E>Ether Anomaly</color>, <color=#2EB6FF>Electric Anomaly</color>, <color=#FF5521>Fire Anomaly</color>, <color=#F0D12B>Physical Anomaly</color>, or <color=#A6C5FD>Wind Anomaly</color>, it triggers <color=#FFFFFF>Abloom</color> once, dealing <color=#2BAD00>385%</color> Attribute Anomaly DMG of the corresponding attribute. The skill consumes 1 <color=#FFFFFF>Trial by Cold</color> upon activation.\nWhen Promeia triggers and hits an enemy with <color=#FFFFFF>Abloom</color>, she gains an additional 100 Decibels. This effect can trigger once every 0.5s. Using <color=#FFFFFF>Ultimate: Glaciating Impalement</color> grants <color=#FFFFFF>Frost Oath</color>. With <color=#FFFFFF>Frost Oath</color>, after using <color=#FFFFFF>EX Special Attack: Execution - Merciless Judgment</color>, <color=#FFFFFF>Chain Attack: Hanging Judgment</color>, or <color=#FFFFFF>Ultimate: Glaciating Impalement</color>, press or hold <IconMap:Icon_Special> to consume <color=#FFFFFF>Frost Oath</color> and immediately follow up with <color=#FFFFFF>Special Attack: Execution - Layered Frost</color>. Only 1 stack of <color=#FFFFFF>Frost Oath</color> can be held.",
+     "When another character in your squad is an <color=#FFFFFF>Anomaly</color> or <color=#FFFFFF>Support</color> character:\nWhen using an <color=#FFFFFF>EX Special Attack</color>, Promeia's <color=#98EFF0>Ice Anomaly Buildup Rate</color> increases by 30% for 30s. Repeated triggers refresh the duration.\nWhen any squad member applies the <color=#98EFF0>Frostbite</color> effect to an enemy, its duration is increased by 3s.\nWhen Promeia's <color=#FFFFFF>EX Special Attack</color> hits an enemy, it inflicts <color=#FFFFFF>Presumption of Guilt</color>. When any squad member triggers <color=#FFFFFF>Abloom</color> on a target with <color=#FFFFFF>Presumption of Guilt</color>, it ignores 40% of the target's DEF. <color=#FFFFFF>Presumption of Guilt</color> lasts 30s, and repeated triggers refresh the duration."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1541503": {
+    "level": 3,
+    "id": 1541503,
+    "name": [
+     "Core Passive: Thief of Flames",
+     "Additional Ability: Vessel of Ice"
+    ],
+    "desc": [
+     "If Promeia's initial Anomaly Mastery exceeds 150, each additional point increases her Anomaly Proficiency by 1.5 and increases the whole squad's <color=#FFFFFF>Abloom</color> DMG by 0.35%.\nPromeia gains a set amount of <color=#FFFFFF>Corrosive Chill</color> when her attacks hit enemies. When squad members trigger <color=#98EFF0>Freeze</color>/<color=#FFFFFF>Disorder</color>, when the enemy is inflicted with <color=#FFFFFF>Vortex</color>, or when Promeia triggers <color=#FFFFFF>EX Special Attack: Execution - Shrouded in Shadow</color>, she gains an additional 5/5/5/10 <color=#FFFFFF>Corrosive Chill</color>, up to a maximum of 100 <color=#FFFFFF>Corrosive Chill</color>.\nWhen a squad member triggers and hits an enemy with <color=#FFFFFF>Abloom</color>, Promeia gains an additional 15 <color=#FFFFFF>Corrosive Chill</color>.\nWhen <color=#FFFFFF>Corrosive Chill</color> reaches at least 50, 50 <color=#FFFFFF>Corrosive Chill</color> is consumed and converted into 1 point of <color=#FFFFFF>Trial by Cold</color>, up to a maximum of 2 points of <color=#FFFFFF>Trial by Cold</color>.\nUpon entering the battlefield, Promeia gains 2 points of <color=#FFFFFF>Trial by Cold</color>.\nWhen the finishing move of <color=#FFFFFF>EX Special Attack: Execution - Merciless Judgment</color> hits an enemy afflicted with <color=#98EFF0>Ice Anomaly</color>, <color=#FE437E>Ether Anomaly</color>, <color=#2EB6FF>Electric Anomaly</color>, <color=#FF5521>Fire Anomaly</color>, <color=#F0D12B>Physical Anomaly</color>, or <color=#A6C5FD>Wind Anomaly</color>, it triggers <color=#FFFFFF>Abloom</color> once, dealing <color=#2BAD00>435%</color> Attribute Anomaly DMG of the corresponding attribute. The skill consumes 1 <color=#FFFFFF>Trial by Cold</color> upon activation.\nWhen Promeia triggers and hits an enemy with <color=#FFFFFF>Abloom</color>, she gains an additional 100 Decibels. This effect can trigger once every 0.5s. Using <color=#FFFFFF>Ultimate: Glaciating Impalement</color> grants <color=#FFFFFF>Frost Oath</color>. With <color=#FFFFFF>Frost Oath</color>, after using <color=#FFFFFF>EX Special Attack: Execution - Merciless Judgment</color>, <color=#FFFFFF>Chain Attack: Hanging Judgment</color>, or <color=#FFFFFF>Ultimate: Glaciating Impalement</color>, press or hold <IconMap:Icon_Special> to consume <color=#FFFFFF>Frost Oath</color> and immediately follow up with <color=#FFFFFF>Special Attack: Execution - Layered Frost</color>. Only 1 stack of <color=#FFFFFF>Frost Oath</color> can be held.",
+     "When another character in your squad is an <color=#FFFFFF>Anomaly</color> or <color=#FFFFFF>Support</color> character:\nWhen using an <color=#FFFFFF>EX Special Attack</color>, Promeia's <color=#98EFF0>Ice Anomaly Buildup Rate</color> increases by 30% for 30s. Repeated triggers refresh the duration.\nWhen any squad member applies the <color=#98EFF0>Frostbite</color> effect to an enemy, its duration is increased by 3s.\nWhen Promeia's <color=#FFFFFF>EX Special Attack</color> hits an enemy, it inflicts <color=#FFFFFF>Presumption of Guilt</color>. When any squad member triggers <color=#FFFFFF>Abloom</color> on a target with <color=#FFFFFF>Presumption of Guilt</color>, it ignores 40% of the target's DEF. <color=#FFFFFF>Presumption of Guilt</color> lasts 30s, and repeated triggers refresh the duration."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1541504": {
+    "level": 4,
+    "id": 1541504,
+    "name": [
+     "Core Passive: Thief of Flames",
+     "Additional Ability: Vessel of Ice"
+    ],
+    "desc": [
+     "If Promeia's initial Anomaly Mastery exceeds 150, each additional point increases her Anomaly Proficiency by 1.5 and increases the whole squad's <color=#FFFFFF>Abloom</color> DMG by 0.35%.\nPromeia gains a set amount of <color=#FFFFFF>Corrosive Chill</color> when her attacks hit enemies. When squad members trigger <color=#98EFF0>Freeze</color>/<color=#FFFFFF>Disorder</color>, when the enemy is inflicted with <color=#FFFFFF>Vortex</color>, or when Promeia triggers <color=#FFFFFF>EX Special Attack: Execution - Shrouded in Shadow</color>, she gains an additional 5/5/5/10 <color=#FFFFFF>Corrosive Chill</color>, up to a maximum of 100 <color=#FFFFFF>Corrosive Chill</color>.\nWhen a squad member triggers and hits an enemy with <color=#FFFFFF>Abloom</color>, Promeia gains an additional 15 <color=#FFFFFF>Corrosive Chill</color>.\nWhen <color=#FFFFFF>Corrosive Chill</color> reaches at least 50, 50 <color=#FFFFFF>Corrosive Chill</color> is consumed and converted into 1 point of <color=#FFFFFF>Trial by Cold</color>, up to a maximum of 2 points of <color=#FFFFFF>Trial by Cold</color>.\nUpon entering the battlefield, Promeia gains 2 points of <color=#FFFFFF>Trial by Cold</color>.\nWhen the finishing move of <color=#FFFFFF>EX Special Attack: Execution - Merciless Judgment</color> hits an enemy afflicted with <color=#98EFF0>Ice Anomaly</color>, <color=#FE437E>Ether Anomaly</color>, <color=#2EB6FF>Electric Anomaly</color>, <color=#FF5521>Fire Anomaly</color>, <color=#F0D12B>Physical Anomaly</color>, or <color=#A6C5FD>Wind Anomaly</color>, it triggers <color=#FFFFFF>Abloom</color> once, dealing <color=#2BAD00>485%</color> Attribute Anomaly DMG of the corresponding attribute. The skill consumes 1 <color=#FFFFFF>Trial by Cold</color> upon activation.\nWhen Promeia triggers and hits an enemy with <color=#FFFFFF>Abloom</color>, she gains an additional 100 Decibels. This effect can trigger once every 0.5s. Using <color=#FFFFFF>Ultimate: Glaciating Impalement</color> grants <color=#FFFFFF>Frost Oath</color>. With <color=#FFFFFF>Frost Oath</color>, after using <color=#FFFFFF>EX Special Attack: Execution - Merciless Judgment</color>, <color=#FFFFFF>Chain Attack: Hanging Judgment</color>, or <color=#FFFFFF>Ultimate: Glaciating Impalement</color>, press or hold <IconMap:Icon_Special> to consume <color=#FFFFFF>Frost Oath</color> and immediately follow up with <color=#FFFFFF>Special Attack: Execution - Layered Frost</color>. Only 1 stack of <color=#FFFFFF>Frost Oath</color> can be held.",
+     "When another character in your squad is an <color=#FFFFFF>Anomaly</color> or <color=#FFFFFF>Support</color> character:\nWhen using an <color=#FFFFFF>EX Special Attack</color>, Promeia's <color=#98EFF0>Ice Anomaly Buildup Rate</color> increases by 30% for 30s. Repeated triggers refresh the duration.\nWhen any squad member applies the <color=#98EFF0>Frostbite</color> effect to an enemy, its duration is increased by 3s.\nWhen Promeia's <color=#FFFFFF>EX Special Attack</color> hits an enemy, it inflicts <color=#FFFFFF>Presumption of Guilt</color>. When any squad member triggers <color=#FFFFFF>Abloom</color> on a target with <color=#FFFFFF>Presumption of Guilt</color>, it ignores 40% of the target's DEF. <color=#FFFFFF>Presumption of Guilt</color> lasts 30s, and repeated triggers refresh the duration."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1541505": {
+    "level": 5,
+    "id": 1541505,
+    "name": [
+     "Core Passive: Thief of Flames",
+     "Additional Ability: Vessel of Ice"
+    ],
+    "desc": [
+     "If Promeia's initial Anomaly Mastery exceeds 150, each additional point increases her Anomaly Proficiency by 1.5 and increases the whole squad's <color=#FFFFFF>Abloom</color> DMG by 0.35%.\nPromeia gains a set amount of <color=#FFFFFF>Corrosive Chill</color> when her attacks hit enemies. When squad members trigger <color=#98EFF0>Freeze</color>/<color=#FFFFFF>Disorder</color>, when the enemy is inflicted with <color=#FFFFFF>Vortex</color>, or when Promeia triggers <color=#FFFFFF>EX Special Attack: Execution - Shrouded in Shadow</color>, she gains an additional 5/5/5/10 <color=#FFFFFF>Corrosive Chill</color>, up to a maximum of 100 <color=#FFFFFF>Corrosive Chill</color>.\nWhen a squad member triggers and hits an enemy with <color=#FFFFFF>Abloom</color>, Promeia gains an additional 15 <color=#FFFFFF>Corrosive Chill</color>.\nWhen <color=#FFFFFF>Corrosive Chill</color> reaches at least 50, 50 <color=#FFFFFF>Corrosive Chill</color> is consumed and converted into 1 point of <color=#FFFFFF>Trial by Cold</color>, up to a maximum of 2 points of <color=#FFFFFF>Trial by Cold</color>.\nUpon entering the battlefield, Promeia gains 2 points of <color=#FFFFFF>Trial by Cold</color>.\nWhen the finishing move of <color=#FFFFFF>EX Special Attack: Execution - Merciless Judgment</color> hits an enemy afflicted with <color=#98EFF0>Ice Anomaly</color>, <color=#FE437E>Ether Anomaly</color>, <color=#2EB6FF>Electric Anomaly</color>, <color=#FF5521>Fire Anomaly</color>, <color=#F0D12B>Physical Anomaly</color>, or <color=#A6C5FD>Wind Anomaly</color>, it triggers <color=#FFFFFF>Abloom</color> once, dealing <color=#2BAD00>535%</color> Attribute Anomaly DMG of the corresponding attribute. The skill consumes 1 <color=#FFFFFF>Trial by Cold</color> upon activation.\nWhen Promeia triggers and hits an enemy with <color=#FFFFFF>Abloom</color>, she gains an additional 100 Decibels. This effect can trigger once every 0.5s. Using <color=#FFFFFF>Ultimate: Glaciating Impalement</color> grants <color=#FFFFFF>Frost Oath</color>. With <color=#FFFFFF>Frost Oath</color>, after using <color=#FFFFFF>EX Special Attack: Execution - Merciless Judgment</color>, <color=#FFFFFF>Chain Attack: Hanging Judgment</color>, or <color=#FFFFFF>Ultimate: Glaciating Impalement</color>, press or hold <IconMap:Icon_Special> to consume <color=#FFFFFF>Frost Oath</color> and immediately follow up with <color=#FFFFFF>Special Attack: Execution - Layered Frost</color>. Only 1 stack of <color=#FFFFFF>Frost Oath</color> can be held.",
+     "When another character in your squad is an <color=#FFFFFF>Anomaly</color> or <color=#FFFFFF>Support</color> character:\nWhen using an <color=#FFFFFF>EX Special Attack</color>, Promeia's <color=#98EFF0>Ice Anomaly Buildup Rate</color> increases by 30% for 30s. Repeated triggers refresh the duration.\nWhen any squad member applies the <color=#98EFF0>Frostbite</color> effect to an enemy, its duration is increased by 3s.\nWhen Promeia's <color=#FFFFFF>EX Special Attack</color> hits an enemy, it inflicts <color=#FFFFFF>Presumption of Guilt</color>. When any squad member triggers <color=#FFFFFF>Abloom</color> on a target with <color=#FFFFFF>Presumption of Guilt</color>, it ignores 40% of the target's DEF. <color=#FFFFFF>Presumption of Guilt</color> lasts 30s, and repeated triggers refresh the duration."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1541506": {
+    "level": 6,
+    "id": 1541506,
+    "name": [
+     "Core Passive: Thief of Flames",
+     "Additional Ability: Vessel of Ice"
+    ],
+    "desc": [
+     "If Promeia's initial Anomaly Mastery exceeds 150, each additional point increases her Anomaly Proficiency by 1.5 and increases the whole squad's <color=#FFFFFF>Abloom</color> DMG by 0.35%.\nPromeia gains a set amount of <color=#FFFFFF>Corrosive Chill</color> when her attacks hit enemies. When squad members trigger <color=#98EFF0>Freeze</color>/<color=#FFFFFF>Disorder</color>, when the enemy is inflicted with <color=#FFFFFF>Vortex</color>, or when Promeia triggers <color=#FFFFFF>EX Special Attack: Execution - Shrouded in Shadow</color>, she gains an additional 5/5/5/10 <color=#FFFFFF>Corrosive Chill</color>, up to a maximum of 100 <color=#FFFFFF>Corrosive Chill</color>.\nWhen a squad member triggers and hits an enemy with <color=#FFFFFF>Abloom</color>, Promeia gains an additional 15 <color=#FFFFFF>Corrosive Chill</color>.\nWhen <color=#FFFFFF>Corrosive Chill</color> reaches at least 50, 50 <color=#FFFFFF>Corrosive Chill</color> is consumed and converted into 1 point of <color=#FFFFFF>Trial by Cold</color>, up to a maximum of 2 points of <color=#FFFFFF>Trial by Cold</color>.\nUpon entering the battlefield, Promeia gains 2 points of <color=#FFFFFF>Trial by Cold</color>.\nWhen the finishing move of <color=#FFFFFF>EX Special Attack: Execution - Merciless Judgment</color> hits an enemy afflicted with <color=#98EFF0>Ice Anomaly</color>, <color=#FE437E>Ether Anomaly</color>, <color=#2EB6FF>Electric Anomaly</color>, <color=#FF5521>Fire Anomaly</color>, <color=#F0D12B>Physical Anomaly</color>, or <color=#A6C5FD>Wind Anomaly</color>, it triggers <color=#FFFFFF>Abloom</color> once, dealing <color=#2BAD00>585%</color> Attribute Anomaly DMG of the corresponding attribute. The skill consumes 1 <color=#FFFFFF>Trial by Cold</color> upon activation.\nWhen Promeia triggers and hits an enemy with <color=#FFFFFF>Abloom</color>, she gains an additional 100 Decibels. This effect can trigger once every 0.5s. Using <color=#FFFFFF>Ultimate: Glaciating Impalement</color> grants <color=#FFFFFF>Frost Oath</color>. With <color=#FFFFFF>Frost Oath</color>, after using <color=#FFFFFF>EX Special Attack: Execution - Merciless Judgment</color>, <color=#FFFFFF>Chain Attack: Hanging Judgment</color>, or <color=#FFFFFF>Ultimate: Glaciating Impalement</color>, press or hold <IconMap:Icon_Special> to consume <color=#FFFFFF>Frost Oath</color> and immediately follow up with <color=#FFFFFF>Special Attack: Execution - Layered Frost</color>. Only 1 stack of <color=#FFFFFF>Frost Oath</color> can be held.",
+     "When another character in your squad is an <color=#FFFFFF>Anomaly</color> or <color=#FFFFFF>Support</color> character:\nWhen using an <color=#FFFFFF>EX Special Attack</color>, Promeia's <color=#98EFF0>Ice Anomaly Buildup Rate</color> increases by 30% for 30s. Repeated triggers refresh the duration.\nWhen any squad member applies the <color=#98EFF0>Frostbite</color> effect to an enemy, its duration is increased by 3s.\nWhen Promeia's <color=#FFFFFF>EX Special Attack</color> hits an enemy, it inflicts <color=#FFFFFF>Presumption of Guilt</color>. When any squad member triggers <color=#FFFFFF>Abloom</color> on a target with <color=#FFFFFF>Presumption of Guilt</color>, it ignores 40% of the target's DEF. <color=#FFFFFF>Presumption of Guilt</color> lasts 30s, and repeated triggers refresh the duration."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1541507": {
+    "level": 7,
+    "id": 1541507,
+    "name": [
+     "Core Passive: Thief of Flames",
+     "Additional Ability: Vessel of Ice"
+    ],
+    "desc": [
+     "If Promeia's initial Anomaly Mastery exceeds 150, each additional point increases her Anomaly Proficiency by 1.5 and increases the whole squad's <color=#FFFFFF>Abloom</color> DMG by 0.35%.\nPromeia gains a set amount of <color=#FFFFFF>Corrosive Chill</color> when her attacks hit enemies. When squad members trigger <color=#98EFF0>Freeze</color>/<color=#FFFFFF>Disorder</color>, when the enemy is inflicted with <color=#FFFFFF>Vortex</color>, or when Promeia triggers <color=#FFFFFF>EX Special Attack: Execution - Shrouded in Shadow</color>, she gains an additional 5/5/5/10 <color=#FFFFFF>Corrosive Chill</color>, up to a maximum of 100 <color=#FFFFFF>Corrosive Chill</color>.\nWhen a squad member triggers and hits an enemy with <color=#FFFFFF>Abloom</color>, Promeia gains an additional 15 <color=#FFFFFF>Corrosive Chill</color>.\nWhen <color=#FFFFFF>Corrosive Chill</color> reaches at least 50, 50 <color=#FFFFFF>Corrosive Chill</color> is consumed and converted into 1 point of <color=#FFFFFF>Trial by Cold</color>, up to a maximum of 2 points of <color=#FFFFFF>Trial by Cold</color>.\nUpon entering the battlefield, Promeia gains 2 points of <color=#FFFFFF>Trial by Cold</color>.\nWhen the finishing move of <color=#FFFFFF>EX Special Attack: Execution - Merciless Judgment</color> hits an enemy afflicted with <color=#98EFF0>Ice Anomaly</color>, <color=#FE437E>Ether Anomaly</color>, <color=#2EB6FF>Electric Anomaly</color>, <color=#FF5521>Fire Anomaly</color>, <color=#F0D12B>Physical Anomaly</color>, or <color=#A6C5FD>Wind Anomaly</color>, it triggers <color=#FFFFFF>Abloom</color> once, dealing <color=#2BAD00>635%</color> Attribute Anomaly DMG of the corresponding attribute. The skill consumes 1 <color=#FFFFFF>Trial by Cold</color> upon activation.\nWhen Promeia triggers and hits an enemy with <color=#FFFFFF>Abloom</color>, she gains an additional 100 Decibels. This effect can trigger once every 0.5s. Using <color=#FFFFFF>Ultimate: Glaciating Impalement</color> grants <color=#FFFFFF>Frost Oath</color>. With <color=#FFFFFF>Frost Oath</color>, after using <color=#FFFFFF>EX Special Attack: Execution - Merciless Judgment</color>, <color=#FFFFFF>Chain Attack: Hanging Judgment</color>, or <color=#FFFFFF>Ultimate: Glaciating Impalement</color>, press or hold <IconMap:Icon_Special> to consume <color=#FFFFFF>Frost Oath</color> and immediately follow up with <color=#FFFFFF>Special Attack: Execution - Layered Frost</color>. Only 1 stack of <color=#FFFFFF>Frost Oath</color> can be held.",
+     "When another character in your squad is an <color=#FFFFFF>Anomaly</color> or <color=#FFFFFF>Support</color> character:\nWhen using an <color=#FFFFFF>EX Special Attack</color>, Promeia's <color=#98EFF0>Ice Anomaly Buildup Rate</color> increases by 30% for 30s. Repeated triggers refresh the duration.\nWhen any squad member applies the <color=#98EFF0>Frostbite</color> effect to an enemy, its duration is increased by 3s.\nWhen Promeia's <color=#FFFFFF>EX Special Attack</color> hits an enemy, it inflicts <color=#FFFFFF>Presumption of Guilt</color>. When any squad member triggers <color=#FFFFFF>Abloom</color> on a target with <color=#FFFFFF>Presumption of Guilt</color>, it ignores 40% of the target's DEF. <color=#FFFFFF>Presumption of Guilt</color> lasts 30s, and repeated triggers refresh the duration."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110511": 2
+   },
+   "3": {
+    "10": 28000,
+    "110511": 4
+   },
+   "4": {
+    "10": 60000,
+    "110009": 2,
+    "110511": 9
+   },
+   "5": {
+    "10": 100000,
+    "110009": 3,
+    "110511": 15
+   },
+   "6": {
+    "10": 200000,
+    "110009": 4,
+    "110511": 30
+   }
+  }
+ },
+ "skin": {
+  "3115410": {
+   "name": "Promeia: Shrouded in Frost",
+   "desc": "Darkness is a weapon that fits perfectly in my hand. As an executioner, I'm already at home in the night, but carrying heavy shackles, it's easy to lose my way.",
+   "obtain_desc": "",
+   "image": "IconRole61"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1541001": {
+   "name": "Basic Attack: Sweeping Edge",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541002": {
+   "name": "Basic Attack: Whirling Blade",
+   "desc": "<IconMap:Icon_Normal> (Hold)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541003": {
+   "name": "Special Attack: Execution - Cold Flash",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541004": {
+   "name": "EX Special Attack: Execution - Glacial Death",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541005": {
+   "name": "EX Special Attack: Execution - Shrouded in Shadow",
+   "desc": "Automatically activates when receiving an attack shortly upon using EX Special Attack: Execution - Glacial Death",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1541006": {
+   "name": "Special Attack: Execution - Descending Frost",
+   "desc": "<IconMap:Icon_Normal> or <IconMap:Icon_Special> (In Bound Absolution state with Absolute Order)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541007": {
+   "name": "Special Attack: Execution - Layered Frost",
+   "desc": "<IconMap:Icon_Normal> or <IconMap:Icon_Special> (After triggering EX Special Attack: Execution - Shrouded in Shadow)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541008": {
+   "name": "EX Special Attack: Execution - Merciless Judgment",
+   "desc": "<IconMap:Icon_Normal> or <IconMap:Icon_Special> (Hold after the downward attack while having sufficient Trial by Cold)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541009": {
+   "name": "Dash Attack: Grim Reap",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541010": {
+   "name": "Dodge Counter: Soaring Bat",
+   "desc": "<IconMap:Icon_Evade> (Perfect) ; <IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541011": {
+   "name": "Chain Attack: Hanging Judgment",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541012": {
+   "name": "Ultimate: Glaciating Impalement",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541013": {
+   "name": "Quick Assist: Ambushing Strike",
+   "desc": "<IconMap:Icon_Switch> (When Triggering Quick Assist)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541014": {
+   "name": "Defensive Assist: Injunction",
+   "desc": "<IconMap:Icon_Switch> (When Triggering Defensive Assist)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1541015": {
+   "name": "Assist Follow-Up: Intercepting Strike",
+   "desc": "<IconMap:Icon_Normal> (After Defensive Assist)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1541001,
+   "avatar_id": 1541,
+   "first_priority": [
+    5,
+    1
+   ],
+   "second_priority": [
+    3,
+    0
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33800,
+  "slot2": 33000,
+  "slot_sub": 31300,
+  "part_sub_list": [
+   31203,
+   12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33800,
+     33000
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31703
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31402
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 31402,
+   "name": "Anomaly Mastery",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementAbnormalPower.png"
+  },
+  "part5": {
+   "prop": 31203,
+   "name": "Anomaly Proficiency",
+   "format": "{0:0}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementMystery.png"
+  },
+  "part6": {
+   "prop": 31703,
+   "name": "Ice DMG Bonus",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconIce.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "ATK",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Ice>Ice, on-field DMG dealer",
+  "Provides Abloom DMG boosts to all squad members",
+  "Deals Abloom DMG multiple times to enemies afflicted with other Attribute Anomalies"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100213": 4
+   }
+  },
+  "2": {
+   "hp_max": 430,
+   "attack": 45,
+   "defence": 34,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100223": 12
+   }
+  },
+  "3": {
+   "hp_max": 859,
+   "attack": 90,
+   "defence": 68,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100223": 20
+   }
+  },
+  "4": {
+   "hp_max": 1289,
+   "attack": 134,
+   "defence": 101,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100233": 10
+   }
+  },
+  "5": {
+   "hp_max": 1719,
+   "attack": 179,
+   "defence": 135,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100233": 20
+   }
+  },
+  "6": {
+   "hp_max": 2149,
+   "attack": 224,
+   "defence": 169,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "Anomaly Mastery",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "Anomaly Mastery",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "Anomaly Mastery",
+     "format": "{0:0.#}",
+     "value": 24
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "Anomaly Mastery",
+     "format": "{0:0.#}",
+     "value": 24
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "Anomaly Mastery",
+     "format": "{0:0.#}",
+     "value": 36
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "Anomaly Mastery",
+     "format": "{0:0.#}",
+     "value": 36
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpinePromeia"
+}

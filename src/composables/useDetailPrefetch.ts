@@ -18,6 +18,7 @@
 import type { CatalogEntry } from '@/domain/catalog'
 import { detailFor, listFor } from '@/data/resources'
 import { catalogViews } from '@/router/views'
+import { useLocale } from './useLocale'
 
 /** 已预热过的视图 key（chunk 级去重；JSON 预取由 api 缓存天然幂等，无需记录） */
 const warmed = new Set<string>()
@@ -37,14 +38,16 @@ function warmViews(entry: CatalogEntry): void {
 }
 
 /** 预热名录页（名录 chunk + 名录 JSON）。目录行/导航类入口用。
- *  名录 JSON 每类目只有一个文件，无风暴问题，立即发射。 */
+ *  名录 JSON 每类目每种语言只有一个文件，无风暴问题，立即发射。 */
 export function prefetchList(entry: CatalogEntry): void {
   const pair = catalogViews[entry.path]
   if (pair && !warmed.has(entry.path)) {
     warmed.add(entry.path)
     void pair[0]().catch(() => warmed.delete(entry.path))
   }
-  void listFor(entry).catch(() => {
+  // 预热**当前语言**那份：api 层缓存按 URL 命中，故只有语言一致时点开才是零等待
+  const { lang } = useLocale()
+  void listFor(entry, lang.value).catch(() => {
     /* 预取失败静默 */
   })
 }
@@ -67,7 +70,8 @@ export function armPrefetchDetail(entry: CatalogEntry, id: number | string): voi
 export function prefetchDetail(entry: CatalogEntry, id: number | string): void {
   warmViews(entry)
   // 详情 JSON：进入 api 层 promise 缓存；失败时缓存自动清除（api.ts getJson），可重试
-  void detailFor(entry, id).catch(() => {
+  const { lang } = useLocale()
+  void detailFor(entry, id, lang.value).catch(() => {
     /* 预取失败静默：正式导航仍会重新拉取 */
   })
 }

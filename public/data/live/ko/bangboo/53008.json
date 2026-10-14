@@ -1,0 +1,256 @@
+{
+ "id": 53008,
+ "code_name": "Avocaboo",
+ "name": "아보카부",
+ "desc": "야채 샐러드 애호가들 사이에서 큰 성공을 거두었다",
+ "rarity": 3,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole03.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 436,
+  "hpupgrade": 518360,
+  "attack": 47,
+  "attack_upgrade": 236912,
+  "break_stun": 100,
+  "element_abnormal_power": 100,
+  "defence": 32,
+  "def_upgrade": 92587,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {}
+  },
+  "2": {
+   "hp_max": 228,
+   "attack": 44,
+   "defence": 41,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {}
+  },
+  "3": {
+   "hp_max": 455,
+   "attack": 219,
+   "defence": 81,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {}
+  },
+  "4": {
+   "hp_max": 683,
+   "attack": 657,
+   "defence": 122,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {}
+  },
+  "5": {
+   "hp_max": 910,
+   "attack": 1753,
+   "defence": 163,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {}
+  },
+  "6": {
+   "hp_max": 1138,
+   "attack": 4381,
+   "defence": 203,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {}
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "과즙팡팡",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 전장에 있는 캐릭터에게 과즙탄을 발사한다. 과즙탄이 타깃에게 명중하지 않았을 경우 바닥에 일정 시간 머문다. 캐릭터가 과즙탄에 접촉 시 자신의 HP를 회복한다. 전투마다 최대 15회 발동한다.",
+     "property": [
+      "HP 회복",
+      "재사용 대기시간"
+     ],
+     "param": "HP의 10%|20초"
+    },
+    "2": {
+     "name": "과즙팡팡",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 전장에 있는 캐릭터에게 과즙탄을 발사한다. 과즙탄이 타깃에게 명중하지 않았을 경우 바닥에 일정 시간 머문다. 캐릭터가 과즙탄에 접촉 시 자신의 HP를 회복한다. 전투마다 최대 15회 발동한다.",
+     "property": [
+      "HP 회복",
+      "재사용 대기시간"
+     ],
+     "param": "HP의 10.5%|20초"
+    },
+    "3": {
+     "name": "과즙팡팡",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 전장에 있는 캐릭터에게 과즙탄을 발사한다. 과즙탄이 타깃에게 명중하지 않았을 경우 바닥에 일정 시간 머문다. 캐릭터가 과즙탄에 접촉 시 자신의 HP를 회복한다. 전투마다 최대 15회 발동한다.",
+     "property": [
+      "HP 회복",
+      "재사용 대기시간"
+     ],
+     "param": "HP의 11%|20초"
+    },
+    "4": {
+     "name": "과즙팡팡",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 전장에 있는 캐릭터에게 과즙탄을 발사한다. 과즙탄이 타깃에게 명중하지 않았을 경우 바닥에 일정 시간 머문다. 캐릭터가 과즙탄에 접촉 시 자신의 HP를 회복한다. 전투마다 최대 15회 발동한다.",
+     "property": [
+      "HP 회복",
+      "재사용 대기시간"
+     ],
+     "param": "HP의 11.5%|20초"
+    },
+    "5": {
+     "name": "과즙팡팡",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 전장에 있는 캐릭터에게 과즙탄을 발사한다. 과즙탄이 타깃에게 명중하지 않았을 경우 바닥에 일정 시간 머문다. 캐릭터가 과즙탄에 접촉 시 자신의 HP를 회복한다. 전투마다 최대 15회 발동한다.",
+     "property": [
+      "HP 회복",
+      "재사용 대기시간"
+     ],
+     "param": "HP의 12%|20초"
+    },
+    "6": {
+     "name": "과즙팡팡",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 전장에 있는 캐릭터에게 과즙탄을 발사한다. 과즙탄이 타깃에게 명중하지 않았을 경우 바닥에 일정 시간 머문다. 캐릭터가 과즙탄에 접촉 시 자신의 HP를 회복한다. 전투마다 최대 15회 발동한다.",
+     "property": [
+      "HP 회복",
+      "재사용 대기시간"
+     ],
+     "param": "HP의 12.5%|20초"
+    },
+    "7": {
+     "name": "과즙팡팡",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 전장에 있는 캐릭터에게 과즙탄을 발사한다. 과즙탄이 타깃에게 명중하지 않았을 경우 바닥에 일정 시간 머문다. 캐릭터가 과즙탄에 접촉 시 자신의 HP를 회복한다. 전투마다 최대 15회 발동한다.",
+     "property": [
+      "HP 회복",
+      "재사용 대기시간"
+     ],
+     "param": "HP의 13%|20초"
+    },
+    "8": {
+     "name": "과즙팡팡",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 전장에 있는 캐릭터에게 과즙탄을 발사한다. 과즙탄이 타깃에게 명중하지 않았을 경우 바닥에 일정 시간 머문다. 캐릭터가 과즙탄에 접촉 시 자신의 HP를 회복한다. 전투마다 최대 15회 발동한다.",
+     "property": [
+      "HP 회복",
+      "재사용 대기시간"
+     ],
+     "param": "HP의 13.5%|20초"
+    },
+    "9": {
+     "name": "과즙팡팡",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 전장에 있는 캐릭터에게 과즙탄을 발사한다. 과즙탄이 타깃에게 명중하지 않았을 경우 바닥에 일정 시간 머문다. 캐릭터가 과즙탄에 접촉 시 자신의 HP를 회복한다. 전투마다 최대 15회 발동한다.",
+     "property": [
+      "HP 회복",
+      "재사용 대기시간"
+     ],
+     "param": "HP의 14%|20초"
+    },
+    "10": {
+     "name": "과즙팡팡",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 전장에 있는 캐릭터에게 과즙탄을 발사한다. 과즙탄이 타깃에게 명중하지 않았을 경우 바닥에 일정 시간 머문다. 캐릭터가 과즙탄에 접촉 시 자신의 HP를 회복한다. 전투마다 최대 15회 발동한다.",
+     "property": [
+      "HP 회복",
+      "재사용 대기시간"
+     ],
+     "param": "HP의 15%|20초"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "당분 보충",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동:\n<color=#FFFFFF>[액티브 스킬]</color>로 회복하는 HP가 20% 증가한다.\n<color=#FFFFFF>[액티브 스킬]</color>의 발동 가능 횟수가 3회 증가한다.",
+     "property": [
+      "회복하는 HP 증가",
+      "발동 가능 횟수 증가"
+     ],
+     "param": "20%|3회"
+    },
+    "2": {
+     "name": "당분 보충",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동:\n<color=#FFFFFF>[액티브 스킬]</color>로 회복하는 HP가 25% 증가한다.\n<color=#FFFFFF>[액티브 스킬]</color>의 발동 가능 횟수가 3회 증가한다.",
+     "property": [
+      "회복하는 HP 증가",
+      "발동 가능 횟수 증가"
+     ],
+     "param": "25%|3회"
+    },
+    "3": {
+     "name": "당분 보충",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동:\n<color=#FFFFFF>[액티브 스킬]</color>로 회복하는 HP가 30% 증가한다.\n<color=#FFFFFF>[액티브 스킬]</color>의 발동 가능 횟수가 3회 증가한다.",
+     "property": [
+      "회복하는 HP 증가",
+      "발동 가능 횟수 증가"
+     ],
+     "param": "30%|3회"
+    },
+    "4": {
+     "name": "당분 보충",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동:\n<color=#FFFFFF>[액티브 스킬]</color>로 회복하는 HP가 35% 증가한다.\n<color=#FFFFFF>[액티브 스킬]</color>의 발동 가능 횟수가 3회 증가한다.",
+     "property": [
+      "회복하는 HP 증가",
+      "발동 가능 횟수 증가"
+     ],
+     "param": "35%|3회"
+    },
+    "5": {
+     "name": "당분 보충",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#FFFFFF>[지원]</color> 캐릭터 존재 시 발동:\n<color=#FFFFFF>[액티브 스킬]</color>로 회복하는 HP가 40% 증가한다.\n<color=#FFFFFF>[액티브 스킬]</color>의 발동 가능 횟수가 3회 증가한다.",
+     "property": [
+      "회복하는 HP 증가",
+      "발동 가능 횟수 증가"
+     ],
+     "param": "40%|3회"
+    }
+   }
+  },
+  "c": {
+   "level": {}
+  }
+ },
+ "skill_prop": {
+  "5300801": {
+   "1001": {
+    "main": 0,
+    "growth": 0,
+    "format": "%"
+   },
+   "1002": {
+    "main": 0,
+    "growth": 0,
+    "format": "%"
+   },
+   "element_accumulation_value": 0
+  }
+ }
+}

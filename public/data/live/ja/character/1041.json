@@ -1,0 +1,2570 @@
+{
+ "id": 1041,
+ "icon": "IconRole05",
+ "name": "「11号」",
+ "code_name": "Soldier 11",
+ "rarity": 4,
+ "weapon_type": {
+  "1": "Attack"
+ },
+ "element_type": {
+  "201": "Fire"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "5": "新エリー都防衛軍"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "3月21日",
+  "full_name": "「11号」",
+  "gender": "女性",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle05.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0005.png",
+  "impression_f": "今の「11号」を形作っているのは、\n猫に激辛ラーメン、任務、それとオボルス小隊のみんな…\nいつか私たちも、彼女にとって大切な存在になれたらいいな。",
+  "impression_m": "きっとなれるさ。\nその上で、僕たちの名前をちゃんと呼んでくれたら、\nもう何も言うことはないな…",
+  "impressions": [
+   "「11号」に対するイメージ：\n・「11号」が{M#僕}{F#私}たちを呼ぶときの名前は、かなりフリーダム{M#だ}",
+   "・激辛ラーメンは「11号」にとって、これ以上ない大切な補給品だ{F#ね}",
+   "・相変わらず冷徹な兵士だけど…この友情が、少しずつ「11号」を変えつつある気もする"
+  ],
+  "profile_desc": "「11号」、新エリー都防衛軍のメンバーです。\n現在はオブシディアン大隊オボルス小隊に所属し、攻撃の主力を担っています。\n「11号」とは軍におけるコードネームであり、本名はとっくに捨てた、とは\n本人の談です。\n\n「11号」は辛い食べ物を好み、特に麺屋錦鯉の激辛ラーメンに目がないようです。\nその他特記事項として、彼女は挨拶をするたび、毎回異なる名前でこちらを呼んできます。",
+  "role_icon": "IconRole/UnPacker/IconRole05",
+  "stature": "160",
+  "unlock_condition": [
+   "エージェント招集",
+   "依頼「アンビーの当惑」を達成する",
+   "エージェント秘話「ホロウ：インポッシブル」をクリアする"
+  ],
+  "trust_lv": {
+   "1": "「11号」、新エリー都防衛軍のメンバーです。\n現在はオブシディアン大隊オボルス小隊に所属し、攻撃の主力を担っています。\n「11号」とは軍におけるコードネームであり、本名はとっくに捨てた、とは\n本人の談です。\n\n「11号」は辛い食べ物を好み、特に麺屋錦鯉の激辛ラーメンに目がないようです。\nその他特記事項として、彼女は挨拶をするたび、毎回異なる名前でこちらを呼んできます。",
+   "2": "",
+   "3": "\nマスター、貴方様の実体験とエージェント・アンビーの証言によると、\n「11号」の本名はハリン——新エリー都防衛軍が過去に推進していた\nクローン兵士プロジェクトによって生み出されたクローンの一人で、アンビーと同様に\nシルバー小隊に所属していたようです。\n\nこのプロジェクトは、防衛軍上層部が意のままに操ることのできるクローンを\n複数製造するというものでしたが、様々な要因により何年も前に中止を余儀なくされました。\n防衛軍は非人道的なプロジェクトの成果と証拠の処分を試み、代表的な成果として\n一名のみを残すことを決定、当初はアンビーが選ばれる予定でしたが、\n彼女が「11号」を守るために自壊行動を取ったため、結果として\n残されたのは「11号」でした。その後、オボルス小隊隊長「鬼火」の申し出により、\n「11号」はオボルス小隊に所属することになりました。\n\n真相を知らない「11号」は見捨てられ、裏切られたという負の感情をアンビーに抱いており、\nアンビーを超える最強の兵士になることを目標としているようです。一方で、\nオボルス小隊の隊員とは良好な関係を築いており、\n小隊の仲間たちを最も大切な戦友として認識しているようです。",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 128,
+  "attack_growth": 77554,
+  "avatar_piece_id": 5041,
+  "break_stun": 93,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66882,
+  "element_abnormal_power": 94,
+  "element_mystery": 93,
+  "endurance": 0,
+  "hp_growth": 837238,
+  "hp_max": 617,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Longinus",
+   "Cut",
+   "Fire",
+   "Female",
+   "Camp5",
+   "Size2",
+   "AidTypeParry",
+   "Longinus",
+   "EtherEyesSize2"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "通常攻撃：<ruby=ばっとうさんか>抜刀散火</ruby>",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方に最大4段の斬撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：火力鎮圧",
+     "desc": "適切なタイミングで <IconMap:Icon_Normal> を押して発動：\nより強力な斬撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "通常攻撃：火力鎮圧",
+     "desc": "適切なタイミングで <IconMap:Icon_Normal> を押して発動：\nより強力な斬撃を繰り出し、<color=#FF5521>炎属性ダメージ</color>を与える。\n<color=#FFFFFF>『火力鎮圧』</color>が確定で発動する時、攻撃の終わりに <IconMap:Icon_Normal> を押すと、そのまま次の<color=#FFFFFF>『通常攻撃』</color>へ素早く繋げることが可能。\n<color=#FFFFFF>『火力鎮圧』</color>が確定で発動する時、<color=#FFFFFF>『通常攻撃』</color>に5段目が追加される。<color=#FFFFFF>『連携スキル』</color>または<color=#FFFFFF>『終結スキル』</color>を発動すると、次回の<color=#FFFFFF>『通常攻撃』</color>5段目が強化される。強化された<color=#FFFFFF>『通常攻撃』</color>5段目を発動した時、現在溜めた<color=#FFFFFF>『火力鎮圧』</color>の確定発動回数をすべて消費し、1回消費するごとに、追加で<color=#FF5521>炎属性ダメージ</color>を与える。\n<color=#FFFFFF>『極限回避』</color>発動後、その時の通常攻撃の段数を5秒間保持できる。<color=#FFFFFF>『回避反撃』</color>を発動した後に <IconMap:Icon_Normal> を押すと、中断された時点の段数から<color=#FFFFFF>『通常攻撃』</color>を発動できる。",
+     "potential": [
+      104100,
+      104101,
+      104102,
+      104103,
+      104104,
+      104105
+     ]
+    },
+    {
+     "name": "通常攻撃：火力解放",
+     "desc": " <IconMap:Icon_Normal> を長押しして<color=#FFFFFF>『通常攻撃：火力充填』</color>を発動する。\n<color=#FFFFFF>『通常攻撃：火力充填』</color>発動中に <IconMap:Icon_Normal> を離すと<color=#FFFFFF>『通常攻撃：火力解放』</color>を発動する。\n<color=#FFFFFF>『通常攻撃：火力解放』</color>発動中、または<color=#FFFFFF>『通常攻撃：火力充填』</color>を発動した瞬間に敵の攻撃を受けると、ガード反撃が発動し、そのダメージを無効化する。さらに、<color=#FFFFFF>『火力鎮圧』</color>の確定発動回数を3回分獲得する。 <IconMap:Icon_Normal> を押すとそのまま<color=#FFFFFF>『通常攻撃』</color>3段目に繋げることが可能。『火力鎮圧』の確定発動回数は最大8回まで獲得可能。\nチャージ中に方向を入力すると、<color=#FFFFFF>『通常攻撃：烈火奔襲』</color>を発動できる。",
+     "potential": [
+      104100,
+      104101,
+      104102,
+      104103,
+      104104,
+      104105
+     ]
+    },
+    {
+     "name": "通常攻撃：<ruby=ばっとうさんか>抜刀散火</ruby>",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1041001, Prop:1001}",
+       "param": {
+        "1041001": {
+         "main": 3440,
+         "growth": 320,
+         "format": "%",
+         "damage_percentage": 3440,
+         "damage_percentage_growth": 320,
+         "stun_ratio": 1720,
+         "stun_ratio_growth": 80,
+         "sp_recovery": 5890,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 45100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1635
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1041003, Prop:1001}",
+       "param": {
+        "1041003": {
+         "main": 4120,
+         "growth": 380,
+         "format": "%",
+         "damage_percentage": 4120,
+         "damage_percentage_growth": 380,
+         "stun_ratio": 3440,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11770,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 89925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3270
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1041005, Prop:1001}",
+       "param": {
+        "1041005": {
+         "main": 10280,
+         "growth": 940,
+         "format": "%",
+         "damage_percentage": 10280,
+         "damage_percentage_growth": 940,
+         "stun_ratio": 8230,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 28200,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 215600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7832
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率",
+       "desc": "{Skill:1041007, Prop:1001}",
+       "param": {
+        "1041007": {
+         "main": 21340,
+         "growth": 1940,
+         "format": "%",
+         "damage_percentage": 21340,
+         "damage_percentage_growth": 1940,
+         "stun_ratio": 16760,
+         "stun_ratio_growth": 770,
+         "sp_recovery": 57440,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 438900,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15956
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1041001, Prop:1002}",
+       "param": {
+        "1041001": {
+         "main": 1720,
+         "growth": 80,
+         "format": "%",
+         "damage_percentage": 3440,
+         "damage_percentage_growth": 320,
+         "stun_ratio": 1720,
+         "stun_ratio_growth": 80,
+         "sp_recovery": 5890,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 45100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1635
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1041003, Prop:1002}",
+       "param": {
+        "1041003": {
+         "main": 3440,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 4120,
+         "damage_percentage_growth": 380,
+         "stun_ratio": 3440,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11770,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 89925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3270
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1041005, Prop:1002}",
+       "param": {
+        "1041005": {
+         "main": 8230,
+         "growth": 380,
+         "format": "%",
+         "damage_percentage": 10280,
+         "damage_percentage_growth": 940,
+         "stun_ratio": 8230,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 28200,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 215600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7832
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率",
+       "desc": "{Skill:1041007, Prop:1002}",
+       "param": {
+        "1041007": {
+         "main": 16760,
+         "growth": 770,
+         "format": "%",
+         "damage_percentage": 21340,
+         "damage_percentage_growth": 1940,
+         "stun_ratio": 16760,
+         "stun_ratio_growth": 770,
+         "sp_recovery": 57440,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 438900,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15956
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：火力鎮圧",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1041002, Prop:1001}",
+       "param": {
+        "1041002": {
+         "main": 5510,
+         "growth": 510,
+         "format": "%",
+         "damage_percentage": 5510,
+         "damage_percentage_growth": 510,
+         "stun_ratio": 1800,
+         "stun_ratio_growth": 90,
+         "sp_recovery": 6150,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 47025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1705,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1706
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1041004, Prop:1001}",
+       "param": {
+        "1041004": {
+         "main": 5720,
+         "growth": 520,
+         "format": "%",
+         "damage_percentage": 5720,
+         "damage_percentage_growth": 520,
+         "stun_ratio": 3360,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11490,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 88000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3191,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3192
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1041006, Prop:1001}",
+       "param": {
+        "1041006": {
+         "main": 13200,
+         "growth": 1200,
+         "format": "%",
+         "damage_percentage": 13200,
+         "damage_percentage_growth": 1200,
+         "stun_ratio": 7520,
+         "stun_ratio_growth": 350,
+         "sp_recovery": 25770,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 196900,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7157,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7158
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率",
+       "desc": "{Skill:1041008, Prop:1001}",
+       "param": {
+        "1041008": {
+         "main": 34070,
+         "growth": 3100,
+         "format": "%",
+         "damage_percentage": 34070,
+         "damage_percentage_growth": 3100,
+         "stun_ratio": 19200,
+         "stun_ratio_growth": 880,
+         "sp_recovery": 65810,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 502975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18280,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18281
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5段ダメージ倍率",
+       "desc": "{Skill:1041024, Prop:1001}",
+       "param": {
+        "1041024": {
+         "main": 44170,
+         "growth": 4020,
+         "format": "%",
+         "damage_percentage": 44170,
+         "damage_percentage_growth": 4020,
+         "stun_ratio": 14530,
+         "stun_ratio_growth": 670,
+         "sp_recovery": 49800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 380600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13834
+        }
+       },
+       "potential": [
+        104100,
+        104101,
+        104102,
+        104103,
+        104104,
+        104105
+       ]
+      },
+      {
+       "name": "強化通常攻撃5段目のダメージ倍率",
+       "desc": "{Skill:1041025, Prop:1001}",
+       "param": {
+        "1041025": {
+         "main": 44170,
+         "growth": 4020,
+         "format": "%",
+         "damage_percentage": 44170,
+         "damage_percentage_growth": 4020,
+         "stun_ratio": 14530,
+         "stun_ratio_growth": 670,
+         "sp_recovery": 49800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 380600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13834
+        }
+       },
+       "potential": [
+        104100,
+        104101,
+        104102,
+        104103,
+        104104,
+        104105
+       ]
+      },
+      {
+       "name": "強化通常攻撃5段目の追加ダメージ倍率",
+       "desc": "{Skill:1041026, Prop:1001}",
+       "param": {
+        "1041026": {
+         "main": 8280,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 8280,
+         "damage_percentage_growth": 760,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": [
+        104100,
+        104101,
+        104102,
+        104103,
+        104104,
+        104105
+       ]
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1041002, Prop:1002}",
+       "param": {
+        "1041002": {
+         "main": 1800,
+         "growth": 90,
+         "format": "%",
+         "damage_percentage": 5510,
+         "damage_percentage_growth": 510,
+         "stun_ratio": 1800,
+         "stun_ratio_growth": 90,
+         "sp_recovery": 6150,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 47025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1705,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1706
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1041004, Prop:1002}",
+       "param": {
+        "1041004": {
+         "main": 3360,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 5720,
+         "damage_percentage_growth": 520,
+         "stun_ratio": 3360,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11490,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 88000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3191,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3192
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1041006, Prop:1002}",
+       "param": {
+        "1041006": {
+         "main": 7520,
+         "growth": 350,
+         "format": "%",
+         "damage_percentage": 13200,
+         "damage_percentage_growth": 1200,
+         "stun_ratio": 7520,
+         "stun_ratio_growth": 350,
+         "sp_recovery": 25770,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 196900,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7157,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7158
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率",
+       "desc": "{Skill:1041008, Prop:1002}",
+       "param": {
+        "1041008": {
+         "main": 19200,
+         "growth": 880,
+         "format": "%",
+         "damage_percentage": 34070,
+         "damage_percentage_growth": 3100,
+         "stun_ratio": 19200,
+         "stun_ratio_growth": 880,
+         "sp_recovery": 65810,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 502975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18280,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18281
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5段ブレイク倍率",
+       "desc": "{Skill:1041024, Prop:1002}",
+       "param": {
+        "1041024": {
+         "main": 14530,
+         "growth": 670,
+         "format": "%",
+         "damage_percentage": 44170,
+         "damage_percentage_growth": 4020,
+         "stun_ratio": 14530,
+         "stun_ratio_growth": 670,
+         "sp_recovery": 49800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 380600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13834
+        }
+       },
+       "potential": [
+        104100,
+        104101,
+        104102,
+        104103,
+        104104,
+        104105
+       ]
+      },
+      {
+       "name": "強化通常攻撃5段目のブレイク倍率",
+       "desc": "{Skill:1041025, Prop:1002}",
+       "param": {
+        "1041025": {
+         "main": 14530,
+         "growth": 670,
+         "format": "%",
+         "damage_percentage": 44170,
+         "damage_percentage_growth": 4020,
+         "stun_ratio": 14530,
+         "stun_ratio_growth": 670,
+         "sp_recovery": 49800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 380600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13834
+        }
+       },
+       "potential": [
+        104100,
+        104101,
+        104102,
+        104103,
+        104104,
+        104105
+       ]
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：火力解放",
+     "param": [
+      {
+       "name": "通常攻撃：火力解放のダメージ倍率",
+       "desc": "{Skill:1041027, Prop:1001}",
+       "param": {
+        "1041027": {
+         "main": 9410,
+         "growth": 860,
+         "format": "%",
+         "damage_percentage": 9410,
+         "damage_percentage_growth": 860,
+         "stun_ratio": 3070,
+         "stun_ratio_growth": 140,
+         "sp_recovery": 10510,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 80300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2916,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2917
+        }
+       },
+       "potential": [
+        104100,
+        104101,
+        104102,
+        104103,
+        104104,
+        104105
+       ]
+      },
+      {
+       "name": "通常攻撃：火力解放のブレイク倍率",
+       "desc": "{Skill:1041027, Prop:1002}",
+       "param": {
+        "1041027": {
+         "main": 3070,
+         "growth": 140,
+         "format": "%",
+         "damage_percentage": 9410,
+         "damage_percentage_growth": 860,
+         "stun_ratio": 3070,
+         "stun_ratio_growth": 140,
+         "sp_recovery": 10510,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 80300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2916,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2917
+        }
+       },
+       "potential": [
+        104100,
+        104101,
+        104102,
+        104103,
+        104104,
+        104105
+       ]
+      }
+     ],
+     "potential": [
+      104100,
+      104101,
+      104102,
+      104103,
+      104104,
+      104105
+     ]
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "回避：焼鈍し",
+     "desc": " <IconMap:Icon_Evade> を押して発動：\nダッシュで高速回避する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：<ruby=おきび>熾火</ruby>",
+     "desc": "回避時に <IconMap:Icon_Normal> を押して発動：\n前方に斬撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：火力鎮圧",
+     "desc": "回避時に <IconMap:Icon_Normal> を押して発動：\n前方に斬撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "回避反撃：<ruby=さかび>逆火</ruby>",
+     "desc": "<color=#FFFFFF>『極限回避』</color>後に <IconMap:Icon_Normal> を押して発動：\n前方の敵に強力な斬撃を放ち、<color=#FF5521>炎属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：<ruby=おきび>熾火</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1041012, Prop:1001}",
+       "param": {
+        "1041012": {
+         "main": 6830,
+         "growth": 630,
+         "format": "%",
+         "damage_percentage": 6830,
+         "damage_percentage_growth": 630,
+         "stun_ratio": 3420,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11710,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 89650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3251
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1041012, Prop:1002}",
+       "param": {
+        "1041012": {
+         "main": 3420,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 6830,
+         "damage_percentage_growth": 630,
+         "stun_ratio": 3420,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11710,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 89650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3251
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：火力鎮圧",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1041013, Prop:1001}",
+       "param": {
+        "1041013": {
+         "main": 7880,
+         "growth": 720,
+         "format": "%",
+         "damage_percentage": 7880,
+         "damage_percentage_growth": 720,
+         "stun_ratio": 7880,
+         "stun_ratio_growth": 360,
+         "sp_recovery": 27010,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 206525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3751
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1041013, Prop:1002}",
+       "param": {
+        "1041013": {
+         "main": 7880,
+         "growth": 360,
+         "format": "%",
+         "damage_percentage": 7880,
+         "damage_percentage_growth": 720,
+         "stun_ratio": 7880,
+         "stun_ratio_growth": 360,
+         "sp_recovery": 27010,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 206525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3751
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "回避反撃：<ruby=さかび>逆火</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1041015, Prop:1001}",
+       "param": {
+        "1041015": {
+         "main": 26200,
+         "growth": 2390,
+         "format": "%",
+         "damage_percentage": 26200,
+         "damage_percentage_growth": 2390,
+         "stun_ratio": 22580,
+         "stun_ratio_growth": 1030,
+         "sp_recovery": 41400,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 316250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11499,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1041015, Prop:1002}",
+       "param": {
+        "1041015": {
+         "main": 22580,
+         "growth": 1030,
+         "format": "%",
+         "damage_percentage": 26200,
+         "damage_percentage_growth": 2390,
+         "stun_ratio": 22580,
+         "stun_ratio_growth": 1030,
+         "sp_recovery": 41400,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 316250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11499,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26500
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "特殊スキル：烈火",
+     "desc": " <IconMap:Icon_Special> を押して発動：\n周囲に斬撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、中断耐性レベルがアップする。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：燃え盛る烈火",
+     "desc": "エネルギーが十分な時、 <IconMap:Icon_SpecialReady> を押して発動：\n周囲に強力な斬撃を放ち、<color=#FF5521>炎属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。\nスキル発動後、<color=#FFFFFF>『通常攻撃』</color>と<color=#FFFFFF>『ダッシュ攻撃』</color>は<color=#FFFFFF>『火力鎮圧』</color>を必ず発動させる。最大で30秒継続、または8回まで発動できる。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "強化特殊スキル：燃え盛る烈火",
+     "desc": "エネルギーが十分な時、 <IconMap:Icon_SpecialReady> を押して発動：\n周囲に強力な斬撃を放ち、<color=#FF5521>炎属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。\nスキル発動後、<color=#FFFFFF>『通常攻撃』</color>と<color=#FFFFFF>『ダッシュ攻撃』</color>は<color=#FFFFFF>『火力鎮圧』</color>を必ず発動させる。最大で30秒継続、または8回まで発動できる。\nスキル発動後、 <IconMap:Icon_Normal> を押すと、そのまま<color=#FFFFFF>『通常攻撃』</color>4段目に繋げることが可能。\nスキル発動後、<color=#FFFFFF>「警戒態勢」</color>に入る。<color=#FFFFFF>「警戒態勢」</color>中、<color=#FFFFFF>『通常攻撃』</color>中に敵の攻撃を受けると、<color=#FFFFFF>『通常攻撃：火力充填』</color>を発動してその攻撃をガードし、そのまま<color=#FFFFFF>『通常攻撃：火力解放』</color>を発動する。<color=#FFFFFF>『通常攻撃：火力解放』</color>発動後に <IconMap:Icon_Normal> を押すと、中断された時点の段数から<color=#FFFFFF>『通常攻撃』</color>を発動できる。",
+     "potential": [
+      104100,
+      104101,
+      104102,
+      104103,
+      104104,
+      104105
+     ]
+    },
+    {
+     "name": "特殊スキル：烈火",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1041010, Prop:1001}",
+       "param": {
+        "1041010": {
+         "main": 5260,
+         "growth": 480,
+         "format": "%",
+         "damage_percentage": 5260,
+         "damage_percentage_growth": 480,
+         "stun_ratio": 5260,
+         "stun_ratio_growth": 240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 137775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5001,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5002
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1041010, Prop:1002}",
+       "param": {
+        "1041010": {
+         "main": 5260,
+         "growth": 240,
+         "format": "%",
+         "damage_percentage": 5260,
+         "damage_percentage_growth": 480,
+         "stun_ratio": 5260,
+         "stun_ratio_growth": 240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 137775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5001,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5002
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：燃え盛る烈火",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1041011, Prop:1001}",
+       "param": {
+        "1041011": {
+         "main": 67500,
+         "growth": 6140,
+         "format": "%",
+         "damage_percentage": 67500,
+         "damage_percentage_growth": 6140,
+         "stun_ratio": 54350,
+         "stun_ratio_growth": 2480,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2112550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 58018,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14170
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1041011, Prop:1002}",
+       "param": {
+        "1041011": {
+         "main": 54350,
+         "growth": 2480,
+         "format": "%",
+         "damage_percentage": 67500,
+         "damage_percentage_growth": 6140,
+         "stun_ratio": 54350,
+         "stun_ratio_growth": 2480,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2112550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 58018,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14170
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "エネルギー消費",
+       "desc": "80Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "連携スキル：滾る烈火",
+     "desc": "<color=#FFFFFF>『連携スキル』</color>開始時に、対応するエージェントを選択して発動：\n前方小範囲の敵に強力な打ち上げ斬撃を放ち、<color=#FF5521>炎属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。\nスキル発動後、<color=#FFFFFF>『通常攻撃』</color>と<color=#FFFFFF>『ダッシュ攻撃』</color>は<color=#FFFFFF>『火力鎮圧』</color>を必ず発動させる。最大で30秒継続、または8回まで発動できる。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "連携スキル：滾る烈火",
+     "desc": "<color=#FFFFFF>『連携スキル』</color>開始時に、対応するエージェントを選択して発動：\n前方小範囲の敵に強力な切り上げ斬撃を放ち、<color=#FF5521>炎属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。\nスキル発動後、<color=#FFFFFF>『通常攻撃』</color>と<color=#FFFFFF>『ダッシュ攻撃』</color>は<color=#FFFFFF>『火力鎮圧』</color>を必ず発動させる、最大で30秒継続、または8回まで発動できる。\nスキル発動後、 <IconMap:Icon_Normal> を押すと、そのまま<color=#FFFFFF>『通常攻撃』</color>4段目に繋げることが可能。 \nスキル発動後、<color=#FFFFFF>「警戒態勢」</color>に入る。<color=#FFFFFF>「警戒態勢」</color>中、<color=#FFFFFF>『通常攻撃』</color>中に敵の攻撃を受けると、<color=#FFFFFF>『通常攻撃：火力充填』</color>を発動してその攻撃をガードし、そのまま<color=#FFFFFF>『通常攻撃：火力解放』</color>を発動する。<color=#FFFFFF>『通常攻撃：火力解放』</color>発動後に <IconMap:Icon_Normal> を押すと、中断された時点の段数から<color=#FFFFFF>『通常攻撃』</color>を発動できる。",
+     "potential": [
+      104100,
+      104101,
+      104102,
+      104103,
+      104104,
+      104105
+     ]
+    },
+    {
+     "name": "終結スキル：轟く烈火",
+     "desc": "デシベルレートが<color=#FFFFFF>『Maximum』</color>に達した時に <IconMap:Icon_UltimateReady> を押して発動：\n前方小範囲の敵に強力な打ち上げ斬撃を放ち、<color=#FF5521>炎属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。\nスキル発動後、<color=#FFFFFF>『通常攻撃』</color>と<color=#FFFFFF>『ダッシュ攻撃』</color>は<color=#FFFFFF>『火力鎮圧』</color>を必ず発動させる。最大で30秒継続、または8回まで発動できる。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "終結スキル：轟く烈火",
+     "desc": "デシベルレートが<color=#FFFFFF>『Maximum』</color>に達した時に <IconMap:Icon_UltimateReady> を押して発動：\n前方小範囲の敵に強力な切り上げ斬撃を放ち、<color=#FF5521>炎属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。\nスキル発動後、<color=#FFFFFF>『通常攻撃』</color>と<color=#FFFFFF>『ダッシュ攻撃』</color>は<color=#FFFFFF>『火力鎮圧』</color>を必ず発動させる。最大で30秒継続、または8回まで発動できる。\nスキル発動後、 <IconMap:Icon_Normal> を押すと、そのまま<color=#FFFFFF>『通常攻撃』</color>4段目に繋げることが可能。\nスキル発動後、<color=#FFFFFF>「警戒態勢」</color>に入る。<color=#FFFFFF>「警戒態勢」</color>中、<color=#FFFFFF>『通常攻撃』</color>中に敵の攻撃を受けると、<color=#FFFFFF>『通常攻撃：火力充填』</color>を発動してその攻撃をガードし、そのまま<color=#FFFFFF>『通常攻撃：火力解放』</color>を発動する。<color=#FFFFFF>『通常攻撃：火力解放』</color>発動後に <IconMap:Icon_Normal> を押すと、中断された時点の段数から<color=#FFFFFF>『通常攻撃』</color>を発動できる。",
+     "potential": [
+      104100,
+      104101,
+      104102,
+      104103,
+      104104,
+      104105
+     ]
+    },
+    {
+     "name": "連携スキル：滾る烈火",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1041016, Prop:1001}",
+       "param": {
+        "1041016": {
+         "main": 63250,
+         "growth": 5750,
+         "format": "%",
+         "damage_percentage": 63250,
+         "damage_percentage_growth": 5750,
+         "stun_ratio": 21360,
+         "stun_ratio_growth": 980,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2388100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 40286,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1041016, Prop:1002}",
+       "param": {
+        "1041016": {
+         "main": 21360,
+         "growth": 980,
+         "format": "%",
+         "damage_percentage": 63250,
+         "damage_percentage_growth": 5750,
+         "stun_ratio": 21360,
+         "stun_ratio_growth": 980,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2388100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 40286,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20337
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "終結スキル：轟く烈火",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1041017, Prop:1001}",
+       "param": {
+        "1041017": {
+         "main": 210300,
+         "growth": 19120,
+         "format": "%",
+         "damage_percentage": 210300,
+         "damage_percentage_growth": 19120,
+         "stun_ratio": 28500,
+         "stun_ratio_growth": 1300,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 24670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 74671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1041017, Prop:1002}",
+       "param": {
+        "1041017": {
+         "main": 28500,
+         "growth": 1300,
+         "format": "%",
+         "damage_percentage": 210300,
+         "damage_percentage_growth": 19120,
+         "stun_ratio": 28500,
+         "stun_ratio_growth": 1300,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 24670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 74671
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "クイック支援：火力支援",
+     "desc": "操作しているメンバーが吹き飛ばされた時に、 <IconMap:Icon_Switch> を押して発動：\n前方の敵に斬撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：防衛ライン強化",
+     "desc": "出場中のメンバーが攻撃されそうになった時に、 <IconMap:Icon_Switch> を押して発動：\n敵の攻撃をパリィし、ブレイク値を大量に蓄積させる。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援突撃：再燃",
+     "desc": "<color=#FFFFFF>『パリィ支援』</color>発動後、 <IconMap:Icon_Normal> を押して発動：\n前方の敵に交差斬撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "クイック支援：火力支援",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1041019, Prop:1001}",
+       "param": {
+        "1041019": {
+         "main": 12080,
+         "growth": 1100,
+         "format": "%",
+         "damage_percentage": 12080,
+         "damage_percentage_growth": 1100,
+         "stun_ratio": 12080,
+         "stun_ratio_growth": 550,
+         "sp_recovery": 41400,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 316250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11499,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5750
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1041019, Prop:1002}",
+       "param": {
+        "1041019": {
+         "main": 12080,
+         "growth": 550,
+         "format": "%",
+         "damage_percentage": 12080,
+         "damage_percentage_growth": 1100,
+         "stun_ratio": 12080,
+         "stun_ratio_growth": 550,
+         "sp_recovery": 41400,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 316250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11499,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5750
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：防衛ライン強化",
+     "param": [
+      {
+       "name": "パリィ・軽 ブレイク倍率",
+       "desc": "{Skill:1041020, Prop:1002}",
+       "param": {
+        "1041020": {
+         "main": 25900,
+         "growth": 1180,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 25900,
+         "stun_ratio_growth": 1180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・重 ブレイク倍率",
+       "desc": "{Skill:1041021, Prop:1002}",
+       "param": {
+        "1041021": {
+         "main": 32730,
+         "growth": 1490,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 32730,
+         "stun_ratio_growth": 1490,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・連続 ブレイク倍率",
+       "desc": "{Skill:1041022, Prop:1002}",
+       "param": {
+        "1041022": {
+         "main": 15930,
+         "growth": 730,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 15930,
+         "stun_ratio_growth": 730,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：再燃",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1041023, Prop:1001}",
+       "param": {
+        "1041023": {
+         "main": 38370,
+         "growth": 3490,
+         "format": "%",
+         "damage_percentage": 38370,
+         "damage_percentage_growth": 3490,
+         "stun_ratio": 33550,
+         "stun_ratio_growth": 1530,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1131350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 34242,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18164
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1041023, Prop:1002}",
+       "param": {
+        "1041023": {
+         "main": 33550,
+         "growth": 1530,
+         "format": "%",
+         "damage_percentage": 38370,
+         "damage_percentage_growth": 3490,
+         "stun_ratio": 33550,
+         "stun_ratio_growth": 1530,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1131350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 34242,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18164
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "急速加熱",
+   "desc": "接敵状態かつ操作中のメンバーになった時、「11号」のエネルギーが40Pt未満の場合、即座にエネルギーを80Ptまで回復する。50秒に1回のみ発動可能。",
+   "desc2": "過酷な実戦訓練により、「11号」は自身のコンディションをコントロールする術を心得ている。\n彼女は全力を尽くし、最高のコンディションであらゆる戦いに臨む。"
+  },
+  "2": {
+   "level": 2,
+   "name": "高温凝縮",
+   "desc": "「11号」が<color=#FFFFFF>『火力鎮圧』</color>を発動した時、<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>、<color=#FFFFFF>『回避反撃』</color>の与ダメージ+3%、最大12重まで重ね掛け可能、継続時間15秒。継続時間は1重ごとに独立してカウントされる。",
+   "desc2": "「彼女は一見、氷のように冷たくてお堅く見えるが…」\n「その実、炎のように熱い心を内に秘めているんだ」\n——オブシディアン大隊の匿名の軍人より"
+  },
+  "3": {
+   "level": 3,
+   "name": "精鋭兵士",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "訓練だろうと実戦だろうと、\n「11号」は常に最も厳しい基準で自分を律している。\n彼女が戦闘能力を高水準に保っていられるのはそのためだ。"
+  },
+  "4": {
+   "level": 4,
+   "name": "強まる火勢",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>の1、2、3段目あるいは<color=#FFFFFF>『ダッシュ攻撃』</color>を行った時、<color=#FFFFFF>『火力鎮圧』</color>が発動した場合、スキル発動中に中断耐性レベルがアップし、被ダメージ-18%。\n<color=#FFFFFF>『通常攻撃』</color>4段目を行った時、<color=#FFFFFF>『火力鎮圧』</color>が発動した場合、スキル発動中に無敵効果を得る。",
+   "desc2": "彼女は炎に憧れた。\n手の付けられないような猛火さえ、彼女の力となる。"
+  },
+  "5": {
+   "level": 5,
+   "name": "完璧無欠な兵士",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "精鋭から模範となるまでの道のりは長かったが、それでも「11号」は歯を食いしばってきた。\nまるで何か秘密の理由が、彼女に完全無欠な兵士たれと駆り立てているかのように…"
+  },
+  "6": {
+   "level": 6,
+   "name": "灼熱のゾーン",
+   "desc": "<color=#FFFFFF>『強化特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>または<color=#FFFFFF>『終結スキル』</color>を発動した時、「11号」はパワーを8重獲得する（最大8重）。\n<color=#FFFFFF>『火力鎮圧』</color>を発動した場合、パワーを1重消費することで、その攻撃がターゲットの<color=#FF5521>炎属性ダメージ耐性</color>を25%無視する。",
+   "desc2": "刃の炎が熱波を起こし、銀髪の少女の戦いはますます熱を帯びる。\n呼吸と同時に、熱気が頭に染み込んでいくかのようで、その思考もまた熾烈なものとなってゆく。"
+  }
+ },
+ "passive": {
+  "level": {
+   "1041501": {
+    "level": 1,
+    "id": 1041501,
+    "name": [
+     "コアパッシブ：熱波",
+     "追加能力：燎原"
+    ],
+    "desc": [
+     "「11号」が<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>を行った時に<color=#FFFFFF>『火力鎮圧』</color>を発動した場合、スキルの与ダメージ+<color=#2BAD00>35%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n「11号」の与える<color=#FF5521>炎属性ダメージ</color>+10%。ブレイク状態になった敵を攻撃する時、このアップ効果がさらに+22.5%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1041502": {
+    "level": 2,
+    "id": 1041502,
+    "name": [
+     "コアパッシブ：熱波",
+     "追加能力：燎原"
+    ],
+    "desc": [
+     "「11号」が<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>を行った時に<color=#FFFFFF>『火力鎮圧』</color>を発動した場合、スキルの与ダメージ+<color=#2BAD00>40.8%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n「11号」の与える<color=#FF5521>炎属性ダメージ</color>+10%。ブレイク状態になった敵を攻撃する時、このアップ効果がさらに+22.5%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1041503": {
+    "level": 3,
+    "id": 1041503,
+    "name": [
+     "コアパッシブ：熱波",
+     "追加能力：燎原"
+    ],
+    "desc": [
+     "「11号」が<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>を行った時に<color=#FFFFFF>『火力鎮圧』</color>を発動した場合、スキルの与ダメージ+<color=#2BAD00>46.6%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n「11号」の与える<color=#FF5521>炎属性ダメージ</color>+10%。ブレイク状態になった敵を攻撃する時、このアップ効果がさらに+22.5%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1041504": {
+    "level": 4,
+    "id": 1041504,
+    "name": [
+     "コアパッシブ：熱波",
+     "追加能力：燎原"
+    ],
+    "desc": [
+     "「11号」が<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>を行った時に<color=#FFFFFF>『火力鎮圧』</color>を発動した場合、スキルの与ダメージ+<color=#2BAD00>52.5%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n「11号」の与える<color=#FF5521>炎属性ダメージ</color>+10%。ブレイク状態になった敵を攻撃する時、このアップ効果がさらに+22.5%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1041505": {
+    "level": 5,
+    "id": 1041505,
+    "name": [
+     "コアパッシブ：熱波",
+     "追加能力：燎原"
+    ],
+    "desc": [
+     "「11号」が<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>を行った時に<color=#FFFFFF>『火力鎮圧』</color>を発動した場合、スキルの与ダメージ+<color=#2BAD00>58.3%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n「11号」の与える<color=#FF5521>炎属性ダメージ</color>+10%。ブレイク状態になった敵を攻撃する時、このアップ効果がさらに+22.5%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1041506": {
+    "level": 6,
+    "id": 1041506,
+    "name": [
+     "コアパッシブ：熱波",
+     "追加能力：燎原"
+    ],
+    "desc": [
+     "「11号」が<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>を行った時に<color=#FFFFFF>『火力鎮圧』</color>を発動した場合、スキルの与ダメージ+<color=#2BAD00>64.1%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n「11号」の与える<color=#FF5521>炎属性ダメージ</color>+10%。ブレイク状態になった敵を攻撃する時、このアップ効果がさらに+22.5%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1041507": {
+    "level": 7,
+    "id": 1041507,
+    "name": [
+     "コアパッシブ：熱波",
+     "追加能力：燎原"
+    ],
+    "desc": [
+     "「11号」が<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>を行った時に<color=#FFFFFF>『火力鎮圧』</color>を発動した場合、スキルの与ダメージ+<color=#2BAD00>70%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n「11号」の与える<color=#FF5521>炎属性ダメージ</color>+10%。ブレイク状態になった敵を攻撃する時、このアップ効果がさらに+22.5%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110505": 2
+   },
+   "3": {
+    "10": 28000,
+    "110505": 4
+   },
+   "4": {
+    "10": 60000,
+    "110003": 2,
+    "110505": 9
+   },
+   "5": {
+    "10": 100000,
+    "110003": 3,
+    "110505": 15
+   },
+   "6": {
+    "10": 200000,
+    "110003": 4,
+    "110505": 30
+   }
+  }
+ },
+ "skin": {
+  "3110410": {
+   "name": "「11号」・「エリートソルジャー」",
+   "desc": "暖色のゴーグルに隠れた瞳はいつも冷たい光を宿している。\n彼女の笑顔が見たければ、片手腕立て伏せ87.5回か、激辛ラーメンか、この2つに1つ。",
+   "obtain_desc": "",
+   "image": "IconRole05"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1041001": {
+   "name": "通常攻撃：抜刀散火",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1041002": {
+   "name": "通常攻撃：火力鎮圧",
+   "desc": "<IconMap:Icon_Normal> ; （タイミング良く）<IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1041003": {
+   "name": "特殊スキル：烈火",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1041004": {
+   "name": "強化特殊スキル：燃え盛る烈火",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1041005": {
+   "name": "ダッシュ攻撃：熾火",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1041006": {
+   "name": "回避反撃：逆火",
+   "desc": "<IconMap:Icon_Evade>（極限回避成功） ; <IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1041007": {
+   "name": "連携スキル：滾る烈火",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1041008": {
+   "name": "終結スキル：轟く烈火",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1041009": {
+   "name": "クイック支援：火力支援",
+   "desc": "<IconMap:Icon_Switch>（クイック支援の発動条件を満たした時）",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1041010": {
+   "name": "パリィ支援：防衛ライン強化",
+   "desc": "<IconMap:Icon_Switch>（パリィ支援の発動条件を満たした時）",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1041011": {
+   "name": "支援突撃：再燃",
+   "desc": "<IconMap:Icon_Normal>（パリィ支援を発動した後に）",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1041012": {
+   "name": "通常攻撃：火力充填",
+   "desc": "<IconMap:Icon_Normal>（長押し）",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": [
+    104100,
+    104101,
+    104102,
+    104103,
+    104104,
+    104105
+   ]
+  },
+  "1041013": {
+   "name": "通常攻撃:烈火奔襲",
+   "desc": "<IconMap:Icon_Normal>（方向入力中に長押し）",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": [
+    104100,
+    104101,
+    104102,
+    104103,
+    104104,
+    104105
+   ]
+  },
+  "1041014": {
+   "name": "通常攻撃：火力解放",
+   "desc": "<IconMap:Icon_Normal>（『通常攻撃：火力充填』または『通常攻撃：烈火奔襲』発動時に離す）",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": [
+    104100,
+    104101,
+    104102,
+    104103,
+    104104,
+    104105
+   ]
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1041001,
+   "avatar_id": 1041,
+   "first_priority": [
+    5,
+    0,
+    1
+   ],
+   "second_priority": [
+    3
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 32200,
+  "slot2": 32700,
+  "slot_sub": 31000,
+  "part_sub_list": [
+   20103,
+   21103,
+   12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32200,
+     31000
+    ],
+    "part_sub_list": [
+     21103,
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31603,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "会心率",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 31603,
+   "name": "炎属性ダメージボーナス",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconFire.png"
+  },
+  "part6": {
+   "prop": 12102,
+   "name": "攻撃力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  },
+  "part_sub": {
+   "prop": 21103,
+   "name": "会心ダメージ",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  }
+ },
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Fire>炎属性、表アタッカー",
+  "ブレイク期間中に高い瞬間火力",
+  "チャージでガード反撃が可能"
+ ],
+ "potential": [
+  104100,
+  104101,
+  104102,
+  104103,
+  104104,
+  104105
+ ],
+ "potential_detail": {
+  "104100": {
+   "id": 104100,
+   "name": "",
+   "desc": "",
+   "image": "Soldier11",
+   "level_show_name": "熾焔行歌 I",
+   "level": 1,
+   "ability_list": [
+    11041501,
+    11041601,
+    11041701,
+    11041801,
+    11041802,
+    11041803,
+    11041804,
+    11041901,
+    11042101,
+    11042201,
+    11042401
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20104,
+     "number": 1
+    }
+   ]
+  },
+  "104101": {
+   "id": 104101,
+   "name": "ポテンシャル覚醒：絶焔",
+   "desc": "『追加能力：燎原』の効果で、「11号」自身の会心ダメージ+<color=#2BAD00>16%</color>。",
+   "image": "Soldier11",
+   "level_show_name": "熾焔行歌 II",
+   "level": 2,
+   "ability_list": [
+    11041501,
+    11041601,
+    11041701,
+    11041801,
+    11041802,
+    11041803,
+    11041804,
+    11041901,
+    11042101,
+    11042201,
+    11042301,
+    11042401
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20104,
+     "number": 1
+    }
+   ]
+  },
+  "104102": {
+   "id": 104102,
+   "name": "ポテンシャル覚醒：絶焔",
+   "desc": "『追加能力：燎原』の効果で、「11号」自身の会心ダメージ+<color=#2BAD00>24%</color>。",
+   "image": "Soldier11",
+   "level_show_name": "熾焔行歌 III",
+   "level": 3,
+   "ability_list": [
+    11041501,
+    11041601,
+    11041701,
+    11041801,
+    11041802,
+    11041803,
+    11041804,
+    11041901,
+    11042101,
+    11042201,
+    11042302,
+    11042401
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20104,
+     "number": 1
+    }
+   ]
+  },
+  "104103": {
+   "id": 104103,
+   "name": "ポテンシャル覚醒：絶焔",
+   "desc": "『追加能力：燎原』の効果で、「11号」自身の会心ダメージ+<color=#2BAD00>32%</color>。",
+   "image": "Soldier11",
+   "level_show_name": "熾焔行歌 IV",
+   "level": 4,
+   "ability_list": [
+    11041501,
+    11041601,
+    11041701,
+    11041801,
+    11041802,
+    11041803,
+    11041804,
+    11041901,
+    11042101,
+    11042201,
+    11042303,
+    11042401
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20104,
+     "number": 1
+    }
+   ]
+  },
+  "104104": {
+   "id": 104104,
+   "name": "ポテンシャル覚醒：絶焔",
+   "desc": "『追加能力：燎原』の効果で、「11号」自身の会心ダメージ+<color=#2BAD00>40%</color>。",
+   "image": "Soldier11",
+   "level_show_name": "熾焔行歌 V",
+   "level": 5,
+   "ability_list": [
+    11041501,
+    11041601,
+    11041701,
+    11041801,
+    11041802,
+    11041803,
+    11041804,
+    11041901,
+    11042101,
+    11042201,
+    11042304,
+    11042401
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20104,
+     "number": 1
+    }
+   ]
+  },
+  "104105": {
+   "id": 104105,
+   "name": "ポテンシャル覚醒：絶焔",
+   "desc": "『追加能力：燎原』の効果で、「11号」自身の会心ダメージ+<color=#2BAD00>48%</color>。",
+   "image": "Soldier11",
+   "level_show_name": "熾焔行歌 VI",
+   "level": 6,
+   "ability_list": [
+    11041501,
+    11041601,
+    11041701,
+    11041801,
+    11041802,
+    11041803,
+    11041804,
+    11041901,
+    11042101,
+    11042201,
+    11042305,
+    11042401
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20104,
+     "number": 1
+    }
+   ]
+  }
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100211": 4
+   }
+  },
+  "2": {
+   "hp_max": 423,
+   "attack": 46,
+   "defence": 34,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100221": 12
+   }
+  },
+  "3": {
+   "hp_max": 847,
+   "attack": 91,
+   "defence": 68,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100221": 20
+   }
+  },
+  "4": {
+   "hp_max": 1270,
+   "attack": 137,
+   "defence": 101,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100231": 10
+   }
+  },
+  "5": {
+   "hp_max": 1694,
+   "attack": 183,
+   "defence": 135,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100231": 20
+   }
+  },
+  "6": {
+   "hp_max": 2117,
+   "attack": 228,
+   "defence": 169,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": ""
+}

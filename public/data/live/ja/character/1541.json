@@ -1,0 +1,2188 @@
+{
+ "id": 1541,
+ "icon": "IconRole61",
+ "name": "プロメイア",
+ "code_name": "Promeia",
+ "rarity": 4,
+ "weapon_type": {
+  "3": "Anomaly"
+ },
+ "element_type": {
+  "202": "Ice"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "12": "クランプスの黒枝"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "12月23日",
+  "full_name": "プロメイア",
+  "gender": "女性",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle61.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0061.png",
+  "impression_f": "プロメイアってあんま喋らないけど、言いたいことは「圧」で伝えてくるよね。\nなんていうか…すごいテクニックだと思う！",
+  "impression_m": "もし彼女が選択に迷うことがあったら、遠慮なく僕たちを頼って欲しいな。\n黒枝の裁決官としても、友人としても…どちらでもね。",
+  "impressions": [
+   "プロメイアに対するイメージ：\n・この達人は、ちょっぴりクールだ{M#な。}{F#ね！}",
+   "・真面目に働く裁決官なら、ご褒美をもらって当然だ{F#よね}。",
+   "・ふわりと浮かび上がる重い魂を、鼻歌交じりに歌っている。"
+  ],
+  "profile_desc": "プロメイア、「クランプスの黒枝」の裁決官であり、主に「処刑」を担当します。\n\n黒枝に所属する個性豊かな他の裁決官たちと比べ、プロメイアはまるで\nほとんどの部分が水面下に沈んだ氷山のようです。彼女は非常に寡黙であり、\n個人的な趣味と呼べるような活動は皆無に等しいと言えます。\n\nTOPS財政ユニオンに属する人間は、基本的にプロメイアと一切の関わりを\n持ちたがりません。万が一悪事が露見し「クランプスの黒枝」に目をつけられた場合、\n戦々恐々とする違反者たちが真っ先に祈るのは、\n派遣されてくる裁決官がプロメイアではないことでしょう。\n\n企業間で密かに囁かれているものの、誰も公には語ろうとしない噂があります――\n「クランプスの黒枝」に加入する以前のプロメイアは、\n「カリュドーン」に仕え、「不確定要素」の排除を担う郊外の悪名高き組織\n「掃除屋」に所属していた、というものです。",
+  "role_icon": "IconRole/UnPacker/IconRole61",
+  "stature": "174",
+  "unlock_condition": [
+   "エージェント招集",
+   "メイン依頼 シーズン2 アウトロ「新・エリー都の落日（下）」をクリアする",
+   "依頼「アンビーの当惑」を達成する"
+  ],
+  "trust_lv": {
+   "1": "プロメイア、「クランプスの黒枝」の裁決官であり、主に「処刑」を担当します。\n\n黒枝に所属する個性豊かな他の裁決官たちと比べ、プロメイアはまるで\nほとんどの部分が水面下に沈んだ氷山のようです。彼女は非常に寡黙であり、\n個人的な趣味と呼べるような活動は皆無に等しいと言えます。\n\nTOPS財政ユニオンに属する人間は、基本的にプロメイアと一切の関わりを\n持ちたがりません。万が一悪事が露見し「クランプスの黒枝」に目をつけられた場合、\n戦々恐々とする違反者たちが真っ先に祈るのは、\n派遣されてくる裁決官がプロメイアではないことでしょう。\n\n企業間で密かに囁かれているものの、誰も公には語ろうとしない噂があります――\n「クランプスの黒枝」に加入する以前のプロメイアは、\n「カリュドーン」に仕え、「不確定要素」の排除を担う郊外の悪名高き組織\n「掃除屋」に所属していた、というものです。",
+   "2": "",
+   "3": "プロメイアの手錠は「黒枝」への加入を機に与えられたものであり、\nそれは彼女が自ら提示した、加入における唯一の条件でした。\n彼女にとって、それは自身の過去に対する封印であり――\n自身の感情を抑え込むための手段なのです。\n\n「噂」は事実でした。\n「掃除屋」プロメイアにとって主な仕事は、\n不可逆的な侵蝕症状を患った者たちを処分し、\n彼らの命と苦しみに終止符を打つことでした。彼女はそれが崇高な使命であり、\nまた郊外のためであると信じて疑わず、ときに震える手で\nその重すぎる運命を受け入れていました――\n真実が、明らかになるまでは。\n\n己を疑わない剃刀のようだった殺し屋は死に、残ったのは\n運命と罪悪感を背負った、ただ一人の囚人だったのです。",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 126,
+  "attack_growth": 75860,
+  "avatar_piece_id": 5541,
+  "break_stun": 86,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66882,
+  "element_abnormal_power": 112,
+  "element_mystery": 114,
+  "endurance": 0,
+  "hp_growth": 849779,
+  "hp_max": 626,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Promeia",
+   "Cut",
+   "Ice",
+   "Female",
+   "Camp12",
+   "Size3",
+   "AidTypeParry",
+   "Promeia",
+   "EtherEyesSize3"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "通常攻撃：斜刃、月は傾く",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方に向かって最大5段の攻撃を行い、<color=#98EFF0>氷属性ダメージ</color>を与える。\n5段目の攻撃では落下攻撃を繰り出し、着地後に<color=#FFFFFF>「氷刑」</color>が十分な場合、 <IconMap:Icon_Special> または <IconMap:Icon_Normal> を長押しし続けると、<color=#FFFFFF>『強化特殊スキル：処刑式、裁決は下った』</color>に繋げることが可能。\n4段目の攻撃でマントを投げた後、<color=#FFFFFF>「枷の赦し」</color>状態に入る。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：旋刃、月は弧を描く",
+     "desc": " <IconMap:Icon_Normal> を長押しして発動：\nプロメイアがマントを敵に投げると同時に飛び上がって攻撃を繰り出し、<color=#98EFF0>氷属性ダメージ</color>を与え、<color=#FFFFFF>「枷の赦し」</color>状態に入る。\n敵に命中した時、<color=#FFFFFF>「氷蝕値」</color>は溜まらない。",
+     "potential": []
+    },
+    {
+     "name": "枷の赦し",
+     "desc": "プロメイアは一部のスキル発動時、マントを投げて敵に切断攻撃を継続的に仕掛け、<color=#98EFF0>氷属性ダメージ</color>を与える。敵に命中した時、<color=#FFFFFF>「氷蝕値」</color>は溜まらない。\nマントを放っている間、プロメイアはゆっくり歩くことができる。\nこの間に <IconMap:Icon_Normal> または <IconMap:Icon_Special> を短押しすると、そのまま<color=#FFFFFF>『通常攻撃：斜刃、月は傾く』</color>5段目に繋げることが可能。\nまた、この間に攻撃を受けると、自動的に<color=#FFFFFF>『極限回避』</color>が発動する。この効果は20秒に1回のみ発動可能。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：斜刃、月は傾く",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1541001, Prop:1001}",
+       "param": {
+        "1541001": {
+         "main": 4980,
+         "growth": 460,
+         "format": "%",
+         "damage_percentage": 4980,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 3380,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11040,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 84425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4348,
+         "sp_consume": 0,
+         "attack_data": [
+          12257
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3065
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1541002, Prop:1001}",
+       "param": {
+        "1541002": {
+         "main": 10320,
+         "growth": 940,
+         "format": "%",
+         "damage_percentage": 10320,
+         "damage_percentage_growth": 940,
+         "stun_ratio": 6910,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 22610,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 172975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8600,
+         "sp_consume": 0,
+         "attack_data": [
+          25122
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6281
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1541003, Prop:1001}",
+       "param": {
+        "1541003": {
+         "main": 19090,
+         "growth": 1740,
+         "format": "%",
+         "damage_percentage": 19090,
+         "damage_percentage_growth": 1740,
+         "stun_ratio": 12490,
+         "stun_ratio_growth": 570,
+         "sp_recovery": 40870,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 312400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15115,
+         "sp_consume": 0,
+         "attack_data": [
+          45411
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11353
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率",
+       "desc": "{Skill:1541004, Prop:1001}",
+       "param": {
+        "1541004": {
+         "main": 20470,
+         "growth": 1870,
+         "format": "%",
+         "damage_percentage": 20470,
+         "damage_percentage_growth": 1870,
+         "stun_ratio": 13630,
+         "stun_ratio_growth": 620,
+         "sp_recovery": 44600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 309100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15916,
+         "sp_consume": 0,
+         "attack_data": [
+          49554
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12389
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5段ダメージ倍率",
+       "desc": "{Skill:1541005, Prop:1001}",
+       "param": {
+        "1541005": {
+         "main": 24150,
+         "growth": 2200,
+         "format": "%",
+         "damage_percentage": 24150,
+         "damage_percentage_growth": 2200,
+         "stun_ratio": 16040,
+         "stun_ratio_growth": 730,
+         "sp_recovery": 52490,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 353100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18236,
+         "sp_consume": 0,
+         "attack_data": [
+          58313
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14579
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1541001, Prop:1002}",
+       "param": {
+        "1541001": {
+         "main": 3380,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 4980,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 3380,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11040,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 84425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4348,
+         "sp_consume": 0,
+         "attack_data": [
+          12257
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3065
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1541002, Prop:1002}",
+       "param": {
+        "1541002": {
+         "main": 6910,
+         "growth": 320,
+         "format": "%",
+         "damage_percentage": 10320,
+         "damage_percentage_growth": 940,
+         "stun_ratio": 6910,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 22610,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 172975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8600,
+         "sp_consume": 0,
+         "attack_data": [
+          25122
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6281
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1541003, Prop:1002}",
+       "param": {
+        "1541003": {
+         "main": 12490,
+         "growth": 570,
+         "format": "%",
+         "damage_percentage": 19090,
+         "damage_percentage_growth": 1740,
+         "stun_ratio": 12490,
+         "stun_ratio_growth": 570,
+         "sp_recovery": 40870,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 312400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15115,
+         "sp_consume": 0,
+         "attack_data": [
+          45411
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11353
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率",
+       "desc": "{Skill:1541004, Prop:1002}",
+       "param": {
+        "1541004": {
+         "main": 13630,
+         "growth": 620,
+         "format": "%",
+         "damage_percentage": 20470,
+         "damage_percentage_growth": 1870,
+         "stun_ratio": 13630,
+         "stun_ratio_growth": 620,
+         "sp_recovery": 44600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 309100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15916,
+         "sp_consume": 0,
+         "attack_data": [
+          49554
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12389
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5段ブレイク倍率",
+       "desc": "{Skill:1541005, Prop:1002}",
+       "param": {
+        "1541005": {
+         "main": 16040,
+         "growth": 730,
+         "format": "%",
+         "damage_percentage": 24150,
+         "damage_percentage_growth": 2200,
+         "stun_ratio": 16040,
+         "stun_ratio_growth": 730,
+         "sp_recovery": 52490,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 353100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18236,
+         "sp_consume": 0,
+         "attack_data": [
+          58313
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14579
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "マント攻撃の毎秒ダメージ倍率",
+       "desc": "{Skill:1541008, Prop:1001}",
+       "param": {
+        "1541008": {
+         "main": 1950,
+         "growth": 180,
+         "format": "%",
+         "damage_percentage": 1950,
+         "damage_percentage_growth": 180,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：旋刃、月は弧を描く",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1541006, Prop:1001}",
+       "param": {
+        "1541006": {
+         "main": 17550,
+         "growth": 1600,
+         "format": "%",
+         "damage_percentage": 17550,
+         "damage_percentage_growth": 1600,
+         "stun_ratio": 8250,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 27000,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 206250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6373,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7499
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1541006, Prop:1002}",
+       "param": {
+        "1541006": {
+         "main": 8250,
+         "growth": 380,
+         "format": "%",
+         "damage_percentage": 17550,
+         "damage_percentage_growth": 1600,
+         "stun_ratio": 8250,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 27000,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 206250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6373,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7499
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "回避：飛雪の歩み",
+     "desc": " <IconMap:Icon_Evade> を押して発動：\nダッシュで高速回避する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：心臓抜き",
+     "desc": "回避時に <IconMap:Icon_Normal> を押して発動：\n前方に素早く攻撃を放ち、<color=#98EFF0>氷属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "回避反撃：夜を舞う",
+     "desc": "<color=#FFFFFF>『極限回避』</color>後に <IconMap:Icon_Normal> を押して発動：\nターゲットに連続攻撃を放ち、<color=#98EFF0>氷属性ダメージ</color>を与える。\nスキル発動後、そのまま<color=#FFFFFF>『通常攻撃：斜刃、月は傾く』</color>5段目に繋げることが可能。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：心臓抜き",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1541015, Prop:1001}",
+       "param": {
+        "1541015": {
+         "main": 5630,
+         "growth": 520,
+         "format": "%",
+         "damage_percentage": 5630,
+         "damage_percentage_growth": 520,
+         "stun_ratio": 2390,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 7800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 59675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1840,
+         "sp_consume": 0,
+         "attack_data": [
+          8661
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2166
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1541015, Prop:1002}",
+       "param": {
+        "1541015": {
+         "main": 2390,
+         "growth": 110,
+         "format": "%",
+         "damage_percentage": 5630,
+         "damage_percentage_growth": 520,
+         "stun_ratio": 2390,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 7800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 59675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1840,
+         "sp_consume": 0,
+         "attack_data": [
+          8661
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2166
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "回避反撃：夜を舞う",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1541016, Prop:1001}",
+       "param": {
+        "1541016": {
+         "main": 33570,
+         "growth": 3060,
+         "format": "%",
+         "damage_percentage": 33570,
+         "damage_percentage_growth": 3060,
+         "stun_ratio": 24390,
+         "stun_ratio_growth": 1110,
+         "sp_recovery": 43800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 334675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15881,
+         "sp_consume": 0,
+         "attack_data": [
+          148667
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 27167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1541016, Prop:1002}",
+       "param": {
+        "1541016": {
+         "main": 24390,
+         "growth": 1110,
+         "format": "%",
+         "damage_percentage": 33570,
+         "damage_percentage_growth": 3060,
+         "stun_ratio": 24390,
+         "stun_ratio_growth": 1110,
+         "sp_recovery": 43800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 334675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15881,
+         "sp_consume": 0,
+         "attack_data": [
+          148667
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 27167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "特殊スキル：処刑式、冷刃は閃く",
+     "desc": " <IconMap:Icon_Special> を押して発動：\n投げナイフで攻撃を繰り出し、<color=#98EFF0>氷属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：処刑式、寒夜に音無し",
+     "desc": "エネルギーが十分な時、 <IconMap:Icon_SpecialReady> を押して発動：\nマントを敵に投げると同時に投げナイフで攻撃を繰り出し、<color=#98EFF0>氷属性ダメージ</color>を与え、<color=#FFFFFF>「枷の赦し」</color>状態に入る。\nスキル発動直後のわずかな間に敵の攻撃を受けると、自動的に<color=#FFFFFF>『強化特殊スキル：処刑式、影は晦ます』</color>に繋がる。\nスキル発動時、プロメイアは<color=#FFFFFF>「鉄の掟」</color>効果を獲得する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：処刑式、影は晦ます",
+     "desc": "<color=#FFFFFF>『強化特殊スキル：処刑式、寒夜に音無し』</color>発動直後のわずかな間に攻撃を受けると自動で発動：\n短時間の<color=#FFFFFF>『極限視界』</color>を発動し、素早く敵の背後に回り込む。\n<color=#FFFFFF>『極限回避』</color>発動後、エネルギーが十分な場合、 <IconMap:Icon_SpecialReady> を押すとエネルギーを40Pt消費し、<color=#FFFFFF>『強化特殊スキル：処刑式、影は晦ます』</color>を発動し、<color=#FFFFFF>「鉄の掟」</color>効果を獲得する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：処刑式、霜は墜ちる",
+     "desc": "<color=#FFFFFF>「鉄の掟」</color>効果を所持している時、<color=#FFFFFF>「枷の赦し」</color>状態で <IconMap:Icon_Normal> または <IconMap:Icon_Special> を押すと発動：\n敵に向かって飛び上がり、マントを回収すると同時に落下攻撃を繰り出し、<color=#98EFF0>氷属性ダメージ</color>を与える。\n着地後、<color=#FFFFFF>「氷刑」</color>を所持している場合、 <IconMap:Icon_Normal> または <IconMap:Icon_Special> を長押しし続けると、<color=#FFFFFF>『強化特殊スキル：処刑式、裁決は下った』</color>に繋げることが可能。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：処刑式、薄氷は結ぶ",
+     "desc": "<color=#FFFFFF>『強化特殊スキル：処刑式、影は晦ます』</color>発動後、 <IconMap:Icon_Normal> または <IconMap:Icon_Special> を押して発動：\n素早く多段攻撃を放った後、敵に向かって飛び上がり、マントを回収すると同時により強力な落下攻撃を繰り出し、<color=#98EFF0>氷属性ダメージ</color>を与える。\n着地後、<color=#FFFFFF>「氷刑」</color>を所持している場合、 <IconMap:Icon_Normal> または <IconMap:Icon_Special> を長押しし続けると、<color=#FFFFFF>『強化特殊スキル：処刑式、裁決は下った』</color>に繋げることが可能。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：処刑式、裁決は下った",
+     "desc": "<color=#FFFFFF>「氷刑」</color>が十分な時、<color=#FFFFFF>『通常攻撃：斜刃、月は傾く』</color>5段目、<color=#FFFFFF>『特殊スキル：処刑式、霜は墜ちる』</color>または<color=#FFFFFF>『特殊スキル：処刑式、薄氷は結ぶ』</color>の着地後、 <IconMap:Icon_Normal> または <IconMap:Icon_Special> を長押しし続けると発動：\n瞬時に身を翻して後退すると同時に、より強力なとどめの一撃を繰り出し、<color=#98EFF0>氷属性ダメージ</color>を与える。\n敵に命中した時、<color=#FFFFFF>「氷蝕値」</color>は溜まらない。\nスキル発動後、 <IconMap:Icon_Normal> 、 <IconMap:Icon_Special> を長押し、または <IconMap:Icon_Normal> を短押しすると、そのまま<color=#FFFFFF>『通常攻撃：斜刃、月は傾く』</color>5段目に繋げることが可能。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：処刑式、冷刃は閃く",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1541007, Prop:1001}",
+       "param": {
+        "1541007": {
+         "main": 12780,
+         "growth": 1170,
+         "format": "%",
+         "damage_percentage": 12780,
+         "damage_percentage_growth": 1170,
+         "stun_ratio": 5410,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 135300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4177,
+         "sp_consume": 0,
+         "attack_data": [
+          19661
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4916
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1541007, Prop:1002}",
+       "param": {
+        "1541007": {
+         "main": 5410,
+         "growth": 250,
+         "format": "%",
+         "damage_percentage": 12780,
+         "damage_percentage_growth": 1170,
+         "stun_ratio": 5410,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 135300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4177,
+         "sp_consume": 0,
+         "attack_data": [
+          19661
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4916
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：処刑式、寒夜に音無し",
+     "param": [
+      {
+       "name": "投げナイフ射撃の合計ダメージ倍率",
+       "desc": "{Skill:1541009, Prop:1001}",
+       "param": {
+        "1541009": {
+         "main": 7930,
+         "growth": 730,
+         "format": "%",
+         "damage_percentage": 7930,
+         "damage_percentage_growth": 730,
+         "stun_ratio": 7700,
+         "stun_ratio_growth": 350,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 192500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5949,
+         "sp_consume": 0,
+         "attack_data": [
+          28000
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "エネルギー消費",
+       "desc": "40Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：処刑式、霜は墜ちる",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1541010, Prop:1001}",
+       "param": {
+        "1541010": {
+         "main": 38380,
+         "growth": 3490,
+         "format": "%",
+         "damage_percentage": 38380,
+         "damage_percentage_growth": 3490,
+         "stun_ratio": 27430,
+         "stun_ratio_growth": 1250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 938025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 23139,
+         "sp_consume": 0,
+         "attack_data": [
+          44654
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11164
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1541010, Prop:1002}",
+       "param": {
+        "1541010": {
+         "main": 27430,
+         "growth": 1250,
+         "format": "%",
+         "damage_percentage": 38380,
+         "damage_percentage_growth": 3490,
+         "stun_ratio": 27430,
+         "stun_ratio_growth": 1250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 938025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 23139,
+         "sp_consume": 0,
+         "attack_data": [
+          44654
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11164
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：処刑式、薄氷は結ぶ",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1541011, Prop:1001}",
+       "param": {
+        "1541011": {
+         "main": 60820,
+         "growth": 5530,
+         "format": "%",
+         "damage_percentage": 60820,
+         "damage_percentage_growth": 5530,
+         "stun_ratio": 45060,
+         "stun_ratio_growth": 2050,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1446775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37292,
+         "sp_consume": 0,
+         "attack_data": [
+          93987
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1541011, Prop:1002}",
+       "param": {
+        "1541011": {
+         "main": 45060,
+         "growth": 2050,
+         "format": "%",
+         "damage_percentage": 60820,
+         "damage_percentage_growth": 5530,
+         "stun_ratio": 45060,
+         "stun_ratio_growth": 2050,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1446775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37292,
+         "sp_consume": 0,
+         "attack_data": [
+          93987
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "投げナイフ切断攻撃の合計ダメージ倍率",
+       "desc": "{Skill:1541012, Prop:1001}",
+       "param": {
+        "1541012": {
+         "main": 1210,
+         "growth": 110,
+         "format": "%",
+         "damage_percentage": 1210,
+         "damage_percentage_growth": 110,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：処刑式、裁決は下った",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1541014, Prop:1001}",
+       "param": {
+        "1541014": {
+         "main": 51230,
+         "growth": 4660,
+         "format": "%",
+         "damage_percentage": 51230,
+         "damage_percentage_growth": 4660,
+         "stun_ratio": 12160,
+         "stun_ratio_growth": 560,
+         "sp_recovery": 30620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 234025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7227,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1541014, Prop:1002}",
+       "param": {
+        "1541014": {
+         "main": 12160,
+         "growth": 560,
+         "format": "%",
+         "damage_percentage": 51230,
+         "damage_percentage_growth": 4660,
+         "stun_ratio": 12160,
+         "stun_ratio_growth": 560,
+         "sp_recovery": 30620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 234025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7227,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8504
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "連携スキル：逆さ磔の冷月",
+     "desc": "<color=#FFFFFF>『連携スキル』</color>開始時に、対応するエージェントを選択して発動：\n投げナイフを投げ、敵の上空で逆さ吊り状態に入り、多段攻撃を行った後、とどめの一撃を繰り出し、<color=#98EFF0>氷属性ダメージ</color>を大量に与える。\n重撃が<color=#98EFF0>氷属性</color>、<color=#FE437E>エーテル属性</color>、<color=#2EB6FF>電気属性</color>、<color=#FF5521>炎属性</color>、<color=#F0D12B>物理属性</color>、<color=#A6C5FD>風属性</color>のいずれかの状態異常にある敵に命中した時、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、対応する属性の状態異常ダメージを1回与える。ダメージ倍率は100%となる。\nスキル発動後、そのまま<color=#FFFFFF>『通常攻撃：斜刃、月は傾く』</color>5段目に繋げることが可能。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "終結スキル：磔刑、罪凍つるまで",
+     "desc": "デシベルレートが<color=#FFFFFF>『Maximum』</color>に達した時に <IconMap:Icon_UltimateReady> を押して発動：\n前方に多段攻撃を繰り出し、<color=#98EFF0>氷属性ダメージ</color>を大量に与える。\n重撃が<color=#98EFF0>氷属性</color>、<color=#FE437E>エーテル属性</color>、<color=#2EB6FF>電気属性</color>、<color=#FF5521>炎属性</color>、<color=#F0D12B>物理属性</color>、<color=#A6C5FD>風属性</color>のいずれかの状態異常にある敵に命中した時、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、対応する属性の状態異常ダメージを1回与える。ダメージ倍率は250%となる。\nスキル発動後、そのまま<color=#FFFFFF>『通常攻撃：斜刃、月は傾く』</color>5段目に繋げることが可能。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "連携スキル：逆さ磔の冷月",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1541017, Prop:1001}",
+       "param": {
+        "1541017": {
+         "main": 83080,
+         "growth": 7560,
+         "format": "%",
+         "damage_percentage": 83080,
+         "damage_percentage_growth": 7560,
+         "stun_ratio": 26410,
+         "stun_ratio_growth": 1210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2489025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37360,
+         "sp_consume": 0,
+         "attack_data": [
+          48007
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1541017, Prop:1002}",
+       "param": {
+        "1541017": {
+         "main": 26410,
+         "growth": 1210,
+         "format": "%",
+         "damage_percentage": 83080,
+         "damage_percentage_growth": 7560,
+         "stun_ratio": 26410,
+         "stun_ratio_growth": 1210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2489025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37360,
+         "sp_consume": 0,
+         "attack_data": [
+          48007
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24004
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "終結スキル：磔刑、罪凍つるまで",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1541018, Prop:1001}",
+       "param": {
+        "1541018": {
+         "main": 153840,
+         "growth": 13990,
+         "format": "%",
+         "damage_percentage": 153840,
+         "damage_percentage_growth": 13990,
+         "stun_ratio": 24940,
+         "stun_ratio_growth": 1140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 60409,
+         "sp_consume": 0,
+         "attack_data": [
+          45340
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 72670
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1541018, Prop:1002}",
+       "param": {
+        "1541018": {
+         "main": 24940,
+         "growth": 1140,
+         "format": "%",
+         "damage_percentage": 153840,
+         "damage_percentage_growth": 13990,
+         "stun_ratio": 24940,
+         "stun_ratio_growth": 1140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 60409,
+         "sp_consume": 0,
+         "attack_data": [
+          45340
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 72670
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "クイック支援：返す刃に",
+     "desc": "操作しているメンバーが吹き飛ばされた時に、 <IconMap:Icon_Switch> を押して発動：\nターゲットに連続攻撃を放ち、<color=#98EFF0>氷属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：禁令",
+     "desc": "出場中のメンバーが攻撃されそうになった時に、 <IconMap:Icon_Switch> を押して発動：\n敵の攻撃をパリィし、ブレイク値を大量に蓄積させる。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援突撃：刃を砕く",
+     "desc": "<color=#FFFFFF>『パリィ支援』</color>発動後、 <IconMap:Icon_Normal> を押して発動：\nターゲットに連続攻撃を放ち、<color=#98EFF0>氷属性ダメージ</color>を与える。\nスキル発動後、そのまま<color=#FFFFFF>『通常攻撃：斜刃、月は傾く』</color>5段目に繋げることが可能。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "クイック支援：返す刃に",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1541019, Prop:1001}",
+       "param": {
+        "1541019": {
+         "main": 7910,
+         "growth": 720,
+         "format": "%",
+         "damage_percentage": 7910,
+         "damage_percentage_growth": 720,
+         "stun_ratio": 6700,
+         "stun_ratio_growth": 310,
+         "sp_recovery": 21900,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 167475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5170,
+         "sp_consume": 0,
+         "attack_data": [
+          24334
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6084
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1541019, Prop:1002}",
+       "param": {
+        "1541019": {
+         "main": 6700,
+         "growth": 310,
+         "format": "%",
+         "damage_percentage": 7910,
+         "damage_percentage_growth": 720,
+         "stun_ratio": 6700,
+         "stun_ratio_growth": 310,
+         "sp_recovery": 21900,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 167475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5170,
+         "sp_consume": 0,
+         "attack_data": [
+          24334
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6084
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：禁令",
+     "param": [
+      {
+       "name": "パリィ・軽 ブレイク倍率",
+       "desc": "{Skill:1541020, Prop:1002}",
+       "param": {
+        "1541020": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・重 ブレイク倍率",
+       "desc": "{Skill:1541021, Prop:1002}",
+       "param": {
+        "1541021": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・連続 ブレイク倍率",
+       "desc": "{Skill:1541022, Prop:1002}",
+       "param": {
+        "1541022": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：刃を砕く",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1541023, Prop:1001}",
+       "param": {
+        "1541023": {
+         "main": 46900,
+         "growth": 4270,
+         "format": "%",
+         "damage_percentage": 46900,
+         "damage_percentage_growth": 4270,
+         "stun_ratio": 34670,
+         "stun_ratio_growth": 1580,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2319075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 28723,
+         "sp_consume": 0,
+         "attack_data": [
+          71320
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 17830
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1541023, Prop:1002}",
+       "param": {
+        "1541023": {
+         "main": 34670,
+         "growth": 1580,
+         "format": "%",
+         "damage_percentage": 46900,
+         "damage_percentage_growth": 4270,
+         "stun_ratio": 34670,
+         "stun_ratio_growth": 1580,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2319075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 28723,
+         "sp_consume": 0,
+         "attack_data": [
+          71320
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 17830
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "理想は無垢",
+   "desc": "プロメイアが<color=#FFFFFF>『終結スキル：磔刑、罪凍つるまで』</color>を発動した時、追加で次の効果を獲得する。<color=#FFFFFF>「氷刑」</color>が上限に達していない時、<color=#FFFFFF>「氷刑」</color>を1Pt獲得する。この効果は<color=#FFFFFF>『終結スキル：磔刑、罪凍つるまで』</color>発動後に1回発動できる。メンバー全員が<color=#FFFFFF>「咎は凍てつく」</color>状態の敵に<color=#FFFFFF>「狂咲」</color>効果を与えた時、追加で20%の防御力を無視する。",
+   "desc2": "そこは、混沌に満ちた無法の地。\n轟くエンジン音と舞い上がる砂塵、\n鉄と血肉のぶつかり合い、争いと暴力。\n全てがこの土地では昼夜を問わず繰り広げられていた。\nそんな赤土の大地を無垢な子供が、\n己と同じくらい無垢な武器を握りしめ、さまよう。\n「ぼうず。お前さんの力を、平和のために貸しちゃくれんか？」"
+  },
+  "2": {
+   "level": 2,
+   "name": "信念は不確",
+   "desc": "プロメイアの異常マスタリー+40Pt。<color=#FFFFFF>「氷刑」</color>を消費して発動した<color=#FFFFFF>「狂咲」</color>効果のダメージ倍率+120%。",
+   "desc2": "彼女は優秀な掃除屋になった。\nその仕事は手際よく、静寂そのもの。\nターゲットは明確で、無数に存在した。\nエーテリアス、手遅れなほど侵蝕の進んだ者、\nどのみちエーテリアスとなる者…\n血飛沫と悲鳴のない日などなかった。\nでも、それは正しいことなのだろうか？\n「それが掃除屋としての責務だ」\n「一殺多生とでも思え…いいな？」\n「どのみちくたばるんだ、お前の手で終わらせてやれ」…\n「必要な犠牲ってのも、あるからな」"
+  },
+  "3": {
+   "level": 3,
+   "name": "月光は残酷",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "真実はいつも、些細な発端から暴かれる。\n「お前さん…なにか勘違いしてるんじゃないのか？\n掃除屋の『ビジネス』が、本当にエーテリアスごときを\n片付けるだけで成り立ってるとでも？」\n「抗争ってのは儲かるんだよ。\nお前さんが手を汚したくないってんなら構わねぇ、\n『ブラックウルフ』の稼ぎが増えるだけだからな…」\nそして――夜は誰もが思っていたより早く訪れた。\n掃除屋、カリュドーン、名の知れた走り屋も、\n無名のギャングも、混乱の時代さえも…\n果てしない夜は等しく吞み込んでしまったのだった。"
+  },
+  "4": {
+   "level": 4,
+   "name": "罪状は冷徹",
+   "desc": "プロメイアが<color=#FFFFFF>「狂咲」</color>効果を発動した時、<color=#FFFFFF>「氷蝕値」</color>を5Pt回復する。0.5秒に1回のみ発動可能。",
+   "desc2": "一通の招待状が、一匹の蛾に審判を告げる。\n選択の権利、光、正義、そして彼女を「プロメイア」たらしめるすべて。\n彼女は枷をはめ、自ら追放の道を選んだ。\n「これが私の、最後の選択」"
+  },
+  "5": {
+   "level": 5,
+   "name": "蛾は死にゆく",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "彼女は進んで「仕事」に埋没した。\n調査、尋問、裁決は果てしなく続き、\nそれは同僚にさえ心配されるほどだった。\n「それでえ？キミはいつまでこんな感じを続けるつもり？」\n「すべての罪を贖いきるまで。それか、死を迎えるまで」"
+  },
+  "6": {
+   "level": 6,
+   "name": "物語は続く",
+   "desc": "プロメイアが<color=#FFFFFF>「氷刑」</color>を消費して<color=#FFFFFF>「狂咲」</color>効果を発動した時、追加で特殊な<color=#FFFFFF>「狂咲」</color>効果を1回発動し、対応する属性の状態異常ダメージを1回与える、ダメージ倍率は200%となる。同時に、<color=#FFFFFF>「氷蝕値」</color>を5Pt、デシベル値を100Pt回復する。この効果は15秒に1回のみ発動可能。また、プロメイアが与える状態異常ダメージ、および<color=#FFFFFF>「混沌」</color>ダメージは、敵の全属性ダメージ耐性を15%無視する。",
+   "desc2": "予期していたような終わりは来ず、\n夜も想像していたほど暗くはなかった。\n同僚、古い知り合い、深夜の灯りと新たな友人…\n「哀れな」蛾はこのずしりと重たい贈り物に困惑している。\n待ち望んでいた結末は、いましばらくお預けらしい――とはいえ\nこんな運命も…悪くは、ない。"
+  }
+ },
+ "passive": {
+  "level": {
+   "1541501": {
+    "level": 1,
+    "id": 1541501,
+    "name": [
+     "コアパッシブ：火を奪うこの手は",
+     "追加能力：氷に沈むこの心は"
+    ],
+    "desc": [
+     "プロメイアの開幕異常掌握が150Ptを上回る場合、1Pt上回るごとに、自身の異常マスタリー+1.5Pt、チーム全体の<color=#FFFFFF>「狂咲」</color>ダメージ+0.35%。\nプロメイアの各種攻撃が敵に命中した時、<color=#FFFFFF>「氷蝕値」</color>を回復する。任意のメンバーが<color=#98EFF0>「凍結」</color>または<color=#FFFFFF>「混沌」</color>効果を発動させた時、敵に<color=#FFFFFF>「乱流」</color>効果が発動した時、またはプロメイア自身が<color=#FFFFFF>『強化特殊スキル：処刑式、影は晦ます』</color>を発動した時、追加で<color=#FFFFFF>「氷蝕値」</color>を5Pt/5Pt/5Pt/10Pt回復する。<color=#FFFFFF>「氷蝕値」</color>は最大で100Pt蓄積できる。\n他のメンバーが発動した<color=#FFFFFF>「狂咲」</color>効果が敵に命中した時、プロメイアは追加で<color=#FFFFFF>「氷蝕値」</color>を15Pt回復する。\n<color=#FFFFFF>「氷蝕値」</color>が50Pt以上の場合、50Ptを消費して、1Ptの<color=#FFFFFF>「氷刑」</color>に変換する。<color=#FFFFFF>「氷刑」</color>は最大2Ptまで所持できる。\nフィールド入場時、プロメイアは<color=#FFFFFF>「氷刑」</color>を2Pt獲得する。\n<color=#FFFFFF>『強化特殊スキル：処刑式、裁決は下った』</color>のとどめの一撃が<color=#98EFF0>氷属性</color>、<color=#FE437E>エーテル属性</color>、<color=#2EB6FF>電気属性</color>、<color=#FF5521>炎属性</color>、<color=#F0D12B>物理属性</color>、<color=#A6C5FD>風属性</color>のいずれかの状態異常にある敵に命中した時、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、対応する属性の状態異常ダメージを1回与える。ダメージ倍率は<color=#2BAD00>330</color>%となる。スキル発動時、<color=#FFFFFF>「氷刑」</color>を1Pt消費する。\nプロメイアが発動した<color=#FFFFFF>「狂咲」</color>効果が敵に命中した時、追加でデシベル値を100Pt回復する。0.5秒に1回のみ発動可能。<color=#FFFFFF>『終結スキル：磔刑、罪凍つるまで』</color>発動時、<color=#FFFFFF>「氷の誓約」</color>効果を獲得する。<color=#FFFFFF>「氷の誓約」</color>効果を所持している時、<color=#FFFFFF>『強化特殊スキル：処刑式、裁決は下った』</color>、<color=#FFFFFF>『連携スキル：逆さ磔の冷月』</color>、<color=#FFFFFF>『終結スキル：磔刑、罪凍つるまで』</color>発動後に <IconMap:Icon_Special> を短押しまたは長押しすると、<color=#FFFFFF>「氷の誓約」</color>効果を消費して、そのまま<color=#FFFFFF>『特殊スキル：処刑式、薄氷は結ぶ』</color>に繋げることが可能。<color=#FFFFFF>「氷の誓約」</color>は最大1重まで所持できる。",
+     "チームに他の<color=#FFFFFF>[異常]</color>または<color=#FFFFFF>[支援]</color>メンバーがいる時に発動：\n<color=#FFFFFF>『強化特殊スキル』</color>発動時、プロメイアの<color=#98EFF0>氷属性状態異常蓄積効率</color>+30%、継続時間30秒、重複して発動すると継続時間が更新される。\n任意のメンバーが敵に<color=#98EFF0>「霜寒」</color>を付与した時、この効果の継続時間+3秒。\nプロメイアの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中した時、敵は<color=#FFFFFF>「咎は凍てつく」</color>状態になる。メンバー全員が<color=#FFFFFF>「咎は凍てつく」</color>状態の敵に<color=#FFFFFF>「狂咲」</color>効果を与えた時、防御力を40%無視する。<color=#FFFFFF>「咎は凍てつく」</color>状態の継続時間は30秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1541502": {
+    "level": 2,
+    "id": 1541502,
+    "name": [
+     "コアパッシブ：火を奪うこの手は",
+     "追加能力：氷に沈むこの心は"
+    ],
+    "desc": [
+     "プロメイアの開幕異常掌握が150Ptを上回る場合、1Pt上回るごとに、自身の異常マスタリー+1.5Pt、チーム全体の<color=#FFFFFF>「狂咲」</color>ダメージ+0.35%。\nプロメイアの各種攻撃が敵に命中した時、<color=#FFFFFF>「氷蝕値」</color>を回復する。任意のメンバーが<color=#98EFF0>「凍結」</color>または<color=#FFFFFF>「混沌」</color>効果を発動させた時、敵に<color=#FFFFFF>「乱流」</color>効果が発動した時、またはプロメイア自身が<color=#FFFFFF>『強化特殊スキル：処刑式、影は晦ます』</color>を発動した時、追加で<color=#FFFFFF>「氷蝕値」</color>を5Pt/5Pt/5Pt/10Pt回復する。<color=#FFFFFF>「氷蝕値」</color>は最大で100Pt蓄積できる。\n他のメンバーが発動した<color=#FFFFFF>「狂咲」</color>効果が敵に命中した時、プロメイアは追加で<color=#FFFFFF>「氷蝕値」</color>を15Pt回復する。\n<color=#FFFFFF>「氷蝕値」</color>が50Pt以上の場合、50Ptを消費して、1Ptの<color=#FFFFFF>「氷刑」</color>に変換する。<color=#FFFFFF>「氷刑」</color>は最大2Ptまで所持できる。\nフィールド入場時、プロメイアは<color=#FFFFFF>「氷刑」</color>を2Pt獲得する。\n<color=#FFFFFF>『強化特殊スキル：処刑式、裁決は下った』</color>のとどめの一撃が<color=#98EFF0>氷属性</color>、<color=#FE437E>エーテル属性</color>、<color=#2EB6FF>電気属性</color>、<color=#FF5521>炎属性</color>、<color=#F0D12B>物理属性</color>、<color=#A6C5FD>風属性</color>のいずれかの状態異常にある敵に命中した時、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、対応する属性の状態異常ダメージを1回与える。ダメージ倍率は<color=#2BAD00>385</color>%となる。スキル発動時、<color=#FFFFFF>「氷刑」</color>を1Pt消費する。\nプロメイアが発動した<color=#FFFFFF>「狂咲」</color>効果が敵に命中した時、追加でデシベル値を100Pt回復する。0.5秒に1回のみ発動可能。<color=#FFFFFF>『終結スキル：磔刑、罪凍つるまで』</color>発動時、<color=#FFFFFF>「氷の誓約」</color>効果を獲得する。<color=#FFFFFF>「氷の誓約」</color>効果を所持している時、<color=#FFFFFF>『強化特殊スキル：処刑式、裁決は下った』</color>、<color=#FFFFFF>『連携スキル：逆さ磔の冷月』</color>、<color=#FFFFFF>『終結スキル：磔刑、罪凍つるまで』</color>発動後に <IconMap:Icon_Special> を短押しまたは長押しすると、<color=#FFFFFF>「氷の誓約」</color>効果を消費して、そのまま<color=#FFFFFF>『特殊スキル：処刑式、薄氷は結ぶ』</color>に繋げることが可能。<color=#FFFFFF>「氷の誓約」</color>は最大1重まで所持できる。",
+     "チームに他の<color=#FFFFFF>[異常]</color>または<color=#FFFFFF>[支援]</color>メンバーがいる時に発動：\n<color=#FFFFFF>『強化特殊スキル』</color>発動時、プロメイアの<color=#98EFF0>氷属性状態異常蓄積効率</color>+30%、継続時間30秒、重複して発動すると継続時間が更新される。\n任意のメンバーが敵に<color=#98EFF0>「霜寒」</color>を付与した時、この効果の継続時間+3秒。\nプロメイアの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中した時、敵は<color=#FFFFFF>「咎は凍てつく」</color>状態になる。メンバー全員が<color=#FFFFFF>「咎は凍てつく」</color>状態の敵に<color=#FFFFFF>「狂咲」</color>効果を与えた時、防御力を40%無視する。<color=#FFFFFF>「咎は凍てつく」</color>状態の継続時間は30秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1541503": {
+    "level": 3,
+    "id": 1541503,
+    "name": [
+     "コアパッシブ：火を奪うこの手は",
+     "追加能力：氷に沈むこの心は"
+    ],
+    "desc": [
+     "プロメイアの開幕異常掌握が150Ptを上回る場合、1Pt上回るごとに、自身の異常マスタリー+1.5Pt、チーム全体の<color=#FFFFFF>「狂咲」</color>ダメージ+0.35%。\nプロメイアの各種攻撃が敵に命中した時、<color=#FFFFFF>「氷蝕値」</color>を回復する。任意のメンバーが<color=#98EFF0>「凍結」</color>または<color=#FFFFFF>「混沌」</color>効果を発動させた時、敵に<color=#FFFFFF>「乱流」</color>効果が発動した時、またはプロメイア自身が<color=#FFFFFF>『強化特殊スキル：処刑式、影は晦ます』</color>を発動した時、追加で<color=#FFFFFF>「氷蝕値」</color>を5Pt/5Pt/5Pt/10Pt回復する。<color=#FFFFFF>「氷蝕値」</color>は最大で100Pt蓄積できる。\n他のメンバーが発動した<color=#FFFFFF>「狂咲」</color>効果が敵に命中した時、プロメイアは追加で<color=#FFFFFF>「氷蝕値」</color>を15Pt回復する。\n<color=#FFFFFF>「氷蝕値」</color>が50Pt以上の場合、50Ptを消費して、1Ptの<color=#FFFFFF>「氷刑」</color>に変換する。<color=#FFFFFF>「氷刑」</color>は最大2Ptまで所持できる。\nフィールド入場時、プロメイアは<color=#FFFFFF>「氷刑」</color>を2Pt獲得する。\n<color=#FFFFFF>『強化特殊スキル：処刑式、裁決は下った』</color>のとどめの一撃が<color=#98EFF0>氷属性</color>、<color=#FE437E>エーテル属性</color>、<color=#2EB6FF>電気属性</color>、<color=#FF5521>炎属性</color>、<color=#F0D12B>物理属性</color>、<color=#A6C5FD>風属性</color>のいずれかの状態異常にある敵に命中した時、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、対応する属性の状態異常ダメージを1回与える。ダメージ倍率は<color=#2BAD00>435</color>%となる。スキル発動時、<color=#FFFFFF>「氷刑」</color>を1Pt消費する。\nプロメイアが発動した<color=#FFFFFF>「狂咲」</color>効果が敵に命中した時、追加でデシベル値を100Pt回復する。0.5秒に1回のみ発動可能。<color=#FFFFFF>『終結スキル：磔刑、罪凍つるまで』</color>発動時、<color=#FFFFFF>「氷の誓約」</color>効果を獲得する。<color=#FFFFFF>「氷の誓約」</color>効果を所持している時、<color=#FFFFFF>『強化特殊スキル：処刑式、裁決は下った』</color>、<color=#FFFFFF>『連携スキル：逆さ磔の冷月』</color>、<color=#FFFFFF>『終結スキル：磔刑、罪凍つるまで』</color>発動後に <IconMap:Icon_Special> を短押しまたは長押しすると、<color=#FFFFFF>「氷の誓約」</color>効果を消費して、そのまま<color=#FFFFFF>『特殊スキル：処刑式、薄氷は結ぶ』</color>に繋げることが可能。<color=#FFFFFF>「氷の誓約」</color>は最大1重まで所持できる。",
+     "チームに他の<color=#FFFFFF>[異常]</color>または<color=#FFFFFF>[支援]</color>メンバーがいる時に発動：\n<color=#FFFFFF>『強化特殊スキル』</color>発動時、プロメイアの<color=#98EFF0>氷属性状態異常蓄積効率</color>+30%、継続時間30秒、重複して発動すると継続時間が更新される。\n任意のメンバーが敵に<color=#98EFF0>「霜寒」</color>を付与した時、この効果の継続時間+3秒。\nプロメイアの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中した時、敵は<color=#FFFFFF>「咎は凍てつく」</color>状態になる。メンバー全員が<color=#FFFFFF>「咎は凍てつく」</color>状態の敵に<color=#FFFFFF>「狂咲」</color>効果を与えた時、防御力を40%無視する。<color=#FFFFFF>「咎は凍てつく」</color>状態の継続時間は30秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1541504": {
+    "level": 4,
+    "id": 1541504,
+    "name": [
+     "コアパッシブ：火を奪うこの手は",
+     "追加能力：氷に沈むこの心は"
+    ],
+    "desc": [
+     "プロメイアの開幕異常掌握が150Ptを上回る場合、1Pt上回るごとに、自身の異常マスタリー+1.5Pt、チーム全体の<color=#FFFFFF>「狂咲」</color>ダメージ+0.35%。\nプロメイアの各種攻撃が敵に命中した時、<color=#FFFFFF>「氷蝕値」</color>を回復する。任意のメンバーが<color=#98EFF0>「凍結」</color>または<color=#FFFFFF>「混沌」</color>効果を発動させた時、敵に<color=#FFFFFF>「乱流」</color>効果が発動した時、またはプロメイア自身が<color=#FFFFFF>『強化特殊スキル：処刑式、影は晦ます』</color>を発動した時、追加で<color=#FFFFFF>「氷蝕値」</color>を5Pt/5Pt/5Pt/10Pt回復する。<color=#FFFFFF>「氷蝕値」</color>は最大で100Pt蓄積できる。\n他のメンバーが発動した<color=#FFFFFF>「狂咲」</color>効果が敵に命中した時、プロメイアは追加で<color=#FFFFFF>「氷蝕値」</color>を15Pt回復する。\n<color=#FFFFFF>「氷蝕値」</color>が50Pt以上の場合、50Ptを消費して、1Ptの<color=#FFFFFF>「氷刑」</color>に変換する。<color=#FFFFFF>「氷刑」</color>は最大2Ptまで所持できる。\nフィールド入場時、プロメイアは<color=#FFFFFF>「氷刑」</color>を2Pt獲得する。\n<color=#FFFFFF>『強化特殊スキル：処刑式、裁決は下った』</color>のとどめの一撃が<color=#98EFF0>氷属性</color>、<color=#FE437E>エーテル属性</color>、<color=#2EB6FF>電気属性</color>、<color=#FF5521>炎属性</color>、<color=#F0D12B>物理属性</color>、<color=#A6C5FD>風属性</color>のいずれかの状態異常にある敵に命中した時、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、対応する属性の状態異常ダメージを1回与える。ダメージ倍率は<color=#2BAD00>485</color>%となる。スキル発動時、<color=#FFFFFF>「氷刑」</color>を1Pt消費する。\nプロメイアが発動した<color=#FFFFFF>「狂咲」</color>効果が敵に命中した時、追加でデシベル値を100Pt回復する。0.5秒に1回のみ発動可能。<color=#FFFFFF>『終結スキル：磔刑、罪凍つるまで』</color>発動時、<color=#FFFFFF>「氷の誓約」</color>効果を獲得する。<color=#FFFFFF>「氷の誓約」</color>効果を所持している時、<color=#FFFFFF>『強化特殊スキル：処刑式、裁決は下った』</color>、<color=#FFFFFF>『連携スキル：逆さ磔の冷月』</color>、<color=#FFFFFF>『終結スキル：磔刑、罪凍つるまで』</color>発動後に <IconMap:Icon_Special> を短押しまたは長押しすると、<color=#FFFFFF>「氷の誓約」</color>効果を消費して、そのまま<color=#FFFFFF>『特殊スキル：処刑式、薄氷は結ぶ』</color>に繋げることが可能。<color=#FFFFFF>「氷の誓約」</color>は最大1重まで所持できる。",
+     "チームに他の<color=#FFFFFF>[異常]</color>または<color=#FFFFFF>[支援]</color>メンバーがいる時に発動：\n<color=#FFFFFF>『強化特殊スキル』</color>発動時、プロメイアの<color=#98EFF0>氷属性状態異常蓄積効率</color>+30%、継続時間30秒、重複して発動すると継続時間が更新される。\n任意のメンバーが敵に<color=#98EFF0>「霜寒」</color>を付与した時、この効果の継続時間+3秒。\nプロメイアの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中した時、敵は<color=#FFFFFF>「咎は凍てつく」</color>状態になる。メンバー全員が<color=#FFFFFF>「咎は凍てつく」</color>状態の敵に<color=#FFFFFF>「狂咲」</color>効果を与えた時、防御力を40%無視する。<color=#FFFFFF>「咎は凍てつく」</color>状態の継続時間は30秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1541505": {
+    "level": 5,
+    "id": 1541505,
+    "name": [
+     "コアパッシブ：火を奪うこの手は",
+     "追加能力：氷に沈むこの心は"
+    ],
+    "desc": [
+     "プロメイアの開幕異常掌握が150Ptを上回る場合、1Pt上回るごとに、自身の異常マスタリー+1.5Pt、チーム全体の<color=#FFFFFF>「狂咲」</color>ダメージ+0.35%。\nプロメイアの各種攻撃が敵に命中した時、<color=#FFFFFF>「氷蝕値」</color>を回復する。任意のメンバーが<color=#98EFF0>「凍結」</color>または<color=#FFFFFF>「混沌」</color>効果を発動させた時、敵に<color=#FFFFFF>「乱流」</color>効果が発動した時、またはプロメイア自身が<color=#FFFFFF>『強化特殊スキル：処刑式、影は晦ます』</color>を発動した時、追加で<color=#FFFFFF>「氷蝕値」</color>を5Pt/5Pt/5Pt/10Pt回復する。<color=#FFFFFF>「氷蝕値」</color>は最大で100Pt蓄積できる。\n他のメンバーが発動した<color=#FFFFFF>「狂咲」</color>効果が敵に命中した時、プロメイアは追加で<color=#FFFFFF>「氷蝕値」</color>を15Pt回復する。\n<color=#FFFFFF>「氷蝕値」</color>が50Pt以上の場合、50Ptを消費して、1Ptの<color=#FFFFFF>「氷刑」</color>に変換する。<color=#FFFFFF>「氷刑」</color>は最大2Ptまで所持できる。\nフィールド入場時、プロメイアは<color=#FFFFFF>「氷刑」</color>を2Pt獲得する。\n<color=#FFFFFF>『強化特殊スキル：処刑式、裁決は下った』</color>のとどめの一撃が<color=#98EFF0>氷属性</color>、<color=#FE437E>エーテル属性</color>、<color=#2EB6FF>電気属性</color>、<color=#FF5521>炎属性</color>、<color=#F0D12B>物理属性</color>、<color=#A6C5FD>風属性</color>のいずれかの状態異常にある敵に命中した時、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、対応する属性の状態異常ダメージを1回与える。ダメージ倍率は<color=#2BAD00>535</color>%となる。スキル発動時、<color=#FFFFFF>「氷刑」</color>を1Pt消費する。\nプロメイアが発動した<color=#FFFFFF>「狂咲」</color>効果が敵に命中した時、追加でデシベル値を100Pt回復する。0.5秒に1回のみ発動可能。<color=#FFFFFF>『終結スキル：磔刑、罪凍つるまで』</color>発動時、<color=#FFFFFF>「氷の誓約」</color>効果を獲得する。<color=#FFFFFF>「氷の誓約」</color>効果を所持している時、<color=#FFFFFF>『強化特殊スキル：処刑式、裁決は下った』</color>、<color=#FFFFFF>『連携スキル：逆さ磔の冷月』</color>、<color=#FFFFFF>『終結スキル：磔刑、罪凍つるまで』</color>発動後に <IconMap:Icon_Special> を短押しまたは長押しすると、<color=#FFFFFF>「氷の誓約」</color>効果を消費して、そのまま<color=#FFFFFF>『特殊スキル：処刑式、薄氷は結ぶ』</color>に繋げることが可能。<color=#FFFFFF>「氷の誓約」</color>は最大1重まで所持できる。",
+     "チームに他の<color=#FFFFFF>[異常]</color>または<color=#FFFFFF>[支援]</color>メンバーがいる時に発動：\n<color=#FFFFFF>『強化特殊スキル』</color>発動時、プロメイアの<color=#98EFF0>氷属性状態異常蓄積効率</color>+30%、継続時間30秒、重複して発動すると継続時間が更新される。\n任意のメンバーが敵に<color=#98EFF0>「霜寒」</color>を付与した時、この効果の継続時間+3秒。\nプロメイアの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中した時、敵は<color=#FFFFFF>「咎は凍てつく」</color>状態になる。メンバー全員が<color=#FFFFFF>「咎は凍てつく」</color>状態の敵に<color=#FFFFFF>「狂咲」</color>効果を与えた時、防御力を40%無視する。<color=#FFFFFF>「咎は凍てつく」</color>状態の継続時間は30秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1541506": {
+    "level": 6,
+    "id": 1541506,
+    "name": [
+     "コアパッシブ：火を奪うこの手は",
+     "追加能力：氷に沈むこの心は"
+    ],
+    "desc": [
+     "プロメイアの開幕異常掌握が150Ptを上回る場合、1Pt上回るごとに、自身の異常マスタリー+1.5Pt、チーム全体の<color=#FFFFFF>「狂咲」</color>ダメージ+0.35%。\nプロメイアの各種攻撃が敵に命中した時、<color=#FFFFFF>「氷蝕値」</color>を回復する。任意のメンバーが<color=#98EFF0>「凍結」</color>または<color=#FFFFFF>「混沌」</color>効果を発動させた時、敵に<color=#FFFFFF>「乱流」</color>効果が発動した時、またはプロメイア自身が<color=#FFFFFF>『強化特殊スキル：処刑式、影は晦ます』</color>を発動した時、追加で<color=#FFFFFF>「氷蝕値」</color>を5Pt/5Pt/5Pt/10Pt回復する。<color=#FFFFFF>「氷蝕値」</color>は最大で100Pt蓄積できる。\n他のメンバーが発動した<color=#FFFFFF>「狂咲」</color>効果が敵に命中した時、プロメイアは追加で<color=#FFFFFF>「氷蝕値」</color>を15Pt回復する。\n<color=#FFFFFF>「氷蝕値」</color>が50Pt以上の場合、50Ptを消費して、1Ptの<color=#FFFFFF>「氷刑」</color>に変換する。<color=#FFFFFF>「氷刑」</color>は最大2Ptまで所持できる。\nフィールド入場時、プロメイアは<color=#FFFFFF>「氷刑」</color>を2Pt獲得する。\n<color=#FFFFFF>『強化特殊スキル：処刑式、裁決は下った』</color>のとどめの一撃が<color=#98EFF0>氷属性</color>、<color=#FE437E>エーテル属性</color>、<color=#2EB6FF>電気属性</color>、<color=#FF5521>炎属性</color>、<color=#F0D12B>物理属性</color>、<color=#A6C5FD>風属性</color>のいずれかの状態異常にある敵に命中した時、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、対応する属性の状態異常ダメージを1回与える。ダメージ倍率は<color=#2BAD00>585</color>%となる。スキル発動時、<color=#FFFFFF>「氷刑」</color>を1Pt消費する。\nプロメイアが発動した<color=#FFFFFF>「狂咲」</color>効果が敵に命中した時、追加でデシベル値を100Pt回復する。0.5秒に1回のみ発動可能。<color=#FFFFFF>『終結スキル：磔刑、罪凍つるまで』</color>発動時、<color=#FFFFFF>「氷の誓約」</color>効果を獲得する。<color=#FFFFFF>「氷の誓約」</color>効果を所持している時、<color=#FFFFFF>『強化特殊スキル：処刑式、裁決は下った』</color>、<color=#FFFFFF>『連携スキル：逆さ磔の冷月』</color>、<color=#FFFFFF>『終結スキル：磔刑、罪凍つるまで』</color>発動後に <IconMap:Icon_Special> を短押しまたは長押しすると、<color=#FFFFFF>「氷の誓約」</color>効果を消費して、そのまま<color=#FFFFFF>『特殊スキル：処刑式、薄氷は結ぶ』</color>に繋げることが可能。<color=#FFFFFF>「氷の誓約」</color>は最大1重まで所持できる。",
+     "チームに他の<color=#FFFFFF>[異常]</color>または<color=#FFFFFF>[支援]</color>メンバーがいる時に発動：\n<color=#FFFFFF>『強化特殊スキル』</color>発動時、プロメイアの<color=#98EFF0>氷属性状態異常蓄積効率</color>+30%、継続時間30秒、重複して発動すると継続時間が更新される。\n任意のメンバーが敵に<color=#98EFF0>「霜寒」</color>を付与した時、この効果の継続時間+3秒。\nプロメイアの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中した時、敵は<color=#FFFFFF>「咎は凍てつく」</color>状態になる。メンバー全員が<color=#FFFFFF>「咎は凍てつく」</color>状態の敵に<color=#FFFFFF>「狂咲」</color>効果を与えた時、防御力を40%無視する。<color=#FFFFFF>「咎は凍てつく」</color>状態の継続時間は30秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1541507": {
+    "level": 7,
+    "id": 1541507,
+    "name": [
+     "コアパッシブ：火を奪うこの手は",
+     "追加能力：氷に沈むこの心は"
+    ],
+    "desc": [
+     "プロメイアの開幕異常掌握が150Ptを上回る場合、1Pt上回るごとに、自身の異常マスタリー+1.5Pt、チーム全体の<color=#FFFFFF>「狂咲」</color>ダメージ+0.35%。\nプロメイアの各種攻撃が敵に命中した時、<color=#FFFFFF>「氷蝕値」</color>を回復する。任意のメンバーが<color=#98EFF0>「凍結」</color>または<color=#FFFFFF>「混沌」</color>効果を発動させた時、敵に<color=#FFFFFF>「乱流」</color>効果が発動した時、またはプロメイア自身が<color=#FFFFFF>『強化特殊スキル：処刑式、影は晦ます』</color>を発動した時、追加で<color=#FFFFFF>「氷蝕値」</color>を5Pt/5Pt/5Pt/10Pt回復する。<color=#FFFFFF>「氷蝕値」</color>は最大で100Pt蓄積できる。\n他のメンバーが発動した<color=#FFFFFF>「狂咲」</color>効果が敵に命中した時、プロメイアは追加で<color=#FFFFFF>「氷蝕値」</color>を15Pt回復する。\n<color=#FFFFFF>「氷蝕値」</color>が50Pt以上の場合、50Ptを消費して、1Ptの<color=#FFFFFF>「氷刑」</color>に変換する。<color=#FFFFFF>「氷刑」</color>は最大2Ptまで所持できる。\nフィールド入場時、プロメイアは<color=#FFFFFF>「氷刑」</color>を2Pt獲得する。\n<color=#FFFFFF>『強化特殊スキル：処刑式、裁決は下った』</color>のとどめの一撃が<color=#98EFF0>氷属性</color>、<color=#FE437E>エーテル属性</color>、<color=#2EB6FF>電気属性</color>、<color=#FF5521>炎属性</color>、<color=#F0D12B>物理属性</color>、<color=#A6C5FD>風属性</color>のいずれかの状態異常にある敵に命中した時、<color=#FFFFFF>「狂咲」</color>効果が1回発動し、対応する属性の状態異常ダメージを1回与える。ダメージ倍率は<color=#2BAD00>635</color>%となる。スキル発動時、<color=#FFFFFF>「氷刑」</color>を1Pt消費する。\nプロメイアが発動した<color=#FFFFFF>「狂咲」</color>効果が敵に命中した時、追加でデシベル値を100Pt回復する。0.5秒に1回のみ発動可能。<color=#FFFFFF>『終結スキル：磔刑、罪凍つるまで』</color>発動時、<color=#FFFFFF>「氷の誓約」</color>効果を獲得する。<color=#FFFFFF>「氷の誓約」</color>効果を所持している時、<color=#FFFFFF>『強化特殊スキル：処刑式、裁決は下った』</color>、<color=#FFFFFF>『連携スキル：逆さ磔の冷月』</color>、<color=#FFFFFF>『終結スキル：磔刑、罪凍つるまで』</color>発動後に <IconMap:Icon_Special> を短押しまたは長押しすると、<color=#FFFFFF>「氷の誓約」</color>効果を消費して、そのまま<color=#FFFFFF>『特殊スキル：処刑式、薄氷は結ぶ』</color>に繋げることが可能。<color=#FFFFFF>「氷の誓約」</color>は最大1重まで所持できる。",
+     "チームに他の<color=#FFFFFF>[異常]</color>または<color=#FFFFFF>[支援]</color>メンバーがいる時に発動：\n<color=#FFFFFF>『強化特殊スキル』</color>発動時、プロメイアの<color=#98EFF0>氷属性状態異常蓄積効率</color>+30%、継続時間30秒、重複して発動すると継続時間が更新される。\n任意のメンバーが敵に<color=#98EFF0>「霜寒」</color>を付与した時、この効果の継続時間+3秒。\nプロメイアの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中した時、敵は<color=#FFFFFF>「咎は凍てつく」</color>状態になる。メンバー全員が<color=#FFFFFF>「咎は凍てつく」</color>状態の敵に<color=#FFFFFF>「狂咲」</color>効果を与えた時、防御力を40%無視する。<color=#FFFFFF>「咎は凍てつく」</color>状態の継続時間は30秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110511": 2
+   },
+   "3": {
+    "10": 28000,
+    "110511": 4
+   },
+   "4": {
+    "10": 60000,
+    "110009": 2,
+    "110511": 9
+   },
+   "5": {
+    "10": 100000,
+    "110009": 3,
+    "110511": 15
+   },
+   "6": {
+    "10": 200000,
+    "110009": 4,
+    "110511": 30
+   }
+  }
+ },
+ "skin": {
+  "3115410": {
+   "name": "プロメイア・「揺れる影、彷徨う氷」",
+   "desc": "暗闇は優れた武器であり、処刑人もその扱いに慣れている。\nただし重い枷を背負っていては、容易に足を踏み外しかねない。",
+   "obtain_desc": "",
+   "image": "IconRole61"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1541001": {
+   "name": "通常攻撃：斜刃、月は傾く",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541002": {
+   "name": "通常攻撃：旋刃、月は弧を描く",
+   "desc": "<IconMap:Icon_Normal>（長押し）",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541003": {
+   "name": "特殊スキル：処刑式、冷刃は閃く",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541004": {
+   "name": "強化特殊スキル：処刑式、寒夜に音無し",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541005": {
+   "name": "強化特殊スキル：処刑式、影は晦ます",
+   "desc": "『強化特殊スキル：処刑式、寒夜に音無し』発動直後のわずかな間に攻撃を受けると自動的に発動",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1541006": {
+   "name": "特殊スキル：処刑式、霜は墜ちる",
+   "desc": "<IconMap:Icon_Normal> または <IconMap:Icon_Special> （「枷の赦し」状態中かつ「鉄の掟」所持時）",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541007": {
+   "name": "特殊スキル：処刑式、薄氷は結ぶ",
+   "desc": "<IconMap:Icon_Normal> または <IconMap:Icon_Special>（『強化特殊スキル：処刑式、影は晦ます』発動後）",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541008": {
+   "name": "強化特殊スキル：処刑式、裁決は下った",
+   "desc": "<IconMap:Icon_Normal> または <IconMap:Icon_Special> （「氷刑」が十分な時、落下攻撃後に長押しを維持）",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541009": {
+   "name": "ダッシュ攻撃：心臓抜き",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541010": {
+   "name": "回避反撃：夜を舞う",
+   "desc": "<IconMap:Icon_Evade>（極限回避成功） ; <IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541011": {
+   "name": "連携スキル：逆さ磔の冷月",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541012": {
+   "name": "終結スキル：磔刑、罪凍つるまで",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541013": {
+   "name": "クイック支援：返す刃に",
+   "desc": "<IconMap:Icon_Switch>（クイック支援の発動条件を満たした時）",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1541014": {
+   "name": "パリィ支援：禁令",
+   "desc": "<IconMap:Icon_Switch>（パリィ支援の発動条件を満たした時）",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1541015": {
+   "name": "支援突撃：刃を砕く",
+   "desc": "<IconMap:Icon_Normal>（パリィ支援を発動した後に）",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1541001,
+   "avatar_id": 1541,
+   "first_priority": [
+    5,
+    1
+   ],
+   "second_priority": [
+    3,
+    0
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33800,
+  "slot2": 33000,
+  "slot_sub": 31300,
+  "part_sub_list": [
+   31203,
+   12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33800,
+     33000
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31703
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31402
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 31402,
+   "name": "異常掌握",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementAbnormalPower.png"
+  },
+  "part5": {
+   "prop": 31203,
+   "name": "異常マスタリー",
+   "format": "{0:0}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementMystery.png"
+  },
+  "part6": {
+   "prop": 31703,
+   "name": "氷属性ダメージボーナス",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconIce.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "攻撃力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Ice>氷属性、表アタッカー",
+  "メンバー全員への「狂咲」ダメージバフ",
+  "他属性の状態異常の敵に複数回の「狂咲」ダメージ"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100213": 4
+   }
+  },
+  "2": {
+   "hp_max": 430,
+   "attack": 45,
+   "defence": 34,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100223": 12
+   }
+  },
+  "3": {
+   "hp_max": 859,
+   "attack": 90,
+   "defence": 68,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100223": 20
+   }
+  },
+  "4": {
+   "hp_max": 1289,
+   "attack": 134,
+   "defence": 101,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100233": 10
+   }
+  },
+  "5": {
+   "hp_max": 1719,
+   "attack": 179,
+   "defence": 135,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100233": 20
+   }
+  },
+  "6": {
+   "hp_max": 2149,
+   "attack": 224,
+   "defence": 169,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "異常掌握",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "異常掌握",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "異常掌握",
+     "format": "{0:0.#}",
+     "value": 24
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "異常掌握",
+     "format": "{0:0.#}",
+     "value": 24
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "異常掌握",
+     "format": "{0:0.#}",
+     "value": 36
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "異常掌握",
+     "format": "{0:0.#}",
+     "value": 36
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpinePromeia"
+}

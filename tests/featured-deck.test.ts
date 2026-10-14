@@ -12,9 +12,9 @@ function cards(n: number, birthdayIdx: number[] = []): FeaturedCard[] {
   return Array.from({ length: n }, (_, i) => ({
     id: 1000 + i,
     no: String(i + 1).padStart(2, '0'),
-    zh: `角色${i + 1}`,
+    name: `角色${i + 1}`,
     en: `Agent ${i + 1}`,
-    elementZh: '冰',
+    element: '冰',
     elementColor: '#5ac8fa',
     srcs: [{ src: `/data/img/hero/mobile/Mindscape_${1000 + i}_2.webp` }],
     pos: '50%',
@@ -204,14 +204,14 @@ describe('FeaturedDeck 结构与无障碍', () => {
     expect(labels[0]!.attributes('aria-hidden')).toBe('true')
     expect(labels[0]!.find('.no').text()).toBe('01')
     expect(labels[0]!.find('.el').text()).toBe('冰')
-    expect(labels[0]!.find('.zh').text()).toBe('角色1')
+    expect(labels[0]!.find('.name').text()).toBe('角色1')
     expect(labels[0]!.find('.en').text()).toBe('Agent 1')
     expect(wrapper.find('.deck-count').text()).toBe('01 / 04')
 
     // 换卡：标本签内容随之切换（飘带由 isBirthday 单独驱动，不在这块里）
     await wrapper.find('.deck-viewport').trigger('keydown', { key: 'ArrowRight' })
     const after = wrapper.find('.deck-label')
-    expect(after.find('.zh').text()).toBe('角色2')
+    expect(after.find('.name').text()).toBe('角色2')
     expect(after.find('.no').text()).toBe('02')
     expect(wrapper.find('.deck-count').text()).toBe('02 / 04')
   })
@@ -235,12 +235,12 @@ describe('FeaturedDeck 结构与无障碍', () => {
 
   it('缺名录真值时按占位条渲染（名字未到达不跳变）', async () => {
     stubLayout()
-    const blank = cards(2).map((c) => ({ ...c, zh: '', en: '', elementZh: '' }))
+    const blank = cards(2).map((c) => ({ ...c, name: '', en: '', element: '' }))
     const wrapper = mount(FeaturedDeck, { props: { cards: blank }, global })
     await wrapper.vm.$nextTick()
     const label = wrapper.find('.deck-label')
-    expect(label.find('.zh').exists()).toBe(false)
-    expect(label.find('.zh-bar').exists()).toBe(true)
+    expect(label.find('.name').exists()).toBe(false)
+    expect(label.find('.name-bar').exists()).toBe(true)
     expect(label.find('.en-bar').exists()).toBe(true)
     expect(label.find('.no').text()).toBe('01')
   })
@@ -306,7 +306,7 @@ describe('FeaturedDeck 拖拽吸附', () => {
     dragBy(wrapper, -VP_W)
     await wrapper.vm.$nextTick()
     expect(wrapper.find('.deck-count').text()).toBe('02 / 04')
-    expect(wrapper.find('.deck-label .zh').text()).toBe('角色2')
+    expect(wrapper.find('.deck-label .name').text()).toBe('角色2')
     // 活动槽位 0 → 1：轨道左移一个取景框宽
     expect(trackShiftX(wrapper)).toBe(-VP_W)
   })

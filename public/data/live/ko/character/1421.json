@@ -1,0 +1,1939 @@
+{
+ "id": 1421,
+ "icon": "IconRole45",
+ "name": "반인호",
+ "code_name": "Yinhu",
+ "rarity": 3,
+ "weapon_type": {
+  "5": "Defense"
+ },
+ "element_type": {
+  "200": "Physical"
+ },
+ "hit_type": {
+  "102": "Strike"
+ },
+ "camp": {
+  "10": "운규산"
+ },
+ "gender": 1,
+ "partner_info": {
+  "birthday": "5/10",
+  "full_name": "반인호",
+  "gender": "남성",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle45.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0045.png",
+  "impression_f": "배달 음식을 시킬 때마다 반 사형이 나서서 막더라고. 배달 음식은 건강에 안 좋다고 먹고 싶은 게 있으면 만들어 준대… 배달 음식을 못 먹은 지 거의 몇 달은 된 것 같아!",
+  "impression_m": "하지만 반 사형의 솜씨는 확실히 뛰어나. 가끔 고기가 좀 적은 것만 빼면… 몇몇 요리는 좀 배우고 싶어",
+  "impressions": [
+   "반인호에 대한 인상:\n · 그냥관의 재무 총책임자로서 데니 한 푼조차 중요한 곳에 사용한다!",
+   " · 그냥관의 요리 담당으로서 차슈 한 조각마저 동료의 미각을 함락시킨다!",
+   " · 그냥관의 신입 사형으로서 사제와 사매의 생각을 무조건적으로 지지한다!"
+  ],
+  "profile_desc": "반인호, 운규산 문하 제자, 그냥관의 수석 요리사 겸 재무 관리자로, 훌륭한 권법을 사용하며 점혈술에도 능통하다.\n그냥관의 재무를 관리하는 사람으로서, 절약하고 돈을 버는 방법을 알고 있다. 5,000데니의 고기를 500데니로 흥정할 수 있으며, 집에서 직접 만들 수 있는 물건은 절대 밖에서 사지 않는다. 여러 마트와 상점의 쿠폰 또한 언제든 꺼낼 수 있다.\n덕분에 그냥관의 구성원들은 매일 맛있고 합리적인 식사를 즐길 수 있다. 요리사인 그는 음식의 맛에 엄격한 기준을 가졌으며 동료들의 평가를 매우 중요하게 생각한다.\n또한 오랜 절약으로, 그냥관의 총경비든, 본인의 개인 금고든 시선을 사로잡을 수준의 돈을 모은 것으로 추측된다.",
+  "role_icon": "IconRole/UnPacker/IconRole45",
+  "stature": "192",
+  "unlock_condition": [
+   "에이전트 획득",
+   "메인 스토리 의뢰 시즌 2 제1장 완료",
+   "「엔비의 고민」 의뢰 완료"
+  ],
+  "trust_lv": {
+   "1": "반인호, 운규산 문하 제자, 그냥관의 수석 요리사 겸 재무 관리자로, 훌륭한 권법을 사용하며 점혈술에도 능통하다.\n그냥관의 재무를 관리하는 사람으로서, 절약하고 돈을 버는 방법을 알고 있다. 5,000데니의 고기를 500데니로 흥정할 수 있으며, 집에서 직접 만들 수 있는 물건은 절대 밖에서 사지 않는다. 여러 마트와 상점의 쿠폰 또한 언제든 꺼낼 수 있다.\n덕분에 그냥관의 구성원들은 매일 맛있고 합리적인 식사를 즐길 수 있다. 요리사인 그는 음식의 맛에 엄격한 기준을 가졌으며 동료들의 평가를 매우 중요하게 생각한다.\n또한 오랜 절약으로, 그냥관의 총경비든, 본인의 개인 금고든 시선을 사로잡을 수준의 돈을 모은 것으로 추측된다.",
+   "2": "",
+   "3": "뉴에리두를 통틀어도 극히 드문 판다 시렌인 반인호는 어려서부터 가족의 돌봄을 받지 못하고 뉴에리두에서 홀로 힘들게 살아남았다. 실제로 굶어보지 못한 사람은 굶주림의 무서움을 모를 것이다. 밥벌이를 위해 반인호는 본인이 할 수 있는 직업이란 직업은 모두 해 보았고, 결국 뛰어난 에테르 적성 덕분에 레이더가 되었다.\n레이더가 된 그는 우연히 의현을 만났고, 무자비하게 맞은 뒤 교화되어 운규산 문하에 들어가게 되었다. 그리고 술법을 수련하여 점차 포악해지는 심성을 정화했다.\n문하에 들어온 시간이 길지 않아 그의 사제와 사매는 극히 적다.\n마스터, 그중 하나가 바로 마스터예요. 그래서 특식을 주고, 상점의 쿠폰을 주는 등의 방식으로 사형으로서의 관심을 표현하고 있어요.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 95,
+  "attack_growth": 54562,
+  "avatar_piece_id": 5421,
+  "break_stun": 94,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 57,
+  "defence_growth": 77787,
+  "element_abnormal_power": 91,
+  "element_mystery": 90,
+  "endurance": 0,
+  "hp_growth": 922338,
+  "hp_max": 680,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "PanYinhu",
+   "Punch",
+   "Physics",
+   "Male",
+   "Camp10",
+   "Size3",
+   "AidTypeParry",
+   "PanYinhu",
+   "EtherEyesSize3"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "일반 공격: 궁극의 연타",
+     "desc": "<IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 향해 최대 4단까지 체술 공격을 펼쳐 <color=#F0D12B>물리 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 궁극의 연타",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1421001, Prop:1001}",
+       "param": {
+        "1421001": {
+         "main": 4970,
+         "growth": 460,
+         "format": "%",
+         "damage_percentage": 4970,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 2490,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 8940,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 68475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2480,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2481
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1421002, Prop:1001}",
+       "param": {
+        "1421002": {
+         "main": 4980,
+         "growth": 460,
+         "format": "%",
+         "damage_percentage": 4980,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 4750,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 17080,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 130625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4744,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4745
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1421003, Prop:1001}",
+       "param": {
+        "1421003": {
+         "main": 10940,
+         "growth": 1000,
+         "format": "%",
+         "damage_percentage": 10940,
+         "damage_percentage_growth": 1000,
+         "stun_ratio": 8430,
+         "stun_ratio_growth": 390,
+         "sp_recovery": 30350,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 231825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8429,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8430
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 피해 배율",
+       "desc": "{Skill:1421004, Prop:1001}",
+       "param": {
+        "1421004": {
+         "main": 21130,
+         "growth": 1930,
+         "format": "%",
+         "damage_percentage": 21130,
+         "damage_percentage_growth": 1930,
+         "stun_ratio": 16650,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 59940,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 457875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 16648,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16649
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1421001, Prop:1002}",
+       "param": {
+        "1421001": {
+         "main": 2490,
+         "growth": 120,
+         "format": "%",
+         "damage_percentage": 4970,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 2490,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 8940,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 68475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2480,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2481
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1421002, Prop:1002}",
+       "param": {
+        "1421002": {
+         "main": 4750,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 4980,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 4750,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 17080,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 130625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4744,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4745
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1421003, Prop:1002}",
+       "param": {
+        "1421003": {
+         "main": 8430,
+         "growth": 390,
+         "format": "%",
+         "damage_percentage": 10940,
+         "damage_percentage_growth": 1000,
+         "stun_ratio": 8430,
+         "stun_ratio_growth": 390,
+         "sp_recovery": 30350,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 231825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8429,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8430
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 그로기 배율",
+       "desc": "{Skill:1421004, Prop:1002}",
+       "param": {
+        "1421004": {
+         "main": 16650,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 21130,
+         "damage_percentage_growth": 1930,
+         "stun_ratio": 16650,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 59940,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 457875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 16648,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16649
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "회피: 제비처럼 가벼운 몸짓",
+     "desc": "<IconMap:Icon_Evade>을 짧게 탭하여 시전:\n빠른 대시로 회피한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 부글부글 끓는 기름",
+     "desc": "회피 시 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 향해 빠른 체술 공격으로 <color=#F0D12B>물리 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 산과 바다를 뒤엎다",
+     "desc": "<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적에게 체술 공격으로 <color=#F0D12B>물리 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 부글부글 끓는 기름",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1421010, Prop:1001}",
+       "param": {
+        "1421010": {
+         "main": 8340,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 8340,
+         "damage_percentage_growth": 760,
+         "stun_ratio": 4170,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 15010,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 114675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4166,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1421010, Prop:1002}",
+       "param": {
+        "1421010": {
+         "main": 4170,
+         "growth": 190,
+         "format": "%",
+         "damage_percentage": 8340,
+         "damage_percentage_growth": 760,
+         "stun_ratio": 4170,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 15010,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 114675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4166,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 산과 바다를 뒤엎다",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1421011, Prop:1001}",
+       "param": {
+        "1421011": {
+         "main": 21920,
+         "growth": 2000,
+         "format": "%",
+         "damage_percentage": 21920,
+         "damage_percentage_growth": 2000,
+         "stun_ratio": 19170,
+         "stun_ratio_growth": 880,
+         "sp_recovery": 33000,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 252175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9166,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1421011, Prop:1002}",
+       "param": {
+        "1421011": {
+         "main": 19170,
+         "growth": 880,
+         "format": "%",
+         "damage_percentage": 21920,
+         "damage_percentage_growth": 2000,
+         "stun_ratio": 19170,
+         "stun_ratio_growth": 880,
+         "sp_recovery": 33000,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 252175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9166,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "특수 스킬: 폭음점혈지",
+     "desc": "<IconMap:Icon_Special>을 짧게 탭하여 시전:\n전방을 향해 체술을 시전하고 폭죽을 던져 <color=#F0D12B>물리 피해</color>를 준다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 단맥파혈수",
+     "desc": "<color=#FFFFFF>[괴력]</color>을 보유한 상태에서 <IconMap:Icon_Special>을 짧게 탭하여 시전:\n<color=#FFFFFF>[특수 스킬: 단맥파혈수]</color>로 적의 주위를 돌며 공격해 <color=#F0D12B>물리 피해</color>를 준다.\n스킬은 연속으로 3회 시전할 수 있으며, <color=#FFFFFF>[특수 스킬: 단맥파혈수]</color> 공격을 1회 시전할 때마다 [괴력]을 1pt 소모한다.\n반인호가 현재 조작 중인 캐릭터인 경우, 스킬을 시전하는 동안 받는 피해가 40% 감소하고 경직 저항 레벨이 증가한다. 현재 조작 중인 캐릭터가 아닌 경우, 무적 효과를 획득한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 첩산진맥고",
+     "desc": "에너지가 충분한 상태에서 <IconMap:Icon_SpecialReady>을 짧게 탭하여 시전:\n<color=#FFFFFF>[강화 특수 스킬: 첩산진맥고]</color>로 전방을 강력하게 타격해 <color=#F0D12B>물리 피해</color>를 준다.\n스킬 시전 시 <color=#FFFFFF>[괴력]</color>을 3pt 획득하며 스킬이 적에게 명중 시 파티 내 이전 캐릭터의 <color=#FFFFFF>[빠른 지원]</color>을 발동한다.\n이번 [빠른 지원]으로 출전한 에이전트는 핵심 패시브가 제공하는 관입력 보너스를 획득하며, 반인호는 교체 후 전장에 남아 [괴력]이 소진될 때까지 자동으로 <color=#FFFFFF>[특수 스킬: 단맥파혈수]</color>를 시전한 후 퇴장한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 폭음점혈지",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1421005, Prop:1001}",
+       "param": {
+        "1421005": {
+         "main": 6250,
+         "growth": 570,
+         "format": "%",
+         "damage_percentage": 6250,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 6250,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 171875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6248,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6249
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1421005, Prop:1002}",
+       "param": {
+        "1421005": {
+         "main": 6250,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 6250,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 6250,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 171875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6248,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6249
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 단맥파혈수",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1421007, Prop:1001}",
+       "param": {
+        "1421007": {
+         "main": 9730,
+         "growth": 890,
+         "format": "%",
+         "damage_percentage": 9730,
+         "damage_percentage_growth": 890,
+         "stun_ratio": 4170,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 191125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4861,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1421007, Prop:1002}",
+       "param": {
+        "1421007": {
+         "main": 4170,
+         "growth": 190,
+         "format": "%",
+         "damage_percentage": 9730,
+         "damage_percentage_growth": 890,
+         "stun_ratio": 4170,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 191125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4861,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1421008, Prop:1001}",
+       "param": {
+        "1421008": {
+         "main": 9730,
+         "growth": 890,
+         "format": "%",
+         "damage_percentage": 9730,
+         "damage_percentage_growth": 890,
+         "stun_ratio": 4170,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 191125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4861,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1421008, Prop:1002}",
+       "param": {
+        "1421008": {
+         "main": 4170,
+         "growth": 190,
+         "format": "%",
+         "damage_percentage": 9730,
+         "damage_percentage_growth": 890,
+         "stun_ratio": 4170,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 191125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4861,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1421009, Prop:1001}",
+       "param": {
+        "1421009": {
+         "main": 9730,
+         "growth": 890,
+         "format": "%",
+         "damage_percentage": 9730,
+         "damage_percentage_growth": 890,
+         "stun_ratio": 4170,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 191125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4861,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1421009, Prop:1002}",
+       "param": {
+        "1421009": {
+         "main": 4170,
+         "growth": 190,
+         "format": "%",
+         "damage_percentage": 9730,
+         "damage_percentage_growth": 890,
+         "stun_ratio": 4170,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 191125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4861,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 첩산진맥고",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1421006, Prop:1001}",
+       "param": {
+        "1421006": {
+         "main": 38410,
+         "growth": 3500,
+         "format": "%",
+         "damage_percentage": 38410,
+         "damage_percentage_growth": 3500,
+         "stun_ratio": 25730,
+         "stun_ratio_growth": 1170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 992475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 28312,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10170
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1421006, Prop:1002}",
+       "param": {
+        "1421006": {
+         "main": 25730,
+         "growth": 1170,
+         "format": "%",
+         "damage_percentage": 38410,
+         "damage_percentage_growth": 3500,
+         "stun_ratio": 25730,
+         "stun_ratio_growth": 1170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 992475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 28312,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10170
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "에너지 소모",
+       "desc": "60pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "콤보 스킬: 요리사의 기합",
+     "desc": "<color=#FFFFFF>[콤보 스킬]</color> 발동 시 해당 캐릭터를 선택해 시전:\n[웍]에 앉아 빠른 속도로 회전하며 부딪혀 경로상의 적에게 대량의 <color=#F0D12B>물리 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "궁극기: 진수성찬!",
+     "desc": "데시벨 레벨 <color=#FFFFFF>[Maximum]</color> 달성 시 <IconMap:Icon_UltimateReady>을 짧게 탭하여 시전:\n술법을 시전해 기공을 담은 볶음밥을 던져 적에게 대량의 <color=#F0D12B>물리 피해</color>를 주며, 파티 내 모든 캐릭터의 HP를 <color=#2BAD00>{CAL:100+AvatarSkillLevel(3)*60,1,2}</color>pt 회복시킨다. 또한 파티 내 모든 캐릭터에게 8초 동안 HP를 회복하는 효과를 부여한다. 1초마다 HP를 <color=#2BAD00>{CAL:0.8+AvatarSkillLevel(3)*0.05,1,2}</color>% 회복한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 요리사의 기합",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1421012, Prop:1001}",
+       "param": {
+        "1421012": {
+         "main": 63230,
+         "growth": 5750,
+         "format": "%",
+         "damage_percentage": 63230,
+         "damage_percentage_growth": 5750,
+         "stun_ratio": 23330,
+         "stun_ratio_growth": 1070,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2470325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 43279,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23330
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1421012, Prop:1002}",
+       "param": {
+        "1421012": {
+         "main": 23330,
+         "growth": 1070,
+         "format": "%",
+         "damage_percentage": 63230,
+         "damage_percentage_growth": 5750,
+         "stun_ratio": 23330,
+         "stun_ratio_growth": 1070,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2470325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 43279,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23330
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "궁극기: 진수성찬!",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1421013, Prop:1001}",
+       "param": {
+        "1421013": {
+         "main": 162790,
+         "growth": 14800,
+         "format": "%",
+         "damage_percentage": 162790,
+         "damage_percentage_growth": 14800,
+         "stun_ratio": 9840,
+         "stun_ratio_growth": 450,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 59834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1421013, Prop:1002}",
+       "param": {
+        "1421013": {
+         "main": 9840,
+         "growth": 450,
+         "format": "%",
+         "damage_percentage": 162790,
+         "damage_percentage_growth": 14800,
+         "stun_ratio": 9840,
+         "stun_ratio_growth": 450,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 59834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "HP 회복",
+       "desc": "{CAL:100+AvatarSkillLevel(3)*60,1,2}pt",
+       "potential": []
+      },
+      {
+       "name": "초당 HP 회복 백분율",
+       "desc": "{CAL:0.8+AvatarSkillLevel(3)*0.05,1,2}%",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "빠른 지원: 고개를 들면 행운이 있을지니",
+     "desc": "현재 조작 중인 캐릭터가 넉업되면 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n전방의 적에게 체술 공격으로 <color=#F0D12B>물리 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 위협적인 존재감",
+     "desc": "출전 캐릭터 피격 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적의 공격을 패링하고 대량의 그로기 수치를 누적한다.\n우수한 패링 능력을 갖추고 있어 고강도 공격 패링 시 <color=#FFFFFF>[지원 포인트]</color>의 소모량이 감소한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 기세를 몰아",
+     "desc": "<color=#FFFFFF>[패링 지원]</color> 시전 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적에게 체술 공격으로 <color=#F0D12B>물리 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 고개를 들면 행운이 있을지니",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1421014, Prop:1001}",
+       "param": {
+        "1421014": {
+         "main": 9170,
+         "growth": 840,
+         "format": "%",
+         "damage_percentage": 9170,
+         "damage_percentage_growth": 840,
+         "stun_ratio": 4590,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 16500,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 126225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4583,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4584
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1421014, Prop:1002}",
+       "param": {
+        "1421014": {
+         "main": 4590,
+         "growth": 210,
+         "format": "%",
+         "damage_percentage": 9170,
+         "damage_percentage_growth": 840,
+         "stun_ratio": 4590,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 16500,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 126225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4583,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4584
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 위협적인 존재감",
+     "param": [
+      {
+       "name": "가벼운 패링 그로기 배율",
+       "desc": "{Skill:1421015, Prop:1002}",
+       "param": {
+        "1421015": {
+         "main": 22510,
+         "growth": 1030,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 22510,
+         "stun_ratio_growth": 1030,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 35004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강한 패링 그로기 배율",
+       "desc": "{Skill:1421016, Prop:1002}",
+       "param": {
+        "1421016": {
+         "main": 26840,
+         "growth": 1220,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 26840,
+         "stun_ratio_growth": 1220,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 38334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 패링 그로기 배율",
+       "desc": "{Skill:1421017, Prop:1002}",
+       "param": {
+        "1421017": {
+         "main": 10840,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 10840,
+         "stun_ratio_growth": 500,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8334
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 기세를 몰아",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1421018, Prop:1001}",
+       "param": {
+        "1421018": {
+         "main": 33740,
+         "growth": 3070,
+         "format": "%",
+         "damage_percentage": 33740,
+         "damage_percentage_growth": 3070,
+         "stun_ratio": 29350,
+         "stun_ratio_growth": 1340,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1048850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 31542,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16164
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1421018, Prop:1002}",
+       "param": {
+        "1421018": {
+         "main": 29350,
+         "growth": 1340,
+         "format": "%",
+         "damage_percentage": 33740,
+         "damage_percentage_growth": 3070,
+         "stun_ratio": 29350,
+         "stun_ratio_growth": 1340,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1048850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 31542,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16164
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "기공 호신",
+   "desc": "모든 유닛이 <color=#FFFFFF>[절명]</color> 효과가 부여된 적에게 피해를 줄 시, 주는 피해가 추가로 10% 증가한다.",
+   "desc2": "운규 술법은 외적으로는 에테르의 흐름을 다스릴 수 있고, 내적으로는 경락과 근골을 보호할 수 있다. 기공은 방패와 같아 칼이나 창도 통하지 않으니, 이것이 바로 반인호가 공격을 버텨내는 비결이다.\n그리고 이 기술은 마트 할인 상품을 놓고 아저씨, 아주머니들과 경쟁할 때 특히나 유용하다."
+  },
+  "2": {
+   "level": 2,
+   "name": "운규점혈수",
+   "desc": "<color=#FFFFFF>[괴력]</color>을 6pt 소모할 때마다 반인호가 에너지를 4pt 회복하며 <color=#FFFFFF>[특수 스킬: 단맥파혈수]</color>가 적에게 명중 시 적에게 주는 <color=#FFFFFF>[절명]</color> 효과가 12초까지 증가한다.",
+   "desc2": "「하하, 이 녀석, 꼼짝도 못 하겠지!」\n「이건 운규점혈수라고 하는 기술이야. 몸을 마비시켜 움직이지 못하게 할 수도 있고, 경맥을 뚫을 수도 있는, 우리 문파의 악을 징벌하고 선을 드높이는 기술이지!」\n「…어? 내 힘이 너무 세서 몸이 마비된 거라고?… 어쨌든 못 움직인다는 거잖아!」"
+  },
+  "3": {
+   "level": 3,
+   "name": "경외기혈",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "「이 혈자리들은 우리 판다 시렌과 성질이 비슷해」\n「수도 적고 흩어져 있어서 구체적인 체계로 분류하기 힘들고, 제대로 연구한 사람도 거의 없지. 쓸쓸한 일이야」\n「그래도 가끔은 의외의 한 수가 될 때도 있어. 나쁘지 않지?」"
+  },
+  "4": {
+   "level": 4,
+   "name": "최고의 요리사",
+   "desc": "<color=#FFFFFF>[궁극기: 진수성찬!]</color>으로 파티 내 모든 캐릭터의 HP를 회복할 시 HP 회복 효과가 25% 증가하며, 지속 회복 효과의 HP 회복 효과가 25% 증가한다. <color=#FFFFFF>[궁극기: 진수성찬!]</color> 시전 시 <color=#FFFFFF>[비상식량]</color> 효과를 획득하며, 파티 내 임의의 캐릭터가 HP를 상실할 시 해당 캐릭터를 위해 <color=#FFFFFF>[비상식량]</color> 효과를 소모해 <color=#FFFFFF>[궁극기: 진수성찬!]</color>의 HP 즉시 회복 50%에 해당하는 HP를 회복시킨다. 해당 효과는 중첩되지 않는다.",
+   "desc2": "처음 요리를 하던 날, 반인호는 부엌을 불태울 뻔했다.\n불을 끄러 온 사람 중에는 요리사가 있었는데, 그는 타버린 음식들을 보더니 아직 쓰지 않은 달걀로 반인호에게 볶음밥을 만들어 주었다.\n반인호는 허겁지겁 먹으며 눈물을 글썽였고, 고개를 들어보니 요리사가 「100」이라고 적힌 종이를 내밀고 있었다.\n「스승님, 깨달았습니다! 요리는 백절불굴의 정신으로 해야 한다는 뜻이죠!」, 「아뇨, 한 입에 100데니인데, 백 입도 더 드셨으니 돈을 내셔야 한다는 뜻이에요」\n그 이후로 반인호는 직접 요리하는 것을 고집했고, 다시는 실수하지 않았다. 이것이 바로 특급 요리사의 탄생 과정이다."
+  },
+  "5": {
+   "level": 5,
+   "name": "「희귀한 시렌」",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "거대한 뉴에리두에서 판다 시렌의 존재는 매우 희귀했다.\n그는 사람들이 신기한 눈으로 바라보는 것을 거부했고, 누구의 도움도 없는 외로운 삶에 이미 익숙해져 있었다.\n운규산의 문하에 들어서기 전까지는——\n그리고 많은 시민이 판다 시렌과 사진을 찍기 위해 기꺼이 돈을 지불한다는 것을 알게 된 후로는… 다른 이들의 시선도 더 이상 거부하지 않게 되었다."
+  },
+  "6": {
+   "level": 6,
+   "name": "기혈론",
+   "desc": "<color=#FFFFFF>[핵심 패시브: 기맥건곤]</color>이 제공하는 <color=#FFFFFF>[활혈]</color>이 추가로 반인호 초기 공격력의 6%만큼 증가를 획득하며, 해당 효과가 제공하는 관입력이 최대 720pt까지 증가한다.",
+   "desc2": "「옛사람이 말하길, 기혈은 365개나 있대. 사실 사람이 사는 방식도 마찬가지야」\n「자, 이 혈자리 도감에서 마음에 드는 걸 하나 골라봐」\n「그게 바로 네가 지금 살아가는 방식을 의미하는 거야—— 어디에 있고, 어떤 효과가 있는지는 중요하지 않아. 네 마음에 들기만 하면 그걸로 충분하지」\n「그럼 고른 게 무슨 의미가 있냐고? 음… 다음에 사형이 악당을 혼내줄 때 그 혈자리만 노려볼게」"
+  }
+ },
+ "passive": {
+  "level": {
+   "1421501": {
+    "level": 1,
+    "id": 1421501,
+    "name": [
+     "핵심 패시브: 기맥건곤",
+     "추가 능력: 판다의 위장"
+    ],
+    "desc": [
+     "반인호가 시전한 <color=#FFFFFF>[강화 특수 스킬: 첩산진맥고]</color>가 적에게 명중해 [빠른 지원]이 발동하는 일정 시간 동안 [빠른 지원] 혹은 [콤보 스킬]을 통해 출전한 다음 에이전트가 <color=#FFFFFF>[활혈]</color> 효과를 획득한다. 해당 효과는 반인호 초기 공격력의 <color=#2BAD00>9%</color>만큼 관입력 증가를 제공하며 25초 동안 지속된다. 해당 효과가 제공하는 관입력은 최대 540pt를 초과하지 않는다.",
+     "파티에 <color=#FFFFFF>[명파]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n반인호가 시전한 <color=#FFFFFF>[특수 스킬: 단맥파혈수]</color>가 적에게 명중 시 적에게 <color=#FFFFFF>[절명]</color> 효과를 부여해 모든 유닛이 해당 적에게 주는 피해가 20% 증가한다. <color=#FFFFFF>[특수 스킬: 단맥파혈수]</color>가 적에게 명중 시 적에게 각각 10초의 <color=#FFFFFF>[절명]</color> 효과를 준다. 해당 효과는 중첩되지 않으며, 스킬이 동일한 적에게 중복으로 명중 시 해당 효과 시간이 늘어난다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1421502": {
+    "level": 2,
+    "id": 1421502,
+    "name": [
+     "핵심 패시브: 기맥건곤",
+     "추가 능력: 판다의 위장"
+    ],
+    "desc": [
+     "반인호가 시전한 <color=#FFFFFF>[강화 특수 스킬: 첩산진맥고]</color>가 적에게 명중해 [빠른 지원]이 발동하는 일정 시간 동안 [빠른 지원] 혹은 [콤보 스킬]을 통해 출전한 다음 에이전트가 <color=#FFFFFF>[활혈]</color> 효과를 획득한다. 해당 효과는 반인호 초기 공격력의 <color=#2BAD00>10.5%</color>만큼 관입력 증가를 제공하며 25초 동안 지속된다. 해당 효과가 제공하는 관입력은 최대 540pt를 초과하지 않는다.",
+     "파티에 <color=#FFFFFF>[명파]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n반인호가 시전한 <color=#FFFFFF>[특수 스킬: 단맥파혈수]</color>가 적에게 명중 시 적에게 <color=#FFFFFF>[절명]</color> 효과를 부여해 모든 유닛이 해당 적에게 주는 피해가 20% 증가한다. <color=#FFFFFF>[특수 스킬: 단맥파혈수]</color>가 적에게 명중 시 적에게 각각 10초의 <color=#FFFFFF>[절명]</color> 효과를 준다. 해당 효과는 중첩되지 않으며, 스킬이 동일한 적에게 중복으로 명중 시 해당 효과 시간이 늘어난다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1421503": {
+    "level": 3,
+    "id": 1421503,
+    "name": [
+     "핵심 패시브: 기맥건곤",
+     "추가 능력: 판다의 위장"
+    ],
+    "desc": [
+     "반인호가 시전한 <color=#FFFFFF>[강화 특수 스킬: 첩산진맥고]</color>가 적에게 명중해 [빠른 지원]이 발동하는 일정 시간 동안 [빠른 지원] 혹은 [콤보 스킬]을 통해 출전한 다음 에이전트가 <color=#FFFFFF>[활혈]</color> 효과를 획득한다. 해당 효과는 반인호 초기 공격력의 <color=#2BAD00>12%</color>만큼 관입력 증가를 제공하며 25초 동안 지속된다. 해당 효과가 제공하는 관입력은 최대 540pt를 초과하지 않는다.",
+     "파티에 <color=#FFFFFF>[명파]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n반인호가 시전한 <color=#FFFFFF>[특수 스킬: 단맥파혈수]</color>가 적에게 명중 시 적에게 <color=#FFFFFF>[절명]</color> 효과를 부여해 모든 유닛이 해당 적에게 주는 피해가 20% 증가한다. <color=#FFFFFF>[특수 스킬: 단맥파혈수]</color>가 적에게 명중 시 적에게 각각 10초의 <color=#FFFFFF>[절명]</color> 효과를 준다. 해당 효과는 중첩되지 않으며, 스킬이 동일한 적에게 중복으로 명중 시 해당 효과 시간이 늘어난다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1421504": {
+    "level": 4,
+    "id": 1421504,
+    "name": [
+     "핵심 패시브: 기맥건곤",
+     "추가 능력: 판다의 위장"
+    ],
+    "desc": [
+     "반인호가 시전한 <color=#FFFFFF>[강화 특수 스킬: 첩산진맥고]</color>가 적에게 명중해 [빠른 지원]이 발동하는 일정 시간 동안 [빠른 지원] 혹은 [콤보 스킬]을 통해 출전한 다음 에이전트가 <color=#FFFFFF>[활혈]</color> 효과를 획득한다. 해당 효과는 반인호 초기 공격력의 <color=#2BAD00>13.5%</color>만큼 관입력 증가를 제공하며 25초 동안 지속된다. 해당 효과가 제공하는 관입력은 최대 540pt를 초과하지 않는다.",
+     "파티에 <color=#FFFFFF>[명파]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n반인호가 시전한 <color=#FFFFFF>[특수 스킬: 단맥파혈수]</color>가 적에게 명중 시 적에게 <color=#FFFFFF>[절명]</color> 효과를 부여해 모든 유닛이 해당 적에게 주는 피해가 20% 증가한다. <color=#FFFFFF>[특수 스킬: 단맥파혈수]</color>가 적에게 명중 시 적에게 각각 10초의 <color=#FFFFFF>[절명]</color> 효과를 준다. 해당 효과는 중첩되지 않으며, 스킬이 동일한 적에게 중복으로 명중 시 해당 효과 시간이 늘어난다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1421505": {
+    "level": 5,
+    "id": 1421505,
+    "name": [
+     "핵심 패시브: 기맥건곤",
+     "추가 능력: 판다의 위장"
+    ],
+    "desc": [
+     "반인호가 시전한 <color=#FFFFFF>[강화 특수 스킬: 첩산진맥고]</color>가 적에게 명중해 [빠른 지원]이 발동하는 일정 시간 동안 [빠른 지원] 혹은 [콤보 스킬]을 통해 출전한 다음 에이전트가 <color=#FFFFFF>[활혈]</color> 효과를 획득한다. 해당 효과는 반인호 초기 공격력의 <color=#2BAD00>15%</color>만큼 관입력 증가를 제공하며 25초 동안 지속된다. 해당 효과가 제공하는 관입력은 최대 540pt를 초과하지 않는다.",
+     "파티에 <color=#FFFFFF>[명파]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n반인호가 시전한 <color=#FFFFFF>[특수 스킬: 단맥파혈수]</color>가 적에게 명중 시 적에게 <color=#FFFFFF>[절명]</color> 효과를 부여해 모든 유닛이 해당 적에게 주는 피해가 20% 증가한다. <color=#FFFFFF>[특수 스킬: 단맥파혈수]</color>가 적에게 명중 시 적에게 각각 10초의 <color=#FFFFFF>[절명]</color> 효과를 준다. 해당 효과는 중첩되지 않으며, 스킬이 동일한 적에게 중복으로 명중 시 해당 효과 시간이 늘어난다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1421506": {
+    "level": 6,
+    "id": 1421506,
+    "name": [
+     "핵심 패시브: 기맥건곤",
+     "추가 능력: 판다의 위장"
+    ],
+    "desc": [
+     "반인호가 시전한 <color=#FFFFFF>[강화 특수 스킬: 첩산진맥고]</color>가 적에게 명중해 [빠른 지원]이 발동하는 일정 시간 동안 [빠른 지원] 혹은 [콤보 스킬]을 통해 출전한 다음 에이전트가 <color=#FFFFFF>[활혈]</color> 효과를 획득한다. 해당 효과는 반인호 초기 공격력의 <color=#2BAD00>16.5%</color>만큼 관입력 증가를 제공하며 25초 동안 지속된다. 해당 효과가 제공하는 관입력은 최대 540pt를 초과하지 않는다.",
+     "파티에 <color=#FFFFFF>[명파]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n반인호가 시전한 <color=#FFFFFF>[특수 스킬: 단맥파혈수]</color>가 적에게 명중 시 적에게 <color=#FFFFFF>[절명]</color> 효과를 부여해 모든 유닛이 해당 적에게 주는 피해가 20% 증가한다. <color=#FFFFFF>[특수 스킬: 단맥파혈수]</color>가 적에게 명중 시 적에게 각각 10초의 <color=#FFFFFF>[절명]</color> 효과를 준다. 해당 효과는 중첩되지 않으며, 스킬이 동일한 적에게 중복으로 명중 시 해당 효과 시간이 늘어난다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1421507": {
+    "level": 7,
+    "id": 1421507,
+    "name": [
+     "핵심 패시브: 기맥건곤",
+     "추가 능력: 판다의 위장"
+    ],
+    "desc": [
+     "반인호가 시전한 <color=#FFFFFF>[강화 특수 스킬: 첩산진맥고]</color>가 적에게 명중해 [빠른 지원]이 발동하는 일정 시간 동안 [빠른 지원] 혹은 [콤보 스킬]을 통해 출전한 다음 에이전트가 <color=#FFFFFF>[활혈]</color> 효과를 획득한다. 해당 효과는 반인호 초기 공격력의 <color=#2BAD00>18%</color>만큼 관입력 증가를 제공하며 25초 동안 지속된다. 해당 효과가 제공하는 관입력은 최대 540pt를 초과하지 않는다.",
+     "파티에 <color=#FFFFFF>[명파]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n반인호가 시전한 <color=#FFFFFF>[특수 스킬: 단맥파혈수]</color>가 적에게 명중 시 적에게 <color=#FFFFFF>[절명]</color> 효과를 부여해 모든 유닛이 해당 적에게 주는 피해가 20% 증가한다. <color=#FFFFFF>[특수 스킬: 단맥파혈수]</color>가 적에게 명중 시 적에게 각각 10초의 <color=#FFFFFF>[절명]</color> 효과를 준다. 해당 효과는 중첩되지 않으며, 스킬이 동일한 적에게 중복으로 명중 시 해당 효과 시간이 늘어난다."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110510": 2
+   },
+   "3": {
+    "10": 28000,
+    "110510": 4
+   },
+   "4": {
+    "10": 60000,
+    "110006": 2,
+    "110510": 9
+   },
+   "5": {
+    "10": 100000,
+    "110006": 3,
+    "110510": 15
+   },
+   "6": {
+    "10": 200000,
+    "110006": 4,
+    "110510": 30
+   }
+  }
+ },
+ "skin": {
+  "3114210": {
+   "name": "반인호·음식의 모든 맛",
+   "desc": "운규산에 현존하는 가장 큰 제자복은 사형의 배포도 수용하고 온갖 양념도 수용한다. 머리 위의 웍은 일종의 창의적인 발상이다. 근데… 요리를 막 끝낸 웍을 머리에 올려두면 안 뜨겁나?",
+   "obtain_desc": "",
+   "image": "IconRole45"
+  },
+  "3114211": {
+   "name": "반인호·호화로운 요리",
+   "desc": "사형도 훌륭한 요리사가 되길 꿈꿨지만, 세상엔 당신의 부엌살림을 부수려는 악당이 있기 마련이다.\n——「어디 한번 해보든가?」",
+   "obtain_desc": "",
+   "image": "IconRole45_01"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1421001": {
+   "name": "일반 공격: 궁극의 연타",
+   "desc": "<IconMap:Icon_Normal>;<IconMap:Icon_Normal>;<IconMap:Icon_Normal>;<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1421002": {
+   "name": "특수 스킬: 폭음점혈지",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1421003": {
+   "name": "특수 스킬: 단맥파혈수([괴력] 보유 시)",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1421004": {
+   "name": "강화 특수 스킬: 첩산진맥고",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1421005": {
+   "name": "대시 공격: 부글부글 끓는 기름",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1421006": {
+   "name": "회피 반격: 산과 바다를 뒤엎다",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1421007": {
+   "name": "콤보 스킬: 요리사의 기합",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1421008": {
+   "name": "궁극기: 진수성찬!",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1421009": {
+   "name": "빠른 지원: 고개를 들면 행운이 있을지니",
+   "desc": "<IconMap:Icon_Switch>(빠른 지원 발동 시)",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1421010": {
+   "name": "패링 지원: 위협적인 존재감",
+   "desc": "<IconMap:Icon_Switch>(패링 지원 발동 시)",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1421011": {
+   "name": "지원 돌격: 기세를 몰아",
+   "desc": "<IconMap:Icon_Normal>(패링 지원 시전 후)",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1421001,
+   "avatar_id": 1421,
+   "first_priority": [
+    5,
+    3
+   ],
+   "second_priority": [
+    1
+   ],
+   "third_priority": [
+    6,
+    0,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33700,
+  "slot2": 31400,
+  "slot_sub": 32800,
+  "part_sub_list": [
+   12102,
+   12103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32800,
+     31600
+    ],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     30502,
+     12102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 12102,
+   "name": "공격력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  },
+  "part5": {
+   "prop": 30502,
+   "name": "에너지 자동 회복",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconSpRecover.png"
+  },
+  "part6": {
+   "prop": 20103,
+   "name": "치명타 확률",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part_sub": {
+   "prop": 21103,
+   "name": "치명타 피해",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  }
+ },
+ "strategy": [
+  "04",
+  "<IconMap:Icon_GeneralBuff_PhysDmg>물리 속성, 명파 체계 서포터",
+  "파티원에게 관입력 제공"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100215": 4
+   }
+  },
+  "2": {
+   "hp_max": 466,
+   "attack": 34,
+   "defence": 39,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100225": 12
+   }
+  },
+  "3": {
+   "hp_max": 933,
+   "attack": 68,
+   "defence": 79,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100225": 20
+   }
+  },
+  "4": {
+   "hp_max": 1399,
+   "attack": 102,
+   "defence": 118,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100235": 10
+   }
+  },
+  "5": {
+   "hp_max": 1866,
+   "attack": 136,
+   "defence": 157,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100235": 20
+   }
+  },
+  "6": {
+   "hp_max": 2332,
+   "attack": 170,
+   "defence": 197,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 12
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 12
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 24
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 24
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 36
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 36
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": ""
+}

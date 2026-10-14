@@ -1,0 +1,2177 @@
+{
+ "id": 1531,
+ "icon": "IconRole62",
+ "name": "スターライト･ビリー",
+ "code_name": "Starlight - Billy",
+ "rarity": 4,
+ "weapon_type": {
+  "6": "Rupture"
+ },
+ "element_type": {
+  "200": "Physical"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "1": "邪兎屋"
+ },
+ "gender": 1,
+ "partner_info": {
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0062.png"
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 124,
+  "attack_growth": 74561,
+  "avatar_piece_id": 5531,
+  "break_stun": 95,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 36,
+  "defence_growth": 48644,
+  "element_abnormal_power": 90,
+  "element_mystery": 89,
+  "endurance": 0,
+  "hp_growth": 927143,
+  "hp_max": 683,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 0,
+  "sp_recover": 0,
+  "stun": 0,
+  "tags": [
+   "SPBilly",
+   "Cut",
+   "Physics",
+   "Male",
+   "Camp1",
+   "Size3",
+   "AidTypeParry",
+   "SPBilly",
+   "EtherEyesSize2"
+  ],
+  "rp_max": 120,
+  "rp_recover": 200,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "通常攻撃：ナイトコンビネーション",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方に最大4段の攻撃を行い、<color=#F0D12B>物理属性ダメージ</color>を与える。\n4段目の攻撃発動時に <IconMap:Icon_Special> を押して<color=#FFFFFF>『特殊スキル：この馬力はどうよ！』</color>を発動すると、今回のHP消費量-50%。\nスキルが敵に命中すると、少量のHPを回復する。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：スターライト、フルスロットル！",
+     "desc": "<color=#FFFFFF>「決意」</color>が十分な時、 <IconMap:Icon_Normal> を長押しして発動：\n前方に向けてバイクで突進攻撃を仕掛け、突進終了後にビームを放ち、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：ナイトコンビネーション",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1531001, Prop:1001}",
+       "param": {
+        "1531001": {
+         "main": 5030,
+         "growth": 460,
+         "format": "%",
+         "damage_percentage": 5030,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 3990,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 99825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3622,
+         "sp_consume": 0,
+         "attack_data": [
+          19320,
+          203
+         ],
+         "rp_recovery": 7250,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3623
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1531002, Prop:1001}",
+       "param": {
+        "1531002": {
+         "main": 6800,
+         "growth": 620,
+         "format": "%",
+         "damage_percentage": 6800,
+         "damage_percentage_growth": 620,
+         "stun_ratio": 5680,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 141900,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5157,
+         "sp_consume": 0,
+         "attack_data": [
+          22000,
+          231
+         ],
+         "rp_recovery": 10320,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5158
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1531003, Prop:1001}",
+       "param": {
+        "1531003": {
+         "main": 5450,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 5450,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4800,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 119900,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4357,
+         "sp_consume": 0,
+         "attack_data": [
+          14000,
+          147
+         ],
+         "rp_recovery": 8720,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4358
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率",
+       "desc": "{Skill:1531004, Prop:1001}",
+       "param": {
+        "1531004": {
+         "main": 20600,
+         "growth": 1880,
+         "format": "%",
+         "damage_percentage": 20600,
+         "damage_percentage_growth": 1880,
+         "stun_ratio": 16350,
+         "stun_ratio_growth": 750,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 408925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14861,
+         "sp_consume": 0,
+         "attack_data": [
+          56680,
+          596
+         ],
+         "rp_recovery": 29730,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14862
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1531001, Prop:1002}",
+       "param": {
+        "1531001": {
+         "main": 3990,
+         "growth": 190,
+         "format": "%",
+         "damage_percentage": 5030,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 3990,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 99825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3622,
+         "sp_consume": 0,
+         "attack_data": [
+          19320,
+          203
+         ],
+         "rp_recovery": 7250,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3623
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1531002, Prop:1002}",
+       "param": {
+        "1531002": {
+         "main": 5680,
+         "growth": 260,
+         "format": "%",
+         "damage_percentage": 6800,
+         "damage_percentage_growth": 620,
+         "stun_ratio": 5680,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 141900,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5157,
+         "sp_consume": 0,
+         "attack_data": [
+          22000,
+          231
+         ],
+         "rp_recovery": 10320,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5158
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1531003, Prop:1002}",
+       "param": {
+        "1531003": {
+         "main": 4800,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 5450,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4800,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 119900,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4357,
+         "sp_consume": 0,
+         "attack_data": [
+          14000,
+          147
+         ],
+         "rp_recovery": 8720,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4358
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率",
+       "desc": "{Skill:1531004, Prop:1002}",
+       "param": {
+        "1531004": {
+         "main": 16350,
+         "growth": 750,
+         "format": "%",
+         "damage_percentage": 20600,
+         "damage_percentage_growth": 1880,
+         "stun_ratio": 16350,
+         "stun_ratio_growth": 750,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 408925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14861,
+         "sp_consume": 0,
+         "attack_data": [
+          56680,
+          596
+         ],
+         "rp_recovery": 29730,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14862
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：スターライト、フルスロットル！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1531010, Prop:1001}",
+       "param": {
+        "1531010": {
+         "main": 104320,
+         "growth": 9490,
+         "format": "%",
+         "damage_percentage": 104320,
+         "damage_percentage_growth": 9490,
+         "stun_ratio": 34110,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 852775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 31003,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 31004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1531010, Prop:1002}",
+       "param": {
+        "1531010": {
+         "main": 34110,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 104320,
+         "damage_percentage_growth": 9490,
+         "stun_ratio": 34110,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 852775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 31003,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 31004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "「決意」消費量",
+       "desc": "100Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "回避：あっぶねぇ！",
+     "desc": " <IconMap:Icon_Evade> を押して発動：\nダッシュで高速回避する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "回避：銀河爆走",
+     "desc": "<color=#FFFFFF>『特殊スキル：この馬力はどうよ！』</color>発動中、{LAYOUT_CONSOLECONTROLLER#スティック}{LAYOUT_FALLBACK#スティック}を入力、または <IconMap:Icon_Evade> を長押しして発動：\nバイクでドリフトを繰り出す。スキル発動直後のわずかな間に<color=#FFFFFF>『極限回避』</color>を発動可能。\n<color=#FFFFFF>『極限回避』</color>の発動に成功すると、即座に<color=#FFFFFF>『回避反撃：アフターファイヤー！』</color>に繋がる。\nスキル発動中、{LAYOUT_CONSOLECONTROLLER#スティック}{LAYOUT_FALLBACK#スティック}を入力し続ける、または <IconMap:Icon_Evade> を長押しし続けると、継続的にドリフトすることが可能。\nスキル発動中、<color=#FFFFFF>『特殊スキル：この馬力はどうよ！』</color>のカウントは継続され、最大時間に達すると自動的に<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>に繋がる。\nスキルを途中で中断させた時、自動的に<color=#FFFFFF>『特殊スキル：じゃじゃ馬だぜ！』</color>に繋がる。\nスキル発動中、中断耐性レベルがアップし、短時間の無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：スターライト・ジャッジメント！",
+     "desc": "回避時に <IconMap:Icon_Normal> を押して発動：\n前方に素早く斬撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "回避反撃：キング・オブ・デュエル",
+     "desc": "<color=#FFFFFF>『極限回避』</color>後に <IconMap:Icon_Normal> を押して発動：\n前方にハンドキャノンによる砲撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\n<color=#FFFFFF>『極限回避』</color>によって発動した場合、スキルが敵に命中すると、自身のHP上限10%分のHPを回復し、そのまま<color=#FFFFFF>『通常攻撃：ナイトコンビネーション』</color>4段目に繋げることが可能。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "回避反撃：アフターファイヤー！",
+     "desc": "<color=#FFFFFF>『回避：銀河爆走』</color>発動中に<color=#FFFFFF>『極限回避』</color>が発動した時、自動で発動：\nバイクを回転させ、周囲の敵に<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動後、自動的に<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>に繋がる。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：スターライト・ジャッジメント！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1531012, Prop:1001}",
+       "param": {
+        "1531012": {
+         "main": 4510,
+         "growth": 410,
+         "format": "%",
+         "damage_percentage": 4510,
+         "damage_percentage_growth": 410,
+         "stun_ratio": 2390,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 59675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2164,
+         "sp_consume": 0,
+         "attack_data": [
+          8660
+         ],
+         "rp_recovery": 4330,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2165
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1531012, Prop:1002}",
+       "param": {
+        "1531012": {
+         "main": 2390,
+         "growth": 110,
+         "format": "%",
+         "damage_percentage": 4510,
+         "damage_percentage_growth": 410,
+         "stun_ratio": 2390,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 59675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2164,
+         "sp_consume": 0,
+         "attack_data": [
+          8660
+         ],
+         "rp_recovery": 4330,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2165
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "回避反撃：キング・オブ・デュエル",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1531013, Prop:1001}",
+       "param": {
+        "1531013": {
+         "main": 11950,
+         "growth": 1090,
+         "format": "%",
+         "damage_percentage": 11950,
+         "damage_percentage_growth": 1090,
+         "stun_ratio": 9730,
+         "stun_ratio_growth": 450,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 243100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8836,
+         "sp_consume": 0,
+         "attack_data": [
+          35347
+         ],
+         "rp_recovery": 17680,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8837
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1531013, Prop:1002}",
+       "param": {
+        "1531013": {
+         "main": 9730,
+         "growth": 450,
+         "format": "%",
+         "damage_percentage": 11950,
+         "damage_percentage_growth": 1090,
+         "stun_ratio": 9730,
+         "stun_ratio_growth": 450,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 243100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8836,
+         "sp_consume": 0,
+         "attack_data": [
+          35347
+         ],
+         "rp_recovery": 17680,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8837
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "回避反撃：アフターファイヤー！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1531014, Prop:1001}",
+       "param": {
+        "1531014": {
+         "main": 19870,
+         "growth": 1810,
+         "format": "%",
+         "damage_percentage": 19870,
+         "damage_percentage_growth": 1810,
+         "stun_ratio": 18700,
+         "stun_ratio_growth": 850,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 192500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6999,
+         "sp_consume": 0,
+         "attack_data": [
+          28000
+         ],
+         "rp_recovery": 14000,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1531014, Prop:1002}",
+       "param": {
+        "1531014": {
+         "main": 18700,
+         "growth": 850,
+         "format": "%",
+         "damage_percentage": 19870,
+         "damage_percentage_growth": 1810,
+         "stun_ratio": 18700,
+         "stun_ratio_growth": 850,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 192500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6999,
+         "sp_consume": 0,
+         "attack_data": [
+          28000
+         ],
+         "rp_recovery": 14000,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22000
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "特殊スキル：この馬力はどうよ！",
+     "desc": "自身の現在HPがHP上限の25%を上回る時、 <IconMap:Icon_Special> を押して発動：\n自身のHP上限16%分のHPを消費し、バイクを召喚して敵に向けて高速突進を仕掛け、<color=#F0D12B>物理属性ダメージ</color>を持続的に与える。\nスキル発動直後のわずかな間に、操作中のメンバーとして敵の攻撃を受けると、ガードが発動してその攻撃を無効化し、<color=#FFFFFF>「決意」</color>を5Pt回復する。\nガード発動後、即座に<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>に繋がる。\nスキルの突進攻撃が一定時間継続した後、自動的に<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>に繋がる。\nスキル発動中、中断耐性レベルがアップする。",
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：じゃじゃ馬だぜ！",
+     "desc": "<color=#FFFFFF>『回避：銀河爆走』</color>が中断した時に自動で発動：\nバイクを敵に向けて蹴り飛ばし、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動後、<color=#FFFFFF>『回避反撃：キング・オブ・デュエル』</color>に繋げることが可能。\nスキル発動中、中断耐性レベルがアップする。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：ウィリー・ビリー・アッパー",
+     "desc": "<color=#FFFFFF>『特殊スキル：この馬力はどうよ！』</color>が最大持続時間に到達、またはガードが発動した時に自動で発動：\nバイクを持ち上げて敵を攻撃し、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキルが敵に命中すると、追加で<color=#FFFFFF>「決意」</color>を8Pt回復する。\nスキル発動後、アドレナリンが十分な場合、 <IconMap:Icon_SpecialReady_Rp> を短押しまたは長押しすると<color=#FFFFFF>『強化特殊スキル：スウィング・ステップ』</color>に繋げることが可能。\nスキルのモーション終了後、自動的に<color=#FFFFFF>『特殊スキル：じゃじゃ馬だぜ！』</color>に繋がる。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：これが「グリップ」だ！",
+     "desc": "アドレナリンが十分な時、 <IconMap:Icon_SpecialReady_Rp> を長押しして発動：\nバイクで叩きつけ、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動時、自身のHP上限30%分のHPを回復する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：スウィング・ステップ",
+     "desc": "<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>発動後、アドレナリンが十分な時、 <IconMap:Icon_SpecialReady_Rp> を短押しまたは長押しして発動：\nバイクとハンドキャノンによる連続攻撃を行い、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動時、自身のHP上限15%分のHPを回復する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：この馬力はどうよ！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1531006, Prop:1001}",
+       "param": {
+        "1531006": {
+         "main": 5200,
+         "growth": 480,
+         "format": "%",
+         "damage_percentage": 5200,
+         "damage_percentage_growth": 480,
+         "stun_ratio": 11000,
+         "stun_ratio_growth": 500,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 110000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4000,
+         "sp_consume": 0,
+         "attack_data": [
+          40000
+         ],
+         "rp_recovery": 8000,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1531006, Prop:1002}",
+       "param": {
+        "1531006": {
+         "main": 11000,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 5200,
+         "damage_percentage_growth": 480,
+         "stun_ratio": 11000,
+         "stun_ratio_growth": 500,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 110000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4000,
+         "sp_consume": 0,
+         "attack_data": [
+          40000
+         ],
+         "rp_recovery": 8000,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2000
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：じゃじゃ馬だぜ！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1531007, Prop:1001}",
+       "param": {
+        "1531007": {
+         "main": 7210,
+         "growth": 660,
+         "format": "%",
+         "damage_percentage": 7210,
+         "damage_percentage_growth": 660,
+         "stun_ratio": 5870,
+         "stun_ratio_growth": 270,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 146850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5330,
+         "sp_consume": 0,
+         "attack_data": [
+          21321
+         ],
+         "rp_recovery": 10670,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5331
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1531007, Prop:1002}",
+       "param": {
+        "1531007": {
+         "main": 5870,
+         "growth": 270,
+         "format": "%",
+         "damage_percentage": 7210,
+         "damage_percentage_growth": 660,
+         "stun_ratio": 5870,
+         "stun_ratio_growth": 270,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 146850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5330,
+         "sp_consume": 0,
+         "attack_data": [
+          21321
+         ],
+         "rp_recovery": 10670,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5331
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：ウィリー・ビリー・アッパー",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1531008, Prop:1001}",
+       "param": {
+        "1531008": {
+         "main": 38970,
+         "growth": 3550,
+         "format": "%",
+         "damage_percentage": 38970,
+         "damage_percentage_growth": 3550,
+         "stun_ratio": 13930,
+         "stun_ratio_growth": 640,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 513425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18663,
+         "sp_consume": 0,
+         "attack_data": [
+          20654
+         ],
+         "rp_recovery": 37330,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1531008, Prop:1002}",
+       "param": {
+        "1531008": {
+         "main": 13930,
+         "growth": 640,
+         "format": "%",
+         "damage_percentage": 38970,
+         "damage_percentage_growth": 3550,
+         "stun_ratio": 13930,
+         "stun_ratio_growth": 640,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 513425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18663,
+         "sp_consume": 0,
+         "attack_data": [
+          20654
+         ],
+         "rp_recovery": 37330,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：これが「グリップ」だ！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1531009, Prop:1001}",
+       "param": {
+        "1531009": {
+         "main": 92990,
+         "growth": 8460,
+         "format": "%",
+         "damage_percentage": 92990,
+         "damage_percentage_growth": 8460,
+         "stun_ratio": 79540,
+         "stun_ratio_growth": 3620,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2929025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 80854,
+         "sp_consume": 0,
+         "attack_data": [
+          84014
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1531009, Prop:1002}",
+       "param": {
+        "1531009": {
+         "main": 79540,
+         "growth": 3620,
+         "format": "%",
+         "damage_percentage": 92990,
+         "damage_percentage_growth": 8460,
+         "stun_ratio": 79540,
+         "stun_ratio_growth": 3620,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2929025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 80854,
+         "sp_consume": 0,
+         "attack_data": [
+          84014
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "アドレナリン消費",
+       "desc": "60Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：スウィング・ステップ",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1531011, Prop:1001}",
+       "param": {
+        "1531011": {
+         "main": 95900,
+         "growth": 8720,
+         "format": "%",
+         "damage_percentage": 95900,
+         "damage_percentage_growth": 8720,
+         "stun_ratio": 82400,
+         "stun_ratio_growth": 3750,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 3011525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 83554,
+         "sp_consume": 0,
+         "attack_data": [
+          92014
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1531011, Prop:1002}",
+       "param": {
+        "1531011": {
+         "main": 82400,
+         "growth": 3750,
+         "format": "%",
+         "damage_percentage": 95900,
+         "damage_percentage_growth": 8720,
+         "stun_ratio": 82400,
+         "stun_ratio_growth": 3750,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 3011525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 83554,
+         "sp_consume": 0,
+         "attack_data": [
+          92014
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "アドレナリン消費",
+       "desc": "60Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "連携スキル：スターライト・ウォーク",
+     "desc": "<color=#FFFFFF>『連携スキル』</color>開始時に、対応するエージェントを選択して発動：\n前方に多段攻撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\nスキル発動時、<color=#FFFFFF>「決意」</color>を15Pt回復する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "終結スキル：スターライトキック！",
+     "desc": "デシベルレートが<color=#FFFFFF>『Maximum』</color>に達した時に <IconMap:Icon_UltimateReady> を押して発動：\n空中へ飛び上がってターゲットに飛び蹴りを叩き込み、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "連携スキル：スターライト・ウォーク",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1531015, Prop:1001}",
+       "param": {
+        "1531015": {
+         "main": 66290,
+         "growth": 6030,
+         "format": "%",
+         "damage_percentage": 66290,
+         "damage_percentage_growth": 6030,
+         "stun_ratio": 26220,
+         "stun_ratio_growth": 1200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2484350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 43783,
+         "sp_consume": 0,
+         "attack_data": [
+          45334
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1531015, Prop:1002}",
+       "param": {
+        "1531015": {
+         "main": 26220,
+         "growth": 1200,
+         "format": "%",
+         "damage_percentage": 66290,
+         "damage_percentage_growth": 6030,
+         "stun_ratio": 26220,
+         "stun_ratio_growth": 1200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2484350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 43783,
+         "sp_consume": 0,
+         "attack_data": [
+          45334
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "終結スキル：スターライトキック！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1531016, Prop:1001}",
+       "param": {
+        "1531016": {
+         "main": 159210,
+         "growth": 14480,
+         "format": "%",
+         "damage_percentage": 159210,
+         "damage_percentage_growth": 14480,
+         "stun_ratio": 44920,
+         "stun_ratio_growth": 2050,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 40829,
+         "sp_consume": 0,
+         "attack_data": [
+          63320
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 90830
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1531016, Prop:1002}",
+       "param": {
+        "1531016": {
+         "main": 44920,
+         "growth": 2050,
+         "format": "%",
+         "damage_percentage": 159210,
+         "damage_percentage_growth": 14480,
+         "stun_ratio": 44920,
+         "stun_ratio_growth": 2050,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 40829,
+         "sp_consume": 0,
+         "attack_data": [
+          63320
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 90830
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "クイック支援：スターライト・絆の力",
+     "desc": "操作しているメンバーが吹き飛ばされた時に <IconMap:Icon_Switch> を押して発動：\n前方にハンドキャノンによる砲撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\n現在HPがHP上限の25%を上回る時、発動するスキルは<color=#FFFFFF>『特殊スキル：この馬力はどうよ！』</color>に変わる。この効果は5秒に1回のみ発動可能。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：ヒーロー、参上！",
+     "desc": "出場中のメンバーが攻撃されそうになった時に、 <IconMap:Icon_Switch> を押して発動：\n敵の攻撃をパリィし、ブレイク値を大量に蓄積させる。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援突撃：ヴィラン、退場！",
+     "desc": "<color=#FFFFFF>『パリィ支援』</color>発動後、 <IconMap:Icon_Normal> を押して発動：\nターゲットに向けてバイクを蹴り飛ばし、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "クイック支援：スターライト・絆の力",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1531017, Prop:1001}",
+       "param": {
+        "1531017": {
+         "main": 9200,
+         "growth": 840,
+         "format": "%",
+         "damage_percentage": 9200,
+         "damage_percentage_growth": 840,
+         "stun_ratio": 4870,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 121550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4418,
+         "sp_consume": 0,
+         "attack_data": [
+          17674
+         ],
+         "rp_recovery": 8840,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4419
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1531017, Prop:1002}",
+       "param": {
+        "1531017": {
+         "main": 4870,
+         "growth": 230,
+         "format": "%",
+         "damage_percentage": 9200,
+         "damage_percentage_growth": 840,
+         "stun_ratio": 4870,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 121550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4418,
+         "sp_consume": 0,
+         "attack_data": [
+          17674
+         ],
+         "rp_recovery": 8840,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4419
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：ヒーロー、参上！",
+     "param": [
+      {
+       "name": "パリィ・軽 ブレイク倍率",
+       "desc": "{Skill:1531018, Prop:1002}",
+       "param": {
+        "1531018": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          26654
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・重 ブレイク倍率",
+       "desc": "{Skill:1531019, Prop:1002}",
+       "param": {
+        "1531019": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          46654
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・連続 ブレイク倍率",
+       "desc": "{Skill:1531020, Prop:1002}",
+       "param": {
+        "1531020": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          46654
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：ヴィラン、退場！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1531021, Prop:1001}",
+       "param": {
+        "1531021": {
+         "main": 22960,
+         "growth": 2090,
+         "format": "%",
+         "damage_percentage": 22960,
+         "damage_percentage_growth": 2090,
+         "stun_ratio": 20370,
+         "stun_ratio_growth": 930,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 705100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20292,
+         "sp_consume": 0,
+         "attack_data": [
+          31321
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7831
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1531021, Prop:1002}",
+       "param": {
+        "1531021": {
+         "main": 20370,
+         "growth": 930,
+         "format": "%",
+         "damage_percentage": 22960,
+         "damage_percentage_growth": 2090,
+         "stun_ratio": 20370,
+         "stun_ratio_growth": 930,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 705100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20292,
+         "sp_consume": 0,
+         "attack_data": [
+          31321
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7831
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "ヒーローの始まり",
+   "desc": "<color=#FFFFFF>『コアパッシブ：ナイトの決意』</color>によるフィールド入場時のアドレナリン回復量+60Pt。<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中すると、自身の攻撃によるダメージがターゲットの<color=#F0D12B>物理属性ダメージ耐性</color>を18%無視する。継続時間45秒、重複して発動すると継続時間が更新される。",
+   "desc2": "新エリー都…\nテレビの中と同じくらい悪党だらけなのに、\n本物のヒーローは数えるほどしかいない街。\n「セリフを叫ぶのは得意だけどよ、胸を張って\n『俺がヒーローだ！』って叫ぶ勇気はまだねぇんだ」\n「けどいざってときは一番前に立ってやるぜ！\nなんたって、ヒーローならそうするに決まってるからな！」"
+  },
+  "2": {
+   "level": 2,
+   "name": "荒野構造体",
+   "desc": "<color=#FFFFFF>『通常攻撃：スターライト、フルスロットル！』</color>、<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>と<color=#FFFFFF>『終結スキル：スターライトキック！』</color>の与ダメージ+50%。<color=#FFFFFF>『強化特殊スキル：スウィング・ステップ』</color>、<color=#FFFFFF>『強化特殊スキル：これが「グリップ」だ！』</color>発動時、または<color=#FFFFFF>『特殊スキル：この馬力はどうよ！』</color>がブレイク状態の敵に命中した時、<color=#FFFFFF>「ターボ」</color>効果を獲得する。<color=#FFFFFF>『特殊スキル：この馬力はどうよ！』</color>発動時は「ターボ」効果を消費し、そのまま<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>に繋がる。また、今回の<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>の会心ダメージ+50%。<color=#FFFFFF>「ターボ」</color>効果は最大1重まで所持できる。",
+   "desc2": "郊外に腕利きのガンマンはごまんといるが、その中でも\n猛スピードのバイク上から正確に的を射抜ける者だけが、\n真のエースになれる。\n「弾道計算？機械制御の指先？あー違う違う！…」\n「俺の射撃が神がかってんのは…そう、スターライトに選ばれたからだっ！」"
+  },
+  "3": {
+   "level": 3,
+   "name": "ナイトの精神",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "スターライトナイトの精神とは？\n決して退かず、強きを挫き、弱きを助ける？\nそれとも犠牲、公平、慈悲、名誉を重んずるかどうか？\n「正しいと思ったなら、そうする…」\n「ダセぇことを、よしとしない！」\n「だから俺は、決して仲間を見捨てねぇ！」"
+  },
+  "4": {
+   "level": 4,
+   "name": "裁きの雷管",
+   "desc": "接敵状態中、<color=#FFFFFF>『特殊スキル：この馬力はどうよ！』</color>を発動するたび、自身の会心ダメージ+8%、最大2重まで重ね掛け可能、継続時間45秒、重複して発動すると継続時間が更新される。現在HPがHP上限の35%未満、かつ自身が操作中のメンバーでない場合、HP上限の35%になるまでHPを持続的に回復する。",
+   "desc2": "理想とは、正義を維持するために生まれ、\nやがて用済みとなる運命にある。\n「子供向け番組だからなんだ」\n「いちばん勇気のいる夢を見られんのは、子供の頃だけだろ？」\n「だからスターライト・ビリーは、笑われる夢の守護者なんだ」"
+  },
+  "5": {
+   "level": 5,
+   "name": "輝かしきフォーム",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "ヒーローとして認識してもらうには、\n派手でかっこいい見た目が欠かせない…\nそう考えると、ヒーローは何かと不自由だ。\n「いやまぁ、でけぇ銃とか、出力の高ぇパーツとかもついてっけど…！\nそれは俺の強さとカンケーねぇの！」\n「俺様の一番の武器は、満天の星の光なんだからな！」"
+  },
+  "6": {
+   "level": 6,
+   "name": "スターライトナイト",
+   "desc": "<color=#FFFFFF>『終結スキル：スターライトキック！』</color>と<color=#FFFFFF>『通常攻撃：スターライト、フルスロットル！』</color>による透徹ダメージ+18%。<color=#FFFFFF>『通常攻撃：ナイトコンビネーション』</color>4段目、<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>または<color=#FFFFFF>『連携スキル：スターライト・ウォーク』</color>が敵に命中すると、<color=#FFFFFF>「煌めくスターライト」</color>を1重獲得する、最大6重まで所持可能、1回のスキルで1重のみ獲得できる。<color=#FFFFFF>『終結スキル：スターライトキック！』</color>または<color=#FFFFFF>『通常攻撃：スターライト、フルスロットル！』</color>発動時、<color=#FFFFFF>「煌めくスターライト」</color>を最大2重まで消費できる。消費した<color=#FFFFFF>「煌めくスターライト」</color>の重数1重につき、該当スキルの最後の一撃は追加で透徹力100%分の<color=#F0D12B>物理属性ダメージ</color>を与える。",
+   "desc2": "希望を信じ続けた男は、やがて誰かの希望となった。\nこれがスターライトナイトの、そしてビリー・キッドの物語。\n「スターライトナイト——変・身！」"
+  }
+ },
+ "passive": {
+  "level": {
+   "1531049": {
+    "level": 1,
+    "id": 1531049,
+    "name": [
+     "コアパッシブ：ナイトの決意",
+     "追加能力：バーニング・スターライト"
+    ],
+    "desc": [
+     "スターライト・ビリーは自身の最大HPに応じて追加で透徹力をアップさせる。最大HP1Ptにつき、透徹力+0.1Pt。\nスターライト・ビリーのスキルによる<color=#F0D12B>物理属性ダメージ</color>は全て透徹ダメージとみなされ、敵の防御力を無視するほか、透徹力を基にスキルダメージを計算する。\nフィールド入場時、スターライト・ビリーはアドレナリンを60Pt回復する。探査モードにおいて、この効果は180秒に1回のみ発動可能。\n現在HPがHP上限の25%を上回る時、 <IconMap:Icon_Special> を押すと、HPを消費して<color=#FFFFFF>『特殊スキル：この馬力はどうよ！』</color>を発動できる。接敵状態中にこのスキルを発動するたび、自身の会心ダメージ+<color=#2BAD00>45%</color>、継続時間45秒、重複して発動すると継続時間が更新される。現在HPがHP上限の25%以下の時、被ダメージ-50%。\nスターライト・ビリーの攻撃が敵に命中すると<color=#FFFFFF>「決意」</color>を獲得する。獲得量はスキルによって変化する。<color=#FFFFFF>「決意」</color>は最大120Ptまで所持できる。接敵状態中、<color=#FFFFFF>「決意」</color>は徐々に回復する。<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>が命中した時、<color=#FFFFFF>『連携スキル：スターライト・ウォーク』</color>を発動した時、またはガードが発動した時、追加で<color=#FFFFFF>「決意」</color>を回復する。任意の方法で<color=#FFFFFF>『極限回避』</color>を発動した時、<color=#FFFFFF>「決意」</color>を3Pt回復する。この効果は0.5秒に1回のみ発動可能。\n<color=#FFFFFF>「決意」</color>が100Pt以上の時、 <IconMap:Icon_Normal> を長押しすると<color=#FFFFFF>「決意」</color>を100Pt消費して<color=#FFFFFF>『通常攻撃：スターライト、フルスロットル！』</color>を発動できる。\n<color=#FFFFFF>『通常攻撃：ナイトコンビネーション』</color>が敵に命中した時、少量のHPを回復する。<color=#FFFFFF>『極限回避』</color>によって発動した<color=#FFFFFF>『回避反撃：キング・オブ・デュエル』</color>が敵に命中した時、HPを回復する。<color=#FFFFFF>『強化特殊スキル：これが「グリップ」だ！』</color>または<color=#FFFFFF>『強化特殊スキル：スウィング・ステップ』</color>を発動した時、HPを回復する。",
+     "チームに<color=#FFFFFF>[撃破]</color>、<color=#FFFFFF>[防護]</color>または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>、<color=#FFFFFF>『通常攻撃：ナイトコンビネーション』</color>4段目、<color=#FFFFFF>『連携スキル』</color>または<color=#FFFFFF>『終結スキル』</color>が敵に命中した時、<color=#FFFFFF>「スターライト」</color>を1重獲得する。継続時間45秒、継続時間内では同一のスキルにつき最大1回まで獲得可能、最大2重まで重ね掛け可能。<color=#FFFFFF>「スターライト」</color>1重につき、<color=#FFFFFF>『連携スキル』</color>、<color=#FFFFFF>『終結スキル』</color>、<color=#FFFFFF>『強化特殊スキル』</color>、<color=#FFFFFF>『通常攻撃：スターライト、フルスロットル！』</color>の与ダメージ+20%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1531050": {
+    "level": 2,
+    "id": 1531050,
+    "name": [
+     "コアパッシブ：ナイトの決意",
+     "追加能力：バーニング・スターライト"
+    ],
+    "desc": [
+     "スターライト・ビリーは自身の最大HPに応じて追加で透徹力をアップさせる。最大HP1Ptにつき、透徹力+0.1Pt。\nスターライト・ビリーのスキルによる<color=#F0D12B>物理属性ダメージ</color>は全て透徹ダメージとみなされ、敵の防御力を無視するほか、透徹力を基にスキルダメージを計算する。\nフィールド入場時、スターライト・ビリーはアドレナリンを60Pt回復する。探査モードにおいて、この効果は180秒に1回のみ発動可能。\n現在HPがHP上限の25%を上回る時、 <IconMap:Icon_Special> を押すと、HPを消費して<color=#FFFFFF>『特殊スキル：この馬力はどうよ！』</color>を発動できる。接敵状態中にこのスキルを発動するたび、自身の会心ダメージ+<color=#2BAD00>53%</color>、継続時間45秒、重複して発動すると継続時間が更新される。現在HPがHP上限の25%以下の時、被ダメージ-50%。\nスターライト・ビリーの攻撃が敵に命中すると<color=#FFFFFF>「決意」</color>を獲得する。獲得量はスキルによって変化する。<color=#FFFFFF>「決意」</color>は最大120Ptまで所持できる。接敵状態中、<color=#FFFFFF>「決意」</color>は徐々に回復する。<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>が命中した時、<color=#FFFFFF>『連携スキル：スターライト・ウォーク』</color>を発動した時、またはガードが発動した時、追加で<color=#FFFFFF>「決意」</color>を回復する。任意の方法で<color=#FFFFFF>『極限回避』</color>を発動した時、<color=#FFFFFF>「決意」</color>を3Pt回復する。この効果は0.5秒に1回のみ発動可能。\n<color=#FFFFFF>「決意」</color>が100Pt以上の時、 <IconMap:Icon_Normal> を長押しすると<color=#FFFFFF>「決意」</color>を100Pt消費して<color=#FFFFFF>『通常攻撃：スターライト、フルスロットル！』</color>を発動できる。\n<color=#FFFFFF>『通常攻撃：ナイトコンビネーション』</color>が敵に命中した時、少量のHPを回復する。<color=#FFFFFF>『極限回避』</color>によって発動した<color=#FFFFFF>『回避反撃：キング・オブ・デュエル』</color>が敵に命中した時、HPを回復する。<color=#FFFFFF>『強化特殊スキル：これが「グリップ」だ！』</color>または<color=#FFFFFF>『強化特殊スキル：スウィング・ステップ』</color>を発動した時、HPを回復する。",
+     "チームに<color=#FFFFFF>[撃破]</color>、<color=#FFFFFF>[防護]</color>または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>、<color=#FFFFFF>『通常攻撃：ナイトコンビネーション』</color>4段目、<color=#FFFFFF>『連携スキル』</color>または<color=#FFFFFF>『終結スキル』</color>が敵に命中した時、<color=#FFFFFF>「スターライト」</color>を1重獲得する。継続時間45秒、継続時間内では同一のスキルにつき最大1回まで獲得可能、最大2重まで重ね掛け可能。<color=#FFFFFF>「スターライト」</color>1重につき、<color=#FFFFFF>『連携スキル』</color>、<color=#FFFFFF>『終結スキル』</color>、<color=#FFFFFF>『強化特殊スキル』</color>、<color=#FFFFFF>『通常攻撃：スターライト、フルスロットル！』</color>の与ダメージ+20%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1531051": {
+    "level": 3,
+    "id": 1531051,
+    "name": [
+     "コアパッシブ：ナイトの決意",
+     "追加能力：バーニング・スターライト"
+    ],
+    "desc": [
+     "スターライト・ビリーは自身の最大HPに応じて追加で透徹力をアップさせる。最大HP1Ptにつき、透徹力+0.1Pt。\nスターライト・ビリーのスキルによる<color=#F0D12B>物理属性ダメージ</color>は全て透徹ダメージとみなされ、敵の防御力を無視するほか、透徹力を基にスキルダメージを計算する。\nフィールド入場時、スターライト・ビリーはアドレナリンを60Pt回復する。探査モードにおいて、この効果は180秒に1回のみ発動可能。\n現在HPがHP上限の25%を上回る時、 <IconMap:Icon_Special> を押すと、HPを消費して<color=#FFFFFF>『特殊スキル：この馬力はどうよ！』</color>を発動できる。接敵状態中にこのスキルを発動するたび、自身の会心ダメージ+<color=#2BAD00>60%</color>、継続時間45秒、重複して発動すると継続時間が更新される。現在HPがHP上限の25%以下の時、被ダメージ-50%。\nスターライト・ビリーの攻撃が敵に命中すると<color=#FFFFFF>「決意」</color>を獲得する。獲得量はスキルによって変化する。<color=#FFFFFF>「決意」</color>は最大120Ptまで所持できる。接敵状態中、<color=#FFFFFF>「決意」</color>は徐々に回復する。<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>が命中した時、<color=#FFFFFF>『連携スキル：スターライト・ウォーク』</color>を発動した時、またはガードが発動した時、追加で<color=#FFFFFF>「決意」</color>を回復する。任意の方法で<color=#FFFFFF>『極限回避』</color>を発動した時、<color=#FFFFFF>「決意」</color>を3Pt回復する。この効果は0.5秒に1回のみ発動可能。\n<color=#FFFFFF>「決意」</color>が100Pt以上の時、 <IconMap:Icon_Normal> を長押しすると<color=#FFFFFF>「決意」</color>を100Pt消費して<color=#FFFFFF>『通常攻撃：スターライト、フルスロットル！』</color>を発動できる。\n<color=#FFFFFF>『通常攻撃：ナイトコンビネーション』</color>が敵に命中した時、少量のHPを回復する。<color=#FFFFFF>『極限回避』</color>によって発動した<color=#FFFFFF>『回避反撃：キング・オブ・デュエル』</color>が敵に命中した時、HPを回復する。<color=#FFFFFF>『強化特殊スキル：これが「グリップ」だ！』</color>または<color=#FFFFFF>『強化特殊スキル：スウィング・ステップ』</color>を発動した時、HPを回復する。",
+     "チームに<color=#FFFFFF>[撃破]</color>、<color=#FFFFFF>[防護]</color>または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>、<color=#FFFFFF>『通常攻撃：ナイトコンビネーション』</color>4段目、<color=#FFFFFF>『連携スキル』</color>または<color=#FFFFFF>『終結スキル』</color>が敵に命中した時、<color=#FFFFFF>「スターライト」</color>を1重獲得する。継続時間45秒、継続時間内では同一のスキルにつき最大1回まで獲得可能、最大2重まで重ね掛け可能。<color=#FFFFFF>「スターライト」</color>1重につき、<color=#FFFFFF>『連携スキル』</color>、<color=#FFFFFF>『終結スキル』</color>、<color=#FFFFFF>『強化特殊スキル』</color>、<color=#FFFFFF>『通常攻撃：スターライト、フルスロットル！』</color>の与ダメージ+20%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1531052": {
+    "level": 4,
+    "id": 1531052,
+    "name": [
+     "コアパッシブ：ナイトの決意",
+     "追加能力：バーニング・スターライト"
+    ],
+    "desc": [
+     "スターライト・ビリーは自身の最大HPに応じて追加で透徹力をアップさせる。最大HP1Ptにつき、透徹力+0.1Pt。\nスターライト・ビリーのスキルによる<color=#F0D12B>物理属性ダメージ</color>は全て透徹ダメージとみなされ、敵の防御力を無視するほか、透徹力を基にスキルダメージを計算する。\nフィールド入場時、スターライト・ビリーはアドレナリンを60Pt回復する。探査モードにおいて、この効果は180秒に1回のみ発動可能。\n現在HPがHP上限の25%以上の時、 <IconMap:Icon_Special> を押すと、HPを消費して<color=#FFFFFF>『特殊スキル：この馬力はどうよ！』</color>を発動できる。接敵状態中にこのスキルを発動するたび、自身の会心ダメージ+<color=#2BAD00>68%</color>、継続時間45秒、重複して発動すると継続時間が更新される。現在HPがHP上限の25%以下の時、被ダメージ-50%。\nスターライト・ビリーの攻撃が敵に命中すると<color=#FFFFFF>「決意」</color>を獲得する。獲得量はスキルによって変化する。<color=#FFFFFF>「決意」</color>は最大120Ptまで所持できる。接敵状態中、<color=#FFFFFF>「決意」</color>は徐々に回復する。<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>が命中した時、<color=#FFFFFF>『連携スキル：スターライト・ウォーク』</color>を発動した時、またはガードが発動した時、追加で<color=#FFFFFF>「決意」</color>を回復する。任意の方法で<color=#FFFFFF>『極限回避』</color>を発動した時、<color=#FFFFFF>「決意」</color>を3Pt回復する。この効果は0.5秒に1回のみ発動可能。\n<color=#FFFFFF>「決意」</color>が100Pt以上の時、 <IconMap:Icon_Normal> を長押しすると<color=#FFFFFF>「決意」</color>を100Pt消費して<color=#FFFFFF>『通常攻撃：スターライト、フルスロットル！』</color>を発動できる。\n<color=#FFFFFF>『通常攻撃：ナイトコンビネーション』</color>が敵に命中した時、少量のHPを回復する。<color=#FFFFFF>『極限回避』</color>によって発動した<color=#FFFFFF>『回避反撃：キング・オブ・デュエル』</color>が敵に命中した時、HPを回復する。<color=#FFFFFF>『強化特殊スキル：これが「グリップ」だ！』</color>または<color=#FFFFFF>『強化特殊スキル：スウィング・ステップ』</color>を発動した時、HPを回復する。",
+     "チームに<color=#FFFFFF>[撃破]</color>、<color=#FFFFFF>[防護]</color>または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>、<color=#FFFFFF>『通常攻撃：ナイトコンビネーション』</color>4段目、<color=#FFFFFF>『連携スキル』</color>または<color=#FFFFFF>『終結スキル』</color>が敵に命中した時、<color=#FFFFFF>「スターライト」</color>を1重獲得する。継続時間45秒、継続時間内では同一のスキルにつき最大1回まで獲得可能、最大2重まで重ね掛け可能。<color=#FFFFFF>「スターライト」</color>1重につき、<color=#FFFFFF>『連携スキル』</color>、<color=#FFFFFF>『終結スキル』</color>、<color=#FFFFFF>『強化特殊スキル』</color>、<color=#FFFFFF>『通常攻撃：スターライト、フルスロットル！』</color>の与ダメージ+20%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1531053": {
+    "level": 5,
+    "id": 1531053,
+    "name": [
+     "コアパッシブ：ナイトの決意",
+     "追加能力：バーニング・スターライト"
+    ],
+    "desc": [
+     "スターライト・ビリーは自身の最大HPに応じて追加で透徹力をアップさせる。最大HP1Ptにつき、透徹力+0.1Pt。\nスターライト・ビリーのスキルによる<color=#F0D12B>物理属性ダメージ</color>は全て透徹ダメージとみなされ、敵の防御力を無視するほか、透徹力を基にスキルダメージを計算する。\nフィールド入場時、スターライト・ビリーはアドレナリンを60Pt回復する。探査モードにおいて、この効果は180秒に1回のみ発動可能。\n現在HPがHP上限の25%を上回る時、 <IconMap:Icon_Special> を押すと、HPを消費して<color=#FFFFFF>『特殊スキル：この馬力はどうよ！』</color>を発動できる。接敵状態中にこのスキルを発動するたび、自身の会心ダメージ+<color=#2BAD00>75%</color>、継続時間45秒、重複して発動すると継続時間が更新される。現在HPがHP上限の25%以下の時、被ダメージ-50%。\nスターライト・ビリーの攻撃が敵に命中すると<color=#FFFFFF>「決意」</color>を獲得する。獲得量はスキルによって変化する。<color=#FFFFFF>「決意」</color>は最大120Ptまで所持できる。接敵状態中、<color=#FFFFFF>「決意」</color>は徐々に回復する。<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>が命中した時、<color=#FFFFFF>『連携スキル：スターライト・ウォーク』</color>を発動した時、またはガードが発動した時、追加で<color=#FFFFFF>「決意」</color>を回復する。任意の方法で<color=#FFFFFF>『極限回避』</color>を発動した時、<color=#FFFFFF>「決意」</color>を3Pt回復する。この効果は0.5秒に1回のみ発動可能。\n<color=#FFFFFF>「決意」</color>が100Pt以上の時、 <IconMap:Icon_Normal> を長押しすると<color=#FFFFFF>「決意」</color>を100Pt消費して<color=#FFFFFF>『通常攻撃：スターライト、フルスロットル！』</color>を発動できる。\n<color=#FFFFFF>『通常攻撃：ナイトコンビネーション』</color>が敵に命中した時、少量のHPを回復する。<color=#FFFFFF>『極限回避』</color>によって発動した<color=#FFFFFF>『回避反撃：キング・オブ・デュエル』</color>が敵に命中した時、HPを回復する。<color=#FFFFFF>『強化特殊スキル：これが「グリップ」だ！』</color>または<color=#FFFFFF>『強化特殊スキル：スウィング・ステップ』</color>を発動した時、HPを回復する。",
+     "チームに<color=#FFFFFF>[撃破]</color>、<color=#FFFFFF>[防護]</color>または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>、<color=#FFFFFF>『通常攻撃：ナイトコンビネーション』</color>4段目、<color=#FFFFFF>『連携スキル』</color>または<color=#FFFFFF>『終結スキル』</color>が敵に命中した時、<color=#FFFFFF>「スターライト」</color>を1重獲得する。継続時間45秒、継続時間内では同一のスキルにつき最大1回まで獲得可能、最大2重まで重ね掛け可能。<color=#FFFFFF>「スターライト」</color>1重につき、<color=#FFFFFF>『連携スキル』</color>、<color=#FFFFFF>『終結スキル』</color>、<color=#FFFFFF>『強化特殊スキル』</color>、<color=#FFFFFF>『通常攻撃：スターライト、フルスロットル！』</color>の与ダメージ+20%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1531054": {
+    "level": 6,
+    "id": 1531054,
+    "name": [
+     "コアパッシブ：ナイトの決意",
+     "追加能力：バーニング・スターライト"
+    ],
+    "desc": [
+     "スターライト・ビリーは自身の最大HPに応じて追加で透徹力をアップさせる。最大HP1Ptにつき、透徹力+0.1Pt。\nスターライト・ビリーのスキルによる<color=#F0D12B>物理属性ダメージ</color>は全て透徹ダメージとみなされ、敵の防御力を無視するほか、透徹力を基にスキルダメージを計算する。\nフィールド入場時、スターライト・ビリーはアドレナリンを60Pt回復する。探査モードにおいて、この効果は180秒に1回のみ発動可能。\n現在HPがHP上限の25%を上回る時、 <IconMap:Icon_Special> を押すと、HPを消費して<color=#FFFFFF>『特殊スキル：この馬力はどうよ！』</color>を発動できる。接敵状態中にこのスキルを発動するたび、自身の会心ダメージ+<color=#2BAD00>83%</color>、継続時間45秒、重複して発動すると継続時間が更新される。現在HPがHP上限の25%以下の時、被ダメージ-50%。\nスターライト・ビリーの攻撃が敵に命中すると<color=#FFFFFF>「決意」</color>を獲得する。獲得量はスキルによって変化する。<color=#FFFFFF>「決意」</color>は最大120Ptまで所持できる。接敵状態中、<color=#FFFFFF>「決意」</color>は徐々に回復する。<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>が命中した時、<color=#FFFFFF>『連携スキル：スターライト・ウォーク』</color>を発動した時、またはガードが発動した時、追加で<color=#FFFFFF>「決意」</color>を回復する。任意の方法で<color=#FFFFFF>『極限回避』</color>を発動した時、<color=#FFFFFF>「決意」</color>を3Pt回復する。この効果は0.5秒に1回のみ発動可能。\n<color=#FFFFFF>「決意」</color>が100Pt以上の時、 <IconMap:Icon_Normal> を長押しすると<color=#FFFFFF>「決意」</color>を100Pt消費して<color=#FFFFFF>『通常攻撃：スターライト、フルスロットル！』</color>を発動できる。\n<color=#FFFFFF>『通常攻撃：ナイトコンビネーション』</color>が敵に命中した時、少量のHPを回復する。<color=#FFFFFF>『極限回避』</color>によって発動した<color=#FFFFFF>『回避反撃：キング・オブ・デュエル』</color>が敵に命中した時、HPを回復する。<color=#FFFFFF>『強化特殊スキル：これが「グリップ」だ！』</color>または<color=#FFFFFF>『強化特殊スキル：スウィング・ステップ』</color>を発動した時、HPを回復する。",
+     "チームに<color=#FFFFFF>[撃破]</color>、<color=#FFFFFF>[防護]</color>または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>、<color=#FFFFFF>『通常攻撃：ナイトコンビネーション』</color>4段目、<color=#FFFFFF>『連携スキル』</color>または<color=#FFFFFF>『終結スキル』</color>が敵に命中した時、<color=#FFFFFF>「スターライト」</color>を1重獲得する。継続時間45秒、継続時間内では同一のスキルにつき最大1回まで獲得可能、最大2重まで重ね掛け可能。<color=#FFFFFF>「スターライト」</color>1重につき、<color=#FFFFFF>『連携スキル』</color>、<color=#FFFFFF>『終結スキル』</color>、<color=#FFFFFF>『強化特殊スキル』</color>、<color=#FFFFFF>『通常攻撃：スターライト、フルスロットル！』</color>の与ダメージ+20%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1531055": {
+    "level": 7,
+    "id": 1531055,
+    "name": [
+     "コアパッシブ：ナイトの決意",
+     "追加能力：バーニング・スターライト"
+    ],
+    "desc": [
+     "スターライト・ビリーは自身の最大HPに応じて追加で透徹力をアップさせる。最大HP1Ptにつき、透徹力+0.1Pt。\nスターライト・ビリーのスキルによる<color=#F0D12B>物理属性ダメージ</color>は全て透徹ダメージとみなされ、敵の防御力を無視するほか、透徹力を基にスキルダメージを計算する。\nフィールド入場時、スターライト・ビリーはアドレナリンを60Pt回復する。探査モードにおいて、この効果は180秒に1回のみ発動可能。\n現在HPがHP上限の25%を上回る時、 <IconMap:Icon_Special> を押すと、HPを消費して<color=#FFFFFF>『特殊スキル：この馬力はどうよ！』</color>を発動できる。接敵状態中にこのスキルを発動するたび、自身の会心ダメージ+<color=#2BAD00>90%</color>、継続時間45秒、重複して発動すると継続時間が更新される。現在HPがHP上限の25%以下の時、被ダメージ-50%。\nスターライト・ビリーの攻撃が敵に命中すると<color=#FFFFFF>「決意」</color>を獲得する。獲得量はスキルによって変化する。<color=#FFFFFF>「決意」</color>は最大120Ptまで所持できる。接敵状態中、<color=#FFFFFF>「決意」</color>は徐々に回復する。<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>が命中した時、<color=#FFFFFF>『連携スキル：スターライト・ウォーク』</color>を発動した時、またはガードが発動した時、追加で<color=#FFFFFF>「決意」</color>を回復する。任意の方法で<color=#FFFFFF>『極限回避』</color>を発動した時、<color=#FFFFFF>「決意」</color>を3Pt回復する。この効果は0.5秒に1回のみ発動可能。\n<color=#FFFFFF>「決意」</color>が100Pt以上の時、 <IconMap:Icon_Normal> を長押しすると<color=#FFFFFF>「決意」</color>を100Pt消費して<color=#FFFFFF>『通常攻撃：スターライト、フルスロットル！』</color>を発動できる。\n<color=#FFFFFF>『通常攻撃：ナイトコンビネーション』</color>が敵に命中した時、少量のHPを回復する。<color=#FFFFFF>『極限回避』</color>によって発動した<color=#FFFFFF>『回避反撃：キング・オブ・デュエル』</color>が敵に命中した時、HPを回復する。<color=#FFFFFF>『強化特殊スキル：これが「グリップ」だ！』</color>または<color=#FFFFFF>『強化特殊スキル：スウィング・ステップ』</color>を発動した時、HPを回復する。",
+     "チームに<color=#FFFFFF>[撃破]</color>、<color=#FFFFFF>[防護]</color>または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>『強化特殊スキル：ウィリー・ビリー・アッパー』</color>、<color=#FFFFFF>『通常攻撃：ナイトコンビネーション』</color>4段目、<color=#FFFFFF>『連携スキル』</color>または<color=#FFFFFF>『終結スキル』</color>が敵に命中した時、<color=#FFFFFF>「スターライト」</color>を1重獲得する。継続時間45秒、継続時間内では同一のスキルにつき最大1回まで獲得可能、最大2重まで重ね掛け可能。<color=#FFFFFF>「スターライト」</color>1重につき、<color=#FFFFFF>『連携スキル』</color>、<color=#FFFFFF>『終結スキル』</color>、<color=#FFFFFF>『強化特殊スキル』</color>、<color=#FFFFFF>『通常攻撃：スターライト、フルスロットル！』</color>の与ダメージ+20%。"
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110514": 2
+   },
+   "3": {
+    "10": 28000,
+    "110514": 4
+   },
+   "4": {
+    "10": 60000,
+    "110008": 2,
+    "110514": 9
+   },
+   "5": {
+    "10": 100000,
+    "110008": 3,
+    "110514": 15
+   },
+   "6": {
+    "10": 200000,
+    "110008": 4,
+    "110514": 30
+   }
+  }
+ },
+ "skin": {
+  "3115310": {
+   "name": "スターライト・ビリー・「スターライトフォーム」",
+   "desc": "希望を信じ続ける者は、いつか誰かの希望となる。",
+   "obtain_desc": "",
+   "image": "IconRole62"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1531001": {
+   "name": "通常攻撃：ナイトコンビネーション",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1531002": {
+   "name": "通常攻撃：スターライト、フルスロットル！",
+   "desc": "<IconMap:Icon_Normal> （長押し、「決意」が十分な時）",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1531003": {
+   "name": "特殊スキル：この馬力はどうよ！",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1531004": {
+   "name": "特殊スキル：じゃじゃ馬だぜ！",
+   "desc": "（『強化特殊スキル：ウィリー・ビリー・アッパー』終了後に自動発動）",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1531005": {
+   "name": "強化特殊スキル：これが「グリップ」だ！",
+   "desc": "<IconMap:Icon_SpecialReady_Rp> （長押し）",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1531006": {
+   "name": "強化特殊スキル：スウィング・ステップ",
+   "desc": "<IconMap:Icon_SpecialReady_Rp> （短押し/長押し）（『強化特殊スキル：ウィリー・ビリー・アッパー』発動後）",
+   "element_type": 200,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1531007": {
+   "name": "強化特殊スキル：ウィリー・ビリー・アッパー",
+   "desc": "（『特殊スキル：この馬力はどうよ！』のガード成功時）/（『特殊スキル：この馬力はどうよ！』一定時間継続後に自動発動）",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1531008": {
+   "name": "ダッシュ攻撃：スターライト・ジャッジメント！",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1531009": {
+   "name": "回避反撃：キング・オブ・デュエル",
+   "desc": "<IconMap:Icon_Evade>（極限回避成功） ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1531010": {
+   "name": "回避反撃：アフターファイヤー！",
+   "desc": "<IconMap:Icon_Evade> （『特殊スキル：この馬力はどうよ！』発動中）（『極限回避』発動後に自動発動）",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1531011": {
+   "name": "連携スキル：スターライト・ウォーク",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 200,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1531012": {
+   "name": "終結スキル：スターライトキック！",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1531013": {
+   "name": "クイック支援：スターライト・絆の力",
+   "desc": "<IconMap:Icon_Switch>（クイック支援の発動条件を満たした時）",
+   "element_type": 200,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1531014": {
+   "name": "パリィ支援：ヒーロー、参上！",
+   "desc": "<IconMap:Icon_Switch>（パリィ支援の発動条件を満たした時）",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1531015": {
+   "name": "支援突撃：ヴィラン、退場！",
+   "desc": "<IconMap:Icon_Normal>（パリィ支援を発動した後に）",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1531001,
+   "avatar_id": 1531,
+   "first_priority": [
+    5,
+    1,
+    0
+   ],
+   "second_priority": [
+    3,
+    2
+   ],
+   "third_priority": [
+    6
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33100,
+  "slot2": 32700,
+  "slot_sub": 31000,
+  "part_sub_list": [
+   20103,
+   21103,
+   11102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33100,
+     32700
+    ],
+    "part_sub_list": [
+     20103,
+     21103
+    ]
+   },
+   {
+    "suit_list": [
+     33100,
+     31000
+    ],
+    "part_sub_list": [
+     31503,
+     11102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     11102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "会心率",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 21103,
+   "name": "会心ダメージ",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  },
+  "part6": {
+   "prop": 31503,
+   "name": "物理属性ダメージボーナス",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconPhysDmg.png"
+  },
+  "part_sub": {
+   "prop": 11102,
+   "name": "HP",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconHpMax.png"
+  }
+ },
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_PhysDmg>物理属性、表アタッカー",
+  "バイク形態でHPを消費してダメージアップ",
+  "様々なHP回復方法を持つ"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100216": 4
+   }
+  },
+  "2": {
+   "hp_max": 469,
+   "attack": 44,
+   "defence": 25,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100226": 12
+   }
+  },
+  "3": {
+   "hp_max": 938,
+   "attack": 88,
+   "defence": 49,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100226": 20
+   }
+  },
+  "4": {
+   "hp_max": 1407,
+   "attack": 132,
+   "defence": 74,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100236": 10
+   }
+  },
+  "5": {
+   "hp_max": 1875,
+   "attack": 177,
+   "defence": 98,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100236": 20
+   }
+  },
+  "6": {
+   "hp_max": 2344,
+   "attack": 221,
+   "defence": 123,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UIspineSPBilly"
+}

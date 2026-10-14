@@ -5,24 +5,40 @@
  *
  * 合规约定（2026-08）：站点只发布**正式服（live）**数据，
  * 不产出 latest（源站最新/含前瞻·测试服内容）数据。
+ *
+ * 多语言（2026-10，ADR-004 落地）：`live/` 下按语言各一套完整数据面
+ *   live/{lang}/character.json …（名录）  live/{lang}/noun.json（术语词典）
+ *   live/{lang}/{dir}/{id}.json（详情）
+ * 根下只留 manifest.json（版本元信息，与语言无关）。
  * ============================================================ */
 
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { OUT, dump, resetOut, writeDetails, pruneStaleCache, fetchJson } from './io'
 import {
-  OUT,
-  dump,
-  resetOut,
-  writeDetails,
-  pruneStaleCache,
-} from './io'
-import { buildBangboos, buildCharacters, buildDiscs, buildWeapons, loadNoun, nounToTerms } from './domains'
-import { resolveTerms } from './normalize'
-import { fetchJson } from './io'
+  buildBangboos,
+  buildCharacters,
+  buildDiscs,
+  buildWeapons,
+  loadNouns,
+  nounToTerms,
+  type ByLang,
+} from './domains'
+import { resolveTerms, type TermNames } from './normalize'
 import { resolveLiveTarget } from './live-target'
+import { LANGS } from '../../src/domain/lang'
 
-/** 名录 schema 校验：失败收集错误并抛错 */
 type Dict = Record<string, Record<string, unknown>>
+
+/** 四类目：名录文件名 → 详情目录（两处命名不同，故显式成对；verify-data 用同一份口径） */
+const CATEGORIES = [
+  { list: 'character.json', dir: 'character' },
+  { list: 'weapon.json', dir: 'weapon' },
+  { list: 'bangboo.json', dir: 'bangboo' },
+  { list: 'equipment.json', dir: 'equipment' },
+] as const
+
+type Category = (typeof CATEGORIES)[number]['dir']
 
 export async function main(): Promise<void> {
   console.log('[1/4] 读取版本清单…')
@@ -41,26 +57,28 @@ export async function main(): Promise<void> {
   console.log(
     `  源站 new 内容（本次不消费）：角色 ${(zzz.new?.character ?? []).length} / 音擎 ${(zzz.new?.weapon ?? []).length} / 怪物 ${(zzz.new?.monster ?? []).length}`,
   )
+  console.log(`  语言：${LANGS.join(' / ')}（各语言一套名录 + 详情 + 术语词典）`)
 
-  console.log('[2/4] 抓取名录（缓存命中跳过）')
-  type Built = { char: Dict; weapon: Dict; bangboo: Dict; disc: Dict; noun: Record<string, Record<string, unknown>>; charDetails: Dict; weaponDetails: Dict; bangbooDetails: Dict; discDetails: Dict }
-  const noun = await loadNoun(ver)
-  const terms = nounToTerms(noun)
+  console.log(`[2/4] 抓取名录与 ${LANGS.length} 语详情（缓存命中跳过）`)
+  const nounByLang = await loadNouns(ver)
+  const termsByLang = Object.fromEntries(
+    LANGS.map((lang) => [lang, nounToTerms(nounByLang[lang])]),
+  ) as ByLang<TermNames>
+
   const [char, weapon, bangboo, disc] = await Promise.all([
-    buildCharacters(ver, terms),
-    buildWeapons(ver, terms),
-    buildBangboos(ver, terms),
-    buildDiscs(ver, terms),
+    buildCharacters(ver, termsByLang),
+    buildWeapons(ver, termsByLang),
+    buildBangboos(ver, termsByLang),
+    buildDiscs(ver, termsByLang),
   ])
-  const b: Built = {
-    char: char.list, weapon: weapon.list, bangboo: bangboo.list, disc: disc.list,
-    // 名词表 desc 同样解析 <Term:N>（保留 ID 外壳），浮层内引用的其他术语也显示名
-    noun: resolveTerms(noun, terms) as Record<string, Record<string, unknown>>,
-    charDetails: char.details, weaponDetails: weapon.details,
-    bangbooDetails: bangboo.details, discDetails: disc.details,
+  const built: Record<Category, ByLang<{ list: Dict; details: Dict }>> = {
+    character: char,
+    weapon,
+    bangboo,
+    equipment: disc,
   }
 
-  console.log('[3/4] 写盘 → public/data/live/')
+  console.log(`[3/4] 写盘 → public/data/live/{${LANGS.join(',')}}/`)
   await resetOut(['live'])
 
   // manifest 沿用 2 空格缩进（与历史输出一致，最小化 diff）
@@ -78,23 +96,30 @@ export async function main(): Promise<void> {
       2,
     ),
   )
-  await dump('live', 'character.json', b.char)
-  await dump('live', 'weapon.json', b.weapon)
-  await dump('live', 'bangboo.json', b.bangboo)
-  await dump('live', 'equipment.json', b.disc)
-  await dump('live', 'noun.json', b.noun)
-  await writeDetails('live', 'zh/character', b.charDetails)
-  await writeDetails('live', 'zh/weapon', b.weaponDetails)
-  await writeDetails('live', 'zh/bangboo', b.bangbooDetails)
-  await writeDetails('live', 'zh/equipment', b.discDetails)
+
+  for (const lang of LANGS) {
+    // 名词表 desc 同样解析 <Term:N>（保留 ID 外壳），浮层内引用的其他术语也显示名
+    await dump(
+      'live',
+      `${lang}/noun.json`,
+      resolveTerms(nounByLang[lang], termsByLang[lang]) as Record<string, Record<string, unknown>>,
+    )
+    for (const cat of CATEGORIES) {
+      const part = built[cat.dir]
+      await dump('live', `${lang}/${cat.list}`, part[lang].list)
+      await writeDetails('live', `${lang}/${cat.dir}`, part[lang].details)
+    }
+  }
 
   const count = (d: Dict) => Object.keys(d).length
-  console.log(
-    `  live（${ver}）：名录 角色 ${count(b.char)} / 音擎 ${count(b.weapon)} / 邦布 ${count(b.bangboo)} / 驱动盘 ${count(b.disc)}；`,
-  )
-  console.log(
-    `       详情 角色 ${count(b.charDetails)} / 音擎 ${count(b.weaponDetails)} / 邦布 ${count(b.bangbooDetails)} / 驱动盘 ${count(b.discDetails)}`,
-  )
+  console.log(`  live（${ver}）四语产物：`)
+  for (const lang of LANGS) {
+    const parts = CATEGORIES.map(
+      (c) => `${count(built[c.dir][lang].details)}`,
+    ).join(' / ')
+    const lists = CATEGORIES.map((c) => `${count(built[c.dir][lang].list)}`).join(' / ')
+    console.log(`    ${lang}：名录 ${lists}；详情 ${parts}`)
+  }
 
   console.log('[4/4] 完成 →', OUT)
   await pruneStaleCache(ver)

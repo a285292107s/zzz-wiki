@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { usePageMeta } from '@/composables/usePageMeta'
+import { useUiText } from '@/composables/useUiText'
 
+const { t } = useUiText()
 usePageMeta()
 </script>
 
@@ -8,12 +10,12 @@ usePageMeta()
   <div class="wrap page">
     <section class="err">
       <p class="eyebrow mono">Error 404</p>
-      <h1 class="page-title">档案缺失</h1>
+      <h1 class="page-title">{{ t.notFound.title }}</h1>
       <p class="page-sub">
-        目标条目不在索引中。可能已被删除、尚未归档，或链接有误。
+        {{ t.notFound.body }}
       </p>
       <p class="hint mono">
-        <RouterLink to="/" class="back mono">← 返回目录</RouterLink>
+        <RouterLink to="/" class="back mono">{{ t.notFound.back }}</RouterLink>
       </p>
     </section>
   </div>

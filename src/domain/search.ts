@@ -5,6 +5,8 @@
  *   - 匹配面：名称（zh/en/ja/ko 四语合并，另含 code / codename）+ 档案编号（Id）
  *     ⚠ **不含阵营名**（数据里的 `camp_name`，如「狡兔屋」）与职业/属性名——实测
  *     搜「狡兔屋」「强攻」均 0 命中。曾在此处误记为「含阵营名」，2026-10 订正。
+ *     **四语合并**意味着检索与界面语言无关：英文界面下输入中文名同样命中
+ *     （hay 不随语言变，只有展示用的 label 随语言变）。
  *   - 排序：类目序（catalog no）→ Id 升序，与名录页排序语义一致
  *
  * 检索语义：
@@ -12,6 +14,9 @@
  *   - 空查询 = 快速入口（返回全部，由 UI 分组陈列）
  *   - 多词 AND：词序无关，每词必须命中同一档案
  * ============================================================ */
+
+import type { Lang } from '@/domain/lang'
+import { fieldName, pickName } from '@/utils/names'
 
 export interface SearchEntry {
   /** 详情路由（'/{base}/{id}'） */
@@ -41,27 +46,10 @@ export function normalizeQuery(q: string): string {
   return normalize(q)
 }
 
-/** 字符串或 {name} 对象 → 名字字符串（equipment 的 zh 为对象形态） */
-function takeName(v: unknown): string {
-  if (typeof v === 'string') return v
-  if (v && typeof v === 'object') {
-    const o = v as Record<string, unknown>
-    if (typeof o.name === 'string') return o.name
-  }
-  return ''
-}
-
-/** 名称提取：回退序 zh → en → ja → ko → code → codename → Id（与 pickName 同序） */
-function extractLabel(row: Record<string, unknown>): string {
-  return (
-    takeName(row.zh) ||
-    takeName(row.en) ||
-    takeName(row.ja) ||
-    takeName(row.ko) ||
-    (typeof row.code === 'string' ? row.code : '') ||
-    (typeof row.codename === 'string' ? row.codename : '') ||
-    String(row.Id ?? '')
-  )
+/** 名称提取：当前语言优先（回退序由 utils/names.pickName 单一实现），全空则退回档案编号 */
+function extractLabel(row: Record<string, unknown>, lang: Lang): string {
+  const name = pickName(row, lang)
+  return name === '—' ? String(row.Id ?? '') : name
 }
 
 export function buildSearchIndex(
@@ -70,15 +58,16 @@ export function buildSearchIndex(
     rows: Array<Record<string, unknown>>
     iconSrcs: (row: Record<string, unknown>) => string[]
   }>,
+  lang: Lang,
 ): SearchEntry[] {
   const out: SearchEntry[] = []
   for (const g of groups) {
     for (const row of g.rows) {
       const id = Number(row.Id)
       if (!Number.isFinite(id)) continue
-      const label = extractLabel(row)
+      const label = extractLabel(row, lang)
       const hay = normalize(
-        [row.zh, row.en, row.ja, row.ko, row.code, row.codename, String(id)].map(takeName).filter(Boolean).join(' '),
+        [row.zh, row.en, row.ja, row.ko, row.code, row.codename, String(id)].map(fieldName).filter(Boolean).join(' '),
       )
       out.push({
         to: `${g.catPath}/${id}`,

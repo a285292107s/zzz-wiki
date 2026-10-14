@@ -17,6 +17,7 @@
 
 import fs from 'node:fs'
 import path from 'node:path'
+import { LANGS, DEFAULT_LANG } from './langs.mjs'
 
 export const DATA = path.resolve('public/data')
 export const IMG = path.join(DATA, 'img')
@@ -27,16 +28,23 @@ export const VERSIONS = ['live']
 /** 皮肤缩略图是否本地化（默认否：多为大图，避免仓库膨胀） */
 export const SKIN_LOCAL = process.env.SKIN_LOCAL === '1'
 
-/** 从 zh 数据中动态收集富文本 <IconMap:Icon_XXX> 资产名（描述内键位图标） */
+/**
+ * 从**全部语言**的详情中动态收集富文本 <IconMap:Icon_XXX> 资产名（描述内键位图标）。
+ * 逐语言而非只扫一种：四语正文由不同译文写成，引用的键位资产**不完全相同**
+ * （某语言多引一个图标时，只扫默认语言会让它在本地缺失、静默落到 CDN 兜底）。
+ * 资产按裸文件名落地，多语言并集不产生额外重复文件。
+ */
 function collectRichIconRefs() {
   const refs = new Set()
   for (const ver of VERSIONS) {
-    for (const dir of ['character', 'bangboo', 'weapon']) {
-      const base = path.join(DATA, ver, 'zh', dir)
-      if (!fs.existsSync(base)) continue
-      for (const f of fs.readdirSync(base)) {
-        const raw = fs.readFileSync(path.join(base, f), 'utf8')
-        for (const m of raw.matchAll(/IconMap:(Icon_\w+)/g)) refs.add(m[1])
+    for (const lang of LANGS) {
+      for (const dir of ['character', 'bangboo', 'weapon']) {
+        const base = path.join(DATA, ver, lang, dir)
+        if (!fs.existsSync(base)) continue
+        for (const f of fs.readdirSync(base)) {
+          const raw = fs.readFileSync(path.join(base, f), 'utf8')
+          for (const m of raw.matchAll(/IconMap:(Icon_\w+)/g)) refs.add(m[1])
+        }
       }
     }
   }
@@ -125,10 +133,11 @@ export const HERO_GENDER_VARIANTS = (() => {
 
 /* ---------- 名录读取 ---------- */
 
+/** 名录读取（任取一种语言即可：名录 icon 字段四语同源） */
 function readDict(file) {
   const merged = {}
   for (const ver of VERSIONS) {
-    const p = path.join(DATA, ver, file)
+    const p = path.join(DATA, ver, DEFAULT_LANG, file)
     if (!fs.existsSync(p)) continue
     Object.assign(merged, JSON.parse(fs.readFileSync(p, 'utf8')))
   }
@@ -161,14 +170,16 @@ export function collectIcons() {
   for (const [file, cat] of [['weapon.json', 'weapon'], ['bangboo.json', 'bangboo'], ['equipment.json', 'disc']]) {
     for (const v of Object.values(readDict(file))) if (v?.icon) push(cat, stripExt(v.icon))
   }
-  // 皮肤缩略图（默认不本地化，但远程可达性仍在审计范围）
+  // 皮肤缩略图（默认不本地化，但远程可达性仍在审计范围）——扫全部语言取并集
   for (const ver of VERSIONS) {
-    const base = path.join(DATA, ver, 'zh', 'character')
-    if (!fs.existsSync(base)) continue
-    for (const f of fs.readdirSync(base)) {
-      const d = JSON.parse(fs.readFileSync(path.join(base, f), 'utf8'))
-      for (const s of Object.values(d.skin || {})) {
-        if (s?.image) push('skin', stripExt(s.image), stripExt(s.image), !SKIN_LOCAL)
+    for (const lang of LANGS) {
+      const base = path.join(DATA, ver, lang, 'character')
+      if (!fs.existsSync(base)) continue
+      for (const f of fs.readdirSync(base)) {
+        const d = JSON.parse(fs.readFileSync(path.join(base, f), 'utf8'))
+        for (const s of Object.values(d.skin || {})) {
+          if (s?.image) push('skin', stripExt(s.image), stripExt(s.image), !SKIN_LOCAL)
+        }
       }
     }
   }

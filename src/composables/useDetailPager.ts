@@ -11,10 +11,13 @@ import type { CatalogEntry } from '@/domain/catalog'
 import type { DetailPagerItem } from '@/components/detail/DetailPager.vue'
 import { listFor } from '@/data/resources'
 import { useAsyncResource } from './useAsyncResource'
+import { useLocale } from './useLocale'
 
 export function useDetailPager(
   entry: CatalogEntry,
   currentId: Ref<number | string>,
+  /** 行标签取名。名录条目形状按类目而异（角色/音擎/邦布是名字字符串，驱动盘是
+   *  `{name,desc2,desc4}` 子对象），故取名法由调用方给，本函数不猜。 */
   pickLabel: (row: Record<string, unknown>) => string,
   /** 行过滤（可选）：与名录页的策展过滤保持同一份逻辑（如邦布名录隐藏绳匠专属搭档） */
   keep?: (row: Record<string, unknown>) => boolean,
@@ -22,7 +25,11 @@ export function useDetailPager(
   prev: ComputedRef<DetailPagerItem | null>
   next: ComputedRef<DetailPagerItem | null>
 } {
-  const { data: list } = useAsyncResource<Record<string, unknown>[]>(() => listFor(entry))
+  /** 名录按语言落盘：读 lang.value 让语言变化触发重取（watchEffect 追踪） */
+  const { lang } = useLocale()
+  const { data: list } = useAsyncResource<Record<string, unknown>[]>(() =>
+    listFor(entry, lang.value),
+  )
 
   const rows = computed(() =>
     (list.value ?? [])

@@ -10,7 +10,11 @@ import { useCatalogSort } from '@/composables/useCatalogSort'
 import { listFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
 import { stripRichText } from '@/utils/text'
-import type { DiskDriveListItem } from '@/data/types'
+import { pickLocaleInfo } from '@/utils/names'
+import { pickText } from '@/domain/lang'
+import { useLocale } from '@/composables/useLocale'
+import { useUiText } from '@/composables/useUiText'
+import type { DiskDriveListItem, LocaleInfo } from '@/data/types'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { catalogEntry } from '@/domain/catalog'
 import { AsyncState, CardBlock, CardGrid, ListPage, NameCell, SearchField } from '@/components'
@@ -21,13 +25,23 @@ usePageMeta()
 const cat = catalogEntry('/disks')
 const base = cat.path
 
-const { data, status, error, reload } = useAsyncResource(() => listFor<DiskDriveListItem>(cat))
+/** 当前展示语言（名录按语言落盘，语言一变下面的取数会重新拉） */
+const { lang } = useLocale()
+const { t } = useUiText()
+
+/** 驱动盘名录的 zh/en/ja/ko 是 `{ name, desc2, desc4 }` 子对象（不是名字字符串），
+ *  故按当前语言取子对象、再取字段；缺该语言时由 pickLocaleInfo 回退到其他语言。 */
+const infoOf = (d: DiskDriveListItem): LocaleInfo | null => pickLocaleInfo<LocaleInfo>(d, lang.value)
+
+const { data, status, error, reload } = useAsyncResource(() =>
+  listFor<DiskDriveListItem>(cat, lang.value),
+)
 
 const { query, filtered, count, hasActiveFilter, reset } = useCatalogList<DiskDriveListItem>({
   items: () => data.value ?? [],
-  name: (d) => d.zh?.name ?? '',
+  name: (d) => infoOf(d)?.name ?? '',
   syncRoute: true,
-  keywords: (d) => [d.zh?.desc2 ?? '', d.zh?.desc4 ?? ''],
+  keywords: (d) => [infoOf(d)?.desc2 ?? '', infoOf(d)?.desc4 ?? ''],
 })
 
 /** 陈列顺序：默认编号倒序。**本页不提供排序控件**（2026-10 与音擎、代理人名录一同移除）；
@@ -36,7 +50,7 @@ const { sorted } = useCatalogSort(
   filtered,
   [
     { key: 'id', value: (d) => d.Id },
-    { key: 'name', value: (d) => d.zh?.name ?? '' },
+    { key: 'name', value: (d) => infoOf(d)?.name ?? '' },
   ],
   { defaultKey: 'id', defaultDir: 'desc', syncRoute: true },
 )
@@ -46,14 +60,14 @@ const { sorted } = useCatalogSort(
   <ListPage>
     <header v-reveal class="page-head">
       <p class="eyebrow mono">Disk Drives</p>
-      <h1 class="page-title">驱动盘</h1>
+      <h1 class="page-title">{{ pickText(cat.label, lang) }}</h1>
       <p class="page-sub">
-        驱动盘套装总览。2 件套与 4 件套效果直接陈列于卡片中；可按名称检索。
+        {{ t.list.disksIntro }}
       </p>
     </header>
 
     <div v-reveal="90" class="toolbar">
-      <SearchField v-model="query" :count="count" placeholder="检索套装…" />
+      <SearchField v-model="query" :count="count" :placeholder="t.list.searchDisk" />
     </div>
 
     <!-- 空态分工：AsyncState 只管「数据级为空」；「筛掉全部结果」由 CardGrid 承担 -->
@@ -71,7 +85,7 @@ const { sorted } = useCatalogSort(
         v-reveal="160"
         :items="sorted"
         :key-of="(d) => d.Id"
-        empty-text="无匹配驱动盘"
+        :empty-text="t.noMatch.disks"
         :show-clear="hasActiveFilter"
         @clear="reset"
       >
@@ -80,17 +94,17 @@ const { sorted } = useCatalogSort(
             :to="`${base}/${d.Id}`"
             :srcs="iconSources({ Id: d.Id, icon: d.icon }, 'disc')"
             alt=""
-            :fallback="d.zh?.name ?? '—'"
-            :name="d.zh?.name ?? '—'"
+            :fallback="infoOf(d)?.name ?? '—'"
+            :name="infoOf(d)?.name ?? '—'"
             thumb="square"
             name-style="card"
           />
 
-          <CardBlock label="2 件套">
-            <p>{{ stripRichText(d.zh?.desc2) }}</p>
+          <CardBlock :label="t.detail.set2">
+            <p>{{ stripRichText(infoOf(d)?.desc2) }}</p>
           </CardBlock>
-          <CardBlock label="4 件套">
-            <p>{{ stripRichText(d.zh?.desc4) }}</p>
+          <CardBlock :label="t.detail.set4">
+            <p>{{ stripRichText(infoOf(d)?.desc4) }}</p>
           </CardBlock>
         </template>
       </CardGrid>

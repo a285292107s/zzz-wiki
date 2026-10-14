@@ -1,0 +1,2033 @@
+{
+ "id": 1341,
+ "icon": "IconRole56",
+ "name": "照",
+ "code_name": "Zhao",
+ "rarity": 4,
+ "weapon_type": {
+  "5": "Defense"
+ },
+ "element_type": {
+  "202": "Ice"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "12": "クランプスの黒枝"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "10月14日",
+  "full_name": "照",
+  "gender": "女性",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle56.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0056.png",
+  "impression_f": "照ちゃんが一緒だと、調査の安心感が違うよね～\n…誰が相手でも、絶対損しないって確信があるから。",
+  "impression_m": "自分の選択に照が異議を唱えなかったら、\nそれはあらゆる損得を計算したうえで最も試すべき価値がある…と、\n太鼓判を捺して貰えたことになるからね。",
+  "impressions": [
+   "照に対するイメージ：\n・価値を重んじる照にとって、「取引相手」は非常に強固な繋がりである。",
+   "・仲間に見返りもなく手を差しのべられると、照は少し戸惑ってしまう。それは仲間が嫌いなわけではなく、この「取引」を成立させるための「価値あるもの」が分からないだけ。",
+   "・見返りを求めない仲間が少しずつ増えていく中、照はついに、誰かに好かれることは決して悪いことではなく、自分の「価値」とも無関係なのだと悟る。"
+  ],
+  "profile_desc": "照はクランプスの黒枝の裁決官にして、\n比較的早期から黒枝に籍を置いている精鋭メンバーの1人です。\n\n見た目は無垢で可愛らしいですが、実際はあらゆるところにアンテナを張り\nどんなに細かいことも見逃さない切れ者です。\n確固たる自身の原則を持ち、「価値」と「等価交換」を何よりも重んじます。\nこの「価値」とは必ずしも金銭的なものではなく、相手の能力や\nポテンシャルを分析し、その真価についてより客観的かつ長期的な目線で\n評価することを意味します。\n\nこの原則は黒枝に加入してから確立されたものではなく、彼女の\n幼少期に端を発するもののようです。\nまた照はこのような行動原理を他者にも求めており、\n「価値のある人間だけが、視界に入れてもらえる」とのこと。\n\n表に出すことは稀ですが、照は理由のない善意に対して\n警戒心を抱いています。それはまさに前述した「等価交換」の原則に\n反するためであり、なにか下心があるのではないかと\n勘ぐってしまう癖がついているように思われます。\n\nそのための照と接する際は、共通の利益となることを\n最優先に提案するのが賢明と言えるでしょう。純粋な善意と情熱だけで\n彼女の警戒を緩めようとするのは、多大な労力を要すると思われます。\n\nまた確証はありませんが、以下のような情報も入っています：\n照の好物は野菜であり、肉類はそこまで好みませんが\nあたかも後者が大好物であるかのように振る舞っているとのこと。",
+  "role_icon": "IconRole/UnPacker/IconRole56",
+  "stature": "118",
+  "unlock_condition": [
+   "エージェント招集",
+   "メイン依頼 シーズン2・第六章をクリアする",
+   "依頼「アンビーの当惑」を達成する"
+  ],
+  "trust_lv": {
+   "1": "照はクランプスの黒枝の裁決官にして、\n比較的早期から黒枝に籍を置いている精鋭メンバーの1人です。\n\n見た目は無垢で可愛らしいですが、実際はあらゆるところにアンテナを張り\nどんなに細かいことも見逃さない切れ者です。\n確固たる自身の原則を持ち、「価値」と「等価交換」を何よりも重んじます。\nこの「価値」とは必ずしも金銭的なものではなく、相手の能力や\nポテンシャルを分析し、その真価についてより客観的かつ長期的な目線で\n評価することを意味します。\n\nこの原則は黒枝に加入してから確立されたものではなく、彼女の\n幼少期に端を発するもののようです。\nまた照はこのような行動原理を他者にも求めており、\n「価値のある人間だけが、視界に入れてもらえる」とのこと。\n\n表に出すことは稀ですが、照は理由のない善意に対して\n警戒心を抱いています。それはまさに前述した「等価交換」の原則に\n反するためであり、なにか下心があるのではないかと\n勘ぐってしまう癖がついているように思われます。\n\nそのための照と接する際は、共通の利益となることを\n最優先に提案するのが賢明と言えるでしょう。純粋な善意と情熱だけで\n彼女の警戒を緩めようとするのは、多大な労力を要すると思われます。\n\nまた確証はありませんが、以下のような情報も入っています：\n照の好物は野菜であり、肉類はそこまで好みませんが\nあたかも後者が大好物であるかのように振る舞っているとのこと。",
+   "2": "",
+   "3": "幼い照は、経済的に困窮した大家族のなかで育ちました。\nそこでは一般的な親子間の情愛や信頼よりも、\n「働かざるもの食うべからず」を\nより過激にした思想が優先されていたようです。\n\n照はその愛らしい容姿から他者を威圧することができず、\n弱肉強食の環境では「価値が低い」とみなされてきました。\nそのために年長者たちからも「一族の役立たず」と蔑まれ、\n遂には見限られてしまいます。\nしかしその後、黒枝のとある権力者が\n彼女に秘められていた才能を見出したことを機に、\n照は一族での過去を封印して黒枝に加入し、\n自らの真の価値を証明することを誓ったようです。\n\nこの経験から彼女が得た教訓は、\n「価値さえあれば、泥の中からでも拾い上げてもらえる」です。",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 110,
+  "attack_growth": 65027,
+  "avatar_piece_id": 5341,
+  "break_stun": 93,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 56,
+  "defence_growth": 76592,
+  "element_abnormal_power": 93,
+  "element_mystery": 96,
+  "endurance": 0,
+  "hp_growth": 994816,
+  "hp_max": 733,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Furry",
+   "Cut",
+   "Ice",
+   "Female",
+   "Camp12",
+   "Size0",
+   "AidTypeParry",
+   "XiaoZhao",
+   "EtherEyesSize0"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "通常攻撃：清冽の裁決",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方に最大5段の斬撃を放つ。1段目は<color=#F0D12B>物理属性ダメージ</color>を与え、以降の4段は<color=#98EFF0>氷属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：最終裁決",
+     "desc": " <IconMap:Icon_Normal> を長押しして発動：\n準備してからチャージする。ボタンを離すと前方に斬撃を放ち、<color=#98EFF0>氷属性ダメージ</color>を大量に与える。\nチャージ時、照は最大5秒のチャージ時間を溜められる。<color=#FFFFFF>『通常攻撃：最終裁決』</color>、<color=#FFFFFF>『連携スキル』</color>、または<color=#FFFFFF>『支援突撃』</color>のとどめの一撃が命中した時、チャージ時間を消費して追加ダメージを与える。チャージ時間1秒につき、照の最大HP<color=#2BAD00>{CAL:0.12+AvatarSkillLevel(0)*0.01,100,2}%</color>分の追加ダメージを与える。\n任意の<color=#FFFFFF>「エーテルベール」</color>の効果を受けている時、チャージ中に控えに交代された場合、照は引き続きチャージを続けられる。\nスキル発動時、<color=#FFFFFF>「氷霜値」</color>が満タンの場合、すべての<color=#FFFFFF>「氷霜値」</color>を消費して<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開し、<color=#FFFFFF>『クイック支援』</color>が発動可能になる。この時に他のメンバーの<color=#FFFFFF>『クイック支援』</color>を発動すると、照は自動で<color=#FFFFFF>『通常攻撃：最終裁決』</color>に繋げてチャージを行う。\nスキル発動中、中断耐性レベルがアップし、被ダメージ-40%。\n操作中のメンバーでない時、スキル発動中は無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：清冽の裁決",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1341001, Prop:1001}",
+       "param": {
+        "1341001": {
+         "main": 7340,
+         "growth": 670,
+         "format": "%",
+         "damage_percentage": 7340,
+         "damage_percentage_growth": 670,
+         "stun_ratio": 5510,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 18010,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 137775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5001
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1341002, Prop:1001}",
+       "param": {
+        "1341002": {
+         "main": 6600,
+         "growth": 600,
+         "format": "%",
+         "damage_percentage": 6600,
+         "damage_percentage_growth": 600,
+         "stun_ratio": 4920,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 16080,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 122925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4463,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4464
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1341003, Prop:1001}",
+       "param": {
+        "1341003": {
+         "main": 11580,
+         "growth": 1060,
+         "format": "%",
+         "damage_percentage": 11580,
+         "damage_percentage_growth": 1060,
+         "stun_ratio": 8440,
+         "stun_ratio_growth": 390,
+         "sp_recovery": 27620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 211200,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7672,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7673
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率",
+       "desc": "{Skill:1341004, Prop:1001}",
+       "param": {
+        "1341004": {
+         "main": 18560,
+         "growth": 1690,
+         "format": "%",
+         "damage_percentage": 18560,
+         "damage_percentage_growth": 1690,
+         "stun_ratio": 15460,
+         "stun_ratio_growth": 710,
+         "sp_recovery": 44680,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 341550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12410,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14053
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5段ダメージ倍率",
+       "desc": "{{Skill:1341005, Prop:1001} + {Skill:1341006, Prop:1001}}",
+       "param": {
+        "1341005": {
+         "main": 30910,
+         "growth": 2810,
+         "format": "%",
+         "damage_percentage": 30910,
+         "damage_percentage_growth": 2810,
+         "stun_ratio": 23450,
+         "stun_ratio_growth": 1070,
+         "sp_recovery": 81450,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 622325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 22623,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21311
+        },
+        "1341006": {
+         "main": 7730,
+         "growth": 710,
+         "format": "%",
+         "damage_percentage": 7730,
+         "damage_percentage_growth": 710,
+         "stun_ratio": 5860,
+         "stun_ratio_growth": 270,
+         "sp_recovery": 20360,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 155580,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5660,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5330
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1341001, Prop:1002}",
+       "param": {
+        "1341001": {
+         "main": 5510,
+         "growth": 260,
+         "format": "%",
+         "damage_percentage": 7340,
+         "damage_percentage_growth": 670,
+         "stun_ratio": 5510,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 18010,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 137775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5001
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1341002, Prop:1002}",
+       "param": {
+        "1341002": {
+         "main": 4920,
+         "growth": 230,
+         "format": "%",
+         "damage_percentage": 6600,
+         "damage_percentage_growth": 600,
+         "stun_ratio": 4920,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 16080,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 122925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4463,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4464
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1341003, Prop:1002}",
+       "param": {
+        "1341003": {
+         "main": 8440,
+         "growth": 390,
+         "format": "%",
+         "damage_percentage": 11580,
+         "damage_percentage_growth": 1060,
+         "stun_ratio": 8440,
+         "stun_ratio_growth": 390,
+         "sp_recovery": 27620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 211200,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7672,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7673
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率",
+       "desc": "{Skill:1341004, Prop:1002}",
+       "param": {
+        "1341004": {
+         "main": 15460,
+         "growth": 710,
+         "format": "%",
+         "damage_percentage": 18560,
+         "damage_percentage_growth": 1690,
+         "stun_ratio": 15460,
+         "stun_ratio_growth": 710,
+         "sp_recovery": 44680,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 341550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12410,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14053
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5段ブレイク倍率",
+       "desc": "{{Skill:1341005, Prop:1002} + {Skill:1341006, Prop:1002}}",
+       "param": {
+        "1341005": {
+         "main": 23450,
+         "growth": 1070,
+         "format": "%",
+         "damage_percentage": 30910,
+         "damage_percentage_growth": 2810,
+         "stun_ratio": 23450,
+         "stun_ratio_growth": 1070,
+         "sp_recovery": 81450,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 622325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 22623,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21311
+        },
+        "1341006": {
+         "main": 5860,
+         "growth": 270,
+         "format": "%",
+         "damage_percentage": 7730,
+         "damage_percentage_growth": 710,
+         "stun_ratio": 5860,
+         "stun_ratio_growth": 270,
+         "sp_recovery": 20360,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 155580,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5660,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5330
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：最終裁決",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1341008, Prop:1001}",
+       "param": {
+        "1341008": {
+         "main": 6970,
+         "growth": 640,
+         "format": "%",
+         "damage_percentage": 6970,
+         "damage_percentage_growth": 640,
+         "stun_ratio": 5230,
+         "stun_ratio_growth": 240,
+         "sp_recovery": 17100,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 130625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4750,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4750
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1341008, Prop:1002}",
+       "param": {
+        "1341008": {
+         "main": 5230,
+         "growth": 240,
+         "format": "%",
+         "damage_percentage": 6970,
+         "damage_percentage_growth": 640,
+         "stun_ratio": 5230,
+         "stun_ratio_growth": 240,
+         "sp_recovery": 17100,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 130625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4750,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4750
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "チャージ最大HP追加倍率",
+       "desc": "{CAL:0.12+AvatarSkillLevel(0)*0.01,100,2}%",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "回避：脱兎ステップ",
+     "desc": " <IconMap:Icon_Evade> を押して発動：\nダッシュで高速回避する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：バウンスダッシュ",
+     "desc": "回避時に <IconMap:Icon_Normal> を押して発動：\n前方に斬撃を放ち、<color=#F0D12B>物理属性ダメージ</color>と<color=#98EFF0>氷属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "回避反撃：瞬閃の一撃",
+     "desc": "<color=#FFFFFF>『極限回避』</color>後に <IconMap:Icon_Normal> を押して発動：\n前方に落下斬撃を放ち、<color=#98EFF0>氷属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：バウンスダッシュ",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1341011, Prop:1001}",
+       "param": {
+        "1341011": {
+         "main": 8630,
+         "growth": 790,
+         "format": "%",
+         "damage_percentage": 8630,
+         "damage_percentage_growth": 790,
+         "stun_ratio": 4320,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 14110,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 107800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3918,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3919
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1341011, Prop:1002}",
+       "param": {
+        "1341011": {
+         "main": 4320,
+         "growth": 200,
+         "format": "%",
+         "damage_percentage": 8630,
+         "damage_percentage_growth": 790,
+         "stun_ratio": 4320,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 14110,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 107800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3918,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3919
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "回避反撃：瞬閃の一撃",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1341012, Prop:1001}",
+       "param": {
+        "1341012": {
+         "main": 33880,
+         "growth": 3080,
+         "format": "%",
+         "damage_percentage": 33880,
+         "damage_percentage_growth": 3080,
+         "stun_ratio": 28600,
+         "stun_ratio_growth": 1300,
+         "sp_recovery": 57590,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 440000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15996,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 30997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1341012, Prop:1002}",
+       "param": {
+        "1341012": {
+         "main": 28600,
+         "growth": 1300,
+         "format": "%",
+         "damage_percentage": 33880,
+         "damage_percentage_growth": 3080,
+         "stun_ratio": 28600,
+         "stun_ratio_growth": 1300,
+         "sp_recovery": 57590,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 440000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15996,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 30997
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "特殊スキル：<ruby=さいひょうかんれい>砕氷寒冷</ruby>",
+     "desc": " <IconMap:Icon_Special> を押して発動：\n前方に斬撃を放ち、<color=#98EFF0>氷属性ダメージ</color>を与える。\nスキル発動時、現在HPの5%を消費する代わりに、メンバー全員が1秒ごとに照の最大HP<color=#2BAD00>{CAL:1+AvatarSkillLevel(1)*0.06,1,2}%</color>分のHPを回復する、継続時間5秒。<color=#FFFFFF>『特殊スキル：砕氷寒冷』</color>と<color=#FFFFFF>『強化特殊スキル：霜柱凍土』</color>のHP消費効果は30秒に1回のみ発動可能。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：<ruby=しもばしらとうど>霜柱凍土</ruby>",
+     "desc": "エネルギーが十分な時、 <IconMap:Icon_SpecialReady> を押して発動：\n前方に連続斬撃を放ち、<color=#98EFF0>氷属性ダメージ</color>を大量に与える。\nスキル発動時、現在HPの5%を消費する代わりに、メンバー全員が1秒ごとに照の最大HP<color=#2BAD00>{CAL:1+AvatarSkillLevel(1)*0.06,1,2}%</color>分のHPを回復する、継続時間5秒。<color=#FFFFFF>『特殊スキル：砕氷寒冷』</color>と<color=#FFFFFF>『強化特殊スキル：霜柱凍土』</color>のHP消費効果は30秒に1回のみ発動可能。\nスキル発動時、<color=#FFFFFF>「氷霜値」</color>を20Pt獲得する。<color=#FFFFFF>「氷霜値」</color>が満タンの場合、すべての<color=#FFFFFF>「氷霜値」</color>を消費して<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開する。\nスキル発動時、任意の<color=#FFFFFF>「エーテルベール」</color>の効果を受けている場合、<color=#FFFFFF>『クイック支援』</color>が発動可能になる。この時に他のメンバーの<color=#FFFFFF>『クイック支援』</color>を発動すると、照は自動で<color=#FFFFFF>『通常攻撃：最終裁決』</color>に繋げてチャージを行う。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：<ruby=さいひょうかんれい>砕氷寒冷</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1341009, Prop:1001}",
+       "param": {
+        "1341009": {
+         "main": 5690,
+         "growth": 520,
+         "format": "%",
+         "damage_percentage": 5690,
+         "damage_percentage_growth": 520,
+         "stun_ratio": 5690,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 142175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5168,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5169
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1341009, Prop:1002}",
+       "param": {
+        "1341009": {
+         "main": 5690,
+         "growth": 260,
+         "format": "%",
+         "damage_percentage": 5690,
+         "damage_percentage_growth": 520,
+         "stun_ratio": 5690,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 142175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5168,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5169
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "HP回復割合",
+       "desc": "{CAL:1+AvatarSkillLevel(1)*0.06,1,2}%",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：<ruby=しもばしらとうど>霜柱凍土</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1341010, Prop:1001}",
+       "param": {
+        "1341010": {
+         "main": 121080,
+         "growth": 11010,
+         "format": "%",
+         "damage_percentage": 121080,
+         "damage_percentage_growth": 11010,
+         "stun_ratio": 81000,
+         "stun_ratio_growth": 3690,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2806650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 80738,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 31000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1341010, Prop:1002}",
+       "param": {
+        "1341010": {
+         "main": 81000,
+         "growth": 3690,
+         "format": "%",
+         "damage_percentage": 121080,
+         "damage_percentage_growth": 11010,
+         "stun_ratio": 81000,
+         "stun_ratio_growth": 3690,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2806650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 80738,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 31000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "エネルギー消費",
+       "desc": "80Pt",
+       "potential": []
+      },
+      {
+       "name": "HP回復割合",
+       "desc": "{CAL:1+AvatarSkillLevel(1)*0.06,1,2}%",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "連携スキル：仮初の協力",
+     "desc": "<color=#FFFFFF>『連携スキル』</color>開始時に、対応するエージェントを選択して発動：\n前方に連続斬撃を放ち、<color=#98EFF0>氷属性ダメージ</color>を大量に与える。\nスキル発動後、<color=#FFFFFF>「氷霜値」</color>を5Pt獲得する。<color=#FFFFFF>「氷霜値」</color>が満タンの場合、すべての<color=#FFFFFF>「氷霜値」</color>を消費して<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開する。\nスキル発動後、任意の<color=#FFFFFF>「エーテルベール」</color>効果を受けている場合、<color=#FFFFFF>『クイック支援』</color>が発動可能になる。この時に他のメンバーの<color=#FFFFFF>『クイック支援』</color>を発動すると、照は自動で<color=#FFFFFF>『通常攻撃：最終裁決』</color>に繋げてチャージを行う。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "終結スキル：ウサちゃん乱れ斬り",
+     "desc": "デシベルレートが<color=#FFFFFF>『Maximum』</color>に達した時に <IconMap:Icon_UltimateReady> を押して発動：\n前方に連続攻撃を行った後、敵に落下斬撃を放ち、<color=#98EFF0>氷属性ダメージ</color>を大量に与える。\nスキル発動後、<color=#FFFFFF>「氷霜値」</color>を20Pt獲得する。<color=#FFFFFF>「氷霜値」</color>が満タンの場合、すべての<color=#FFFFFF>「氷霜値」</color>を消費して<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開する。\nスキル発動後、任意の<color=#FFFFFF>「エーテルベール」</color>の効果を受けている場合、<color=#FFFFFF>『クイック支援』</color>が発動可能になる。この時に他のメンバーの<color=#FFFFFF>『クイック支援』</color>を発動すると、照は自動で<color=#FFFFFF>『通常攻撃：最終裁決』</color>に繋げてチャージを行う。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "連携スキル：仮初の協力",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1341013, Prop:1001}",
+       "param": {
+        "1341013": {
+         "main": 77080,
+         "growth": 7010,
+         "format": "%",
+         "damage_percentage": 77080,
+         "damage_percentage_growth": 7010,
+         "stun_ratio": 33190,
+         "stun_ratio_growth": 1510,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2658425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 50116,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 30167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1341013, Prop:1002}",
+       "param": {
+        "1341013": {
+         "main": 33190,
+         "growth": 1510,
+         "format": "%",
+         "damage_percentage": 77080,
+         "damage_percentage_growth": 7010,
+         "stun_ratio": 33190,
+         "stun_ratio_growth": 1510,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2658425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 50116,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 30167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "終結スキル：ウサちゃん乱れ斬り",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{{Skill:1341014, Prop:1001} + {Skill:1341023, Prop:1001}}",
+       "param": {
+        "1341014": {
+         "main": 174980,
+         "growth": 15910,
+         "format": "%",
+         "damage_percentage": 174980,
+         "damage_percentage_growth": 15910,
+         "stun_ratio": 16140,
+         "stun_ratio_growth": 740,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 54667
+        },
+        "1341023": {
+         "main": 43750,
+         "growth": 3980,
+         "format": "%",
+         "damage_percentage": 43750,
+         "damage_percentage_growth": 3980,
+         "stun_ratio": 4030,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13670
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{{Skill:1341014, Prop:1002} + {Skill:1341023, Prop:1002}}",
+       "param": {
+        "1341014": {
+         "main": 16140,
+         "growth": 740,
+         "format": "%",
+         "damage_percentage": 174980,
+         "damage_percentage_growth": 15910,
+         "stun_ratio": 16140,
+         "stun_ratio_growth": 740,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 54667
+        },
+        "1341023": {
+         "main": 4030,
+         "growth": 190,
+         "format": "%",
+         "damage_percentage": 43750,
+         "damage_percentage_growth": 3980,
+         "stun_ratio": 4030,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13670
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "入場スキル：霜奔る",
+     "desc": "照の<color=#FFFFFF>「氷霜値」</color>が最大まで溜まっている、かつ接敵状態にある時に <IconMap:Icon_Switch> を押して発動：\n前方に連続攻撃を行った後、斬撃を繰り出し、<color=#98EFF0>氷属性ダメージ</color>を大量に与える。\nスキル発動時、すべての<color=#FFFFFF>「氷霜値」</color>を消費して<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開する。\nスキル発動時、<color=#FFFFFF>『クイック支援』</color>が発動可能になる。この時に他のメンバーの<color=#FFFFFF>『クイック支援』</color>を発動すると、照は自動で<color=#FFFFFF>『通常攻撃：最終裁決』</color>に繋げてチャージを行う。\nスキル発動時、<color=#FFFFFF>『クイック支援』</color>を発動したとみなされる。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "クイック支援：ブラッシュアップ",
+     "desc": "操作しているメンバーが吹き飛ばされた時に、 <IconMap:Icon_Switch> を押して発動：\n前方に落下斬撃を放ち、<color=#98EFF0>氷属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：<ruby=そうせん>霜嬋</ruby>、真打ち",
+     "desc": "出場中のメンバーが攻撃されそうになった時に、 <IconMap:Icon_Switch> を押して発動：\n敵の攻撃をパリィし、ブレイク値を大量に蓄積させる。\nパリィ性能はかなり高い。激しい攻撃を受けている際は、<color=#FFFFFF>「支援ポイント」</color>の消費量が減少する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援突撃：凛光の切り返し",
+     "desc": "<color=#FFFFFF>『パリィ支援』</color>発動後、 <IconMap:Icon_Normal> を押して発動：\n前方に連続斬撃を放ち、<color=#98EFF0>氷属性ダメージ</color>を大量に与える。\nスキル発動時、<color=#FFFFFF>「氷霜値」</color>が満タンの場合、すべての<color=#FFFFFF>「氷霜値」</color>を消費して<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開する。\nスキル発動時、任意の<color=#FFFFFF>「エーテルベール」</color>の効果を受けている場合、<color=#FFFFFF>『クイック支援』</color>が発動可能になる。この時に他のメンバーの<color=#FFFFFF>『クイック支援』</color>を発動すると、照は自動で<color=#FFFFFF>『通常攻撃：最終裁決』</color>に繋げてチャージを行う。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "入場スキル：霜奔る",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1341015, Prop:1001}",
+       "param": {
+        "1341015": {
+         "main": 68030,
+         "growth": 6190,
+         "format": "%",
+         "damage_percentage": 68030,
+         "damage_percentage_growth": 6190,
+         "stun_ratio": 23020,
+         "stun_ratio_growth": 1050,
+         "sp_recovery": 75310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 575300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20918,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20919
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1341015, Prop:1002}",
+       "param": {
+        "1341015": {
+         "main": 23020,
+         "growth": 1050,
+         "format": "%",
+         "damage_percentage": 68030,
+         "damage_percentage_growth": 6190,
+         "stun_ratio": 23020,
+         "stun_ratio_growth": 1050,
+         "sp_recovery": 75310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 575300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20918,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20919
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "クイック支援：ブラッシュアップ",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1341016, Prop:1001}",
+       "param": {
+        "1341016": {
+         "main": 17600,
+         "growth": 1600,
+         "format": "%",
+         "damage_percentage": 17600,
+         "damage_percentage_growth": 1600,
+         "stun_ratio": 8800,
+         "stun_ratio_growth": 400,
+         "sp_recovery": 28800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 220000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7998,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7999
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1341016, Prop:1002}",
+       "param": {
+        "1341016": {
+         "main": 8800,
+         "growth": 400,
+         "format": "%",
+         "damage_percentage": 17600,
+         "damage_percentage_growth": 1600,
+         "stun_ratio": 8800,
+         "stun_ratio_growth": 400,
+         "sp_recovery": 28800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 220000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7998,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7999
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：<ruby=そうせん>霜嬋</ruby>、真打ち",
+     "param": [
+      {
+       "name": "パリィ・軽 ブレイク倍率",
+       "desc": "{Skill:1341017, Prop:1002}",
+       "param": {
+        "1341017": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・重 ブレイク倍率",
+       "desc": "{Skill:1341018, Prop:1002}",
+       "param": {
+        "1341018": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・連続 ブレイク倍率",
+       "desc": "{Skill:1341019, Prop:1002}",
+       "param": {
+        "1341019": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：凛光の切り返し",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1341020, Prop:1001}",
+       "param": {
+        "1341020": {
+         "main": 36610,
+         "growth": 3330,
+         "format": "%",
+         "damage_percentage": 36610,
+         "damage_percentage_growth": 3330,
+         "stun_ratio": 31810,
+         "stun_ratio_growth": 1450,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1035100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 31097,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1341020, Prop:1002}",
+       "param": {
+        "1341020": {
+         "main": 31810,
+         "growth": 1450,
+         "format": "%",
+         "damage_percentage": 36610,
+         "damage_percentage_growth": 3330,
+         "stun_ratio": 31810,
+         "stun_ratio_growth": 1450,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1035100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 31097,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "凛然たる裁決",
+   "desc": "照が交代で操作中のメンバーでなくなった時、メンバー全員の与ダメージはターゲットの全属性ダメージ耐性を15%無視する、継続時間50秒、重複して発動すると継続時間が更新される。",
+   "desc2": "「あの可愛らしい見た目に惑わされるな！\n俺は一生忘れない…会議の場で俺たちに指を振りながら\nあどけない顔のまま、残酷な裁定を下した時のことを…\n『是正項目が1つでも気に入らないなら…\nキミたちの会社はもうTOPSにいられないかな。\n脅してなんていないよお。君たちには、\n正しい道か間違った道かを選ぶ\n権利があるんだもん』\n…ただ、それでも彼女には感謝している」\n——抜本的な改革を受け入れて起死回生を果たした、\nとある企業の役員"
+  },
+  "2": {
+   "level": 2,
+   "name": "黒枝の大先輩",
+   "desc": "照のHPが回復した時、照の攻撃力+20%、他のメンバーの攻撃力+15%。継続時間50秒、重複して発動すると継続時間が更新される。",
+   "desc2": "照は黒枝に早期から身を置いており、\n精鋭ぞろいの彼らの中でも「大先輩」という\nひときわ抜きんでた存在…のはずだった。\nところが、後から入ってきた「後輩」たちは\n軒並み礼儀よりも個性を重んじるタイプであった。"
+  },
+  "3": {
+   "level": 3,
+   "name": "霜嬋の氷刃",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "照の武器「霜嬋」は、\nTOPSの秘密開発プロジェクトから供与された試作品である。\nこの武器は単に氷属性のエーテルを放って\nダメージを与えるのではなく、\nエーテルを武器そのものの一部へと変換する。\n通常状態の「霜嬋」は同規格の武器と比べて\n半分ほどの重量しかないが、戦闘状態に入ると\n刃先に氷塊を急速凝結させ重量と破壊力が増加する。\nまさに小さな照にうってつけの設計というわけだ。"
+  },
+  "4": {
+   "level": 4,
+   "name": "トコトコ",
+   "desc": "照が<color=#FFFFFF>「エーテルベール」</color>を展開した時、デシベル値を250Pt獲得する。<color=#FFFFFF>『終結スキル』</color>、<color=#FFFFFF>『連携スキル』</color>、<color=#FFFFFF>『通常攻撃：最終裁決』</color>の会心ダメージ+40%。",
+   "desc2": "俊敏、軽やか、捉えがたい。\n小さなうさぎを形容するために\n使われていた言葉が、今や\n巨大な剣を手にし、全てを打ち砕く\n恐るべき戦士に使われている…"
+  },
+  "5": {
+   "level": 5,
+   "name": "モフモフは聞いている",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "照の耳がピクッと動き、わずかに立ち上がったなら…\nそのとき発されていた言葉が\n抜け目ない兎の関心を引いたという合図だ。\nそれは情報、任務、取引…あるいは\n彼女への賞賛かもしれない。"
+  },
+  "6": {
+   "level": 6,
+   "name": "値札のないもの",
+   "desc": "<color=#FFFFFF>『コアパッシブ：最高の同僚』</color>の会心率アップ効果が本来の125%になる。<color=#FFFFFF>『通常攻撃：最終裁決』</color>のチャージ時間による追加ダメージが本来の140%になり、攻撃時にチャージ時間が消費されなくなる。",
+   "desc2": "幼い頃から数多という人々に影響されて築き上がった\n「価値」観という名の壁に、とある出会いが\n亀裂をもたらした。そして照は考えを改めはじめる。\n値札がないのは、価値がないからじゃない。\n価値がつけられないほどに貴いからなのだと。"
+  }
+ },
+ "passive": {
+  "level": {
+   "1341501": {
+    "level": 1,
+    "id": 1341501,
+    "name": [
+     "コアパッシブ：最高の同僚",
+     "追加能力：氷結んで手も結んで"
+    ],
+    "desc": [
+     "照は開幕最大HPに応じて会心率をアップさせる。開幕最大HP1000Ptにつき、会心率+<color=#2BAD00>0.8%</color>。\nフィールド入場時、照は<color=#FFFFFF>「氷霜値」</color>を100Pt獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。<color=#FFFFFF>「氷霜値」</color>の上限は100Pt。\n操作中のメンバーの攻撃が敵に命中した時、照は<color=#FFFFFF>「氷霜値」</color>を6Pt獲得する。この効果は3秒に1回のみ発動可能。\n<color=#FFFFFF>「氷霜値」</color>が最大まで溜まっている、かつ接敵状態にある場合、交代で照を出場させると<color=#FFFFFF>『入場スキル』</color>が発動する。\n照が<color=#FFFFFF>『入場スキル』</color>を発動する際、すべての<color=#FFFFFF>「氷霜値」</color>を消費して<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開する。\n<color=#FFFFFF>「エーテルベール・湧泉」</color>の効果を受けている時、メンバー全員の最大HP+5%、継続時間40秒。照が「エーテルベール・湧泉」を重複して展開する際、既存の<color=#FFFFFF>「エーテルベール・湧泉」</color>は解除される。\n照が<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開すると、メンバー全員の攻撃力+<color=#2BAD00>100</color>Pt、継続時間50秒、重複して発動すると継続時間が更新される。",
+     "チームに<color=#FFFFFF>[強攻]</color>、<color=#FFFFFF>[異常]</color>、または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\n照が任意の<color=#FFFFFF>「エーテルベール」</color>の効果を受けている時、メンバー全員の与ダメージ+10%。照の開幕最大HPが15000Ptを上回る場合、400Pt上回るごとに、与ダメージがさらに+1%、基礎効果と追加アップ効果による合計ダメージアップは最大40%まで。開幕最大HPが27000Ptに達すると、上記の効果も最大値に達する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1341502": {
+    "level": 2,
+    "id": 1341502,
+    "name": [
+     "コアパッシブ：最高の同僚",
+     "追加能力：氷結んで手も結んで"
+    ],
+    "desc": [
+     "照は開幕最大HPに応じて会心率をアップさせる。開幕最大HP1000Ptにつき、会心率+<color=#2BAD00>0.9%</color>。\nフィールド入場時、照は<color=#FFFFFF>「氷霜値」</color>を100Pt獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。<color=#FFFFFF>「氷霜値」</color>の上限は100Pt。\n操作中のメンバーの攻撃が敵に命中した時、照は<color=#FFFFFF>「氷霜値」</color>を6Pt獲得する。この効果は3秒に1回のみ発動可能。\n<color=#FFFFFF>「氷霜値」</color>が最大まで溜まっている、かつ接敵状態にある場合、交代で照を出場させると<color=#FFFFFF>『入場スキル』</color>が発動する。\n照が<color=#FFFFFF>『入場スキル』</color>を発動する際、すべての<color=#FFFFFF>「氷霜値」</color>を消費して<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開する。\n<color=#FFFFFF>「エーテルベール・湧泉」</color>の効果を受けている時、メンバー全員の最大HP+5%、継続時間40秒。照が「エーテルベール・湧泉」を重複して展開する際、既存の<color=#FFFFFF>「エーテルベール・湧泉」</color>は解除される。\n照が<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開すると、メンバー全員の攻撃力+<color=#2BAD00>250</color>Pt、継続時間50秒、重複して発動すると継続時間が更新される。",
+     "チームに<color=#FFFFFF>[強攻]</color>、<color=#FFFFFF>[異常]</color>、または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\n照が任意の<color=#FFFFFF>「エーテルベール」</color>の効果を受けている時、メンバー全員の与ダメージ+10%。照の開幕最大HPが15000Ptを上回る場合、400Pt上回るごとに、与ダメージがさらに+1%、基礎効果と追加アップ効果による合計ダメージアップは最大40%まで。開幕最大HPが27000Ptに達すると、上記の効果も最大値に達する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1341503": {
+    "level": 3,
+    "id": 1341503,
+    "name": [
+     "コアパッシブ：最高の同僚",
+     "追加能力：氷結んで手も結んで"
+    ],
+    "desc": [
+     "照は開幕最大HPに応じて会心率をアップさせる。開幕最大HP1000Ptにつき、会心率+<color=#2BAD00>1%</color>。\nフィールド入場時、照は<color=#FFFFFF>「氷霜値」</color>を100Pt獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。<color=#FFFFFF>「氷霜値」</color>の上限は100Pt。\n操作中のメンバーの攻撃が敵に命中した時、照は<color=#FFFFFF>「氷霜値」</color>を6Pt獲得する。この効果は3秒に1回のみ発動可能。\n<color=#FFFFFF>「氷霜値」</color>が最大まで溜まっている、かつ接敵状態にある場合、交代で照を出場させると<color=#FFFFFF>『入場スキル』</color>が発動する。\n照が<color=#FFFFFF>『入場スキル』</color>を発動する際、すべての<color=#FFFFFF>「氷霜値」</color>を消費して<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開する。\n<color=#FFFFFF>「エーテルベール・湧泉」</color>の効果を受けている時、メンバー全員の最大HP+5%、継続時間40秒。照が「エーテルベール・湧泉」を重複して展開する際、既存の<color=#FFFFFF>「エーテルベール・湧泉」</color>は解除される。\n照が<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開すると、メンバー全員の攻撃力+<color=#2BAD00>400</color>Pt、継続時間50秒、重複して発動すると継続時間が更新される。",
+     "チームに<color=#FFFFFF>[強攻]</color>、<color=#FFFFFF>[異常]</color>、または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\n照が任意の<color=#FFFFFF>「エーテルベール」</color>の効果を受けている時、メンバー全員の与ダメージ+10%。照の開幕最大HPが15000Ptを上回る場合、400Pt上回るごとに、与ダメージがさらに+1%、基礎効果と追加アップ効果による合計ダメージアップは最大40%まで。開幕最大HPが27000Ptに達すると、上記の効果も最大値に達する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1341504": {
+    "level": 4,
+    "id": 1341504,
+    "name": [
+     "コアパッシブ：最高の同僚",
+     "追加能力：氷結んで手も結んで"
+    ],
+    "desc": [
+     "照は開幕最大HPに応じて会心率をアップさせる。開幕最大HP1000Ptにつき、会心率+<color=#2BAD00>1.1%</color>。\nフィールド入場時、照は<color=#FFFFFF>「氷霜値」</color>を100Pt獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。<color=#FFFFFF>「氷霜値」</color>の上限は100Pt。\n操作中のメンバーの攻撃が敵に命中した時、照は<color=#FFFFFF>「氷霜値」</color>を6Pt獲得する。この効果は3秒に1回のみ発動可能。\n<color=#FFFFFF>「氷霜値」</color>が最大まで溜まっている、かつ接敵状態にある場合、交代で照を出場させると<color=#FFFFFF>『入場スキル』</color>が発動する。\n照が<color=#FFFFFF>『入場スキル』</color>を発動する際、すべての<color=#FFFFFF>「氷霜値」</color>を消費して<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開する。\n<color=#FFFFFF>「エーテルベール・湧泉」</color>の効果を受けている時、メンバー全員の最大HP+5%、継続時間40秒。照が「エーテルベール・湧泉」を重複して展開する際、既存の<color=#FFFFFF>「エーテルベール・湧泉」</color>は解除される。\n照が<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開すると、メンバー全員の攻撃力+<color=#2BAD00>550</color>Pt、継続時間50秒、重複して発動すると継続時間が更新される。",
+     "チームに<color=#FFFFFF>[強攻]</color>、<color=#FFFFFF>[異常]</color>、または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\n照が任意の<color=#FFFFFF>「エーテルベール」</color>の効果を受けている時、メンバー全員の与ダメージ+10%。照の開幕最大HPが15000Ptを上回る場合、400Pt上回るごとに、与ダメージがさらに+1%、基礎効果と追加アップ効果による合計ダメージアップは最大40%まで。開幕最大HPが27000Ptに達すると、上記の効果も最大値に達する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1341505": {
+    "level": 5,
+    "id": 1341505,
+    "name": [
+     "コアパッシブ：最高の同僚",
+     "追加能力：氷結んで手も結んで"
+    ],
+    "desc": [
+     "照は開幕最大HPに応じて会心率をアップさせる。開幕最大HP1000Ptにつき、会心率+<color=#2BAD00>1.2%</color>。\nフィールド入場時、照は<color=#FFFFFF>「氷霜値」</color>を100Pt獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。<color=#FFFFFF>「氷霜値」</color>の上限は100Pt。\n操作中のメンバーの攻撃が敵に命中した時、照は<color=#FFFFFF>「氷霜値」</color>を6Pt獲得する。この効果は3秒に1回のみ発動可能。\n<color=#FFFFFF>「氷霜値」</color>が最大まで溜まっている、かつ接敵状態にある場合、交代で照を出場させると<color=#FFFFFF>『入場スキル』</color>が発動する。\n照が<color=#FFFFFF>『入場スキル』</color>を発動する際、すべての<color=#FFFFFF>「氷霜値」</color>を消費して<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開する。\n<color=#FFFFFF>「エーテルベール・湧泉」</color>の効果を受けている時、メンバー全員の最大HP+5%、継続時間40秒。照が「エーテルベール・湧泉」を重複して展開する際、既存の<color=#FFFFFF>「エーテルベール・湧泉」</color>は解除される。\n照が<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開すると、メンバー全員の攻撃力+<color=#2BAD00>700</color>Pt、継続時間50秒、重複して発動すると継続時間が更新される。",
+     "チームに<color=#FFFFFF>[強攻]</color>、<color=#FFFFFF>[異常]</color>、または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\n照が任意の<color=#FFFFFF>「エーテルベール」</color>の効果を受けている時、メンバー全員の与ダメージ+10%。照の開幕最大HPが15000Ptを上回る場合、400Pt上回るごとに、与ダメージがさらに+1%、基礎効果と追加アップ効果による合計ダメージアップは最大40%まで。開幕最大HPが27000Ptに達すると、上記の効果も最大値に達する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1341506": {
+    "level": 6,
+    "id": 1341506,
+    "name": [
+     "コアパッシブ：最高の同僚",
+     "追加能力：氷結んで手も結んで"
+    ],
+    "desc": [
+     "照は開幕最大HPに応じて会心率をアップさせる。開幕最大HP1000Ptにつき、会心率+<color=#2BAD00>1.3%</color>。\nフィールド入場時、照は<color=#FFFFFF>「氷霜値」</color>を100Pt獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。<color=#FFFFFF>「氷霜値」</color>の上限は100Pt。\n操作中のメンバーの攻撃が敵に命中した時、照は<color=#FFFFFF>「氷霜値」</color>を6Pt獲得する。この効果は3秒に1回のみ発動可能。\n<color=#FFFFFF>「氷霜値」</color>が最大まで溜まっている、かつ接敵状態にある場合、交代で照を出場させると<color=#FFFFFF>『入場スキル』</color>が発動する。\n照が<color=#FFFFFF>『入場スキル』</color>を発動する際、すべての<color=#FFFFFF>「氷霜値」</color>を消費して<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開する。\n<color=#FFFFFF>「エーテルベール・湧泉」</color>の効果を受けている時、メンバー全員の最大HP+5%、継続時間40秒。照が「エーテルベール・湧泉」を重複して展開する際、既存の<color=#FFFFFF>「エーテルベール・湧泉」</color>は解除される。\n照が<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開すると、メンバー全員の攻撃力+<color=#2BAD00>850</color>Pt、継続時間50秒、重複して発動すると継続時間が更新される。",
+     "チームに<color=#FFFFFF>[強攻]</color>、<color=#FFFFFF>[異常]</color>、または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\n照が任意の<color=#FFFFFF>「エーテルベール」</color>の効果を受けている時、メンバー全員の与ダメージ+10%。照の開幕最大HPが15000Ptを上回る場合、400Pt上回るごとに、与ダメージがさらに+1%、基礎効果と追加アップ効果による合計ダメージアップは最大40%まで。開幕最大HPが27000Ptに達すると、上記の効果も最大値に達する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1341507": {
+    "level": 7,
+    "id": 1341507,
+    "name": [
+     "コアパッシブ：最高の同僚",
+     "追加能力：氷結んで手も結んで"
+    ],
+    "desc": [
+     "照は開幕最大HPに応じて会心率をアップさせる。開幕最大HP1000Ptにつき、会心率+<color=#2BAD00>1.4%</color>。\nフィールド入場時、照は<color=#FFFFFF>「氷霜値」</color>を100Pt獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。<color=#FFFFFF>「氷霜値」</color>の上限は100Pt。\n操作中のメンバーの攻撃が敵に命中した時、照は<color=#FFFFFF>「氷霜値」</color>を6Pt獲得する。この効果は3秒に1回のみ発動可能。\n<color=#FFFFFF>「氷霜値」</color>が最大まで溜まっている、かつ接敵状態にある場合、交代で照を出場させると<color=#FFFFFF>『入場スキル』</color>が発動する。\n照が<color=#FFFFFF>『入場スキル』</color>を発動する際、すべての<color=#FFFFFF>「氷霜値」</color>を消費して<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開する。\n<color=#FFFFFF>「エーテルベール・湧泉」</color>の効果を受けている時、メンバー全員の最大HP+5%、継続時間40秒。照が「エーテルベール・湧泉」を重複して展開する際、既存の<color=#FFFFFF>「エーテルベール・湧泉」</color>は解除される。\n照が<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開すると、メンバー全員の攻撃力+<color=#2BAD00>1000</color>Pt、継続時間50秒、重複して発動すると継続時間が更新される。",
+     "チームに<color=#FFFFFF>[強攻]</color>、<color=#FFFFFF>[異常]</color>、または<color=#FFFFFF>[支援]</color>のメンバーがいる時に発動：\n照が任意の<color=#FFFFFF>「エーテルベール」</color>の効果を受けている時、メンバー全員の与ダメージ+10%。照の開幕最大HPが15000Ptを上回る場合、400Pt上回るごとに、与ダメージがさらに+1%、基礎効果と追加アップ効果による合計ダメージアップは最大40%まで。開幕最大HPが27000Ptに達すると、上記の効果も最大値に達する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110513": 2
+   },
+   "3": {
+    "10": 28000,
+    "110513": 4
+   },
+   "4": {
+    "10": 60000,
+    "110008": 2,
+    "110513": 9
+   },
+   "5": {
+    "10": 100000,
+    "110008": 3,
+    "110513": 15
+   },
+   "6": {
+    "10": 200000,
+    "110008": 4,
+    "110513": 30
+   }
+  }
+ },
+ "skin": {
+  "3113410": {
+   "name": "照・「モフ耳にはトゲがある」",
+   "desc": "もふもふで暖かなお耳、小柄な姿。\nそれ故に侮る者がいれば、「利益」を重んじる裁決官は、\nその枝を振り下ろすことだってためらわないだろう。",
+   "obtain_desc": "",
+   "image": "IconRole56"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1341001": {
+   "name": "通常攻撃：清冽の裁決",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1341002": {
+   "name": "通常攻撃：最終裁決",
+   "desc": "<IconMap:Icon_Normal>（長押し）",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1341003": {
+   "name": "特殊スキル：砕氷寒冷",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1341004": {
+   "name": "強化特殊スキル：霜柱凍土",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1341005": {
+   "name": "ダッシュ攻撃：バウンスダッシュ",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1341006": {
+   "name": "回避反撃：瞬閃の一撃",
+   "desc": "<IconMap:Icon_Evade>（極限回避成功） ; <IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1341007": {
+   "name": "連携スキル：仮初の協力",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1341008": {
+   "name": "終結スキル：ウサちゃん乱れ斬り",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1341009": {
+   "name": "入場スキル：霜奔る",
+   "desc": "<IconMap:Icon_Switch>（「氷霜値」が満タンの時）",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1341010": {
+   "name": "クイック支援：ブラッシュアップ",
+   "desc": "<IconMap:Icon_Switch>（クイック支援の発動条件を満たした時）",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1341011": {
+   "name": "パリィ支援：霜嬋、真打ち",
+   "desc": "<IconMap:Icon_Switch>（パリィ支援の発動条件を満たした時）",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1341012": {
+   "name": "支援突撃：凛光の切り返し",
+   "desc": "<IconMap:Icon_Normal>（パリィ支援を発動した後に）",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1341001,
+   "avatar_id": 1341,
+   "first_priority": [
+    5,
+    1,
+    0
+   ],
+   "second_priority": [
+    3,
+    6
+   ],
+   "third_priority": [
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33700,
+  "slot2": 33100,
+  "slot_sub": 31600,
+  "part_sub_list": [
+   11102,
+   11103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33700,
+     33100
+    ],
+    "part_sub_list": [
+     11102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     11102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     11102,
+     30502
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 11102,
+   "name": "HP",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconHpMax.png"
+  },
+  "part5": {
+   "prop": 30502,
+   "name": "エネルギー自動回復",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconSpRecover.png"
+  },
+  "part6": {
+   "prop": 21103,
+   "name": "会心ダメージ",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "攻撃力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "04",
+  "<IconMap:Icon_GeneralBuff_Ice>氷属性、汎用、交代運用サポーター",
+  "安定した「エーテルベール」発動",
+  "メンバー全員の攻撃力アップ"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100215": 4
+   }
+  },
+  "2": {
+   "hp_max": 503,
+   "attack": 39,
+   "defence": 39,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100225": 12
+   }
+  },
+  "3": {
+   "hp_max": 1006,
+   "attack": 79,
+   "defence": 77,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100225": 20
+   }
+  },
+  "4": {
+   "hp_max": 1509,
+   "attack": 118,
+   "defence": 116,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100235": 10
+   }
+  },
+  "5": {
+   "hp_max": 2012,
+   "attack": 157,
+   "defence": 155,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100235": 20
+   }
+  },
+  "6": {
+   "hp_max": 2515,
+   "attack": 197,
+   "defence": 194,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "11102": {
+     "prop": 11102,
+     "name": "HP",
+     "format": "{0:0.#%}",
+     "value": 600
+    },
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "11102": {
+     "prop": 11102,
+     "name": "HP",
+     "format": "{0:0.#%}",
+     "value": 600
+    },
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "11102": {
+     "prop": 11102,
+     "name": "HP",
+     "format": "{0:0.#%}",
+     "value": 1200
+    },
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "11102": {
+     "prop": 11102,
+     "name": "HP",
+     "format": "{0:0.#%}",
+     "value": 1200
+    },
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "11102": {
+     "prop": 11102,
+     "name": "HP",
+     "format": "{0:0.#%}",
+     "value": 1800
+    },
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "11102": {
+     "prop": 11102,
+     "name": "HP",
+     "format": "{0:0.#%}",
+     "value": 1800
+    },
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 75
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpinezhao"
+}

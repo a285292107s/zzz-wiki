@@ -1,0 +1,519 @@
+{
+ "id": 54016,
+ "code_name": "Robin",
+ "name": "ロビン",
+ "desc": "スリー、ツー、ワン！瞬きしないで！",
+ "rarity": 4,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole31.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 396,
+  "hpupgrade": 471237,
+  "attack": 70,
+  "attack_upgrade": 350579,
+  "break_stun": 117,
+  "element_abnormal_power": 117,
+  "defence": 28,
+  "def_upgrade": 78871,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 207,
+   "attack": 65,
+   "defence": 35,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 414,
+   "attack": 324,
+   "defence": 69,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 621,
+   "attack": 973,
+   "defence": 104,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 828,
+   "attack": 2593,
+   "defence": 139,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 1034,
+   "attack": 6483,
+   "defence": 173,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "美しい幕引き",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時、マジックガンでランダムなカードを発射し、カードの種類に応じて異なる効果を発動する。\n<color=#FFFFFF>「ハート」</color>：<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\n<color=#FFFFFF>「スペード」</color>：<color=#F0D12B>物理属性ダメージ</color>を与え、ブレイク値を大量に蓄積させる。\n<color=#FFFFFF>「クラウン」</color>：<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を大量に蓄積させる。",
+     "property": [
+      "「ハート」ダメージ倍率",
+      "「ハート」ブレイク倍率",
+      "「スペード」ダメージ倍率",
+      "「スペード」ブレイク倍率",
+      "「クラウン」ダメージ倍率",
+      "「クラウン」ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5401601, Prop:1001}|{Skill:5401601, Prop:1002}|{Skill:5401602, Prop:1001}|{Skill:5401602, Prop:1002}|{Skill:5401603, Prop:1001}|{Skill:5401603, Prop:1002}|26秒"
+    },
+    "2": {
+     "name": "美しい幕引き",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時、マジックガンでランダムなカードを発射し、カードの種類に応じて異なる効果を発動する。\n<color=#FFFFFF>「ハート」</color>：<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\n<color=#FFFFFF>「スペード」</color>：<color=#F0D12B>物理属性ダメージ</color>を与え、ブレイク値を大量に蓄積させる。\n<color=#FFFFFF>「クラウン」</color>：<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を大量に蓄積させる。",
+     "property": [
+      "「ハート」ダメージ倍率",
+      "「ハート」ブレイク倍率",
+      "「スペード」ダメージ倍率",
+      "「スペード」ブレイク倍率",
+      "「クラウン」ダメージ倍率",
+      "「クラウン」ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5401601, Prop:1001}|{Skill:5401601, Prop:1002}|{Skill:5401602, Prop:1001}|{Skill:5401602, Prop:1002}|{Skill:5401603, Prop:1001}|{Skill:5401603, Prop:1002}|26秒"
+    },
+    "3": {
+     "name": "美しい幕引き",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時、マジックガンでランダムなカードを発射し、カードの種類に応じて異なる効果を発動する。\n<color=#FFFFFF>「ハート」</color>：<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\n<color=#FFFFFF>「スペード」</color>：<color=#F0D12B>物理属性ダメージ</color>を与え、ブレイク値を大量に蓄積させる。\n<color=#FFFFFF>「クラウン」</color>：<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を大量に蓄積させる。",
+     "property": [
+      "「ハート」ダメージ倍率",
+      "「ハート」ブレイク倍率",
+      "「スペード」ダメージ倍率",
+      "「スペード」ブレイク倍率",
+      "「クラウン」ダメージ倍率",
+      "「クラウン」ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5401601, Prop:1001}|{Skill:5401601, Prop:1002}|{Skill:5401602, Prop:1001}|{Skill:5401602, Prop:1002}|{Skill:5401603, Prop:1001}|{Skill:5401603, Prop:1002}|26秒"
+    },
+    "4": {
+     "name": "美しい幕引き",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時、マジックガンでランダムなカードを発射し、カードの種類に応じて異なる効果を発動する。\n<color=#FFFFFF>「ハート」</color>：<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\n<color=#FFFFFF>「スペード」</color>：<color=#F0D12B>物理属性ダメージ</color>を与え、ブレイク値を大量に蓄積させる。\n<color=#FFFFFF>「クラウン」</color>：<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を大量に蓄積させる。",
+     "property": [
+      "「ハート」ダメージ倍率",
+      "「ハート」ブレイク倍率",
+      "「スペード」ダメージ倍率",
+      "「スペード」ブレイク倍率",
+      "「クラウン」ダメージ倍率",
+      "「クラウン」ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5401601, Prop:1001}|{Skill:5401601, Prop:1002}|{Skill:5401602, Prop:1001}|{Skill:5401602, Prop:1002}|{Skill:5401603, Prop:1001}|{Skill:5401603, Prop:1002}|26秒"
+    },
+    "5": {
+     "name": "美しい幕引き",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時、マジックガンでランダムなカードを発射し、カードの種類に応じて異なる効果を発動する。\n<color=#FFFFFF>「ハート」</color>：<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\n<color=#FFFFFF>「スペード」</color>：<color=#F0D12B>物理属性ダメージ</color>を与え、ブレイク値を大量に蓄積させる。\n<color=#FFFFFF>「クラウン」</color>：<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を大量に蓄積させる。",
+     "property": [
+      "「ハート」ダメージ倍率",
+      "「ハート」ブレイク倍率",
+      "「スペード」ダメージ倍率",
+      "「スペード」ブレイク倍率",
+      "「クラウン」ダメージ倍率",
+      "「クラウン」ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5401601, Prop:1001}|{Skill:5401601, Prop:1002}|{Skill:5401602, Prop:1001}|{Skill:5401602, Prop:1002}|{Skill:5401603, Prop:1001}|{Skill:5401603, Prop:1002}|26秒"
+    },
+    "6": {
+     "name": "美しい幕引き",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時、マジックガンでランダムなカードを発射し、カードの種類に応じて異なる効果を発動する。\n<color=#FFFFFF>「ハート」</color>：<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\n<color=#FFFFFF>「スペード」</color>：<color=#F0D12B>物理属性ダメージ</color>を与え、ブレイク値を大量に蓄積させる。\n<color=#FFFFFF>「クラウン」</color>：<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を大量に蓄積させる。",
+     "property": [
+      "「ハート」ダメージ倍率",
+      "「ハート」ブレイク倍率",
+      "「スペード」ダメージ倍率",
+      "「スペード」ブレイク倍率",
+      "「クラウン」ダメージ倍率",
+      "「クラウン」ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5401601, Prop:1001}|{Skill:5401601, Prop:1002}|{Skill:5401602, Prop:1001}|{Skill:5401602, Prop:1002}|{Skill:5401603, Prop:1001}|{Skill:5401603, Prop:1002}|26秒"
+    },
+    "7": {
+     "name": "美しい幕引き",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時、マジックガンでランダムなカードを発射し、カードの種類に応じて異なる効果を発動する。\n<color=#FFFFFF>「ハート」</color>：<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\n<color=#FFFFFF>「スペード」</color>：<color=#F0D12B>物理属性ダメージ</color>を与え、ブレイク値を大量に蓄積させる。\n<color=#FFFFFF>「クラウン」</color>：<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を大量に蓄積させる。",
+     "property": [
+      "「ハート」ダメージ倍率",
+      "「ハート」ブレイク倍率",
+      "「スペード」ダメージ倍率",
+      "「スペード」ブレイク倍率",
+      "「クラウン」ダメージ倍率",
+      "「クラウン」ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5401601, Prop:1001}|{Skill:5401601, Prop:1002}|{Skill:5401602, Prop:1001}|{Skill:5401602, Prop:1002}|{Skill:5401603, Prop:1001}|{Skill:5401603, Prop:1002}|26秒"
+    },
+    "8": {
+     "name": "美しい幕引き",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時、マジックガンでランダムなカードを発射し、カードの種類に応じて異なる効果を発動する。\n<color=#FFFFFF>「ハート」</color>：<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\n<color=#FFFFFF>「スペード」</color>：<color=#F0D12B>物理属性ダメージ</color>を与え、ブレイク値を大量に蓄積させる。\n<color=#FFFFFF>「クラウン」</color>：<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を大量に蓄積させる。",
+     "property": [
+      "「ハート」ダメージ倍率",
+      "「ハート」ブレイク倍率",
+      "「スペード」ダメージ倍率",
+      "「スペード」ブレイク倍率",
+      "「クラウン」ダメージ倍率",
+      "「クラウン」ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5401601, Prop:1001}|{Skill:5401601, Prop:1002}|{Skill:5401602, Prop:1001}|{Skill:5401602, Prop:1002}|{Skill:5401603, Prop:1001}|{Skill:5401603, Prop:1002}|26秒"
+    },
+    "9": {
+     "name": "美しい幕引き",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時、マジックガンでランダムなカードを発射し、カードの種類に応じて異なる効果を発動する。\n<color=#FFFFFF>「ハート」</color>：<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\n<color=#FFFFFF>「スペード」</color>：<color=#F0D12B>物理属性ダメージ</color>を与え、ブレイク値を大量に蓄積させる。\n<color=#FFFFFF>「クラウン」</color>：<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を大量に蓄積させる。",
+     "property": [
+      "「ハート」ダメージ倍率",
+      "「ハート」ブレイク倍率",
+      "「スペード」ダメージ倍率",
+      "「スペード」ブレイク倍率",
+      "「クラウン」ダメージ倍率",
+      "「クラウン」ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5401601, Prop:1001}|{Skill:5401601, Prop:1002}|{Skill:5401602, Prop:1001}|{Skill:5401602, Prop:1002}|{Skill:5401603, Prop:1001}|{Skill:5401603, Prop:1002}|26秒"
+    },
+    "10": {
+     "name": "美しい幕引き",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時、マジックガンでランダムなカードを発射し、カードの種類に応じて異なる効果を発動する。\n<color=#FFFFFF>「ハート」</color>：<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\n<color=#FFFFFF>「スペード」</color>：<color=#F0D12B>物理属性ダメージ</color>を与え、ブレイク値を大量に蓄積させる。\n<color=#FFFFFF>「クラウン」</color>：<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を大量に蓄積させる。",
+     "property": [
+      "「ハート」ダメージ倍率",
+      "「ハート」ブレイク倍率",
+      "「スペード」ダメージ倍率",
+      "「スペード」ブレイク倍率",
+      "「クラウン」ダメージ倍率",
+      "「クラウン」ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5401601, Prop:1001}|{Skill:5401601, Prop:1002}|{Skill:5401602, Prop:1001}|{Skill:5401602, Prop:1002}|{Skill:5401603, Prop:1001}|{Skill:5401603, Prop:1002}|26秒"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "百面の怪傑",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>「モッキンバード」</color>のメンバーが1名以上いる時に発動：出場中のエージェントが条件を満たしている場合、<color=#FFFFFF>『アクティブスキル』</color>は固定カードを発射し、バフ効果を獲得する。\n<color=#FFFFFF>[強攻]</color>：<color=#FFFFFF>「ハート」</color>のみを発射し、与ダメージ+45%。\n<color=#FFFFFF>[撃破]</color>：<color=#FFFFFF>「スペード」</color>のみを発射し、与えるブレイク値+27%。\n<color=#FFFFFF>[異常]</color>：<color=#FFFFFF>「クラウン」</color>のみを発射し、敵の状態異常蓄積値+90%。",
+     "property": [
+      "ダメージアップ",
+      "ブレイク値アップ",
+      "状態異常蓄積値アップ"
+     ],
+     "param": "45%|27%|90%"
+    },
+    "2": {
+     "name": "百面の怪傑",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>「モッキンバード」</color>のメンバーが1名以上いる時に発動：出場中のエージェントが条件を満たしている場合、<color=#FFFFFF>『アクティブスキル』</color>は固定カードを発射し、バフ効果を獲得する。\n<color=#FFFFFF>[強攻]</color>：<color=#FFFFFF>「ハート」</color>のみを発射し、与ダメージ+56%。\n<color=#FFFFFF>[撃破]</color>：<color=#FFFFFF>「スペード」</color>のみを発射し、与えるブレイク値+34%。\n<color=#FFFFFF>[異常]</color>：<color=#FFFFFF>「クラウン」</color>のみを発射し、敵の状態異常蓄積値+112.5%。",
+     "property": [
+      "ダメージアップ",
+      "ブレイク値アップ",
+      "状態異常蓄積値アップ"
+     ],
+     "param": "56%|34%|112.5%"
+    },
+    "3": {
+     "name": "百面の怪傑",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>「モッキンバード」</color>のメンバーが1名以上いる時に発動：出場中のエージェントが条件を満たしている場合、<color=#FFFFFF>『アクティブスキル』</color>は固定カードを発射し、バフ効果を獲得する。\n<color=#FFFFFF>[強攻]</color>：<color=#FFFFFF>「ハート」</color>のみを発射し、与ダメージ+67%。\n<color=#FFFFFF>[撃破]</color>：<color=#FFFFFF>「スペード」</color>のみを発射し、与えるブレイク値+40%。\n<color=#FFFFFF>[異常]</color>：<color=#FFFFFF>「クラウン」</color>のみを発射し、敵の状態異常蓄積値+135%。",
+     "property": [
+      "ダメージアップ",
+      "ブレイク値アップ",
+      "状態異常蓄積値アップ"
+     ],
+     "param": "67%|40%|135%"
+    },
+    "4": {
+     "name": "百面の怪傑",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>「モッキンバード」</color>のメンバーが1名以上いる時に発動：出場中のエージェントが条件を満たしている場合、<color=#FFFFFF>『アクティブスキル』</color>は固定カードを発射し、バフ効果を獲得する。\n<color=#FFFFFF>[強攻]</color>：<color=#FFFFFF>「ハート」</color>のみを発射し、与ダメージ+78%。\n<color=#FFFFFF>[撃破]</color>：<color=#FFFFFF>「スペード」</color>のみを発射し、与えるブレイク値+47%。\n<color=#FFFFFF>[異常]</color>：<color=#FFFFFF>「クラウン」</color>のみを発射し、敵の状態異常蓄積値+157.5%。",
+     "property": [
+      "ダメージアップ",
+      "ブレイク値アップ",
+      "状態異常蓄積値アップ"
+     ],
+     "param": "78%|47%|157.5%"
+    },
+    "5": {
+     "name": "百面の怪傑",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>「モッキンバード」</color>のメンバーが1名以上いる時に発動：出場中のエージェントが条件を満たしている場合、<color=#FFFFFF>『アクティブスキル』</color>は固定カードを発射し、バフ効果を獲得する。\n<color=#FFFFFF>[強攻]</color>：<color=#FFFFFF>「ハート」</color>のみを発射し、与ダメージ+90%。\n<color=#FFFFFF>[撃破]</color>：<color=#FFFFFF>「スペード」</color>のみを発射し、与えるブレイク値+54%。\n<color=#FFFFFF>[異常]</color>：<color=#FFFFFF>「クラウン」</color>のみを発射し、敵の状態異常蓄積値+180%。",
+     "property": [
+      "ダメージアップ",
+      "ブレイク値アップ",
+      "状態異常蓄積値アップ"
+     ],
+     "param": "90%|54%|180%"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "幻の幕開け！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n前方にマジックグレネードを投げ、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401604, Prop:1001}|{Skill:5401604, Prop:1002}"
+    },
+    "2": {
+     "name": "幻の幕開け！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n前方にマジックグレネードを投げ、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401604, Prop:1001}|{Skill:5401604, Prop:1002}"
+    },
+    "3": {
+     "name": "幻の幕開け！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n前方にマジックグレネードを投げ、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401604, Prop:1001}|{Skill:5401604, Prop:1002}"
+    },
+    "4": {
+     "name": "幻の幕開け！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n前方にマジックグレネードを投げ、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401604, Prop:1001}|{Skill:5401604, Prop:1002}"
+    },
+    "5": {
+     "name": "幻の幕開け！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n前方にマジックグレネードを投げ、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401604, Prop:1001}|{Skill:5401604, Prop:1002}"
+    },
+    "6": {
+     "name": "幻の幕開け！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n前方にマジックグレネードを投げ、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401604, Prop:1001}|{Skill:5401604, Prop:1002}"
+    },
+    "7": {
+     "name": "幻の幕開け！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n前方にマジックグレネードを投げ、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401604, Prop:1001}|{Skill:5401604, Prop:1002}"
+    },
+    "8": {
+     "name": "幻の幕開け！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n前方にマジックグレネードを投げ、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401604, Prop:1001}|{Skill:5401604, Prop:1002}"
+    },
+    "9": {
+     "name": "幻の幕開け！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n前方にマジックグレネードを投げ、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401604, Prop:1001}|{Skill:5401604, Prop:1002}"
+    },
+    "10": {
+     "name": "幻の幕開け！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n前方にマジックグレネードを投げ、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401604, Prop:1001}|{Skill:5401604, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5401601": {
+   "1001": {
+    "main": 85500,
+    "growth": 8550,
+    "format": "%"
+   },
+   "1002": {
+    "main": 21300,
+    "growth": 2130,
+    "format": "%"
+   },
+   "element_accumulation_value": 31200
+  },
+  "5401602": {
+   "1001": {
+    "main": 58200,
+    "growth": 5820,
+    "format": "%"
+   },
+   "1002": {
+    "main": 32200,
+    "growth": 3220,
+    "format": "%"
+   },
+   "element_accumulation_value": 27300
+  },
+  "5401603": {
+   "1001": {
+    "main": 66600,
+    "growth": 6660,
+    "format": "%"
+   },
+   "1002": {
+    "main": 21300,
+    "growth": 2130,
+    "format": "%"
+   },
+   "element_accumulation_value": 41200
+  },
+  "5401604": {
+   "1001": {
+    "main": 68800,
+    "growth": 6880,
+    "format": "%"
+   },
+   "1002": {
+    "main": 9800,
+    "growth": 980,
+    "format": "%"
+   },
+   "element_accumulation_value": 29500
+  }
+ }
+}

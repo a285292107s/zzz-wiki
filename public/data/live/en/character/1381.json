@@ -1,0 +1,2573 @@
+{
+ "id": 1381,
+ "icon": "IconRole40",
+ "name": "Soldier 0 - Anby",
+ "code_name": "Soldier 0 - Anby",
+ "rarity": 4,
+ "weapon_type": {
+  "1": "Attack"
+ },
+ "element_type": {
+  "203": "Electric"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "5": "New Eridu Defense Force"
+ },
+ "gender": 2,
+ "partner_info": {
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0040.png"
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 134,
+  "attack_growth": 81654,
+  "avatar_piece_id": 5381,
+  "break_stun": 93,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66882,
+  "element_abnormal_power": 94,
+  "element_mystery": 93,
+  "endurance": 0,
+  "hp_growth": 837238,
+  "hp_max": 617,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "SilverAnby",
+   "Cut",
+   "Electric",
+   "Female",
+   "Camp5",
+   "Size2",
+   "AidTypeParry",
+   "SilverAnby",
+   "EtherEyesSize2"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "Basic Attack: Penetrating Shock",
+     "desc": "Press <IconMap:Icon_Normal> to activate:\nPerform up to five slashes ahead, dealing <color=#2EB6FF>Electric DMG</color>. After the 4th attack hits the enemy, repeatedly press or hold <IconMap:Icon_Normal> to quickly pass through enemies in front up to 5 times.",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "Basic Attack: Penetrating Shock",
+     "desc": "Press <IconMap:Icon_Normal> to activate:\nPerform up to five slashes ahead, dealing <color=#2EB6FF>Electric DMG</color>.\nOn the 3rd hit of the Basic Attack, enemies are continuously pulled in.\nAfter the 4th attack hits the enemy, repeatedly press or hold <IconMap:Icon_Normal> to quickly pass through enemies in front up to 5 times.",
+     "potential": [
+      138100,
+      138101,
+      138102,
+      138103,
+      138104,
+      138105
+     ]
+    },
+    {
+     "name": "Basic Attack: Penetrating Shock",
+     "param": [
+      {
+       "name": "1st-Hit DMG Multiplier",
+       "desc": "{Skill:1381001, Prop:1001}",
+       "param": {
+        "1381001": {
+         "main": 3270,
+         "growth": 300,
+         "format": "%",
+         "damage_percentage": 3270,
+         "damage_percentage_growth": 300,
+         "stun_ratio": 2790,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 9120,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 69850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2532,
+         "sp_consume": 0,
+         "attack_data": [
+          47029
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2533
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit DMG Multiplier",
+       "desc": "{Skill:1381002, Prop:1001}",
+       "param": {
+        "1381002": {
+         "main": 6220,
+         "growth": 570,
+         "format": "%",
+         "damage_percentage": 6220,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 5450,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 17840,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 136400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4954,
+         "sp_consume": 0,
+         "attack_data": [
+          74633
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4955
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd-Hit DMG Multiplier",
+       "desc": "{Skill:1381003, Prop:1001}",
+       "param": {
+        "1381003": {
+         "main": 8010,
+         "growth": 730,
+         "format": "%",
+         "damage_percentage": 8010,
+         "damage_percentage_growth": 730,
+         "stun_ratio": 7190,
+         "stun_ratio_growth": 330,
+         "sp_recovery": 23500,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 179575,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6527,
+         "sp_consume": 0,
+         "attack_data": [
+          80766
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6528
+        }
+       },
+       "potential": [
+        0
+       ]
+      },
+      {
+       "name": "3rd-Hit DMG Multiplier",
+       "desc": "{Skill:1381022, Prop:1001}",
+       "param": {
+        "1381022": {
+         "main": 10010,
+         "growth": 910,
+         "format": "%",
+         "damage_percentage": 10010,
+         "damage_percentage_growth": 910,
+         "stun_ratio": 7700,
+         "stun_ratio_growth": 350,
+         "sp_recovery": 25200,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 192500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6999,
+         "sp_consume": 0,
+         "attack_data": [
+          80766
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7000
+        }
+       },
+       "potential": [
+        138100,
+        138101,
+        138102,
+        138103,
+        138104,
+        138105
+       ]
+      },
+      {
+       "name": "3rd-Hit Finisher DMG Multiplier",
+       "desc": "{Skill:1381004, Prop:1001}",
+       "param": {
+        "1381004": {
+         "main": 3990,
+         "growth": 370,
+         "format": "%",
+         "damage_percentage": 3990,
+         "damage_percentage_growth": 370,
+         "stun_ratio": 6210,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 20310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 155375,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5640,
+         "sp_consume": 0,
+         "attack_data": [
+          73327
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5641
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4th-Hit DMG Multiplier",
+       "desc": "{Skill:1381005, Prop:1001}",
+       "param": {
+        "1381005": {
+         "main": 15450,
+         "growth": 1410,
+         "format": "%",
+         "damage_percentage": 15450,
+         "damage_percentage_growth": 1410,
+         "stun_ratio": 13770,
+         "stun_ratio_growth": 630,
+         "sp_recovery": 45060,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 344300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12516,
+         "sp_consume": 0,
+         "attack_data": [
+          162717
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12517
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5th-Hit DMG Multiplier",
+       "desc": "{Skill:1381006, Prop:1001}",
+       "param": {
+        "1381006": {
+         "main": 14850,
+         "growth": 1350,
+         "format": "%",
+         "damage_percentage": 14850,
+         "damage_percentage_growth": 1350,
+         "stun_ratio": 13090,
+         "stun_ratio_growth": 600,
+         "sp_recovery": 42830,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 327250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11895,
+         "sp_consume": 0,
+         "attack_data": [
+          171818
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11896
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1st-Hit Daze Multiplier",
+       "desc": "{Skill:1381001, Prop:1002}",
+       "param": {
+        "1381001": {
+         "main": 2790,
+         "growth": 130,
+         "format": "%",
+         "damage_percentage": 3270,
+         "damage_percentage_growth": 300,
+         "stun_ratio": 2790,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 9120,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 69850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2532,
+         "sp_consume": 0,
+         "attack_data": [
+          47029
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2533
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit Daze Multiplier",
+       "desc": "{Skill:1381002, Prop:1002}",
+       "param": {
+        "1381002": {
+         "main": 5450,
+         "growth": 250,
+         "format": "%",
+         "damage_percentage": 6220,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 5450,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 17840,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 136400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4954,
+         "sp_consume": 0,
+         "attack_data": [
+          74633
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4955
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd-Hit Daze Multiplier",
+       "desc": "{Skill:1381003, Prop:1002}",
+       "param": {
+        "1381003": {
+         "main": 7190,
+         "growth": 330,
+         "format": "%",
+         "damage_percentage": 8010,
+         "damage_percentage_growth": 730,
+         "stun_ratio": 7190,
+         "stun_ratio_growth": 330,
+         "sp_recovery": 23500,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 179575,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6527,
+         "sp_consume": 0,
+         "attack_data": [
+          80766
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6528
+        }
+       },
+       "potential": [
+        0
+       ]
+      },
+      {
+       "name": "3rd-Hit Daze Multiplier",
+       "desc": "{Skill:1381022, Prop:1002}",
+       "param": {
+        "1381022": {
+         "main": 7700,
+         "growth": 350,
+         "format": "%",
+         "damage_percentage": 10010,
+         "damage_percentage_growth": 910,
+         "stun_ratio": 7700,
+         "stun_ratio_growth": 350,
+         "sp_recovery": 25200,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 192500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6999,
+         "sp_consume": 0,
+         "attack_data": [
+          80766
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7000
+        }
+       },
+       "potential": [
+        138100,
+        138101,
+        138102,
+        138103,
+        138104,
+        138105
+       ]
+      },
+      {
+       "name": "3rd-Hit Finisher Daze Multiplier",
+       "desc": "{Skill:1381004, Prop:1002}",
+       "param": {
+        "1381004": {
+         "main": 6210,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 3990,
+         "damage_percentage_growth": 370,
+         "stun_ratio": 6210,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 20310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 155375,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5640,
+         "sp_consume": 0,
+         "attack_data": [
+          73327
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5641
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4th-Hit Daze Multiplier",
+       "desc": "{Skill:1381005, Prop:1002}",
+       "param": {
+        "1381005": {
+         "main": 13770,
+         "growth": 630,
+         "format": "%",
+         "damage_percentage": 15450,
+         "damage_percentage_growth": 1410,
+         "stun_ratio": 13770,
+         "stun_ratio_growth": 630,
+         "sp_recovery": 45060,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 344300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12516,
+         "sp_consume": 0,
+         "attack_data": [
+          162717
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12517
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5th-Hit Daze Multiplier",
+       "desc": "{Skill:1381006, Prop:1002}",
+       "param": {
+        "1381006": {
+         "main": 13090,
+         "growth": 600,
+         "format": "%",
+         "damage_percentage": 14850,
+         "damage_percentage_growth": 1350,
+         "stun_ratio": 13090,
+         "stun_ratio_growth": 600,
+         "sp_recovery": 42830,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 327250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11895,
+         "sp_consume": 0,
+         "attack_data": [
+          171818
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11896
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "Dodge: Strobe",
+     "desc": "Press <IconMap:Icon_Evade> to activate:\nA quick dash dodge.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Dash Attack: Torrent",
+     "desc": "Press <IconMap:Icon_Normal> during a dodge to activate:\nPerform a horizontal slash forward, then follow up with a thrust attack, dealing <color=#2EB6FF>Electric DMG</color>.",
+     "potential": []
+    },
+    {
+     "name": "Dodge Counter: Ground Flash Counter",
+     "desc": "Press <IconMap:Icon_Normal> during a <color=#FFFFFF>Perfect Dodge</color> to activate:\nRepeatedly slash enemies in front, dealing <color=#2EB6FF>Electric DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "Dodge Counter: Ground Flash Counter",
+     "desc": "Press <IconMap:Icon_Normal> during a <color=#FFFFFF>Perfect Dodge</color> to activate:\nPerform consecutive slashes at enemies in front, dealing <color=#2EB6FF>Electric DMG</color>. On hit, gain the Voltage Overload state for 15s. Repeated triggers refresh the duration.\nWhile in the Voltage Overload state, dodge performance is enhanced. Additionally, when using Basic Attack/Dash Attack/Dodge Counter, if the enemy target has <color=#FFFFFF>White Thunder</color>, pressing <IconMap:Icon_Special> will immediately cancel the current skill and launch <color=#FFFFFF>Special Attack: Azure Flash</color>.\nWhile in this state, if the enemy does not have <color=#FFFFFF>White Thunder</color>, press <IconMap:Icon_SpecialReady> to directly launch EX Special Attack: Sundering Bolt.\nCharacter is invulnerable while using this skill.",
+     "potential": [
+      138100,
+      138101,
+      138102,
+      138103,
+      138104,
+      138105
+     ]
+    },
+    {
+     "name": "Dash Attack: Torrent",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1381012, Prop:1001}",
+       "param": {
+        "1381012": {
+         "main": 8250,
+         "growth": 750,
+         "format": "%",
+         "damage_percentage": 8250,
+         "damage_percentage_growth": 750,
+         "stun_ratio": 4130,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 13500,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 103125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3748,
+         "sp_consume": 0,
+         "attack_data": [
+          48729
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3749
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1381012, Prop:1002}",
+       "param": {
+        "1381012": {
+         "main": 4130,
+         "growth": 190,
+         "format": "%",
+         "damage_percentage": 8250,
+         "damage_percentage_growth": 750,
+         "stun_ratio": 4130,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 13500,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 103125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3748,
+         "sp_consume": 0,
+         "attack_data": [
+          48729
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3749
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Dodge Counter: Ground Flash Counter",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1381013, Prop:1001}",
+       "param": {
+        "1381013": {
+         "main": 25060,
+         "growth": 2280,
+         "format": "%",
+         "damage_percentage": 25060,
+         "damage_percentage_growth": 2280,
+         "stun_ratio": 21820,
+         "stun_ratio_growth": 1000,
+         "sp_recovery": 35390,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 270600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9830,
+         "sp_consume": 0,
+         "attack_data": [
+          500000
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24831
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1381013, Prop:1002}",
+       "param": {
+        "1381013": {
+         "main": 21820,
+         "growth": 1000,
+         "format": "%",
+         "damage_percentage": 25060,
+         "damage_percentage_growth": 2280,
+         "stun_ratio": 21820,
+         "stun_ratio_growth": 1000,
+         "sp_recovery": 35390,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 270600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9830,
+         "sp_consume": 0,
+         "attack_data": [
+          500000
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24831
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "Special Attack: Celestial Thunder",
+     "desc": "Press <IconMap:Icon_Special> to activate:\nDash diagonally forward, then unleash a cross slash, dealing <color=#2EB6FF>Electric DMG</color>.\nAnti-Interrupt level is increased while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Azure Flash",
+     "desc": "When Soldier 0 - Anby's attacks hit an enemy, they apply the <color=#FFFFFF>Silver Star</color> mark and charges the target \nFor every one-third of charge, the enemy receives 1 stack of <color=#FFFFFF>White Thunder</color>, stacking up to 3 times.\nWhen the enemy has <color=#FFFFFF>White Thunder</color>, press <IconMap:Icon_Special> to activate:\nQuickly dash forward, slashing through enemies and dealing multiple hits of <color=#2EB6FF>Electric DMG</color>.\nWhen the skill hits an enemy, it will consume 1 stack of <color=#FFFFFF>White Thunder</color> to trigger an <color=#FFFFFF>Aftershock</color> that deals 1 extra instance of <color=#2EB6FF>Electric DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Thunder Smite",
+     "desc": "When the additional damage from <color=#FFFFFF>White Thunder</color> triggers 3 times on the same enemy:\nA lightning strike will fall at the enemy's location, dealing <color=#2EB6FF>Electric DMG</color> to enemies within range.\nThis DMG is considered <color=#FFFFFF>Aftershock</color> DMG.",
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Azure Flash - Boundary",
+     "desc": "When <color=#FFFFFF>Special Attack: Thunder Smite</color> DMG is triggered:\nIf EX Special Attack: Sundering Bolt or Special Attack: Azure Flash is currently being used, then <color=#FFFFFF>Special Attack: Azure Flash - Boundary</color> will automatically trigger when the current skill ends, unleashing a flurry of slashes that deal multiple instances of <color=#2EB6FF>Electric DMG</color>. This skill counts as an <color=#FFFFFF>Aftershock</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": [
+      138100,
+      138101,
+      138102,
+      138103,
+      138104,
+      138105
+     ]
+    },
+    {
+     "name": "EX Special Attack: Sundering Bolt",
+     "desc": "With enough energy, hold <IconMap:Icon_SpecialReady> to activate:\nCombines her twin swords and throws them forward for a high-speed slash, dealing massive <color=#2EB6FF>Electric DMG</color>.\nWhen the skill hits an enemy, it will fully charge <color=#FFFFFF>Silver Star</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Celestial Thunder",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1381010, Prop:1001}",
+       "param": {
+        "1381010": {
+         "main": 5960,
+         "growth": 550,
+         "format": "%",
+         "damage_percentage": 5960,
+         "damage_percentage_growth": 550,
+         "stun_ratio": 5960,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 149050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5416,
+         "sp_consume": 0,
+         "attack_data": [
+          140834
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5417
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1381010, Prop:1002}",
+       "param": {
+        "1381010": {
+         "main": 5960,
+         "growth": 280,
+         "format": "%",
+         "damage_percentage": 5960,
+         "damage_percentage_growth": 550,
+         "stun_ratio": 5960,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 149050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5416,
+         "sp_consume": 0,
+         "attack_data": [
+          140834
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5417
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Azure Flash",
+     "param": [
+      {
+       "name": "White Thunder DMG Multiplier",
+       "desc": "{Skill:1381007, Prop:1001}",
+       "param": {
+        "1381007": {
+         "main": 16720,
+         "growth": 1520,
+         "format": "%",
+         "damage_percentage": 16720,
+         "damage_percentage_growth": 1520,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "White Thunder Daze Multiplier",
+       "desc": "{Skill:1381007, Prop:1002}",
+       "param": {
+        "1381007": {
+         "main": 0,
+         "growth": 0,
+         "format": "%",
+         "damage_percentage": 16720,
+         "damage_percentage_growth": 1520,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1381009, Prop:1001}",
+       "param": {
+        "1381009": {
+         "main": 4300,
+         "growth": 400,
+         "format": "%",
+         "damage_percentage": 4300,
+         "damage_percentage_growth": 400,
+         "stun_ratio": 3310,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 82775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3003,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1381009, Prop:1002}",
+       "param": {
+        "1381009": {
+         "main": 3310,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 4300,
+         "damage_percentage_growth": 400,
+         "stun_ratio": 3310,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 82775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3003,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3004
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Thunder Smite",
+     "param": [
+      {
+       "name": "Thunder Smite DMG Multiplier",
+       "desc": "{Skill:1381008, Prop:1001}",
+       "param": {
+        "1381008": {
+         "main": 18810,
+         "growth": 1710,
+         "format": "%",
+         "damage_percentage": 18810,
+         "damage_percentage_growth": 1710,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Thunder Smite Daze Multiplier",
+       "desc": "{Skill:1381008, Prop:1002}",
+       "param": {
+        "1381008": {
+         "main": 0,
+         "growth": 0,
+         "format": "%",
+         "damage_percentage": 18810,
+         "damage_percentage_growth": 1710,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Azure Flash - Boundary",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1381023, Prop:1001}",
+       "param": {
+        "1381023": {
+         "main": 24940,
+         "growth": 2270,
+         "format": "%",
+         "damage_percentage": 24940,
+         "damage_percentage_growth": 2270,
+         "stun_ratio": 9540,
+         "stun_ratio_growth": 440,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 238425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8666,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8667
+        }
+       },
+       "potential": [
+        138100,
+        138101,
+        138102,
+        138103,
+        138104,
+        138105
+       ]
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1381023, Prop:1002}",
+       "param": {
+        "1381023": {
+         "main": 9540,
+         "growth": 440,
+         "format": "%",
+         "damage_percentage": 24940,
+         "damage_percentage_growth": 2270,
+         "stun_ratio": 9540,
+         "stun_ratio_growth": 440,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 238425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8666,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8667
+        }
+       },
+       "potential": [
+        138100,
+        138101,
+        138102,
+        138103,
+        138104,
+        138105
+       ]
+      }
+     ],
+     "potential": [
+      138100,
+      138101,
+      138102,
+      138103,
+      138104,
+      138105
+     ]
+    },
+    {
+     "name": "EX Special Attack: Sundering Bolt",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1381011, Prop:1001}",
+       "param": {
+        "1381011": {
+         "main": 37960,
+         "growth": 3460,
+         "format": "%",
+         "damage_percentage": 37960,
+         "damage_percentage_growth": 3460,
+         "stun_ratio": 45860,
+         "stun_ratio_growth": 2090,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1675575,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 46496,
+         "sp_consume": 0,
+         "attack_data": [
+          1000000
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12837
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1381011, Prop:1002}",
+       "param": {
+        "1381011": {
+         "main": 45860,
+         "growth": 2090,
+         "format": "%",
+         "damage_percentage": 37960,
+         "damage_percentage_growth": 3460,
+         "stun_ratio": 45860,
+         "stun_ratio_growth": 2090,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1675575,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 46496,
+         "sp_consume": 0,
+         "attack_data": [
+          1000000
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12837
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Energy Cost",
+       "desc": "60",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "Chain Attack: Leaping Thunderstrike",
+     "desc": "When a <color=#FFFFFF>Chain Attack</color> is triggered, select the character to activate:\nLeap forward, then quickly dive and perform a cross slash, dealing massive <color=#2EB6FF>Electric DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Ultimate: Voidstrike",
+     "desc": "When Decibel Rating is at <color=#FFFFFF>Maximum</color>, press <IconMap:Icon_UltimateReady> to activate:\nPerform a powerful series of slashes at a large area in front, followed by a lightning strike, dealing massive <color=#2EB6FF>Electric DMG</color>.\nWhen the skill hits an enemy, it will fully charge <color=#FFFFFF>Silver Star</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Chain Attack: Leaping Thunderstrike",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1381014, Prop:1001}",
+       "param": {
+        "1381014": {
+         "main": 56380,
+         "growth": 5130,
+         "format": "%",
+         "damage_percentage": 56380,
+         "damage_percentage_growth": 5130,
+         "stun_ratio": 19810,
+         "stun_ratio_growth": 910,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2324025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37950,
+         "sp_consume": 0,
+         "attack_data": [
+          234001
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18001
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1381014, Prop:1002}",
+       "param": {
+        "1381014": {
+         "main": 19810,
+         "growth": 910,
+         "format": "%",
+         "damage_percentage": 56380,
+         "damage_percentage_growth": 5130,
+         "stun_ratio": 19810,
+         "stun_ratio_growth": 910,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2324025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37950,
+         "sp_consume": 0,
+         "attack_data": [
+          234001
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18001
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Ultimate: Voidstrike",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1381015, Prop:1001}",
+       "param": {
+        "1381015": {
+         "main": 173490,
+         "growth": 15780,
+         "format": "%",
+         "damage_percentage": 173490,
+         "damage_percentage_growth": 15780,
+         "stun_ratio": 27690,
+         "stun_ratio_growth": 1260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 25166,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 75167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1381015, Prop:1002}",
+       "param": {
+        "1381015": {
+         "main": 27690,
+         "growth": 1260,
+         "format": "%",
+         "damage_percentage": 173490,
+         "damage_percentage_growth": 15780,
+         "stun_ratio": 27690,
+         "stun_ratio_growth": 1260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 25166,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 75167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "Quick Assist: Cloud Flash",
+     "desc": "When the active character is launched, press <IconMap:Icon_Switch> to activate:\nRepeatedly slash enemies in front, dealing <color=#2EB6FF>Electric DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Defensive Assist: Counter Surge",
+     "desc": "When the on-field character is about to be attacked, press <IconMap:Icon_Switch> to activate:\nParries the enemy's attack, dealing massive Daze.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Conducting Blow",
+     "desc": "Press <IconMap:Icon_Normal> after a <color=#FFFFFF>Defensive Assist</color> to activate:\nDash forward and unleash a series of slashes at enemies ahead, dealing <color=#2EB6FF>Electric DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Quick Assist: Cloud Flash",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1381016, Prop:1001}",
+       "param": {
+        "1381016": {
+         "main": 10820,
+         "growth": 990,
+         "format": "%",
+         "damage_percentage": 10820,
+         "damage_percentage_growth": 990,
+         "stun_ratio": 10820,
+         "stun_ratio_growth": 500,
+         "sp_recovery": 17700,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 270600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9830,
+         "sp_consume": 0,
+         "attack_data": [
+          63896
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4916
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1381016, Prop:1002}",
+       "param": {
+        "1381016": {
+         "main": 10820,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 10820,
+         "damage_percentage_growth": 990,
+         "stun_ratio": 10820,
+         "stun_ratio_growth": 500,
+         "sp_recovery": 17700,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 270600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9830,
+         "sp_consume": 0,
+         "attack_data": [
+          63896
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4916
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Defensive Assist: Counter Surge",
+     "param": [
+      {
+       "name": "Light Defensive Daze Multiplier",
+       "desc": "{Skill:1381017, Prop:1002}",
+       "param": {
+        "1381017": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Heavy Defensive Daze Multiplier",
+       "desc": "{Skill:1381018, Prop:1002}",
+       "param": {
+        "1381018": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Chain Defensive Daze Multiplier",
+       "desc": "{Skill:1381019, Prop:1002}",
+       "param": {
+        "1381019": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Conducting Blow",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1381020, Prop:1001}",
+       "param": {
+        "1381020": {
+         "main": 40710,
+         "growth": 3710,
+         "format": "%",
+         "damage_percentage": 40710,
+         "damage_percentage_growth": 3710,
+         "stun_ratio": 35620,
+         "stun_ratio_growth": 1620,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1145100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 34692,
+         "sp_consume": 0,
+         "attack_data": [
+          240457
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1381020, Prop:1002}",
+       "param": {
+        "1381020": {
+         "main": 35620,
+         "growth": 1620,
+         "format": "%",
+         "damage_percentage": 40710,
+         "damage_percentage_growth": 3710,
+         "stun_ratio": 35620,
+         "stun_ratio_growth": 1620,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1145100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 34692,
+         "sp_consume": 0,
+         "attack_data": [
+          240457
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18497
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "Static Charge",
+   "desc": "When Soldier 0 - Anby uses an <color=#FFFFFF>EX Special Attack</color> to hit an enemy, it triggers the additional DMG from <color=#FFFFFF>White Thunder</color> 3 times. This effect does not consume any <color=#FFFFFF>White Thunder</color> stacks.",
+   "desc2": "\"Please keep my business here a secret from Nicole and the others.\"\n\"Alright. Are you sleeping on the couch downstairs or upstairs?\"\n\"...Proxy... Thank you.\""
+  },
+  "2": {
+   "level": 2,
+   "name": "Fail-Safe Protocol",
+   "desc": "Soldier 0 - Anby's CRIT Rate increases by 12%. When she uses her <color=#FFFFFF>Ultimate</color>, she gains 6 stacks of <color=#FFFFFF>Thunder's Cry</color> (max 6 stacks). With <color=#FFFFFF>Thunder's Cry</color>, when using <color=#FFFFFF>Special Attack: Azure Flash</color> to hit an enemy with <color=#FFFFFF>White Thunder</color>, it will consume 1 stack of <color=#FFFFFF>Thunder's Cry</color> instead. Only 1 stack of <color=#FFFFFF>Thunder's Cry</color> will be consumed when a single use of a skill hits multiple enemies, and consuming <color=#FFFFFF>Thunder's Cry</color> will still activate the additional DMG from <color=#FFFFFF>White Thunder</color>.\nAfter activating potential, every 3 stacks of <color=#FFFFFF>Thunder's Cry</color> consumed, the next Special Attack: Azure Flash - Boundary will be activated faster.",
+   "desc2": "\"What's wrong? You look really tired.\"\n\"I'm... fine.\"\n\"If you need help, just say the word.\""
+  },
+  "3": {
+   "level": 3,
+   "name": "Past Glory",
+   "desc": "<color=#FFFFFF>Basic Attack</color>, <color=#FFFFFF>Dodge</color>, <color=#FFFFFF>Assist</color>, <color=#FFFFFF>Special Attack</color>, and <color=#FFFFFF>Chain Attack</color> Lv. +2",
+   "desc2": "\"Anby, we were just talking about you. Are you really okay?\"\n\"I... I'm...\"\n\"If you try to brush it off with 'I'm fine' again, I might not be so kind.\"\n\"What does 'not being kind' from you look like, Proxy?\""
+  },
+  "4": {
+   "level": 4,
+   "name": "Silver Reverb",
+   "desc": "When hitting an enemy marked with <color=#FFFFFF>Silver Star</color>, Soldier 0 - Anby ignores 12% of the target's <color=#2EB6FF>Electric RES</color>.",
+   "desc2": "\"Anby, you just came back from the Hollow. Do you want to take a shower?\"\n\"You go ahead, Proxy. I still need to organize some information...\"\n\"Ha.\"\n\"Hmm?\"\n\"Why do I feel like Anby has been living in this house for a long time...\""
+  },
+  "5": {
+   "level": 5,
+   "name": "Director's Cut",
+   "desc": "<color=#FFFFFF>Basic Attack</color>, <color=#FFFFFF>Dodge</color>, <color=#FFFFFF>Assist</color>, <color=#FFFFFF>Special Attack</color>, and <color=#FFFFFF>Chain Attack</color> Lv. +2",
+   "desc2": "\"I get it now. About Anby and Silver Squad...\"\n\"Sorry. I never meant for all of this to become your burden, Proxy.\"\n\"So — what movie do you feel like watching tonight?\"\n\"Huh...?\"\n\"Your troubles will never be a burden. See? Normal life can go on as usual.\""
+  },
+  "6": {
+   "level": 6,
+   "name": "Prequel Protagonist",
+   "desc": "Upon triggering 6 instances of <color=#FFFFFF>White Thunder</color>'s additional DMG, an electromagnetic vortex will be generated, dealing 1,000% of Soldier 0 - Anby's ATK as <color=#2EB6FF>Electric DMG</color> against the target and surrounding enemies. This DMG is considered <color=#FFFFFF>Aftershock</color> DMG.",
+   "desc2": "\"Well... I should be heading back, Proxy. Thanks for everything you've done for me.\"\n\"I know you promised Nicole you wouldn't run away from home again, but isn't this a little unfair to me?\n—I miss those days when you and I would watch movies together until dawn.\"\n\"Unfair... to you? Well, I'll just have to come up with a way to make up for it.\"\n\"Hurry up and think of something.\"\n\"Soldier 0, at your service... Huh, huh...?\""
+  }
+ },
+ "passive": {
+  "level": {
+   "1381501": {
+    "level": 1,
+    "id": 1381501,
+    "name": [
+     "Core Passive: Voltage Gap",
+     "Additional Ability: Voltage Surge"
+    ],
+    "desc": [
+     "Soldier 0 - Anby's DMG against enemies with the <color=#FFFFFF>Silver Star</color> mark increases by <color=#2BAD00>12.5%</color>. After an enemy is marked with <color=#FFFFFF>Silver Star</color>, the CRIT DMG received from <color=#FFFFFF>Aftershock</color> attacks is further increased by <color=#2BAD00>15%</color> of Soldier 0 - Anby's CRIT DMG.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Support</color> character:\nSoldier 0 - Anby's CRIT Rate increases by 10%. When Soldier 0 - Anby is the active character, all squad members' <color=#FFFFFF>Aftershock</color> DMG to enemies with a <color=#FFFFFF>Silver Star</color> mark increases by 25%."
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1381502": {
+    "level": 2,
+    "id": 1381502,
+    "name": [
+     "Core Passive: Voltage Gap",
+     "Additional Ability: Voltage Surge"
+    ],
+    "desc": [
+     "Soldier 0 - Anby's DMG against enemies with the <color=#FFFFFF>Silver Star</color> mark increases by <color=#2BAD00>14.5%</color>. After an enemy is marked with <color=#FFFFFF>Silver Star</color>, the CRIT DMG received from <color=#FFFFFF>Aftershock</color> attacks is further increased by <color=#2BAD00>17.5%</color> of Soldier 0 - Anby's CRIT DMG.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Support</color> character:\nSoldier 0 - Anby's CRIT Rate increases by 10%. When Soldier 0 - Anby is the active character, all squad members' <color=#FFFFFF>Aftershock</color> DMG to enemies with a <color=#FFFFFF>Silver Star</color> mark increases by 25%."
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1381503": {
+    "level": 3,
+    "id": 1381503,
+    "name": [
+     "Core Passive: Voltage Gap",
+     "Additional Ability: Voltage Surge"
+    ],
+    "desc": [
+     "Soldier 0 - Anby's DMG against enemies with the <color=#FFFFFF>Silver Star</color> mark increases by <color=#2BAD00>16.5%</color>. After an enemy is marked with <color=#FFFFFF>Silver Star</color>, the CRIT DMG received from <color=#FFFFFF>Aftershock</color> attacks is further increased by <color=#2BAD00>20%</color> of Soldier 0 - Anby's CRIT DMG.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Support</color> character:\nSoldier 0 - Anby's CRIT Rate increases by 10%. When Soldier 0 - Anby is the active character, all squad members' <color=#FFFFFF>Aftershock</color> DMG to enemies with a <color=#FFFFFF>Silver Star</color> mark increases by 25%."
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1381504": {
+    "level": 4,
+    "id": 1381504,
+    "name": [
+     "Core Passive: Voltage Gap",
+     "Additional Ability: Voltage Surge"
+    ],
+    "desc": [
+     "Soldier 0 - Anby's DMG against enemies with the <color=#FFFFFF>Silver Star</color> mark increases by <color=#2BAD00>18.8%</color>. After an enemy is marked with <color=#FFFFFF>Silver Star</color>, the CRIT DMG received from <color=#FFFFFF>Aftershock</color> attacks is further increased by <color=#2BAD00>22.5%</color> of Soldier 0 - Anby's CRIT DMG.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Support</color> character:\nSoldier 0 - Anby's CRIT Rate increases by 10%. When Soldier 0 - Anby is the active character, all squad members' <color=#FFFFFF>Aftershock</color> DMG to enemies with a <color=#FFFFFF>Silver Star</color> mark increases by 25%."
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1381505": {
+    "level": 5,
+    "id": 1381505,
+    "name": [
+     "Core Passive: Voltage Gap",
+     "Additional Ability: Voltage Surge"
+    ],
+    "desc": [
+     "Soldier 0 - Anby's DMG against enemies with the <color=#FFFFFF>Silver Star</color> mark increases by <color=#2BAD00>20.8%</color>. After an enemy is marked with <color=#FFFFFF>Silver Star</color>, the CRIT DMG received from <color=#FFFFFF>Aftershock</color> attacks is further increased by <color=#2BAD00>25%</color> of Soldier 0 - Anby's CRIT DMG.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Support</color> character:\nSoldier 0 - Anby's CRIT Rate increases by 10%. When Soldier 0 - Anby is the active character, all squad members' <color=#FFFFFF>Aftershock</color> DMG to enemies with a <color=#FFFFFF>Silver Star</color> mark increases by 25%."
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1381506": {
+    "level": 6,
+    "id": 1381506,
+    "name": [
+     "Core Passive: Voltage Gap",
+     "Additional Ability: Voltage Surge"
+    ],
+    "desc": [
+     "Soldier 0 - Anby's DMG against enemies with the <color=#FFFFFF>Silver Star</color> mark increases by <color=#2BAD00>23%</color>. After an enemy is marked with <color=#FFFFFF>Silver Star</color>, the CRIT DMG received from <color=#FFFFFF>Aftershock</color> attacks is further increased by <color=#2BAD00>27.5%</color> of Soldier 0 - Anby's CRIT DMG.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Support</color> character:\nSoldier 0 - Anby's CRIT Rate increases by 10%. When Soldier 0 - Anby is the active character, all squad members' <color=#FFFFFF>Aftershock</color> DMG to enemies with a <color=#FFFFFF>Silver Star</color> mark increases by 25%."
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1381507": {
+    "level": 7,
+    "id": 1381507,
+    "name": [
+     "Core Passive: Voltage Gap",
+     "Additional Ability: Voltage Surge"
+    ],
+    "desc": [
+     "Soldier 0 - Anby's DMG against enemies with the <color=#FFFFFF>Silver Star</color> mark increases by <color=#2BAD00>25%</color>. After an enemy is marked with <color=#FFFFFF>Silver Star</color>, the CRIT DMG received from <color=#FFFFFF>Aftershock</color> attacks is further increased by <color=#2BAD00>30%</color> of Soldier 0 - Anby's CRIT DMG.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Support</color> character:\nSoldier 0 - Anby's CRIT Rate increases by 10%. When Soldier 0 - Anby is the active character, all squad members' <color=#FFFFFF>Aftershock</color> DMG to enemies with a <color=#FFFFFF>Silver Star</color> mark increases by 25%."
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1381508": {
+    "level": 1,
+    "id": 1381508,
+    "name": [
+     "Core Passive: Voltage Gap",
+     "Additional Ability: Voltage Surge"
+    ],
+    "desc": [
+     "Soldier 0 - Anby deals <color=#2BAD00>12.5%</color> more DMG to enemies marked with <color=#FFFFFF>Silver Star</color>. When an enemy is afflicted with <color=#FFFFFF>Silver Star</color>, they take additional CRIT DMG from <color=#FFFFFF>Aftershocks</color>, equal to <color=#2BAD00>15%</color> of Soldier 0 - Anby's CRIT DMG. When marked with a Silver Star, DMG from allies' <color=#FFFFFF>Aftershocks</color> builds <color=#FFFFFF> Silver Star</color> charge on the enemy. This effect can trigger once every 5s.\nThe Aftershock CRIT DMG bonus from Silver Star is further increased by 5% of Soldier 0 - Anby's CRIT DMG. When an enemy afflicted with <color=#FFFFFF>White Thunder</color> is defeated, automatically unleash <color=#FFFFFF>Special Attack: Thunder Smite</color> on the nearest enemy target.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Support</color> character:\nSoldier 0 - Anby's CRIT Rate increases by 10%. When the current active character is Soldier 0 - Anby, all squad members' <color=#FFFFFF>Aftershocks</color> deal 25% more DMG to enemies marked with <color=#FFFFFF>Silver Star</color>.\nSoldier 0 - Anby's <color=#FFFFFF>Chain Attack</color> and <color=#FFFFFF>Ultimate</color> are treated as <color=#FFFFFF>Aftershock</color> DMG."
+    ],
+    "extra_property": {},
+    "potential": [
+     138100,
+     138101,
+     138102,
+     138103,
+     138104,
+     138105
+    ]
+   },
+   "1381509": {
+    "level": 2,
+    "id": 1381509,
+    "name": [
+     "Core Passive: Voltage Gap",
+     "Additional Ability: Voltage Surge"
+    ],
+    "desc": [
+     "Soldier 0 - Anby deals <color=#2BAD00>14.5%</color> more DMG to enemies marked with <color=#FFFFFF>Silver Star</color>. When an enemy is afflicted with <color=#FFFFFF>Silver Star</color>, they take additional CRIT DMG from <color=#FFFFFF>Aftershocks</color>, equal to <color=#2BAD00>17.5%</color> of Soldier 0 - Anby's CRIT DMG. When marked with a Silver Star, DMG from allies' <color=#FFFFFF>Aftershocks</color> builds <color=#FFFFFF> Silver Star</color> charge on the enemy. This effect can trigger once every 5s.\nThe Aftershock CRIT DMG bonus from Silver Star is further increased by 5% of Soldier 0 - Anby's CRIT DMG. When an enemy afflicted with <color=#FFFFFF>White Thunder</color> is defeated, automatically unleash <color=#FFFFFF>Special Attack: Thunder Smite</color> on the nearest enemy target.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Support</color> character:\nSoldier 0 - Anby's CRIT Rate increases by 10%. When the current active character is Soldier 0 - Anby, all squad members' <color=#FFFFFF>Aftershocks</color> deal 25% more DMG to enemies marked with <color=#FFFFFF>Silver Star</color>.\nSoldier 0 - Anby's <color=#FFFFFF>Chain Attack</color> and <color=#FFFFFF>Ultimate</color> are treated as <color=#FFFFFF>Aftershock</color> DMG."
+    ],
+    "extra_property": {},
+    "potential": [
+     138100,
+     138101,
+     138102,
+     138103,
+     138104,
+     138105
+    ]
+   },
+   "1381510": {
+    "level": 3,
+    "id": 1381510,
+    "name": [
+     "Core Passive: Voltage Gap",
+     "Additional Ability: Voltage Surge"
+    ],
+    "desc": [
+     "Soldier 0 - Anby deals <color=#2BAD00>16.5%</color> more DMG to enemies marked with <color=#FFFFFF>Silver Star</color>. When an enemy is afflicted with <color=#FFFFFF>Silver Star</color>, they take additional CRIT DMG from <color=#FFFFFF>Aftershocks</color>, equal to <color=#2BAD00>20%</color> of Soldier 0 - Anby's CRIT DMG. When marked with a Silver Star, DMG from allies' <color=#FFFFFF>Aftershocks</color> builds <color=#FFFFFF> Silver Star</color> charge on the enemy. This effect can trigger once every 5s.\nThe Aftershock CRIT DMG bonus from Silver Star is further increased by 5% of Soldier 0 - Anby's CRIT DMG. When an enemy afflicted with <color=#FFFFFF>White Thunder</color> is defeated, automatically unleash <color=#FFFFFF>Special Attack: Thunder Smite</color> on the nearest enemy target.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Support</color> character:\nSoldier 0 - Anby's CRIT Rate increases by 10%. When the current active character is Soldier 0 - Anby, all squad members' <color=#FFFFFF>Aftershocks</color> deal 25% more DMG to enemies marked with <color=#FFFFFF>Silver Star</color>.\nSoldier 0 - Anby's <color=#FFFFFF>Chain Attack</color> and <color=#FFFFFF>Ultimate</color> are treated as <color=#FFFFFF>Aftershock</color> DMG."
+    ],
+    "extra_property": {},
+    "potential": [
+     138100,
+     138101,
+     138102,
+     138103,
+     138104,
+     138105
+    ]
+   },
+   "1381511": {
+    "level": 4,
+    "id": 1381511,
+    "name": [
+     "Core Passive: Voltage Gap",
+     "Additional Ability: Voltage Surge"
+    ],
+    "desc": [
+     "Soldier 0 - Anby deals <color=#2BAD00>18.8%</color> more DMG to enemies marked with <color=#FFFFFF>Silver Star</color>. When an enemy is afflicted with <color=#FFFFFF>Silver Star</color>, they take additional CRIT DMG from <color=#FFFFFF>Aftershocks</color>, equal to <color=#2BAD00>22.5%</color> of Soldier 0 - Anby's CRIT DMG. When marked with a Silver Star, DMG from allies' <color=#FFFFFF>Aftershocks</color> builds <color=#FFFFFF> Silver Star</color> charge on the enemy. This effect can trigger once every 5s.\nThe Aftershock CRIT DMG bonus from Silver Star is further increased by 5% of Soldier 0 - Anby's CRIT DMG. When an enemy afflicted with <color=#FFFFFF>White Thunder</color> is defeated, automatically unleash <color=#FFFFFF>Special Attack: Thunder Smite</color> on the nearest enemy target.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Support</color> character:\nSoldier 0 - Anby's CRIT Rate increases by 10%. When the current active character is Soldier 0 - Anby, all squad members' <color=#FFFFFF>Aftershocks</color> deal 25% more DMG to enemies marked with <color=#FFFFFF>Silver Star</color>.\nSoldier 0 - Anby's <color=#FFFFFF>Chain Attack</color> and <color=#FFFFFF>Ultimate</color> are treated as <color=#FFFFFF>Aftershock</color> DMG."
+    ],
+    "extra_property": {},
+    "potential": [
+     138100,
+     138101,
+     138102,
+     138103,
+     138104,
+     138105
+    ]
+   },
+   "1381512": {
+    "level": 5,
+    "id": 1381512,
+    "name": [
+     "Core Passive: Voltage Gap",
+     "Additional Ability: Voltage Surge"
+    ],
+    "desc": [
+     "Soldier 0 - Anby deals <color=#2BAD00>20.8%</color> more DMG to enemies marked with <color=#FFFFFF>Silver Star</color>. When an enemy is afflicted with <color=#FFFFFF>Silver Star</color>, they take additional CRIT DMG from <color=#FFFFFF>Aftershocks</color>, equal to <color=#2BAD00>25%</color> of Soldier 0 - Anby's CRIT DMG. When marked with a Silver Star, DMG from allies' <color=#FFFFFF>Aftershocks</color> builds <color=#FFFFFF> Silver Star</color> charge on the enemy. This effect can trigger once every 5s.\nThe Aftershock CRIT DMG bonus from Silver Star is further increased by 5% of Soldier 0 - Anby's CRIT DMG. When an enemy afflicted with <color=#FFFFFF>White Thunder</color> is defeated, automatically unleash <color=#FFFFFF>Special Attack: Thunder Smite</color> on the nearest enemy target.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Support</color> character:\nSoldier 0 - Anby's CRIT Rate increases by 10%. When the current active character is Soldier 0 - Anby, all squad members' <color=#FFFFFF>Aftershocks</color> deal 25% more DMG to enemies marked with <color=#FFFFFF>Silver Star</color>.\nSoldier 0 - Anby's <color=#FFFFFF>Chain Attack</color> and <color=#FFFFFF>Ultimate</color> are treated as <color=#FFFFFF>Aftershock</color> DMG."
+    ],
+    "extra_property": {},
+    "potential": [
+     138100,
+     138101,
+     138102,
+     138103,
+     138104,
+     138105
+    ]
+   },
+   "1381513": {
+    "level": 6,
+    "id": 1381513,
+    "name": [
+     "Core Passive: Voltage Gap",
+     "Additional Ability: Voltage Surge"
+    ],
+    "desc": [
+     "Soldier 0 - Anby deals <color=#2BAD00>23%</color> more DMG to enemies marked with <color=#FFFFFF>Silver Star</color>. When an enemy is afflicted with <color=#FFFFFF>Silver Star</color>, they take additional CRIT DMG from <color=#FFFFFF>Aftershocks</color>, equal to <color=#2BAD00>27.5%</color> of Soldier 0 - Anby's CRIT DMG. When marked with a Silver Star, DMG from allies' <color=#FFFFFF>Aftershocks</color> builds <color=#FFFFFF> Silver Star</color> charge on the enemy. This effect can trigger once every 5s.\nThe Aftershock CRIT DMG bonus from Silver Star is further increased by 5% of Soldier 0 - Anby's CRIT DMG. When an enemy afflicted with <color=#FFFFFF>White Thunder</color> is defeated, automatically unleash <color=#FFFFFF>Special Attack: Thunder Smite</color> on the nearest enemy target.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Support</color> character:\nSoldier 0 - Anby's CRIT Rate increases by 10%. When the current active character is Soldier 0 - Anby, all squad members' <color=#FFFFFF>Aftershocks</color> deal 25% more DMG to enemies marked with <color=#FFFFFF>Silver Star</color>.\nSoldier 0 - Anby's <color=#FFFFFF>Chain Attack</color> and <color=#FFFFFF>Ultimate</color> are treated as <color=#FFFFFF>Aftershock</color> DMG."
+    ],
+    "extra_property": {},
+    "potential": [
+     138100,
+     138101,
+     138102,
+     138103,
+     138104,
+     138105
+    ]
+   },
+   "1381514": {
+    "level": 7,
+    "id": 1381514,
+    "name": [
+     "Core Passive: Voltage Gap",
+     "Additional Ability: Voltage Surge"
+    ],
+    "desc": [
+     "Soldier 0 - Anby deals <color=#2BAD00>25%</color> more DMG to enemies marked with <color=#FFFFFF>Silver Star</color>. When an enemy is afflicted with <color=#FFFFFF>Silver Star</color>, they take additional CRIT DMG from <color=#FFFFFF>Aftershocks</color>, equal to <color=#2BAD00>30%</color> of Soldier 0 - Anby's CRIT DMG. When marked with a Silver Star, DMG from allies' <color=#FFFFFF>Aftershocks</color> builds <color=#FFFFFF> Silver Star</color> charge on the enemy. This effect can trigger once every 5s.\nThe Aftershock CRIT DMG bonus from Silver Star is further increased by 5% of Soldier 0 - Anby's CRIT DMG. When an enemy afflicted with <color=#FFFFFF>White Thunder</color> is defeated, automatically unleash <color=#FFFFFF>Special Attack: Thunder Smite</color> on the nearest enemy target.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color> or <color=#FFFFFF>Support</color> character:\nSoldier 0 - Anby's CRIT Rate increases by 10%. When the current active character is Soldier 0 - Anby, all squad members' <color=#FFFFFF>Aftershocks</color> deal 25% more DMG to enemies marked with <color=#FFFFFF>Silver Star</color>.\nSoldier 0 - Anby's <color=#FFFFFF>Chain Attack</color> and <color=#FFFFFF>Ultimate</color> are treated as <color=#FFFFFF>Aftershock</color> DMG."
+    ],
+    "extra_property": {},
+    "potential": [
+     138100,
+     138101,
+     138102,
+     138103,
+     138104,
+     138105
+    ]
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110509": 2
+   },
+   "3": {
+    "10": 28000,
+    "110509": 4
+   },
+   "4": {
+    "10": 60000,
+    "110002": 2,
+    "110509": 9
+   },
+   "5": {
+    "10": 100000,
+    "110002": 3,
+    "110509": 15
+   },
+   "6": {
+    "10": 200000,
+    "110002": 4,
+    "110509": 30
+   }
+  }
+ },
+ "skin": {
+  "3113810": {
+   "name": "Soldier 0 - Anby: Silver Soldier",
+   "desc": "Anby's old Silver Squad uniform, stained with memories that never truly fade.\nWhen the shadows of the past strike without warning, would you stand and face them, or stumble and flee? No matter the choice, home always awaits your return.",
+   "obtain_desc": "",
+   "image": "IconRole40"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1381001": {
+   "name": "Basic Attack: Penetrating Shock",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1381002": {
+   "name": "Special Attack: Celestial Thunder",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1381003": {
+   "name": "Special Attack: Azure Flash",
+   "desc": "<IconMap:Icon_Special> (When the target has White Thunder stacks)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1381004": {
+   "name": "Special Attack: Thunder Smite",
+   "desc": "<IconMap:Icon_Special> ; <IconMap:Icon_Special> ; <IconMap:Icon_Special> (When the target has 3 stacks of White Thunder)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1381005": {
+   "name": "EX Special Attack: Sundering Bolt",
+   "desc": "<IconMap:Icon_SpecialReady> (Hold)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1381006": {
+   "name": "Dash Attack: Torrent",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1381007": {
+   "name": "Dodge Counter: Ground Flash Counter",
+   "desc": "<IconMap:Icon_Evade> (Perfect) ; <IconMap:Icon_Normal>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1381008": {
+   "name": "Chain Attack: Leaping Thunderstrike",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1381009": {
+   "name": "Ultimate: Voidstrike",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1381010": {
+   "name": "Quick Assist: Cloud Flash",
+   "desc": "<IconMap:Icon_Switch> (When Triggering Quick Assist)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1381011": {
+   "name": "Defensive Assist: Counter Surge",
+   "desc": "<IconMap:Icon_Switch> (When Triggering Defensive Assist)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1381012": {
+   "name": "Assist Follow-Up: Conducting Blow",
+   "desc": "<IconMap:Icon_Normal> (After Defensive Assist)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1381001,
+   "avatar_id": 1381,
+   "first_priority": [
+    5,
+    1
+   ],
+   "second_priority": [
+    0,
+    3,
+    2
+   ],
+   "third_priority": [
+    6
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 32900,
+  "slot2": 31000,
+  "slot_sub": 32400,
+  "part_sub_list": [
+   21103,
+   20103,
+   12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32900,
+     31000
+    ],
+    "part_sub_list": [
+     20103,
+     21103
+    ]
+   },
+   {
+    "suit_list": [
+     32900,
+     31000
+    ],
+    "part_sub_list": [
+     31803,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "CRIT Rate",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 31803,
+   "name": "Electric DMG Bonus",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconThunder.png"
+  },
+  "part6": {
+   "prop": 21103,
+   "name": "CRIT DMG",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "ATK",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Thunder>Electric, on-field DMG dealer",
+  "Triggers Aftershock to deal bonus DMG",
+  "Packs both burst DMG and sustained DMG"
+ ],
+ "potential": [
+  138100,
+  138101,
+  138102,
+  138103,
+  138104,
+  138105
+ ],
+ "potential_detail": {
+  "138100": {
+   "id": 138100,
+   "name": "",
+   "desc": "",
+   "image": "SilverAnby",
+   "level_show_name": "Silver Heart I",
+   "level": 1,
+   "ability_list": [
+    13811401
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20138,
+     "number": 1
+    }
+   ]
+  },
+  "138101": {
+   "id": 138101,
+   "name": "Awakened Potential: Electropulse",
+   "desc": "During Additional Ability: Voltage Surge, all squad members' <color=#FFFFFF>Aftershock</color> DMG against enemies marked with <color=#FFFFFF>Silver Star</color> is increased to <color=#2BAD00>34%</color>.",
+   "image": "SilverAnby",
+   "level_show_name": "Silver Heart II",
+   "level": 2,
+   "ability_list": [
+    13811401,
+    13811501
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20138,
+     "number": 1
+    }
+   ]
+  },
+  "138102": {
+   "id": 138102,
+   "name": "Awakened Potential: Electropulse",
+   "desc": "During Additional Ability: Voltage Surge, all squad members' <color=#FFFFFF>Aftershock</color> DMG against enemies marked with <color=#FFFFFF>Silver Star</color> is increased to <color=#2BAD00>38%</color>.",
+   "image": "SilverAnby",
+   "level_show_name": "Silver Heart III",
+   "level": 3,
+   "ability_list": [
+    13811401,
+    13811502
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20138,
+     "number": 1
+    }
+   ]
+  },
+  "138103": {
+   "id": 138103,
+   "name": "Awakened Potential: Electropulse",
+   "desc": "During Additional Ability: Voltage Surge, all squad members' <color=#FFFFFF>Aftershock</color> DMG against enemies marked with <color=#FFFFFF>Silver Star</color> is increased to <color=#2BAD00>42%</color>.",
+   "image": "SilverAnby",
+   "level_show_name": "Silver Heart IV",
+   "level": 4,
+   "ability_list": [
+    13811401,
+    13811503
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20138,
+     "number": 1
+    }
+   ]
+  },
+  "138104": {
+   "id": 138104,
+   "name": "Awakened Potential: Electropulse",
+   "desc": "During Additional Ability: Voltage Surge, all squad members' <color=#FFFFFF>Aftershock</color> DMG against enemies marked with <color=#FFFFFF>Silver Star</color> is increased to <color=#2BAD00>46%</color>.",
+   "image": "SilverAnby",
+   "level_show_name": "Silver Heart V",
+   "level": 5,
+   "ability_list": [
+    13811401,
+    13811504
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20138,
+     "number": 1
+    }
+   ]
+  },
+  "138105": {
+   "id": 138105,
+   "name": "Awakened Potential: Electropulse",
+   "desc": "During Additional Ability: Voltage Surge, all squad members' <color=#FFFFFF>Aftershock</color> DMG against enemies marked with <color=#FFFFFF>Silver Star</color> is increased to <color=#2BAD00>50%</color>.",
+   "image": "SilverAnby",
+   "level_show_name": "Silver Heart VI",
+   "level": 6,
+   "ability_list": [
+    13811401,
+    13811505
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20138,
+     "number": 1
+    }
+   ]
+  }
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100211": 4
+   }
+  },
+  "2": {
+   "hp_max": 423,
+   "attack": 48,
+   "defence": 34,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100221": 12
+   }
+  },
+  "3": {
+   "hp_max": 847,
+   "attack": 95,
+   "defence": 68,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100221": 20
+   }
+  },
+  "4": {
+   "hp_max": 1270,
+   "attack": 143,
+   "defence": 101,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100231": 10
+   }
+  },
+  "5": {
+   "hp_max": 1694,
+   "attack": 191,
+   "defence": 135,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100231": 20
+   }
+  },
+  "6": {
+   "hp_max": 2117,
+   "attack": 239,
+   "defence": 169,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpineSPAnbi"
+}

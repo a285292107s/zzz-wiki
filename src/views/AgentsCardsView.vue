@@ -18,6 +18,9 @@ import { useCatalogSort } from '@/composables/useCatalogSort'
 import { listFor } from '@/data/resources'
 import type { CharacterListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
+import { pickText } from '@/domain/lang'
+import { useLocale } from '@/composables/useLocale'
+import { useUiText } from '@/composables/useUiText'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { catalogEntry } from '@/domain/catalog'
 import {
@@ -34,7 +37,13 @@ usePageMeta()
 const cat = catalogEntry('/agents')
 const base = cat.path
 
-const { data, status, error, reload } = useAsyncResource(() => listFor<CharacterListItem>(cat))
+/** 当前展示语言：名录按语言落盘，语言一变这里的取数会重新拉（见 useAsyncResource） */
+const { lang } = useLocale()
+const { t } = useUiText()
+
+const { data, status, error, reload } = useAsyncResource(() =>
+  listFor<CharacterListItem>(cat, lang.value),
+)
 
 const { attrFilter, profFilter, campFilter, query, filtered, count, hasActiveFilter, reset } =
   useCatalogList<CharacterListItem>({
@@ -63,7 +72,7 @@ const { sorted } = useCatalogSort(
   filtered,
   [
     { key: 'id', value: (r) => r.Id },
-    { key: 'name', value: (r) => pickName(r) },
+    { key: 'name', value: (r) => pickName(r, lang.value) },
     { key: 'rarity', value: (r) => r.rank ?? -1 },
   ],
   { defaultKey: 'id', defaultDir: 'desc', syncRoute: true },
@@ -120,9 +129,9 @@ onBeforeUnmount(() => {
   <ListPage>
     <header v-reveal class="page-head">
       <p class="eyebrow mono">Agents</p>
-      <h1 class="page-title">代理人</h1>
+      <h1 class="page-title">{{ pickText(cat.label, lang) }}</h1>
       <p class="page-sub">
-        新艾利都登记在册的代理人名录。可按属性、职业、阵营筛选，或输入姓名检索。
+        {{ t.list.agentsIntro }}
       </p>
     </header>
 
@@ -139,7 +148,7 @@ onBeforeUnmount(() => {
           @update:camp="campFilter = $event"
         />
       </div>
-      <SearchField v-model="query" :count="count" placeholder="检索姓名…" />
+      <SearchField v-model="query" :count="count" :placeholder="t.list.searchName" />
     </div>
 
     <!-- 空态分工：AsyncState 只管「数据级为空」；「筛掉全部结果」由 AgentCardGrid 承担 -->
@@ -158,14 +167,14 @@ onBeforeUnmount(() => {
         :items="visibleItems"
         :base="base"
         :show-clear="hasActiveFilter"
-        empty-text="无匹配代理人"
+        :empty-text="t.noMatch.agents"
         @clear="reset"
       />
 
       <!-- 续加载哨兵：滚到附近自动续；没有观察器的环境显示成一颗按钮 -->
       <div v-if="hasMore" ref="sentinel" class="more">
         <button v-if="!canAutoLoad" type="button" class="more-btn mono" @click="loadMore">
-          显示更多
+          {{ t.list.loadMore }}
         </button>
         <p v-else class="more-count mono" aria-live="polite">
           {{ visibleItems.length }} / {{ sorted.length }}

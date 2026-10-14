@@ -7,27 +7,31 @@
  * 只负责内容与文案；外框（边线/留白）由调用方按语境给（表格空态行 vs 栅格空态框）。
  * 保留 .empty-title / .empty-clear 类名：全站走查脚本据此定位空态。
  */
+import { useUiText } from '@/composables/useUiText'
+
 withDefaults(
   defineProps<{
-    /** 空态标题（如「无匹配音擎」） */
+    /** 空态标题（如「无匹配音擎」，由调用方按当前语言传入） */
     title: string
-    /** 补充说明；缺省用名录页通用句 */
+    /** 补充说明；缺省用名录页通用句（当前语言） */
     hint?: string
     /** 是否有可清除的条件（true 才给出「清除」按钮） */
     showClear?: boolean
   }>(),
-  { hint: '换个关键词，或清除检索与筛选条件查看全部档案。' },
+  { hint: undefined },
 )
 
 const emit = defineEmits<{ (e: 'clear'): void }>()
+
+const { t } = useUiText()
 </script>
 
 <template>
   <div class="no-match">
     <p class="empty-title mono">{{ title }}</p>
-    <p class="empty-hint">{{ hint }}</p>
+    <p class="empty-hint">{{ hint ?? t.noMatch.hint }}</p>
     <button v-if="showClear" type="button" class="empty-clear mono" @click="emit('clear')">
-      清除检索与筛选
+      {{ t.noMatch.clear }}
     </button>
   </div>
 </template>

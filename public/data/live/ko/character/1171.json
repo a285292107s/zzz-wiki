@@ -1,0 +1,2461 @@
+{
+ "id": 1171,
+ "icon": "IconRole32",
+ "name": "버니스",
+ "code_name": "Burnice",
+ "rarity": 4,
+ "weapon_type": {
+  "3": "Anomaly"
+ },
+ "element_type": {
+  "201": "Fire"
+ },
+ "hit_type": {
+  "103": "Pierce"
+ },
+ "camp": {
+  "4": "칼리돈의 자손"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "5/23",
+  "full_name": "버니스 화이트",
+  "gender": "여성",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle32.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0032.png",
+  "impression_f": "버니스가 만든 음료는 정말 훌륭해. 어쩐지 외환선에서도 유명하더라니!",
+  "impression_m": "응, 그래도 버니스가 크라운을 위해 만든 음료는 마시지 말자",
+  "impressions": [
+   "버니스에 대한 인상:\n · 버니스는 열정적으로 동료들에게 관심을 쏟아서, 어떤 사람들은 이 열정이 너무 뜨겁다고 생각하기도 한다",
+   " · 강아지와 이렇게까지 잘 맞다니… 어쩐지 그럴듯한 것 같기도?",
+   " · 버니스는 종종 사고를 치는데, 다행히 늘 해결할 방법을 찾곤 한다. 마치 우주가 그녀의 편인 것 같다"
+  ],
+  "profile_desc": "버니스, 니트로 퓨엘을 만드는 칼리돈의 자손의 바텐더이다.\n동시에 답이 없는 연료 마니아로, 칼리돈의 자손의 모든 기계 설비에 사용되는 연료를 도맡아 관리하고 있다.\n버니스의 연료에 대한 열정은 그 무엇으로도 막을 수 없을 것 같다.\n\n버니스는 극도로 밝고 외향적이며, 친화력이 좋고, 덜렁대는 편이다.\n그녀의 적극적이고 낙천적인 태도는 주변 모든 사람들에게 지대한 영향을 미친다.\n「내가 만든 음료가 좋다고? 고마워, 크라운도 한 끼에 200L나 마실 정도로 좋아하더라!」\n「크라운한테만 주는 특제 연료 좀 마셔볼래? 엄청 뜨거워~」",
+  "role_icon": "IconRole/UnPacker/IconRole32",
+  "stature": "160",
+  "unlock_condition": [
+   "에이전트 획득",
+   "메인 스토리 완료: 「여유로운 순간·뜻밖의 손님」(메인 스토리 제4장 완료 후 개방) 후 해제",
+   "「엔비의 고민」 의뢰 완료"
+  ],
+  "trust_lv": {
+   "1": "버니스, 니트로 퓨엘을 만드는 칼리돈의 자손의 바텐더이다.\n동시에 답이 없는 연료 마니아로, 칼리돈의 자손의 모든 기계 설비에 사용되는 연료를 도맡아 관리하고 있다.\n버니스의 연료에 대한 열정은 그 무엇으로도 막을 수 없을 것 같다.\n\n버니스는 극도로 밝고 외향적이며, 친화력이 좋고, 덜렁대는 편이다.\n그녀의 적극적이고 낙천적인 태도는 주변 모든 사람들에게 지대한 영향을 미친다.\n「내가 만든 음료가 좋다고? 고마워, 크라운도 한 끼에 200L나 마실 정도로 좋아하더라!」\n「크라운한테만 주는 특제 연료 좀 마셔볼래? 엄청 뜨거워~」",
+   "2": "",
+   "3": "「화염은 따뜻함을 가져다주지만, 열상을 입힐 수도 있죠. 이런 사람은 알맞게 쓰면 따스함을 취할 수 있지만, 악용하면… 됐어요, 카이사르 그 바보는 악용할 방법 따위 생각해 내지 못할 테니까요」\n——이름을 밝히고 싶지 않아 하는 어떤 아가씨",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 124,
+  "attack_growth": 74992,
+  "avatar_piece_id": 5171,
+  "break_stun": 83,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 48,
+  "defence_growth": 65524,
+  "element_abnormal_power": 118,
+  "element_mystery": 120,
+  "endurance": 0,
+  "hp_growth": 803931,
+  "hp_max": 592,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Burnice",
+   "Pierce",
+   "Fire",
+   "Female",
+   "Camp4",
+   "Size2",
+   "AidTypeParry",
+   "Burnice",
+   "EtherEyesSize2"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "일반 공격: 활활 빌딩",
+     "desc": "<IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 향해 최대 5단까지 공격을 펼쳐 <color=#F0D12B>물리 피해</color> 및 <color=#FF5521>불 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 활활 스티어링",
+     "desc": "<color=#FFFFFF>[특제 연료]</color> 상태에서 <IconMap:Icon_Normal>을 홀드해 시전:\n지속적으로 회전하며 주변에 화염을 방사한 후, 종결의 일격으로 <color=#FF5521>불 속성 피해</color>를 준다. 홀드를 유지하면 방사 지속 시간을 연장할 수 있다.\n스킬 시전 시, <color=#FFFFFF>[발화점]</color>을 20pt 소모한다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가한다.\n종결의 일격 시전 후 <IconMap:Icon_SpecialReady>을 짧게 탭하면 <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>을 바로 이어서 시전할 수 있다.",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "일반 공격: 활활 스티어링",
+     "desc": "<color=#FFFFFF>[특제 연료]</color> 상태에서 <IconMap:Icon_Normal>을 홀드해 시전:\n지속적으로 회전하며 주변에 화염을 방사한 후 종결의 일격을 시전하며, <color=#FFFFFF>[발화점]</color>을 소모하지 않는 <color=#FFFFFF>[잿불]</color>을 한 번 추가로 발동해 <color=#FF5521>불 속성 피해</color>를 준다. 홀드를 유지하면 방사 지속 시간을 연장할 수 있다.\n스킬로 주는 피해는 동시에 <color=#FFFFFF>[지원 공격]</color> 피해로 간주된다.\n스킬 시전 시 <color=#FFFFFF>[발화점]</color>을 20pt 소모한다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가한다.\n종결의 일격 시전 후 <IconMap:Icon_SpecialReady>을 짧게 탭하면 <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>을 바로 이어서 시전할 수 있다.",
+     "potential": [
+      117100,
+      117101,
+      117102,
+      117103,
+      117104,
+      117105
+     ]
+    },
+    {
+     "name": "일반 공격: 활활 빌딩",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1171001, Prop:1001}",
+       "param": {
+        "1171001": {
+         "main": 4480,
+         "growth": 410,
+         "format": "%",
+         "damage_percentage": 4480,
+         "damage_percentage_growth": 410,
+         "stun_ratio": 1870,
+         "stun_ratio_growth": 90,
+         "sp_recovery": 6100,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 46750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1694,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1695
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1171002, Prop:1001}",
+       "param": {
+        "1171002": {
+         "main": 4350,
+         "growth": 400,
+         "format": "%",
+         "damage_percentage": 4350,
+         "damage_percentage_growth": 400,
+         "stun_ratio": 3080,
+         "stun_ratio_growth": 140,
+         "sp_recovery": 10070,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 77000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2795
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1171003, Prop:1001}",
+       "param": {
+        "1171003": {
+         "main": 7170,
+         "growth": 660,
+         "format": "%",
+         "damage_percentage": 7170,
+         "damage_percentage_growth": 660,
+         "stun_ratio": 4780,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 15620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 119350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4337,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4338
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 피해 배율",
+       "desc": "{Skill:1171004, Prop:1001}",
+       "param": {
+        "1171004": {
+         "main": 6660,
+         "growth": 610,
+         "format": "%",
+         "damage_percentage": 6660,
+         "damage_percentage_growth": 610,
+         "stun_ratio": 3040,
+         "stun_ratio_growth": 140,
+         "sp_recovery": 9920,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 75900,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2754,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2755
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5단 피해 배율",
+       "desc": "{Skill:1171005, Prop:1001}",
+       "param": {
+        "1171005": {
+         "main": 9630,
+         "growth": 880,
+         "format": "%",
+         "damage_percentage": 9630,
+         "damage_percentage_growth": 880,
+         "stun_ratio": 5200,
+         "stun_ratio_growth": 240,
+         "sp_recovery": 16990,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 129800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4719,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4720
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1171001, Prop:1002}",
+       "param": {
+        "1171001": {
+         "main": 1870,
+         "growth": 90,
+         "format": "%",
+         "damage_percentage": 4480,
+         "damage_percentage_growth": 410,
+         "stun_ratio": 1870,
+         "stun_ratio_growth": 90,
+         "sp_recovery": 6100,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 46750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1694,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1695
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1171002, Prop:1002}",
+       "param": {
+        "1171002": {
+         "main": 3080,
+         "growth": 140,
+         "format": "%",
+         "damage_percentage": 4350,
+         "damage_percentage_growth": 400,
+         "stun_ratio": 3080,
+         "stun_ratio_growth": 140,
+         "sp_recovery": 10070,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 77000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2795
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1171003, Prop:1002}",
+       "param": {
+        "1171003": {
+         "main": 4780,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 7170,
+         "damage_percentage_growth": 660,
+         "stun_ratio": 4780,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 15620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 119350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4337,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4338
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 그로기 배율",
+       "desc": "{Skill:1171004, Prop:1002}",
+       "param": {
+        "1171004": {
+         "main": 3040,
+         "growth": 140,
+         "format": "%",
+         "damage_percentage": 6660,
+         "damage_percentage_growth": 610,
+         "stun_ratio": 3040,
+         "stun_ratio_growth": 140,
+         "sp_recovery": 9920,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 75900,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2754,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2755
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5단 그로기 배율",
+       "desc": "{Skill:1171005, Prop:1002}",
+       "param": {
+        "1171005": {
+         "main": 5200,
+         "growth": 240,
+         "format": "%",
+         "damage_percentage": 9630,
+         "damage_percentage_growth": 880,
+         "stun_ratio": 5200,
+         "stun_ratio_growth": 240,
+         "sp_recovery": 16990,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 129800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4719,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4720
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 활활 스티어링",
+     "param": [
+      {
+       "name": "지속 방사 피해 배율",
+       "desc": "{Skill:1171006, Prop:1001}",
+       "param": {
+        "1171006": {
+         "main": 12540,
+         "growth": 1140,
+         "format": "%",
+         "damage_percentage": 12540,
+         "damage_percentage_growth": 1140,
+         "stun_ratio": 9650,
+         "stun_ratio_growth": 440,
+         "sp_recovery": 15780,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 241175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9598,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8766
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "종결의 일격 피해 배율",
+       "desc": "{Skill:1171007, Prop:1001}",
+       "param": {
+        "1171007": {
+         "main": 23280,
+         "growth": 2120,
+         "format": "%",
+         "damage_percentage": 23280,
+         "damage_percentage_growth": 2120,
+         "stun_ratio": 17910,
+         "stun_ratio_growth": 820,
+         "sp_recovery": 29310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 447700,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17111,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16279
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "지속 방사 그로기 배율",
+       "desc": "{Skill:1171006, Prop:1002}",
+       "param": {
+        "1171006": {
+         "main": 9650,
+         "growth": 440,
+         "format": "%",
+         "damage_percentage": 12540,
+         "damage_percentage_growth": 1140,
+         "stun_ratio": 9650,
+         "stun_ratio_growth": 440,
+         "sp_recovery": 15780,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 241175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9598,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8766
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "종결의 일격 그로기 배율",
+       "desc": "{Skill:1171007, Prop:1002}",
+       "param": {
+        "1171007": {
+         "main": 17910,
+         "growth": 820,
+         "format": "%",
+         "damage_percentage": 23280,
+         "damage_percentage_growth": 2120,
+         "stun_ratio": 17910,
+         "stun_ratio_growth": 820,
+         "sp_recovery": 29310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 447700,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17111,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16279
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "회피: 불타는 그림자",
+     "desc": "<IconMap:Icon_Evade>을 짧게 탭하여 시전:\n빠른 대시로 회피한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 위험한 발효",
+     "desc": "회피 시 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n방사기를 휘두르며 전방 돌진 공격으로 <color=#FF5521>불 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 흔들흔들 스텝",
+     "desc": "<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적에게 연속 공격과 화염 방사로 <color=#F0D12B>물리 피해</color> 및 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 위험한 발효",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1171014, Prop:1001}",
+       "param": {
+        "1171014": {
+         "main": 6790,
+         "growth": 620,
+         "format": "%",
+         "damage_percentage": 6790,
+         "damage_percentage_growth": 620,
+         "stun_ratio": 3400,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11100,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 84975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3083,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3084
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1171014, Prop:1002}",
+       "param": {
+        "1171014": {
+         "main": 3400,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 6790,
+         "damage_percentage_growth": 620,
+         "stun_ratio": 3400,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11100,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 84975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3083,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3084
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 흔들흔들 스텝",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1171015, Prop:1001}",
+       "param": {
+        "1171015": {
+         "main": 21970,
+         "growth": 2000,
+         "format": "%",
+         "damage_percentage": 21970,
+         "damage_percentage_growth": 2000,
+         "stun_ratio": 19440,
+         "stun_ratio_growth": 890,
+         "sp_recovery": 13800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 210925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1171015, Prop:1002}",
+       "param": {
+        "1171015": {
+         "main": 19440,
+         "growth": 890,
+         "format": "%",
+         "damage_percentage": 21970,
+         "damage_percentage_growth": 2000,
+         "stun_ratio": 19440,
+         "stun_ratio_growth": 890,
+         "sp_recovery": 13800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 210925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22667
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "특수 스킬: 이글이글 에이징",
+     "desc": "<IconMap:Icon_Special>을 짧게 탭하여 시전:\n전방에 화염 폭발을 1회 시전해 <color=#FF5521>불 속성 피해</color>를 준다.\n<IconMap:Icon_Special>을 홀드하면 차지를 진행해 스킬의 위력을 높일 수 있다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 이글이글 쉐이킹",
+     "desc": "에너지가 충분한 상태에서 <IconMap:Icon_SpecialReady>을 짧게 탭하여 시전:\n한 손으로 방사기를 사용해 지속적으로 화염을 방사한 후, 전방 직선 범위에 화염 폭발 1회로 대량의 <color=#FF5521>불 속성 피해</color>를 준다. 홀드를 유지하면 지속적으로 에너지를 소모하고 방사의 지속 시간을 연장할 수 있다.\n지속 방사 기간 동안 {LAYOUT_CONSOLECONTROLLER#스틱을}{LAYOUT_FALLBACK#방향키를} 움직이면 측면 회피를 통해 상응하는 방향으로 이동할 수 있다.\n지속 방사 기간 동안 경직 저항 레벨이 증가하고, 받는 피해가 40% 감소한다.\n측면 회피 및 화염 폭발 시전 기간에는 무적 효과를 보유한다.",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "강화 특수 스킬: 이글이글 쉐이킹",
+     "desc": "에너지가 충분한 상태에서 <IconMap:Icon_SpecialReady>을 짧게 탭하여 시전:\n한 손으로 방사기를 사용해 지속적으로 화염을 방사한 후, 전방 직선 범위에 화염 폭발 1회로 대량의 <color=#FF5521>불 속성 피해</color>를 준다. 홀드를 유지하면 지속적으로 에너지를 소모하고 방사의 지속 시간을 연장할 수 있다.\n지속 방사 기간 동안 {LAYOUT_CONSOLECONTROLLER#스틱을}{LAYOUT_FALLBACK#방향키를} 움직이면 측면 회피를 통해 상응하는 방향으로 이동할 수 있다.\n지속 방사 기간 동안 경직 저항 레벨이 증가하고, 받는 피해가 60% 감소한다.\n측면 회피 및 화염 폭발 시전 기간에는 무적 효과를 보유한다.",
+     "potential": [
+      117100,
+      117101,
+      117102,
+      117103,
+      117104,
+      117105
+     ]
+    },
+    {
+     "name": "강화 특수 스킬: 이글이글 쉐이킹·더블",
+     "desc": "<color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹]</color> 시전 중 에너지가 충분한 상태에서 <IconMap:Icon_SpecialReady>을 짧게 탭하여 시전:\n양손으로 방사기를 사용해 지속적으로 화염을 방사한 후, 전방 직선 범위에 강력한 화염 폭발 1회로 대량의 <color=#FF5521>불 속성 피해</color>를 준다. 홀드를 유지하면 지속적으로 에너지를 소모하고 방사의 지속 시간을 연장할 수 있다.\n방사 시전 순간 및 화염 폭발 시전 기간에 무적 효과를 보유한다.\n지속 방사 기간 동안 경직 저항 레벨이 증가하고, 받는 피해가 40% 감소한다.",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "강화 특수 스킬: 이글이글 쉐이킹·더블",
+     "desc": "<color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹]</color> 시전 중 에너지가 충분한 상태에서 <IconMap:Icon_SpecialReady>을 짧게 탭하여 시전:\n양손으로 방사기를 사용해 지속적으로 화염을 방사한 후, 전방 직선 범위에 강력한 화염 폭발 1회로 대량의 <color=#FF5521>불 속성 피해</color>를 준다. 홀드를 유지하면 지속적으로 에너지를 소모하고 방사의 지속 시간을 연장할 수 있다.\n방사 시전 순간 및 화염 폭발 시전 기간에 무적 효과를 보유한다.\n지속 방사 기간 동안 경직 저항 레벨이 증가하고, 받는 피해가 60% 감소한다.",
+     "potential": [
+      117100,
+      117101,
+      117102,
+      117103,
+      117104,
+      117105
+     ]
+    },
+    {
+     "name": "강화 특수 스킬: 이글이글 저글링",
+     "desc": "<color=#FFFFFF>[불길]</color>을 보유한 상태에서 교체 출전 시 시전:\n파티원이 <color=#FFFFFF>[잿불]</color>을 12회 발동하면 버니스가 <color=#FFFFFF>[불길]</color>을 1pt 획득하며, <color=#FFFFFF>[불길]</color>을 보유한 상태에서 버니스가 다음번에 교체 출전할 때 <color=#FFFFFF>[불길]</color> 1pt를 소모하여 해당 스킬을 자동으로 시전한다. 이때 해당 입장은 [빠른 지원]으로 간주되며 <color=#FFFFFF>[일반 공격: 활활 스티어링]</color>이 발동하는 <color=#FFFFFF>[잿불]</color>이 적에게 명중하면 2회 카운트가 추가되며, <color=#FFFFFF>[불길]</color> 보유 시 더 이상 카운트를 추가하지 않고, <color=#FFFFFF>[불길]</color> 소모 시 카운트를 초기화한다.\n빠르게 돌진하여 적을 통과하며 화염 폭발을 일으켜 <color=#F0D12B>물리 피해</color> 및 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬의 강공격이 <color=#FE437E>에테르 이상 상태</color>, <color=#2EB6FF>전기 속성 이상 상태</color>, <color=#FF5521>불 속성 이상 상태</color>, <color=#F0D12B>물리 속성 이상 상태</color>, <color=#98EFF0>얼음 속성 이상 상태</color>, <color=#A6C5FD>바람 속성 이상 상태</color>의 타깃에 명중 시 <color=#FFFFFF>[난개]</color>를 1회 발동해 기존 속성 이상의 <color=#FE437E>480%</color>/<color=#2EB6FF>240%</color>/<color=#FF5521>600%</color>/<color=#F0D12B>40%</color>/<color=#98EFF0>60%</color>/<color=#A6C5FD>24%</color>만큼 피해를 추가로 1회 더 결산한다.\n[추가 능력: 요원의 불길]의 <color=#FF5521>불 속성 이상 축적치</color> 증가 효과는 해당 스킬에 적용된다.\n스킬을 시전하는 동안 무적 효과를 보유한다.\n스킬 시전 후 <IconMap:Icon_SpecialReady>을 눌러 바로 이어서 <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>을 시전할 수 있다.",
+     "potential": [
+      117100,
+      117101,
+      117102,
+      117103,
+      117104,
+      117105
+     ]
+    },
+    {
+     "name": "특수 스킬: 이글이글 에이징",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1171008, Prop:1001}",
+       "param": {
+        "1171008": {
+         "main": 5780,
+         "growth": 530,
+         "format": "%",
+         "damage_percentage": 5780,
+         "damage_percentage_growth": 530,
+         "stun_ratio": 5780,
+         "stun_ratio_growth": 270,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 144650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5251,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5252
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "차지 피해 배율",
+       "desc": "{Skill:1171009, Prop:1001}",
+       "param": {
+        "1171009": {
+         "main": 6240,
+         "growth": 570,
+         "format": "%",
+         "damage_percentage": 6240,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 6240,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 155925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5668,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5669
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1171008, Prop:1002}",
+       "param": {
+        "1171008": {
+         "main": 5780,
+         "growth": 270,
+         "format": "%",
+         "damage_percentage": 5780,
+         "damage_percentage_growth": 530,
+         "stun_ratio": 5780,
+         "stun_ratio_growth": 270,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 144650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5251,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5252
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "차지 그로기 배율",
+       "desc": "{Skill:1171009, Prop:1002}",
+       "param": {
+        "1171009": {
+         "main": 6240,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 6240,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 6240,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 155925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5668,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5669
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 이글이글 쉐이킹",
+     "param": [
+      {
+       "name": "지속 방사 피해 배율",
+       "desc": "{Skill:1171010, Prop:1001}",
+       "param": {
+        "1171010": {
+         "main": 54380,
+         "growth": 4950,
+         "format": "%",
+         "damage_percentage": 54380,
+         "damage_percentage_growth": 4950,
+         "stun_ratio": 37860,
+         "stun_ratio_growth": 1730,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1367575,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 41110,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18900
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "지속 방사 그로기 배율",
+       "desc": "{Skill:1171010, Prop:1002}",
+       "param": {
+        "1171010": {
+         "main": 37860,
+         "growth": 1730,
+         "format": "%",
+         "damage_percentage": 54380,
+         "damage_percentage_growth": 4950,
+         "stun_ratio": 37860,
+         "stun_ratio_growth": 1730,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1367575,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 41110,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18900
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "화염 폭발 피해 배율",
+       "desc": "{Skill:1171011, Prop:1001}",
+       "param": {
+        "1171011": {
+         "main": 9670,
+         "growth": 880,
+         "format": "%",
+         "damage_percentage": 9670,
+         "damage_percentage_growth": 880,
+         "stun_ratio": 6570,
+         "stun_ratio_growth": 300,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 240075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7155,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3150
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "화염 폭발 그로기 배율",
+       "desc": "{Skill:1171011, Prop:1002}",
+       "param": {
+        "1171011": {
+         "main": 6570,
+         "growth": 300,
+         "format": "%",
+         "damage_percentage": 9670,
+         "damage_percentage_growth": 880,
+         "stun_ratio": 6570,
+         "stun_ratio_growth": 300,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 240075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7155,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3150
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "시전에 필요한 에너지",
+       "desc": "40pt",
+       "potential": []
+      },
+      {
+       "name": "지속 방사 에너지 소모",
+       "desc": "12.5pt/초",
+       "potential": []
+      },
+      {
+       "name": "화염 폭발 에너지 소모",
+       "desc": "5pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 이글이글 쉐이킹·더블",
+     "param": [
+      {
+       "name": "지속 방사 피해 배율",
+       "desc": "{Skill:1171012, Prop:1001}",
+       "param": {
+        "1171012": {
+         "main": 95810,
+         "growth": 8710,
+         "format": "%",
+         "damage_percentage": 95810,
+         "damage_percentage_growth": 8710,
+         "stun_ratio": 58570,
+         "stun_ratio_growth": 2670,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1839750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 53024,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22737
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "지속 방사 그로기 배율",
+       "desc": "{Skill:1171012, Prop:1002}",
+       "param": {
+        "1171012": {
+         "main": 58570,
+         "growth": 2670,
+         "format": "%",
+         "damage_percentage": 95810,
+         "damage_percentage_growth": 8710,
+         "stun_ratio": 58570,
+         "stun_ratio_growth": 2670,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1839750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 53024,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22737
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "화염 폭발 피해 배율",
+       "desc": "{Skill:1171013, Prop:1001}",
+       "param": {
+        "1171013": {
+         "main": 28710,
+         "growth": 2610,
+         "format": "%",
+         "damage_percentage": 28710,
+         "damage_percentage_growth": 2610,
+         "stun_ratio": 20780,
+         "stun_ratio_growth": 950,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 603625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18365,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "화염 폭발 그로기 배율",
+       "desc": "{Skill:1171013, Prop:1002}",
+       "param": {
+        "1171013": {
+         "main": 20780,
+         "growth": 950,
+         "format": "%",
+         "damage_percentage": 28710,
+         "damage_percentage_growth": 2610,
+         "stun_ratio": 20780,
+         "stun_ratio_growth": 950,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 603625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18365,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "시전에 필요한 에너지",
+       "desc": "10pt",
+       "potential": []
+      },
+      {
+       "name": "지속 방사 에너지 소모",
+       "desc": "25pt/초",
+       "potential": []
+      },
+      {
+       "name": "화염 폭발 에너지 소모",
+       "desc": "10pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 이글이글 저글링",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1171026, Prop:1001}",
+       "param": {
+        "1171026": {
+         "main": 19990,
+         "growth": 1820,
+         "format": "%",
+         "damage_percentage": 19990,
+         "damage_percentage_growth": 1820,
+         "stun_ratio": 19990,
+         "stun_ratio_growth": 910,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 249975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9083,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9084
+        }
+       },
+       "potential": [
+        117100,
+        117101,
+        117102,
+        117103,
+        117104,
+        117105
+       ]
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1171026, Prop:1002}",
+       "param": {
+        "1171026": {
+         "main": 19990,
+         "growth": 910,
+         "format": "%",
+         "damage_percentage": 19990,
+         "damage_percentage_growth": 1820,
+         "stun_ratio": 19990,
+         "stun_ratio_growth": 910,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 249975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9083,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9084
+        }
+       },
+       "potential": [
+        117100,
+        117101,
+        117102,
+        117103,
+        117104,
+        117105
+       ]
+      }
+     ],
+     "potential": [
+      117100,
+      117101,
+      117102,
+      117103,
+      117104,
+      117105
+     ]
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "콤보 스킬: 연료를 태우는 불꽃",
+     "desc": "<color=#FFFFFF>[콤보 스킬]</color> 발동 시 해당 캐릭터를 선택해 시전:\n빠르게 돌진하며 주위에 화염을 방사한 후, 전방 부채꼴 범위에 화염 폭발 1회로 대량의 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.\n스킬 시전 후 <IconMap:Icon_SpecialReady>을 짧게 탭하면 <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>을 바로 이어서 시전할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "궁극기: 타오르는 불꽃을 느껴봐",
+     "desc": "데시벨 레벨 <color=#FFFFFF>[Maximum]</color> 달성 시 <IconMap:Icon_UltimateReady>을 짧게 탭하여 시전:\n빠르게 돌진 후 공중으로 뛰어올라 전방 넓은 범위 구역에 지속적으로 화염을 방사해 대량의 <color=#FF5521>불 속성 피해</color>를 준다.\n공중으로 도약 시 <color=#FFFFFF>[빠른 지원]</color>을 발동하며, <color=#FFFFFF>[빠른 지원]</color> 사용 시 버니스의 화염 방사 지속 시간이 연장된다.\n스킬 시전 시 <color=#FFFFFF>[발화점]</color>을 50pt 회복하며, 스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 연료를 태우는 불꽃",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1171016, Prop:1001}",
+       "param": {
+        "1171016": {
+         "main": 68090,
+         "growth": 6190,
+         "format": "%",
+         "damage_percentage": 68090,
+         "damage_percentage_growth": 6190,
+         "stun_ratio": 24200,
+         "stun_ratio_growth": 1100,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2433750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 100296,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1171016, Prop:1002}",
+       "param": {
+        "1171016": {
+         "main": 24200,
+         "growth": 1100,
+         "format": "%",
+         "damage_percentage": 68090,
+         "damage_percentage_growth": 6190,
+         "stun_ratio": 24200,
+         "stun_ratio_growth": 1100,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2433750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 100296,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21997
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "궁극기: 타오르는 불꽃을 느껴봐",
+     "param": [
+      {
+       "name": "최대 피해 배율",
+       "desc": "{Skill:1171017, Prop:1001}",
+       "param": {
+        "1171017": {
+         "main": 201220,
+         "growth": 18300,
+         "format": "%",
+         "damage_percentage": 201220,
+         "damage_percentage_growth": 18300,
+         "stun_ratio": 10640,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 86116,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 59667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "최대 그로기 배율",
+       "desc": "{Skill:1171017, Prop:1002}",
+       "param": {
+        "1171017": {
+         "main": 10640,
+         "growth": 490,
+         "format": "%",
+         "damage_percentage": 201220,
+         "damage_percentage_growth": 18300,
+         "stun_ratio": 10640,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 86116,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 59667
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "빠른 지원: 특제 에너지 음료",
+     "desc": "현재 조작 중인 캐릭터가 넉업되면 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n전방의 적에게 연속 공격과 화염 방사로 <color=#F0D12B>물리 피해</color> 및 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "빠른 지원: 특제 에너지 음료",
+     "desc": "현재 조작 중인 캐릭터가 넉업되면 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n전방의 적에게 연속 공격과 화염 방사로 <color=#F0D12B>물리 피해</color> 및 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.\n스킬 시전 후 <IconMap:Icon_SpecialReady>을 눌러 <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>을 바로 이어서 시전할 수 있다.",
+     "potential": [
+      117100,
+      117101,
+      117102,
+      117103,
+      117104,
+      117105
+     ]
+    },
+    {
+     "name": "패링 지원: 스모키 퓨엘",
+     "desc": "출전 캐릭터 피격 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적의 공격을 패링하고 대량의 그로기 수치를 누적한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 후끈한 감로",
+     "desc": "<color=#FFFFFF>[패링 지원]</color> 시전 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n공중으로 뛰어올라 빠르게 앞으로 회전하며 주위에 화염을 방사해 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.\n스킬 시전 후 <IconMap:Icon_SpecialReady>을 짧게 탭하면 <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>을 바로 이어서 시전할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 특제 에너지 음료",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1171018, Prop:1001}",
+       "param": {
+        "1171018": {
+         "main": 8440,
+         "growth": 770,
+         "format": "%",
+         "damage_percentage": 8440,
+         "damage_percentage_growth": 770,
+         "stun_ratio": 8440,
+         "stun_ratio_growth": 390,
+         "sp_recovery": 13800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 210925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1171018, Prop:1002}",
+       "param": {
+        "1171018": {
+         "main": 8440,
+         "growth": 390,
+         "format": "%",
+         "damage_percentage": 8440,
+         "damage_percentage_growth": 770,
+         "stun_ratio": 8440,
+         "stun_ratio_growth": 390,
+         "sp_recovery": 13800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 210925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 스모키 퓨엘",
+     "param": [
+      {
+       "name": "가벼운 패링 그로기 배율",
+       "desc": "{Skill:1171019, Prop:1002}",
+       "param": {
+        "1171019": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강한 패링 그로기 배율",
+       "desc": "{Skill:1171020, Prop:1002}",
+       "param": {
+        "1171020": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 패링 그로기 배율",
+       "desc": "{Skill:1171021, Prop:1002}",
+       "param": {
+        "1171021": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 후끈한 감로",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1171022, Prop:1001}",
+       "param": {
+        "1171022": {
+         "main": 32760,
+         "growth": 2980,
+         "format": "%",
+         "damage_percentage": 32760,
+         "damage_percentage_growth": 2980,
+         "stun_ratio": 28240,
+         "stun_ratio_growth": 1290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 931975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 27722,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1171022, Prop:1002}",
+       "param": {
+        "1171022": {
+         "main": 28240,
+         "growth": 1290,
+         "format": "%",
+         "damage_percentage": 32760,
+         "damage_percentage_growth": 2980,
+         "stun_ratio": 28240,
+         "stun_ratio_growth": 1290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 931975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 27722,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13334
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "따뜻한 공감",
+   "desc": "<color=#FFFFFF>[발화점]</color>의 최대치가 100pt에서 140pt로 증가하며, 전장 진입 시 버니스가 추가로 <color=#FFFFFF>[발화점]</color>을 40pt 누적한다. <color=#FFFFFF>[잿불]</color> 효과의 피해 배율이 버니스 공격력의 100%만큼 증가한다. <color=#FFFFFF>[잿불]</color> 효과로 누적하는 <color=#FF5521>불 속성 이상 축적치</color>가 25% 증가한다.",
+   "desc2": "「누구나 순조롭지 않은 순간이 있기 마련이야, 당연해!」\n「슬퍼하지 마, 카이사르. 특제 니트로 퓨엘 한 잔 어때? 시럽 잔뜩 넣었어!」"
+  },
+  "2": {
+   "level": 2,
+   "name": "무료 사이즈 업",
+   "desc": "<color=#FFFFFF>[잿불]</color> 효과 발동 시 적에게 <color=#FFFFFF>[열기 관통]</color>을 부여한다. 최대 중첩: 5스택, 지속 시간: 6초, 중복 발동 시 지속 시간이 갱신된다. 아군의 공격을 받을 시, 타깃이 보유한 <color=#FFFFFF>[열기 관통]</color> 1스택당 이번 공격의 관통률이 4% 증가한다. 최대 증가: 20%",
+   "desc2": "칼리돈의 자손의 바텐더로서, 버니스는 친구들에게 뉴에리두에서 가장 맛있는 니트로 퓨엘을 제조해 주곤 한다.\n물론, 당신이 그녀의 「적」이라면… 전례 없는 새로운 맛을 느낄 수 있을 테지만 말이다.\n「일생에 딱 한 번만 맛볼 수 있는 굉장한 맛이라구!」"
+  },
+  "3": {
+   "level": 3,
+   "name": "낙천적인 천성",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "「버니스는 항상 활기가 넘쳐나요! 심지어 아침에 막 일어났을 때조차요! 그런 에너지는 대체 어디서 나오는 걸까요…」\n「더 무서운 건, 주변 사람들의 기분까지 활기차게 만든다는 거예요! 이 정도면 요괴라고 불러도 되는 거 아니냐고요!」\n「그치만… 딱히 그게 싫진 않아요…」\n——이름을 밝히고 싶지 않아 하는 어느 멧돼지 관리자"
+  },
+  "4": {
+   "level": 4,
+   "name": "최상의 연료 보급",
+   "desc": "<color=#FFFFFF>[강화 특수 스킬]</color> 혹은 <color=#FFFFFF>[지원 공격]</color>이 적 명중 시, 스킬의 치명타 확률이 30% 증가한다. <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color> 중, 화염 방사의 지속 시간 최대치가 1초 증가한다.",
+   "desc2": "「내가 만든 음료를 좋아한다고? 고마워, 크라운 그 녀석도 한 끼에 200리터나 먹을 정도로 좋아해!」\n「아, 크라운은 우리가 타는 그 대형 트럭의 이름이야!」\n「크라운한테 특별 공급하는 연료 좀 맛볼래? 엄청 뜨거워~」"
+  },
+  "5": {
+   "level": 5,
+   "name": "불과 얼음의 춤",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "음료를 만들 때, 얼음은 매우 중요한 요소 중 하나이다.\n극한의 차가움이 없으면, 극한의 뜨거움이 도드라지기 어렵기 때문이다.\n「불과 얼음이 융합된 이 느낌~ 빠져들 수밖에 없지!」"
+  },
+  "6": {
+   "level": 6,
+   "name": "타오르는 불꽃의 초대",
+   "desc": "버니스의 <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>이 적에게 명중 시 추가로 특수 <color=#FFFFFF>[잿불]</color> 효과를 발동하여 타깃에게 버니스 공격력의 60%에 해당하는 <color=#FF5521>불 속성 피해</color>를 준다. 0.5초 동안 최대 1회 발동하며 <color=#FFFFFF>[발화점]</color>을 소모하지 않는다. 시전한 <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>이 적에게 명중 후, 스킬 시전 기간 동안 <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>, 특수 <color=#FFFFFF>[잿불]</color> 효과, <color=#FF5521>[연소]</color> 피해가 타깃의 <color=#FF5521>불 속성 피해 저항</color>을 25% 무시한다. <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>의 화염 폭발이 <color=#FF5521>[연소]</color> 상태인 타깃에게 명중할 시, 기존의 1800%에 해당하는 <color=#FF5521>[연소]</color> 피해를 추가로 1회 더 결산한다. 동일 타깃에게 20초 동안 최대 1회 발동한다.",
+   "desc2": "버니스가 진짜로 화난 모습을 본 사람은 없는 것 같다.\n「장담하는데, 절대 보고 싶지 않을걸~」\n——크라운 위에서 잘 준비를 하는 어느 운전기사"
+  }
+ },
+ "passive": {
+  "level": {
+   "1171501": {
+    "level": 1,
+    "id": 1171501,
+    "name": [
+     "핵심 패시브: 특제 연료",
+     "추가 능력: 요원의 불길"
+    ],
+    "desc": [
+     "버니스가 에너지를 소모할 시 자신에게 <color=#FFFFFF>[발화점]</color>을 누적한다. 최대 누적: 100pt. 에너지를 1pt 소모할 때마다 <color=#FFFFFF>[발화점]</color>을 1.4pt 누적할 수 있다. <color=#FFFFFF>[발화점]</color>을 50pt까지 누적하면 버니스는 <color=#FFFFFF>[특제 연료]</color> 상태에 진입하며, 해당 상태는 <color=#FFFFFF>[발화점]</color>이 소진될 때까지 지속된다. 전장 진입 시, 버니스는 즉시 <color=#FFFFFF>[발화점]</color>을 100pt 누적한다.\n<color=#FFFFFF>[특제 연료]</color> 상태에서 버니스의 <color=#FFFFFF>[일반 공격: 활활 스티어링]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>, <color=#FFFFFF>[콤보 스킬: 연료를 태우는 불꽃]</color> 혹은 <color=#FFFFFF>[궁극기: 타오르는 불꽃을 느껴봐]</color>가 적에게 명중 시 타깃에게 <color=#FFFFFF>[열상]</color> 효과를 부여한다. 해당 효과는 버니스가 <color=#FFFFFF>[특제 연료]</color> 상태에서 벗어날 때까지 지속된다. 파티 내 다른 캐릭터의 공격이 <color=#FFFFFF>[열상]</color> 상태인 적에게 명중 시, <color=#FFFFFF>[잿불]</color> 효과를 발동하고 <color=#FFFFFF>[발화점]</color>을 8pt 소모해 타깃에게 버니스 공격력의 <color=#2BAD00>175%</color>에 해당하는 <color=#FF5521>불 속성 피해</color>를 주고, <color=#FF5521>불 속성 이상 축적치</color>를 누적한다. 1.5초 동안 최대 1회 발동한다. 보유한 이상 마스터리 10pt당 <color=#FFFFFF>[잿불]</color> 효과로 주는 피해가 1% 증가한다. 최대 증가: 30%. <color=#FFFFFF>[잿불]</color> 효과로 주는 피해는 <color=#FFFFFF>[지원 공격]</color> 피해로 간주된다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n버니스의 <color=#FFFFFF>[일반 공격: 활활 스티어링]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>이 적에게 명중하거나 <color=#FFFFFF>[잿불]</color> 효과 발동 시, 스킬로 누적하는 <color=#FF5521>불 속성 이상 축적치</color>가 65% 증가한다. 파티 내 임의의 캐릭터가 적에게 <color=#FF5521>[연소]</color> 효과 부여 시 해당 효과의 지속 시간이 3초 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1171502": {
+    "level": 2,
+    "id": 1171502,
+    "name": [
+     "핵심 패시브: 특제 연료",
+     "추가 능력: 요원의 불길"
+    ],
+    "desc": [
+     "버니스가 에너지를 소모할 시 자신에게 <color=#FFFFFF>[발화점]</color>을 누적한다. 최대 누적: 100pt. 에너지를 1pt 소모할 때마다 <color=#FFFFFF>[발화점]</color>을 1.4pt 누적할 수 있다. <color=#FFFFFF>[발화점]</color>을 50pt까지 누적하면 버니스는 <color=#FFFFFF>[특제 연료]</color> 상태에 진입하며, 해당 상태는 <color=#FFFFFF>[발화점]</color>이 소진될 때까지 지속된다. 전장 진입 시, 버니스는 즉시 <color=#FFFFFF>[발화점]</color>을 100pt 누적한다.\n<color=#FFFFFF>[특제 연료]</color> 상태에서 버니스의 <color=#FFFFFF>[일반 공격: 활활 스티어링]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>, <color=#FFFFFF>[콤보 스킬: 연료를 태우는 불꽃]</color> 혹은 <color=#FFFFFF>[궁극기: 타오르는 불꽃을 느껴봐]</color>가 적에게 명중 시 타깃에게 <color=#FFFFFF>[열상]</color> 효과를 부여한다. 해당 효과는 버니스가 <color=#FFFFFF>[특제 연료]</color> 상태에서 벗어날 때까지 지속된다. 파티 내 다른 캐릭터의 공격이 <color=#FFFFFF>[열상]</color> 상태인 적에게 명중 시, <color=#FFFFFF>[잿불]</color> 효과를 발동하고 <color=#FFFFFF>[발화점]</color>을 8pt 소모해 타깃에게 버니스 공격력의 <color=#2BAD00>205%</color>에 해당하는 <color=#FF5521>불 속성 피해</color>를 주고, <color=#FF5521>불 속성 이상 축적치</color>를 누적한다. 1.5초 동안 최대 1회 발동한다. 보유한 이상 마스터리 10pt당 <color=#FFFFFF>[잿불]</color> 효과로 주는 피해가 1% 증가한다. 최대 증가: 30%. <color=#FFFFFF>[잿불]</color> 효과로 주는 피해는 <color=#FFFFFF>[지원 공격]</color> 피해로 간주된다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n버니스의 <color=#FFFFFF>[일반 공격: 활활 스티어링]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>이 적에게 명중하거나 <color=#FFFFFF>[잿불]</color> 효과 발동 시, 스킬로 누적하는 <color=#FF5521>불 속성 이상 축적치</color>가 65% 증가한다. 파티 내 임의의 캐릭터가 적에게 <color=#FF5521>[연소]</color> 효과 부여 시 해당 효과의 지속 시간이 3초 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1171503": {
+    "level": 3,
+    "id": 1171503,
+    "name": [
+     "핵심 패시브: 특제 연료",
+     "추가 능력: 요원의 불길"
+    ],
+    "desc": [
+     "버니스가 에너지를 소모할 시 자신에게 <color=#FFFFFF>[발화점]</color>을 누적한다. 최대 누적: 100pt. 에너지를 1pt 소모할 때마다 <color=#FFFFFF>[발화점]</color>을 1.4pt 누적할 수 있다. <color=#FFFFFF>[발화점]</color>을 50pt까지 누적하면 버니스는 <color=#FFFFFF>[특제 연료]</color> 상태에 진입하며, 해당 상태는 <color=#FFFFFF>[발화점]</color>이 소진될 때까지 지속된다. 전장 진입 시, 버니스는 즉시 <color=#FFFFFF>[발화점]</color>을 100pt 누적한다.\n<color=#FFFFFF>[특제 연료]</color> 상태에서 버니스의 <color=#FFFFFF>[일반 공격: 활활 스티어링]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>, <color=#FFFFFF>[콤보 스킬: 연료를 태우는 불꽃]</color> 혹은 <color=#FFFFFF>[궁극기: 타오르는 불꽃을 느껴봐]</color>가 적에게 명중 시 타깃에게 <color=#FFFFFF>[열상]</color> 효과를 부여한다. 해당 효과는 버니스가 <color=#FFFFFF>[특제 연료]</color> 상태에서 벗어날 때까지 지속된다. 파티 내 다른 캐릭터의 공격이 <color=#FFFFFF>[열상]</color> 상태인 적에게 명중 시, <color=#FFFFFF>[잿불]</color> 효과를 발동하고 <color=#FFFFFF>[발화점]</color>을 8pt 소모해 타깃에게 버니스 공격력의 <color=#2BAD00>235%</color>에 해당하는 <color=#FF5521>불 속성 피해</color>를 주고, <color=#FF5521>불 속성 이상 축적치</color>를 누적한다. 1.5초 동안 최대 1회 발동한다. 보유한 이상 마스터리 10pt당 <color=#FFFFFF>[잿불]</color> 효과로 주는 피해가 1% 증가한다. 최대 증가: 30%. <color=#FFFFFF>[잿불]</color> 효과로 주는 피해는 <color=#FFFFFF>[지원 공격]</color> 피해로 간주된다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n버니스의 <color=#FFFFFF>[일반 공격: 활활 스티어링]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>이 적에게 명중하거나 <color=#FFFFFF>[잿불]</color> 효과 발동 시, 스킬로 누적하는 <color=#FF5521>불 속성 이상 축적치</color>가 65% 증가한다. 파티 내 임의의 캐릭터가 적에게 <color=#FF5521>[연소]</color> 효과 부여 시 해당 효과의 지속 시간이 3초 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1171504": {
+    "level": 4,
+    "id": 1171504,
+    "name": [
+     "핵심 패시브: 특제 연료",
+     "추가 능력: 요원의 불길"
+    ],
+    "desc": [
+     "버니스가 에너지를 소모할 시 자신에게 <color=#FFFFFF>[발화점]</color>을 누적한다. 최대 누적: 100pt. 에너지를 1pt 소모할 때마다 <color=#FFFFFF>[발화점]</color>을 1.4pt 누적할 수 있다. <color=#FFFFFF>[발화점]</color>을 50pt까지 누적하면 버니스는 <color=#FFFFFF>[특제 연료]</color> 상태에 진입하며, 해당 상태는 <color=#FFFFFF>[발화점]</color>이 소진될 때까지 지속된다. 전장 진입 시, 버니스는 즉시 <color=#FFFFFF>[발화점]</color>을 100pt 누적한다.\n<color=#FFFFFF>[특제 연료]</color> 상태에서 버니스의 <color=#FFFFFF>[일반 공격: 활활 스티어링]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>, <color=#FFFFFF>[콤보 스킬: 연료를 태우는 불꽃]</color> 혹은 <color=#FFFFFF>[궁극기: 타오르는 불꽃을 느껴봐]</color>가 적에게 명중 시 타깃에게 <color=#FFFFFF>[열상]</color> 효과를 부여한다. 해당 효과는 버니스가 <color=#FFFFFF>[특제 연료]</color> 상태에서 벗어날 때까지 지속된다. 파티 내 다른 캐릭터의 공격이 <color=#FFFFFF>[열상]</color> 상태인 적에게 명중 시, <color=#FFFFFF>[잿불]</color> 효과를 발동하고 <color=#FFFFFF>[발화점]</color>을 8pt 소모해 타깃에게 버니스 공격력의 <color=#2BAD00>262%</color>에 해당하는 <color=#FF5521>불 속성 피해</color>를 주고, <color=#FF5521>불 속성 이상 축적치</color>를 누적한다. 1.5초 동안 최대 1회 발동한다. 보유한 이상 마스터리 10pt당 <color=#FFFFFF>[잿불]</color> 효과로 주는 피해가 1% 증가한다. 최대 증가: 30%. <color=#FFFFFF>[잿불]</color> 효과로 주는 피해는 <color=#FFFFFF>[지원 공격]</color> 피해로 간주된다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n버니스의 <color=#FFFFFF>[일반 공격: 활활 스티어링]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>이 적에게 명중하거나 <color=#FFFFFF>[잿불]</color> 효과 발동 시, 스킬로 누적하는 <color=#FF5521>불 속성 이상 축적치</color>가 65% 증가한다. 파티 내 임의의 캐릭터가 적에게 <color=#FF5521>[연소]</color> 효과 부여 시 해당 효과의 지속 시간이 3초 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1171505": {
+    "level": 5,
+    "id": 1171505,
+    "name": [
+     "핵심 패시브: 특제 연료",
+     "추가 능력: 요원의 불길"
+    ],
+    "desc": [
+     "버니스가 에너지를 소모할 시 자신에게 <color=#FFFFFF>[발화점]</color>을 누적한다. 최대 누적: 100pt. 에너지를 1pt 소모할 때마다 <color=#FFFFFF>[발화점]</color>을 1.4pt 누적할 수 있다. <color=#FFFFFF>[발화점]</color>을 50pt까지 누적하면 버니스는 <color=#FFFFFF>[특제 연료]</color> 상태에 진입하며, 해당 상태는 <color=#FFFFFF>[발화점]</color>이 소진될 때까지 지속된다. 전장 진입 시, 버니스는 즉시 <color=#FFFFFF>[발화점]</color>을 100pt 누적한다.\n<color=#FFFFFF>[특제 연료]</color> 상태에서 버니스의 <color=#FFFFFF>[일반 공격: 활활 스티어링]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>, <color=#FFFFFF>[콤보 스킬: 연료를 태우는 불꽃]</color> 혹은 <color=#FFFFFF>[궁극기: 타오르는 불꽃을 느껴봐]</color>가 적에게 명중 시 타깃에게 <color=#FFFFFF>[열상]</color> 효과를 부여한다. 해당 효과는 버니스가 <color=#FFFFFF>[특제 연료]</color> 상태에서 벗어날 때까지 지속된다. 파티 내 다른 캐릭터의 공격이 <color=#FFFFFF>[열상]</color> 상태인 적에게 명중 시, <color=#FFFFFF>[잿불]</color> 효과를 발동하고 <color=#FFFFFF>[발화점]</color>을 8pt 소모해 타깃에게 버니스 공격력의 <color=#2BAD00>290%</color>에 해당하는 <color=#FF5521>불 속성 피해</color>를 주고, <color=#FF5521>불 속성 이상 축적치</color>를 누적한다. 1.5초 동안 최대 1회 발동한다. 보유한 이상 마스터리 10pt당 <color=#FFFFFF>[잿불]</color> 효과로 주는 피해가 1% 증가한다. 최대 증가: 30%. <color=#FFFFFF>[잿불]</color> 효과로 주는 피해는 <color=#FFFFFF>[지원 공격]</color> 피해로 간주된다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n버니스의 <color=#FFFFFF>[일반 공격: 활활 스티어링]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>이 적에게 명중하거나 <color=#FFFFFF>[잿불]</color> 효과 발동 시, 스킬로 누적하는 <color=#FF5521>불 속성 이상 축적치</color>가 65% 증가한다. 파티 내 임의의 캐릭터가 적에게 <color=#FF5521>[연소]</color> 효과 부여 시 해당 효과의 지속 시간이 3초 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1171506": {
+    "level": 6,
+    "id": 1171506,
+    "name": [
+     "핵심 패시브: 특제 연료",
+     "추가 능력: 요원의 불길"
+    ],
+    "desc": [
+     "버니스가 에너지를 소모할 시 자신에게 <color=#FFFFFF>[발화점]</color>을 누적한다. 최대 누적: 100pt. 에너지를 1pt 소모할 때마다 <color=#FFFFFF>[발화점]</color>을 1.4pt 누적할 수 있다. <color=#FFFFFF>[발화점]</color>을 50pt까지 누적하면 버니스는 <color=#FFFFFF>[특제 연료]</color> 상태에 진입하며, 해당 상태는 <color=#FFFFFF>[발화점]</color>이 소진될 때까지 지속된다. 전장 진입 시, 버니스는 즉시 <color=#FFFFFF>[발화점]</color>을 100pt 누적한다.\n<color=#FFFFFF>[특제 연료]</color> 상태에서 버니스의 <color=#FFFFFF>[일반 공격: 활활 스티어링]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>, <color=#FFFFFF>[콤보 스킬: 연료를 태우는 불꽃]</color> 혹은 <color=#FFFFFF>[궁극기: 타오르는 불꽃을 느껴봐]</color>가 적에게 명중 시 타깃에게 <color=#FFFFFF>[열상]</color> 효과를 부여한다. 해당 효과는 버니스가 <color=#FFFFFF>[특제 연료]</color> 상태에서 벗어날 때까지 지속된다. 파티 내 다른 캐릭터의 공격이 <color=#FFFFFF>[열상]</color> 상태인 적에게 명중 시, <color=#FFFFFF>[잿불]</color> 효과를 발동하고 <color=#FFFFFF>[발화점]</color>을 8pt 소모해 타깃에게 버니스 공격력의 <color=#2BAD00>320%</color>에 해당하는 <color=#FF5521>불 속성 피해</color>를 주고, <color=#FF5521>불 속성 이상 축적치</color>를 누적한다. 1.5초 동안 최대 1회 발동한다. 보유한 이상 마스터리 10pt당 <color=#FFFFFF>[잿불]</color> 효과로 주는 피해가 1% 증가한다. 최대 증가: 30%. <color=#FFFFFF>[잿불]</color> 효과로 주는 피해는 <color=#FFFFFF>[지원 공격]</color> 피해로 간주된다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n버니스의 <color=#FFFFFF>[일반 공격: 활활 스티어링]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>이 적에게 명중하거나 <color=#FFFFFF>[잿불]</color> 효과 발동 시, 스킬로 누적하는 <color=#FF5521>불 속성 이상 축적치</color>가 65% 증가한다. 파티 내 임의의 캐릭터가 적에게 <color=#FF5521>[연소]</color> 효과 부여 시 해당 효과의 지속 시간이 3초 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1171507": {
+    "level": 7,
+    "id": 1171507,
+    "name": [
+     "핵심 패시브: 특제 연료",
+     "추가 능력: 요원의 불길"
+    ],
+    "desc": [
+     "버니스가 에너지를 소모할 시 자신에게 <color=#FFFFFF>[발화점]</color>을 누적한다. 최대 누적: 100pt. 에너지를 1pt 소모할 때마다 <color=#FFFFFF>[발화점]</color>을 1.4pt 누적할 수 있다. <color=#FFFFFF>[발화점]</color>을 50pt까지 누적하면 버니스는 <color=#FFFFFF>[특제 연료]</color> 상태에 진입하며, 해당 상태는 <color=#FFFFFF>[발화점]</color>이 소진될 때까지 지속된다. 전장 진입 시, 버니스는 즉시 <color=#FFFFFF>[발화점]</color>을 100pt 누적한다.\n<color=#FFFFFF>[특제 연료]</color> 상태에서 버니스의 <color=#FFFFFF>[일반 공격: 활활 스티어링]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>, <color=#FFFFFF>[콤보 스킬: 연료를 태우는 불꽃]</color> 혹은 <color=#FFFFFF>[궁극기: 타오르는 불꽃을 느껴봐]</color>가 적에게 명중 시 타깃에게 <color=#FFFFFF>[열상]</color> 효과를 부여한다. 해당 효과는 버니스가 <color=#FFFFFF>[특제 연료]</color> 상태에서 벗어날 때까지 지속된다. 파티 내 다른 캐릭터의 공격이 <color=#FFFFFF>[열상]</color> 상태인 적에게 명중 시, <color=#FFFFFF>[잿불]</color> 효과를 발동하고 <color=#FFFFFF>[발화점]</color>을 8pt 소모해 타깃에게 버니스 공격력의 <color=#2BAD00>350%</color>에 해당하는 <color=#FF5521>불 속성 피해</color>를 주고, <color=#FF5521>불 속성 이상 축적치</color>를 누적한다. 1.5초 동안 최대 1회 발동한다. 보유한 이상 마스터리 10pt당 <color=#FFFFFF>[잿불]</color> 효과로 주는 피해가 1% 증가한다. 최대 증가: 30%. <color=#FFFFFF>[잿불]</color> 효과로 주는 피해는 <color=#FFFFFF>[지원 공격]</color> 피해로 간주된다.",
+     "파티에 다른 <color=#FFFFFF>[이상]</color> 캐릭터 혹은 자신과 진영이 같은 캐릭터가 존재할 시 발동:\n버니스의 <color=#FFFFFF>[일반 공격: 활활 스티어링]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹]</color>, <color=#FFFFFF>[강화 특수 스킬: 이글이글 쉐이킹·더블]</color>이 적에게 명중하거나 <color=#FFFFFF>[잿불]</color> 효과 발동 시, 스킬로 누적하는 <color=#FF5521>불 속성 이상 축적치</color>가 65% 증가한다. 파티 내 임의의 캐릭터가 적에게 <color=#FF5521>[연소]</color> 효과 부여 시 해당 효과의 지속 시간이 3초 증가한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110507": 2
+   },
+   "3": {
+    "10": 28000,
+    "110507": 4
+   },
+   "4": {
+    "10": 60000,
+    "110004": 2,
+    "110507": 9
+   },
+   "5": {
+    "10": 100000,
+    "110004": 3,
+    "110507": 15
+   },
+   "6": {
+    "10": 200000,
+    "110004": 4,
+    "110507": 30
+   }
+  }
+ },
+ "skin": {
+  "3111710": {
+   "name": "버니스·환희의 연회",
+   "desc": "니트로 퓨엘보다 더 뜨거운 의상. 외환선에서 우연히 파티장에 들어갔다면, 열에 여덟은 버니스를 만날 텐데, 그녀가 건네는 특제 음료는 조심하시길…\n뭐라고? 벌써 마셨다고? 그렇다면—— 3, 2, 1, Fire!",
+   "obtain_desc": "",
+   "image": "IconRole32"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1171001": {
+   "name": "일반 공격: 활활 빌딩",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1171002": {
+   "name": "일반 공격: 활활 스티어링",
+   "desc": "<IconMap:Icon_Normal>(특제 연료)(홀드)",
+   "element_type": 201,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1171003": {
+   "name": "특수 스킬: 이글이글 에이징",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 201,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1171004": {
+   "name": "강화 특수 스킬: 이글이글 쉐이킹",
+   "desc": "<IconMap:Icon_SpecialReady>(홀드 가능)",
+   "element_type": 201,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1171005": {
+   "name": "강화 특수 스킬: 이글이글 쉐이킹·더블",
+   "desc": "<IconMap:Icon_SpecialReady>(강화 특수 스킬: 이글이글 쉐이킹 기간)",
+   "element_type": 201,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1171006": {
+   "name": "대시 공격: 위험한 발효",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1171007": {
+   "name": "회피 반격: 흔들흔들 스텝",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1171008": {
+   "name": "콤보 스킬: 연료를 태우는 불꽃",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 201,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1171009": {
+   "name": "궁극기: 타오르는 불꽃을 느껴봐",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 201,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1171010": {
+   "name": "빠른 지원: 특제 에너지 음료",
+   "desc": "<IconMap:Icon_Switch>(빠른 지원 발동 시)",
+   "element_type": 201,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1171011": {
+   "name": "패링 지원: 스모키 퓨엘",
+   "desc": "<IconMap:Icon_Switch>(패링 지원 발동 시)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1171012": {
+   "name": "지원 돌격: 후끈한 감로",
+   "desc": "<IconMap:Icon_Normal>(패링 지원 시전 후)",
+   "element_type": 201,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1171013": {
+   "name": "강화 특수 스킬: 이글이글 저글링",
+   "desc": "<IconMap:Icon_Switch>([불길] 보유 시 교체 출전)",
+   "element_type": 201,
+   "hit_type": 103,
+   "potential": [
+    117100,
+    117101,
+    117102,
+    117103,
+    117104,
+    117105
+   ]
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1171001,
+   "avatar_id": 1171,
+   "first_priority": [
+    5,
+    1
+   ],
+   "second_priority": [
+    0,
+    3
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 31800,
+  "slot2": 31600,
+  "slot_sub": 31300,
+  "part_sub_list": [
+   31203,
+   12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31800,
+     31300
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [
+     31800,
+     31600
+    ],
+    "part_sub_list": [
+     31603,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31402,
+     30502
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 30502,
+   "name": "에너지 자동 회복",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconSpRecover.png"
+  },
+  "part5": {
+   "prop": 31203,
+   "name": "이상 마스터리",
+   "format": "{0:0}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementMystery.png"
+  },
+  "part6": {
+   "prop": 31603,
+   "name": "불 속성 피해 보너스",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconFire.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "공격력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Fire>불 속성, 이상 오프필드 딜러",
+  "불 속성 이상 축적치를 빠르게 누적",
+  "오프필드에서 지속 피해 제공"
+ ],
+ "potential": [
+  117100,
+  117101,
+  117102,
+  117103,
+  117104,
+  117105
+ ],
+ "potential_detail": {
+  "117100": {
+   "id": 117100,
+   "name": "",
+   "desc": "",
+   "image": "Burnice",
+   "level_show_name": "열화의 왈츠 Ⅰ",
+   "level": 1,
+   "ability_list": [
+    11171501,
+    11171601
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20117,
+     "number": 1
+    }
+   ]
+  },
+  "117101": {
+   "id": 117101,
+   "name": "잠재력 각성: 달아오르는 파티",
+   "desc": "버니스의 초기 에너지 자동 회복이 1.8pt 이상일 때, 초과한 초기 에너지 자동 회복 0.1pt당 이상 장악력이 추가로 <color=#2BAD00>1</color>pt 증가하며, 주는 피해가 <color=#2BAD00>1%</color> 증가한다. 이상 장악력은 최대 25pt, 주는 피해는 최대 20% 증가한다. [핵심 패시브: 특제 연료]에서 <color=#FFFFFF>[잿불]</color>을 발동하는 간격이 1.35초로 감소한다.",
+   "image": "Burnice",
+   "level_show_name": "열화의 왈츠 Ⅱ",
+   "level": 2,
+   "ability_list": [
+    11171501,
+    11171601,
+    11171701
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20117,
+     "number": 1
+    }
+   ]
+  },
+  "117102": {
+   "id": 117102,
+   "name": "잠재력 각성: 달아오르는 파티",
+   "desc": "버니스의 초기 에너지 자동 회복이 1.8pt 이상일 때, 초과한 초기 에너지 자동 회복 0.1pt당 이상 장악력이 추가로 <color=#2BAD00>1.3</color>pt 증가하며, 주는 피해가 <color=#2BAD00>1.25%</color> 증가한다. 이상 장악력은 최대 25pt, 주는 피해는 최대 20% 증가한다. [핵심 패시브: 특제 연료]에서 <color=#FFFFFF>[잿불]</color>을 발동하는 간격이 1.35초로 감소한다.",
+   "image": "Burnice",
+   "level_show_name": "열화의 왈츠 Ⅲ",
+   "level": 3,
+   "ability_list": [
+    11171501,
+    11171601,
+    11171702
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20117,
+     "number": 1
+    }
+   ]
+  },
+  "117103": {
+   "id": 117103,
+   "name": "잠재력 각성: 달아오르는 파티",
+   "desc": "버니스의 초기 에너지 자동 회복이 1.8pt 이상일 때, 초과한 초기 에너지 자동 회복 0.1pt당 이상 장악력이 추가로 <color=#2BAD00>1.6</color>pt 증가하며, 주는 피해가 <color=#2BAD00>1.5%</color> 증가한다. 이상 장악력은 최대 25pt, 주는 피해는 최대 20% 증가한다. [핵심 패시브: 특제 연료]에서 <color=#FFFFFF>[잿불]</color>을 발동하는 간격이 1.35초로 감소한다.",
+   "image": "Burnice",
+   "level_show_name": "열화의 왈츠 Ⅳ",
+   "level": 4,
+   "ability_list": [
+    11171501,
+    11171601,
+    11171703
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20117,
+     "number": 1
+    }
+   ]
+  },
+  "117104": {
+   "id": 117104,
+   "name": "잠재력 각성: 달아오르는 파티",
+   "desc": "버니스의 초기 에너지 자동 회복이 1.8pt 이상일 때, 초과한 초기 에너지 자동 회복 0.1pt당 이상 장악력이 추가로 <color=#2BAD00>2</color>pt 증가하며, 주는 피해가 <color=#2BAD00>1.75%</color> 증가한다. 이상 장악력은 최대 25pt, 주는 피해는 최대 20% 증가한다. [핵심 패시브: 특제 연료]에서 <color=#FFFFFF>[잿불]</color>을 발동하는 간격이 1.35초로 감소한다.",
+   "image": "Burnice",
+   "level_show_name": "열화의 왈츠 V",
+   "level": 5,
+   "ability_list": [
+    11171501,
+    11171601,
+    11171704
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20117,
+     "number": 1
+    }
+   ]
+  },
+  "117105": {
+   "id": 117105,
+   "name": "잠재력 각성: 달아오르는 파티",
+   "desc": "버니스의 초기 에너지 자동 회복이 1.8pt 이상일 때, 초과한 초기 에너지 자동 회복 0.1pt당 이상 장악력이 추가로 <color=#2BAD00>2.5</color>pt 증가하며, 주는 피해가 <color=#2BAD00>2%</color> 증가한다. 이상 장악력은 최대 25pt, 주는 피해는 최대 20% 증가한다. [핵심 패시브: 특제 연료]에서 <color=#FFFFFF>[잿불]</color>을 발동하는 간격이 1.35초로 감소한다.",
+   "image": "Burnice",
+   "level_show_name": "열화의 왈츠 Ⅵ",
+   "level": 6,
+   "ability_list": [
+    11171501,
+    11171601,
+    11171705
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20117,
+     "number": 1
+    }
+   ]
+  }
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100213": 4
+   }
+  },
+  "2": {
+   "hp_max": 407,
+   "attack": 44,
+   "defence": 33,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100223": 12
+   }
+  },
+  "3": {
+   "hp_max": 813,
+   "attack": 89,
+   "defence": 66,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100223": 20
+   }
+  },
+  "4": {
+   "hp_max": 1220,
+   "attack": 133,
+   "defence": 99,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100233": 10
+   }
+  },
+  "5": {
+   "hp_max": 1626,
+   "attack": 177,
+   "defence": 133,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100233": 20
+   }
+  },
+  "6": {
+   "hp_max": 2033,
+   "attack": 222,
+   "defence": 166,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 12
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 12
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 24
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 24
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 36
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 36
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpine_Burnice"
+}

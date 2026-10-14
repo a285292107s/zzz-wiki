@@ -1,0 +1,2751 @@
+{
+ "id": 1471,
+ "icon": "IconRole53",
+ "name": "반악",
+ "code_name": "Banyue",
+ "rarity": 4,
+ "weapon_type": {
+  "6": "Rupture"
+ },
+ "element_type": {
+  "201": "Fire"
+ },
+ "hit_type": {
+  "102": "Strike"
+ },
+ "camp": {
+  "12": "크람푸스의 검은 가지"
+ },
+ "gender": 1,
+ "partner_info": {
+  "birthday": "7/24",
+  "full_name": "반악",
+  "gender": "남성",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle53.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0053.png",
+  "impression_f": "반악 씨는 겉으로 보기엔 침착해 보이지만, 의외로 약한 면이 있으신 것 같아! 지난번에 그냥관에 오셨을 때 쥐 한 마리가 들어왔는데, 최대한 아닌 척하셨지만, 불편해하시는 게 느껴졌거든…",
+  "impression_m": "그러고 보니 전에 어떤 꼬마가 구슬을 가지고 놀다가 떨어뜨렸는데, 반악 씨가 그쪽에 몇 번이나 시선을 뺏기는 모습을 봤어… 반악 씨한테도 무학의 대가답지 않은 모습이 좀 있는 것 같아",
+  "impressions": [
+   "반악에 대한 인상:\n · 스마트 구조체의 생활 속 고민, 첫 번째: 보안 검색대는 왜 계속 울리는 걸까",
+   " · 스마트 구조체의 생활 속 고민, 두 번째: 오래된 부품은 어떻게 관리해야 할까",
+   " · 스마트 구조체의 생활 속 고민, 세 번째: 마음의 무게는 어떻게 측정할 수 있을까"
+  ],
+  "profile_desc": "반악은 와이페이 반도에서 도장을 운영하며, 문하에 많은 제자를 거느린 스마트 구조체이다. 「반악 사범」으로 불리며 오랜 세월을 살아온 그는 돌사자와 같은 위엄 있는 외모와 뛰어난 무예를 지녔으며, 운규산의 현 문주인 의현과 오랜 친분이 있다.\n\n무술 고수인 반악은 과묵하지만 신뢰할 수 있는 인물이며, 행동 방식과 가치관이 소박하다. 그는 무예를 배우는 제자들을 엄격하게 지도하며, 제자 개개인의 재능을 끌어내고 제자들이 스스로 깨치도록 인도하는 무학 대가이다. 그에게는 「노상」이라는 특수한 전투 형태가 있으며, 이를 발동하면 눈앞의 사악한 기운을 모조리 제압할 수 있다.\n\n와이페이 반도의 평범한 주민으로서 오랜 시간을 보낸 반악은 평소 온화하고 침착한 성격이며, 감정 표현에 익숙하지 않다. 또한, 그의 언행은 상당히 예스러운 풍조를 띠고 있는데, 자신이 인간들의 유행을 따라가지 못한다는 것을 스스로 알고 있어 몰래 각종 인터넷 유행어를 배우고 있다. 그러나 제대로 이해하지 못하는 탓에 종종 웃지도 울지도 못할 오해를 만들어내곤 한다.\n\n또한 반악은 받침돌 같은 공 모양의 물건을 매우 좋아하는 듯하다. 만약 단둘이 있을 때 그의 과묵함 때문에 어색한 상황이 된다면, 공 모양의 물건으로 그의 호기심을 자극하는 것을 추천한다.",
+  "role_icon": "IconRole/UnPacker/IconRole53",
+  "stature": "200",
+  "unlock_condition": [
+   "에이전트 획득",
+   "메인 스토리 의뢰 시즌 2 제5장 완료",
+   "「엔비의 고민」 의뢰 완료"
+  ],
+  "trust_lv": {
+   "1": "반악은 와이페이 반도에서 도장을 운영하며, 문하에 많은 제자를 거느린 스마트 구조체이다. 「반악 사범」으로 불리며 오랜 세월을 살아온 그는 돌사자와 같은 위엄 있는 외모와 뛰어난 무예를 지녔으며, 운규산의 현 문주인 의현과 오랜 친분이 있다.\n\n무술 고수인 반악은 과묵하지만 신뢰할 수 있는 인물이며, 행동 방식과 가치관이 소박하다. 그는 무예를 배우는 제자들을 엄격하게 지도하며, 제자 개개인의 재능을 끌어내고 제자들이 스스로 깨치도록 인도하는 무학 대가이다. 그에게는 「노상」이라는 특수한 전투 형태가 있으며, 이를 발동하면 눈앞의 사악한 기운을 모조리 제압할 수 있다.\n\n와이페이 반도의 평범한 주민으로서 오랜 시간을 보낸 반악은 평소 온화하고 침착한 성격이며, 감정 표현에 익숙하지 않다. 또한, 그의 언행은 상당히 예스러운 풍조를 띠고 있는데, 자신이 인간들의 유행을 따라가지 못한다는 것을 스스로 알고 있어 몰래 각종 인터넷 유행어를 배우고 있다. 그러나 제대로 이해하지 못하는 탓에 종종 웃지도 울지도 못할 오해를 만들어내곤 한다.\n\n또한 반악은 받침돌 같은 공 모양의 물건을 매우 좋아하는 듯하다. 만약 단둘이 있을 때 그의 과묵함 때문에 어색한 상황이 된다면, 공 모양의 물건으로 그의 호기심을 자극하는 것을 추천한다.",
+   "2": "",
+   "3": "반악의 진짜 정체는 수년 전 TOPS에서 비밀리에 개발한 미아즈마 진압을 위한 살육 기계로, 코드네임은 「섬멸 유닛·타입 제로」였다. 그에게 심어진 알고리즘 명령은 미아즈마 제거를 위한 가장 합리적인 방안에 따라 행동하도록 했고, 이는 대개 미아즈마와 재난 피해 주민을 포함한 시야 내의 모든 움직이는 타깃을 무차별적으로 제거하는 것을 의미했다.\n\n어느 작전 실패 이후, 살육 기계였던 반악은 TOPS에서 버려졌으나 렘니안 공동에 방문한 어느 현자가 그의 코어를 바꾸고 새로운 지능 로직을 구축해 주었다. 그 덕에 반악은 점차 자의식을 가지게 됐으며 그 후 당시 와이페이 반도 광산 옛터 주민들에게 받아들여져 「인간」으로서의 삶에 녹아들게 되었다.\n\n십 년 전 광산 옛터 미아즈마 폭발 당시, 반악은 구조를 위해 달려갔지만, 절대적 합리화 알고리즘 로직의 작용으로 구조 불가능하다고 판단된 일부 주민들을 포기했다. 반악은 어린 엽빛나와 엽석연을 구출했지만, 동시에 「죽어가는 사람을 보고도 구하지 않은」 자신의 죄악에 대한 심적 부담을 안게 되었다. 이로 인해 그는 스스로 금단 테스트를 받아들일 수 없었고, 넓은 의미의 스마트 구조체 특성에 부합함에도 불구하고 공식적으로 스마트 구조체로 인정받지 못했다.\n\n크람푸스의 검은 가지의 심판관 다이아린의 심판을 받은 후, 반악은 미래를 지키는 것으로 과거의 잘못을 만회하기로 결심했다. 다이아린의 추천으로, 현재 그는 크람푸스의 검은 가지의 심판관 일원이 되어 새로운 여정을 시작했다.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 124,
+  "attack_growth": 74561,
+  "avatar_piece_id": 5471,
+  "break_stun": 95,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 36,
+  "defence_growth": 48644,
+  "element_abnormal_power": 90,
+  "element_mystery": 89,
+  "endurance": 0,
+  "hp_growth": 927143,
+  "hp_max": 683,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 0,
+  "sp_recover": 0,
+  "stun": 0,
+  "tags": [
+   "BanYue",
+   "Punch",
+   "Fire",
+   "Male",
+   "Camp12",
+   "Size3",
+   "AidTypeParry",
+   "BanYue",
+   "EtherEyesSize2"
+  ],
+  "rp_max": 120,
+  "rp_recover": 200,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "일반 공격: 험준한 산",
+     "desc": "<IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 향해 최대 4단까지 공격을 펼쳐 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 경직 레벨이 증가한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 웅장한 산",
+     "desc": "<IconMap:Icon_Special>을 짧게 탭하여 시전:\n전방을 향해 최대 4단까지 공격을 펼쳐 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 분신",
+     "desc": "<color=#FFFFFF>[노상]</color> 상태가 아니며 <color=#FFFFFF>[분개]</color> 120pt 보유 시 <IconMap:Icon_Normal>을 홀드해 시전:\n주변 적에게 <color=#FF5521>불 속성 피해</color>를 주고, <color=#FFFFFF>[노상]</color> 상태에 진입한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 인화",
+     "desc": "교전 상태가 아니며 HP가 50%를 초과하고 <color=#FFFFFF>[분개]</color>가 120pt 미만일 때 <IconMap:Icon_Normal>을 홀드해 시전:\n반악이 스스로 HP를 소모해 <color=#FFFFFF>[분개]</color>를 회복하며 <color=#FFFFFF>[분개]</color>가 120pt까지 회복될 시 반악이 <color=#FFFFFF>[노상]</color> 상태에 진입한다.\n전장 진입 시 해당 스킬을 사용할 기회를 1회 획득하며, 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다.\n반악은 HP 최대치의 50%까지만 HP를 소모한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 무너진 산",
+     "desc": "반악이 <color=#FFFFFF>[노상]</color> 상태일 때 <IconMap:Icon_Normal>을 홀드해 120pt의 <color=#FFFFFF>[분개]</color>를 소모하여 시전:\n반악이 거대한 산의 형체로 적을 공격해 대량의 <color=#FF5521>불 속성 피해</color>를 준다.\n해당 스킬 시전 후, 반악의 <color=#FFFFFF>[노상]</color> 상태가 종료된다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 산악 분쇄",
+     "desc": "반악이 <color=#FFFFFF>[노상]</color> 상태일 때, 일반 공격 파생 혹은 빠른 커맨드 입력을 통해 서로 다른 <color=#FFFFFF>[강화 특수 스킬]</color>을 2회 시전한 후, <IconMap:Icon_Normal>을 홀드해 시전:\n반악이 전방으로 구슬을 발사하여 적을 속박하고 대량의 <color=#FF5521>불 속성 피해</color>를 준다.\n이후 반악이 자동으로 <color=#FFFFFF>[일반 공격: 무너진 산]</color>을 시전한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 험준한 산",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1471001, Prop:1001}",
+       "param": {
+        "1471001": {
+         "main": 3960,
+         "growth": 360,
+         "format": "%",
+         "damage_percentage": 3960,
+         "damage_percentage_growth": 360,
+         "stun_ratio": 3710,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 92950,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3372,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 13500,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3373
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1471002, Prop:1001}",
+       "param": {
+        "1471002": {
+         "main": 4980,
+         "growth": 460,
+         "format": "%",
+         "damage_percentage": 4980,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 4550,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 113850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4130,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 16530,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4131
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1471003, Prop:1001}",
+       "param": {
+        "1471003": {
+         "main": 10130,
+         "growth": 930,
+         "format": "%",
+         "damage_percentage": 10130,
+         "damage_percentage_growth": 930,
+         "stun_ratio": 9860,
+         "stun_ratio_growth": 450,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 246400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8957,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 35840,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8958
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 피해 배율",
+       "desc": "{Skill:1471004, Prop:1001}",
+       "param": {
+        "1471004": {
+         "main": 11630,
+         "growth": 1060,
+         "format": "%",
+         "damage_percentage": 11630,
+         "damage_percentage_growth": 1060,
+         "stun_ratio": 11400,
+         "stun_ratio_growth": 520,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 285175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10362,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 41460,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10363
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1471001, Prop:1002}",
+       "param": {
+        "1471001": {
+         "main": 3710,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 3960,
+         "damage_percentage_growth": 360,
+         "stun_ratio": 3710,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 92950,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3372,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 13500,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3373
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1471002, Prop:1002}",
+       "param": {
+        "1471002": {
+         "main": 4550,
+         "growth": 210,
+         "format": "%",
+         "damage_percentage": 4980,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 4550,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 113850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4130,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 16530,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4131
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1471003, Prop:1002}",
+       "param": {
+        "1471003": {
+         "main": 9860,
+         "growth": 450,
+         "format": "%",
+         "damage_percentage": 10130,
+         "damage_percentage_growth": 930,
+         "stun_ratio": 9860,
+         "stun_ratio_growth": 450,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 246400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8957,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 35840,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8958
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 그로기 배율",
+       "desc": "{Skill:1471004, Prop:1002}",
+       "param": {
+        "1471004": {
+         "main": 11400,
+         "growth": 520,
+         "format": "%",
+         "damage_percentage": 11630,
+         "damage_percentage_growth": 1060,
+         "stun_ratio": 11400,
+         "stun_ratio_growth": 520,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 285175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10362,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 41460,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10363
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 웅장한 산",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1471005, Prop:1001}",
+       "param": {
+        "1471005": {
+         "main": 5280,
+         "growth": 480,
+         "format": "%",
+         "damage_percentage": 5280,
+         "damage_percentage_growth": 480,
+         "stun_ratio": 4950,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 123750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 18000,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1471006, Prop:1001}",
+       "param": {
+        "1471006": {
+         "main": 7040,
+         "growth": 640,
+         "format": "%",
+         "damage_percentage": 7040,
+         "damage_percentage_growth": 640,
+         "stun_ratio": 6430,
+         "stun_ratio_growth": 300,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 160875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5844,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 23380,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5845
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1471007, Prop:1001}",
+       "param": {
+        "1471007": {
+         "main": 13550,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 13550,
+         "damage_percentage_growth": 1240,
+         "stun_ratio": 13190,
+         "stun_ratio_growth": 600,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 329725,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11986,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 47950,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11987
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 피해 배율",
+       "desc": "{Skill:1471008, Prop:1001}",
+       "param": {
+        "1471008": {
+         "main": 9240,
+         "growth": 840,
+         "format": "%",
+         "damage_percentage": 9240,
+         "damage_percentage_growth": 840,
+         "stun_ratio": 9180,
+         "stun_ratio_growth": 420,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 229625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8345,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 33390,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8346
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1471005, Prop:1002}",
+       "param": {
+        "1471005": {
+         "main": 4950,
+         "growth": 230,
+         "format": "%",
+         "damage_percentage": 5280,
+         "damage_percentage_growth": 480,
+         "stun_ratio": 4950,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 123750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 18000,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1471006, Prop:1002}",
+       "param": {
+        "1471006": {
+         "main": 6430,
+         "growth": 300,
+         "format": "%",
+         "damage_percentage": 7040,
+         "damage_percentage_growth": 640,
+         "stun_ratio": 6430,
+         "stun_ratio_growth": 300,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 160875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5844,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 23380,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5845
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1471007, Prop:1002}",
+       "param": {
+        "1471007": {
+         "main": 13190,
+         "growth": 600,
+         "format": "%",
+         "damage_percentage": 13550,
+         "damage_percentage_growth": 1240,
+         "stun_ratio": 13190,
+         "stun_ratio_growth": 600,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 329725,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11986,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 47950,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11987
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 그로기 배율",
+       "desc": "{Skill:1471008, Prop:1002}",
+       "param": {
+        "1471008": {
+         "main": 9180,
+         "growth": 420,
+         "format": "%",
+         "damage_percentage": 9240,
+         "damage_percentage_growth": 840,
+         "stun_ratio": 9180,
+         "stun_ratio_growth": 420,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 229625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8345,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 33390,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8346
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 분신",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1471027, Prop:1001}",
+       "param": {
+        "1471027": {
+         "main": 11060,
+         "growth": 1010,
+         "format": "%",
+         "damage_percentage": 11060,
+         "damage_percentage_growth": 1010,
+         "stun_ratio": 10630,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 265925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9663,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1471027, Prop:1002}",
+       "param": {
+        "1471027": {
+         "main": 10630,
+         "growth": 490,
+         "format": "%",
+         "damage_percentage": 11060,
+         "damage_percentage_growth": 1010,
+         "stun_ratio": 10630,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 265925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9663,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 무너진 산",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1471009, Prop:1001}",
+       "param": {
+        "1471009": {
+         "main": 86980,
+         "growth": 7910,
+         "format": "%",
+         "damage_percentage": 86980,
+         "damage_percentage_growth": 7910,
+         "stun_ratio": 20180,
+         "stun_ratio_growth": 920,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 504350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1471009, Prop:1002}",
+       "param": {
+        "1471009": {
+         "main": 20180,
+         "growth": 920,
+         "format": "%",
+         "damage_percentage": 86980,
+         "damage_percentage_growth": 7910,
+         "stun_ratio": 20180,
+         "stun_ratio_growth": 920,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 504350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18337
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 산악 분쇄",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1471010, Prop:1001}",
+       "param": {
+        "1471010": {
+         "main": 37830,
+         "growth": 3440,
+         "format": "%",
+         "damage_percentage": 37830,
+         "damage_percentage_growth": 3440,
+         "stun_ratio": 15220,
+         "stun_ratio_growth": 700,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 380325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13829,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13830
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1471010, Prop:1002}",
+       "param": {
+        "1471010": {
+         "main": 15220,
+         "growth": 700,
+         "format": "%",
+         "damage_percentage": 37830,
+         "damage_percentage_growth": 3440,
+         "stun_ratio": 15220,
+         "stun_ratio_growth": 700,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 380325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13829,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13830
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "회피: 산처럼 굳건한",
+     "desc": "공격 중 {LAYOUT_CONSOLECONTROLLER#스틱을}{LAYOUT_FALLBACK#방향키를} 움직이지 않고 <IconMap:Icon_Evade>을 짧게 탭하여 시전:\n반악이 방어 자세를 취한다. 해당 기간 동안 적의 공격을 받으면 적의 공격을 패링하여 그로기 수치를 누적한다.\n스킬 시전 순간에 적의 공격을 받으면 완벽 가드가 발동된다.\n적의 공격을 성공적으로 패링하면 무적 효과를 획득한다.",
+     "potential": []
+    },
+    {
+     "name": "회피: 산맥 넘기",
+     "desc": "<IconMap:Icon_Evade>을 짧게 탭하여 시전:\n빠른 대시로 회피한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "회피: 도발",
+     "desc": "{LAYOUT_CONSOLECONTROLLER#스틱을}{LAYOUT_FALLBACK#방향키를} 반 바퀴 움직이며 <IconMap:Icon_Evade>을 짧게 탭하여 시전:\n뒤로 회피하며 적을 도발한다.\n임의의 <color=#FFFFFF>[강화 특수 스킬]</color> 이후에 이어서 <color=#FFFFFF>[회피: 도발]</color>을 파생할 수 있으며, <color=#FFFFFF>[회피: 도발]</color> 기간 중 상응하는 빠른 커맨드 입력을 통해 계속해서 <color=#FFFFFF>[강화 특수 스킬]</color>을 파생할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 휘날리는 모래",
+     "desc": "회피 시 <IconMap:Icon_Normal>을 짧게 탭하거나 <color=#FFFFFF>[회피: 도발]</color> 시 <IconMap:Icon_Normal>을 홀드하여 시전:\n전방으로 구슬을 발사하여 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬 시전 후 바로 이어서 <color=#FFFFFF>[일반 공격: 험준한 산]</color>의 두 번째 공격 혹은 <color=#FFFFFF>[일반 공격: 웅장한 산]</color>의 두 번째 공격을 사용할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 흩날리는 자갈",
+     "desc": "<color=#FFFFFF>[회피: 산맥 넘기]</color>로 <color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하거나, <color=#FFFFFF>[회피: 도발]</color>로 <color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 홀드하여 시전:\n전방의 적을 공격하여 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬 시전 후 바로 이어서 <color=#FFFFFF>[일반 공격: 험준한 산]</color>의 세 번째 공격 혹은 <color=#FFFFFF>[일반 공격: 웅장한 산]</color>의 세 번째 공격을 사용할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "회피: 산처럼 굳건한",
+     "param": [
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1471011, Prop:1002}",
+       "param": {
+        "1471011": {
+         "main": 9530,
+         "growth": 440,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 9530,
+         "stun_ratio_growth": 440,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 휘날리는 모래",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1471018, Prop:1001}",
+       "param": {
+        "1471018": {
+         "main": 3970,
+         "growth": 370,
+         "format": "%",
+         "damage_percentage": 3970,
+         "damage_percentage_growth": 370,
+         "stun_ratio": 2480,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 62150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2251,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 9010,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2252
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1471018, Prop:1002}",
+       "param": {
+        "1471018": {
+         "main": 2480,
+         "growth": 120,
+         "format": "%",
+         "damage_percentage": 3970,
+         "damage_percentage_growth": 370,
+         "stun_ratio": 2480,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 62150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2251,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 9010,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2252
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 흩날리는 자갈",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1471019, Prop:1001}",
+       "param": {
+        "1471019": {
+         "main": 19490,
+         "growth": 1780,
+         "format": "%",
+         "damage_percentage": 19490,
+         "damage_percentage_growth": 1780,
+         "stun_ratio": 21280,
+         "stun_ratio_growth": 970,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 256850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 37350,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1471019, Prop:1002}",
+       "param": {
+        "1471019": {
+         "main": 21280,
+         "growth": 970,
+         "format": "%",
+         "damage_percentage": 19490,
+         "damage_percentage_growth": 1780,
+         "stun_ratio": 21280,
+         "stun_ratio_growth": 970,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 256850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 37350,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24337
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "강화 특수 스킬: 흔들리는 땅",
+     "desc": "기운이 충분할 때, 다음 세 가지 방식으로 시전:\n세 번째 혹은 네 번째 <color=#FFFFFF>[일반 공격: 험준한 산]</color> 후 <IconMap:Icon_SpecialReady_Rp>을 짧게 탭하여 시전한다.\n<color=#FFFFFF>[지원 돌격]</color>, <color=#FFFFFF>[회피 반격]</color>, <color=#FFFFFF>[빠른 지원]</color> 후 <IconMap:Icon_SpecialReady_Rp>을 홀드하여 시전한다.\n임의의 <color=#FFFFFF>[강화 특수 스킬]</color>, <color=#FFFFFF>[일반 공격: 분신]</color>, <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[궁극기]</color>, <color=#FFFFFF>[지원 돌격]</color>, <color=#FFFFFF>[회피 반격]</color>, <color=#FFFFFF>[빠른 지원]</color> 시전 시 커맨드 <IconMap:Icon_Normal> <IconMap:Icon_SpecialReady_Rp> <IconMap:Icon_Normal>을 빠르게 눌러 시전한다.\n반악이 연속으로 지면을 맹격하여 적에게 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 요동치는 산",
+     "desc": "기운이 충분할 때, 다음 두 가지 방식으로 시전:\n첫 번째 혹은 두 번째 <color=#FFFFFF>[일반 공격: 웅장한 산]</color> 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전한다.\n임의의 <color=#FFFFFF>[강화 특수 스킬]</color>, <color=#FFFFFF>[일반 공격: 분신]</color>, <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[궁극기]</color>, <color=#FFFFFF>[지원 돌격]</color>, <color=#FFFFFF>[회피 반격]</color>, <color=#FFFFFF>[빠른 지원]</color> 시전 시 커맨드 <IconMap:Icon_SpecialReady_Rp> <IconMap:Icon_SpecialReady_Rp> <IconMap:Icon_Normal>을 빠르게 눌러 시전한다.\n반악이 산의 형체를 일으켜 적에게 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 진리의 말",
+     "desc": "기운이 충분할 때, 다음 세 가지 방식으로 시전:\n세 번째 혹은 네 번째 <color=#FFFFFF>[일반 공격: 웅장한 산]</color> 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전한다.\n<color=#FFFFFF>[지원 돌격]</color>, <color=#FFFFFF>[회피 반격]</color>, <color=#FFFFFF>[빠른 지원]</color> 후 <IconMap:Icon_Normal>을 홀드하여 시전한다.\n임의의 <color=#FFFFFF>[강화 특수 스킬]</color>, <color=#FFFFFF>[일반 공격: 분신]</color>, <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[궁극기]</color>, <color=#FFFFFF>[지원 돌격]</color>, <color=#FFFFFF>[회피 반격]</color>, <color=#FFFFFF>[빠른 지원]</color> 시전 시 커맨드 <IconMap:Icon_SpecialReady_Rp> <IconMap:Icon_Normal> <IconMap:Icon_SpecialReady_Rp>을 빠르게 눌러 시전한다.\n반악이 구슬을 던져 전방의 적에게 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 사자후",
+     "desc": "기운이 충분할 때, 다음 두 가지 방식으로 시전:\n첫 번째 혹은 두 번째 <color=#FFFFFF>[일반 공격: 험준한 산]</color> 후 <IconMap:Icon_SpecialReady_Rp>을 짧게 탭하여 시전한다.\n임의의 <color=#FFFFFF>[강화 특수 스킬]</color>, <color=#FFFFFF>[일반 공격: 분신]</color>, <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[궁극기]</color>, <color=#FFFFFF>[지원 돌격]</color>, <color=#FFFFFF>[회피 반격]</color>, <color=#FFFFFF>[빠른 지원]</color> 시전 시 커맨드 <IconMap:Icon_Normal> <IconMap:Icon_Normal> <IconMap:Icon_SpecialReady_Rp>을 빠르게 눌러 시전한다.\n반악이 전방으로 음파 공격을 시전하여 적에게 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 요동치는 산·분노",
+     "desc": "기운이 충분할 때, <color=#FFFFFF>[강화 특수 스킬: 흔들리는 땅]</color> 시전 시 커맨드 <IconMap:Icon_SpecialReady_Rp> <IconMap:Icon_SpecialReady_Rp> <IconMap:Icon_Normal>을 빠르게 눌러 시전:\n반악이 더 거대한 산의 형체를 일으켜 적에게 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 사자후·분노",
+     "desc": "기운이 충분할 때, <color=#FFFFFF>[강화 특수 스킬: 진리의 말]</color> 시전 시 커맨드 <IconMap:Icon_Normal> <IconMap:Icon_Normal> <IconMap:Icon_SpecialReady_Rp>을 빠르게 눌러 시전:\n반악이 전방에 더욱 강력한 음파 공격을 시전하여 적에게 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "캔슬",
+     "desc": "반악이 빠른 커맨드 입력을 통해 <color=#FFFFFF>[강화 특수 스킬]</color> 파생 시, 현재 시전 중인 <color=#FFFFFF>[강화 특수 스킬]</color>을 중단할 수 있다. 모든 <color=#FFFFFF>[강화 특수 스킬]</color>마다 특수한 완벽 중단 시점이 존재하며, 완벽 중단 시점 이후 <color=#FFFFFF>[강화 특수 스킬]</color>을 중단하면 중단된 <color=#FFFFFF>[강화 특수 스킬]</color>의 공격 효과는 영향을 받지 않는다. 완벽 중단 시점에 <color=#FFFFFF>[강화 특수 스킬]</color>을 중단하면 <color=#FFFFFF>[완벽 캔슬]</color>을 발동한 것으로 간주한다.\n<color=#FFFFFF>[노상]</color> 상태이며 <color=#FFFFFF>[산의 위력]</color> 보유 시, 더 쉽게 <color=#FFFFFF>[완벽 캔슬]</color>을 발동할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 흔들리는 땅",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1471013, Prop:1001}",
+       "param": {
+        "1471013": {
+         "main": 25480,
+         "growth": 2320,
+         "format": "%",
+         "damage_percentage": 25480,
+         "damage_percentage_growth": 2320,
+         "stun_ratio": 24760,
+         "stun_ratio_growth": 1130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 796400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 24116,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12830
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1471013, Prop:1002}",
+       "param": {
+        "1471013": {
+         "main": 24760,
+         "growth": 1130,
+         "format": "%",
+         "damage_percentage": 25480,
+         "damage_percentage_growth": 2320,
+         "stun_ratio": 24760,
+         "stun_ratio_growth": 1130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 796400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 24116,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12830
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "기운 소모",
+       "desc": "20pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 요동치는 산",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1471012, Prop:1001}",
+       "param": {
+        "1471012": {
+         "main": 17130,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 17130,
+         "damage_percentage_growth": 1560,
+         "stun_ratio": 15710,
+         "stun_ratio_growth": 720,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 535425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15575,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1471012, Prop:1002}",
+       "param": {
+        "1471012": {
+         "main": 15710,
+         "growth": 720,
+         "format": "%",
+         "damage_percentage": 17130,
+         "damage_percentage_growth": 1560,
+         "stun_ratio": 15710,
+         "stun_ratio_growth": 720,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 535425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15575,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "기운 소모",
+       "desc": "20pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 진리의 말",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1471015, Prop:1001}",
+       "param": {
+        "1471015": {
+         "main": 16240,
+         "growth": 1480,
+         "format": "%",
+         "damage_percentage": 16240,
+         "damage_percentage_growth": 1480,
+         "stun_ratio": 14750,
+         "stun_ratio_growth": 680,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 507650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5831
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1471015, Prop:1002}",
+       "param": {
+        "1471015": {
+         "main": 14750,
+         "growth": 680,
+         "format": "%",
+         "damage_percentage": 16240,
+         "damage_percentage_growth": 1480,
+         "stun_ratio": 14750,
+         "stun_ratio_growth": 680,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 507650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5831
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "기운 소모",
+       "desc": "20pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 사자후",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1471014, Prop:1001}",
+       "param": {
+        "1471014": {
+         "main": 15370,
+         "growth": 1400,
+         "format": "%",
+         "damage_percentage": 15370,
+         "damage_percentage_growth": 1400,
+         "stun_ratio": 13810,
+         "stun_ratio_growth": 630,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 480425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13775,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1471014, Prop:1002}",
+       "param": {
+        "1471014": {
+         "main": 13810,
+         "growth": 630,
+         "format": "%",
+         "damage_percentage": 15370,
+         "damage_percentage_growth": 1400,
+         "stun_ratio": 13810,
+         "stun_ratio_growth": 630,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 480425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13775,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "기운 소모",
+       "desc": "20pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 요동치는 산·분노",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1471017, Prop:1001}",
+       "param": {
+        "1471017": {
+         "main": 32500,
+         "growth": 2960,
+         "format": "%",
+         "damage_percentage": 32500,
+         "damage_percentage_growth": 2960,
+         "stun_ratio": 22120,
+         "stun_ratio_growth": 1010,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 802450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 22371,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1471017, Prop:1002}",
+       "param": {
+        "1471017": {
+         "main": 22120,
+         "growth": 1010,
+         "format": "%",
+         "damage_percentage": 32500,
+         "damage_percentage_growth": 2960,
+         "stun_ratio": 22120,
+         "stun_ratio_growth": 1010,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 802450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 22371,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "기운 소모",
+       "desc": "40pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 사자후·분노",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1471016, Prop:1001}",
+       "param": {
+        "1471016": {
+         "main": 30010,
+         "growth": 2730,
+         "format": "%",
+         "damage_percentage": 30010,
+         "damage_percentage_growth": 2730,
+         "stun_ratio": 20210,
+         "stun_ratio_growth": 920,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 747450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20571,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1471016, Prop:1002}",
+       "param": {
+        "1471016": {
+         "main": 20210,
+         "growth": 920,
+         "format": "%",
+         "damage_percentage": 30010,
+         "damage_percentage_growth": 2730,
+         "stun_ratio": 20210,
+         "stun_ratio_growth": 920,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 747450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20571,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "기운 소모",
+       "desc": "40pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "콤보 스킬: 진노의 화염",
+     "desc": "<color=#FFFFFF>[콤보 스킬]</color> 발동 시 해당 캐릭터를 선택해 시전:\n전방에 넓은 범위 공격으로 대량의 <color=#FF5521>불 속성 피해</color>를 준다.\n반악의 <color=#FFFFFF>[분개]</color>가 120pt 초과 시, 공격 종료 후 반악이 자동으로 <color=#FFFFFF>[노상]</color> 상태에 진입한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "궁극기: 천지를 뒤흔들다",
+     "desc": "데시벨 레벨 <color=#FFFFFF>[Maximum]</color> 달성 시 <IconMap:Icon_UltimateReady>을 짧게 탭하여 시전:\n전방에 넓은 범위 공격으로 대량의 <color=#FF5521>불 속성 피해</color>를 준다.\n반악의 <color=#FFFFFF>[분개]</color>가 120pt 초과 시, 공격 종료 후 반악이 자동으로 <color=#FFFFFF>[노상]</color> 상태에 진입한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 진노의 화염",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1471020, Prop:1001}",
+       "param": {
+        "1471020": {
+         "main": 56090,
+         "growth": 5100,
+         "format": "%",
+         "damage_percentage": 56090,
+         "damage_percentage_growth": 5100,
+         "stun_ratio": 26230,
+         "stun_ratio_growth": 1200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2484350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 43786,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23837
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1471020, Prop:1002}",
+       "param": {
+        "1471020": {
+         "main": 26230,
+         "growth": 1200,
+         "format": "%",
+         "damage_percentage": 56090,
+         "damage_percentage_growth": 5100,
+         "stun_ratio": 26230,
+         "stun_ratio_growth": 1200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2484350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 43786,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23837
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "궁극기: 천지를 뒤흔들다",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1471021, Prop:1001}",
+       "param": {
+        "1471021": {
+         "main": 159840,
+         "growth": 14540,
+         "format": "%",
+         "damage_percentage": 159840,
+         "damage_percentage_growth": 14540,
+         "stun_ratio": 26770,
+         "stun_ratio_growth": 1220,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 24329,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 74330
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1471021, Prop:1002}",
+       "param": {
+        "1471021": {
+         "main": 26770,
+         "growth": 1220,
+         "format": "%",
+         "damage_percentage": 159840,
+         "damage_percentage_growth": 14540,
+         "stun_ratio": 26770,
+         "stun_ratio_growth": 1220,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 24329,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 74330
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "빠른 지원: 반암",
+     "desc": "현재 조작 중인 캐릭터가 넉업되면 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n전방의 적을 연속 공격해 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 철벽",
+     "desc": "출전 캐릭터 피격 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적의 공격을 패링하고 대량의 그로기 수치를 누적한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 높이 솟은 하늘",
+     "desc": "<color=#FFFFFF>[패링 지원]</color> 시전 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n빠르게 돌진하며 공격을 시전해 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 하늘을 향한 돌진",
+     "desc": "<color=#FFFFFF>[회피: 산처럼 굳건한]</color>으로 적의 공격을 성공적으로 패링 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n빠르게 돌진하며 공격을 시전해 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 반암",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1471022, Prop:1001}",
+       "param": {
+        "1471022": {
+         "main": 7340,
+         "growth": 670,
+         "format": "%",
+         "damage_percentage": 7340,
+         "damage_percentage_growth": 670,
+         "stun_ratio": 4590,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 114675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4168,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 16680,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4169
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1471022, Prop:1002}",
+       "param": {
+        "1471022": {
+         "main": 4590,
+         "growth": 210,
+         "format": "%",
+         "damage_percentage": 7340,
+         "damage_percentage_growth": 670,
+         "stun_ratio": 4590,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 114675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4168,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 16680,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4169
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 철벽",
+     "param": [
+      {
+       "name": "가벼운 패링 그로기 배율",
+       "desc": "{Skill:1471023, Prop:1002}",
+       "param": {
+        "1471023": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강한 패링 그로기 배율",
+       "desc": "{Skill:1471024, Prop:1002}",
+       "param": {
+        "1471024": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 패링 그로기 배율",
+       "desc": "{Skill:1471025, Prop:1002}",
+       "param": {
+        "1471025": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 높이 솟은 하늘",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1471026, Prop:1001}",
+       "param": {
+        "1471026": {
+         "main": 24160,
+         "growth": 2200,
+         "format": "%",
+         "damage_percentage": 24160,
+         "damage_percentage_growth": 2200,
+         "stun_ratio": 25860,
+         "stun_ratio_growth": 1180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 863500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 25476,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11670
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1471026, Prop:1002}",
+       "param": {
+        "1471026": {
+         "main": 25860,
+         "growth": 1180,
+         "format": "%",
+         "damage_percentage": 24160,
+         "damage_percentage_growth": 2200,
+         "stun_ratio": 25860,
+         "stun_ratio_growth": 1180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 863500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 25476,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11670
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 하늘을 향한 돌진",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1471029, Prop:1001}",
+       "param": {
+        "1471029": {
+         "main": 22160,
+         "growth": 2020,
+         "format": "%",
+         "damage_percentage": 22160,
+         "damage_percentage_growth": 2020,
+         "stun_ratio": 23840,
+         "stun_ratio_growth": 1090,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 320925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11669,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 46680,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26670
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1471029, Prop:1002}",
+       "param": {
+        "1471029": {
+         "main": 23840,
+         "growth": 1090,
+         "format": "%",
+         "damage_percentage": 22160,
+         "damage_percentage_growth": 2020,
+         "stun_ratio": 23840,
+         "stun_ratio_growth": 1090,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 320925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11669,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 46680,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26670
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "탐욕은 불과 같다",
+   "desc": "<color=#FFFFFF>[강화 특수 스킬: 진리의 말]</color>과 <color=#FFFFFF>[강화 특수 스킬: 흔들리는 땅]</color>이 적 명중 시, 적을 <color=#FFFFFF>[전율]</color> 상태에 빠뜨린다. 해당 상태의 적은 <color=#FF5521>불 속성 피해 저항</color>이 10% 감소한다. 지속 시간: 30초. <color=#FFFFFF>[강화 특수 스킬: 사자후]</color>, <color=#FFFFFF>[강화 특수 스킬: 사자후·분노]</color>, <color=#FFFFFF>[강화 특수 스킬: 요동치는 산]</color>, <color=#FFFFFF>[강화 특수 스킬: 요동치는 산·분노]</color>, <color=#FFFFFF>[일반 공격: 무너진 산]</color>과 <color=#FFFFFF>[일반 공격: 산악 분쇄]</color>가 <color=#FFFFFF>[전율]</color> 상태의 적 명중 시, 주는 관입 피해가 10% 증가한다. <color=#FFFFFF>[일반 공격: 산악 분쇄]</color>가 그로기 상태의 적 명중 시 해당 적의 이번 그로기 지속 시간이 2초 증가한다. 적은 한 번의 그로기 지속 시간 동안 1회만 해당 효과를 받으며 동일한 효과는 중첩되지 않는다.",
+   "desc2": "반악 사범에게는 어떤 욕망이 있었을까? 칭파이 하이츠에서 도장을 운영하고 있지만, 그저 어떤 종사의 제안으로 도장을 열게 된 것뿐이었다.\n그 도장은 이름조차 없었고, 명예를 바라지도, 이익을 추구하지도 않았으며, 제자들에게 「전통을 이어가자」는 구호조차 외치게 하지 않았다.\n오직 반악 사범만이 알고 있었다. 「속죄」라는 집착이 그의 강철로 이뤄진 심장을 밤낮으로 태우고 있다는 것을, 약간의 실수만으로도 곧 길을 잃게 된다는 것을.\n\n「탐욕은 불과 같은 것. 적절한 욕망은 앞으로 나아가는 횃불이 되지만, 제어하지 못하면 스스로를 태우고 말지」"
+  },
+  "2": {
+   "level": 2,
+   "name": "증오는 칼과 같다",
+   "desc": "<color=#FFFFFF>[핵심 패시브]</color>의 치명타 피해 버프 효과가 추가로 15% 증가하고, <color=#FF5521>불 속성 피해</color> 버프 효과가 추가로 15% 증가한다. <color=#FFFFFF>[노상]</color> 상태일 때, 반악이 <color=#FFFFFF>[산의 위력]</color>을 소모하여 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 기운을 5pt 추가로 회복한다.",
+   "desc2": "도장의 제자들은 반악 사범이 화내는 모습을 본 적 없다—— 그가 분노하는 모습은 더더욱 본 적 없다. 아무리 둔한 제자나 경망스러운 제자를 대할 때도, 반악 사범은 무한한 인내심을 가지고 있는 것 같았다.\n산맥이 어찌 쉽게 분노할 수 있겠는가. 그 지나치게 무거운 침착함에 사람들은 그 격렬함을 거의 잊어버리고는 한다.\n하지만 그가 하늘을 뒤흔드는 분노를 일으킬 때면, 아무리 오만한 맹수라도 그 앞에서 전율할 수밖에 없다.\n\n「증오는 칼과 같은 것. 평소에는 칼집에 잘 보관해 두어야 하며, 주변 사람들을 다치게 해서는 아니되네」"
+  },
+  "3": {
+   "level": 3,
+   "name": "우둔함은 족쇄와 같다",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "반악 사범은 무인일 뿐만 아니라 현자이기도 하다—— 도장의 제자들과 이웃들은 모두 그렇게 말했다.\n반악 사범은 평소에 몹시 엄중해 보이며, 과묵한 그가 입을 열 때면 늘 사람들이 곱씹어볼 만한 격언과도 같은 말을 하곤 한다.\n무도는 단순히 몸을 닦는 것이 아닌 마음을 닦는 것이며, 반악 사범은 늘 자신도 수련생에 불과하다고 말한다.\n\n「난 우둔하여 그릇된 길을 걸은 적도 있으나, 자네를 위해 이 길을 개척하는 건… 이 두 주먹으로 할 수 있는 일이지」"
+  },
+  "4": {
+   "level": 4,
+   "name": "섬멸 유닛·타입 제로",
+   "desc": "<color=#FFFFFF>[강화 특수 스킬: 사자후·분노]</color>, <color=#FFFFFF>[강화 특수 스킬: 요동치는 산·분노]</color>, <color=#FFFFFF>[일반 공격: 무너진 산]</color>, <color=#FFFFFF>[일반 공격: 산악 분쇄]</color>로 주는 피해가 <color=#FFFFFF>30%</color> 증가한다.",
+   "desc2": "운명은 하늘이 정했을 수도, 인간이 만들었을 수도 있다. 다만, 어떤 이들의 숙명과 죄책감은 결코 자유 의지라는 이름으로 포장된 적 없다.\n지금의 이름을 얻기 전, 「타입 제로」라 불린 작전 구조체는 말 그대로 살육 기계에 불과했다.\n그렇다면 「마음」은 언제 탄생했을까? 그녀에 의해 코드의 굴레를 벗어난 그날일까, 아니면 이 모든 것을 짊어지고 나아갈 용기를 얻은 그때일까?\n\n「참회는 너무나 가벼운 일이지. 과거의 죄악을 피하기보다는, 차라리 이 산처럼 무거운 과거를… 지금을 위해 짊어지고 주먹을 휘두르겠네」"
+  },
+  "5": {
+   "level": 5,
+   "name": "학도",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "이런 소문을 들은 적 있는가? 산 위에 도장이 하나 생겼는데, 거대한 구조체가 무술을 가르친다고 한다.\n그 도장에서 나온 제자들은 꽤나 실력이 출중해서, 에테리얼과도 몇 수 겨룰 수 있을 정도이다.\n그 강철로 만들어진 사범은 공동에서 구조 활동도 자주 한다고 한다. 틀림없이 무도의 종사겠지?\n\n「난 아직 서툰 학도일 뿐일세… 모두가 날 사범이라 불러주지만, 오히려 『사람』의 도리를 배우는 건 나지」"
+  },
+  "6": {
+   "level": 6,
+   "name": "명왕의 강림",
+   "desc": "언제든지 반악이 <color=#FFFFFF>[강화 특수 스킬]</color>을 시전하면 <color=#FFFFFF>[명왕]</color>을 획득할 수 있다. <color=#FFFFFF>[명왕]</color>이 제공하는 <color=#FF5521>불 속성 피해</color> 버프 효과가 추가로 8% 증가하며, 지속 시간이 30초로 증가한다. <color=#FFFFFF>[일반 공격: 산악 분쇄]</color> 시전 시 반악이 주변 적에게 자신의 관입력 600%에 해당하는 <color=#FF5521>불 속성 피해</color>를 준다. <color=#FFFFFF>[강화 특수 스킬]</color>에 이어서 <color=#FFFFFF>[회피: 도발]</color>을 시전해도 <color=#FFFFFF>[명왕]</color>을 획득할 수 있다.",
+   "desc2": "「목숨으로 빚을 갚는 거야 엄청나게 쉬운 일 아닌가요, 돌머리 씨? 하지만 당신 앞에는 아직도 걸어야 할 기나긴 속죄의 길이 남아있어요!」\n「이것이 당신에 대한… 제 최종 판결이에요!」\n그 소녀의 체구는 너무나도 가녀렸지만, 그 단호한 심판의 말은 마치 산처럼 무거운 짐과 짙은 안개를 가르는 듯했다.\n\n「난 아직도 내가 심판할 만한 지혜와 용기가 있는지 고민하고 있네… 하지만 그건 멈춰 설 핑계가 될 수 없지」"
+  }
+ },
+ "passive": {
+  "level": {
+   "1471049": {
+    "level": 1,
+    "id": 1471049,
+    "name": [
+     "핵심 패시브: 뭇 산과 같이",
+     "추가 능력: 드높은 산꼭대기"
+    ],
+    "desc": [
+     "반악은 자신의 HP 최대치에 따라 관입력이 추가로 증가하며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n반악이 시전하는 스킬로 주는 <color=#FF5521>불 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고, 스킬 피해 배율로서 관입력을 사용한다. 반악은 전장 진입 시 기운을 60pt 회복하며 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다.\n반악은 아래와 같은 방법으로 <color=#FFFFFF>[분개]</color>를 회복한다.\n기운을 1pt 소모할 때마다 <color=#FFFFFF>[분개]</color>를 0.5pt 회복한다.\n<color=#FFFFFF>[패링 지원]</color> 시전 시 <color=#FFFFFF>[분개]</color>를 4pt 회복한다.\n<color=#FFFFFF>[회피: 산처럼 굳건한]</color>을 통해 적의 공격 패링 시 <color=#FFFFFF>[분개]</color>를 4pt 회복하며, 완벽 가드를 발동한 경우 <color=#FFFFFF>[분개]</color>를 6pt 회복하는 것으로 변경된다. 1초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[극한 회피]</color> 발동 시 <color=#FFFFFF>[분개]</color>를 4pt 회복한다. 1초 동안 최대 1회 발동한다.\n반악은 <color=#FFFFFF>[분개]</color>를 최대 150pt 보유할 수 있으며 <color=#FFFFFF>[분개]</color>가 120pt일 때 <color=#FFFFFF>[일반 공격: 분신]</color>을 시전해 <color=#FFFFFF>[노상]</color> 상태에 진입할 수 있다. <color=#FFFFFF>[노상]</color> 상태일 때 반악은 더 이상 <color=#FFFFFF>[분개]</color>를 획득할 수 없으며, 반악이 <color=#FFFFFF>[일반 공격: 무너진 산]</color> 시전 후 <color=#FFFFFF>[노상]</color> 상태가 종료된다.\n<color=#FFFFFF>[노상]</color> 상태 진입 시, 반악은 <color=#FFFFFF>[산의 위력]</color>을 4pt 획득하며, 반악이 <color=#FFFFFF>[산의 위력]</color>을 보유한 경우, <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 기운을 소모하지 않고 <color=#FFFFFF>[산의 위력]</color>을 1pt 소모하며 기운을 10pt 회복한다. 그게 아니라면 기운을 소모하고 <color=#FFFFFF>[노상]</color> 상태 종료 시 <color=#FFFFFF>[산의 위력]</color>이 사라진다.\n<color=#FFFFFF>[노상]</color> 상태이며 <color=#FFFFFF>[산의 위력]</color>을 보유했을 때 <IconMap:Icon_Special>을 홀드하면 지정된 순서에 따라 네 가지 <color=#FFFFFF>[강화 특수 스킬]</color> 및 <color=#FFFFFF>[일반 공격: 무너진 산]</color>을 자동으로 사용할 수 있다.\n반악이 <color=#FFFFFF>[강화 특수 스킬]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color> 시전 시 관입력이 <color=#2BAD00>150</color>pt 증가하고, 주는 <color=#FF5521>불 속성 피해</color>가 <color=#2BAD00>18%</color> 증가하며, 치명타 피해가 <color=#2BAD00>18%</color> 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.",
+     "파티에 <color=#FFFFFF>[지원]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터 존재 시 발동:\n<color=#FFFFFF>[노상]</color> 상태일 때, 일반 공격 파생 혹은 빠른 커맨드 입력으로 <color=#FFFFFF>[산의 위력]</color>을 소모해 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 반악이 <color=#FFFFFF>[명왕]</color> 1스택을 획득하며, <color=#FFFFFF>[명왕]</color> 1스택당 자신이 주는 <color=#FF5521>불 속성 피해</color>가 5% 증가한다. 최대 중첩: 3스택, 지속 시간: 8초, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1471050": {
+    "level": 2,
+    "id": 1471050,
+    "name": [
+     "핵심 패시브: 뭇 산과 같이",
+     "추가 능력: 드높은 산꼭대기"
+    ],
+    "desc": [
+     "반악은 자신의 HP 최대치에 따라 관입력이 추가로 증가하며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n반악이 시전하는 스킬로 주는 <color=#FF5521>불 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고, 스킬 피해 배율로서 관입력을 사용한다. 반악은 전장 진입 시 기운을 60pt 회복하며 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다.\n반악은 아래와 같은 방법으로 <color=#FFFFFF>[분개]</color>를 회복한다.\n기운을 1pt 소모할 때마다 <color=#FFFFFF>[분개]</color>를 0.5pt 회복한다.\n<color=#FFFFFF>[패링 지원]</color> 시전 시 <color=#FFFFFF>[분개]</color>를 4pt 회복한다.\n<color=#FFFFFF>[회피: 산처럼 굳건한]</color>을 통해 적의 공격 패링 시 <color=#FFFFFF>[분개]</color>를 4pt 회복하며, 완벽 가드를 발동한 경우 <color=#FFFFFF>[분개]</color>를 6pt 회복하는 것으로 변경된다. 1초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[극한 회피]</color> 발동 시 <color=#FFFFFF>[분개]</color>를 4pt 회복한다. 1초 동안 최대 1회 발동한다.\n반악은 <color=#FFFFFF>[분개]</color>를 최대 150pt 보유할 수 있으며 <color=#FFFFFF>[분개]</color>가 120pt일 때 <color=#FFFFFF>[일반 공격: 분신]</color>을 시전해 <color=#FFFFFF>[노상]</color> 상태에 진입할 수 있다. <color=#FFFFFF>[노상]</color> 상태일 때 반악은 더 이상 <color=#FFFFFF>[분개]</color>를 획득할 수 없으며, 반악이 <color=#FFFFFF>[일반 공격: 무너진 산]</color> 시전 후 <color=#FFFFFF>[노상]</color> 상태가 종료된다.\n<color=#FFFFFF>[노상]</color> 상태 진입 시, 반악은 <color=#FFFFFF>[산의 위력]</color>을 4pt 획득하며, 반악이 <color=#FFFFFF>[산의 위력]</color>을 보유한 경우, <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 기운을 소모하지 않고 <color=#FFFFFF>[산의 위력]</color>을 1pt 소모하며 기운을 10pt 회복한다. 그게 아니라면 기운을 소모하고 <color=#FFFFFF>[노상]</color> 상태 종료 시 <color=#FFFFFF>[산의 위력]</color>이 사라진다.\n<color=#FFFFFF>[노상]</color> 상태이며 <color=#FFFFFF>[산의 위력]</color>을 보유했을 때 <IconMap:Icon_Special>을 홀드하면 지정된 순서에 따라 네 가지 <color=#FFFFFF>[강화 특수 스킬]</color> 및 <color=#FFFFFF>[일반 공격: 무너진 산]</color>을 자동으로 사용할 수 있다.\n반악이 <color=#FFFFFF>[강화 특수 스킬]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color> 시전 시 관입력이 <color=#2BAD00>175</color>pt 증가하고, 주는 <color=#FF5521>불 속성 피해</color>가 <color=#2BAD00>21%</color> 증가하며, 치명타 피해가 <color=#2BAD00>21%</color> 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.",
+     "파티에 <color=#FFFFFF>[지원]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터 존재 시 발동:\n<color=#FFFFFF>[노상]</color> 상태일 때, 일반 공격 파생 혹은 빠른 커맨드 입력으로 <color=#FFFFFF>[산의 위력]</color>을 소모해 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 반악이 <color=#FFFFFF>[명왕]</color> 1스택을 획득하며, <color=#FFFFFF>[명왕]</color> 1스택당 자신이 주는 <color=#FF5521>불 속성 피해</color>가 5% 증가한다. 최대 중첩: 3스택, 지속 시간: 8초, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1471051": {
+    "level": 3,
+    "id": 1471051,
+    "name": [
+     "핵심 패시브: 뭇 산과 같이",
+     "추가 능력: 드높은 산꼭대기"
+    ],
+    "desc": [
+     "반악은 자신의 HP 최대치에 따라 관입력이 추가로 증가하며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n반악이 시전하는 스킬로 주는 <color=#FF5521>불 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고, 스킬 피해 배율로서 관입력을 사용한다. 반악은 전장 진입 시 기운을 60pt 회복하며 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다.\n반악은 아래와 같은 방법으로 <color=#FFFFFF>[분개]</color>를 회복한다.\n기운을 1pt 소모할 때마다 <color=#FFFFFF>[분개]</color>를 0.5pt 회복한다.\n<color=#FFFFFF>[패링 지원]</color> 시전 시 <color=#FFFFFF>[분개]</color>를 4pt 회복한다.\n<color=#FFFFFF>[회피: 산처럼 굳건한]</color>을 통해 적의 공격 패링 시 <color=#FFFFFF>[분개]</color>를 4pt 회복하며, 완벽 가드를 발동한 경우 <color=#FFFFFF>[분개]</color>를 6pt 회복하는 것으로 변경된다. 1초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[극한 회피]</color> 발동 시 <color=#FFFFFF>[분개]</color>를 4pt 회복한다. 1초 동안 최대 1회 발동한다.\n반악은 <color=#FFFFFF>[분개]</color>를 최대 150pt 보유할 수 있으며 <color=#FFFFFF>[분개]</color>가 120pt일 때 <color=#FFFFFF>[일반 공격: 분신]</color>을 시전해 <color=#FFFFFF>[노상]</color> 상태에 진입할 수 있다. <color=#FFFFFF>[노상]</color> 상태일 때 반악은 더 이상 <color=#FFFFFF>[분개]</color>를 획득할 수 없으며, 반악이 <color=#FFFFFF>[일반 공격: 무너진 산]</color> 시전 후 <color=#FFFFFF>[노상]</color> 상태가 종료된다.\n<color=#FFFFFF>[노상]</color> 상태 진입 시, 반악은 <color=#FFFFFF>[산의 위력]</color>을 4pt 획득하며, 반악이 <color=#FFFFFF>[산의 위력]</color>을 보유한 경우, <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 기운을 소모하지 않고 <color=#FFFFFF>[산의 위력]</color>을 1pt 소모하며 기운을 10pt 회복한다. 그게 아니라면 기운을 소모하고 <color=#FFFFFF>[노상]</color> 상태 종료 시 <color=#FFFFFF>[산의 위력]</color>이 사라진다.\n<color=#FFFFFF>[노상]</color> 상태이며 <color=#FFFFFF>[산의 위력]</color>을 보유했을 때 <IconMap:Icon_Special>을 홀드하면 지정된 순서에 따라 네 가지 <color=#FFFFFF>[강화 특수 스킬]</color> 및 <color=#FFFFFF>[일반 공격: 무너진 산]</color>을 자동으로 사용할 수 있다.\n반악이 <color=#FFFFFF>[강화 특수 스킬]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color> 시전 시 관입력이 <color=#2BAD00>200</color>pt 증가하고, 주는 <color=#FF5521>불 속성 피해</color>가 <color=#2BAD00>24%</color> 증가하며, 치명타 피해가 <color=#2BAD00>24%</color> 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.",
+     "파티에 <color=#FFFFFF>[지원]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터 존재 시 발동:\n<color=#FFFFFF>[노상]</color> 상태일 때, 일반 공격 파생 혹은 빠른 커맨드 입력으로 <color=#FFFFFF>[산의 위력]</color>을 소모해 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 반악이 <color=#FFFFFF>[명왕]</color> 1스택을 획득하며, <color=#FFFFFF>[명왕]</color> 1스택당 자신이 주는 <color=#FF5521>불 속성 피해</color>가 5% 증가한다. 최대 중첩: 3스택, 지속 시간: 8초, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1471052": {
+    "level": 4,
+    "id": 1471052,
+    "name": [
+     "핵심 패시브: 뭇 산과 같이",
+     "추가 능력: 드높은 산꼭대기"
+    ],
+    "desc": [
+     "반악은 자신의 HP 최대치에 따라 관입력이 추가로 증가하며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n반악이 시전하는 스킬로 주는 <color=#FF5521>불 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고, 스킬 피해 배율로서 관입력을 사용한다. 반악은 전장 진입 시 기운을 60pt 회복하며 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다.\n반악은 아래와 같은 방법으로 <color=#FFFFFF>[분개]</color>를 회복한다.\n기운을 1pt 소모할 때마다 <color=#FFFFFF>[분개]</color>를 0.5pt 회복한다.\n<color=#FFFFFF>[패링 지원]</color> 시전 시 <color=#FFFFFF>[분개]</color>를 4pt 회복한다.\n<color=#FFFFFF>[회피: 산처럼 굳건한]</color>을 통해 적의 공격 패링 시 <color=#FFFFFF>[분개]</color>를 4pt 회복하며, 완벽 가드를 발동한 경우 <color=#FFFFFF>[분개]</color>를 6pt 회복하는 것으로 변경된다. 1초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[극한 회피]</color> 발동 시 <color=#FFFFFF>[분개]</color>를 4pt 회복한다. 1초 동안 최대 1회 발동한다.\n반악은 <color=#FFFFFF>[분개]</color>를 최대 150pt 보유할 수 있으며 <color=#FFFFFF>[분개]</color>가 120pt일 때 <color=#FFFFFF>[일반 공격: 분신]</color>을 시전해 <color=#FFFFFF>[노상]</color> 상태에 진입할 수 있다. <color=#FFFFFF>[노상]</color> 상태일 때 반악은 더 이상 <color=#FFFFFF>[분개]</color>를 획득할 수 없으며, 반악이 <color=#FFFFFF>[일반 공격: 무너진 산]</color> 시전 후 <color=#FFFFFF>[노상]</color> 상태가 종료된다.\n<color=#FFFFFF>[노상]</color> 상태 진입 시, 반악은 <color=#FFFFFF>[산의 위력]</color>을 4pt 획득하며, 반악이 <color=#FFFFFF>[산의 위력]</color>을 보유한 경우, <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 기운을 소모하지 않고 <color=#FFFFFF>[산의 위력]</color>을 1pt 소모하며 기운을 10pt 회복한다. 그게 아니라면 기운을 소모하고 <color=#FFFFFF>[노상]</color> 상태 종료 시 <color=#FFFFFF>[산의 위력]</color>이 사라진다.\n<color=#FFFFFF>[노상]</color> 상태이며 <color=#FFFFFF>[산의 위력]</color>을 보유했을 때 <IconMap:Icon_Special>을 홀드하면 지정된 순서에 따라 네 가지 <color=#FFFFFF>[강화 특수 스킬]</color> 및 <color=#FFFFFF>[일반 공격: 무너진 산]</color>을 자동으로 사용할 수 있다.\n반악이 <color=#FFFFFF>[강화 특수 스킬]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color> 시전 시 관입력이 <color=#2BAD00>225</color>pt 증가하고, 주는 <color=#FF5521>불 속성 피해</color>가 <color=#2BAD00>27%</color> 증가하며, 치명타 피해가 <color=#2BAD00>27%</color> 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.",
+     "파티에 <color=#FFFFFF>[지원]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터 존재 시 발동:\n<color=#FFFFFF>[노상]</color> 상태일 때, 일반 공격 파생 혹은 빠른 커맨드 입력으로 <color=#FFFFFF>[산의 위력]</color>을 소모해 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 반악이 <color=#FFFFFF>[명왕]</color> 1스택을 획득하며, <color=#FFFFFF>[명왕]</color> 1스택당 자신이 주는 <color=#FF5521>불 속성 피해</color>가 5% 증가한다. 최대 중첩: 3스택, 지속 시간: 8초, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1471053": {
+    "level": 5,
+    "id": 1471053,
+    "name": [
+     "핵심 패시브: 뭇 산과 같이",
+     "추가 능력: 드높은 산꼭대기"
+    ],
+    "desc": [
+     "반악은 자신의 HP 최대치에 따라 관입력이 추가로 증가하며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n반악이 시전하는 스킬로 주는 <color=#FF5521>불 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고, 스킬 피해 배율로서 관입력을 사용한다. 반악은 전장 진입 시 기운을 60pt 회복하며 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다.\n반악은 아래와 같은 방법으로 <color=#FFFFFF>[분개]</color>를 회복한다.\n기운을 1pt 소모할 때마다 <color=#FFFFFF>[분개]</color>를 0.5pt 회복한다.\n<color=#FFFFFF>[패링 지원]</color> 시전 시 <color=#FFFFFF>[분개]</color>를 4pt 회복한다.\n<color=#FFFFFF>[회피: 산처럼 굳건한]</color>을 통해 적의 공격 패링 시 <color=#FFFFFF>[분개]</color>를 4pt 회복하며, 완벽 가드를 발동한 경우 <color=#FFFFFF>[분개]</color>를 6pt 회복하는 것으로 변경된다. 1초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[극한 회피]</color> 발동 시 <color=#FFFFFF>[분개]</color>를 4pt 회복한다. 1초 동안 최대 1회 발동한다.\n반악은 <color=#FFFFFF>[분개]</color>를 최대 150pt 보유할 수 있으며 <color=#FFFFFF>[분개]</color>가 120pt일 때 <color=#FFFFFF>[일반 공격: 분신]</color>을 시전해 <color=#FFFFFF>[노상]</color> 상태에 진입할 수 있다. <color=#FFFFFF>[노상]</color> 상태일 때 반악은 더 이상 <color=#FFFFFF>[분개]</color>를 획득할 수 없으며, 반악이 <color=#FFFFFF>[일반 공격: 무너진 산]</color> 시전 후 <color=#FFFFFF>[노상]</color> 상태가 종료된다.\n<color=#FFFFFF>[노상]</color> 상태 진입 시, 반악은 <color=#FFFFFF>[산의 위력]</color>을 4pt 획득하며, 반악이 <color=#FFFFFF>[산의 위력]</color>을 보유한 경우, <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 기운을 소모하지 않고 <color=#FFFFFF>[산의 위력]</color>을 1pt 소모하며 기운을 10pt 회복한다. 그게 아니라면 기운을 소모하고 <color=#FFFFFF>[노상]</color> 상태 종료 시 <color=#FFFFFF>[산의 위력]</color>이 사라진다.\n<color=#FFFFFF>[노상]</color> 상태이며 <color=#FFFFFF>[산의 위력]</color>을 보유했을 때 <IconMap:Icon_Special>을 홀드하면 지정된 순서에 따라 네 가지 <color=#FFFFFF>[강화 특수 스킬]</color> 및 <color=#FFFFFF>[일반 공격: 무너진 산]</color>을 자동으로 사용할 수 있다.\n반악이 <color=#FFFFFF>[강화 특수 스킬]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color> 시전 시 관입력이 <color=#2BAD00>250</color>pt 증가하고, 주는 <color=#FF5521>불 속성 피해</color>가 <color=#2BAD00>30%</color> 증가하며, 치명타 피해가 <color=#2BAD00>30%</color> 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.",
+     "파티에 <color=#FFFFFF>[지원]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터 존재 시 발동:\n<color=#FFFFFF>[노상]</color> 상태일 때, 일반 공격 파생 혹은 빠른 커맨드 입력으로 <color=#FFFFFF>[산의 위력]</color>을 소모해 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 반악이 <color=#FFFFFF>[명왕]</color> 1스택을 획득하며, <color=#FFFFFF>[명왕]</color> 1스택당 자신이 주는 <color=#FF5521>불 속성 피해</color>가 5% 증가한다. 최대 중첩: 3스택, 지속 시간: 8초, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1471054": {
+    "level": 6,
+    "id": 1471054,
+    "name": [
+     "핵심 패시브: 뭇 산과 같이",
+     "추가 능력: 드높은 산꼭대기"
+    ],
+    "desc": [
+     "반악은 자신의 HP 최대치에 따라 관입력이 추가로 증가하며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n반악이 시전하는 스킬로 주는 <color=#FF5521>불 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고, 스킬 피해 배율로서 관입력을 사용한다. 반악은 전장 진입 시 기운을 60pt 회복하며 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다.\n반악은 아래와 같은 방법으로 <color=#FFFFFF>[분개]</color>를 회복한다.\n기운을 1pt 소모할 때마다 <color=#FFFFFF>[분개]</color>를 0.5pt 회복한다.\n<color=#FFFFFF>[패링 지원]</color> 시전 시 <color=#FFFFFF>[분개]</color>를 4pt 회복한다.\n<color=#FFFFFF>[회피: 산처럼 굳건한]</color>을 통해 적의 공격 패링 시 <color=#FFFFFF>[분개]</color>를 4pt 회복하며, 완벽 가드를 발동한 경우 <color=#FFFFFF>[분개]</color>를 6pt 회복하는 것으로 변경된다. 1초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[극한 회피]</color> 발동 시 <color=#FFFFFF>[분개]</color>를 4pt 회복한다. 1초 동안 최대 1회 발동한다.\n반악은 <color=#FFFFFF>[분개]</color>를 최대 150pt 보유할 수 있으며 <color=#FFFFFF>[분개]</color>가 120pt일 때 <color=#FFFFFF>[일반 공격: 분신]</color>을 시전해 <color=#FFFFFF>[노상]</color> 상태에 진입할 수 있다. <color=#FFFFFF>[노상]</color> 상태일 때 반악은 더 이상 <color=#FFFFFF>[분개]</color>를 획득할 수 없으며, 반악이 <color=#FFFFFF>[일반 공격: 무너진 산]</color> 시전 후 <color=#FFFFFF>[노상]</color> 상태가 종료된다.\n<color=#FFFFFF>[노상]</color> 상태 진입 시, 반악은 <color=#FFFFFF>[산의 위력]</color>을 4pt 획득하며, 반악이 <color=#FFFFFF>[산의 위력]</color>을 보유한 경우, <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 기운을 소모하지 않고 <color=#FFFFFF>[산의 위력]</color>을 1pt 소모하며 기운을 10pt 회복한다. 그게 아니라면 기운을 소모하고 <color=#FFFFFF>[노상]</color> 상태 종료 시 <color=#FFFFFF>[산의 위력]</color>이 사라진다.\n<color=#FFFFFF>[노상]</color> 상태이며 <color=#FFFFFF>[산의 위력]</color>을 보유했을 때 <IconMap:Icon_Special>을 홀드하면 지정된 순서에 따라 네 가지 <color=#FFFFFF>[강화 특수 스킬]</color> 및 <color=#FFFFFF>[일반 공격: 무너진 산]</color>을 자동으로 사용할 수 있다.\n반악이 <color=#FFFFFF>[강화 특수 스킬]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color> 시전 시 관입력이 <color=#2BAD00>275</color>pt 증가하고, 주는 <color=#FF5521>불 속성 피해</color>가 <color=#2BAD00>33%</color> 증가하며, 치명타 피해가 <color=#2BAD00>33%</color> 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.",
+     "파티에 <color=#FFFFFF>[지원]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터 존재 시 발동:\n<color=#FFFFFF>[노상]</color> 상태일 때, 일반 공격 파생 혹은 빠른 커맨드 입력으로 <color=#FFFFFF>[산의 위력]</color>을 소모해 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 반악이 <color=#FFFFFF>[명왕]</color> 1스택을 획득하며, <color=#FFFFFF>[명왕]</color> 1스택당 자신이 주는 <color=#FF5521>불 속성 피해</color>가 5% 증가한다. 최대 중첩: 3스택, 지속 시간: 8초, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1471055": {
+    "level": 7,
+    "id": 1471055,
+    "name": [
+     "핵심 패시브: 뭇 산과 같이",
+     "추가 능력: 드높은 산꼭대기"
+    ],
+    "desc": [
+     "반악은 자신의 HP 최대치에 따라 관입력이 추가로 증가하며, HP 최대치 1pt당 관입력이 0.1pt 증가한다.\n반악이 시전하는 스킬로 주는 <color=#FF5521>불 속성 피해</color>는 모두 관입 피해로, 적의 방어를 무시하고, 스킬 피해 배율로서 관입력을 사용한다. 반악은 전장 진입 시 기운을 60pt 회복하며 답사 모드에서 해당 효과는 180초 동안 최대 1회 발동한다.\n반악은 아래와 같은 방법으로 <color=#FFFFFF>[분개]</color>를 회복한다.\n기운을 1pt 소모할 때마다 <color=#FFFFFF>[분개]</color>를 0.5pt 회복한다.\n<color=#FFFFFF>[패링 지원]</color> 시전 시 <color=#FFFFFF>[분개]</color>를 4pt 회복한다.\n<color=#FFFFFF>[회피: 산처럼 굳건한]</color>을 통해 적의 공격 패링 시 <color=#FFFFFF>[분개]</color>를 4pt 회복하며, 완벽 가드를 발동한 경우 <color=#FFFFFF>[분개]</color>를 6pt 회복하는 것으로 변경된다. 1초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[극한 회피]</color> 발동 시 <color=#FFFFFF>[분개]</color>를 4pt 회복한다. 1초 동안 최대 1회 발동한다.\n반악은 <color=#FFFFFF>[분개]</color>를 최대 150pt 보유할 수 있으며 <color=#FFFFFF>[분개]</color>가 120pt일 때 <color=#FFFFFF>[일반 공격: 분신]</color>을 시전해 <color=#FFFFFF>[노상]</color> 상태에 진입할 수 있다. <color=#FFFFFF>[노상]</color> 상태일 때 반악은 더 이상 <color=#FFFFFF>[분개]</color>를 획득할 수 없으며, 반악이 <color=#FFFFFF>[일반 공격: 무너진 산]</color> 시전 후 <color=#FFFFFF>[노상]</color> 상태가 종료된다.\n<color=#FFFFFF>[노상]</color> 상태 진입 시, 반악은 <color=#FFFFFF>[산의 위력]</color>을 4pt 획득하며, 반악이 <color=#FFFFFF>[산의 위력]</color>을 보유한 경우, <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 기운을 소모하지 않고 <color=#FFFFFF>[산의 위력]</color>을 1pt 소모하며 기운을 10pt 회복한다. 그게 아니라면 기운을 소모하고 <color=#FFFFFF>[노상]</color> 상태 종료 시 <color=#FFFFFF>[산의 위력]</color>이 사라진다.\n<color=#FFFFFF>[노상]</color> 상태이며 <color=#FFFFFF>[산의 위력]</color>을 보유했을 때 <IconMap:Icon_Special>을 홀드하면 지정된 순서에 따라 네 가지 <color=#FFFFFF>[강화 특수 스킬]</color> 및 <color=#FFFFFF>[일반 공격: 무너진 산]</color>을 자동으로 사용할 수 있다.\n반악이 <color=#FFFFFF>[강화 특수 스킬]</color> 혹은 <color=#FFFFFF>[지원 돌격]</color> 시전 시 관입력이 <color=#2BAD00>300</color>pt 증가하고, 주는 <color=#FF5521>불 속성 피해</color>가 <color=#2BAD00>36%</color> 증가하며, 치명타 피해가 <color=#2BAD00>36%</color> 증가한다. 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다.",
+     "파티에 <color=#FFFFFF>[지원]</color> 혹은 <color=#FFFFFF>[격파]</color> 캐릭터 존재 시 발동:\n<color=#FFFFFF>[노상]</color> 상태일 때, 일반 공격 파생 혹은 빠른 커맨드 입력으로 <color=#FFFFFF>[산의 위력]</color>을 소모해 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 반악이 <color=#FFFFFF>[명왕]</color> 1스택을 획득하며, <color=#FFFFFF>[명왕]</color> 1스택당 자신이 주는 <color=#FF5521>불 속성 피해</color>가 5% 증가한다. 최대 중첩: 3스택, 지속 시간: 8초, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110510": 2
+   },
+   "3": {
+    "10": 28000,
+    "110510": 4
+   },
+   "4": {
+    "10": 60000,
+    "110007": 2,
+    "110510": 9
+   },
+   "5": {
+    "10": 100000,
+    "110007": 3,
+    "110510": 15
+   },
+   "6": {
+    "10": 200000,
+    "110007": 4,
+    "110510": 30
+   }
+  }
+ },
+ "skin": {
+  "3114710": {
+   "name": "반악·업화에 타는 마음",
+   "desc": "일신의 호연한 기운, 종사의 풍모를 한껏 드러난다. 침묵한다고 함부로 판단하지 말길, 돌처럼 단단한 마음은 울지 않지만, 소리 없이 연민을 느끼니.",
+   "obtain_desc": "",
+   "image": "IconRole53"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1471001": {
+   "name": "일반 공격: 험준한 산",
+   "desc": "<IconMap:Icon_Normal>;<IconMap:Icon_Normal>;<IconMap:Icon_Normal>;<IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471002": {
+   "name": "일반 공격: 웅장한 산",
+   "desc": "<IconMap:Icon_Special>;<IconMap:Icon_Special>;<IconMap:Icon_Special>;<IconMap:Icon_Special>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471003": {
+   "name": "일반 공격: 분신",
+   "desc": "<IconMap:Icon_Normal>([분개]가 충분할 때 홀드)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471004": {
+   "name": "일반 공격: 인화",
+   "desc": "<IconMap:Icon_Normal>(교전 상태가 아니면서 HP가 충분할 때 홀드, 전투 한 번에 최대 1회 사용)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471005": {
+   "name": "강화 특수 스킬: 요동치는 산",
+   "desc": "<IconMap:Icon_Normal>([일반 공격: 웅장한 산] 1단 혹은 2단 시전 시)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471006": {
+   "name": "강화 특수 스킬: 요동치는 산",
+   "desc": "<IconMap:Icon_SpecialReady_Rp> ; <IconMap:Icon_SpecialReady_Rp> ; <IconMap:Icon_Normal>(임의의 [강화 특수 스킬], [일반 공격: 분신], [빠른 지원], [지원 돌격], [회피 반격], [콤보 스킬: 진노의 화염], [궁극기: 천지를 뒤흔들다] 시전 시)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471007": {
+   "name": "강화 특수 스킬: 흔들리는 땅",
+   "desc": "<IconMap:Icon_SpecialReady_Rp>([일반 공격: 험준한 산] 3단 혹은 4단 시전 시)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471008": {
+   "name": "강화 특수 스킬: 흔들리는 땅",
+   "desc": "<IconMap:Icon_SpecialReady_Rp>([지원 돌격], [회피 반격: 흩날리는 자갈], [빠른 지원: 반암] 시전 후 홀드)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471009": {
+   "name": "강화 특수 스킬: 흔들리는 땅",
+   "desc": "<IconMap:Icon_Normal> ; <IconMap:Icon_SpecialReady_Rp> ; <IconMap:Icon_Normal>(임의의 [강화 특수 스킬], [일반 공격: 분신], [빠른 지원], [지원 돌격], [회피 반격], [콤보 스킬: 진노의 화염], [궁극기: 천지를 뒤흔들다] 시전 시)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471010": {
+   "name": "강화 특수 스킬: 사자후",
+   "desc": "<IconMap:Icon_SpecialReady_Rp>([일반 공격: 험준한 산] 1단 혹은 2단 시전 시)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471011": {
+   "name": "강화 특수 스킬: 사자후",
+   "desc": "<IconMap:Icon_Normal> ; <IconMap:Icon_Normal> ; <IconMap:Icon_SpecialReady_Rp>(임의의 [강화 특수 스킬], [일반 공격: 분신], [빠른 지원], [지원 돌격], [회피 반격], [콤보 스킬: 진노의 화염], [궁극기: 천지를 뒤흔들다] 시전 시)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471012": {
+   "name": "강화 특수 스킬: 진리의 말",
+   "desc": "<IconMap:Icon_Normal>([일반 공격: 웅장한 산] 3단 혹은 4단 시전 후)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471013": {
+   "name": "강화 특수 스킬: 진리의 말",
+   "desc": "<IconMap:Icon_Normal>([지원 돌격], [회피 반격: 흩날리는 자갈], [빠른 지원: 반암] 시전 후 홀드)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471014": {
+   "name": "강화 특수 스킬: 진리의 말",
+   "desc": "<IconMap:Icon_SpecialReady_Rp> ; <IconMap:Icon_Normal> ; <IconMap:Icon_SpecialReady_Rp>(임의의 [강화 특수 스킬], [일반 공격: 분신], [빠른 지원], [지원 돌격], [회피 반격], [콤보 스킬: 진노의 화염], [궁극기: 천지를 뒤흔들다] 시전 시)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471015": {
+   "name": "강화 특수 스킬: 사자후·분노",
+   "desc": "<IconMap:Icon_Normal> ; <IconMap:Icon_Normal> ; <IconMap:Icon_SpecialReady_Rp>([강화 특수 스킬: 진리의 말] 시전 시)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471016": {
+   "name": "강화 특수 스킬: 요동치는 산·분노",
+   "desc": "<IconMap:Icon_SpecialReady_Rp> ; <IconMap:Icon_SpecialReady_Rp> ; <IconMap:Icon_Normal>([강화 특수 스킬: 흔들리는 땅] 시전 시)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471017": {
+   "name": "일반 공격: 무너진 산",
+   "desc": "<IconMap:Icon_Normal>([노상] 상태에서 홀드)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471018": {
+   "name": "일반 공격: 산악 분쇄",
+   "desc": "<IconMap:Icon_Normal>([노상] 상태일 때, 일반 공격 파생 또는 빠른 커맨드 입력을 통해 서로 다른 [강화 특수 스킬] 2회 시전 후 홀드)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471019": {
+   "name": "회피: 산맥 넘기",
+   "desc": "<IconMap:Icon_Evade>",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1471020": {
+   "name": "회피: 산처럼 굳건한",
+   "desc": "<IconMap:Icon_Evade>(공격 중 짧은 탭)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1471021": {
+   "name": "회피: 도발",
+   "desc": "<IconMap:Icon_Evade>(방향키를 반 바퀴 움직이며 짧은 탭)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1471022": {
+   "name": "대시 공격: 휘날리는 모래",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471023": {
+   "name": "회피 반격: 흩날리는 자갈",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471024": {
+   "name": "콤보 스킬: 진노의 화염",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471025": {
+   "name": "궁극기: 천지를 뒤흔들다",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471026": {
+   "name": "빠른 지원: 반암",
+   "desc": "<IconMap:Icon_Switch>(빠른 지원 발동 시)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471027": {
+   "name": "패링 지원: 철벽",
+   "desc": "<IconMap:Icon_Switch>(패링 지원 발동 시)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1471028": {
+   "name": "지원 돌격: 높이 솟은 하늘",
+   "desc": "<IconMap:Icon_Normal>(패링 지원 시전 후)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471029": {
+   "name": "지원 돌격: 하늘을 향한 돌진",
+   "desc": "<IconMap:Icon_Normal>([회피: 산처럼 굳건한]으로 적의 공격을 성공적으로 패링한 후)",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1471001,
+   "avatar_id": 1471,
+   "first_priority": [
+    5,
+    1
+   ],
+   "second_priority": [
+    0,
+    3
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33100,
+  "slot2": 31000,
+  "slot_sub": 32700,
+  "part_sub_list": [
+   20103,
+   21103,
+   11102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33100,
+     31000
+    ],
+    "part_sub_list": [
+     20103,
+     21103
+    ]
+   },
+   {
+    "suit_list": [
+     33100,
+     31000
+    ],
+    "part_sub_list": [
+     31603,
+     11102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     11102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "치명타 확률",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 21103,
+   "name": "치명타 피해",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  },
+  "part6": {
+   "prop": 31603,
+   "name": "불 속성 피해 보너스",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconFire.png"
+  },
+  "part_sub": {
+   "prop": 11102,
+   "name": "HP",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconHpMax.png"
+  }
+ },
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Fire>불 속성, 필드 딜러",
+  "다양한 콤보 조합",
+  "자신의 관입력, 치명타 피해, 불 속성 피해 증가"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100216": 4
+   }
+  },
+  "2": {
+   "hp_max": 469,
+   "attack": 44,
+   "defence": 25,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100226": 12
+   }
+  },
+  "3": {
+   "hp_max": 938,
+   "attack": 88,
+   "defence": 49,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100226": 20
+   }
+  },
+  "4": {
+   "hp_max": 1407,
+   "attack": 132,
+   "defence": 74,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100236": 10
+   }
+  },
+  "5": {
+   "hp_max": 1875,
+   "attack": 177,
+   "defence": 98,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100236": 20
+   }
+  },
+  "6": {
+   "hp_max": 2344,
+   "attack": 221,
+   "defence": 123,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpineBanyue"
+}

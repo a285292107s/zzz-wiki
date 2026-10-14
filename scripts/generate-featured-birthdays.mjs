@@ -2,7 +2,7 @@
  * generate-featured-birthdays.mjs — 生成 src/data/featured-birthdays.json
  *
  * 用途：首页「今日角色」要在**选片时**就知道每个候选的生日，才能把当天生日的角色排到牌堆最前。
- * 生日只存在于**详情**数据（public/data/live/zh/character/{id}.json 的 partner_info.birthday），
+ * 生日只存在于**详情**数据（public/data/live/{lang}/character/{id}.json 的 partner_info.birthday），
  * 名录里没有；运行时逐张去取等于把首屏挂在 N 个请求上（且选片无法同步发生）。
  * 故把「池内 id → 生日」这张小表在**构建期之外**派生好并提交，运行时直接 import（零请求、零等待）。
  *
@@ -23,11 +23,14 @@
 
 import fs from 'node:fs'
 import path from 'node:path'
+import { DEFAULT_LANG } from './build/langs.mjs'
 
 const ROOT = process.cwd()
 const OUT = path.join(ROOT, 'src/data/featured-birthdays.json')
 const POOL = path.join(ROOT, 'src/data/featured-pool.json')
-const DETAIL_DIR = path.join(ROOT, 'public/data/live/zh/character')
+/** 生日与语言无关（`partner_info.birthday` 是个 `MM-DD` 量），故取**默认语言**那份详情即可；
+ *  但路径里的语言码必须来自 langs.json 的单一事实源，不写死（改语言集时不致静默读错目录）。 */
+const DETAIL_DIR = path.join(ROOT, 'public/data/live', DEFAULT_LANG, 'character')
 const SUPPLEMENT = path.join(ROOT, 'src/data/birthday-supplement.json')
 
 const pool = JSON.parse(fs.readFileSync(POOL, 'utf8')).pool

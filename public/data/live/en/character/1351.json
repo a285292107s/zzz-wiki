@@ -1,0 +1,1799 @@
+{
+ "id": 1351,
+ "icon": "IconRole38",
+ "name": "Pulchra",
+ "code_name": "Pulchra",
+ "rarity": 3,
+ "weapon_type": {
+  "2": "Stun"
+ },
+ "element_type": {
+  "200": "Physical"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "4": "Sons of Calydon"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "JUN 19",
+  "full_name": "Pulchra Fellini",
+  "gender": "Female",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle38.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0038.png",
+  "impression_f": "I don't think she's as dangerous as Fairy suggests. She seems pretty approachable. I mean, what harm could a little kitten cause?",
+  "impression_m": "Just having that thought already makes it dangerous... Oh, she sent me a message saying she got me the limited edition of the game I wanted.",
+  "impressions": [
+   "Impressions of Pulchra:\n · For Pulchra, the distinction between enemies and friends is irrelevant; they're simply temporary roles determined by her current job.",
+   " · She seems to care about nothing beyond her own interests, but perhaps it's all just an act?",
+   " · Someone still lingers in her memories to this day. Is it a beautiful past, or a nightmare?"
+  ],
+  "profile_desc": "Pulchra, formerly a mercenary from the Outer Ring, is now a member of the Sons of Calydon. She works as an ordinary employee at the logistics company Leaps and Bounds.\nWarning: Financial transactions have been detected between Pulchra and several biker and criminal gangs from the Outer Ring. These records have reduced since joining the Sons of Calydon, but there has been a large increase in funds transferred from New Eridu. This is likely because Pulchra's new position allows for easier access to New Eridu.\nFurther information indicates Pulchra has indirect involvement in several major events in the Outer Ring, including but not limited to: gang conflicts, leaks of crucial convoy supply intel, mysterious road damage, and price surges of essential goods...\nPulchra does not have deep connections with Lucius, and there is no current risk of her being an insider for any other biker gangs. However, her interpersonal network is highly complicated. Caution is advised when interacting with her, especially in protecting personal privacy.",
+  "role_icon": "IconRole/UnPacker/IconRole38",
+  "stature": "173",
+  "unlock_condition": [
+   "Obtain Agent",
+   "Complete Main Story \"Leisurely Lull: Unexpected New Customer\" (available after completing Main Story Chapter 4) to unlock",
+   "Complete the \"Anby's Problem\" commission"
+  ],
+  "trust_lv": {
+   "1": "Pulchra, formerly a mercenary from the Outer Ring, is now a member of the Sons of Calydon. She works as an ordinary employee at the logistics company Leaps and Bounds.\nWarning: Financial transactions have been detected between Pulchra and several biker and criminal gangs from the Outer Ring. These records have reduced since joining the Sons of Calydon, but there has been a large increase in funds transferred from New Eridu. This is likely because Pulchra's new position allows for easier access to New Eridu.\nFurther information indicates Pulchra has indirect involvement in several major events in the Outer Ring, including but not limited to: gang conflicts, leaks of crucial convoy supply intel, mysterious road damage, and price surges of essential goods...\nPulchra does not have deep connections with Lucius, and there is no current risk of her being an insider for any other biker gangs. However, her interpersonal network is highly complicated. Caution is advised when interacting with her, especially in protecting personal privacy.",
+   "2": "",
+   "3": "Employment records for Pulchra were found for two Outer Ring mercenary groups that disbanded years ago. She was hired alongside a young woman named Milena, but her records completely vanished about eight years ago.\nAround eight years ago, Pulchra briefly formed a small mercenary group, but no records were found regarding the team members or the reason for its dissolution. Her personal career suddenly began to take off after this.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 96,
+  "attack_growth": 54887,
+  "avatar_piece_id": 5351,
+  "break_stun": 118,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66203,
+  "element_abnormal_power": 92,
+  "element_mystery": 90,
+  "endurance": 0,
+  "hp_growth": 830642,
+  "hp_max": 612,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Pulchra",
+   "Cut",
+   "Physics",
+   "Female",
+   "Camp4",
+   "Size3",
+   "AidTypeEvade",
+   "Pulchra",
+   "EtherEyesSize3"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "Basic Attack: Swift Strike",
+     "desc": "Press <IconMap:Icon_Normal> to activate:\nUnleashes up to 3 attacks forward, dealing <color=#F0D12B>Physical DMG</color>.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Leaping Strike",
+     "desc": "Hold <IconMap:Icon_Normal> to activate:\nLeap forward and unleash a series of slashes, dealing <color=#F0D12B>Physical DMG</color>.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Swift Strike",
+     "param": [
+      {
+       "name": "1st-Hit DMG Multiplier",
+       "desc": "{Skill:1351001, Prop:1001}",
+       "param": {
+        "1351001": {
+         "main": 3570,
+         "growth": 330,
+         "format": "%",
+         "damage_percentage": 3570,
+         "damage_percentage_growth": 330,
+         "stun_ratio": 2850,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 10260,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 78375,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2848,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2849
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit DMG Multiplier",
+       "desc": "{Skill:1351002, Prop:1001}",
+       "param": {
+        "1351002": {
+         "main": 9410,
+         "growth": 860,
+         "format": "%",
+         "damage_percentage": 9410,
+         "damage_percentage_growth": 860,
+         "stun_ratio": 7530,
+         "stun_ratio_growth": 350,
+         "sp_recovery": 27090,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 207075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7522,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7523
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd-Hit DMG Multiplier",
+       "desc": "{Skill:1351003, Prop:1001}",
+       "param": {
+        "1351003": {
+         "main": 16760,
+         "growth": 1530,
+         "format": "%",
+         "damage_percentage": 16760,
+         "damage_percentage_growth": 1530,
+         "stun_ratio": 13410,
+         "stun_ratio_growth": 610,
+         "sp_recovery": 48260,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 368775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13405,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13406
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1st-Hit Daze Multiplier",
+       "desc": "{Skill:1351001, Prop:1002}",
+       "param": {
+        "1351001": {
+         "main": 2850,
+         "growth": 130,
+         "format": "%",
+         "damage_percentage": 3570,
+         "damage_percentage_growth": 330,
+         "stun_ratio": 2850,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 10260,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 78375,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2848,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2849
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit Daze Multiplier",
+       "desc": "{Skill:1351002, Prop:1002}",
+       "param": {
+        "1351002": {
+         "main": 7530,
+         "growth": 350,
+         "format": "%",
+         "damage_percentage": 9410,
+         "damage_percentage_growth": 860,
+         "stun_ratio": 7530,
+         "stun_ratio_growth": 350,
+         "sp_recovery": 27090,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 207075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7522,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7523
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd-Hit Daze Multiplier",
+       "desc": "{Skill:1351003, Prop:1002}",
+       "param": {
+        "1351003": {
+         "main": 13410,
+         "growth": 610,
+         "format": "%",
+         "damage_percentage": 16760,
+         "damage_percentage_growth": 1530,
+         "stun_ratio": 13410,
+         "stun_ratio_growth": 610,
+         "sp_recovery": 48260,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 368775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13405,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13406
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Leaping Strike",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1351004, Prop:1001}",
+       "param": {
+        "1351004": {
+         "main": 13500,
+         "growth": 1230,
+         "format": "%",
+         "damage_percentage": 13500,
+         "damage_percentage_growth": 1230,
+         "stun_ratio": 10800,
+         "stun_ratio_growth": 500,
+         "sp_recovery": 38880,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 297000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10797,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10798
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1351004, Prop:1002}",
+       "param": {
+        "1351004": {
+         "main": 10800,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 13500,
+         "damage_percentage_growth": 1230,
+         "stun_ratio": 10800,
+         "stun_ratio_growth": 500,
+         "sp_recovery": 38880,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 297000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10797,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10798
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "Dodge: Reversal Shot",
+     "desc": "Press <IconMap:Icon_Evade> to activate:\nA quick dash dodge.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Dash Attack: First Strike Advantage",
+     "desc": "Press <IconMap:Icon_Normal> during a dodge to activate:\nDash forward and slash, dealing <color=#F0D12B>Physical DMG</color>.",
+     "potential": []
+    },
+    {
+     "name": "Dodge Counter: Relentless Retribution",
+     "desc": "Press <IconMap:Icon_Normal> during a <color=#FFFFFF>Perfect Dodge</color> to activate:\nThrust at enemies in front, then follow up with a swift slash, dealing <color=#F0D12B>Physical DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Dash Attack: First Strike Advantage",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1351009, Prop:1001}",
+       "param": {
+        "1351009": {
+         "main": 4830,
+         "growth": 440,
+         "format": "%",
+         "damage_percentage": 4830,
+         "damage_percentage_growth": 440,
+         "stun_ratio": 2420,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 8700,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 66550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2414,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2415
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1351009, Prop:1002}",
+       "param": {
+        "1351009": {
+         "main": 2420,
+         "growth": 110,
+         "format": "%",
+         "damage_percentage": 4830,
+         "damage_percentage_growth": 440,
+         "stun_ratio": 2420,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 8700,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 66550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2414,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2415
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Dodge Counter: Relentless Retribution",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1351010, Prop:1001}",
+       "param": {
+        "1351010": {
+         "main": 20180,
+         "growth": 1840,
+         "format": "%",
+         "damage_percentage": 20180,
+         "damage_percentage_growth": 1840,
+         "stun_ratio": 17830,
+         "stun_ratio_growth": 820,
+         "sp_recovery": 28190,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 215325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7829,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22830
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1351010, Prop:1002}",
+       "param": {
+        "1351010": {
+         "main": 17830,
+         "growth": 820,
+         "format": "%",
+         "damage_percentage": 20180,
+         "damage_percentage_growth": 1840,
+         "stun_ratio": 17830,
+         "stun_ratio_growth": 820,
+         "sp_recovery": 28190,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 215325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7829,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22830
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "Special Attack: Rending Claw",
+     "desc": "Press <IconMap:Icon_Special> to activate:\nPerform a rapid back-and-forth piercing attack, dealing <color=#F0D12B>Physical DMG</color>.\nAnti-Interrupt level is increased while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Rending Claw - Nightmare Shadow",
+     "desc": "While Pulchra is in the <color=#FFFFFF>Hunter's Gait</color> state, and when another active character in the squad hits an enemy with a heavy attack from a <color=#FFFFFF>Special Attack</color> or <color=#FFFFFF>EX Special Attack</color>:\nDash back-and-forth piercing enemies centered on the target, dealing <color=#F0D12B>Physical DMG</color>.\nAfter using this skill, if another active character in the squad hits an enemy, Pulchra will repeat the attack up to 5 additional times, with the final attack being a more powerful Finishing Move.\nCharacter is invulnerable while using this skill.\n<color=#FFFFFF>Special Attack: Rending Claw - Nightmare Shadow</color> is an <color=#FFFFFF>Aftershock</color> attack.",
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Rending Claw - Flashstep",
+     "desc": "With enough Energy, press <IconMap:Icon_SpecialReady> to activate:\nPierce back and forth times, dealing massive <color=#F0D12B>Physical DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Rending Claw",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1351005, Prop:1001}",
+       "param": {
+        "1351005": {
+         "main": 2510,
+         "growth": 230,
+         "format": "%",
+         "damage_percentage": 2510,
+         "damage_percentage_growth": 230,
+         "stun_ratio": 5010,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 137775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2501
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1351005, Prop:1002}",
+       "param": {
+        "1351005": {
+         "main": 5010,
+         "growth": 230,
+         "format": "%",
+         "damage_percentage": 2510,
+         "damage_percentage_growth": 230,
+         "stun_ratio": 5010,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 137775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2501
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Rending Claw - Nightmare Shadow",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1351006, Prop:1001}",
+       "param": {
+        "1351006": {
+         "main": 4630,
+         "growth": 430,
+         "format": "%",
+         "damage_percentage": 4630,
+         "damage_percentage_growth": 430,
+         "stun_ratio": 2900,
+         "stun_ratio_growth": 140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1736,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Finishing Move DMG Multiplier",
+       "desc": "{Skill:1351007, Prop:1001}",
+       "param": {
+        "1351007": {
+         "main": 5350,
+         "growth": 490,
+         "format": "%",
+         "damage_percentage": 5350,
+         "damage_percentage_growth": 490,
+         "stun_ratio": 3480,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1736,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1351006, Prop:1002}",
+       "param": {
+        "1351006": {
+         "main": 2900,
+         "growth": 140,
+         "format": "%",
+         "damage_percentage": 4630,
+         "damage_percentage_growth": 430,
+         "stun_ratio": 2900,
+         "stun_ratio_growth": 140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1736,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Finishing Move Daze Multiplier",
+       "desc": "{Skill:1351007, Prop:1002}",
+       "param": {
+        "1351007": {
+         "main": 3480,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 5350,
+         "damage_percentage_growth": 490,
+         "stun_ratio": 3480,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1736,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Rending Claw - Flashstep",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1351008, Prop:1001}",
+       "param": {
+        "1351008": {
+         "main": 34770,
+         "growth": 3170,
+         "format": "%",
+         "damage_percentage": 34770,
+         "damage_percentage_growth": 3170,
+         "stun_ratio": 21170,
+         "stun_ratio_growth": 970,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1426425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 25548,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1351008, Prop:1002}",
+       "param": {
+        "1351008": {
+         "main": 21170,
+         "growth": 970,
+         "format": "%",
+         "damage_percentage": 34770,
+         "damage_percentage_growth": 3170,
+         "stun_ratio": 21170,
+         "stun_ratio_growth": 970,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1426425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 25548,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Energy Cost",
+       "desc": "60",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "Chain Attack: Hey, Didn't Expect That, Right?",
+     "desc": "When a <color=#FFFFFF>Chain Attack</color> is triggered, select the character to activate:\nUnleashes a charged shot forward, dealing massive <color=#F0D12B>Physical DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Ultimate: Oh, Time to Play?",
+     "desc": "When Decibel Rating is at <color=#FFFFFF>Maximum</color>, press <IconMap:Icon_UltimateReady> to activate:\nUnleash a powerful shot at enemies in a large area ahead, dealing massive <color=#F0D12B>Physical DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Chain Attack: Hey, Didn't Expect That, Right?",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1351011, Prop:1001}",
+       "param": {
+        "1351011": {
+         "main": 53410,
+         "growth": 4860,
+         "format": "%",
+         "damage_percentage": 53410,
+         "damage_percentage_growth": 4860,
+         "stun_ratio": 13510,
+         "stun_ratio_growth": 620,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2200275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 33453,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1351011, Prop:1002}",
+       "param": {
+        "1351011": {
+         "main": 13510,
+         "growth": 620,
+         "format": "%",
+         "damage_percentage": 53410,
+         "damage_percentage_growth": 4860,
+         "stun_ratio": 13510,
+         "stun_ratio_growth": 620,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2200275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 33453,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13504
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Ultimate: Oh, Time to Play?",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1351012, Prop:1001}",
+       "param": {
+        "1351012": {
+         "main": 139380,
+         "growth": 12680,
+         "format": "%",
+         "damage_percentage": 139380,
+         "damage_percentage_growth": 12680,
+         "stun_ratio": 88230,
+         "stun_ratio_growth": 4020,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11496,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 61497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1351012, Prop:1002}",
+       "param": {
+        "1351012": {
+         "main": 88230,
+         "growth": 4020,
+         "format": "%",
+         "damage_percentage": 139380,
+         "damage_percentage_growth": 12680,
+         "stun_ratio": 88230,
+         "stun_ratio_growth": 4020,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11496,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 61497
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "Quick Assist: Contract - Bodyguard",
+     "desc": "When the active character is launched, press <IconMap:Icon_Switch> to activate:\nThrust at enemies in front, followed by rapid slashes, dealing <color=#F0D12B>Physical DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Evasive Assist: Contract - Outsourced Combat",
+     "desc": "When the on-field character is about to be attacked, press <IconMap:Icon_Switch> to activate:\nDodges the enemy's attack and activates <color=#FFFFFF>Vital View</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Independent Pricing",
+     "desc": "Press <IconMap:Icon_Normal> after an <color=#FFFFFF>Evasive Assist</color> to activate:\nLeap forward into the air and fire, dealing <color=#F0D12B>Physical DMG</color>.\nUpon activating this skill, consume 1 <color=#FFFFFF>Assist Point</color> to enter the <color=#FFFFFF>Hunter's Gait</color> state.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Quick Assist: Contract - Bodyguard",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1351013, Prop:1001}",
+       "param": {
+        "1351013": {
+         "main": 7830,
+         "growth": 720,
+         "format": "%",
+         "damage_percentage": 7830,
+         "damage_percentage_growth": 720,
+         "stun_ratio": 7830,
+         "stun_ratio_growth": 360,
+         "sp_recovery": 28190,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 215325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7829,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3915
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1351013, Prop:1002}",
+       "param": {
+        "1351013": {
+         "main": 7830,
+         "growth": 360,
+         "format": "%",
+         "damage_percentage": 7830,
+         "damage_percentage_growth": 720,
+         "stun_ratio": 7830,
+         "stun_ratio_growth": 360,
+         "sp_recovery": 28190,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 215325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7829,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3915
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Independent Pricing",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1351014, Prop:1001}",
+       "param": {
+        "1351014": {
+         "main": 30710,
+         "growth": 2800,
+         "format": "%",
+         "damage_percentage": 30710,
+         "damage_percentage_growth": 2800,
+         "stun_ratio": 26530,
+         "stun_ratio_growth": 1210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 959475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 28617,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1351014, Prop:1002}",
+       "param": {
+        "1351014": {
+         "main": 26530,
+         "growth": 1210,
+         "format": "%",
+         "damage_percentage": 30710,
+         "damage_percentage_growth": 2800,
+         "stun_ratio": 26530,
+         "stun_ratio_growth": 1210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 959475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 28617,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13997
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "Self-Interest",
+   "desc": "When dealing DMG to enemies affected by <color=#FFFFFF>Binding Trap</color>, increase own CRIT Rate by 10%.",
+   "desc2": "\"Self-interest is an instinct, but it can also be learned over time.\"\n\"How do you learn it?\"\n\"Get burned a few times and you'll figure it out.\""
+  },
+  "2": {
+   "level": 2,
+   "name": "Opportunistic",
+   "desc": "While in the <color=#FFFFFF>Hunter's Gait</color> state from <color=#FFFFFF>Core Passive: Hunter's Instinct</color>, Pulchra's ATK is increased by an additional 10%.",
+   "desc2": "\"A mercenary's most valuable trait isn't loyalty - it's knowing when an opportunity appears. Picking the right employer, taking the right commissions, doing what's required, and never signing long-term contracts. Then even if you switch sides to work for the competition, your former employer can't say a thing.\"\n\"Pulchra, someone else came looking for trouble just now. I sent them packing. How did you manage to make so many enemies?\"\n\"Too many people let their emotions get the better of them. See? That's why they're all just losers who don't know their own lack of worth.\""
+  },
+  "3": {
+   "level": 3,
+   "name": "Territorial",
+   "desc": "<color=#FFFFFF>Basic Attack</color>, <color=#FFFFFF>Dodge</color>, <color=#FFFFFF>Assist</color>, <color=#FFFFFF>Special Attack</color>, and <color=#FFFFFF>Chain Attack</color> Lv. +2",
+   "desc2": "There's a large note posted on the door of Pulchra's car. Written in big red letters: THIS IS MY TURF! KNOCK BEFORE ENTERING! KNOCK! KNOCK!\nBelow it, there's a slightly smaller note with big black letters that reads: Caesar, you'd better pay for breaking my lock! 100,000 Dennies!\nUnder the black letters, there's a crooked line of small text: I asked Proxy, lock's only worth 20,000!"
+  },
+  "4": {
+   "level": 4,
+   "name": "Joy of the Hunt",
+   "desc": "Reduces Energy Cost of activating <color=#FFFFFF>EX Special Attack: Rending Claw - Flashstep</color> by 5.",
+   "desc2": "\"What's the point of challenging strong opponents? I'm not a masochist. For me, the real joy of the hunt comes when I know I'm gonna win!\"\n5 minutes later...\n\"Man, this game's AI is way too weak. Boring.\""
+  },
+  "5": {
+   "level": 5,
+   "name": "Tail Game",
+   "desc": "<color=#FFFFFF>Basic Attack</color>, <color=#FFFFFF>Dodge</color>, <color=#FFFFFF>Assist</color>, <color=#FFFFFF>Special Attack</color>, and <color=#FFFFFF>Chain Attack</color> Lv. +2",
+   "desc2": "Pulchra's earliest blurry childhood memory was of a warm, big tail. When she first learned to crawl, she loved to chase after it.\n\"And then what?\"\n\"They tell me it was my own tail.\"\nBut Pulchra knew it wasn't hers. Aside from the tail game, at night, it would wrap tightly around her, keeping her warm through each cold night. Maybe the Hollow took it, or maybe something else... But it doesn't matter - she stopped playing that game long ago."
+  },
+  "6": {
+   "level": 6,
+   "name": "Behind the Mask",
+   "desc": "<color=#FFFFFF>Special Attack: Rending Claw - Nightmare Shadow's</color> DMG is increased by 15%, and the number of times the repeated attack can trigger is increased by 2. <color=#FFFFFF>Additional Ability: Business Partner</color>'s <color=#FFFFFF>Binding Trap</color> effect now also applies to all damage types, not just <color=#FFFFFF>Aftershock</color> DMG.",
+   "desc2": "The respirator mask blocks out Ether particles and pollen, and shields her from curious, fearful, or malicious gazes — but it makes it impossible to curl up and get a good night's sleep. How she longs to find a warm place and take a carefree afternoon nap...\nThe car door suddenly swings open without warning. Startled awake, she instantly grabs her old partner and straps it to her face. \"Would it kill you to knock?!\"\n...Ah, right. She can actually take it off now."
+  }
+ },
+ "passive": {
+  "level": {
+   "1351501": {
+    "level": 1,
+    "id": 1351501,
+    "name": [
+     "Core Passive: Hunter's Instinct",
+     "Additional Ability: Business Partner"
+    ],
+    "desc": [
+     "When Pulchra activates an <color=#FFFFFF>EX Special Attack</color>, <color=#FFFFFF>Assist Follow-Up</color>, <color=#FFFFFF>Chain Attack</color>, or <color=#FFFFFF>Ultimate</color>, she enters the <color=#FFFFFF>Hunter's Gait</color> state, increasing the Daze she deals by <color=#2BAD00>15%</color> for 6s. After switching to another character, if Pulchra is still in the <color=#FFFFFF>Hunter's Gait</color> state, the state will last until Pulchra switches back in. While in the <color=#FFFFFF>Hunter's Gait</color> state and as the active character, when Pulchra lands a heavy attack on enemies, she can trigger a <color=#FFFFFF>Quick Assist</color> from the previous character in the squad.",
+     "When another character in your squad is an <color=#FFFFFF>Attack</color> or <color=#FFFFFF>Rupture</color> character or shares the same Faction:\nWhen Pulchra hits enemies with <color=#FFFFFF>Special Attack: Rending Claw - Nightmare Shadow</color>, <color=#FFFFFF>EX Special Attack: Rending Claw - Flashstep</color>, <color=#FFFFFF>Assist Follow-Up: Independent Pricing</color>, <color=#FFFFFF>Chain Attack: Hey, Didn't Expect That, Right?</color>, or <color=#FFFFFF>Ultimate: Oh, Time to Play?</color>, it applies the <color=#FFFFFF>Binding Trap</color> effect for 15s. After applying <color=#FFFFFF>Binding Trap</color>, all units' <color=#FFFFFF>Aftershock</color> DMG against the target is increased by 30%."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1351502": {
+    "level": 2,
+    "id": 1351502,
+    "name": [
+     "Core Passive: Hunter's Instinct",
+     "Additional Ability: Business Partner"
+    ],
+    "desc": [
+     "When Pulchra activates an <color=#FFFFFF>EX Special Attack</color>, <color=#FFFFFF>Assist Follow-Up</color>, <color=#FFFFFF>Chain Attack</color>, or <color=#FFFFFF>Ultimate</color>, she enters the <color=#FFFFFF>Hunter's Gait</color> state, increasing the Daze she deals by <color=#2BAD00>17.5%</color> for 6s. After switching to another character, if Pulchra is still in the <color=#FFFFFF>Hunter's Gait</color> state, the state will last until Pulchra switches back in. While in the <color=#FFFFFF>Hunter's Gait</color> state and as the active character, when Pulchra lands a heavy attack on enemies, she can trigger a <color=#FFFFFF>Quick Assist</color> from the previous character in the squad.",
+     "When another character in your squad is an <color=#FFFFFF>Attack</color> or <color=#FFFFFF>Rupture</color> character or shares the same Faction:\nWhen Pulchra hits enemies with <color=#FFFFFF>Special Attack: Rending Claw - Nightmare Shadow</color>, <color=#FFFFFF>EX Special Attack: Rending Claw - Flashstep</color>, <color=#FFFFFF>Assist Follow-Up: Independent Pricing</color>, <color=#FFFFFF>Chain Attack: Hey, Didn't Expect That, Right?</color>, or <color=#FFFFFF>Ultimate: Oh, Time to Play?</color>, it applies the <color=#FFFFFF>Binding Trap</color> effect for 15s. After applying <color=#FFFFFF>Binding Trap</color>, all units' <color=#FFFFFF>Aftershock</color> DMG against the target is increased by 30%."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1351503": {
+    "level": 3,
+    "id": 1351503,
+    "name": [
+     "Core Passive: Hunter's Instinct",
+     "Additional Ability: Business Partner"
+    ],
+    "desc": [
+     "When Pulchra activates an <color=#FFFFFF>EX Special Attack</color>, <color=#FFFFFF>Assist Follow-Up</color>, <color=#FFFFFF>Chain Attack</color>, or <color=#FFFFFF>Ultimate</color>, she enters the <color=#FFFFFF>Hunter's Gait</color> state, increasing the Daze she deals by <color=#2BAD00>20%</color> for 6s. After switching to another character, if Pulchra is still in the <color=#FFFFFF>Hunter's Gait</color> state, the state will last until Pulchra switches back in. While in the <color=#FFFFFF>Hunter's Gait</color> state and as the active character, when Pulchra lands a heavy attack on enemies, she can trigger a <color=#FFFFFF>Quick Assist</color> from the previous character in the squad.",
+     "When another character in your squad is an <color=#FFFFFF>Attack</color> or <color=#FFFFFF>Rupture</color> character or shares the same Faction:\nWhen Pulchra hits enemies with <color=#FFFFFF>Special Attack: Rending Claw - Nightmare Shadow</color>, <color=#FFFFFF>EX Special Attack: Rending Claw - Flashstep</color>, <color=#FFFFFF>Assist Follow-Up: Independent Pricing</color>, <color=#FFFFFF>Chain Attack: Hey, Didn't Expect That, Right?</color>, or <color=#FFFFFF>Ultimate: Oh, Time to Play?</color>, it applies the <color=#FFFFFF>Binding Trap</color> effect for 15s. After applying <color=#FFFFFF>Binding Trap</color>, all units' <color=#FFFFFF>Aftershock</color> DMG against the target is increased by 30%."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1351504": {
+    "level": 4,
+    "id": 1351504,
+    "name": [
+     "Core Passive: Hunter's Instinct",
+     "Additional Ability: Business Partner"
+    ],
+    "desc": [
+     "When Pulchra activates an <color=#FFFFFF>EX Special Attack</color>, <color=#FFFFFF>Assist Follow-Up</color>, <color=#FFFFFF>Chain Attack</color>, or <color=#FFFFFF>Ultimate</color>, she enters the <color=#FFFFFF>Hunter's Gait</color> state, increasing the Daze she deals by <color=#2BAD00>22.5%</color> for 6s. After switching to another character, if Pulchra is still in the <color=#FFFFFF>Hunter's Gait</color> state, the state will last until Pulchra switches back in. While in the <color=#FFFFFF>Hunter's Gait</color> state and as the active character, when Pulchra lands a heavy attack on enemies, she can trigger a <color=#FFFFFF>Quick Assist</color> from the previous character in the squad.",
+     "When another character in your squad is an <color=#FFFFFF>Attack</color> or <color=#FFFFFF>Rupture</color> character or shares the same Faction:\nWhen Pulchra hits enemies with <color=#FFFFFF>Special Attack: Rending Claw - Nightmare Shadow</color>, <color=#FFFFFF>EX Special Attack: Rending Claw - Flashstep</color>, <color=#FFFFFF>Assist Follow-Up: Independent Pricing</color>, <color=#FFFFFF>Chain Attack: Hey, Didn't Expect That, Right?</color>, or <color=#FFFFFF>Ultimate: Oh, Time to Play?</color>, it applies the <color=#FFFFFF>Binding Trap</color> effect for 15s. After applying <color=#FFFFFF>Binding Trap</color>, all units' <color=#FFFFFF>Aftershock</color> DMG against the target is increased by 30%."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1351505": {
+    "level": 5,
+    "id": 1351505,
+    "name": [
+     "Core Passive: Hunter's Instinct",
+     "Additional Ability: Business Partner"
+    ],
+    "desc": [
+     "When Pulchra activates an <color=#FFFFFF>EX Special Attack</color>, <color=#FFFFFF>Assist Follow-Up</color>, <color=#FFFFFF>Chain Attack</color>, or <color=#FFFFFF>Ultimate</color>, she enters the <color=#FFFFFF>Hunter's Gait</color> state, increasing the Daze she deals by <color=#2BAD00>25%</color> for 6s. After switching to another character, if Pulchra is still in the <color=#FFFFFF>Hunter's Gait</color> state, the state will last until Pulchra switches back in. While in the <color=#FFFFFF>Hunter's Gait</color> state and as the active character, when Pulchra lands a heavy attack on enemies, she can trigger a <color=#FFFFFF>Quick Assist</color> from the previous character in the squad.",
+     "When another character in your squad is an <color=#FFFFFF>Attack</color> or <color=#FFFFFF>Rupture</color> character or shares the same Faction:\nWhen Pulchra hits enemies with <color=#FFFFFF>Special Attack: Rending Claw - Nightmare Shadow</color>, <color=#FFFFFF>EX Special Attack: Rending Claw - Flashstep</color>, <color=#FFFFFF>Assist Follow-Up: Independent Pricing</color>, <color=#FFFFFF>Chain Attack: Hey, Didn't Expect That, Right?</color>, or <color=#FFFFFF>Ultimate: Oh, Time to Play?</color>, it applies the <color=#FFFFFF>Binding Trap</color> effect for 15s. After applying <color=#FFFFFF>Binding Trap</color>, all units' <color=#FFFFFF>Aftershock</color> DMG against the target is increased by 30%."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1351506": {
+    "level": 6,
+    "id": 1351506,
+    "name": [
+     "Core Passive: Hunter's Instinct",
+     "Additional Ability: Business Partner"
+    ],
+    "desc": [
+     "When Pulchra activates an <color=#FFFFFF>EX Special Attack</color>, <color=#FFFFFF>Assist Follow-Up</color>, <color=#FFFFFF>Chain Attack</color>, or <color=#FFFFFF>Ultimate</color>, she enters the <color=#FFFFFF>Hunter's Gait</color> state, increasing the Daze she deals by <color=#2BAD00>27.5%</color> for 6s. After switching to another character, if Pulchra is still in the <color=#FFFFFF>Hunter's Gait</color> state, the state will last until Pulchra switches back in. While in the <color=#FFFFFF>Hunter's Gait</color> state and as the active character, when Pulchra lands a heavy attack on enemies, she can trigger a <color=#FFFFFF>Quick Assist</color> from the previous character in the squad.",
+     "When another character in your squad is an <color=#FFFFFF>Attack</color> or <color=#FFFFFF>Rupture</color> character or shares the same Faction:\nWhen Pulchra hits enemies with <color=#FFFFFF>Special Attack: Rending Claw - Nightmare Shadow</color>, <color=#FFFFFF>EX Special Attack: Rending Claw - Flashstep</color>, <color=#FFFFFF>Assist Follow-Up: Independent Pricing</color>, <color=#FFFFFF>Chain Attack: Hey, Didn't Expect That, Right?</color>, or <color=#FFFFFF>Ultimate: Oh, Time to Play?</color>, it applies the <color=#FFFFFF>Binding Trap</color> effect for 15s. After applying <color=#FFFFFF>Binding Trap</color>, all units' <color=#FFFFFF>Aftershock</color> DMG against the target is increased by 30%."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1351507": {
+    "level": 7,
+    "id": 1351507,
+    "name": [
+     "Core Passive: Hunter's Instinct",
+     "Additional Ability: Business Partner"
+    ],
+    "desc": [
+     "When Pulchra activates an <color=#FFFFFF>EX Special Attack</color>, <color=#FFFFFF>Assist Follow-Up</color>, <color=#FFFFFF>Chain Attack</color>, or <color=#FFFFFF>Ultimate</color>, she enters the <color=#FFFFFF>Hunter's Gait</color> state, increasing the Daze she deals by <color=#2BAD00>30%</color> for 6s. After switching to another character, if Pulchra is still in the <color=#FFFFFF>Hunter's Gait</color> state, the state will last until Pulchra switches back in. While in the <color=#FFFFFF>Hunter's Gait</color> state and as the active character, when Pulchra lands a heavy attack on enemies, she can trigger a <color=#FFFFFF>Quick Assist</color> from the previous character in the squad.",
+     "When another character in your squad is an <color=#FFFFFF>Attack</color> or <color=#FFFFFF>Rupture</color> character or shares the same Faction:\nWhen Pulchra hits enemies with <color=#FFFFFF>Special Attack: Rending Claw - Nightmare Shadow</color>, <color=#FFFFFF>EX Special Attack: Rending Claw - Flashstep</color>, <color=#FFFFFF>Assist Follow-Up: Independent Pricing</color>, <color=#FFFFFF>Chain Attack: Hey, Didn't Expect That, Right?</color>, or <color=#FFFFFF>Ultimate: Oh, Time to Play?</color>, it applies the <color=#FFFFFF>Binding Trap</color> effect for 15s. After applying <color=#FFFFFF>Binding Trap</color>, all units' <color=#FFFFFF>Aftershock</color> DMG against the target is increased by 30%."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110507": 2
+   },
+   "3": {
+    "10": 28000,
+    "110507": 4
+   },
+   "4": {
+    "10": 60000,
+    "110004": 2,
+    "110507": 9
+   },
+   "5": {
+    "10": 100000,
+    "110004": 3,
+    "110507": 15
+   },
+   "6": {
+    "10": 200000,
+    "110004": 4,
+    "110507": 30
+   }
+  }
+ },
+ "skin": {
+  "3113510": {
+   "name": "Pulchra: Rest for a Weary Tail",
+   "desc": "A wandering mercenary should be out roaming the world, but the sunlight here is warm — perfect for a nap.",
+   "obtain_desc": "",
+   "image": "IconRole38"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1351001": {
+   "name": "Basic Attack: Swift Strike",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1351002": {
+   "name": "Basic Attack: Leaping Strike",
+   "desc": "<IconMap:Icon_Normal> (Hold)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1351003": {
+   "name": "Special Attack: Rending Claw",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1351004": {
+   "name": "EX Special Attack: Rending Claw - Flashstep",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1351005": {
+   "name": "Dash Attack: First Strike Advantage",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1351006": {
+   "name": "Dodge Counter: Relentless Retribution",
+   "desc": "<IconMap:Icon_Evade> (Perfect) ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1351007": {
+   "name": "Chain Attack: Hey, Didn't Expect That, Right?",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1351008": {
+   "name": "Ultimate: Oh, Time to Play?",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1351009": {
+   "name": "Quick Assist: Contract - Bodyguard",
+   "desc": "<IconMap:Icon_Switch> (When Triggering Quick Assist)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1351010": {
+   "name": "Evasive Assist: Contract - Outsourced Combat",
+   "desc": "<IconMap:Icon_Switch>(When Triggering Evasive Assist)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1351011": {
+   "name": "Assist Follow-Up: Independent Pricing",
+   "desc": "<IconMap:Icon_Normal> (After Evasive Assist)",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1351001,
+   "avatar_id": 1351,
+   "first_priority": [
+    5,
+    1,
+    6
+   ],
+   "second_priority": [
+    3
+   ],
+   "third_priority": [
+    0,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33200,
+  "slot2": 31000,
+  "slot_sub": 31200,
+  "part_sub_list": [
+   20103,
+   12102,
+   21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32900,
+     31200
+    ],
+    "part_sub_list": [
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31503,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12202
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "CRIT Rate",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 31503,
+   "name": "Physical DMG Bonus",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconPhysDmg.png"
+  },
+  "part6": {
+   "prop": 12202,
+   "name": "Impact",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconBreakStun.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "ATK",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "07",
+  "<IconMap:Icon_GeneralBuff_PhysDmg>Physical, off-field DMG support",
+  "Entering Hunter's Gait boosts Daze efficiency"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100212": 4
+   }
+  },
+  "2": {
+   "hp_max": 420,
+   "attack": 34,
+   "defence": 33,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100222": 12
+   }
+  },
+  "3": {
+   "hp_max": 840,
+   "attack": 68,
+   "defence": 67,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100222": 20
+   }
+  },
+  "4": {
+   "hp_max": 1260,
+   "attack": 103,
+   "defence": 100,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100232": 10
+   }
+  },
+  "5": {
+   "hp_max": 1680,
+   "attack": 137,
+   "defence": 134,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100232": 20
+   }
+  },
+  "6": {
+   "hp_max": 2100,
+   "attack": 171,
+   "defence": 167,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "Impact",
+     "format": "{0:0.#}",
+     "value": 6
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "Impact",
+     "format": "{0:0.#}",
+     "value": 6
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "Impact",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "Impact",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "Impact",
+     "format": "{0:0.#}",
+     "value": 18
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "Impact",
+     "format": "{0:0.#}",
+     "value": 18
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": ""
+}

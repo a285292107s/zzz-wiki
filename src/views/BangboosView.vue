@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useCatalogList } from '@/composables/useCatalogList'
 import { useCatalogSort } from '@/composables/useCatalogSort'
@@ -6,6 +7,9 @@ import { listFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
 import type { BangbooListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
+import { pickText } from '@/domain/lang'
+import { useLocale } from '@/composables/useLocale'
+import { useUiText } from '@/composables/useUiText'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { catalogEntry, HIDDEN_ITEM_IDS } from '@/domain/catalog'
 import { AsyncState, CatalogTable, CatalogTableSkeleton, ListPage, NameCell, SearchField, type CatalogColumn } from '@/components'
@@ -23,7 +27,13 @@ const HIDDEN_BANGBOO_IDS = HIDDEN_ITEM_IDS.get('/bangboos')!
 const cat = catalogEntry('/bangboos')
 const base = cat.path
 
-const { data, status, error, reload } = useAsyncResource(() => listFor<BangbooListItem>(cat))
+/** 当前展示语言（名录按语言落盘，语言一变下面的取数会重新拉） */
+const { lang } = useLocale()
+const { t } = useUiText()
+
+const { data, status, error, reload } = useAsyncResource(() =>
+  listFor<BangbooListItem>(cat, lang.value),
+)
 
 const { query, filtered, count, hasActiveFilter, reset } = useCatalogList<BangbooListItem>({
   items: () => (data.value ?? []).filter((r) => !HIDDEN_BANGBOO_IDS.has(r.Id)),
@@ -31,17 +41,17 @@ const { query, filtered, count, hasActiveFilter, reset } = useCatalogList<Bangbo
   keywords: (row) => [row.codename ?? ''],
 })
 
-const columns: CatalogColumn[] = [
-  { key: 'name', label: '型号', sortable: true },
-  { key: 'code', label: '代号' },
-  { key: 'rarity', label: '稀有度', sortable: true },
-]
+const columns = computed<CatalogColumn[]>(() => [
+  { key: 'name', label: t.value.list.model, sortable: true },
+  { key: 'code', label: t.value.list.code },
+  { key: 'rarity', label: t.value.list.rarity, sortable: true },
+])
 
 const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
   filtered,
   [
     { key: 'id', value: (r) => r.Id },
-    { key: 'name', value: (r) => pickName(r) },
+    { key: 'name', value: (r) => pickName(r, lang.value) },
     { key: 'rarity', value: (r) => r.rank ?? -1 },
   ],
   { defaultKey: 'id', defaultDir: 'desc', syncRoute: true },
@@ -52,12 +62,12 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
   <ListPage>
     <header v-reveal class="page-head">
       <p class="eyebrow mono">Bangboo</p>
-      <h1 class="page-title">邦布</h1>
-      <p class="page-sub">空洞里的好搭档。检索型号或按稀有度浏览。</p>
+      <h1 class="page-title">{{ pickText(cat.label, lang) }}</h1>
+      <p class="page-sub">{{ t.list.bangboosIntro }}</p>
     </header>
 
     <div v-reveal="90" class="toolbar">
-      <SearchField v-model="query" :count="count" placeholder="检索邦布…" />
+      <SearchField v-model="query" :count="count" :placeholder="t.list.searchBangboo" />
     </div>
 
     <!-- 空态分工：AsyncState 只管「数据级为空」；「筛掉全部结果」由 CatalogTable 空态行承担 -->
@@ -76,9 +86,9 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
         :items="sorted"
         :sort="sortKey"
         :sort-dir="sortDir"
-        caption="邦布名录：型号、代号与稀有度"
+        :caption="t.list.bangboosSub"
         :show-clear="hasActiveFilter"
-        empty-text="无匹配邦布"
+        :empty-text="t.noMatch.bangboos"
         @clear="reset"
         @update:sort="toggle"
       >
@@ -86,9 +96,9 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
           <NameCell
             :to="`${base}/${row.Id}`"
             :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'bangboo', 'thumb')"
-            :alt="pickName(row)"
-            :fallback="pickName(row)"
-            :name="pickName(row)"
+            :alt="pickName(row, lang)"
+            :fallback="pickName(row, lang)"
+            :name="pickName(row, lang)"
           />
         </template>
         <template #cell-code="{ row }">

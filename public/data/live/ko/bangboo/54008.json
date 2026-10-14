@@ -1,0 +1,469 @@
+{
+ "id": 54008,
+ "code_name": "Plugboo",
+ "name": "플러그부",
+ "desc": "「삐비빅… 삑… 삐빅」",
+ "rarity": 4,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole19.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 396,
+  "hpupgrade": 471237,
+  "attack": 65,
+  "attack_upgrade": 327644,
+  "break_stun": 99,
+  "element_abnormal_power": 132,
+  "defence": 30,
+  "def_upgrade": 85729,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 207,
+   "attack": 61,
+   "defence": 38,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 414,
+   "attack": 303,
+   "defence": 75,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 621,
+   "attack": 909,
+   "defence": 113,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 828,
+   "attack": 2424,
+   "defence": 151,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 1034,
+   "attack": 6059,
+   "defence": 188,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "전류 저격",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 적에게 전자 포격을 시전해 <color=#2EB6FF>전기 속성 피해</color>를 주고, <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5400801, Prop:1001}|{Skill:5400801, Prop:1002}|16초"
+    },
+    "2": {
+     "name": "전류 저격",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 적에게 전자 포격을 시전해 <color=#2EB6FF>전기 속성 피해</color>를 주고, <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5400801, Prop:1001}|{Skill:5400801, Prop:1002}|16초"
+    },
+    "3": {
+     "name": "전류 저격",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 적에게 전자 포격을 시전해 <color=#2EB6FF>전기 속성 피해</color>를 주고, <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5400801, Prop:1001}|{Skill:5400801, Prop:1002}|16초"
+    },
+    "4": {
+     "name": "전류 저격",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 적에게 전자 포격을 시전해 <color=#2EB6FF>전기 속성 피해</color>를 주고, <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5400801, Prop:1001}|{Skill:5400801, Prop:1002}|16초"
+    },
+    "5": {
+     "name": "전류 저격",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 적에게 전자 포격을 시전해 <color=#2EB6FF>전기 속성 피해</color>를 주고, <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5400801, Prop:1001}|{Skill:5400801, Prop:1002}|16초"
+    },
+    "6": {
+     "name": "전류 저격",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 적에게 전자 포격을 시전해 <color=#2EB6FF>전기 속성 피해</color>를 주고, <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5400801, Prop:1001}|{Skill:5400801, Prop:1002}|16초"
+    },
+    "7": {
+     "name": "전류 저격",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 적에게 전자 포격을 시전해 <color=#2EB6FF>전기 속성 피해</color>를 주고, <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5400801, Prop:1001}|{Skill:5400801, Prop:1002}|16초"
+    },
+    "8": {
+     "name": "전류 저격",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 적에게 전자 포격을 시전해 <color=#2EB6FF>전기 속성 피해</color>를 주고, <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5400801, Prop:1001}|{Skill:5400801, Prop:1002}|16초"
+    },
+    "9": {
+     "name": "전류 저격",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 적에게 전자 포격을 시전해 <color=#2EB6FF>전기 속성 피해</color>를 주고, <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5400801, Prop:1001}|{Skill:5400801, Prop:1002}|16초"
+    },
+    "10": {
+     "name": "전류 저격",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 적에게 전자 포격을 시전해 <color=#2EB6FF>전기 속성 피해</color>를 주고, <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5400801, Prop:1001}|{Skill:5400801, Prop:1002}|16초"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "전파계 선수",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#2EB6FF>[전기 속성]</color> 캐릭터가 2명 이상 존재 시 발동: <color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>이 누적하는 속성 이상 축적치가 100% 증가한다.",
+     "property": [
+      "속성 이상 축적치 증가"
+     ],
+     "param": "100%"
+    },
+    "2": {
+     "name": "전파계 선수",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#2EB6FF>[전기 속성]</color> 캐릭터가 2명 이상 존재 시 발동: <color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>이 누적하는 속성 이상 축적치가 125% 증가한다.",
+     "property": [
+      "속성 이상 축적치 증가"
+     ],
+     "param": "125%"
+    },
+    "3": {
+     "name": "전파계 선수",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#2EB6FF>[전기 속성]</color> 캐릭터가 2명 이상 존재 시 발동: <color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>이 누적하는 속성 이상 축적치가 150% 증가한다.",
+     "property": [
+      "속성 이상 축적치 증가"
+     ],
+     "param": "150%"
+    },
+    "4": {
+     "name": "전파계 선수",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#2EB6FF>[전기 속성]</color> 캐릭터가 2명 이상 존재 시 발동: <color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>이 누적하는 속성 이상 축적치가 175% 증가한다.",
+     "property": [
+      "속성 이상 축적치 증가"
+     ],
+     "param": "175%"
+    },
+    "5": {
+     "name": "전파계 선수",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티 내 <color=#2EB6FF>[전기 속성]</color> 캐릭터가 2명 이상 존재 시 발동: <color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>이 누적하는 속성 이상 축적치가 200% 증가한다.",
+     "property": [
+      "속성 이상 축적치 증가"
+     ],
+     "param": "200%"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "고압 전기 저항",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n주변 넓은 범위 내 적에게 강력한 전기 속성 공격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고, 대량의 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5400802, Prop:1001}|{Skill:5400802, Prop:1002}"
+    },
+    "2": {
+     "name": "고압 전기 저항",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n주변 넓은 범위 내 적에게 강력한 전기 속성 공격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고, 대량의 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5400802, Prop:1001}|{Skill:5400802, Prop:1002}"
+    },
+    "3": {
+     "name": "고압 전기 저항",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n주변 넓은 범위 내 적에게 강력한 전기 속성 공격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고, 대량의 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5400802, Prop:1001}|{Skill:5400802, Prop:1002}"
+    },
+    "4": {
+     "name": "고압 전기 저항",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n주변 넓은 범위 내 적에게 강력한 전기 속성 공격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고, 대량의 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5400802, Prop:1001}|{Skill:5400802, Prop:1002}"
+    },
+    "5": {
+     "name": "고압 전기 저항",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n주변 넓은 범위 내 적에게 강력한 전기 속성 공격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고, 대량의 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5400802, Prop:1001}|{Skill:5400802, Prop:1002}"
+    },
+    "6": {
+     "name": "고압 전기 저항",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n주변 넓은 범위 내 적에게 강력한 전기 속성 공격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고, 대량의 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5400802, Prop:1001}|{Skill:5400802, Prop:1002}"
+    },
+    "7": {
+     "name": "고압 전기 저항",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n주변 넓은 범위 내 적에게 강력한 전기 속성 공격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고, 대량의 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5400802, Prop:1001}|{Skill:5400802, Prop:1002}"
+    },
+    "8": {
+     "name": "고압 전기 저항",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n주변 넓은 범위 내 적에게 강력한 전기 속성 공격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고, 대량의 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5400802, Prop:1001}|{Skill:5400802, Prop:1002}"
+    },
+    "9": {
+     "name": "고압 전기 저항",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n주변 넓은 범위 내 적에게 강력한 전기 속성 공격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고, 대량의 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5400802, Prop:1001}|{Skill:5400802, Prop:1002}"
+    },
+    "10": {
+     "name": "고압 전기 저항",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n주변 넓은 범위 내 적에게 강력한 전기 속성 공격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고, 대량의 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5400802, Prop:1001}|{Skill:5400802, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5400801": {
+   "1001": {
+    "main": 51200,
+    "growth": 5120,
+    "format": "%"
+   },
+   "1002": {
+    "main": 18700,
+    "growth": 1870,
+    "format": "%"
+   },
+   "element_accumulation_value": 24000
+  },
+  "5400802": {
+   "1001": {
+    "main": 68800,
+    "growth": 6880,
+    "format": "%"
+   },
+   "1002": {
+    "main": 9800,
+    "growth": 980,
+    "format": "%"
+   },
+   "element_accumulation_value": 29500
+  },
+  "5400803": {
+   "1001": {
+    "main": 2400,
+    "growth": 240,
+    "format": "%"
+   },
+   "1002": {
+    "main": 700,
+    "growth": 70,
+    "format": "%"
+   },
+   "element_accumulation_value": 900
+  },
+  "5400804": {
+   "1001": {
+    "main": 60000,
+    "growth": 6000,
+    "format": "%"
+   },
+   "1002": {
+    "main": 17600,
+    "growth": 1760,
+    "format": "%"
+   },
+   "element_accumulation_value": 22500
+  }
+ }
+}

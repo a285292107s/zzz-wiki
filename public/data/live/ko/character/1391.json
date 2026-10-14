@@ -1,0 +1,2071 @@
+{
+ "id": 1391,
+ "icon": "IconRole43",
+ "name": "귤복복",
+ "code_name": "Ju Fufu",
+ "rarity": 4,
+ "weapon_type": {
+  "2": "Stun"
+ },
+ "element_type": {
+  "201": "Fire"
+ },
+ "hit_type": {
+  "102": "Strike"
+ },
+ "camp": {
+  "10": "운규산"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "1/6",
+  "full_name": "귤복복",
+  "gender": "여성",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle43.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0043.png",
+  "impression_f": "「엄청나게 대단한 대사저! 위풍당당한 정의의 편이지!」——복복 사저도 은근히 우쭐대는 모습이 있네. 귀여워! 음… 오빠도 이런 적이 있었던 것 같은데?",
+  "impression_m": "그런 적 없거든——자그마한 체구의 복복 사저가 나를 「사제」라고 부르는 게 아직도 어색하네. 하지만 복복 사저는 임무 중이든 일상생활에서든 대사저다운 재능과 품격을 지녔지. 다음에 우리가 적어둔 노트를 우연히 보게 하는 건 어때? 분명 부끄러워하면서도 속으로는 좋아할 거야",
+  "impressions": [
+   "귤복복에 대한 인상:\n · 운규산의 작은 호랑이, 요괴 퇴치에 가장 능하며, 악당을 처단하는 것을 중요하게 여긴다",
+   " · 그냥관의 작은 사부님은 신통방통하고, 행동거지도 위풍당당하다",
+   " · 파에톤의 대사저는 말썽을 피우면 뒤를 봐주고, 사고를 치면 대신 빌어준다"
+  ],
+  "profile_desc": "귤복복은 뉴에리두에서도 보기 드문 시렌으로, 키도 나이도 어리지만 그냥관의 대사저이자, 의현 문하에 가장 먼저 들어온 제자 중 한 명이다.\n\n「무슨 일이든 척척 해내요」, 「심지어 사부님도 말을 듣게 할 수 있어요」, 「가장 꼼꼼하게 지도해주시죠」, 「회식 식당 선정 안목이 훌륭해요」\n——운규산 수행자 평가 기록, 제자 상호 평가란\n\n「사부님이 시키신 일에서 늘 실수를 해요」, 「말을 하든 싸움을 하든 기세가 약해요」, 「악당한테 으름장을 놓을 줄을 몰라요」, 「다른 사제사매들이 저보다 더 뛰어나요」\n——운규산 수행자 평가 기록, 제자 자기 평가란\n\n「엄청나게 대단한 대사저! 위풍당당한 정의의 편이지——기숙사를 지나가다 복복이의 혼잣말을 들었어. 흠, 나도 동의하는 말이야」\n——운규산 수행자 평가 기록, 사부님 평가란\n\n추신: 운규산의 네트워크 보안 강화 작업을 제안드립니다. 제자들의 개인정보 유출 위험을 줄일 필요가 있겠네요.",
+  "role_icon": "IconRole/UnPacker/IconRole43",
+  "stature": "142",
+  "unlock_condition": [
+   "에이전트 획득",
+   "메인 스토리 의뢰 시즌 2 제1장 완료",
+   "「엔비의 고민」 의뢰 완료"
+  ],
+  "trust_lv": {
+   "1": "귤복복은 뉴에리두에서도 보기 드문 시렌으로, 키도 나이도 어리지만 그냥관의 대사저이자, 의현 문하에 가장 먼저 들어온 제자 중 한 명이다.\n\n「무슨 일이든 척척 해내요」, 「심지어 사부님도 말을 듣게 할 수 있어요」, 「가장 꼼꼼하게 지도해주시죠」, 「회식 식당 선정 안목이 훌륭해요」\n——운규산 수행자 평가 기록, 제자 상호 평가란\n\n「사부님이 시키신 일에서 늘 실수를 해요」, 「말을 하든 싸움을 하든 기세가 약해요」, 「악당한테 으름장을 놓을 줄을 몰라요」, 「다른 사제사매들이 저보다 더 뛰어나요」\n——운규산 수행자 평가 기록, 제자 자기 평가란\n\n「엄청나게 대단한 대사저! 위풍당당한 정의의 편이지——기숙사를 지나가다 복복이의 혼잣말을 들었어. 흠, 나도 동의하는 말이야」\n——운규산 수행자 평가 기록, 사부님 평가란\n\n추신: 운규산의 네트워크 보안 강화 작업을 제안드립니다. 제자들의 개인정보 유출 위험을 줄일 필요가 있겠네요.",
+   "2": "",
+   "3": "호랑이 시렌은 뉴에리두 도심에서 멀리 떨어진 산림 지대에 정착해 살았던 시렌족이다. 야누스 구역 거리의 감시 카메라 기록을 표본으로 추산한 바에 따르면, 현재 뉴에리두 지역에서 활동하는 호랑이 시렌 시민은 20명 이하이다.\n\n옛 도시 함락 사건 당시, 제로 공동의 2차 공동 재해가 호랑이 시렌 거주지에서도 발생했다. 기록에 따르면, 공동은 갑자기 생성되었으며 거주지를 삼켜버렸다. 해당 공동에서 다수의 노토리우스 에테리얼이 출현했고, 등록된 호랑이 시렌 시민의 98%가 해당 공동 재해로 목숨을 잃었다. 생존자 대부분은 노인과 환자, 어린이와 약자들이었다. 만약 운규산 소속 수행자들이 30분 안에 거주지에 도착해 구조 작업을 펼치지 않았다면, 「귤복복」이라는 이름은 에이전트 파일에 등장할 수 없었을 것이다.\n\n운규산 수행자 조직의 기록된 날짜를 종합해 보면, 귤복복은 옛 도시 함락 시기에 이미 현 운규산의 지도자인 의현의 문하에 들어간 것으로 추측된다.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 110,
+  "attack_growth": 65027,
+  "avatar_piece_id": 5391,
+  "break_stun": 118,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 48,
+  "defence_growth": 65185,
+  "element_abnormal_power": 93,
+  "element_mystery": 96,
+  "endurance": 0,
+  "hp_growth": 900269,
+  "hp_max": 663,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Jufufu",
+   "Punch",
+   "Fire",
+   "Female",
+   "Camp10",
+   "Size1",
+   "AidTypeParry",
+   "Jufufu",
+   "EtherEyesSize1"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "일반 공격: 대호칠식·강렬한 발톱",
+     "desc": "<IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 향해 최대 4단까지 베기를 펼쳐 <color=#F0D12B>물리 피해</color> 및 <color=#FF5521>불 속성 피해</color>를 준다.\n세 번째 공격 중 연속으로 <IconMap:Icon_Normal>을 짧게 탭하면 연격을 유지하여 적을 지속적으로 타격할 수 있다.\n세 번째 공격 중 홀드하거나 잠시 멈췄다가 <IconMap:Icon_Normal>을 짧게 탭하면 네 번째 공격으로 이어진다.\n세 번째 공격 중에는 경직 저항 레벨이 증가하고, 받는 피해가 40% 감소한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 「호위」",
+     "desc": "전투 중, 「호위」가 자동으로 적을 공격해 <color=#FF5521>불 속성 피해</color>를 준다.\n적에게 명중 시 <color=#FFFFFF>[위풍]</color>을 20pt 획득하며, 스킬당 최대 1회만 발동된다. <color=#FFFFFF>[위풍]</color> 최대치: 200pt",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 대호칠식·강렬한 발톱",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1391001, Prop:1001}",
+       "param": {
+        "1391001": {
+         "main": 4250,
+         "growth": 390,
+         "format": "%",
+         "damage_percentage": 4250,
+         "damage_percentage_growth": 390,
+         "stun_ratio": 4850,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 15870,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 121275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4407
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1391002, Prop:1001}",
+       "param": {
+        "1391002": {
+         "main": 4520,
+         "growth": 420,
+         "format": "%",
+         "damage_percentage": 4520,
+         "damage_percentage_growth": 420,
+         "stun_ratio": 3910,
+         "stun_ratio_growth": 180,
+         "sp_recovery": 12790,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 97900,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3552
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1391003, Prop:1001}",
+       "param": {
+        "1391003": {
+         "main": 3150,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 3150,
+         "damage_percentage_growth": 290,
+         "stun_ratio": 4850,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 15860,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 121275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4404,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4405
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 피해 배율",
+       "desc": "{Skill:1391004, Prop:1001}",
+       "param": {
+        "1391004": {
+         "main": 21840,
+         "growth": 1990,
+         "format": "%",
+         "damage_percentage": 21840,
+         "damage_percentage_growth": 1990,
+         "stun_ratio": 13390,
+         "stun_ratio_growth": 610,
+         "sp_recovery": 43820,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 334950,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12171,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12172
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1391001, Prop:1002}",
+       "param": {
+        "1391001": {
+         "main": 4850,
+         "growth": 230,
+         "format": "%",
+         "damage_percentage": 4250,
+         "damage_percentage_growth": 390,
+         "stun_ratio": 4850,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 15870,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 121275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4407
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1391002, Prop:1002}",
+       "param": {
+        "1391002": {
+         "main": 3910,
+         "growth": 180,
+         "format": "%",
+         "damage_percentage": 4520,
+         "damage_percentage_growth": 420,
+         "stun_ratio": 3910,
+         "stun_ratio_growth": 180,
+         "sp_recovery": 12790,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 97900,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3552
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1391003, Prop:1002}",
+       "param": {
+        "1391003": {
+         "main": 4850,
+         "growth": 230,
+         "format": "%",
+         "damage_percentage": 3150,
+         "damage_percentage_growth": 290,
+         "stun_ratio": 4850,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 15860,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 121275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4404,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4405
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 그로기 배율",
+       "desc": "{Skill:1391004, Prop:1002}",
+       "param": {
+        "1391004": {
+         "main": 13390,
+         "growth": 610,
+         "format": "%",
+         "damage_percentage": 21840,
+         "damage_percentage_growth": 1990,
+         "stun_ratio": 13390,
+         "stun_ratio_growth": 610,
+         "sp_recovery": 43820,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 334950,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12171,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12172
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 「호위」",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1391005, Prop:1001}",
+       "param": {
+        "1391005": {
+         "main": 9240,
+         "growth": 840,
+         "format": "%",
+         "damage_percentage": 9240,
+         "damage_percentage_growth": 840,
+         "stun_ratio": 6930,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1391005, Prop:1002}",
+       "param": {
+        "1391005": {
+         "main": 6930,
+         "growth": 320,
+         "format": "%",
+         "damage_percentage": 9240,
+         "damage_percentage_growth": 840,
+         "stun_ratio": 6930,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "회피: 대호칠식·호랑이를 따르는 바람",
+     "desc": "<IconMap:Icon_Evade>을 짧게 탭하여 시전:\n빠른 대시로 회피한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 대호칠식·질주하는 호랑이",
+     "desc": "회피 시 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 빠르게 베어 <color=#F0D12B>물리 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 대호칠식·산군의 놀음",
+     "desc": "<color=#FFFFFF>[대시 공격: 대호칠식·질주하는 호랑이]</color> 시전 후 <IconMap:Icon_Normal>을 홀드하여 시전:\n고속 회전 상태에 진입한다. 해당 상태에서는 {LAYOUT_CONSOLECONTROLLER#스틱을}{LAYOUT_FALLBACK#방향키를} 드래그해 이동할 수 있으며 적에게 닿으면 <color=#F0D12B>물리 피해</color>를 준다.\n귤복복이 다른 스킬을 통해 <color=#FFFFFF>[위세]</color>를 획득한 후, 고속 회전 상태에서 화염을 가진다. 적에게 닿으면 <color=#FFFFFF>[위세]</color>를 1pt 소모하며, <color=#FF5521>불 속성 피해</color>를 주고 <color=#FFFFFF>[위풍]</color>을 25pt 획득하는 것으로 변경된다. <color=#FFFFFF>[위세]</color> 최대치: 15pt\n귤복복이 <color=#FFFFFF>[위세]</color>를 소모하여 <color=#FF5521>불 속성 피해</color>를 줄 시, 만약 <color=#FFFFFF>[위풍]</color>이 100pt를 넘으면 자동으로 <color=#FFFFFF>[위풍]</color>을 100pt 소모해 <color=#FFFFFF>[콤보 스킬: 호랑솥·진살]</color>을 시전한다.\n<IconMap:Icon_Normal> 에서 손을 떼면 회전 상태가 종료되며 <color=#FFFFFF>「호위」</color>를 던져 적을 공격하며, <color=#FF5521>불속성 피해</color>를 준다. 다른 캐릭터로 교체 시 귤복복은 계속해서 회전 상태를 유지하며 가장 가까운 적에게 돌진한다.\n귤복복이 현재 조작 중인 캐릭터이면 스킬 시전 기간 동안 받는 피해가 40% 감소하고 경직 저항 레벨이 증가하며, 현재 조작 중인 캐릭터가 아니면 무적 효과를 획득한다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 대호칠식·불타는 산",
+     "desc": "<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적을 여러 번 베어 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 대호칠식·질주하는 호랑이",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1391008, Prop:1001}",
+       "param": {
+        "1391008": {
+         "main": 3680,
+         "growth": 340,
+         "format": "%",
+         "damage_percentage": 3680,
+         "damage_percentage_growth": 340,
+         "stun_ratio": 1840,
+         "stun_ratio_growth": 90,
+         "sp_recovery": 6010,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 45925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1669
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1391008, Prop:1002}",
+       "param": {
+        "1391008": {
+         "main": 1840,
+         "growth": 90,
+         "format": "%",
+         "damage_percentage": 3680,
+         "damage_percentage_growth": 340,
+         "stun_ratio": 1840,
+         "stun_ratio_growth": 90,
+         "sp_recovery": 6010,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 45925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1669
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 대호칠식·산군의 놀음",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1391009, Prop:1001}",
+       "param": {
+        "1391009": {
+         "main": 1840,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 1840,
+         "damage_percentage_growth": 170,
+         "stun_ratio": 1840,
+         "stun_ratio_growth": 90,
+         "sp_recovery": 6010,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 45925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1391009, Prop:1002}",
+       "param": {
+        "1391009": {
+         "main": 1840,
+         "growth": 90,
+         "format": "%",
+         "damage_percentage": 1840,
+         "damage_percentage_growth": 170,
+         "stun_ratio": 1840,
+         "stun_ratio_growth": 90,
+         "sp_recovery": 6010,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 45925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 대호칠식·산군의 놀음·위세",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1391010, Prop:1001}",
+       "param": {
+        "1391010": {
+         "main": 1920,
+         "growth": 180,
+         "format": "%",
+         "damage_percentage": 1920,
+         "damage_percentage_growth": 180,
+         "stun_ratio": 870,
+         "stun_ratio_growth": 40,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1391010, Prop:1002}",
+       "param": {
+        "1391010": {
+         "main": 870,
+         "growth": 40,
+         "format": "%",
+         "damage_percentage": 1920,
+         "damage_percentage_growth": 180,
+         "stun_ratio": 870,
+         "stun_ratio_growth": 40,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 대호칠식·산군의 놀음·「호위」",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1391022, Prop:1001}",
+       "param": {
+        "1391022": {
+         "main": 9240,
+         "growth": 840,
+         "format": "%",
+         "damage_percentage": 9240,
+         "damage_percentage_growth": 840,
+         "stun_ratio": 6930,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1391022, Prop:1002}",
+       "param": {
+        "1391022": {
+         "main": 6930,
+         "growth": 320,
+         "format": "%",
+         "damage_percentage": 9240,
+         "damage_percentage_growth": 840,
+         "stun_ratio": 6930,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 대호칠식·불타는 산",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1391011, Prop:1001}",
+       "param": {
+        "1391011": {
+         "main": 20780,
+         "growth": 1890,
+         "format": "%",
+         "damage_percentage": 20780,
+         "damage_percentage_growth": 1890,
+         "stun_ratio": 18530,
+         "stun_ratio_growth": 850,
+         "sp_recovery": 24620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 188100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6836,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21837
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1391011, Prop:1002}",
+       "param": {
+        "1391011": {
+         "main": 18530,
+         "growth": 850,
+         "format": "%",
+         "damage_percentage": 20780,
+         "damage_percentage_growth": 1890,
+         "stun_ratio": 18530,
+         "stun_ratio_growth": 850,
+         "sp_recovery": 24620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 188100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6836,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21837
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "특수 스킬: 대호칠식·산에서 내려온 호랑이",
+     "desc": "<IconMap:Icon_Special>을 짧게 탭하여 시전:\n전방을 향해 스핀 베기 후 낙하 베기를 시전해 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 대호칠식·개조·산에서 내려온 맹호",
+     "desc": "에너지가 충분한 상태에서 <IconMap:Icon_SpecialReady>을 짧게 탭하여 시전:\n<color=#FFFFFF>「호위」</color>를 휘둘러 전방을 강력하게 타격해 대량의 <color=#FF5521>불 속성 피해</color>를 준다.\n시전 시 <color=#FFFFFF>[위세]</color> 3pt 및 <color=#FFFFFF>[위풍]</color> 80pt를 획득한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 대호칠식·산에서 내려온 호랑이",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1391006, Prop:1001}",
+       "param": {
+        "1391006": {
+         "main": 6610,
+         "growth": 610,
+         "format": "%",
+         "damage_percentage": 6610,
+         "damage_percentage_growth": 610,
+         "stun_ratio": 6610,
+         "stun_ratio_growth": 310,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 165275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6001,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6002
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1391006, Prop:1002}",
+       "param": {
+        "1391006": {
+         "main": 6610,
+         "growth": 310,
+         "format": "%",
+         "damage_percentage": 6610,
+         "damage_percentage_growth": 610,
+         "stun_ratio": 6610,
+         "stun_ratio_growth": 310,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 165275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6001,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6002
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 대호칠식·개조·산에서 내려온 맹호",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1391007, Prop:1001}",
+       "param": {
+        "1391007": {
+         "main": 52650,
+         "growth": 4790,
+         "format": "%",
+         "damage_percentage": 52650,
+         "damage_percentage_growth": 4790,
+         "stun_ratio": 34410,
+         "stun_ratio_growth": 1570,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1819675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 51212,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16331
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1391007, Prop:1002}",
+       "param": {
+        "1391007": {
+         "main": 34410,
+         "growth": 1570,
+         "format": "%",
+         "damage_percentage": 52650,
+         "damage_percentage_growth": 4790,
+         "stun_ratio": 34410,
+         "stun_ratio_growth": 1570,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1819675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 51212,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16331
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "에너지 소모",
+       "desc": "60pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "콤보 스킬: 호랑솥·붕괴",
+     "desc": "<color=#FFFFFF>[콤보 스킬]</color> 발동 시 해당 캐릭터를 선택해 시전:\n「호위」를 휘둘러 전방 작은 범위 내 적을 강력하게 타격해 대량의 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 호랑솥·진살",
+     "desc": "<color=#FFFFFF>[위풍]</color>을 최소 100pt 보유한 상태에서 <color=#FFFFFF>[콤보 스킬]</color> 발동 후 자동으로 시전:\n<color=#FFFFFF>[위풍]</color>을 100pt 소모하고, 「호위」를 열어 전방 작은 범위 내 적에게 화염 및 팝콘을 발사해 적을 타격하여 대량의 <color=#FF5521>불 속성 피해</color>를 준다.\n<color=#FFFFFF>[위세]</color>를 보유하고 있으면서 조작 중인 캐릭터가 아닌 경우, 스킬이 끝나면 고속 회전 상태에 진입한다.\n스킬은 <color=#FFFFFF>[여진 공격]</color>이며 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "궁극기: 대호칠식·맹호폭발",
+     "desc": "데시벨 레벨 <color=#FFFFFF>[Maximum]</color> 달성 시 <IconMap:Icon_UltimateReady>을 짧게 탭하여 시전:\n「호위」를 사용하여 낙하 공격 2회로 대량의 <color=#FF5521>불 속성 피해</color>를 준다.\n시전 시 <color=#FFFFFF>[위세]</color> 6pt 및 <color=#FFFFFF>[위풍]</color> 100pt를 획득한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 호랑솥·붕괴",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1391012, Prop:1001}",
+       "param": {
+        "1391012": {
+         "main": 66810,
+         "growth": 6080,
+         "format": "%",
+         "damage_percentage": 66810,
+         "damage_percentage_growth": 6080,
+         "stun_ratio": 16050,
+         "stun_ratio_growth": 730,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1487475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 30808,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1391012, Prop:1002}",
+       "param": {
+        "1391012": {
+         "main": 16050,
+         "growth": 730,
+         "format": "%",
+         "damage_percentage": 66810,
+         "damage_percentage_growth": 6080,
+         "stun_ratio": 16050,
+         "stun_ratio_growth": 730,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1487475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 30808,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 호랑솥·진살",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1391013, Prop:1001}",
+       "param": {
+        "1391013": {
+         "main": 35450,
+         "growth": 3230,
+         "format": "%",
+         "damage_percentage": 35450,
+         "damage_percentage_growth": 3230,
+         "stun_ratio": 22160,
+         "stun_ratio_growth": 1010,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 454025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6041,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1391013, Prop:1002}",
+       "param": {
+        "1391013": {
+         "main": 22160,
+         "growth": 1010,
+         "format": "%",
+         "damage_percentage": 35450,
+         "damage_percentage_growth": 3230,
+         "stun_ratio": 22160,
+         "stun_ratio_growth": 1010,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 454025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6041,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "궁극기: 대호칠식·맹호폭발",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1391014, Prop:1001}",
+       "param": {
+        "1391014": {
+         "main": 166380,
+         "growth": 15130,
+         "format": "%",
+         "damage_percentage": 166380,
+         "damage_percentage_growth": 15130,
+         "stun_ratio": 109070,
+         "stun_ratio_growth": 4960,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 21003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 71004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1391014, Prop:1002}",
+       "param": {
+        "1391014": {
+         "main": 109070,
+         "growth": 4960,
+         "format": "%",
+         "damage_percentage": 166380,
+         "damage_percentage_growth": 15130,
+         "stun_ratio": 109070,
+         "stun_ratio_growth": 4960,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 21003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 71004
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "빠른 지원: 뿔난 호랑이",
+     "desc": "현재 조작 중인 캐릭터가 넉업되면 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n전방의 적을 베어 <color=#FF5521>불 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 굳건한 호랑이",
+     "desc": "출전 캐릭터 피격 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적의 공격을 패링하고 대량의 그로기 수치를 누적한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 야수의 근성",
+     "desc": "<color=#FFFFFF>[패링 지원]</color> 시전 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적을 벤 후 <color=#FFFFFF>「호위」</color>를 사용해 낙하 공격을 1회 시전하여 <color=#FF5521>불 속성 피해</color>를 준다.\n시전 시 <color=#FFFFFF>[위세]</color>를 1pt 획득한다. 10초 동안 최대 1회 획득할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 뿔난 호랑이",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1391015, Prop:1001}",
+       "param": {
+        "1391015": {
+         "main": 7530,
+         "growth": 690,
+         "format": "%",
+         "damage_percentage": 7530,
+         "damage_percentage_growth": 690,
+         "stun_ratio": 3770,
+         "stun_ratio_growth": 180,
+         "sp_recovery": 12310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 94050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3418,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3419
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1391015, Prop:1002}",
+       "param": {
+        "1391015": {
+         "main": 3770,
+         "growth": 180,
+         "format": "%",
+         "damage_percentage": 7530,
+         "damage_percentage_growth": 690,
+         "stun_ratio": 3770,
+         "stun_ratio_growth": 180,
+         "sp_recovery": 12310,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 94050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3418,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3419
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 굳건한 호랑이",
+     "param": [
+      {
+       "name": "가벼운 패링 그로기 배율",
+       "desc": "{Skill:1391016, Prop:1002}",
+       "param": {
+        "1391016": {
+         "main": 20130,
+         "growth": 920,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 20130,
+         "stun_ratio_growth": 920,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강한 패링 그로기 배율",
+       "desc": "{Skill:1391017, Prop:1002}",
+       "param": {
+        "1391017": {
+         "main": 27280,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27280,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 패링 그로기 배율",
+       "desc": "{Skill:1391018, Prop:1002}",
+       "param": {
+        "1391018": {
+         "main": 13680,
+         "growth": 630,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 13680,
+         "stun_ratio_growth": 630,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 야수의 근성",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1391019, Prop:1001}",
+       "param": {
+        "1391019": {
+         "main": 40720,
+         "growth": 3710,
+         "format": "%",
+         "damage_percentage": 40720,
+         "damage_percentage_growth": 3710,
+         "stun_ratio": 25630,
+         "stun_ratio_growth": 1170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1145100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 34697,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18501
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1391019, Prop:1002}",
+       "param": {
+        "1391019": {
+         "main": 25630,
+         "growth": 1170,
+         "format": "%",
+         "damage_percentage": 40720,
+         "damage_percentage_growth": 3710,
+         "stun_ratio": 25630,
+         "stun_ratio_growth": 1170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1145100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 34697,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18501
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "무시무시한 작은 호랑이",
+   "desc": "전장 진입 시 귤복복의 치명타 확률이 12% 증가하고, 즉시 <color=#FFFFFF>[위풍]</color>을 100pt 획득한다. 귤복복의 <color=#FFFFFF>[콤보 스킬]</color>이 적에게 명중했을 때 타깃이 그로기 상태인 경우, 그로기 약체화 배율이 35% 증가한다. 지속 시간: 30초",
+   "desc2": "「삶과 죽음, 이별이란 화제는 아이들에겐 너무 어렵고, 어른들에겐 너무 무겁고, 노인들에겐 너무 잔혹해」\n「하지만 난 두렵지 않아—— 나는 두려움을 모르는 호랑이 시렌이니까, 일찍이 깨달았지」\n「나는 무시무시한 호랑이야. 귀여운 동물들은 내 눈을 똑바로 보지 말아줘!」"
+  },
+  "2": {
+   "level": 2,
+   "name": "신통한 청명의 유협",
+   "desc": "<color=#FFFFFF>[어흥]</color> 상태에서 캐릭터의 치명타 피해가 추가로 22% 증가한다. 임의의 캐릭터가 <color=#FFFFFF>[궁극기]</color> 시전 시 귤복복이 <color=#FFFFFF>[위세]</color>를 3pt 회복한다.",
+   "desc2": "「사부님이 가르쳐 주신 술법은 정말 신기해요. 동화나 전설에는 못 미치지만요」\n「제가 좀 더—— 조금만 더 강해진다면, 운명처럼 정해진 과거를 모두 다시 시작할 수 있지 않을까요? 동화나 전설처럼요」\n「저도 처음엔 감이 안 왔는데, 사실 요령만 알면 쉬워요. 제가 가르쳐드릴게요, {F#사매님}{M#사제님}!」"
+  },
+  "3": {
+   "level": 3,
+   "name": "의로운 어린 협객",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "「선과 악은 한 끗 차이일지도 몰라. 그리고 그 차이는 수많은 아쉬움과 만약을, 그리고 희생과 사랑을 남기지」\n「나는 똑똑하지 않고, 도리에 대해서도 잘 몰라. 그러니 내가 옳다고 생각하는 선택을 할 수밖에」\n「복복 대협이 있는 곳엔 정의가 함께할 거야!」"
+  },
+  "4": {
+   "level": 4,
+   "name": "요마 잡는 호랑이 수행자",
+   "desc": "귤복복이 <color=#FFFFFF>[어흥]</color> 상태일 때 자신의 치명타 피해가 35% 증가한다.",
+   "desc2": "「에테리얼도, 도적도, 공동도, 별 한 점 없는 어두운 밤도 무서워—— 하지만 난 운규산에서 제일 대단한 수행자니까, 물러서지 않아. 내 이야기가 다시 반복되는 걸 볼 순 없어」\n「어둠이 풍경을 삼키니, 산과 달과 구름도 견디지 못하네」\n「난 운규산에서 제일 대단한 수행자야! 요마들아, 어서 물러가라!」"
+  },
+  "5": {
+   "level": 5,
+   "name": "천하무적 대사저",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "「대사저가 왔으니 다들 안심해!」\n「어릴 적 내가 기다리던 영웅은 오지 않았지만, 난 널 기다리게 하지 않을 거야—— 내가 네 영웅이 될 테니까」\n「복복이는 괴롭혀도 되지만 사제와 사매는 안 돼! 내가 상대해 주마! 흐아압——!」"
+  },
+  "6": {
+   "level": 6,
+   "name": "내 안의 호랑이의 포효",
+   "desc": "귤복복의 <color=#FFFFFF>[콤보 스킬]</color>로 주는 피해가 30% 증가한다. 귤복복이 고속 회전 상태에서 <color=#FFFFFF>[위세]</color>를 소모하고 적에게 명중 시, 팝콘을 3개 발사하며, 팝콘 1개당 귤복복 공격력의 160%에 해당하는 피해를 준다. 또한 주는 피해는 <color=#FFFFFF>[콤보 스킬]</color> 피해로 간주한다.",
+   "desc2": "「위풍이 산 위의 달을 흔들고, 기개로 동굴을 평정하네—— 사저, 이 구절에 대해 어떻게 생각해? 사저의 위풍당당한 기개가 잘 표현됐어?」\n「명성도, 아쉬움도, 눈물도 중요하지 않아요. 언젠가 다가올 이별조차도 괜찮아요」\n「제가 한때 용감하게 포효했다는 것을, 당신이 기억해 주기만 한다면요」"
+  }
+ },
+ "passive": {
+  "level": {
+   "1391501": {
+    "level": 1,
+    "id": 1391501,
+    "name": [
+     "핵심 패시브: 늠름한 호랑이",
+     "추가 능력: 위풍당당"
+    ],
+    "desc": [
+     "귤복복이 「호위」를 사용하지 않을 때, 「호위」는 자동으로 적을 공격하며 적에게 명중 시 <color=#FFFFFF>[위풍]</color>을 획득한다.\n「호위」가 적에게 명중했을 때, <color=#FFFFFF>[위풍]</color>을 최소 100pt 보유하고 있으며 귤복복이 현재 조작 중인 캐릭터가 아닌 경우, 귤복복이 타깃 적을 에워싸고 <color=#FFFFFF>[콤보 스킬: 호랑솥·진살]</color>을 시전한다. 시전 시, 파티 내 모든 캐릭터가 <color=#FFFFFF>[어흥]</color> 효과를 획득한다: 치명타 피해가 <color=#2BAD00>10%</color> 증가하고, 귤복복의 초기 공격력이 2800pt 이상일 시 초과한 공격력 100pt당 치명타 피해가 추가로 5% 증가한다. 최대 추가 증가: 30%\n<color=#FFFFFF>[어흥]</color> 상태에서 캐릭터의 <color=#FFFFFF>[콤보 스킬]</color>/<color=#FFFFFF>[궁극기]</color>로 주는 피해가 <color=#2BAD00>10%/20%</color> 증가한다.\n<color=#FFFFFF>[어흥]</color> 상태는 30초 동안 지속되며 중복 발동 시 지속 시간이 갱신된다. 귤복복이 <color=#FFFFFF>[어흥]</color> 효과를 보유 중인 경우, 충격력이 <color=#2BAD00>25pt</color> 증가한다.",
+     "파티 내 <color=#FFFFFF>[강공]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터 존재 시 발동:\n파티 내 모든 캐릭터의 데시벨 최대치가 1000pt 증가하고, <color=#FFFFFF>[강공]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터가 <color=#FFFFFF>[궁극기]</color> 시전 시 해당 캐릭터가 데시벨을 300pt 획득한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1391502": {
+    "level": 2,
+    "id": 1391502,
+    "name": [
+     "핵심 패시브: 늠름한 호랑이",
+     "추가 능력: 위풍당당"
+    ],
+    "desc": [
+     "귤복복이 「호위」를 사용하지 않을 때, 「호위」는 자동으로 적을 공격하며 적에게 명중 시 <color=#FFFFFF>[위풍]</color>을 획득한다.\n「호위」가 적에게 명중했을 때, <color=#FFFFFF>[위풍]</color>을 최소 100pt 보유하고 있으며 귤복복이 현재 조작 중인 캐릭터가 아닌 경우, 귤복복이 타깃 적을 에워싸고 <color=#FFFFFF>[콤보 스킬: 호랑솥·진살]</color>을 시전한다. 시전 시, 파티 내 모든 캐릭터가 <color=#FFFFFF>[어흥]</color> 효과를 획득한다: 치명타 피해가 <color=#2BAD00>11.7%</color> 증가하고, 귤복복의 초기 공격력이 2800pt 이상일 시 초과한 공격력 100pt당 치명타 피해가 추가로 5% 증가한다. 최대 추가 증가: 30%\n<color=#FFFFFF>[어흥]</color> 상태에서 캐릭터의 <color=#FFFFFF>[콤보 스킬]</color>/<color=#FFFFFF>[궁극기]</color>로 주는 피해가 <color=#2BAD00>11.7%/23.3%</color> 증가한다.\n<color=#FFFFFF>[어흥]</color> 상태는 30초 동안 지속되며 중복 발동 시 지속 시간이 갱신된다. 귤복복이 <color=#FFFFFF>[어흥]</color> 효과를 보유 중인 경우, 충격력이 <color=#2BAD00>29.2pt</color> 증가한다.",
+     "파티 내 <color=#FFFFFF>[강공]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터 존재 시 발동:\n파티 내 모든 캐릭터의 데시벨 최대치가 1000pt 증가하고, <color=#FFFFFF>[강공]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터가 <color=#FFFFFF>[궁극기]</color> 시전 시 해당 캐릭터가 데시벨을 300pt 획득한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1391503": {
+    "level": 3,
+    "id": 1391503,
+    "name": [
+     "핵심 패시브: 늠름한 호랑이",
+     "추가 능력: 위풍당당"
+    ],
+    "desc": [
+     "귤복복이 「호위」를 사용하지 않을 때, 「호위」는 자동으로 적을 공격하며 적에게 명중 시 <color=#FFFFFF>[위풍]</color>을 획득한다.\n「호위」가 적에게 명중했을 때, <color=#FFFFFF>[위풍]</color>을 최소 100pt 보유하고 있으며 귤복복이 현재 조작 중인 캐릭터가 아닌 경우, 귤복복이 타깃 적을 에워싸고 <color=#FFFFFF>[콤보 스킬: 호랑솥·진살]</color>을 시전한다. 시전 시, 파티 내 모든 캐릭터가 <color=#FFFFFF>[어흥]</color> 효과를 획득한다: 치명타 피해가 <color=#2BAD00>13.3%</color> 증가하고, 귤복복의 초기 공격력이 2800pt 이상일 시 초과한 공격력 100pt당 치명타 피해가 추가로 5% 증가한다. 최대 추가 증가: 30%\n<color=#FFFFFF>[어흥]</color> 상태에서 캐릭터의 <color=#FFFFFF>[콤보 스킬]</color>/<color=#FFFFFF>[궁극기]</color>로 주는 피해가 <color=#2BAD00>13.3%/26.7%</color> 증가한다.\n<color=#FFFFFF>[어흥]</color> 상태는 30초 동안 지속되며 중복 발동 시 지속 시간이 갱신된다. 귤복복이 <color=#FFFFFF>[어흥]</color> 효과를 보유 중인 경우, 충격력이 <color=#2BAD00>33.3pt</color> 증가한다.",
+     "파티 내 <color=#FFFFFF>[강공]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터 존재 시 발동:\n파티 내 모든 캐릭터의 데시벨 최대치가 1000pt 증가하고, <color=#FFFFFF>[강공]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터가 <color=#FFFFFF>[궁극기]</color> 시전 시 해당 캐릭터가 데시벨을 300pt 획득한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1391504": {
+    "level": 4,
+    "id": 1391504,
+    "name": [
+     "핵심 패시브: 늠름한 호랑이",
+     "추가 능력: 위풍당당"
+    ],
+    "desc": [
+     "귤복복이 「호위」를 사용하지 않을 때, 「호위」는 자동으로 적을 공격하며 적에게 명중 시 <color=#FFFFFF>[위풍]</color>을 획득한다.\n「호위」가 적에게 명중했을 때, <color=#FFFFFF>[위풍]</color>을 최소 100pt 보유하고 있으며 귤복복이 현재 조작 중인 캐릭터가 아닌 경우, 귤복복이 타깃 적을 에워싸고 <color=#FFFFFF>[콤보 스킬: 호랑솥·진살]</color>을 시전한다. 시전 시, 파티 내 모든 캐릭터가 <color=#FFFFFF>[어흥]</color> 효과를 획득한다: 치명타 피해가 <color=#2BAD00>15%</color> 증가하고, 귤복복의 초기 공격력이 2800pt 이상일 시 초과한 공격력 100pt당 치명타 피해가 추가로 5% 증가한다. 최대 추가 증가: 30%\n<color=#FFFFFF>[어흥]</color> 상태에서 캐릭터의 <color=#FFFFFF>[콤보 스킬]</color>/<color=#FFFFFF>[궁극기]</color>로 주는 피해가 <color=#2BAD00>15%/30%</color> 증가한다.\n<color=#FFFFFF>[어흥]</color> 상태는 30초 동안 지속되며 중복 발동 시 지속 시간이 갱신된다. 귤복복이 <color=#FFFFFF>[어흥]</color> 효과를 보유 중인 경우, 충격력이 <color=#2BAD00>37.5pt</color> 증가한다.",
+     "파티 내 <color=#FFFFFF>[강공]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터 존재 시 발동:\n파티 내 모든 캐릭터의 데시벨 최대치가 1000pt 증가하고, <color=#FFFFFF>[강공]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터가 <color=#FFFFFF>[궁극기]</color> 시전 시 해당 캐릭터가 데시벨을 300pt 획득한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1391505": {
+    "level": 5,
+    "id": 1391505,
+    "name": [
+     "핵심 패시브: 늠름한 호랑이",
+     "추가 능력: 위풍당당"
+    ],
+    "desc": [
+     "귤복복이 「호위」를 사용하지 않을 때, 「호위」는 자동으로 적을 공격하며 적에게 명중 시 <color=#FFFFFF>[위풍]</color>을 획득한다.\n「호위」가 적에게 명중했을 때, <color=#FFFFFF>[위풍]</color>을 최소 100pt 보유하고 있으며 귤복복이 현재 조작 중인 캐릭터가 아닌 경우, 귤복복이 타깃 적을 에워싸고 <color=#FFFFFF>[콤보 스킬: 호랑솥·진살]</color>을 시전한다. 시전 시, 파티 내 모든 캐릭터가 <color=#FFFFFF>[어흥]</color> 효과를 획득한다: 치명타 피해가 <color=#2BAD00>16.7%</color> 증가하고, 귤복복의 초기 공격력이 2800pt 이상일 시 초과한 공격력 100pt당 치명타 피해가 추가로 5% 증가한다. 최대 추가 증가: 30%\n<color=#FFFFFF>[어흥]</color> 상태에서 캐릭터의 <color=#FFFFFF>[콤보 스킬]</color>/<color=#FFFFFF>[궁극기]</color>로 주는 피해가 <color=#2BAD00>16.7%/33.3%</color> 증가한다.\n<color=#FFFFFF>[어흥]</color> 상태는 30초 동안 지속되며 중복 발동 시 지속 시간이 갱신된다. 귤복복이 <color=#FFFFFF>[어흥]</color> 효과를 보유 중인 경우, 충격력이 <color=#2BAD00>41.7pt</color> 증가한다.",
+     "파티 내 <color=#FFFFFF>[강공]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터 존재 시 발동:\n파티 내 모든 캐릭터의 데시벨 최대치가 1000pt 증가하고, <color=#FFFFFF>[강공]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터가 <color=#FFFFFF>[궁극기]</color> 시전 시 해당 캐릭터가 데시벨을 300pt 획득한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1391506": {
+    "level": 6,
+    "id": 1391506,
+    "name": [
+     "핵심 패시브: 늠름한 호랑이",
+     "추가 능력: 위풍당당"
+    ],
+    "desc": [
+     "귤복복이 「호위」를 사용하지 않을 때, 「호위」는 자동으로 적을 공격하며 적에게 명중 시 <color=#FFFFFF>[위풍]</color>을 획득한다.\n「호위」가 적에게 명중했을 때, <color=#FFFFFF>[위풍]</color>을 최소 100pt 보유하고 있으며 귤복복이 현재 조작 중인 캐릭터가 아닌 경우, 귤복복이 타깃 적을 에워싸고 <color=#FFFFFF>[콤보 스킬: 호랑솥·진살]</color>을 시전한다. 시전 시, 파티 내 모든 캐릭터가 <color=#FFFFFF>[어흥]</color> 효과를 획득한다: 치명타 피해가 <color=#2BAD00>18.3%</color> 증가하고, 귤복복의 초기 공격력이 2800pt 이상일 시 초과한 공격력 100pt당 치명타 피해가 추가로 5% 증가한다. 최대 추가 증가: 30%\n<color=#FFFFFF>[어흥]</color> 상태에서 캐릭터의 <color=#FFFFFF>[콤보 스킬]</color>/<color=#FFFFFF>[궁극기]</color>로 주는 피해가 <color=#2BAD00>18.3%/36.7%</color> 증가한다.\n<color=#FFFFFF>[어흥]</color> 상태는 30초 동안 지속되며 중복 발동 시 지속 시간이 갱신된다. 귤복복이 <color=#FFFFFF>[어흥]</color> 효과를 보유 중인 경우, 충격력이 <color=#2BAD00>45.8pt</color> 증가한다.",
+     "파티 내 <color=#FFFFFF>[강공]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터 존재 시 발동:\n파티 내 모든 캐릭터의 데시벨 최대치가 1000pt 증가하고, <color=#FFFFFF>[강공]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터가 <color=#FFFFFF>[궁극기]</color> 시전 시 해당 캐릭터가 데시벨을 300pt 획득한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1391507": {
+    "level": 7,
+    "id": 1391507,
+    "name": [
+     "핵심 패시브: 늠름한 호랑이",
+     "추가 능력: 위풍당당"
+    ],
+    "desc": [
+     "귤복복이 「호위」를 사용하지 않을 때, 「호위」는 자동으로 적을 공격하며 적에게 명중 시 <color=#FFFFFF>[위풍]</color>을 획득한다.\n「호위」가 적에게 명중했을 때, <color=#FFFFFF>[위풍]</color>을 최소 100pt 보유하고 있으며 귤복복이 현재 조작 중인 캐릭터가 아닌 경우, 귤복복이 타깃 적을 에워싸고 <color=#FFFFFF>[콤보 스킬: 호랑솥·진살]</color>을 시전한다. 시전 시, 파티 내 모든 캐릭터가 <color=#FFFFFF>[어흥]</color> 효과를 획득한다: 치명타 피해가 <color=#2BAD00>20%</color> 증가하고, 귤복복의 초기 공격력이 2800pt 이상일 시 초과한 공격력 100pt당 치명타 피해가 추가로 5% 증가한다. 최대 추가 증가: 30%\n<color=#FFFFFF>[어흥]</color> 상태에서 캐릭터의 <color=#FFFFFF>[콤보 스킬]</color>/<color=#FFFFFF>[궁극기]</color>로 주는 피해가 <color=#2BAD00>20%/40%</color> 증가한다.\n<color=#FFFFFF>[어흥]</color> 상태는 30초 동안 지속되며 중복 발동 시 지속 시간이 갱신된다. 귤복복이 <color=#FFFFFF>[어흥]</color> 효과를 보유 중인 경우, 충격력이 <color=#2BAD00>50pt</color> 증가한다.",
+     "파티 내 <color=#FFFFFF>[강공]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터 존재 시 발동:\n파티 내 모든 캐릭터의 데시벨 최대치가 1000pt 증가하고, <color=#FFFFFF>[강공]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터가 <color=#FFFFFF>[궁극기]</color> 시전 시 해당 캐릭터가 데시벨을 300pt 획득한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110510": 2
+   },
+   "3": {
+    "10": 28000,
+    "110510": 4
+   },
+   "4": {
+    "10": 60000,
+    "110006": 2,
+    "110510": 9
+   },
+   "5": {
+    "10": 100000,
+    "110006": 3,
+    "110510": 15
+   },
+   "6": {
+    "10": 200000,
+    "110006": 4,
+    "110510": 30
+   }
+  }
+ },
+ "skin": {
+  "3113910": {
+   "name": "귤복복·산중맹호",
+   "desc": "수행자의 의복을 입으니 사저의 위풍당당함이 잠시 사그라든 것 같지만, 마음속에 고양이… 크흠, 아니, 호랑이를 품고 있어서인지 자연스레 협객의 기운이 느껴진다.",
+   "obtain_desc": "",
+   "image": "IconRole43"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1391001": {
+   "name": "일반 공격: 대호칠식·강렬한 발톱(1, 2, 3단)",
+   "desc": "<IconMap:Icon_Normal>;<IconMap:Icon_Normal>;<IconMap:Icon_Normal>(연속으로 짧은 탭 시 반복)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1391002": {
+   "name": "일반 공격: 대호칠식·강렬한 발톱(4단)",
+   "desc": "<IconMap:Icon_Normal>(3단 후, 홀드 혹은 딜레이 짧은 탭)",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1391003": {
+   "name": "특수 스킬: 대호칠식·산에서 내려온 호랑이",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1391004": {
+   "name": "강화 특수 스킬: 대호칠식·개조·산에서 내려온 맹호",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1391005": {
+   "name": "대시 공격: 대호칠식·질주하는 호랑이",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1391006": {
+   "name": "대시 공격: 대호칠식·산군의 놀음",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>(홀드)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1391007": {
+   "name": "회피 반격: 대호칠식·불타는 산",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1391008": {
+   "name": "콤보 스킬: 호랑솥·붕괴",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1391009": {
+   "name": "궁극기: 대호칠식·맹호폭발",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1391010": {
+   "name": "빠른 지원: 뿔난 호랑이",
+   "desc": "<IconMap:Icon_Switch>(빠른 지원 발동 시)",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1391011": {
+   "name": "패링 지원: 굳건한 호랑이",
+   "desc": "<IconMap:Icon_Switch>(패링 지원 발동 시)",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1391012": {
+   "name": "지원 돌격: 야수의 근성",
+   "desc": "<IconMap:Icon_Normal>(패링 지원 시전 후)",
+   "element_type": 201,
+   "hit_type": 101,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1391001,
+   "avatar_id": 1391,
+   "first_priority": [
+    5,
+    3
+   ],
+   "second_priority": [
+    1,
+    6
+   ],
+   "third_priority": [
+    0,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33200,
+  "slot2": 31000,
+  "slot_sub": 31200,
+  "part_sub_list": [
+   20103,
+   12102,
+   21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33200,
+     32800
+    ],
+    "part_sub_list": [
+     12102,
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102,
+     12202
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "치명타 확률",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 12102,
+   "name": "공격력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  },
+  "part6": {
+   "prop": 30502,
+   "name": "에너지 자동 회복",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconSpRecover.png"
+  },
+  "part_sub": {
+   "prop": 12202,
+   "name": "충격력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconBreakStun.png"
+  }
+ },
+ "strategy": [
+  "07",
+  "<IconMap:Icon_GeneralBuff_Fire>불 속성, 오프필드 격파",
+  "파티 내 모든 캐릭터의 치명타 피해와 데시벨 최대치 증가",
+  "강공 & 명파 에이전트의 데시벨을 추가로 회복"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100212": 4
+   }
+  },
+  "2": {
+   "hp_max": 455,
+   "attack": 39,
+   "defence": 33,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100222": 12
+   }
+  },
+  "3": {
+   "hp_max": 911,
+   "attack": 79,
+   "defence": 66,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100222": 20
+   }
+  },
+  "4": {
+   "hp_max": 1366,
+   "attack": 118,
+   "defence": 99,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100232": 10
+   }
+  },
+  "5": {
+   "hp_max": 1821,
+   "attack": 157,
+   "defence": 132,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100232": 20
+   }
+  },
+  "6": {
+   "hp_max": 2276,
+   "attack": 197,
+   "defence": 165,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpineJufufu"
+}

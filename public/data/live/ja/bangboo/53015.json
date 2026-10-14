@@ -1,0 +1,456 @@
+{
+ "id": 53015,
+ "code_name": "Brawlerboo",
+ "name": "カクトウボンプ",
+ "desc": "一日一万回、ンナンナの正拳突き！",
+ "rarity": 3,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole29.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 360,
+  "hpupgrade": 428397,
+  "attack": 53,
+  "attack_upgrade": 267156,
+  "break_stun": 94,
+  "element_abnormal_power": 100,
+  "defence": 32,
+  "def_upgrade": 92587,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 188,
+   "attack": 49,
+   "defence": 41,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 376,
+   "attack": 247,
+   "defence": 81,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 564,
+   "attack": 741,
+   "defence": 122,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 752,
+   "attack": 1976,
+   "defence": 163,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 940,
+   "attack": 4941,
+   "defence": 203,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "ボンプ隕石アタック！",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動すると、チャージをしながら空中に浮かび上がり、<color=#FFFFFF>「浮遊」</color>状態に入る。<color=#FFFFFF>「浮遊」</color>状態中にエージェントの重撃が敵に命中した時、カクトウボンプは急降下攻撃を繰り出し、ターゲットに<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5301501, Prop:1001}|{Skill:5301501, Prop:1002}|28秒"
+    },
+    "2": {
+     "name": "ボンプ隕石アタック！",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動すると、チャージをしながら空中に浮かび上がり、<color=#FFFFFF>「浮遊」</color>状態に入る。<color=#FFFFFF>「浮遊」</color>状態中にエージェントの重撃が敵に命中した時、カクトウボンプは急降下攻撃を繰り出し、ターゲットに<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5301501, Prop:1001}|{Skill:5301501, Prop:1002}|28秒"
+    },
+    "3": {
+     "name": "ボンプ隕石アタック！",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動すると、チャージをしながら空中に浮かび上がり、<color=#FFFFFF>「浮遊」</color>状態に入る。<color=#FFFFFF>「浮遊」</color>状態中にエージェントの重撃が敵に命中した時、カクトウボンプは急降下攻撃を繰り出し、ターゲットに<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5301501, Prop:1001}|{Skill:5301501, Prop:1002}|28秒"
+    },
+    "4": {
+     "name": "ボンプ隕石アタック！",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動すると、チャージをしながら空中に浮かび上がり、<color=#FFFFFF>「浮遊」</color>状態に入る。<color=#FFFFFF>「浮遊」</color>状態中にエージェントの重撃が敵に命中した時、カクトウボンプは急降下攻撃を繰り出し、ターゲットに<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5301501, Prop:1001}|{Skill:5301501, Prop:1002}|28秒"
+    },
+    "5": {
+     "name": "ボンプ隕石アタック！",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動すると、チャージをしながら空中に浮かび上がり、<color=#FFFFFF>「浮遊」</color>状態に入る。<color=#FFFFFF>「浮遊」</color>状態中にエージェントの重撃が敵に命中した時、カクトウボンプは急降下攻撃を繰り出し、ターゲットに<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5301501, Prop:1001}|{Skill:5301501, Prop:1002}|28秒"
+    },
+    "6": {
+     "name": "ボンプ隕石アタック！",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動すると、チャージをしながら空中に浮かび上がり、<color=#FFFFFF>「浮遊」</color>状態に入る。<color=#FFFFFF>「浮遊」</color>状態中にエージェントの重撃が敵に命中した時、カクトウボンプは急降下攻撃を繰り出し、ターゲットに<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5301501, Prop:1001}|{Skill:5301501, Prop:1002}|28秒"
+    },
+    "7": {
+     "name": "ボンプ隕石アタック！",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動すると、チャージをしながら空中に浮かび上がり、<color=#FFFFFF>「浮遊」</color>状態に入る。<color=#FFFFFF>「浮遊」</color>状態中にエージェントの重撃が敵に命中した時、カクトウボンプは急降下攻撃を繰り出し、ターゲットに<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5301501, Prop:1001}|{Skill:5301501, Prop:1002}|28秒"
+    },
+    "8": {
+     "name": "ボンプ隕石アタック！",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動すると、チャージをしながら空中に浮かび上がり、<color=#FFFFFF>「浮遊」</color>状態に入る。<color=#FFFFFF>「浮遊」</color>状態中にエージェントの重撃が敵に命中した時、カクトウボンプは急降下攻撃を繰り出し、ターゲットに<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5301501, Prop:1001}|{Skill:5301501, Prop:1002}|28秒"
+    },
+    "9": {
+     "name": "ボンプ隕石アタック！",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動すると、チャージをしながら空中に浮かび上がり、<color=#FFFFFF>「浮遊」</color>状態に入る。<color=#FFFFFF>「浮遊」</color>状態中にエージェントの重撃が敵に命中した時、カクトウボンプは急降下攻撃を繰り出し、ターゲットに<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5301501, Prop:1001}|{Skill:5301501, Prop:1002}|28秒"
+    },
+    "10": {
+     "name": "ボンプ隕石アタック！",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動すると、チャージをしながら空中に浮かび上がり、<color=#FFFFFF>「浮遊」</color>状態に入る。<color=#FFFFFF>「浮遊」</color>状態中にエージェントの重撃が敵に命中した時、カクトウボンプは急降下攻撃を繰り出し、ターゲットに<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5301501, Prop:1001}|{Skill:5301501, Prop:1002}|28秒"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "ファーストジャブ",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[強攻]</color>または<color=#FFFFFF>[異常]</color>のメンバーがいる時に発動：戦闘開始時、カクトウボンプが即座に<color=#FFFFFF>「浮遊」</color>状態に入る。最初に発動する急降下攻撃の与ダメージ+120%。",
+     "property": [
+      "ダメージアップ"
+     ],
+     "param": "120%"
+    },
+    "2": {
+     "name": "ファーストジャブ",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[強攻]</color>または<color=#FFFFFF>[異常]</color>のメンバーがいる時に発動：戦闘開始時、カクトウボンプが即座に<color=#FFFFFF>「浮遊」</color>状態に入る。最初に発動する急降下攻撃の与ダメージ+150%。",
+     "property": [
+      "ダメージアップ"
+     ],
+     "param": "150%"
+    },
+    "3": {
+     "name": "ファーストジャブ",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[強攻]</color>または<color=#FFFFFF>[異常]</color>のメンバーがいる時に発動：戦闘開始時、カクトウボンプが即座に<color=#FFFFFF>「浮遊」</color>状態に入る。最初に発動する急降下攻撃の与ダメージ+180%。",
+     "property": [
+      "ダメージアップ"
+     ],
+     "param": "180%"
+    },
+    "4": {
+     "name": "ファーストジャブ",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[強攻]</color>または<color=#FFFFFF>[異常]</color>のメンバーがいる時に発動：戦闘開始時、カクトウボンプが即座に<color=#FFFFFF>「浮遊」</color>状態に入る。最初に発動する急降下攻撃の与ダメージ+210%。",
+     "property": [
+      "ダメージアップ"
+     ],
+     "param": "210%"
+    },
+    "5": {
+     "name": "ファーストジャブ",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[強攻]</color>または<color=#FFFFFF>[異常]</color>のメンバーがいる時に発動：戦闘開始時、カクトウボンプが即座に<color=#FFFFFF>「浮遊」</color>状態に入る。最初に発動する急降下攻撃の与ダメージ+240%。",
+     "property": [
+      "ダメージアップ"
+     ],
+     "param": "240%"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "烈風千撃",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n空中に跳び上がり、前方広範囲の敵に連続打撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5301502, Prop:1001}|{Skill:5301502, Prop:1002}"
+    },
+    "2": {
+     "name": "烈風千撃",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n空中に跳び上がり、前方広範囲の敵に連続打撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5301502, Prop:1001}|{Skill:5301502, Prop:1002}"
+    },
+    "3": {
+     "name": "烈風千撃",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n空中に跳び上がり、前方広範囲の敵に連続打撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5301502, Prop:1001}|{Skill:5301502, Prop:1002}"
+    },
+    "4": {
+     "name": "烈風千撃",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n空中に跳び上がり、前方広範囲の敵に連続打撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5301502, Prop:1001}|{Skill:5301502, Prop:1002}"
+    },
+    "5": {
+     "name": "烈風千撃",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n空中に跳び上がり、前方広範囲の敵に連続打撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5301502, Prop:1001}|{Skill:5301502, Prop:1002}"
+    },
+    "6": {
+     "name": "烈風千撃",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n空中に跳び上がり、前方広範囲の敵に連続打撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5301502, Prop:1001}|{Skill:5301502, Prop:1002}"
+    },
+    "7": {
+     "name": "烈風千撃",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n空中に跳び上がり、前方広範囲の敵に連続打撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5301502, Prop:1001}|{Skill:5301502, Prop:1002}"
+    },
+    "8": {
+     "name": "烈風千撃",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n空中に跳び上がり、前方広範囲の敵に連続打撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5301502, Prop:1001}|{Skill:5301502, Prop:1002}"
+    },
+    "9": {
+     "name": "烈風千撃",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n空中に跳び上がり、前方広範囲の敵に連続打撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5301502, Prop:1001}|{Skill:5301502, Prop:1002}"
+    },
+    "10": {
+     "name": "烈風千撃",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n空中に跳び上がり、前方広範囲の敵に連続打撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5301502, Prop:1001}|{Skill:5301502, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5301501": {
+   "1001": {
+    "main": 56000,
+    "growth": 5600,
+    "format": "%"
+   },
+   "1002": {
+    "main": 32800,
+    "growth": 3280,
+    "format": "%"
+   },
+   "element_accumulation_value": 42000
+  },
+  "5301502": {
+   "1001": {
+    "main": 84600,
+    "growth": 8460,
+    "format": "%"
+   },
+   "1002": {
+    "main": 12100,
+    "growth": 1210,
+    "format": "%"
+   },
+   "element_accumulation_value": 36300
+  },
+  "5301503": {
+   "1001": {
+    "main": 80000,
+    "growth": 8000,
+    "format": "%"
+   },
+   "1002": {
+    "main": 23400,
+    "growth": 2340,
+    "format": "%"
+   },
+   "element_accumulation_value": 30000
+  }
+ }
+}

@@ -1,0 +1,443 @@
+{
+ "id": 54006,
+ "code_name": "Rocketboo",
+ "name": "Rocketboo",
+ "desc": "This Bangboo accelerates for 17.5 steps when running a hundred kilometers.",
+ "rarity": 4,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole15.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 396,
+  "hpupgrade": 471237,
+  "attack": 69,
+  "attack_upgrade": 347303,
+  "break_stun": 99,
+  "element_abnormal_power": 119,
+  "defence": 30,
+  "def_upgrade": 85729,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 207,
+   "attack": 64,
+   "defence": 38,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 414,
+   "attack": 321,
+   "defence": 75,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 621,
+   "attack": 963,
+   "defence": 113,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 828,
+   "attack": 2569,
+   "defence": 151,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 1034,
+   "attack": 6423,
+   "defence": 188,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "Boom!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nMounts a rocket and charges at the target. Upon hitting a target, the rocket will explode, dealing <color=#FF5521>Fire DMG</color> to enemies within range and accumulating <color=#FF5521>Fire Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5400601, Prop:1001}|{Skill:5400601, Prop:1002}|18s"
+    },
+    "2": {
+     "name": "Boom!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nMounts a rocket and charges at the target. Upon hitting a target, the rocket will explode, dealing <color=#FF5521>Fire DMG</color> to enemies within range and accumulating <color=#FF5521>Fire Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5400601, Prop:1001}|{Skill:5400601, Prop:1002}|18s"
+    },
+    "3": {
+     "name": "Boom!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nMounts a rocket and charges at the target. Upon hitting a target, the rocket will explode, dealing <color=#FF5521>Fire DMG</color> to enemies within range and accumulating <color=#FF5521>Fire Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5400601, Prop:1001}|{Skill:5400601, Prop:1002}|18s"
+    },
+    "4": {
+     "name": "Boom!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nMounts a rocket and charges at the target. Upon hitting a target, the rocket will explode, dealing <color=#FF5521>Fire DMG</color> to enemies within range and accumulating <color=#FF5521>Fire Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5400601, Prop:1001}|{Skill:5400601, Prop:1002}|18s"
+    },
+    "5": {
+     "name": "Boom!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nMounts a rocket and charges at the target. Upon hitting a target, the rocket will explode, dealing <color=#FF5521>Fire DMG</color> to enemies within range and accumulating <color=#FF5521>Fire Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5400601, Prop:1001}|{Skill:5400601, Prop:1002}|18s"
+    },
+    "6": {
+     "name": "Boom!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nMounts a rocket and charges at the target. Upon hitting a target, the rocket will explode, dealing <color=#FF5521>Fire DMG</color> to enemies within range and accumulating <color=#FF5521>Fire Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5400601, Prop:1001}|{Skill:5400601, Prop:1002}|18s"
+    },
+    "7": {
+     "name": "Boom!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nMounts a rocket and charges at the target. Upon hitting a target, the rocket will explode, dealing <color=#FF5521>Fire DMG</color> to enemies within range and accumulating <color=#FF5521>Fire Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5400601, Prop:1001}|{Skill:5400601, Prop:1002}|18s"
+    },
+    "8": {
+     "name": "Boom!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nMounts a rocket and charges at the target. Upon hitting a target, the rocket will explode, dealing <color=#FF5521>Fire DMG</color> to enemies within range and accumulating <color=#FF5521>Fire Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5400601, Prop:1001}|{Skill:5400601, Prop:1002}|18s"
+    },
+    "9": {
+     "name": "Boom!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nMounts a rocket and charges at the target. Upon hitting a target, the rocket will explode, dealing <color=#FF5521>Fire DMG</color> to enemies within range and accumulating <color=#FF5521>Fire Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5400601, Prop:1001}|{Skill:5400601, Prop:1002}|18s"
+    },
+    "10": {
+     "name": "Boom!",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nMounts a rocket and charges at the target. Upon hitting a target, the rocket will explode, dealing <color=#FF5521>Fire DMG</color> to enemies within range and accumulating <color=#FF5521>Fire Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5400601, Prop:1001}|{Skill:5400601, Prop:1002}|18s"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "Refueling",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#FF5521>Fire Attribute</color> characters in your squad: <color=#FFFFFF>Bangboo Chain Attack</color> inflicts 100% more Anomaly Buildup.",
+     "property": [
+      "Anomaly Buildup Increase"
+     ],
+     "param": "100%"
+    },
+    "2": {
+     "name": "Refueling",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#FF5521>Fire Attribute</color> characters in your squad: <color=#FFFFFF>Bangboo Chain Attack</color> inflicts 125% more Anomaly Buildup.",
+     "property": [
+      "Anomaly Buildup Increase"
+     ],
+     "param": "125%"
+    },
+    "3": {
+     "name": "Refueling",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#FF5521>Fire Attribute</color> characters in your squad: <color=#FFFFFF>Bangboo Chain Attack</color> inflicts 150% more Anomaly Buildup.",
+     "property": [
+      "Anomaly Buildup Increase"
+     ],
+     "param": "150%"
+    },
+    "4": {
+     "name": "Refueling",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#FF5521>Fire Attribute</color> characters in your squad: <color=#FFFFFF>Bangboo Chain Attack</color> inflicts 175% more Anomaly Buildup.",
+     "property": [
+      "Anomaly Buildup Increase"
+     ],
+     "param": "175%"
+    },
+    "5": {
+     "name": "Refueling",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#FF5521>Fire Attribute</color> characters in your squad: <color=#FFFFFF>Bangboo Chain Attack</color> inflicts 200% more Anomaly Buildup.",
+     "property": [
+      "Anomaly Buildup Increase"
+     ],
+     "param": "200%"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "Ka-Boom Express Shipping",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nMounts a rocket and charges at the target. Upon hitting a target, the rocket will explode, dealing <color=#FF5521>Fire DMG</color> to enemies in a large area and inflicting massive <color=#FF5521>Fire Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5400602, Prop:1001}|{Skill:5400602, Prop:1002}"
+    },
+    "2": {
+     "name": "Ka-Boom Express Shipping",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nMounts a rocket and charges at the target. Upon hitting a target, the rocket will explode, dealing <color=#FF5521>Fire DMG</color> to enemies in a large area and inflicting massive <color=#FF5521>Fire Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5400602, Prop:1001}|{Skill:5400602, Prop:1002}"
+    },
+    "3": {
+     "name": "Ka-Boom Express Shipping",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nMounts a rocket and charges at the target. Upon hitting a target, the rocket will explode, dealing <color=#FF5521>Fire DMG</color> to enemies in a large area and inflicting massive <color=#FF5521>Fire Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5400602, Prop:1001}|{Skill:5400602, Prop:1002}"
+    },
+    "4": {
+     "name": "Ka-Boom Express Shipping",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nMounts a rocket and charges at the target. Upon hitting a target, the rocket will explode, dealing <color=#FF5521>Fire DMG</color> to enemies in a large area and inflicting massive <color=#FF5521>Fire Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5400602, Prop:1001}|{Skill:5400602, Prop:1002}"
+    },
+    "5": {
+     "name": "Ka-Boom Express Shipping",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nMounts a rocket and charges at the target. Upon hitting a target, the rocket will explode, dealing <color=#FF5521>Fire DMG</color> to enemies in a large area and inflicting massive <color=#FF5521>Fire Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5400602, Prop:1001}|{Skill:5400602, Prop:1002}"
+    },
+    "6": {
+     "name": "Ka-Boom Express Shipping",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nMounts a rocket and charges at the target. Upon hitting a target, the rocket will explode, dealing <color=#FF5521>Fire DMG</color> to enemies in a large area and inflicting massive <color=#FF5521>Fire Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5400602, Prop:1001}|{Skill:5400602, Prop:1002}"
+    },
+    "7": {
+     "name": "Ka-Boom Express Shipping",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nMounts a rocket and charges at the target. Upon hitting a target, the rocket will explode, dealing <color=#FF5521>Fire DMG</color> to enemies in a large area and inflicting massive <color=#FF5521>Fire Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5400602, Prop:1001}|{Skill:5400602, Prop:1002}"
+    },
+    "8": {
+     "name": "Ka-Boom Express Shipping",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nMounts a rocket and charges at the target. Upon hitting a target, the rocket will explode, dealing <color=#FF5521>Fire DMG</color> to enemies in a large area and inflicting massive <color=#FF5521>Fire Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5400602, Prop:1001}|{Skill:5400602, Prop:1002}"
+    },
+    "9": {
+     "name": "Ka-Boom Express Shipping",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nMounts a rocket and charges at the target. Upon hitting a target, the rocket will explode, dealing <color=#FF5521>Fire DMG</color> to enemies in a large area and inflicting massive <color=#FF5521>Fire Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5400602, Prop:1001}|{Skill:5400602, Prop:1002}"
+    },
+    "10": {
+     "name": "Ka-Boom Express Shipping",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nMounts a rocket and charges at the target. Upon hitting a target, the rocket will explode, dealing <color=#FF5521>Fire DMG</color> to enemies in a large area and inflicting massive <color=#FF5521>Fire Anomaly Buildup</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5400602, Prop:1001}|{Skill:5400602, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5400601": {
+   "1001": {
+    "main": 57600,
+    "growth": 5760,
+    "format": "%"
+   },
+   "1002": {
+    "main": 21100,
+    "growth": 2110,
+    "format": "%"
+   },
+   "element_accumulation_value": 27000
+  },
+  "5400602": {
+   "1001": {
+    "main": 54300,
+    "growth": 5430,
+    "format": "%"
+   },
+   "1002": {
+    "main": 7800,
+    "growth": 780,
+    "format": "%"
+   },
+   "element_accumulation_value": 23300
+  }
+ }
+}

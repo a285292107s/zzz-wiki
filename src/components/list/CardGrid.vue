@@ -7,6 +7,7 @@
  * 发丝边画（见样式里的理由），无圆角、无投影，延续「档案标本」语言。
  */
 import NoMatchState from './NoMatchState.vue'
+import { useUiText } from '@/composables/useUiText'
 
 withDefaults(
   defineProps<{
@@ -19,7 +20,7 @@ withDefaults(
     skeletonCount?: number
     /** 列宽下限：文案更长的类目（音擎）给更宽的列 */
     minColumn?: string
-    /** 无匹配空态标题 */
+    /** 无匹配空态标题（缺省用当前语言的通用句） */
     emptyText?: string
     /** 是否有可清除的检索/筛选条件（true 才给「清除」按钮） */
     showClear?: boolean
@@ -29,12 +30,14 @@ withDefaults(
     skeleton: false,
     skeletonCount: 6,
     minColumn: '280px',
-    emptyText: '无匹配档案',
+    emptyText: undefined,
     showClear: false,
   },
 )
 
 const emit = defineEmits<{ (e: 'clear'): void }>()
+
+const { t } = useUiText()
 </script>
 
 <template>
@@ -67,7 +70,7 @@ const emit = defineEmits<{ (e: 'clear'): void }>()
     <!-- 空态分工：AsyncState 管「数据级为空」；「筛掉全部结果」由这里承担。
          栅格为空时不渲染 ul（它有边线，空 ul 会留下一条多余的细线） -->
     <div v-else class="grid-empty">
-      <NoMatchState :title="emptyText" :show-clear="showClear" @clear="emit('clear')" />
+      <NoMatchState :title="emptyText ?? t.noMatch.archives" :show-clear="showClear" @clear="emit('clear')" />
     </div>
   </div>
 </template>

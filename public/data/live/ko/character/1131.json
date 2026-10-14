@@ -1,0 +1,2266 @@
+{
+ "id": 1131,
+ "icon": "IconRole17",
+ "name": "소우카쿠",
+ "code_name": "Soukaku",
+ "rarity": 3,
+ "weapon_type": {
+  "4": "Support"
+ },
+ "element_type": {
+  "202": "Ice"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "6": "대공동 특별행동부 제6과"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "1/23",
+  "full_name": "소우카쿠",
+  "gender": "여성",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle17.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0017.png",
+  "impression_f": "하지 말라는 게 왜 이렇게 많은 거야… 이 정보들만 보면 소우카쿠랑 잘 지내기 힘들 것 같잖아. 분명 아주 귀엽고 상냥한 아이인데!",
+  "impression_m": "우린 Fairy가 하지 말라고 경고한 걸 시도한 적 없으니까 그런 거겠지… 응, 난 모험은 하지 않을래",
+  "impressions": [
+   "소우카쿠에 대한 인상:\n · 오니족은 원래 다들 이렇게 많이 먹는 걸까?! 아니면 소우카쿠만 이런 걸까…",
+   " · 먹는 걸 좋아하긴 하지만, 맛을 따지는 것 같지는 않다…",
+   " · 아주 강하지만 그래도 어린애다. 많이 사랑해 주자"
+  ],
+  "profile_desc": "소우카쿠, 대공동 사무 특별행동부 제6과 대원이며, 현재 보호자는 대공동 6과의 부과장 츠키시로 야나기다.\n소우카쿠의 출신 기록은 조사 길드 파일과 뉴에리두 시민증 파일에 누락되어 있으며, 조회된 기록은 모두 츠키시로 야나기와 함께 살기 시작한 이후의 것이다.\n동시에 시 정부 학적 시스템에서도 소우카쿠의 취학 기록이 조회되지 않는다. 추가 정보에 따르면 소우카쿠는 여전히 가정 교육을 받고 있는 것으로 추정된다.\n\n소우카쿠는 밝고 순수하며 사소한 일에 구애받지 않지만, 음식에 대한 남다른 집착이 있는 것 같다. 소우카쿠가 배고픈 상태에 빠지지 않도록 주의해야 한다.\n동시에 소우카쿠에게 음식을 낭비하는 모습을 보여서는 안 되는데, 이는 소우카쿠에게 있어서 용납이 불가능한 행위이기 때문이다. 소우카쿠는 과거 극도의 물자 부족을 겪었던 것으로 추정된다.\n\n소우카쿠는 도시 생활, 나아가 인간 사회 생활에 대한 상식이 상대적으로 부족하며, 삶과 죽음에 대한 개념도 일반인과 다른 것 같다.\n일반적으로 소우카쿠는 타인이 자신에게 알려주는 어떤 정보도 믿지만, 그렇다고 그녀가 거짓말을 분별할 수 없다는 뜻은 아니다.\n과거 정보로 판단하건대, 대공동 6과의 어떤 멤버에 필적할 만한 탈출, 은신 능력이 없는 한, 소우카쿠를 속이려 하지 않는 것이 가장 좋다.",
+  "role_icon": "IconRole/UnPacker/IconRole17",
+  "stature": "145",
+  "unlock_condition": [
+   "에이전트 획득",
+   "메인 스토리 「여유로운 순간·방울새 탈출 계획」(메인 스토리 제5장 완료 후 개방) 완료",
+   "「엔비의 고민」 의뢰 완료"
+  ],
+  "trust_lv": {
+   "1": "소우카쿠, 대공동 사무 특별행동부 제6과 대원이며, 현재 보호자는 대공동 6과의 부과장 츠키시로 야나기다.\n소우카쿠의 출신 기록은 조사 길드 파일과 뉴에리두 시민증 파일에 누락되어 있으며, 조회된 기록은 모두 츠키시로 야나기와 함께 살기 시작한 이후의 것이다.\n동시에 시 정부 학적 시스템에서도 소우카쿠의 취학 기록이 조회되지 않는다. 추가 정보에 따르면 소우카쿠는 여전히 가정 교육을 받고 있는 것으로 추정된다.\n\n소우카쿠는 밝고 순수하며 사소한 일에 구애받지 않지만, 음식에 대한 남다른 집착이 있는 것 같다. 소우카쿠가 배고픈 상태에 빠지지 않도록 주의해야 한다.\n동시에 소우카쿠에게 음식을 낭비하는 모습을 보여서는 안 되는데, 이는 소우카쿠에게 있어서 용납이 불가능한 행위이기 때문이다. 소우카쿠는 과거 극도의 물자 부족을 겪었던 것으로 추정된다.\n\n소우카쿠는 도시 생활, 나아가 인간 사회 생활에 대한 상식이 상대적으로 부족하며, 삶과 죽음에 대한 개념도 일반인과 다른 것 같다.\n일반적으로 소우카쿠는 타인이 자신에게 알려주는 어떤 정보도 믿지만, 그렇다고 그녀가 거짓말을 분별할 수 없다는 뜻은 아니다.\n과거 정보로 판단하건대, 대공동 6과의 어떤 멤버에 필적할 만한 탈출, 은신 능력이 없는 한, 소우카쿠를 속이려 하지 않는 것이 가장 좋다.",
+   "2": "",
+   "3": "보호자 츠키시로 야나기 외에도, 소우카쿠가 「언니」라고 부르는 가족이 한 명 더 있는 것 같지만, 뉴에리두의 어떠한 민사 파일에서도 관련 정보를 조회할 수 없다.\n츠키시로 야나기와 소우카쿠 파일의 타임라인을 교차하여 비교해 보면, 두 사람이 만나기 얼마 전 당시 방위군 소속이었던 츠키시로 야나기가 오니족에 대한 군사 작전에 참여하여 첫 공을 세웠음을 확인할 수 있다.\n이로 미루어 짐작건대, 츠키시로 야나기가 소우카쿠의 「언니」에 대한 정보를 알고 있을지도 모른다.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 96,
+  "attack_growth": 54887,
+  "avatar_piece_id": 5131,
+  "break_stun": 86,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 48,
+  "defence_growth": 65185,
+  "element_abnormal_power": 93,
+  "element_mystery": 96,
+  "endurance": 0,
+  "hp_growth": 875757,
+  "hp_max": 645,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Aokaku",
+   "Cut",
+   "Ice",
+   "Female",
+   "Camp6",
+   "Size1",
+   "AidTypeParry",
+   "Aokaku",
+   "EtherEyesSize1"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "일반 공격: 모치츠키",
+     "desc": "<IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 향해 최대 3단까지 공격을 펼쳐 <color=#F0D12B>물리 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 모치츠키(서리로 물든 깃발)",
+     "desc": "<color=#FFFFFF>[서리로 물든 깃발]</color> 상태에서 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 향해 최대 3단까지 더욱 빠른 공격을 펼쳐 <color=#98EFF0>얼음 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 모치츠키",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1131001, Prop:1001}",
+       "param": {
+        "1131001": {
+         "main": 6620,
+         "growth": 610,
+         "format": "%",
+         "damage_percentage": 6620,
+         "damage_percentage_growth": 610,
+         "stun_ratio": 3310,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11920,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 91025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3310
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1131002, Prop:1001}",
+       "param": {
+        "1131002": {
+         "main": 21630,
+         "growth": 1970,
+         "format": "%",
+         "damage_percentage": 21630,
+         "damage_percentage_growth": 1970,
+         "stun_ratio": 18800,
+         "stun_ratio_growth": 860,
+         "sp_recovery": 67670,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 444125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18796
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1131003, Prop:1001}",
+       "param": {
+        "1131003": {
+         "main": 29310,
+         "growth": 2670,
+         "format": "%",
+         "damage_percentage": 29310,
+         "damage_percentage_growth": 2670,
+         "stun_ratio": 22170,
+         "stun_ratio_growth": 1010,
+         "sp_recovery": 79800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 542025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22165
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1131001, Prop:1002}",
+       "param": {
+        "1131001": {
+         "main": 3310,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 6620,
+         "damage_percentage_growth": 610,
+         "stun_ratio": 3310,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11920,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 91025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3310
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1131002, Prop:1002}",
+       "param": {
+        "1131002": {
+         "main": 18800,
+         "growth": 860,
+         "format": "%",
+         "damage_percentage": 21630,
+         "damage_percentage_growth": 1970,
+         "stun_ratio": 18800,
+         "stun_ratio_growth": 860,
+         "sp_recovery": 67670,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 444125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18796
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1131003, Prop:1002}",
+       "param": {
+        "1131003": {
+         "main": 22170,
+         "growth": 1010,
+         "format": "%",
+         "damage_percentage": 29310,
+         "damage_percentage_growth": 2670,
+         "stun_ratio": 22170,
+         "stun_ratio_growth": 1010,
+         "sp_recovery": 79800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 542025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22165
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 모치츠키(서리로 물든 깃발)",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1131004, Prop:1001}",
+       "param": {
+        "1131004": {
+         "main": 7660,
+         "growth": 700,
+         "format": "%",
+         "damage_percentage": 7660,
+         "damage_percentage_growth": 700,
+         "stun_ratio": 4660,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 16770,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 128150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4657,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4658
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1131005, Prop:1001}",
+       "param": {
+        "1131005": {
+         "main": 22850,
+         "growth": 2080,
+         "format": "%",
+         "damage_percentage": 22850,
+         "damage_percentage_growth": 2080,
+         "stun_ratio": 12750,
+         "stun_ratio_growth": 580,
+         "sp_recovery": 45880,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 350625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12743,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12744
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1131006, Prop:1001}",
+       "param": {
+        "1131006": {
+         "main": 51140,
+         "growth": 4650,
+         "format": "%",
+         "damage_percentage": 51140,
+         "damage_percentage_growth": 4650,
+         "stun_ratio": 26330,
+         "stun_ratio_growth": 1200,
+         "sp_recovery": 94760,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 724075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 26321,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26322
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1131004, Prop:1002}",
+       "param": {
+        "1131004": {
+         "main": 4660,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 7660,
+         "damage_percentage_growth": 700,
+         "stun_ratio": 4660,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 16770,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 128150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4657,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4658
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1131005, Prop:1002}",
+       "param": {
+        "1131005": {
+         "main": 12750,
+         "growth": 580,
+         "format": "%",
+         "damage_percentage": 22850,
+         "damage_percentage_growth": 2080,
+         "stun_ratio": 12750,
+         "stun_ratio_growth": 580,
+         "sp_recovery": 45880,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 350625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12743,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12744
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1131006, Prop:1002}",
+       "param": {
+        "1131006": {
+         "main": 26330,
+         "growth": 1200,
+         "format": "%",
+         "damage_percentage": 51140,
+         "damage_percentage_growth": 4650,
+         "stun_ratio": 26330,
+         "stun_ratio_growth": 1200,
+         "sp_recovery": 94760,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 724075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 26321,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26322
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "회피: 한입만",
+     "desc": "<IconMap:Icon_Evade>을 짧게 탭하여 시전:\n빠른 대시로 회피한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 반띵",
+     "desc": "회피 시 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 베어 <color=#F0D12B>물리 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 반띵(서리로 물든 깃발)",
+     "desc": "<color=#FFFFFF>[서리로 물든 깃발]</color> 상태에서 회피 시 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 베어 <color=#98EFF0>얼음 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 내 간식이거든!",
+     "desc": "<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적을 베어 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 반띵",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1131015, Prop:1001}",
+       "param": {
+        "1131015": {
+         "main": 7670,
+         "growth": 700,
+         "format": "%",
+         "damage_percentage": 7670,
+         "damage_percentage_growth": 700,
+         "stun_ratio": 3840,
+         "stun_ratio_growth": 180,
+         "sp_recovery": 13800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 105600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3832
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1131015, Prop:1002}",
+       "param": {
+        "1131015": {
+         "main": 3840,
+         "growth": 180,
+         "format": "%",
+         "damage_percentage": 7670,
+         "damage_percentage_growth": 700,
+         "stun_ratio": 3840,
+         "stun_ratio_growth": 180,
+         "sp_recovery": 13800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 105600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3832
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 반띵(서리로 물든 깃발)",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1131016, Prop:1001}",
+       "param": {
+        "1131016": {
+         "main": 13150,
+         "growth": 1200,
+         "format": "%",
+         "damage_percentage": 13150,
+         "damage_percentage_growth": 1200,
+         "stun_ratio": 8010,
+         "stun_ratio_growth": 370,
+         "sp_recovery": 28820,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 220275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4002
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1131016, Prop:1002}",
+       "param": {
+        "1131016": {
+         "main": 8010,
+         "growth": 370,
+         "format": "%",
+         "damage_percentage": 13150,
+         "damage_percentage_growth": 1200,
+         "stun_ratio": 8010,
+         "stun_ratio_growth": 370,
+         "sp_recovery": 28820,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 220275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4002
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 내 간식이거든!",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1131017, Prop:1001}",
+       "param": {
+        "1131017": {
+         "main": 24730,
+         "growth": 2250,
+         "format": "%",
+         "damage_percentage": 24730,
+         "damage_percentage_growth": 2250,
+         "stun_ratio": 21340,
+         "stun_ratio_growth": 970,
+         "sp_recovery": 40790,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 511850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11330,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26331
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1131017, Prop:1002}",
+       "param": {
+        "1131017": {
+         "main": 21340,
+         "growth": 970,
+         "format": "%",
+         "damage_percentage": 24730,
+         "damage_percentage_growth": 2250,
+         "stun_ratio": 21340,
+         "stun_ratio_growth": 970,
+         "sp_recovery": 40790,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 511850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11330,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26331
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "특수 스킬: 도시락 후~ 후~",
+     "desc": "<IconMap:Icon_Special>을 짧게 탭하여 시전:\n전방에 바람을 날린 후 종결의 일격으로 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가하고, 받는 피해가 40% 감소한다.\n스킬을 시전하는 동안 <IconMap:Icon_Special>을 홀드하면 <color=#FFFFFF>[깃발 펼치기]</color> 공격을 빠르게 이어서 사용할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 벌레 쫓기",
+     "desc": "에너지가 충분한 상태에서 <IconMap:Icon_SpecialReady>을 짧게 탭하여 시전:\n전방을 향해 범위가 더욱 큰 바람을 날려 대량의 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n여러 번 탭하면 연속으로 시전할 수 있으나 시전할 때마다 일정 에너지를 소모하며 에너지가 부족하거나 탭을 멈추면 자동으로 종결의 일격을 시전해 대량의 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가하고, 받는 피해가 40% 감소한다.\n스킬을 시전하는 동안 <IconMap:Icon_Special>을 홀드하면 <color=#FFFFFF>[깃발 펼치기]</color> 공격을 빠르게 이어서 사용할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 모두 모여!",
+     "desc": "<IconMap:Icon_Special>을 홀드해 시전:\n무기를 지면에 꽂아 깃발로 변형시키고 <color=#FFFFFF>[깃발 펼치기]</color> 공격으로 <color=#98EFF0>얼음 속성 피해</color>를 준다. <color=#FFFFFF>[깃발 펼치기]</color> 공격이 적에게 명중하면 <color=#FFFFFF>[빠른 지원]</color>을 발동한다.\n<color=#FFFFFF>[깃발 펼치기]</color> 공격 후 다시 <IconMap:Icon_Normal> 혹은 <IconMap:Icon_Special>을 짧게 탭하면 특수한 깃발 접기 공격을 한 번 시전하여 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n<color=#FFFFFF>[깃발 펼치기]</color> 공격 시전 시 만약 <color=#FFFFFF>[와류]</color>를 3스택 보유하고 있으면 모든 <color=#FFFFFF>[와류]</color>를 소모해 <color=#FFFFFF>[서리로 물든 깃발]</color> 상태에 진입한다. <color=#FFFFFF>[서리로 물든 깃발]</color> 상태에서 소우카쿠는 강화된 <color=#FFFFFF>[일반 공격]</color> 및 강화된 <color=#FFFFFF>[대시 공격]</color>으로 대량의 <color=#98EFF0>얼음 속성 피해</color>를 줄 수 있다. 최대 45초 지속 혹은 6회 발동한다.\n소우카쿠의 무기는 다음과 같은 상황에서 <color=#FFFFFF>[와류]</color>를 획득한다.\n· <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 <color=#FFFFFF>[와류]</color> 1스택 획득\n· <color=#FFFFFF>[콤보 스킬]</color> 시전 시 <color=#FFFFFF>[와류]</color> 1스택 획득\n· <color=#FFFFFF>[궁극기]</color> 시전 시 <color=#FFFFFF>[와류]</color> 3스택 획득\n<color=#FFFFFF>[와류]</color>는 최대 3스택까지 중첩된다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 도시락 후~ 후~",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1131008, Prop:1001}",
+       "param": {
+        "1131008": {
+         "main": 2840,
+         "growth": 260,
+         "format": "%",
+         "damage_percentage": 2840,
+         "damage_percentage_growth": 260,
+         "stun_ratio": 2840,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 78100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2834,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2835
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "종결 공격 피해 배율",
+       "desc": "{Skill:1131009, Prop:1001}",
+       "param": {
+        "1131009": {
+         "main": 10010,
+         "growth": 910,
+         "format": "%",
+         "damage_percentage": 10010,
+         "damage_percentage_growth": 910,
+         "stun_ratio": 10010,
+         "stun_ratio_growth": 460,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 275275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5001,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5002
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1131008, Prop:1002}",
+       "param": {
+        "1131008": {
+         "main": 2840,
+         "growth": 130,
+         "format": "%",
+         "damage_percentage": 2840,
+         "damage_percentage_growth": 260,
+         "stun_ratio": 2840,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 78100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2834,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2835
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "종결 공격 그로기 배율",
+       "desc": "{Skill:1131009, Prop:1002}",
+       "param": {
+        "1131009": {
+         "main": 10010,
+         "growth": 460,
+         "format": "%",
+         "damage_percentage": 10010,
+         "damage_percentage_growth": 910,
+         "stun_ratio": 10010,
+         "stun_ratio_growth": 460,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 275275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5001,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5002
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 벌레 쫓기",
+     "param": [
+      {
+       "name": "연속 공격 피해 배율",
+       "desc": "{{Skill:1131011, Prop:1001}/2}",
+       "param": {
+        "1131011": {
+         "main": 26240,
+         "growth": 2390,
+         "format": "%",
+         "damage_percentage": 26240,
+         "damage_percentage_growth": 2390,
+         "stun_ratio": 22580,
+         "stun_ratio_growth": 1030,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 822250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 24407,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11598
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "바람 피해 배율",
+       "desc": "{Skill:1131010, Prop:1001}",
+       "param": {
+        "1131010": {
+         "main": 10210,
+         "growth": 930,
+         "format": "%",
+         "damage_percentage": 10210,
+         "damage_percentage_growth": 930,
+         "stun_ratio": 8790,
+         "stun_ratio_growth": 400,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 319825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9491,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2707
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 공격 그로기 배율",
+       "desc": "{{Skill:1131011, Prop:1002}/2}",
+       "param": {
+        "1131011": {
+         "main": 22580,
+         "growth": 1030,
+         "format": "%",
+         "damage_percentage": 26240,
+         "damage_percentage_growth": 2390,
+         "stun_ratio": 22580,
+         "stun_ratio_growth": 1030,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 822250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 24407,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11598
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "바람 그로기 배율",
+       "desc": "{Skill:1131010, Prop:1002}",
+       "param": {
+        "1131010": {
+         "main": 8790,
+         "growth": 400,
+         "format": "%",
+         "damage_percentage": 10210,
+         "damage_percentage_growth": 930,
+         "stun_ratio": 8790,
+         "stun_ratio_growth": 400,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 319825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9491,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2707
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "시전에 필요한 에너지",
+       "desc": "60pt",
+       "potential": []
+      },
+      {
+       "name": "공격 소모 에너지",
+       "desc": "30pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 모두 모여!",
+     "param": [
+      {
+       "name": "깃발 펼치기 피해 배율",
+       "desc": "{Skill:1131012, Prop:1001}",
+       "param": {
+        "1131012": {
+         "main": 25010,
+         "growth": 2280,
+         "format": "%",
+         "damage_percentage": 25010,
+         "damage_percentage_growth": 2280,
+         "stun_ratio": 27510,
+         "stun_ratio_growth": 1260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 687775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12501
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "빠른 깃발 펼치기 피해 배율",
+       "desc": "{Skill:1131013, Prop:1001}",
+       "param": {
+        "1131013": {
+         "main": 14010,
+         "growth": 1280,
+         "format": "%",
+         "damage_percentage": 14010,
+         "damage_percentage_growth": 1280,
+         "stun_ratio": 14010,
+         "stun_ratio_growth": 640,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 385275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7001,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7002
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "깃발 접기 공격 피해 배율",
+       "desc": "{Skill:1131014, Prop:1001}",
+       "param": {
+        "1131014": {
+         "main": 24500,
+         "growth": 2230,
+         "format": "%",
+         "damage_percentage": 24500,
+         "damage_percentage_growth": 2230,
+         "stun_ratio": 24500,
+         "stun_ratio_growth": 1120,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 673750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12250,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12250
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "깃발 펼치기 그로기 배율",
+       "desc": "{Skill:1131012, Prop:1002}",
+       "param": {
+        "1131012": {
+         "main": 27510,
+         "growth": 1260,
+         "format": "%",
+         "damage_percentage": 25010,
+         "damage_percentage_growth": 2280,
+         "stun_ratio": 27510,
+         "stun_ratio_growth": 1260,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 687775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12501
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "빠른 깃발 펼치기 그로기 배율",
+       "desc": "{Skill:1131013, Prop:1002}",
+       "param": {
+        "1131013": {
+         "main": 14010,
+         "growth": 640,
+         "format": "%",
+         "damage_percentage": 14010,
+         "damage_percentage_growth": 1280,
+         "stun_ratio": 14010,
+         "stun_ratio_growth": 640,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 385275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7001,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7002
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "깃발 접기 공격 그로기 배율",
+       "desc": "{Skill:1131014, Prop:1002}",
+       "param": {
+        "1131014": {
+         "main": 24500,
+         "growth": 1120,
+         "format": "%",
+         "damage_percentage": 24500,
+         "damage_percentage_growth": 2230,
+         "stun_ratio": 24500,
+         "stun_ratio_growth": 1120,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 673750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12250,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12250
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "콤보 스킬: 닭죽탕",
+     "desc": "<color=#FFFFFF>[콤보 스킬]</color> 발동 시 해당 캐릭터를 선택해 시전:\n전방의 적을 빠르게 수차례 타격한 후 <color=#FFFFFF>[깃발 펼치기]</color> 공격을 이어서 시전해 대량의 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "궁극기: 닭죽탕 곱빼기",
+     "desc": "데시벨 레벨 <color=#FFFFFF>[Maximum]</color> 달성 시 <IconMap:Icon_UltimateReady>을 짧게 탭하여 시전:\n전방의 적을 빠르게 더 많이 수차례 타격한 후 <color=#FFFFFF>[깃발 펼치기]</color> 공격을 이어서 시전해 대량의 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬 시전 시 소우카쿠는 <color=#FFFFFF>[귀면]</color> 상태에 진입해 자신의 치명타 확률이 15% 증가한다. 지속 시간: 15초\n스킬 시전 시 파티 내 다른 캐릭터의 에너지를 10pt 회복하고, 다음번에 교체 출전하는 캐릭터는 에너지를 추가로 20pt 회복한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 닭죽탕",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1131018, Prop:1001}",
+       "param": {
+        "1131018": {
+         "main": 74580,
+         "growth": 6780,
+         "format": "%",
+         "damage_percentage": 74580,
+         "damage_percentage_growth": 6780,
+         "stun_ratio": 34680,
+         "stun_ratio_growth": 1580,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2782450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 54620,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 34671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1131018, Prop:1002}",
+       "param": {
+        "1131018": {
+         "main": 34680,
+         "growth": 1580,
+         "format": "%",
+         "damage_percentage": 74580,
+         "damage_percentage_growth": 6780,
+         "stun_ratio": 34680,
+         "stun_ratio_growth": 1580,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2782450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 54620,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 34671
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "궁극기: 닭죽탕 곱빼기",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1131019, Prop:1001}",
+       "param": {
+        "1131019": {
+         "main": 198980,
+         "growth": 18090,
+         "format": "%",
+         "damage_percentage": 198980,
+         "damage_percentage_growth": 18090,
+         "stun_ratio": 37680,
+         "stun_ratio_growth": 1720,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 87671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1131019, Prop:1002}",
+       "param": {
+        "1131019": {
+         "main": 37680,
+         "growth": 1720,
+         "format": "%",
+         "damage_percentage": 198980,
+         "damage_percentage_growth": 18090,
+         "stun_ratio": 37680,
+         "stun_ratio_growth": 1720,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 87671
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "빠른 지원: 2인 세트",
+     "desc": "현재 조작 중인 캐릭터가 넉업되면 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n전방의 적을 베어 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 방어 전술",
+     "desc": "출전 캐릭터 피격 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적의 공격을 패링하고 대량의 그로기 수치를 누적한다.\n우수한 패링 능력을 갖추고 있어 고강도 공격 패링 시 <color=#FFFFFF>[지원 포인트]</color>의 소모량이 감소한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 휘몰아치는 타격",
+     "desc": "<color=#FFFFFF>[패링 지원]</color> 시전 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적에게 돌진 타격으로 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.\n스킬을 시전하는 동안 <IconMap:Icon_Normal>을 홀드하면 <color=#FFFFFF>[깃발 펼치기]</color> 공격을 빠르게 이어서 사용할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 2인 세트",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1131020, Prop:1001}",
+       "param": {
+        "1131020": {
+         "main": 11340,
+         "growth": 1040,
+         "format": "%",
+         "damage_percentage": 11340,
+         "damage_percentage_growth": 1040,
+         "stun_ratio": 11340,
+         "stun_ratio_growth": 520,
+         "sp_recovery": 40790,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 511850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11330,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5666
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1131020, Prop:1002}",
+       "param": {
+        "1131020": {
+         "main": 11340,
+         "growth": 520,
+         "format": "%",
+         "damage_percentage": 11340,
+         "damage_percentage_growth": 1040,
+         "stun_ratio": 11340,
+         "stun_ratio_growth": 520,
+         "sp_recovery": 40790,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 511850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11330,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5666
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 방어 전술",
+     "param": [
+      {
+       "name": "가벼운 패링 그로기 배율",
+       "desc": "{Skill:1131021, Prop:1002}",
+       "param": {
+        "1131021": {
+         "main": 24670,
+         "growth": 1130,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 24670,
+         "stun_ratio_growth": 1130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강한 패링 그로기 배율",
+       "desc": "{Skill:1131022, Prop:1002}",
+       "param": {
+        "1131022": {
+         "main": 31170,
+         "growth": 1420,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 31170,
+         "stun_ratio_growth": 1420,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 패링 그로기 배율",
+       "desc": "{Skill:1131023, Prop:1002}",
+       "param": {
+        "1131023": {
+         "main": 15170,
+         "growth": 690,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 15170,
+         "stun_ratio_growth": 690,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 휘몰아치는 타격",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{{Skill:1131024, Prop:1001} + {Skill:1131026, Prop:1001}}",
+       "param": {
+        "1131024": {
+         "main": 26400,
+         "growth": 2400,
+         "format": "%",
+         "damage_percentage": 26400,
+         "damage_percentage_growth": 2400,
+         "stun_ratio": 23130,
+         "stun_ratio_growth": 1060,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 815925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 24757,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13298
+        },
+        "1131026": {
+         "main": 11320,
+         "growth": 1030,
+         "format": "%",
+         "damage_percentage": 11320,
+         "damage_percentage_growth": 1030,
+         "stun_ratio": 9910,
+         "stun_ratio_growth": 460,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 349800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10610,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5699
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{{Skill:1131024, Prop:1002} + {Skill:1131026, Prop:1002}}",
+       "param": {
+        "1131024": {
+         "main": 23130,
+         "growth": 1060,
+         "format": "%",
+         "damage_percentage": 26400,
+         "damage_percentage_growth": 2400,
+         "stun_ratio": 23130,
+         "stun_ratio_growth": 1060,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 815925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 24757,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13298
+        },
+        "1131026": {
+         "main": 9910,
+         "growth": 460,
+         "format": "%",
+         "damage_percentage": 11320,
+         "damage_percentage_growth": 1030,
+         "stun_ratio": 9910,
+         "stun_ratio_growth": 460,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 349800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10610,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5699
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "격려의 합류",
+   "desc": "소우카쿠가 <color=#FFFFFF>[핵심 패시브: 깃발의 격려]</color> 혹은 <color=#FFFFFF>[추가 능력: 단체급식 세트]</color> 발동 시 버프 효과의 지속 시간이 8초 증가한다.",
+   "desc2": "에너지 충전 완료 후, 특제 충전 모듈은 에테르 에너지 바람을 형성하여 주변의 에테르 기기를 충전할 수 있다.\n소우카쿠에게 있어 이건 그녀가 가장 좋아하는 회식 시간이다.\n「얘들아~ 우리 뷔페 먹자!」"
+  },
+  "2": {
+   "level": 2,
+   "name": "실험형 충전 모듈",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[대시 공격]</color>, <color=#FFFFFF>[회피 반격]</color>, <color=#FFFFFF>[빠른 지원]</color>이 적에게 명중 시 소우카쿠가 15%의 확률로 <color=#FFFFFF>[와류]</color>를 1스택 획득한다. 1초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[와류]</color> 스택이 최대치에 도달한 후 <color=#FFFFFF>[와류]</color>를 다시 획득하면 소우카쿠가 에너지를 1.2pt 회복하는 것으로 변경된다.",
+   "desc2": "충전 모듈은 전투 중 끊임없이 에너지를 충전할 수 있기 때문에 R&D 부서는 이를 획기적인 신개념 전술 병기로 여긴다.\n하지만 소우카쿠에게 에너지 충전이 끝났다는 것은 밥 먹을 시간이 됐다는 것을 의미할 뿐이다."
+  },
+  "3": {
+   "level": 3,
+   "name": "식대",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "소우카쿠가 열심히 훈련하도록 만드는 방법은 매우 간단하다.\n식대를 올려주면 그만이다."
+  },
+  "4": {
+   "level": 4,
+   "name": "저체온증",
+   "desc": "<color=#FFFFFF>[깃발 펼치기]</color> 공격이 적에게 명중 시 타깃의 <color=#98EFF0>얼음 속성 피해 저항</color>이 10% 감소한다. 지속 시간: 8초",
+   "desc2": "특수 제작된 무장 귀신 깃발에는 강력한 냉각 장치가 내장되어 있으며, 냉기를 생성하는 촉매제에는 에테르 물질이 포함되어 있어 피격된 적에게 깊은 피해를 줄 수 있다."
+  },
+  "5": {
+   "level": 5,
+   "name": "야식 복지",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "소우카쿠가 더 열심히 훈련하도록 만드는 방법 역시 매우 간단하다. 식대를 올려주는 것 외에 야식을 제공하면 된다."
+  },
+  "6": {
+   "level": 6,
+   "name": "북풍의 습격",
+   "desc": "<color=#FFFFFF>[서리로 물든 깃발]</color> 상태에서 강화된 <color=#FFFFFF>[일반 공격]</color> 및 강화된 <color=#FFFFFF>[대시 공격]</color>의 시전 가능 횟수가 12회로 증가하고 스킬로 주는 피해가 45% 증가한다.",
+   "desc2": "깃발 내부의 안전장치를 해제하여 무기를 최대 출력 모드로 가동하면 전투에서 필승하는 것은 물론…\n도시락을 식히는 데에도 제격이다."
+  }
+ },
+ "passive": {
+  "level": {
+   "1131501": {
+    "level": 1,
+    "id": 1131501,
+    "name": [
+     "핵심 패시브: 깃발의 격려",
+     "추가 능력: 단체급식 세트"
+    ],
+    "desc": [
+     "소우카쿠가 <color=#FFFFFF>[깃발 펼치기]</color> 시전 시 자신의 공격력이 소우카쿠 초기 공격력의 <color=#2BAD00>10%</color>만큼 증가하며, 최대 500pt를 초과하지 않는다. 지속 시간: 22초, <color=#FFFFFF>[깃발 펼치기]</color>를 시전하고 <color=#FFFFFF>[와류]</color>를 소모할 시 해당 버프 효과가 2배가 된다. 최대 1000pt를 초과하지 않는다. 파티 내 다른 캐릭터가 <color=#FFFFFF>[깃발 펼치기]</color>로 발동된 <color=#FFFFFF>[빠른 지원]</color> 혹은 <color=#FFFFFF>[콤보 스킬]</color>을 통해 전장에 등장할 시 해당 버프 효과는 상응하는 캐릭터에게 전달되고, 지속 시간이 갱신된다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n소우카쿠가 <color=#FFFFFF>[와류]</color>를 소모해 <color=#FFFFFF>[깃발 펼치기]</color> 시전 시 파티 내 모든 캐릭터가 주는 <color=#98EFF0>얼음 속성 피해</color>가 20% 증가한다. 지속 시간: 22초"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1131502": {
+    "level": 2,
+    "id": 1131502,
+    "name": [
+     "핵심 패시브: 깃발의 격려",
+     "추가 능력: 단체급식 세트"
+    ],
+    "desc": [
+     "소우카쿠가 <color=#FFFFFF>[깃발 펼치기]</color> 시전 시 자신의 공격력이 소우카쿠 초기 공격력의 <color=#2BAD00>12.5%</color>만큼 증가하며, 최대 500pt를 초과하지 않는다. 지속 시간: 22초, <color=#FFFFFF>[깃발 펼치기]</color>를 시전하고 <color=#FFFFFF>[와류]</color>를 소모할 시 해당 버프 효과가 2배가 된다. 최대 1000pt를 초과하지 않는다. 파티 내 다른 캐릭터가 <color=#FFFFFF>[깃발 펼치기]</color>로 발동된 <color=#FFFFFF>[빠른 지원]</color> 혹은 <color=#FFFFFF>[콤보 스킬]</color>을 통해 전장에 등장할 시 해당 버프 효과는 상응하는 캐릭터에게 전달되고, 지속 시간이 갱신된다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n소우카쿠가 <color=#FFFFFF>[와류]</color>를 소모해 <color=#FFFFFF>[깃발 펼치기]</color> 시전 시 파티 내 모든 캐릭터가 주는 <color=#98EFF0>얼음 속성 피해</color>가 20% 증가한다. 지속 시간: 22초"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1131503": {
+    "level": 3,
+    "id": 1131503,
+    "name": [
+     "핵심 패시브: 깃발의 격려",
+     "추가 능력: 단체급식 세트"
+    ],
+    "desc": [
+     "소우카쿠가 <color=#FFFFFF>[깃발 펼치기]</color> 시전 시 자신의 공격력이 소우카쿠 초기 공격력의 <color=#2BAD00>15%</color>만큼 증가하며, 최대 500pt를 초과하지 않는다. 지속 시간: 22초, <color=#FFFFFF>[깃발 펼치기]</color>를 시전하고 <color=#FFFFFF>[와류]</color>를 소모할 시 해당 버프 효과가 2배가 된다. 최대 1000pt를 초과하지 않는다. 파티 내 다른 캐릭터가 <color=#FFFFFF>[깃발 펼치기]</color>로 발동된 <color=#FFFFFF>[빠른 지원]</color> 혹은 <color=#FFFFFF>[콤보 스킬]</color>을 통해 전장에 등장할 시 해당 버프 효과는 상응하는 캐릭터에게 전달되고, 지속 시간이 갱신된다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n소우카쿠가 <color=#FFFFFF>[와류]</color>를 소모해 <color=#FFFFFF>[깃발 펼치기]</color> 시전 시 파티 내 모든 캐릭터가 주는 <color=#98EFF0>얼음 속성 피해</color>가 20% 증가한다. 지속 시간: 22초"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1131504": {
+    "level": 4,
+    "id": 1131504,
+    "name": [
+     "핵심 패시브: 깃발의 격려",
+     "추가 능력: 단체급식 세트"
+    ],
+    "desc": [
+     "소우카쿠가 <color=#FFFFFF>[깃발 펼치기]</color> 시전 시 자신의 공격력이 소우카쿠 초기 공격력의 <color=#2BAD00>17%</color>만큼 증가하며, 최대 500pt를 초과하지 않는다. 지속 시간: 22초, <color=#FFFFFF>[깃발 펼치기]</color>를 시전하고 <color=#FFFFFF>[와류]</color>를 소모할 시 해당 버프 효과가 2배가 된다. 최대 1000pt를 초과하지 않는다. 파티 내 다른 캐릭터가 <color=#FFFFFF>[깃발 펼치기]</color>로 발동된 <color=#FFFFFF>[빠른 지원]</color> 혹은 <color=#FFFFFF>[콤보 스킬]</color>을 통해 전장에 등장할 시 해당 버프 효과는 상응하는 캐릭터에게 전달되고, 지속 시간이 갱신된다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n소우카쿠가 <color=#FFFFFF>[와류]</color>를 소모해 <color=#FFFFFF>[깃발 펼치기]</color> 시전 시 파티 내 모든 캐릭터가 주는 <color=#98EFF0>얼음 속성 피해</color>가 20% 증가한다. 지속 시간: 22초"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1131505": {
+    "level": 5,
+    "id": 1131505,
+    "name": [
+     "핵심 패시브: 깃발의 격려",
+     "추가 능력: 단체급식 세트"
+    ],
+    "desc": [
+     "소우카쿠가 <color=#FFFFFF>[깃발 펼치기]</color> 시전 시 자신의 공격력이 소우카쿠 초기 공격력의 <color=#2BAD00>18%</color>만큼 증가하며, 최대 500pt를 초과하지 않는다. 지속 시간: 22초, <color=#FFFFFF>[깃발 펼치기]</color>를 시전하고 <color=#FFFFFF>[와류]</color>를 소모할 시 해당 버프 효과가 2배가 된다. 최대 1000pt를 초과하지 않는다. 파티 내 다른 캐릭터가 <color=#FFFFFF>[깃발 펼치기]</color>로 발동된 <color=#FFFFFF>[빠른 지원]</color> 혹은 <color=#FFFFFF>[콤보 스킬]</color>을 통해 전장에 등장할 시 해당 버프 효과는 상응하는 캐릭터에게 전달되고, 지속 시간이 갱신된다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n소우카쿠가 <color=#FFFFFF>[와류]</color>를 소모해 <color=#FFFFFF>[깃발 펼치기]</color> 시전 시 파티 내 모든 캐릭터가 주는 <color=#98EFF0>얼음 속성 피해</color>가 20% 증가한다. 지속 시간: 22초"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1131506": {
+    "level": 6,
+    "id": 1131506,
+    "name": [
+     "핵심 패시브: 깃발의 격려",
+     "추가 능력: 단체급식 세트"
+    ],
+    "desc": [
+     "소우카쿠가 <color=#FFFFFF>[깃발 펼치기]</color> 시전 시 자신의 공격력이 소우카쿠 초기 공격력의 <color=#2BAD00>19%</color>만큼 증가하며, 최대 500pt를 초과하지 않는다. 지속 시간: 22초, <color=#FFFFFF>[깃발 펼치기]</color>를 시전하고 <color=#FFFFFF>[와류]</color>를 소모할 시 해당 버프 효과가 2배가 된다. 최대 1000pt를 초과하지 않는다. 파티 내 다른 캐릭터가 <color=#FFFFFF>[깃발 펼치기]</color>로 발동된 <color=#FFFFFF>[빠른 지원]</color> 혹은 <color=#FFFFFF>[콤보 스킬]</color>을 통해 전장에 등장할 시 해당 버프 효과는 상응하는 캐릭터에게 전달되고, 지속 시간이 갱신된다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n소우카쿠가 <color=#FFFFFF>[와류]</color>를 소모해 <color=#FFFFFF>[깃발 펼치기]</color> 시전 시 파티 내 모든 캐릭터가 주는 <color=#98EFF0>얼음 속성 피해</color>가 20% 증가한다. 지속 시간: 22초"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1131507": {
+    "level": 7,
+    "id": 1131507,
+    "name": [
+     "핵심 패시브: 깃발의 격려",
+     "추가 능력: 단체급식 세트"
+    ],
+    "desc": [
+     "소우카쿠가 <color=#FFFFFF>[깃발 펼치기]</color> 시전 시 자신의 공격력이 소우카쿠 초기 공격력의 <color=#2BAD00>20%</color>만큼 증가하며, 최대 500pt를 초과하지 않는다. 지속 시간: 22초, <color=#FFFFFF>[깃발 펼치기]</color>를 시전하고 <color=#FFFFFF>[와류]</color>를 소모할 시 해당 버프 효과가 2배가 된다. 최대 1000pt를 초과하지 않는다. 파티 내 다른 캐릭터가 <color=#FFFFFF>[깃발 펼치기]</color>로 발동된 <color=#FFFFFF>[빠른 지원]</color> 혹은 <color=#FFFFFF>[콤보 스킬]</color>을 통해 전장에 등장할 시 해당 버프 효과는 상응하는 캐릭터에게 전달되고, 지속 시간이 갱신된다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n소우카쿠가 <color=#FFFFFF>[와류]</color>를 소모해 <color=#FFFFFF>[깃발 펼치기]</color> 시전 시 파티 내 모든 캐릭터가 주는 <color=#98EFF0>얼음 속성 피해</color>가 20% 증가한다. 지속 시간: 22초"
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110501": 2
+   },
+   "3": {
+    "10": 28000,
+    "110501": 4
+   },
+   "4": {
+    "10": 60000,
+    "110003": 2,
+    "110501": 9
+   },
+   "5": {
+    "10": 100000,
+    "110003": 3,
+    "110501": 15
+   },
+   "6": {
+    "10": 200000,
+    "110003": 4,
+    "110501": 30
+   }
+  }
+ },
+ "skin": {
+  "3111310": {
+   "name": "소우카쿠·푸른 얼음의 춤",
+   "desc": "사람 키 절반 높이의 칼날 깃발을 휘두르며, 꼬르륵거리는 배와 함께, 휘익휘익휘익휘익휘익—— 일 끝! 집에 가서 밥 먹자!",
+   "obtain_desc": "",
+   "image": "IconRole17"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1131001": {
+   "name": "일반 공격: 모치츠키",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1131002": {
+   "name": "일반 공격: 모치츠키(서리로 물든 깃발)",
+   "desc": "<IconMap:Icon_Normal>(서리로 물든 깃발)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1131003": {
+   "name": "특수 스킬: 도시락 후~ 후~",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1131004": {
+   "name": "특수 스킬: 모두 모여!",
+   "desc": "<IconMap:Icon_Special>(홀드)",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1131005": {
+   "name": "강화 특수 스킬: 벌레 쫓기",
+   "desc": "<IconMap:Icon_SpecialReady>(연타)",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1131006": {
+   "name": "대시 공격: 반띵",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1131007": {
+   "name": "대시 공격: 반띵(서리로 물든 깃발)",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>(서리로 물든 깃발)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1131008": {
+   "name": "회피 반격: 내 간식이거든!",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1131009": {
+   "name": "콤보 스킬: 닭죽탕",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1131010": {
+   "name": "궁극기: 닭죽탕 곱빼기",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1131011": {
+   "name": "빠른 지원: 2인 세트",
+   "desc": "<IconMap:Icon_Switch>(빠른 지원 발동 시)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1131012": {
+   "name": "패링 지원: 방어 전술",
+   "desc": "<IconMap:Icon_Switch>(패링 지원 발동 시)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1131013": {
+   "name": "지원 돌격: 휘몰아치는 타격",
+   "desc": "<IconMap:Icon_Normal>(패링 지원 시전 후)",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1131001,
+   "avatar_id": 1131,
+   "first_priority": [
+    5,
+    1
+   ],
+   "second_priority": [
+    3
+   ],
+   "third_priority": [
+    6,
+    0,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33400,
+  "slot2": 31600,
+  "slot_sub": 32500,
+  "part_sub_list": [
+   12102,
+   31203
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31600,
+     31400
+    ],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [
+     31300,
+     33000
+    ],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102,
+     31402,
+     30502
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 12102,
+   "name": "공격력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  },
+  "part5": {
+   "prop": 30502,
+   "name": "에너지 자동 회복",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconSpRecover.png"
+  },
+  "part6": {
+   "prop": 31203,
+   "name": "이상 마스터리",
+   "format": "{0:0}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementMystery.png"
+  },
+  "part_sub": {
+   "prop": 31402,
+   "name": "이상 장악력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementAbnormalPower.png"
+  }
+ },
+ "strategy": [
+  "04",
+  "<IconMap:Icon_GeneralBuff_Ice>얼음 속성, 범용형 빠른 교체 서포터",
+  "파티 내 모든 캐릭터에게 공격 버프 제공"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100214": 4
+   }
+  },
+  "2": {
+   "hp_max": 443,
+   "attack": 34,
+   "defence": 33,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100224": 12
+   }
+  },
+  "3": {
+   "hp_max": 886,
+   "attack": 68,
+   "defence": 66,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100224": 20
+   }
+  },
+  "4": {
+   "hp_max": 1329,
+   "attack": 103,
+   "defence": 99,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100234": 10
+   }
+  },
+  "5": {
+   "hp_max": 1772,
+   "attack": 137,
+   "defence": 132,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100234": 20
+   }
+  },
+  "6": {
+   "hp_max": 2214,
+   "attack": 171,
+   "defence": 165,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 12
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 12
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 24
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 24
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 36
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 36
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": ""
+}

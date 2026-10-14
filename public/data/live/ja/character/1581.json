@@ -1,0 +1,2178 @@
+{
+ "id": 1581,
+ "icon": "IconRole67",
+ "name": "レミエール",
+ "code_name": "Remielle",
+ "rarity": 4,
+ "weapon_type": {
+  "3": "Anomaly"
+ },
+ "element_type": {
+  "300": "Lumiflux"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "17": "ダアト結社"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "3月14日",
+  "full_name": "レミエール・ダン",
+  "gender": "女性",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle67.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0067.png",
+  "impression_f": "レミエールっていつもニコニコしてるけど、\n心からって感じはあんましないよね…あの子のために、\nしてあげられることって何があるかな？",
+  "impression_m": "そうだな、ああ見えて近寄りがたいところはある。\nけれど大丈夫さ。彼女が助けを必要とする時は…\n「共犯者」が、必ず傍にいる。",
+  "impressions": [
+   "レミエールに対するイメージ：\n・彼女は、二つの時代の記憶をつないだ。",
+   "・共犯者とは…ある意味でアップグレード版の友達？",
+   "・冗談に包まれたのは、脆弱な嘘と本心。"
+  ],
+  "profile_desc": "レミエール・ダン。初代虚狩りの一人にして、かつての「杖の軍」における中佐、\nそして秘密組織「ダアト結社」のメンバーです。\n記録によれば、レミエールは幼い頃から非凡な才能の持ち主であり、\nあらゆる分野における知識や技術を迅速に習得していたとされています。\n若くして「杖の軍」に抜擢されただけでなく、異例のスピードで中佐の地位に昇進し、\n虚狩る戎具「タウミエル」を継承しました。そして同じく杖の軍であるヴァイク大佐と、\nファルケンハイン傭兵団団長との協同作戦でダークウォールを退けたことで\nその名をエリー都中に知らしめるとともに、初代「虚狩り」の一人となったのです。\nそんなレミエール・ダンは、公的には「沈黙の日」と呼ばれる機密性の高い作戦において\nヴァイク大佐とともに不慮の事故で殉職した、とされています——\n当然、彼女は今も貴方様の前をうろついているため、それは真相ではないのでしょう。\nその行方を常に把握することは極めて困難であり、\n予想もつかない重要な局面に現れては、状況を巧みに誘導することに長けています。\n\n人前での彼女は、常に甘やかで余裕のある微笑みを絶やさず、\n何事にも動じません。時に馴れ馴れしいとも思えるほどの気さくさは、\n相手の警戒心を容易に解いてしまえる彼女の武器のひとつと言えるでしょう。\n冗談めかした言動で距離を縮めるのが得意な彼女ですが、一方で\nどこかパーソナルスペースに踏み込ませない絶妙な距離感を保つ\n掴みどころのなさも持ち合わせています。\n\n備考：レミエールに人をからかって楽しむ癖があることは周知のとおりですが、\n貴方様はなかでも「特別扱い」を受ける傾向にあるようです。",
+  "role_icon": "IconRole/UnPacker/IconRole67",
+  "stature": "167",
+  "unlock_condition": [
+   "エージェント招集",
+   "メインストーリー シーズン3 第二章「ロング・グッドバイ」をクリアする",
+   "依頼「アンビーの当惑」を達成する"
+  ],
+  "trust_lv": {
+   "1": "レミエール・ダン。初代虚狩りの一人にして、かつての「杖の軍」における中佐、\nそして秘密組織「ダアト結社」のメンバーです。\n記録によれば、レミエールは幼い頃から非凡な才能の持ち主であり、\nあらゆる分野における知識や技術を迅速に習得していたとされています。\n若くして「杖の軍」に抜擢されただけでなく、異例のスピードで中佐の地位に昇進し、\n虚狩る戎具「タウミエル」を継承しました。そして同じく杖の軍であるヴァイク大佐と、\nファルケンハイン傭兵団団長との協同作戦でダークウォールを退けたことで\nその名をエリー都中に知らしめるとともに、初代「虚狩り」の一人となったのです。\nそんなレミエール・ダンは、公的には「沈黙の日」と呼ばれる機密性の高い作戦において\nヴァイク大佐とともに不慮の事故で殉職した、とされています——\n当然、彼女は今も貴方様の前をうろついているため、それは真相ではないのでしょう。\nその行方を常に把握することは極めて困難であり、\n予想もつかない重要な局面に現れては、状況を巧みに誘導することに長けています。\n\n人前での彼女は、常に甘やかで余裕のある微笑みを絶やさず、\n何事にも動じません。時に馴れ馴れしいとも思えるほどの気さくさは、\n相手の警戒心を容易に解いてしまえる彼女の武器のひとつと言えるでしょう。\n冗談めかした言動で距離を縮めるのが得意な彼女ですが、一方で\nどこかパーソナルスペースに踏み込ませない絶妙な距離感を保つ\n掴みどころのなさも持ち合わせています。\n\n備考：レミエールに人をからかって楽しむ癖があることは周知のとおりですが、\n貴方様はなかでも「特別扱い」を受ける傾向にあるようです。",
+   "2": "",
+   "3": "「沈黙の日」作戦において、レミエールとヴァイク大佐は、\nアーチ教授とミス・サンブリンガーが提唱した「逐日計画」と呼ばれる実験に参加しました。\nこれは「虚狩り」と虚狩る戎具に封印された「業核」を融合させ、\n人為的に結使を生み出すことで、虚狩る戎具が使用者に課す代償を排除しつつ\n「虚狩り」に更なる強大な力を与えることを目的としていました。\nしかしこの実験は失敗に終わり、二名の「虚狩り」はともに失われます。\n幸いにもレミエールはタウミエルの影響により、完全に結使へと転化することは\nありませんでしたが、百余年に渡る深い眠りへと落ちることとなったのです。\nプルセナスホロウにてふたたび覚醒した時、もはやレミエールがよく知る時代は\n過ぎ去って久しいものになっていました。\n彼女はダアト結社のメンバーと接触し、組織へと加入しますが\nその結使化は止まらないどころか、「虚狩る戎具」を使用するたびに加速するという\n状況に置かれています。侵蝕が臨界点に達すると、彼女の体表には\nひと目でわかる結使化の兆候が現れますが、\nレミエールはその姿を誰かに見られることを極度に拒んでいるようです。",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 124,
+  "attack_growth": 68214,
+  "avatar_piece_id": 5581,
+  "break_stun": 83,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 48,
+  "defence_growth": 65524,
+  "element_abnormal_power": 115,
+  "element_mystery": 116,
+  "endurance": 0,
+  "hp_growth": 816391,
+  "hp_max": 602,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Remielle",
+   "Cut",
+   "Lumen",
+   "Female",
+   "Camp17",
+   "Size2",
+   "AidTypeParry",
+   "Remielle",
+   "EtherEyesSize2"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "通常攻撃：羽根のように軽く",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方に最大4段の攻撃を放ち、<color=#FFA9DD>流明属性ダメージ</color>を与える。\n『通常攻撃』がターゲットに命中した場合、スキル終了後に<Term:1000032>「浮光」</Term>を回復する。\n『通常攻撃』4段目終了後、命中した敵に<color=#FFA9DD>「流明スタック」</color>を1つ付与する。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：ソロ・ピルエット",
+     "desc": " <IconMap:Icon_Normal> を長押しして発動：\n前方に範囲攻撃を放ち、<color=#FFA9DD>流明属性ダメージ</color>を与える。\n攻撃がターゲットに命中した場合、スキル終了後に<color=#FFFFFF>「浮光」</color>を回復する。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：虹が立つ",
+     "desc": "レミエールが<Term:1000033>「虚光」</Term>を所持している時、 <IconMap:Icon_Normal> を長押しして発動：\n前方に広範囲の強力な攻撃を放ち、<color=#FFA9DD>流明属性ダメージ</color>を与える。\nスキル終了後、<color=#FFFFFF>「浮光」</color>を大量に回復する。\n攻撃がターゲットに命中した場合、スキル終了後に倍率<color=#2BAD00>{CAL:100+AvatarSkillLevel(0)*5,1,2}%</color>の<Term:1000034>「耀変」</Term>効果が発動する。\nスキル発動後、所持中の<color=#FFFFFF>「虚光」</color>はすべて消費される。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：泡沫に舞う",
+     "desc": "レミエールが<color=#FFFFFF>「虚光」</color>を所持しており、かつ<color=#FFFFFF>「鏡映」</color>状態にある時、 <IconMap:Icon_Normal> を長押しして発動：\n前方に広範囲の強力な攻撃を放ち、<color=#FFA9DD>流明属性ダメージ</color>を与える。\nスキル終了後、<color=#FFFFFF>「浮光」</color>を大量に回復する。\n攻撃がターゲットに命中した場合、スキル終了後に倍率<color=#2BAD00>{CAL:200+AvatarSkillLevel(0)*10,1,2}%</color>の<color=#FFFFFF>「耀変」</color>効果が発動する。\nスキル発動後、所持中の<color=#FFFFFF>「虚光」</color>はすべて消費される。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：羽根のように軽く",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1581002, Prop:1001}",
+       "param": {
+        "1581002": {
+         "main": 3120,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 3120,
+         "damage_percentage_growth": 290,
+         "stun_ratio": 1220,
+         "stun_ratio_growth": 60,
+         "sp_recovery": 6980,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 53350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1937
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1581003, Prop:1001}",
+       "param": {
+        "1581003": {
+         "main": 5450,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 5450,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 2820,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 10880,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 83325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3023
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1581004, Prop:1001}",
+       "param": {
+        "1581004": {
+         "main": 8430,
+         "growth": 770,
+         "format": "%",
+         "damage_percentage": 8430,
+         "damage_percentage_growth": 770,
+         "stun_ratio": 4930,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 15780,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 120725,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4384
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率",
+       "desc": "{Skill:1581005, Prop:1001}",
+       "param": {
+        "1581005": {
+         "main": 25080,
+         "growth": 2280,
+         "format": "%",
+         "damage_percentage": 25080,
+         "damage_percentage_growth": 2280,
+         "stun_ratio": 12660,
+         "stun_ratio_growth": 580,
+         "sp_recovery": 42580,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 325325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11826
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1581002, Prop:1002}",
+       "param": {
+        "1581002": {
+         "main": 1220,
+         "growth": 60,
+         "format": "%",
+         "damage_percentage": 3120,
+         "damage_percentage_growth": 290,
+         "stun_ratio": 1220,
+         "stun_ratio_growth": 60,
+         "sp_recovery": 6980,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 53350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1937
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1581003, Prop:1002}",
+       "param": {
+        "1581003": {
+         "main": 2820,
+         "growth": 130,
+         "format": "%",
+         "damage_percentage": 5450,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 2820,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 10880,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 83325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3023
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1581004, Prop:1002}",
+       "param": {
+        "1581004": {
+         "main": 4930,
+         "growth": 230,
+         "format": "%",
+         "damage_percentage": 8430,
+         "damage_percentage_growth": 770,
+         "stun_ratio": 4930,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 15780,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 120725,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4384
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率",
+       "desc": "{Skill:1581005, Prop:1002}",
+       "param": {
+        "1581005": {
+         "main": 12660,
+         "growth": 580,
+         "format": "%",
+         "damage_percentage": 25080,
+         "damage_percentage_growth": 2280,
+         "stun_ratio": 12660,
+         "stun_ratio_growth": 580,
+         "sp_recovery": 42580,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 325325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11826
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段目の「浮光」獲得量",
+       "desc": "5Pt",
+       "potential": []
+      },
+      {
+       "name": "2段目の「浮光」獲得量",
+       "desc": "5Pt",
+       "potential": []
+      },
+      {
+       "name": "3段目の「浮光」獲得量",
+       "desc": "15Pt",
+       "potential": []
+      },
+      {
+       "name": "4段目の「浮光」獲得量",
+       "desc": "35Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：ソロ・ピルエット",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1581006, Prop:1001}",
+       "param": {
+        "1581006": {
+         "main": 9650,
+         "growth": 880,
+         "format": "%",
+         "damage_percentage": 9650,
+         "damage_percentage_growth": 880,
+         "stun_ratio": 8160,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 13360,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 102025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7417
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1581006, Prop:1002}",
+       "param": {
+        "1581006": {
+         "main": 8160,
+         "growth": 380,
+         "format": "%",
+         "damage_percentage": 9650,
+         "damage_percentage_growth": 880,
+         "stun_ratio": 8160,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 13360,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 102025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7417
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "「浮光」獲得量",
+       "desc": "30Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：虹が立つ",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1581007, Prop:1001}",
+       "param": {
+        "1581007": {
+         "main": 19500,
+         "growth": 1780,
+         "format": "%",
+         "damage_percentage": 19500,
+         "damage_percentage_growth": 1780,
+         "stun_ratio": 16500,
+         "stun_ratio_growth": 750,
+         "sp_recovery": 27000,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 206250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1581007, Prop:1002}",
+       "param": {
+        "1581007": {
+         "main": 16500,
+         "growth": 750,
+         "format": "%",
+         "damage_percentage": 19500,
+         "damage_percentage_growth": 1780,
+         "stun_ratio": 16500,
+         "stun_ratio_growth": 750,
+         "sp_recovery": 27000,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 206250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "「浮光」獲得量",
+       "desc": "120Pt",
+       "potential": []
+      },
+      {
+       "name": "「耀変」倍率",
+       "desc": "{CAL:100+AvatarSkillLevel(0)*5,1,2}%",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：泡沫に舞う",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1581008, Prop:1001}",
+       "param": {
+        "1581008": {
+         "main": 59720,
+         "growth": 5430,
+         "format": "%",
+         "damage_percentage": 59720,
+         "damage_percentage_growth": 5430,
+         "stun_ratio": 38870,
+         "stun_ratio_growth": 1770,
+         "sp_recovery": 63600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 971850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 35334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1581008, Prop:1002}",
+       "param": {
+        "1581008": {
+         "main": 38870,
+         "growth": 1770,
+         "format": "%",
+         "damage_percentage": 59720,
+         "damage_percentage_growth": 5430,
+         "stun_ratio": 38870,
+         "stun_ratio_growth": 1770,
+         "sp_recovery": 63600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 971850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 35334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "「浮光」獲得量",
+       "desc": "120Pt",
+       "potential": []
+      },
+      {
+       "name": "「耀変」倍率",
+       "desc": "{CAL:200+AvatarSkillLevel(0)*10,1,2}%",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100117": 2
+    },
+    "2": {
+     "10": 3000,
+     "100117": 3
+    },
+    "3": {
+     "10": 6000,
+     "100127": 2
+    },
+    "4": {
+     "10": 9000,
+     "100127": 3
+    },
+    "5": {
+     "10": 12000,
+     "100127": 4
+    },
+    "6": {
+     "10": 18000,
+     "100127": 6
+    },
+    "7": {
+     "10": 45000,
+     "100137": 5
+    },
+    "8": {
+     "10": 67500,
+     "100137": 8
+    },
+    "9": {
+     "10": 90000,
+     "100137": 10
+    },
+    "10": {
+     "10": 112500,
+     "100137": 12
+    },
+    "11": {
+     "10": 135000,
+     "100137": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "回避：暗転",
+     "desc": " <IconMap:Icon_Evade> を押して発動：\nダッシュで高速回避する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：光芒",
+     "desc": "回避時に <IconMap:Icon_Normal> を押して発動：\n前方に素早く攻撃を放ち、<color=#FFA9DD>流明属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "回避反撃：影と踊る",
+     "desc": "<color=#FFFFFF>『極限回避』</color>後に <IconMap:Icon_Normal> を押して発動：\nターゲットに強力な斬撃を放ち、<color=#FFA9DD>流明属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：光芒",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1581012, Prop:1001}",
+       "param": {
+        "1581012": {
+         "main": 3900,
+         "growth": 360,
+         "format": "%",
+         "damage_percentage": 3900,
+         "damage_percentage_growth": 360,
+         "stun_ratio": 3300,
+         "stun_ratio_growth": 150,
+         "sp_recovery": 10800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 41250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1581012, Prop:1002}",
+       "param": {
+        "1581012": {
+         "main": 3300,
+         "growth": 150,
+         "format": "%",
+         "damage_percentage": 3900,
+         "damage_percentage_growth": 360,
+         "stun_ratio": 3300,
+         "stun_ratio_growth": 150,
+         "sp_recovery": 10800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 41250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3000
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "回避反撃：影と踊る",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1581013, Prop:1001}",
+       "param": {
+        "1581013": {
+         "main": 21450,
+         "growth": 1950,
+         "format": "%",
+         "damage_percentage": 21450,
+         "damage_percentage_growth": 1950,
+         "stun_ratio": 16500,
+         "stun_ratio_growth": 750,
+         "sp_recovery": 17990,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 68750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1581013, Prop:1002}",
+       "param": {
+        "1581013": {
+         "main": 16500,
+         "growth": 750,
+         "format": "%",
+         "damage_percentage": 21450,
+         "damage_percentage_growth": 1950,
+         "stun_ratio": 16500,
+         "stun_ratio_growth": 750,
+         "sp_recovery": 17990,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 68750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19997
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100117": 2
+    },
+    "2": {
+     "10": 3000,
+     "100117": 3
+    },
+    "3": {
+     "10": 6000,
+     "100127": 2
+    },
+    "4": {
+     "10": 9000,
+     "100127": 3
+    },
+    "5": {
+     "10": 12000,
+     "100127": 4
+    },
+    "6": {
+     "10": 18000,
+     "100127": 6
+    },
+    "7": {
+     "10": 45000,
+     "100137": 5
+    },
+    "8": {
+     "10": 67500,
+     "100137": 8
+    },
+    "9": {
+     "10": 90000,
+     "100137": 10
+    },
+    "10": {
+     "10": 112500,
+     "100137": 12
+    },
+    "11": {
+     "10": 135000,
+     "100137": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "特殊スキル：薄明",
+     "desc": " <IconMap:Icon_Special> を押して発動：\n前方に遠距離攻撃を繰り出し、<color=#FFA9DD>流明属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：黎明のオード",
+     "desc": "フィールド入場時、自身のエネルギーが60Pt未満の場合、60Ptまで回復する。探査モードにおいて、この効果は180秒に1回のみ発動可能。\nエネルギーが十分な時、 <IconMap:Icon_SpecialReady> を押して発動：\n前方に広範囲攻撃を放ち、<color=#FFA9DD>流明属性ダメージ</color>を与える。\nスキル終了後、命中した敵に<color=#FFA9DD>「流明スタック」</color>を2つ付与する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：黎明のオード・転輝",
+     "desc": "レミエールが接敵状態にあり、かつ<color=#FFFFFF>「浮光」</color>が最大値の120Ptに達している時、<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>発動後に <IconMap:Icon_Special> を長押しすると<color=#FFFFFF>「変転の姿」</color>に移行する。<color=#FFFFFF>「変転の姿」</color>中に交代すると、レミエールは<color=#FFFFFF>「相転時流」</color>状態に入る。\n<color=#FFFFFF>「相転時流」</color>状態中、レミエールは自動的に行動して戦闘をサポートするほか、一部の攻撃でターゲットに<color=#FFA9DD>「流明スタック」</color>を付与できる。この間、時間経過に伴い<color=#FFFFFF>「浮光」</color>を消費する。<color=#FFFFFF>「浮光」</color>が尽きるか接敵状態から離脱すると、<color=#FFFFFF>「相転時流」</color>状態が終了する。<color=#FFFFFF>「相転時流」</color>状態中、<color=#FFFFFF>『連携スキル』</color>以外の方法で、手動でレミエールを出場させることはできない。\n1回の<color=#FFFFFF>「相転時流」</color>状態中に<Term:1000031>「昇華」</Term>反応を3回起こすか、<color=#FFFFFF>「浮光」</color>が尽きた時点で<Term:1000033>「虚光」</Term>を1Pt以上所持している場合、<color=#FFFFFF>『支援スキル：花と翼のロンド』</color>が発動可能になる。これにより通常の交代が可能になり、次に通常の交代でレミエールを出場させると、<color=#FFFFFF>『支援スキル：花と翼のロンド』</color>が自動的に発動する。\nレミエールが<color=#FFFFFF>「相転時流」</color>状態に入る際、メンバー全員の与ダメージ+<color=#2BAD00>{CAL:0+AvatarSkillLevel(1)*1.5,1,2}%</color>、継続時間60秒、重複して発動すると継続時間が更新される。\nレミエールの<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>がブレイク状態の敵に命中し、かつ<color=#FFFFFF>「浮光」</color>が最大値の120Ptに達している時、<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>発動中に交代することでも、<color=#FFFFFF>「相転時流」</color>状態に入ることができる。\n<color=#FFFFFF>「変転の姿」</color>移行後に交代しなかった場合、レミエールは落下攻撃を繰り出して地面に戻る。",
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：薄明",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1581009, Prop:1001}",
+       "param": {
+        "1581009": {
+         "main": 4990,
+         "growth": 460,
+         "format": "%",
+         "damage_percentage": 4990,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 4220,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 52800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1581009, Prop:1002}",
+       "param": {
+        "1581009": {
+         "main": 4220,
+         "growth": 200,
+         "format": "%",
+         "damage_percentage": 4990,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 4220,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 52800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：黎明のオード・転輝",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1581010, Prop:1001}",
+       "param": {
+        "1581010": {
+         "main": 16470,
+         "growth": 1500,
+         "format": "%",
+         "damage_percentage": 16470,
+         "damage_percentage_growth": 1500,
+         "stun_ratio": 6970,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 174350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1581010, Prop:1002}",
+       "param": {
+        "1581010": {
+         "main": 6970,
+         "growth": 320,
+         "format": "%",
+         "damage_percentage": 16470,
+         "damage_percentage_growth": 1500,
+         "stun_ratio": 6970,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 174350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ダメージアップ",
+       "desc": "{CAL:0+AvatarSkillLevel(1)*1.5,1,2}%",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：黎明のオード",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1581011, Prop:1001}",
+       "param": {
+        "1581011": {
+         "main": 72150,
+         "growth": 6560,
+         "format": "%",
+         "damage_percentage": 72150,
+         "damage_percentage_growth": 6560,
+         "stun_ratio": 28330,
+         "stun_ratio_growth": 1290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1799050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15830
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1581011, Prop:1002}",
+       "param": {
+        "1581011": {
+         "main": 28330,
+         "growth": 1290,
+         "format": "%",
+         "damage_percentage": 72150,
+         "damage_percentage_growth": 6560,
+         "stun_ratio": 28330,
+         "stun_ratio_growth": 1290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1799050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15830
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "エネルギー消費",
+       "desc": "60Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100117": 2
+    },
+    "2": {
+     "10": 3000,
+     "100117": 3
+    },
+    "3": {
+     "10": 6000,
+     "100127": 2
+    },
+    "4": {
+     "10": 9000,
+     "100127": 3
+    },
+    "5": {
+     "10": 12000,
+     "100127": 4
+    },
+    "6": {
+     "10": 18000,
+     "100127": 6
+    },
+    "7": {
+     "10": 45000,
+     "100137": 5
+    },
+    "8": {
+     "10": 67500,
+     "100137": 8
+    },
+    "9": {
+     "10": 90000,
+     "100137": 10
+    },
+    "10": {
+     "10": 112500,
+     "100137": 12
+    },
+    "11": {
+     "10": 135000,
+     "100137": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "連携スキル：交差するステップ",
+     "desc": "<color=#FFFFFF>『連携スキル』</color>開始時に、対応するエージェントを選択して発動：\n前方に広範囲多段攻撃を放ち、<color=#FFA9DD>流明属性ダメージ</color>を与える。\n発動時、自身が<color=#FFFFFF>「鏡映」</color>状態に入り、次に発動する<color=#FFFFFF>『通常攻撃：虹が立つ』</color>は<color=#FFFFFF>『通常攻撃：泡沫に舞う』</color>へと変化する。\nスキル終了後、命中した敵に<color=#FFA9DD>「流明スタック」</color>を2つ付与する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "終結スキル：繚乱のフィナーレ",
+     "desc": "デシベルレートが<color=#FFFFFF>『Maximum』</color>に達した時に <IconMap:Icon_UltimateReady> を押して発動：\n前方に広範囲攻撃を放ち、<color=#FFA9DD>流明属性ダメージ</color>を与える。\nターゲットに命中した場合、スキル終了後に倍率<color=#2BAD00>{CAL:210+AvatarSkillLevel(3)*10.5,1,2}%</color>の<Term:1000034>「耀変」</Term>効果が発動する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "連携スキル：交差するステップ",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1581014, Prop:1001}",
+       "param": {
+        "1581014": {
+         "main": 78520,
+         "growth": 7140,
+         "format": "%",
+         "damage_percentage": 78520,
+         "damage_percentage_growth": 7140,
+         "stun_ratio": 22550,
+         "stun_ratio_growth": 1030,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2392500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1581014, Prop:1002}",
+       "param": {
+        "1581014": {
+         "main": 22550,
+         "growth": 1030,
+         "format": "%",
+         "damage_percentage": 78520,
+         "damage_percentage_growth": 7140,
+         "stun_ratio": 22550,
+         "stun_ratio_growth": 1030,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2392500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20500
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "終結スキル：繚乱のフィナーレ",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1581016, Prop:1001}",
+       "param": {
+        "1581016": {
+         "main": 200970,
+         "growth": 18270,
+         "format": "%",
+         "damage_percentage": 200970,
+         "damage_percentage_growth": 18270,
+         "stun_ratio": 26040,
+         "stun_ratio_growth": 1190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 73671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1581016, Prop:1002}",
+       "param": {
+        "1581016": {
+         "main": 26040,
+         "growth": 1190,
+         "format": "%",
+         "damage_percentage": 200970,
+         "damage_percentage_growth": 18270,
+         "stun_ratio": 26040,
+         "stun_ratio_growth": 1190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 73671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "「耀変」倍率",
+       "desc": "{CAL:210+AvatarSkillLevel(3)*10.5,1,2}%",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100117": 2
+    },
+    "2": {
+     "10": 3000,
+     "100117": 3
+    },
+    "3": {
+     "10": 6000,
+     "100127": 2
+    },
+    "4": {
+     "10": 9000,
+     "100127": 3
+    },
+    "5": {
+     "10": 12000,
+     "100127": 4
+    },
+    "6": {
+     "10": 18000,
+     "100127": 6
+    },
+    "7": {
+     "10": 45000,
+     "100137": 5
+    },
+    "8": {
+     "10": 67500,
+     "100137": 8
+    },
+    "9": {
+     "10": 90000,
+     "100137": 10
+    },
+    "10": {
+     "10": 112500,
+     "100137": 12
+    },
+    "11": {
+     "10": 135000,
+     "100137": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "クイック支援：片翼の息吹",
+     "desc": "操作しているメンバーが吹き飛ばされた時に、 <IconMap:Icon_Switch> を押して発動：\nターゲットに斬撃を放ち、<color=#FFA9DD>流明属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：流光の一閃",
+     "desc": "出場中のメンバーが攻撃されそうになった時に、 <IconMap:Icon_Switch> を押して発動：\n敵の攻撃をパリィし、ブレイク値を大量に蓄積させる。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援突撃：目覚めの残光",
+     "desc": "<color=#FFFFFF>『パリィ支援』</color>発動後、 <IconMap:Icon_Normal> を押して発動：\nターゲットに連続斬撃を放ち、<color=#FFA9DD>流明属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援スキル：花と翼のロンド",
+     "desc": "出場時に広範囲攻撃を放ち、<color=#FFA9DD>流明属性ダメージ</color>を与える。\nスキル発動時、<Term:1000032>「浮光」</Term>を40Pt消費する。発動時に所持中の<color=#FFFFFF>「浮光」</color>が90Pt以下の場合、今回の<color=#FFFFFF>『支援スキル：花と翼のロンド』</color>は<color=#FFFFFF>「浮光」</color>を消費しない。さらに、自身が<color=#FFFFFF>「鏡映」</color>状態に入り、次に発動する<color=#FFFFFF>『通常攻撃：虹が立つ』</color>は<color=#FFFFFF>『通常攻撃：泡沫に舞う』</color>へと変化する。\nブレイク状態の敵に命中した場合、ターゲットのブレイク継続時間+3秒。同じ敵に対して、1回のブレイク状態につき1回のみ延長可能。ブレイク継続時間延長効果は同種の効果と重ね掛け不可。\nターゲットに命中した場合、スキル終了後に倍率<color=#2BAD00>{CAL:200+AvatarSkillLevel(6)*10,1,2}%</color>の<Term:1000034>「耀変」</Term>効果が発動する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "クイック支援：片翼の息吹",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1581017, Prop:1001}",
+       "param": {
+        "1581017": {
+         "main": 3250,
+         "growth": 300,
+         "format": "%",
+         "damage_percentage": 3250,
+         "damage_percentage_growth": 300,
+         "stun_ratio": 2750,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 9000,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 34375,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2499
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1581017, Prop:1002}",
+       "param": {
+        "1581017": {
+         "main": 2750,
+         "growth": 130,
+         "format": "%",
+         "damage_percentage": 3250,
+         "damage_percentage_growth": 300,
+         "stun_ratio": 2750,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 9000,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 34375,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2499
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：流光の一閃",
+     "param": [
+      {
+       "name": "パリィ・軽 ブレイク倍率",
+       "desc": "{Skill:1581018, Prop:1002}",
+       "param": {
+        "1581018": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・重 ブレイク倍率",
+       "desc": "{Skill:1581019, Prop:1002}",
+       "param": {
+        "1581019": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・連続 ブレイク倍率",
+       "desc": "{Skill:1581020, Prop:1002}",
+       "param": {
+        "1581020": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：目覚めの残光",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1581021, Prop:1001}",
+       "param": {
+        "1581021": {
+         "main": 38110,
+         "growth": 3470,
+         "format": "%",
+         "damage_percentage": 38110,
+         "damage_percentage_growth": 3470,
+         "stun_ratio": 27760,
+         "stun_ratio_growth": 1270,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 459250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13001
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1581021, Prop:1002}",
+       "param": {
+        "1581021": {
+         "main": 27760,
+         "growth": 1270,
+         "format": "%",
+         "damage_percentage": 38110,
+         "damage_percentage_growth": 3470,
+         "stun_ratio": 27760,
+         "stun_ratio_growth": 1270,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 459250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13001
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援スキル：花と翼のロンド",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1581015, Prop:1001}",
+       "param": {
+        "1581015": {
+         "main": 45350,
+         "growth": 4130,
+         "format": "%",
+         "damage_percentage": 45350,
+         "damage_percentage_growth": 4130,
+         "stun_ratio": 29520,
+         "stun_ratio_growth": 1350,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 737825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26830
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1581015, Prop:1002}",
+       "param": {
+        "1581015": {
+         "main": 29520,
+         "growth": 1350,
+         "format": "%",
+         "damage_percentage": 45350,
+         "damage_percentage_growth": 4130,
+         "stun_ratio": 29520,
+         "stun_ratio_growth": 1350,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 737825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26830
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "「耀変」倍率",
+       "desc": "{CAL:200+AvatarSkillLevel(6)*10,1,2}%",
+       "potential": []
+      },
+      {
+       "name": "「浮光」消費量",
+       "desc": "40Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100117": 2
+    },
+    "2": {
+     "10": 3000,
+     "100117": 3
+    },
+    "3": {
+     "10": 6000,
+     "100127": 2
+    },
+    "4": {
+     "10": 9000,
+     "100127": 3
+    },
+    "5": {
+     "10": 12000,
+     "100127": 4
+    },
+    "6": {
+     "10": 18000,
+     "100127": 6
+    },
+    "7": {
+     "10": 45000,
+     "100137": 5
+    },
+    "8": {
+     "10": 67500,
+     "100137": 8
+    },
+    "9": {
+     "10": 90000,
+     "100137": 10
+    },
+    "10": {
+     "10": 112500,
+     "100137": 12
+    },
+    "11": {
+     "10": 135000,
+     "100137": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "無垢なる誓い",
+   "desc": "フィールド入場時、レミエールは特殊<Term:1000033>「虚光」</Term>を3つ獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。レミエールが<Term:1000034>「耀変」</Term>効果を発動して敵にダメージを与えた時、ターゲットの全属性ダメージ耐性を50%無視する。<color=#FFFFFF>『支援スキル：花と翼のロンド』</color>を発動した時、200Ptのデシベル値を獲得する。この効果は18秒に1回のみ発動可能。レミエールが<Term:1000035>「相転時流」</Term>状態にある時、他のメンバーが与える状態異常ダメージ+10%。",
+   "desc2": "「我ら罪悪を断ち切り、空をも切り拓こう。迷霧を抜け、真理へと歩もう…」\n「ここは我らの国、永遠に屹立し、奇跡を成し遂げ続ける」\n「…」\nピンク髪の少女はとうとう我慢ならなくなり、\n帽子のつばを引き下げて小声で訴えた。\n「ねぇベリ…もしかしてこんな長い宣誓を、これから毎回やらされるのかな…？」\n「覚悟しておいた方がいいですよ。この程度は序の口ですから」\n終始ピンと背筋を伸ばした隣の人影も、これには苦笑いするのだった。"
+  },
+  "2": {
+   "level": 2,
+   "name": "喧噪に傾倒",
+   "desc": "レミエールの<color=#FFA9DD>「昇華倍率」</color>+20%。チーム内の<color=#FFFFFF>[異常]</color>メンバーが<color=#FFFFFF>「幻色」</color>効果を持つ敵に状態異常ダメージを与えた時、ターゲットの防御力を15%無視する。<color=#FFFFFF>「幻色」</color>効果が解除された後、この効果はさらに8秒間継続する。<Term:1000035>「相転時流」</Term>状態中、レミエールが自動的に攻撃する際、敵に<color=#FFA9DD>「流明スタック」</color>を付与する頻度がアップする。",
+   "desc2": "それは盛大な舞踏会であり、\n熱狂に沸く街の中、満月さえも霞んでいた。\n歓喜に満ちた人々がここに集い、英雄の名を高らかに叫び、\n笑い、歌い続けた——まるで、この夜が永遠に続くかのように。\n輝かしき功績を持つ者たちがここに集い、熱狂する群衆を見つめ、\n共に謙虚な誓いを立てた——「今ここより、奇跡のはじまりを」。\nそう。エリー都はいよいよ、\n世界を取り戻すための壮大な冒険へと繰り出そうとしていた。\n「…舞踏会はそろそろお開きなのに、\nまだダンスパートナーが見つからないのかな？\nしょうがない。特別に一曲だけ、付き合ってあげるよ」"
+  },
+  "3": {
+   "level": 3,
+   "name": "あまたの時を分かつ庭",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "少女は自らの名を、逐日せし者の列に刻んだ。\n太陽よりも熱く燃える理想を、その胸に抱いていたから。\n傷跡はやがて癒え、払われるべき代償は\nいつか終わりを迎えると信じて疑わない彼女は、\n秘密の庭園へと足を踏み入れる。\n彼女はまだ知らなかった。庭園の奥では\n時が永遠に分岐し続け、無数の未来へと続いていることを。\nある道は栄光へ、ある道は希望へ…そしてある道は太陽が落とす影の、\n誰にも語り継がれることのなき永い夜へ続く。\n「わかってるってば。でもこういうのって結局、\n誰かがやらなきゃいけないから。そうだよね？」"
+  },
+  "4": {
+   "level": 4,
+   "name": "ロング・グッドバイ",
+   "desc": "レミエールが<Term:1000034>「耀変」</Term>効果を発動した時、ダメージ倍率が追加で+12%。レミエールがフィールドに入場し、特殊<Term:1000033>「虚光」</Term>を3つ獲得した後、<color=#FFFFFF>「虚光」</color>をすべて消費した場合、最大数の特殊<color=#FFFFFF>「虚光」</color>を再度獲得できる。この特殊<color=#FFFFFF>「虚光」</color>を再度獲得できる効果は、1回発動した後、またはレミエールが<Term:1000035>「相転時流」</Term>状態に入った後、発動不可になる。",
+   "desc2": "彼女は、荒れ果てた蒼白の世界で目を覚ます。\n百年の夢は長すぎた。旧時代の残骸を迷霧が飲み込み、\n記憶に残る温もりが、蒼白に覆い尽くされるほどに。\n百年の夢は短すぎた。まぶたの裏に別れ際の笑顔が映り、\n虚無の中を舞う蝶を、指先がいつまでも追い続けるほどに。\n彼女はふと思い出す、ある夏の夜と、肩を並べて見上げた星空を。\nだから彼女は、ひとり踊り始めた――そう、いつものように。\nターン、ステップ、手を伸ばし、空を掴む。\nこの挽歌を以て、旧き友に、旧き時代に、\n百年遅れた長き別れ——ロング・グッドバイを捧げよう。\n「ねえ、私と一曲、踊らない？」"
+  },
+  "5": {
+   "level": 5,
+   "name": "忘却を飲み干す帰客",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "黄昏が世界の屋根を染め、\n街の灯りがひとつ、またひとつと灯り始める。\nどの窓にも、温もりある人々の暮らしが宿っていた。\n薄い衣では風と雨を凌ぐこともできず、\nかつて英雄と呼ばれた少女は、\n乱れた羽根の手入れに途方に暮れていた。\n彼女は忘却に満ちた杯を飲み干す。灼熱の記憶が喉を焦がし、\n月明かりが彼女の伏せた瞼を滑り落ちる。\n「気をつけてね。旧世界の幽霊が、窓をコンコン…ってするかもしれないから」"
+  },
+  "6": {
+   "level": 6,
+   "name": "孤独な翼と幾千の羽ばたき",
+   "desc": "レミエールが<color=#FFFFFF>『通常攻撃：虹が立つ』</color>または<color=#FFFFFF>『通常攻撃：泡沫に舞う』</color>を発動した時、<Term:1000034>「耀変」</Term>効果が2回発動する。<color=#FFFFFF>『通常攻撃』</color>4段目がターゲットに命中した場合、スキル終了後、レミエールは特殊<Term:1000033>「虚光」</Term>を3つ獲得する。この方法で獲得した特殊<color=#FFFFFF>「虚光」</color>が与えるダメージは、フィールド入場時に獲得した特殊<color=#FFFFFF>「虚光」</color>の25%となる。",
+   "desc2": "旅の終点は新たな旅のはじまり、星々の彼方にはまた星々。\nだからもう一度——どうかもう一度、翼を広げて、飛び立とう。\n音もなく落ちた羽根が再び空に触れ、\nずっと癒えない傷跡や砕け散った昨日を越えて、\nまだ何も書かれていない明日へと飛び立つのだ。\n「じゃあ私の物語はここまで。\n次はキミの番だよ、親愛なる共犯者さん？」"
+  }
+ },
+ "passive": {
+  "level": {
+   "1581501": {
+    "level": 1,
+    "id": 1581501,
+    "name": [
+     "コアパッシブ：時序＝色褪せる万象",
+     "追加能力：芳しき花々の誘い"
+    ],
+    "desc": [
+     "レミエールの<color=#FFA9DD>「昇華倍率」</color>は自身の異常マスタリーの0.02%となる。さらに、チームに<color=#FFFFFF>「異常」</color>のメンバーが3人いる時、<color=#FFA9DD>「昇華倍率」</color>が追加で+10%。\n他のメンバーが<Term:1000031>「昇華」</Term>反応を起こした時、レミエールは<color=#FFA9DD>「昇華」</color>された後の状態異常効果の<Term:1000023>「状態異常レベル」</Term>に応じて、<color=#FFFFFF>「虚光」</color>を生成する。<color=#FFFFFF>「虚光」</color>は最大3つまで蓄積可能（上限を超えた場合は古い順に上書きされる）。\n<color=#FFFFFF>『支援スキル：花と翼のロンド』</color>/<color=#FFFFFF>『終結スキル：繚乱のフィナーレ』</color>/<color=#FFFFFF>『通常攻撃：虹が立つ』</color>/<color=#FFFFFF>『通常攻撃：泡沫に舞う』</color>がターゲットに命中した際、スキル終了後に<color=#FFFFFF>「耀変」</color>効果が発動する。\n「耀変」：蓄積されたすべての<color=#FFFFFF>「虚光」</color>の<color=#FFFFFF>「状態異常レベル」</color>に基づき、敵に対応スキルの倍率の状態異常ダメージを与える。さらに、このダメージ倍率は、自身の異常マスタリーの<color=#2BAD00>0.1%</color>分アップする。\nレミエールが<Term:1000035>「相転時流」</Term>状態に入った時、または<color=#FFFFFF>『通常攻撃：虹が立つ』</color>/<color=#FFFFFF>『通常攻撃：泡沫に舞う』</color>を発動した後、所持中の<color=#FFFFFF>「虚光」</color>はすべて消費される。",
+     "チームに他の<color=#FFFFFF>[異常]</color>メンバー、または自身と同じ陣営のメンバーがいる時に発動：\nチーム内の<color=#FFFFFF>[異常]</color>メンバーが1名/2名/3名の場合、フィールド入場時、メンバー全員の攻撃力がレミエールの開幕攻撃力6%/12%/40%分アップする。最大1600Ptアップできる。また、レミエールが<Term:1000035>「相転時流」</Term>状態で与えるブレイク値+6%/+12%/+35%。\nレミエールが敵に<color=#FFA9DD>「流明スタック」</color>を付与する際、同時に<color=#FFFFFF>「幻色」</color>効果を付与する。メンバー全員が<color=#FFFFFF>「幻色」</color>効果を持つ敵を攻撃する際、状態異常蓄積効率+15%。敵の<color=#FFA9DD>「流明スタック」</color>がなくなると、<color=#FFFFFF>「幻色」</color>効果は解除される。<color=#FFFFFF>「幻色」</color>効果が解除された後、状態異常蓄積効率アップ効果はさらに8秒間継続する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1581502": {
+    "level": 2,
+    "id": 1581502,
+    "name": [
+     "コアパッシブ：時序＝色褪せる万象",
+     "追加能力：芳しき花々の誘い"
+    ],
+    "desc": [
+     "レミエールの<color=#FFA9DD>「昇華倍率」</color>は自身の異常マスタリーの0.02%となる。さらに、チームに<color=#FFFFFF>「異常」</color>のメンバーが3人いる時、<color=#FFA9DD>「昇華倍率」</color>が追加で+10%。\n他のメンバーが<Term:1000031>「昇華」</Term>反応を起こした時、レミエールは<color=#FFA9DD>「昇華」</color>された後の状態異常効果の<Term:1000023>「状態異常レベル」</Term>に応じて、<color=#FFFFFF>「虚光」</color>を生成する。<color=#FFFFFF>「虚光」</color>は最大3つまで蓄積可能（上限を超えた場合は古い順に上書きされる）。\n<color=#FFFFFF>『支援スキル：花と翼のロンド』</color>/<color=#FFFFFF>『終結スキル：繚乱のフィナーレ』</color>/<color=#FFFFFF>『通常攻撃：虹が立つ』</color>/<color=#FFFFFF>『通常攻撃：泡沫に舞う』</color>がターゲットに命中した際、スキル終了後に<color=#FFFFFF>「耀変」</color>効果が発動する。\n「耀変」：蓄積されたすべての<color=#FFFFFF>「虚光」</color>の<color=#FFFFFF>「状態異常レベル」</color>に基づき、敵に対応スキルの倍率の状態異常ダメージを与える。さらに、このダメージ倍率は、自身の異常マスタリーの<color=#2BAD00>0.12%</color>分アップする。\nレミエールが<Term:1000035>「相転時流」</Term>状態に入った時、または<color=#FFFFFF>『通常攻撃：虹が立つ』</color>/<color=#FFFFFF>『通常攻撃：泡沫に舞う』</color>を発動した後、所持中の<color=#FFFFFF>「虚光」</color>はすべて消費される。",
+     "チームに他の<color=#FFFFFF>[異常]</color>メンバー、または自身と同じ陣営のメンバーがいる時に発動：\nチーム内の<color=#FFFFFF>[異常]</color>メンバーが1名/2名/3名の場合、フィールド入場時、メンバー全員の攻撃力がレミエールの開幕攻撃力6%/12%/40%分アップする。最大1600Ptアップできる。また、レミエールが<Term:1000035>「相転時流」</Term>状態で与えるブレイク値+6%/+12%/+35%。\nレミエールが敵に<color=#FFA9DD>「流明スタック」</color>を付与する際、同時に<color=#FFFFFF>「幻色」</color>効果を付与する。メンバー全員が<color=#FFFFFF>「幻色」</color>効果を持つ敵を攻撃する際、状態異常蓄積効率+15%。敵の<color=#FFA9DD>「流明スタック」</color>がなくなると、<color=#FFFFFF>「幻色」</color>効果は解除される。<color=#FFFFFF>「幻色」</color>効果が解除された後、状態異常蓄積効率アップ効果はさらに8秒間継続する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1581503": {
+    "level": 3,
+    "id": 1581503,
+    "name": [
+     "コアパッシブ：時序＝色褪せる万象",
+     "追加能力：芳しき花々の誘い"
+    ],
+    "desc": [
+     "レミエールの<color=#FFA9DD>「昇華倍率」</color>は自身の異常マスタリーの0.02%となる。さらに、チームに<color=#FFFFFF>「異常」</color>のメンバーが3人いる時、<color=#FFA9DD>「昇華倍率」</color>が追加で+10%。\n他のメンバーが<Term:1000031>「昇華」</Term>反応を起こした時、レミエールは<color=#FFA9DD>「昇華」</color>された後の状態異常効果の<Term:1000023>「状態異常レベル」</Term>に応じて、<color=#FFFFFF>「虚光」</color>を生成する。<color=#FFFFFF>「虚光」</color>は最大3つまで蓄積可能（上限を超えた場合は古い順に上書きされる）。\n<color=#FFFFFF>『支援スキル：花と翼のロンド』</color>/<color=#FFFFFF>『終結スキル：繚乱のフィナーレ』</color>/<color=#FFFFFF>『通常攻撃：虹が立つ』</color>/<color=#FFFFFF>『通常攻撃：泡沫に舞う』</color>がターゲットに命中した際、スキル終了後に<color=#FFFFFF>「耀変」</color>効果が発動する。\n「耀変」：蓄積されたすべての<color=#FFFFFF>「虚光」</color>の<color=#FFFFFF>「状態異常レベル」</color>に基づき、敵に対応スキルの倍率の状態異常ダメージを与える。さらに、このダメージ倍率は、自身の異常マスタリーの<color=#2BAD00>0.14%</color>分アップする。\nレミエールが<Term:1000035>「相転時流」</Term>状態に入った時、または<color=#FFFFFF>『通常攻撃：虹が立つ』</color>/<color=#FFFFFF>『通常攻撃：泡沫に舞う』</color>を発動した後、所持中の<color=#FFFFFF>「虚光」</color>はすべて消費される。",
+     "チームに他の<color=#FFFFFF>[異常]</color>メンバー、または自身と同じ陣営のメンバーがいる時に発動：\nチーム内の<color=#FFFFFF>[異常]</color>メンバーが1名/2名/3名の場合、フィールド入場時、メンバー全員の攻撃力がレミエールの開幕攻撃力6%/12%/40%分アップする。最大1600Ptアップできる。また、レミエールが<Term:1000035>「相転時流」</Term>状態で与えるブレイク値+6%/+12%/+35%。\nレミエールが敵に<color=#FFA9DD>「流明スタック」</color>を付与する際、同時に<color=#FFFFFF>「幻色」</color>効果を付与する。メンバー全員が<color=#FFFFFF>「幻色」</color>効果を持つ敵を攻撃する際、状態異常蓄積効率+15%。敵の<color=#FFA9DD>「流明スタック」</color>がなくなると、<color=#FFFFFF>「幻色」</color>効果は解除される。<color=#FFFFFF>「幻色」</color>効果が解除された後、状態異常蓄積効率アップ効果はさらに8秒間継続する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1581504": {
+    "level": 4,
+    "id": 1581504,
+    "name": [
+     "コアパッシブ：時序＝色褪せる万象",
+     "追加能力：芳しき花々の誘い"
+    ],
+    "desc": [
+     "レミエールの<color=#FFA9DD>「昇華倍率」</color>は自身の異常マスタリーの0.02%となる。さらに、チームに<color=#FFFFFF>「異常」</color>のメンバーが3人いる時、<color=#FFA9DD>「昇華倍率」</color>が追加で+10%。\n他のメンバーが<Term:1000031>「昇華」</Term>反応を起こした時、レミエールは<color=#FFA9DD>「昇華」</color>された後の状態異常効果の<Term:1000023>「状態異常レベル」</Term>に応じて、<color=#FFFFFF>「虚光」</color>を生成する。<color=#FFFFFF>「虚光」</color>は最大3つまで蓄積可能（上限を超えた場合は古い順に上書きされる）。\n<color=#FFFFFF>『支援スキル：花と翼のロンド』</color>/<color=#FFFFFF>『終結スキル：繚乱のフィナーレ』</color>/<color=#FFFFFF>『通常攻撃：虹が立つ』</color>/<color=#FFFFFF>『通常攻撃：泡沫に舞う』</color>がターゲットに命中した際、スキル終了後に<color=#FFFFFF>「耀変」</color>効果が発動する。\n「耀変」：蓄積されたすべての<color=#FFFFFF>「虚光」</color>の<color=#FFFFFF>「状態異常レベル」</color>に基づき、敵に対応スキルの倍率の状態異常ダメージを与える。さらに、このダメージ倍率は、自身の異常マスタリーの<color=#2BAD00>0.15%</color>分アップする。\nレミエールが<Term:1000035>「相転時流」</Term>状態に入った時、または<color=#FFFFFF>『通常攻撃：虹が立つ』</color>/<color=#FFFFFF>『通常攻撃：泡沫に舞う』</color>を発動した後、所持中の<color=#FFFFFF>「虚光」</color>はすべて消費される。",
+     "チームに他の<color=#FFFFFF>[異常]</color>メンバー、または自身と同じ陣営のメンバーがいる時に発動：\nチーム内の<color=#FFFFFF>[異常]</color>メンバーが1名/2名/3名の場合、フィールド入場時、メンバー全員の攻撃力がレミエールの開幕攻撃力6%/12%/40%分アップする。最大1600Ptアップできる。また、レミエールが<Term:1000035>「相転時流」</Term>状態で与えるブレイク値+6%/+12%/+35%。\nレミエールが敵に<color=#FFA9DD>「流明スタック」</color>を付与する際、同時に<color=#FFFFFF>「幻色」</color>効果を付与する。メンバー全員が<color=#FFFFFF>「幻色」</color>効果を持つ敵を攻撃する際、状態異常蓄積効率+15%。敵の<color=#FFA9DD>「流明スタック」</color>がなくなると、<color=#FFFFFF>「幻色」</color>効果は解除される。<color=#FFFFFF>「幻色」</color>効果が解除された後、状態異常蓄積効率アップ効果はさらに8秒間継続する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1581505": {
+    "level": 5,
+    "id": 1581505,
+    "name": [
+     "コアパッシブ：時序＝色褪せる万象",
+     "追加能力：芳しき花々の誘い"
+    ],
+    "desc": [
+     "レミエールの<color=#FFA9DD>「昇華倍率」</color>は自身の異常マスタリーの0.02%となる。さらに、チームに<color=#FFFFFF>「異常」</color>のメンバーが3人いる時、<color=#FFA9DD>「昇華倍率」</color>が追加で+10%。\n他のメンバーが<Term:1000031>「昇華」</Term>反応を起こした時、レミエールは<color=#FFA9DD>「昇華」</color>された後の状態異常効果の<Term:1000023>「状態異常レベル」</Term>に応じて、<color=#FFFFFF>「虚光」</color>を生成する。<color=#FFFFFF>「虚光」</color>は最大3つまで蓄積可能（上限を超えた場合は古い順に上書きされる）。\n<color=#FFFFFF>『支援スキル：花と翼のロンド』</color>/<color=#FFFFFF>『終結スキル：繚乱のフィナーレ』</color>/<color=#FFFFFF>『通常攻撃：虹が立つ』</color>/<color=#FFFFFF>『通常攻撃：泡沫に舞う』</color>がターゲットに命中した際、スキル終了後に<color=#FFFFFF>「耀変」</color>効果が発動する。\n「耀変」：蓄積されたすべての<color=#FFFFFF>「虚光」</color>の<color=#FFFFFF>「状態異常レベル」</color>に基づき、敵に対応スキルの倍率の状態異常ダメージを与える。さらに、このダメージ倍率は、自身の異常マスタリーの<color=#2BAD00>0.16%</color>分アップする。\nレミエールが<Term:1000035>「相転時流」</Term>状態に入った時、または<color=#FFFFFF>『通常攻撃：虹が立つ』</color>/<color=#FFFFFF>『通常攻撃：泡沫に舞う』</color>を発動した後、所持中の<color=#FFFFFF>「虚光」</color>はすべて消費される。",
+     "チームに他の<color=#FFFFFF>[異常]</color>メンバー、または自身と同じ陣営のメンバーがいる時に発動：\nチーム内の<color=#FFFFFF>[異常]</color>メンバーが1名/2名/3名の場合、フィールド入場時、メンバー全員の攻撃力がレミエールの開幕攻撃力6%/12%/40%分アップする。最大1600Ptアップできる。また、レミエールが<Term:1000035>「相転時流」</Term>状態で与えるブレイク値+6%/+12%/+35%。\nレミエールが敵に<color=#FFA9DD>「流明スタック」</color>を付与する際、同時に<color=#FFFFFF>「幻色」</color>効果を付与する。メンバー全員が<color=#FFFFFF>「幻色」</color>効果を持つ敵を攻撃する際、状態異常蓄積効率+15%。敵の<color=#FFA9DD>「流明スタック」</color>がなくなると、<color=#FFFFFF>「幻色」</color>効果は解除される。<color=#FFFFFF>「幻色」</color>効果が解除された後、状態異常蓄積効率アップ効果はさらに8秒間継続する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1581506": {
+    "level": 6,
+    "id": 1581506,
+    "name": [
+     "コアパッシブ：時序＝色褪せる万象",
+     "追加能力：芳しき花々の誘い"
+    ],
+    "desc": [
+     "レミエールの<color=#FFA9DD>「昇華倍率」</color>は自身の異常マスタリーの0.02%となる。さらに、チームに<color=#FFFFFF>「異常」</color>のメンバーが3人いる時、<color=#FFA9DD>「昇華倍率」</color>が追加で+10%。\n他のメンバーが<Term:1000031>「昇華」</Term>反応を起こした時、レミエールは<color=#FFA9DD>「昇華」</color>された後の状態異常効果の<Term:1000023>「状態異常レベル」</Term>に応じて、<color=#FFFFFF>「虚光」</color>を生成する。<color=#FFFFFF>「虚光」</color>は最大3つまで蓄積可能（上限を超えた場合は古い順に上書きされる）。\n<color=#FFFFFF>『支援スキル：花と翼のロンド』</color>/<color=#FFFFFF>『終結スキル：繚乱のフィナーレ』</color>/<color=#FFFFFF>『通常攻撃：虹が立つ』</color>/<color=#FFFFFF>『通常攻撃：泡沫に舞う』</color>がターゲットに命中した際、スキル終了後に<color=#FFFFFF>「耀変」</color>効果が発動する。\n「耀変」：蓄積されたすべての<color=#FFFFFF>「虚光」</color>の<color=#FFFFFF>「状態異常レベル」</color>に基づき、敵に対応スキルの倍率の状態異常ダメージを与える。さらに、このダメージ倍率は、自身の異常マスタリーの<color=#2BAD00>0.18%</color>分アップする。\nレミエールが<Term:1000035>「相転時流」</Term>状態に入った時、または<color=#FFFFFF>『通常攻撃：虹が立つ』</color>/<color=#FFFFFF>『通常攻撃：泡沫に舞う』</color>を発動した後、所持中の<color=#FFFFFF>「虚光」</color>はすべて消費される。",
+     "チームに他の<color=#FFFFFF>[異常]</color>メンバー、または自身と同じ陣営のメンバーがいる時に発動：\nチーム内の<color=#FFFFFF>[異常]</color>メンバーが1名/2名/3名の場合、フィールド入場時、メンバー全員の攻撃力がレミエールの開幕攻撃力6%/12%/40%分アップする。最大1600Ptアップできる。また、レミエールが<Term:1000035>「相転時流」</Term>状態で与えるブレイク値+6%/+12%/+35%。\nレミエールが敵に<color=#FFA9DD>「流明スタック」</color>を付与する際、同時に<color=#FFFFFF>「幻色」</color>効果を付与する。メンバー全員が<color=#FFFFFF>「幻色」</color>効果を持つ敵を攻撃する際、状態異常蓄積効率+15%。敵の<color=#FFA9DD>「流明スタック」</color>がなくなると、<color=#FFFFFF>「幻色」</color>効果は解除される。<color=#FFFFFF>「幻色」</color>効果が解除された後、状態異常蓄積効率アップ効果はさらに8秒間継続する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1581507": {
+    "level": 7,
+    "id": 1581507,
+    "name": [
+     "コアパッシブ：時序＝色褪せる万象",
+     "追加能力：芳しき花々の誘い"
+    ],
+    "desc": [
+     "レミエールの<color=#FFA9DD>「昇華倍率」</color>は自身の異常マスタリーの0.02%となる。さらに、チームに<color=#FFFFFF>「異常」</color>のメンバーが3人いる時、<color=#FFA9DD>「昇華倍率」</color>が追加で+10%。\n他のメンバーが<Term:1000031>「昇華」</Term>反応を起こした時、レミエールは<color=#FFA9DD>「昇華」</color>された後の状態異常効果の<Term:1000023>「状態異常レベル」</Term>に応じて、<color=#FFFFFF>「虚光」</color>を生成する。<color=#FFFFFF>「虚光」</color>は最大3つまで蓄積可能（上限を超えた場合は古い順に上書きされる）。\n<color=#FFFFFF>『支援スキル：花と翼のロンド』</color>/<color=#FFFFFF>『終結スキル：繚乱のフィナーレ』</color>/<color=#FFFFFF>『通常攻撃：虹が立つ』</color>/<color=#FFFFFF>『通常攻撃：泡沫に舞う』</color>がターゲットに命中した際、スキル終了後に<color=#FFFFFF>「耀変」</color>効果が発動する。\n「耀変」：蓄積されたすべての<color=#FFFFFF>「虚光」</color>の<color=#FFFFFF>「状態異常レベル」</color>に基づき、敵に対応スキルの倍率の状態異常ダメージを与える。さらに、このダメージ倍率は、自身の異常マスタリーの<color=#2BAD00>0.2%</color>分アップする。\nレミエールが<Term:1000035>「相転時流」</Term>状態に入った時、または<color=#FFFFFF>『通常攻撃：虹が立つ』</color>/<color=#FFFFFF>『通常攻撃：泡沫に舞う』</color>を発動した後、所持中の<color=#FFFFFF>「虚光」</color>はすべて消費される。",
+     "チームに他の<color=#FFFFFF>[異常]</color>メンバー、または自身と同じ陣営のメンバーがいる時に発動：\nチーム内の<color=#FFFFFF>[異常]</color>メンバーが1名/2名/3名の場合、フィールド入場時、メンバー全員の攻撃力がレミエールの開幕攻撃力6%/12%/40%分アップする。最大1600Ptアップできる。また、レミエールが<Term:1000035>「相転時流」</Term>状態で与えるブレイク値+6%/+12%/+35%。\nレミエールが敵に<color=#FFA9DD>「流明スタック」</color>を付与する際、同時に<color=#FFFFFF>「幻色」</color>効果を付与する。メンバー全員が<color=#FFFFFF>「幻色」</color>効果を持つ敵を攻撃する際、状態異常蓄積効率+15%。敵の<color=#FFA9DD>「流明スタック」</color>がなくなると、<color=#FFFFFF>「幻色」</color>効果は解除される。<color=#FFFFFF>「幻色」</color>効果が解除された後、状態異常蓄積効率アップ効果はさらに8秒間継続する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110515": 2
+   },
+   "3": {
+    "10": 28000,
+    "110515": 4
+   },
+   "4": {
+    "10": 60000,
+    "110010": 2,
+    "110515": 9
+   },
+   "5": {
+    "10": 100000,
+    "110010": 3,
+    "110515": 15
+   },
+   "6": {
+    "10": 200000,
+    "110010": 4,
+    "110515": 30
+   }
+  }
+ },
+ "skin": {
+  "3115810": {
+   "name": "レミエール・「天の羽根、甘い囀り」",
+   "desc": "在りし日の天使は人界へと堕ち、\n舞い散る羽根とともに静かな眠りにつく。\n蒼白の荒廃で目覚め、静寂の果てに\nまた新たなる旅路へと歩み出す。",
+   "obtain_desc": "",
+   "image": "IconRole67"
+  },
+  "3115811": {
+   "name": "レミエール・「月夜のささやき」",
+   "desc": "昼の太陽に見放されても、夜の月と一緒に堕ちてあげる。\n冗談か嘘かわからない、って？\nじゃあ…また「ターン制バトル」だね、親愛なる共犯者さん。",
+   "obtain_desc": "",
+   "image": "IconRole67_02"
+  },
+  "3115812": {
+   "name": "レミエール・「シャドウ・ソリスト」",
+   "desc": "本当は独りで踊るつもりだった。なのに、\n暗闇に隠してた秘密も孤独も、いつの間にか\n一筋の光に貫かれてた。共犯者さん…\n今は、この手を取って踊ってくれる？",
+   "obtain_desc": "",
+   "image": "IconRole67_01"
+  },
+  "3115813": {
+   "name": "レミエール・「月夜のささやき（ベール）」",
+   "desc": "昼の太陽に見放されても、夜の月と一緒に堕ちてあげる。\n冗談か嘘かわからない、って？\nじゃあ…また「ターン制バトル」だね、親愛なる共犯者さん。",
+   "obtain_desc": "コスチューム「月夜のささやき」入手後に開放",
+   "image": "IconRole67_03"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1581001": {
+   "name": "通常攻撃：羽根のように軽く",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 300,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1581002": {
+   "name": "通常攻撃：ソロ・ピルエット",
+   "desc": "<IconMap:Icon_Normal>（長押し）",
+   "element_type": 300,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1581003": {
+   "name": "通常攻撃：虹が立つ",
+   "desc": "<IconMap:Icon_Normal>（「虚光」所持中に長押し）",
+   "element_type": 300,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1581004": {
+   "name": "通常攻撃：泡沫に舞う",
+   "desc": "<IconMap:Icon_Normal>（「虚光」所持中、かつ自身が「鏡映」状態の時に長押し）",
+   "element_type": 300,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1581005": {
+   "name": "特殊スキル：薄明",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 300,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1581006": {
+   "name": "強化特殊スキル：黎明のオード",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 300,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1581007": {
+   "name": "特殊スキル：黎明のオード・転輝",
+   "desc": "<IconMap:Icon_Special>（「浮光」最大時に長押し）または<IconMap:Icon_SpecialReady>（「浮光」最大時に長押し）",
+   "element_type": 300,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1581008": {
+   "name": "ダッシュ攻撃：光芒",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 300,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1581009": {
+   "name": "回避反撃：影と踊る",
+   "desc": "<IconMap:Icon_Evade>（極限回避成功） ; <IconMap:Icon_Normal>",
+   "element_type": 300,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1581010": {
+   "name": "連携スキル：交差するステップ",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 300,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1581011": {
+   "name": "終結スキル：繚乱のフィナーレ",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 300,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1581012": {
+   "name": "支援スキル：花と翼のロンド",
+   "desc": "<IconMap:Icon_Switch>（「相転時流」状態で「昇華」を3回発動後）",
+   "element_type": 300,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1581013": {
+   "name": "クイック支援：片翼の息吹",
+   "desc": "<IconMap:Icon_Switch>（クイック支援の発動条件を満たした時）",
+   "element_type": 300,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1581014": {
+   "name": "パリィ支援：流光の一閃",
+   "desc": "<IconMap:Icon_Switch>（パリィ支援の発動条件を満たした時）",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1581015": {
+   "name": "支援突撃：目覚めの残光",
+   "desc": "<IconMap:Icon_Normal>（パリィ支援を発動した後に）",
+   "element_type": 300,
+   "hit_type": 101,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1581001,
+   "avatar_id": 1581,
+   "first_priority": [
+    5,
+    3,
+    0,
+    6
+   ],
+   "second_priority": [
+    1
+   ],
+   "third_priority": [
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 34100,
+  "slot2": 31300,
+  "slot_sub": 31800,
+  "part_sub_list": [
+   12102,
+   31203,
+   12103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     34100,
+     31300
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 31203,
+   "name": "異常マスタリー",
+   "format": "{0:0}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementMystery.png"
+  },
+  "part5": {
+   "prop": 12102,
+   "name": "攻撃力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  },
+  "part6": {
+   "prop": 30502,
+   "name": "エネルギー自動回復",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconSpRecover.png"
+  },
+  "part_sub": {
+   "prop": 20103,
+   "name": "会心率",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  }
+ },
+ "strategy": {},
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100213": 4
+   }
+  },
+  "2": {
+   "hp_max": 413,
+   "attack": 44,
+   "defence": 33,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100223": 12
+   }
+  },
+  "3": {
+   "hp_max": 826,
+   "attack": 89,
+   "defence": 66,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100223": 20
+   }
+  },
+  "4": {
+   "hp_max": 1239,
+   "attack": 133,
+   "defence": 99,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100233": 10
+   }
+  },
+  "5": {
+   "hp_max": 1651,
+   "attack": 177,
+   "defence": 133,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100233": 20
+   }
+  },
+  "6": {
+   "hp_max": 2064,
+   "attack": 222,
+   "defence": 166,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "31201": {
+     "prop": 31201,
+     "name": "異常マスタリー",
+     "format": "{0:0}",
+     "value": 18
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31201": {
+     "prop": 31201,
+     "name": "異常マスタリー",
+     "format": "{0:0}",
+     "value": 18
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31201": {
+     "prop": 31201,
+     "name": "異常マスタリー",
+     "format": "{0:0}",
+     "value": 36
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31201": {
+     "prop": 31201,
+     "name": "異常マスタリー",
+     "format": "{0:0}",
+     "value": 36
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31201": {
+     "prop": 31201,
+     "name": "異常マスタリー",
+     "format": "{0:0}",
+     "value": 54
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "31201": {
+     "prop": 31201,
+     "name": "異常マスタリー",
+     "format": "{0:0}",
+     "value": 54
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpine_Remielle"
+}

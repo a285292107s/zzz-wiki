@@ -34,7 +34,7 @@
 | 游戏内术语 | [`conventions/glossary.md`](./conventions/glossary.md) | 只引用 |
 | 决策理由（为什么不那样做） | [`decisions/`](./decisions/) | 只引用 |
 
-> ⚠ 名词表 `public/data/live/noun.json` **不是**落盘位置——它是构建期由源站全量重建的生成物。
+> ⚠ 名词表 `public/data/live/{lang}/noun.json` **不是**落盘位置——它是构建期由源站按语言全量重建的生成物。
 > 手写内容会被下次 `pnpm run sync` 覆盖。只在 `conventions/glossary.md` 里写术语。
 
 ## 本目录的书写规则

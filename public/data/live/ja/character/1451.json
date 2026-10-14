@@ -1,0 +1,2235 @@
+{
+ "id": 1451,
+ "icon": "IconRole50",
+ "name": "リュシア",
+ "code_name": "Lucia",
+ "rarity": 4,
+ "weapon_type": {
+  "4": "Support"
+ },
+ "element_type": {
+  "205": "Ether"
+ },
+ "hit_type": {
+  "102": "Strike"
+ },
+ "camp": {
+  "11": "怪啖屋"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "3月17日",
+  "full_name": "リュシア・エロウェン",
+  "gender": "女性",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle50.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0050.png",
+  "impression_f": "エーテリアスを追ってホロウで一人旅してるかと思えば、\nお菓子持参でビデオ屋の窓をノックしてきて、映画を観たり…\nほんといろんなとこで楽しそうにしてるよね。\n夜空を飛び回る妖精さんって感じ？",
+  "impression_m": "リュシアがしてくれたボンプの怪談にハマってからというもの、\nイアスが時間通りに寝なくなってしまったんだ…ずっと受付に立って、\n窓をノックする音がしないか聞き耳を立てている始末だよ。困ったな…",
+  "impressions": [
+   "リュシアに対するイメージ：\n・夜を辿って現れる彼女は、まるで星空を背に現れる謎のよう。",
+   "・無数の物語を転々とし、境がない夢の中を歩む。",
+   "・その旅路が永遠に続きますように。"
+  ],
+  "profile_desc": "リュシア、怪啖屋のメンバーの一人で、ハンドルネームは「夜魔の語り部」です。\nバックパッカーであり、エーテリアスにまつわる物語の愛好家であり、\n深夜の屋台を練り歩く食通でもあります。\n\n資料によるとリュシアは、都市の辺境に暮らす一族の出身のようです。\nこの一族には先祖が「夜魔」と呼ばれるエーテリアス（調査協会の記録に該当なし）\nと出会い、特殊な能力を授かったという言い伝えがあります。\nそれはエーテリアスに気付かれにくくなる能力であり、その代償として\nリュシアの一族は夜に眠ると「夜魔」の夢を見るようになり、「夜魔」に誘われて\n夢遊病のように自らホロウへと入り込み、侵蝕されてしまうようになりました。\nこうしてリュシアの一族は「夜守り人」として昼間に眠り、深夜に狩りを行うことで\n「夜魔」の誘惑を避ける暮らしをしています。もし誰かがどうしても\n夜に眠らなければならない場合は、その家族が夜明けまで傍で見守り続けます。\n\nリュシアは一族のもとで育ち、新エリー都に来てからも\n「夜守り人」の伝統に則った暮らしをしています。つまり夜は眠らず、\n大切な友人たちのそばで夜魔の視線から彼らを守り続けているのです。\nマスター、夜更けに窓をノックする音が聞こえたとしても\n怖がらないでください。眠れない夜守り人が、挨拶に来ただけかもしれません。\n\n追記：リュシアのペット「トゲナシ」は、小柄で人懐っこい性格のハティです。\nかつてはホロウの外周に住んでいましたが、現在はホロウの奥深くへと\n移動してしまい、私でもその正確な位置を探知することができません。",
+  "role_icon": "IconRole/UnPacker/IconRole50",
+  "stature": "160",
+  "unlock_condition": [
+   "エージェント招集",
+   "メイン依頼 シーズン2・第四章をクリアする",
+   "依頼「アンビーの当惑」を達成する"
+  ],
+  "trust_lv": {
+   "1": "リュシア、怪啖屋のメンバーの一人で、ハンドルネームは「夜魔の語り部」です。\nバックパッカーであり、エーテリアスにまつわる物語の愛好家であり、\n深夜の屋台を練り歩く食通でもあります。\n\n資料によるとリュシアは、都市の辺境に暮らす一族の出身のようです。\nこの一族には先祖が「夜魔」と呼ばれるエーテリアス（調査協会の記録に該当なし）\nと出会い、特殊な能力を授かったという言い伝えがあります。\nそれはエーテリアスに気付かれにくくなる能力であり、その代償として\nリュシアの一族は夜に眠ると「夜魔」の夢を見るようになり、「夜魔」に誘われて\n夢遊病のように自らホロウへと入り込み、侵蝕されてしまうようになりました。\nこうしてリュシアの一族は「夜守り人」として昼間に眠り、深夜に狩りを行うことで\n「夜魔」の誘惑を避ける暮らしをしています。もし誰かがどうしても\n夜に眠らなければならない場合は、その家族が夜明けまで傍で見守り続けます。\n\nリュシアは一族のもとで育ち、新エリー都に来てからも\n「夜守り人」の伝統に則った暮らしをしています。つまり夜は眠らず、\n大切な友人たちのそばで夜魔の視線から彼らを守り続けているのです。\nマスター、夜更けに窓をノックする音が聞こえたとしても\n怖がらないでください。眠れない夜守り人が、挨拶に来ただけかもしれません。\n\n追記：リュシアのペット「トゲナシ」は、小柄で人懐っこい性格のハティです。\nかつてはホロウの外周に住んでいましたが、現在はホロウの奥深くへと\n移動してしまい、私でもその正確な位置を探知することができません。",
+   "2": "",
+   "3": "リュシアの父は防衛軍の特殊部隊に所属しており、多忙のため年に1度しか\n家に帰れませんでした。幼いリュシアにとっては\nそんな父と過ごす時間そのものがご褒美だったようです。\nある休暇中、緊急招集を受けたリュシアの父はすぐに出発せざるを得なくなり、\n泣き止まない娘をなだめるため、かくれんぼを提案しました。\nしかしリュシアが数えるのを終えて目を開けた時には、父はすでに\n遠くへ行ってしまっており、以降、彼が帰ってくることはありませんでした。\n何年もの月日が流れたあと、「町」における探索中、\nリュシアは「ワンダリングハンター」と化した父と再会を果たします。\n穏やかな数え歌のなか、彼女はついにあの日のかくれんぼを終わらせ、\n「ワンダリングハンター」もまたミアズマに侵された執念から解き放たれたことで\n親子の再会、そして本当の別れは果たされたのでした。",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 109,
+  "attack_growth": 64272,
+  "avatar_piece_id": 5451,
+  "break_stun": 83,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 48,
+  "defence_growth": 64845,
+  "element_abnormal_power": 96,
+  "element_mystery": 95,
+  "endurance": 0,
+  "hp_growth": 924944,
+  "hp_max": 681,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Lucia",
+   "Punch",
+   "Ether",
+   "Female",
+   "Camp11",
+   "Size2",
+   "AidTypeParry",
+   "Lucia",
+   "EtherEyesSize2"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "通常攻撃：<ruby=せいき>星軌</ruby>ラッシュ",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方へ最大5段の打撃を繰り出し、<color=#FE437E>エーテル属性ダメージ</color>を与える。\n5段目の攻撃は<color=#FFFFFF>『随想』</color>であり、発動時にエーテリアスの幻を召喚して、前方円形範囲内の敵に<color=#FE437E>エーテル属性ダメージ</color>を与える。\n接敵状態中、かつ<color=#FFFFFF>「夢境」</color>状態でない時、リュシアはこの<color=#FFFFFF>『随想』</color>を発動すると<color=#FFFFFF>「夢境値」</color>を40Pt獲得する。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：<ruby=せいき>星軌</ruby>ラッシュ",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1451001, Prop:1001}",
+       "param": {
+        "1451001": {
+         "main": 4090,
+         "growth": 380,
+         "format": "%",
+         "damage_percentage": 4090,
+         "damage_percentage_growth": 380,
+         "stun_ratio": 6610,
+         "stun_ratio_growth": 310,
+         "sp_recovery": 21610,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 165275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3144,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6003
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1451002, Prop:1001}",
+       "param": {
+        "1451002": {
+         "main": 2780,
+         "growth": 260,
+         "format": "%",
+         "damage_percentage": 2780,
+         "damage_percentage_growth": 260,
+         "stun_ratio": 3670,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 12020,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 91850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2025,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1451003, Prop:1001}",
+       "param": {
+        "1451003": {
+         "main": 8350,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 8350,
+         "damage_percentage_growth": 760,
+         "stun_ratio": 10770,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 35250,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 269225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5921,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9790
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率",
+       "desc": "{Skill:1451004, Prop:1001}",
+       "param": {
+        "1451004": {
+         "main": 8010,
+         "growth": 730,
+         "format": "%",
+         "damage_percentage": 8010,
+         "damage_percentage_growth": 730,
+         "stun_ratio": 11190,
+         "stun_ratio_growth": 510,
+         "sp_recovery": 31070,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 237325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5650,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "随想ダメージ倍率",
+       "desc": "{Skill:1451005, Prop:1001}",
+       "param": {
+        "1451005": {
+         "main": 17290,
+         "growth": 1580,
+         "format": "%",
+         "damage_percentage": 17290,
+         "damage_percentage_growth": 1580,
+         "stun_ratio": 20760,
+         "stun_ratio_growth": 950,
+         "sp_recovery": 73500,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 561550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14224,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18873
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "合唱ダメージ倍率",
+       "desc": "{Skill:1451006, Prop:1001}",
+       "param": {
+        "1451006": {
+         "main": 41250,
+         "growth": 3750,
+         "format": "%",
+         "damage_percentage": 41250,
+         "damage_percentage_growth": 3750,
+         "stun_ratio": 20760,
+         "stun_ratio_growth": 950,
+         "sp_recovery": 73500,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 561550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14224,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18873
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "追加攻撃ダメージ倍率",
+       "desc": "{Skill:1451007, Prop:1001}",
+       "param": {
+        "1451007": {
+         "main": 55000,
+         "growth": 5000,
+         "format": "%",
+         "damage_percentage": 55000,
+         "damage_percentage_growth": 5000,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1451001, Prop:1002}",
+       "param": {
+        "1451001": {
+         "main": 6610,
+         "growth": 310,
+         "format": "%",
+         "damage_percentage": 4090,
+         "damage_percentage_growth": 380,
+         "stun_ratio": 6610,
+         "stun_ratio_growth": 310,
+         "sp_recovery": 21610,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 165275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3144,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6003
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1451002, Prop:1002}",
+       "param": {
+        "1451002": {
+         "main": 3670,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 2780,
+         "damage_percentage_growth": 260,
+         "stun_ratio": 3670,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 12020,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 91850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2025,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1451003, Prop:1002}",
+       "param": {
+        "1451003": {
+         "main": 10770,
+         "growth": 490,
+         "format": "%",
+         "damage_percentage": 8350,
+         "damage_percentage_growth": 760,
+         "stun_ratio": 10770,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 35250,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 269225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5921,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9790
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率",
+       "desc": "{Skill:1451004, Prop:1002}",
+       "param": {
+        "1451004": {
+         "main": 11190,
+         "growth": 510,
+         "format": "%",
+         "damage_percentage": 8010,
+         "damage_percentage_growth": 730,
+         "stun_ratio": 11190,
+         "stun_ratio_growth": 510,
+         "sp_recovery": 31070,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 237325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5650,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "随想ブレイク倍率",
+       "desc": "{Skill:1451005, Prop:1002}",
+       "param": {
+        "1451005": {
+         "main": 20760,
+         "growth": 950,
+         "format": "%",
+         "damage_percentage": 17290,
+         "damage_percentage_growth": 1580,
+         "stun_ratio": 20760,
+         "stun_ratio_growth": 950,
+         "sp_recovery": 73500,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 561550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14224,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18873
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "合唱ブレイク倍率",
+       "desc": "{Skill:1451006, Prop:1002}",
+       "param": {
+        "1451006": {
+         "main": 20760,
+         "growth": 950,
+         "format": "%",
+         "damage_percentage": 41250,
+         "damage_percentage_growth": 3750,
+         "stun_ratio": 20760,
+         "stun_ratio_growth": 950,
+         "sp_recovery": 73500,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 561550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14224,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18873
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "追加攻撃ブレイク倍率",
+       "desc": "{Skill:1451007, Prop:1002}",
+       "param": {
+        "1451007": {
+         "main": 0,
+         "growth": 0,
+         "format": "%",
+         "damage_percentage": 55000,
+         "damage_percentage_growth": 5000,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "回避：ティルトシャドウ",
+     "desc": " <IconMap:Icon_Evade> を押して発動：\nダッシュで高速回避する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：ミラージュ",
+     "desc": "回避時に <IconMap:Icon_Normal> を押して発動：\n前方に素早く打撃を放ち、<color=#FE437E>エーテル属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "回避反撃：スターダストエコー",
+     "desc": "<color=#FFFFFF>『極限回避』</color>発動後、 <IconMap:Icon_Normal> を押して発動：\n『回避反撃』は<color=#FFFFFF>『随想』</color>であり、発動時にエーテリアスの幻を召喚して、前方の円形範囲に落下攻撃を放ち、<color=#FE437E>エーテル属性ダメージ</color>を与える。\n<color=#FFFFFF>「夢境」</color>状態でない時、リュシアはこの<color=#FFFFFF>『随想』</color>を発動すると<color=#FFFFFF>「夢境値」</color>を20Pt獲得する、5秒に1回のみ獲得可能。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：ミラージュ",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1451012, Prop:1001}",
+       "param": {
+        "1451012": {
+         "main": 8630,
+         "growth": 790,
+         "format": "%",
+         "damage_percentage": 8630,
+         "damage_percentage_growth": 790,
+         "stun_ratio": 4320,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 14110,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 107800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3918,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3919
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1451012, Prop:1002}",
+       "param": {
+        "1451012": {
+         "main": 4320,
+         "growth": 200,
+         "format": "%",
+         "damage_percentage": 8630,
+         "damage_percentage_growth": 790,
+         "stun_ratio": 4320,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 14110,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 107800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3918,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3919
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "回避反撃：スターダストエコー",
+     "param": [
+      {
+       "name": "随想ダメージ倍率",
+       "desc": "{Skill:1451013, Prop:1001}",
+       "param": {
+        "1451013": {
+         "main": 24830,
+         "growth": 2260,
+         "format": "%",
+         "damage_percentage": 24830,
+         "damage_percentage_growth": 2260,
+         "stun_ratio": 21640,
+         "stun_ratio_growth": 990,
+         "sp_recovery": 34820,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 266200,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "合唱ダメージ倍率",
+       "desc": "{Skill:1451014, Prop:1001}",
+       "param": {
+        "1451014": {
+         "main": 38580,
+         "growth": 3510,
+         "format": "%",
+         "damage_percentage": 38580,
+         "damage_percentage_growth": 3510,
+         "stun_ratio": 21640,
+         "stun_ratio_growth": 990,
+         "sp_recovery": 34820,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 266200,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "随想ブレイク倍率",
+       "desc": "{Skill:1451013, Prop:1002}",
+       "param": {
+        "1451013": {
+         "main": 21640,
+         "growth": 990,
+         "format": "%",
+         "damage_percentage": 24830,
+         "damage_percentage_growth": 2260,
+         "stun_ratio": 21640,
+         "stun_ratio_growth": 990,
+         "sp_recovery": 34820,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 266200,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "合唱ブレイク倍率",
+       "desc": "{Skill:1451014, Prop:1002}",
+       "param": {
+        "1451014": {
+         "main": 21640,
+         "growth": 990,
+         "format": "%",
+         "damage_percentage": 38580,
+         "damage_percentage_growth": 3510,
+         "stun_ratio": 21640,
+         "stun_ratio_growth": 990,
+         "sp_recovery": 34820,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 266200,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24671
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "特殊スキル：死神協奏曲・嵐",
+     "desc": " <IconMap:Icon_Special> を押して発動：\n特殊スキルは<color=#FFFFFF>『随想』</color>であり、発動時にエーテリアスの幻を召喚して、前方の直線範囲に斬撃を放ち、<color=#FE437E>エーテル属性ダメージ</color>を与える。\n接敵状態中、かつ<color=#FFFFFF>「夢境」</color>状態でない時、リュシアはこの<color=#FFFFFF>『随想』</color>を発動すると<color=#FFFFFF>「夢境値」</color>を20Pt獲得する、5秒に1回のみ獲得可能。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：死神協奏曲・暁",
+     "desc": "エネルギーが十分な時、 <IconMap:Icon_SpecialReady> を押して発動：\n『強化特殊スキル』は<color=#FFFFFF>『合唱』</color>であり、発動時にエーテリアスの幻を召喚して、前方の直線範囲に強力な斬撃を放ち、<color=#FE437E>エーテル属性ダメージ</color>を与える。\nリュシアは<color=#FFFFFF>『合唱』</color>を発動すると、メンバー全員に<color=#FFFFFF>「破暗」</color>状態を付与する。\n<color=#FFFFFF>「破暗」</color>状態にある時、透徹力+12Pt。リュシアの開幕最大HP200Ptにつき、透徹力が追加で+<color=#2BAD00>{CAL:5+AvatarSkillLevel(1)*0.2,1,1}</color>Pt。<color=#FFFFFF>「破暗」</color>状態によってアップできる透徹力は最大<color=#2BAD00>{CAL:612+AvatarSkillLevel(1)*24,1,2}</color>Ptまで、継続時間20秒、重複して発動すると継続時間が更新される。リュシアの開幕最大HPが24000Ptに達すると、上記のバフ効果は最大値に達する。\n<color=#FFFFFF>『合唱』</color>でダメージを与えた時、リュシアの最大HP<color=#2BAD00>{CAL:0.34+AvatarSkillLevel(1)*0.03,100,2}%</color>を基に、最後の1段の攻撃ダメージが追加でアップする。\nリュシアが『強化特殊スキル』を発動した後、自身が<color=#FFFFFF>「夢境」</color>状態にあり、かつ<color=#FFFFFF>「エーテルベール・湧泉」</color>が展開中の場合、<color=#FFFFFF>「エーテルベール・湧泉」</color>の継続時間が16秒延長される。\nリュシアが『強化特殊スキル』を発動した後、そのまま<color=#FFFFFF>『通常攻撃』</color>5段目に繋げることが可能。\n<color=#FFFFFF>「夢境」</color>状態でない時、リュシアはこの<color=#FFFFFF>『合唱』</color>を発動すると<color=#FFFFFF>「夢境値」</color>を60Pt獲得する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：死神協奏曲・嵐",
+     "param": [
+      {
+       "name": "随想ダメージ倍率",
+       "desc": "{Skill:1451008, Prop:1001}",
+       "param": {
+        "1451008": {
+         "main": 4590,
+         "growth": 420,
+         "format": "%",
+         "damage_percentage": 4590,
+         "damage_percentage_growth": 420,
+         "stun_ratio": 4590,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 114675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4165,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4166
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "合唱ダメージ倍率",
+       "desc": "{Skill:1451009, Prop:1001}",
+       "param": {
+        "1451009": {
+         "main": 18340,
+         "growth": 1670,
+         "format": "%",
+         "damage_percentage": 18340,
+         "damage_percentage_growth": 1670,
+         "stun_ratio": 4590,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 114675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4165,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4166
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "追加攻撃ダメージ倍率",
+       "desc": "{Skill:1451010, Prop:1001}",
+       "param": {
+        "1451010": {
+         "main": 55000,
+         "growth": 5000,
+         "format": "%",
+         "damage_percentage": 55000,
+         "damage_percentage_growth": 5000,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "随想ブレイク倍率",
+       "desc": "{Skill:1451008, Prop:1002}",
+       "param": {
+        "1451008": {
+         "main": 4590,
+         "growth": 210,
+         "format": "%",
+         "damage_percentage": 4590,
+         "damage_percentage_growth": 420,
+         "stun_ratio": 4590,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 114675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4165,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4166
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "合唱ブレイク倍率",
+       "desc": "{Skill:1451009, Prop:1002}",
+       "param": {
+        "1451009": {
+         "main": 4590,
+         "growth": 210,
+         "format": "%",
+         "damage_percentage": 18340,
+         "damage_percentage_growth": 1670,
+         "stun_ratio": 4590,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 114675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4165,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4166
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "追加攻撃ブレイク倍率",
+       "desc": "{Skill:1451010, Prop:1002}",
+       "param": {
+        "1451010": {
+         "main": 0,
+         "growth": 0,
+         "format": "%",
+         "damage_percentage": 55000,
+         "damage_percentage_growth": 5000,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：死神協奏曲・暁",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1451011, Prop:1001}",
+       "param": {
+        "1451011": {
+         "main": 63810,
+         "growth": 5810,
+         "format": "%",
+         "damage_percentage": 63810,
+         "damage_percentage_growth": 5810,
+         "stun_ratio": 44190,
+         "stun_ratio_growth": 2010,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1627450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 44921,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1451011, Prop:1002}",
+       "param": {
+        "1451011": {
+         "main": 44190,
+         "growth": 2010,
+         "format": "%",
+         "damage_percentage": 63810,
+         "damage_percentage_growth": 5810,
+         "stun_ratio": 44190,
+         "stun_ratio_growth": 2010,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1627450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 44921,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "エネルギー消費",
+       "desc": "60Pt",
+       "potential": []
+      },
+      {
+       "name": "透徹力追加アップ上限",
+       "desc": "{CAL:612+AvatarSkillLevel(1)*24,1,2}Pt",
+       "potential": []
+      },
+      {
+       "name": "『合唱』追加ダメージ倍率",
+       "desc": "{CAL:0.34+AvatarSkillLevel(1)*0.03,100,2}%",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "連携スキル：ビビッド・シアター",
+     "desc": "<color=#FFFFFF>『連携スキル』</color>開始時に、対応するエージェントを選択して発動：\n『連携スキル』は<color=#FFFFFF>『合唱』</color>であり、発動時にエーテリアスの幻を召喚して、前方円形範囲内の敵を引き寄せ、<color=#FE437E>エーテル属性ダメージ</color>を与える。\n<color=#FFFFFF>「夢境」</color>状態でない時、リュシアはこの<color=#FFFFFF>『合唱』</color>を発動すると<color=#FFFFFF>「夢境値」</color>を40Pt獲得する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "終結スキル：突撃、デカ腕マン！",
+     "desc": "デシベルレートが『Maximum』に達した時、 <IconMap:Icon_UltimateReady> を押して発動：\n『終結スキル』は<color=#FFFFFF>『合唱』</color>であり、発動時にエーテリアスの幻を召喚し、リュシアはエーテリアスに乗って前方へ突進する。方向を入力し続けると、突進方向を制御でき、突進時間を最大3秒に延長できる。突進中、中断耐性レベルがアップし、被ダメージ-40%、致命的なダメージを受けてもリュシアは戦闘不能にならず、残りHPが1を下回ることはない。\n突進終了時、周囲広範囲に強力な打撃を繰り出し、<color=#FE437E>エーテル属性ダメージ</color>を与える。スキルが敵に命中すると、<color=#FFFFFF>『クイック支援』</color>が発動可能になる。スキル発動後、その場に<color=#FFFFFF>「星光が集う地」</color>を展開する。<color=#FFFFFF>「星光が集う地」</color>の継続時間は8秒。<color=#FFFFFF>「星光が集う地」</color>内にいる間、操作しているメンバーはHP回復効果を獲得し、1秒ごとにリュシアの最大HP<color=#2BAD00>{CAL:0.01+AvatarSkillLevel(3)*0.0005,100,2}%</color>分を回復する。この回復効果はメンバーが<color=#FFFFFF>「星光が集う地」</color>から4秒離れた後、または退場時に解除される。\nスキル発動後、リュシアが<color=#FFFFFF>「夢境」</color>状態にあり、かつ<color=#FFFFFF>「エーテルベール・湧泉」</color>が展開中の場合、<color=#FFFFFF>「エーテルベール・湧泉」</color>の継続時間が32秒延長される。\n<color=#FFFFFF>「夢境」</color>状態でない時、リュシアはこの<color=#FFFFFF>『合唱』</color>を発動すると<color=#FFFFFF>「夢境値」</color>を100Pt獲得する。\n<color=#FFFFFF>「夢境」</color>状態中にこの<color=#FFFFFF>『合唱』</color>を発動すると、今回の<color=#FFFFFF>「夢境」</color>が終了した時に<color=#FFFFFF>「夢境値」</color>を100Pt獲得し、再び<color=#FFFFFF>「夢境」</color>状態に入る。この効果は重複して得られない。\n強力な打撃発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "連携スキル：ビビッド・シアター",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1451016, Prop:1001}",
+       "param": {
+        "1451016": {
+         "main": 61670,
+         "growth": 5610,
+         "format": "%",
+         "damage_percentage": 61670,
+         "damage_percentage_growth": 5610,
+         "stun_ratio": 17780,
+         "stun_ratio_growth": 810,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2273425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 36113,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16164
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1451016, Prop:1002}",
+       "param": {
+        "1451016": {
+         "main": 17780,
+         "growth": 810,
+         "format": "%",
+         "damage_percentage": 61670,
+         "damage_percentage_growth": 5610,
+         "stun_ratio": 17780,
+         "stun_ratio_growth": 810,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2273425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 36113,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16164
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "終結スキル：突撃、デカ腕マン！",
+     "param": [
+      {
+       "name": "突進1回のダメージ倍率",
+       "desc": "{Skill:1451024, Prop:1001}",
+       "param": {
+        "1451024": {
+         "main": 9300,
+         "growth": 850,
+         "format": "%",
+         "damage_percentage": 9300,
+         "damage_percentage_growth": 850,
+         "stun_ratio": 7150,
+         "stun_ratio_growth": 330,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4875,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "終結スキルダメージ倍率",
+       "desc": "{Skill:1451017, Prop:1001}",
+       "param": {
+        "1451017": {
+         "main": 190270,
+         "growth": 17300,
+         "format": "%",
+         "damage_percentage": 190270,
+         "damage_percentage_growth": 17300,
+         "stun_ratio": 19440,
+         "stun_ratio_growth": 890,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 67671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "突進1回のブレイク倍率",
+       "desc": "{Skill:1451024, Prop:1002}",
+       "param": {
+        "1451024": {
+         "main": 7150,
+         "growth": 330,
+         "format": "%",
+         "damage_percentage": 9300,
+         "damage_percentage_growth": 850,
+         "stun_ratio": 7150,
+         "stun_ratio_growth": 330,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4875,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "終結スキルブレイク倍率",
+       "desc": "{Skill:1451017, Prop:1002}",
+       "param": {
+        "1451017": {
+         "main": 19440,
+         "growth": 890,
+         "format": "%",
+         "damage_percentage": 190270,
+         "damage_percentage_growth": 17300,
+         "stun_ratio": 19440,
+         "stun_ratio_growth": 890,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 67671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "毎秒回復するHP割合",
+       "desc": "{CAL:0.01+AvatarSkillLevel(3)*0.0005,100,2}%",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "クイック支援：ミスティストライク",
+     "desc": "操作しているメンバーが吹き飛ばされた時に、 <IconMap:Icon_Switch> を押して発動：\n『クイック支援』は<color=#FFFFFF>『随想』</color>であり、発動時にエーテリアスの幻を召喚して、前方の円形範囲に落下攻撃を放ち、<color=#FE437E>エーテル属性ダメージ</color>を与える。\n<color=#FFFFFF>「夢境」</color>状態でない時、リュシアはこの<color=#FFFFFF>『随想』</color>を発動すると<color=#FFFFFF>「夢境値」</color>を20Pt獲得する、5秒に1回のみ獲得可能。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：ドリームコール",
+     "desc": "出場中のメンバーが攻撃されそうになった時に、 <IconMap:Icon_Switch> を押して発動：\n敵の攻撃をパリィし、ブレイク値を大量に蓄積させる。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援突撃：ドリームハーモニー",
+     "desc": "<color=#FFFFFF>『パリィ支援』</color>発動後、 <IconMap:Icon_Normal> を押して発動：\n『支援突撃』は<color=#FFFFFF>『合唱』</color>であり、発動時にエーテリアスの幻を召喚して、前方の円形範囲に強力な落下攻撃を放ち、<color=#FE437E>エーテル属性ダメージ</color>を与える。\n<color=#FFFFFF>「夢境」</color>状態でない時、リュシアはこの<color=#FFFFFF>『合唱』</color>を発動すると<color=#FFFFFF>「夢境値」</color>を40Pt獲得する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "クイック支援：ミスティストライク",
+     "param": [
+      {
+       "name": "随想ダメージ倍率",
+       "desc": "{Skill:1451018, Prop:1001}",
+       "param": {
+        "1451018": {
+         "main": 10640,
+         "growth": 970,
+         "format": "%",
+         "damage_percentage": 10640,
+         "damage_percentage_growth": 970,
+         "stun_ratio": 5320,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 17410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 133100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4835,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4836
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "合唱ダメージ倍率",
+       "desc": "{Skill:1451023, Prop:1001}",
+       "param": {
+        "1451023": {
+         "main": 24390,
+         "growth": 2220,
+         "format": "%",
+         "damage_percentage": 24390,
+         "damage_percentage_growth": 2220,
+         "stun_ratio": 5320,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 17410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 133100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4835,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4836
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "追加攻撃ダメージ倍率",
+       "desc": "{Skill:1451015, Prop:1001}",
+       "param": {
+        "1451015": {
+         "main": 55000,
+         "growth": 5000,
+         "format": "%",
+         "damage_percentage": 55000,
+         "damage_percentage_growth": 5000,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "随想ブレイク倍率",
+       "desc": "{Skill:1451018, Prop:1002}",
+       "param": {
+        "1451018": {
+         "main": 5320,
+         "growth": 250,
+         "format": "%",
+         "damage_percentage": 10640,
+         "damage_percentage_growth": 970,
+         "stun_ratio": 5320,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 17410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 133100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4835,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4836
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "合唱ブレイク倍率",
+       "desc": "{Skill:1451023, Prop:1002}",
+       "param": {
+        "1451023": {
+         "main": 5320,
+         "growth": 250,
+         "format": "%",
+         "damage_percentage": 24390,
+         "damage_percentage_growth": 2220,
+         "stun_ratio": 5320,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 17410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 133100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4835,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4836
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "追加攻撃ブレイク倍率",
+       "desc": "{Skill:1451015, Prop:1002}",
+       "param": {
+        "1451015": {
+         "main": 0,
+         "growth": 0,
+         "format": "%",
+         "damage_percentage": 55000,
+         "damage_percentage_growth": 5000,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：ドリームコール",
+     "param": [
+      {
+       "name": "パリィ・軽 ブレイク倍率",
+       "desc": "{Skill:1451019, Prop:1002}",
+       "param": {
+        "1451019": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・重 ブレイク倍率",
+       "desc": "{Skill:1451020, Prop:1002}",
+       "param": {
+        "1451020": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・連続 ブレイク倍率",
+       "desc": "{Skill:1451021, Prop:1002}",
+       "param": {
+        "1451021": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：ドリームハーモニー",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1451022, Prop:1001}",
+       "param": {
+        "1451022": {
+         "main": 32770,
+         "growth": 2980,
+         "format": "%",
+         "damage_percentage": 32770,
+         "damage_percentage_growth": 2980,
+         "stun_ratio": 28240,
+         "stun_ratio_growth": 1290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 932250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 27726,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1451022, Prop:1002}",
+       "param": {
+        "1451022": {
+         "main": 28240,
+         "growth": 1290,
+         "format": "%",
+         "damage_percentage": 32770,
+         "damage_percentage_growth": 2980,
+         "stun_ratio": 28240,
+         "stun_ratio_growth": 1290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 932250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 27726,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13337
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "秘密の友達",
+   "desc": "<color=#FFFFFF>「夢巡りの童謡」</color>状態にある時、敵の全属性ダメージ耐性を18%無視し、デシベル値獲得効率+5%。また、リュシアはスキルグレードアップを発動すると、<color=#FFFFFF>「エコー」</color>を1重獲得する、最大4重まで重ね掛け可能。<color=#FFFFFF>「夢巡りの童謡」</color>状態が終了した時、リュシアが<color=#FFFFFF>「エコー」</color>を所持している場合、自動で1重を消費してメンバー全員にもう一度<color=#FFFFFF>「夢巡りの童謡」</color>状態を付与する。",
+   "desc2": "まだ子どもだった頃、\n「おばあ」はリュシアの手を引いてホロウへ行った。\nそのときから彼女は光のない小道をたどり、\n果てしないホロウで狩りをするようになった。\nスケッチブックにすれ違うエーテリアスを描きとめ、\n幼い日々の全てをエーテルの輝きが彩る。\n「ちっちゃい頃、お友達が3人いたんだ。\nとっても強いクロタテと、瞬間移動ができるタナっち、\nそれからすっごくすっごく強いデカ腕マン…！」\n「そのうち、みんないなくなっちゃったけど…」\n「…大丈夫！みんなのことは手帳に描いたから——\n今は杖を振るだけで来てくれるんだ！」"
+  },
+  "2": {
+   "level": 2,
+   "name": "マジシャンみたいだね",
+   "desc": "リュシアが<color=#FFFFFF>「エーテルベール・湧泉」</color>の効果を受けている時、<color=#FFFFFF>『合唱』</color>の与ダメージ+15%。<color=#FFFFFF>「破暗」</color>状態のメンバーが<color=#FFFFFF>「エーテルベール・湧泉」</color>の効果を受けている時、追加で透徹ダメージ+15%の効果を獲得する。",
+   "desc2": "最近、新エリー都で「夜魔の語り部」に\nまつわる噂が広まっている。\n「毎晩0時になると、夜魔の語り部は街に現れて、\nいろんなお話を聞かせてくれる！」\n「夜魔の語り部、呪文を唱えると\nページがめくれて、たくさんのエーテリアスが\n戦ってくれるんだ！マジシャンみたい！」\n「この前ホロウで迷子になった時も、\nそうやってボクたちを助けてくれた！」\n――アボカドボンプ、アクマデボンプ、ズバットボンプによる証言"
+  },
+  "3": {
+   "level": 3,
+   "name": "ベストパートナー",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "——コンコン、コンコンコン。\n規則的なノックの音とともに、\n窓から差し出されたのは串焼きだった。\n「ほら、レモン味のパチパチをふりかけた串焼き、\n出来立てほやほや！デュラハンが持ってる\n左手の剣と右手の盾みたいに、\n抜群のコンビネーションだから！」\n「食べ終わったら、一緒に出かけよっ」\n「今夜はとびっきりのネタが見つかる気がするの——\nそれもフォーラムで超バズりそうなやつ！」"
+  },
+  "4": {
+   "level": 4,
+   "name": "時は深夜",
+   "desc": "フィールド上で<color=#FFFFFF>「エーテルベール」</color>が展開または延長された時、メンバー全員がデシベル値を100Pt獲得する。この効果は15秒に1回のみ発動可能。",
+   "desc2": "尽きない好奇心、満ちた行動力、\nそして思い立ったら即行動する決意は、\n「怪談学者」にとって欠かせない重要な素質——\nリュシアはまさにそれを絵に描いたような人物だ。\nだからこそ、新エリー都にやってきたばかりの頃、\n彼女は治安局の常連でもあった。そして今…\n「だーかーら！いくら怪談のためだからって、\n勝手に工事現場に入っちゃダメだってば！」\n「路上で寝る、夜遅くに出歩く、人が見てる前で\nホロウに突っ込む…こういうの全部禁止！\n『新エリー都生活条例』をちゃんと守ってよね！」\n「どうしても眠れないなら…\nうーん、アリスんちを探検してきたら？\nついでにあの子に怖い話でもしてあげてよ」"
+  },
+  "5": {
+   "level": 5,
+   "name": "夢を守る人",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "墨色の夜空に散る星々が、美しく輝いている。\n彼女は物語と、歌と、書きかけの詩を携えて、\n遠くからやってきた旅人。\n露の滴る花を摘み、そっと窓辺に置いて、\nあなたの夢が温かく安心できるものであるように、\n静かに見守る。\n\n「おはよう…あれ、いつ来て{M#いたんだい}{F#たの}？」\n「えー？覚えてないよ…たぶん\n{M#アキラ}{F#リン}が起きるちょっと前かな？\n君の寝顔を見てたら、時間なんて一瞬だし」"
+  },
+  "6": {
+   "level": 6,
+   "name": "旅はけして終わらない",
+   "desc": "リュシアが任意の<color=#FFFFFF>「エーテルベール」</color>効果を受けている時、自身の開幕最大HPの2%を基に、自身の攻撃力がアップする。また、<color=#FFFFFF>『合唱』</color>を発動すると必ず会心が発生し、<color=#FFFFFF>『合唱』</color>で会心が発生した時、会心ダメージ+30%。",
+   "desc2": "リュシアの人生は終わりのない旅路。\n彼女は月明かりを浴びながら、いくつもの通り、\nいくつもの町を駆け抜けて何かを探し求める。\n物語の糸が織りなす無数の美しい夢、\n常夜灯の下で流れる軽やかな歌声。\nその歩みは決して止まらず、\n旅路は星空の下で永遠に続いていく。\n\n夜が次第に明け、陽が昇ると、\n少女は伸びをしながらホロウから出てきた。\n「ふあぁ…ねむ…でもみんなは\nホロウで寝るなって言うし…」\n「そうだ、ビデオ屋の床を借りよっと！」"
+  }
+ },
+ "passive": {
+  "level": {
+   "1451501": {
+    "level": 1,
+    "id": 1451501,
+    "name": [
+     "コアパッシブ：迷える夜の歌",
+     "追加能力：長夜の詩篇"
+    ],
+    "desc": [
+     "フィールド入場時、リュシアは即座に<color=#FFFFFF>「夢境値」</color>を60Pt獲得する。<color=#FFFFFF>『随想』</color>または<color=#FFFFFF>『合唱』</color>発動時、リュシアの<color=#FFFFFF>「夢境値」</color>が100Ptに達している場合、<color=#FFFFFF>「夢境」</color>状態に入る。\n<color=#FFFFFF>「夢境」</color>状態に入る時、<color=#FFFFFF>『クイック支援』</color>が発動可能になり、同時に<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開する。<color=#FFFFFF>「エーテルベール・湧泉」</color>展開中、メンバー全員の最大HP+5%、継続時間40秒、重複して発動すると継続時間が延長され、最大300秒に延長可能。\n<color=#FFFFFF>「夢境」</color>状態のリュシアが任意の<color=#FFFFFF>『随想』</color>を発動すると、<color=#FFFFFF>「夢境値」</color>を25Pt消費して<color=#FFFFFF>『随想』</color>を<color=#FFFFFF>『合唱』</color>にグレードアップする。\n操作している他のメンバーの攻撃が敵に命中すると、<color=#FFFFFF>「夢境値」</color>を25Pt消費して<color=#FFFFFF>『追加攻撃』</color>を発動する。<color=#FFFFFF>『追加攻撃』</color>は<color=#FFFFFF>『合唱』</color>である。スキルグレードアップまたは<color=#FFFFFF>『追加攻撃』</color>発動後の8秒間、<color=#FFFFFF>『追加攻撃』</color>が発動しなくなる。\nリュシアがスキルグレードアップまたは<color=#FFFFFF>『追加攻撃』</color>を発動すると、メンバー全員に<color=#FFFFFF>「夢巡りの童謡」</color>状態を付与する。<color=#FFFFFF>「夢巡りの童謡」</color>状態中、メンバーの与ダメージ+<color=#2BAD00>10%</color>、継続時間12秒、重複して発動すると継続時間が更新される。\n<color=#FFFFFF>「夢境値」</color>が不足している、または<color=#FFFFFF>「エーテルベール」</color>が終了した時、リュシアの<color=#FFFFFF>「夢境」</color>状態は解除される。",
+     "チームに<color=#FFFFFF>[命破]</color>または<color=#FFFFFF>[撃破]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>「破暗」</color>状態を付与する時、追加で会心ダメージ+30%の効果を付与する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1451502": {
+    "level": 2,
+    "id": 1451502,
+    "name": [
+     "コアパッシブ：迷える夜の歌",
+     "追加能力：長夜の詩篇"
+    ],
+    "desc": [
+     "フィールド入場時、リュシアは即座に<color=#FFFFFF>「夢境値」</color>を60Pt獲得する。<color=#FFFFFF>『随想』</color>または<color=#FFFFFF>『合唱』</color>発動時、リュシアの<color=#FFFFFF>「夢境値」</color>が100Ptに達している場合、<color=#FFFFFF>「夢境」</color>状態に入る。\n<color=#FFFFFF>「夢境」</color>状態に入る時、<color=#FFFFFF>『クイック支援』</color>が発動可能になり、同時に<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開する。<color=#FFFFFF>「エーテルベール・湧泉」</color>展開中、メンバー全員の最大HP+5%、継続時間40秒、重複して発動すると継続時間が延長され、最大300秒に延長可能。\n<color=#FFFFFF>「夢境」</color>状態のリュシアが任意の<color=#FFFFFF>『随想』</color>を発動すると、<color=#FFFFFF>「夢境値」</color>を25Pt消費して<color=#FFFFFF>『随想』</color>を<color=#FFFFFF>『合唱』</color>にグレードアップする。\n操作している他のメンバーの攻撃が敵に命中すると、<color=#FFFFFF>「夢境値」</color>を25Pt消費して<color=#FFFFFF>『追加攻撃』</color>を発動する。<color=#FFFFFF>『追加攻撃』</color>は<color=#FFFFFF>『合唱』</color>である。スキルグレードアップまたは<color=#FFFFFF>『追加攻撃』</color>発動後の8秒間、<color=#FFFFFF>『追加攻撃』</color>が発動しなくなる。\nリュシアがスキルグレードアップまたは<color=#FFFFFF>『追加攻撃』</color>を発動すると、メンバー全員に<color=#FFFFFF>「夢巡りの童謡」</color>状態を付与する。<color=#FFFFFF>「夢巡りの童謡」</color>状態中、メンバーの与ダメージ+<color=#2BAD00>11.7%</color>、継続時間12秒、重複して発動すると継続時間が更新される。\n<color=#FFFFFF>「夢境値」</color>が不足している、または<color=#FFFFFF>「エーテルベール」</color>が終了した時、リュシアの<color=#FFFFFF>「夢境」</color>状態は解除される。",
+     "チームに<color=#FFFFFF>[命破]</color>または<color=#FFFFFF>[撃破]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>「破暗」</color>状態を付与する時、追加で会心ダメージ+30%の効果を付与する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1451503": {
+    "level": 3,
+    "id": 1451503,
+    "name": [
+     "コアパッシブ：迷える夜の歌",
+     "追加能力：長夜の詩篇"
+    ],
+    "desc": [
+     "フィールド入場時、リュシアは即座に<color=#FFFFFF>「夢境値」</color>を60Pt獲得する。<color=#FFFFFF>『随想』</color>または<color=#FFFFFF>『合唱』</color>発動時、リュシアの<color=#FFFFFF>「夢境値」</color>が100Ptに達している場合、<color=#FFFFFF>「夢境」</color>状態に入る。\n<color=#FFFFFF>「夢境」</color>状態に入る時、<color=#FFFFFF>『クイック支援』</color>が発動可能になり、同時に<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開する。<color=#FFFFFF>「エーテルベール・湧泉」</color>展開中、メンバー全員の最大HP+5%、継続時間40秒、重複して発動すると継続時間が延長され、最大300秒に延長可能。\n<color=#FFFFFF>「夢境」</color>状態のリュシアが任意の<color=#FFFFFF>『随想』</color>を発動すると、<color=#FFFFFF>「夢境値」</color>を25Pt消費して<color=#FFFFFF>『随想』</color>を<color=#FFFFFF>『合唱』</color>にグレードアップする。\n操作している他のメンバーの攻撃が敵に命中すると、<color=#FFFFFF>「夢境値」</color>を25Pt消費して<color=#FFFFFF>『追加攻撃』</color>を発動する。<color=#FFFFFF>『追加攻撃』</color>は<color=#FFFFFF>『合唱』</color>である。スキルグレードアップまたは<color=#FFFFFF>『追加攻撃』</color>発動後の8秒間、<color=#FFFFFF>『追加攻撃』</color>が発動しなくなる。\nリュシアがスキルグレードアップまたは<color=#FFFFFF>『追加攻撃』</color>を発動すると、メンバー全員に<color=#FFFFFF>「夢巡りの童謡」</color>状態を付与する。<color=#FFFFFF>「夢巡りの童謡」</color>状態中、メンバーの与ダメージ+<color=#2BAD00>13.3%</color>、継続時間12秒、重複して発動すると継続時間が更新される。\n<color=#FFFFFF>「夢境値」</color>が不足している、または<color=#FFFFFF>「エーテルベール」</color>が終了した時、リュシアの<color=#FFFFFF>「夢境」</color>状態は解除される。",
+     "チームに<color=#FFFFFF>[命破]</color>または<color=#FFFFFF>[撃破]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>「破暗」</color>状態を付与する時、追加で会心ダメージ+30%の効果を付与する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1451504": {
+    "level": 4,
+    "id": 1451504,
+    "name": [
+     "コアパッシブ：迷える夜の歌",
+     "追加能力：長夜の詩篇"
+    ],
+    "desc": [
+     "フィールド入場時、リュシアは即座に<color=#FFFFFF>「夢境値」</color>を60Pt獲得する。<color=#FFFFFF>『随想』</color>または<color=#FFFFFF>『合唱』</color>発動時、リュシアの<color=#FFFFFF>「夢境値」</color>が100Ptに達している場合、<color=#FFFFFF>「夢境」</color>状態に入る。\n<color=#FFFFFF>「夢境」</color>状態に入る時、<color=#FFFFFF>『クイック支援』</color>が発動可能になり、同時に<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開する。<color=#FFFFFF>「エーテルベール・湧泉」</color>展開中、メンバー全員の最大HP+5%、継続時間40秒、重複して発動すると継続時間が延長され、最大300秒に延長可能。\n<color=#FFFFFF>「夢境」</color>状態のリュシアが任意の<color=#FFFFFF>『随想』</color>を発動すると、<color=#FFFFFF>「夢境値」</color>を25Pt消費して<color=#FFFFFF>『随想』</color>を<color=#FFFFFF>『合唱』</color>にグレードアップする。\n操作している他のメンバーの攻撃が敵に命中すると、<color=#FFFFFF>「夢境値」</color>を25Pt消費して<color=#FFFFFF>『追加攻撃』</color>を発動する。<color=#FFFFFF>『追加攻撃』</color>は<color=#FFFFFF>『合唱』</color>である。スキルグレードアップまたは<color=#FFFFFF>『追加攻撃』</color>発動後の8秒間、<color=#FFFFFF>『追加攻撃』</color>が発動しなくなる。\nリュシアがスキルグレードアップまたは<color=#FFFFFF>『追加攻撃』</color>を発動すると、メンバー全員に<color=#FFFFFF>「夢巡りの童謡」</color>状態を付与する。<color=#FFFFFF>「夢巡りの童謡」</color>状態中、メンバーの与ダメージ+<color=#2BAD00>15%</color>、継続時間12秒、重複して発動すると継続時間が更新される。\n<color=#FFFFFF>「夢境値」</color>が不足している、または<color=#FFFFFF>「エーテルベール」</color>が終了した時、リュシアの<color=#FFFFFF>「夢境」</color>状態は解除される。",
+     "チームに<color=#FFFFFF>[命破]</color>または<color=#FFFFFF>[撃破]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>「破暗」</color>状態を付与する時、追加で会心ダメージ+30%の効果を付与する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1451505": {
+    "level": 5,
+    "id": 1451505,
+    "name": [
+     "コアパッシブ：迷える夜の歌",
+     "追加能力：長夜の詩篇"
+    ],
+    "desc": [
+     "フィールド入場時、リュシアは即座に<color=#FFFFFF>「夢境値」</color>を60Pt獲得する。<color=#FFFFFF>『随想』</color>または<color=#FFFFFF>『合唱』</color>発動時、リュシアの<color=#FFFFFF>「夢境値」</color>が100Ptに達している場合、<color=#FFFFFF>「夢境」</color>状態に入る。\n<color=#FFFFFF>「夢境」</color>状態に入る時、<color=#FFFFFF>『クイック支援』</color>が発動可能になり、同時に<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開する。<color=#FFFFFF>「エーテルベール・湧泉」</color>展開中、メンバー全員の最大HP+5%、継続時間40秒、重複して発動すると継続時間が延長され、最大300秒に延長可能。\n<color=#FFFFFF>「夢境」</color>状態のリュシアが任意の<color=#FFFFFF>『随想』</color>を発動すると、<color=#FFFFFF>「夢境値」</color>を25Pt消費して<color=#FFFFFF>『随想』</color>を<color=#FFFFFF>『合唱』</color>にグレードアップする。\n操作している他のメンバーの攻撃が敵に命中すると、<color=#FFFFFF>「夢境値」</color>を25Pt消費して<color=#FFFFFF>『追加攻撃』</color>を発動する。<color=#FFFFFF>『追加攻撃』</color>は<color=#FFFFFF>『合唱』</color>である。スキルグレードアップまたは<color=#FFFFFF>『追加攻撃』</color>発動後の8秒間、<color=#FFFFFF>『追加攻撃』</color>が発動しなくなる。\nリュシアがスキルグレードアップまたは<color=#FFFFFF>『追加攻撃』</color>を発動すると、メンバー全員に<color=#FFFFFF>「夢巡りの童謡」</color>状態を付与する。<color=#FFFFFF>「夢巡りの童謡」</color>状態中、メンバーの与ダメージ+<color=#2BAD00>16.7%</color>、継続時間12秒、重複して発動すると継続時間が更新される。\n<color=#FFFFFF>「夢境値」</color>が不足している、または<color=#FFFFFF>「エーテルベール」</color>が終了した時、リュシアの<color=#FFFFFF>「夢境」</color>状態は解除される。",
+     "チームに<color=#FFFFFF>[命破]</color>または<color=#FFFFFF>[撃破]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>「破暗」</color>状態を付与する時、追加で会心ダメージ+30%の効果を付与する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1451506": {
+    "level": 6,
+    "id": 1451506,
+    "name": [
+     "コアパッシブ：迷える夜の歌",
+     "追加能力：長夜の詩篇"
+    ],
+    "desc": [
+     "フィールド入場時、リュシアは即座に<color=#FFFFFF>「夢境値」</color>を60Pt獲得する。<color=#FFFFFF>『随想』</color>または<color=#FFFFFF>『合唱』</color>発動時、リュシアの<color=#FFFFFF>「夢境値」</color>が100Ptに達している場合、<color=#FFFFFF>「夢境」</color>状態に入る。\n<color=#FFFFFF>「夢境」</color>状態に入る時、<color=#FFFFFF>『クイック支援』</color>が発動可能になり、同時に<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開する。<color=#FFFFFF>「エーテルベール・湧泉」</color>展開中、メンバー全員の最大HP+5%、継続時間40秒、重複して発動すると継続時間が延長され、最大300秒に延長可能。\n<color=#FFFFFF>「夢境」</color>状態のリュシアが任意の<color=#FFFFFF>『随想』</color>を発動すると、<color=#FFFFFF>「夢境値」</color>を25Pt消費して<color=#FFFFFF>『随想』</color>を<color=#FFFFFF>『合唱』</color>にグレードアップする。\n操作している他のメンバーの攻撃が敵に命中すると、<color=#FFFFFF>「夢境値」</color>を25Pt消費して<color=#FFFFFF>『追加攻撃』</color>を発動する。<color=#FFFFFF>『追加攻撃』</color>は<color=#FFFFFF>『合唱』</color>である。スキルグレードアップまたは<color=#FFFFFF>『追加攻撃』</color>発動後の8秒間、<color=#FFFFFF>『追加攻撃』</color>が発動しなくなる。\nリュシアがスキルグレードアップまたは<color=#FFFFFF>『追加攻撃』</color>を発動すると、メンバー全員に<color=#FFFFFF>「夢巡りの童謡」</color>状態を付与する。<color=#FFFFFF>「夢巡りの童謡」</color>状態中、メンバーの与ダメージ+<color=#2BAD00>18.3%</color>、継続時間12秒、重複して発動すると継続時間が更新される。\n<color=#FFFFFF>「夢境値」</color>が不足している、または<color=#FFFFFF>「エーテルベール」</color>が終了した時、リュシアの<color=#FFFFFF>「夢境」</color>状態は解除される。",
+     "チームに<color=#FFFFFF>[命破]</color>または<color=#FFFFFF>[撃破]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>「破暗」</color>状態を付与する時、追加で会心ダメージ+30%の効果を付与する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1451507": {
+    "level": 7,
+    "id": 1451507,
+    "name": [
+     "コアパッシブ：迷える夜の歌",
+     "追加能力：長夜の詩篇"
+    ],
+    "desc": [
+     "フィールド入場時、リュシアは即座に<color=#FFFFFF>「夢境値」</color>を60Pt獲得する。<color=#FFFFFF>『随想』</color>または<color=#FFFFFF>『合唱』</color>発動時、リュシアの<color=#FFFFFF>「夢境値」</color>が100Ptに達している場合、<color=#FFFFFF>「夢境」</color>状態に入る。\n<color=#FFFFFF>「夢境」</color>状態に入る時、<color=#FFFFFF>『クイック支援』</color>が発動可能になり、同時に<color=#FFFFFF>「エーテルベール・湧泉」</color>を展開する。<color=#FFFFFF>「エーテルベール・湧泉」</color>展開中、メンバー全員の最大HP+5%、継続時間40秒、重複して発動すると継続時間が延長され、最大300秒に延長可能。\n<color=#FFFFFF>「夢境」</color>状態のリュシアが任意の<color=#FFFFFF>『随想』</color>を発動すると、<color=#FFFFFF>「夢境値」</color>を25Pt消費して<color=#FFFFFF>『随想』</color>を<color=#FFFFFF>『合唱』</color>にグレードアップする。\n操作している他のメンバーの攻撃が敵に命中すると、<color=#FFFFFF>「夢境値」</color>を25Pt消費して<color=#FFFFFF>『追加攻撃』</color>を発動する。<color=#FFFFFF>『追加攻撃』</color>は<color=#FFFFFF>『合唱』</color>である。スキルグレードアップまたは<color=#FFFFFF>『追加攻撃』</color>発動後の8秒間、<color=#FFFFFF>『追加攻撃』</color>が発動しなくなる。\nリュシアがスキルグレードアップまたは<color=#FFFFFF>『追加攻撃』</color>を発動すると、メンバー全員に<color=#FFFFFF>「夢巡りの童謡」</color>状態を付与する。<color=#FFFFFF>「夢巡りの童謡」</color>状態中、メンバーの与ダメージ+<color=#2BAD00>20%</color>、継続時間12秒、重複して発動すると継続時間が更新される。\n<color=#FFFFFF>「夢境値」</color>が不足している、または<color=#FFFFFF>「エーテルベール」</color>が終了した時、リュシアの<color=#FFFFFF>「夢境」</color>状態は解除される。",
+     "チームに<color=#FFFFFF>[命破]</color>または<color=#FFFFFF>[撃破]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>「破暗」</color>状態を付与する時、追加で会心ダメージ+30%の効果を付与する。"
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110512": 2
+   },
+   "3": {
+    "10": 28000,
+    "110512": 4
+   },
+   "4": {
+    "10": 60000,
+    "110007": 2,
+    "110512": 9
+   },
+   "5": {
+    "10": 100000,
+    "110007": 3,
+    "110512": 15
+   },
+   "6": {
+    "10": 200000,
+    "110007": 4,
+    "110512": 30
+   }
+  }
+ },
+ "skin": {
+  "3114510": {
+   "name": "リュシア・「長夜の夢語り」",
+   "desc": "マントは夜のベール。\nフードの下には世界の囁きが隠されている。\n彼女は夜を讃える歌い手であり、夢の言葉を紡ぐ詩人でもある。\n眠りについた者がこぼした想いを拾い集め、それを星空の光輪と謎に織り上げる。",
+   "obtain_desc": "",
+   "image": "IconRole50"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1451001": {
+   "name": "通常攻撃：星軌ラッシュ",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1451002": {
+   "name": "特殊スキル：死神協奏曲・嵐",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 205,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1451003": {
+   "name": "強化特殊スキル：死神協奏曲・暁",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 205,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1451004": {
+   "name": "ダッシュ攻撃：ミラージュ",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1451005": {
+   "name": "回避反撃：スターダストエコー",
+   "desc": "<IconMap:Icon_Evade>（極限回避成功） ; <IconMap:Icon_Normal>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1451006": {
+   "name": "連携スキル：ビビッド・シアター",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1451007": {
+   "name": "終結スキル：突撃、デカ腕マン！",
+   "desc": "<IconMap:Icon_UltimateReady>（方向を入力し続けると突進時間を延長可能）",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1451008": {
+   "name": "クイック支援：ミスティストライク",
+   "desc": "<IconMap:Icon_Switch>（クイック支援の発動条件を満たした時）",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1451009": {
+   "name": "パリィ支援：ドリームコール",
+   "desc": "<IconMap:Icon_Switch>（パリィ支援の発動条件を満たした時）",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1451010": {
+   "name": "支援突撃：ドリームハーモニー",
+   "desc": "<IconMap:Icon_Normal>（パリィ支援を発動した後に）",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1451001,
+   "avatar_id": 1451,
+   "first_priority": [
+    5,
+    1
+   ],
+   "second_priority": [
+    3,
+    0,
+    6
+   ],
+   "third_priority": [
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33400,
+  "slot2": 33100,
+  "slot_sub": 31600,
+  "part_sub_list": [
+   11102,
+   11103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33400,
+     33100
+    ],
+    "part_sub_list": [
+     11102
+    ]
+   },
+   {
+    "suit_list": [
+     33400,
+     31600
+    ],
+    "part_sub_list": [
+     11102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     11102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 11102,
+   "name": "HP",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconHpMax.png"
+  },
+  "part5": {
+   "prop": 30502,
+   "name": "エネルギー自動回復",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconSpRecover.png"
+  },
+  "part6": {
+   "prop": 20103,
+   "name": "会心率",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "攻撃力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "04",
+  "<IconMap:Icon_GeneralBuff_DungeonBuffEther>エーテル属性、命破バッファー",
+  "「エーテルベール」展開でHP上限アップ",
+  "透徹力＆会心ダメージのバフ"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100214": 4
+   }
+  },
+  "2": {
+   "hp_max": 468,
+   "attack": 39,
+   "defence": 33,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100224": 12
+   }
+  },
+  "3": {
+   "hp_max": 936,
+   "attack": 78,
+   "defence": 66,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100224": 20
+   }
+  },
+  "4": {
+   "hp_max": 1403,
+   "attack": 117,
+   "defence": 98,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100234": 10
+   }
+  },
+  "5": {
+   "hp_max": 1871,
+   "attack": 156,
+   "defence": 131,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100234": 20
+   }
+  },
+  "6": {
+   "hp_max": 2339,
+   "attack": 195,
+   "defence": 164,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "基礎エネルギー自動回復",
+     "format": "{0:0.##}",
+     "value": 12
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "基礎エネルギー自動回復",
+     "format": "{0:0.##}",
+     "value": 12
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "基礎エネルギー自動回復",
+     "format": "{0:0.##}",
+     "value": 24
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "基礎エネルギー自動回復",
+     "format": "{0:0.##}",
+     "value": 24
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "基礎エネルギー自動回復",
+     "format": "{0:0.##}",
+     "value": 36
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "基礎エネルギー自動回復",
+     "format": "{0:0.##}",
+     "value": 36
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpineLucia"
+}

@@ -1,0 +1,1933 @@
+{
+ "id": 1081,
+ "icon": "IconRole10",
+ "name": "Billy",
+ "code_name": "Billy",
+ "rarity": 3,
+ "weapon_type": {
+  "1": "Attack"
+ },
+ "element_type": {
+  "200": "Physical"
+ },
+ "hit_type": {
+  "103": "Pierce"
+ },
+ "camp": {
+  "1": "Cunning Hares"
+ },
+ "gender": 1,
+ "partner_info": {
+  "birthday": "NOV 25",
+  "full_name": "Billy Kid",
+  "gender": "Male",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle10.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0010.png",
+  "impression_f": "Weren't you obsessed with the Starlight Knight series as a kid, Wise?\nThat brings me back. You shouting \"Starlight Mirage!\" with your arms crossed...",
+  "impression_m": "There was never such a time. Please erase such non-existent memories from your mind.\nIt's been a long time since I was that age, after all, and my name doesn't have \"kid\" in it.",
+  "impressions": [
+   "Impressions of Billy:\n · Billy cares for his weapons like he cares for himself.",
+   " · He sure loves the Starlight Knights, but does he love the sense of justice or just the special effects?",
+   " · Billy's past hides unimaginable secrets"
+  ],
+  "profile_desc": "Billy Kid, an AI construct that has passed the forbidden fruit test, is essentially a self-aware machine. \nTrue to his name, despite having the appearance of a robot, he is quite childlike.\nHe's a big fan of the visual FX show \"Starlight Knight\" and wishes to be a hero like the main characters of the show. He often refers to himself as a Starlight Knight and imitates the lines in the show.\nSuch behavior appears to be only for comedic effect, however.\n\"Don't make me sound like an idiot! I'm obviously very smart!\" — Billy.",
+  "role_icon": "IconRole/UnPacker/IconRole10",
+  "stature": "188",
+  "unlock_condition": [
+   "Obtain Agent",
+   "Complete the \"Anby's Problem\" commission"
+  ],
+  "trust_lv": {
+   "1": "Billy Kid, an AI construct that has passed the forbidden fruit test, is essentially a self-aware machine. \nTrue to his name, despite having the appearance of a robot, he is quite childlike.\nHe's a big fan of the visual FX show \"Starlight Knight\" and wishes to be a hero like the main characters of the show. He often refers to himself as a Starlight Knight and imitates the lines in the show.\nSuch behavior appears to be only for comedic effect, however.\n\"Don't make me sound like an idiot! I'm obviously very smart!\" — Billy.",
+   "2": "",
+   "3": "Similar to Anby, there are gaps in Billy's personal history that remain unfilled. \nThe available information indicates that before joining Gentle House, Billy spent an extended period serving with another mysterious gang.\nAs of now, it appears Billy still maintains a close connection with a certain gang leader from the Outer Ring of New Eridu.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 113,
+  "attack_growth": 67335,
+  "avatar_piece_id": 5081,
+  "break_stun": 91,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66203,
+  "element_abnormal_power": 92,
+  "element_mystery": 91,
+  "endurance": 0,
+  "hp_growth": 753604,
+  "hp_max": 555,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Billy",
+   "Pierce",
+   "Physics",
+   "Male",
+   "Camp1",
+   "Size3",
+   "AidTypeEvade",
+   "Billy",
+   "EtherEyesSize2"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "Basic Attack: Full Firepower",
+     "desc": "Press <IconMap:Icon_Normal> to activate:\nUnleashes a piercing attack, dealing <color=#F0D12B>Physical DMG</color>.\nRepeatedly press or hold to enter Crouching Shot to extend the attack duration.\nDrag the {LAYOUT_CONSOLECONTROLLER#stick}{LAYOUT_FALLBACK#joystick} during Crouching Shot to launch Rolling Shot and adjust the character's position, dealing <color=#F0D12B>Physical DMG</color>.\nStop pressing or holding during Crouching Shot to launch Finishing Shot at enemies in front, dealing <color=#F0D12B>Physical DMG</color>.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Full Firepower",
+     "param": [
+      {
+       "name": "Standing Fire DMG Multiplier",
+       "desc": "{Skill:1081002, Prop:1001}",
+       "param": {
+        "1081002": {
+         "main": 6800,
+         "growth": 620,
+         "format": "%",
+         "damage_percentage": 6800,
+         "damage_percentage_growth": 620,
+         "stun_ratio": 5440,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 16320,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 99825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5439,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6799
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Standing Bullet DMG Multiplier",
+       "desc": "{Skill:1081003, Prop:1001}",
+       "param": {
+        "1081003": {
+         "main": 760,
+         "growth": 70,
+         "format": "%",
+         "damage_percentage": 760,
+         "damage_percentage_growth": 70,
+         "stun_ratio": 610,
+         "stun_ratio_growth": 30,
+         "sp_recovery": 5440,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 33275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 604,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 756
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Crouching Fire DMG Multiplier",
+       "desc": "{Skill:1081004, Prop:1001}",
+       "param": {
+        "1081004": {
+         "main": 6180,
+         "growth": 570,
+         "format": "%",
+         "damage_percentage": 6180,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 5470,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 19690,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 150425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2903,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5367
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Crouching Bullet DMG Multiplier",
+       "desc": "{Skill:1081007, Prop:1001}",
+       "param": {
+        "1081007": {
+         "main": 1270,
+         "growth": 120,
+         "format": "%",
+         "damage_percentage": 1270,
+         "damage_percentage_growth": 120,
+         "stun_ratio": 890,
+         "stun_ratio_growth": 50,
+         "sp_recovery": 3210,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 24475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 889,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 890
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Rolling Shot DMG Multiplier",
+       "desc": "{Skill:1081004, Prop:1001}",
+       "param": {
+        "1081004": {
+         "main": 6180,
+         "growth": 570,
+         "format": "%",
+         "damage_percentage": 6180,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 5470,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 19690,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 150425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2903,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5367
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Finishing Shot DMG Multiplier",
+       "desc": "{Skill:1081008, Prop:1001}",
+       "param": {
+        "1081008": {
+         "main": 4950,
+         "growth": 450,
+         "format": "%",
+         "damage_percentage": 4950,
+         "damage_percentage_growth": 450,
+         "stun_ratio": 5520,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 39710,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 151800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8079,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3805
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Standing Fire Daze Multiplier",
+       "desc": "{Skill:1081002, Prop:1002}",
+       "param": {
+        "1081002": {
+         "main": 5440,
+         "growth": 250,
+         "format": "%",
+         "damage_percentage": 6800,
+         "damage_percentage_growth": 620,
+         "stun_ratio": 5440,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 16320,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 99825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5439,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6799
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Standing Bullet Daze Multiplier",
+       "desc": "{Skill:1081003, Prop:1002}",
+       "param": {
+        "1081003": {
+         "main": 610,
+         "growth": 30,
+         "format": "%",
+         "damage_percentage": 760,
+         "damage_percentage_growth": 70,
+         "stun_ratio": 610,
+         "stun_ratio_growth": 30,
+         "sp_recovery": 5440,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 33275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 604,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 756
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Crouching Fire Daze Multiplier",
+       "desc": "{Skill:1081004, Prop:1002}",
+       "param": {
+        "1081004": {
+         "main": 5470,
+         "growth": 250,
+         "format": "%",
+         "damage_percentage": 6180,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 5470,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 19690,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 150425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2903,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5367
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Crouching Bullet Daze Multiplier",
+       "desc": "{Skill:1081007, Prop:1002}",
+       "param": {
+        "1081007": {
+         "main": 890,
+         "growth": 50,
+         "format": "%",
+         "damage_percentage": 1270,
+         "damage_percentage_growth": 120,
+         "stun_ratio": 890,
+         "stun_ratio_growth": 50,
+         "sp_recovery": 3210,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 24475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 889,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 890
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Rolling Shot Daze Multiplier",
+       "desc": "{Skill:1081004, Prop:1002}",
+       "param": {
+        "1081004": {
+         "main": 5470,
+         "growth": 250,
+         "format": "%",
+         "damage_percentage": 6180,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 5470,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 19690,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 150425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2903,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5367
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Finishing Shot Daze Multiplier",
+       "desc": "{Skill:1081008, Prop:1002}",
+       "param": {
+        "1081008": {
+         "main": 5520,
+         "growth": 260,
+         "format": "%",
+         "damage_percentage": 4950,
+         "damage_percentage_growth": 450,
+         "stun_ratio": 5520,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 39710,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 151800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8079,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3805
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "Dodge: Risky Business",
+     "desc": "Press <IconMap:Icon_Evade> to activate:\nA quick dash dodge.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Dash Attack: Starlight Sanction",
+     "desc": "When dragging the {LAYOUT_CONSOLECONTROLLER#stick}{LAYOUT_FALLBACK#joystick} during a dodge, press <IconMap:Icon_Normal>:\nLaunches a piercing attack at nearby enemies within a large area, dealing <color=#F0D12B>Physical DMG</color>.\nWhen not dragging the {LAYOUT_CONSOLECONTROLLER#stick}{LAYOUT_FALLBACK#joystick} during a dodge, press <IconMap:Icon_Normal>:\nLaunches a piercing attack at enemies in a line, dealing <color=#F0D12B>Physical DMG</color>.",
+     "potential": []
+    },
+    {
+     "name": "Dodge Counter: Fair Fight",
+     "desc": "Press <IconMap:Icon_Normal> during a <color=#FFFFFF>Perfect Dodge</color> to activate:\nPierces enemies in front, dealing <color=#F0D12B>Physical DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Dash Attack: Starlight Sanction",
+     "param": [
+      {
+       "name": "360-degree Shot DMG Multiplier",
+       "desc": "{Skill:1081016, Prop:1001}",
+       "param": {
+        "1081016": {
+         "main": 6300,
+         "growth": 580,
+         "format": "%",
+         "damage_percentage": 6300,
+         "damage_percentage_growth": 580,
+         "stun_ratio": 6300,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 25190,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 192500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3498,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3499
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Straight Shot DMG Multiplier",
+       "desc": "{Skill:1081014, Prop:1001}",
+       "param": {
+        "1081014": {
+         "main": 3900,
+         "growth": 360,
+         "format": "%",
+         "damage_percentage": 3900,
+         "damage_percentage_growth": 360,
+         "stun_ratio": 1950,
+         "stun_ratio_growth": 90,
+         "sp_recovery": 7800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 59675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4329,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2165
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "360-degree Shot Daze Multiplier",
+       "desc": "{Skill:1081016, Prop:1002}",
+       "param": {
+        "1081016": {
+         "main": 6300,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 6300,
+         "damage_percentage_growth": 580,
+         "stun_ratio": 6300,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 25190,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 192500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3498,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3499
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Straight Shot Daze Multiplier",
+       "desc": "{Skill:1081014, Prop:1002}",
+       "param": {
+        "1081014": {
+         "main": 1950,
+         "growth": 90,
+         "format": "%",
+         "damage_percentage": 3900,
+         "damage_percentage_growth": 360,
+         "stun_ratio": 1950,
+         "stun_ratio_growth": 90,
+         "sp_recovery": 7800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 59675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4329,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2165
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Dodge Counter: Fair Fight",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1081017, Prop:1001}",
+       "param": {
+        "1081017": {
+         "main": 22140,
+         "growth": 2020,
+         "format": "%",
+         "damage_percentage": 22140,
+         "damage_percentage_growth": 2020,
+         "stun_ratio": 19340,
+         "stun_ratio_growth": 880,
+         "sp_recovery": 33620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 256850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1081017, Prop:1002}",
+       "param": {
+        "1081017": {
+         "main": 19340,
+         "growth": 880,
+         "format": "%",
+         "damage_percentage": 22140,
+         "damage_percentage_growth": 2020,
+         "stun_ratio": 19340,
+         "stun_ratio_growth": 880,
+         "sp_recovery": 33620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 256850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24337
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "Special Attack: Stand Still",
+     "desc": "Press <IconMap:Icon_Special> to activate:\nPerforms up to 3 piercing attacks in a line, dealing <color=#F0D12B>Physical DMG</color>.\nAnti-Interrupt level is increased while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Clearance Time",
+     "desc": "With enough Energy, press <IconMap:Icon_SpecialReady> to activate:\nLaunches a powerful piercing attack in a line, dealing massive <color=#F0D12B>Physical DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Stand Still",
+     "param": [
+      {
+       "name": "1st-Hit DMG Multiplier",
+       "desc": "{Skill:1081010, Prop:1001}",
+       "param": {
+        "1081010": {
+         "main": 2420,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 2420,
+         "damage_percentage_growth": 220,
+         "stun_ratio": 2420,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 66550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2414,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2415
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit DMG Multiplier",
+       "desc": "{Skill:1081011, Prop:1001}",
+       "param": {
+        "1081011": {
+         "main": 5170,
+         "growth": 470,
+         "format": "%",
+         "damage_percentage": 5170,
+         "damage_percentage_growth": 470,
+         "stun_ratio": 5170,
+         "stun_ratio_growth": 240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 142175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2584,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2585
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd-Hit DMG Multiplier",
+       "desc": "{Skill:1081012, Prop:1001}",
+       "param": {
+        "1081012": {
+         "main": 5010,
+         "growth": 460,
+         "format": "%",
+         "damage_percentage": 5010,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 5010,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 137775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2501
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1st-Hit Daze Multiplier",
+       "desc": "{Skill:1081010, Prop:1002}",
+       "param": {
+        "1081010": {
+         "main": 2420,
+         "growth": 110,
+         "format": "%",
+         "damage_percentage": 2420,
+         "damage_percentage_growth": 220,
+         "stun_ratio": 2420,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 66550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2414,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2415
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit Daze Multiplier",
+       "desc": "{Skill:1081011, Prop:1002}",
+       "param": {
+        "1081011": {
+         "main": 5170,
+         "growth": 240,
+         "format": "%",
+         "damage_percentage": 5170,
+         "damage_percentage_growth": 470,
+         "stun_ratio": 5170,
+         "stun_ratio_growth": 240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 142175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2584,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2585
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd-Hit Daze Multiplier",
+       "desc": "{Skill:1081012, Prop:1002}",
+       "param": {
+        "1081012": {
+         "main": 5010,
+         "growth": 230,
+         "format": "%",
+         "damage_percentage": 5010,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 5010,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 137775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2501
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Clearance Time",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1081013, Prop:1001}",
+       "param": {
+        "1081013": {
+         "main": 54380,
+         "growth": 4950,
+         "format": "%",
+         "damage_percentage": 54380,
+         "damage_percentage_growth": 4950,
+         "stun_ratio": 43950,
+         "stun_ratio_growth": 2000,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1620300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 44687,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1081013, Prop:1002}",
+       "param": {
+        "1081013": {
+         "main": 43950,
+         "growth": 2000,
+         "format": "%",
+         "damage_percentage": 54380,
+         "damage_percentage_growth": 4950,
+         "stun_ratio": 43950,
+         "stun_ratio_growth": 2000,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1620300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 44687,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Energy Cost",
+       "desc": "60",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "Chain Attack: Starlight Mirage",
+     "desc": "When a <color=#FFFFFF>Chain Attack</color> is triggered, select the character to activate:\nUnleashes a powerful piercing attack at surrounding enemies in a large area, dealing massive <color=#F0D12B>Physical DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Ultimate: Starlight, Shine Bright",
+     "desc": "When Decibel Rating is at <color=#FFFFFF>Maximum</color>, press <IconMap:Icon_UltimateReady> to activate:\nUnleashes a powerful piercing attack at surrounding enemies in a large area, dealing massive <color=#F0D12B>Physical DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Chain Attack: Starlight Mirage",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1081018, Prop:1001}",
+       "param": {
+        "1081018": {
+         "main": 73520,
+         "growth": 6690,
+         "format": "%",
+         "damage_percentage": 73520,
+         "damage_percentage_growth": 6690,
+         "stun_ratio": 19660,
+         "stun_ratio_growth": 900,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2429350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 41783,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1081018, Prop:1002}",
+       "param": {
+        "1081018": {
+         "main": 19660,
+         "growth": 900,
+         "format": "%",
+         "damage_percentage": 73520,
+         "damage_percentage_growth": 6690,
+         "stun_ratio": 19660,
+         "stun_ratio_growth": 900,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2429350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 41783,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Ultimate: Starlight, Shine Bright",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1081019, Prop:1001}",
+       "param": {
+        "1081019": {
+         "main": 159770,
+         "growth": 14530,
+         "format": "%",
+         "damage_percentage": 159770,
+         "damage_percentage_growth": 14530,
+         "stun_ratio": 19060,
+         "stun_ratio_growth": 870,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 21170,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 71171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1081019, Prop:1002}",
+       "param": {
+        "1081019": {
+         "main": 19060,
+         "growth": 870,
+         "format": "%",
+         "damage_percentage": 159770,
+         "damage_percentage_growth": 14530,
+         "stun_ratio": 19060,
+         "stun_ratio_growth": 870,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 21170,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 71171
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "Quick Assist: Power of Teamwork",
+     "desc": "When the active character is launched, press <IconMap:Icon_Switch> to activate:\nLaunches a piercing attack at enemies in front, dealing <color=#F0D12B>Physical DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Evasive Assist: Flash Spin",
+     "desc": "When the character on field is about to be attacked, press <IconMap:Icon_Switch> to activate:\nDodges the enemy's attack and activates <color=#FFFFFF>Vital View</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Fatal Shot",
+     "desc": "Press <IconMap:Icon_Normal> after an <color=#FFFFFF>Evasive Assist</color> to activate:\nPierces enemies in a large area in front, dealing <color=#F0D12B>Physical DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Quick Assist: Power of Teamwork",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1081020, Prop:1001}",
+       "param": {
+        "1081020": {
+         "main": 9340,
+         "growth": 850,
+         "format": "%",
+         "damage_percentage": 9340,
+         "damage_percentage_growth": 850,
+         "stun_ratio": 9340,
+         "stun_ratio_growth": 430,
+         "sp_recovery": 33620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 256850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4669
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1081020, Prop:1002}",
+       "param": {
+        "1081020": {
+         "main": 9340,
+         "growth": 430,
+         "format": "%",
+         "damage_percentage": 9340,
+         "damage_percentage_growth": 850,
+         "stun_ratio": 9340,
+         "stun_ratio_growth": 430,
+         "sp_recovery": 33620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 256850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4669
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Fatal Shot",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1081021, Prop:1001}",
+       "param": {
+        "1081021": {
+         "main": 38880,
+         "growth": 3540,
+         "format": "%",
+         "damage_percentage": 38880,
+         "damage_percentage_growth": 3540,
+         "stun_ratio": 34120,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1200100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 36497,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1081021, Prop:1002}",
+       "param": {
+        "1081021": {
+         "main": 34120,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 38880,
+         "damage_percentage_growth": 3540,
+         "stun_ratio": 34120,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1200100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 36497,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "Dazzling Entrance",
+   "desc": "When Billy hits an enemy with a <color=#FFFFFF>Dash Attack</color> or <color=#FFFFFF>Dodge Counter</color>, he gains an additional 2.7 Energy. Can trigger once every 5s.",
+   "desc2": "\"You guys are way too honest to be bad guys!\"\n\"All lined up, like NPCs at the shooting range!\""
+  },
+  "2": {
+   "level": 2,
+   "name": "Roaming Gunslinger",
+   "desc": "Billy's <color=#FFFFFF>Dodge Counter</color> DMG increases by 25%. Rolling Shots during his <color=#FFFFFF>Basic Attacks</color> count as dodges, making Billy Invulnerable during skill activation and able to trigger <color=#FFFFFF>Perfect Dodges</color>. When a Rolling Shot triggers a <color=#FFFFFF>Perfect Dodge</color>, it will automatically follow up with a <color=#FFFFFF>Dodge Counter</color>.",
+   "desc2": "\"The Starlight Knights never run from danger. That's what we call tactical repositioning for better aim!\"\n— User \"Dreamgirl Monica\" from the Starlight Radiance messageboards."
+  },
+  "3": {
+   "level": 3,
+   "name": "Teachings of the Starlight Knights",
+   "desc": "<color=#FFFFFF>Basic Attack</color>, <color=#FFFFFF>Dodge</color>, <color=#FFFFFF>Assist</color>, <color=#FFFFFF>Special Attack</color>, and <color=#FFFFFF>Chain Attack</color> Lv. +2",
+   "desc2": "Never neglect your training, and never stop improving! This is the philosophy of the Starlight Knights. Billy believes in it wholeheartedly, and practices it sincerely."
+  },
+  "4": {
+   "level": 4,
+   "name": "Starlight Ballistics",
+   "desc": "When Billy hits an enemy with his <color=#FFFFFF>EX Special Attack</color>, the skill's CRIT Rate increases based on the distance from the enemy. The closer he is to the target, the greater the effect, up to a maximum increase of 32%.",
+   "desc2": "These explosive bullets of Billy's own invention are incredibly lethal at close range.\nTheir performance far outstrips Billy's original intention of simply making them cooler."
+  },
+  "5": {
+   "level": 5,
+   "name": "Lost Technological Construct",
+   "desc": "<color=#FFFFFF>Basic Attack</color>, <color=#FFFFFF>Dodge</color>, <color=#FFFFFF>Assist</color>, <color=#FFFFFF>Special Attack</color>, and <color=#FFFFFF>Chain Attack</color> Lv. +2",
+   "desc2": "Unknown precision components and unique structural design have given Billy performance far beyond his peers... And maintenance costs far beyond his means."
+  },
+  "6": {
+   "level": 6,
+   "name": "Starlight Hero",
+   "desc": "When Billy accumulates 10 hits on enemies or triggers a <color=#FFFFFF>Perfect Dodge</color>, his DMG increases by 6%, stacking up to 5 times and lasting until he's knocked back or launched by an attack.",
+   "desc2": "\"Hooboy~ Feelin' great! Move aside, Anby, it's my time to shine!\"\n\"Yo, Anby — can you play the Starlight Knight theme?\"\n—excerpt from Cunning Hares' \"Top 10 Forbidden Sentences,\" selected by Anby"
+  }
+ },
+ "passive": {
+  "level": {
+   "1081501": {
+    "level": 1,
+    "id": 1081501,
+    "name": [
+     "Core Passive: Steady Shot",
+     "Additional Ability: Team Starlight"
+    ],
+    "desc": [
+     "Billy's DMG increases by <color=#2BAD00>25%</color> when he enters Crouching Shot during his <color=#FFFFFF>Basic Attack</color>. The effect ends if he moves, returns to standby, or is knocked back or launched by an attack.",
+     "When another character in your squad shares the same Attribute or Faction:\nAfter Billy uses a <color=#FFFFFF>Chain Attack</color>, the DMG of his next <color=#FFFFFF>Ultimate</color> is increased by 50%, stacking up to 2 times. This effect resets whenever an <color=#FFFFFF>Ultimate</color> is activated."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1081502": {
+    "level": 2,
+    "id": 1081502,
+    "name": [
+     "Core Passive: Steady Shot",
+     "Additional Ability: Team Starlight"
+    ],
+    "desc": [
+     "Billy's DMG increases by <color=#2BAD00>29.1%</color> when he enters Crouching Shot during his <color=#FFFFFF>Basic Attack</color>. The effect ends if he moves, returns to standby, or is knocked back or launched by an attack.",
+     "When another character in your squad shares the same Attribute or Faction:\nAfter Billy uses a <color=#FFFFFF>Chain Attack</color>, the DMG of his next <color=#FFFFFF>Ultimate</color> is increased by 50%, stacking up to 2 times. This effect resets whenever an <color=#FFFFFF>Ultimate</color> is activated."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1081503": {
+    "level": 3,
+    "id": 1081503,
+    "name": [
+     "Core Passive: Steady Shot",
+     "Additional Ability: Team Starlight"
+    ],
+    "desc": [
+     "Billy's DMG increases by <color=#2BAD00>33.3%</color> when he enters Crouching Shot during his <color=#FFFFFF>Basic Attack</color>. The effect ends if he moves, returns to standby, or is knocked back or launched by an attack.",
+     "When another character in your squad shares the same Attribute or Faction:\nAfter Billy uses a <color=#FFFFFF>Chain Attack</color>, the DMG of his next <color=#FFFFFF>Ultimate</color> is increased by 50%, stacking up to 2 times. This effect resets whenever an <color=#FFFFFF>Ultimate</color> is activated."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1081504": {
+    "level": 4,
+    "id": 1081504,
+    "name": [
+     "Core Passive: Steady Shot",
+     "Additional Ability: Team Starlight"
+    ],
+    "desc": [
+     "Billy's DMG increases by <color=#2BAD00>37.5%</color> when he enters Crouching Shot during his <color=#FFFFFF>Basic Attack</color>. The effect ends if he moves, returns to standby, or is knocked back or launched by an attack.",
+     "When another character in your squad shares the same Attribute or Faction:\nAfter Billy uses a <color=#FFFFFF>Chain Attack</color>, the DMG of his next <color=#FFFFFF>Ultimate</color> is increased by 50%, stacking up to 2 times. This effect resets whenever an <color=#FFFFFF>Ultimate</color> is activated."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1081505": {
+    "level": 5,
+    "id": 1081505,
+    "name": [
+     "Core Passive: Steady Shot",
+     "Additional Ability: Team Starlight"
+    ],
+    "desc": [
+     "Billy's DMG increases by <color=#2BAD00>41.6%</color> when he enters Crouching Shot during his <color=#FFFFFF>Basic Attack</color>. The effect ends if he moves, returns to standby, or is knocked back or launched by an attack.",
+     "When another character in your squad shares the same Attribute or Faction:\nAfter Billy uses a <color=#FFFFFF>Chain Attack</color>, the DMG of his next <color=#FFFFFF>Ultimate</color> is increased by 50%, stacking up to 2 times. This effect resets whenever an <color=#FFFFFF>Ultimate</color> is activated."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1081506": {
+    "level": 6,
+    "id": 1081506,
+    "name": [
+     "Core Passive: Steady Shot",
+     "Additional Ability: Team Starlight"
+    ],
+    "desc": [
+     "Billy's DMG increases by <color=#2BAD00>45.8%</color> when he enters Crouching Shot during his <color=#FFFFFF>Basic Attack</color>. The effect ends if he moves, returns to standby, or is knocked back or launched by an attack.",
+     "When another character in your squad shares the same Attribute or Faction:\nAfter Billy uses a <color=#FFFFFF>Chain Attack</color>, the DMG of his next <color=#FFFFFF>Ultimate</color> is increased by 50%, stacking up to 2 times. This effect resets whenever an <color=#FFFFFF>Ultimate</color> is activated."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1081507": {
+    "level": 7,
+    "id": 1081507,
+    "name": [
+     "Core Passive: Steady Shot",
+     "Additional Ability: Team Starlight"
+    ],
+    "desc": [
+     "Billy's DMG increases by <color=#2BAD00>50%</color> when he enters Crouching Shot during his <color=#FFFFFF>Basic Attack</color>. The effect ends if he moves, returns to standby, or is knocked back or launched by an attack.",
+     "When another character in your squad shares the same Attribute or Faction:\nAfter Billy uses a <color=#FFFFFF>Chain Attack</color>, the DMG of his next <color=#FFFFFF>Ultimate</color> is increased by 50%, stacking up to 2 times. This effect resets whenever an <color=#FFFFFF>Ultimate</color> is activated."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110503": 2
+   },
+   "3": {
+    "10": 28000,
+    "110503": 4
+   },
+   "4": {
+    "10": 60000,
+    "110001": 2,
+    "110503": 9
+   },
+   "5": {
+    "10": 100000,
+    "110001": 3,
+    "110503": 15
+   },
+   "6": {
+    "10": 200000,
+    "110001": 4,
+    "110503": 30
+   }
+  }
+ },
+ "skin": {
+  "3110810": {
+   "name": "Billy: Shining Starlight Costume",
+   "desc": "Style is justice, justice is style. That's the eternal creed of a true knight! Though, yeah... those joint screws really do wear down fast...",
+   "obtain_desc": "",
+   "image": "IconRole10"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1081001": {
+   "name": "Basic Attack: Full Firepower",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1081002": {
+   "name": "Special Attack: Stand Still",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 200,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1081003": {
+   "name": "EX Special Attack: Clearance Time",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 200,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1081004": {
+   "name": "Dash Attack: Starlight Sanction (Scattered)",
+   "desc": "<IconMap:Icon_Evade> (Any direction) ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1081005": {
+   "name": "Dash Attack: Starlight Sanction (Focused)",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1081006": {
+   "name": "Dodge Counter: Fair Fight",
+   "desc": "<IconMap:Icon_Evade> (Perfect) ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1081007": {
+   "name": "Chain Attack: Starlight Mirage",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 200,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1081008": {
+   "name": "Ultimate: Starlight, Shine Bright",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 200,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1081009": {
+   "name": "Quick Assist: Power of Teamwork",
+   "desc": "<IconMap:Icon_Switch> (When Triggering Quick Assist)",
+   "element_type": 200,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1081010": {
+   "name": "Evasive Assist: Flash Spin",
+   "desc": "<IconMap:Icon_Switch>(When Triggering Evasive Assist)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1081011": {
+   "name": "Assist Follow-Up: Fatal Shot",
+   "desc": "<IconMap:Icon_Normal> (After Evasive Assist)",
+   "element_type": 200,
+   "hit_type": 103,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1081001,
+   "avatar_id": 1081,
+   "first_priority": [
+    5,
+    0,
+    3
+   ],
+   "second_priority": [
+    1,
+    2
+   ],
+   "third_priority": [
+    6
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 31400,
+  "slot2": 31000,
+  "slot_sub": 32600,
+  "part_sub_list": [
+   12102,
+   20103,
+   21103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32600,
+     31000
+    ],
+    "part_sub_list": [
+     21103,
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31503,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "CRIT Rate",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 31503,
+   "name": "Physical DMG Bonus",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconPhysDmg.png"
+  },
+  "part6": {
+   "prop": 12102,
+   "name": "ATK",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  },
+  "part_sub": {
+   "prop": 21103,
+   "name": "CRIT DMG",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  }
+ },
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_PhysDmg>Physical, on-field DMG dealer",
+  "Balances single-target and AoE DMG"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100211": 4
+   }
+  },
+  "2": {
+   "hp_max": 381,
+   "attack": 40,
+   "defence": 33,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100221": 12
+   }
+  },
+  "3": {
+   "hp_max": 762,
+   "attack": 81,
+   "defence": 67,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100221": 20
+   }
+  },
+  "4": {
+   "hp_max": 1143,
+   "attack": 121,
+   "defence": 100,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100231": 10
+   }
+  },
+  "5": {
+   "hp_max": 1524,
+   "attack": 162,
+   "defence": 134,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100231": 20
+   }
+  },
+  "6": {
+   "hp_max": 1906,
+   "attack": 202,
+   "defence": 167,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": ""
+}

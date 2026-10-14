@@ -1,0 +1,443 @@
+{
+ "id": 54010,
+ "code_name": "BiggestFan",
+ "name": "コサン",
+ "desc": "死んでも魂は「妄想エンジェル」を推す！",
+ "rarity": 4,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole46.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 479,
+  "hpupgrade": 570196,
+  "attack": 64,
+  "attack_upgrade": 321091,
+  "break_stun": 110,
+  "element_abnormal_power": 110,
+  "defence": 28,
+  "def_upgrade": 78871,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 250,
+   "attack": 59,
+   "defence": 35,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 501,
+   "attack": 297,
+   "defence": 69,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 751,
+   "attack": 891,
+   "defence": 104,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 1001,
+   "attack": 2375,
+   "defence": 139,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 1252,
+   "attack": 5938,
+   "defence": 173,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "推しのエンジェル",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時、コサンは応援を行い、自身のHP上限に応じて、操作しているメンバーのHPを継続的に回復する。",
+     "property": [
+      "HP回復",
+      "クールタイム"
+     ],
+     "param": "HP12.5%分|24秒"
+    },
+    "2": {
+     "name": "推しのエンジェル",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時、コサンは応援を行い、自身のHP上限に応じて、操作しているメンバーのHPを継続的に回復する。",
+     "property": [
+      "HP回復",
+      "クールタイム"
+     ],
+     "param": "HP13.9%分|24秒"
+    },
+    "3": {
+     "name": "推しのエンジェル",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時、コサンは応援を行い、自身のHP上限に応じて、操作しているメンバーのHPを継続的に回復する。",
+     "property": [
+      "HP回復",
+      "クールタイム"
+     ],
+     "param": "HP15.3%分|24秒"
+    },
+    "4": {
+     "name": "推しのエンジェル",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時、コサンは応援を行い、自身のHP上限に応じて、操作しているメンバーのHPを継続的に回復する。",
+     "property": [
+      "HP回復",
+      "クールタイム"
+     ],
+     "param": "HP16.7%分|24秒"
+    },
+    "5": {
+     "name": "推しのエンジェル",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時、コサンは応援を行い、自身のHP上限に応じて、操作しているメンバーのHPを継続的に回復する。",
+     "property": [
+      "HP回復",
+      "クールタイム"
+     ],
+     "param": "HP18.1%分|24秒"
+    },
+    "6": {
+     "name": "推しのエンジェル",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時、コサンは応援を行い、自身のHP上限に応じて、操作しているメンバーのHPを継続的に回復する。",
+     "property": [
+      "HP回復",
+      "クールタイム"
+     ],
+     "param": "HP19.4%分|24秒"
+    },
+    "7": {
+     "name": "推しのエンジェル",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時、コサンは応援を行い、自身のHP上限に応じて、操作しているメンバーのHPを継続的に回復する。",
+     "property": [
+      "HP回復",
+      "クールタイム"
+     ],
+     "param": "HP20.8%分|24秒"
+    },
+    "8": {
+     "name": "推しのエンジェル",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時、コサンは応援を行い、自身のHP上限に応じて、操作しているメンバーのHPを継続的に回復する。",
+     "property": [
+      "HP回復",
+      "クールタイム"
+     ],
+     "param": "HP22.2%分|24秒"
+    },
+    "9": {
+     "name": "推しのエンジェル",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時、コサンは応援を行い、自身のHP上限に応じて、操作しているメンバーのHPを継続的に回復する。",
+     "property": [
+      "HP回復",
+      "クールタイム"
+     ],
+     "param": "HP23.6%分|24秒"
+    },
+    "10": {
+     "name": "推しのエンジェル",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時、コサンは応援を行い、自身のHP上限に応じて、操作しているメンバーのHPを継続的に回復する。",
+     "property": [
+      "HP回復",
+      "クールタイム"
+     ],
+     "param": "HP25%分|24秒"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "推し力大爆発",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[妄想エンジェル]</color>陣営のメンバーが2名以上いる時に発動：コサンが<color=#FFFFFF>『アクティブスキル』</color>を発動した時、チーム内エージェント全員の攻撃力+50Pt、継続時間30秒。\n<color=#FFFFFF>『ボンプ連携スキル』</color>による状態異常蓄積値+15%。",
+     "property": [
+      "必要な[妄想エンジェル]メンバー数",
+      "攻撃力アップ",
+      "状態異常蓄積値アップ"
+     ],
+     "param": "2|50Pt|15%"
+    },
+    "2": {
+     "name": "推し力大爆発",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[妄想エンジェル]</color>陣営のメンバーが2名以上いる時に発動：コサンが<color=#FFFFFF>『アクティブスキル』</color>を発動した時、チーム内エージェント全員の攻撃力+62Pt、継続時間30秒。\n<color=#FFFFFF>『ボンプ連携スキル』</color>による状態異常蓄積値+18.8%。",
+     "property": [
+      "必要な[妄想エンジェル]メンバー数",
+      "攻撃力アップ",
+      "状態異常蓄積値アップ"
+     ],
+     "param": "2|62Pt|18.8%"
+    },
+    "3": {
+     "name": "推し力大爆発",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[妄想エンジェル]</color>陣営のメンバーが1名以上いる時に発動：コサンが<color=#FFFFFF>『アクティブスキル』</color>を発動した時、チーム内エージェント全員の攻撃力+75Pt、継続時間30秒。\n<color=#FFFFFF>『ボンプ連携スキル』</color>による状態異常蓄積値+22.5%。",
+     "property": [
+      "必要な[妄想エンジェル]メンバー数",
+      "攻撃力アップ",
+      "状態異常蓄積値アップ"
+     ],
+     "param": "1|75Pt|22.5%"
+    },
+    "4": {
+     "name": "推し力大爆発",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[妄想エンジェル]</color>陣営のメンバーが1名以上いる時に発動：コサンが<color=#FFFFFF>『アクティブスキル』</color>を発動した時、チーム内エージェント全員の攻撃力+87Pt、継続時間30秒。\n<color=#FFFFFF>『ボンプ連携スキル』</color>による状態異常蓄積値+26%。",
+     "property": [
+      "必要な[妄想エンジェル]メンバー数",
+      "攻撃力アップ",
+      "状態異常蓄積値アップ"
+     ],
+     "param": "1|87Pt|26%"
+    },
+    "5": {
+     "name": "推し力大爆発",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[妄想エンジェル]</color>陣営のメンバーが1名以上いる時に発動：コサンが<color=#FFFFFF>『アクティブスキル』</color>を発動した時、チーム内エージェント全員の攻撃力+100Pt、継続時間30秒。\n<color=#FFFFFF>『ボンプ連携スキル』</color>による状態異常蓄積値+30%。",
+     "property": [
+      "必要な[妄想エンジェル]メンバー数",
+      "攻撃力アップ",
+      "状態異常蓄積値アップ"
+     ],
+     "param": "1|100Pt|30%"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "グッズ争奪戦！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\nペンライトで前方の敵を攻撃し、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を大幅に増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401002, Prop:1001}|{Skill:5401002, Prop:1002}"
+    },
+    "2": {
+     "name": "グッズ争奪戦！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\nペンライトで前方の敵を攻撃し、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を大幅に増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401002, Prop:1001}|{Skill:5401002, Prop:1002}"
+    },
+    "3": {
+     "name": "グッズ争奪戦！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\nペンライトで前方の敵を攻撃し、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を大幅に増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401002, Prop:1001}|{Skill:5401002, Prop:1002}"
+    },
+    "4": {
+     "name": "グッズ争奪戦！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\nペンライトで前方の敵を攻撃し、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を大幅に増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401002, Prop:1001}|{Skill:5401002, Prop:1002}"
+    },
+    "5": {
+     "name": "グッズ争奪戦！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\nペンライトで前方の敵を攻撃し、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を大幅に増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401002, Prop:1001}|{Skill:5401002, Prop:1002}"
+    },
+    "6": {
+     "name": "グッズ争奪戦！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\nペンライトで前方の敵を攻撃し、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を大幅に増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401002, Prop:1001}|{Skill:5401002, Prop:1002}"
+    },
+    "7": {
+     "name": "グッズ争奪戦！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\nペンライトで前方の敵を攻撃し、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を大幅に増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401002, Prop:1001}|{Skill:5401002, Prop:1002}"
+    },
+    "8": {
+     "name": "グッズ争奪戦！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\nペンライトで前方の敵を攻撃し、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を大幅に増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401002, Prop:1001}|{Skill:5401002, Prop:1002}"
+    },
+    "9": {
+     "name": "グッズ争奪戦！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\nペンライトで前方の敵を攻撃し、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を大幅に増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401002, Prop:1001}|{Skill:5401002, Prop:1002}"
+    },
+    "10": {
+     "name": "グッズ争奪戦！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\nペンライトで前方の敵を攻撃し、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を大幅に増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401002, Prop:1001}|{Skill:5401002, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5401001": {
+   "1001": {
+    "main": 0,
+    "growth": 0,
+    "format": "%"
+   },
+   "1002": {
+    "main": 0,
+    "growth": 0,
+    "format": "%"
+   },
+   "element_accumulation_value": 0
+  },
+  "5401002": {
+   "1001": {
+    "main": 107900,
+    "growth": 10790,
+    "format": "%"
+   },
+   "1002": {
+    "main": 15400,
+    "growth": 1540,
+    "format": "%"
+   },
+   "element_accumulation_value": 37000
+  }
+ }
+}

@@ -1,0 +1,2751 @@
+{
+ "id": 1471,
+ "icon": "IconRole53",
+ "name": "盤岳",
+ "code_name": "Banyue",
+ "rarity": 4,
+ "weapon_type": {
+  "6": "Rupture"
+ },
+ "element_type": {
+  "201": "Fire"
+ },
+ "hit_type": {
+  "102": "Strike"
+ },
+ "camp": {
+  "12": "クランプスの黒枝"
+ },
+ "gender": 1,
+ "partner_info": {
+  "birthday": "7月24日",
+  "full_name": "盤岳",
+  "gender": "男性",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle53.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0053.png",
+  "impression_f": "あんなに落ち着いてる盤岳先生だけど、実は可愛いところもあるんだよ！\nこのまえ適当観を訪ねてくれた時に、ネズミが一匹出てきてさ…\n盤岳先生ったら頑張って平気なふうにしたけど、\nすっごくソワソワしてたもんね！",
+  "impression_m": "そう言えば僕も目撃したよ…傍で子どもがビー玉を取り落したとき、\n盤岳先生はそちらのほうをしきりにチラチラ見ていた。\n武術の達人にも意外な一面があるものなんだな。",
+  "impressions": [
+   "盤岳に対するイメージ：\n・知能構造体の生活における悩み、その一。いつもセキュリティチェックに引っかかってしまう。",
+   "・知能構造体の生活における悩み、その二。骨董品級のパーツのメンテナンス。",
+   "・知能構造体の生活における悩み、その三。測れない心の重さ。"
+  ],
+  "profile_desc": "盤岳、衛非地区で道場を開き、多くの弟子を抱える知能構造体。\n長きにわたりこの世に存在しており、「盤岳先生」の愛称で親しまれています。\n石獅子のような威厳ある見た目で武芸に秀で、\n雲嶽山の現宗主である儀玄とも長年の付き合いがあるようです。\n\n武芸の達人である盤岳は寡黙で頼もしく、質実剛健な考え方のもと行動します。\n武を学ぶ弟子には厳しく、才能を見極めて自主性を重んじる指導を行う\n武術師範としての側面も持ち合わせているようです。戦闘時は「怒髪天」と呼ばれる\n特殊フォームに移行し、ひとたび発動すれば\nありとあらゆる悪を文字通り跡形もなく消し去ることができます。\n\nですが衛非地区で長く暮らした影響か、普段の盤岳は穏やかな性格であり、\n感情表現がやや不得手な、古風じみた豪傑然とした人物です。\n人間の流行について行けていないことを自覚しており、密かにネットスラング等を\n学んでいるようですが、あまり理解はできていないのか\n周囲を困惑させることもしばしばあるとか。\n\nまた、盤岳は石で出来た車止めなど、球状の物体を好む傾向にあるらしく\n沈黙が気まずいと感じたときは、とにかく丸いもので彼の関心を引くことを\n推奨します。",
+  "role_icon": "IconRole/UnPacker/IconRole53",
+  "stature": "200",
+  "unlock_condition": [
+   "エージェント招集",
+   "メイン依頼 シーズン2・第五章をクリアする",
+   "依頼「アンビーの当惑」を達成する"
+  ],
+  "trust_lv": {
+   "1": "盤岳、衛非地区で道場を開き、多くの弟子を抱える知能構造体。\n長きにわたりこの世に存在しており、「盤岳先生」の愛称で親しまれています。\n石獅子のような威厳ある見た目で武芸に秀で、\n雲嶽山の現宗主である儀玄とも長年の付き合いがあるようです。\n\n武芸の達人である盤岳は寡黙で頼もしく、質実剛健な考え方のもと行動します。\n武を学ぶ弟子には厳しく、才能を見極めて自主性を重んじる指導を行う\n武術師範としての側面も持ち合わせているようです。戦闘時は「怒髪天」と呼ばれる\n特殊フォームに移行し、ひとたび発動すれば\nありとあらゆる悪を文字通り跡形もなく消し去ることができます。\n\nですが衛非地区で長く暮らした影響か、普段の盤岳は穏やかな性格であり、\n感情表現がやや不得手な、古風じみた豪傑然とした人物です。\n人間の流行について行けていないことを自覚しており、密かにネットスラング等を\n学んでいるようですが、あまり理解はできていないのか\n周囲を困惑させることもしばしばあるとか。\n\nまた、盤岳は石で出来た車止めなど、球状の物体を好む傾向にあるらしく\n沈黙が気まずいと感じたときは、とにかく丸いもので彼の関心を引くことを\n推奨します。",
+   "2": "",
+   "3": "盤岳の正体は、かつてTOPSがミアズマを鎮圧すべく秘密裏に開発した殺戮兵器、\nコードネーム「パージユニット・ゼロ」です。それは組み込まれたアルゴリズム――\nミアズマを殲滅するための最も合理的なプランに基づき行動します。\nこれは多くの場合、ミアズマだけでなく被災した市民を含む視界内の全移動対象を\n無差別に破壊することを意味します。\n\nある作戦の失敗後、兵器としての盤岳はTOPSに放棄されましたが、\nラマニアンホロウを訪れたとある聡明な人物と出会い、コアの書き換えと\n論理知能の新規構築を施されました。これにより盤岳は徐々に自我を持つようになり、\n衛非地区鉱区跡地の住民たちに受け入れられ、\n「人として」生活に溶け込んでいったようです。\n\nそして十年前、鉱区跡地でミアズマの大量発生があった際、\n盤岳は市民の救助に駆けつけましたが、ミアズマによって「合理性」を求める\nアルゴリズムが働き、これが結果として幼い葉兄妹を除く\n救助不可能と判断した多くの住民を見捨てることに繋がりました。\n以降彼らを「見殺しにした」という罪の意識から「禁断の果実」テストを\n受けることなく、広義の知能構造体の特徴を備えていながらも、\n未だ正式に知能構造体として認可されないまま活動を続けています。\n\nクランプスの黒枝の裁決官ダイアリンによる裁定を受けた後、\n盤岳は人々の未来を守ることで過去の後悔を償うと決意しました。\n彼女の推薦を経て、現在彼はクランプスの黒枝の裁決官として、\n新たな旅路を歩み始めています。",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 124,
+  "attack_growth": 74561,
+  "avatar_piece_id": 5471,
+  "break_stun": 95,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 36,
+  "defence_growth": 48644,
+  "element_abnormal_power": 90,
+  "element_mystery": 89,
+  "endurance": 0,
+  "hp_growth": 927143,
+  "hp_max": 683,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 0,
+  "sp_recover": 0,
+  "stun": 0,
+  "tags": [
+   "BanYue",
+   "Punch",
+   "Fire",
+   "Male",
+   "Camp12",
+   "Size3",
+   "AidTypeParry",
+   "BanYue",
+   "EtherEyesSize2"
+  ],
+  "rp_max": 120,
+  "rp_recover": 200,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "通常攻撃：<ruby=きつりつ>屹立</ruby>",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方に最大4段の攻撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、中断レベルがアップする。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：<ruby=ごうそう>豪壮</ruby>",
+     "desc": " <IconMap:Icon_Special> を押して発動：\n前方に最大4段の攻撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、中断耐性レベルがアップする。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：<ruby=ふんく>焚躯</ruby>",
+     "desc": "<color=#FFFFFF>「怒髪天」</color>状態でなく、かつ<color=#FFFFFF>「怒気」</color>を120Pt所持している時に <IconMap:Icon_Normal> を長押しして発動：\n周囲の敵に<color=#FF5521>炎属性ダメージ</color>を与え、その後<color=#FFFFFF>「怒髪天」</color>状態に入る。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：引火",
+     "desc": "接敵状態でなく、HPが50%以上、かつ<color=#FFFFFF>「怒気」</color>が120Pt以下の時、 <IconMap:Icon_Normal> を長押しして発動：\n盤岳はHPを消費して<color=#FFFFFF>「怒気」</color>を回復する。<color=#FFFFFF>「怒気」</color>が120Ptまで回復すると、盤岳は即座に<color=#FFFFFF>「怒髪天」</color>状態に入る。\nフィールド入場時、このスキルは1回発動可能になる。探査モードにおいて、この効果は180秒に1回のみ発動可能。\nHP消費によって、盤岳の残りHPが最大HPの50%を下回ることはない。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：<ruby=けいざん>傾山</ruby>",
+     "desc": "<color=#FFFFFF>「怒髪天」</color>状態中、 <IconMap:Icon_Normal> を長押しして<color=#FFFFFF>「怒気」</color>を120Pt消費することで発動：\n盤岳が巨大な山を操って敵を攻撃し、<color=#FF5521>炎属性ダメージ</color>を大量に与える。\nこのスキルを発動した後、盤岳は<color=#FFFFFF>「怒髪天」</color>状態を解除する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：山嵐",
+     "desc": "<color=#FFFFFF>「怒髪天」</color>状態中、通常攻撃から繋げる、またはコマンドを素早く入力することで異なる<color=#FFFFFF>『強化特殊スキル』</color>を2回発動した後、 <IconMap:Icon_Normal> を長押しして発動：\n盤岳が前方に数珠を放って敵を束縛し、<color=#FF5521>炎属性ダメージ</color>を大量に与える。\nその後、盤岳は自動で<color=#FFFFFF>『通常攻撃：傾山』</color>を発動する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：<ruby=きつりつ>屹立</ruby>",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1471001, Prop:1001}",
+       "param": {
+        "1471001": {
+         "main": 3960,
+         "growth": 360,
+         "format": "%",
+         "damage_percentage": 3960,
+         "damage_percentage_growth": 360,
+         "stun_ratio": 3710,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 92950,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3372,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 13500,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3373
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1471002, Prop:1001}",
+       "param": {
+        "1471002": {
+         "main": 4980,
+         "growth": 460,
+         "format": "%",
+         "damage_percentage": 4980,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 4550,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 113850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4130,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 16530,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4131
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1471003, Prop:1001}",
+       "param": {
+        "1471003": {
+         "main": 10130,
+         "growth": 930,
+         "format": "%",
+         "damage_percentage": 10130,
+         "damage_percentage_growth": 930,
+         "stun_ratio": 9860,
+         "stun_ratio_growth": 450,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 246400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8957,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 35840,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8958
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率",
+       "desc": "{Skill:1471004, Prop:1001}",
+       "param": {
+        "1471004": {
+         "main": 11630,
+         "growth": 1060,
+         "format": "%",
+         "damage_percentage": 11630,
+         "damage_percentage_growth": 1060,
+         "stun_ratio": 11400,
+         "stun_ratio_growth": 520,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 285175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10362,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 41460,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10363
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1471001, Prop:1002}",
+       "param": {
+        "1471001": {
+         "main": 3710,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 3960,
+         "damage_percentage_growth": 360,
+         "stun_ratio": 3710,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 92950,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3372,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 13500,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3373
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1471002, Prop:1002}",
+       "param": {
+        "1471002": {
+         "main": 4550,
+         "growth": 210,
+         "format": "%",
+         "damage_percentage": 4980,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 4550,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 113850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4130,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 16530,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4131
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1471003, Prop:1002}",
+       "param": {
+        "1471003": {
+         "main": 9860,
+         "growth": 450,
+         "format": "%",
+         "damage_percentage": 10130,
+         "damage_percentage_growth": 930,
+         "stun_ratio": 9860,
+         "stun_ratio_growth": 450,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 246400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8957,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 35840,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8958
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率",
+       "desc": "{Skill:1471004, Prop:1002}",
+       "param": {
+        "1471004": {
+         "main": 11400,
+         "growth": 520,
+         "format": "%",
+         "damage_percentage": 11630,
+         "damage_percentage_growth": 1060,
+         "stun_ratio": 11400,
+         "stun_ratio_growth": 520,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 285175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10362,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 41460,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10363
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：<ruby=ごうそう>豪壮</ruby>",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1471005, Prop:1001}",
+       "param": {
+        "1471005": {
+         "main": 5280,
+         "growth": 480,
+         "format": "%",
+         "damage_percentage": 5280,
+         "damage_percentage_growth": 480,
+         "stun_ratio": 4950,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 123750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 18000,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1471006, Prop:1001}",
+       "param": {
+        "1471006": {
+         "main": 7040,
+         "growth": 640,
+         "format": "%",
+         "damage_percentage": 7040,
+         "damage_percentage_growth": 640,
+         "stun_ratio": 6430,
+         "stun_ratio_growth": 300,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 160875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5844,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 23380,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5845
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1471007, Prop:1001}",
+       "param": {
+        "1471007": {
+         "main": 13550,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 13550,
+         "damage_percentage_growth": 1240,
+         "stun_ratio": 13190,
+         "stun_ratio_growth": 600,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 329725,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11986,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 47950,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11987
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率",
+       "desc": "{Skill:1471008, Prop:1001}",
+       "param": {
+        "1471008": {
+         "main": 9240,
+         "growth": 840,
+         "format": "%",
+         "damage_percentage": 9240,
+         "damage_percentage_growth": 840,
+         "stun_ratio": 9180,
+         "stun_ratio_growth": 420,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 229625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8345,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 33390,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8346
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1471005, Prop:1002}",
+       "param": {
+        "1471005": {
+         "main": 4950,
+         "growth": 230,
+         "format": "%",
+         "damage_percentage": 5280,
+         "damage_percentage_growth": 480,
+         "stun_ratio": 4950,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 123750,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 18000,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1471006, Prop:1002}",
+       "param": {
+        "1471006": {
+         "main": 6430,
+         "growth": 300,
+         "format": "%",
+         "damage_percentage": 7040,
+         "damage_percentage_growth": 640,
+         "stun_ratio": 6430,
+         "stun_ratio_growth": 300,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 160875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5844,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 23380,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5845
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1471007, Prop:1002}",
+       "param": {
+        "1471007": {
+         "main": 13190,
+         "growth": 600,
+         "format": "%",
+         "damage_percentage": 13550,
+         "damage_percentage_growth": 1240,
+         "stun_ratio": 13190,
+         "stun_ratio_growth": 600,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 329725,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11986,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 47950,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11987
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率",
+       "desc": "{Skill:1471008, Prop:1002}",
+       "param": {
+        "1471008": {
+         "main": 9180,
+         "growth": 420,
+         "format": "%",
+         "damage_percentage": 9240,
+         "damage_percentage_growth": 840,
+         "stun_ratio": 9180,
+         "stun_ratio_growth": 420,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 229625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8345,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 33390,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8346
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：<ruby=ふんく>焚躯</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1471027, Prop:1001}",
+       "param": {
+        "1471027": {
+         "main": 11060,
+         "growth": 1010,
+         "format": "%",
+         "damage_percentage": 11060,
+         "damage_percentage_growth": 1010,
+         "stun_ratio": 10630,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 265925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9663,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1471027, Prop:1002}",
+       "param": {
+        "1471027": {
+         "main": 10630,
+         "growth": 490,
+         "format": "%",
+         "damage_percentage": 11060,
+         "damage_percentage_growth": 1010,
+         "stun_ratio": 10630,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 265925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9663,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：<ruby=けいざん>傾山</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1471009, Prop:1001}",
+       "param": {
+        "1471009": {
+         "main": 86980,
+         "growth": 7910,
+         "format": "%",
+         "damage_percentage": 86980,
+         "damage_percentage_growth": 7910,
+         "stun_ratio": 20180,
+         "stun_ratio_growth": 920,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 504350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1471009, Prop:1002}",
+       "param": {
+        "1471009": {
+         "main": 20180,
+         "growth": 920,
+         "format": "%",
+         "damage_percentage": 86980,
+         "damage_percentage_growth": 7910,
+         "stun_ratio": 20180,
+         "stun_ratio_growth": 920,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 504350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18337
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：山嵐",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1471010, Prop:1001}",
+       "param": {
+        "1471010": {
+         "main": 37830,
+         "growth": 3440,
+         "format": "%",
+         "damage_percentage": 37830,
+         "damage_percentage_growth": 3440,
+         "stun_ratio": 15220,
+         "stun_ratio_growth": 700,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 380325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13829,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13830
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1471010, Prop:1002}",
+       "param": {
+        "1471010": {
+         "main": 15220,
+         "growth": 700,
+         "format": "%",
+         "damage_percentage": 37830,
+         "damage_percentage_growth": 3440,
+         "stun_ratio": 15220,
+         "stun_ratio_growth": 700,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 380325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13829,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13830
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "回避：動かざること山の如し",
+     "desc": "攻撃中に方向を入力せず <IconMap:Icon_Evade> を押して発動：\n盤岳が防御態勢に入る。発動中に敵の攻撃を受けた場合、攻撃をパリィし、ブレイク値を蓄積させる。\nスキルを発動した瞬間に敵の攻撃を受けると、パーフェクトガードが発動する。\nパリィに成功した時、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "回避：<ruby=えつざん>越山</ruby>",
+     "desc": " <IconMap:Icon_Evade> を押して発動：\nダッシュで高速回避する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "回避：<ruby=とき>鬨</ruby>の声",
+     "desc": "{LAYOUT_CONSOLECONTROLLER#スティック}{LAYOUT_FALLBACK#スティック}を半回転して、 <IconMap:Icon_Evade> を押して発動：\n後ろに回避し、敵を挑発する。\n任意の<color=#FFFFFF>『強化特殊スキル』</color>の後に<color=#FFFFFF>『回避：鬨の声』</color>を繋げると、<color=#FFFFFF>『回避：鬨の声』</color>発動中に対応のコマンドを素早く入力することで、<color=#FFFFFF>『強化特殊スキル』</color>に繋げることが可能。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：飛び<ruby=つぶて>礫</ruby>",
+     "desc": "回避時に <IconMap:Icon_Normal> を短押し、または<color=#FFFFFF>『回避：鬨の声』</color>発動中に <IconMap:Icon_Normal> を長押しして発動：\n前方に数珠を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動後、そのまま<color=#FFFFFF>『通常攻撃：屹立』</color>2段目、または<color=#FFFFFF>『通常攻撃：豪壮』</color>2段目に繋げることが可能。",
+     "potential": []
+    },
+    {
+     "name": "回避反撃：<ruby=すなえんぶ>砂煙舞</ruby>",
+     "desc": "<color=#FFFFFF>『回避：越山』</color>で<color=#FFFFFF>『極限回避』</color>を発動した後に <IconMap:Icon_Normal> を押す、または<color=#FFFFFF>『回避：鬨の声』</color>で<color=#FFFFFF>『極限回避』</color>を発動した後に <IconMap:Icon_Normal> を長押しして発動：\n前方の敵に攻撃を行い、<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動後、そのまま<color=#FFFFFF>『通常攻撃：屹立』</color>3段目、または<color=#FFFFFF>『通常攻撃：豪壮』</color>3段目に繋げることが可能。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "回避：動かざること山の如し",
+     "param": [
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1471011, Prop:1002}",
+       "param": {
+        "1471011": {
+         "main": 9530,
+         "growth": 440,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 9530,
+         "stun_ratio_growth": 440,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：飛び<ruby=つぶて>礫</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1471018, Prop:1001}",
+       "param": {
+        "1471018": {
+         "main": 3970,
+         "growth": 370,
+         "format": "%",
+         "damage_percentage": 3970,
+         "damage_percentage_growth": 370,
+         "stun_ratio": 2480,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 62150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2251,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 9010,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2252
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1471018, Prop:1002}",
+       "param": {
+        "1471018": {
+         "main": 2480,
+         "growth": 120,
+         "format": "%",
+         "damage_percentage": 3970,
+         "damage_percentage_growth": 370,
+         "stun_ratio": 2480,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 62150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2251,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 9010,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2252
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "回避反撃：<ruby=すなえんぶ>砂煙舞</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1471019, Prop:1001}",
+       "param": {
+        "1471019": {
+         "main": 19490,
+         "growth": 1780,
+         "format": "%",
+         "damage_percentage": 19490,
+         "damage_percentage_growth": 1780,
+         "stun_ratio": 21280,
+         "stun_ratio_growth": 970,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 256850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 37350,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1471019, Prop:1002}",
+       "param": {
+        "1471019": {
+         "main": 21280,
+         "growth": 970,
+         "format": "%",
+         "damage_percentage": 19490,
+         "damage_percentage_growth": 1780,
+         "stun_ratio": 21280,
+         "stun_ratio_growth": 970,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 256850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9336,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 37350,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24337
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "強化特殊スキル：<ruby=じなり>地鳴</ruby>",
+     "desc": "アドレナリンが十分な時、以下の3つの方法で発動：\n（一） <color=#FFFFFF>『通常攻撃：屹立』</color>の3段目、または4段目の後に <IconMap:Icon_SpecialReady_Rp> を押して発動。\n（二） <color=#FFFFFF>『支援突撃』</color>、<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『クイック支援』</color>の後に <IconMap:Icon_SpecialReady_Rp> を長押しして発動。\n（三） 任意の<color=#FFFFFF>『強化特殊スキル』</color>、<color=#FFFFFF>『通常攻撃：焚躯』</color>、<color=#FFFFFF>『連携スキル』</color>、<color=#FFFFFF>『終結スキル』</color>、<color=#FFFFFF>『支援突撃』</color>、<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『クイック支援』</color>を発動した時、 <IconMap:Icon_Normal> <IconMap:Icon_SpecialReady_Rp> <IconMap:Icon_Normal> を順番に素早く押すことで発動。\n盤岳が連続で地面に重撃を叩き込み、敵に<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：<ruby=さんぽう>山崩</ruby>",
+     "desc": "アドレナリンが十分な時、以下の2つの方法で発動：\n（一） <color=#FFFFFF>『通常攻撃：豪壮』</color>の1段目、または2段目の後に <IconMap:Icon_Normal> を押して発動。\n（二） 任意の<color=#FFFFFF>『強化特殊スキル』</color>、<color=#FFFFFF>『通常攻撃：焚躯』</color>、<color=#FFFFFF>『連携スキル』</color>、<color=#FFFFFF>『終結スキル』</color>、<color=#FFFFFF>『支援突撃』</color>、<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『クイック支援』</color>を発動した時、 <IconMap:Icon_SpecialReady_Rp> <IconMap:Icon_SpecialReady_Rp> <IconMap:Icon_Normal> を順番に素早く押すことで発動。\n盤岳が山を投げて、敵に<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：<ruby=ろんどう>論道</ruby>",
+     "desc": "アドレナリンが十分な時、以下の3つの方法で発動：\n（一） <color=#FFFFFF>『通常攻撃：豪壮』</color>の3段目、または4段目の後に <IconMap:Icon_Normal> を押して発動。\n（二） <color=#FFFFFF>『支援突撃』</color>、<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『クイック支援』</color>の後に <IconMap:Icon_Normal> を長押しして発動。\n（三） 任意の<color=#FFFFFF>『強化特殊スキル』</color>、<color=#FFFFFF>『通常攻撃：焚躯』</color>、<color=#FFFFFF>『連携スキル』</color>、<color=#FFFFFF>『終結スキル』</color>、<color=#FFFFFF>『支援突撃』</color>、<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『クイック支援』</color>を発動した時、 <IconMap:Icon_SpecialReady_Rp> <IconMap:Icon_Normal> <IconMap:Icon_SpecialReady_Rp> を順番に素早く押すことで発動。\n盤岳が数珠を投げて、前方の敵に<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：獅子の遠吠え",
+     "desc": "アドレナリンが十分な時、以下の2つの方法で発動：\n（一） <color=#FFFFFF>『通常攻撃：屹立』</color>の1段目、または2段目の後に <IconMap:Icon_SpecialReady_Rp> を押して発動。\n（二） 任意の<color=#FFFFFF>『強化特殊スキル』</color>、<color=#FFFFFF>『通常攻撃：焚躯』</color>、<color=#FFFFFF>『連携スキル』</color>、<color=#FFFFFF>『終結スキル』</color>、<color=#FFFFFF>『支援突撃』</color>、<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『クイック支援』</color>を発動した時、 <IconMap:Icon_Normal> <IconMap:Icon_Normal> <IconMap:Icon_SpecialReady_Rp> を順番に素早く押すことで発動。\n盤岳が前方に音波攻撃を放ち、敵に<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：山崩・怒",
+     "desc": "アドレナリンが十分な時、<color=#FFFFFF>『強化特殊スキル：地鳴』</color>の発動中に <IconMap:Icon_SpecialReady_Rp> <IconMap:Icon_SpecialReady_Rp> <IconMap:Icon_Normal> を順番に素早く押すことで発動：\n盤岳がより巨大な山を投げ、敵に<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：獅子の遠吠え・怒",
+     "desc": "アドレナリンが十分な時、<color=#FFFFFF>『強化特殊スキル：論道』</color>の発動中に <IconMap:Icon_Normal> <IconMap:Icon_Normal> <IconMap:Icon_SpecialReady_Rp> を順番に素早く押すことで発動：\n盤岳が前方により強力な音波攻撃を放ち、敵に<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "キャンセル",
+     "desc": "コマンドを素早く入力して<color=#FFFFFF>『強化特殊スキル』</color>を別のスキルに繋げる時、発動中の<color=#FFFFFF>『強化特殊スキル』</color>を中断できる。各<color=#FFFFFF>『強化特殊スキル』</color>には特殊なパーフェクトキャンセルのタイミングが存在し、パーフェクトのタイミング以降に<color=#FFFFFF>『強化特殊スキル』</color>の発動を中断した時、中断された<color=#FFFFFF>『強化特殊スキル』</color>の攻撃効果は影響を受けない。パーフェクトのタイミングで<color=#FFFFFF>『強化特殊スキル』</color>の発動を中断した場合、<color=#FFFFFF>「パーフェクトキャンセル」</color>が発動したとみなされる。\n<color=#FFFFFF>「怒髪天」</color>状態中、かつ<color=#FFFFFF>「山威」</color>を所持している時、<color=#FFFFFF>「パーフェクトキャンセル」</color>は発動しやすくなる。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：<ruby=じなり>地鳴</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1471013, Prop:1001}",
+       "param": {
+        "1471013": {
+         "main": 25480,
+         "growth": 2320,
+         "format": "%",
+         "damage_percentage": 25480,
+         "damage_percentage_growth": 2320,
+         "stun_ratio": 24760,
+         "stun_ratio_growth": 1130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 796400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 24116,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12830
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1471013, Prop:1002}",
+       "param": {
+        "1471013": {
+         "main": 24760,
+         "growth": 1130,
+         "format": "%",
+         "damage_percentage": 25480,
+         "damage_percentage_growth": 2320,
+         "stun_ratio": 24760,
+         "stun_ratio_growth": 1130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 796400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 24116,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12830
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "アドレナリン消費",
+       "desc": "20Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：<ruby=さんぽう>山崩</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1471012, Prop:1001}",
+       "param": {
+        "1471012": {
+         "main": 17130,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 17130,
+         "damage_percentage_growth": 1560,
+         "stun_ratio": 15710,
+         "stun_ratio_growth": 720,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 535425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15575,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1471012, Prop:1002}",
+       "param": {
+        "1471012": {
+         "main": 15710,
+         "growth": 720,
+         "format": "%",
+         "damage_percentage": 17130,
+         "damage_percentage_growth": 1560,
+         "stun_ratio": 15710,
+         "stun_ratio_growth": 720,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 535425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15575,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "アドレナリン消費",
+       "desc": "20Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：<ruby=ろんどう>論道</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1471015, Prop:1001}",
+       "param": {
+        "1471015": {
+         "main": 16240,
+         "growth": 1480,
+         "format": "%",
+         "damage_percentage": 16240,
+         "damage_percentage_growth": 1480,
+         "stun_ratio": 14750,
+         "stun_ratio_growth": 680,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 507650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5831
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1471015, Prop:1002}",
+       "param": {
+        "1471015": {
+         "main": 14750,
+         "growth": 680,
+         "format": "%",
+         "damage_percentage": 16240,
+         "damage_percentage_growth": 1480,
+         "stun_ratio": 14750,
+         "stun_ratio_growth": 680,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 507650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5831
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "アドレナリン消費",
+       "desc": "20Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：獅子の遠吠え",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1471014, Prop:1001}",
+       "param": {
+        "1471014": {
+         "main": 15370,
+         "growth": 1400,
+         "format": "%",
+         "damage_percentage": 15370,
+         "damage_percentage_growth": 1400,
+         "stun_ratio": 13810,
+         "stun_ratio_growth": 630,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 480425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13775,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1471014, Prop:1002}",
+       "param": {
+        "1471014": {
+         "main": 13810,
+         "growth": 630,
+         "format": "%",
+         "damage_percentage": 15370,
+         "damage_percentage_growth": 1400,
+         "stun_ratio": 13810,
+         "stun_ratio_growth": 630,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 480425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13775,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "アドレナリン消費",
+       "desc": "20Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：山崩・怒",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1471017, Prop:1001}",
+       "param": {
+        "1471017": {
+         "main": 32500,
+         "growth": 2960,
+         "format": "%",
+         "damage_percentage": 32500,
+         "damage_percentage_growth": 2960,
+         "stun_ratio": 22120,
+         "stun_ratio_growth": 1010,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 802450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 22371,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1471017, Prop:1002}",
+       "param": {
+        "1471017": {
+         "main": 22120,
+         "growth": 1010,
+         "format": "%",
+         "damage_percentage": 32500,
+         "damage_percentage_growth": 2960,
+         "stun_ratio": 22120,
+         "stun_ratio_growth": 1010,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 802450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 22371,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "アドレナリン消費",
+       "desc": "40Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：獅子の遠吠え・怒",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1471016, Prop:1001}",
+       "param": {
+        "1471016": {
+         "main": 30010,
+         "growth": 2730,
+         "format": "%",
+         "damage_percentage": 30010,
+         "damage_percentage_growth": 2730,
+         "stun_ratio": 20210,
+         "stun_ratio_growth": 920,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 747450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20571,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1471016, Prop:1002}",
+       "param": {
+        "1471016": {
+         "main": 20210,
+         "growth": 920,
+         "format": "%",
+         "damage_percentage": 30010,
+         "damage_percentage_growth": 2730,
+         "stun_ratio": 20210,
+         "stun_ratio_growth": 920,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 747450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20571,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "アドレナリン消費",
+       "desc": "40Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "連携スキル：憤激の焔",
+     "desc": "<color=#FFFFFF>『連携スキル』</color>開始時に、対応するエージェントを選択して発動：\n前方に広範囲攻撃を仕掛け、<color=#FF5521>炎属性ダメージ</color>を大量に与える。\n盤岳の<color=#FFFFFF>「怒気」</color>が120Pt以上の場合、攻撃終了後、盤岳は自動で<color=#FFFFFF>「怒髪天」</color>状態に入る。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "終結スキル：震天動地",
+     "desc": "デシベルレートが<color=#FFFFFF>『Maximum』</color>に達した時に <IconMap:Icon_UltimateReady> を押して発動：\n前方に広範囲攻撃を仕掛け、<color=#FF5521>炎属性ダメージ</color>を大量に与える。\n盤岳の<color=#FFFFFF>「怒気」</color>が120Pt以上の場合、攻撃終了後、盤岳は自動で<color=#FFFFFF>「怒髪天」</color>状態に入る。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "連携スキル：憤激の焔",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1471020, Prop:1001}",
+       "param": {
+        "1471020": {
+         "main": 56090,
+         "growth": 5100,
+         "format": "%",
+         "damage_percentage": 56090,
+         "damage_percentage_growth": 5100,
+         "stun_ratio": 26230,
+         "stun_ratio_growth": 1200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2484350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 43786,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23837
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1471020, Prop:1002}",
+       "param": {
+        "1471020": {
+         "main": 26230,
+         "growth": 1200,
+         "format": "%",
+         "damage_percentage": 56090,
+         "damage_percentage_growth": 5100,
+         "stun_ratio": 26230,
+         "stun_ratio_growth": 1200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2484350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 43786,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23837
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "終結スキル：震天動地",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1471021, Prop:1001}",
+       "param": {
+        "1471021": {
+         "main": 159840,
+         "growth": 14540,
+         "format": "%",
+         "damage_percentage": 159840,
+         "damage_percentage_growth": 14540,
+         "stun_ratio": 26770,
+         "stun_ratio_growth": 1220,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 24329,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 74330
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1471021, Prop:1002}",
+       "param": {
+        "1471021": {
+         "main": 26770,
+         "growth": 1220,
+         "format": "%",
+         "damage_percentage": 159840,
+         "damage_percentage_growth": 14540,
+         "stun_ratio": 26770,
+         "stun_ratio_growth": 1220,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 24329,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 74330
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "クイック支援：一枚岩",
+     "desc": "操作しているメンバーが吹き飛ばされた時に、 <IconMap:Icon_Switch> を押して発動：\n前方の敵に連続攻撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：鉄壁",
+     "desc": "出場中のメンバーが攻撃されそうになった時に、 <IconMap:Icon_Switch> を押して発動：\n敵の攻撃をパリィし、ブレイク値を大量に蓄積させる。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援突撃：<ruby=こうまい>高邁</ruby>",
+     "desc": "<color=#FFFFFF>『パリィ支援』</color>発動後、 <IconMap:Icon_Normal> を押して発動：\n素早く突進して攻撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援突撃：衝天",
+     "desc": "<color=#FFFFFF>『回避：動かざること山の如し』</color>で敵の攻撃をパリィした後、 <IconMap:Icon_Normal> を押して発動：\n素早く突進して攻撃を放ち、<color=#FF5521>炎属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "クイック支援：一枚岩",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1471022, Prop:1001}",
+       "param": {
+        "1471022": {
+         "main": 7340,
+         "growth": 670,
+         "format": "%",
+         "damage_percentage": 7340,
+         "damage_percentage_growth": 670,
+         "stun_ratio": 4590,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 114675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4168,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 16680,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4169
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1471022, Prop:1002}",
+       "param": {
+        "1471022": {
+         "main": 4590,
+         "growth": 210,
+         "format": "%",
+         "damage_percentage": 7340,
+         "damage_percentage_growth": 670,
+         "stun_ratio": 4590,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 114675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4168,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 16680,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4169
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：鉄壁",
+     "param": [
+      {
+       "name": "パリィ・軽 ブレイク倍率",
+       "desc": "{Skill:1471023, Prop:1002}",
+       "param": {
+        "1471023": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・重 ブレイク倍率",
+       "desc": "{Skill:1471024, Prop:1002}",
+       "param": {
+        "1471024": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・連続 ブレイク倍率",
+       "desc": "{Skill:1471025, Prop:1002}",
+       "param": {
+        "1471025": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：<ruby=こうまい>高邁</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1471026, Prop:1001}",
+       "param": {
+        "1471026": {
+         "main": 24160,
+         "growth": 2200,
+         "format": "%",
+         "damage_percentage": 24160,
+         "damage_percentage_growth": 2200,
+         "stun_ratio": 25860,
+         "stun_ratio_growth": 1180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 863500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 25476,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11670
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1471026, Prop:1002}",
+       "param": {
+        "1471026": {
+         "main": 25860,
+         "growth": 1180,
+         "format": "%",
+         "damage_percentage": 24160,
+         "damage_percentage_growth": 2200,
+         "stun_ratio": 25860,
+         "stun_ratio_growth": 1180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 863500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 25476,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11670
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：衝天",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1471029, Prop:1001}",
+       "param": {
+        "1471029": {
+         "main": 22160,
+         "growth": 2020,
+         "format": "%",
+         "damage_percentage": 22160,
+         "damage_percentage_growth": 2020,
+         "stun_ratio": 23840,
+         "stun_ratio_growth": 1090,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 320925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11669,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 46680,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26670
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1471029, Prop:1002}",
+       "param": {
+        "1471029": {
+         "main": 23840,
+         "growth": 1090,
+         "format": "%",
+         "damage_percentage": 22160,
+         "damage_percentage_growth": 2020,
+         "stun_ratio": 23840,
+         "stun_ratio_growth": 1090,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 320925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11669,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 46680,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26670
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100111": 2
+    },
+    "2": {
+     "10": 3000,
+     "100111": 3
+    },
+    "3": {
+     "10": 6000,
+     "100121": 2
+    },
+    "4": {
+     "10": 9000,
+     "100121": 3
+    },
+    "5": {
+     "10": 12000,
+     "100121": 4
+    },
+    "6": {
+     "10": 18000,
+     "100121": 6
+    },
+    "7": {
+     "10": 45000,
+     "100131": 5
+    },
+    "8": {
+     "10": 67500,
+     "100131": 8
+    },
+    "9": {
+     "10": 90000,
+     "100131": 10
+    },
+    "10": {
+     "10": 112500,
+     "100131": 12
+    },
+    "11": {
+     "10": 135000,
+     "100131": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "貪欲は火の如く",
+   "desc": "<color=#FFFFFF>『強化特殊スキル：論道』</color>と<color=#FFFFFF>『強化特殊スキル：地鳴』</color>が敵に命中した時、ターゲットを<color=#FFFFFF>「戦慄」</color>状態にする。この状態の敵は<color=#FF5521>炎属性ダメージ耐性</color>-10%。継続時間30秒。<color=#FFFFFF>『強化特殊スキル：獅子の遠吠え』</color>、<color=#FFFFFF>『強化特殊スキル：獅子の遠吠え・怒』</color>、<color=#FFFFFF>『強化特殊スキル：山崩』</color>、<color=#FFFFFF>『強化特殊スキル：山崩・怒』</color>、<color=#FFFFFF>『通常攻撃：傾山』</color>と<color=#FFFFFF>『通常攻撃：山嵐』</color>が<color=#FFFFFF>「戦慄」</color>状態の敵に命中した時、与える透徹ダメージ+10%。<color=#FFFFFF>『通常攻撃：山嵐』</color>がブレイク状態の敵に命中した時、その敵のブレイク継続時間が2秒延長される。敵は1回のブレイク中、この効果を1回しか受けられず、同種の効果は重ね掛け不可。",
+   "desc2": "盤岳に、何か欲求と呼べるものはあっただろうか。\n澄輝坪で道場を開いたのも、\nとある宗師にそう勧められたからに過ぎない。\n名声のためでも、利益のためでもなく、\n道場には名前すらない。流派だなんだという口上を\n弟子たちに叫ばせたこともなかった。\nだが盤岳は知っている。\n「贖罪」という名の執着が、じりじりと休みなく\n鋼鉄の心を焦がし続けており…一歩踏み外せば、\nたちまち道を違えてしまうことを。\n\n「貪欲は火の如し。\n分別あれば前進のための灯りとなるが、\n抑え込まねばその身を焼かれよう」"
+  },
+  "2": {
+   "level": 2,
+   "name": "憎しみは刃の如く",
+   "desc": "<color=#FFFFFF>『コアパッシブ』</color>による会心ダメージアップ効果が追加で+15%、<color=#FF5521>炎属性ダメージ</color>アップ効果が追加で+15%。<color=#FFFFFF>「怒髪天」</color>状態中、盤岳が<color=#FFFFFF>「山威」</color>を消費して<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、追加でアドレナリンを5Pt回復する。",
+   "desc2": "道場の弟子たちは、「盤岳先生」が\n怒っているところを一度も見たことがない——\n声を上げて怒鳴るとなれば尚更だ。\nどれだけ不出来で素行の悪い弟子相手でも、\n盤岳は無限とも思える忍耐を持って接していた。\n不動の山が容易には噴火しないように、\nあまりにも盤岳がどっしりと構えているため、\n人々はその秘めたる猛威を忘れてしまった。\nだが、ひとたびその怒髪が天を衝けば、\nどんなに獰猛な獣であろうと、尻尾を丸め縮こまるだろう。\n\n「憎しみは刃の如し。要らぬのなら鞘に収め、\nなんぴとも傷つけぬようにせよ」"
+  },
+  "3": {
+   "level": 3,
+   "name": "愚かは鎖の如く",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "「盤岳先生」は武人であるだけでなく、\n賢人でもあるのだ――道場の弟子たちや、\n顔なじみの隣人たちも、みな口を揃えてそう言う。\nなにせ普段から物思いにふけっているような振る舞いのうえ、\nしばらくぶりに口を開いたかと思えば、何やら\n奥深く格言めいた言葉ばかりが紡がれるのだから。\n武道は体だけでなく心を鍛えるものでもある。\nそして盤岳は常々、自分はまだまだだと言う。\n\n「この盤岳、愚鈍にもひとたびは道を踏み外した身。\nだがおぬしの道を切り拓くためならば、\nこの双拳を振るおう」"
+  },
+  "4": {
+   "level": 4,
+   "name": "パージユニット・ゼロ",
+   "desc": "<color=#FFFFFF>『強化特殊スキル：獅子の遠吠え・怒』</color>、<color=#FFFFFF>『強化特殊スキル：山崩・怒』</color>、<color=#FFFFFF>『通常攻撃：傾山』</color>、<color=#FFFFFF>『通常攻撃：山嵐』</color>の与ダメージ+<color=#FFFFFF>30%</color>。",
+   "desc2": "運命とは天が定めたものか、あるいは人が決めたものか…\n何であれ、罪と宿命は自分の意志によって\n背負うものばかりではないことは確かだ。\nいまの名前を手に入れる前、\n「パージユニット・ゼロ」と呼ばれた戦術構造体は、\n文字通りの殺戮兵器に過ぎなかった。\nでは、「心」はいつ生まれたのだろうか？\nコードの束縛が彼女によって解かれた日か、\nあるいは、このすべてを背負い前へ進む勇気を手にした時か？\n\n「懺悔など、ぬるい。\n過去の罪に背を向けるより…その背に\n食い込む過去を負い、突き出す拳の糧とせよ」"
+  },
+  "5": {
+   "level": 5,
+   "name": "学びの途",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "聞いたか？山の上に道場ができたそうだ。\nなんでも師範はデカい知能構造体らしくて…\n出身の弟子たちはみな腕が立つし、\nエーテリアスとも渡り合えるほどだとか。\n鋼鉄の師範はよく、\nホロウで人助けもしてるみたいだし…\nきっとよほどの傑物なんだろうな。\n\n「我輩はまだ未熟…学びの途上にある。\nみなは師と仰いでくれるが、むしろ\n『人』としての在り方を教わっているのは、我輩の方である」"
+  },
+  "6": {
+   "level": 6,
+   "name": "明王降世",
+   "desc": "タイミング問わず、盤岳が<color=#FFFFFF>『強化特殊スキル』</color>を発動すると<color=#FFFFFF>「明王」</color>を獲得できる。<color=#FFFFFF>「明王」</color>による<color=#FF5521>炎属性ダメージ</color>強化効果がさらに+8%、継続時間が30秒に延長される。<color=#FFFFFF>『通常攻撃：山嵐』</color>を発動した時、盤岳は周囲の敵に自身の透徹力600%分の<color=#FF5521>炎属性ダメージ</color>を与える。<color=#FFFFFF>『強化特殊スキル』</color>の後に<color=#FFFFFF>『回避：鬨の声』</color>を発動した時も<color=#FFFFFF>「明王」</color>を獲得できる。",
+   "desc2": "「ここで死ぬことが立派な償いになると、\n本気で思ってたんですか？あんたにはまだ、\n長い長い贖罪の道が待ってるんですから」\n「以上が黒枝の裁決官として…\n『盤岳』に下す最終的な裁定です」\n華奢な身体から発せられた力強い判決の言葉は、\n山のごとくに思えた重圧と迷霧を追い払った。\n\n「裁定…我輩にそれを下せるほどの\n知恵と勇気があるだろうか。\nわからぬ…わからぬが、それを\n立ち止まる言い訳としてはならぬ」"
+  }
+ },
+ "passive": {
+  "level": {
+   "1471049": {
+    "level": 1,
+    "id": 1471049,
+    "name": [
+     "コアパッシブ：<ruby=さんがくちょうじょう>山岳重畳</ruby>我の如し",
+     "追加能力：<ruby=てんちょう>天頂</ruby>"
+    ],
+    "desc": [
+     "盤岳は自身の最大HPに応じて追加で透徹力をアップさせる。最大HP1Ptにつき、透徹力+0.1Pt。\n盤岳のスキルによる<color=#FF5521>炎属性ダメージ</color>は全て透徹ダメージとみなされ、敵の防御力を無視するほか、透徹力を基にスキルダメージを計算する。\n盤岳はフィールド入場時にアドレナリンを60Pt回復する。探査モードにおいて、この効果は180秒に1回のみ発動可能。\n\n盤岳は以下の方法で<color=#FFFFFF>「怒気」</color>を回復できる。\n（一） アドレナリンを1Pt消費するごとに、<color=#FFFFFF>「怒気」</color>を0.5Pt回復する。\n（二） <color=#FFFFFF>『パリィ支援』</color>を発動した時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。\n（三） <color=#FFFFFF>『回避：動かざること山の如し』</color>で敵の攻撃をパリィした時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。パーフェクトガードが発動した場合、回復する<color=#FFFFFF>「怒気」</color>は6Ptになる。1秒に1回のみ発動可能。\n（四） <color=#FFFFFF>『極限回避』</color>を発動した時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。1秒に1回のみ発動可能。\n\n盤岳は<color=#FFFFFF>「怒気」</color>を150Ptまで所持可能。<color=#FFFFFF>「怒気」</color>を120Pt所持している時、盤岳は<color=#FFFFFF>『通常攻撃：焚躯』</color>を発動することで<color=#FFFFFF>「怒髪天」</color>状態に入ることができる。<color=#FFFFFF>「怒髪天」</color>状態中、盤岳は<color=#FFFFFF>「怒気」</color>を獲得できなくなる。<color=#FFFFFF>『通常攻撃：傾山』</color>を発動すると、<color=#FFFFFF>「怒髪天」</color>状態は解除される。\n<color=#FFFFFF>「怒髪天」</color>状態に入ると、盤岳は<color=#FFFFFF>「山威」</color>を4Pt獲得する。盤岳が<color=#FFFFFF>「山威」</color>を所持している場合、<color=#FFFFFF>『強化特殊スキル』</color>を発動する時にアドレナリンを消費しなくなり、代わりに<color=#FFFFFF>「山威」</color>を1Pt消費し、アドレナリンを10Pt回復する。「山威」を所持していない場合、通常通りアドレナリンを消費する。<color=#FFFFFF>「怒髪天」</color>状態が解除されると、<color=#FFFFFF>「山威」</color>はリセットされる。\n<color=#FFFFFF>「怒髪天」</color>状態で<color=#FFFFFF>「山威」</color>を所持している時、 <IconMap:Icon_Special> を長押しすると、4種類の<color=#FFFFFF>『強化特殊スキル』</color>および<color=#FFFFFF>『通常攻撃：傾山』</color>が決まった順番で自動的に発動する。\n盤岳が<color=#FFFFFF>『強化特殊スキル』</color>または<color=#FFFFFF>『支援突撃』</color>を発動した時、透徹力+<color=#2BAD00>150</color>Pt、与える<color=#FF5521>炎属性ダメージ</color>+<color=#2BAD00>18%</color>、会心ダメージ+<color=#2BAD00>18%</color>。継続時間30秒。重複して発動すると継続時間が更新される。",
+     "チームに<color=#FFFFFF>[支援]</color>または<color=#FFFFFF>[撃破]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>「怒髪天」</color>状態時、通常攻撃から繋げる、またはコマンドを素早く入力することで<color=#FFFFFF>「山威」</color>を消費して<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、盤岳は<color=#FFFFFF>「明王」</color>を1重獲得する。<color=#FFFFFF>「明王」</color>1重につき、盤岳の与える<color=#FF5521>炎属性ダメージ</color>+5%。この効果は最大3重まで重ね掛け可能、継続時間8秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1471050": {
+    "level": 2,
+    "id": 1471050,
+    "name": [
+     "コアパッシブ：<ruby=さんがくちょうじょう>山岳重畳</ruby>我の如し",
+     "追加能力：<ruby=てんちょう>天頂</ruby>"
+    ],
+    "desc": [
+     "盤岳は自身の最大HPに応じて追加で透徹力をアップさせる。最大HP1Ptにつき、透徹力+0.1Pt。\n盤岳のスキルによる<color=#FF5521>炎属性ダメージ</color>は全て透徹ダメージとみなされ、敵の防御力を無視するほか、透徹力を基にスキルダメージを計算する。\n盤岳はフィールド入場時にアドレナリンを60Pt回復する。この効果は探査モードにおいて、180秒に1回のみ発動可能。\n\n盤岳は以下の方法で<color=#FFFFFF>「怒気」</color>を回復できる。\n（一） アドレナリンを1Pt消費するごとに、<color=#FFFFFF>「怒気」</color>を0.5Pt回復する。\n（二） <color=#FFFFFF>『パリィ支援』</color>を発動した時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。\n（三） <color=#FFFFFF>『回避：動かざること山の如し』</color>で敵の攻撃をパリィした時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。パーフェクトガードが発動した場合、回復する<color=#FFFFFF>「怒気」</color>は6Ptになる。1秒に1回のみ発動可能。\n（四） <color=#FFFFFF>『極限回避』</color>を発動した時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。1秒に1回のみ発動可能。\n\n盤岳は<color=#FFFFFF>「怒気」</color>を150Ptまで所持可能。<color=#FFFFFF>「怒気」</color>を120Pt所持している時、盤岳は<color=#FFFFFF>『通常攻撃：焚躯』</color>を発動することで<color=#FFFFFF>「怒髪天」</color>状態に入ることができる。<color=#FFFFFF>「怒髪天」</color>状態中、盤岳は<color=#FFFFFF>「怒気」</color>を獲得できなくなる。<color=#FFFFFF>『通常攻撃：傾山』</color>を発動すると、<color=#FFFFFF>「怒髪天」</color>状態は解除される。\n<color=#FFFFFF>「怒髪天」</color>状態に入ると、盤岳は<color=#FFFFFF>「山威」</color>を4Pt獲得する。盤岳が<color=#FFFFFF>「山威」</color>を所持している場合、<color=#FFFFFF>『強化特殊スキル』</color>を発動する時にアドレナリンを消費しなくなり、代わりに<color=#FFFFFF>「山威」</color>を1Pt消費し、アドレナリンを10Pt回復する。「山威」を所持していない場合、通常通りアドレナリンを消費する。<color=#FFFFFF>「怒髪天」</color>状態が解除されると、<color=#FFFFFF>「山威」</color>はリセットされる。\n<color=#FFFFFF>「怒髪天」</color>状態で<color=#FFFFFF>「山威」</color>を所持している時、 <IconMap:Icon_Special> を長押しすると、4種類の<color=#FFFFFF>『強化特殊スキル』</color>および<color=#FFFFFF>『通常攻撃：傾山』</color>が決まった順番で自動的に発動する。\n盤岳が<color=#FFFFFF>『強化特殊スキル』</color>または<color=#FFFFFF>『支援突撃』</color>を発動した時、透徹力+<color=#2BAD00>175</color>Pt、与える<color=#FF5521>炎属性ダメージ</color>+<color=#2BAD00>21%</color>、会心ダメージ+<color=#2BAD00>21%</color>。継続時間30秒。重複して発動すると継続時間が更新される。",
+     "チームに<color=#FFFFFF>[支援]</color>または<color=#FFFFFF>[撃破]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>「怒髪天」</color>状態時、通常攻撃から繋げる、またはコマンドを素早く入力することで<color=#FFFFFF>「山威」</color>を消費して<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、盤岳は<color=#FFFFFF>「明王」</color>を1重獲得する。<color=#FFFFFF>「明王」</color>1重につき、盤岳の与える<color=#FF5521>炎属性ダメージ</color>+5%。この効果は最大3重まで重ね掛け可能、継続時間8秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1471051": {
+    "level": 3,
+    "id": 1471051,
+    "name": [
+     "コアパッシブ：<ruby=さんがくちょうじょう>山岳重畳</ruby>我の如し",
+     "追加能力：<ruby=てんちょう>天頂</ruby>"
+    ],
+    "desc": [
+     "盤岳は自身の最大HPに応じて追加で透徹力をアップさせる。最大HP1Ptにつき、透徹力+0.1Pt。\n盤岳のスキルによる<color=#FF5521>炎属性ダメージ</color>は全て透徹ダメージとみなされ、敵の防御力を無視するほか、透徹力を基にスキルダメージを計算する。\n盤岳はフィールド入場時にアドレナリンを60Pt回復する。この効果は探査モードにおいて、180秒に1回のみ発動可能。\n\n盤岳は以下の方法で<color=#FFFFFF>「怒気」</color>を回復できる。\n（一） アドレナリンを1Pt消費するごとに、<color=#FFFFFF>「怒気」</color>を0.5Pt回復する。\n（二） <color=#FFFFFF>『パリィ支援』</color>を発動した時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。\n（三） <color=#FFFFFF>『回避：動かざること山の如し』</color>で敵の攻撃をパリィした時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。パーフェクトガードが発動した場合、回復する<color=#FFFFFF>「怒気」</color>は6Ptになる。1秒に1回のみ発動可能。\n（四） <color=#FFFFFF>『極限回避』</color>を発動した時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。1秒に1回のみ発動可能。\n\n盤岳は<color=#FFFFFF>「怒気」</color>を150Ptまで所持可能。<color=#FFFFFF>「怒気」</color>を120Pt所持している時、盤岳は<color=#FFFFFF>『通常攻撃：焚躯』</color>を発動することで<color=#FFFFFF>「怒髪天」</color>状態に入ることができる。<color=#FFFFFF>「怒髪天」</color>状態中、盤岳は<color=#FFFFFF>「怒気」</color>を獲得できなくなる。<color=#FFFFFF>『通常攻撃：傾山』</color>を発動すると、<color=#FFFFFF>「怒髪天」</color>状態は解除される。\n<color=#FFFFFF>「怒髪天」</color>状態に入ると、盤岳は<color=#FFFFFF>「山威」</color>を4Pt獲得する。盤岳が<color=#FFFFFF>「山威」</color>を所持している場合、<color=#FFFFFF>『強化特殊スキル』</color>を発動する時にアドレナリンを消費しなくなり、代わりに<color=#FFFFFF>「山威」</color>を1Pt消費し、アドレナリンを10Pt回復する。「山威」を所持していない場合、通常通りアドレナリンを消費する。<color=#FFFFFF>「怒髪天」</color>状態が解除されると、<color=#FFFFFF>「山威」</color>はリセットされる。\n<color=#FFFFFF>「怒髪天」</color>状態で<color=#FFFFFF>「山威」</color>を所持している時、 <IconMap:Icon_Special> を長押しすると、4種類の<color=#FFFFFF>『強化特殊スキル』</color>および<color=#FFFFFF>『通常攻撃：傾山』</color>が決まった順番で自動的に発動する。\n盤岳が<color=#FFFFFF>『強化特殊スキル』</color>または<color=#FFFFFF>『支援突撃』</color>を発動した時、透徹力+<color=#2BAD00>200</color>Pt、与える<color=#FF5521>炎属性ダメージ</color>+<color=#2BAD00>24%</color>、会心ダメージ+<color=#2BAD00>24%</color>。継続時間30秒。重複して発動すると継続時間が更新される。",
+     "チームに<color=#FFFFFF>[支援]</color>または<color=#FFFFFF>[撃破]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>「怒髪天」</color>状態時、通常攻撃から繋げる、またはコマンドを素早く入力することで<color=#FFFFFF>「山威」</color>を消費して<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、盤岳は<color=#FFFFFF>「明王」</color>を1重獲得する。<color=#FFFFFF>「明王」</color>1重につき、盤岳の与える<color=#FF5521>炎属性ダメージ</color>+5%。この効果は最大3重まで重ね掛け可能、継続時間8秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1471052": {
+    "level": 4,
+    "id": 1471052,
+    "name": [
+     "コアパッシブ：<ruby=さんがくちょうじょう>山岳重畳</ruby>我の如し",
+     "追加能力：<ruby=てんちょう>天頂</ruby>"
+    ],
+    "desc": [
+     "盤岳は自身の最大HPに応じて追加で透徹力をアップさせる。最大HP1Ptにつき、透徹力+0.1Pt。\n盤岳のスキルによる<color=#FF5521>炎属性ダメージ</color>は全て透徹ダメージとみなされ、敵の防御力を無視するほか、透徹力を基にスキルダメージを計算する。\n盤岳はフィールド入場時にアドレナリンを60Pt回復する。この効果は探査モードにおいて、180秒に1回のみ発動可能。\n\n盤岳は以下の方法で<color=#FFFFFF>「怒気」</color>を回復できる。\n（一） アドレナリンを1Pt消費するごとに、<color=#FFFFFF>「怒気」</color>を0.5Pt回復する。\n（二） <color=#FFFFFF>『パリィ支援』</color>を発動した時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。\n（三） <color=#FFFFFF>『回避：動かざること山の如し』</color>で敵の攻撃をパリィした時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。パーフェクトガードが発動した場合、回復する<color=#FFFFFF>「怒気」</color>は6Ptになる。1秒に1回のみ発動可能。\n（四） <color=#FFFFFF>『極限回避』</color>を発動した時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。1秒に1回のみ発動可能。\n\n盤岳は<color=#FFFFFF>「怒気」</color>を150Ptまで所持可能。<color=#FFFFFF>「怒気」</color>を120Pt所持している時、盤岳は<color=#FFFFFF>『通常攻撃：焚躯』</color>を発動することで<color=#FFFFFF>「怒髪天」</color>状態に入ることができる。<color=#FFFFFF>「怒髪天」</color>状態中、盤岳は<color=#FFFFFF>「怒気」</color>を獲得できなくなる。<color=#FFFFFF>『通常攻撃：傾山』</color>を発動すると、<color=#FFFFFF>「怒髪天」</color>状態は解除される。\n<color=#FFFFFF>「怒髪天」</color>状態に入ると、盤岳は<color=#FFFFFF>「山威」</color>を4Pt獲得する。盤岳が<color=#FFFFFF>「山威」</color>を所持している場合、<color=#FFFFFF>『強化特殊スキル』</color>を発動する時にアドレナリンを消費しなくなり、代わりに<color=#FFFFFF>「山威」</color>を1Pt消費し、アドレナリンを10Pt回復する。「山威」を所持していない場合、通常通りアドレナリンを消費する。<color=#FFFFFF>「怒髪天」</color>状態が解除されると、<color=#FFFFFF>「山威」</color>はリセットされる。\n<color=#FFFFFF>「怒髪天」</color>状態で<color=#FFFFFF>「山威」</color>を所持している時、 <IconMap:Icon_Special> を長押しすると、4種類の<color=#FFFFFF>『強化特殊スキル』</color>および<color=#FFFFFF>『通常攻撃：傾山』</color>が決まった順番で自動的に発動する。\n盤岳が<color=#FFFFFF>『強化特殊スキル』</color>または<color=#FFFFFF>『支援突撃』</color>を発動した時、透徹力+<color=#2BAD00>225</color>Pt、与える<color=#FF5521>炎属性ダメージ</color>+<color=#2BAD00>27%</color>、会心ダメージ+<color=#2BAD00>27%</color>。継続時間30秒。重複して発動すると継続時間が更新される。",
+     "チームに<color=#FFFFFF>[支援]</color>または<color=#FFFFFF>[撃破]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>「怒髪天」</color>状態時、通常攻撃から繋げる、またはコマンドを素早く入力することで<color=#FFFFFF>「山威」</color>を消費して<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、盤岳は<color=#FFFFFF>「明王」</color>を1重獲得する。<color=#FFFFFF>「明王」</color>1重につき、盤岳の与える<color=#FF5521>炎属性ダメージ</color>+5%。この効果は最大3重まで重ね掛け可能、継続時間8秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1471053": {
+    "level": 5,
+    "id": 1471053,
+    "name": [
+     "コアパッシブ：<ruby=さんがくちょうじょう>山岳重畳</ruby>我の如し",
+     "追加能力：<ruby=てんちょう>天頂</ruby>"
+    ],
+    "desc": [
+     "盤岳は自身の最大HPに応じて追加で透徹力をアップさせる。最大HP1Ptにつき、透徹力+0.1Pt。\n盤岳のスキルによる<color=#FF5521>炎属性ダメージ</color>は全て透徹ダメージとみなされ、敵の防御力を無視するほか、透徹力を基にスキルダメージを計算する。\n盤岳はフィールド入場時にアドレナリンを60Pt回復する。この効果は探査モードにおいて、180秒に1回のみ発動可能。\n\n盤岳は以下の方法で<color=#FFFFFF>「怒気」</color>を回復できる。\n（一） アドレナリンを1Pt消費するごとに、<color=#FFFFFF>「怒気」</color>を0.5Pt回復する。\n（二） <color=#FFFFFF>『パリィ支援』</color>を発動した時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。\n（三） <color=#FFFFFF>『回避：動かざること山の如し』</color>で敵の攻撃をパリィした時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。パーフェクトガードが発動した場合、回復する<color=#FFFFFF>「怒気」</color>は6Ptになる。1秒に1回のみ発動可能。\n（四） <color=#FFFFFF>『極限回避』</color>を発動した時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。1秒に1回のみ発動可能。\n\n盤岳は<color=#FFFFFF>「怒気」</color>を150Ptまで所持可能。<color=#FFFFFF>「怒気」</color>を120Pt所持している時、盤岳は<color=#FFFFFF>『通常攻撃：焚躯』</color>を発動することで<color=#FFFFFF>「怒髪天」</color>状態に入ることができる。<color=#FFFFFF>「怒髪天」</color>状態中、盤岳は<color=#FFFFFF>「怒気」</color>を獲得できなくなる。<color=#FFFFFF>『通常攻撃：傾山』</color>を発動すると、<color=#FFFFFF>「怒髪天」</color>状態は解除される。\n<color=#FFFFFF>「怒髪天」</color>状態に入ると、盤岳は<color=#FFFFFF>「山威」</color>を4Pt獲得する。盤岳が<color=#FFFFFF>「山威」</color>を所持している場合、<color=#FFFFFF>『強化特殊スキル』</color>を発動する時にアドレナリンを消費しなくなり、代わりに<color=#FFFFFF>「山威」</color>を1Pt消費し、アドレナリンを10Pt回復する。「山威」を所持していない場合、通常通りアドレナリンを消費する。<color=#FFFFFF>「怒髪天」</color>状態が解除されると、<color=#FFFFFF>「山威」</color>はリセットされる。\n<color=#FFFFFF>「怒髪天」</color>状態で<color=#FFFFFF>「山威」</color>を所持している時、 <IconMap:Icon_Special> を長押しすると、4種類の<color=#FFFFFF>『強化特殊スキル』</color>および<color=#FFFFFF>『通常攻撃：傾山』</color>が決まった順番で自動的に発動する。\n盤岳が<color=#FFFFFF>『強化特殊スキル』</color>または<color=#FFFFFF>『支援突撃』</color>を発動した時、透徹力+<color=#2BAD00>250</color>Pt、与える<color=#FF5521>炎属性ダメージ</color>+<color=#2BAD00>30%</color>、会心ダメージ+<color=#2BAD00>30%</color>。継続時間30秒。重複して発動すると継続時間が更新される。",
+     "チームに<color=#FFFFFF>[支援]</color>または<color=#FFFFFF>[撃破]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>「怒髪天」</color>状態時、通常攻撃から繋げる、またはコマンドを素早く入力することで<color=#FFFFFF>「山威」</color>を消費して<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、盤岳は<color=#FFFFFF>「明王」</color>を1重獲得する。<color=#FFFFFF>「明王」</color>1重につき、盤岳の与える<color=#FF5521>炎属性ダメージ</color>+5%。この効果は最大3重まで重ね掛け可能、継続時間8秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1471054": {
+    "level": 6,
+    "id": 1471054,
+    "name": [
+     "コアパッシブ：<ruby=さんがくちょうじょう>山岳重畳</ruby>我の如し",
+     "追加能力：<ruby=てんちょう>天頂</ruby>"
+    ],
+    "desc": [
+     "盤岳は自身の最大HPに応じて追加で透徹力をアップさせる。最大HP1Ptにつき、透徹力+0.1Pt。\n盤岳のスキルによる<color=#FF5521>炎属性ダメージ</color>は全て透徹ダメージとみなされ、敵の防御力を無視するほか、透徹力を基にスキルダメージを計算する。\n盤岳はフィールド入場時にアドレナリンを60Pt回復する。この効果は探査モードにおいて、180秒に1回のみ発動可能。\n\n盤岳は以下の方法で<color=#FFFFFF>「怒気」</color>を回復できる。\n（一） アドレナリンを1Pt消費するごとに、<color=#FFFFFF>「怒気」</color>を0.5Pt回復する。\n（二） <color=#FFFFFF>『パリィ支援』</color>を発動した時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。\n（三） <color=#FFFFFF>『回避：動かざること山の如し』</color>で敵の攻撃をパリィした時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。パーフェクトガードが発動した場合、回復する<color=#FFFFFF>「怒気」</color>は6Ptになる。1秒に1回のみ発動可能。\n（四） <color=#FFFFFF>『極限回避』</color>を発動した時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。1秒に1回のみ発動可能。\n\n盤岳は<color=#FFFFFF>「怒気」</color>を150Ptまで所持可能。<color=#FFFFFF>「怒気」</color>を120Pt所持している時、盤岳は<color=#FFFFFF>『通常攻撃：焚躯』</color>を発動することで<color=#FFFFFF>「怒髪天」</color>状態に入ることができる。<color=#FFFFFF>「怒髪天」</color>状態中、盤岳は<color=#FFFFFF>「怒気」</color>を獲得できなくなる。<color=#FFFFFF>『通常攻撃：傾山』</color>を発動すると、<color=#FFFFFF>「怒髪天」</color>状態は解除される。\n<color=#FFFFFF>「怒髪天」</color>状態に入ると、盤岳は<color=#FFFFFF>「山威」</color>を4Pt獲得する。盤岳が<color=#FFFFFF>「山威」</color>を所持している場合、<color=#FFFFFF>『強化特殊スキル』</color>を発動する時にアドレナリンを消費しなくなり、代わりに<color=#FFFFFF>「山威」</color>を1Pt消費し、アドレナリンを10Pt回復する。「山威」を所持していない場合、通常通りアドレナリンを消費する。<color=#FFFFFF>「怒髪天」</color>状態が解除されると、<color=#FFFFFF>「山威」</color>はリセットされる。\n<color=#FFFFFF>「怒髪天」</color>状態で<color=#FFFFFF>「山威」</color>を所持している時、 <IconMap:Icon_Special> を長押しすると、4種類の<color=#FFFFFF>『強化特殊スキル』</color>および<color=#FFFFFF>『通常攻撃：傾山』</color>が決まった順番で自動的に発動する。\n盤岳が<color=#FFFFFF>『強化特殊スキル』</color>または<color=#FFFFFF>『支援突撃』</color>を発動した時、透徹力+<color=#2BAD00>275</color>Pt、与える<color=#FF5521>炎属性ダメージ</color>+<color=#2BAD00>33%</color>、会心ダメージ+<color=#2BAD00>33%</color>。継続時間30秒。重複して発動すると継続時間が更新される。",
+     "チームに<color=#FFFFFF>[支援]</color>または<color=#FFFFFF>[撃破]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>「怒髪天」</color>状態時、通常攻撃から繋げる、またはコマンドを素早く入力することで<color=#FFFFFF>「山威」</color>を消費して<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、盤岳は<color=#FFFFFF>「明王」</color>を1重獲得する。<color=#FFFFFF>「明王」</color>1重につき、盤岳の与える<color=#FF5521>炎属性ダメージ</color>+5%。この効果は最大3重まで重ね掛け可能、継続時間8秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1471055": {
+    "level": 7,
+    "id": 1471055,
+    "name": [
+     "コアパッシブ：<ruby=さんがくちょうじょう>山岳重畳</ruby>我の如し",
+     "追加能力：<ruby=てんちょう>天頂</ruby>"
+    ],
+    "desc": [
+     "盤岳は自身の最大HPに応じて追加で透徹力をアップさせる。最大HP1Ptにつき、透徹力+0.1Pt。\n盤岳のスキルによる<color=#FF5521>炎属性ダメージ</color>は全て透徹ダメージとみなされ、敵の防御力を無視するほか、透徹力を基にスキルダメージを計算する。\n盤岳はフィールド入場時にアドレナリンを60Pt回復する。この効果は探査モードにおいて、180秒に1回のみ発動可能。\n\n盤岳は以下の方法で<color=#FFFFFF>「怒気」</color>を回復できる。\n（一） アドレナリンを1Pt消費するごとに、<color=#FFFFFF>「怒気」</color>を0.5Pt回復する。\n（二） <color=#FFFFFF>『パリィ支援』</color>を発動した時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。\n（三） <color=#FFFFFF>『回避：動かざること山の如し』</color>で敵の攻撃をパリィした時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。パーフェクトガードが発動した場合、回復する<color=#FFFFFF>「怒気」</color>は6Ptになる。1秒に1回のみ発動可能。\n（四） <color=#FFFFFF>『極限回避』</color>を発動した時、<color=#FFFFFF>「怒気」</color>を4Pt回復する。1秒に1回のみ発動可能。\n\n盤岳は<color=#FFFFFF>「怒気」</color>を150Ptまで所持可能。<color=#FFFFFF>「怒気」</color>を120Pt所持している時、盤岳は<color=#FFFFFF>『通常攻撃：焚躯』</color>を発動することで<color=#FFFFFF>「怒髪天」</color>状態に入ることができる。<color=#FFFFFF>「怒髪天」</color>状態中、盤岳は<color=#FFFFFF>「怒気」</color>を獲得できなくなる。<color=#FFFFFF>『通常攻撃：傾山』</color>を発動すると、<color=#FFFFFF>「怒髪天」</color>状態は解除される。\n<color=#FFFFFF>「怒髪天」</color>状態に入ると、盤岳は<color=#FFFFFF>「山威」</color>を4Pt獲得する。盤岳が<color=#FFFFFF>「山威」</color>を所持している場合、<color=#FFFFFF>『強化特殊スキル』</color>を発動する時にアドレナリンを消費しなくなり、代わりに<color=#FFFFFF>「山威」</color>を1Pt消費し、アドレナリンを10Pt回復する。「山威」を所持していない場合、通常通りアドレナリンを消費する。<color=#FFFFFF>「怒髪天」</color>状態が解除されると、<color=#FFFFFF>「山威」</color>はリセットされる。\n<color=#FFFFFF>「怒髪天」</color>状態で<color=#FFFFFF>「山威」</color>を所持している時、 <IconMap:Icon_Special> を長押しすると、4種類の<color=#FFFFFF>『強化特殊スキル』</color>および<color=#FFFFFF>『通常攻撃：傾山』</color>が決まった順番で自動的に発動する。\n盤岳が<color=#FFFFFF>『強化特殊スキル』</color>または<color=#FFFFFF>『支援突撃』</color>を発動した時、透徹力+<color=#2BAD00>300</color>Pt、与える<color=#FF5521>炎属性ダメージ</color>+<color=#2BAD00>36%</color>、会心ダメージ+<color=#2BAD00>36%</color>。継続時間30秒。重複して発動すると継続時間が更新される。",
+     "チームに<color=#FFFFFF>[支援]</color>または<color=#FFFFFF>[撃破]</color>のメンバーがいる時に発動：\n<color=#FFFFFF>「怒髪天」</color>状態時、通常攻撃から繋げる、またはコマンドを素早く入力することで<color=#FFFFFF>「山威」</color>を消費して<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、盤岳は<color=#FFFFFF>「明王」</color>を1重獲得する。<color=#FFFFFF>「明王」</color>1重につき、盤岳の与える<color=#FF5521>炎属性ダメージ</color>+5%。この効果は最大3重まで重ね掛け可能、継続時間8秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110510": 2
+   },
+   "3": {
+    "10": 28000,
+    "110510": 4
+   },
+   "4": {
+    "10": 60000,
+    "110007": 2,
+    "110510": 9
+   },
+   "5": {
+    "10": 100000,
+    "110007": 3,
+    "110510": 15
+   },
+   "6": {
+    "10": 200000,
+    "110007": 4,
+    "110510": 30
+   }
+  }
+ },
+ "skin": {
+  "3114710": {
+   "name": "盤岳・「業火の石心」",
+   "desc": "正義の覇気を身に纏い、傑物の風格をあらわにする。\n沈黙を以てその者を断ずるなかれ。\n石心は鳴らず、慈悲は声なく宿る。",
+   "obtain_desc": "",
+   "image": "IconRole53"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1471001": {
+   "name": "通常攻撃：屹立",
+   "desc": "<IconMap:Icon_Normal>;<IconMap:Icon_Normal>;<IconMap:Icon_Normal>;<IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471002": {
+   "name": "通常攻撃：豪壮",
+   "desc": "<IconMap:Icon_Special>;<IconMap:Icon_Special>;<IconMap:Icon_Special>;<IconMap:Icon_Special>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471003": {
+   "name": "通常攻撃：焚躯",
+   "desc": "<IconMap:Icon_Normal>（「怒気」が十分な時に長押し）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471004": {
+   "name": "通常攻撃：引火",
+   "desc": "<IconMap:Icon_Normal>（接敵状態でない、かつHPが十分な時に長押し。1回の戦闘につき1回のみ使用可能）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471005": {
+   "name": "強化特殊スキル：山崩",
+   "desc": "<IconMap:Icon_Normal>（『通常攻撃：豪壮』の1段目または2段目を発動した時）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471006": {
+   "name": "強化特殊スキル：山崩",
+   "desc": "<IconMap:Icon_SpecialReady_Rp> ; <IconMap:Icon_SpecialReady_Rp> ; <IconMap:Icon_Normal>（任意の『強化特殊スキル』、『通常攻撃：焚躯』、『クイック支援』、『支援突撃』、『回避反撃』、『連携スキル：憤激の焔』、『終結スキル：震天動地』を発動した時）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471007": {
+   "name": "強化特殊スキル：地鳴",
+   "desc": "<IconMap:Icon_SpecialReady_Rp>（『通常攻撃：屹立』の3段目または4段目を発動した時）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471008": {
+   "name": "強化特殊スキル：地鳴",
+   "desc": "<IconMap:Icon_SpecialReady_Rp>（『支援突撃』、『回避反撃：砂煙舞』、『クイック支援：一枚岩』発動後に長押し）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471009": {
+   "name": "強化特殊スキル：地鳴",
+   "desc": "<IconMap:Icon_Normal> ; <IconMap:Icon_SpecialReady_Rp> ; <IconMap:Icon_Normal>（任意の『強化特殊スキル』、『通常攻撃：焚躯』、『クイック支援』、『支援突撃』、『回避反撃』、『連携スキル：憤激の焔』、『終結スキル：震天動地』を発動した時）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471010": {
+   "name": "強化特殊スキル：獅子の遠吠え",
+   "desc": "<IconMap:Icon_SpecialReady_Rp>（『通常攻撃：屹立』の1段目または2段目を発動した時）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471011": {
+   "name": "強化特殊スキル：獅子の遠吠え",
+   "desc": "<IconMap:Icon_Normal> ; <IconMap:Icon_Normal> ; <IconMap:Icon_SpecialReady_Rp>（任意の『強化特殊スキル』、『通常攻撃：焚躯』、『クイック支援』、『支援突撃』、『回避反撃』、『連携スキル：憤激の焔』、『終結スキル：震天動地』を発動した時）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471012": {
+   "name": "強化特殊スキル：論道",
+   "desc": "<IconMap:Icon_Normal>（『通常攻撃：豪壮』の3段目または4段目の後）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471013": {
+   "name": "強化特殊スキル：論道",
+   "desc": "<IconMap:Icon_Normal>（『支援突撃』、『回避反撃：砂煙舞』、『クイック支援：一枚岩』発動後に長押し）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471014": {
+   "name": "強化特殊スキル：論道",
+   "desc": "<IconMap:Icon_SpecialReady_Rp> ; <IconMap:Icon_Normal> ; <IconMap:Icon_SpecialReady_Rp>（任意の『強化特殊スキル』、『通常攻撃：焚躯』、『クイック支援』、『支援突撃』、『回避反撃』、『連携スキル：憤激の焔』、『終結スキル：震天動地』を発動した時）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471015": {
+   "name": "強化特殊スキル：獅子の遠吠え・怒",
+   "desc": "<IconMap:Icon_Normal> ; <IconMap:Icon_Normal> ; <IconMap:Icon_SpecialReady_Rp>（『強化特殊スキル：論道』を発動した時）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471016": {
+   "name": "強化特殊スキル：山崩・怒",
+   "desc": "<IconMap:Icon_SpecialReady_Rp> ; <IconMap:Icon_SpecialReady_Rp> ; <IconMap:Icon_Normal>（『強化特殊スキル：地鳴』を発動した時）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471017": {
+   "name": "通常攻撃：傾山",
+   "desc": "<IconMap:Icon_Normal>（「怒髪天」状態中に長押し）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471018": {
+   "name": "通常攻撃：山嵐",
+   "desc": "<IconMap:Icon_Normal>（「怒髪天」状態中、通常攻撃から繋げる、またはコマンドを素早く入力することで異なる『強化特殊スキル』を2回発動した後に長押し）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471019": {
+   "name": "回避：越山",
+   "desc": "<IconMap:Icon_Evade>",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1471020": {
+   "name": "回避：動かざること山の如し",
+   "desc": "<IconMap:Icon_Evade>（攻撃中に短押し）",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1471021": {
+   "name": "回避：鬨の声",
+   "desc": "<IconMap:Icon_Evade>（スティックを半回転した時に短押し）",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1471022": {
+   "name": "ダッシュ攻撃：飛び礫",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471023": {
+   "name": "回避反撃：砂煙舞",
+   "desc": "<IconMap:Icon_Evade>（極限回避成功） ; <IconMap:Icon_Normal>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471024": {
+   "name": "連携スキル：憤激の焔",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471025": {
+   "name": "終結スキル：震天動地",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471026": {
+   "name": "クイック支援：一枚岩",
+   "desc": "<IconMap:Icon_Switch>（クイック支援の発動条件を満たした時）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471027": {
+   "name": "パリィ支援：鉄壁",
+   "desc": "<IconMap:Icon_Switch>（パリィ支援の発動条件を満たした時）",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1471028": {
+   "name": "支援突撃：高邁",
+   "desc": "<IconMap:Icon_Normal>（『パリィ支援』を発動した後に）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1471029": {
+   "name": "支援突撃：衝天",
+   "desc": "<IconMap:Icon_Normal>（『回避：動かざること山の如し』で敵の攻撃をパリィした後）",
+   "element_type": 201,
+   "hit_type": 102,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1471001,
+   "avatar_id": 1471,
+   "first_priority": [
+    5,
+    1
+   ],
+   "second_priority": [
+    0,
+    3
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33100,
+  "slot2": 31000,
+  "slot_sub": 32700,
+  "part_sub_list": [
+   20103,
+   21103,
+   11102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33100,
+     31000
+    ],
+    "part_sub_list": [
+     20103,
+     21103
+    ]
+   },
+   {
+    "suit_list": [
+     33100,
+     31000
+    ],
+    "part_sub_list": [
+     31603,
+     11102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     11102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "会心率",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 21103,
+   "name": "会心ダメージ",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  },
+  "part6": {
+   "prop": 31603,
+   "name": "炎属性ダメージボーナス",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconFire.png"
+  },
+  "part_sub": {
+   "prop": 11102,
+   "name": "HP",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconHpMax.png"
+  }
+ },
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Fire>炎属性、表アタッカー",
+  "多彩なコンボ",
+  "自身の透徹力、会心ダメージ、炎属性ダメージをアップ可能"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100216": 4
+   }
+  },
+  "2": {
+   "hp_max": 469,
+   "attack": 44,
+   "defence": 25,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100226": 12
+   }
+  },
+  "3": {
+   "hp_max": 938,
+   "attack": 88,
+   "defence": 49,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100226": 20
+   }
+  },
+  "4": {
+   "hp_max": 1407,
+   "attack": 132,
+   "defence": 74,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100236": 10
+   }
+  },
+  "5": {
+   "hp_max": 1875,
+   "attack": 177,
+   "defence": 98,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100236": 20
+   }
+  },
+  "6": {
+   "hp_max": 2344,
+   "attack": 221,
+   "defence": 123,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpineBanyue"
+}

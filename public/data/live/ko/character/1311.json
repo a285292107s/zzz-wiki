@@ -1,0 +1,2184 @@
+{
+ "id": 1311,
+ "icon": "IconRole36",
+ "name": "아스트라",
+ "code_name": "Astra",
+ "rarity": 4,
+ "weapon_type": {
+  "4": "Support"
+ },
+ "element_type": {
+  "205": "Ether"
+ },
+ "hit_type": {
+  "102": "Strike"
+ },
+ "camp": {
+  "8": "스타즈 오브 리라"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "1/31",
+  "full_name": "아스트라 야오",
+  "gender": "여성",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle36.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0036.png",
+  "impression_f": "아스트라 씨가 또 녹녹을 보냈네! 우와, 〈질투〉에서 찍은 수영복 사진이야! 흑흑, 몸매 너무 좋다~",
+  "impression_m": "뭐?! 왜 나한테는 안 보내준 거지… 크흠, 내 휴대폰이 고장 난 것 같아. 벨, 잠깐 네 휴대폰 좀 빌려도 될까…",
+  "impressions": [
+   "아스트라 야오에 대한 인상:\n · 스포트라이트 아래의 「여왕」일 때의 모습과는 달리, 평소의 아스트라는 평범한 소녀에 가깝지만… 아스트라가 가진 호기심은 평범한 소녀들의 몇 배에 달한다",
+   " · 아스트라는 회사의 규정 따위는 별로 신경 쓰지 않는 것 같다… 오히려 몰래 거리로 나가 팬들과 함께 노는 걸 더 좋아한다",
+   " · 카리스마 넘치는 「여왕」과 활발할 「소녀」, 어떤 게 아스트라의 진짜 모습일까? 아스트라의 마음속 깊은 곳을 감싸고 있는 무언가가 지금의 그녀를 만든 것 같다는 생각이 든다…"
+  ],
+  "profile_desc": "아스트라 야오는 모두가 인정하는 「리두 최고의 가수」다. 뛰어난 가창력, 무대 장악력, 아티스트로서의 재능을 갖춘 아스트라는 한 시대의 음악 트렌드를 이끈다. 어떤 유명 음악 평론가는 아스트라에 대해 다음과 같이 평가했다: 「만약 음악이 영혼의 공명이라면, 아스트라는 이 모든 것에 불을 지피는 불꽃이다」\n\n눈부신 음악적 재능 외에도, 아스트라는 음악을 향한 보기 드문 진심과 순수한 마음을 가지고 있다. 무대 위 그녀의 노래는 사람들의 마음을 울린다. 이러한 특징들로 인해 아스트라는 「고봉밥」이라는 두터운 팬층을 갖게 되었다. 물론 아스트라가 뿜어내는 빛을 논할 때, 매니저 이블린의 섬세한 보호를 빼놓고 말할 순 없을 것이다. 그러나 무대 위에서와는 다르게, 아스트라는 일상생활 중에는 이블린에게, 공동에서는 벨과 와이즈에게 기대는 발랄한 한 명의 소녀로 보인다.\n\n「만약 내가 지금 이아스의 겨드랑이를 간지럽히면, 네가 간지럼을 타는 거야?」 아스트라가 H.D.D. 시스템에 연동된 로프꾼을 안아 올리고선, 호기심 어린 질문을 던졌다.\n\n이아스를 특별히 좋아하는 듯하다.\n생각: 인간의 감정은 정말 흥미로운 문제예요. 이아스를 좋아해서 마스터를 좋아하는 건지, 아니면 마스터를 좋아해서 이아스를 좋아하는 건지는 아직 판단이 불가능한 영역입니다.",
+  "role_icon": "IconRole/UnPacker/IconRole36",
+  "stature": "176",
+  "unlock_condition": [
+   "에이전트 획득",
+   "메인 스토리 「여유로운 순간·방울새 탈출 계획」(메인 스토리 제5장 완료 후 개방) 완료",
+   "스페셜 에피소드 「반짝이는 이 순간」 완료",
+   "「엔비의 고민」 의뢰 완료"
+  ],
+  "trust_lv": {
+   "1": "아스트라 야오는 모두가 인정하는 「리두 최고의 가수」다. 뛰어난 가창력, 무대 장악력, 아티스트로서의 재능을 갖춘 아스트라는 한 시대의 음악 트렌드를 이끈다. 어떤 유명 음악 평론가는 아스트라에 대해 다음과 같이 평가했다: 「만약 음악이 영혼의 공명이라면, 아스트라는 이 모든 것에 불을 지피는 불꽃이다」\n\n눈부신 음악적 재능 외에도, 아스트라는 음악을 향한 보기 드문 진심과 순수한 마음을 가지고 있다. 무대 위 그녀의 노래는 사람들의 마음을 울린다. 이러한 특징들로 인해 아스트라는 「고봉밥」이라는 두터운 팬층을 갖게 되었다. 물론 아스트라가 뿜어내는 빛을 논할 때, 매니저 이블린의 섬세한 보호를 빼놓고 말할 순 없을 것이다. 그러나 무대 위에서와는 다르게, 아스트라는 일상생활 중에는 이블린에게, 공동에서는 벨과 와이즈에게 기대는 발랄한 한 명의 소녀로 보인다.\n\n「만약 내가 지금 이아스의 겨드랑이를 간지럽히면, 네가 간지럼을 타는 거야?」 아스트라가 H.D.D. 시스템에 연동된 로프꾼을 안아 올리고선, 호기심 어린 질문을 던졌다.\n\n이아스를 특별히 좋아하는 듯하다.\n생각: 인간의 감정은 정말 흥미로운 문제예요. 이아스를 좋아해서 마스터를 좋아하는 건지, 아니면 마스터를 좋아해서 이아스를 좋아하는 건지는 아직 판단이 불가능한 영역입니다.",
+   "2": "",
+   "3": "아스트라는 「Random Play」를 유독 좋아한다. 하지만 그녀의 일거수일투족은 다양한 계층의 사람들에게 높은 관심을 받기에, 현재까지는 「작품을 보는 눈이 훌륭하니까, 다양한 종류의 희소성 있는 옛날 영화가 가득한 가게를 좋아하는 건 당연하지!」라고 둘러대곤 한다. 하지만 리두 최고의 스타가 빈번하게 비디오 가게를 들락거리며 신분을 숨기기란 쉽지 않은 것 같다.\n\n그렇지만, 아스트라는 그런 건 신경 쓰지 않는다! 신분이 노출되면 그냥 노출되는 것이다! 그녀는 비디오 가게에 오는 것을 멈추지 않을 것이다.\n생각: 마스터와 아스트라가 만날 수 있는 다양한 상황을 만들어낸다면, 마스터의 환심을 살 수 있겠어요.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 103,
+  "attack_growth": 59961,
+  "avatar_piece_id": 5311,
+  "break_stun": 83,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 48,
+  "defence_growth": 65524,
+  "element_abnormal_power": 93,
+  "element_mystery": 92,
+  "endurance": 0,
+  "hp_growth": 939358,
+  "hp_max": 692,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Astra",
+   "Punch",
+   "Ether",
+   "Female",
+   "Camp8",
+   "Size3",
+   "AidTypeEvade",
+   "Astra",
+   "EtherEyesSize3"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "일반 공격: 〈카프리치오〉",
+     "desc": "<IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 향해 최대 3단까지 공격을 펼쳐 <color=#FE437E>에테르 피해</color>를 준다.\n세 번째 공격을 하는 동안 <IconMap:Icon_Normal>을 홀드해 차지를 진행하고 적을 모아 공격 범위를 넓혀 더욱 강력한 공격을 시전할 수 있다.\n다른 스킬 시전 후 <IconMap:Icon_Normal>을 홀드해 바로 세 번째 공격을 시전할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 간주",
+     "desc": "<color=#FFFFFF>[아이들릭 카덴차]</color> 상태에서 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 향해 <color=#FFFFFF>[트레몰로]</color>를 방출해 공격하고 <color=#FE437E>에테르 피해</color>를 준다.\n스킬이 적에게 명중 시 <color=#FFFFFF>[빠른 지원]</color>을 발동한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 코러스",
+     "desc": "<color=#FFFFFF>[아이들릭 카덴차]</color> 상태에서 <color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적에게 여러 개의 <color=#FFFFFF>[트레몰로]</color>를 방출해 공격하고 대량의 <color=#FE437E>에테르 피해</color>를 준다.\n스킬이 적에게 명중 시 <color=#FFFFFF>[빠른 지원]</color>을 발동한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 피날레",
+     "desc": "<color=#FFFFFF>[아이들릭 카덴차]</color> 상태에서 <IconMap:Icon_Normal>을 홀드해 시전:\n전방을 향해 <color=#FFFFFF>[트레몰로]</color>를 방출해 공격하고 <color=#FE437E>에테르 피해</color>를 주며 <color=#FFFFFF>[아이들릭 카덴차]</color> 상태를 종료한다.\n스킬 시전 시 자신에게 <color=#FFFFFF>[핵심 패시브: 〈안단테 칸타빌레〉]</color>의 버프 효과를 부여한다.\n에너지가 충분할 시 에너지를 소모해 추가로 <color=#FFFFFF>[트레몰로]</color> 1개 및 <color=#FFFFFF>[톤 클러스터]</color> 3개를 방출해 공격한다. 이번 <color=#FFFFFF>[트레몰로]</color>는 <color=#FFFFFF>[강화 특수 스킬]</color>로 간주한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 〈카프리치오〉",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1311001, Prop:1001}",
+       "param": {
+        "1311001": {
+         "main": 4380,
+         "growth": 400,
+         "format": "%",
+         "damage_percentage": 4380,
+         "damage_percentage_growth": 400,
+         "stun_ratio": 4130,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 6750,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 103125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3745,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3746
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1311002, Prop:1001}",
+       "param": {
+        "1311002": {
+         "main": 5910,
+         "growth": 540,
+         "format": "%",
+         "damage_percentage": 5910,
+         "damage_percentage_growth": 540,
+         "stun_ratio": 5640,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 9230,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 141075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5125,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5126
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 최소 피해 배율",
+       "desc": "{Skill:1311003, Prop:1001}",
+       "param": {
+        "1311003": {
+         "main": 12090,
+         "growth": 1100,
+         "format": "%",
+         "damage_percentage": 12090,
+         "damage_percentage_growth": 1100,
+         "stun_ratio": 11480,
+         "stun_ratio_growth": 530,
+         "sp_recovery": 18780,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 287100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10431,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10432
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 최대 피해 배율",
+       "desc": "{Skill:1311004, Prop:1001}",
+       "param": {
+        "1311004": {
+         "main": 27070,
+         "growth": 2470,
+         "format": "%",
+         "damage_percentage": 27070,
+         "damage_percentage_growth": 2470,
+         "stun_ratio": 21940,
+         "stun_ratio_growth": 1000,
+         "sp_recovery": 35900,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 548350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19939,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19940
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1311001, Prop:1002}",
+       "param": {
+        "1311001": {
+         "main": 4130,
+         "growth": 190,
+         "format": "%",
+         "damage_percentage": 4380,
+         "damage_percentage_growth": 400,
+         "stun_ratio": 4130,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 6750,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 103125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3745,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3746
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1311002, Prop:1002}",
+       "param": {
+        "1311002": {
+         "main": 5640,
+         "growth": 260,
+         "format": "%",
+         "damage_percentage": 5910,
+         "damage_percentage_growth": 540,
+         "stun_ratio": 5640,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 9230,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 141075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5125,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5126
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 최소 그로기 배율",
+       "desc": "{Skill:1311003, Prop:1002}",
+       "param": {
+        "1311003": {
+         "main": 11480,
+         "growth": 530,
+         "format": "%",
+         "damage_percentage": 12090,
+         "damage_percentage_growth": 1100,
+         "stun_ratio": 11480,
+         "stun_ratio_growth": 530,
+         "sp_recovery": 18780,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 287100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10431,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10432
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 최대 그로기 배율",
+       "desc": "{Skill:1311004, Prop:1002}",
+       "param": {
+        "1311004": {
+         "main": 21940,
+         "growth": 1000,
+         "format": "%",
+         "damage_percentage": 27070,
+         "damage_percentage_growth": 2470,
+         "stun_ratio": 21940,
+         "stun_ratio_growth": 1000,
+         "sp_recovery": 35900,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 548350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19939,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19940
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 간주",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1311005, Prop:1001}",
+       "param": {
+        "1311005": {
+         "main": 5500,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 5500,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 6340,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 48400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1759,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1311005, Prop:1001}",
+       "param": {
+        "1311005": {
+         "main": 5500,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 5500,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 6340,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 48400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1759,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1311005, Prop:1001} * 2",
+       "param": {
+        "1311005": {
+         "main": 5500,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 5500,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 6340,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 48400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1759,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 피해 배율",
+       "desc": "{Skill:1311005, Prop:1001}",
+       "param": {
+        "1311005": {
+         "main": 5500,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 5500,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 6340,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 48400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1759,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5단 피해 배율",
+       "desc": "{Skill:1311005, Prop:1001} * 2",
+       "param": {
+        "1311005": {
+         "main": 5500,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 5500,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 6340,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 48400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1759,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1311005, Prop:1002}",
+       "param": {
+        "1311005": {
+         "main": 4840,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 5500,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 6340,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 48400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1759,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1311005, Prop:1002}",
+       "param": {
+        "1311005": {
+         "main": 4840,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 5500,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 6340,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 48400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1759,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1311005, Prop:1002} * 2",
+       "param": {
+        "1311005": {
+         "main": 4840,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 5500,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 6340,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 48400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1759,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 그로기 배율",
+       "desc": "{Skill:1311005, Prop:1002}",
+       "param": {
+        "1311005": {
+         "main": 4840,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 5500,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 6340,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 48400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1759,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5단 그로기 배율",
+       "desc": "{Skill:1311005, Prop:1002} * 2",
+       "param": {
+        "1311005": {
+         "main": 4840,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 5500,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 6340,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 48400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1759,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 코러스",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1311005, Prop:1001} * 4",
+       "param": {
+        "1311005": {
+         "main": 5500,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 5500,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 6340,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 48400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1759,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1311005, Prop:1002} * 4",
+       "param": {
+        "1311005": {
+         "main": 4840,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 5500,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 6340,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 48400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1759,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 피날레",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1311005, Prop:1001}",
+       "param": {
+        "1311005": {
+         "main": 5500,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 5500,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 6340,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 48400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1759,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1311005, Prop:1002}",
+       "param": {
+        "1311005": {
+         "main": 4840,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 5500,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 6340,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 48400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1759,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "회피: 〈미니 왈츠〉",
+     "desc": "<IconMap:Icon_Evade>을 짧게 탭하여 시전:\n빠른 대시로 회피한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 〈이클립스 멜로디〉",
+     "desc": "회피 시 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 공격해 <color=#FE437E>에테르 피해</color>를 준다.\n시전 시 {LAYOUT_CONSOLECONTROLLER#스틱을}{LAYOUT_FALLBACK#방향키를} 드래그하면 상응하는 방향으로 이동할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 〈엄브렐라 왈츠〉",
+     "desc": "<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적을 공격해 <color=#FE437E>에테르 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 〈이클립스 멜로디〉",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1311010, Prop:1001}",
+       "param": {
+        "1311010": {
+         "main": 8070,
+         "growth": 740,
+         "format": "%",
+         "damage_percentage": 8070,
+         "damage_percentage_growth": 740,
+         "stun_ratio": 4040,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 13200,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 100925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3664,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3665
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1311010, Prop:1002}",
+       "param": {
+        "1311010": {
+         "main": 4040,
+         "growth": 190,
+         "format": "%",
+         "damage_percentage": 8070,
+         "damage_percentage_growth": 740,
+         "stun_ratio": 4040,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 13200,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 100925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3664,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3665
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 〈엄브렐라 왈츠〉",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1311011, Prop:1001}",
+       "param": {
+        "1311011": {
+         "main": 11000,
+         "growth": 1000,
+         "format": "%",
+         "damage_percentage": 11000,
+         "damage_percentage_growth": 1000,
+         "stun_ratio": 9680,
+         "stun_ratio_growth": 440,
+         "sp_recovery": 12670,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 96800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3518,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8796
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1311011, Prop:1002}",
+       "param": {
+        "1311011": {
+         "main": 9680,
+         "growth": 440,
+         "format": "%",
+         "damage_percentage": 11000,
+         "damage_percentage_growth": 1000,
+         "stun_ratio": 9680,
+         "stun_ratio_growth": 440,
+         "sp_recovery": 12670,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 96800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3518,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8796
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "특수 스킬: 〈풍령과 오랜 약속〉",
+     "desc": "<IconMap:Icon_Special>을 짧게 탭하여 시전:\n빠르게 이동한 후 <color=#FFFFFF>[트레몰로]</color>를 방출해 <color=#FE437E>에테르 피해</color>를 주고 <color=#FFFFFF>[아이들릭 카덴차]</color> 상태에 진입한다.\n시전 시 {LAYOUT_CONSOLECONTROLLER#스틱을}{LAYOUT_FALLBACK#방향키를} 드래그하면 상응하는 방향으로 이동할 수 있다.\n시전 시 <IconMap:Icon_Special>을 홀드해 차지하고 지속적으로 적을 모을 수 있으며, 차지 시간에 따라 <color=#FFFFFF>[트레몰로]</color>를 추가로 1~4개 방출할 수 있다.\n스킬이 적에게 명중 시 <color=#FFFFFF>[빠른 지원]</color>을 발동한다.\n빠른 이동 기간 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "아이들릭 카덴차",
+     "desc": "아스트라 야오가 <color=#FFFFFF>[아이들릭 카덴차]</color> 상태 진입 후 파티 내 모든 캐릭터가 주는 피해가 <color=#2BAD00>{CAL:0.08+AvatarSkillLevel(1)*0.01,100,2}%</color> 증가하고, 파티 내 모든 캐릭터의 치명타 피해가 <color=#2BAD00>{CAL:0.07+AvatarSkillLevel(1)*0.015,100,2}%</color> 증가한다.\n<color=#FFFFFF>[아이들릭 카덴차]</color> 상태에서 아스트라 야오는 이동할 수 없지만, <IconMap:Icon_Normal>을 탭하여 <color=#FFFFFF>[일반 공격: 간주]</color>를 시전하거나 <IconMap:Icon_Evade>을 눌러 회피할 수 있으며, <color=#FFFFFF>[극한 회피]</color>를 발동한 후 <IconMap:Icon_Normal>을 눌러 <color=#FFFFFF>[일반 공격: 코러스]</color>를 시전할 수 있다.\n상태 지속 기간 동안 아스트라 야오의 경직 저항 레벨이 증가하고, 받는 피해가 40% 감소한다. 다른 캐릭터로 교체 후, 아스트라 야오는 계속 전장에 남게 되며 무적 효과를 보유한다. 아스트라 야오로 다시 교체 시 자동으로 <color=#FFFFFF>[특수 스킬: 〈풍령과 오랜 약속〉]</color>을 이어서 시전한다.\n상태 지속 기간 동안 <IconMap:Icon_Normal>을 홀드해 <color=#FFFFFF>[일반 공격: 피날레]</color>를 시전하거나 <IconMap:Icon_Evade>을 홀드하면 <color=#FFFFFF>[아이들릭 카덴차]</color> 상태를 종료할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "화음",
+     "desc": "에너지를 25pt 보유할 때마다 아스트라 야오가 <color=#FFFFFF>[화음]</color>을 한 개 보유한다.\n<color=#FFFFFF>[아이들릭 카덴차]</color> 상태에서 아스트라 야오가 <color=#FFFFFF>[화음]</color>을 보유한 경우, 다음과 같은 상황에서 <color=#FFFFFF>[빠른 지원]</color>을 발동할 수 있다.\n· 조작 중인 캐릭터의 공격이 적에게 명중 시 3초 동안 최대 1회 발동\n· 조작 중인 캐릭터의 강공격이 적에게 명중 시 1초 동안 최대 1회 발동\n파티 내 다른 캐릭터가 <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[패링 지원]</color> 혹은 <color=#FFFFFF>[회피 지원]</color>을 통해 전장 진입 시 아스트라 야오가 에너지를 25pt 소모하고 추가로 <color=#FFFFFF>[트레몰로]</color>를 1개 방출해 공격한다. 이번 <color=#FFFFFF>[트레몰로]</color>는 <color=#FFFFFF>[강화 특수 스킬]</color>로 간주한다.\n<color=#FFFFFF>[빠른 지원]</color> 발동 후, 짧은 시간 내에 <IconMap:Icon_Switch>을 눌러 캐릭터를 교체하면 <color=#FFFFFF>[정밀 지원]</color>을 발동하고 아스트라 야오가 추가로 <color=#FFFFFF>[톤 클러스터]</color>를 3개 방출해 공격하며, 파티 내 다른 캐릭터가 <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[패링 지원]</color> 혹은 <color=#FFFFFF>[회피 지원]</color>을 통해 전장 진입 시 바로 <color=#FFFFFF>[정밀 지원]</color>을 발동한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 〈풍령과 오랜 약속〉",
+     "param": [
+      {
+       "name": "파티 내 모든 캐릭터 피해 증가",
+       "desc": "{CAL:0.08+AvatarSkillLevel(1)*0.01,100,2}%",
+       "potential": []
+      },
+      {
+       "name": "파티 내 모든 캐릭터 치명타 피해 증가",
+       "desc": "{CAL:0.07+AvatarSkillLevel(1)*0.015,100,2}%",
+       "potential": []
+      },
+      {
+       "name": "최소 피해 배율",
+       "desc": "{Skill:1311006, Prop:1001}",
+       "param": {
+        "1311006": {
+         "main": 5500,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 5500,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 48400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1759,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "최대 피해 배율",
+       "desc": "{Skill:1311006, Prop:1001} * 4",
+       "param": {
+        "1311006": {
+         "main": 5500,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 5500,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 48400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1759,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "최소 그로기 배율",
+       "desc": "{Skill:1311006, Prop:1002}",
+       "param": {
+        "1311006": {
+         "main": 4840,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 5500,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 48400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1759,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "최대 그로기 배율",
+       "desc": "{Skill:1311006, Prop:1002} * 4",
+       "param": {
+        "1311006": {
+         "main": 4840,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 5500,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 48400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1759,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "화음",
+     "param": [
+      {
+       "name": "추가 트레몰로 피해 배율",
+       "desc": "{Skill:1311008, Prop:1001}",
+       "param": {
+        "1311008": {
+         "main": 4600,
+         "growth": 420,
+         "format": "%",
+         "damage_percentage": 4600,
+         "damage_percentage_growth": 420,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2977,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "추가 톤 클러스터 피해 배율",
+       "desc": "{Skill:1311009, Prop:1001} * 3",
+       "param": {
+        "1311009": {
+         "main": 2400,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 2400,
+         "damage_percentage_growth": 220,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1032,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "에너지 소모",
+       "desc": "25pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "콤보 스킬: 〈취중 협주곡〉",
+     "desc": "<color=#FFFFFF>[콤보 스킬]</color> 발동 시 해당 캐릭터를 선택해 시전:\n노랫소리로 에너지 파동을 일으켜 대량의 <color=#FE437E>에테르 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.\n스킬이 적에게 명중 시 <color=#FFFFFF>[빠른 지원]</color>을 발동한다.\n스킬 시전 후 아스트라 야오는 <color=#FFFFFF>[아이들릭 카덴차]</color> 상태에 진입한다.",
+     "potential": []
+    },
+    {
+     "name": "궁극기: 〈환상 소나타〉",
+     "desc": "데시벨 레벨 <color=#FFFFFF>[Maximum]</color> 달성 시 <IconMap:Icon_UltimateReady>을 짧게 탭하여 시전:\n노랫소리로 에너지 파동을 일으켜 대량의 <color=#FE437E>에테르 피해</color>를 주고, 파티 내 모든 캐릭터의 HP를 <color=#2BAD00>{CAL:-50+AvatarSkillLevel(3)*250,1,2}</color>pt 회복한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.\n스킬이 적에게 명중 시 <color=#FFFFFF>[빠른 지원]</color>을 발동한다.\n스킬 시전 후 아스트라 야오가 <color=#FFFFFF>[아이들릭 카덴차]</color> 상태에 진입한다.\n스킬 시전 후 다음번에 시전하는 2회의 <color=#FFFFFF>[빠른 지원]</color>이 <color=#FFFFFF>[콤보 스킬]</color>로 변경된다.\n횟수 소진 전에 파티 내 모든 캐릭터의 <color=#FFFFFF>[콤보 스킬]</color> 혹은 <color=#FFFFFF>[궁극기]</color>가 적에게 명중 시 <color=#FFFFFF>[빠른 지원]</color>을 발동한다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 〈취중 협주곡〉",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1311012, Prop:1001}",
+       "param": {
+        "1311012": {
+         "main": 67180,
+         "growth": 6110,
+         "format": "%",
+         "damage_percentage": 67180,
+         "damage_percentage_growth": 6110,
+         "stun_ratio": 23290,
+         "stun_ratio_growth": 1060,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2410925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 41116,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1311012, Prop:1002}",
+       "param": {
+        "1311012": {
+         "main": 23290,
+         "growth": 1060,
+         "format": "%",
+         "damage_percentage": 67180,
+         "damage_percentage_growth": 6110,
+         "stun_ratio": 23290,
+         "stun_ratio_growth": 1060,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2410925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 41116,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "궁극기: 〈환상 소나타〉",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1311013, Prop:1001}",
+       "param": {
+        "1311013": {
+         "main": 195980,
+         "growth": 17820,
+         "format": "%",
+         "damage_percentage": 195980,
+         "damage_percentage_growth": 17820,
+         "stun_ratio": 23830,
+         "stun_ratio_growth": 1090,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 21663,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 71664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1311013, Prop:1002}",
+       "param": {
+        "1311013": {
+         "main": 23830,
+         "growth": 1090,
+         "format": "%",
+         "damage_percentage": 195980,
+         "damage_percentage_growth": 17820,
+         "stun_ratio": 23830,
+         "stun_ratio_growth": 1090,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 21663,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 71664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "HP 회복",
+       "desc": "{CAL:-50+AvatarSkillLevel(3)*250,1,2}pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "빠른 지원: 〈하늘을 수놓은 불꽃〉",
+     "desc": "현재 조작 중인 캐릭터가 넉업되면 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n전방의 적을 공격해 <color=#FE437E>에테르 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "회피 지원: 〈두 사람의 마음〉",
+     "desc": "출전 캐릭터 피격 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적의 공격을 회피하고 <color=#FFFFFF>[극한 시야]</color>를 발동한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 〈삼생을 거친 첫 만남〉",
+     "desc": "<color=#FFFFFF>[회피 지원]</color> 시전 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 향해 에너지 레이저를 발사해 <color=#FE437E>에테르 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 〈하늘을 수놓은 불꽃〉",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1311014, Prop:1001}",
+       "param": {
+        "1311014": {
+         "main": 5500,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 5500,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 6340,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 48400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1759,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1311014, Prop:1002}",
+       "param": {
+        "1311014": {
+         "main": 4840,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 5500,
+         "damage_percentage_growth": 500,
+         "stun_ratio": 4840,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 6340,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 48400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1759,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4398
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 〈삼생을 거친 첫 만남〉",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1311015, Prop:1001}",
+       "param": {
+        "1311015": {
+         "main": 30460,
+         "growth": 2770,
+         "format": "%",
+         "damage_percentage": 30460,
+         "damage_percentage_growth": 2770,
+         "stun_ratio": 26100,
+         "stun_ratio_growth": 1190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 870375,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 25701,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11837
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1311015, Prop:1002}",
+       "param": {
+        "1311015": {
+         "main": 26100,
+         "growth": 1190,
+         "format": "%",
+         "damage_percentage": 30460,
+         "damage_percentage_growth": 2770,
+         "stun_ratio": 26100,
+         "stun_ratio_growth": 1190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 870375,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 25701,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11837
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "12평균율",
+   "desc": "아스트라 야오의 공격이 적에게 명중 시, 타깃의 모든 속성 피해 저항이 6% 감소한다. 최대 중첩: 3스택, 지속 시간: 30초, 중복 발동 시 지속 시간이 갱신된다. 전장 진입 시 아스트라 야오가 즉시 데시벨을 1000pt 획득한다. 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다. <color=#FFFFFF>[궁극기]</color> 시전 시 파티 내 모든 캐릭터가 각자 <color=#FFFFFF>[가호의 소리]</color> 효과를 1스택 획득한다. 지속 시간: 60초, 적의 공격을 받을 시 <color=#FFFFFF>[가호의 소리]</color>를 소모하고 무적 효과를 획득한다. 지속 시간: 1초",
+   "desc2": "「선생님, 선생님, 12평균율이 뭐예요?」\n「12평균율은 음악의 조율 방식 중 하나란다. 아이들이 줄을 서야 하는 것처럼, 소리에도 균등한 배열이 필요하거든」\n「그럼 소리도 우리들처럼 줄 서는 걸 싫어하겠네요!」\n——아스트라가 유명해진 후, 6살 아스트라를 가르쳤던 음악 선생님이 그녀와의 추억을 떠올렸다."
+  },
+  "2": {
+   "level": 2,
+   "name": "탐욕의 예술",
+   "desc": "<color=#FFFFFF>[핵심 패시브: 〈안단테 칸타빌레〉]</color>의 공격력 증가 효과가 추가로 19% 증가하고, 최대치가 추가로 400pt 증가한다. <color=#FFFFFF>[아이들릭 카덴차]</color> 상태에서 파티 내 다른 캐릭터가 <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[패링 지원]</color> 혹은 <color=#FFFFFF>[회피 지원]</color>을 통해 전장 진입 시 아스트라 야오가 추가로 <color=#FFFFFF>[트레몰로]</color> 1개 및 <color=#FFFFFF>[톤 클러스터]</color> 3개를 방출해 공격한다. 3초 동안 최대 1회 발동한다.",
+   "desc2": "「세상에서 가장 빛나는 건, 당연히 사랑일 거야!」\n둥지 안의 작은 새처럼, 빛나는 걸 수집하고 싶다. 예술가의 탐욕이란 세상의 모든 사랑을 수집하는 거겠지? 모든 사랑을 한데 모으면 가장 감동적인 멜로디를 만들어 낼 수 있을 것이다."
+  },
+  "3": {
+   "level": 3,
+   "name": "엇갈리는 오선지",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "텅 빈 오선지는 영원히 교차할 수 없는 평행선이다. 그것은 마치 아직 만나지 않은 영혼처럼 서로의 음률이 얽혀 멜로디가 되기를 기다리고 있다.\n「그럼 음표로 오선지를 가득 채우자! 잇단음표도 잔뜩 쓰면 멋진 노래가 나오지 않을까?」\n바로 이렇게 처음부터 끝까지 잇단음표를 사용해 136마디가 이어지는 새로운 곡이 탄생했다…"
+  },
+  "4": {
+   "level": 4,
+   "name": "〈목덜미의 잔머리〉",
+   "desc": "<color=#FFFFFF>[콤보 스킬]</color> 혹은 <color=#FFFFFF>[궁극기]</color> 시전 후 15초 내에 아스트라 야오가 <color=#FFFFFF>[화음]</color>을 보유하지 않은 경우에도 <color=#FFFFFF>[빠른 지원]</color>을 발동할 수 있으며 공격이 적에게 명중 시 <color=#FFFFFF>[빠른 지원]</color> 발동 간격이 1초까지 줄어든다. <color=#FFFFFF>[아이들릭 카덴차]</color> 상태에서 파티 내 다른 캐릭터가 <color=#FFFFFF>[빠른 지원]</color>을 통해 전장 진입 시, 자신의 특성에 따라 각기 다른 버프 효과를 획득한다. 모든 파티원이 3초 동안 최대 1회 발동할 수 있다.\n<color=#FFFFFF>[강공]</color>: 다음번 <color=#FFFFFF>[빠른 지원]</color>의 강공격이 적에게 명중 시 아스트라 야오 공격력의 300%에 해당하는 피해를 추가로 준다.\n<color=#FFFFFF>[이상]</color>: 다음번 <color=#FFFFFF>[빠른 지원]</color>으로 누적하는 속성 이상 축적치가 50% 증가한다.\n<color=#FFFFFF>[격파]</color>: 다음번 <color=#FFFFFF>[빠른 지원]</color>으로 주는 그로기 수치가 50% 증가한다.",
+   "desc2": "한 손은 피아노 위에 걸친 채\n어떤 건반을 누를지 고민한다.\n슬픔의 멜로디\n아니면 아득한 그리움?\n음표와 음표 사이에서 너의 그림자를 찾는다.\n눈을 감으면\n네 목덜미의 잔머리가 보인다."
+  },
+  "5": {
+   "level": 5,
+   "name": "로프꾼과 현",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "「이브! 나, 굉장한 걸 발견했어! 이브랑 {M#와이즈}{F#벨} 둘 다 길쭉하고 날씬한 타입이야!」\n「…그리고요?」\n「둘은 내가 가장 좋아하는 사람이야!」\n아스트라는 무슨 대단한 비밀이라도 발견한 것처럼 기뻐하며 두 눈을 반짝인다."
+  },
+  "6": {
+   "level": 6,
+   "name": "우리가 곧 세계",
+   "desc": "<color=#FFFFFF>[아이들릭 카덴차]</color> 상태에서 방출한 <color=#FFFFFF>[트레몰로]</color>와 <color=#FFFFFF>[톤 클러스터]</color> 및 추가로 방출한 <color=#FFFFFF>[트레몰로]</color>와 <color=#FFFFFF>[톤 클러스터]</color>의 피해 배율이 기존의 200%까지 증가하고, 치명타 확률이 80% 증가한다. <color=#FFFFFF>[정밀 지원]</color> 발동 시 아스트라 야오가 자동으로 차지 완료 후의 <color=#FFFFFF>[일반 공격: 〈카프리치오〉]</color> 세 번째 공격을 추가로 시전하며 해당 스킬의 치명타 확률이 80% 증가한다. 10초 동안 최대 1회 발동한다.",
+   "desc2": "세상의 혼란은 인간의 고독에서 비롯된다. 만약 모든 사람의 마음에 메아리가 있다면, 이 세상의 모든 고난, 슬픔, 침묵을 지울 수 있지 않을까?\n노래로 이 유대감을 엮을 수 있다면, 모든 상처는 치유되고, 모든 고통은 아름다운 선율이 되어 적막 속에서 울려 퍼질 수 있지 않을까? 그때가 되면 세상은 더 이상 고독한 섬이 아니게 될 것이다.\n「이 노래는 이 세상에 바칩니다!」"
+  }
+ },
+ "passive": {
+  "level": {
+   "1311501": {
+    "level": 1,
+    "id": 1311501,
+    "name": [
+     "핵심 패시브: 〈안단테 칸타빌레〉",
+     "추가 능력: 〈달빛 아래 난무〉"
+    ],
+    "desc": [
+     "<color=#FFFFFF>[아이들릭 카덴차]</color> 상태일 때 파티 내 다른 캐릭터가 <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[패링 지원]</color> 혹은 <color=#FFFFFF>[회피 지원]</color>을 통해 전장에 진입하고, 아스트라 야오가 에너지를 소모해 추가로 <color=#FFFFFF>[트레몰로]</color>를 방출해 공격 시, 아스트라 야오 및 출전 캐릭터의 공격력이 아스트라 야오 초기 공격력의 <color=#2BAD00>22%</color>만큼 증가한다. 단, 최대 1200pt를 초과하지 않는다. 지속 시간: 20초, 중복 발동 시 지속 시간이 증가하며 최대 30초를 초과하지 않는다.",
+     "파티에 <color=#FFFFFF>[강공]</color>, <color=#FFFFFF>[이상]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터가 존재할 시 발동:\n에너지를 소모해 <color=#FFFFFF>[정밀 지원]</color> 혹은 <color=#FFFFFF>[일반 공격: 피날레]</color> 시전 시, 아스트라 야오가 <color=#FFFFFF>[트레몰로]</color> 1개 및 <color=#FFFFFF>[톤 클러스터]</color> 3개를 추가로 방출해 공격한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1311502": {
+    "level": 2,
+    "id": 1311502,
+    "name": [
+     "핵심 패시브: 〈안단테 칸타빌레〉",
+     "추가 능력: 〈달빛 아래 난무〉"
+    ],
+    "desc": [
+     "<color=#FFFFFF>[아이들릭 카덴차]</color> 상태일 때 파티 내 다른 캐릭터가 <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[패링 지원]</color> 혹은 <color=#FFFFFF>[회피 지원]</color>을 통해 전장에 진입하고, 아스트라 야오가 에너지를 소모해 추가로 <color=#FFFFFF>[트레몰로]</color>를 방출해 공격 시, 아스트라 야오 및 출전 캐릭터의 공격력이 아스트라 야오 초기 공격력의 <color=#2BAD00>24%</color>만큼 증가한다. 단, 최대 1200pt를 초과하지 않는다. 지속 시간: 20초, 중복 발동 시 지속 시간이 증가하며 최대 30초를 초과하지 않는다.",
+     "파티에 <color=#FFFFFF>[강공]</color>, <color=#FFFFFF>[이상]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터가 존재할 시 발동:\n에너지를 소모해 <color=#FFFFFF>[정밀 지원]</color> 혹은 <color=#FFFFFF>[일반 공격: 피날레]</color> 시전 시, 아스트라 야오가 <color=#FFFFFF>[트레몰로]</color> 1개 및 <color=#FFFFFF>[톤 클러스터]</color> 3개를 추가로 방출해 공격한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1311503": {
+    "level": 3,
+    "id": 1311503,
+    "name": [
+     "핵심 패시브: 〈안단테 칸타빌레〉",
+     "추가 능력: 〈달빛 아래 난무〉"
+    ],
+    "desc": [
+     "<color=#FFFFFF>[아이들릭 카덴차]</color> 상태일 때 파티 내 다른 캐릭터가 <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[패링 지원]</color> 혹은 <color=#FFFFFF>[회피 지원]</color>을 통해 전장에 진입하고, 아스트라 야오가 에너지를 소모해 추가로 <color=#FFFFFF>[트레몰로]</color>를 방출해 공격 시, 아스트라 야오 및 출전 캐릭터의 공격력이 아스트라 야오 초기 공격력의 <color=#2BAD00>26%</color>만큼 증가한다. 단, 최대 1200pt를 초과하지 않는다. 지속 시간: 20초, 중복 발동 시 지속 시간이 증가하며 최대 30초를 초과하지 않는다.",
+     "파티에 <color=#FFFFFF>[강공]</color>, <color=#FFFFFF>[이상]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터가 존재할 시 발동:\n에너지를 소모해 <color=#FFFFFF>[정밀 지원]</color> 혹은 <color=#FFFFFF>[일반 공격: 피날레]</color> 시전 시, 아스트라 야오가 <color=#FFFFFF>[트레몰로]</color> 1개 및 <color=#FFFFFF>[톤 클러스터]</color> 3개를 추가로 방출해 공격한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1311504": {
+    "level": 4,
+    "id": 1311504,
+    "name": [
+     "핵심 패시브: 〈안단테 칸타빌레〉",
+     "추가 능력: 〈달빛 아래 난무〉"
+    ],
+    "desc": [
+     "<color=#FFFFFF>[아이들릭 카덴차]</color> 상태일 때 파티 내 다른 캐릭터가 <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[패링 지원]</color> 혹은 <color=#FFFFFF>[회피 지원]</color>을 통해 전장에 진입하고, 아스트라 야오가 에너지를 소모해 추가로 <color=#FFFFFF>[트레몰로]</color>를 방출해 공격 시, 아스트라 야오 및 출전 캐릭터의 공격력이 아스트라 야오 초기 공격력의 <color=#2BAD00>28%</color>만큼 증가한다. 단, 최대 1200pt를 초과하지 않는다. 지속 시간: 20초, 중복 발동 시 지속 시간이 증가하며 최대 30초를 초과하지 않는다.",
+     "파티에 <color=#FFFFFF>[강공]</color>, <color=#FFFFFF>[이상]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터가 존재할 시 발동:\n에너지를 소모해 <color=#FFFFFF>[정밀 지원]</color> 혹은 <color=#FFFFFF>[일반 공격: 피날레]</color> 시전 시, 아스트라 야오가 <color=#FFFFFF>[트레몰로]</color> 1개 및 <color=#FFFFFF>[톤 클러스터]</color> 3개를 추가로 방출해 공격한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1311505": {
+    "level": 5,
+    "id": 1311505,
+    "name": [
+     "핵심 패시브: 〈안단테 칸타빌레〉",
+     "추가 능력: 〈달빛 아래 난무〉"
+    ],
+    "desc": [
+     "<color=#FFFFFF>[아이들릭 카덴차]</color> 상태일 때 파티 내 다른 캐릭터가 <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[패링 지원]</color> 혹은 <color=#FFFFFF>[회피 지원]</color>을 통해 전장에 진입하고, 아스트라 야오가 에너지를 소모해 추가로 <color=#FFFFFF>[트레몰로]</color>를 방출해 공격 시, 아스트라 야오 및 출전 캐릭터의 공격력이 아스트라 야오 초기 공격력의 <color=#2BAD00>30%</color>만큼 증가한다. 단, 최대 1200pt를 초과하지 않는다. 지속 시간: 20초, 중복 발동 시 지속 시간이 증가하며 최대 30초를 초과하지 않는다.",
+     "파티에 <color=#FFFFFF>[강공]</color>, <color=#FFFFFF>[이상]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터가 존재할 시 발동:\n에너지를 소모해 <color=#FFFFFF>[정밀 지원]</color> 혹은 <color=#FFFFFF>[일반 공격: 피날레]</color> 시전 시, 아스트라 야오가 <color=#FFFFFF>[트레몰로]</color> 1개 및 <color=#FFFFFF>[톤 클러스터]</color> 3개를 추가로 방출해 공격한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1311506": {
+    "level": 6,
+    "id": 1311506,
+    "name": [
+     "핵심 패시브: 〈안단테 칸타빌레〉",
+     "추가 능력: 〈달빛 아래 난무〉"
+    ],
+    "desc": [
+     "<color=#FFFFFF>[아이들릭 카덴차]</color> 상태일 때 파티 내 다른 캐릭터가 <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[패링 지원]</color> 혹은 <color=#FFFFFF>[회피 지원]</color>을 통해 전장에 진입하고, 아스트라 야오가 에너지를 소모해 추가로 <color=#FFFFFF>[트레몰로]</color>를 방출해 공격 시, 아스트라 야오 및 출전 캐릭터의 공격력이 아스트라 야오 초기 공격력의 <color=#2BAD00>32%</color>만큼 증가한다. 단, 최대 1200pt를 초과하지 않는다. 지속 시간: 20초, 중복 발동 시 지속 시간이 증가하며 최대 30초를 초과하지 않는다.",
+     "파티에 <color=#FFFFFF>[강공]</color>, <color=#FFFFFF>[이상]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터가 존재할 시 발동:\n에너지를 소모해 <color=#FFFFFF>[정밀 지원]</color> 혹은 <color=#FFFFFF>[일반 공격: 피날레]</color> 시전 시, 아스트라 야오가 <color=#FFFFFF>[트레몰로]</color> 1개 및 <color=#FFFFFF>[톤 클러스터]</color> 3개를 추가로 방출해 공격한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1311507": {
+    "level": 7,
+    "id": 1311507,
+    "name": [
+     "핵심 패시브: 〈안단테 칸타빌레〉",
+     "추가 능력: 〈달빛 아래 난무〉"
+    ],
+    "desc": [
+     "<color=#FFFFFF>[아이들릭 카덴차]</color> 상태일 때 파티 내 다른 캐릭터가 <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[패링 지원]</color> 혹은 <color=#FFFFFF>[회피 지원]</color>을 통해 전장에 진입하고, 아스트라 야오가 에너지를 소모해 추가로 <color=#FFFFFF>[트레몰로]</color>를 방출해 공격 시, 아스트라 야오 및 출전 캐릭터의 공격력이 아스트라 야오 초기 공격력의 <color=#2BAD00>35%</color>만큼 증가한다. 단, 최대 1200pt를 초과하지 않는다. 지속 시간: 20초, 중복 발동 시 지속 시간이 증가하며 최대 30초를 초과하지 않는다.",
+     "파티에 <color=#FFFFFF>[강공]</color>, <color=#FFFFFF>[이상]</color> 혹은 <color=#FFFFFF>[명파]</color> 캐릭터가 존재할 시 발동:\n에너지를 소모해 <color=#FFFFFF>[정밀 지원]</color> 혹은 <color=#FFFFFF>[일반 공격: 피날레]</color> 시전 시, 아스트라 야오가 <color=#FFFFFF>[트레몰로]</color> 1개 및 <color=#FFFFFF>[톤 클러스터]</color> 3개를 추가로 방출해 공격한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110508": 2
+   },
+   "3": {
+    "10": 28000,
+    "110508": 4
+   },
+   "4": {
+    "10": 60000,
+    "110003": 2,
+    "110508": 9
+   },
+   "5": {
+    "10": 100000,
+    "110003": 3,
+    "110508": 15
+   },
+   "6": {
+    "10": 200000,
+    "110003": 4,
+    "110508": 30
+   }
+  }
+ },
+ "skin": {
+  "3113110": {
+   "name": "아스트라 야오·선홍색 로큰롤",
+   "desc": "새빨간 소문들은 마음속 깊은 곳의 자유에 불을 붙일 뿐이다. 무대 위에서는 그 무엇도 그녀의 빛을 가릴 수 없다.",
+   "obtain_desc": "",
+   "image": "IconRole36"
+  },
+  "3113111": {
+   "name": "아스트라 야오·크리스탈 조명 아래",
+   "desc": "흑백의 드레스가 빛과 그림자 사이에서 반짝인다. 그녀가 짓는 미소 하나하나가 마치 밤에 녹아드는 달빛처럼, 시대를 뛰어넘는 영원한 클래식이 된다.",
+   "obtain_desc": "",
+   "image": "IconRole36_01"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1311001": {
+   "name": "일반 공격: 〈카프리치오〉",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1311002": {
+   "name": "일반 공격: 간주",
+   "desc": "<IconMap:Icon_Normal>(「아이들릭 카덴차」 상태일 때)",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1311003": {
+   "name": "일반 공격: 코러스",
+   "desc": "<IconMap:Icon_Evade>(「아이들릭 카덴차」 상태일 때)(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1311004": {
+   "name": "일반 공격: 피날레",
+   "desc": "<IconMap:Icon_Normal>(「아이들릭 카덴차」 상태일 때)(홀드)",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1311005": {
+   "name": "특수 스킬: 〈풍령과 오랜 약속〉",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1311006": {
+   "name": "특수 스킬: 〈풍령과 오랜 약속〉",
+   "desc": "<IconMap:Icon_Special>(홀드)",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1311007": {
+   "name": "대시 공격: 〈이클립스 멜로디〉",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1311008": {
+   "name": "회피 반격: 〈엄브렐라 왈츠〉",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1311009": {
+   "name": "콤보 스킬: 〈취중 협주곡〉",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1311010": {
+   "name": "궁극기: 〈환상 소나타〉",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1311011": {
+   "name": "빠른 지원: 〈하늘을 수놓은 불꽃〉",
+   "desc": "<IconMap:Icon_Switch>(빠른 지원 발동 시)",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1311012": {
+   "name": "회피 지원: 〈두 사람의 마음〉",
+   "desc": "<IconMap:Icon_Switch>(회피 지원 발동 시)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1311013": {
+   "name": "지원 돌격: 〈삼생을 거친 첫 만남〉",
+   "desc": "<IconMap:Icon_Normal>(회피 지원 시전 후)",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1311001,
+   "avatar_id": 1311,
+   "first_priority": [
+    5,
+    1
+   ],
+   "second_priority": [
+    3
+   ],
+   "third_priority": [
+    6,
+    0,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "id": 1311002,
+   "avatar_id": 1311,
+   "first_priority": [
+    5,
+    1
+   ],
+   "second_priority": [
+    0,
+    3
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 32800,
+  "slot2": 33400,
+  "slot_sub": 31600,
+  "part_sub_list": [
+   12102,
+   12103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32800,
+     31600
+    ],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [
+     32800,
+     31400
+    ],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     30502,
+     12102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 30502,
+   "name": "에너지 자동 회복",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconSpRecover.png"
+  },
+  "part5": {
+   "prop": 12102,
+   "name": "공격력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  },
+  "part6": {
+   "prop": 31903,
+   "name": "에테르 피해 보너스",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconDungeonBuffEther.png"
+  },
+  "part_sub": {
+   "prop": 20103,
+   "name": "치명타 확률",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  }
+ },
+ "strategy": [
+  "04",
+  "<IconMap:Icon_GeneralBuff_DungeonBuffEther>에테르 속성, 오프필드 서포터",
+  "전장에 진입하는 에이전트의 공격력 증가",
+  "[빠른 지원]을 [콤보 스킬]로 업그레이드"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100214": 4
+   }
+  },
+  "2": {
+   "hp_max": 475,
+   "attack": 37,
+   "defence": 33,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100224": 12
+   }
+  },
+  "3": {
+   "hp_max": 950,
+   "attack": 74,
+   "defence": 66,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100224": 20
+   }
+  },
+  "4": {
+   "hp_max": 1425,
+   "attack": 110,
+   "defence": 99,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100234": 10
+   }
+  },
+  "5": {
+   "hp_max": 1900,
+   "attack": 147,
+   "defence": 133,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100234": 20
+   }
+  },
+  "6": {
+   "hp_max": 2375,
+   "attack": 184,
+   "defence": 166,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 12
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 12
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 24
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 24
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 36
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 36
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpineYaoJiayin"
+}

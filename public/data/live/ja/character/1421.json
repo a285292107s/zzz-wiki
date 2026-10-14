@@ -1,0 +1,1939 @@
+{
+ "id": 1421,
+ "icon": "IconRole45",
+ "name": "潘引壺",
+ "code_name": "Yinhu",
+ "rarity": 3,
+ "weapon_type": {
+  "5": "Defense"
+ },
+ "element_type": {
+  "200": "Physical"
+ },
+ "hit_type": {
+  "102": "Strike"
+ },
+ "camp": {
+  "10": "雲嶽山"
+ },
+ "gender": 1,
+ "partner_info": {
+  "birthday": "5月10日",
+  "full_name": "潘引壺",
+  "gender": "男性",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle45.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0045.png",
+  "impression_f": "潘さんったら、デリバリーを頼もうとするとすぐストップをかけてくるんだよね。\nヘルシーじゃない！食べたいものがあるならおれに言え！って…\nもうデリバリーはひと月以上食べれてないんじゃない？",
+  "impression_m": "とはいえ、文句なしの腕前だろう？\n時々お肉を少なめにするのは玉にキズだけれど…\n僕も潘さんから料理の一つや二つ習いたいくらいだ。",
+  "impressions": [
+   "潘引壺に対するイメージ：\n・適当観の財務管理人として、1ディニーだって無駄にはできない！",
+   "・適当観の料理長として、チャーシューひと切れでみんなの胃袋を虜にする！",
+   "・適当観の新任兄弟子として、弟弟子や妹弟子の考えは無条件で支持する！"
+  ],
+  "profile_desc": "潘引壺、雲嶽山の弟子であり、適当観の料理長兼財務管理人を務めています。\n拳法の使い手で、点穴術にも精通しているようです。\n適当観の財布を預かる者として、5000ディニーの肉を500ディニーに値切り、\n自宅で作れるものは決して外では買わず、各スーパーや商店の割引券をいつでも\nポケットから取り出せるほど節約と資産運用に長けています。\n彼のおかげで適当観の人間は毎日美味しく、コストパフォーマンスに長けた食事を\n楽しめているとのこと。料理長として常に味の追及を続けており、\n仲間たちの評価を非常に重視しています。\nさらに、これは長年に渡る節約の成果でしょうか——適当観の運営資金も、\n彼の個人的な貯金も、目を見張るほどの額に膨れ上がっているようです。",
+  "role_icon": "IconRole/UnPacker/IconRole45",
+  "stature": "192",
+  "unlock_condition": [
+   "エージェント招集",
+   "メイン依頼 シーズン2・第一章をクリアする",
+   "依頼「アンビーの当惑」を達成する"
+  ],
+  "trust_lv": {
+   "1": "潘引壺、雲嶽山の弟子であり、適当観の料理長兼財務管理人を務めています。\n拳法の使い手で、点穴術にも精通しているようです。\n適当観の財布を預かる者として、5000ディニーの肉を500ディニーに値切り、\n自宅で作れるものは決して外では買わず、各スーパーや商店の割引券をいつでも\nポケットから取り出せるほど節約と資産運用に長けています。\n彼のおかげで適当観の人間は毎日美味しく、コストパフォーマンスに長けた食事を\n楽しめているとのこと。料理長として常に味の追及を続けており、\n仲間たちの評価を非常に重視しています。\nさらに、これは長年に渡る節約の成果でしょうか——適当観の運営資金も、\n彼の個人的な貯金も、目を見張るほどの額に膨れ上がっているようです。",
+   "2": "",
+   "3": "新エリー都でも極めて珍しいパンダのシリオンである潘引壺は、\n幼い頃から身寄りもなく、新エリー都で独り苦労を重ねてきました。\n本当の飢えを知らない者には、飢餓がどれほど恐ろしいものか理解できません。\n食いつなぐために、潘引壺はありとあらゆる仕事に手を出し、\n最終的にはエーテル適性の高さから、ホロウレイダーになりました。\nそうして彼はある日、偶然にも儀玄と出会います。\nコテンパンにやられたうえ、彼女に諭されたことで雲嶽山の弟子になることを決め、\n術法の修行を通じてその荒れた心を浄化するに至りました。\n弟子になるのがかなり遅かった都合上、彼にはあまり兄弟子として振舞える\n存在が多くなく、そのため貴重な弟/妹弟子である貴方様がたをひいきにしたり、\n割引券をくれたりと世話を焼きたがる傾向にあるようです。",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 95,
+  "attack_growth": 54562,
+  "avatar_piece_id": 5421,
+  "break_stun": 94,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 57,
+  "defence_growth": 77787,
+  "element_abnormal_power": 91,
+  "element_mystery": 90,
+  "endurance": 0,
+  "hp_growth": 922338,
+  "hp_max": 680,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "PanYinhu",
+   "Punch",
+   "Physics",
+   "Male",
+   "Camp10",
+   "Size3",
+   "AidTypeParry",
+   "PanYinhu",
+   "EtherEyesSize3"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "通常攻撃：連打の極意",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方に最大4段の体術攻撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：連打の極意",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1421001, Prop:1001}",
+       "param": {
+        "1421001": {
+         "main": 4970,
+         "growth": 460,
+         "format": "%",
+         "damage_percentage": 4970,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 2490,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 8940,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 68475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2480,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2481
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1421002, Prop:1001}",
+       "param": {
+        "1421002": {
+         "main": 4980,
+         "growth": 460,
+         "format": "%",
+         "damage_percentage": 4980,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 4750,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 17080,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 130625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4744,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4745
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1421003, Prop:1001}",
+       "param": {
+        "1421003": {
+         "main": 10940,
+         "growth": 1000,
+         "format": "%",
+         "damage_percentage": 10940,
+         "damage_percentage_growth": 1000,
+         "stun_ratio": 8430,
+         "stun_ratio_growth": 390,
+         "sp_recovery": 30350,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 231825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8429,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8430
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率",
+       "desc": "{Skill:1421004, Prop:1001}",
+       "param": {
+        "1421004": {
+         "main": 21130,
+         "growth": 1930,
+         "format": "%",
+         "damage_percentage": 21130,
+         "damage_percentage_growth": 1930,
+         "stun_ratio": 16650,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 59940,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 457875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 16648,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16649
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1421001, Prop:1002}",
+       "param": {
+        "1421001": {
+         "main": 2490,
+         "growth": 120,
+         "format": "%",
+         "damage_percentage": 4970,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 2490,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 8940,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 68475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2480,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2481
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1421002, Prop:1002}",
+       "param": {
+        "1421002": {
+         "main": 4750,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 4980,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 4750,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 17080,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 130625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4744,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4745
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1421003, Prop:1002}",
+       "param": {
+        "1421003": {
+         "main": 8430,
+         "growth": 390,
+         "format": "%",
+         "damage_percentage": 10940,
+         "damage_percentage_growth": 1000,
+         "stun_ratio": 8430,
+         "stun_ratio_growth": 390,
+         "sp_recovery": 30350,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 231825,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8429,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8430
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率",
+       "desc": "{Skill:1421004, Prop:1002}",
+       "param": {
+        "1421004": {
+         "main": 16650,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 21130,
+         "damage_percentage_growth": 1930,
+         "stun_ratio": 16650,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 59940,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 457875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 16648,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16649
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "回避：身軽さ燕の如く",
+     "desc": " <IconMap:Icon_Evade> を押して発動：\nダッシュで高速回避する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：熱油全開",
+     "desc": "回避時に <IconMap:Icon_Normal> を押して発動：\n前方に素早く体術攻撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "回避反撃：天地一変",
+     "desc": "<color=#FFFFFF>『極限回避』</color>後に <IconMap:Icon_Normal> を押して発動：\n前方の敵に体術攻撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：熱油全開",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1421010, Prop:1001}",
+       "param": {
+        "1421010": {
+         "main": 8340,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 8340,
+         "damage_percentage_growth": 760,
+         "stun_ratio": 4170,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 15010,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 114675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4166,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1421010, Prop:1002}",
+       "param": {
+        "1421010": {
+         "main": 4170,
+         "growth": 190,
+         "format": "%",
+         "damage_percentage": 8340,
+         "damage_percentage_growth": 760,
+         "stun_ratio": 4170,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 15010,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 114675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4166,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "回避反撃：天地一変",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1421011, Prop:1001}",
+       "param": {
+        "1421011": {
+         "main": 21920,
+         "growth": 2000,
+         "format": "%",
+         "damage_percentage": 21920,
+         "damage_percentage_growth": 2000,
+         "stun_ratio": 19170,
+         "stun_ratio_growth": 880,
+         "sp_recovery": 33000,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 252175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9166,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1421011, Prop:1002}",
+       "param": {
+        "1421011": {
+         "main": 19170,
+         "growth": 880,
+         "format": "%",
+         "damage_percentage": 21920,
+         "damage_percentage_growth": 2000,
+         "stun_ratio": 19170,
+         "stun_ratio_growth": 880,
+         "sp_recovery": 33000,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 252175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9166,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 24167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "特殊スキル：<ruby=ばくおんてんけつ>爆音点穴</ruby>",
+     "desc": " <IconMap:Icon_Special> を押して発動：\n前方に体術攻撃を放ち、爆竹を投げ、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動中、中断耐性レベルがアップする。",
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：<ruby=だんみゃくはけつしゅ>断脈破穴手</ruby>",
+     "desc": "<color=#FFFFFF>「剛破」</color>を所持している時に <IconMap:Icon_Special> を押して発動：\n<color=#FFFFFF>『特殊スキル：断脈破穴手』</color>で敵を中心に攻撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\nこのスキルは連続で3回発動可能。<color=#FFFFFF>『特殊スキル：断脈破穴手』</color>を1回発動するたびに「剛破」を1Pt消費する。\n潘引壺が現在操作しているメンバーの場合、スキル発動中の被ダメージ-40%、中断耐性レベルがアップする。操作中のメンバーでない場合、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：<ruby=ちょうざんしんみゃくこう>貼山震脈靠</ruby>",
+     "desc": "エネルギーが十分な時、 <IconMap:Icon_SpecialReady> を押して発動：\n<color=#FFFFFF>『強化特殊スキル：貼山震脈靠』</color>で前方に強力な打撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動時に<color=#FFFFFF>『剛破』</color>を3Pt獲得する。スキルが敵に命中すると、前のメンバーの<color=#FFFFFF>『クイック支援』</color>が発動可能になる。\nこの『クイック支援』で登場したメンバーは、コアパッシブによる透徹力ボーナスを獲得する。潘引壺は交代後もフィールドに残り、<color=#FFFFFF>『特殊スキル：断脈破穴手』</color>を自動で放ち続け、「剛破」を使い切ると退場する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：<ruby=ばくおんてんけつ>爆音点穴</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1421005, Prop:1001}",
+       "param": {
+        "1421005": {
+         "main": 6250,
+         "growth": 570,
+         "format": "%",
+         "damage_percentage": 6250,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 6250,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 171875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6248,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6249
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1421005, Prop:1002}",
+       "param": {
+        "1421005": {
+         "main": 6250,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 6250,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 6250,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 171875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6248,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6249
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：<ruby=だんみゃくはけつしゅ>断脈破穴手</ruby>",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1421007, Prop:1001}",
+       "param": {
+        "1421007": {
+         "main": 9730,
+         "growth": 890,
+         "format": "%",
+         "damage_percentage": 9730,
+         "damage_percentage_growth": 890,
+         "stun_ratio": 4170,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 191125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4861,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1421007, Prop:1002}",
+       "param": {
+        "1421007": {
+         "main": 4170,
+         "growth": 190,
+         "format": "%",
+         "damage_percentage": 9730,
+         "damage_percentage_growth": 890,
+         "stun_ratio": 4170,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 191125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4861,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1421008, Prop:1001}",
+       "param": {
+        "1421008": {
+         "main": 9730,
+         "growth": 890,
+         "format": "%",
+         "damage_percentage": 9730,
+         "damage_percentage_growth": 890,
+         "stun_ratio": 4170,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 191125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4861,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1421008, Prop:1002}",
+       "param": {
+        "1421008": {
+         "main": 4170,
+         "growth": 190,
+         "format": "%",
+         "damage_percentage": 9730,
+         "damage_percentage_growth": 890,
+         "stun_ratio": 4170,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 191125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4861,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1421009, Prop:1001}",
+       "param": {
+        "1421009": {
+         "main": 9730,
+         "growth": 890,
+         "format": "%",
+         "damage_percentage": 9730,
+         "damage_percentage_growth": 890,
+         "stun_ratio": 4170,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 191125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4861,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1421009, Prop:1002}",
+       "param": {
+        "1421009": {
+         "main": 4170,
+         "growth": 190,
+         "format": "%",
+         "damage_percentage": 9730,
+         "damage_percentage_growth": 890,
+         "stun_ratio": 4170,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 191125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4861,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：<ruby=ちょうざんしんみゃくこう>貼山震脈靠</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1421006, Prop:1001}",
+       "param": {
+        "1421006": {
+         "main": 38410,
+         "growth": 3500,
+         "format": "%",
+         "damage_percentage": 38410,
+         "damage_percentage_growth": 3500,
+         "stun_ratio": 25730,
+         "stun_ratio_growth": 1170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 992475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 28312,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10170
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1421006, Prop:1002}",
+       "param": {
+        "1421006": {
+         "main": 25730,
+         "growth": 1170,
+         "format": "%",
+         "damage_percentage": 38410,
+         "damage_percentage_growth": 3500,
+         "stun_ratio": 25730,
+         "stun_ratio_growth": 1170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 992475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 28312,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10170
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "エネルギー消費",
+       "desc": "60Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "連携スキル：料理人の気合",
+     "desc": "<color=#FFFFFF>『連携スキル』</color>開始時に、対応するエージェントを選択して発動：\n「鉄鍋」に乗って高速回転しながら突進し、経路上の敵に<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "終結スキル：ごちそうの極み！",
+     "desc": "デシベルレートが<color=#FFFFFF>『Maximum』</color>に達した時に <IconMap:Icon_UltimateReady> を押して発動：\n術法で気勁をチャーハンに込めて振り撒き、敵に<color=#F0D12B>物理属性ダメージ</color>を大量に与え、メンバー全員のHPを<color=#2BAD00>{CAL:100+AvatarSkillLevel(3)*60,1,2}</color>Pt回復する。さらにメンバー全員に8秒継続のHP持続回復効果を付与し、1秒ごとにHPを<color=#2BAD00>{CAL:0.8+AvatarSkillLevel(3)*0.05,1,2}</color>%回復する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "連携スキル：料理人の気合",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1421012, Prop:1001}",
+       "param": {
+        "1421012": {
+         "main": 63230,
+         "growth": 5750,
+         "format": "%",
+         "damage_percentage": 63230,
+         "damage_percentage_growth": 5750,
+         "stun_ratio": 23330,
+         "stun_ratio_growth": 1070,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2470325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 43279,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23330
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1421012, Prop:1002}",
+       "param": {
+        "1421012": {
+         "main": 23330,
+         "growth": 1070,
+         "format": "%",
+         "damage_percentage": 63230,
+         "damage_percentage_growth": 5750,
+         "stun_ratio": 23330,
+         "stun_ratio_growth": 1070,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2470325,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 43279,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23330
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "終結スキル：ごちそうの極み！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1421013, Prop:1001}",
+       "param": {
+        "1421013": {
+         "main": 162790,
+         "growth": 14800,
+         "format": "%",
+         "damage_percentage": 162790,
+         "damage_percentage_growth": 14800,
+         "stun_ratio": 9840,
+         "stun_ratio_growth": 450,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 59834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1421013, Prop:1002}",
+       "param": {
+        "1421013": {
+         "main": 9840,
+         "growth": 450,
+         "format": "%",
+         "damage_percentage": 162790,
+         "damage_percentage_growth": 14800,
+         "stun_ratio": 9840,
+         "stun_ratio_growth": 450,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 59834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "HP回復",
+       "desc": "{CAL:100+AvatarSkillLevel(3)*60,1,2}Pt",
+       "potential": []
+      },
+      {
+       "name": "毎秒回復するHP割合",
+       "desc": "{CAL:0.8+AvatarSkillLevel(3)*0.05,1,2}%",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "クイック支援：仰げば招福",
+     "desc": "操作しているメンバーが吹き飛ばされた時に、 <IconMap:Icon_Switch> を押して発動：\n前方の敵に体術攻撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：<ruby=けんてきこうだつ>見敵甲脱</ruby>",
+     "desc": "出場中のメンバーが攻撃されそうになった時に、 <IconMap:Icon_Switch> を押して発動：\n敵の攻撃をパリィし、ブレイク値を大量に蓄積させる。\nパリィ性能はかなり高い。激しい攻撃を受けている際は、<color=#FFFFFF>「支援ポイント」</color>の消費量が減少する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援突撃：勢いを味方に",
+     "desc": "<color=#FFFFFF>『パリィ支援』</color>発動後、 <IconMap:Icon_Normal> を押して発動：\n前方の敵に体術攻撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "クイック支援：仰げば招福",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1421014, Prop:1001}",
+       "param": {
+        "1421014": {
+         "main": 9170,
+         "growth": 840,
+         "format": "%",
+         "damage_percentage": 9170,
+         "damage_percentage_growth": 840,
+         "stun_ratio": 4590,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 16500,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 126225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4583,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4584
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1421014, Prop:1002}",
+       "param": {
+        "1421014": {
+         "main": 4590,
+         "growth": 210,
+         "format": "%",
+         "damage_percentage": 9170,
+         "damage_percentage_growth": 840,
+         "stun_ratio": 4590,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 16500,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 126225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4583,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4584
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：<ruby=けんてきこうだつ>見敵甲脱</ruby>",
+     "param": [
+      {
+       "name": "パリィ・軽 ブレイク倍率",
+       "desc": "{Skill:1421015, Prop:1002}",
+       "param": {
+        "1421015": {
+         "main": 22510,
+         "growth": 1030,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 22510,
+         "stun_ratio_growth": 1030,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 35004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・重 ブレイク倍率",
+       "desc": "{Skill:1421016, Prop:1002}",
+       "param": {
+        "1421016": {
+         "main": 26840,
+         "growth": 1220,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 26840,
+         "stun_ratio_growth": 1220,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 38334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・連続 ブレイク倍率",
+       "desc": "{Skill:1421017, Prop:1002}",
+       "param": {
+        "1421017": {
+         "main": 10840,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 10840,
+         "stun_ratio_growth": 500,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8334
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：勢いを味方に",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1421018, Prop:1001}",
+       "param": {
+        "1421018": {
+         "main": 33740,
+         "growth": 3070,
+         "format": "%",
+         "damage_percentage": 33740,
+         "damage_percentage_growth": 3070,
+         "stun_ratio": 29350,
+         "stun_ratio_growth": 1340,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1048850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 31542,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16164
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1421018, Prop:1002}",
+       "param": {
+        "1421018": {
+         "main": 29350,
+         "growth": 1340,
+         "format": "%",
+         "damage_percentage": 33740,
+         "damage_percentage_growth": 3070,
+         "stun_ratio": 29350,
+         "stun_ratio_growth": 1340,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1048850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 31542,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16164
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "護身の気勁",
+   "desc": "全ユニットが<color=#FFFFFF>「絶気」</color>状態の敵に与えるダメージが追加で+10%。",
+   "desc2": "雲嶽の術法はエーテルの流れを操ることができ、\n経絡と筋骨を守ることもできる。気勁は盾の如く、刃も通さぬ——\nこれこそが、潘引壺が攻撃を無傷で受け止められる秘訣だ。\nなお、この術法はスーパーでおばさん達と\nセール品の奪い合いをする時に真価を発揮する。"
+  },
+  "2": {
+   "level": 2,
+   "name": "雲嶽流点穴術",
+   "desc": "<color=#FFFFFF>「剛破」</color>を6Pt消費するたびに、潘引壺はエネルギーを4Pt回復する。<color=#FFFFFF>『特殊スキル：断脈破穴手』</color>が敵に与える<color=#FFFFFF>「絶気」</color>効果の継続時間が12秒になる。",
+   "desc2": "「ガハハ、盗っ人め！これで身動きできないだろ！」\n「これこそは雲嶽流点穴術！体を痺れさせ動きを止めることも、\n経脈を整えることもできる。おれたち一門が悪を懲らしめ\n正義を広めるために隠し持つ、必殺技だ！」\n「…あ？ただ締め上げられて体が痺れただけ？\n…動けないことに変わりはないだろう！」"
+  },
+  "3": {
+   "level": 3,
+   "name": "<ruby=てんがいけいけつ>天外経穴</ruby>",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "「経穴ってのは、おれたちパンダのシリオンと似たようなものだ」\n「数も少なくて散らばってて、どの体系にも属さない上に、\nまともに研究した人もほとんどいない。寂しいもんだ」\n「だが、いざって時に予想外の切り札になれると思えば…\nそれはそれでいいんじゃないか？」"
+  },
+  "4": {
+   "level": 4,
+   "name": "特級料理人",
+   "desc": "<color=#FFFFFF>『終結スキル：ごちそうの極み！』</color>でメンバー全員のHP回復を行う際、HP回復効果+25%、HP持続回復効果のHP回復効果+25%。<color=#FFFFFF>『終結スキル：ごちそうの極み！』</color>発動時に<color=#FFFFFF>「非常食備蓄」</color>効果を獲得し、任意のメンバーがHPを失った際、<color=#FFFFFF>「非常食備蓄」</color>を消費し、そのメンバーに<color=#FFFFFF>『終結スキル：ごちそうの極み！』</color>の即時HP回復量50%分のHPを回復させる。この効果は重ね掛け不可。",
+   "desc2": "初めて料理に挑戦した時、\n彼はかまどであやうく火事を起こすところだった。\n消火に駆けつけた人々の中に料理人がおり、焦げた食材の山を見て、\nまだ無事な卵で彼のためにチャーハンを作ってくれた。\n彼は涙を浮かべながら夢中で食べ、顔を上げると、料理人が\n1枚の紙を差し出し——そこには「百」という数字が書かれていた。\n「そうか！つまり料理は百戦錬磨、不屈の精神で臨めということだな！」\n「いいや。ひとくち百ディニーってことだ。支払いを頼むよ」\nそれ以来、潘引壺は自分で料理を作ることを決意し、\n二度と失敗することもなかった。これが特級料理人の誕生秘話である。"
+  },
+  "5": {
+   "level": 5,
+   "name": "「稀なるシリオン」",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "この広大な新エリー都において、\nパンダのシリオンは極めて稀な存在だった。\n奇異の目で見られることを嫌い、\n誰にも頼ることのない孤独な生活を送り、\nそれにすっかり慣れていた——雲嶽山の門をくぐるまでは。\n以来、彼はもう孤独ではなくなった。\nお金を払ってでも「パンダのシリオン」と記念撮影をしたいという\n人々が殺到するようになってからは、\nもう誰かの視線も気にならなくなっていた。"
+  },
+  "6": {
+   "level": 6,
+   "name": "気穴学",
+   "desc": "<color=#FFFFFF>『コアパッシブ：気脈乾坤』</color>による<color=#FFFFFF>「覚醒」</color>効果は、追加で潘引壺の開幕攻撃力6%分の透徹力を提供する。この効果によってアップできる透徹力は最大720Ptまで。",
+   "desc2": "「昔の人が言うには、体には三百六十五箇所の経穴があるそうだ。\n人の生き方と同様たくさんあるんだぞ」\n「ほれ、この経穴図から好きなのを1つ選んでみろ」\n「それがお前さんの今の生き方を表してるんだ——どこにあるとか、\nどんな効果があるかは重要じゃない。\nお前さんが気に入ったなら、それでいいんだ」\n「選ばせてどうするのかって？そうだな…ああ、思いついたぞ。\n今度、この兄弟子が悪者をこらしめる時は、この経穴を突いてやろう！」"
+  }
+ },
+ "passive": {
+  "level": {
+   "1421501": {
+    "level": 1,
+    "id": 1421501,
+    "name": [
+     "コアパッシブ：<ruby=きみゃくけんこん>気脈乾坤</ruby>",
+     "追加能力：パンダの胃袋"
+    ],
+    "desc": [
+     "潘引壺の<color=#FFFFFF>『強化特殊スキル：貼山震脈靠』</color>が敵に命中し、『クイック支援』が発動可能になった後の一定時間、『クイック支援』または『連携スキル』で入場した次のメンバーに<color=#FFFFFF>「覚醒」</color>効果を付与する。\n「覚醒」効果は潘引壺の開幕攻撃力<color=#2BAD00>9%</color>分の透徹力を提供する。継続時間25秒。この効果によってアップできる透徹力は最大540Ptまで。",
+     "チームに<color=#FFFFFF>[命破]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n潘引壺の<color=#FFFFFF>『特殊スキル：断脈破穴手』</color>が敵に命中すると、<color=#FFFFFF>「絶気」</color>効果を付与し、全ユニットがその敵に与えるダメージ+20%。また、<color=#FFFFFF>『特殊スキル：断脈破穴手』</color>が敵に命中した際、敵それぞれに10秒継続の<color=#FFFFFF>「絶気」</color>効果を付与する。この効果は重ね掛け不可、同じ敵に複数回命中した場合は継続時間が延長される。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1421502": {
+    "level": 2,
+    "id": 1421502,
+    "name": [
+     "コアパッシブ：<ruby=きみゃくけんこん>気脈乾坤</ruby>",
+     "追加能力：パンダの胃袋"
+    ],
+    "desc": [
+     "潘引壺の<color=#FFFFFF>『強化特殊スキル：貼山震脈靠』</color>が敵に命中し、『クイック支援』が発動可能になった後の一定時間、『クイック支援』または『連携スキル』で入場した次のメンバーに<color=#FFFFFF>「覚醒」</color>効果を付与する。\n「覚醒」効果は潘引壺の開幕攻撃力<color=#2BAD00>10.5%</color>分の透徹力を提供する。継続時間25秒。この効果によってアップできる透徹力は最大540Ptまで。",
+     "チームに<color=#FFFFFF>[命破]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n潘引壺の<color=#FFFFFF>『特殊スキル：断脈破穴手』</color>が敵に命中すると、<color=#FFFFFF>「絶気」</color>効果を付与し、全ユニットがその敵に与えるダメージ+20%。また、<color=#FFFFFF>『特殊スキル：断脈破穴手』</color>が敵に命中した際、敵それぞれに10秒継続の<color=#FFFFFF>「絶気」</color>効果を付与する。この効果は重ね掛け不可、同じ敵に複数回命中した場合は継続時間が延長される。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1421503": {
+    "level": 3,
+    "id": 1421503,
+    "name": [
+     "コアパッシブ：<ruby=きみゃくけんこん>気脈乾坤</ruby>",
+     "追加能力：パンダの胃袋"
+    ],
+    "desc": [
+     "潘引壺の<color=#FFFFFF>『強化特殊スキル：貼山震脈靠』</color>が敵に命中し、『クイック支援』が発動可能になった後の一定時間、『クイック支援』または『連携スキル』で入場した次のメンバーに<color=#FFFFFF>「覚醒」</color>効果を付与する。\n「覚醒」効果は潘引壺の開幕攻撃力<color=#2BAD00>12%</color>分の透徹力を提供する。継続時間25秒。この効果によってアップできる透徹力は最大540Ptまで。",
+     "チームに<color=#FFFFFF>[命破]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n潘引壺の<color=#FFFFFF>『特殊スキル：断脈破穴手』</color>が敵に命中すると、<color=#FFFFFF>「絶気」</color>効果を付与し、全ユニットがその敵に与えるダメージ+20%。また、<color=#FFFFFF>『特殊スキル：断脈破穴手』</color>が敵に命中した際、敵それぞれに10秒継続の<color=#FFFFFF>「絶気」</color>効果を付与する。この効果は重ね掛け不可、同じ敵に複数回命中した場合は継続時間が延長される。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1421504": {
+    "level": 4,
+    "id": 1421504,
+    "name": [
+     "コアパッシブ：<ruby=きみゃくけんこん>気脈乾坤</ruby>",
+     "追加能力：パンダの胃袋"
+    ],
+    "desc": [
+     "潘引壺の<color=#FFFFFF>『強化特殊スキル：貼山震脈靠』</color>が敵に命中し、『クイック支援』が発動可能になった後の一定時間、『クイック支援』または『連携スキル』で入場した次のメンバーに<color=#FFFFFF>「覚醒」</color>効果を付与する。\n「覚醒」効果は潘引壺の開幕攻撃力<color=#2BAD00>13.5%</color>分の透徹力を提供する。継続時間25秒。この効果によってアップできる透徹力は最大540Ptまで。",
+     "チームに<color=#FFFFFF>[命破]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n潘引壺の<color=#FFFFFF>『特殊スキル：断脈破穴手』</color>が敵に命中すると、<color=#FFFFFF>「絶気」</color>効果を付与し、全ユニットがその敵に与えるダメージ+20%。また、<color=#FFFFFF>『特殊スキル：断脈破穴手』</color>が敵に命中した際、敵それぞれに10秒継続の<color=#FFFFFF>「絶気」</color>効果を付与する。この効果は重ね掛け不可、同じ敵に複数回命中した場合は継続時間が延長される。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1421505": {
+    "level": 5,
+    "id": 1421505,
+    "name": [
+     "コアパッシブ：<ruby=きみゃくけんこん>気脈乾坤</ruby>",
+     "追加能力：パンダの胃袋"
+    ],
+    "desc": [
+     "潘引壺の<color=#FFFFFF>『強化特殊スキル：貼山震脈靠』</color>が敵に命中し、『クイック支援』が発動可能になった後の一定時間、『クイック支援』または『連携スキル』で入場した次のメンバーに<color=#FFFFFF>「覚醒」</color>効果を付与する。\n「覚醒」効果は潘引壺の開幕攻撃力<color=#2BAD00>15%</color>分の透徹力を提供する。継続時間25秒。この効果によってアップできる透徹力は最大540Ptまで。",
+     "チームに<color=#FFFFFF>[命破]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n潘引壺の<color=#FFFFFF>『特殊スキル：断脈破穴手』</color>が敵に命中すると、<color=#FFFFFF>「絶気」</color>効果を付与し、全ユニットがその敵に与えるダメージ+20%。また、<color=#FFFFFF>『特殊スキル：断脈破穴手』</color>が敵に命中した際、敵それぞれに10秒継続の<color=#FFFFFF>「絶気」</color>効果を付与する。この効果は重ね掛け不可、同じ敵に複数回命中した場合は継続時間が延長される。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1421506": {
+    "level": 6,
+    "id": 1421506,
+    "name": [
+     "コアパッシブ：<ruby=きみゃくけんこん>気脈乾坤</ruby>",
+     "追加能力：パンダの胃袋"
+    ],
+    "desc": [
+     "潘引壺の<color=#FFFFFF>『強化特殊スキル：貼山震脈靠』</color>が敵に命中し、『クイック支援』が発動可能になった後の一定時間、『クイック支援』または『連携スキル』で入場した次のメンバーに<color=#FFFFFF>「覚醒」</color>効果を付与する。\n「覚醒」効果は潘引壺の開幕攻撃力<color=#2BAD00>16.5%</color>分の透徹力を提供する。継続時間25秒。この効果によってアップできる透徹力は最大540Ptまで。",
+     "チームに<color=#FFFFFF>[命破]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n潘引壺の<color=#FFFFFF>『特殊スキル：断脈破穴手』</color>が敵に命中すると、<color=#FFFFFF>「絶気」</color>効果を付与し、全ユニットがその敵に与えるダメージ+20%。また、<color=#FFFFFF>『特殊スキル：断脈破穴手』</color>が敵に命中した際、敵それぞれに10秒継続の<color=#FFFFFF>「絶気」</color>効果を付与する。この効果は重ね掛け不可、同じ敵に複数回命中した場合は継続時間が延長される。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1421507": {
+    "level": 7,
+    "id": 1421507,
+    "name": [
+     "コアパッシブ：<ruby=きみゃくけんこん>気脈乾坤</ruby>",
+     "追加能力：パンダの胃袋"
+    ],
+    "desc": [
+     "潘引壺の<color=#FFFFFF>『強化特殊スキル：貼山震脈靠』</color>が敵に命中し、『クイック支援』が発動可能になった後の一定時間、『クイック支援』または『連携スキル』で入場した次のメンバーに<color=#FFFFFF>「覚醒」</color>効果を付与する。\n「覚醒」効果は潘引壺の開幕攻撃力<color=#2BAD00>18%</color>分の透徹力を提供する。継続時間25秒。この効果によってアップできる透徹力は最大540Ptまで。",
+     "チームに<color=#FFFFFF>[命破]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n潘引壺の<color=#FFFFFF>『特殊スキル：断脈破穴手』</color>が敵に命中すると、<color=#FFFFFF>「絶気」</color>効果を付与し、全ユニットがその敵に与えるダメージ+20%。また、<color=#FFFFFF>『特殊スキル：断脈破穴手』</color>が敵に命中した際、敵それぞれに10秒継続の<color=#FFFFFF>「絶気」</color>効果を付与する。この効果は重ね掛け不可、同じ敵に複数回命中した場合は継続時間が延長される。"
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110510": 2
+   },
+   "3": {
+    "10": 28000,
+    "110510": 4
+   },
+   "4": {
+    "10": 60000,
+    "110006": 2,
+    "110510": 9
+   },
+   "5": {
+    "10": 100000,
+    "110006": 3,
+    "110510": 15
+   },
+   "6": {
+    "10": 200000,
+    "110006": 4,
+    "110510": 30
+   }
+  }
+ },
+ "skin": {
+  "3114210": {
+   "name": "潘引壺・「引き出すは百の味」",
+   "desc": "雲嶽山に現存する最大サイズの道着。\n兄弟子の体がすっぽり収まるだけでなく、百種類の調味料も楽々としまえる。頭に鉄鍋を乗せたのも、ユニークな試しである。\nしかし…料理に使ったばかり鍋を頭に乗せて、熱くないのか？本当に大丈夫なのだろうか…",
+   "obtain_desc": "",
+   "image": "IconRole45"
+  },
+  "3114211": {
+   "name": "潘引壺・「食前方丈」",
+   "desc": "おれも昔は偉い料理人になることを夢見ていた。しかし世の中、鍋釜を叩き割りにくる悪党だらけだ。\n——「やれるもんなら、やってみろってんだぁ！」",
+   "obtain_desc": "",
+   "image": "IconRole45_01"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1421001": {
+   "name": "通常攻撃：連打の極意",
+   "desc": "<IconMap:Icon_Normal>;<IconMap:Icon_Normal>;<IconMap:Icon_Normal>;<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1421002": {
+   "name": "特殊スキル：爆音点穴",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1421003": {
+   "name": "特殊スキル：断脈破穴手（「剛破」Pt所持時）",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1421004": {
+   "name": "強化特殊スキル：貼山震脈靠",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1421005": {
+   "name": "ダッシュ攻撃：熱油全開",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1421006": {
+   "name": "回避反撃：天地一変",
+   "desc": "<IconMap:Icon_Evade>（極限回避成功） ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1421007": {
+   "name": "連携スキル：料理人の気合",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1421008": {
+   "name": "終結スキル：ごちそうの極み！",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1421009": {
+   "name": "クイック支援：仰げば招福",
+   "desc": "<IconMap:Icon_Switch>（クイック支援の発動条件を満たした時）",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1421010": {
+   "name": "パリィ支援：見敵甲脱",
+   "desc": "<IconMap:Icon_Switch>（パリィ支援の発動条件を満たした時）",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1421011": {
+   "name": "支援突撃：勢いを味方に",
+   "desc": "<IconMap:Icon_Normal>（パリィ支援を発動した後に）",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1421001,
+   "avatar_id": 1421,
+   "first_priority": [
+    5,
+    3
+   ],
+   "second_priority": [
+    1
+   ],
+   "third_priority": [
+    6,
+    0,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33700,
+  "slot2": 31400,
+  "slot_sub": 32800,
+  "part_sub_list": [
+   12102,
+   12103
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32800,
+     31600
+    ],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     30502,
+     12102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 12102,
+   "name": "攻撃力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  },
+  "part5": {
+   "prop": 30502,
+   "name": "エネルギー自動回復",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconSpRecover.png"
+  },
+  "part6": {
+   "prop": 20103,
+   "name": "会心率",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part_sub": {
+   "prop": 21103,
+   "name": "会心ダメージ",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  }
+ },
+ "strategy": [
+  "04",
+  "<IconMap:Icon_GeneralBuff_PhysDmg>物理属性、命破バッファー",
+  "メンバーへの透徹力バフ"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100215": 4
+   }
+  },
+  "2": {
+   "hp_max": 466,
+   "attack": 34,
+   "defence": 39,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100225": 12
+   }
+  },
+  "3": {
+   "hp_max": 933,
+   "attack": 68,
+   "defence": 79,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100225": 20
+   }
+  },
+  "4": {
+   "hp_max": 1399,
+   "attack": 102,
+   "defence": 118,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100235": 10
+   }
+  },
+  "5": {
+   "hp_max": 1866,
+   "attack": 136,
+   "defence": 157,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100235": 20
+   }
+  },
+  "6": {
+   "hp_max": 2332,
+   "attack": 170,
+   "defence": 197,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "基礎エネルギー自動回復",
+     "format": "{0:0.##}",
+     "value": 12
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "基礎エネルギー自動回復",
+     "format": "{0:0.##}",
+     "value": 12
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "基礎エネルギー自動回復",
+     "format": "{0:0.##}",
+     "value": 24
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "基礎エネルギー自動回復",
+     "format": "{0:0.##}",
+     "value": 24
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "基礎エネルギー自動回復",
+     "format": "{0:0.##}",
+     "value": 36
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "基礎エネルギー自動回復",
+     "format": "{0:0.##}",
+     "value": 36
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": ""
+}

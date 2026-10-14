@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { CATALOG } from '@/domain/catalog'
+import { pickText, DEFAULT_LANG } from '@/domain/lang'
 import {
   CatalogTable,
   DescRow,
@@ -157,7 +158,8 @@ const sampleColumns: CatalogColumn[] = [
   { key: 'path', label: '路径', cls: 'mono' },
 ]
 
-const sampleRows = CATALOG.map((c) => ({ name: c.label, en: c.en, path: c.path }))
+// dev 页：固定取中文（本页 UI 壳本身只有中文）
+const sampleRows = CATALOG.map((c) => ({ name: pickText(c.label, DEFAULT_LANG), en: c.en, path: c.path }))
 </script>
 
 <template>

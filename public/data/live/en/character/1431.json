@@ -1,0 +1,3122 @@
+{
+ "id": 1431,
+ "icon": "IconRole55",
+ "name": "Ye Shunguang",
+ "code_name": "Ye Shunguang",
+ "rarity": 4,
+ "weapon_type": {
+  "1": "Attack"
+ },
+ "element_type": {
+  "200": "Physical"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "10": "Yunkui Summit"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "JAN 20",
+  "full_name": "Ye Shunguang",
+  "gender": "Female",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle55.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0055.png",
+  "impression_f": "So, uh... can Xiao'Guang visit the video store every day? Eous and I both really miss her!",
+  "impression_m": "Xiao'Guang is endlessly kind and reliable. Anything you entrust to her gets handled flawlessly...\nHmm... so this is what people mean by \"the perfect child your parents always compare you to,\" huh?",
+  "impressions": [
+   "Impressions of Ye Shunguang:\n · Though her road is lined with thorns, she continues to sow seeds that symbolize hope.",
+   " · Fate may be unpredictable, but she's willing to shoulder the burdens of the world.",
+   " · She walked alone through the dark night — until she took your hand."
+  ],
+  "profile_desc": "Ye Shunguang is the Sword Keeper of Yunkui Summit's treasured Qingming Sword, a disciple of Yixuan, and the younger sister of Ye Shiyuan, as well as a swordswoman blessed with extraordinary talent.\nShe enjoyed a happy childhood until the fall of the old capital, when her parents lost their lives rescuing others, bringing all her happiness to an abrupt end.\nFrom then on, she relied solely on her brother — up until Yixuan took them in, bringing them into Yunkui Summit. Later, she was chosen by the Qingming Sword, taking up the mantle and duty of Sword Keeper.\n\nRumor has it that the Qingming Sword's favor is less a blessing and more a kind of curse. Though it gives its Sword Keeper Void Hunter level power, it extracts a harsh cost — the loss of one's memories and five senses.\nIn order to subdue this side effect, Yixuan Shifu crafted a custom sword case for Ye Shunguang. It appears effective for the moment, but the true nature of the weapon is still shrouded in mystery.",
+  "role_icon": "IconRole/UnPacker/IconRole55",
+  "stature": "162",
+  "unlock_condition": [
+   "Obtain Agent",
+   "Complete Main Commission Season 2 Chapter 6",
+   "Complete the \"Anby's Problem\" commission"
+  ],
+  "trust_lv": {
+   "1": "Ye Shunguang is the Sword Keeper of Yunkui Summit's treasured Qingming Sword, a disciple of Yixuan, and the younger sister of Ye Shiyuan, as well as a swordswoman blessed with extraordinary talent.\nShe enjoyed a happy childhood until the fall of the old capital, when her parents lost their lives rescuing others, bringing all her happiness to an abrupt end.\nFrom then on, she relied solely on her brother — up until Yixuan took them in, bringing them into Yunkui Summit. Later, she was chosen by the Qingming Sword, taking up the mantle and duty of Sword Keeper.\n\nRumor has it that the Qingming Sword's favor is less a blessing and more a kind of curse. Though it gives its Sword Keeper Void Hunter level power, it extracts a harsh cost — the loss of one's memories and five senses.\nIn order to subdue this side effect, Yixuan Shifu crafted a custom sword case for Ye Shunguang. It appears effective for the moment, but the true nature of the weapon is still shrouded in mystery.",
+   "2": "",
+   "3": "\nWhen Ye Shunguang first took up the Qingming Sword, she was still just a child, suddenly burdened with responsibilities far beyond her age.\nShe wasn't allowed to own toys, was constantly pushed to be mature, and made to undertake constant sword training... The weight of it all pressed down on her, and she simply had to accept it.\nAfter an emotional outburst, she once fled the sect and wandered across Failume Heights — where you appeared and handed her a small packet of osmanthus candy, offering a rare moment of warmth.\n\nAddition: her favorite pastry now is osmanthus cake, perhaps for this very reason.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 135,
+  "attack_growth": 82578,
+  "avatar_piece_id": 5431,
+  "break_stun": 83,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66203,
+  "element_abnormal_power": 94,
+  "element_mystery": 93,
+  "endurance": 0,
+  "hp_growth": 837238,
+  "hp_max": 617,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Zhenzhen",
+   "Cut",
+   "Physics",
+   "Female",
+   "Camp10",
+   "Size2",
+   "AidTypeParry",
+   "Zhenzhen",
+   "EtherEyesSize2"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "Basic Attack: Swiftedge",
+     "desc": "Press <IconMap:Icon_Normal> to activate:\nLaunches up to four forward slashes, dealing <color=#F0D12B>Physical DMG</color>.\nCan be chained into <color=#FFFFFF>Dash Attack: Phantasm Dash</color> after the 4th hit.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Cloudstream Sword Will",
+     "desc": "Hold <IconMap:Icon_Normal> to activate:\nLaunches a flurry of blade shockwaves, dealing <color=#F0D12B>Physical DMG</color>. Hold to extend the attack.\nAnti-Interrupt Level is increased during this skill.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Enlightened Mind - Splitting Currents",
+     "desc": "While in the <color=#FFFFFF>Enlightened Mind</color> state and on the ground, press <IconMap:Icon_Normal> to activate:\nPerforms up to three forward slashes, dealing <color=#F0D12B>Physical DMG</color>.\nIf struck by an enemy attack during the 3rd hit, triggers a block, negating that instance of DMG.\nIf she possesses <color=#FFFFFF>Qingming Sword Force</color>, the 3rd hit is replaced with <color=#FFFFFF>Basic Attack: Enlightened Mind - Skyward Ascent</color>.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Enlightened Mind - Skyward Ascent",
+     "desc": "While in the <color=#FFFFFF>Enlightened Mind</color> state and with <color=#FFFFFF>Qingming Sword Force</color>, after the 2nd hit of <color=#FFFFFF>Basic Attack: Enlightened Mind - Splitting Currents</color>, press <IconMap:Icon_Normal> to activate:\nLaunches a swift rising attack, dealing <color=#F0D12B>Physical DMG</color> and entering an airborne state.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Enlightened Mind - Sunderlight Maximum",
+     "desc": "After activating <color=#FFFFFF>Basic Attack: Enlightened Mind - Sunderlight Annihilation</color>, and with <color=#FFFFFF>Qingming Sword Force</color>, press <IconMap:Icon_Normal> to activate:\nLaunches a wide sweeping slash forward, dealing massive <color=#F0D12B>Physical DMG</color>. On hit, 1 point of <color=#FFFFFF>Qingming Sword Force</color> is consumed.\nIf struck by an enemy during the skill, triggers a block, negating that instance of DMG and increasing the skill's Interrupt Level.\nAfter using this skill and with <color=#FFFFFF>Qingming Sword Force</color>, press <IconMap:Icon_SpecialReady> to consume 1 point of <color=#FFFFFF>Qingming Sword Force</color> and launch a hit of <color=#FFFFFF>EX Special Attack: Enlightened Mind - Soaring Light</color>. This skill is automatically followed up with <color=#FFFFFF>Basic Attack: Enlightened Mind - Skyward Ascent</color>, and Ye Shunguang enters an airborne state.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Enlightened Mind - Sunderlight",
+     "desc": "In the <color=#FFFFFF>Enlightened Mind</color> state, and while airborne, press <IconMap:Icon_Normal> to activate:\nLaunches up to two downward slashes in front, dealing <color=#F0D12B>Physical DMG</color>.\nYe Shunguang will not exit the <color=#FFFFFF>Enlightened Mind</color> state during this skill.\nPress <IconMap:Icon_SpecialReady> or <IconMap:Icon_Evade> to follow up with <color=#FFFFFF>Basic Attack: Enlightened Mind - Sunderlight Annihilation</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Enlightened Mind - Sunderlight Annihilation",
+     "desc": "After the 2nd hit of <color=#FFFFFF>Basic Attack: Enlightened Mind - Sunderlight</color>, press <IconMap:Icon_Normal> to activate:\nPerforms a falling attack in front, entering a grounded state, and dealing <color=#F0D12B>Physical DMG</color>.\nWhen launching this skill with 2 or more points of <color=#FFFFFF>Qingming Sword Force</color>, Ye Shunguang will perform a downward falling strike across a large area in front instead, dealing massive <color=#F0D12B>Physical DMG</color>. On hit, 2 points of <color=#FFFFFF>Qingming Sword Force</color> are consumed, granting the <color=#FFFFFF>Culmination</color> effect. After using this skill, if Ye Shunguang possesses <color=#FFFFFF>Qingming Sword Force</color>, press <IconMap:Icon_SpecialReady> to consume 1 point of <color=#FFFFFF>Qingming Sword Force</color> and launch a hit of <color=#FFFFFF>EX Special Attack: Enlightened Mind - Soaring Light</color>, which can be quickly followed up with <color=#FFFFFF>Basic Attack: Enlightened Mind - Sunderlight Maximum</color>.\nYe Shunguang will not exit the <color=#FFFFFF>Enlightened Mind</color> state during this skill.\nDuring this skill, if attacked by enemies, triggers a block, negating that instance of DMG.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Culmination",
+     "desc": "During <color=#FFFFFF>EX Special Attack: Enlightened Mind - Soaring Light</color>, each time <color=#FFFFFF>Qingming Sword Force</color> is consumed while <color=#FFFFFF>Culmination</color> is active, the <color=#FFFFFF>Qingming Sword Force</color> cost is replaced by consuming <color=#FFFFFF>Culmination</color> instead. This effect does not stack, and lasts until the current <color=#FFFFFF>Enlightened Mind</color> ends.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Swiftedge",
+     "param": [
+      {
+       "name": "1st-Hit DMG Multiplier",
+       "desc": "{Skill:1431001, Prop:1001}",
+       "param": {
+        "1431001": {
+         "main": 7940,
+         "growth": 730,
+         "format": "%",
+         "damage_percentage": 7940,
+         "damage_percentage_growth": 730,
+         "stun_ratio": 2650,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 17340,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 106150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          1397
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4817
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit DMG Multiplier",
+       "desc": "{Skill:1431002, Prop:1001}",
+       "param": {
+        "1431002": {
+         "main": 24410,
+         "growth": 2220,
+         "format": "%",
+         "damage_percentage": 24410,
+         "damage_percentage_growth": 2220,
+         "stun_ratio": 7750,
+         "stun_ratio_growth": 360,
+         "sp_recovery": 50700,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 309925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          3374
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14084
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd-Hit DMG Multiplier",
+       "desc": "{Skill:1431003, Prop:1001}",
+       "param": {
+        "1431003": {
+         "main": 12460,
+         "growth": 1140,
+         "format": "%",
+         "damage_percentage": 12460,
+         "damage_percentage_growth": 1140,
+         "stun_ratio": 3540,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 23150,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 141625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          1246
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6431
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4th-Hit DMG Multiplier",
+       "desc": "{Skill:1431005, Prop:1001}",
+       "param": {
+        "1431005": {
+         "main": 36800,
+         "growth": 3350,
+         "format": "%",
+         "damage_percentage": 36800,
+         "damage_percentage_growth": 3350,
+         "stun_ratio": 10730,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 70190,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 429000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          3996
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1st-Hit Daze Multiplier",
+       "desc": "{Skill:1431001, Prop:1002}",
+       "param": {
+        "1431001": {
+         "main": 2650,
+         "growth": 130,
+         "format": "%",
+         "damage_percentage": 7940,
+         "damage_percentage_growth": 730,
+         "stun_ratio": 2650,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 17340,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 106150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          1397
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4817
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit Daze Multiplier",
+       "desc": "{Skill:1431002, Prop:1002}",
+       "param": {
+        "1431002": {
+         "main": 7750,
+         "growth": 360,
+         "format": "%",
+         "damage_percentage": 24410,
+         "damage_percentage_growth": 2220,
+         "stun_ratio": 7750,
+         "stun_ratio_growth": 360,
+         "sp_recovery": 50700,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 309925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          3374
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14084
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd-Hit Daze Multiplier",
+       "desc": "{Skill:1431003, Prop:1002}",
+       "param": {
+        "1431003": {
+         "main": 3540,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 12460,
+         "damage_percentage_growth": 1140,
+         "stun_ratio": 3540,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 23150,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 141625,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          1246
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6431
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4th-Hit Daze Multiplier",
+       "desc": "{Skill:1431005, Prop:1002}",
+       "param": {
+        "1431005": {
+         "main": 10730,
+         "growth": 490,
+         "format": "%",
+         "damage_percentage": 36800,
+         "damage_percentage_growth": 3350,
+         "stun_ratio": 10730,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 70190,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 429000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          3996
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19497
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Cloudstream Sword Will",
+     "param": [
+      {
+       "name": "Individual Blade Energy DMG Multiplier",
+       "desc": "{{Skill:1431004, Prop:1001}/7}",
+       "param": {
+        "1431004": {
+         "main": 11670,
+         "growth": 1070,
+         "format": "%",
+         "damage_percentage": 11670,
+         "damage_percentage_growth": 1070,
+         "stun_ratio": 3670,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 91850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          917
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4166
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Individual Blade Energy Daze Multiplier",
+       "desc": "{{Skill:1431004, Prop:1002}/7}",
+       "param": {
+        "1431004": {
+         "main": 3670,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 11670,
+         "damage_percentage_growth": 1070,
+         "stun_ratio": 3670,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 91850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          917
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4166
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Enlightened Mind - Splitting Currents",
+     "param": [
+      {
+       "name": "1st-Hit DMG Multiplier",
+       "desc": "{Skill:1431006, Prop:1001}",
+       "param": {
+        "1431006": {
+         "main": 11260,
+         "growth": 1030,
+         "format": "%",
+         "damage_percentage": 11260,
+         "damage_percentage_growth": 1030,
+         "stun_ratio": 3580,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 143000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit DMG Multiplier",
+       "desc": "{Skill:1431007, Prop:1001}",
+       "param": {
+        "1431007": {
+         "main": 15590,
+         "growth": 1420,
+         "format": "%",
+         "damage_percentage": 15590,
+         "damage_percentage_growth": 1420,
+         "stun_ratio": 4950,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 198000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd-Hit DMG Multiplier",
+       "desc": "{Skill:1431008, Prop:1001}",
+       "param": {
+        "1431008": {
+         "main": 21660,
+         "growth": 1970,
+         "format": "%",
+         "damage_percentage": 21660,
+         "damage_percentage_growth": 1970,
+         "stun_ratio": 6880,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 275275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12501
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1st-Hit Daze Multiplier",
+       "desc": "{Skill:1431006, Prop:1002}",
+       "param": {
+        "1431006": {
+         "main": 3580,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 11260,
+         "damage_percentage_growth": 1030,
+         "stun_ratio": 3580,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 143000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit Daze Multiplier",
+       "desc": "{Skill:1431007, Prop:1002}",
+       "param": {
+        "1431007": {
+         "main": 4950,
+         "growth": 230,
+         "format": "%",
+         "damage_percentage": 15590,
+         "damage_percentage_growth": 1420,
+         "stun_ratio": 4950,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 198000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd-Hit Daze Multiplier",
+       "desc": "{Skill:1431008, Prop:1002}",
+       "param": {
+        "1431008": {
+         "main": 6880,
+         "growth": 320,
+         "format": "%",
+         "damage_percentage": 21660,
+         "damage_percentage_growth": 1970,
+         "stun_ratio": 6880,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 275275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12501
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Enlightened Mind - Skyward Ascent",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1431017, Prop:1001}",
+       "param": {
+        "1431017": {
+         "main": 9100,
+         "growth": 830,
+         "format": "%",
+         "damage_percentage": 9100,
+         "damage_percentage_growth": 830,
+         "stun_ratio": 3580,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 71500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3250,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3250
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1431017, Prop:1002}",
+       "param": {
+        "1431017": {
+         "main": 3580,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 9100,
+         "damage_percentage_growth": 830,
+         "stun_ratio": 3580,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 71500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3250,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3250
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Enlightened Mind - Sunderlight Maximum",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1431009, Prop:1001}",
+       "param": {
+        "1431009": {
+         "main": 60480,
+         "growth": 5500,
+         "format": "%",
+         "damage_percentage": 60480,
+         "damage_percentage_growth": 5500,
+         "stun_ratio": 7700,
+         "stun_ratio_growth": 350,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 308000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1431009, Prop:1002}",
+       "param": {
+        "1431009": {
+         "main": 7700,
+         "growth": 350,
+         "format": "%",
+         "damage_percentage": 60480,
+         "damage_percentage_growth": 5500,
+         "stun_ratio": 7700,
+         "stun_ratio_growth": 350,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 308000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14000
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Enlightened Mind - Sunderlight",
+     "param": [
+      {
+       "name": "1st-Hit DMG Multiplier",
+       "desc": "{Skill:1431010, Prop:1001}",
+       "param": {
+        "1431010": {
+         "main": 12070,
+         "growth": 1100,
+         "format": "%",
+         "damage_percentage": 12070,
+         "damage_percentage_growth": 1100,
+         "stun_ratio": 3400,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 135850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6166,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit DMG Multiplier",
+       "desc": "{Skill:1431011, Prop:1001}",
+       "param": {
+        "1431011": {
+         "main": 15650,
+         "growth": 1430,
+         "format": "%",
+         "damage_percentage": 15650,
+         "damage_percentage_growth": 1430,
+         "stun_ratio": 4400,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 176000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1st-Hit Daze Multiplier",
+       "desc": "{Skill:1431010, Prop:1002}",
+       "param": {
+        "1431010": {
+         "main": 3400,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 12070,
+         "damage_percentage_growth": 1100,
+         "stun_ratio": 3400,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 135850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6166,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit Daze Multiplier",
+       "desc": "{Skill:1431011, Prop:1002}",
+       "param": {
+        "1431011": {
+         "main": 4400,
+         "growth": 200,
+         "format": "%",
+         "damage_percentage": 15650,
+         "damage_percentage_growth": 1430,
+         "stun_ratio": 4400,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 176000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8000
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Enlightened Mind - Sunderlight Annihilation",
+     "param": [
+      {
+       "name": "DMG Multiplier With Qingming Sword Force",
+       "desc": "{Skill:1431013, Prop:1001}",
+       "param": {
+        "1431013": {
+         "main": 89120,
+         "growth": 8110,
+         "format": "%",
+         "damage_percentage": 89120,
+         "damage_percentage_growth": 8110,
+         "stun_ratio": 5780,
+         "stun_ratio_growth": 270,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 231275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10503,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier With Qingming Sword Force",
+       "desc": "{Skill:1431013, Prop:1002}",
+       "param": {
+        "1431013": {
+         "main": 5780,
+         "growth": 270,
+         "format": "%",
+         "damage_percentage": 89120,
+         "damage_percentage_growth": 8110,
+         "stun_ratio": 5780,
+         "stun_ratio_growth": 270,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 231275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10503,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "DMG Multiplier Without Qingming Sword Force",
+       "desc": "{Skill:1431012, Prop:1001}",
+       "param": {
+        "1431012": {
+         "main": 15990,
+         "growth": 1460,
+         "format": "%",
+         "damage_percentage": 15990,
+         "damage_percentage_growth": 1460,
+         "stun_ratio": 4500,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 179850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8169,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8170
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier Without Qingming Sword Force",
+       "desc": "{Skill:1431012, Prop:1002}",
+       "param": {
+        "1431012": {
+         "main": 4500,
+         "growth": 210,
+         "format": "%",
+         "damage_percentage": 15990,
+         "damage_percentage_growth": 1460,
+         "stun_ratio": 4500,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 179850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8169,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8170
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "Dodge: Leave No Trace",
+     "desc": "Press <IconMap:Icon_Evade> to activate:\nA quick dash dodge.\nCharacter is invulnerable while using this skill.\nDuring the <color=#FFFFFF>Enlightened Mind</color> state, and if a <color=#FFFFFF>Perfect Dodge</color> is triggered, press <IconMap:Icon_Normal> to activate <color=#FFFFFF>Basic Attack: Enlightened Mind - Skyward Ascent</color>.",
+     "potential": []
+    },
+    {
+     "name": "Dodge: Wandering Cloud",
+     "desc": "While tilting the {LAYOUT_CONSOLECONTROLLER#stick}{LAYOUT_FALLBACK#joystick}, hold <IconMap:Icon_Evade> to activate:\nEnters a high-speed movement state. Steer with the {LAYOUT_CONSOLECONTROLLER#stick}{LAYOUT_FALLBACK#joystick}, and release the {LAYOUT_CONSOLECONTROLLER#stick}{LAYOUT_FALLBACK#joystick} to stop.",
+     "potential": []
+    },
+    {
+     "name": "Dash Attack: Phantasm Dash",
+     "desc": "Press <IconMap:Icon_Normal> during a dodge to activate:\nSlashes enemies in front, dealing <color=#F0D12B>Physical DMG</color>.",
+     "potential": []
+    },
+    {
+     "name": "Dodge Counter: Swallow Strike",
+     "desc": "Press <IconMap:Icon_Normal> during a <color=#FFFFFF>Perfect Dodge</color> to activate:\nLeaps into the air and thrusts forward, dealing <color=#F0D12B>Physical DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Dash Attack: Phantasm Dash",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1431020, Prop:1001}",
+       "param": {
+        "1431020": {
+         "main": 10500,
+         "growth": 960,
+         "format": "%",
+         "damage_percentage": 10500,
+         "damage_percentage_growth": 960,
+         "stun_ratio": 2070,
+         "stun_ratio_growth": 100,
+         "sp_recovery": 13500,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 82500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          825
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3750
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1431020, Prop:1002}",
+       "param": {
+        "1431020": {
+         "main": 2070,
+         "growth": 100,
+         "format": "%",
+         "damage_percentage": 10500,
+         "damage_percentage_growth": 960,
+         "stun_ratio": 2070,
+         "stun_ratio_growth": 100,
+         "sp_recovery": 13500,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 82500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          825
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3750
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Dodge Counter: Swallow Strike",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1431022, Prop:1001}",
+       "param": {
+        "1431022": {
+         "main": 34630,
+         "growth": 3150,
+         "format": "%",
+         "damage_percentage": 34630,
+         "damage_percentage_growth": 3150,
+         "stun_ratio": 11740,
+         "stun_ratio_growth": 540,
+         "sp_recovery": 40800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 249425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          2494
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1431022, Prop:1002}",
+       "param": {
+        "1431022": {
+         "main": 11740,
+         "growth": 540,
+         "format": "%",
+         "damage_percentage": 34630,
+         "damage_percentage_growth": 3150,
+         "stun_ratio": 11740,
+         "stun_ratio_growth": 540,
+         "sp_recovery": 40800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 249425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          2494
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26334
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "Special Attack: Guiding Tides",
+     "desc": "Press <IconMap:Icon_Special> to activate:\nIf a dodge is available, 1 dodge chance is consumed, and the action is counted as activating a <color=#FFFFFF>Dodge</color>.\nIf no dodge is available or a <color=#FFFFFF>Perfect Dodge</color> is not triggered, launches a quick sword energy attack that deals <color=#F0D12B>Physical DMG</color>.\nIf a <color=#FFFFFF>Perfect Dodge</color> is triggered at this time, launches a flying sword attack, dealing <color=#F0D12B>Physical DMG</color>, and immediately follow up with the 2nd hit of <color=#FFFFFF>Basic Attack: Swiftedge</color>.\nCharacter is briefly invulnerable during the skill.",
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Gale Suppression",
+     "desc": "With enough Energy, press <IconMap:Icon_SpecialReady> to activate:\nLaunches a rushing slash and a flying sword attack at the enemy, dealing massive <color=#F0D12B>Physical DMG</color>.\nEnemy attacks can be dodged during this skill.\nAfter this skill is used, gain 1 point of <color=#FFFFFF>Qingming Sword Force</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Enlightened Mind - Clean Exit",
+     "desc": "While in the <color=#FFFFFF>Enlightened Mind</color> state and grounded, press <IconMap:Icon_SpecialReady> to activate:\nPerforms a swift backstep slash, dealing <color=#F0D12B>Physical DMG</color>.\nIf a dodge is available, 1 dodge chance is consumed, and the action is counted as activating a <color=#FFFFFF>Dodge</color>.\nIf a <color=#FFFFFF>Perfect Dodge</color> is triggered at this time, press <IconMap:Icon_Normal> to quickly activate <color=#FFFFFF>Enlightened Mind - Sunderlight Maximum</color> and enter <color=#FFFFFF>Vital View</color>.\nAfter this <color=#FFFFFF>Enlightened Mind - Sunderlight Maximum</color> activates, it can be immediately followed up with <color=#FFFFFF>Basic Attack: Enlightened Mind - Skyward Ascent</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Enlightened Mind - Soaring Light",
+     "desc": "In the <color=#FFFFFF>Enlightened Mind</color> state and with <color=#FFFFFF>Qingming Sword Force</color>, hold <IconMap:Icon_SpecialReady> to activate:\nPerforms quick consecutive slashes, dealing massive <color=#F0D12B>Physical DMG</color> while rapidly consuming <color=#FFFFFF>Qingming Sword Force</color> until none remains.\nThe skill ends early if <color=#FFFFFF>Qingming Sword Force</color> is insufficient or if <IconMap:Icon_SpecialReady> is released.\nYe Shunguang will not exit the <color=#FFFFFF>Enlightened Mind</color> state during this skill.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Enlightened Mind - Return to Dust",
+     "desc": "In the <color=#FFFFFF>Enlightened Mind</color> state, press <IconMap:Icon_UltimateReady> or hold <IconMap:Icon_SpecialReady> when all <color=#FFFFFF>Qingming Sword Force</color> is expended to activate:\nDeals massive <color=#F0D12B>Physical DMG</color> to enemies in a large area.\nYe Shunguang will not exit the <color=#FFFFFF>Enlightened Mind</color> state during this skill.\nAfter using this skill, <color=#FFFFFF>Ether Veil: Verdict</color> is removed and the <color=#FFFFFF>Enlightened Mind</color> state ends.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Guiding Tides",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1431014, Prop:1001}",
+       "param": {
+        "1431014": {
+         "main": 9890,
+         "growth": 900,
+         "format": "%",
+         "damage_percentage": 9890,
+         "damage_percentage_growth": 900,
+         "stun_ratio": 2430,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 97350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4415
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1431014, Prop:1002}",
+       "param": {
+        "1431014": {
+         "main": 2430,
+         "growth": 120,
+         "format": "%",
+         "damage_percentage": 9890,
+         "damage_percentage_growth": 900,
+         "stun_ratio": 2430,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 97350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4415
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Perfect Dodge Triggered DMG Multiplier",
+       "desc": "{Skill:1431015, Prop:1001}",
+       "param": {
+        "1431015": {
+         "main": 31590,
+         "growth": 2880,
+         "format": "%",
+         "damage_percentage": 31590,
+         "damage_percentage_growth": 2880,
+         "stun_ratio": 13210,
+         "stun_ratio_growth": 610,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 308275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          6081
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 29001
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Perfect Dodge Triggered Daze Multiplier",
+       "desc": "{Skill:1431015, Prop:1002}",
+       "param": {
+        "1431015": {
+         "main": 13210,
+         "growth": 610,
+         "format": "%",
+         "damage_percentage": 31590,
+         "damage_percentage_growth": 2880,
+         "stun_ratio": 13210,
+         "stun_ratio_growth": 610,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 308275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          6081
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 29001
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Gale Suppression",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1431016, Prop:1001}",
+       "param": {
+        "1431016": {
+         "main": 117840,
+         "growth": 10720,
+         "format": "%",
+         "damage_percentage": 117840,
+         "damage_percentage_growth": 10720,
+         "stun_ratio": 34010,
+         "stun_ratio_growth": 1550,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1851850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 28334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1431016, Prop:1002}",
+       "param": {
+        "1431016": {
+         "main": 34010,
+         "growth": 1550,
+         "format": "%",
+         "damage_percentage": 117840,
+         "damage_percentage_growth": 10720,
+         "stun_ratio": 34010,
+         "stun_ratio_growth": 1550,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1851850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 28334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Energy Cost",
+       "desc": "60",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Enlightened Mind - Clean Exit",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1431021, Prop:1001}",
+       "param": {
+        "1431021": {
+         "main": 7100,
+         "growth": 650,
+         "format": "%",
+         "damage_percentage": 7100,
+         "damage_percentage_growth": 650,
+         "stun_ratio": 1750,
+         "stun_ratio_growth": 80,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 69850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3166,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1431021, Prop:1002}",
+       "param": {
+        "1431021": {
+         "main": 1750,
+         "growth": 80,
+         "format": "%",
+         "damage_percentage": 7100,
+         "damage_percentage_growth": 650,
+         "stun_ratio": 1750,
+         "stun_ratio_growth": 80,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 69850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3166,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Enlightened Mind - Soaring Light",
+     "param": [
+      {
+       "name": "1 Qingming Sword Force Consumed DMG Multiplier",
+       "desc": "{{Skill:1431018, Prop:1001}/6}",
+       "param": {
+        "1431018": {
+         "main": 105800,
+         "growth": 9620,
+         "format": "%",
+         "damage_percentage": 105800,
+         "damage_percentage_growth": 9620,
+         "stun_ratio": 10820,
+         "stun_ratio_growth": 500,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 432850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1 Qingming Sword Force Consumed Daze Multiplier",
+       "desc": "{{Skill:1431018, Prop:1002}/6}",
+       "param": {
+        "1431018": {
+         "main": 10820,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 105800,
+         "damage_percentage_growth": 9620,
+         "stun_ratio": 10820,
+         "stun_ratio_growth": 500,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 432850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "6 Qingming Sword Force Consumed DMG Multiplier",
+       "desc": "{Skill:1431018, Prop:1001}",
+       "param": {
+        "1431018": {
+         "main": 105800,
+         "growth": 9620,
+         "format": "%",
+         "damage_percentage": 105800,
+         "damage_percentage_growth": 9620,
+         "stun_ratio": 10820,
+         "stun_ratio_growth": 500,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 432850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "6 Qingming Sword Force Consumed Daze Multiplier",
+       "desc": "{Skill:1431018, Prop:1002}",
+       "param": {
+        "1431018": {
+         "main": 10820,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 105800,
+         "damage_percentage_growth": 9620,
+         "stun_ratio": 10820,
+         "stun_ratio_growth": 500,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 432850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19666,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19667
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Enlightened Mind - Return to Dust",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1431019, Prop:1001}",
+       "param": {
+        "1431019": {
+         "main": 116110,
+         "growth": 10560,
+         "format": "%",
+         "damage_percentage": 116110,
+         "damage_percentage_growth": 10560,
+         "stun_ratio": 13940,
+         "stun_ratio_growth": 640,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 557425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 25333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1431019, Prop:1002}",
+       "param": {
+        "1431019": {
+         "main": 13940,
+         "growth": 640,
+         "format": "%",
+         "damage_percentage": 116110,
+         "damage_percentage_growth": 10560,
+         "stun_ratio": 13940,
+         "stun_ratio_growth": 640,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 557425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 25333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25334
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "Chain Attack: Smite the Wicked",
+     "desc": "When a <color=#FFFFFF>Chain Attack</color> is triggered, select the character to activate:\nUnleashes a powerful slash at enemies ahead in a large area, dealing massive <color=#F0D12B>Physical DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Ultimate: Chasing Storms",
+     "desc": "When Decibel Rating is at <color=#FFFFFF>Maximum</color>, press <IconMap:Icon_UltimateReady> to activate:\nSummons a sword formation and enter the <color=#FFFFFF>Enlightened Mind</color> state, activating an <color=#FFFFFF>Ether Veil: Verdict</color> while also gaining 6 <color=#FFFFFF>Qingming Sword Force</color>. This skill deals massive <color=#F0D12B>Physical DMG</color>.\nUpon activating this skill, if Decibels are consumed, press <IconMap:Icon_UltimateReady> while in this <color=#FFFFFF>Enlightened Mind</color> state to launch an <color=#FFFFFF>Ultimate: Cleaving Heavens</color> that doesn't consume Decibels.\nEnter the airborne state after using this skill.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Chain Attack: Enlightened Mind - Lure Thunder",
+     "desc": "While in the <color=#FFFFFF>Enlightened Mind</color> state, and when a <color=#FFFFFF>Chain Attack</color> is triggered, select the character to activate:\nUnleashes a powerful slash at enemies ahead in a large area, dealing massive <color=#F0D12B>Physical DMG</color>.\nYe Shunguang will not exit the <color=#FFFFFF>Enlightened Mind</color> state during this skill.\nEnter the airborne state after using this skill.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Ultimate: Cleaving Heavens",
+     "desc": "After consuming Decibels to launch <color=#FFFFFF>Ultimate: Chasing Storms</color> and while in the <color=#FFFFFF>Enlightened Mind</color> state, press <IconMap:Icon_UltimateReady> or hold <IconMap:Icon_SpecialReady> when all <color=#FFFFFF>Qingming Sword Force</color> is expended to activate:\nSummons a massive blade, dealing massive <color=#F0D12B>Physical DMG</color> to enemies.\nYe Shunguang will not exit the <color=#FFFFFF>Enlightened Mind</color> state during this skill.\nAfter using this skill, the <color=#FFFFFF>Enlightened Mind</color> state ends, and <color=#FFFFFF>Ether Veil: Verdict</color> is removed.\nThis skill doesn't consume Decibels.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Chain Attack: Smite the Wicked",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1431024, Prop:1001}",
+       "param": {
+        "1431024": {
+         "main": 87160,
+         "growth": 7930,
+         "format": "%",
+         "damage_percentage": 87160,
+         "damage_percentage_growth": 7930,
+         "stun_ratio": 18150,
+         "stun_ratio_growth": 830,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2189000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          2541
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 32997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1431024, Prop:1002}",
+       "param": {
+        "1431024": {
+         "main": 18150,
+         "growth": 830,
+         "format": "%",
+         "damage_percentage": 87160,
+         "damage_percentage_growth": 7930,
+         "stun_ratio": 18150,
+         "stun_ratio_growth": 830,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2189000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          2541
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 32997
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Ultimate: Chasing Storms",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1431025, Prop:1001}",
+       "param": {
+        "1431025": {
+         "main": 192500,
+         "growth": 17500,
+         "format": "%",
+         "damage_percentage": 192500,
+         "damage_percentage_growth": 17500,
+         "stun_ratio": 5500,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 60000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1431025, Prop:1002}",
+       "param": {
+        "1431025": {
+         "main": 5500,
+         "growth": 250,
+         "format": "%",
+         "damage_percentage": 192500,
+         "damage_percentage_growth": 17500,
+         "stun_ratio": 5500,
+         "stun_ratio_growth": 250,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 60000
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Chain Attack: Enlightened Mind - Lure Thunder",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1431026, Prop:1001}",
+       "param": {
+        "1431026": {
+         "main": 90860,
+         "growth": 8260,
+         "format": "%",
+         "damage_percentage": 90860,
+         "damage_percentage_growth": 8260,
+         "stun_ratio": 13750,
+         "stun_ratio_growth": 630,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2013000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 44950,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1431026, Prop:1002}",
+       "param": {
+        "1431026": {
+         "main": 13750,
+         "growth": 630,
+         "format": "%",
+         "damage_percentage": 90860,
+         "damage_percentage_growth": 8260,
+         "stun_ratio": 13750,
+         "stun_ratio_growth": 630,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2013000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 44950,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25000
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Ultimate: Cleaving Heavens",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1431027, Prop:1001}",
+       "param": {
+        "1431027": {
+         "main": 308430,
+         "growth": 28040,
+         "format": "%",
+         "damage_percentage": 308430,
+         "damage_percentage_growth": 28040,
+         "stun_ratio": 15130,
+         "stun_ratio_growth": 690,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 27500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 27500
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1431027, Prop:1002}",
+       "param": {
+        "1431027": {
+         "main": 15130,
+         "growth": 690,
+         "format": "%",
+         "damage_percentage": 308430,
+         "damage_percentage_growth": 28040,
+         "stun_ratio": 15130,
+         "stun_ratio_growth": 690,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 27500,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 27500
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "Entry Skill: Illuminating Darkness",
+     "desc": "With 6 <color=#FFFFFF>Qingming Sword Force</color> and while not in the <color=#FFFFFF>Enlightened Mind</color> state, hold <IconMap:Icon_Normal> to activate, or press <IconMap:Icon_Switch> while in combat and switch on-field from off-field to activate:\nEnters the <color=#FFFFFF>Enlightened Mind</color> state and activates <color=#FFFFFF>Ether Veil: Verdict</color>.\nDeals <color=#F0D12B>Physical DMG</color> to enemies in a large area in front.\nActivating this skill is considered as activating a <color=#FFFFFF>Quick Assist</color>.\nEnters the airborne state after using this skill.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Quick Assist: Support Guard",
+     "desc": "When the active character is launched, press <IconMap:Icon_Switch> to activate:\nLeaps into the air and thrusts forward, dealing <color=#F0D12B>Physical DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Cease Hostility",
+     "desc": "Press <IconMap:Icon_Normal> after a <color=#FFFFFF>Defensive Assist</color> to activate:\nDeals massive <color=#F0D12B>Physical DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Defensive Assist: When I Return",
+     "desc": "When the on-field character is about to be attacked, press <IconMap:Icon_Switch> to activate:\nParries the enemy's attack, dealing massive Daze.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Quick Assist: Enlightened Mind - Tactical Support",
+     "desc": "While in the <color=#FFFFFF>Enlightened Mind</color> state, when the active character is launched, press <IconMap:Icon_Switch> to activate:\nLaunches a forward slash, dealing <color=#F0D12B>Physical DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Enlightened Mind - Unification",
+     "desc": "While in the <color=#FFFFFF>Enlightened Mind</color> state and after a <color=#FFFFFF>Defensive Assist</color>, press <IconMap:Icon_Normal> to activate:\nDeals massive <color=#F0D12B>Physical DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Entry Skill: Illuminating Darkness",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1431028, Prop:1001}",
+       "param": {
+        "1431028": {
+         "main": 40040,
+         "growth": 3640,
+         "format": "%",
+         "damage_percentage": 40040,
+         "damage_percentage_growth": 3640,
+         "stun_ratio": 12100,
+         "stun_ratio_growth": 550,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 484000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 22000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1431028, Prop:1002}",
+       "param": {
+        "1431028": {
+         "main": 12100,
+         "growth": 550,
+         "format": "%",
+         "damage_percentage": 40040,
+         "damage_percentage_growth": 3640,
+         "stun_ratio": 12100,
+         "stun_ratio_growth": 550,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 484000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 22000,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22000
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Quick Assist: Support Guard",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1431029, Prop:1001}",
+       "param": {
+        "1431029": {
+         "main": 8050,
+         "growth": 740,
+         "format": "%",
+         "damage_percentage": 8050,
+         "damage_percentage_growth": 740,
+         "stun_ratio": 3170,
+         "stun_ratio_growth": 150,
+         "sp_recovery": 20700,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 126500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5750
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1431029, Prop:1002}",
+       "param": {
+        "1431029": {
+         "main": 3170,
+         "growth": 150,
+         "format": "%",
+         "damage_percentage": 8050,
+         "damage_percentage_growth": 740,
+         "stun_ratio": 3170,
+         "stun_ratio_growth": 150,
+         "sp_recovery": 20700,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 126500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5750
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Cease Hostility",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1431033, Prop:1001}",
+       "param": {
+        "1431033": {
+         "main": 41370,
+         "growth": 3770,
+         "format": "%",
+         "damage_percentage": 41370,
+         "damage_percentage_growth": 3770,
+         "stun_ratio": 14000,
+         "stun_ratio_growth": 640,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 740300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1431033, Prop:1002}",
+       "param": {
+        "1431033": {
+         "main": 14000,
+         "growth": 640,
+         "format": "%",
+         "damage_percentage": 41370,
+         "damage_percentage_growth": 3770,
+         "stun_ratio": 14000,
+         "stun_ratio_growth": 640,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 740300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Defensive Assist: When I Return",
+     "param": [
+      {
+       "name": "Light Defensive Daze Multiplier",
+       "desc": "{Skill:1431030, Prop:1002}",
+       "param": {
+        "1431030": {
+         "main": 19530,
+         "growth": 890,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 19530,
+         "stun_ratio_growth": 890,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 45004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Heavy Defensive Daze Multiplier",
+       "desc": "{Skill:1431031, Prop:1002}",
+       "param": {
+        "1431031": {
+         "main": 20720,
+         "growth": 950,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 20720,
+         "stun_ratio_growth": 950,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 46664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Chain Defensive Daze Multiplier",
+       "desc": "{Skill:1431032, Prop:1002}",
+       "param": {
+        "1431032": {
+         "main": 11920,
+         "growth": 550,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 11920,
+         "stun_ratio_growth": 550,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Quick Assist: Enlightened Mind - Tactical Support",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1431035, Prop:1001}",
+       "param": {
+        "1431035": {
+         "main": 6730,
+         "growth": 620,
+         "format": "%",
+         "damage_percentage": 6730,
+         "damage_percentage_growth": 620,
+         "stun_ratio": 3310,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 132275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6000,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6001
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1431035, Prop:1002}",
+       "param": {
+        "1431035": {
+         "main": 3310,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 6730,
+         "damage_percentage_growth": 620,
+         "stun_ratio": 3310,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 132275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6000,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6001
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Enlightened Mind - Unification",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1431034, Prop:1001}",
+       "param": {
+        "1431034": {
+         "main": 43000,
+         "growth": 3910,
+         "format": "%",
+         "damage_percentage": 43000,
+         "damage_percentage_growth": 3910,
+         "stun_ratio": 14600,
+         "stun_ratio_growth": 670,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 767800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 28622,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1431034, Prop:1002}",
+       "param": {
+        "1431034": {
+         "main": 14600,
+         "growth": 670,
+         "format": "%",
+         "damage_percentage": 43000,
+         "damage_percentage_growth": 3910,
+         "stun_ratio": 14600,
+         "stun_ratio_growth": 670,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 767800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 28622,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14000
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "Dreambound Self",
+   "desc": "Upon entering the battlefield, gains 6 <color=#FFFFFF>Qingming Sword Force</color>. This effect can trigger once every 180s in Investigation Zone mode.\nThe <color=#FFFFFF>Unity</color> effect from <color=#FFFFFF>Core Passive: Burning Clarity</color> increases DMG dealt by an additional 10%, and they ignore 20% of the target's DEF.",
+   "desc2": "Countless times, in the dead of night, she finds herself returning to that day...\nSteel cried out, the sword acknowledged its wielder, and a contract was forged.\nWas it a blessing, or a curse?\n\n...No one knows the answer. Yet from that day on, her fate became bound to the sword."
+  },
+  "2": {
+   "level": 2,
+   "name": "Light & Shadow",
+   "desc": "The max stack count of <color=#FFFFFF>Bearer</color> increases to 6, and <color=#FFFFFF>Culmination</color> can stack up to 9 times. While in the <color=#FFFFFF>Enlightened Mind</color> state, each point of <color=#FFFFFF>Qingming Sword Force</color> consumed grants 1 stack of <color=#FFFFFF>Culmination</color>. <color=#FFFFFF>EX Special Attack: Enlightened Mind - Soaring Light</color> and <color=#FFFFFF>Ultimate: Cleaving Heavens</color>'s DMG ignore 40% of the target's DEF.",
+   "desc2": "Time flowed on, winters giving way to summers.\nHer entire world amounted to this tiny stretch of Yunkui Summit, the changing seasons of the mountain were all she would ever see.\nIn endless solitude and ever-present fear, \"another self\" quietly came into being.\n\n\"...I am a part of her. From beginning to end, we were never apart.\"\n\"If she is the light, then I am the shadow. If she stands as a lofty idol, then I am the mortal who crawls below.\"\n\"Unlike her, I have no wish to become some kind of 'hero'...\"\n\"...I just want to survive.\""
+  },
+  "3": {
+   "level": 3,
+   "name": "Swordswoman",
+   "desc": "<color=#FFFFFF>Basic Attack</color>, <color=#FFFFFF>Dodge</color>, <color=#FFFFFF>Assist</color>, <color=#FFFFFF>Special Attack</color>, and <color=#FFFFFF>Chain Attack</color> Lv. +2",
+   "desc2": "A peerless famed sword lies hidden deep in the mountains, its edge fully restrained.\nBut once unsheathed, its icy light reaches far and wide, even after storms of wind and snow, a single piercing light endures.\n\n\"What is someone who wields a blade?\"\n\"Nothing more than... the courage to press forward without hesitation, and the resolve to cut through anything.\""
+  },
+  "4": {
+   "level": 4,
+   "name": "Together into the Dust",
+   "desc": "Upon entering the battlefield, gains 1,000 Decibels. In Investigation Zone mode, this effect can trigger once every 180s. The Vulnerability bonus provided by <color=#FFFFFF>Ether Veil: Verdict</color> is increased to a maximum of 200%.",
+   "desc2": "Hidden beneath a grand vision was a lie, where salvation came only by burning oneself to ash.\nFate showed her no mercy, yet she willingly met her end.\n\n\"I understand.\"\n\"I will live my whole life alongside 'loss'.\"\n\"I willingly accept everything...\"\n\"...This is the person I choose to be.\""
+  },
+  "5": {
+   "level": 5,
+   "name": "Guiding Glimmer",
+   "desc": "<color=#FFFFFF>Basic Attack</color>, <color=#FFFFFF>Dodge</color>, <color=#FFFFFF>Assist</color>, <color=#FFFFFF>Special Attack</color>, and <color=#FFFFFF>Chain Attack</color> Lv. +2",
+   "desc2": "\"...I suppose, in the end, I'm still that 'lucky' child.\"\n\"Miasma won't overwhelm me, disaster won't swallow me.\"\n\"Even the Qingming Sword can't drag me into that pitch-black, bottomless abyss...\"\n\n\"My brother, Shifu, everyone at Suibian Temple... and you.\"\n\"...I know you'll all keep waiting for me.\"\nAnd so, even if the road ahead is filled with thorns, a faint light still guides the way."
+  },
+  "6": {
+   "level": 6,
+   "name": "Lantern Wish",
+   "desc": "Upon entering the battlefield, gains 2 stacks of <color=#FFFFFF>Lantern Wish</color>. When entering the <color=#FFFFFF>Enlightened Mind</color> state, gains 1 stack of <color=#FFFFFF>Lantern Wish</color>, stacking up to 4 times. With 3 stacks of <color=#FFFFFF>Lantern Wish</color>, <color=#FFFFFF>EX Special Attack: Enlightened Mind - Return to Dust</color> is replaced with <color=#FFFFFF>Ultimate: Cleaving Heavens</color>. When this <color=#FFFFFF>Ultimate: Cleaving Heavens</color> is activated, it consumes 3 stacks of <color=#FFFFFF>Lantern Wish</color>. The last hit of <color=#FFFFFF>Enlightened Mind - Return to Dust</color> and <color=#FFFFFF>Ultimate: Cleaving Heavens</color> deal 1,500% of ATK as additional <color=#F0D12B>Physical DMG</color>.",
+   "desc2": "Once, she stood alone, walking through the dark.\nThen she took up her sword and rushed toward disaster. As Qingming left its sheath, a fleeting arc of light split the sky, illuminating that silent, shadowed land.\n\n\"...I want to be one light among countless fireflies.\"\n\"The sun will rise. No matter how long the night lasts, dawn always comes.\"\n\"In the distant past, and in the distant future, there must be countless others who made the same choice as me. We... were never alone.\""
+  }
+ },
+ "passive": {
+  "level": {
+   "1431501": {
+    "level": 1,
+    "id": 1431501,
+    "name": [
+     "Core Passive: Burning Clarity",
+     "Additional Ability: Shadowtrace Flight"
+    ],
+    "desc": [
+     "When not in the <color=#FFFFFF>Enlightened Mind</color> state and with fewer than 6 points of Qingming Sword Force, certain attacks slowly build <color=#FFFFFF>Qingming Sword Force</color>. Whenever <color=#FFFFFF>Qingming Sword Force</color> is gained by any means, each 1 point of <color=#FFFFFF>Qingming Sword Force</color> that exceeds the limit is converted into 1 stack of <color=#FFFFFF>Bearer</color>, stacking up to 3 times. Upon leaving the <color=#FFFFFF>Enlightened Mind</color> state, all <color=#FFFFFF>Bearer</color> stacks are consumed to grant the same number of <color=#FFFFFF>Qingming Sword Force</color> stacks.\nUpon entering the battlefield, gain <color=#FFFFFF>Unity</color>, increasing CRIT Rate by <color=#2BAD00>15%</color> and DMG by <color=#2BAD00>10%</color>.\nWhen <color=#FFFFFF>Ultimate: Chasing Storms</color> or <color=#FFFFFF>Entry Skill: Illuminating Darkness</color> is unleashed, Ye Shunguang enters the <color=#FFFFFF>Enlightened Mind</color> state and activates <color=#FFFFFF>Ether Veil: Verdict</color>. <color=#FFFFFF>Ether Veil: Verdict</color> has the same duration as <color=#FFFFFF>Enlightened Mind</color>. The duration lasts 16s, and the duration timer pauses while she is off-field. During the <color=#FFFFFF>Enlightened Mind</color> state, Ye Shunguang's skills are enhanced, all <color=#F0D12B>Physical DMG</color> dealt by her skills becomes <color=#F0D12B>Honed Edge DMG</color>.\nWhile <color=#FFFFFF>Ether Veil: Verdict</color> is active, when an enemy enters <color=#FFFFFF>Ether Veil: Verdict</color>, they gain a Veil Vulnerability effect based on their current Stun DMG Multiplier. During this, when Ye Shunguang deals DMG to enemies with her skills, enemy Stun DMG Multiplier is ignored and replaced with the Veil Vulnerability bonus. Veil Vulnerability caps at 110%. The effect is removed when <color=#FFFFFF>Ether Veil: Verdict</color> ends.",
+     "When another character in your squad is a <color=#FFFFFF>Support</color> or <color=#FFFFFF>Defense</color> character:\nWhen a squadmate activates any <color=#FFFFFF>Ether Veil</color>, gain 3 points of <color=#FFFFFF>Qingming Sword Force</color>. If already in the <color=#FFFFFF>Enlightened Mind</color> state, this is instead converted into 3 stacks of <color=#FFFFFF>Bearer</color>."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1431502": {
+    "level": 2,
+    "id": 1431502,
+    "name": [
+     "Core Passive: Burning Clarity",
+     "Additional Ability: Shadowtrace Flight"
+    ],
+    "desc": [
+     "When not in the <color=#FFFFFF>Enlightened Mind</color> state and with fewer than 6 points of Qingming Sword Force, certain attacks slowly build <color=#FFFFFF>Qingming Sword Force</color>. Whenever <color=#FFFFFF>Qingming Sword Force</color> is gained by any means, each 1 point of <color=#FFFFFF>Qingming Sword Force</color> that exceeds the limit is converted into 1 stack of <color=#FFFFFF>Bearer</color>, stacking up to 3 times. Upon leaving the <color=#FFFFFF>Enlightened Mind</color> state, all <color=#FFFFFF>Bearer</color> stacks are consumed to grant the same number of <color=#FFFFFF>Qingming Sword Force</color> stacks.\nUpon entering the battlefield, gain <color=#FFFFFF>Unity</color>, increasing CRIT Rate by <color=#2BAD00>17.5%</color> and DMG by <color=#2BAD00>12.5%</color>.\nWhen <color=#FFFFFF>Ultimate: Chasing Storms</color> or <color=#FFFFFF>Entry Skill: Illuminating Darkness</color> is unleashed, Ye Shunguang enters the <color=#FFFFFF>Enlightened Mind</color> state and activates <color=#FFFFFF>Ether Veil: Verdict</color>. <color=#FFFFFF>Ether Veil: Verdict</color> has the same duration as <color=#FFFFFF>Enlightened Mind</color>. The duration lasts 16s, and the duration timer pauses while she is off-field. During the <color=#FFFFFF>Enlightened Mind</color> state, Ye Shunguang's skills are enhanced, all <color=#F0D12B>Physical DMG</color> dealt by her skills becomes <color=#F0D12B>Honed Edge DMG</color>.\nWhile <color=#FFFFFF>Ether Veil: Verdict</color> is active, when an enemy enters <color=#FFFFFF>Ether Veil: Verdict</color>, they gain a Veil Vulnerability effect based on their current Stun DMG Multiplier. During this, when Ye Shunguang deals DMG to enemies with her skills, enemy Stun DMG Multiplier is ignored and replaced with the Veil Vulnerability bonus. Veil Vulnerability caps at 110%. The effect is removed when <color=#FFFFFF>Ether Veil: Verdict</color> ends.",
+     "When another character in your squad is a <color=#FFFFFF>Support</color> or <color=#FFFFFF>Defense</color> character:\nWhen a squadmate activates any <color=#FFFFFF>Ether Veil</color>, gain 3 points of <color=#FFFFFF>Qingming Sword Force</color>. If already in the <color=#FFFFFF>Enlightened Mind</color> state, this is instead converted into 3 stacks of <color=#FFFFFF>Bearer</color>."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1431503": {
+    "level": 3,
+    "id": 1431503,
+    "name": [
+     "Core Passive: Burning Clarity",
+     "Additional Ability: Shadowtrace Flight"
+    ],
+    "desc": [
+     "When not in the <color=#FFFFFF>Enlightened Mind</color> state and with fewer than 6 points of Qingming Sword Force, certain attacks slowly build <color=#FFFFFF>Qingming Sword Force</color>. Whenever <color=#FFFFFF>Qingming Sword Force</color> is gained by any means, each 1 point of <color=#FFFFFF>Qingming Sword Force</color> that exceeds the limit is converted into 1 stack of <color=#FFFFFF>Bearer</color>, stacking up to 3 times. Upon leaving the <color=#FFFFFF>Enlightened Mind</color> state, all <color=#FFFFFF>Bearer</color> stacks are consumed to grant the same number of <color=#FFFFFF>Qingming Sword Force</color> stacks.\nUpon entering the battlefield, gain <color=#FFFFFF>Unity</color>, increasing CRIT Rate by <color=#2BAD00>20%</color> and DMG by <color=#2BAD00>15%</color>.\nWhen <color=#FFFFFF>Ultimate: Chasing Storms</color> or <color=#FFFFFF>Entry Skill: Illuminating Darkness</color> is unleashed, Ye Shunguang enters the <color=#FFFFFF>Enlightened Mind</color> state and activates <color=#FFFFFF>Ether Veil: Verdict</color>. <color=#FFFFFF>Ether Veil: Verdict</color> has the same duration as <color=#FFFFFF>Enlightened Mind</color>. The duration lasts 16s, and the duration timer pauses while she is off-field. During the <color=#FFFFFF>Enlightened Mind</color> state, Ye Shunguang's skills are enhanced, all <color=#F0D12B>Physical DMG</color> dealt by her skills becomes <color=#F0D12B>Honed Edge DMG</color>.\nWhile <color=#FFFFFF>Ether Veil: Verdict</color> is active, when an enemy enters <color=#FFFFFF>Ether Veil: Verdict</color>, they gain a Veil Vulnerability effect based on their current Stun DMG Multiplier. During this, when Ye Shunguang deals DMG to enemies with her skills, enemy Stun DMG Multiplier is ignored and replaced with the Veil Vulnerability bonus. Veil Vulnerability caps at 110%. The effect is removed when <color=#FFFFFF>Ether Veil: Verdict</color> ends.",
+     "When another character in your squad is a <color=#FFFFFF>Support</color> or <color=#FFFFFF>Defense</color> character:\nWhen a squadmate activates any <color=#FFFFFF>Ether Veil</color>, gain 3 points of <color=#FFFFFF>Qingming Sword Force</color>. If already in the <color=#FFFFFF>Enlightened Mind</color> state, this is instead converted into 3 stacks of <color=#FFFFFF>Bearer</color>."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1431504": {
+    "level": 4,
+    "id": 1431504,
+    "name": [
+     "Core Passive: Burning Clarity",
+     "Additional Ability: Shadowtrace Flight"
+    ],
+    "desc": [
+     "When not in the <color=#FFFFFF>Enlightened Mind</color> state and with fewer than 6 points of Qingming Sword Force, certain attacks slowly build <color=#FFFFFF>Qingming Sword Force</color>. Whenever <color=#FFFFFF>Qingming Sword Force</color> is gained by any means, each 1 point of <color=#FFFFFF>Qingming Sword Force</color> that exceeds the limit is converted into 1 stack of <color=#FFFFFF>Bearer</color>, stacking up to 3 times. Upon leaving the <color=#FFFFFF>Enlightened Mind</color> state, all <color=#FFFFFF>Bearer</color> stacks are consumed to grant the same number of <color=#FFFFFF>Qingming Sword Force</color> stacks.\nUpon entering the battlefield, gain <color=#FFFFFF>Unity</color>, increasing CRIT Rate by <color=#2BAD00>22.5%</color> and DMG by <color=#2BAD00>17.5%</color>.\nWhen <color=#FFFFFF>Ultimate: Chasing Storms</color> or <color=#FFFFFF>Entry Skill: Illuminating Darkness</color> is unleashed, Ye Shunguang enters the <color=#FFFFFF>Enlightened Mind</color> state and activates <color=#FFFFFF>Ether Veil: Verdict</color>. <color=#FFFFFF>Ether Veil: Verdict</color> has the same duration as <color=#FFFFFF>Enlightened Mind</color>. The duration lasts 16s, and the duration timer pauses while she is off-field. During the <color=#FFFFFF>Enlightened Mind</color> state, Ye Shunguang's skills are enhanced, all <color=#F0D12B>Physical DMG</color> dealt by her skills becomes <color=#F0D12B>Honed Edge DMG</color>.\nWhile <color=#FFFFFF>Ether Veil: Verdict</color> is active, when an enemy enters <color=#FFFFFF>Ether Veil: Verdict</color>, they gain a Veil Vulnerability effect based on their current Stun DMG Multiplier. During this, when Ye Shunguang deals DMG to enemies with her skills, enemy Stun DMG Multiplier is ignored and replaced with the Veil Vulnerability bonus. Veil Vulnerability caps at 110%. The effect is removed when <color=#FFFFFF>Ether Veil: Verdict</color> ends.",
+     "When another character in your squad is a <color=#FFFFFF>Support</color> or <color=#FFFFFF>Defense</color> character:\nWhen a squadmate activates any <color=#FFFFFF>Ether Veil</color>, gain 3 points of <color=#FFFFFF>Qingming Sword Force</color>. If already in the <color=#FFFFFF>Enlightened Mind</color> state, this is instead converted into 3 stacks of <color=#FFFFFF>Bearer</color>."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1431505": {
+    "level": 5,
+    "id": 1431505,
+    "name": [
+     "Core Passive: Burning Clarity",
+     "Additional Ability: Shadowtrace Flight"
+    ],
+    "desc": [
+     "When not in the <color=#FFFFFF>Enlightened Mind</color> state and with fewer than 6 points of Qingming Sword Force, certain attacks slowly build <color=#FFFFFF>Qingming Sword Force</color>. Whenever <color=#FFFFFF>Qingming Sword Force</color> is gained by any means, each 1 point of <color=#FFFFFF>Qingming Sword Force</color> that exceeds the limit is converted into 1 stack of <color=#FFFFFF>Bearer</color>, stacking up to 3 times. Upon leaving the <color=#FFFFFF>Enlightened Mind</color> state, all <color=#FFFFFF>Bearer</color> stacks are consumed to grant the same number of <color=#FFFFFF>Qingming Sword Force</color> stacks.\nUpon entering the battlefield, gain <color=#FFFFFF>Unity</color>, increasing CRIT Rate by <color=#2BAD00>25%</color> and DMG by <color=#2BAD00>20%</color>.\nWhen <color=#FFFFFF>Ultimate: Chasing Storms</color> or <color=#FFFFFF>Entry Skill: Illuminating Darkness</color> is unleashed, Ye Shunguang enters the <color=#FFFFFF>Enlightened Mind</color> state and activates <color=#FFFFFF>Ether Veil: Verdict</color>. <color=#FFFFFF>Ether Veil: Verdict</color> has the same duration as <color=#FFFFFF>Enlightened Mind</color>. The duration lasts 16s, and the duration timer pauses while she is off-field. During the <color=#FFFFFF>Enlightened Mind</color> state, Ye Shunguang's skills are enhanced, all <color=#F0D12B>Physical DMG</color> dealt by her skills becomes <color=#F0D12B>Honed Edge DMG</color>.\nWhile <color=#FFFFFF>Ether Veil: Verdict</color> is active, when an enemy enters <color=#FFFFFF>Ether Veil: Verdict</color>, they gain a Veil Vulnerability effect based on their current Stun DMG Multiplier. During this, when Ye Shunguang deals DMG to enemies with her skills, enemy Stun DMG Multiplier is ignored and replaced with the Veil Vulnerability bonus. Veil Vulnerability caps at 110%. The effect is removed when <color=#FFFFFF>Ether Veil: Verdict</color> ends.",
+     "When another character in your squad is a <color=#FFFFFF>Support</color> or <color=#FFFFFF>Defense</color> character:\nWhen a squadmate activates any <color=#FFFFFF>Ether Veil</color>, gain 3 points of <color=#FFFFFF>Qingming Sword Force</color>. If already in the <color=#FFFFFF>Enlightened Mind</color> state, this is instead converted into 3 stacks of <color=#FFFFFF>Bearer</color>."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1431506": {
+    "level": 6,
+    "id": 1431506,
+    "name": [
+     "Core Passive: Burning Clarity",
+     "Additional Ability: Shadowtrace Flight"
+    ],
+    "desc": [
+     "When not in the <color=#FFFFFF>Enlightened Mind</color> state and with fewer than 6 points of Qingming Sword Force, certain attacks slowly build <color=#FFFFFF>Qingming Sword Force</color>. Whenever <color=#FFFFFF>Qingming Sword Force</color> is gained by any means, each 1 point of <color=#FFFFFF>Qingming Sword Force</color> that exceeds the limit is converted into 1 stack of <color=#FFFFFF>Bearer</color>, stacking up to 3 times. Upon leaving the <color=#FFFFFF>Enlightened Mind</color> state, all <color=#FFFFFF>Bearer</color> stacks are consumed to grant the same number of <color=#FFFFFF>Qingming Sword Force</color> stacks.\nUpon entering the battlefield, gain <color=#FFFFFF>Unity</color>, increasing CRIT Rate by <color=#2BAD00>27.5%</color> and DMG by <color=#2BAD00>22.5%</color>.\nWhen <color=#FFFFFF>Ultimate: Chasing Storms</color> or <color=#FFFFFF>Entry Skill: Illuminating Darkness</color> is unleashed, Ye Shunguang enters the <color=#FFFFFF>Enlightened Mind</color> state and activates <color=#FFFFFF>Ether Veil: Verdict</color>. <color=#FFFFFF>Ether Veil: Verdict</color> has the same duration as <color=#FFFFFF>Enlightened Mind</color>. The duration lasts 16s, and the duration timer pauses while she is off-field. During the <color=#FFFFFF>Enlightened Mind</color> state, Ye Shunguang's skills are enhanced, all <color=#F0D12B>Physical DMG</color> dealt by her skills becomes <color=#F0D12B>Honed Edge DMG</color>.\nWhile <color=#FFFFFF>Ether Veil: Verdict</color> is active, when an enemy enters <color=#FFFFFF>Ether Veil: Verdict</color>, they gain a Veil Vulnerability effect based on their current Stun DMG Multiplier. During this, when Ye Shunguang deals DMG to enemies with her skills, enemy Stun DMG Multiplier is ignored and replaced with the Veil Vulnerability bonus. Veil Vulnerability caps at 110%. The effect is removed when <color=#FFFFFF>Ether Veil: Verdict</color> ends.",
+     "When another character in your squad is a <color=#FFFFFF>Support</color> or <color=#FFFFFF>Defense</color> character:\nWhen a squadmate activates any <color=#FFFFFF>Ether Veil</color>, gain 3 points of <color=#FFFFFF>Qingming Sword Force</color>. If already in the <color=#FFFFFF>Enlightened Mind</color> state, this is instead converted into 3 stacks of <color=#FFFFFF>Bearer</color>."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1431507": {
+    "level": 7,
+    "id": 1431507,
+    "name": [
+     "Core Passive: Burning Clarity",
+     "Additional Ability: Shadowtrace Flight"
+    ],
+    "desc": [
+     "When not in the <color=#FFFFFF>Enlightened Mind</color> state and with fewer than 6 points of Qingming Sword Force, certain attacks slowly build <color=#FFFFFF>Qingming Sword Force</color>. Whenever <color=#FFFFFF>Qingming Sword Force</color> is gained by any means, each 1 point of <color=#FFFFFF>Qingming Sword Force</color> that exceeds the limit is converted into 1 stack of <color=#FFFFFF>Bearer</color>, stacking up to 3 times. Upon leaving the <color=#FFFFFF>Enlightened Mind</color> state, all <color=#FFFFFF>Bearer</color> stacks are consumed to grant the same number of <color=#FFFFFF>Qingming Sword Force</color> stacks.\nUpon entering the battlefield, gain <color=#FFFFFF>Unity</color>, increasing CRIT Rate by <color=#2BAD00>30%</color> and DMG by <color=#2BAD00>25%</color>.\nWhen <color=#FFFFFF>Ultimate: Chasing Storms</color> or <color=#FFFFFF>Entry Skill: Illuminating Darkness</color> is unleashed, Ye Shunguang enters the <color=#FFFFFF>Enlightened Mind</color> state and activates <color=#FFFFFF>Ether Veil: Verdict</color>. <color=#FFFFFF>Ether Veil: Verdict</color> has the same duration as <color=#FFFFFF>Enlightened Mind</color>. The duration lasts 16s, and the duration timer pauses while she is off-field. During the <color=#FFFFFF>Enlightened Mind</color> state, Ye Shunguang's skills are enhanced, all <color=#F0D12B>Physical DMG</color> dealt by her skills becomes <color=#F0D12B>Honed Edge DMG</color>.\nWhile <color=#FFFFFF>Ether Veil: Verdict</color> is active, when an enemy enters <color=#FFFFFF>Ether Veil: Verdict</color>, they gain a Veil Vulnerability effect based on their current Stun DMG Multiplier. During this, when Ye Shunguang deals DMG to enemies with her skills, enemy Stun DMG Multiplier is ignored and replaced with the Veil Vulnerability bonus. Veil Vulnerability caps at 110%. The effect is removed when <color=#FFFFFF>Ether Veil: Verdict</color> ends.",
+     "When another character in your squad is a <color=#FFFFFF>Support</color> or <color=#FFFFFF>Defense</color> character:\nWhen a squadmate activates any <color=#FFFFFF>Ether Veil</color>, gain 3 points of <color=#FFFFFF>Qingming Sword Force</color>. If already in the <color=#FFFFFF>Enlightened Mind</color> state, this is instead converted into 3 stacks of <color=#FFFFFF>Bearer</color>."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110513": 2
+   },
+   "3": {
+    "10": 28000,
+    "110513": 4
+   },
+   "4": {
+    "10": 60000,
+    "110008": 2,
+    "110513": 9
+   },
+   "5": {
+    "10": 100000,
+    "110008": 3,
+    "110513": 15
+   },
+   "6": {
+    "10": 200000,
+    "110008": 4,
+    "110513": 30
+   }
+  }
+ },
+ "skin": {
+  "3114310": {
+   "name": "Ye Shunguang: Clouddrift Illumination",
+   "desc": "Cloud-woven silk, a blade's gleam reflected in its folds. The attire mirrors the person.\nBut who truly chose this dress? Was it her... or the deeper self within?",
+   "obtain_desc": "",
+   "image": "IconRole55"
+  },
+  "3114311": {
+   "name": "Ye Shunguang: Touch of Dawnlight",
+   "desc": "The gentle glow of sunlight and warm breeze seem to welcome your next encounter as you walk down the streets.",
+   "obtain_desc": "",
+   "image": "IconRole55_01"
+  }
+ },
+ "special_element_type": {
+  "id": 200,
+  "name": "Honed Edge",
+  "title": "Honed Edge",
+  "desc": "The <color=#F0D12B>Honed Edge</color> attribute calculates damage and buff effects based on the <color=#F0D12B>Physical attribute</color>. Miasma purification rate is increased by 50%. Dealing <color=#F0D12B>Honed Edge DMG</color> to enemies accumulates <color=#F0D12B>Honed Edge Anomaly Buildup</color>, which triggers the <color=#F0D12B>Assault</color> and <color=#F0D12B>Flinch</color> effects.\n<color=#F0D12B>Assault</color> interrupts the enemy and deals massive <color=#F0D12B>Physical DMG</color>. <color=#F0D12B>Flinch</color> increases the Daze the target takes for a period of time.",
+  "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconHonedEdge.png"
+ },
+ "skill_list": {
+  "1431001": {
+   "name": "Basic Attack: Swiftedge",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431002": {
+   "name": "Basic Attack: Cloudstream Sword Will",
+   "desc": "<IconMap:Icon_Normal> (Hold)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431003": {
+   "name": "Basic Attack: Enlightened Mind - Splitting Currents",
+   "desc": "<IconMap:Icon_Normal> (Enlightened Mind)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431004": {
+   "name": "Basic Attack: Enlightened Mind - Skyward Ascent",
+   "desc": "<IconMap:Icon_Normal> ; <IconMap:Icon_Normal> ; <IconMap:Icon_Normal> (Enlightened Mind) (With at least 1 point of Qingming Sword Force)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431005": {
+   "name": "Basic Attack: Enlightened Mind - Sunderlight",
+   "desc": "<IconMap:Icon_Normal> (Enlightened Mind) (Airborne)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431006": {
+   "name": "Basic Attack: Enlightened Mind - Sunderlight Annihilation",
+   "desc": "<IconMap:Icon_Normal> ; <IconMap:Icon_Normal> ; <IconMap:Icon_Normal> (Enlightened Mind) (Airborne)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431007": {
+   "name": "Basic Attack: Enlightened Mind - Sunderlight Maximum",
+   "desc": "<IconMap:Icon_Normal> (After Basic Attack: Enlightened Mind - Sunderlight Annihilation) (With at least 1 point of Qingming Sword Force)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431008": {
+   "name": "Special Attack: Guiding Tides",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431009": {
+   "name": "EX Special Attack: Gale Suppression",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431010": {
+   "name": "Special Attack: Enlightened Mind - Clean Exit",
+   "desc": "<IconMap:Icon_SpecialReady> (Enlightened Mind)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431011": {
+   "name": "EX Special Attack: Enlightened Mind - Soaring Light",
+   "desc": "<IconMap:Icon_SpecialReady> (Hold) (With at least 1 point of Qingming Sword Force)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431012": {
+   "name": "EX Special Attack: Enlightened Mind - Return to Dust",
+   "desc": "<IconMap:Icon_SpecialReady> (Qingming Sword Force completely depleted) (Hold)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431013": {
+   "name": "Dodge Counter: Swallow Strike",
+   "desc": "<IconMap:Icon_Evade> (Perfect) ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431014": {
+   "name": "Dash Attack: Phantasm Dash",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431015": {
+   "name": "Chain Attack: Smite the Wicked",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431016": {
+   "name": "Chain Attack: Enlightened Mind - Lure Thunder",
+   "desc": "<IconMap:Icon_QTE> (Enlightened Mind)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431017": {
+   "name": "Ultimate: Chasing Storms",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431018": {
+   "name": "Ultimate: Cleaving Heavens",
+   "desc": "<IconMap:Icon_UltimateReady> (Enlightened Mind)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431019": {
+   "name": "Entry Skill: Illuminating Darkness",
+   "desc": "<IconMap:Icon_Normal> (Hold) (With full Qingming Sword Force)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431020": {
+   "name": "Quick Assist: Support Guard",
+   "desc": "<IconMap:Icon_Switch> (When Triggering Quick Assist)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431021": {
+   "name": "Quick Assist: Enlightened Mind - Tactical Support",
+   "desc": "<IconMap:Icon_Switch> (Enlightened Mind) (When Triggering Quick Assist)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431022": {
+   "name": "Defensive Assist: When I Return",
+   "desc": "<IconMap:Icon_Switch> (When Triggering Defensive Assist)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1431023": {
+   "name": "Assist Follow-Up: Cease Hostility",
+   "desc": "<IconMap:Icon_Normal> (After Defensive Assist)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1431024": {
+   "name": "Assist Follow-Up: Enlightened Mind - Unification",
+   "desc": "<IconMap:Icon_Normal> (Enlightened Mind) (After Defensive Assist)",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1431001,
+   "avatar_id": 1431,
+   "first_priority": [
+    5,
+    0
+   ],
+   "second_priority": [
+    1,
+    3,
+    6
+   ],
+   "third_priority": [
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33500,
+  "slot2": 32700,
+  "slot_sub": 31000,
+  "part_sub_list": [
+   21103,
+   20103,
+   12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33500,
+     32700
+    ],
+    "part_sub_list": [
+     21103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31503,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 21103,
+   "name": "CRIT DMG",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  },
+  "part5": {
+   "prop": 31503,
+   "name": "Physical DMG Bonus",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconPhysDmg.png"
+  },
+  "part6": {
+   "prop": 12102,
+   "name": "ATK",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  },
+  "part_sub": {
+   "prop": 20103,
+   "name": "CRIT Rate",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  }
+ },
+ "strategy": [
+  "01",
+  "Dual-form combat with strategic, skill-based gameplay",
+  "<IconMap:Icon_GeneralBuff_HonedEdge>Honed Edge, on-field DMG dealer",
+  "Builds up Qingming Sword Force to become enhanced",
+  "Gains exclusive Vulnerability effects under Ether Veil"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100211": 4
+   }
+  },
+  "2": {
+   "hp_max": 423,
+   "attack": 48,
+   "defence": 33,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100221": 12
+   }
+  },
+  "3": {
+   "hp_max": 847,
+   "attack": 96,
+   "defence": 67,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100221": 20
+   }
+  },
+  "4": {
+   "hp_max": 1270,
+   "attack": 145,
+   "defence": 100,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100231": 10
+   }
+  },
+  "5": {
+   "hp_max": 1694,
+   "attack": 193,
+   "defence": 134,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100231": 20
+   }
+  },
+  "6": {
+   "hp_max": 2117,
+   "attack": 241,
+   "defence": 167,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "Base ATK",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpine_Yeshunguang"
+}

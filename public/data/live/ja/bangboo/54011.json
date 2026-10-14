@@ -1,0 +1,448 @@
+{
+ "id": 54011,
+ "code_name": "Red Moccus",
+ "name": "真紅のモックス",
+ "desc": "郊外のオフロードで待ってるぜ！",
+ "rarity": 4,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole26.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 396,
+  "hpupgrade": 471237,
+  "attack": 72,
+  "attack_upgrade": 360408,
+  "break_stun": 103,
+  "element_abnormal_power": 110,
+  "defence": 28,
+  "def_upgrade": 78871,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 207,
+   "attack": 67,
+   "defence": 35,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 414,
+   "attack": 333,
+   "defence": 69,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 621,
+   "attack": 1000,
+   "defence": 104,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 828,
+   "attack": 2666,
+   "defence": 139,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 1034,
+   "attack": 6665,
+   "defence": 173,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "ヘッジホッグ・ホイール",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動するとバイクに乗って一番遠くにいる敵をエージェントのもとに押し寄せて、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5401101, Prop:1001}|{Skill:5401101, Prop:1002}|30秒"
+    },
+    "2": {
+     "name": "ヘッジホッグ・ホイール",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動するとバイクに乗って一番遠くにいる敵をエージェントのもとに押し寄せて、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5401101, Prop:1001}|{Skill:5401101, Prop:1002}|30秒"
+    },
+    "3": {
+     "name": "ヘッジホッグ・ホイール",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動するとバイクに乗って一番遠くにいる敵をエージェントのもとに押し寄せて、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5401101, Prop:1001}|{Skill:5401101, Prop:1002}|30秒"
+    },
+    "4": {
+     "name": "ヘッジホッグ・ホイール",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動するとバイクに乗って一番遠くにいる敵をエージェントのもとに押し寄せて、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5401101, Prop:1001}|{Skill:5401101, Prop:1002}|30秒"
+    },
+    "5": {
+     "name": "ヘッジホッグ・ホイール",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動するとバイクに乗って一番遠くにいる敵をエージェントのもとに押し寄せて、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5401101, Prop:1001}|{Skill:5401101, Prop:1002}|30秒"
+    },
+    "6": {
+     "name": "ヘッジホッグ・ホイール",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動するとバイクに乗って一番遠くにいる敵をエージェントのもとに押し寄せて、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5401101, Prop:1001}|{Skill:5401101, Prop:1002}|30秒"
+    },
+    "7": {
+     "name": "ヘッジホッグ・ホイール",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動するとバイクに乗って一番遠くにいる敵をエージェントのもとに押し寄せて、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5401101, Prop:1001}|{Skill:5401101, Prop:1002}|30秒"
+    },
+    "8": {
+     "name": "ヘッジホッグ・ホイール",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動するとバイクに乗って一番遠くにいる敵をエージェントのもとに押し寄せて、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5401101, Prop:1001}|{Skill:5401101, Prop:1002}|30秒"
+    },
+    "9": {
+     "name": "ヘッジホッグ・ホイール",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動するとバイクに乗って一番遠くにいる敵をエージェントのもとに押し寄せて、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5401101, Prop:1001}|{Skill:5401101, Prop:1002}|30秒"
+    },
+    "10": {
+     "name": "ヘッジホッグ・ホイール",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動するとバイクに乗って一番遠くにいる敵をエージェントのもとに押し寄せて、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5401101, Prop:1001}|{Skill:5401101, Prop:1002}|30秒"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "ドリフトテクニック",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[カリュドーンの子]</color>のメンバーが2名以上いる時に発動：<color=#FFFFFF>『アクティブスキル』</color>の与ダメージ+36%。<color=#FFFFFF>『アクティブスキル』</color>が敵にダメージを与えた後、ターゲットが撃破された時、スキルのクールタイムが4秒短縮される。",
+     "property": [
+      "ダメージアップ",
+      "クールタイム短縮"
+     ],
+     "param": "36%|4秒"
+    },
+    "2": {
+     "name": "ドリフトテクニック",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[カリュドーンの子]</color>のメンバーが2名以上いる時に発動：<color=#FFFFFF>『アクティブスキル』</color>の与ダメージ+45%。<color=#FFFFFF>『アクティブスキル』</color>が敵にダメージを与えた後、ターゲットが撃破された時、スキルのクールタイムが5秒短縮される。",
+     "property": [
+      "ダメージアップ",
+      "クールタイム短縮"
+     ],
+     "param": "45%|5秒"
+    },
+    "3": {
+     "name": "ドリフトテクニック",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[カリュドーンの子]</color>のメンバーが2名以上いる時に発動：<color=#FFFFFF>『アクティブスキル』</color>の与ダメージ+54%。<color=#FFFFFF>『アクティブスキル』</color>が敵にダメージを与えた後、ターゲットが撃破された時、スキルのクールタイムが6秒短縮される。",
+     "property": [
+      "ダメージアップ",
+      "クールタイム短縮"
+     ],
+     "param": "54%|6秒"
+    },
+    "4": {
+     "name": "ドリフトテクニック",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[カリュドーンの子]</color>のメンバーが2名以上いる時に発動：<color=#FFFFFF>『アクティブスキル』</color>の与ダメージ+63%。<color=#FFFFFF>『アクティブスキル』</color>が敵にダメージを与えた後、ターゲットが撃破された時、スキルのクールタイムが7秒短縮される。",
+     "property": [
+      "ダメージアップ",
+      "クールタイム短縮"
+     ],
+     "param": "63%|7秒"
+    },
+    "5": {
+     "name": "ドリフトテクニック",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[カリュドーンの子]</color>のメンバーが2名以上いる時に発動：<color=#FFFFFF>『アクティブスキル』</color>の与ダメージ+72%。<color=#FFFFFF>『アクティブスキル』</color>が敵にダメージを与えた後、ターゲットが撃破された時、スキルのクールタイムが8秒短縮される。",
+     "property": [
+      "ダメージアップ",
+      "クールタイム短縮"
+     ],
+     "param": "72%|8秒"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "マッド・チャージ",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\nバイクで敵に突進すると爆発を起こして、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401102, Prop:1001}|{Skill:5401102, Prop:1002}"
+    },
+    "2": {
+     "name": "マッド・チャージ",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\nバイクで敵に突進すると爆発を起こして、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401102, Prop:1001}|{Skill:5401102, Prop:1002}"
+    },
+    "3": {
+     "name": "マッド・チャージ",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\nバイクで敵に突進すると爆発を起こして、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401102, Prop:1001}|{Skill:5401102, Prop:1002}"
+    },
+    "4": {
+     "name": "マッド・チャージ",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\nバイクで敵に突進すると爆発を起こして、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401102, Prop:1001}|{Skill:5401102, Prop:1002}"
+    },
+    "5": {
+     "name": "マッド・チャージ",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\nバイクで敵に突進すると爆発を起こして、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401102, Prop:1001}|{Skill:5401102, Prop:1002}"
+    },
+    "6": {
+     "name": "マッド・チャージ",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\nバイクで敵に突進すると爆発を起こして、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401102, Prop:1001}|{Skill:5401102, Prop:1002}"
+    },
+    "7": {
+     "name": "マッド・チャージ",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\nバイクで敵に突進すると爆発を起こして、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401102, Prop:1001}|{Skill:5401102, Prop:1002}"
+    },
+    "8": {
+     "name": "マッド・チャージ",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\nバイクで敵に突進すると爆発を起こして、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401102, Prop:1001}|{Skill:5401102, Prop:1002}"
+    },
+    "9": {
+     "name": "マッド・チャージ",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\nバイクで敵に突進すると爆発を起こして、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401102, Prop:1001}|{Skill:5401102, Prop:1002}"
+    },
+    "10": {
+     "name": "マッド・チャージ",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\nバイクで敵に突進すると爆発を起こして、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401102, Prop:1001}|{Skill:5401102, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5401101": {
+   "1001": {
+    "main": 96000,
+    "growth": 9600,
+    "format": "%"
+   },
+   "1002": {
+    "main": 35100,
+    "growth": 3510,
+    "format": "%"
+   },
+   "element_accumulation_value": 45000
+  },
+  "5401102": {
+   "1001": {
+    "main": 75300,
+    "growth": 7530,
+    "format": "%"
+   },
+   "1002": {
+    "main": 10800,
+    "growth": 1080,
+    "format": "%"
+   },
+   "element_accumulation_value": 32300
+  }
+ }
+}

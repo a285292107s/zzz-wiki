@@ -1,0 +1,448 @@
+{
+ "id": 54019,
+ "code_name": "Mercury",
+ "name": "Mercury",
+ "desc": "A Bangboo uninterested in military merits is not a good soldier.",
+ "rarity": 4,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole38.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 396,
+  "hpupgrade": 471237,
+  "attack": 72,
+  "attack_upgrade": 360408,
+  "break_stun": 103,
+  "element_abnormal_power": 110,
+  "defence": 28,
+  "def_upgrade": 78871,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 207,
+   "attack": 67,
+   "defence": 35,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 414,
+   "attack": 333,
+   "defence": 69,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 621,
+   "attack": 1000,
+   "defence": 104,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 828,
+   "attack": 2666,
+   "defence": 139,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 1034,
+   "attack": 6665,
+   "defence": 173,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "Tactical Strategy I: Frontline Suppression",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nMercury summons a vehicle and drives it, unleashing continuous flames at enemies to deal massive <color=#FF5521>Fire DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5401901, Prop:1001}|{Skill:5401901, Prop:1002}|25s"
+    },
+    "2": {
+     "name": "Tactical Strategy I: Frontline Suppression",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nMercury summons a vehicle and drives it, unleashing continuous flames at enemies to deal massive <color=#FF5521>Fire DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5401901, Prop:1001}|{Skill:5401901, Prop:1002}|25s"
+    },
+    "3": {
+     "name": "Tactical Strategy I: Frontline Suppression",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nMercury summons a vehicle and drives it, unleashing continuous flames at enemies to deal massive <color=#FF5521>Fire DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5401901, Prop:1001}|{Skill:5401901, Prop:1002}|25s"
+    },
+    "4": {
+     "name": "Tactical Strategy I: Frontline Suppression",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nMercury summons a vehicle and drives it, unleashing continuous flames at enemies to deal massive <color=#FF5521>Fire DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5401901, Prop:1001}|{Skill:5401901, Prop:1002}|25s"
+    },
+    "5": {
+     "name": "Tactical Strategy I: Frontline Suppression",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nMercury summons a vehicle and drives it, unleashing continuous flames at enemies to deal massive <color=#FF5521>Fire DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5401901, Prop:1001}|{Skill:5401901, Prop:1002}|25s"
+    },
+    "6": {
+     "name": "Tactical Strategy I: Frontline Suppression",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nMercury summons a vehicle and drives it, unleashing continuous flames at enemies to deal massive <color=#FF5521>Fire DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5401901, Prop:1001}|{Skill:5401901, Prop:1002}|25s"
+    },
+    "7": {
+     "name": "Tactical Strategy I: Frontline Suppression",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nMercury summons a vehicle and drives it, unleashing continuous flames at enemies to deal massive <color=#FF5521>Fire DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5401901, Prop:1001}|{Skill:5401901, Prop:1002}|25s"
+    },
+    "8": {
+     "name": "Tactical Strategy I: Frontline Suppression",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nMercury summons a vehicle and drives it, unleashing continuous flames at enemies to deal massive <color=#FF5521>Fire DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5401901, Prop:1001}|{Skill:5401901, Prop:1002}|25s"
+    },
+    "9": {
+     "name": "Tactical Strategy I: Frontline Suppression",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nMercury summons a vehicle and drives it, unleashing continuous flames at enemies to deal massive <color=#FF5521>Fire DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5401901, Prop:1001}|{Skill:5401901, Prop:1002}|25s"
+    },
+    "10": {
+     "name": "Tactical Strategy I: Frontline Suppression",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nMercury summons a vehicle and drives it, unleashing continuous flames at enemies to deal massive <color=#FF5521>Fire DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5401901, Prop:1001}|{Skill:5401901, Prop:1002}|25s"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "Tactical Strategy II: Combat Synergy",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#FFFFFF>Defense Force</color> characters in your squad: When an Agent deals <color=#FFFFFF>Aftershock</color> DMG, Mercury's next <color=#FFFFFF>Active Skill</color> gains 22.5% increased DMG. Can stack once every 5s, up to 2 stacks.",
+     "property": [
+      "Required Defense Force Characters",
+      "DMG Increase"
+     ],
+     "param": "2|22.5%"
+    },
+    "2": {
+     "name": "Tactical Strategy II: Combat Synergy",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#FFFFFF>Defense Force</color> characters in your squad: When an Agent deals <color=#FFFFFF>Aftershock</color> DMG, Mercury's next <color=#FFFFFF>Active Skill</color> gains 28.1% increased DMG. Can stack once every 5s, up to 2 stacks.",
+     "property": [
+      "Required Defense Force Characters",
+      "DMG Increase"
+     ],
+     "param": "2|28.1%"
+    },
+    "3": {
+     "name": "Tactical Strategy II: Combat Synergy",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 1 <color=#FFFFFF>Defense Force</color> characters in your squad: When an Agent deals <color=#FFFFFF>Aftershock</color> DMG, Mercury's next <color=#FFFFFF>Active Skill</color> gains 33.7% increased DMG. Can stack once every 5s, up to 2 stacks.",
+     "property": [
+      "Required Defense Force Characters",
+      "DMG Increase"
+     ],
+     "param": "1|33.7%"
+    },
+    "4": {
+     "name": "Tactical Strategy II: Combat Synergy",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 1 <color=#FFFFFF>Defense Force</color> characters in your squad: When an Agent deals <color=#FFFFFF>Aftershock</color> DMG, Mercury's next <color=#FFFFFF>Active Skill</color> gains 39.3% increased DMG. Can stack once every 5s, up to 2 stacks.",
+     "property": [
+      "Required Defense Force Characters",
+      "DMG Increase"
+     ],
+     "param": "1|39.3%"
+    },
+    "5": {
+     "name": "Tactical Strategy II: Combat Synergy",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 1 <color=#FFFFFF>Defense Force</color> characters in your squad: When an Agent deals <color=#FFFFFF>Aftershock</color> DMG, Mercury's next <color=#FFFFFF>Active Skill</color> gains 45% increased DMG. Can stack once every 5s, up to 2 stacks.",
+     "property": [
+      "Required Defense Force Characters",
+      "DMG Increase"
+     ],
+     "param": "1|45%"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "Tactical Strategy III: Explosive Ambush",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nLoads itself into the vehicle as ammunition and fires at enemies, detonating on impact and dealing massive <color=#FF5521>Fire DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401902, Prop:1001}|{Skill:5401902, Prop:1002}"
+    },
+    "2": {
+     "name": "Tactical Strategy III: Explosive Ambush",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nLoads itself into the vehicle as ammunition and fires at enemies, detonating on impact and dealing massive <color=#FF5521>Fire DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401902, Prop:1001}|{Skill:5401902, Prop:1002}"
+    },
+    "3": {
+     "name": "Tactical Strategy III: Explosive Ambush",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nLoads itself into the vehicle as ammunition and fires at enemies, detonating on impact and dealing massive <color=#FF5521>Fire DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401902, Prop:1001}|{Skill:5401902, Prop:1002}"
+    },
+    "4": {
+     "name": "Tactical Strategy III: Explosive Ambush",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nLoads itself into the vehicle as ammunition and fires at enemies, detonating on impact and dealing massive <color=#FF5521>Fire DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401902, Prop:1001}|{Skill:5401902, Prop:1002}"
+    },
+    "5": {
+     "name": "Tactical Strategy III: Explosive Ambush",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nLoads itself into the vehicle as ammunition and fires at enemies, detonating on impact and dealing massive <color=#FF5521>Fire DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401902, Prop:1001}|{Skill:5401902, Prop:1002}"
+    },
+    "6": {
+     "name": "Tactical Strategy III: Explosive Ambush",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nLoads itself into the vehicle as ammunition and fires at enemies, detonating on impact and dealing massive <color=#FF5521>Fire DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401902, Prop:1001}|{Skill:5401902, Prop:1002}"
+    },
+    "7": {
+     "name": "Tactical Strategy III: Explosive Ambush",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nLoads itself into the vehicle as ammunition and fires at enemies, detonating on impact and dealing massive <color=#FF5521>Fire DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401902, Prop:1001}|{Skill:5401902, Prop:1002}"
+    },
+    "8": {
+     "name": "Tactical Strategy III: Explosive Ambush",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nLoads itself into the vehicle as ammunition and fires at enemies, detonating on impact and dealing massive <color=#FF5521>Fire DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401902, Prop:1001}|{Skill:5401902, Prop:1002}"
+    },
+    "9": {
+     "name": "Tactical Strategy III: Explosive Ambush",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nLoads itself into the vehicle as ammunition and fires at enemies, detonating on impact and dealing massive <color=#FF5521>Fire DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401902, Prop:1001}|{Skill:5401902, Prop:1002}"
+    },
+    "10": {
+     "name": "Tactical Strategy III: Explosive Ambush",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nLoads itself into the vehicle as ammunition and fires at enemies, detonating on impact and dealing massive <color=#FF5521>Fire DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401902, Prop:1001}|{Skill:5401902, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5401901": {
+   "1001": {
+    "main": 80000,
+    "growth": 8000,
+    "format": "%"
+   },
+   "1002": {
+    "main": 29300,
+    "growth": 2930,
+    "format": "%"
+   },
+   "element_accumulation_value": 37500
+  },
+  "5401902": {
+   "1001": {
+    "main": 84600,
+    "growth": 8460,
+    "format": "%"
+   },
+   "1002": {
+    "main": 12100,
+    "growth": 1210,
+    "format": "%"
+   },
+   "element_accumulation_value": 36300
+  }
+ }
+}

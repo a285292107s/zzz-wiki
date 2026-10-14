@@ -16,15 +16,16 @@ import { ELEMENTS, HIT_TYPES, PROFESSIONS } from '../../src/domain/enums'
 export const basename = (p: string | null | undefined): string =>
   (p || '').split('/').pop()?.replace(/\.(png|webp)$/i, '') ?? ''
 
-/** 属性/职业/攻击方式 → 英文名（由 domain/enums 生成） */
+/** 属性/职业/攻击方式 → 英文名（由 domain/enums 的多语标签的 en 项生成——
+ *  标签是四语 `Loc`，英文值必须取 `.label.en`） */
 export const ELEMENT_EN: Record<string, string> = Object.fromEntries(
-  Object.entries(ELEMENTS).map(([k, v]) => [k as string, v.en]),
+  Object.entries(ELEMENTS).map(([k, v]) => [k as string, v.label.en]),
 )
 export const SPECIALTY_EN: Record<string, string> = Object.fromEntries(
-  Object.entries(PROFESSIONS).map(([k, v]) => [k as string, v.en]),
+  Object.entries(PROFESSIONS).map(([k, v]) => [k as string, v.label.en]),
 )
 export const HIT_EN: Record<string, string> = Object.fromEntries(
-  Object.entries(HIT_TYPES).map(([k, v]) => [k as string, v.en]),
+  Object.entries(HIT_TYPES).map(([k, v]) => [k as string, v.label.en]),
 )
 
 /** nanoka 素材 CDN 已知缺口：这些皮肤的美术图未上传（实测 404），回退默认立绘避免死链。 */

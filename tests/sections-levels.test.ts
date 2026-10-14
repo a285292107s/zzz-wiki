@@ -1,16 +1,25 @@
 import { describe, expect, it } from 'vitest'
+
+import type { Lang } from '../src/domain/lang'
+
+/* 本文件的历史断言按**中文**口径写（文案四语化后，语言需显式传入）：
+ * 下面把 domain 函数包一层同名壳固定传 'zh'，断言因此逐字不变；
+ * 四语齐全与各语言文案由 tests/sections-constants.test.ts 与 tests/ui-text.test.ts 守。 */
+const bangbooStatsAtLevel = (arg0: Parameters<typeof bangbooStatsAtLevelLang>[0], arg1: Parameters<typeof bangbooStatsAtLevelLang>[1], arg2: Parameters<typeof bangbooStatsAtLevelLang>[2]) => bangbooStatsAtLevelLang(arg0, arg1, arg2, 'zh' as Lang)
+const characterStatsAtLevel = (arg0: Parameters<typeof characterStatsAtLevelLang>[0], arg1: Parameters<typeof characterStatsAtLevelLang>[1], arg2: Parameters<typeof characterStatsAtLevelLang>[2]) => characterStatsAtLevelLang(arg0, arg1, arg2, 'zh' as Lang)
+const wEnginePropsAtLevel = (arg0: Parameters<typeof wEnginePropsAtLevelLang>[0], arg1: Parameters<typeof wEnginePropsAtLevelLang>[1], arg2: Parameters<typeof wEnginePropsAtLevelLang>[2], arg3: Parameters<typeof wEnginePropsAtLevelLang>[3]) => wEnginePropsAtLevelLang(arg0, arg1, arg2, arg3, 'zh' as Lang)
 import {
   bangbooBreakCount,
-  bangbooStatsAtLevel,
+  bangbooStatsAtLevel as bangbooStatsAtLevelLang,
   buildCoreEnhance,
   charBreakSegment,
-  characterStatsAtLevel,
+  characterStatsAtLevel as characterStatsAtLevelLang,
   coreEnhanceTotal,
   formatCoreEnhance,
   statAtLevel,
   wEngineBreakCount,
   wEngineMainAt,
-  wEnginePropsAtLevel,
+  wEnginePropsAtLevel as wEnginePropsAtLevelLang,
   wEngineRandAt
 } from '../src/domain/sections'
 

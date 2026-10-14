@@ -1,0 +1,2472 @@
+{
+ "id": 1371,
+ "icon": "IconRole44",
+ "name": "Yixuan",
+ "code_name": "YiXuan",
+ "rarity": 4,
+ "weapon_type": {
+  "6": "Rupture"
+ },
+ "element_type": {
+  "205": "Ether"
+ },
+ "hit_type": {
+  "102": "Strike"
+ },
+ "camp": {
+  "10": "Yunkui Summit"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "DEC 3",
+  "full_name": "Yixuan",
+  "gender": "Female",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle44.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0044.png",
+  "impression_f": "Shifu always seems quite laid-back, as if she doesn't have any strong attachments or opinions. Perhaps, through her travels and divinations, she's seen too many people's joys, sorrows, and struggles, and fate has taken its toll on her.",
+  "impression_m": "Since Shifu can do divinations and tell fortunes, many things must no longer surprise her. Every change can be predicted with precision. Perhaps that's why she remains so calm and indifferent, with no desires or demands.",
+  "impressions": [
+   "Impressions of Yixuan:\n · With no burdens, why not just do as you please?",
+   " · All the twists and turns of fate will ultimately lead to the conclusion that was always meant to be.",
+   " · The things you hold most dear should remain deep in your heart, and you must never let your true emotions show."
+  ],
+  "profile_desc": "Yixuan is the 13th High Preceptor of Yunkui Summit and a Void Hunter-level investigator, officially recognized by Mayor Mayflower.\n\nShe was once an orphan, wandering the world with her sister from a young age. Later, the then-High Preceptor of Yunkui Summit took them in, and they became disciples, learning the craft of Yunkui Summit. During this time, Yixuan demonstrated exceptional talent. No matter the technique, she would quickly master it, not only understanding it thoroughly but also creating her own unique techniques. The Qingming Bird was one of the special techniques she and her sister developed together, which helped her eliminate enemies and banish evil spirits in various difficult and dangerous situations. After becoming the sect's High Preceptor, she accepted an invitation from Mayor Mayflower and joined the Hollow Investigative Association as a partnered special investigator.\n\nAfter becoming High Preceptor, Yixuan took in many talented disciples to continue Yunkui Summit's lineage. However, her approach is rather casual, and often, even when teaching by example, her disciples can only guess her intentions... Yet, Yixuan isn't troubled by this, as she believes there's no standard answer to the so-called \"right path.\" What matters to her is that her disciples find their own \"right path.\" Of course, if they can understand and learn on their own, that's even better. As their Shifu, she simply lets things unfold naturally.",
+  "role_icon": "IconRole/UnPacker/IconRole44",
+  "stature": "172",
+  "unlock_condition": [
+   "Obtain Agent",
+   "Complete Main Commission Season 2 Chapter 1",
+   "Complete the \"Anby's Problem\" commission"
+  ],
+  "trust_lv": {
+   "1": "Yixuan is the 13th High Preceptor of Yunkui Summit and a Void Hunter-level investigator, officially recognized by Mayor Mayflower.\n\nShe was once an orphan, wandering the world with her sister from a young age. Later, the then-High Preceptor of Yunkui Summit took them in, and they became disciples, learning the craft of Yunkui Summit. During this time, Yixuan demonstrated exceptional talent. No matter the technique, she would quickly master it, not only understanding it thoroughly but also creating her own unique techniques. The Qingming Bird was one of the special techniques she and her sister developed together, which helped her eliminate enemies and banish evil spirits in various difficult and dangerous situations. After becoming the sect's High Preceptor, she accepted an invitation from Mayor Mayflower and joined the Hollow Investigative Association as a partnered special investigator.\n\nAfter becoming High Preceptor, Yixuan took in many talented disciples to continue Yunkui Summit's lineage. However, her approach is rather casual, and often, even when teaching by example, her disciples can only guess her intentions... Yet, Yixuan isn't troubled by this, as she believes there's no standard answer to the so-called \"right path.\" What matters to her is that her disciples find their own \"right path.\" Of course, if they can understand and learn on their own, that's even better. As their Shifu, she simply lets things unfold naturally.",
+   "2": "",
+   "3": "When Yixuan was young, she loved eating char siu buns with her sister. but after the fall of the old capital, she lost all interest in them overnight and hasn't eaten them much since.\n\nThe disciples of Yunkui Summit are unaware of this, and just think their master is a bit picky.\n\nNaturally, it's best to keep this a secret. Some memories and attachments should just be left to fade away with time.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 126,
+  "attack_growth": 88572,
+  "avatar_piece_id": 5371,
+  "break_stun": 93,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 35,
+  "defence_growth": 48155,
+  "element_abnormal_power": 92,
+  "element_mystery": 90,
+  "endurance": 0,
+  "hp_growth": 842519,
+  "hp_max": 673,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 0,
+  "sp_recover": 0,
+  "stun": 0,
+  "tags": [
+   "YiXuan",
+   "Punch",
+   "Ether",
+   "Female",
+   "Camp10",
+   "Size3",
+   "AidTypeParry",
+   "YiXuan",
+   "EtherEyesSize3"
+  ],
+  "rp_max": 120,
+  "rp_recover": 200,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "Basic Attack: Cirrus Strike",
+     "desc": "Press <IconMap:Icon_Normal> to activate:\nPerform up to five attacks forward, dealing <color=#FE437E>Auric Ink DMG</color>.\nThis skill's Anti-Interrupt Level increases during the 3rd and 4th hit.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Ink‐Veil Cloud Coalescence",
+     "desc": "Hold <IconMap:Icon_Evade> to activate:\nDeploy a Grand Tai Chi Formation, dealing <color=#FE437E>Auric Ink DMG</color>.\nWhen the skill ends, automatically launch the 5th hit of Basic Attack: Cirrus Strike.\nAnti-Interrupt level is increased while using this skill, and DMG received is reduced by 40%.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Auric Array",
+     "desc": "While possessing an Auric Ink Point: tap <IconMap:Icon_Normal> during Dodge: Nimbus Step, or hold <IconMap:Icon_Evade> to activate:\nDeploy an array, continuously dealing <color=#FE437E>Auric Ink DMG</color>.\nWhen the skill ends, it automatically triggers Basic Attack: Qingming Eruption.\nWhile channeling, continuously recover Adrenaline, recovering 7/s, for up to 3s.\nCharacter is invulnerable while using this skill, and enters the Vital View state.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Qingming Eruption",
+     "desc": "Automatically activates when Basic Attack: Auric Array reaches the max duration:\nSpreads her wings to launch an explosive attack, dealing massive <color=#FE437E>Auric Ink DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Cirrus Strike",
+     "param": [
+      {
+       "name": "1st-Hit DMG Multiplier",
+       "desc": "{Skill:1371001, Prop:1001}",
+       "param": {
+        "1371001": {
+         "main": 4580,
+         "growth": 420,
+         "format": "%",
+         "damage_percentage": 4580,
+         "damage_percentage_growth": 420,
+         "stun_ratio": 2860,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 71500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2596,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 5200,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2597
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit DMG Multiplier",
+       "desc": "{Skill:1371002, Prop:1001}",
+       "param": {
+        "1371002": {
+         "main": 6550,
+         "growth": 600,
+         "format": "%",
+         "damage_percentage": 6550,
+         "damage_percentage_growth": 600,
+         "stun_ratio": 6890,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 172425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6260,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 12530,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6261
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd-Hit DMG Multiplier",
+       "desc": "{Skill:1371003, Prop:1001}",
+       "param": {
+        "1371003": {
+         "main": 8710,
+         "growth": 800,
+         "format": "%",
+         "damage_percentage": 8710,
+         "damage_percentage_growth": 800,
+         "stun_ratio": 8580,
+         "stun_ratio_growth": 390,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 214500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7791,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 15590,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7792
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4th-Hit DMG Multiplier",
+       "desc": "{Skill:1371004, Prop:1001}",
+       "param": {
+        "1371004": {
+         "main": 10480,
+         "growth": 960,
+         "format": "%",
+         "damage_percentage": 10480,
+         "damage_percentage_growth": 960,
+         "stun_ratio": 11180,
+         "stun_ratio_growth": 510,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 279400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10159,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 20320,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10160
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5th-Hit DMG Multiplier",
+       "desc": "{Skill:1371006, Prop:1001}",
+       "param": {
+        "1371006": {
+         "main": 11370,
+         "growth": 1040,
+         "format": "%",
+         "damage_percentage": 11370,
+         "damage_percentage_growth": 1040,
+         "stun_ratio": 10570,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 264275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9606,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 19220,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9607
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1st-Hit Daze Multiplier",
+       "desc": "{Skill:1371001, Prop:1002}",
+       "param": {
+        "1371001": {
+         "main": 2860,
+         "growth": 130,
+         "format": "%",
+         "damage_percentage": 4580,
+         "damage_percentage_growth": 420,
+         "stun_ratio": 2860,
+         "stun_ratio_growth": 130,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 71500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2596,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 5200,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2597
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2nd-Hit Daze Multiplier",
+       "desc": "{Skill:1371002, Prop:1002}",
+       "param": {
+        "1371002": {
+         "main": 6890,
+         "growth": 320,
+         "format": "%",
+         "damage_percentage": 6550,
+         "damage_percentage_growth": 600,
+         "stun_ratio": 6890,
+         "stun_ratio_growth": 320,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 172425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6260,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 12530,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6261
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3rd-Hit Daze Multiplier",
+       "desc": "{Skill:1371003, Prop:1002}",
+       "param": {
+        "1371003": {
+         "main": 8580,
+         "growth": 390,
+         "format": "%",
+         "damage_percentage": 8710,
+         "damage_percentage_growth": 800,
+         "stun_ratio": 8580,
+         "stun_ratio_growth": 390,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 214500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7791,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 15590,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7792
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4th-Hit Daze Multiplier",
+       "desc": "{Skill:1371004, Prop:1002}",
+       "param": {
+        "1371004": {
+         "main": 11180,
+         "growth": 510,
+         "format": "%",
+         "damage_percentage": 10480,
+         "damage_percentage_growth": 960,
+         "stun_ratio": 11180,
+         "stun_ratio_growth": 510,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 279400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10159,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 20320,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10160
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5th-Hit Daze Multiplier",
+       "desc": "{Skill:1371006, Prop:1002}",
+       "param": {
+        "1371006": {
+         "main": 10570,
+         "growth": 490,
+         "format": "%",
+         "damage_percentage": 11370,
+         "damage_percentage_growth": 1040,
+         "stun_ratio": 10570,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 264275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9606,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 19220,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9607
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Ink‐Veil Cloud Coalescence",
+     "param": [
+      {
+       "name": "Ink‐Veil Cloud Coalescence Total DMG Multiplier",
+       "desc": "{Skill:1371005, Prop:1001}",
+       "param": {
+        "1371005": {
+         "main": 23470,
+         "growth": 2140,
+         "format": "%",
+         "damage_percentage": 23470,
+         "damage_percentage_growth": 2140,
+         "stun_ratio": 29340,
+         "stun_ratio_growth": 1340,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 733700,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 26670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 53350,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Ink‐Veil Cloud Coalescence Total Daze Multiplier",
+       "desc": "{Skill:1371005, Prop:1002}",
+       "param": {
+        "1371005": {
+         "main": 29340,
+         "growth": 1340,
+         "format": "%",
+         "damage_percentage": 23470,
+         "damage_percentage_growth": 2140,
+         "stun_ratio": 29340,
+         "stun_ratio_growth": 1340,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 733700,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 26670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 53350,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26671
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Auric Array",
+     "param": [
+      {
+       "name": "Auric Array Total DMG Multiplier",
+       "desc": "{Skill:1371021, Prop:1001}",
+       "param": {
+        "1371021": {
+         "main": 30520,
+         "growth": 2780,
+         "format": "%",
+         "damage_percentage": 30520,
+         "damage_percentage_growth": 2780,
+         "stun_ratio": 29340,
+         "stun_ratio_growth": 1340,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 733700,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 26670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Auric Array Total Daze Multiplier",
+       "desc": "{Skill:1371021, Prop:1002}",
+       "param": {
+        "1371021": {
+         "main": 29340,
+         "growth": 1340,
+         "format": "%",
+         "damage_percentage": 30520,
+         "damage_percentage_growth": 2780,
+         "stun_ratio": 29340,
+         "stun_ratio_growth": 1340,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 733700,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 26670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26671
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Basic Attack: Qingming Eruption",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1371007, Prop:1001}",
+       "param": {
+        "1371007": {
+         "main": 11060,
+         "growth": 1010,
+         "format": "%",
+         "damage_percentage": 11060,
+         "damage_percentage_growth": 1010,
+         "stun_ratio": 10630,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 265925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9663,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1371007, Prop:1002}",
+       "param": {
+        "1371007": {
+         "main": 10630,
+         "growth": 490,
+         "format": "%",
+         "damage_percentage": 11060,
+         "damage_percentage_growth": 1010,
+         "stun_ratio": 10630,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 265925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9663,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "Dodge: Hidden Cloud Technique",
+     "desc": "Press <IconMap:Icon_Evade> to activate:\nA quick dash dodge.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Dash Attack: Skybreaker",
+     "desc": "Press <IconMap:Icon_Normal> during a dodge to activate:\nLaunch a forward rush attack, dealing <color=#FE437E>Auric Ink DMG</color>.",
+     "potential": []
+    },
+    {
+     "name": "Dodge: Nimbus Step",
+     "desc": "When dragging the {LAYOUT_CONSOLECONTROLLER#stick}{LAYOUT_FALLBACK#joystick}, hold <IconMap:Icon_Evade> to activate:\nEnter a high‐speed <color=#FFFFFF>Light as Air</color> state. While in the <color=#FFFFFF>Light as Air</color> state in Investigation Zone Mode, automatically collect from all resource pickup points within range.\nWhile in the <color=#FFFFFF>Light as Air</color> state, use the {LAYOUT_CONSOLECONTROLLER#stick}{LAYOUT_FALLBACK#joystick} to steer. Release the {LAYOUT_CONSOLECONTROLLER#stick}{LAYOUT_FALLBACK#joystick} to stop.\nCharacter is invulnerable at the moment this skill activates.",
+     "potential": []
+    },
+    {
+     "name": "Dodge Counter: Banishing Blow",
+     "desc": "Press <IconMap:Icon_Normal> during a <color=#FFFFFF>Perfect Dodge</color> to activate:\nLaunch a series of attacks on enemies ahead, dealing <color=#FE437E>Auric Ink DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Dash Attack: Skybreaker",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1371010, Prop:1001}",
+       "param": {
+        "1371010": {
+         "main": 4990,
+         "growth": 460,
+         "format": "%",
+         "damage_percentage": 4990,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 3120,
+         "stun_ratio_growth": 150,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 78100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 5670,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1371010, Prop:1002}",
+       "param": {
+        "1371010": {
+         "main": 3120,
+         "growth": 150,
+         "format": "%",
+         "damage_percentage": 4990,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 3120,
+         "stun_ratio_growth": 150,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 78100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 5670,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Dodge Counter: Banishing Blow",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1371012, Prop:1001}",
+       "param": {
+        "1371012": {
+         "main": 21960,
+         "growth": 2000,
+         "format": "%",
+         "damage_percentage": 21960,
+         "damage_percentage_growth": 2000,
+         "stun_ratio": 23650,
+         "stun_ratio_growth": 1080,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 316250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11496,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 23000,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1371012, Prop:1002}",
+       "param": {
+        "1371012": {
+         "main": 23650,
+         "growth": 1080,
+         "format": "%",
+         "damage_percentage": 21960,
+         "damage_percentage_growth": 2000,
+         "stun_ratio": 23650,
+         "stun_ratio_growth": 1080,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 316250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11496,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 23000,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26497
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "Special Attack: Shadow-Ignition",
+     "desc": "Press <IconMap:Icon_Special> to activate:\nSwiftly retreat, then attack forward, dealing <color=#FE437E>Auric Ink DMG</color>.\nWhile retreating, a Perfect Dodge can be triggered, but cannot be followed up with a Dodge Counter.\nAnti-Interrupt level is increased while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Ink Manifestation",
+     "desc": "With enough Adrenaline, press or hold <IconMap:Icon_SpecialReady_Rp> to activate:\nCharge continuously, and release <IconMap:Icon_SpecialReady_Rp> to launch an upward wing attack, dealing massive <color=#FE437E>Auric Ink DMG</color>.\nWhile charging, incoming attacks are automatically blocked and will activate the upward wing attack.\nIf hit at the exact moment charging begins, it triggers a Perfect Block effect, negating the DMG and increasing the skill's Interrupt Level to match a Heavy Defensive Assist, and recovering 10 Adrenaline.\nWhen an upward wing strike hits an enemy with a red flash or yellow flash, a Perfect Block can be triggered, negating the hit and increasing the skill's Interrupt Level to match a Defensive Assist and recovering 10 Adrenaline.\nThe Perfect Block effect can occur at most once every 0.5s.\nIf charged until flashing or when triggering the Perfect Block effect, the upward wing attack can be followed by an additional Talisman Attack.\nAfter the skill, press <IconMap:Icon_Special> to launch EX Special Attack: Celestial Cloud Blitz - Break.\nAfter EX Special Attack: Celestial Cloud Blitz - Break, and with enough Adrenaline, press <IconMap:Icon_SpecialReady_Rp> to consume another 20 Adrenaline to launch EX Special Attack: Qingming Eruption - Break.\nAfter using EX Special Attack: Qingming Eruption - Break and with enough Auric Ink Points, hold <IconMap:Icon_Evade> to quickly follow up with <color=#FFFFFF>Basic Attack: Auric Array</color>.\nCharacter is invulnerable during the upward wing attack, and Anti-Interrupt Level is increased while charging.",
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Cloud-Shaper",
+     "desc": "With enough Adrenaline, hold <IconMap:Icon_Normal> to activate:\nContinuously charge up, channeling energy around enemies to deal DMG over time, up to a max of 2s, dealing massive <color=#FE437E>Auric Ink DMG</color>.\nOnce fully charged or if interrupted, automatically trigger EX Special Attack: Ashen Ink Becomes Shadows.\nAt the moment the skill is activated, a Perfect Dodge can be triggered. After the Perfect Dodge, enter the Vital View state.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Ashen Ink Becomes Shadows",
+     "desc": "Triggers automatically during EX Special Attack: Cloud-Shaper:\nWhen the energy orb appears and contracts, it deals <color=#FE437E>Auric Ink DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Special Attack: Shadow-Ignition",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1371008, Prop:1001}",
+       "param": {
+        "1371008": {
+         "main": 5210,
+         "growth": 480,
+         "format": "%",
+         "damage_percentage": 5210,
+         "damage_percentage_growth": 480,
+         "stun_ratio": 6510,
+         "stun_ratio_growth": 300,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 162800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5916,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5917
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1371008, Prop:1002}",
+       "param": {
+        "1371008": {
+         "main": 6510,
+         "growth": 300,
+         "format": "%",
+         "damage_percentage": 5210,
+         "damage_percentage_growth": 480,
+         "stun_ratio": 6510,
+         "stun_ratio_growth": 300,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 162800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5916,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5917
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Ink Manifestation",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1371009, Prop:1001}",
+       "param": {
+        "1371009": {
+         "main": 30030,
+         "growth": 2730,
+         "format": "%",
+         "damage_percentage": 30030,
+         "damage_percentage_growth": 2730,
+         "stun_ratio": 17290,
+         "stun_ratio_growth": 790,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 544225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19787,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10831
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1371009, Prop:1002}",
+       "param": {
+        "1371009": {
+         "main": 17290,
+         "growth": 790,
+         "format": "%",
+         "damage_percentage": 30030,
+         "damage_percentage_growth": 2730,
+         "stun_ratio": 17290,
+         "stun_ratio_growth": 790,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 544225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19787,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10831
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Additional DMG Multiplier on Full Charge",
+       "desc": "{Skill:1371024, Prop:1001}",
+       "param": {
+        "1371024": {
+         "main": 14960,
+         "growth": 1360,
+         "format": "%",
+         "damage_percentage": 14960,
+         "damage_percentage_growth": 1360,
+         "stun_ratio": 7580,
+         "stun_ratio_growth": 350,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 301400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5583,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Additional Daze Multiplier on Full Charge",
+       "desc": "{Skill:1371024, Prop:1002}",
+       "param": {
+        "1371024": {
+         "main": 7580,
+         "growth": 350,
+         "format": "%",
+         "damage_percentage": 14960,
+         "damage_percentage_growth": 1360,
+         "stun_ratio": 7580,
+         "stun_ratio_growth": 350,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 301400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5583,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Adrenaline Cost",
+       "desc": "40",
+       "potential": []
+      },
+      {
+       "name": "EX Special Attack: Celestial Cloud Blitz - Break Total DMG Multiplier",
+       "desc": "{Skill:1371023, Prop:1001}",
+       "param": {
+        "1371023": {
+         "main": 37060,
+         "growth": 3370,
+         "format": "%",
+         "damage_percentage": 37060,
+         "damage_percentage_growth": 3370,
+         "stun_ratio": 29440,
+         "stun_ratio_growth": 1340,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 990275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 29904,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "EX Special Attack: Celestial Cloud Blitz - Break Total Daze Multiplier",
+       "desc": "{Skill:1371023, Prop:1002}",
+       "param": {
+        "1371023": {
+         "main": 29440,
+         "growth": 1340,
+         "format": "%",
+         "damage_percentage": 37060,
+         "damage_percentage_growth": 3370,
+         "stun_ratio": 29440,
+         "stun_ratio_growth": 1340,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 990275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 29904,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "EX Special Attack: Qingming Eruption - Break Total DMG Multiplier",
+       "desc": "{Skill:1371025, Prop:1001}",
+       "param": {
+        "1371025": {
+         "main": 42640,
+         "growth": 3880,
+         "format": "%",
+         "damage_percentage": 42640,
+         "damage_percentage_growth": 3880,
+         "stun_ratio": 28530,
+         "stun_ratio_growth": 1300,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1086250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 30545,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "EX Special Attack: Qingming Eruption - Break Total Daze Multiplier",
+       "desc": "{Skill:1371025, Prop:1002}",
+       "param": {
+        "1371025": {
+         "main": 28530,
+         "growth": 1300,
+         "format": "%",
+         "damage_percentage": 42640,
+         "damage_percentage_growth": 3880,
+         "stun_ratio": 28530,
+         "stun_ratio_growth": 1300,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1086250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 30545,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Cloud-Shaper",
+     "param": [
+      {
+       "name": "Total DMG Multiplier During Charge",
+       "desc": "{Skill:1371022, Prop:1001}",
+       "param": {
+        "1371022": {
+         "main": 67180,
+         "growth": 6110,
+         "format": "%",
+         "damage_percentage": 67180,
+         "damage_percentage_growth": 6110,
+         "stun_ratio": 48000,
+         "stun_ratio_growth": 2190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1741850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 50333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Total Daze Multiplier During Charge",
+       "desc": "{Skill:1371022, Prop:1002}",
+       "param": {
+        "1371022": {
+         "main": 48000,
+         "growth": 2190,
+         "format": "%",
+         "damage_percentage": 67180,
+         "damage_percentage_growth": 6110,
+         "stun_ratio": 48000,
+         "stun_ratio_growth": 2190,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1741850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 50333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Adrenaline Cost to Use",
+       "desc": "40",
+       "potential": []
+      },
+      {
+       "name": "Initial Consumption",
+       "desc": "20",
+       "potential": []
+      },
+      {
+       "name": "Consumption Per Second",
+       "desc": "20",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "EX Special Attack: Ashen Ink Becomes Shadows",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1371026, Prop:1001}",
+       "param": {
+        "1371026": {
+         "main": 23430,
+         "growth": 2130,
+         "format": "%",
+         "damage_percentage": 23430,
+         "damage_percentage_growth": 2130,
+         "stun_ratio": 14210,
+         "stun_ratio_growth": 650,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 582175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15716,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3001
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1371026, Prop:1002}",
+       "param": {
+        "1371026": {
+         "main": 14210,
+         "growth": 650,
+         "format": "%",
+         "damage_percentage": 23430,
+         "damage_percentage_growth": 2130,
+         "stun_ratio": 14210,
+         "stun_ratio_growth": 650,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 582175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15716,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3001
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "Chain Attack: Auric Ink Rush",
+     "desc": "When a <color=#FFFFFF>Chain Attack</color> is triggered, select the character to activate:\nRapidly dash forward and attack, followed by an explosive wing burst, dealing massive <color=#FE437E>Auric Ink DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Ultimate: Qingming Skyshade",
+     "desc": "When Decibel Rating is at <color=#FFFFFF>Maximum</color>, press <IconMap:Icon_UltimateReady> to activate:\nLaunch a barrage of wing attacks, then guide countless talismans to attack, dealing massive <color=#FE437E>Auric Ink DMG</color>.\nUpon activating this skill, Yixuan evenly redistributes the squad's HP.\nAfter using this skill and with enough Auric Ink Points, hold <IconMap:Icon_Evade> to quickly follow up with <color=#FFFFFF>Basic Attack: Auric Array</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Ultimate: Endless Talisman Suppression",
+     "desc": "With enough Technique Points, press <IconMap:Icon_UltimateReady> to activate:\nConsumes 120 Technique Points to spread her wings, then guide countless talismans to attack, dealing massive <color=#FE437E>Auric Ink DMG</color>.\nWith both enough Technique Points and Decibels, this skill triggers with priority.\nAfter using this skill and with enough Auric Ink Points, hold <IconMap:Icon_Evade> to quickly follow up with <color=#FFFFFF>Basic Attack: Auric Array</color>.\nUpon activating this skill, Yixuan evenly redistributes the squad's HP.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Chain Attack: Auric Ink Rush",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1371013, Prop:1001}",
+       "param": {
+        "1371013": {
+         "main": 53310,
+         "growth": 4850,
+         "format": "%",
+         "damage_percentage": 53310,
+         "damage_percentage_growth": 4850,
+         "stun_ratio": 22740,
+         "stun_ratio_growth": 1040,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2397450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 40620,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1371013, Prop:1002}",
+       "param": {
+        "1371013": {
+         "main": 22740,
+         "growth": 1040,
+         "format": "%",
+         "damage_percentage": 53310,
+         "damage_percentage_growth": 4850,
+         "stun_ratio": 22740,
+         "stun_ratio_growth": 1040,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2397450,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 40620,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20671
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Ultimate: Qingming Skyshade",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1371014, Prop:1001}",
+       "param": {
+        "1371014": {
+         "main": 185340,
+         "growth": 16850,
+         "format": "%",
+         "damage_percentage": 185340,
+         "damage_percentage_growth": 16850,
+         "stun_ratio": 40710,
+         "stun_ratio_growth": 1860,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 87004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1371014, Prop:1002}",
+       "param": {
+        "1371014": {
+         "main": 40710,
+         "growth": 1860,
+         "format": "%",
+         "damage_percentage": 185340,
+         "damage_percentage_growth": 16850,
+         "stun_ratio": 40710,
+         "stun_ratio_growth": 1860,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 87004
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Ultimate: Endless Talisman Suppression",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1371020, Prop:1001}",
+       "param": {
+        "1371020": {
+         "main": 146620,
+         "growth": 13330,
+         "format": "%",
+         "damage_percentage": 146620,
+         "damage_percentage_growth": 13330,
+         "stun_ratio": 24940,
+         "stun_ratio_growth": 1140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 22670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 72671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1371020, Prop:1002}",
+       "param": {
+        "1371020": {
+         "main": 24940,
+         "growth": 1140,
+         "format": "%",
+         "damage_percentage": 146620,
+         "damage_percentage_growth": 13330,
+         "stun_ratio": 24940,
+         "stun_ratio_growth": 1140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 22670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 72671
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "Quick Assist: Cloudstream Shadow",
+     "desc": "When the active character is launched, press <IconMap:Icon_Switch> to activate:\nLaunch a series of attacks on enemies ahead, dealing <color=#FE437E>Auric Ink DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Defensive Assist: Clear Sky Surge",
+     "desc": "When the on-field character is about to be attacked, press <IconMap:Icon_Switch> to activate:\nParries the enemy's attack, dealing massive Daze.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Celestial Cloud Blitz",
+     "desc": "Press <IconMap:Icon_Normal> after a <color=#FFFFFF>Defensive Assist</color> to activate:\nQuickly dash forward and attack, dealing <color=#FE437E>Auric Ink DMG</color>.\nCharacter is invulnerable while using this skill.",
+     "potential": []
+    },
+    {
+     "name": "Quick Assist: Cloudstream Shadow",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1371015, Prop:1001}",
+       "param": {
+        "1371015": {
+         "main": 10120,
+         "growth": 920,
+         "format": "%",
+         "damage_percentage": 10120,
+         "damage_percentage_growth": 920,
+         "stun_ratio": 6330,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 158125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5748,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 11500,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5749
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1371015, Prop:1002}",
+       "param": {
+        "1371015": {
+         "main": 6330,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 10120,
+         "damage_percentage_growth": 920,
+         "stun_ratio": 6330,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 158125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5748,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 11500,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5749
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Defensive Assist: Clear Sky Surge",
+     "param": [
+      {
+       "name": "Light Defensive Daze Multiplier",
+       "desc": "{Skill:1371016, Prop:1002}",
+       "param": {
+        "1371016": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Heavy Defensive Daze Multiplier",
+       "desc": "{Skill:1371017, Prop:1002}",
+       "param": {
+        "1371017": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Chain Defensive Daze Multiplier",
+       "desc": "{Skill:1371018, Prop:1002}",
+       "param": {
+        "1371018": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "Assist Follow-Up: Celestial Cloud Blitz",
+     "param": [
+      {
+       "name": "DMG Multiplier",
+       "desc": "{Skill:1371019, Prop:1001}",
+       "param": {
+        "1371019": {
+         "main": 29700,
+         "growth": 2700,
+         "format": "%",
+         "damage_percentage": 29700,
+         "damage_percentage_growth": 2700,
+         "stun_ratio": 32290,
+         "stun_ratio_growth": 1470,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1049125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 31551,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "Daze Multiplier",
+       "desc": "{Skill:1371019, Prop:1002}",
+       "param": {
+        "1371019": {
+         "main": 32290,
+         "growth": 1470,
+         "format": "%",
+         "damage_percentage": 29700,
+         "damage_percentage_growth": 2700,
+         "stun_ratio": 32290,
+         "stun_ratio_growth": 1470,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1049125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 31551,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16171
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100115": 2
+    },
+    "2": {
+     "10": 3000,
+     "100115": 3
+    },
+    "3": {
+     "10": 6000,
+     "100125": 2
+    },
+    "4": {
+     "10": 9000,
+     "100125": 3
+    },
+    "5": {
+     "10": 12000,
+     "100125": 4
+    },
+    "6": {
+     "10": 18000,
+     "100125": 6
+    },
+    "7": {
+     "10": 45000,
+     "100135": 5
+    },
+    "8": {
+     "10": 67500,
+     "100135": 8
+    },
+    "9": {
+     "10": 90000,
+     "100135": 10
+    },
+    "10": {
+     "10": 112500,
+     "100135": 12
+    },
+    "11": {
+     "10": 135000,
+     "100135": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "Spiritual Path",
+   "desc": "Upon entering combat, CRIT Rate increases by 10% and immediately gain 120 <color=#FFFFFF>Technique Points</color>. In Investigation Zone Mode, this effect can only trigger once every 180s. When any squad member lands a hit on an enemy, Yixuan automatically summons an extra lightning strike, dealing DMG equal to 50% of her Sheer Force and restoring 5 additional Adrenaline. This can trigger once every 6s.",
+   "desc2": "\"Fate is ever-changing and the path ahead uncertain. Only a pure, peaceful spirit holds firm. Even through the tides of time, I harbor no regrets.\"\n\"The mystic arts take a thousand forms, yet its core stays the same; the road may fork and falter, but the spirit stays steadfast.\"\n\"No matter the peril you face or the foe you meet, improvise as needed and face them with composure.\""
+  },
+  "2": {
+   "level": 2,
+   "name": "Ward Off Misfortune",
+   "desc": "When an <color=#FFFFFF>Ultimate</color> or <color=#FFFFFF>EX Special Attack</color> deals DMG, it ignores 15% of the target's <color=#FE437E>Ether RES</color>. Triggering <color=#FFFFFF>Ultimate: Qingming Skyshade</color> extends all enemies' Stunned state by 3s. In a single Stun state duration, enemies can only have this effect applied once, and it does not stack with similar effects. Additionally, when using <color=#FFFFFF>Ultimate: Endless Talisman Suppression</color>, gain one stack of the <color=#FFFFFF>Condensed Ink</color> effect. After <color=#FFFFFF>Basic Attack: Qingming Eruption</color> or <color=#FFFFFF>EX Special Attack: Ashen Ink Becomes Shadows</color>, press the Basic Attack button, or after <color=#FFFFFF>EX Special Attack: Qingming Eruption - Break</color>, press the Special Attack button to consume one stack of <color=#FFFFFF>Condensed Ink</color> and launch <color=#FFFFFF>EX Special Attack: Endless Talisman Suppression - Break</color>, dealing DMG up to 1,200% of Sheer Force. Only one stack of <color=#FFFFFF>Condensed Ink</color> can be held at a time.",
+   "desc2": "\"Life's twists are unpredictable — at best, the diviner discerns but a fraction.\"\n\"Dispelling misfortune and blessing rituals are merely reading the signs to pursue gain and avoid peril.\"\n\"Once you understand how to sidestep misfortune, you can just as easily cast it upon your foe... just call forth the calamity they've yet to face.\""
+  },
+  "3": {
+   "level": 3,
+   "name": "Cycle of Yin and Yang",
+   "desc": "<color=#FFFFFF>Basic Attack</color>, <color=#FFFFFF>Dodge</color>, <color=#FFFFFF>Assist</color>, <color=#FFFFFF>Special Attack</color>, and <color=#FFFFFF>Chain Attack</color> Lv. +2",
+   "desc2": "\"Everything in the world follows laws of mutual generation and restraint; by understanding that principle, you can balance yin and yang to overpower your foes.\"\n\"Achieving optimal results with simple techniques isn't cutting corners, but a natural result of following the flow.\""
+  },
+  "4": {
+   "level": 4,
+   "name": "The One Path of Mysticism",
+   "desc": "Activating an <color=#FFFFFF> Ultimate</color> grants one stack of <color=#FFFFFF>Tranquility</color>, up to a max of 2 stacks. For each stack of <color=#FFFFFF>Tranquility</color>, the next <color=#FFFFFF>EX Special Attack: Cloud-Shaper</color> DMG and <color=#FFFFFF>EX Special Attack: Ashen Ink Becomes Shadows</color> DMG increase by 30%.",
+   "desc2": "\"It's said that countless transformations arise from a single principle. In studying the mystic arts, one must not be bound by forms but must grasp their underlying meaning.\"\n\"If you can perceive the core principles, each technique flows into another. Such is the path of the mystic: infinite forms converge into unity.\""
+  },
+  "5": {
+   "level": 5,
+   "name": "Calm Sky Vigil",
+   "desc": "<color=#FFFFFF>Basic Attack</color>, <color=#FFFFFF>Dodge</color>, <color=#FFFFFF>Assist</color>, <color=#FFFFFF>Special Attack</color>, and <color=#FFFFFF>Chain Attack</color> Lv. +2",
+   "desc2": "\"To master the mystic arts, diligent study and reflection are but the start — you must learn to maintain a pure mind, listening to the wind and watching the clouds.\"\n\"When you transcend self and world, your command of Ether grows ever stronger, almost without effort.\"\n\"As you persist, you'll be able to maintain inner poise through any trial, meeting any change with unshakable calm.\""
+  },
+  "6": {
+   "level": 6,
+   "name": "Swift Yet Still",
+   "desc": "After using <color=#FFFFFF>Ultimate: Qingming Skyshade</color>, gain a stack of the <color=#FFFFFF>Regulated Breathing</color> effect. While under this effect, you can ignore the <color=#FFFFFF>Technique Point</color> cost to launch <color=#FFFFFF>Ultimate: Endless Talisman Suppression</color> once. The <color=#FFFFFF>Regulated Breathing</color> effect ends after <color=#FFFFFF>Ultimate: Endless Talisman Suppression</color> is used. This effect can only be gained once every 30s. Only one stack of <color=#FFFFFF>Regulated Breathing</color> can be held. Additionally, while in the <color=#FFFFFF>Meditation</color> state, Yixuan's Sheer DMG is increased by 20%.",
+   "desc2": "\"Tranquility to govern force, motion and calm coexist. In every movement there lies a pause, and in every pause a potential for energy.\"\n\"At any moment, if your mind remains clear, you can meet endless change with unchanging focus — and strike for victory at just the right moment.\"\n\"Do you understand?\"\n\"If not, that's okay... after silent contemplation, there comes that instant of awakening. This is yet another expression of 'swift yet still.'\""
+  }
+ },
+ "passive": {
+  "level": {
+   "1371501": {
+    "level": 1,
+    "id": 1371501,
+    "name": [
+     "Core Passive: Grandmaster of Mysticism",
+     "Additional Ability: Auric Ink Undercurrent"
+    ],
+    "desc": [
+     "Yixuan gains extra Sheer Force based on her Max HP, with every 1 point of Max HP increasing Sheer Force by 0.1.\nAll <color=#FE437E>Auric Ink DMG</color> Yixuan deals via her skills is Sheer DMG, ignoring enemy DEF and using her Sheer Force stat as the DMG Multiplier.\nWhen Yixuan accumulates <color=#FE437E>Auric Ink Anomaly Buildup</color>, it uses an independent Anomaly Buildup gauge, and when triggering an Anomaly, she restores an additional 10 Adrenaline. This can trigger once every 10s.\nUpon entering combat, Yixuan immediately restores all Adrenaline. In Investigation Zone Mode, this effect can only trigger once every 180s. Triggering a Perfect Dodge grants an additional 5 Adrenaline and can occur at most once per second.\nWhen she consumes Adrenaline, Yixuan accumulates Technique Points, gaining 0.667 points for each point of Adrenaline consumed. With enough Technique Points, she can trigger an additional Ultimate: Endless Talisman Suppression. The maximum for Technique Points is 120.\nThe DMG dealt by Yixuan's Basic Attack: Auric Array, Basic Attack: Qingming Eruption, EX Special Attack, Assist Follow-Up, Chain Attack, and Ultimate increases by <color=#2BAD00>30%</color>.\nAfter launching Ultimate: Endless Talisman Suppression, Yixuan gains one Auric Ink Point. She can spend an Auric Ink Point to launch Basic Attack: Auric Array.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color>, <color=#FFFFFF>Support</color>, or <color=#FFFFFF>Defense</color> character:\nWhen a fellow squad member uses an Ultimate, Yixuan continuously recovers 2 Adrenaline for 10s. If Yixuan is switched out by a Perfect Assist, she automatically follows up with a lightning strike attack, dealing DMG equal to 225% of her Sheer Force and restoring an additional 5 Adrenaline.\nEX Special Attack: Cloud-Shaper and EX Special Attack: Ashen Ink Becomes Shadows deal 30% increased DMG to Stunned enemies.\nAfter activating her Ultimate, Yixuan enters the Meditation state, increasing her CRIT DMG by 40% for 15s."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1371502": {
+    "level": 2,
+    "id": 1371502,
+    "name": [
+     "Core Passive: Grandmaster of Mysticism",
+     "Additional Ability: Auric Ink Undercurrent"
+    ],
+    "desc": [
+     "Yixuan gains extra Sheer Force based on her Max HP, with every 1 point of Max HP increasing Sheer Force by 0.1.\nAll <color=#FE437E>Auric Ink DMG</color> Yixuan deals via her skills is Sheer DMG, ignoring enemy DEF and using her Sheer Force stat as the DMG Multiplier.\nWhen Yixuan accumulates <color=#FE437E>Auric Ink Anomaly Buildup</color>, it uses an independent Anomaly Buildup gauge, and when triggering an Anomaly, she restores an additional 10 Adrenaline. This can trigger once every 10s.\nUpon entering combat, Yixuan immediately restores all Adrenaline. In Investigation Zone Mode, this effect can only trigger once every 180s. Triggering a Perfect Dodge grants an additional 5 Adrenaline and can occur at most once per second.\nWhen she consumes Adrenaline, Yixuan accumulates Technique Points, gaining 0.667 points for each point of Adrenaline consumed. With enough Technique Points, she can trigger an additional Ultimate: Endless Talisman Suppression. The maximum for Technique Points is 120.\nThe DMG dealt by Yixuan's Basic Attack: Auric Array, Basic Attack: Qingming Eruption, EX Special Attack, Assist Follow-Up, Chain Attack, and Ultimate increases by <color=#2BAD00>35%</color>.\nAfter launching Ultimate: Endless Talisman Suppression, Yixuan gains one Auric Ink Point. She can spend an Auric Ink Point to launch Basic Attack: Auric Array.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color>, <color=#FFFFFF>Support</color>, or <color=#FFFFFF>Defense</color> character:\nWhen a fellow squad member uses an Ultimate, Yixuan continuously recovers 2 Adrenaline for 10s. If Yixuan is switched out by a Perfect Assist, she automatically follows up with a lightning strike attack, dealing DMG equal to 225% of her Sheer Force and restoring an additional 5 Adrenaline.\nEX Special Attack: Cloud-Shaper and EX Special Attack: Ashen Ink Becomes Shadows deal 30% increased DMG to Stunned enemies.\nAfter activating her Ultimate, Yixuan enters the Meditation state, increasing her CRIT DMG by 40% for 15s."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1371503": {
+    "level": 3,
+    "id": 1371503,
+    "name": [
+     "Core Passive: Grandmaster of Mysticism",
+     "Additional Ability: Auric Ink Undercurrent"
+    ],
+    "desc": [
+     "Yixuan gains extra Sheer Force based on her Max HP, with every 1 point of Max HP increasing Sheer Force by 0.1.\nAll <color=#FE437E>Auric Ink DMG</color> Yixuan deals via her skills is Sheer DMG, ignoring enemy DEF and using her Sheer Force stat as the DMG Multiplier.\nWhen Yixuan accumulates <color=#FE437E>Auric Ink Anomaly Buildup</color>, it uses an independent Anomaly Buildup gauge, and when triggering an Anomaly, she restores an additional 10 Adrenaline. This can trigger once every 10s.\nUpon entering combat, Yixuan immediately restores all Adrenaline. In Investigation Zone Mode, this effect can only trigger once every 180s. Triggering a Perfect Dodge grants an additional 5 Adrenaline and can occur at most once per second.\nWhen she consumes Adrenaline, Yixuan accumulates Technique Points, gaining 0.667 points for each point of Adrenaline consumed. With enough Technique Points, she can trigger an additional Ultimate: Endless Talisman Suppression. The maximum for Technique Points is 120.\nThe DMG dealt by Yixuan's Basic Attack: Auric Array, Basic Attack: Qingming Eruption, EX Special Attack, Assist Follow-Up, Chain Attack, and Ultimate increases by <color=#2BAD00>40%</color>.\nAfter launching Ultimate: Endless Talisman Suppression, Yixuan gains one Auric Ink Point. She can spend an Auric Ink Point to launch Basic Attack: Auric Array.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color>, <color=#FFFFFF>Support</color>, or <color=#FFFFFF>Defense</color> character:\nWhen a fellow squad member uses an Ultimate, Yixuan continuously recovers 2 Adrenaline for 10s. If Yixuan is switched out by a Perfect Assist, she automatically follows up with a lightning strike attack, dealing DMG equal to 225% of her Sheer Force and restoring an additional 5 Adrenaline.\nEX Special Attack: Cloud-Shaper and EX Special Attack: Ashen Ink Becomes Shadows deal 30% increased DMG to Stunned enemies.\nAfter activating her Ultimate, Yixuan enters the Meditation state, increasing her CRIT DMG by 40% for 15s."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1371504": {
+    "level": 4,
+    "id": 1371504,
+    "name": [
+     "Core Passive: Grandmaster of Mysticism",
+     "Additional Ability: Auric Ink Undercurrent"
+    ],
+    "desc": [
+     "Yixuan gains extra Sheer Force based on her Max HP, with every 1 point of Max HP increasing Sheer Force by 0.1.\nAll <color=#FE437E>Auric Ink DMG</color> Yixuan deals via her skills is Sheer DMG, ignoring enemy DEF and using her Sheer Force stat as the DMG Multiplier.\nWhen Yixuan accumulates <color=#FE437E>Auric Ink Anomaly Buildup</color>, it uses an independent Anomaly Buildup gauge, and when triggering an Anomaly, she restores an additional 10 Adrenaline. This can trigger once every 10s.\nUpon entering combat, Yixuan immediately restores all Adrenaline. In Investigation Zone Mode, this effect can only trigger once every 180s. Triggering a Perfect Dodge grants an additional 5 Adrenaline and can occur at most once per second.\nWhen she consumes Adrenaline, Yixuan accumulates Technique Points, gaining 0.667 points for each point of Adrenaline consumed. With enough Technique Points, she can trigger an additional Ultimate: Endless Talisman Suppression. The maximum for Technique Points is 120.\nThe DMG dealt by Yixuan's Basic Attack: Auric Array, Basic Attack: Qingming Eruption, EX Special Attack, Assist Follow-Up, Chain Attack, and Ultimate increases by <color=#2BAD00>45%</color>.\nAfter launching Ultimate: Endless Talisman Suppression, Yixuan gains one Auric Ink Point. She can spend an Auric Ink Point to launch Basic Attack: Auric Array.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color>, <color=#FFFFFF>Support</color>, or <color=#FFFFFF>Defense</color> character:\nWhen a fellow squad member uses an Ultimate, Yixuan continuously recovers 2 Adrenaline for 10s. If Yixuan is switched out by a Perfect Assist, she automatically follows up with a lightning strike attack, dealing DMG equal to 225% of her Sheer Force and restoring an additional 5 Adrenaline.\nEX Special Attack: Cloud-Shaper and EX Special Attack: Ashen Ink Becomes Shadows deal 30% increased DMG to Stunned enemies.\nAfter activating her Ultimate, Yixuan enters the Meditation state, increasing her CRIT DMG by 40% for 15s."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1371505": {
+    "level": 5,
+    "id": 1371505,
+    "name": [
+     "Core Passive: Grandmaster of Mysticism",
+     "Additional Ability: Auric Ink Undercurrent"
+    ],
+    "desc": [
+     "Yixuan gains extra Sheer Force based on her Max HP, with every 1 point of Max HP increasing Sheer Force by 0.1.\nAll <color=#FE437E>Auric Ink DMG</color> Yixuan deals via her skills is Sheer DMG, ignoring enemy DEF and using her Sheer Force stat as the DMG Multiplier.\nWhen Yixuan accumulates <color=#FE437E>Auric Ink Anomaly Buildup</color>, it uses an independent Anomaly Buildup gauge, and when triggering an Anomaly, she restores an additional 10 Adrenaline. This can trigger once every 10s.\nUpon entering combat, Yixuan immediately restores all Adrenaline. In Investigation Zone Mode, this effect can only trigger once every 180s. Triggering a Perfect Dodge grants an additional 5 Adrenaline and can occur at most once per second.\nWhen she consumes Adrenaline, Yixuan accumulates Technique Points, gaining 0.667 points for each point of Adrenaline consumed. With enough Technique Points, she can trigger an additional Ultimate: Endless Talisman Suppression. The maximum for Technique Points is 120.\nThe DMG dealt by Yixuan's Basic Attack: Auric Array, Basic Attack: Qingming Eruption, EX Special Attack, Assist Follow-Up, Chain Attack, and Ultimate increases by <color=#2BAD00>50%</color>.\nAfter launching Ultimate: Endless Talisman Suppression, Yixuan gains one Auric Ink Point. She can spend an Auric Ink Point to launch Basic Attack: Auric Array.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color>, <color=#FFFFFF>Support</color>, or <color=#FFFFFF>Defense</color> character:\nWhen a fellow squad member uses an Ultimate, Yixuan continuously recovers 2 Adrenaline for 10s. If Yixuan is switched out by a Perfect Assist, she automatically follows up with a lightning strike attack, dealing DMG equal to 225% of her Sheer Force and restoring an additional 5 Adrenaline.\nEX Special Attack: Cloud-Shaper and EX Special Attack: Ashen Ink Becomes Shadows deal 30% increased DMG to Stunned enemies.\nAfter activating her Ultimate, Yixuan enters the Meditation state, increasing her CRIT DMG by 40% for 15s."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1371506": {
+    "level": 6,
+    "id": 1371506,
+    "name": [
+     "Core Passive: Grandmaster of Mysticism",
+     "Additional Ability: Auric Ink Undercurrent"
+    ],
+    "desc": [
+     "Yixuan gains extra Sheer Force based on her Max HP, with every 1 point of Max HP increasing Sheer Force by 0.1.\nAll <color=#FE437E>Auric Ink DMG</color> Yixuan deals via her skills is Sheer DMG, ignoring enemy DEF and using her Sheer Force stat as the DMG Multiplier.\nWhen Yixuan accumulates <color=#FE437E>Auric Ink Anomaly Buildup</color>, it uses an independent Anomaly Buildup gauge, and when triggering an Anomaly, she restores an additional 10 Adrenaline. This can trigger once every 10s.\nUpon entering combat, Yixuan immediately restores all Adrenaline. In Investigation Zone Mode, this effect can only trigger once every 180s. Triggering a Perfect Dodge grants an additional 5 Adrenaline and can occur at most once per second.\nWhen she consumes Adrenaline, Yixuan accumulates Technique Points, gaining 0.667 points for each point of Adrenaline consumed. With enough Technique Points, she can trigger an additional Ultimate: Endless Talisman Suppression. The maximum for Technique Points is 120.\nThe DMG dealt by Yixuan's Basic Attack: Auric Array, Basic Attack: Qingming Eruption, EX Special Attack, Assist Follow-Up, Chain Attack, and Ultimate increases by <color=#2BAD00>55%</color>.\nAfter launching Ultimate: Endless Talisman Suppression, Yixuan gains one Auric Ink Point. She can spend an Auric Ink Point to launch Basic Attack: Auric Array.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color>, <color=#FFFFFF>Support</color>, or <color=#FFFFFF>Defense</color> character:\nWhen a fellow squad member uses an Ultimate, Yixuan continuously recovers 2 Adrenaline for 10s. If Yixuan is switched out by a Perfect Assist, she automatically follows up with a lightning strike attack, dealing DMG equal to 225% of her Sheer Force and restoring an additional 5 Adrenaline.\nEX Special Attack: Cloud-Shaper and EX Special Attack: Ashen Ink Becomes Shadows deal 30% increased DMG to Stunned enemies.\nAfter activating her Ultimate, Yixuan enters the Meditation state, increasing her CRIT DMG by 40% for 15s."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   },
+   "1371507": {
+    "level": 7,
+    "id": 1371507,
+    "name": [
+     "Core Passive: Grandmaster of Mysticism",
+     "Additional Ability: Auric Ink Undercurrent"
+    ],
+    "desc": [
+     "Yixuan gains extra Sheer Force based on her Max HP, with every 1 point of Max HP increasing Sheer Force by 0.1.\nAll <color=#FE437E>Auric Ink DMG</color> Yixuan deals via her skills is Sheer DMG, ignoring enemy DEF and using her Sheer Force stat as the DMG Multiplier.\nWhen Yixuan accumulates <color=#FE437E>Auric Ink Anomaly Buildup</color>, it uses an independent Anomaly Buildup gauge, and when triggering an Anomaly, she restores an additional 10 Adrenaline. This can trigger once every 10s.\nUpon entering combat, Yixuan immediately restores all Adrenaline. In Investigation Zone Mode, this effect can only trigger once every 180s. Triggering a Perfect Dodge grants an additional 5 Adrenaline and can occur at most once per second.\nWhen she consumes Adrenaline, Yixuan accumulates Technique Points, gaining 0.667 points for each point of Adrenaline consumed. With enough Technique Points, she can trigger an additional Ultimate: Endless Talisman Suppression. The maximum for Technique Points is 120.\nThe DMG dealt by Yixuan's Basic Attack: Auric Array, Basic Attack: Qingming Eruption, EX Special Attack, Assist Follow-Up, Chain Attack, and Ultimate increases by <color=#2BAD00>60%</color>.\nAfter launching Ultimate: Endless Talisman Suppression, Yixuan gains one Auric Ink Point. She can spend an Auric Ink Point to launch Basic Attack: Auric Array.",
+     "When another character in your squad is a <color=#FFFFFF>Stun</color>, <color=#FFFFFF>Support</color>, or <color=#FFFFFF>Defense</color> character:\nWhen a fellow squad member uses an Ultimate, Yixuan continuously recovers 2 Adrenaline for 10s. If Yixuan is switched out by a Perfect Assist, she automatically follows up with a lightning strike attack, dealing DMG equal to 225% of her Sheer Force and restoring an additional 5 Adrenaline.\nEX Special Attack: Cloud-Shaper and EX Special Attack: Ashen Ink Becomes Shadows deal 30% increased DMG to Stunned enemies.\nAfter activating her Ultimate, Yixuan enters the Meditation state, increasing her CRIT DMG by 40% for 15s."
+    ],
+    "extra_property": {
+     "111": {
+      "target": 123,
+      "value": 1000
+     },
+     "121": {
+      "target": 123,
+      "value": 3000
+     }
+    },
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110510": 2
+   },
+   "3": {
+    "10": 28000,
+    "110510": 4
+   },
+   "4": {
+    "10": 60000,
+    "110006": 2,
+    "110510": 9
+   },
+   "5": {
+    "10": 100000,
+    "110006": 3,
+    "110510": 15
+   },
+   "6": {
+    "10": 200000,
+    "110006": 4,
+    "110510": 30
+   }
+  }
+ },
+ "skin": {
+  "3113710": {
+   "name": "Yixuan: Summit of Clouds",
+   "desc": "As the Master of Yunkui Summit, one's fashion and accessories need only be what feels natural. Stay true to one's self.",
+   "obtain_desc": "",
+   "image": "IconRole44"
+  },
+  "3113711": {
+   "name": "Yixuan: Trails of Ink",
+   "desc": "A custom attire in shades of ink. Like an elusive shadow, gone in a flash.",
+   "obtain_desc": "",
+   "image": "IconRole44_01"
+  }
+ },
+ "special_element_type": {
+  "id": 205,
+  "name": "Auric Ink",
+  "title": "Auric Ink",
+  "desc": "<color=#FE437E>Auric Ink</color> DMG and buffs will be calculated based on <color=#FE437E>Ether</color>. Dealing <color=#FE437E>Auric Ink DMG</color> to enemies accumulates <color=#FE437E>Auric Ink Anomaly Buildup</color>, which triggers the <color=#FE437E>Corruption</color> effect. <color=#FE437E>Corruption</color> causes the target to suffer additional <color=#FE437E>Ether DMG</color> when attacked for a period of time. Inflicting <color=#FE437E>Corruption</color> on enemies weak to <color=#FE437E>Ether</color> can interrupt their actions.",
+  "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconAuricInk.png"
+ },
+ "skill_list": {
+  "1371001": {
+   "name": "Basic Attack: Cirrus Strike (1st, 2nd, 3rd, 4th, and 5th hit)",
+   "desc": "<IconMap:Icon_Normal> ; <IconMap:Icon_Normal> ; <IconMap:Icon_Normal> ; <IconMap:Icon_Normal> ; <IconMap:Icon_Normal>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1371002": {
+   "name": "Basic Attack: Ink‐Veil Cloud Coalescence",
+   "desc": "<IconMap:Icon_Evade> (Hold)",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1371003": {
+   "name": "Basic Attack: Auric Array",
+   "desc": "<IconMap:Icon_Evade> (Hold with Auric Ink Point)",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1371004": {
+   "name": "Special Attack: Shadow-Ignition",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1371005": {
+   "name": "EX Special Attack: Ink Manifestation",
+   "desc": "<IconMap:Icon_SpecialReady_Rp>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1371006": {
+   "name": "EX Special Attack: Cloud-Shaper",
+   "desc": "<IconMap:Icon_Normal> (Hold)",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1371007": {
+   "name": "Dodge: Hidden Cloud Technique",
+   "desc": "<IconMap:Icon_Evade>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1371008": {
+   "name": "Dodge: Nimbus Step",
+   "desc": "<IconMap:Icon_Evade> (Hold while moving joystick)",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1371009": {
+   "name": "Dodge Counter: Banishing Blow",
+   "desc": "<IconMap:Icon_Evade> (Perfect) ; <IconMap:Icon_Normal>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1371010": {
+   "name": "Chain Attack: Auric Ink Rush",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1371011": {
+   "name": "Ultimate: Endless Talisman Suppression",
+   "desc": "<IconMap:Icon_UltimateReady> (With enough Technique Points)",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1371012": {
+   "name": "Ultimate: Qingming Skyshade",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1371013": {
+   "name": "Quick Assist: Cloudstream Shadow",
+   "desc": "<IconMap:Icon_Switch> (When Triggering Quick Assist)",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1371014": {
+   "name": "Defensive Assist: Clear Sky Surge",
+   "desc": "<IconMap:Icon_Switch> (When Triggering Defensive Assist)",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1371015": {
+   "name": "Assist Follow-Up: Celestial Cloud Blitz",
+   "desc": "<IconMap:Icon_Normal> (After Defensive Assist)",
+   "element_type": 205,
+   "hit_type": 102,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1371001,
+   "avatar_id": 1371,
+   "first_priority": [
+    5,
+    3,
+    1
+   ],
+   "second_priority": [
+    0
+   ],
+   "third_priority": [
+    2,
+    6
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33100,
+  "slot2": 31000,
+  "slot_sub": 32700,
+  "part_sub_list": [
+   20103,
+   21103,
+   11102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33100,
+     31000
+    ],
+    "part_sub_list": [
+     21103,
+     20103
+    ]
+   },
+   {
+    "suit_list": [
+     33100,
+     31000
+    ],
+    "part_sub_list": [
+     31903,
+     11102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     11102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "CRIT Rate",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 21103,
+   "name": "CRIT DMG",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  },
+  "part6": {
+   "prop": 31903,
+   "name": "Ether DMG Bonus",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconDungeonBuffEther.png"
+  },
+  "part_sub": {
+   "prop": 11102,
+   "name": "HP",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconHpMax.png"
+  }
+ },
+ "strategy": [
+  "02",
+  "Dual Ultimate mechanic brings burst DMG",
+  "<IconMap:Icon_GeneralBuff_AuricInk>Auric Ink, on-field DMG dealer",
+  "Ignores defense and deals massive Sheer DMG",
+  "EX Special Attack combines blocking and attacking"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100216": 4
+   }
+  },
+  "2": {
+   "hp_max": 462,
+   "attack": 45,
+   "defence": 24,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100226": 12
+   }
+  },
+  "3": {
+   "hp_max": 924,
+   "attack": 90,
+   "defence": 49,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100226": 20
+   }
+  },
+  "4": {
+   "hp_max": 1386,
+   "attack": 134,
+   "defence": 73,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100236": 10
+   }
+  },
+  "5": {
+   "hp_max": 1848,
+   "attack": 179,
+   "defence": 97,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100236": 20
+   }
+  },
+  "6": {
+   "hp_max": 2310,
+   "attack": 224,
+   "defence": 122,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "11101": {
+     "prop": 11101,
+     "name": "HP",
+     "format": "{0:0}",
+     "value": 0
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "11101": {
+     "prop": 11101,
+     "name": "HP",
+     "format": "{0:0}",
+     "value": 140
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "11101": {
+     "prop": 11101,
+     "name": "HP",
+     "format": "{0:0}",
+     "value": 140
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "11101": {
+     "prop": 11101,
+     "name": "HP",
+     "format": "{0:0}",
+     "value": 280
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "11101": {
+     "prop": 11101,
+     "name": "HP",
+     "format": "{0:0}",
+     "value": 280
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "11101": {
+     "prop": 11101,
+     "name": "HP",
+     "format": "{0:0}",
+     "value": 420
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpine_Yixuan"
+}

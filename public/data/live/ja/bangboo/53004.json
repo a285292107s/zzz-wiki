@@ -1,0 +1,339 @@
+{
+ "id": 53004,
+ "code_name": "Sumoboo",
+ "name": "オスモウボンプ",
+ "desc": "リキシは、決して下がらない！",
+ "rarity": 3,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole05.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 360,
+  "hpupgrade": 428397,
+  "attack": 47,
+  "attack_upgrade": 236912,
+  "break_stun": 112,
+  "element_abnormal_power": 88,
+  "defence": 32,
+  "def_upgrade": 92587,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 188,
+   "attack": 44,
+   "defence": 41,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 376,
+   "attack": 219,
+   "defence": 81,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 564,
+   "attack": 657,
+   "defence": 122,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 752,
+   "attack": 1753,
+   "defence": 163,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 940,
+   "attack": 4381,
+   "defence": 203,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "決まり手・岩崩し",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動すると、敵目掛けて跳び上がり、落下打撃で一定範囲内に<color=#F0D12B>物理属性ダメージ</color>を与える。このスキルには強い中断能力がある。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5300401, Prop:1001}|{Skill:5300401, Prop:1002}|14秒"
+    },
+    "2": {
+     "name": "決まり手・岩崩し",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動すると、敵目掛けて跳び上がり、落下打撃で一定範囲内に<color=#F0D12B>物理属性ダメージ</color>を与える。このスキルには強い中断能力がある。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5300401, Prop:1001}|{Skill:5300401, Prop:1002}|14秒"
+    },
+    "3": {
+     "name": "決まり手・岩崩し",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動すると、敵目掛けて跳び上がり、落下打撃で一定範囲内に<color=#F0D12B>物理属性ダメージ</color>を与える。このスキルには強い中断能力がある。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5300401, Prop:1001}|{Skill:5300401, Prop:1002}|14秒"
+    },
+    "4": {
+     "name": "決まり手・岩崩し",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動すると、敵目掛けて跳び上がり、落下打撃で一定範囲内に<color=#F0D12B>物理属性ダメージ</color>を与える。このスキルには強い中断能力がある。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5300401, Prop:1001}|{Skill:5300401, Prop:1002}|14秒"
+    },
+    "5": {
+     "name": "決まり手・岩崩し",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動すると、敵目掛けて跳び上がり、落下打撃で一定範囲内に<color=#F0D12B>物理属性ダメージ</color>を与える。このスキルには強い中断能力がある。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5300401, Prop:1001}|{Skill:5300401, Prop:1002}|14秒"
+    },
+    "6": {
+     "name": "決まり手・岩崩し",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動すると、敵目掛けて跳び上がり、落下打撃で一定範囲内に<color=#F0D12B>物理属性ダメージ</color>を与える。このスキルには強い中断能力がある。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5300401, Prop:1001}|{Skill:5300401, Prop:1002}|14秒"
+    },
+    "7": {
+     "name": "決まり手・岩崩し",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動すると、敵目掛けて跳び上がり、落下打撃で一定範囲内に<color=#F0D12B>物理属性ダメージ</color>を与える。このスキルには強い中断能力がある。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5300401, Prop:1001}|{Skill:5300401, Prop:1002}|14秒"
+    },
+    "8": {
+     "name": "決まり手・岩崩し",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動すると、敵目掛けて跳び上がり、落下打撃で一定範囲内に<color=#F0D12B>物理属性ダメージ</color>を与える。このスキルには強い中断能力がある。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5300401, Prop:1001}|{Skill:5300401, Prop:1002}|14秒"
+    },
+    "9": {
+     "name": "決まり手・岩崩し",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動すると、敵目掛けて跳び上がり、落下打撃で一定範囲内に<color=#F0D12B>物理属性ダメージ</color>を与える。このスキルには強い中断能力がある。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5300401, Prop:1001}|{Skill:5300401, Prop:1002}|14秒"
+    },
+    "10": {
+     "name": "決まり手・岩崩し",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキルを発動すると、敵目掛けて跳び上がり、落下打撃で一定範囲内に<color=#F0D12B>物理属性ダメージ</color>を与える。このスキルには強い中断能力がある。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率",
+      "クールタイム"
+     ],
+     "param": "{Skill:5300401, Prop:1001}|{Skill:5300401, Prop:1002}|14秒"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "剛よく柔を断つ",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[撃破]</color>のメンバーがいる時に発動：ターゲットのブレイク値が50%を超えた時、<color=#FFFFFF>『アクティブスキル』</color>によるブレイク値+18%。",
+     "property": [
+      "ブレイク値アップ"
+     ],
+     "param": "18%"
+    },
+    "2": {
+     "name": "剛よく柔を断つ",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[撃破]</color>のメンバーがいる時に発動：ターゲットのブレイク値が50%を超えた時、<color=#FFFFFF>『アクティブスキル』</color>によるブレイク値+22.5%。",
+     "property": [
+      "ブレイク値アップ"
+     ],
+     "param": "22.5%"
+    },
+    "3": {
+     "name": "剛よく柔を断つ",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[撃破]</color>のメンバーがいる時に発動：ターゲットのブレイク値が50%を超えた時、<color=#FFFFFF>『アクティブスキル』</color>によるブレイク値+27%。",
+     "property": [
+      "ブレイク値アップ"
+     ],
+     "param": "27%"
+    },
+    "4": {
+     "name": "剛よく柔を断つ",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[撃破]</color>のメンバーがいる時に発動：ターゲットのブレイク値が50%を超えた時、<color=#FFFFFF>『アクティブスキル』</color>によるブレイク値+31.5%。",
+     "property": [
+      "ブレイク値アップ"
+     ],
+     "param": "31.5%"
+    },
+    "5": {
+     "name": "剛よく柔を断つ",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[撃破]</color>のメンバーがいる時に発動：ターゲットのブレイク値が50%を超えた時、<color=#FFFFFF>『アクティブスキル』</color>によるブレイク値+36%。",
+     "property": [
+      "ブレイク値アップ"
+     ],
+     "param": "36%"
+    }
+   }
+  },
+  "c": {
+   "level": {}
+  }
+ },
+ "skill_prop": {
+  "5300401": {
+   "1001": {
+    "main": 32300,
+    "growth": 3230,
+    "format": "%"
+   },
+   "1002": {
+    "main": 18900,
+    "growth": 1890,
+    "format": "%"
+   },
+   "element_accumulation_value": 24200
+  }
+ }
+}

@@ -1,0 +1,448 @@
+{
+ "id": 54014,
+ "code_name": "Agent Gulliver",
+ "name": "걸리버 요원",
+ "desc": "문 열어! 보안 검사를 진행한다!",
+ "rarity": 4,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole28.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 396,
+  "hpupgrade": 471237,
+  "attack": 68,
+  "attack_upgrade": 340750,
+  "break_stun": 103,
+  "element_abnormal_power": 123,
+  "defence": 28,
+  "def_upgrade": 78871,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 207,
+   "attack": 63,
+   "defence": 35,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 414,
+   "attack": 315,
+   "defence": 69,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 621,
+   "attack": 945,
+   "defence": 104,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 828,
+   "attack": 2521,
+   "defence": 139,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 1034,
+   "attack": 6302,
+   "defence": 173,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "긴급 작전",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 전방을 향해 3단 꿰뚫기 사격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5401401, Prop:1001}|{Skill:5401401, Prop:1002}|20초"
+    },
+    "2": {
+     "name": "긴급 작전",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 전방을 향해 3단 꿰뚫기 사격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5401401, Prop:1001}|{Skill:5401401, Prop:1002}|20초"
+    },
+    "3": {
+     "name": "긴급 작전",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 전방을 향해 3단 꿰뚫기 사격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5401401, Prop:1001}|{Skill:5401401, Prop:1002}|20초"
+    },
+    "4": {
+     "name": "긴급 작전",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 전방을 향해 3단 꿰뚫기 사격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5401401, Prop:1001}|{Skill:5401401, Prop:1002}|20초"
+    },
+    "5": {
+     "name": "긴급 작전",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 전방을 향해 3단 꿰뚫기 사격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5401401, Prop:1001}|{Skill:5401401, Prop:1002}|20초"
+    },
+    "6": {
+     "name": "긴급 작전",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 전방을 향해 3단 꿰뚫기 사격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5401401, Prop:1001}|{Skill:5401401, Prop:1002}|20초"
+    },
+    "7": {
+     "name": "긴급 작전",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 전방을 향해 3단 꿰뚫기 사격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5401401, Prop:1001}|{Skill:5401401, Prop:1002}|20초"
+    },
+    "8": {
+     "name": "긴급 작전",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 전방을 향해 3단 꿰뚫기 사격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5401401, Prop:1001}|{Skill:5401401, Prop:1002}|20초"
+    },
+    "9": {
+     "name": "긴급 작전",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 전방을 향해 3단 꿰뚫기 사격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5401401, Prop:1001}|{Skill:5401401, Prop:1002}|20초"
+    },
+    "10": {
+     "name": "긴급 작전",
+     "desc": "<color=#FFFFFF>[액티브 스킬]</color>\n스킬 시전 시 전방을 향해 3단 꿰뚫기 사격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율",
+      "재사용 대기시간"
+     ],
+     "param": "{Skill:5401401, Prop:1001}|{Skill:5401401, Prop:1002}|20초"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "「Bangboo」 돌격대",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티에 <color=#FFFFFF>[대공동 특별행동부 제6과]</color> 진영의 캐릭터가 2명 이상 존재 시 발동: <color=#ffffff>[액티브 스킬]</color> 및 <color=#ffffff>[「Bangboo」 콤보 스킬]</color>이 <color=#2EB6FF>[감전]</color> 상태인 적에게 명중 시 주는 피해가 30% 증가한다. 공격이 전기 속성이 아닌 다른 속성 이상 상태인 적에게 명중 시 누적하는 속성 이상 축적치가 60% 증가한다.",
+     "property": [
+      "피해 증가",
+      "속성 이상 축적치 증가"
+     ],
+     "param": "30%|60%"
+    },
+    "2": {
+     "name": "「Bangboo」 돌격대",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티에 <color=#FFFFFF>[대공동 특별행동부 제6과]</color> 진영의 캐릭터가 2명 이상 존재 시 발동: <color=#ffffff>[액티브 스킬]</color> 및 <color=#ffffff>[「Bangboo」 콤보 스킬]</color>이 <color=#2EB6FF>[감전]</color> 상태인 적에게 명중 시 주는 피해가 37% 증가한다. 공격이 전기 속성이 아닌 다른 속성 이상 상태인 적에게 명중 시 누적하는 속성 이상 축적치가 75% 증가한다.",
+     "property": [
+      "피해 증가",
+      "속성 이상 축적치 증가"
+     ],
+     "param": "37%|75%"
+    },
+    "3": {
+     "name": "「Bangboo」 돌격대",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티에 <color=#FFFFFF>[대공동 특별행동부 제6과]</color> 진영의 캐릭터가 2명 이상 존재 시 발동: <color=#ffffff>[액티브 스킬]</color> 및 <color=#ffffff>[「Bangboo」 콤보 스킬]</color>이 <color=#2EB6FF>[감전]</color> 상태인 적에게 명중 시 주는 피해가 45% 증가한다. 공격이 전기 속성이 아닌 다른 속성 이상 상태인 적에게 명중 시 누적하는 속성 이상 축적치가 90% 증가한다.",
+     "property": [
+      "피해 증가",
+      "속성 이상 축적치 증가"
+     ],
+     "param": "45%|90%"
+    },
+    "4": {
+     "name": "「Bangboo」 돌격대",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티에 <color=#FFFFFF>[대공동 특별행동부 제6과]</color> 진영의 캐릭터가 2명 이상 존재 시 발동: <color=#ffffff>[액티브 스킬]</color> 및 <color=#ffffff>[「Bangboo」 콤보 스킬]</color>이 <color=#2EB6FF>[감전]</color> 상태인 적에게 명중 시 주는 피해가 52% 증가한다. 공격이 전기 속성이 아닌 다른 속성 이상 상태인 적에게 명중 시 누적하는 속성 이상 축적치가 105% 증가한다.",
+     "property": [
+      "피해 증가",
+      "속성 이상 축적치 증가"
+     ],
+     "param": "52%|105%"
+    },
+    "5": {
+     "name": "「Bangboo」 돌격대",
+     "desc": "<color=#FFFFFF>[추가 능력]</color>\n파티에 <color=#FFFFFF>[대공동 특별행동부 제6과]</color> 진영의 캐릭터가 2명 이상 존재 시 발동: <color=#ffffff>[액티브 스킬]</color> 및 <color=#ffffff>[「Bangboo」 콤보 스킬]</color>이 <color=#2EB6FF>[감전]</color> 상태인 적에게 명중 시 주는 피해가 60% 증가한다. 공격이 전기 속성이 아닌 다른 속성 이상 상태인 적에게 명중 시 누적하는 속성 이상 축적치가 120% 증가한다.",
+     "property": [
+      "피해 증가",
+      "속성 이상 축적치 증가"
+     ],
+     "param": "60%|120%"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "돌격 타임",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전방을 향해 강력한 1단 꿰뚫기 사격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고 대량의 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401402, Prop:1001}|{Skill:5401402, Prop:1002}"
+    },
+    "2": {
+     "name": "돌격 타임",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전방을 향해 강력한 1단 꿰뚫기 사격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고 대량의 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401402, Prop:1001}|{Skill:5401402, Prop:1002}"
+    },
+    "3": {
+     "name": "돌격 타임",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전방을 향해 강력한 1단 꿰뚫기 사격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고 대량의 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401402, Prop:1001}|{Skill:5401402, Prop:1002}"
+    },
+    "4": {
+     "name": "돌격 타임",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전방을 향해 강력한 1단 꿰뚫기 사격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고 대량의 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401402, Prop:1001}|{Skill:5401402, Prop:1002}"
+    },
+    "5": {
+     "name": "돌격 타임",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전방을 향해 강력한 1단 꿰뚫기 사격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고 대량의 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401402, Prop:1001}|{Skill:5401402, Prop:1002}"
+    },
+    "6": {
+     "name": "돌격 타임",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전방을 향해 강력한 1단 꿰뚫기 사격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고 대량의 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401402, Prop:1001}|{Skill:5401402, Prop:1002}"
+    },
+    "7": {
+     "name": "돌격 타임",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전방을 향해 강력한 1단 꿰뚫기 사격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고 대량의 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401402, Prop:1001}|{Skill:5401402, Prop:1002}"
+    },
+    "8": {
+     "name": "돌격 타임",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전방을 향해 강력한 1단 꿰뚫기 사격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고 대량의 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401402, Prop:1001}|{Skill:5401402, Prop:1002}"
+    },
+    "9": {
+     "name": "돌격 타임",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전방을 향해 강력한 1단 꿰뚫기 사격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고 대량의 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401402, Prop:1001}|{Skill:5401402, Prop:1002}"
+    },
+    "10": {
+     "name": "돌격 타임",
+     "desc": "<color=#FFFFFF>[「Bangboo」 콤보 스킬]</color>\n전방을 향해 강력한 1단 꿰뚫기 사격으로 <color=#2EB6FF>전기 속성 피해</color>를 주고 대량의 <color=#2EB6FF>전기 속성 이상 축적치</color>를 누적한다.",
+     "property": [
+      "피해 배율",
+      "그로기 배율"
+     ],
+     "param": "{Skill:5401402, Prop:1001}|{Skill:5401402, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5401401": {
+   "1001": {
+    "main": 64000,
+    "growth": 6400,
+    "format": "%"
+   },
+   "1002": {
+    "main": 23400,
+    "growth": 2340,
+    "format": "%"
+   },
+   "element_accumulation_value": 30000
+  },
+  "5401402": {
+   "1001": {
+    "main": 79900,
+    "growth": 7990,
+    "format": "%"
+   },
+   "1002": {
+    "main": 11400,
+    "growth": 1140,
+    "format": "%"
+   },
+   "element_accumulation_value": 34300
+  }
+ }
+}

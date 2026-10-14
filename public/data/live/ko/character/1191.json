@@ -1,0 +1,3038 @@
+{
+ "id": 1191,
+ "icon": "IconRole21",
+ "name": "엘렌",
+ "code_name": "Ellen",
+ "rarity": 4,
+ "weapon_type": {
+  "1": "Attack"
+ },
+ "element_type": {
+  "202": "Ice"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "2": "빅토리아 하우스키핑"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "1/4",
+  "full_name": "엘렌 조",
+  "gender": "여성",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle21.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0021.png",
+  "impression_f": "전에 사복을 입은 엘렌을 본 적 있는데 정말 놀랐어…\n빅토리아 하우스키핑 일이 엘렌에게는 학교 밖 아르바이트처럼 느껴지는 걸까? 정말 대단해!",
+  "impression_m": "벨, 어떻게 보면 우리도 사실은 두 가지 일을 겸하고 있는 셈이야…",
+  "impressions": [
+   "엘렌에 대한 인상:\n · 상어 법칙(1): 노래방 할인 쿠폰은 많을수록 좋다!",
+   " · 상어 법칙(2): 수업을 빼먹을 땐 반드시 공범이 있어야 한다!",
+   " · 상어 법칙(3): 체중과 별명은 절대로 말할 수 없는 비밀이다!"
+  ],
+  "profile_desc": "엘렌은 빅토리아 하우스키핑의 메이드로 조직에 가장 마지막으로 합류한 인물이다.\n효율주의자로 알려져 있으며 불필요한 에너지 소비는 되도록 피한다. 그러나 필요한 순간에는 팀원들의 협력을 받아 강력한 전투력을 발휘할 수 있다.\n전투 스타일은 높은 에너지 소모가 특징이며 당분을 섭취해야 하기 때문에 사탕을 자주 입에 물고 있는 편이다.\n「귀찮아, 직업을 바꾸고 싶다」라고 말하긴 하지만 실제로는 빅토리아 하우스키핑 팀원들을 매우 소중히 여긴다.\n\n엘렌은 뉴에리두의 한 학교에 다니며 평범한 친구들과 어울린다.\n빅토리아 하우스키핑의 업무 이외에도 엘렌은 친구들과 시간을 보내며 평범하면서도 즐거운 학창 시절을 만끽한다.\n\n생각: 여러 역할을 맡고 있는 엘렌은 학생으로서의 생활과 빅토리아 하우스키핑 업무 사이의 균형을 잘 유지해야 해요.\n이것이 엘렌이 자주 피로를 느끼는 이유 중 하나일까요?",
+  "role_icon": "IconRole/UnPacker/IconRole21",
+  "stature": "161",
+  "unlock_condition": [
+   "에이전트 획득",
+   "메인 스토리 의뢰 제3장 완료",
+   "「엔비의 고민」 의뢰 완료"
+  ],
+  "trust_lv": {
+   "1": "엘렌은 빅토리아 하우스키핑의 메이드로 조직에 가장 마지막으로 합류한 인물이다.\n효율주의자로 알려져 있으며 불필요한 에너지 소비는 되도록 피한다. 그러나 필요한 순간에는 팀원들의 협력을 받아 강력한 전투력을 발휘할 수 있다.\n전투 스타일은 높은 에너지 소모가 특징이며 당분을 섭취해야 하기 때문에 사탕을 자주 입에 물고 있는 편이다.\n「귀찮아, 직업을 바꾸고 싶다」라고 말하긴 하지만 실제로는 빅토리아 하우스키핑 팀원들을 매우 소중히 여긴다.\n\n엘렌은 뉴에리두의 한 학교에 다니며 평범한 친구들과 어울린다.\n빅토리아 하우스키핑의 업무 이외에도 엘렌은 친구들과 시간을 보내며 평범하면서도 즐거운 학창 시절을 만끽한다.\n\n생각: 여러 역할을 맡고 있는 엘렌은 학생으로서의 생활과 빅토리아 하우스키핑 업무 사이의 균형을 잘 유지해야 해요.\n이것이 엘렌이 자주 피로를 느끼는 이유 중 하나일까요?",
+   "2": "",
+   "3": "엘렌은 다른 사람과는 다른 특별한 미각을 지녔다. 동료 리나는 종종 「기묘한」 요리를 만드는데, 엘렌은 무덤덤하게 이 요리를 맛볼 수 있는 유일한 인물이다.\n\n제안: 리나의 요리를 직접 시식해 보는 건 어떨까요? 그 반응을 엘렌과 비교 연구 해서 중요한 데이터를 수집해 드릴게요.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 135,
+  "attack_growth": 82578,
+  "avatar_piece_id": 5191,
+  "break_stun": 93,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66203,
+  "element_abnormal_power": 94,
+  "element_mystery": 93,
+  "endurance": 0,
+  "hp_growth": 837238,
+  "hp_max": 617,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Ellen",
+   "Cut",
+   "Ice",
+   "Female",
+   "Camp2",
+   "Size2",
+   "AidTypeParry",
+   "Ellen",
+   "EtherEyesSize2"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "일반 공격: 이빨 전지법",
+     "desc": "<IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 향해 최대 3단까지 공격을 펼쳐 <color=#F0D12B>물리 피해</color>를 준다.\n세 번째 공격 중에 <IconMap:Icon_Normal>을 연타 혹은 홀드하면 스킬의 지속 시간을 연장할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 급랭 전지법",
+     "desc": "<color=#FFFFFF>[급랭]</color> 효과 활성화 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 향해 최대 3단까지 공격을 펼쳐 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n매 공격마다 <color=#FFFFFF>[급랭 충전]</color>을 1pt 소모한다.\n세 번째 공격 중에 <IconMap:Icon_Normal>을 연타 혹은 홀드하면 스킬의 지속 시간을 연장할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 칼날 파도",
+     "desc": "<color=#FFFFFF>[일반 공격: 급랭 전지법]</color> 세 번째, <color=#FFFFFF>[대시 공격: 살얼음 잠습]</color>의 차지 가위질, <color=#FFFFFF>[회피 반격: 암초]</color> 및 <color=#FFFFFF>[빠른 지원]</color> 시전 후, 만약 엘렌이 <color=#FFFFFF>[급랭 충전]</color>을 보유하고 있으면 <IconMap:Icon_Normal>을 짧게 탭하여 <color=#FFFFFF>[일반 공격: 칼날 파도]</color>를 시전하고 <color=#98EFF0>얼음 속성 피해</color>를 줄 수 있다.\n스킬은 <color=#FFFFFF>[급랭 충전]</color>을 2pt 소모한다.\n스킬 시전 후 바로 이어서 세 번째 <color=#FFFFFF>[일반 공격]</color>을 사용할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": [
+      119100,
+      119101,
+      119102,
+      119103,
+      119104,
+      119105
+     ]
+    },
+    {
+     "name": "일반 공격: 서리 칼날",
+     "desc": "<color=#FFFFFF>[일반 공격: 급랭 전지법]</color> 세 번째, <color=#FFFFFF>[강화 특수 스킬: 샤크나미]</color>, <color=#FFFFFF>[회피 반격: 암초]</color> 및 <color=#FFFFFF>[지원 돌격]</color> 시전 후 자동으로 <color=#FFFFFF>[일반 공격: 서리 칼날]</color>을 시전하여 전방 넓은 범위 내 적에게 여러 단의 <color=#98EFF0>얼음 속성 피해</color>를 준다. 또한 중/대형 적에게 각각 추가로 여러 단의 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬 시전 후 엘렌이 <color=#FFFFFF>[고속 차지]</color> 효과를 획득한다.\n<color=#FFFFFF>[일반 공격: 서리 칼날]</color>은 기존 스킬 파생에 영향을 주지 않는다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": [
+      119100,
+      119101,
+      119102,
+      119103,
+      119104,
+      119105
+     ]
+    },
+    {
+     "name": "일반 공격: 이빨 전지법",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1191001, Prop:1001}",
+       "param": {
+        "1191001": {
+         "main": 4880,
+         "growth": 450,
+         "format": "%",
+         "damage_percentage": 4880,
+         "damage_percentage_growth": 450,
+         "stun_ratio": 2440,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 6790,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 61050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2218
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1191002, Prop:1001}",
+       "param": {
+        "1191002": {
+         "main": 11110,
+         "growth": 1010,
+         "format": "%",
+         "damage_percentage": 11110,
+         "damage_percentage_growth": 1010,
+         "stun_ratio": 8680,
+         "stun_ratio_growth": 400,
+         "sp_recovery": 24150,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 216975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7890
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1191003, Prop:1001}",
+       "param": {
+        "1191003": {
+         "main": 29730,
+         "growth": 2710,
+         "format": "%",
+         "damage_percentage": 29730,
+         "damage_percentage_growth": 2710,
+         "stun_ratio": 24040,
+         "stun_ratio_growth": 1100,
+         "sp_recovery": 66880,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 601150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21854
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1191001, Prop:1002}",
+       "param": {
+        "1191001": {
+         "main": 2440,
+         "growth": 120,
+         "format": "%",
+         "damage_percentage": 4880,
+         "damage_percentage_growth": 450,
+         "stun_ratio": 2440,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 6790,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 61050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2218
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1191002, Prop:1002}",
+       "param": {
+        "1191002": {
+         "main": 8680,
+         "growth": 400,
+         "format": "%",
+         "damage_percentage": 11110,
+         "damage_percentage_growth": 1010,
+         "stun_ratio": 8680,
+         "stun_ratio_growth": 400,
+         "sp_recovery": 24150,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 216975,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7890
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1191003, Prop:1002}",
+       "param": {
+        "1191003": {
+         "main": 24040,
+         "growth": 1100,
+         "format": "%",
+         "damage_percentage": 29730,
+         "damage_percentage_growth": 2710,
+         "stun_ratio": 24040,
+         "stun_ratio_growth": 1100,
+         "sp_recovery": 66880,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 601150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21854
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 급랭 전지법",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1191004, Prop:1001}",
+       "param": {
+        "1191004": {
+         "main": 9960,
+         "growth": 910,
+         "format": "%",
+         "damage_percentage": 9960,
+         "damage_percentage_growth": 910,
+         "stun_ratio": 4880,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 13580,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 122100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4435,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4436
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1191005, Prop:1001}",
+       "param": {
+        "1191005": {
+         "main": 18400,
+         "growth": 1680,
+         "format": "%",
+         "damage_percentage": 18400,
+         "damage_percentage_growth": 1680,
+         "stun_ratio": 9020,
+         "stun_ratio_growth": 410,
+         "sp_recovery": 25090,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 225500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8199,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8200
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1191006, Prop:1001}",
+       "param": {
+        "1191006": {
+         "main": 49620,
+         "growth": 4520,
+         "format": "%",
+         "damage_percentage": 49620,
+         "damage_percentage_growth": 4520,
+         "stun_ratio": 24550,
+         "stun_ratio_growth": 1120,
+         "sp_recovery": 64280,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 613800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 22317,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22318
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1191004, Prop:1002}",
+       "param": {
+        "1191004": {
+         "main": 4880,
+         "growth": 230,
+         "format": "%",
+         "damage_percentage": 9960,
+         "damage_percentage_growth": 910,
+         "stun_ratio": 4880,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 13580,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 122100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4435,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4436
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1191005, Prop:1002}",
+       "param": {
+        "1191005": {
+         "main": 9020,
+         "growth": 410,
+         "format": "%",
+         "damage_percentage": 18400,
+         "damage_percentage_growth": 1680,
+         "stun_ratio": 9020,
+         "stun_ratio_growth": 410,
+         "sp_recovery": 25090,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 225500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8199,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8200
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1191006, Prop:1002}",
+       "param": {
+        "1191006": {
+         "main": 24550,
+         "growth": 1120,
+         "format": "%",
+         "damage_percentage": 49620,
+         "damage_percentage_growth": 4520,
+         "stun_ratio": 24550,
+         "stun_ratio_growth": 1120,
+         "sp_recovery": 64280,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 613800,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 22317,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 22318
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 칼날 파도",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1191029, Prop:1001}",
+       "param": {
+        "1191029": {
+         "main": 23020,
+         "growth": 2100,
+         "format": "%",
+         "damage_percentage": 23020,
+         "damage_percentage_growth": 2100,
+         "stun_ratio": 6700,
+         "stun_ratio_growth": 310,
+         "sp_recovery": 18620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 167475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12166,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9125
+        }
+       },
+       "potential": [
+        119100,
+        119101,
+        119102,
+        119103,
+        119104,
+        119105
+       ]
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1191030, Prop:1001}",
+       "param": {
+        "1191030": {
+         "main": 14680,
+         "growth": 1340,
+         "format": "%",
+         "damage_percentage": 14680,
+         "damage_percentage_growth": 1340,
+         "stun_ratio": 8420,
+         "stun_ratio_growth": 390,
+         "sp_recovery": 23410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 210375,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4996,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5464
+        }
+       },
+       "potential": [
+        119100,
+        119101,
+        119102,
+        119103,
+        119104,
+        119105
+       ]
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1191029, Prop:1002}",
+       "param": {
+        "1191029": {
+         "main": 6700,
+         "growth": 310,
+         "format": "%",
+         "damage_percentage": 23020,
+         "damage_percentage_growth": 2100,
+         "stun_ratio": 6700,
+         "stun_ratio_growth": 310,
+         "sp_recovery": 18620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 167475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12166,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9125
+        }
+       },
+       "potential": [
+        119100,
+        119101,
+        119102,
+        119103,
+        119104,
+        119105
+       ]
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1191030, Prop:1002}",
+       "param": {
+        "1191030": {
+         "main": 8420,
+         "growth": 390,
+         "format": "%",
+         "damage_percentage": 14680,
+         "damage_percentage_growth": 1340,
+         "stun_ratio": 8420,
+         "stun_ratio_growth": 390,
+         "sp_recovery": 23410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 210375,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4996,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5464
+        }
+       },
+       "potential": [
+        119100,
+        119101,
+        119102,
+        119103,
+        119104,
+        119105
+       ]
+      }
+     ],
+     "potential": [
+      119100,
+      119101,
+      119102,
+      119103,
+      119104,
+      119105
+     ]
+    },
+    {
+     "name": "일반 공격: 서리 칼날",
+     "param": [
+      {
+       "name": "소형 적에 대한 피해 배율",
+       "desc": "{{Skill:1191027, Prop:1001}*3}",
+       "param": {
+        "1191027": {
+         "main": 6040,
+         "growth": 550,
+         "format": "%",
+         "damage_percentage": 6040,
+         "damage_percentage_growth": 550,
+         "stun_ratio": 2580,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 8420,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 64350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2338,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2339
+        }
+       },
+       "potential": [
+        119100,
+        119101,
+        119102,
+        119103,
+        119104,
+        119105
+       ]
+      },
+      {
+       "name": "중형 적에 대한 피해 배율",
+       "desc": "{{Skill:1191027, Prop:1001}*3+{Skill:1191028, Prop:1001}*3}",
+       "param": {
+        "1191027": {
+         "main": 6040,
+         "growth": 550,
+         "format": "%",
+         "damage_percentage": 6040,
+         "damage_percentage_growth": 550,
+         "stun_ratio": 2580,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 8420,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 64350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2338,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2339
+        },
+        "1191028": {
+         "main": 1300,
+         "growth": 120,
+         "format": "%",
+         "damage_percentage": 1300,
+         "damage_percentage_growth": 120,
+         "stun_ratio": 560,
+         "stun_ratio_growth": 30,
+         "sp_recovery": 1810,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 14025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 501,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 502
+        }
+       },
+       "potential": [
+        119100,
+        119101,
+        119102,
+        119103,
+        119104,
+        119105
+       ]
+      },
+      {
+       "name": "대형 적에 대한 피해 배율",
+       "desc": "{{Skill:1191027, Prop:1001}*3+{Skill:1191028, Prop:1001}*6}",
+       "param": {
+        "1191027": {
+         "main": 6040,
+         "growth": 550,
+         "format": "%",
+         "damage_percentage": 6040,
+         "damage_percentage_growth": 550,
+         "stun_ratio": 2580,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 8420,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 64350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2338,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2339
+        },
+        "1191028": {
+         "main": 1300,
+         "growth": 120,
+         "format": "%",
+         "damage_percentage": 1300,
+         "damage_percentage_growth": 120,
+         "stun_ratio": 560,
+         "stun_ratio_growth": 30,
+         "sp_recovery": 1810,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 14025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 501,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 502
+        }
+       },
+       "potential": [
+        119100,
+        119101,
+        119102,
+        119103,
+        119104,
+        119105
+       ]
+      },
+      {
+       "name": "소형 적에 대한 그로기 배율",
+       "desc": "{{Skill:1191027, Prop:1002}*3}",
+       "param": {
+        "1191027": {
+         "main": 2580,
+         "growth": 120,
+         "format": "%",
+         "damage_percentage": 6040,
+         "damage_percentage_growth": 550,
+         "stun_ratio": 2580,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 8420,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 64350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2338,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2339
+        }
+       },
+       "potential": [
+        119100,
+        119101,
+        119102,
+        119103,
+        119104,
+        119105
+       ]
+      },
+      {
+       "name": "중형 적에 대한 그로기 배율",
+       "desc": "{{Skill:1191027, Prop:1002}*3+{Skill:1191028, Prop:1002}*3}",
+       "param": {
+        "1191027": {
+         "main": 2580,
+         "growth": 120,
+         "format": "%",
+         "damage_percentage": 6040,
+         "damage_percentage_growth": 550,
+         "stun_ratio": 2580,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 8420,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 64350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2338,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2339
+        },
+        "1191028": {
+         "main": 560,
+         "growth": 30,
+         "format": "%",
+         "damage_percentage": 1300,
+         "damage_percentage_growth": 120,
+         "stun_ratio": 560,
+         "stun_ratio_growth": 30,
+         "sp_recovery": 1810,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 14025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 501,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 502
+        }
+       },
+       "potential": [
+        119100,
+        119101,
+        119102,
+        119103,
+        119104,
+        119105
+       ]
+      },
+      {
+       "name": "대형 적에 대한 그로기 배율",
+       "desc": "{{Skill:1191027, Prop:1002}*3+{Skill:1191028, Prop:1002}*6}",
+       "param": {
+        "1191027": {
+         "main": 2580,
+         "growth": 120,
+         "format": "%",
+         "damage_percentage": 6040,
+         "damage_percentage_growth": 550,
+         "stun_ratio": 2580,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 8420,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 64350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 2338,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2339
+        },
+        "1191028": {
+         "main": 560,
+         "growth": 30,
+         "format": "%",
+         "damage_percentage": 1300,
+         "damage_percentage_growth": 120,
+         "stun_ratio": 560,
+         "stun_ratio_growth": 30,
+         "sp_recovery": 1810,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 14025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 501,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 502
+        }
+       },
+       "potential": [
+        119100,
+        119101,
+        119102,
+        119103,
+        119104,
+        119105
+       ]
+      }
+     ],
+     "potential": [
+      119100,
+      119101,
+      119102,
+      119103,
+      119104,
+      119105
+     ]
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "회피: 소용돌이",
+     "desc": "<IconMap:Icon_Evade>을 짧게 탭하여 시전:\n빠른 대시로 회피한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.\n<color=#FFFFFF>[극한 회피]</color> 발동 시 엘렌은 <color=#FFFFFF>[고속 차지]</color> 효과를 획득해 <color=#FFFFFF>[대시 공격: 살얼음 잠습]</color>의 차지 시간이 줄어든다. 최대 5초 지속 혹은 1회 발동한다.",
+     "potential": []
+    },
+    {
+     "name": "대시: 사냥 순행",
+     "desc": "<IconMap:Icon_Evade>을 홀드 혹은 두 번 눌러 시전:\n<color=#FFFFFF>[순행]</color> 상태에 진입하고 빠른 대시로 이동한다.\n<color=#FFFFFF>[순행]</color> 상태에서는 {LAYOUT_CONSOLECONTROLLER#스틱으로}{LAYOUT_FALLBACK#방향키로} 방향을 컨트롤할 수 있으며 {LAYOUT_CONSOLECONTROLLER#스틱}{LAYOUT_FALLBACK#방향키}에서 손을 떼면 멈춘다.\n스킬을 시전하는 순간 짧은 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 살얼음 잠습",
+     "desc": "<color=#FFFFFF>[순행]</color> 상태에서 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n적에게 회전 베기를 시전한 후 빠른 가위질로 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n빠른 가위질이 명중하면 <color=#FFFFFF>[급랭 충전]</color>을 1pt 획득한다.\n\n<color=#FFFFFF>[순행]</color> 상태에서 <IconMap:Icon_Normal>을 홀드해 시전:\n적에게 회전 베기를 시전한 후 차지 가위질로 대량의 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n차지 가위질이 명중하면 <color=#FFFFFF>[급랭 충전]</color>을 3pt 획득한다. 만약 적이 <color=#98EFF0>[빙결]</color> 상태라면 반드시 <color=#98EFF0>[쇄빙]</color> 효과를 발동한다.\n스킬을 차지하는 동안 경직 저항 레벨이 증가하고, 받는 피해가 40% 감소한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "대시 공격: 살얼음 잠습",
+     "desc": "<color=#FFFFFF>[순행]</color> 상태에서 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n적에게 회전 베기를 시전한 후 빠른 가위질로 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n빠른 가위질이 명중하면 <color=#FFFFFF>[급랭 충전]</color>을 1pt 획득한다.\n\n<color=#FFFFFF>[순행]</color> 상태에서 <IconMap:Icon_Normal>을 홀드해 시전:\n적에게 회전 베기를 시전한 후 차지 가위질로 대량의 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n차지 가위질이 명중하면 <color=#FFFFFF>[급랭 충전]</color>을 3pt 획득한다. 만약 적이 <color=#98EFF0>[빙결]</color> 상태라면 반드시 <color=#98EFF0>[쇄빙]</color> 효과를 발동한다.\n스킬을 차지하는 동안 경직 저항 레벨이 증가하고, 받는 피해가 40% 감소한다.\n스킬을 차지하는 동안 적의 공격을 받을 시, 해당 피해에 면역되고 즉시 차지를 완료한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": [
+      119100,
+      119101,
+      119102,
+      119103,
+      119104,
+      119105
+     ]
+    },
+    {
+     "name": "급랭",
+     "desc": "<color=#FFFFFF>[급랭 충전]</color> 보유 시 <color=#FFFFFF>[급랭]</color> 효과를 활성화한다. <color=#FFFFFF>[급랭]</color> 효과 활성화 후 <color=#FFFFFF>[일반 공격]</color> 및 <color=#FFFFFF>[대시 공격]</color>이 <color=#FFFFFF>[급랭 충전]</color>을 소모해 대량의 <color=#98EFF0>얼음 속성 피해</color>를 준다. 엘렌은 <color=#FFFFFF>[급랭 충전]</color>을 최대 6pt 보유할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 성난 파도",
+     "desc": "회피 시 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방에 돌진 베기로 <color=#F0D12B>물리 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 한파",
+     "desc": "<color=#FFFFFF>[급랭]</color> 효과 활성화 후 회피 시 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방에 돌진 베기로 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n<color=#FFFFFF>[급랭 충전]</color>을 1pt 소모한다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 암초",
+     "desc": "<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n적을 빠르게 꿰뚫고 가위질로 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 살얼음 잠습",
+     "param": [
+      {
+       "name": "회전 베기 피해 배율",
+       "desc": "{Skill:1191007, Prop:1001}",
+       "param": {
+        "1191007": {
+         "main": 6230,
+         "growth": 570,
+         "format": "%",
+         "damage_percentage": 6230,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 6230,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 20380,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 155650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5659,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5660
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "빠른 가위질 피해 배율",
+       "desc": "{Skill:1191008, Prop:1001}",
+       "param": {
+        "1191008": {
+         "main": 12760,
+         "growth": 1160,
+         "format": "%",
+         "damage_percentage": 12760,
+         "damage_percentage_growth": 1160,
+         "stun_ratio": 9820,
+         "stun_ratio_growth": 450,
+         "sp_recovery": 32110,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 245300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8919,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8920
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "차지 가위질 피해 배율",
+       "desc": "{Skill:1191009, Prop:1001}",
+       "param": {
+        "1191009": {
+         "main": 15820,
+         "growth": 1440,
+         "format": "%",
+         "damage_percentage": 15820,
+         "damage_percentage_growth": 1440,
+         "stun_ratio": 12170,
+         "stun_ratio_growth": 560,
+         "sp_recovery": 39810,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 304150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11056,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11057
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "회전 베기 그로기 배율",
+       "desc": "{Skill:1191007, Prop:1002}",
+       "param": {
+        "1191007": {
+         "main": 6230,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 6230,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 6230,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 20380,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 155650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5659,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5660
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "빠른 가위질 그로기 배율",
+       "desc": "{Skill:1191008, Prop:1002}",
+       "param": {
+        "1191008": {
+         "main": 9820,
+         "growth": 450,
+         "format": "%",
+         "damage_percentage": 12760,
+         "damage_percentage_growth": 1160,
+         "stun_ratio": 9820,
+         "stun_ratio_growth": 450,
+         "sp_recovery": 32110,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 245300,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8919,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 8920
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "차지 가위질 그로기 배율",
+       "desc": "{Skill:1191009, Prop:1002}",
+       "param": {
+        "1191009": {
+         "main": 12170,
+         "growth": 560,
+         "format": "%",
+         "damage_percentage": 15820,
+         "damage_percentage_growth": 1440,
+         "stun_ratio": 12170,
+         "stun_ratio_growth": 560,
+         "sp_recovery": 39810,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 304150,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11056,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11057
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "빠른 가위질로 획득하는 급랭 충전",
+       "desc": "1pt",
+       "potential": []
+      },
+      {
+       "name": "차지 가위질로 획득하는 급랭 충전",
+       "desc": "3pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 성난 파도",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1191013, Prop:1001}",
+       "param": {
+        "1191013": {
+         "main": 7700,
+         "growth": 700,
+         "format": "%",
+         "damage_percentage": 7700,
+         "damage_percentage_growth": 700,
+         "stun_ratio": 3850,
+         "stun_ratio_growth": 180,
+         "sp_recovery": 12600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 96250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3499
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1191013, Prop:1002}",
+       "param": {
+        "1191013": {
+         "main": 3850,
+         "growth": 180,
+         "format": "%",
+         "damage_percentage": 7700,
+         "damage_percentage_growth": 700,
+         "stun_ratio": 3850,
+         "stun_ratio_growth": 180,
+         "sp_recovery": 12600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 96250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3499
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 한파",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1191014, Prop:1001}",
+       "param": {
+        "1191014": {
+         "main": 14570,
+         "growth": 1330,
+         "format": "%",
+         "damage_percentage": 14570,
+         "damage_percentage_growth": 1330,
+         "stun_ratio": 7880,
+         "stun_ratio_growth": 360,
+         "sp_recovery": 25790,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 197175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7163,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3582
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1191014, Prop:1002}",
+       "param": {
+        "1191014": {
+         "main": 7880,
+         "growth": 360,
+         "format": "%",
+         "damage_percentage": 14570,
+         "damage_percentage_growth": 1330,
+         "stun_ratio": 7880,
+         "stun_ratio_growth": 360,
+         "sp_recovery": 25790,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 197175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7163,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3582
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 암초",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1191015, Prop:1001}",
+       "param": {
+        "1191015": {
+         "main": 15260,
+         "growth": 1390,
+         "format": "%",
+         "damage_percentage": 15260,
+         "damage_percentage_growth": 1390,
+         "stun_ratio": 22740,
+         "stun_ratio_growth": 1040,
+         "sp_recovery": 38420,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 293700,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1191015, Prop:1002}",
+       "param": {
+        "1191015": {
+         "main": 22740,
+         "growth": 1040,
+         "format": "%",
+         "damage_percentage": 15260,
+         "damage_percentage_growth": 1390,
+         "stun_ratio": 22740,
+         "stun_ratio_growth": 1040,
+         "sp_recovery": 38420,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 293700,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10670,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25671
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "특수 스킬: 꼬리 흔들기",
+     "desc": "<IconMap:Icon_Special>을 짧게 탭하여 시전:\n전방에 빠른 꼬리치기 공격으로 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 휩쓸기",
+     "desc": "에너지가 충분한 상태에서 <IconMap:Icon_SpecialReady>을 짧게 탭하여 시전:\n전방에 강력한 꼬리치기 공격으로 대량의 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n적에게 명중 시 <color=#FFFFFF>[급랭 충전]</color>을 1pt 획득한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.\n스킬 시전 후, 바로 세 번째 <color=#FFFFFF>[일반 공격]</color>을 이어서 사용할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 샤크나미",
+     "desc": "<color=#FFFFFF>[강화 특수 스킬: 휩쓸기]</color> 시전 후, 에너지가 충분한 상태에서 <IconMap:Icon_SpecialReady>을 짧게 탭하여 시전:\n전방에 강력한 연속 베기로 대량의 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n적에게 명중 시 <color=#FFFFFF>[급랭 충전]</color>을 1pt 획득한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.\n스킬 시전 후, 바로 세 번째 <color=#FFFFFF>[일반 공격]</color>을 이어서 사용할 수 있다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 꼬리 흔들기",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1191010, Prop:1001}",
+       "param": {
+        "1191010": {
+         "main": 5050,
+         "growth": 460,
+         "format": "%",
+         "damage_percentage": 5050,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 5050,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 126225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4584,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4585
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1191010, Prop:1002}",
+       "param": {
+        "1191010": {
+         "main": 5050,
+         "growth": 230,
+         "format": "%",
+         "damage_percentage": 5050,
+         "damage_percentage_growth": 460,
+         "stun_ratio": 5050,
+         "stun_ratio_growth": 230,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 126225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4584,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4585
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 휩쓸기",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1191011, Prop:1001}",
+       "param": {
+        "1191011": {
+         "main": 37720,
+         "growth": 3430,
+         "format": "%",
+         "damage_percentage": 37720,
+         "damage_percentage_growth": 3430,
+         "stun_ratio": 40510,
+         "stun_ratio_growth": 1850,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1403600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 40373,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1191011, Prop:1002}",
+       "param": {
+        "1191011": {
+         "main": 40510,
+         "growth": 1850,
+         "format": "%",
+         "damage_percentage": 37720,
+         "damage_percentage_growth": 3430,
+         "stun_ratio": 40510,
+         "stun_ratio_growth": 1850,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1403600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 40373,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "에너지 소모",
+       "desc": "40pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 샤크나미",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1191012, Prop:1001}",
+       "param": {
+        "1191012": {
+         "main": 55330,
+         "growth": 5030,
+         "format": "%",
+         "damage_percentage": 55330,
+         "damage_percentage_growth": 5030,
+         "stun_ratio": 37170,
+         "stun_ratio_growth": 1690,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1307075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37219,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1191012, Prop:1002}",
+       "param": {
+        "1191012": {
+         "main": 37170,
+         "growth": 1690,
+         "format": "%",
+         "damage_percentage": 55330,
+         "damage_percentage_growth": 5030,
+         "stun_ratio": 37170,
+         "stun_ratio_growth": 1690,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1307075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37219,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "에너지 소모",
+       "desc": "40pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "콤보 스킬: 눈사태",
+     "desc": "<color=#FFFFFF>[콤보 스킬]</color> 발동 시 해당 캐릭터를 선택해 시전:\n공중에서 내리쳐 얼음폭풍을 생성해 대량의 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "궁극기: 영원한 겨울의 향연",
+     "desc": "데시벨 레벨 <color=#FFFFFF>[Maximum]</color> 달성 시 <IconMap:Icon_UltimateReady>을 짧게 탭하여 시전:\n공중에서 내리쳐 얼음폭풍을 생성한 후 가위로 강력한 일격을 가해 대량의 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 눈사태",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1191016, Prop:1001}",
+       "param": {
+        "1191016": {
+         "main": 79460,
+         "growth": 7230,
+         "format": "%",
+         "damage_percentage": 79460,
+         "damage_percentage_growth": 7230,
+         "stun_ratio": 35570,
+         "stun_ratio_growth": 1620,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2718100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 52283,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 32334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1191016, Prop:1002}",
+       "param": {
+        "1191016": {
+         "main": 35570,
+         "growth": 1620,
+         "format": "%",
+         "damage_percentage": 79460,
+         "damage_percentage_growth": 7230,
+         "stun_ratio": 35570,
+         "stun_ratio_growth": 1620,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2718100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 52283,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 32334
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "궁극기: 영원한 겨울의 향연",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1191017, Prop:1001}",
+       "param": {
+        "1191017": {
+         "main": 189080,
+         "growth": 17190,
+         "format": "%",
+         "damage_percentage": 189080,
+         "damage_percentage_growth": 17190,
+         "stun_ratio": 18520,
+         "stun_ratio_growth": 850,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 16833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 66834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1191017, Prop:1002}",
+       "param": {
+        "1191017": {
+         "main": 18520,
+         "growth": 850,
+         "format": "%",
+         "damage_percentage": 189080,
+         "damage_percentage_growth": 17190,
+         "stun_ratio": 18520,
+         "stun_ratio_growth": 850,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 16833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 66834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "빠른 지원: 상어 경호원",
+     "desc": "현재 조작 중인 캐릭터가 넉업되면 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적을 빠르게 꿰뚫고 가위질로 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.\n현재 조작 중인 캐릭터가 넉업되면 {LAYOUT_CONSOLECONTROLLER#스틱을}{LAYOUT_FALLBACK#방향키를} 움직이고 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n<color=#FFFFFF>[순행]</color> 상태에 진입하고 빠른 대시로 이동한다.\n<color=#FFFFFF>[순행]</color> 상태에서는 {LAYOUT_CONSOLECONTROLLER#스틱으로}{LAYOUT_FALLBACK#방향키로} 방향을 컨트롤할 수 있으며 {LAYOUT_CONSOLECONTROLLER#스틱}{LAYOUT_FALLBACK#방향키}에서 손을 떼면 멈춘다.\n스킬을 시전하는 순간 짧은 무적 효과를 보유한다.\n<color=#FFFFFF>[빠른 지원]</color> 시전 시 엘렌은 <color=#FFFFFF>[고속 차지]</color> 효과를 획득해 <color=#FFFFFF>[대시 공격: 살얼음 잠습]</color>의 차지 시간이 줄어든다. 최대 5초 지속 혹은 1회 발동한다.",
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 맞파도",
+     "desc": "출전 캐릭터 피격 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적의 공격을 패링하고 대량의 그로기 수치를 누적한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 샤크 크루저",
+     "desc": "<color=#FFFFFF>[패링 지원]</color> 시전 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적에게 돌진 베기로 <color=#98EFF0>얼음 속성 피해</color>를 준다.\n스킬 공격 중에 <IconMap:Icon_Normal>을 연타 혹은 홀드하면 스킬의 지속 시간을 연장할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 상어 경호원",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1191018, Prop:1001}",
+       "param": {
+        "1191018": {
+         "main": 12110,
+         "growth": 1110,
+         "format": "%",
+         "damage_percentage": 12110,
+         "damage_percentage_growth": 1110,
+         "stun_ratio": 12110,
+         "stun_ratio_growth": 560,
+         "sp_recovery": 39620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 302775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5502
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1191018, Prop:1002}",
+       "param": {
+        "1191018": {
+         "main": 12110,
+         "growth": 560,
+         "format": "%",
+         "damage_percentage": 12110,
+         "damage_percentage_growth": 1110,
+         "stun_ratio": 12110,
+         "stun_ratio_growth": 560,
+         "sp_recovery": 39620,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 302775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5502
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 맞파도",
+     "param": [
+      {
+       "name": "가벼운 패링 그로기 배율",
+       "desc": "{Skill:1191019, Prop:1002}",
+       "param": {
+        "1191019": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강한 패링 그로기 배율",
+       "desc": "{Skill:1191020, Prop:1002}",
+       "param": {
+        "1191020": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 패링 그로기 배율",
+       "desc": "{Skill:1191021, Prop:1002}",
+       "param": {
+        "1191021": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 샤크 크루저",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1191022, Prop:1001}",
+       "param": {
+        "1191022": {
+         "main": 43790,
+         "growth": 3990,
+         "format": "%",
+         "damage_percentage": 43790,
+         "damage_percentage_growth": 3990,
+         "stun_ratio": 38480,
+         "stun_ratio_growth": 1750,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1227600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37392,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1191022, Prop:1002}",
+       "param": {
+        "1191022": {
+         "main": 38480,
+         "growth": 1750,
+         "format": "%",
+         "damage_percentage": 43790,
+         "damage_percentage_growth": 3990,
+         "stun_ratio": 38480,
+         "stun_ratio_growth": 1750,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1227600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37392,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20497
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100112": 2
+    },
+    "2": {
+     "10": 3000,
+     "100112": 3
+    },
+    "3": {
+     "10": 6000,
+     "100122": 2
+    },
+    "4": {
+     "10": 9000,
+     "100122": 3
+    },
+    "5": {
+     "10": 12000,
+     "100122": 4
+    },
+    "6": {
+     "10": 18000,
+     "100122": 6
+    },
+    "7": {
+     "10": 45000,
+     "100132": 5
+    },
+    "8": {
+     "10": 67500,
+     "100132": 8
+    },
+    "9": {
+     "10": 90000,
+     "100132": 10
+    },
+    "10": {
+     "10": 112500,
+     "100132": 12
+    },
+    "11": {
+     "10": 135000,
+     "100132": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "혹독한 겨울의 징조",
+   "desc": "<color=#FFFFFF>[대시 공격: 살얼음 잠습]</color> 중에 시전한 빠른 가위질이 적에게 명중 시 획득하는 <color=#FFFFFF>[급랭 충전]</color>이 3pt까지 증가한다. <color=#FFFFFF>[대시 공격: 살얼음 잠습]</color> 중에 시전한 차지 가위질이 적에게 명중 시 획득하는 <color=#FFFFFF>[급랭 충전]</color>이 6pt까지 증가한다. <color=#FFFFFF>[급랭 충전]</color>을 1pt 소모할 때마다 엘렌의 치명타 확률이 2% 증가한다. 지속 시간: 15초, 최대 중첩: 6스택, 각 스택의 지속 시간은 따로 계산된다.",
+   "desc2": "서릿바람은 겨울이 오는 징조인 동시에 엘렌이 긴 휴가를 내고 겨울잠에 들어간다는 신호이기도 하다.\n그나저나 상어도 겨울잠을 자야 하나?"
+  },
+  "2": {
+   "level": 2,
+   "name": "극해의 포식자",
+   "desc": "세 번째 <color=#FFFFFF>[일반 공격: 급랭 전지법]</color> 시전 후 바로 <color=#FFFFFF>[강화 특수 스킬: 샤크나미]</color>를 이어서 사용할 수 있다. <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 보유한 <color=#FFFFFF>[급랭 충전]</color> 1pt당 현재 스킬로 주는 치명타 피해가 20% 증가한다. 최대 증가: 60%",
+   "desc2": "새빨갛게 물들었음에도 엘렌의 거대한 가위에서 온기 따위는 느껴지지 않는다.\n뼛속까지 스며드는 냉기는 철로 만든 흉기에서 비롯된 것이며, 또한 포식자를 만났을 때의 공포감에서 비롯된 것이다."
+  },
+  "3": {
+   "level": 3,
+   "name": "야근 사절",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "「효율」이란 오늘 일찍 퇴근하고 집에 가서 잘 수 있음을 뜻한다.\n그러니 더욱 빠르게 베고, 더욱 힘껏 무기를 뽑아야 한다."
+  },
+  "4": {
+   "level": 4,
+   "name": "끝없는 한파",
+   "desc": "파티 내 임의의 캐릭터가 적에게 <color=#98EFF0>[빙결]</color> 효과를 부여하거나 적을 그로기 상태에 빠뜨릴 시 엘렌이 <color=#FFFFFF>[급랭 충전]</color> 6pt 및 <color=#FFFFFF>[고속 차지]</color> 효과를 획득하고, 에너지를 4pt 회복한다. 에너지 회복 효과는 10초 동안 최대 1회 발동한다.",
+   "desc2": "매서운 공세가 이어지고, 무시무시한 피조물들은 엘렌의 칼을 통해 겨울의 아름다움과 잔혹함을 맛보게 될 것이다.\n하지만 쉬는 날에도 메이드는 쉼 없이 일해야 한다는 사실이 더 잔혹하다…"
+  },
+  "5": {
+   "level": 5,
+   "name": "충분한 수면",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "아주 어려운 전투 중이 아니라면 엘렌은 항상 「일하는 중만 아니면 바로 숙면할 텐데」란 태도를 보인다.\n다만 이에 방심하다 당한 적들이 한둘이 아니다."
+  },
+  "6": {
+   "level": 6,
+   "name": "연회의 시간",
+   "desc": "<color=#FFFFFF>[강화 특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color> 시전 혹은 <color=#FFFFFF>[고속 차지]</color> 획득 시 엘렌의 관통률이 20% 증가한다. 지속 시간: 6초, 동시에 <color=#FFFFFF>[성대한 연회]</color>를 1스택 획득한다. <color=#FFFFFF>[성대한 연회]</color> 최대 중첩: 3스택\n<color=#FFFFFF>[성대한 연회]</color>를 3스택 보유한 상태에서 <color=#FFFFFF>[대시 공격: 살얼음 잠습]</color> 중에 시전한 차지 가위질이 적에게 명중 시 모든 <color=#FFFFFF>[성대한 연회]</color>를 소모하여 현재 스킬로 주는 피해가 250% 증가한다.",
+   "desc2": "한 줄의 상처, 한 방울의 선혈\n한 번의 사냥, 한 차례의 연회\n한 개의 목숨, 한 순간의 만족"
+  }
+ },
+ "passive": {
+  "level": {
+   "1191501": {
+    "level": 1,
+    "id": 1191501,
+    "name": [
+     "핵심 패시브: 날카로운 이빨",
+     "추가 능력: 폭풍 해일"
+    ],
+    "desc": [
+     "엘렌이 <color=#FFFFFF>[대시 공격: 살얼음 잠습]</color> 중에 차지 가위질을 시전하거나 <color=#FFFFFF>[급랭 충전]</color>을 소모해 <color=#FFFFFF>[일반 공격: 급랭 전지법]</color>을 시전할 시, 스킬의 치명타 피해가 <color=#2BAD00>50%</color> 증가한다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n엘렌이 <color=#98EFF0>얼음 속성 피해</color>를 줄 시 후속 <color=#98EFF0>얼음 속성 피해</color>가 3% 증가한다. 지속 시간: 10초, 최대 중첩: 10스택, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1191502": {
+    "level": 2,
+    "id": 1191502,
+    "name": [
+     "핵심 패시브: 날카로운 이빨",
+     "추가 능력: 폭풍 해일"
+    ],
+    "desc": [
+     "엘렌이 <color=#FFFFFF>[대시 공격: 살얼음 잠습]</color> 중에 차지 가위질을 시전하거나 <color=#FFFFFF>[급랭 충전]</color>을 소모해 <color=#FFFFFF>[일반 공격: 급랭 전지법]</color>을 시전할 시, 스킬의 치명타 피해가 <color=#2BAD00>58.3%</color> 증가한다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n엘렌이 <color=#98EFF0>얼음 속성 피해</color>를 줄 시 후속 <color=#98EFF0>얼음 속성 피해</color>가 3% 증가한다. 지속 시간: 10초, 최대 중첩: 10스택, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1191503": {
+    "level": 3,
+    "id": 1191503,
+    "name": [
+     "핵심 패시브: 날카로운 이빨",
+     "추가 능력: 폭풍 해일"
+    ],
+    "desc": [
+     "엘렌이 <color=#FFFFFF>[대시 공격: 살얼음 잠습]</color> 중에 차지 가위질을 시전하거나 <color=#FFFFFF>[급랭 충전]</color>을 소모해 <color=#FFFFFF>[일반 공격: 급랭 전지법]</color>을 시전할 시, 스킬의 치명타 피해가 <color=#2BAD00>66.6%</color> 증가한다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n엘렌이 <color=#98EFF0>얼음 속성 피해</color>를 줄 시 후속 <color=#98EFF0>얼음 속성 피해</color>가 3% 증가한다. 지속 시간: 10초, 최대 중첩: 10스택, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1191504": {
+    "level": 4,
+    "id": 1191504,
+    "name": [
+     "핵심 패시브: 날카로운 이빨",
+     "추가 능력: 폭풍 해일"
+    ],
+    "desc": [
+     "엘렌이 <color=#FFFFFF>[대시 공격: 살얼음 잠습]</color> 중에 차지 가위질을 시전하거나 <color=#FFFFFF>[급랭 충전]</color>을 소모해 <color=#FFFFFF>[일반 공격: 급랭 전지법]</color>을 시전할 시, 스킬의 치명타 피해가 <color=#2BAD00>75%</color> 증가한다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n엘렌이 <color=#98EFF0>얼음 속성 피해</color>를 줄 시 후속 <color=#98EFF0>얼음 속성 피해</color>가 3% 증가한다. 지속 시간: 10초, 최대 중첩: 10스택, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1191505": {
+    "level": 5,
+    "id": 1191505,
+    "name": [
+     "핵심 패시브: 날카로운 이빨",
+     "추가 능력: 폭풍 해일"
+    ],
+    "desc": [
+     "엘렌이 <color=#FFFFFF>[대시 공격: 살얼음 잠습]</color> 중에 차지 가위질을 시전하거나 <color=#FFFFFF>[급랭 충전]</color>을 소모해 <color=#FFFFFF>[일반 공격: 급랭 전지법]</color>을 시전할 시, 스킬의 치명타 피해가 <color=#2BAD00>83.3%</color> 증가한다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n엘렌이 <color=#98EFF0>얼음 속성 피해</color>를 줄 시 후속 <color=#98EFF0>얼음 속성 피해</color>가 3% 증가한다. 지속 시간: 10초, 최대 중첩: 10스택, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1191506": {
+    "level": 6,
+    "id": 1191506,
+    "name": [
+     "핵심 패시브: 날카로운 이빨",
+     "추가 능력: 폭풍 해일"
+    ],
+    "desc": [
+     "엘렌이 <color=#FFFFFF>[대시 공격: 살얼음 잠습]</color> 중에 차지 가위질을 시전하거나 <color=#FFFFFF>[급랭 충전]</color>을 소모해 <color=#FFFFFF>[일반 공격: 급랭 전지법]</color>을 시전할 시, 스킬의 치명타 피해가 <color=#2BAD00>91.6%</color> 증가한다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n엘렌이 <color=#98EFF0>얼음 속성 피해</color>를 줄 시 후속 <color=#98EFF0>얼음 속성 피해</color>가 3% 증가한다. 지속 시간: 10초, 최대 중첩: 10스택, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1191507": {
+    "level": 7,
+    "id": 1191507,
+    "name": [
+     "핵심 패시브: 날카로운 이빨",
+     "추가 능력: 폭풍 해일"
+    ],
+    "desc": [
+     "엘렌이 <color=#FFFFFF>[대시 공격: 살얼음 잠습]</color> 중에 차지 가위질을 시전하거나 <color=#FFFFFF>[급랭 충전]</color>을 소모해 <color=#FFFFFF>[일반 공격: 급랭 전지법]</color>을 시전할 시, 스킬의 치명타 피해가 <color=#2BAD00>100%</color> 증가한다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터가 존재할 시 발동:\n엘렌이 <color=#98EFF0>얼음 속성 피해</color>를 줄 시 후속 <color=#98EFF0>얼음 속성 피해</color>가 3% 증가한다. 지속 시간: 10초, 최대 중첩: 10스택, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1191508": {
+    "level": 1,
+    "id": 1191508,
+    "name": [
+     "핵심 패시브: 날카로운 이빨",
+     "추가 능력: 폭풍 해일"
+    ],
+    "desc": [
+     "엘렌이 <color=#FFFFFF>[대시 공격: 살얼음 잠습]</color> 중에 차지 가위질을 시전하거나 <color=#FFFFFF>[급랭 충전]</color>을 소모해 <color=#FFFFFF>[일반 공격: 급랭 전지법]</color>을 시전할 시, 스킬의 치명타 피해가 <color=#2BAD00>50%</color> 증가한다.\n상술한 효과는 <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[궁극기]</color>, <color=#FFFFFF>[일반 공격: 서리 칼날]</color> 및 <color=#FFFFFF>[일반 공격: 칼날 파도]</color>에 똑같이 적용된다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n엘렌이 <color=#98EFF0>얼음 속성 피해</color>를 줄 시 후속 <color=#98EFF0>얼음 속성 피해</color>가 3% 증가한다. 지속 시간: 10초, 최대 중첩: 10스택, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": [
+     119100,
+     119101,
+     119102,
+     119103,
+     119104,
+     119105
+    ]
+   },
+   "1191509": {
+    "level": 2,
+    "id": 1191509,
+    "name": [
+     "핵심 패시브: 날카로운 이빨",
+     "추가 능력: 폭풍 해일"
+    ],
+    "desc": [
+     "엘렌이 <color=#FFFFFF>[대시 공격: 살얼음 잠습]</color> 중에 차지 가위질을 시전하거나 <color=#FFFFFF>[급랭 충전]</color>을 소모해 <color=#FFFFFF>[일반 공격: 급랭 전지법]</color>을 시전할 시, 스킬의 치명타 피해가 <color=#2BAD00>58.3%</color> 증가한다.\n상술한 효과는 <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[궁극기]</color>, <color=#FFFFFF>[일반 공격: 서리 칼날]</color> 및 <color=#FFFFFF>[일반 공격: 칼날 파도]</color>에 똑같이 적용된다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n엘렌이 <color=#98EFF0>얼음 속성 피해</color>를 줄 시 후속 <color=#98EFF0>얼음 속성 피해</color>가 3% 증가한다. 지속 시간: 10초, 최대 중첩: 10스택, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": [
+     119100,
+     119101,
+     119102,
+     119103,
+     119104,
+     119105
+    ]
+   },
+   "1191510": {
+    "level": 3,
+    "id": 1191510,
+    "name": [
+     "핵심 패시브: 날카로운 이빨",
+     "추가 능력: 폭풍 해일"
+    ],
+    "desc": [
+     "엘렌이 <color=#FFFFFF>[대시 공격: 살얼음 잠습]</color> 중에 차지 가위질을 시전하거나 <color=#FFFFFF>[급랭 충전]</color>을 소모해 <color=#FFFFFF>[일반 공격: 급랭 전지법]</color>을 시전할 시, 스킬의 치명타 피해가 <color=#2BAD00>66.6%</color> 증가한다.\n상술한 효과는 <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[궁극기]</color>, <color=#FFFFFF>[일반 공격: 서리 칼날]</color> 및 <color=#FFFFFF>[일반 공격: 칼날 파도]</color>에 똑같이 적용된다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n엘렌이 <color=#98EFF0>얼음 속성 피해</color>를 줄 시 후속 <color=#98EFF0>얼음 속성 피해</color>가 3% 증가한다. 지속 시간: 10초, 최대 중첩: 10스택, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": [
+     119100,
+     119101,
+     119102,
+     119103,
+     119104,
+     119105
+    ]
+   },
+   "1191511": {
+    "level": 4,
+    "id": 1191511,
+    "name": [
+     "핵심 패시브: 날카로운 이빨",
+     "추가 능력: 폭풍 해일"
+    ],
+    "desc": [
+     "엘렌이 <color=#FFFFFF>[대시 공격: 살얼음 잠습]</color> 중에 차지 가위질을 시전하거나 <color=#FFFFFF>[급랭 충전]</color>을 소모해 <color=#FFFFFF>[일반 공격: 급랭 전지법]</color>을 시전할 시, 스킬의 치명타 피해가 <color=#2BAD00>75%</color> 증가한다.\n상술한 효과는 <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[궁극기]</color>, <color=#FFFFFF>[일반 공격: 서리 칼날]</color> 및 <color=#FFFFFF>[일반 공격: 칼날 파도]</color>에 똑같이 적용된다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n엘렌이 <color=#98EFF0>얼음 속성 피해</color>를 줄 시 후속 <color=#98EFF0>얼음 속성 피해</color>가 3% 증가한다. 지속 시간: 10초, 최대 중첩: 10스택, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": [
+     119100,
+     119101,
+     119102,
+     119103,
+     119104,
+     119105
+    ]
+   },
+   "1191512": {
+    "level": 5,
+    "id": 1191512,
+    "name": [
+     "핵심 패시브: 날카로운 이빨",
+     "추가 능력: 폭풍 해일"
+    ],
+    "desc": [
+     "엘렌이 <color=#FFFFFF>[대시 공격: 살얼음 잠습]</color> 중에 차지 가위질을 시전하거나 <color=#FFFFFF>[급랭 충전]</color>을 소모해 <color=#FFFFFF>[일반 공격: 급랭 전지법]</color>을 시전할 시, 스킬의 치명타 피해가 <color=#2BAD00>83.3%</color> 증가한다.\n상술한 효과는 <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[궁극기]</color>, <color=#FFFFFF>[일반 공격: 서리 칼날]</color> 및 <color=#FFFFFF>[일반 공격: 칼날 파도]</color>에 똑같이 적용된다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n엘렌이 <color=#98EFF0>얼음 속성 피해</color>를 줄 시 후속 <color=#98EFF0>얼음 속성 피해</color>가 3% 증가한다. 지속 시간: 10초, 최대 중첩: 10스택, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": [
+     119100,
+     119101,
+     119102,
+     119103,
+     119104,
+     119105
+    ]
+   },
+   "1191513": {
+    "level": 6,
+    "id": 1191513,
+    "name": [
+     "핵심 패시브: 날카로운 이빨",
+     "추가 능력: 폭풍 해일"
+    ],
+    "desc": [
+     "엘렌이 <color=#FFFFFF>[대시 공격: 살얼음 잠습]</color> 중에 차지 가위질을 시전하거나 <color=#FFFFFF>[급랭 충전]</color>을 소모해 <color=#FFFFFF>[일반 공격: 급랭 전지법]</color>을 시전할 시, 스킬의 치명타 피해가 <color=#2BAD00>91.6%</color> 증가한다.\n상술한 효과는 <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[궁극기]</color>, <color=#FFFFFF>[일반 공격: 서리 칼날]</color> 및 <color=#FFFFFF>[일반 공격: 칼날 파도]</color>에 똑같이 적용된다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n엘렌이 <color=#98EFF0>얼음 속성 피해</color>를 줄 시 후속 <color=#98EFF0>얼음 속성 피해</color>가 3% 증가한다. 지속 시간: 10초, 최대 중첩: 10스택, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": [
+     119100,
+     119101,
+     119102,
+     119103,
+     119104,
+     119105
+    ]
+   },
+   "1191514": {
+    "level": 7,
+    "id": 1191514,
+    "name": [
+     "핵심 패시브: 날카로운 이빨",
+     "추가 능력: 폭풍 해일"
+    ],
+    "desc": [
+     "엘렌이 <color=#FFFFFF>[대시 공격: 살얼음 잠습]</color> 중에 차지 가위질을 시전하거나 <color=#FFFFFF>[급랭 충전]</color>을 소모해 <color=#FFFFFF>[일반 공격: 급랭 전지법]</color>을 시전할 시, 스킬의 치명타 피해가 <color=#2BAD00>100%</color> 증가한다.\n상술한 효과는 <color=#FFFFFF>[콤보 스킬]</color>, <color=#FFFFFF>[궁극기]</color>, <color=#FFFFFF>[일반 공격: 서리 칼날]</color> 및 <color=#FFFFFF>[일반 공격: 칼날 파도]</color>에 똑같이 적용된다.",
+     "파티에 자신과 속성 혹은 진영이 같은 캐릭터 혹은 <color=#FFFFFF>[격파]</color> 캐릭터가 존재할 시 발동:\n엘렌이 <color=#98EFF0>얼음 속성 피해</color>를 줄 시 후속 <color=#98EFF0>얼음 속성 피해</color>가 3% 증가한다. 지속 시간: 10초, 최대 중첩: 10스택, 중복 발동 시 지속 시간이 갱신된다."
+    ],
+    "extra_property": {},
+    "potential": [
+     119100,
+     119101,
+     119102,
+     119103,
+     119104,
+     119105
+    ]
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110501": 2
+   },
+   "3": {
+    "10": 28000,
+    "110501": 4
+   },
+   "4": {
+    "10": 60000,
+    "110001": 2,
+    "110501": 9
+   },
+   "5": {
+    "10": 100000,
+    "110001": 3,
+    "110501": 15
+   },
+   "6": {
+    "10": 200000,
+    "110001": 4,
+    "110501": 30
+   }
+  }
+ },
+ "skin": {
+  "3111910": {
+   "name": "엘렌·가위손 상어 소녀",
+   "desc": "빅토리아 하우스키핑의 날카롭고 예리한 가위손이다. 졸지만 않는다면 말이다…",
+   "obtain_desc": "",
+   "image": "IconRole21"
+  },
+  "3111911": {
+   "name": "엘렌·월요일부터 금요일까지",
+   "desc": "꼬리가 교복에 맞지는 않지만, 약간의 재봉 솜씨가 더해진다면, 그 결과물은 상당히 귀여워질 수 있다!",
+   "obtain_desc": "",
+   "image": "IconRole21_01"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1191001": {
+   "name": "일반 공격: 이빨 전지법",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1191002": {
+   "name": "일반 공격: 급랭 전지법",
+   "desc": "<IconMap:Icon_Normal>(급랭)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1191003": {
+   "name": "일반 공격: 칼날 파도",
+   "desc": "<IconMap:Icon_Normal> ; <IconMap:Icon_Normal> ; <IconMap:Icon_Normal>(급랭) ; <IconMap:Icon_Normal>(급랭)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": [
+    119100,
+    119101,
+    119102,
+    119103,
+    119104,
+    119105
+   ]
+  },
+  "1191004": {
+   "name": "일반 공격: 서리 칼날",
+   "desc": "<IconMap:Icon_Normal> ; <IconMap:Icon_Normal> ; <IconMap:Icon_Normal>(급랭)(자동)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": [
+    119100,
+    119101,
+    119102,
+    119103,
+    119104,
+    119105
+   ]
+  },
+  "1191005": {
+   "name": "특수 스킬: 꼬리 흔들기",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1191006": {
+   "name": "강화 특수 스킬: 휩쓸기",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 202,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1191007": {
+   "name": "강화 특수 스킬: 샤크나미",
+   "desc": "<IconMap:Icon_SpecialReady> ; <IconMap:Icon_SpecialReady>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1191008": {
+   "name": "일반 공격: 서리 칼날",
+   "desc": "<IconMap:Icon_SpecialReady> ; <IconMap:Icon_SpecialReady>(자동)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": [
+    119100,
+    119101,
+    119102,
+    119103,
+    119104,
+    119105
+   ]
+  },
+  "1191009": {
+   "name": "대시: 사냥 순행",
+   "desc": "<IconMap:Icon_Evade>(홀드 혹은 더블 탭)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1191010": {
+   "name": "대시 공격: 살얼음 잠습",
+   "desc": "<IconMap:Icon_Normal>(질주 상태)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1191011": {
+   "name": "대시 공격: 살얼음 잠습(차지)",
+   "desc": "<IconMap:Icon_Normal>(질주 상태)(홀드)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1191012": {
+   "name": "일반 공격: 칼날 파도",
+   "desc": "<IconMap:Icon_Normal>(질주 상태)(홀드) ; <IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": [
+    119100,
+    119101,
+    119102,
+    119103,
+    119104,
+    119105
+   ]
+  },
+  "1191013": {
+   "name": "대시 공격: 성난 파도",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1191014": {
+   "name": "대시 공격: 한파",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>(급랭)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1191015": {
+   "name": "회피 반격: 암초",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1191018": {
+   "name": "콤보 스킬: 눈사태",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1191019": {
+   "name": "궁극기: 영원한 겨울의 향연",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1191020": {
+   "name": "빠른 지원: 상어 경호원",
+   "desc": "<IconMap:Icon_Switch>(빠른 지원 발동 시)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1191022": {
+   "name": "패링 지원: 맞파도",
+   "desc": "<IconMap:Icon_Switch>(패링 지원 발동 시)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1191023": {
+   "name": "지원 돌격: 샤크 크루저",
+   "desc": "<IconMap:Icon_Normal>(패링 지원 시전 후)",
+   "element_type": 202,
+   "hit_type": 101,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1191001,
+   "avatar_id": 1191,
+   "first_priority": [
+    5,
+    0,
+    1
+   ],
+   "second_priority": [
+    3,
+    2
+   ],
+   "third_priority": [
+    6
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33300,
+  "slot2": 31000,
+  "slot_sub": 31100,
+  "part_sub_list": [
+   20103,
+   21103,
+   12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32500,
+     31000
+    ],
+    "part_sub_list": [
+     21103,
+     20103
+    ]
+   },
+   {
+    "suit_list": [
+     32500,
+     32700
+    ],
+    "part_sub_list": [
+     31703,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "치명타 확률",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 31703,
+   "name": "얼음 속성 피해 보너스",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconIce.png"
+  },
+  "part6": {
+   "prop": 21103,
+   "name": "치명타 피해",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "공격력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Ice>얼음 속성, 필드 딜러",
+  "[급랭 충전]을 축적해 폭발적인 딜링 가능",
+  "전장을 자유롭게 누빔"
+ ],
+ "potential": [
+  119100,
+  119101,
+  119102,
+  119103,
+  119104,
+  119105
+ ],
+ "potential_detail": {
+  "119100": {
+   "id": 119100,
+   "name": "",
+   "desc": "",
+   "image": "Ellen",
+   "level_show_name": "상어의 기세 Ⅰ",
+   "level": 1,
+   "ability_list": [
+    11191401
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20119,
+     "number": 1
+    }
+   ]
+  },
+  "119101": {
+   "id": 119101,
+   "name": "잠재력 각성: 극한의 얼음 지대",
+   "desc": "엘렌 [추가 능력: 폭풍 해일] 스택당 치명타 피해가 <color=#2BAD00>1.6%</color> 증가한다. 10스택 도달 시, 공격이 타깃의 <color=#98EFF0>얼음 속성 피해 저항</color>을 <color=#2BAD00>3.3%</color> 무시한다.",
+   "image": "Ellen",
+   "level_show_name": "상어의 기세 Ⅱ",
+   "level": 2,
+   "ability_list": [
+    11191401,
+    11191501
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20119,
+     "number": 1
+    }
+   ]
+  },
+  "119102": {
+   "id": 119102,
+   "name": "잠재력 각성: 극한의 얼음 지대",
+   "desc": "엘렌 [추가 능력: 폭풍 해일] 스택당 치명타 피해가 <color=#2BAD00>2.4%</color> 증가한다. 10스택 도달 시, 공격이 타깃의 <color=#98EFF0>얼음 속성 피해 저항</color>을 <color=#2BAD00>5%</color> 무시한다.",
+   "image": "Ellen",
+   "level_show_name": "상어의 기세 Ⅲ",
+   "level": 3,
+   "ability_list": [
+    11191401,
+    11191502
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20119,
+     "number": 1
+    }
+   ]
+  },
+  "119103": {
+   "id": 119103,
+   "name": "잠재력 각성: 극한의 얼음 지대",
+   "desc": "엘렌 [추가 능력: 폭풍 해일] 스택당 치명타 피해가 <color=#2BAD00>3.2%</color> 증가한다. 10스택 도달 시, 공격이 타깃의 <color=#98EFF0>얼음 속성 피해 저항</color>을 <color=#2BAD00>6.7%</color> 무시한다.",
+   "image": "Ellen",
+   "level_show_name": "상어의 기세 Ⅳ",
+   "level": 4,
+   "ability_list": [
+    11191401,
+    11191503
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20119,
+     "number": 1
+    }
+   ]
+  },
+  "119104": {
+   "id": 119104,
+   "name": "잠재력 각성: 극한의 얼음 지대",
+   "desc": "엘렌 [추가 능력: 폭풍 해일] 스택당 치명타 피해가 <color=#2BAD00>4%</color> 증가한다. 10스택 도달 시, 공격이 타깃의 <color=#98EFF0>얼음 속성 피해 저항</color>을 <color=#2BAD00>8.3%</color> 무시한다.",
+   "image": "Ellen",
+   "level_show_name": "상어의 기세 V",
+   "level": 5,
+   "ability_list": [
+    11191401,
+    11191504
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20119,
+     "number": 1
+    }
+   ]
+  },
+  "119105": {
+   "id": 119105,
+   "name": "잠재력 각성: 극한의 얼음 지대",
+   "desc": "엘렌 [추가 능력: 폭풍 해일] 스택당 치명타 피해가 <color=#2BAD00>4.8%</color> 증가한다. 10스택 도달 시, 공격이 타깃의 <color=#98EFF0>얼음 속성 피해 저항</color>을 <color=#2BAD00>10%</color> 무시한다.",
+   "image": "Ellen",
+   "level_show_name": "상어의 기세 Ⅵ",
+   "level": 6,
+   "ability_list": [
+    11191401,
+    11191505
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20119,
+     "number": 1
+    }
+   ]
+  }
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100211": 4
+   }
+  },
+  "2": {
+   "hp_max": 423,
+   "attack": 48,
+   "defence": 33,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100221": 12
+   }
+  },
+  "3": {
+   "hp_max": 847,
+   "attack": 96,
+   "defence": 67,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100221": 20
+   }
+  },
+  "4": {
+   "hp_max": 1270,
+   "attack": 145,
+   "defence": 100,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100231": 10
+   }
+  },
+  "5": {
+   "hp_max": 1694,
+   "attack": 193,
+   "defence": 134,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100231": 20
+   }
+  },
+  "6": {
+   "hp_max": 2117,
+   "attack": 241,
+   "defence": 167,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "치명타 확률",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpineEllen"
+}

@@ -1,0 +1,433 @@
+{
+ "id": 54015,
+ "code_name": "Snap",
+ "name": "カチャコ",
+ "desc": "そのフラッシュライトは、真のスーパースターのためにしか焚かれない。",
+ "rarity": 4,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole30.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 479,
+  "hpupgrade": 570196,
+  "attack": 64,
+  "attack_upgrade": 321091,
+  "break_stun": 110,
+  "element_abnormal_power": 110,
+  "defence": 28,
+  "def_upgrade": 78871,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 250,
+   "attack": 59,
+   "defence": 35,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 501,
+   "attack": 297,
+   "defence": 69,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 751,
+   "attack": 891,
+   "defence": 104,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 1001,
+   "attack": 2375,
+   "defence": 139,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 1252,
+   "attack": 5938,
+   "defence": 173,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "会心ダメージ",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "カメラ目線で、パシャリ！",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時にレンズを拭いて、<color=#FFFFFF>「フィルム」</color>を3本獲得する。<color=#FFFFFF>「フィルム」</color>を所持している間にエージェントが<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『クイック支援』</color>、<color=#FFFFFF>『支援突撃』</color>を発動すると、カチャコは<color=#FFFFFF>「フィルム」</color>を1本消費して写真を撮り、エージェントを<color=#FFFFFF>「カリスマ」</color>状態にする。<color=#FFFFFF>「カリスマ」</color>状態にある時、エージェントの与ダメージがアップする。継続時間10秒。",
+     "property": [
+      "エージェントのダメージアップ",
+      "クールタイム"
+     ],
+     "param": "2.8%|22秒"
+    },
+    "2": {
+     "name": "カメラ目線で、パシャリ！",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時にレンズを拭いて、<color=#FFFFFF>「フィルム」</color>を3本獲得する。<color=#FFFFFF>「フィルム」</color>を所持している間にエージェントが<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『クイック支援』</color>、<color=#FFFFFF>『支援突撃』</color>を発動すると、カチャコは<color=#FFFFFF>「フィルム」</color>を1本消費して写真を撮り、エージェントを<color=#FFFFFF>「カリスマ」</color>状態にする。<color=#FFFFFF>「カリスマ」</color>状態にある時、エージェントの与ダメージがアップする。継続時間10秒。",
+     "property": [
+      "エージェントのダメージアップ",
+      "クールタイム"
+     ],
+     "param": "3.6%|22秒"
+    },
+    "3": {
+     "name": "カメラ目線で、パシャリ！",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時にレンズを拭いて、<color=#FFFFFF>「フィルム」</color>を3本獲得する。<color=#FFFFFF>「フィルム」</color>を所持している間にエージェントが<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『クイック支援』</color>、<color=#FFFFFF>『支援突撃』</color>を発動すると、カチャコは<color=#FFFFFF>「フィルム」</color>を1本消費して写真を撮り、エージェントを<color=#FFFFFF>「カリスマ」</color>状態にする。<color=#FFFFFF>「カリスマ」</color>状態にある時、エージェントの与ダメージがアップする。継続時間10秒。",
+     "property": [
+      "エージェントのダメージアップ",
+      "クールタイム"
+     ],
+     "param": "4.4%|22秒"
+    },
+    "4": {
+     "name": "カメラ目線で、パシャリ！",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時にレンズを拭いて、<color=#FFFFFF>「フィルム」</color>を3本獲得する。<color=#FFFFFF>「フィルム」</color>を所持している間にエージェントが<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『クイック支援』</color>、<color=#FFFFFF>『支援突撃』</color>を発動すると、カチャコは<color=#FFFFFF>「フィルム」</color>を1本消費して写真を撮り、エージェントを<color=#FFFFFF>「カリスマ」</color>状態にする。<color=#FFFFFF>「カリスマ」</color>状態にある時、エージェントの与ダメージがアップする。継続時間10秒。",
+     "property": [
+      "エージェントのダメージアップ",
+      "クールタイム"
+     ],
+     "param": "5.2%|22秒"
+    },
+    "5": {
+     "name": "カメラ目線で、パシャリ！",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時にレンズを拭いて、<color=#FFFFFF>「フィルム」</color>を3本獲得する。<color=#FFFFFF>「フィルム」</color>を所持している間にエージェントが<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『クイック支援』</color>、<color=#FFFFFF>『支援突撃』</color>を発動すると、カチャコは<color=#FFFFFF>「フィルム」</color>を1本消費して写真を撮り、エージェントを<color=#FFFFFF>「カリスマ」</color>状態にする。<color=#FFFFFF>「カリスマ」</color>状態にある時、エージェントの与ダメージがアップする。継続時間10秒。",
+     "property": [
+      "エージェントのダメージアップ",
+      "クールタイム"
+     ],
+     "param": "6%|22秒"
+    },
+    "6": {
+     "name": "カメラ目線で、パシャリ！",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時にレンズを拭いて、<color=#FFFFFF>「フィルム」</color>を3本獲得する。<color=#FFFFFF>「フィルム」</color>を所持している間にエージェントが<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『クイック支援』</color>、<color=#FFFFFF>『支援突撃』</color>を発動すると、カチャコは<color=#FFFFFF>「フィルム」</color>を1本消費して写真を撮り、エージェントを<color=#FFFFFF>「カリスマ」</color>状態にする。<color=#FFFFFF>「カリスマ」</color>状態にある時、エージェントの与ダメージがアップする。継続時間10秒。",
+     "property": [
+      "エージェントのダメージアップ",
+      "クールタイム"
+     ],
+     "param": "6.8%|22秒"
+    },
+    "7": {
+     "name": "カメラ目線で、パシャリ！",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時にレンズを拭いて、<color=#FFFFFF>「フィルム」</color>を3本獲得する。<color=#FFFFFF>「フィルム」</color>を所持している間にエージェントが<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『クイック支援』</color>、<color=#FFFFFF>『支援突撃』</color>を発動すると、カチャコは<color=#FFFFFF>「フィルム」</color>を1本消費して写真を撮り、エージェントを<color=#FFFFFF>「カリスマ」</color>状態にする。<color=#FFFFFF>「カリスマ」</color>状態にある時、エージェントの与ダメージがアップする。継続時間10秒。",
+     "property": [
+      "エージェントのダメージアップ",
+      "クールタイム"
+     ],
+     "param": "7.6%|22秒"
+    },
+    "8": {
+     "name": "カメラ目線で、パシャリ！",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時にレンズを拭いて、<color=#FFFFFF>「フィルム」</color>を3本獲得する。<color=#FFFFFF>「フィルム」</color>を所持している間にエージェントが<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『クイック支援』</color>、<color=#FFFFFF>『支援突撃』</color>を発動すると、カチャコは<color=#FFFFFF>「フィルム」</color>を1本消費して写真を撮り、エージェントを<color=#FFFFFF>「カリスマ」</color>状態にする。<color=#FFFFFF>「カリスマ」</color>状態にある時、エージェントの与ダメージがアップする。継続時間10秒。",
+     "property": [
+      "エージェントのダメージアップ",
+      "クールタイム"
+     ],
+     "param": "8.4%|22秒"
+    },
+    "9": {
+     "name": "カメラ目線で、パシャリ！",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時にレンズを拭いて、<color=#FFFFFF>「フィルム」</color>を3本獲得する。<color=#FFFFFF>「フィルム」</color>を所持している間にエージェントが<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『クイック支援』</color>、<color=#FFFFFF>『支援突撃』</color>を発動すると、カチャコは<color=#FFFFFF>「フィルム」</color>を1本消費して写真を撮り、エージェントを<color=#FFFFFF>「カリスマ」</color>状態にする。<color=#FFFFFF>「カリスマ」</color>状態にある時、エージェントの与ダメージがアップする。継続時間10秒。",
+     "property": [
+      "エージェントのダメージアップ",
+      "クールタイム"
+     ],
+     "param": "9.2%|22秒"
+    },
+    "10": {
+     "name": "カメラ目線で、パシャリ！",
+     "desc": "<color=#FFFFFF>『アクティブスキル』</color>\nスキル発動時にレンズを拭いて、<color=#FFFFFF>「フィルム」</color>を3本獲得する。<color=#FFFFFF>「フィルム」</color>を所持している間にエージェントが<color=#FFFFFF>『回避反撃』</color>、<color=#FFFFFF>『クイック支援』</color>、<color=#FFFFFF>『支援突撃』</color>を発動すると、カチャコは<color=#FFFFFF>「フィルム」</color>を1本消費して写真を撮り、エージェントを<color=#FFFFFF>「カリスマ」</color>状態にする。<color=#FFFFFF>「カリスマ」</color>状態にある時、エージェントの与ダメージがアップする。継続時間10秒。",
+     "property": [
+      "エージェントのダメージアップ",
+      "クールタイム"
+     ],
+     "param": "10%|22秒"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "カリスマ・タイム",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[スターズ・オブ・リラ]</color>のメンバーが2名以上いる時に発動：エージェントを<color=#FFFFFF>「カリスマ」</color>状態にした時、即座にエージェントのHPをカチャコ自身のHP上限4%分回復する。",
+     "property": [
+      "HP回復"
+     ],
+     "param": "HP4%分"
+    },
+    "2": {
+     "name": "カリスマ・タイム",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[スターズ・オブ・リラ]</color>のメンバーが2名以上いる時に発動：エージェントを<color=#FFFFFF>「カリスマ」</color>状態にした時、即座にエージェントのHPをカチャコ自身のHP上限5%分回復する。",
+     "property": [
+      "HP回復"
+     ],
+     "param": "HP5%分"
+    },
+    "3": {
+     "name": "カリスマ・タイム",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[スターズ・オブ・リラ]</color>のメンバーが2名以上いる時に発動：エージェントを<color=#FFFFFF>「カリスマ」</color>状態にした時、即座にエージェントのHPをカチャコ自身のHP上限6%分回復する。",
+     "property": [
+      "HP回復"
+     ],
+     "param": "HP6%分"
+    },
+    "4": {
+     "name": "カリスマ・タイム",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[スターズ・オブ・リラ]</color>のメンバーが2名以上いる時に発動：エージェントを<color=#FFFFFF>「カリスマ」</color>状態にした時、即座にエージェントのHPをカチャコ自身のHP上限7%分回復する。",
+     "property": [
+      "HP回復"
+     ],
+     "param": "HP7%分"
+    },
+    "5": {
+     "name": "カリスマ・タイム",
+     "desc": "<color=#FFFFFF>『追加能力』</color>\nチームに<color=#FFFFFF>[スターズ・オブ・リラ]</color>のメンバーが2名以上いる時に発動：エージェントを<color=#FFFFFF>「カリスマ」</color>状態にした時、即座にエージェントのHPをカチャコ自身のHP上限8%分回復する。",
+     "property": [
+      "HP回復"
+     ],
+     "param": "HP8%分"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "瞬きしないで、パシャリ！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n強力なフラッシュライトでターゲットの目を潰し、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "2": {
+     "name": "瞬きしないで、パシャリ！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n強力なフラッシュライトでターゲットの目を潰し、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "3": {
+     "name": "瞬きしないで、パシャリ！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n強力なフラッシュライトでターゲットの目を潰し、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "4": {
+     "name": "瞬きしないで、パシャリ！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n強力なフラッシュライトでターゲットの目を潰し、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "5": {
+     "name": "瞬きしないで、パシャリ！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n強力なフラッシュライトでターゲットの目を潰し、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "6": {
+     "name": "瞬きしないで、パシャリ！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n強力なフラッシュライトでターゲットの目を潰し、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "7": {
+     "name": "瞬きしないで、パシャリ！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n強力なフラッシュライトでターゲットの目を潰し、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "8": {
+     "name": "瞬きしないで、パシャリ！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n強力なフラッシュライトでターゲットの目を潰し、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "9": {
+     "name": "瞬きしないで、パシャリ！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n強力なフラッシュライトでターゲットの目を潰し、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    },
+    "10": {
+     "name": "瞬きしないで、パシャリ！",
+     "desc": "<color=#FFFFFF>『ボンプ連携スキル』</color>\n強力なフラッシュライトでターゲットの目を潰し、<color=#FE437E>エーテル属性ダメージ</color>を与え、<color=#FE437E>エーテル属性の状態異常蓄積値</color>を増やす。",
+     "property": [
+      "ダメージ倍率",
+      "ブレイク倍率"
+     ],
+     "param": "{Skill:5401502, Prop:1001}|{Skill:5401502, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5401501": {
+   "1001": {
+    "main": 0,
+    "growth": 0,
+    "format": "%"
+   },
+   "1002": {
+    "main": 0,
+    "growth": 0,
+    "format": "%"
+   },
+   "element_accumulation_value": 0
+  },
+  "5401502": {
+   "1001": {
+    "main": 74700,
+    "growth": 7470,
+    "format": "%"
+   },
+   "1002": {
+    "main": 10700,
+    "growth": 1070,
+    "format": "%"
+   },
+   "element_accumulation_value": 32000
+  }
+ }
+}

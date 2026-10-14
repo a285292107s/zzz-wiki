@@ -10,14 +10,14 @@
         <!-- 品牌符号：黑色线稿反色为纸白；文字已由 brand-mark 提供，纯装饰 -->
         <img class="brand-logo" src="/logo.png" alt="" width="24" height="26" aria-hidden="true" />
         <span class="brand-text">
-          <span class="brand-mark">新艾利都数据终端</span>
+          <span class="brand-mark">{{ t.header.brandName }}</span>
           <span class="brand-sub mono">NEW ERIDU · DATA TERMINAL</span>
         </span>
       </RouterLink>
 
       <!-- 主排导航：只在能**单行放下**的宽度出现（见样式 979 断点的空间账）。
            放不下时整排收进 ☰ 菜单，菜单列同一份 NAV_ENTRIES，两处不会漂移。 -->
-      <nav class="nav" aria-label="主导航">
+      <nav class="nav" :aria-label="t.header.mainNav">
         <RouterLink
           v-for="item in nav"
           :key="item.to"
@@ -37,7 +37,7 @@
              （该规则只在名字来自 aria-label 时校验，且以视觉文本为基准）。
              放大镜字形由 CSS 生成内容提供，不进文本节点。 -->
         <button type="button" class="search-toggle mono" @click="openSearch()">
-          <span class="st-word">检索</span>
+          <span class="st-word">{{ t.header.search }}</span>
           <kbd class="st-kbd">Ctrl K</kbd>
         </button>
 
@@ -56,7 +56,7 @@
           <span class="burger" aria-hidden="true">
             <i /><i /><i />
           </span>
-          <span class="menu-word">菜单</span>
+          <span class="menu-word">{{ t.header.menu }}</span>
         </button>
       </div>
     </div>
@@ -70,7 +70,7 @@
       id="site-menu"
       v-show="menuOpen"
       class="site-menu"
-      aria-label="站点导航"
+      :aria-label="t.header.siteNav"
       @click="onMenuPanelClick"
     >
       <RouterLink
@@ -89,17 +89,24 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import { NAV_ENTRIES } from '@/domain/catalog'
+import { pickText } from '@/domain/lang'
 import { useQuickSearch } from '@/composables/useQuickSearch'
 import { useMediaQuery } from '@/composables/useMediaQuery'
+import { useUiText } from '@/composables/useUiText'
+import { useLocale } from '@/composables/useLocale'
 
 // 导航由 catalog.ts 派生（DESIGN.md §5.3 单一事实源）：数据类目 + 进主导航的图文板块
 // （nav:false 的板块——如数据说明——只在首页目录与页脚出现，站头保持内容聚焦）。
 // 窄屏（≤979）不列主排导航，☰ 菜单接管；两处共用这一份清单。检索面板不列导航。
+const { t } = useUiText()
+const { lang } = useLocale()
 const route = useRoute()
-const nav = NAV_ENTRIES
+const nav = computed(() =>
+  NAV_ENTRIES.map((e) => ({ no: e.no, to: e.to, label: pickText(e.label, lang.value) })),
+)
 
 const isActive = (to: string) =>
   route.path === to || (to !== '/' && route.path.startsWith(to))

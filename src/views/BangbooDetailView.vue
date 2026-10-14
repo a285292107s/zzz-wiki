@@ -4,6 +4,9 @@ import { detailFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
 import { stripRichText } from '@/utils/text'
 import { pickName } from '@/utils/names'
+import { useLocale } from '@/composables/useLocale'
+import { useUiText } from '@/composables/useUiText'
+import { fmt } from '@/domain/uiText'
 import { useRouteParam } from '@/composables/useRouteParam'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useDetailSections, type DetailSectionItem } from '@/composables/useDetailSections'
@@ -25,7 +28,12 @@ import { DetailHead, DetailPager, DetailPage, DetailSection, KeyValueGrid, Level
 import Rarity from '@/components/Rarity.vue'
 
 const id = useRouteParam('id')
-const { data: detail, status, error, reload } = useAsyncResource(() => detailFor<BangbooDetail>(catalogEntry('/bangboos'), id.value))
+/** 当前展示语言：详情正文按语言落盘，语言一变由 watchEffect 重新取数 */
+const { lang } = useLocale()
+const { t } = useUiText()
+const { data: detail, status, error, reload } = useAsyncResource(() =>
+  detailFor<BangbooDetail>(catalogEntry('/bangboos'), id.value, lang.value),
+)
 
 /** 404 与「加载失败」要分开说：档案确实不存在 vs 数据没到位（标题不能都说「缺失」） */
 const isNotFound = computed(() => /HTTP 404\b/.test(error.value ?? ''))
@@ -33,11 +41,11 @@ const isNotFound = computed(() => /HTTP 404\b/.test(error.value ?? ''))
 usePageMeta(
   // 404（档案不存在）时标题给「档案缺失」：与路由级 404 一致，也让标签页/书签说真话；
   // 加载中仍走路由 meta 的默认标题（不能提前显示「缺失」）
-  () => detail.value?.name ?? (status.value === 'error' ? (isNotFound.value ? '档案缺失' : '载入失败') : undefined),
+  () => detail.value?.name ?? (status.value === 'error' ? (isNotFound.value ? t.value.detail.missing : t.value.detail.loadFailed) : undefined),
   () => {
     const name = detail.value?.name
     const d = detail.value?.desc
-    return name && d ? `${name} — ${stripRichText(d).slice(0, 110)}… · 绳网档案` : undefined
+    return name && d ? `${name} — ${stripRichText(d).slice(0, 110)}… · ${t.value.meta.siteName}` : undefined
   },
 )
 
@@ -57,6 +65,7 @@ const stats = computed<StatItem[]>(() =>
     detail.value?.stats,
     detail.value?.level,
     bLevel.value,
+    lang.value,
   ),
 )
 
@@ -69,16 +78,16 @@ const breakCount = computed(() => bangbooBreakCount(bLevel.value))
 type BangbooSkillDisplay = SkillRow & { levelCount: number; keyed: string }
 
 const skillRows = computed<BangbooSkillDisplay[]>(() =>
-  buildBangbooSkills(detail.value?.skill, detail.value?.skill_prop).map((sk) => ({
+  buildBangbooSkills(detail.value?.skill, detail.value?.skill_prop, lang.value).map((sk) => ({
     key: sk.key,
     keyed: `${detail.value?.id}:${sk.key}`,
-    zh: sk.zh,
+    label: sk.label,
     keyEn: '', // 图标位经 #glyph 插槽用字母占位，键名不重复展示
     levelCount: sk.levelCount,
     hasNumbers: sk.stats.length > 0,
     groups: [
       {
-        name: sk.names[0] || sk.zh,
+        name: sk.names[0] || sk.label,
         // 描述随等级取（descs 与等级一一对应）
         desc: (lv: number) =>
           sk.descs[Math.min(Math.max(lv, 1), sk.descs.length) - 1] ?? sk.descs[0] ?? '',
@@ -102,8 +111,8 @@ const skillRows = computed<BangbooSkillDisplay[]>(() =>
 /* ---------- 区块导航 + scrollspy + reveal ---------- */
 
 const navItems = computed<DetailSectionItem[]>(() => {
-  const items: DetailSectionItem[] = [{ id: 'stats', no: '01', label: '基础属性' }]
-  if (skillRows.value.length) items.push({ id: 'skills', no: '02', label: '技能' })
+  const items: DetailSectionItem[] = [{ id: 'stats', no: '01', label: t.value.detail.baseProps }]
+  if (skillRows.value.length) items.push({ id: 'skills', no: '02', label: t.value.detail.bangbooSkills })
   return items
 })
 
@@ -115,7 +124,7 @@ const hidden = HIDDEN_ITEM_IDS.get('/bangboos')
 const { prev: pagerPrev, next: pagerNext } = useDetailPager(
   catBangboos,
   id,
-  pickName,
+  (r) => pickName(r, lang.value),
   (r) => !hidden?.has(Number(r.Id)),
 )
 
@@ -126,7 +135,7 @@ const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
 <template>
   <DetailPage
     back-to="/bangboos"
-    back-label="返回邦布名录"
+    :back-label="t.detail.backToBangboos"
     :nav="detail ? navItems : []"
     :active="activeSection"
     :status="status"
@@ -154,17 +163,17 @@ const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
         </template>
       </DetailHead>
 
-      <DetailSection id="stats" :no="noOf('stats')" title="基础属性" en="Vitals">
+      <DetailSection id="stats" :no="noOf('stats')" :title="t.detail.baseProps" en="Vitals">
         <StatLevelPanel
           :lv-label="`Lv.${bLevel}`"
-          :meta="breakCount === 0 ? '未突破' : `突破 ${breakCount} 阶`"
+          :meta="breakCount === 0 ? t.detail.notBroken : fmt(t.detail.breakCount, { n: breakCount })"
         >
           <template #control>
             <LevelSlider
               v-model="bLevel"
               :min="BANGBOO_LEVEL_MIN"
               :max="BANGBOO_LEVEL_MAX"
-              label="邦布等级"
+              :label="t.detail.bangbooLevel"
               :marks="levelMarks"
             />
           </template>
@@ -172,7 +181,7 @@ const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
         <KeyValueGrid :items="stats" variant="ledger" />
       </DetailSection>
 
-      <DetailSection v-if="skillRows.length" v-reveal id="skills" :no="noOf('skills')" title="技能" en="Skills">
+      <DetailSection v-if="skillRows.length" v-reveal id="skills" :no="noOf('skills')" :title="t.detail.bangbooSkills" en="Skills">
         <SkillGroup
           v-for="sk in skillRows"
           :key="sk.keyed"

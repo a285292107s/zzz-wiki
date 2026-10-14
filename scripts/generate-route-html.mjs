@@ -23,6 +23,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import sharp from 'sharp'
+import { DEFAULT_LANG } from './build/langs.mjs'
 
 const DIST = 'dist'
 const TEMPLATE = path.join(DIST, 'index.html')
@@ -205,7 +206,7 @@ async function main() {
 
   const dataByCat = new Map()
   for (const c of CATS) {
-    const list = readJson(`public/data/live/${c.list}`)
+    const list = readJson(`public/data/live/${DEFAULT_LANG}/${c.list}`)
     if (!list) continue
     dataByCat.set(c.path, { cat: c, list })
   }
@@ -230,10 +231,11 @@ async function main() {
     if (entry && seg[1]) {
       const { cat, list } = entry
       const row = list[seg[1]]
-      const detail = readJson(`public/data/live/zh/${cat.dir}/${seg[1]}.json`)
-      // 详情数据预载：应用侧 detailFor() 会取这份（api.ts toDataUrl: /data/live/zh/{dir}/{id}.json）
-      box.preloadJson = fs.existsSync(`public/data/live/zh/${cat.dir}/${seg[1]}.json`)
-        ? `/data/live/zh/${cat.dir}/${seg[1]}.json`
+      const detail = readJson(`public/data/live/${DEFAULT_LANG}/${cat.dir}/${seg[1]}.json`)
+      // 详情数据预载：应用侧 detailFor() 会取这份（api.ts toDataUrl: /data/live/{lang}/{dir}/{id}.json；
+      // 静态 HTML 只按默认语言预载——语言是本机偏好，爬虫拿到的就是默认语言那份）
+      box.preloadJson = fs.existsSync(`public/data/live/${DEFAULT_LANG}/${cat.dir}/${seg[1]}.json`)
+        ? `/data/live/${DEFAULT_LANG}/${cat.dir}/${seg[1]}.json`
         : null
       // 名称优先取中文详情（列表 JSON 的 name 是英文），再退回列表行/id
       const name = nameOf(detail) || nameOf(row) || seg[1]

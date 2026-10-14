@@ -5,6 +5,9 @@ import { iconSources, skillIconSources, type SkillSlot } from '@/data/icons'
 import { signatureEngineFor } from '@/domain/signatureEngine'
 import { stripRichText } from '@/utils/text'
 import { pickName } from '@/utils/names'
+import { useLocale } from '@/composables/useLocale'
+import { useUiText } from '@/composables/useUiText'
+import { fmt } from '@/domain/uiText'
 import { useRouteParam } from '@/composables/useRouteParam'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useDetailSections, type DetailSectionChild, type DetailSectionItem } from '@/composables/useDetailSections'
@@ -50,7 +53,12 @@ import { AgentHead, CoreSkillGroup, DetailPager, DescRow, DetailPage, DetailSect
 import HollowImage from '@/components/HollowImage.vue'
 
 const id = useRouteParam('id')
-const { data: detail, status, error, reload } = useAsyncResource(() => detailFor<CharacterDetail>(catalogEntry('/agents'), id.value))
+/** 当前展示语言：详情正文（技能/天赋/皮肤/介绍）按语言落盘，语言一变由 watchEffect 重新取数 */
+const { lang } = useLocale()
+const { t } = useUiText()
+const { data: detail, status, error, reload } = useAsyncResource(() =>
+  detailFor<CharacterDetail>(catalogEntry('/agents'), id.value, lang.value),
+)
 
 /** 404 与「加载失败」要分开说：档案确实不存在 vs 数据没到位（标题不能都说「缺失」） */
 const isNotFound = computed(() => /HTTP 404\b/.test(error.value ?? ''))
@@ -58,18 +66,22 @@ const isNotFound = computed(() => /HTTP 404\b/.test(error.value ?? ''))
 usePageMeta(
   // 404（档案不存在）时标题给「档案缺失」：与路由级 404 一致，也让标签页/书签说真话；
   // 加载中仍走路由 meta 的默认标题（不能提前显示「缺失」）
-  () => detail.value?.name ?? (status.value === 'error' ? (isNotFound.value ? '档案缺失' : '载入失败') : undefined),
+  () => detail.value?.name ?? (status.value === 'error' ? (isNotFound.value ? t.value.detail.missing : t.value.detail.loadFailed) : undefined),
   () => {
     // profile computed 定义在本调用之后（TDZ），此处直接从 detail 取介绍摘要
     const raw = detail.value?.partner_info?.profile_desc
     const p = raw ? stripRichText(raw) : ''
-    return p ? `${detail.value?.name ?? ''} — ${p.slice(0, 110)}… · 绳网档案` : undefined
+    // 站名取文案表（与三个同级详情页同一写法；原先此处写死「绳网档案」，
+    // 会随语言切换的页面里留下中文站名，并进分享卡/SERP 摘要）
+    return p ? `${detail.value?.name ?? ''} — ${p.slice(0, 110)}… · ${t.value.meta.siteName}` : undefined
   },
 )
 
 /** 武器名录：用于解析当前代理人的专属音擎（domain/signatureEngine 命名约定 + 覆盖表）。
  *  作为独立资源加载，避免阻塞角色详情主链路。 */
-const { data: weapons } = useAsyncResource(() => listFor<WEngineListItem>(catalogEntry('/w-engines')))
+const { data: weapons } = useAsyncResource(() =>
+  listFor<WEngineListItem>(catalogEntry('/w-engines'), lang.value),
+)
 
 /** 专属音擎（签名 W-Engine）名录条目；名录未加载/未覆盖时为空（hero 静默不展示） */
 const signatureEngine = computed(() =>
@@ -105,6 +117,7 @@ const stats = computed<StatItem[]>(() =>
     detail.value?.stats,
     detail.value?.level,
     charLevel.value,
+    lang.value,
   ),
 )
 
@@ -119,7 +132,7 @@ const breakCount = computed(() =>
 )
 
 const skills = computed<SkillDisplay[]>(() =>
-  buildSkillRows(detail.value?.skill).map((sk) => ({
+  buildSkillRows(detail.value?.skill, lang.value).map((sk) => ({
     ...sk,
     glyph: SKILL_KEYS[sk.key as SkillSlotKey]?.glyph ?? '□',
     srcs: skillIconSources(sk.key as SkillSlot),
@@ -136,7 +149,7 @@ const talents = computed<DetailRow[]>(() => dictToRows(detail.value?.talent))
 const skinList = computed<SkinRow[]>(() => buildSkinRows(detail.value?.skin))
 
 /** 核心技（核心被动 + 额外能力，passive 数据源） */
-const coreSkill = computed<CoreSkill | null>(() => buildCoreSkill(detail.value?.passive))
+const coreSkill = computed<CoreSkill | null>(() => buildCoreSkill(detail.value?.passive, lang.value))
 
 /** 核心技强化档位（extra_level 数据源，A-F） */
 const coreEnhance = computed<CoreEnhanceLevel[]>(() =>
@@ -150,6 +163,7 @@ const potentialCinema = computed<PotentialCinema[]>(() =>
     skills.value,
     buildPotentialCinema(detail.value?.potential_detail),
     coreSkill.value,
+    lang.value,
   ),
 )
 
@@ -191,11 +205,11 @@ const dossier = computed(() => {
   const camp = campKey && campEntry ? String(campEntry[campKey]) : null
 
   const items: Array<{ k: string; v: string }> = []
-  if (i?.full_name) items.push({ k: '全名', v: i.full_name })
-  if (i?.gender) items.push({ k: '性别', v: i.gender })
-  if (i?.birthday) items.push({ k: '生日', v: i.birthday })
-  if (i?.stature) items.push({ k: '身高', v: `${i.stature}cm` })
-  if (camp) items.push({ k: '阵营', v: camp })
+  if (i?.full_name) items.push({ k: t.value.detail.fullName, v: i.full_name })
+  if (i?.gender) items.push({ k: t.value.detail.gender, v: i.gender })
+  if (i?.birthday) items.push({ k: t.value.detail.birthday, v: i.birthday })
+  if (i?.stature) items.push({ k: t.value.detail.height, v: `${i.stature}cm` })
+  if (camp) items.push({ k: t.value.detail.camp, v: camp })
   return items
 })
 
@@ -203,7 +217,7 @@ const dossier = computed(() => {
 
 /** 技能子导航：各键位招式，映射为技能区块内锚点（skill-<key>） */
 const skillChildren = computed<DetailSectionChild[]>(() =>
-  skills.value.map((sk) => ({ id: `skill-${sk.key}`, label: sk.zh })),
+  skills.value.map((sk) => ({ id: `skill-${sk.key}`, label: sk.label })),
 )
 
 /** 区块导航：00 固定为封面锚点（AgentHead 根，标签仅角色名，省导航宽度），其余连续编号
@@ -215,15 +229,15 @@ const navItems = computed(() => {
   let n = 0
   const add = (id: string, label: string, children?: DetailSectionChild[]) =>
     items.push({ id, no: String(++n).padStart(2, '0'), label, children })
-  if (dossier.value.length) add('dossier', '档案详情')
-  if (profile.value) add('profile', '角色介绍')
-  add('stats', '基础属性')
-  if (skills.value.length) add('skills', '技能招式', skillChildren.value)
-  if (coreSkill.value) add('core', '核心技')
-  if (talents.value.length) add('talents', '影画')
-  if (potentialCinema.value.length) add('potential', '潜能影像')
-  if (skinList.value.length) add('skins', '皮肤')
-  if (hasImpressions.value) add('impressions', '绳网印象')
+  if (dossier.value.length) add('dossier', t.value.detail.profile)
+  if (profile.value) add('profile', t.value.detail.intro)
+  add('stats', t.value.detail.baseProps)
+  if (skills.value.length) add('skills', t.value.detail.skills, skillChildren.value)
+  if (coreSkill.value) add('core', t.value.detail.coreSkill)
+  if (talents.value.length) add('talents', t.value.detail.mindscape)
+  if (potentialCinema.value.length) add('potential', t.value.detail.potentialFootage)
+  if (skinList.value.length) add('skins', t.value.detail.skins)
+  if (hasImpressions.value) add('impressions', t.value.detail.impressions)
   return items
 })
 
@@ -231,7 +245,9 @@ const { activeSection, revealDir: vReveal, noOf } = useDetailSections(navItems, 
 
 /** 相邻条目翻页：名录 Id 序（与名录页默认排序一致），名录走 api 缓存 */
 const catAgents = catalogEntry('/agents')
-const { prev: pagerPrev, next: pagerNext } = useDetailPager(catAgents, id, pickName)
+const { prev: pagerPrev, next: pagerNext } = useDetailPager(catAgents, id, (r) =>
+  pickName(r, lang.value),
+)
 
 /** 404 时返回名录 */
 const backTo = computed(() => (detail.value ? undefined : '/agents'))
@@ -248,7 +264,7 @@ watch(detail, (d) => {
 <template>
   <DetailPage
     back-to="/agents"
-    back-label="返回名录"
+    :back-label="t.detail.backToAgents"
     :nav="detail ? navItems : []"
     :active="activeSection"
     :status="status"
@@ -268,7 +284,7 @@ watch(detail, (d) => {
       <!-- 封面锚点：00 导航直达；scrollspy 亦观察此 id（滚动回顶时高亮 00） -->
       <AgentHead id="head" :detail="detail" :signature-engine="signatureEngine" />
 
-      <DetailSection v-if="dossier.length" v-reveal id="dossier" :no="noOf('dossier')" title="档案详情" en="Dossier">
+      <DetailSection v-if="dossier.length" v-reveal id="dossier" :no="noOf('dossier')" :title="t.detail.profile" en="Dossier">
         <dl class="dossier mono">
           <div v-for="d in dossier" :key="d.k" class="d-item">
             <dt>{{ d.k }}</dt>
@@ -277,21 +293,27 @@ watch(detail, (d) => {
         </dl>
       </DetailSection>
 
-      <DetailSection v-if="profile" v-reveal id="profile" :no="noOf('profile')" title="角色介绍" en="Profile">
+      <DetailSection v-if="profile" v-reveal id="profile" :no="noOf('profile')" :title="t.detail.intro" en="Profile">
         <p class="profile-desc">{{ profile }}</p>
       </DetailSection>
 
-      <DetailSection id="stats" :no="noOf('stats')" title="基础属性" en="Vitals">
+      <DetailSection id="stats" :no="noOf('stats')" :title="t.detail.baseProps" en="Vitals">
         <StatLevelPanel
           :lv-label="`Lv.${charLevel}`"
-          :meta="breakCount == null ? undefined : breakCount === 0 ? '未突破' : `突破 ${breakCount} 阶`"
+          :meta="
+            breakCount == null
+              ? undefined
+              : breakCount === 0
+                ? t.detail.notBroken
+                : fmt(t.detail.breakCount, { n: breakCount })
+          "
         >
           <template #control>
             <LevelSlider
               v-model="charLevel"
               :min="CHAR_LEVEL_MIN"
               :max="CHAR_LEVEL_MAX"
-              label="角色等级"
+              :label="t.detail.charLevel"
               :marks="levelMarks"
             />
           </template>
@@ -299,7 +321,7 @@ watch(detail, (d) => {
         <KeyValueGrid :items="stats" variant="ledger" />
       </DetailSection>
 
-      <DetailSection v-if="skills.length" v-reveal id="skills" :no="noOf('skills')" title="技能招式" en="Skills">
+      <DetailSection v-if="skills.length" v-reveal id="skills" :no="noOf('skills')" :title="t.detail.skills" en="Skills">
         <!-- 锚点 id 直接挂在 SkillGroup 根上（Vue 属性继承）：技能组必须互为兄弟，
              组件内的 .skill-group + .skill-group 分隔规则才生效（勿再套包裹层） -->
         <SkillGroup
@@ -324,7 +346,7 @@ watch(detail, (d) => {
         v-reveal
         id="core"
         :no="noOf('core')"
-        title="核心技"
+        :title="t.detail.coreSkill"
         en="Core"
       >
         <CoreSkillGroup
@@ -335,15 +357,16 @@ watch(detail, (d) => {
         />
       </DetailSection>
 
-      <DetailSection v-if="talents.length" v-reveal id="talents" :no="noOf('talents')" title="影画" en="Mindscape">
+      <DetailSection v-if="talents.length" v-reveal id="talents" :no="noOf('talents')" :title="t.detail.mindscape" en="Mindscape">
         <ul class="talents-list">
+          <!-- 循环变量改名 row：本组件模板里的 `t` 是界面文案树（useUiText） -->
           <DescRow
-            v-for="t in talents"
-            :key="t.no"
-            :no="String(t.no).padStart(2, '0')"
-            :title="t.name ?? '未命名'"
-            :text="stripRichText(t.desc)"
-            :text2="stripRichText(t.desc2)"
+            v-for="row in talents"
+            :key="row.no"
+            :no="String(row.no).padStart(2, '0')"
+            :title="row.name ?? t.common.unnamed"
+            :text="stripRichText(row.desc)"
+            :text2="stripRichText(row.desc2)"
             variant="talent"
           />
         </ul>
@@ -354,7 +377,7 @@ watch(detail, (d) => {
         v-reveal
         id="potential"
         :no="noOf('potential')"
-        title="潜能影像"
+        :title="t.detail.potentialFootage"
         en="Potential"
       >
         <ul class="talents-list">
@@ -369,7 +392,7 @@ watch(detail, (d) => {
         </ul>
       </DetailSection>
 
-      <DetailSection v-if="skinList.length" v-reveal id="skins" :no="noOf('skins')" title="皮肤" en="Outfits">
+      <DetailSection v-if="skinList.length" v-reveal id="skins" :no="noOf('skins')" :title="t.detail.skins" en="Outfits">
         <ul class="skin-list">
           <li v-for="(s, i) in skinList" :key="s.id" class="skin">
             <!-- figcaption 必须是 figure 的子元素（HTML 规范）；两栏栅格设在 figure 上 -->
@@ -382,7 +405,7 @@ watch(detail, (d) => {
                 ratio="3 / 4"
               />
               <figcaption class="skin-info">
-                <span class="skin-index mono">着装 · {{ String(i + 1).padStart(2, '0') }}</span>
+                <span class="skin-index mono">{{ fmt(t.detail.skinIndex, { n: String(i + 1).padStart(2, '0') }) }}</span>
                 <h3 class="skin-name serif">{{ s.name || '—' }}</h3>
                 <p v-if="s.desc" class="skin-desc">{{ stripRichText(s.desc) }}</p>
               </figcaption>
@@ -396,13 +419,13 @@ watch(detail, (d) => {
         v-reveal
         id="impressions"
         :no="noOf('impressions')"
-        title="绳网印象"
+        :title="t.detail.impressions"
         en="Inter-Knot"
       >
         <ul class="im-list">
-          <li v-for="(t, i) in impressions" :key="i" class="im-row">
+          <li v-for="(line, i) in impressions" :key="i" class="im-row">
             <span class="no mono">{{ String(i + 1).padStart(2, '0') }}</span>
-            <p class="im-text">{{ t }}</p>
+            <p class="im-text">{{ line }}</p>
           </li>
         </ul>
         <div v-if="voices.length" class="voices">

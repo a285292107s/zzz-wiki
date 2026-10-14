@@ -1,0 +1,2602 @@
+{
+ "12001": {
+  "icon": "Weapon_B_Common_01",
+  "rank": 2,
+  "type": 1,
+  "en": "[Lunar] Pleniluna",
+  "atk": 475,
+  "desc": "A W-Engine that prioritizes damage output over noise reduction. It can indiscriminately deal considerable damage to all units nearby.",
+  "sub": "ATK",
+  "ko": "「루나」-보름달",
+  "zh": "「月相」-望",
+  "ja": "「月相」-望",
+  "Id": 12001,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "満月",
+  "effect_desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>、<color=#FFFFFF>『回避反撃』</color>の与ダメージ+<color=#2BAD00>12%</color>。",
+  "effect_refine": 1
+ },
+ "12002": {
+  "icon": "Weapon_B_Common_02",
+  "rank": 2,
+  "type": 1,
+  "en": "[Lunar] Decrescent",
+  "atk": 475,
+  "desc": "A W-Engine with excellent sonic and thermal energy usage, capable of hitting its target with a double whammy.",
+  "sub": "ATK",
+  "ko": "「루나」-그믐달",
+  "zh": "「月相」-晦",
+  "ja": "「月相」-晦",
+  "Id": 12002,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "残月",
+  "effect_desc": "<color=#FFFFFF>『連携スキル』</color>または<color=#FFFFFF>『終結スキル』</color>を発動すると、装備者の与ダメージ+<color=#2BAD00>15%</color>。継続時間6秒。",
+  "effect_refine": 1
+ },
+ "12003": {
+  "icon": "Weapon_B_Common_03",
+  "rank": 2,
+  "type": 1,
+  "en": "[Lunar] Noviluna",
+  "atk": 475,
+  "desc": "A high-capacity portable W-Engine that can collect dissipated energy from its surroundings, thus enhancing the combat effectiveness of its operator.",
+  "sub": "CRIT Rate",
+  "ko": "「루나」-초승달",
+  "zh": "「月相」-朔",
+  "ja": "「月相」-朔",
+  "Id": 12003,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "会心率",
+   "value": 640,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "新月",
+  "effect_desc": "<color=#FFFFFF>『強化特殊スキル』</color>を発動すると、装備者のエネルギーが<color=#2BAD00>3</color>Pt回復する、12秒に1回のみ発動可能。",
+  "effect_refine": 1
+ },
+ "12004": {
+  "icon": "Weapon_B_Common_04",
+  "rank": 2,
+  "type": 4,
+  "en": "[Reverb] Mark I",
+  "atk": 475,
+  "desc": "A special W-Engine featuring a built-in sonic generator that boosts its damage output.",
+  "sub": "ATK",
+  "ko": "「잔향」-Ⅰ형",
+  "zh": "「残响」-Ⅰ型",
+  "ja": "「残響」-Ⅰ型",
+  "Id": 12004,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "潮汐",
+  "effect_desc": "<color=#FFFFFF>『強化特殊スキル』</color>を発動すると、メンバー全員の衝撃力+<color=#2BAD00>8%</color>、継続時間10秒。20秒に1回のみ発動可能。同じパッシブ効果は重ね掛け不可。",
+  "effect_refine": 1
+ },
+ "12005": {
+  "icon": "Weapon_B_Common_05",
+  "rank": 2,
+  "type": 4,
+  "en": "[Reverb] Mark II",
+  "atk": 475,
+  "desc": "A standardized W-Engine with balanced performance that enhances its owner's and their teammates' combat effectiveness in all aspects.",
+  "sub": "Energy Regen",
+  "ko": "「잔향」-Ⅱ형",
+  "zh": "「残响」-Ⅱ型",
+  "ja": "「残響」-Ⅱ型",
+  "Id": 12005,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "エネルギー自動回復",
+   "value": 1600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "音波",
+  "effect_desc": "<color=#FFFFFF>『強化特殊スキル』</color>または<color=#FFFFFF>『連携スキル』</color>を発動すると、メンバー全員の異常掌握と異常マスタリー+<color=#2BAD00>10</color>Pt、継続時間10秒。20秒に1回のみ発動可能。同じパッシブ効果は重ね掛け不可。",
+  "effect_refine": 1
+ },
+ "12006": {
+  "icon": "Weapon_B_Common_06",
+  "rank": 2,
+  "type": 4,
+  "en": "[Reverb] Mark III",
+  "atk": 475,
+  "desc": "A special W-Engine that features motion capture algorithms, which enhance the overall combat competency of your squad.",
+  "sub": "HP",
+  "ko": "「잔향」-Ⅲ형",
+  "zh": "「残响」-Ⅲ型",
+  "ja": "「残響」-Ⅲ型",
+  "Id": 12006,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "HP",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "強音",
+  "effect_desc": "<color=#FFFFFF>『連携スキル』</color>または<color=#FFFFFF>『終結スキル』</color>を発動すると、メンバー全員の攻撃力+<color=#2BAD00>8%</color>、継続時間10秒。20秒に1回のみ発動可能。同じパッシブ効果は重ね掛け不可。",
+  "effect_refine": 1
+ },
+ "12007": {
+  "icon": "Weapon_B_Common_07",
+  "rank": 2,
+  "type": 2,
+  "en": "[Vortex] Revolver",
+  "atk": 475,
+  "desc": "An energy-storage type W-Engine with a unique operation circuit. It will absorb scattered energy up to a certain amount before unleashing it all at once.",
+  "sub": "ATK",
+  "ko": "「급류」-총",
+  "zh": "「湍流」-铳型",
+  "ja": "「激流」-銃型",
+  "Id": 12007,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "暗流",
+  "effect_desc": "<color=#FFFFFF>『強化特殊スキル』</color>の与えるブレイク値+<color=#2BAD00>10%</color>。",
+  "effect_refine": 1
+ },
+ "12008": {
+  "icon": "Weapon_B_Common_08",
+  "rank": 2,
+  "type": 2,
+  "en": "[Vortex] Arrow",
+  "atk": 475,
+  "desc": "A tactical W-Engine that locates enemies using high-frequency sound waves. Its aiming aid can make its operator's precision attack more deadly.",
+  "sub": "Impact",
+  "ko": "「급류」-화살",
+  "zh": "「湍流」-矢型",
+  "ja": "「激流」-矢型",
+  "Id": 12008,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "衝撃力",
+   "value": 480,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "大波",
+  "effect_desc": "攻撃が敵に命中すると、装備者がメインターゲットに与えるブレイク値+<color=#2BAD00>8%</color>。",
+  "effect_refine": 1
+ },
+ "12009": {
+  "icon": "Weapon_B_Common_09",
+  "rank": 2,
+  "type": 2,
+  "en": "[Vortex] Hatchet",
+  "atk": 475,
+  "desc": "A frequency-converting W-Engine that can quickly generate excessive power and effectively increase its user's battle prowess.",
+  "sub": "Energy Regen",
+  "ko": "「급류」-도끼",
+  "zh": "「湍流」-斧型",
+  "ja": "「激流」-斧型",
+  "Id": 12009,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "エネルギー自動回復",
+   "value": 1600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "急潮",
+  "effect_desc": "接敵状態かつ操作中のメンバーになった時、装備者の衝撃力+<color=#2BAD00>9%</color>、継続時間10秒。20秒に1回のみ発動可能。",
+  "effect_refine": 1
+ },
+ "12010": {
+  "icon": "Weapon_B_Common_10",
+  "rank": 2,
+  "type": 3,
+  "en": "[Magnetic Storm] Alpha",
+  "atk": 475,
+  "desc": "A special W-Engine that can analyze the target's weak spots through real-time calculations.",
+  "sub": "ATK",
+  "ko": "「자기 폭풍」-알파",
+  "zh": "「电磁暴」-壹式",
+  "ja": "「磁気嵐」-壱式",
+  "Id": 12010,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "擾乱電流",
+  "effect_desc": "状態異常蓄積値を蓄積させると、装備者の異常掌握+<color=#2BAD00>25</color>Pt、継続時間10秒。20秒に1回のみ発動可能。",
+  "effect_refine": 1
+ },
+ "12011": {
+  "icon": "Weapon_B_Common_11",
+  "rank": 2,
+  "type": 3,
+  "en": "[Magnetic Storm] Bravo",
+  "atk": 475,
+  "desc": "A damage-type W-Engine that features an enhanced movement detection module that can quickly alter its output intensity to optimize battle efficiency.",
+  "sub": "Anomaly Proficiency",
+  "ko": "「자기 폭풍」-브라보",
+  "zh": "「电磁暴」-贰式",
+  "ja": "「磁気嵐」-弐式",
+  "Id": 12011,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "異常マスタリー",
+   "value": 24,
+   "format": "{0:0}"
+  },
+  "effect_name": "高電圧サージ",
+  "effect_desc": "状態異常蓄積値を蓄積させると、装備者の異常マスタリー+<color=#2BAD00>25</color>Pt、継続時間10秒。20秒に1回のみ発動可能。",
+  "effect_refine": 1
+ },
+ "12012": {
+  "icon": "Weapon_B_Common_12",
+  "rank": 2,
+  "type": 3,
+  "en": "[Magnetic Storm] Charlie",
+  "atk": 475,
+  "desc": "A high-capacity W-Engine that features a built-in generator, which allows it to keep a stable storage of electrical power.",
+  "sub": "PEN Ratio",
+  "ko": "「자기 폭풍」-찰리",
+  "zh": "「电磁暴」-叁式",
+  "ja": "「磁気嵐」-参式",
+  "Id": 12012,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "貫通率",
+   "value": 640,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "電荷超過",
+  "effect_desc": "任意のメンバーが敵を状態異常にした時、装備者のエネルギーが<color=#2BAD00>3.5</color>Pt回復する、12秒に1回のみ発動可能。",
+  "effect_refine": 1
+ },
+ "12013": {
+  "icon": "Weapon_B_Common_13",
+  "rank": 2,
+  "type": 5,
+  "en": "[Identity] Base",
+  "atk": 475,
+  "desc": "A W-Engine with a component structure adjusted according to specific parameters. It can enhance the defensive capabilities of those who have a certain style of combat.",
+  "sub": "DEF",
+  "ko": "「아이덴티티」-베이스",
+  "zh": "「恒等式」-本格",
+  "ja": "「恒等式」-本格",
+  "Id": 12013,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "防御力",
+   "value": 1280,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "沈撃",
+  "effect_desc": "敵の攻撃を受けた時、装備者の防御力+<color=#2BAD00>20%</color>、継続時間8秒。",
+  "effect_refine": 1
+ },
+ "12014": {
+  "icon": "Weapon_B_Common_14",
+  "rank": 2,
+  "type": 5,
+  "en": "[Identity] Inflection",
+  "atk": 475,
+  "desc": "A functional W-Engine that specializes in energy conversion. It can analyze combat environments and generate special sounds to disrupt the enemy's offense.",
+  "sub": "DEF",
+  "ko": "「아이덴티티」-인플렉션",
+  "zh": "「恒等式」-变格",
+  "ja": "「恒等式」-変格",
+  "Id": 12014,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "防御力",
+   "value": 1280,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "眩暈",
+  "effect_desc": "敵の攻撃を受けた時、攻撃を仕掛けた敵の与ダメージ-<color=#2BAD00>6%</color>、継続時間12秒。",
+  "effect_refine": 1
+ },
+ "12015": {
+  "icon": "Weapon_B_Common_15",
+  "rank": 2,
+  "type": 6,
+  "en": "[Cinder] Cobalt",
+  "atk": 475,
+  "desc": "A W-Engine with a built-in heating component. When operating at high speeds, it resembles a blazing blue flame.",
+  "sub": "HP",
+  "ko": "「잿더미」-코발트블루",
+  "zh": "「灰烬」-钴蓝",
+  "ja": "「灰燼」-蒼藍",
+  "Id": 12015,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 32,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "HP",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "暗火",
+  "effect_desc": "接敵状態かつ操作中のメンバーになった時、装備者の攻撃力+<color=#2BAD00>7.2%</color>、継続時間10秒。20秒に1回のみ発動可能。",
+  "effect_refine": 1
+ },
+ "12016": {
+  "icon": "Weapon_B_Common_16",
+  "rank": 2,
+  "type": 7,
+  "en": "[Lunar] Semiluna",
+  "atk": 282,
+  "desc": "A cost-effective choice for newcomers exploring Hollows.",
+  "sub": "DEF",
+  "ko": "「루나」-반달",
+  "zh": "「月相」-弦",
+  "ja": "「月相」-弦",
+  "Id": 12016,
+  "base_property": {
+   "name": "基礎防御力",
+   "value": 19,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "防御力",
+   "value": 1280,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "弦月",
+  "effect_desc": "<color=#FFFFFF>『強化特殊スキル』</color>発動時、『通常攻撃』の与ダメージ+<color=#2BAD00>18%</color>、継続時間10秒。重複して発動すると継続時間が更新される。",
+  "effect_refine": 1
+ },
+ "13001": {
+  "icon": "Weapon_A_Common_01",
+  "rank": 3,
+  "type": 1,
+  "en": "Street Superstar",
+  "atk": 594,
+  "desc": "A custom-made W-Engine designed for urban music lovers. It sacrifices heat dissipation components for improved sound quality.",
+  "sub": "ATK",
+  "ko": "거리의 슈퍼스타",
+  "zh": "街头巨星",
+  "ja": "ストリートスター",
+  "Id": 13001,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "熱いシャウト",
+  "effect_desc": "任意のメンバーが<color=#FFFFFF>『連携スキル』</color>を発動する度に、装備者にパワーを1重与える、最大3重まで重ね掛け可能。<color=#FFFFFF>『終結スキル』</color>を発動した時、すべてのパワーを消費し、パワー1重につき、スキルの与ダメージ+<color=#2BAD00>15%</color>。",
+  "effect_refine": 1
+ },
+ "13002": {
+  "icon": "Weapon_A_Common_02",
+  "rank": 3,
+  "type": 4,
+  "en": "Slice of Time",
+  "atk": 594,
+  "desc": "A special W-Engine equipped with a high-speed camera module. The best choice for in-Hollow photography enthusiasts.",
+  "sub": "PEN Ratio",
+  "ko": "시간의 파편",
+  "zh": "时光切片",
+  "ja": "歳月の薄片",
+  "Id": 13002,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "貫通率",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "はい「チーズ」",
+  "effect_desc": "任意のメンバーが<color=#FFFFFF>『回避反撃』</color>/<color=#FFFFFF>『強化特殊スキル』</color>/<color=#FFFFFF>『支援攻撃』</color>/<color=#FFFFFF>『連携スキル』</color>を発動した時、追加でデシベル値を<color=#2BAD00>20</color>/<color=#2BAD00>25</color>/<color=#2BAD00>30</color>/<color=#2BAD00>35</color>Pt獲得し、装備者のエネルギーが<color=#2BAD00>0.7</color>Pt回復する、12秒に1回のみ発動可能。バフ効果のクールタイムはスキルごとに計算される。同じパッシブ効果は重ね掛け不可。",
+  "effect_refine": 1
+ },
+ "13003": {
+  "icon": "Weapon_A_Common_03",
+  "rank": 3,
+  "type": 3,
+  "en": "Rainforest Gourmet",
+  "atk": 594,
+  "desc": "A consumer-class W-Engine launched by an exotic pet fan club to promote pet culture. Due to its cute appearance, it was once a very popular model.",
+  "sub": "Anomaly Proficiency",
+  "ko": "우림의 식객",
+  "zh": "雨林饕客",
+  "ja": "密林の食いしん坊",
+  "Id": 13003,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "異常マスタリー",
+   "value": 30,
+   "format": "{0:0}"
+  },
+  "effect_name": "ご飯だよ！",
+  "effect_desc": "エネルギー値を10Pt消費する度に、バフ効果を1重獲得する。バフ効果1重につき、装備者の攻撃力+<color=#2BAD00>2.5%</color>、最大10重まで重ね掛け可能、継続時間10秒。継続時間は1重ごとに独立してカウントされる。",
+  "effect_refine": 1
+ },
+ "13004": {
+  "icon": "Weapon_A_Common_04",
+  "rank": 3,
+  "type": 1,
+  "en": "Starlight Engine",
+  "atk": 594,
+  "desc": "A damage-type W-Engine made of special Etheric matter. When its user is attacked, it builds up energy.",
+  "sub": "ATK",
+  "ko": "별빛 엔진",
+  "zh": "星徽引擎",
+  "ja": "スターライトエンジン",
+  "Id": 13004,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "ナイトビート",
+  "effect_desc": "<color=#FFFFFF>『回避反撃』</color>または<color=#FFFFFF>『クイック支援』</color>を発動した時、装備者の攻撃力+<color=#2BAD00>12%</color>、継続時間12秒。",
+  "effect_refine": 1
+ },
+ "13005": {
+  "icon": "Weapon_A_Common_05",
+  "rank": 3,
+  "type": 2,
+  "en": "Steam Oven",
+  "atk": 594,
+  "desc": "A high-power W-Engine that boasts a cutting-edge energy conversion system. It collects excess heat and supplies it to the steamer.",
+  "sub": "Energy Regen",
+  "ko": "스팀오븐",
+  "zh": "人为刀俎",
+  "ja": "まな板の鯉",
+  "Id": 13005,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "エネルギー自動回復",
+   "value": 2000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "こってりスープ",
+  "effect_desc": "エネルギー値10Ptにつき、装備者の衝撃力+<color=#2BAD00>2%</color>、最大8重まで重ね掛け可能。エネルギーが消費された後でも、効果が8秒継続する。継続時間は1重ごとに独立してカウントされる。",
+  "effect_refine": 1
+ },
+ "13006": {
+  "icon": "Weapon_A_Common_06",
+  "rank": 3,
+  "type": 2,
+  "en": "Precious Fossilized Core",
+  "atk": 594,
+  "desc": "A special W-Engine whose outer shell is made of composite Etheric matter that effectively absorbs impact, and turns it against the enemy.",
+  "sub": "Impact",
+  "ko": "귀중한 화석 코어",
+  "zh": "贵重骨核",
+  "ja": "貴重な石化コア",
+  "Id": 13006,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "衝撃力",
+   "value": 600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "巨獣ハンター",
+  "effect_desc": "ターゲットのHPが50%以上の時、装備者の与えるブレイク値+<color=#2BAD00>10%</color>。ターゲットのHPが75%以上の時、この効果が追加で+<color=#2BAD00>10%</color>。",
+  "effect_refine": 1
+ },
+ "13007": {
+  "icon": "Weapon_A_Common_07",
+  "rank": 3,
+  "type": 5,
+  "en": "Original Transmorpher",
+  "atk": 594,
+  "desc": "An epic W-Engine favored by Starlight Knight fans. Its high popularity and scarcity marketing strategy have caused an influx of knock-offs.",
+  "sub": "HP",
+  "ko": "오리지널 변신 아이템",
+  "zh": "正版变身器",
+  "ja": "正規版変身装置",
+  "Id": 13007,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "HP",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "スターライトキック！",
+  "effect_desc": "HP上限+<color=#2BAD00>8%</color>。敵の攻撃を受けた時、装備者の衝撃力+<color=#2BAD00>10%</color>、継続時間12秒。",
+  "effect_refine": 1
+ },
+ "13008": {
+  "icon": "Weapon_A_Common_08",
+  "rank": 3,
+  "type": 3,
+  "en": "Weeping Gemini",
+  "atk": 594,
+  "desc": "A W-Engine produced by recycling abandoned Bangboo shells. Its electrode cores made of recycled metals can release high-voltage charges.",
+  "sub": "ATK",
+  "ko": "쌍둥이의 눈물",
+  "zh": "双生泣星",
+  "ja": "双生の涙",
+  "Id": 13008,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "啜泣の余波",
+  "effect_desc": "任意のメンバーが敵を状態異常にした時、装備者にバフ効果を1重与える。バフ効果1重につき、装備者の異常マスタリー+<color=#2BAD00>30</color>Pt、最大4重まで重ね掛け可能。ターゲットがブレイク状態から復帰する、または死亡した時、バフ効果が終了する。継続時間は1重ごとに独立してカウントされる。",
+  "effect_refine": 1
+ },
+ "13009": {
+  "icon": "Weapon_A_Common_09",
+  "rank": 3,
+  "type": 3,
+  "en": "Electro-Lip Gloss",
+  "atk": 594,
+  "desc": "This damage-type W-Engine boasts a built-in current transformer, and automatically attracts electrically sensitive objects around the operator and deals additional damage to them.",
+  "sub": "Anomaly Proficiency",
+  "ko": "감전 립글로스",
+  "zh": "触电唇彩",
+  "ja": "電撃リップグロス",
+  "Id": 13009,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "異常マスタリー",
+   "value": 30,
+   "format": "{0:0}"
+  },
+  "effect_name": "悩殺キッス",
+  "effect_desc": "フィールド上に状態異常の敵がいる時、装備者の攻撃力+<color=#2BAD00>10%</color>、ターゲットに与えるダメージが追加で+<color=#2BAD00>15%</color>。",
+  "effect_refine": 1
+ },
+ "13010": {
+  "icon": "Weapon_A_Common_10",
+  "rank": 3,
+  "type": 5,
+  "en": "Bunny Band",
+  "atk": 594,
+  "desc": "A special W-Engine decorated with a fluffy bunny. However, it is just an imitation of the real animal.",
+  "sub": "DEF",
+  "ko": "버니 밴드",
+  "zh": "兔能环",
+  "ja": "ラビットチャージャー",
+  "Id": 13010,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "防御力",
+   "value": 1600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "ウサギなでなで",
+  "effect_desc": "HP上限+<color=#2BAD00>8%</color>。シールドがある時、装備者の攻撃力+<color=#2BAD00>10%</color>。",
+  "effect_refine": 1
+ },
+ "13011": {
+  "icon": "Weapon_A_Common_11",
+  "rank": 3,
+  "type": 5,
+  "en": "Spring Embrace",
+  "atk": 594,
+  "desc": "A special W-Engine equipped with a temperature regulator where residual heat generated by the W-Engine's high frequency is funneled into the hot springs on its surface.",
+  "sub": "ATK",
+  "ko": "봄날의 포옹",
+  "zh": "春日融融",
+  "ja": "ホットスプリング",
+  "Id": 13011,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "飲泉",
+  "effect_desc": "自身の被ダメージ-<color=#2BAD00>7.5%</color>。敵の攻撃を受けた時、装備者のエネルギー獲得効率+<color=#2BAD00>10%</color>、継続時間12秒。装備者がキャラ切替で退場する時、この効果は操作中のメンバーに引き継がれ、継続時間も更新される。同じパッシブ効果は重ね掛け不可。",
+  "effect_refine": 1
+ },
+ "13012": {
+  "icon": "Weapon_A_Common_12",
+  "rank": 3,
+  "type": 6,
+  "en": "Puzzle Sphere",
+  "atk": 594,
+  "desc": "The W-Engine, with its bright colors and great performance, saw poor sales at first because it resembled a toy. But with its reasonable price, it slowly gained a positive reputation.",
+  "sub": "ATK",
+  "ko": "기변의 큐브",
+  "zh": "幻变魔方",
+  "ja": "魔法の立体パズル",
+  "Id": 13012,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "巧妙な仕掛け",
+  "effect_desc": "<color=#FFFFFF>『強化特殊スキル』</color>発動時、装備者の会心ダメージ+<color=#2BAD00>16%</color>、継続時間12秒。また、ターゲットの現在のHPが最大HPの50%未満の場合、<color=#FFFFFF>『強化特殊スキル』</color>の与ダメージ+<color=#2BAD00>20%</color>。",
+  "effect_refine": 1
+ },
+ "13013": {
+  "icon": "Weapon_A_Common_13",
+  "rank": 3,
+  "type": 1,
+  "en": "Gilded Blossom",
+  "atk": 594,
+  "desc": "A W-Engine with a grandiose and luxurious appearance equipped with a premium Ether-powered anti-theft device. It's actually used to provide the equipper with energy.",
+  "sub": "ATK",
+  "ko": "도금된 화신풍",
+  "zh": "鎏金花信",
+  "ja": "金メッキの花信",
+  "Id": 13013,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "超厳重盗難防止措置",
+  "effect_desc": "攻撃力+<color=#2BAD00>6</color>%、<color=#FFFFFF>『強化特殊スキル』</color>の与ダメージ+<color=#2BAD00>15</color>%。",
+  "effect_refine": 1
+ },
+ "13014": {
+  "icon": "Weapon_A_Common_14",
+  "rank": 3,
+  "type": 6,
+  "en": "Radiowave Journey",
+  "atk": 594,
+  "desc": "Designed for those Hollow-dwelling bards who refuse to listen to the same albums repeatedly, this W-Engine comes equipped with a radio module that can transform Etheric frequencies into melodies.",
+  "sub": "HP",
+  "ko": "일렉트로 워크",
+  "zh": "电波漫步",
+  "ja": "エレクトロウォーク",
+  "Id": 13014,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "HP",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "自在なステップ",
+  "effect_desc": "<color=#FFFFFF>『連携スキル』</color>または<color=#FFFFFF>『終結スキル』</color>発動時、装備者はバフ効果を1重獲得する。1重につき装備者の透徹力+<color=#2BAD00>80</color>Pt。最大3重まで重ね掛け可能、継続時間12秒。継続時間は1重ごとに独立してカウントされる。",
+  "effect_refine": 1
+ },
+ "13015": {
+  "icon": "Weapon_A_Common_15",
+  "rank": 3,
+  "type": 1,
+  "en": "Marcato Desire",
+  "atk": 594,
+  "desc": "Gather 'round, mortals! Turn up the music!",
+  "sub": "CRIT Rate",
+  "ko": "열망의 악센트",
+  "zh": "强音热望",
+  "ja": "強音デザイア",
+  "Id": 13015,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "会心率",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "ヒートアップ",
+  "effect_desc": "<color=#FFFFFF>『強化特殊スキル』</color>または<color=#FFFFFF>『連携スキル』</color>が敵に命中すると、装備者の攻撃力+<color=#2BAD00>6%</color>、継続時間8秒。ターゲットが状態異常の場合、この効果がさらに+<color=#2BAD00>6%</color>。",
+  "effect_refine": 1
+ },
+ "13016": {
+  "icon": "Weapon_A_Common_16",
+  "rank": 3,
+  "type": 5,
+  "en": "Reel Projector",
+  "atk": 594,
+  "desc": "Clearly a W-Engine is for sound, and not images. What kind of lunatic genius would insist on stuffing a 16mm film camera into a W-Engine?",
+  "sub": "Impact",
+  "ko": "조명을 새기는 칼",
+  "zh": "光影刻刀",
+  "ja": "光と影のカット",
+  "Id": 13016,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "衝撃力",
+   "value": 600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "刻まれし瞬間",
+  "effect_desc": "任意のメンバーのHPが50%以上の場合、受けるダメージ-<color=#2BAD00>7.5%</color>、受ける「ミアズマ汚染」値-<color=#2BAD00>10%</color>。該当効果はチーム内でひとつしか有効にならない。",
+  "effect_refine": 1
+ },
+ "13017": {
+  "icon": "Weapon_A_Common_17",
+  "rank": 3,
+  "type": 7,
+  "en": "Catty Luck",
+  "atk": 356,
+  "desc": "Meow your way to good luck!",
+  "sub": "DEF",
+  "ko": "묘운이 눈앞에",
+  "zh": "喵运当头",
+  "ja": "ニャン運到来",
+  "Id": 13017,
+  "base_property": {
+   "name": "基礎防御力",
+   "value": 24,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "防御力",
+   "value": 1600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "幸運の肉球",
+  "effect_desc": "防御力+<color=#2BAD00>8%</color>。<color=#FFFFFF>『強化特殊スキル』</color>発動時、防御力が追加で+<color=#2BAD00>8%</color>、継続時間40秒、重複して発動すると継続時間が更新される。",
+  "effect_refine": 1
+ },
+ "13018": {
+  "icon": "Weapon_A_Common_18",
+  "rank": 3,
+  "type": 3,
+  "en": "Boisterous Echoes",
+  "atk": 594,
+  "desc": "Pick it up and play another thunk-thud concerto!",
+  "sub": "Anomaly Proficiency",
+  "ko": "둥둥 메아리",
+  "zh": "咚哒回声",
+  "ja": "ドンカツエコー",
+  "Id": 13018,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "異常マスタリー",
+   "value": 30,
+   "format": "{0:0}"
+  },
+  "effect_name": "響き渡る太鼓",
+  "effect_desc": "装備者が<color=#FFFFFF>「乱流」</color>効果を発動させた時、自身のエネルギーを<color=#2BAD00>2</color>Pt回復する。この効果は10秒に1回のみ発動可能。装備者が状態異常の敵を攻撃する時、与ダメージ+<color=#2BAD00>11.5%</color>。",
+  "effect_refine": 1
+ },
+ "13019": {
+  "icon": "Weapon_A_Common_19",
+  "rank": 3,
+  "type": 6,
+  "en": "Cauldron of Clarity",
+  "atk": 594,
+  "desc": "Countless threads of Sword Will echo through this tiny stretch of sky.",
+  "sub": "HP",
+  "ko": "푸른 물결의 솥",
+  "zh": "青漪灵鼎",
+  "ja": "蒼き波の霊器",
+  "Id": 13019,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "HP",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "玄音召雄",
+  "effect_desc": "装備者が<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、バフ効果を1重獲得する。バフ効果1重につき、装備者の与ダメージ+<color=#2BAD00>4%</color>、最大3重まで重ね掛け可能、継続時間20秒。この効果は0.5秒に1回のみ発動可能、重複して発動すると継続時間が更新される。3重のバフ効果を所持している時、装備者の会心率+<color=#2BAD00>6.5%</color>。",
+  "effect_refine": 1
+ },
+ "13020": {
+  "icon": "Weapon_A_Common_20",
+  "rank": 3,
+  "type": 2,
+  "en": "The Simmering Pot",
+  "atk": 594,
+  "desc": "Whoa, that's hot! Seriously hot! But it's so good!",
+  "sub": "Impact",
+  "ko": "들끓는 가마솥",
+  "zh": "炎炙沸釜",
+  "ja": "炎々沸々鍋一丁",
+  "Id": 13020,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "衝撃力",
+   "value": 600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "ラー油マシマシ",
+  "effect_desc": "<color=#FFFFFF>『支援突撃』</color>を発動した時、装備者がターゲットに与えるブレイク値+<color=#2BAD00>7.2%</color>、装備者の与ダメージ+<color=#2BAD00>7.2%</color>、継続時間30秒、重複して発動すると継続時間が更新される。",
+  "effect_refine": 1
+ },
+ "13021": {
+  "icon": "Weapon_A_Common_21",
+  "rank": 3,
+  "type": 7,
+  "en": "Bloodmarrow Coffer",
+  "atk": 356,
+  "desc": "A special W-Engine developed by the Flint family.",
+  "sub": "CRIT Rate",
+  "ko": "진혈의 비갑",
+  "zh": "血髓秘匣",
+  "ja": "ブラッドボックス",
+  "Id": 13021,
+  "base_property": {
+   "name": "基礎防御力",
+   "value": 24,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "会心率",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "封解の刻",
+  "effect_desc": "装備者の会心率が<color=#2BAD00>100%</color>を超えている場合、超過分の会心率1%につき、装備者の与ダメージ+<color=#2BAD00>0.48%</color>、最大+<color=#2BAD00>24%</color>。",
+  "effect_refine": 1
+ },
+ "13101": {
+  "icon": "Weapon_A_1011",
+  "rank": 3,
+  "type": 2,
+  "en": "Demara Battery Mark II",
+  "atk": 624,
+  "desc": "A customized W-Engine that focuses on energy storage, modified to improve its energy capacity. This model is often used by Anby.",
+  "sub": "Impact",
+  "ko": "데마라 배터리 Ⅱ형",
+  "zh": "德玛拉电池Ⅱ型",
+  "ja": "デマラ式電池Ⅱ型",
+  "Id": 13101,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "衝撃力",
+   "value": 600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "電光石火",
+  "effect_desc": "<color=#2EB6FF>電気属性ダメージ</color>+<color=#2BAD00>15%</color>。<color=#FFFFFF>『回避反撃』</color>または<color=#FFFFFF>『支援攻撃』</color>が敵に命中した時、装備者のエネルギー獲得効率+<color=#2BAD00>18%</color>、継続時間8秒。",
+  "effect_refine": 1
+ },
+ "13103": {
+  "icon": "Weapon_A_1031",
+  "rank": 3,
+  "type": 4,
+  "en": "The Vault",
+  "atk": 624,
+  "desc": "A cost-effective W-Engine that can store energy, with improvements made to its internal space. This model is often used by Nicole.",
+  "sub": "Energy Regen",
+  "ko": "보물함",
+  "zh": "聚宝箱",
+  "ja": "ザ・ボールト",
+  "Id": 13103,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "エネルギー自動回復",
+   "value": 2000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "金の亡者",
+  "effect_desc": "<color=#FFFFFF>『強化特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>または<color=#FFFFFF>『終結スキル』</color>が<color=#FE437E>エーテル属性ダメージ</color>を与えた時、全ユニットがターゲットに与えるダメージ+<color=#2BAD00>15%</color>、装備者のエネルギー自動回復+<color=#2BAD00>0.5</color>Pt/秒、継続時間2秒。同じパッシブ効果は重ね掛け不可。",
+  "effect_refine": 1
+ },
+ "13106": {
+  "icon": "Weapon_A_1061",
+  "rank": 3,
+  "type": 1,
+  "en": "Housekeeper",
+  "atk": 624,
+  "desc": "An enhanced W-Engine with a high rotation speed. A chainsaw has been integrated into its shaft. This model is often used by Corin.",
+  "sub": "ATK",
+  "ko": "하우스키퍼",
+  "zh": "家政员",
+  "ja": "ハウスキーパー",
+  "Id": 13106,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "ご家庭で楽々チェーンソー",
+  "effect_desc": "控えにいる時、装備者のエネルギー自動回復+<color=#2BAD00>0.45</color>Pt/秒。<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中すると、装備者の<color=#F0D12B>物理属性ダメージ</color>+<color=#2BAD00>3%</color>、最大15重まで重ね掛け可能、継続時間1秒。重複して発動すると継続時間が更新される。",
+  "effect_refine": 1
+ },
+ "13108": {
+  "icon": "Weapon_A_1081",
+  "rank": 3,
+  "type": 1,
+  "en": "Starlight Engine Replica",
+  "atk": 624,
+  "desc": "A customized supercomputing W-Engine, specialized in aim support and ballistic calculations. Modified by Billy, it now looks like some sort of knock-off Starlight Knight figurine.",
+  "sub": "ATK",
+  "ko": "별빛 엔진 레플리카",
+  "zh": "仿制星徽引擎",
+  "ja": "なんちゃってスターライトエンジン",
+  "Id": 13108,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "ナイトビーム：改",
+  "effect_desc": "<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>が6メートル以上離れた敵に命中すると、装備者がターゲットに与える<color=#F0D12B>物理属性ダメージ</color>+<color=#2BAD00>36%</color>、継続時間8秒。",
+  "effect_refine": 1
+ },
+ "13111": {
+  "icon": "Weapon_A_1111",
+  "rank": 3,
+  "type": 1,
+  "en": "Drill Rig - Red Axis",
+  "atk": 624,
+  "desc": "Originally a rev-enhanced W-Engine, it has been modified by Anton with the most expensive rotary drill parts that allow it to exceed its output limits.",
+  "sub": "Energy Regen",
+  "ko": "굴착기-붉은 축",
+  "zh": "旋钻机-赤轴",
+  "ja": "ドリルリグ-レッドシャフト",
+  "Id": 13111,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "エネルギー自動回復",
+   "value": 2000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "グレンドリル",
+  "effect_desc": "<color=#FFFFFF>『強化特殊スキル』</color>または<color=#FFFFFF>『連携スキル』</color>を発動した時、<color=#FFFFFF>『通常攻撃』</color>と<color=#FFFFFF>『ダッシュ攻撃』</color>による<color=#2EB6FF>電気属性ダメージ</color>+<color=#2BAD00>50%</color>、継続時間10秒。15秒に1回のみ発動可能。",
+  "effect_refine": 1
+ },
+ "13112": {
+  "icon": "Weapon_A_1121",
+  "rank": 3,
+  "type": 5,
+  "en": "Big Cylinder",
+  "atk": 624,
+  "desc": "A powerful protection-type W-Engine, characterized by thick oil cylinders that ceaselessly roar inside it. It can provide sufficient power for heavy machinery.",
+  "sub": "DEF",
+  "ko": "빅 실린더",
+  "zh": "比格气缸",
+  "ja": "ビガー・シリンダー",
+  "Id": 13112,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "防御力",
+   "value": 1600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "10トンジャッキ",
+  "effect_desc": "自身の被ダメージ-<color=#2BAD00>7.5%</color>。敵の攻撃を受けた後、次の攻撃が敵に命中すると、装備者の防御力<color=#2BAD00>600%</color>分のダメージを追加で与え、必ず会心が出る、7.5秒に1回のみ発動可能。",
+  "effect_refine": 1
+ },
+ "13113": {
+  "icon": "Weapon_A_1131",
+  "rank": 3,
+  "type": 4,
+  "en": "Bashful Demon",
+  "atk": 624,
+  "desc": "An intricate W-Engine developed by Section 6 and later modified with extra features. It can control Ether particles to form an energy field. This model is favored by Soukaku.",
+  "sub": "ATK",
+  "ko": "수줍은 악마",
+  "zh": "含羞恶面",
+  "ja": "恥じらう悪面",
+  "Id": 13113,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "饕餮の相",
+  "effect_desc": "<color=#98EFF0>氷属性ダメージ</color>+<color=#2BAD00>15%</color>。<color=#FFFFFF>『強化特殊スキル』</color>を発動する度に、メンバー全員の攻撃力+<color=#2BAD00>2%</color>、最大4重まで重ね掛け可能、継続時間12秒。重複して発動すると継続時間が更新される。同じパッシブ効果は重ね掛け不可。",
+  "effect_refine": 1
+ },
+ "13115": {
+  "icon": "Weapon_A_1151",
+  "rank": 3,
+  "type": 4,
+  "en": "Kaboom the Cannon",
+  "atk": 624,
+  "desc": "A support W-Engine propelled by jets that is both mobile and impactful, it can traverse the entire battlefield providing combat buffs.",
+  "sub": "Energy Regen",
+  "ko": "호전적인 꽝꽝이",
+  "zh": "好斗的阿炮",
+  "ja": "喧嘩腰のボンバルダム",
+  "Id": 13115,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "エネルギー自動回復",
+   "value": 2000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "群衆事故",
+  "effect_desc": "チームにいる任意の味方ユニットの攻撃が敵に命中した時、すべての味方ユニットの攻撃力+<color=#2BAD00>2.5%</color>、最大4重まで重ね掛け可能、継続時間8秒。継続時間は1重ごとに独立してカウントされる。味方ユニット1名につき、1重のバフ効果を付与できる。同じパッシブ効果は重ね掛け不可。",
+  "effect_refine": 1
+ },
+ "13127": {
+  "icon": "Weapon_A_1271",
+  "rank": 3,
+  "type": 5,
+  "en": "Peacekeeper - Specialized",
+  "atk": 624,
+  "desc": "A defensive W-Engine independently researched and created by Public Security which simplifies the offensive components to enhance the energy conversion ability in its shield. ",
+  "sub": "ATK",
+  "ko": "평화 수호자-특화형",
+  "zh": "维序者-特化型",
+  "ja": "秩序の守り手・特化型",
+  "Id": 13127,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "スタンダード・ブロッキング",
+  "effect_desc": "シールドがある時、装備者のエネルギー自動回復+<color=#2BAD00>0.4</color>Pt/秒。<color=#FFFFFF>『強化特殊スキル』</color>と<color=#FFFFFF>『支援突撃』</color>による状態異常蓄積値+<color=#2BAD00>36%</color>。",
+  "effect_refine": 1
+ },
+ "13128": {
+  "icon": "Weapon_A_1281",
+  "rank": 3,
+  "type": 3,
+  "en": "Roaring Ride",
+  "atk": 624,
+  "desc": "An energy W-Engine modded from spare parts of a truck's engine. It converts the original cylinder into an energy storage unit, which is highly advantageous.",
+  "sub": "ATK",
+  "ko": "뛰뛰빵빵",
+  "zh": "轰鸣座驾",
+  "ja": "グロウル・マイ・カー",
+  "Id": 13128,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "衝突エネルギー",
+  "effect_desc": "<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中すると、以下の効果のいずれか1つが発動する、継続時間5秒、0.3秒に1回のみ発動可能。同じ効果は重ね掛け不可、重複して発動すると継続時間が更新される。異なる効果は併存可能。\n装備者の攻撃力+<color=#2BAD00>8%</color>。装備者の異常マスタリー+<color=#2BAD00>40</color>Pt。装備者の状態異常蓄積効率+<color=#2BAD00>25%</color>。",
+  "effect_refine": 1
+ },
+ "13135": {
+  "icon": "Weapon_A_1351",
+  "rank": 3,
+  "type": 2,
+  "en": "Box Cutter",
+  "atk": 624,
+  "desc": "An energy W-Engine modded from spare parts of a truck's engine. It converts the original cylinder into an energy storage unit, which is highly advantageous.",
+  "sub": "Impact",
+  "ko": "커터칼",
+  "zh": "裁纸刀",
+  "ja": "ペーパーカッター",
+  "Id": 13135,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "衝撃力",
+   "value": 600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "指のケガに注意",
+  "effect_desc": "<color=#FFFFFF>『追加攻撃』</color>を発動した時、装備者の与える<color=#F0D12B>物理属性ダメージ</color>+<color=#2BAD00>15%</color>、与えるブレイク値+<color=#2BAD00>10%</color>、継続時間10秒。",
+  "effect_refine": 1
+ },
+ "13142": {
+  "icon": "Weapon_A_1421",
+  "rank": 3,
+  "type": 5,
+  "en": "Tremor Trigram Vessel",
+  "atk": 624,
+  "desc": "Pressing acupoints is like cooking. Striking the fatal acupoint is like setting the stove on fire, bringing disaster.",
+  "sub": "ATK",
+  "ko": "진괘를 담은 함",
+  "zh": "震元奇枢",
+  "ja": "雷鳴が如き八卦",
+  "Id": 13142,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "経絡調和",
+  "effect_desc": "装備者の<color=#FFFFFF>『強化特殊スキル』</color>および<color=#FFFFFF>『終結スキル』</color>の与ダメージ+<color=#2BAD00>25%</color>。任意のメンバーがダメージを受けた時、またはHPを回復した時、装備者のエネルギーを<color=#2BAD00>2</color>Pt回復する、この効果は5秒に1回のみ発動可能。",
+  "effect_refine": 1
+ },
+ "13144": {
+  "icon": "Weapon_A_1441",
+  "rank": 3,
+  "type": 6,
+  "en": "Grill O'Wisp",
+  "atk": 624,
+  "desc": "A flame both fierce and faithful, burning without end.",
+  "sub": "HP",
+  "ko": "어스름한 밤의 화염",
+  "zh": "燔火胧夜",
+  "ja": "燔火の朧夜",
+  "Id": 13144,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 42,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "HP",
+   "value": 1000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "籠中の炎",
+  "effect_desc": "装備者が与える<color=#FF5521>炎属性ダメージ</color>+<color=#2BAD00>15%</color>。装備者のHPがダウンした時、会心率+<color=#2BAD00>15%</color>、継続時間5秒。",
+  "effect_refine": 1
+ },
+ "14001": {
+  "icon": "Weapon_S_Common_01",
+  "rank": 3,
+  "type": 1,
+  "en": "Cannon Rotor",
+  "atk": 594,
+  "desc": "A high-performance supercomputing W-Engine, capable of collecting real-time battlefield data and equipped with mini cannons.",
+  "sub": "CRIT Rate",
+  "ko": "캐논 로터",
+  "zh": "加农转子",
+  "ja": "キャノンローラー",
+  "Id": 14001,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "会心率",
+   "value": 800,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "規格外口径",
+  "effect_desc": "攻撃力+<color=#2BAD00>7.5%</color>。攻撃が敵に命中し、なおかつ会心が出た時、攻撃力200%分のダメージを追加で与える、<color=#2BAD00>8</color>秒に1回のみ発動可能。",
+  "effect_refine": 1
+ },
+ "14002": {
+  "icon": "Weapon_S_Common_02",
+  "rank": 3,
+  "type": 4,
+  "en": "Unfettered Game Ball",
+  "atk": 594,
+  "desc": "A new supercomputing W-Engine, featuring cutting-edge integrated chips that dynamically monitor the battlefield and provide tactical analysis for the user.",
+  "sub": "Energy Regen",
+  "ko": "내 맘대로 게임 볼",
+  "zh": "逍遥游球",
+  "ja": "ゲームボール",
+  "Id": 14002,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "エネルギー自動回復",
+   "value": 2000,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "ゲーム、スタート！",
+  "effect_desc": "装備者の攻撃が敵に命中し、なおかつ属性タイプの有利効果が発生した時、全ユニットの該当ターゲットに対する会心率+<color=#2BAD00>12%</color>、継続時間12秒。同じパッシブ効果は重ね掛け不可。",
+  "effect_refine": 1
+ },
+ "14003": {
+  "icon": "Weapon_S_Common_03",
+  "rank": 3,
+  "type": 2,
+  "en": "Six Shooter",
+  "atk": 594,
+  "desc": "A special W-Engine modeled after a revolver. It can load bullet-shaped condensed Ether batteries, which release a great amount of power when fired.",
+  "sub": "Impact",
+  "ko": "리볼버 로터",
+  "zh": "左轮转子",
+  "ja": "シックスシューター",
+  "Id": 14003,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 40,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "衝撃力",
+   "value": 600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "バーン！",
+  "effect_desc": "3秒ごとに装備者にパワーを1重与える、最大6重まで重ね掛け可能。<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、すべてのパワーを消費し、パワー1重につき、スキルの与えるブレイク値+<color=#2BAD00>4%</color>。",
+  "effect_refine": 1
+ },
+ "14102": {
+  "icon": "Weapon_S_1021",
+  "rank": 4,
+  "type": 1,
+  "en": "Steel Cushion",
+  "atk": 684,
+  "desc": "A supercomputing W-Engine equipped with a motion monitoring feature. Thanks to Nekomata's modifications, it perfectly matches the fast reflexes and combat maneuvers of feline Thirens.",
+  "sub": "CRIT Rate",
+  "ko": "스틸 쿠션",
+  "zh": "钢铁肉垫",
+  "ja": "鋼の肉球",
+  "Id": 14102,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 46,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "会心率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "合金キャットクロー",
+  "effect_desc": "<color=#F0D12B>物理属性ダメージ</color>+<color=#2BAD00>20%</color>。敵を背後から攻撃し、なおかつ命中した時、装備者の与ダメージ+<color=#2BAD00>25%</color>。",
+  "effect_refine": 1
+ },
+ "14104": {
+  "icon": "Weapon_S_1041",
+  "rank": 4,
+  "type": 1,
+  "en": "The Brimstone",
+  "atk": 684,
+  "desc": "A W-Engine made for Soldier 11 by Obsidian Division. Its intense heat can be used to clear the entire battlefield.",
+  "sub": "ATK",
+  "ko": "유황석",
+  "zh": "硫磺石",
+  "ja": "ブリムストーン",
+  "Id": 14104,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 46,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "灼熱の吐息",
+  "effect_desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>または<color=#FFFFFF>『回避反撃』</color>が敵に命中すると、装備者の攻撃力+<color=#2BAD00>3.5%</color>、最大8重まで重ね掛け可能、継続時間8秒。0.5秒に1回のみ発動可能、継続時間は1重ごとに独立してカウントされる。",
+  "effect_refine": 1
+ },
+ "14105": {
+  "icon": "Weapon_S_1051",
+  "rank": 4,
+  "type": 6,
+  "en": "Kraken's Cradle",
+  "atk": 713,
+  "desc": "In chasing illusions, she was entranced by the light that pierced through the mist.",
+  "sub": "HP",
+  "ko": "크라켄의 요람",
+  "zh": "海妖摇篮",
+  "ja": "セイレーンクレードル",
+  "Id": 14105,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "HP",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "メロウ・タッチ",
+  "effect_desc": "装備者のHPがダウンした時、与える<color=#98EFF0>氷属性の透徹ダメージ</color>+<color=#2BAD00>6%</color>。最大3重まで重ね掛け可能、継続時間25秒。継続時間は1重ごとに独立してカウントされ、0.5秒に1回のみ発動可能。装備者のHPが最大HPの50%以下になると、会心率+<color=#2BAD00>20%</color>。",
+  "effect_refine": 1
+ },
+ "14107": {
+  "icon": "Weapon_S_1071",
+  "rank": 4,
+  "type": 5,
+  "en": "Tusks of Fury",
+  "atk": 713,
+  "desc": "A versatile W-Engine based on a motorcycle tire that Big Daddy made for Caesar.",
+  "sub": "Impact",
+  "ko": "저돌적인 송곳니",
+  "zh": "奔袭獠牙",
+  "ja": "猛進するキバ",
+  "Id": 14107,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "衝撃力",
+   "value": 720,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "不敗の鉄騎",
+  "effect_desc": "装備者のシールド生成量+<color=#2BAD00>30%</color>。任意のメンバーが<color=#FFFFFF>「看破」</color>または<color=#FFFFFF>『極限回避』</color>を発動した時、メンバー全員の与ダメージ+<color=#2BAD00>18%</color>、与えるブレイク値+<color=#2BAD00>12%</color>、継続時間20秒。同じパッシブ効果は重ね掛け不可。",
+  "effect_refine": 1
+ },
+ "14109": {
+  "icon": "Weapon_S_1091",
+  "rank": 4,
+  "type": 3,
+  "en": "Hailstorm Shrine",
+  "atk": 743,
+  "desc": "Hail falls before the shrine, waking her. The blizzard is coming.",
+  "sub": "CRIT Rate",
+  "ko": "싸락눈 내린 별각",
+  "zh": "霰落星殿",
+  "ja": "あられ落つ星殿",
+  "Id": 14109,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 50,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "会心率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "霜染の寒星",
+  "effect_desc": "会心ダメージ+<color=#2BAD00>50%</color>。<color=#FFFFFF>『強化特殊スキル』</color>発動時、または任意のメンバーが敵を状態異常にした時、装備者による<color=#98EFF0>氷属性ダメージ</color>+<color=#2BAD00>20%</color>、最大2重まで重ね掛け可能、継続時間15秒。継続時間は1重ごとに独立してカウントされる。",
+  "effect_refine": 1
+ },
+ "14110": {
+  "icon": "Weapon_S_1101",
+  "rank": 4,
+  "type": 2,
+  "en": "Hellfire Gears",
+  "atk": 684,
+  "desc": "A functional W-Engine with ultra-high power capacity. Modified by Koleda, its energy level has almost exceeded the safety limit.",
+  "sub": "Impact",
+  "ko": "헬파이어 기어",
+  "zh": "燃狱齿轮",
+  "ja": "燃獄ギア",
+  "Id": 14110,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 46,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "衝撃力",
+   "value": 720,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "熱血施工",
+  "effect_desc": "控えにいる時、装備者のエネルギー自動回復+<color=#2BAD00>0.6</color>Pt/秒。<color=#FFFFFF>『強化特殊スキル』</color>を発動する度に、装備者の衝撃力+<color=#2BAD00>10%</color>、最大2重まで重ね掛け可能、継続時間10秒。継続時間は1重ごとに独立してカウントされる。",
+  "effect_refine": 1
+ },
+ "14114": {
+  "icon": "Weapon_S_1141",
+  "rank": 4,
+  "type": 2,
+  "en": "The Restrained",
+  "atk": 684,
+  "desc": "A special W-Engine with a powerful temperature control system. Modified by Lycaon, it has the capability to quickly create extremely cold environments.",
+  "sub": "Impact",
+  "ko": "구속된 자",
+  "zh": "拘缚者",
+  "ja": "拘縛されし者",
+  "Id": 14114,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 46,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "衝撃力",
+   "value": 720,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "束縛の枷鎖",
+  "effect_desc": "攻撃が敵に命中した時、<color=#FFFFFF>『通常攻撃』</color>による与ダメージとブレイク値+<color=#2BAD00>6%</color>、最大5重まで重ね掛け可能、継続時間8秒。\n1回の攻撃において、1回のみ発動可能。継続時間は1重ごとに独立してカウントされる。",
+  "effect_refine": 1
+ },
+ "14116": {
+  "icon": "Weapon_S_1161",
+  "rank": 4,
+  "type": 2,
+  "en": "Blazing Laurel",
+  "atk": 713,
+  "desc": "A violent W-Engine that can ignite flames with a siphon. It deals simple and crude burn damage, encouraging relentless, bone-crushing follow-up attacks.",
+  "sub": "Impact",
+  "ko": "화염의 월계관",
+  "zh": "焰心桂冠",
+  "ja": "炎心の桂冠",
+  "Id": 14116,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "衝撃力",
+   "value": 720,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "流るる炎",
+  "effect_desc": "<color=#FFFFFF>『クイック支援』</color>または<color=#FFFFFF>『極限支援』</color>発動時、装備者の衝撃力+<color=#2BAD00>25%</color>、継続時間8秒。装備者の<color=#FFFFFF>『通常攻撃』</color>が敵に命中すると、ターゲットに<color=#FFFFFF>「衰耗」</color>を1重付与する、最大20重まで重ね掛け可能、継続時間30秒、重複して発動すると継続時間が更新される。任意のメンバーの攻撃が敵に命中した時、ターゲットの<color=#FFFFFF>「衰耗」</color>1重につき、今回の攻撃による<color=#98EFF0>氷属性ダメージ</color>と<color=#FF5521>炎属性ダメージ</color>の会心ダメージ+<color=#2BAD00>1.5%</color>、該当効果はチーム内でひとつしか有効にならない。",
+  "effect_refine": 1
+ },
+ "14117": {
+  "icon": "Weapon_S_1171",
+  "rank": 4,
+  "type": 3,
+  "en": "Flamemaker Shaker",
+  "atk": 713,
+  "desc": "Modified by Burnice, this W-Engine uses a special fuel as its power source to boost combustion performance to the max.",
+  "sub": "ATK",
+  "ko": "타오르는 셰이커",
+  "zh": "灼心摇壶",
+  "ja": "バーニング・シェイカー",
+  "Id": 14117,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "注がれる燃料",
+  "effect_desc": "控えにいる時、装備者のエネルギー自動回復+<color=#2BAD00>0.6</color>Pt/秒。<color=#FFFFFF>『強化特殊スキル』</color>または<color=#FFFFFF>『支援攻撃』</color>が敵に命中すると、装備者の与ダメージ+<color=#2BAD00>3.5%</color>、最大10重まで重ね掛け可能、継続時間6秒、0.3秒に1回のみ発動可能。控えにいる時、重ね掛けの効率が2倍になる。重複して発動すると継続時間が更新される。ダメージアップ効果獲得時、所持している重数が5重以上の場合、追加で装備者の異常マスタリー+<color=#2BAD00>50</color>Pt。異常マスタリーアップ効果は重ね掛け不可、継続時間6秒。",
+  "effect_refine": 1
+ },
+ "14118": {
+  "icon": "Weapon_S_1181",
+  "rank": 4,
+  "type": 3,
+  "en": "Fusion Compiler",
+  "atk": 684,
+  "desc": "The latest W-Engine that possesses a hypercalculation core. It can compile operational codes for machines at top speed. This model is favored by Grace.",
+  "sub": "PEN Ratio",
+  "ko": "감입 컴파일러",
+  "zh": "嵌合编译器",
+  "ja": "複合コンパイラ",
+  "Id": 14118,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 46,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "貫通率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "データストリーム",
+  "effect_desc": "攻撃力+<color=#2BAD00>12%</color>。<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動する度に、装備者の異常マスタリー+<color=#2BAD00>25</color>Pt、最大3重まで重ね掛け可能、継続時間8秒。継続時間は1重ごとに独立してカウントされる。",
+  "effect_refine": 1
+ },
+ "14119": {
+  "icon": "Weapon_S_1191",
+  "rank": 4,
+  "type": 1,
+  "en": "Deep Sea Visitor",
+  "atk": 713,
+  "desc": "A high-power W-Engine that possesses efficient freezing capabilities and high damage output. This model is often used by Ellen.",
+  "sub": "CRIT Rate",
+  "ko": "심해 방문객",
+  "zh": "深海访客",
+  "ja": "ディープシー・ビジター",
+  "Id": 14119,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "会心率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "諸海の王",
+  "effect_desc": "<color=#98EFF0>氷属性ダメージ</color>+<color=#2BAD00>25%</color>。<color=#FFFFFF>『通常攻撃』</color>が敵に命中した時、装備者の会心率+<color=#2BAD00>10%</color>、継続時間8秒。<color=#FFFFFF>『ダッシュ攻撃』</color>で<color=#98EFF0>氷属性ダメージ</color>を与えた時、装備者の会心率が追加で+<color=#2BAD00>10%</color>、継続時間15秒、継続時間はバフ効果ごとに独立してカウントされる。",
+  "effect_refine": 1
+ },
+ "14120": {
+  "icon": "Weapon_S_1201",
+  "rank": 4,
+  "type": 1,
+  "en": "Zanshin Herb Case",
+  "atk": 713,
+  "desc": "Bitterness and pain beget hope, and he devours them all.",
+  "sub": "CRIT DMG",
+  "ko": "잔심의 청낭",
+  "zh": "残心青囊",
+  "ja": "残心の青籠",
+  "Id": 14120,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "会心ダメージ",
+   "value": 1920,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "生死一如",
+  "effect_desc": "会心率+<color=#2BAD00>10%</color>。<color=#FFFFFF>『ダッシュ攻撃』</color>による<color=#2EB6FF>電気属性ダメージ</color>+<color=#2BAD00>40%</color>。任意のメンバーが敵を状態異常またはブレイク状態にした時、装備者の会心率が追加で+<color=#2BAD00>10%</color>、継続時間15秒。",
+  "effect_refine": 1
+ },
+ "14121": {
+  "icon": "Weapon_S_1211",
+  "rank": 4,
+  "type": 4,
+  "en": "Weeping Cradle",
+  "atk": 684,
+  "desc": "A special W-Engine with multiple layers embedded inside. It can quickly recharge \tspecial-model Bangboo and custom-made combat equipment. This model is favored by Rina.",
+  "sub": "PEN Ratio",
+  "ko": "흐느끼는 요람",
+  "zh": "啜泣摇篮",
+  "ja": "啜り泣くゆりかご",
+  "Id": 14121,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 46,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "貫通率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "お・し・お・き",
+  "effect_desc": "控えにいる時、装備者のエネルギー自動回復+<color=#2BAD00>0.6</color>Pt/秒。装備者の攻撃が敵に命中した時、全ユニットのターゲットに与えるダメージ+<color=#2BAD00>10%</color>、継続時間3秒。効果継続中、0.5秒ごとにこのバフ効果が追加で+<color=#2BAD00>1.7%</color>、最大<color=#2BAD00>10.2%</color>まで。重複して発動すると継続時間のみが更新され、ダメージアップ効果は更新されない。同じパッシブ効果は重ね掛け不可。",
+  "effect_refine": 1
+ },
+ "14122": {
+  "icon": "Weapon_S_1221",
+  "rank": 4,
+  "type": 3,
+  "en": "Timeweaver",
+  "atk": 713,
+  "desc": "A new model of supercomputing W-Engine custom-made by HSO Section 6, equipped with the most elite calculation and analysis functions.",
+  "sub": "ATK",
+  "ko": "시류의 현자",
+  "zh": "时流贤者",
+  "ja": "刻流の賢者",
+  "Id": 14122,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "刻喰の奇謀",
+  "effect_desc": "装備者の<color=#2EB6FF>電気属性の状態異常蓄積効率</color>+<color=#2BAD00>30%</color>。<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>が状態異常の敵に命中すると、装備者の異常マスタリー+<color=#2BAD00>75</color>Pt、継続時間15秒。装備者の異常マスタリーが375Pt以上の時、装備者による<color=#FFFFFF>「混沌」</color>ダメージ+<color=#2BAD00>25%</color>。",
+  "effect_refine": 1
+ },
+ "14124": {
+  "icon": "Weapon_S_1241",
+  "rank": 4,
+  "type": 1,
+  "en": "Riot Suppressor Mark VI",
+  "atk": 713,
+  "desc": "The latest tactical W-Engine used by Public Security's elite Hollow squads, possessing a powerful Ether energy source. It's Zhu Yuan's favored model.",
+  "sub": "CRIT DMG",
+  "ko": "서프레서 Ⅵ형",
+  "zh": "防暴者Ⅵ型",
+  "ja": "サプレッサーⅥ型",
+  "Id": 14124,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "会心ダメージ",
+   "value": 1920,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "安全パトロール",
+  "effect_desc": "会心率+<color=#2BAD00>15%</color>。<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、装備者にパワーを8重与える、最大8重まで重ね掛け可能。<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>で<color=#FE437E>エーテル属性ダメージ</color>を与えた時、パワーを1重消費し、その攻撃の与ダメージ+<color=#2BAD00>35%</color>。",
+  "effect_refine": 1
+ },
+ "14125": {
+  "icon": "Weapon_S_1251",
+  "rank": 4,
+  "type": 2,
+  "en": "Ice-Jade Teapot",
+  "atk": 713,
+  "desc": "A custom stun W-Engine made for an Automaton referencing the combat style and abilities of one. Energy is stored within, then lashes outwards upon conversion.",
+  "sub": "Impact",
+  "ko": "맑은 옥주전자",
+  "zh": "玉壶青冰",
+  "ja": "玉壺青氷",
+  "Id": 14125,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "衝撃力",
+   "value": 720,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "冷々たる連奏",
+  "effect_desc": "<color=#FFFFFF>『通常攻撃』</color>が敵に命中すると、<color=#FFFFFF>「茶味」</color>を1重獲得する。<color=#FFFFFF>「茶味」</color>1重につき、装備者の衝撃力+<color=#2BAD00>0.7%</color>、最大30重まで重ね掛け可能、継続時間8秒。継続時間は1重ごとに独立してカウントされる。<color=#FFFFFF>「茶味」</color>獲得時、装備者が持つ<color=#FFFFFF>「茶味」</color>が15以上の場合、メンバー全員の与ダメージ+<color=#2BAD00>20%</color>、継続時間10秒。同じパッシブ効果は重ね掛け不可。",
+  "effect_refine": 1
+ },
+ "14126": {
+  "icon": "Weapon_S_1261",
+  "rank": 4,
+  "type": 3,
+  "en": "Sharpened Stinger",
+  "atk": 713,
+  "desc": "A deadly W-Engine from unknown sources, modified personally by Jane Doe with the intent to deal severe physical damage and Anomaly.",
+  "sub": "Anomaly Proficiency",
+  "ko": "예리한 집게칼",
+  "zh": "淬锋钳刺",
+  "ja": "磨き抜かれた切っ先",
+  "Id": 14126,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "異常マスタリー",
+   "value": 36,
+   "format": "{0:0}"
+  },
+  "effect_name": "気ままな狩り心",
+  "effect_desc": "<color=#FFFFFF>『ダッシュ攻撃』</color>を発動した時、<color=#FFFFFF>「猟欲」</color>を1重獲得する。<color=#FFFFFF>「猟欲」</color>1重につき、装備者の与える<color=#F0D12B>物理属性ダメージ</color>+<color=#2BAD00>12%</color>、最大3重まで重ね掛け可能、継続時間10秒。この効果は0.5秒に1回のみ発動可能、重複して発動すると継続時間が更新される。接敵状態突入時、または<color=#FFFFFF>『極限回避』</color>発動時、即座に<color=#FFFFFF>「猟欲」</color>を3重獲得する。<color=#FFFFFF>「猟欲」</color>の重数が上限に達すると、装備者の状態異常蓄積効率+<color=#2BAD00>40%</color>。",
+  "effect_refine": 1
+ },
+ "14129": {
+  "icon": "Weapon_S_1291",
+  "rank": 4,
+  "type": 1,
+  "en": "Myriad Eclipse",
+  "atk": 713,
+  "desc": "Shadowed by darkness at every step, he laid bare his heart to kindle a single, flickering flame.",
+  "sub": "CRIT Rate",
+  "ko": "천변하는 태양의 몰락",
+  "zh": "千面日陨",
+  "ja": "千面の落日",
+  "Id": 14129,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "会心率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "千変無我",
+  "effect_desc": "会心ダメージ+<color=#2BAD00>45%</color>。<color=#FFFFFF>『強化特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>、<color=#FFFFFF>『終結スキル』</color>が<color=#98EFF0>氷属性ダメージ</color>を与えた時、装備者は<color=#FFFFFF>「零度処刑宣言」</color>効果を獲得する、継続時間3秒。<color=#FFFFFF>「零度処刑宣言」</color>効果発動中、装備者の攻撃が敵に命中する時、敵の防御力を<color=#2BAD00>25%</color>無視する。",
+  "effect_refine": 1
+ },
+ "14130": {
+  "icon": "Weapon_S_1301",
+  "rank": 4,
+  "type": 1,
+  "en": "Bellicose Blaze",
+  "atk": 713,
+  "desc": "She lingers by the banks of the Styx, waiting for the tide to extinguish the fury burning in her chamber.",
+  "sub": "Energy Regen",
+  "ko": "소란한 총성과 화염",
+  "zh": "嚣枪喧焰",
+  "ja": "憤怒の銃騒",
+  "Id": 14130,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "エネルギー自動回復",
+   "value": 2400,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "喧炎を呑む",
+  "effect_desc": "会心率+<color=#2BAD00>20%</color>。装備者が<color=#FFFFFF>『追加攻撃』</color>で<color=#FF5521>炎属性ダメージ</color>を与えた時、装備者の攻撃が敵に与えるダメージは敵の防御力を<color=#2BAD00>15%</color>無視する。継続時間8秒、3秒に1重のみ獲得可能、最大2重まで重ね掛け可能。重複して発動すると継続時間が更新される。",
+  "effect_refine": 1
+ },
+ "14131": {
+  "icon": "Weapon_S_1311",
+  "rank": 4,
+  "type": 4,
+  "en": "Elegant Vanity",
+  "atk": 713,
+  "desc": "Underneath the radiant splendor, her genuine self has never been hidden.",
+  "sub": "ATK",
+  "ko": "우아한 베니티백",
+  "zh": "玲珑妆匣",
+  "ja": "優美のヴァニティ",
+  "Id": 14131,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "異彩の華",
+  "effect_desc": "任意のメンバーが<color=#FFFFFF>『クイック支援』</color>、<color=#FFFFFF>『連携スキル』</color>、<color=#FFFFFF>『パリィ支援』</color>、<color=#FFFFFF>『回避支援』</color>で出場した時、装備者のエネルギーを<color=#2BAD00>5</color>Pt回復する、5秒に1回のみ発動可能。装備者がエネルギーを25Pt以上消費した時、メンバー全員の与ダメージ+<color=#2BAD00>10%</color>、最大2重まで重ね掛け可能、継続時間20秒、重複して発動すると継続時間が更新される、該当効果はチーム内でひとつしか有効にならない。",
+  "effect_refine": 1
+ },
+ "14132": {
+  "icon": "Weapon_S_1321",
+  "rank": 4,
+  "type": 1,
+  "en": "Heartstring Nocturne",
+  "atk": 713,
+  "desc": "The sound of the strings, sharp as blades, cut through the night, protecting the one.",
+  "sub": "CRIT Rate",
+  "ko": "심금을 울리는 야상곡",
+  "zh": "心弦夜响",
+  "ja": "心弦のノクターン",
+  "Id": 14132,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "会心率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "弦の音をまとって",
+  "effect_desc": "会心ダメージ+<color=#2BAD00>50%</color>。接敵状態突入時、<color=#FFFFFF>『連携スキル』</color>発動時および<color=#FFFFFF>『終結スキル』</color>発動時に、装備者が<color=#FFFFFF>「心弦」</color>を1重獲得する。<color=#FFFFFF>「心弦」</color>1重につき、装備者の<color=#FFFFFF>『連携スキル』</color>と<color=#FFFFFF>『終結スキル』</color>がターゲットの<color=#FF5521>炎属性ダメージ耐性</color>を<color=#2BAD00>12.5%</color>無視する。最大2重まで重ね掛け可能、継続時間30秒、重複して発動すると継続時間が更新される。",
+  "effect_refine": 1
+ },
+ "14133": {
+  "icon": "Weapon_S_1331",
+  "rank": 4,
+  "type": 3,
+  "en": "Flight of Fancy",
+  "atk": 713,
+  "desc": "A bird landed on the windowsill, scattering starlight from its tail feathers.",
+  "sub": "Anomaly Proficiency",
+  "ko": "별빛 꿈을 누비는 새",
+  "zh": "飞鸟星梦",
+  "ja": "鳥は夢へと羽ばたいて",
+  "Id": 14133,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "異常マスタリー",
+   "value": 36,
+   "format": "{0:0}"
+  },
+  "effect_name": "銀閃の幽羽",
+  "effect_desc": "状態異常蓄積効率+<color=#2BAD00>40%</color>。装備者が<color=#FE437E>エーテル属性ダメージ</color>を与えた時、自身の異常マスタリー+<color=#2BAD00>20</color>Pt、継続時間5秒、最大6重まで重ね掛け可能。0.5秒に1回のみ発動可能、重複して発動すると継続時間が更新される。",
+  "effect_refine": 1
+ },
+ "14134": {
+  "icon": "Weapon_S_1341",
+  "rank": 4,
+  "type": 5,
+  "en": "Half-Sugar Bunny",
+  "atk": 713,
+  "desc": "Not too sweet, and not too cold.",
+  "sub": "HP",
+  "ko": "당도 50% 눈토끼",
+  "zh": "半糖雪兔",
+  "ja": "甘さ控えめ雪うさぎ",
+  "Id": 14134,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "HP",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "ワレモノの甘さ",
+  "effect_desc": "装備者のエネルギー自動回復+<color=#2BAD00>0.46</color>Pt/秒。メンバー全員の攻撃力+<color=#2BAD00>10%</color>、最大HP+<color=#2BAD00>10%</color>、該当効果はチーム内でひとつしか有効にならない。装備者が<color=#FFFFFF>「エーテルベール」</color>を展開または延長した時、メンバー全員の会心ダメージ+<color=#2BAD00>30%</color>、継続時間60秒、重複して発動すると継続時間が更新される。",
+  "effect_refine": 1
+ },
+ "14136": {
+  "icon": "Weapon_S_1361",
+  "rank": 4,
+  "type": 2,
+  "en": "Spectral Gaze",
+  "atk": 713,
+  "desc": "Broken eyes hold both resilience and vulnerability.",
+  "sub": "CRIT Rate",
+  "ko": "탐혼의 눈동자",
+  "zh": "索魂影眸",
+  "ja": "奪魂の瞑目",
+  "Id": 14136,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "会心率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "風が行方を教えてくれる",
+  "effect_desc": "装備者の<color=#FFFFFF>『追加攻撃』</color>が敵に命中し、なおかつ<color=#2EB6FF>電気属性ダメージ</color>を与えた時、ターゲットの防御力-<color=#2BAD00>25%</color>、継続時間5秒。同じパッシブ効果は重ね掛け不可。効果発動時、自身が操作中のメンバーではない場合、装備者が<color=#FFFFFF>「魂の鎖」</color>を1重獲得し、最大3重まで重ね掛け可能、1回のスキルにおいて1回のみ発動可能。<color=#FFFFFF>「魂の鎖」</color>1重につき、装備者の衝撃力+<color=#2BAD00>4%</color>、継続時間12秒。継続時間は1重ごとに独立してカウントされる。<color=#FFFFFF>「魂の鎖」</color>の重数が上限に達している時、装備者の衝撃力が追加で+<color=#2BAD00>8%</color>。",
+  "effect_refine": 1
+ },
+ "14137": {
+  "icon": "Weapon_S_1371",
+  "rank": 4,
+  "type": 6,
+  "en": "Qingming Birdcage",
+  "atk": 743,
+  "desc": "The world is vast and full of change, and fate is unpredictable. But regardless of hardship or lack thereof, one must stay true to one's heart.",
+  "sub": "HP",
+  "ko": "청명의 보금자리",
+  "zh": "青溟笼舍",
+  "ja": "青溟の鳥籠",
+  "Id": 14137,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 50,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "HP",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "流転する雲",
+  "effect_desc": "会心率+<color=#2BAD00>20%</color>。装備者が<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、装備者は<color=#FFFFFF>「青溟随行」</color>を1重獲得する、最大2重まで重ね掛け可能、継続時間15秒。また、接敵状態突入時、即座に「青溟随行」を2重獲得する。重複して発動すると継続時間が更新される。<color=#FFFFFF>「青溟随行」</color>1重につき、装備者の与える<color=#FE437E>エーテル属性ダメージ</color>+<color=#2BAD00>8%</color>、『終結スキル』または『強化特殊スキル』の<color=#FE437E>エーテル透徹ダメージ</color>+<color=#2BAD00>10%</color>。",
+  "effect_refine": 1
+ },
+ "14138": {
+  "icon": "Weapon_S_1381",
+  "rank": 4,
+  "type": 1,
+  "en": "Severed Innocence",
+  "atk": 713,
+  "desc": "The sheen of silver is not innocence. Can the blades of the past cut through fate's connections?",
+  "sub": "CRIT DMG",
+  "ko": "순결한 희생",
+  "zh": "牺牲洁纯",
+  "ja": "純然たる犠牲",
+  "Id": 14138,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "会心ダメージ",
+   "value": 1920,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "花冷え、静かなる光",
+  "effect_desc": "会心ダメージ+<color=#2BAD00>30%</color>。装備者の<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『特殊スキル』</color>、または<color=#FFFFFF>『追加攻撃』</color>が敵に命中した時、それぞれバフ効果を1重獲得する。バフ効果1重につき、装備者の会心ダメージが追加で+<color=#2BAD00>10%</color>、最大3重まで重ね掛け可能、継続時間30秒。継続時間は1重ごとに独立してカウントされ、1回のスキルにおいて1回のみ発動可能。バフ効果を3重所持している場合、装備者による<color=#2EB6FF>電気属性ダメージ</color>+<color=#2BAD00>20%</color>。",
+  "effect_refine": 1
+ },
+ "14139": {
+  "icon": "Weapon_S_1391",
+  "rank": 4,
+  "type": 2,
+  "en": "Roaring Fur-nace",
+  "atk": 713,
+  "desc": "The warm fire blazes through the long night, casting light on the tiger's roar in my heart.",
+  "sub": "ATK",
+  "ko": "복을 뿜는 맹호",
+  "zh": "福虓炉炉",
+  "ja": "招福の虎炉",
+  "Id": 14139,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "みなぎる虎の熱意",
+  "effect_desc": "装備者の<color=#FFFFFF>『強化特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>、<color=#FFFFFF>『終結スキル』</color>の与えるブレイク値+<color=#2BAD00>28%</color>。\n<color=#FFFFFF>『連携スキル』</color>または<color=#FFFFFF>『終結スキル』</color>で<color=#FF5521>炎属性ダメージ</color>を与えた時、メンバー全員の与ダメージ+<color=#2BAD00>10%</color>、最大2重まで重ね掛け可能、継続時間30秒、継続時間は1重ごとに独立してカウントされる。1回のスキルにおいて1回のみ発動可能、該当効果はチーム内でひとつしか有効にならない。",
+  "effect_refine": 1
+ },
+ "14140": {
+  "icon": "Weapon_S_1401",
+  "rank": 4,
+  "type": 3,
+  "en": "Practiced Perfection",
+  "atk": 713,
+  "desc": "Starlight became her blade, and she held courage and love firmly in her hands.",
+  "sub": "ATK",
+  "ko": "완벽하게 단조된 별",
+  "zh": "十方锻星",
+  "ja": "十面百錬の星",
+  "Id": 14140,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "星屑を君に",
+  "effect_desc": "装備者の<color=#FFFFFF>「異常掌握」</color>+<color=#2BAD00>60</color>Pt。<color=#F0D12B>「強撃」</color>を発動した時、装備者の<color=#F0D12B>物理属性ダメージ</color>+<color=#2BAD00>20%</color>、継続時間20秒、最大2重まで重ね掛け可能。重複して発動すると継続時間が更新される。装備者が接敵状態突入時、即座に2重の効果を獲得する。",
+  "effect_refine": 1
+ },
+ "14141": {
+  "icon": "Weapon_S_1411",
+  "rank": 4,
+  "type": 4,
+  "en": "Metanukimorphosis",
+  "atk": 713,
+  "desc": "A masterfully crafted design, infused with the creator's pursuit of beauty.",
+  "sub": "Energy Regen",
+  "ko": "너구리의 7단 변신",
+  "zh": "狸法七变化",
+  "ja": "狸の七変化",
+  "Id": 14141,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "エネルギー自動回復",
+   "value": 2400,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "精巧なる機巧",
+  "effect_desc": "装備者の<color=#FFFFFF>『強化特殊スキル』</color>または<color=#FFFFFF>『終結スキル』</color>が<color=#F0D12B>物理属性ダメージ</color>を与えた時、装備者の<color=#FFFFFF>異常掌握</color>+<color=#2BAD00>30</color>Pt、継続時間40秒。装備者の<color=#FFFFFF>『追加攻撃』</color>が敵に命中した時、メンバー全員の<color=#FFFFFF>異常マスタリー</color>+<color=#2BAD00>60</color>Pt、継続時間40秒、該当効果はチーム内でひとつしか有効にならない。",
+  "effect_refine": 1
+ },
+ "14143": {
+  "icon": "Weapon_S_1431",
+  "rank": 4,
+  "type": 1,
+  "en": "Cloudcleave Radiance",
+  "atk": 743,
+  "desc": "The world may change, but my heart remains constant, like clouds standing eternal.",
+  "sub": "CRIT DMG",
+  "ko": "구름을 헤친 빛",
+  "zh": "云霓孤光",
+  "ja": "孤光彩雲",
+  "Id": 14143,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 50,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "会心ダメージ",
+   "value": 1920,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "清き心は宝玉の如し",
+  "effect_desc": "装備者の与ダメージは、ターゲットの<color=#F0D12B>物理属性ダメージ耐性</color>を<color=#2BAD00>20%</color>無視する。装備者が<color=#FFFFFF>「エーテルベール」</color>を展開した時、自身の与ダメージ+<color=#2BAD00>25%</color>、会心ダメージ+<color=#2BAD00>25%</color>、継続時間40秒、重複して発動すると継続時間が更新される。",
+  "effect_refine": 1
+ },
+ "14145": {
+  "icon": "Weapon_S_1451",
+  "rank": 4,
+  "type": 4,
+  "en": "Dreamlit Hearth",
+  "atk": 713,
+  "desc": "After countless years, it remains a silent puzzle.",
+  "sub": "HP",
+  "ko": "꿈을 빚는 용광로의 노래",
+  "zh": "铸梦炉歌",
+  "ja": "炉で歌い上げられる夢",
+  "Id": 14145,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "HP",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "月の導く夜の讃歌",
+  "effect_desc": "装備者のエネルギー自動回復+<color=#2BAD00>0.4</color>Pt/秒。装備者が<color=#FFFFFF>「エーテルベール」</color>を展開、または<color=#FFFFFF>「エーテルベール」</color>の継続時間を延長した時、メンバー全員の与ダメージ+<color=#2BAD00>25%</color>、HP上限+<color=#2BAD00>15%</color>、継続時間45秒。重複して発動すると継続時間が更新される、該当効果はチーム内でひとつしか有効にならない。",
+  "effect_refine": 1
+ },
+ "14146": {
+  "icon": "Weapon_S_1461",
+  "rank": 4,
+  "type": 1,
+  "en": "Cordis Germina",
+  "atk": 713,
+  "desc": "Her journey continues along the long, endless circle.",
+  "sub": "CRIT Rate",
+  "ko": "기계 심장에 내린 씨앗",
+  "zh": "机巧心种",
+  "ja": "駆動する種",
+  "Id": 14146,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "会心率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "芽生えるコア",
+  "effect_desc": "会心率+<color=#2BAD00>15%</color>。装備者が<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『強化特殊スキル』</color>でダメージを与えた時、それぞれバフ効果を1重獲得する。バフ効果1重につき、装備者が与える<color=#2EB6FF>電気属性ダメージ</color>+<color=#2BAD00>12.5%</color>、最大2重まで重ね掛け可能、継続時間40秒、継続時間は1重ごとに独立してカウントされる。1回のスキルにおいて1回のみ発動可能。バフ効果を2重所持している時、装備者の<color=#FFFFFF>『通常攻撃』</color>と<color=#FFFFFF>『終結スキル』</color>が敵に与えるダメージは敵の防御力を<color=#2BAD00>20%</color>無視する。",
+  "effect_refine": 1
+ },
+ "14147": {
+  "icon": "Weapon_S_1471",
+  "rank": 4,
+  "type": 6,
+  "en": "Wrathful Vajra",
+  "atk": 713,
+  "desc": "The purging flames burned a hundred times, yet never cleansed me.",
+  "sub": "HP",
+  "ko": "성난 눈의 금강",
+  "zh": "怒目金刚",
+  "ja": "金剛不壊怒髪衝冠",
+  "Id": 14147,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "HP",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "心を焼く業火",
+  "effect_desc": "会心率+<color=#2BAD00>20%</color>。装備者が<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、装備者が与える<color=#FF5521>炎属性の透徹ダメージ</color>+<color=#2BAD00>9%</color>、最大2重まで重ね掛け可能、継続時間20秒。継続時間は1重ごとに独立してカウントされる。",
+  "effect_refine": 1
+ },
+ "14148": {
+  "icon": "Weapon_S_1481",
+  "rank": 4,
+  "type": 2,
+  "en": "Yesterday Calls",
+  "atk": 713,
+  "desc": "That call you never picked up... she's the one who answered it.",
+  "sub": "CRIT Rate",
+  "ko": "지난밤의 전화",
+  "zh": "昨夜来电",
+  "ja": "昨夜からの着信",
+  "Id": 14148,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "会心率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "24/7",
+  "effect_desc": "控えにいる時、装備者のエネルギー自動回復+<color=#2BAD00>1.5</color>Pt/秒。装備者が<color=#FFFFFF>『強化特殊スキル』</color>で<color=#F0D12B>物理属性ダメージ</color>を与えた時、攻撃が与えるブレイク値+<color=#2BAD00>9%</color>、最大3重まで重ね掛け可能、継続時間10秒。3重まで重ねた時、メンバー全員の会心ダメージがさらに+<color=#2BAD00>30%</color>、継続時間40秒。重複して発動すると継続時間が更新される、会心ダメージアップ効果はチーム内でひとつしか有効にならない。",
+  "effect_refine": 1
+ },
+ "14149": {
+  "icon": "Weapon_S_1491",
+  "rank": 4,
+  "type": 4,
+  "en": "Thoughtbop",
+  "atk": 713,
+  "desc": "Thoughts follow the veins of fantasy, weaving themselves into song.",
+  "sub": "Energy Regen",
+  "ko": "사유로 빚은 노래",
+  "zh": "思络成歌",
+  "ja": "想いが織りなす歌",
+  "Id": 14149,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "エネルギー自動回復",
+   "value": 2400,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "デシベルモノローグ",
+  "effect_desc": "装備者が操作中のメンバーでない時、エネルギー自動回復+<color=#2BAD00>0.6</color>Pt/秒。装備者が<color=#FFFFFF>『強化特殊スキル』</color>を発動して<color=#F0D12B>物理属性ダメージ</color>を与えた時、メンバー全員の与ダメージ+<color=#2BAD00>12.5%</color>、継続時間40秒、最大2重まで重ね掛け可能、重複して発動すると継続時間が更新される。この効果を2重所持している時、メンバーの攻撃力は追加で+<color=#2BAD00>10%</color>。該当効果はチーム内でひとつしか有効にならない。",
+  "effect_refine": 1
+ },
+ "14150": {
+  "icon": "Weapon_S_1501",
+  "rank": 4,
+  "type": 3,
+  "en": "Angel in the Shell",
+  "atk": 713,
+  "desc": "There is a soul, even within a shell of steel.",
+  "sub": "Anomaly Mastery",
+  "ko": "껍데기 속 영혼",
+  "zh": "壳中之灵",
+  "ja": "殻の中の魂",
+  "Id": 14150,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "異常掌握",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "元気いちげき！",
+  "effect_desc": "装備者の異常マスタリー+<color=#2BAD00>90</color>Pt。<color=#FE437E>エーテル属性</color>の装備者が入場、または<color=#FFFFFF>『特殊スキル』</color><color=#FFFFFF>『強化特殊スキル』</color>を発動した時、状態異常の敵に与えるダメージ+<color=#2BAD00>20%</color>、装備者が発動するすべての状態異常ダメージと「混沌」ダメージ+<color=#2BAD00>10%</color>、継続時間15秒。重複して発動すると継続時間が更新される。装備者が控えに交代された時、この効果は解除される。",
+  "effect_refine": 1
+ },
+ "14151": {
+  "icon": "Weapon_S_1511",
+  "rank": 4,
+  "type": 2,
+  "en": "Neon Fantasies",
+  "atk": 713,
+  "desc": "A risky and unpredictable delusion that's impossible to refuse.",
+  "sub": "Anomaly Mastery",
+  "ko": "네온사인 망상",
+  "zh": "霓虹妄想",
+  "ja": "妄想ディスコテック",
+  "Id": 14151,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "異常掌握",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "ディスコの小悪魔",
+  "effect_desc": "装備者の異常マスタリー+<color=#2BAD00>90</color>Pt。装備者が<color=#FFFFFF>『強化特殊スキル』</color>または<color=#FFFFFF>『通常攻撃』</color>で<color=#FE437E>エーテル属性ダメージ</color>を与えた時、メンバー全員の与ダメージ+<color=#2BAD00>15%</color>、継続時間40秒、最大2重まで重ね掛け可能。1回のスキルにおいて1回のみ発動可能。重複して発動すると継続時間が更新される。この効果を2重所持している時、装備者の異常マスタリーが追加で+<color=#2BAD00>60</color>Pt。該当効果はチーム内でひとつしか有効にならない。",
+  "effect_refine": 1
+ },
+ "14152": {
+  "icon": "Weapon_S_1521",
+  "rank": 4,
+  "type": 1,
+  "en": "Serpentine Seeker",
+  "atk": 713,
+  "desc": "Digital venom flows beneath those alloy scales.",
+  "sub": "Energy Regen",
+  "ko": "추적하는 송곳니",
+  "zh": "鳞齿寻踪",
+  "ja": "影を追う白き牙",
+  "Id": 14152,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "エネルギー自動回復",
+   "value": 2400,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "バイオニックトキシン",
+  "effect_desc": "会心率+<color=#2BAD00>25%</color>。装備者がエネルギーを一度に20Pt以上消費した時、消費したエネルギー20Ptにつき、与える<color=#2EB6FF>電気属性ダメージ</color>はターゲットの防御力を<color=#2BAD00>28%</color>無視する、継続時間3秒。重複して獲得すると継続時間が延長される、最大30秒まで延長可能。接敵状態突入時、このバフ効果を獲得する、継続時間10秒。装備者が操作中のメンバーでない場合、継続時間は減少しなくなる。",
+  "effect_refine": 1
+ },
+ "14153": {
+  "icon": "Weapon_S_1531",
+  "rank": 4,
+  "type": 6,
+  "en": "Starlight Rider Faceplate",
+  "atk": 713,
+  "desc": "The proof of being a knight is within your grasp.",
+  "sub": "HP",
+  "ko": "별빛 기사의 가면",
+  "zh": "辉骑面铠",
+  "ja": "スターライトバイザー",
+  "Id": 14153,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "HP",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "ナイトの闘志",
+  "effect_desc": "会心率+<color=#2BAD00>20%</color>。装備者が<color=#FFFFFF>『特殊スキル』</color>を発動した時、装備者が与える<color=#F0D12B>物理属性の透徹ダメージ</color>+<color=#2BAD00>10%</color>、最大2重まで重ね掛け可能、継続時間30秒。重複して発動すると継続時間が更新される。",
+  "effect_refine": 1
+ },
+ "14154": {
+  "icon": "Weapon_S_1541",
+  "rank": 4,
+  "type": 3,
+  "en": "Frostfall Sickle",
+  "atk": 713,
+  "desc": "Carry out judgment until the end comes.",
+  "sub": "Anomaly Mastery",
+  "ko": "삭월에 끊어지는 서리",
+  "zh": "朔月裁霜",
+  "ja": "フロスト・クレセント",
+  "Id": 14154,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "異常掌握",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "裁決はここに終わる",
+  "effect_desc": "<color=#98EFF0>氷属性</color>の装備者が<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、自身が与える<color=#98EFF0>氷属性ダメージ</color>+<color=#2BAD00>20%</color>、継続時間40秒、最大2重まで重ね掛け可能。1回のスキルにおいて1回のみ発動可能、重複して発動すると継続時間が更新される。この効果を2重所持している時、装備者の与える<color=#FFFFFF>「狂咲」</color>ダメージが追加で+<color=#2BAD00>35%</color>。",
+  "effect_refine": 1
+ },
+ "14155": {
+  "icon": "Weapon_S_Common_04",
+  "rank": 4,
+  "type": 1,
+  "en": "Sol Exuvia",
+  "atk": 713,
+  "desc": "The blazing sun falls, leaving the trapped beast with nowhere left to run.",
+  "sub": "ATK",
+  "ko": "태양의 유체",
+  "zh": "日冕遗蜕",
+  "ja": "太陽の抜け殻",
+  "Id": 14155,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "日蝕効果",
+  "effect_desc": "会心率+20%。装備者がピュロイスの場合、<color=#FFFFFF>『終結スキル』</color>発動時に「日蝕」効果を獲得する。「日蝕」効果継続中、装備者が与えるダメージは敵の<color=#FE437E>エーテル属性ダメージ耐性</color>を<color=#2BAD00>16%</color>無視する。継続時間45秒、重複して発動すると継続時間が更新される。接敵状態突入時、「日蝕」効果を獲得する。",
+  "effect_refine": 1
+ },
+ "14156": {
+  "icon": "Weapon_S_1561",
+  "rank": 4,
+  "type": 3,
+  "en": "Joyau Dore",
+  "atk": 713,
+  "desc": "Sit quietly, and listen to the wind's song.",
+  "sub": "Energy Regen",
+  "ko": "영롱한 금빛 마음",
+  "zh": "琳琅鎏心",
+  "ja": "金襴の心",
+  "Id": 14156,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "エネルギー自動回復",
+   "value": 2400,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "隙のない礼儀作法",
+  "effect_desc": "装備者の異常マスタリー+<color=#2BAD00>70</color>Pt。装備者が<color=#FFFFFF>『強化特殊スキル』</color>で<color=#A6C5FD>風属性ダメージ</color>を与えた時、自身が与える<color=#FFFFFF>「乱流」</color>と<color=#A6C5FD>「風化」</color>のダメージ+<color=#2BAD00>7%</color>、継続時間40秒、最大2重まで重ね掛け可能、重複して発動すると継続時間が更新される。1回のスキルにおいて1回のみ発動可能。この効果を2重所持している時、メンバー全員の異常マスタリー+<color=#2BAD00>60</color>Pt。該当効果はチーム内でひとつしか有効にならない。",
+  "effect_refine": 1
+ },
+ "14157": {
+  "icon": "Weapon_S_1571",
+  "rank": 4,
+  "type": 2,
+  "en": "Chief Sidekick",
+  "atk": 713,
+  "desc": "Nhe-nha ehn ne! (Through fire and flames for Lady Norma!)",
+  "sub": "CRIT Rate",
+  "ko": "수석 조수",
+  "zh": "首席跟班",
+  "ja": "エースのオトモ",
+  "Id": 14157,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "会心率",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "天才に仕える者",
+  "effect_desc": "装備者の衝撃力+<color=#2BAD00>30</color>Pt、与えるダメージがターゲットの<color=#FF5521>炎属性ダメージ耐性</color>を<color=#2BAD00>15%</color>無視する。装備者が操作中のメンバーでない間、エネルギー自動回復+<color=#2BAD00>0.4</color>Pt/秒。装備者が<color=#FFFFFF>『強化特殊スキル』</color>を発動して<color=#FF5521>炎属性ダメージ</color>を与えた時、メンバー全員の与ダメージ+<color=#2BAD00>12.5%</color>、継続時間30秒、最大2重まで重ね掛け可能。重複して発動すると継続時間が更新される。1回のスキルにおいて1回のみ発動可能。該当効果はチーム内でひとつしか有効にならない。",
+  "effect_refine": 1
+ },
+ "14158": {
+  "icon": "Weapon_S_1581",
+  "rank": 4,
+  "type": 3,
+  "en": "Ode of Resurrected Wings",
+  "atk": 743,
+  "desc": "Drifting through the cracks of time in search of the light.",
+  "sub": "ATK",
+  "ko": "돌아온 날개의 시",
+  "zh": "空羽复归之诗",
+  "ja": "目覚めし翼の聖歌",
+  "Id": 14158,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 50,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "攻撃力",
+   "value": 1440,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "失楽園",
+  "effect_desc": "異常マスタリー+<color=#2BAD00>96</color>Pt。装備者が<color=#FFA9DD>「昇華」</color>反応を起こした時、自身の状態異常ダメージ+<color=#2BAD00>20%</color>、メンバー全員の与ダメージ+<color=#2BAD00>30%</color>。これらの効果はいずれも30秒継続し、重複して発動すると継続時間が更新される。",
+  "effect_refine": 1
+ },
+ "14159": {
+  "icon": "Weapon_S_1591",
+  "rank": 4,
+  "type": 1,
+  "en": "Knight's Extolment",
+  "atk": 713,
+  "desc": "Across the vast skies and seas of clouds, the extolment for the knights echoes in quiet reverence.",
+  "sub": "CRIT DMG",
+  "ko": "기사 예찬",
+  "zh": "骁骑礼赞",
+  "ja": "栄光の騎士道",
+  "Id": 14159,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "会心ダメージ",
+   "value": 1920,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "騎士の典礼",
+  "effect_desc": "装備者の<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『強化特殊スキル』</color>の重撃が敵に命中した時、会心ダメージ+<color=#2BAD00>32%</color>の<color=#FFFFFF>「戦刃」</color>を1重獲得する、継続時間25秒。<color=#FFFFFF>「戦刃」</color>は最大2重まで重ね掛け可能、1種類のスキルにつき最大1重まで獲得可能。重複して発動した場合、すべての<color=#FFFFFF>「戦刃」</color>の継続時間が更新される。\n<color=#FFFFFF>「戦刃」</color>を2重所持している時、<color=#FFFFFF>「徹骨」</color>を獲得する。\n「徹骨」：装備者が与えるダメージはターゲットの<color=#98EFF0>氷属性ダメージ耐性</color>を<color=#2BAD00>20%</color>無視する。",
+  "effect_refine": 1
+ },
+ "14161": {
+  "icon": "Weapon_S_1611",
+  "rank": 4,
+  "type": 7,
+  "en": "Crimson Thirst",
+  "atk": 431,
+  "desc": "Beneath the crimson moon, the bloodline endures.",
+  "sub": "DEF",
+  "ko": "핏빛 갈망",
+  "zh": "猩红渴望",
+  "ja": "深紅の渇望",
+  "Id": 14161,
+  "base_property": {
+   "name": "基礎防御力",
+   "value": 29,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "防御力",
+   "value": 1920,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "渇血",
+  "effect_desc": "装備者の会心率+<color=#2BAD00>25%</color>、<color=#2EB6FF>電気属性ダメージ</color>+<color=#2BAD00>15%</color>。装備者が<color=#FFFFFF>『強化特殊スキル』</color>を発動、または<color=#FFFFFF>「重傷」</color>を発生させた時、与える<color=#2EB6FF>電気属性鋭撃ダメージ</color>+<color=#2BAD00>10%</color>、継続時間40秒。重複して発動すると継続時間が更新される。",
+  "effect_refine": 1
+ },
+ "14162": {
+  "icon": "Weapon_S_1621",
+  "rank": 4,
+  "type": 2,
+  "en": "Crimson Moon Casket",
+  "atk": 713,
+  "desc": "The crimson moon rises, and the long night knows no sleep.",
+  "sub": "Energy Regen",
+  "ko": "진홍달의 은관",
+  "zh": "绯月银棺",
+  "ja": "緋月の銀棺",
+  "Id": 14162,
+  "base_property": {
+   "name": "基礎攻撃力",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "エネルギー自動回復",
+   "value": 2400,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "永き夜をまだ眠れずに",
+  "effect_desc": "装備者の会心率+<color=#2BAD00>24%</color>。与えるダメージはターゲットの<color=#A6C5FD>風属性ダメージ耐性</color>を<color=#2BAD00>15%</color>無視する。\n装備者が<color=#FFFFFF>『強化特殊スキル』</color>で<color=#A6C5FD>風属性ダメージ</color>を与えた時、与えるブレイク値+<color=#2BAD00>16%</color>、他のメンバーの与ダメージ+<color=#2BAD00>20%</color>、継続時間50秒。重複して発動すると継続時間が更新される。ダメージアップ効果はチーム内でひとつしか有効にならない。",
+  "effect_refine": 1
+ }
+}

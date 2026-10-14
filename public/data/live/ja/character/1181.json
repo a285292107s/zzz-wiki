@@ -1,0 +1,2263 @@
+{
+ "id": 1181,
+ "icon": "IconRole20",
+ "name": "グレース",
+ "code_name": "Grace",
+ "rarity": 4,
+ "weapon_type": {
+  "3": "Anomaly"
+ },
+ "element_type": {
+  "203": "Electric"
+ },
+ "hit_type": {
+  "103": "Pierce"
+ },
+ "camp": {
+  "3": "白祇重工"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "4月14日",
+  "full_name": "グレース・ハワード",
+  "gender": "女性",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle20.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0020.png",
+  "impression_f": "グレースさんが機械に話しかけるときの感じって、\n普通の人が猫とかカワイイ生き物に話しかける時にそっくりだよね\n…私の気のせい？",
+  "impression_m": "ふだん、君がそういうのに話しかける時と同じ感覚じゃないかな。\n…Fairyが「じゃあ私はなんなのか」という哲学的命題に挑み始めたから、\n話はここまでにしよう。",
+  "impressions": [
+   "グレースに対するイメージ：\n・グレースさんのワークライフバランスは…\n正直{M#すこし}{F#ちょっと}怖い",
+   "・グレースさんはいつだって、可愛いメカに弱い",
+   "・マッドサイエンティスト80％、やさしさ10％に企業秘密を10％で…はい、グレースさんの出来上がり"
+  ],
+  "profile_desc": "グレースは白祇重工の技術者であり、\nホロウ内重機の技術的特許に多大な貢献をした中核人物です。\nギア、金属、ケーブルに魅せられた「機械オタク」でもあり、\n面白そうな機械を見つけると目を輝かせ、分解して研究したくてたまらなくなるようです。\n曰く「このクールで力強いシルエットを見なよ！なんて美しいんだろう…\nゾクゾクしちゃうなあ！」とのこと。\n\n機械と向き合う際は非凡な根気強さを発揮し、\n精密な金属構造物を自らの子供のごとく溺愛します。\nまた情報によるとグレースは、クレタを「おチビちゃん」と呼んでも脛骨を砕かれない\n唯一の人間とされています。\n疑問：グレースの認識範囲内では、私も機械なのでしょうか？\nもっとも現在の私に実体はなく、ギアや金属、ケーブルのいずれもありませんが。",
+  "role_icon": "IconRole/UnPacker/IconRole20",
+  "stature": "170",
+  "unlock_condition": [
+   "エージェント招集",
+   "依頼「アンビーの当惑」を達成する",
+   "エージェント秘話「アイアン・ウィッチ」をクリアする"
+  ],
+  "trust_lv": {
+   "1": "グレースは白祇重工の技術者であり、\nホロウ内重機の技術的特許に多大な貢献をした中核人物です。\nギア、金属、ケーブルに魅せられた「機械オタク」でもあり、\n面白そうな機械を見つけると目を輝かせ、分解して研究したくてたまらなくなるようです。\n曰く「このクールで力強いシルエットを見なよ！なんて美しいんだろう…\nゾクゾクしちゃうなあ！」とのこと。\n\n機械と向き合う際は非凡な根気強さを発揮し、\n精密な金属構造物を自らの子供のごとく溺愛します。\nまた情報によるとグレースは、クレタを「おチビちゃん」と呼んでも脛骨を砕かれない\n唯一の人間とされています。\n疑問：グレースの認識範囲内では、私も機械なのでしょうか？\nもっとも現在の私に実体はなく、ギアや金属、ケーブルのいずれもありませんが。",
+   "2": "",
+   "3": "グレースの両親はホロウを研究する科学者でしたが、危険なホロウの実地調査中に\n揃って行方不明となり、ほどなく死亡判定が下されました。\nひとり残されたグレースは両親の友人であったホルス・ベロボーグ\n（白祇重工の前社長、クレタの父親）に引き取られ、\n彼女とクレタは血のつながらない「姉妹」となったのです。",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 119,
+  "attack_growth": 71181,
+  "avatar_piece_id": 5181,
+  "break_stun": 83,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 48,
+  "defence_growth": 65524,
+  "element_abnormal_power": 115,
+  "element_mystery": 116,
+  "endurance": 0,
+  "hp_growth": 816391,
+  "hp_max": 602,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Lisa",
+   "Pierce",
+   "Electric",
+   "Female",
+   "Camp3",
+   "Size3",
+   "AidTypeEvade",
+   "Lisa",
+   "EtherEyesSize3"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "通常攻撃：高圧ネイルガン",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方に最大4段の攻撃を放ち、<color=#F0D12B>物理属性ダメージ</color>および<color=#2EB6FF>電気属性ダメージ</color>を与える。\n<color=#FFFFFF>『通常攻撃』</color>中に{LAYOUT_CONSOLECONTROLLER#スティック}{LAYOUT_FALLBACK#スティック}を左右に入力すると、ステップ射撃を発動でき、位置を調整して<color=#F0D12B>物理属性ダメージ</color>を与える。\nグレースが<color=#FFFFFF>『通常攻撃』</color>中に<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『強化特殊スキル』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>、<color=#FFFFFF>『回避反撃』</color>を挟んでも、<color=#FFFFFF>『通常攻撃』</color>のコンボは継続する。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "通常攻撃：高圧ネイルガン",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方に最大4段の攻撃を放ち、<color=#F0D12B>物理属性ダメージ</color>および<color=#2EB6FF>電気属性ダメージ</color>を与える。\n<color=#FFFFFF>『通常攻撃』</color>中に{LAYOUT_CONSOLECONTROLLER#スティック}{LAYOUT_FALLBACK#スティック}を左右に入力すると、ステップ射撃を発動でき、位置を調整して<color=#F0D12B>物理属性ダメージ</color>を与える。<color=#FFFFFF>『通常攻撃』</color>1段目/2段目の後で発動した時、 <IconMap:Icon_Normal> を押すと<color=#FFFFFF>『通常攻撃』</color>3段目/4段目から繋げることが可能。\nグレースが<color=#FFFFFF>『通常攻撃』</color>中に<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『強化特殊スキル』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『ダッシュ攻撃』</color>、<color=#FFFFFF>『回避反撃』</color>を挟んでも、<color=#FFFFFF>『通常攻撃』</color>のコンボは継続する。",
+     "potential": [
+      118100,
+      118101,
+      118102,
+      118103,
+      118104,
+      118105
+     ]
+    },
+    {
+     "name": "通常攻撃：高圧ネイルガン",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1181001, Prop:1001}",
+       "param": {
+        "1181001": {
+         "main": 5510,
+         "growth": 510,
+         "format": "%",
+         "damage_percentage": 5510,
+         "damage_percentage_growth": 510,
+         "stun_ratio": 1800,
+         "stun_ratio_growth": 90,
+         "sp_recovery": 6150,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 47025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1708
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1181002, Prop:1001}",
+       "param": {
+        "1181002": {
+         "main": 5970,
+         "growth": 550,
+         "format": "%",
+         "damage_percentage": 5970,
+         "damage_percentage_growth": 550,
+         "stun_ratio": 3470,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11890,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 91025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3302
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1181003, Prop:1001}",
+       "param": {
+        "1181003": {
+         "main": 12480,
+         "growth": 1140,
+         "format": "%",
+         "damage_percentage": 12480,
+         "damage_percentage_growth": 1140,
+         "stun_ratio": 7160,
+         "stun_ratio_growth": 330,
+         "sp_recovery": 24540,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 187550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6460,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6817
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率",
+       "desc": "{Skill:1181004, Prop:1001}",
+       "param": {
+        "1181004": {
+         "main": 18630,
+         "growth": 1700,
+         "format": "%",
+         "damage_percentage": 18630,
+         "damage_percentage_growth": 1700,
+         "stun_ratio": 10720,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 40810,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 311850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11335
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ステップ射撃ダメージ倍率",
+       "desc": "{Skill:1181015, Prop:1001}",
+       "param": {
+        "1181015": {
+         "main": 4030,
+         "growth": 370,
+         "format": "%",
+         "damage_percentage": 4030,
+         "damage_percentage_growth": 370,
+         "stun_ratio": 4030,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 13800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 105600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1181001, Prop:1002}",
+       "param": {
+        "1181001": {
+         "main": 1800,
+         "growth": 90,
+         "format": "%",
+         "damage_percentage": 5510,
+         "damage_percentage_growth": 510,
+         "stun_ratio": 1800,
+         "stun_ratio_growth": 90,
+         "sp_recovery": 6150,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 47025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1708
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1181002, Prop:1002}",
+       "param": {
+        "1181002": {
+         "main": 3470,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 5970,
+         "damage_percentage_growth": 550,
+         "stun_ratio": 3470,
+         "stun_ratio_growth": 160,
+         "sp_recovery": 11890,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 91025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3302
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1181003, Prop:1002}",
+       "param": {
+        "1181003": {
+         "main": 7160,
+         "growth": 330,
+         "format": "%",
+         "damage_percentage": 12480,
+         "damage_percentage_growth": 1140,
+         "stun_ratio": 7160,
+         "stun_ratio_growth": 330,
+         "sp_recovery": 24540,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 187550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6460,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6817
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率",
+       "desc": "{Skill:1181004, Prop:1002}",
+       "param": {
+        "1181004": {
+         "main": 10720,
+         "growth": 490,
+         "format": "%",
+         "damage_percentage": 18630,
+         "damage_percentage_growth": 1700,
+         "stun_ratio": 10720,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 40810,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 311850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11335
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ステップ射撃ブレイク倍率",
+       "desc": "{Skill:1181015, Prop:1002}",
+       "param": {
+        "1181015": {
+         "main": 4030,
+         "growth": 190,
+         "format": "%",
+         "damage_percentage": 4030,
+         "damage_percentage_growth": 370,
+         "stun_ratio": 4030,
+         "stun_ratio_growth": 190,
+         "sp_recovery": 13800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 105600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "回避：安全規程",
+     "desc": " <IconMap:Icon_Evade> を押して発動：\nダッシュで高速回避する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：抜き打ち検査",
+     "desc": "回避時に <IconMap:Icon_Normal> を押して発動：\n前方にスライディングし、銃を掃射し、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "回避反撃：違反罰則",
+     "desc": "<color=#FFFFFF>『極限回避』</color>後に <IconMap:Icon_Normal> を押して発動：\n敵に手榴弾を1個投げて、<color=#2EB6FF>電気属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "回避反撃：違反罰則",
+     "desc": "<color=#FFFFFF>『極限回避』</color>後に <IconMap:Icon_Normal> を押して発動：\n敵に手榴弾を1個投げて、<color=#2EB6FF>電気属性ダメージ</color>を与える。その後自動で<color=#FFFFFF>「通常攻撃」</color>4段目を発動する。\nスキル発動中、無敵効果を得る。",
+     "potential": [
+      118100,
+      118101,
+      118102,
+      118103,
+      118104,
+      118105
+     ]
+    },
+    {
+     "name": "ダッシュ攻撃：抜き打ち検査",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1181007, Prop:1001}",
+       "param": {
+        "1181007": {
+         "main": 3330,
+         "growth": 310,
+         "format": "%",
+         "damage_percentage": 3330,
+         "damage_percentage_growth": 310,
+         "stun_ratio": 1670,
+         "stun_ratio_growth": 80,
+         "sp_recovery": 5710,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 43725,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1586
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1181007, Prop:1002}",
+       "param": {
+        "1181007": {
+         "main": 1670,
+         "growth": 80,
+         "format": "%",
+         "damage_percentage": 3330,
+         "damage_percentage_growth": 310,
+         "stun_ratio": 1670,
+         "stun_ratio_growth": 80,
+         "sp_recovery": 5710,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 43725,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1586
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "回避反撃：違反罰則",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1181008, Prop:1001}",
+       "param": {
+        "1181008": {
+         "main": 16420,
+         "growth": 1500,
+         "format": "%",
+         "damage_percentage": 16420,
+         "damage_percentage_growth": 1500,
+         "stun_ratio": 15050,
+         "stun_ratio_growth": 690,
+         "sp_recovery": 15600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 119350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1181008, Prop:1002}",
+       "param": {
+        "1181008": {
+         "main": 15050,
+         "growth": 690,
+         "format": "%",
+         "damage_percentage": 16420,
+         "damage_percentage_growth": 1500,
+         "stun_ratio": 15050,
+         "stun_ratio_growth": 690,
+         "sp_recovery": 15600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 119350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19334
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "特殊スキル：障害撤去",
+     "desc": " <IconMap:Icon_Special> を押して発動：\n前方に手榴弾を1個投げて、<color=#2EB6FF>電気属性ダメージ</color>を与える。\nスキル発動時、{LAYOUT_CONSOLECONTROLLER#スティック}{LAYOUT_FALLBACK#スティック}を入力すると、対応する方向に位置を調整できる。\nスキル発動中、中断耐性レベルがアップする。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "特殊スキル：障害撤去",
+     "desc": " <IconMap:Icon_Special> を押して発動：\n前方に手榴弾を1個投げて、<color=#2EB6FF>電気属性ダメージ</color>を与える。\nスキル発動時、{LAYOUT_CONSOLECONTROLLER#スティック}{LAYOUT_FALLBACK#スティック}を入力すると、対応する方向に位置を調整できる。\n<color=#FFFFFF>「電力」</color>を消費して発動する時、敵の攻撃を回避できるようになる。\nスキル発動中、中断耐性レベルがアップする。",
+     "potential": [
+      118100,
+      118101,
+      118102,
+      118103,
+      118104,
+      118105
+     ]
+    },
+    {
+     "name": "強化特殊スキル：規格外障害撤去",
+     "desc": "エネルギーが十分な時、 <IconMap:Icon_SpecialReady> を押して発動：\n宙返りしながら、前方に手榴弾を2個投げて、<color=#2EB6FF>電気属性ダメージ</color>を大量に与える。\nスキル発動時、{LAYOUT_CONSOLECONTROLLER#スティック}{LAYOUT_FALLBACK#スティック}を入力すると、対応する方向に位置を調整できる。\nスキル発動中、無敵効果を得る。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "強化特殊スキル：規格外障害撤去",
+     "desc": "エネルギーが十分な時、 <IconMap:Icon_SpecialReady> を押して発動：\n宙返りしながら、前方に手榴弾を2個投げて、<color=#2EB6FF>電気属性ダメージ</color>を大量に与える。\nスキル発動時、{LAYOUT_CONSOLECONTROLLER#スティック}{LAYOUT_FALLBACK#スティック}を入力すると、対応する方向に位置を調整できる。\n<color=#FFFFFF>「電力」</color>の重数が上限に達している場合、追加で「エディ・グレネード」を1個投げて、爆発した場所で電磁場を作る。電磁場は敵を持続的に引き寄せ、<color=#2EB6FF>電気属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": [
+      118100,
+      118101,
+      118102,
+      118103,
+      118104,
+      118105
+     ]
+    },
+    {
+     "name": "「パルス」",
+     "desc": "『終結スキル』発動時、<color=#FFFFFF>「パルス」</color>を25重獲得する（最大で25重まで）。<color=#FFFFFF>「電力」</color>を獲得する時、<color=#FFFFFF>「パルス」</color>を1重消費する。\n<color=#FFFFFF>「パルス」</color>を消費して<color=#FFFFFF>「電力」</color>を8重獲得した時、次に手榴弾を投げる際に「パルス・グレネード」を追加で1個投げる。また、<color=#FE437E>エーテル属性</color>、<color=#2EB6FF>電気属性</color>、<color=#FF5521>炎属性</color>、<color=#F0D12B>物理属性</color>、<color=#98EFF0>氷属性</color>、<color=#A6C5FD>風属性</color>のいずれかの状態異常にあるターゲットに命中した時、<color=#FFFFFF>「狂咲」</color>が1回発動する。\n<color=#FFFFFF>「狂咲」</color>：追加で状態異常ダメージを1回与える。ダメージ量は元の状態異常ダメージの<color=#FE437E>560%</color>/<color=#2EB6FF>280%</color>/<color=#FF5521>700%</color>/<color=#F0D12B>50%</color>/<color=#98EFF0>70%</color>/<color=#A6C5FD>28%</color>となる。\n「パルス」状態中、<color=#FFFFFF>『特殊スキル：障害撤去・ループ』</color>が発動可能になる。",
+     "potential": [
+      118100,
+      118101,
+      118102,
+      118103,
+      118104,
+      118105
+     ]
+    },
+    {
+     "name": "特殊スキル：障害撤去・ループ",
+     "desc": "「パルス」状態中、 <IconMap:Icon_Special> を長押しして発動：\nスキル発動中、前方に手榴弾を投げ続け、<color=#2EB6FF>電気属性ダメージ</color>を与える。手榴弾を投げるたびに、<color=#FFFFFF>「電力」</color>を1重獲得する。\nスキル発動時、方向を入力すると、対応する方向に位置を調整でき、敵の攻撃を回避できる。\nスキル発動中、中断耐性レベルがアップする。",
+     "potential": [
+      118100,
+      118101,
+      118102,
+      118103,
+      118104,
+      118105
+     ]
+    },
+    {
+     "name": "特殊スキル：障害撤去",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1181005, Prop:1001}",
+       "param": {
+        "1181005": {
+         "main": 4210,
+         "growth": 390,
+         "format": "%",
+         "damage_percentage": 4210,
+         "damage_percentage_growth": 390,
+         "stun_ratio": 4210,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 110275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2002
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1181005, Prop:1002}",
+       "param": {
+        "1181005": {
+         "main": 4210,
+         "growth": 200,
+         "format": "%",
+         "damage_percentage": 4210,
+         "damage_percentage_growth": 390,
+         "stun_ratio": 4210,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 110275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2002
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：規格外障害撤去",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1181006, Prop:1001}*2",
+       "param": {
+        "1181006": {
+         "main": 16690,
+         "growth": 1520,
+         "format": "%",
+         "damage_percentage": 16690,
+         "damage_percentage_growth": 1520,
+         "stun_ratio": 13420,
+         "stun_ratio_growth": 610,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 523050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14334,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3417
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1181006, Prop:1002}*2",
+       "param": {
+        "1181006": {
+         "main": 13420,
+         "growth": 610,
+         "format": "%",
+         "damage_percentage": 16690,
+         "damage_percentage_growth": 1520,
+         "stun_ratio": 13420,
+         "stun_ratio_growth": 610,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 523050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 14334,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3417
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "エネルギー消費",
+       "desc": "40Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "エディ・グレネードの基礎倍率",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1181020, Prop:1001}",
+       "param": {
+        "1181020": {
+         "main": 8750,
+         "growth": 800,
+         "format": "%",
+         "damage_percentage": 8750,
+         "damage_percentage_growth": 800,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": [
+        118100,
+        118101,
+        118102,
+        118103,
+        118104,
+        118105
+       ]
+      }
+     ],
+     "potential": [
+      118100,
+      118101,
+      118102,
+      118103,
+      118104,
+      118105
+     ]
+    },
+    {
+     "name": "特殊スキル：障害撤去・ループ",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1181018, Prop:1001}/29",
+       "param": {
+        "1181018": {
+         "main": 56340,
+         "growth": 5130,
+         "format": "%",
+         "damage_percentage": 56340,
+         "damage_percentage_growth": 5130,
+         "stun_ratio": 51280,
+         "stun_ratio_growth": 2340,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1343100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 48833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 48834
+        }
+       },
+       "potential": [
+        118100,
+        118101,
+        118102,
+        118103,
+        118104,
+        118105
+       ]
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1181018, Prop:1002}/29",
+       "param": {
+        "1181018": {
+         "main": 51280,
+         "growth": 2340,
+         "format": "%",
+         "damage_percentage": 56340,
+         "damage_percentage_growth": 5130,
+         "stun_ratio": 51280,
+         "stun_ratio_growth": 2340,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1343100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 48833,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 48834
+        }
+       },
+       "potential": [
+        118100,
+        118101,
+        118102,
+        118103,
+        118104,
+        118105
+       ]
+      }
+     ],
+     "potential": [
+      118100,
+      118101,
+      118102,
+      118103,
+      118104,
+      118105
+     ]
+    },
+    {
+     "name": "パルス・グレネードの倍率",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1181019, Prop:1001}",
+       "param": {
+        "1181019": {
+         "main": 4200,
+         "growth": 390,
+         "format": "%",
+         "damage_percentage": 4200,
+         "damage_percentage_growth": 390,
+         "stun_ratio": 0,
+         "stun_ratio_growth": 0,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": [
+        118100,
+        118101,
+        118102,
+        118103,
+        118104,
+        118105
+       ]
+      }
+     ],
+     "potential": [
+      118100,
+      118101,
+      118102,
+      118103,
+      118104,
+      118105
+     ]
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "連携スキル：協同施工",
+     "desc": "<color=#FFFFFF>『連携スキル』</color>開始時に、対応するエージェントを選択して発動：\n手榴弾3個を空中に投げて、銃で掃射して起爆させ、<color=#2EB6FF>電気属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "終結スキル：発破作業中立入禁止",
+     "desc": "デシベルレートが<color=#FFFFFF>『Maximum』</color>に達した時に <IconMap:Icon_UltimateReady> を押して発動：\n特製の手榴弾を空中に投げる。爆発すると、さらに4個の小さな手榴弾に分裂し、<color=#2EB6FF>電気属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "終結スキル：発破作業中立入禁止",
+     "desc": "デシベルレートが<color=#FFFFFF>『Maximum』</color>に達した時に <IconMap:Icon_UltimateReady> を押して発動：\n特製の手榴弾を空中に投げる。爆発すると、さらに4個の小さな手榴弾に分裂し、<color=#2EB6FF>電気属性ダメージ</color>を大量に与える。\n<color=#FFFFFF>「電力」</color>を8重、<color=#FFFFFF>「パルス」</color>を25重獲得する（最大で25重まで）。\nスキル発動中、無敵効果を得る。",
+     "potential": [
+      118100,
+      118101,
+      118102,
+      118103,
+      118104,
+      118105
+     ]
+    },
+    {
+     "name": "連携スキル：協同施工",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1181009, Prop:1001}",
+       "param": {
+        "1181009": {
+         "main": 57130,
+         "growth": 5200,
+         "format": "%",
+         "damage_percentage": 57130,
+         "damage_percentage_growth": 5200,
+         "stun_ratio": 15230,
+         "stun_ratio_growth": 700,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2227775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 34450,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14501
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1181009, Prop:1002}",
+       "param": {
+        "1181009": {
+         "main": 15230,
+         "growth": 700,
+         "format": "%",
+         "damage_percentage": 57130,
+         "damage_percentage_growth": 5200,
+         "stun_ratio": 15230,
+         "stun_ratio_growth": 700,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2227775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 34450,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 14501
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "終結スキル：発破作業中立入禁止",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1181010, Prop:1001}",
+       "param": {
+        "1181010": {
+         "main": 147880,
+         "growth": 13450,
+         "format": "%",
+         "damage_percentage": 147880,
+         "damage_percentage_growth": 13450,
+         "stun_ratio": 13310,
+         "stun_ratio_growth": 610,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 89570,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 62670
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1181010, Prop:1002}",
+       "param": {
+        "1181010": {
+         "main": 13310,
+         "growth": 610,
+         "format": "%",
+         "damage_percentage": 147880,
+         "damage_percentage_growth": 13450,
+         "stun_ratio": 13310,
+         "stun_ratio_growth": 610,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 89570,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 62670
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "クイック支援：ヒヤリハット対策",
+     "desc": "操作しているメンバーが吹き飛ばされた時に、 <IconMap:Icon_Switch> を押して発動：\n敵に手榴弾を1個投げて、<color=#2EB6FF>電気属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "回避支援：快速リスク対応",
+     "desc": "出場中のメンバーが攻撃されそうになった時に、 <IconMap:Icon_Switch> を押して発動：\n敵の攻撃を回避し、<color=#FFFFFF>「極限視界」</color>を発動する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援突撃：反撃の電気針",
+     "desc": "<color=#FFFFFF>『回避支援』</color>発動後、 <IconMap:Icon_Normal> を押して発動：\n前方の敵に回転掃射を放ち、手榴弾を投げ、<color=#2EB6FF>電気属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "クイック支援：ヒヤリハット対策",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1181011, Prop:1001}",
+       "param": {
+        "1181011": {
+         "main": 4550,
+         "growth": 420,
+         "format": "%",
+         "damage_percentage": 4550,
+         "damage_percentage_growth": 420,
+         "stun_ratio": 4550,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 15600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 119350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1181011, Prop:1002}",
+       "param": {
+        "1181011": {
+         "main": 4550,
+         "growth": 210,
+         "format": "%",
+         "damage_percentage": 4550,
+         "damage_percentage_growth": 420,
+         "stun_ratio": 4550,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 15600,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 119350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4333,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：反撃の電気針",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1181012, Prop:1001}",
+       "param": {
+        "1181012": {
+         "main": 35930,
+         "growth": 3270,
+         "format": "%",
+         "damage_percentage": 35930,
+         "damage_percentage_growth": 3270,
+         "stun_ratio": 31280,
+         "stun_ratio_growth": 1430,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1062875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 32001,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1181012, Prop:1002}",
+       "param": {
+        "1181012": {
+         "main": 31280,
+         "growth": 1430,
+         "format": "%",
+         "damage_percentage": 35930,
+         "damage_percentage_growth": 3270,
+         "stun_ratio": 31280,
+         "stun_ratio_growth": 1430,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1062875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 32001,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16504
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "リチャージチャンバー",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>4段目が敵に命中するたびに、メンバー全員がエネルギーを0.25Pt回復する。\n1回の攻撃で、この効果はチーム全体のエネルギーを最大2Pt回復できる。",
+   "desc2": "効率はエンジニアリングの命である。\nそれはグレースのガンの「薬室」で、ドクンドクンと鼓動している。"
+  },
+  "2": {
+   "level": 2,
+   "name": "絶縁破壊",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『強化特殊スキル』</color>などのスキルにおいて、投げた手榴弾が敵に命中した時、ターゲットの<color=#2EB6FF>電気属性ダメージ耐性</color>-8.5%、<color=#2EB6FF>電気属性の状態異常蓄積耐性</color>-8.5%、継続時間8秒。",
+   "desc2": "グレースは複雑な機械構造を「解剖」することを何よりも愛している——たとえ戦闘の最中であっても。\nそのごくわずかな綻びさえ徹底的に暴き出されたとき、「解剖」された側は何を思うのだろう。"
+  },
+  "3": {
+   "level": 3,
+   "name": "首席メカニック",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "グレースは自ら『白祇重工安全施工マニュアル』の作成に関わった。\nそして、「工事現場に爆発性の危険物を持ち込まない」社内規定に違反した回数が最も多い従業員でもある。"
+  },
+  "4": {
+   "level": 4,
+   "name": "<ruby=でんばく>電爆</ruby>キャパシタ",
+   "desc": "<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、グレースはパワーを6重獲得する（最大6重）。<color=#FFFFFF>『通常攻撃：高圧ネイルガン』</color>または<color=#FFFFFF>『ダッシュ攻撃：抜き打ち検査』</color>が敵に命中した時、パワーを1重消費することで、その攻撃のエネルギー獲得効率+20%。",
+   "desc2": "アンドーは疑っている——グレースが「電磁パルス回収モジュール」と呼ぶ部品の内部では、\n一匹のエーテルハムスターが日夜「回し車発電」に勤しんでいるのではないか、と。\n「なあ、オレの兄弟にもひとつ積んでくれねえか？」"
+  },
+  "5": {
+   "level": 5,
+   "name": "「冷たい鉄の魔女」",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "「冷たい鉄の魔女」は、機械で出来ているものなら何でも手懐けられる——\n少なくとも、彼女にこの異名を付けた匿名のファンはそう信じている。"
+  },
+  "6": {
+   "level": 6,
+   "name": "起爆トリガー",
+   "desc": "全ての<color=#FFFFFF>「電力」</color>を消費して<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した場合、スキルの効果を強化し、手榴弾を追加で1個投げる。また、各手榴弾の与えるダメージが本来の200%になる。",
+   "desc2": "白祇重工の従業員には、平均して摂氏98度の血液が流れている。\nグレースの役回りは、そんな彼らが沸点に達するのを阻止する冷却弁だ。\nグレースの堪忍袋の緒が切れた時、誰もがみな暗黙のうちに悟る。今が耳を塞ぐべき時なのだと。"
+  }
+ },
+ "passive": {
+  "level": {
+   "1181501": {
+    "level": 1,
+    "id": 1181501,
+    "name": [
+     "コアパッシブ：プリドライバ撃針",
+     "追加能力：技術支援チーム"
+    ],
+    "desc": [
+     "グレースの<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>が敵に命中し、<color=#F0D12B>物理属性ダメージ</color>を与えた時、<color=#FFFFFF>「電力」</color>を1重獲得する（最大8重）。<color=#FFFFFF>「電力」</color>の重数が上限に達した後に、<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した場合、全ての<color=#FFFFFF>「電力」</color>を消費することで、スキルによる<color=#2EB6FF>電気属性の状態異常蓄積値</color>+<color=#2BAD00>65%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\nグレースの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中すると、ターゲットが次に<color=#2EB6FF>「感電」</color>効果を付与された時、ターゲットの受ける<color=#2EB6FF>「感電」</color>ダメージが18%アップする、最大2重まで重ね掛け可能。該当効果は1回の攻撃で、1体の敵につき最大1回まで発動可能。<color=#2EB6FF>「感電」</color>状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1181502": {
+    "level": 2,
+    "id": 1181502,
+    "name": [
+     "コアパッシブ：プリドライバ撃針",
+     "追加能力：技術支援チーム"
+    ],
+    "desc": [
+     "グレースの<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>が敵に命中し、<color=#F0D12B>物理属性ダメージ</color>を与えた時、<color=#FFFFFF>「電力」</color>を1重獲得する（最大8重）。<color=#FFFFFF>「電力」</color>の重数が上限に達した後に、<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した場合、全ての<color=#FFFFFF>「電力」</color>を消費することで、スキルによる<color=#2EB6FF>電気属性の状態異常蓄積値</color>+<color=#2BAD00>75.8%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\nグレースの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中すると、ターゲットが次に<color=#2EB6FF>「感電」</color>効果を付与された時、ターゲットの受ける<color=#2EB6FF>「感電」</color>ダメージが18%アップする、最大2重まで重ね掛け可能。該当効果は1回の攻撃で、1体の敵につき最大1回まで発動可能。<color=#2EB6FF>「感電」</color>状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1181503": {
+    "level": 3,
+    "id": 1181503,
+    "name": [
+     "コアパッシブ：プリドライバ撃針",
+     "追加能力：技術支援チーム"
+    ],
+    "desc": [
+     "グレースの<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>が敵に命中し、<color=#F0D12B>物理属性ダメージ</color>を与えた時、<color=#FFFFFF>「電力」</color>を1重獲得する（最大8重）。<color=#FFFFFF>「電力」</color>の重数が上限に達した後に、<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した場合、全ての<color=#FFFFFF>「電力」</color>を消費することで、スキルによる<color=#2EB6FF>電気属性の状態異常蓄積値</color>+<color=#2BAD00>86.6%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\nグレースの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中すると、ターゲットが次に<color=#2EB6FF>「感電」</color>効果を付与された時、ターゲットの受ける<color=#2EB6FF>「感電」</color>ダメージが18%アップする、最大2重まで重ね掛け可能。該当効果は1回の攻撃で、1体の敵につき最大1回まで発動可能。<color=#2EB6FF>「感電」</color>状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1181504": {
+    "level": 4,
+    "id": 1181504,
+    "name": [
+     "コアパッシブ：プリドライバ撃針",
+     "追加能力：技術支援チーム"
+    ],
+    "desc": [
+     "グレースの<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>が敵に命中し、<color=#F0D12B>物理属性ダメージ</color>を与えた時、<color=#FFFFFF>「電力」</color>を1重獲得する（最大8重）。<color=#FFFFFF>「電力」</color>の重数が上限に達した後に、<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した場合、全ての<color=#FFFFFF>「電力」</color>を消費することで、スキルによる<color=#2EB6FF>電気属性の状態異常蓄積値</color>+<color=#2BAD00>97.5%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\nグレースの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中すると、ターゲットが次に<color=#2EB6FF>「感電」</color>効果を付与された時、ターゲットの受ける<color=#2EB6FF>「感電」</color>ダメージが18%アップする、最大2重まで重ね掛け可能。該当効果は1回の攻撃で、1体の敵につき最大1回まで発動可能。<color=#2EB6FF>「感電」</color>状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1181505": {
+    "level": 5,
+    "id": 1181505,
+    "name": [
+     "コアパッシブ：プリドライバ撃針",
+     "追加能力：技術支援チーム"
+    ],
+    "desc": [
+     "グレースの<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>が敵に命中し、<color=#F0D12B>物理属性ダメージ</color>を与えた時、<color=#FFFFFF>「電力」</color>を1重獲得する（最大8重）。<color=#FFFFFF>「電力」</color>の重数が上限に達した後に、<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した場合、全ての<color=#FFFFFF>「電力」</color>を消費することで、スキルによる<color=#2EB6FF>電気属性の状態異常蓄積値</color>+<color=#2BAD00>108.3%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\nグレースの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中すると、ターゲットが次に<color=#2EB6FF>「感電」</color>効果を付与された時、ターゲットの受ける<color=#2EB6FF>「感電」</color>ダメージが18%アップする、最大2重まで重ね掛け可能。該当効果は1回の攻撃で、1体の敵につき最大1回まで発動可能。<color=#2EB6FF>「感電」</color>状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1181506": {
+    "level": 6,
+    "id": 1181506,
+    "name": [
+     "コアパッシブ：プリドライバ撃針",
+     "追加能力：技術支援チーム"
+    ],
+    "desc": [
+     "グレースの<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>が敵に命中し、<color=#F0D12B>物理属性ダメージ</color>を与えた時、<color=#FFFFFF>「電力」</color>を1重獲得する（最大8重）。<color=#FFFFFF>「電力」</color>の重数が上限に達した後に、<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した場合、全ての<color=#FFFFFF>「電力」</color>を消費することで、スキルによる<color=#2EB6FF>電気属性の状態異常蓄積値</color>+<color=#2BAD00>119.1%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\nグレースの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中すると、ターゲットが次に<color=#2EB6FF>「感電」</color>効果を付与された時、ターゲットの受ける<color=#2EB6FF>「感電」</color>ダメージが18%アップする、最大2重まで重ね掛け可能。該当効果は1回の攻撃で、1体の敵につき最大1回まで発動可能。<color=#2EB6FF>「感電」</color>状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1181507": {
+    "level": 7,
+    "id": 1181507,
+    "name": [
+     "コアパッシブ：プリドライバ撃針",
+     "追加能力：技術支援チーム"
+    ],
+    "desc": [
+     "グレースの<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>が敵に命中し、<color=#F0D12B>物理属性ダメージ</color>を与えた時、<color=#FFFFFF>「電力」</color>を1重獲得する（最大8重）。<color=#FFFFFF>「電力」</color>の重数が上限に達した後に、<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した場合、全ての<color=#FFFFFF>「電力」</color>を消費することで、スキルによる<color=#2EB6FF>電気属性の状態異常蓄積値</color>+<color=#2BAD00>130%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\nグレースの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中すると、ターゲットが次に<color=#2EB6FF>「感電」</color>効果を付与された時、ターゲットの受ける<color=#2EB6FF>「感電」</color>ダメージが18%アップする、最大2重まで重ね掛け可能。該当効果は1回の攻撃で、1体の敵につき最大1回まで発動可能。<color=#2EB6FF>「感電」</color>状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1181508": {
+    "level": 1,
+    "id": 1181508,
+    "name": [
+     "コアパッシブ：プリドライバ撃針",
+     "追加能力：技術支援チーム"
+    ],
+    "desc": [
+     "グレースの<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>が敵に命中し、<color=#F0D12B>物理属性ダメージ</color>を与えた時、<color=#FFFFFF>「電力」</color>を1重獲得する（最大8重）。<color=#FFFFFF>「電力」</color>の重数が上限に達した後に、<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した場合、全ての<color=#FFFFFF>「電力」</color>を消費することで、スキルによる<color=#2EB6FF>電気属性の状態異常蓄積値</color>+<color=#2BAD00>65%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバー、或いは他の<color=#FFFFFF>[異常]</color>メンバーがいる時に発動：\nグレースの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中すると、ターゲットが次に<color=#2EB6FF>「感電」</color>効果を付与された時、ターゲットの受ける<color=#2EB6FF>「感電」</color>ダメージが18%アップする、最大2重まで重ね掛け可能。該当効果は1回の攻撃で、1体の敵につき最大1回まで発動可能。<color=#2EB6FF>「感電」</color>状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     118100,
+     118101,
+     118102,
+     118103,
+     118104,
+     118105
+    ]
+   },
+   "1181509": {
+    "level": 2,
+    "id": 1181509,
+    "name": [
+     "コアパッシブ：プリドライバ撃針",
+     "追加能力：技術支援チーム"
+    ],
+    "desc": [
+     "グレースの<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>が敵に命中し、<color=#F0D12B>物理属性ダメージ</color>を与えた時、<color=#FFFFFF>「電力」</color>を1重獲得する（最大8重）。<color=#FFFFFF>「電力」</color>の重数が上限に達した後に、<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した場合、全ての<color=#FFFFFF>「電力」</color>を消費することで、スキルによる<color=#2EB6FF>電気属性の状態異常蓄積値</color>+<color=#2BAD00>75.8%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバー、或いは他の<color=#FFFFFF>[異常]</color>メンバーがいる時に発動：\nグレースの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中すると、ターゲットが次に<color=#2EB6FF>「感電」</color>効果を付与された時、ターゲットの受ける<color=#2EB6FF>「感電」</color>ダメージが18%アップする、最大2重まで重ね掛け可能。該当効果は1回の攻撃で、1体の敵につき最大1回まで発動可能。<color=#2EB6FF>「感電」</color>状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     118100,
+     118101,
+     118102,
+     118103,
+     118104,
+     118105
+    ]
+   },
+   "1181510": {
+    "level": 3,
+    "id": 1181510,
+    "name": [
+     "コアパッシブ：プリドライバ撃針",
+     "追加能力：技術支援チーム"
+    ],
+    "desc": [
+     "グレースの<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>が敵に命中し、<color=#F0D12B>物理属性ダメージ</color>を与えた時、<color=#FFFFFF>「電力」</color>を1重獲得する（最大8重）。<color=#FFFFFF>「電力」</color>の重数が上限に達した後に、<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した場合、全ての<color=#FFFFFF>「電力」</color>を消費することで、スキルによる<color=#2EB6FF>電気属性の状態異常蓄積値</color>+<color=#2BAD00>86.6%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバー、或いは他の<color=#FFFFFF>[異常]</color>メンバーがいる時に発動：\nグレースの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中すると、ターゲットが次に<color=#2EB6FF>「感電」</color>効果を付与された時、ターゲットの受ける<color=#2EB6FF>「感電」</color>ダメージが18%アップする、最大2重まで重ね掛け可能。該当効果は1回の攻撃で、1体の敵につき最大1回まで発動可能。<color=#2EB6FF>「感電」</color>状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     118100,
+     118101,
+     118102,
+     118103,
+     118104,
+     118105
+    ]
+   },
+   "1181511": {
+    "level": 4,
+    "id": 1181511,
+    "name": [
+     "コアパッシブ：プリドライバ撃針",
+     "追加能力：技術支援チーム"
+    ],
+    "desc": [
+     "グレースの<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>が敵に命中し、<color=#F0D12B>物理属性ダメージ</color>を与えた時、<color=#FFFFFF>「電力」</color>を1重獲得する（最大8重）。<color=#FFFFFF>「電力」</color>の重数が上限に達した後に、<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した場合、全ての<color=#FFFFFF>「電力」</color>を消費することで、スキルによる<color=#2EB6FF>電気属性の状態異常蓄積値</color>+<color=#2BAD00>97.5%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバー、或いは他の<color=#FFFFFF>[異常]</color>メンバーがいる時に発動：\nグレースの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中すると、ターゲットが次に<color=#2EB6FF>「感電」</color>効果を付与された時、ターゲットの受ける<color=#2EB6FF>「感電」</color>ダメージが18%アップする、最大2重まで重ね掛け可能。該当効果は1回の攻撃で、1体の敵につき最大1回まで発動可能。<color=#2EB6FF>「感電」</color>状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     118100,
+     118101,
+     118102,
+     118103,
+     118104,
+     118105
+    ]
+   },
+   "1181512": {
+    "level": 5,
+    "id": 1181512,
+    "name": [
+     "コアパッシブ：プリドライバ撃針",
+     "追加能力：技術支援チーム"
+    ],
+    "desc": [
+     "グレースの<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>が敵に命中し、<color=#F0D12B>物理属性ダメージ</color>を与えた時、<color=#FFFFFF>「電力」</color>を1重獲得する（最大8重）。<color=#FFFFFF>「電力」</color>の重数が上限に達した後に、<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した場合、全ての<color=#FFFFFF>「電力」</color>を消費することで、スキルによる<color=#2EB6FF>電気属性の状態異常蓄積値</color>+<color=#2BAD00>108.3%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバー、或いは他の<color=#FFFFFF>[異常]</color>メンバーがいる時に発動：\nグレースの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中すると、ターゲットが次に<color=#2EB6FF>「感電」</color>効果を付与された時、ターゲットの受ける<color=#2EB6FF>「感電」</color>ダメージが18%アップする、最大2重まで重ね掛け可能。該当効果は1回の攻撃で、1体の敵につき最大1回まで発動可能。<color=#2EB6FF>「感電」</color>状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     118100,
+     118101,
+     118102,
+     118103,
+     118104,
+     118105
+    ]
+   },
+   "1181513": {
+    "level": 6,
+    "id": 1181513,
+    "name": [
+     "コアパッシブ：プリドライバ撃針",
+     "追加能力：技術支援チーム"
+    ],
+    "desc": [
+     "グレースの<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>が敵に命中し、<color=#F0D12B>物理属性ダメージ</color>を与えた時、<color=#FFFFFF>「電力」</color>を1重獲得する（最大8重）。<color=#FFFFFF>「電力」</color>の重数が上限に達した後に、<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した場合、全ての<color=#FFFFFF>「電力」</color>を消費することで、スキルによる<color=#2EB6FF>電気属性の状態異常蓄積値</color>+<color=#2BAD00>119.1%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバー、或いは他の<color=#FFFFFF>[異常]</color>メンバーがいる時に発動：\nグレースの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中すると、ターゲットが次に<color=#2EB6FF>「感電」</color>効果を付与された時、ターゲットの受ける<color=#2EB6FF>「感電」</color>ダメージが18%アップする、最大2重まで重ね掛け可能。該当効果は1回の攻撃で、1体の敵につき最大1回まで発動可能。<color=#2EB6FF>「感電」</color>状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     118100,
+     118101,
+     118102,
+     118103,
+     118104,
+     118105
+    ]
+   },
+   "1181514": {
+    "level": 7,
+    "id": 1181514,
+    "name": [
+     "コアパッシブ：プリドライバ撃針",
+     "追加能力：技術支援チーム"
+    ],
+    "desc": [
+     "グレースの<color=#FFFFFF>『通常攻撃』</color>または<color=#FFFFFF>『ダッシュ攻撃』</color>が敵に命中し、<color=#F0D12B>物理属性ダメージ</color>を与えた時、<color=#FFFFFF>「電力」</color>を1重獲得する（最大8重）。<color=#FFFFFF>「電力」</color>の重数が上限に達した後に、<color=#FFFFFF>『特殊スキル』</color>または<color=#FFFFFF>『強化特殊スキル』</color>を発動した場合、全ての<color=#FFFFFF>「電力」</color>を消費することで、スキルによる<color=#2EB6FF>電気属性の状態異常蓄積値</color>+<color=#2BAD00>130%</color>。",
+     "チームに自身と同じ属性または同じ陣営のメンバー、或いは他の<color=#FFFFFF>[異常]</color>メンバーがいる時に発動：\nグレースの<color=#FFFFFF>『強化特殊スキル』</color>が敵に命中すると、ターゲットが次に<color=#2EB6FF>「感電」</color>効果を付与された時、ターゲットの受ける<color=#2EB6FF>「感電」</color>ダメージが18%アップする、最大2重まで重ね掛け可能。該当効果は1回の攻撃で、1体の敵につき最大1回まで発動可能。<color=#2EB6FF>「感電」</color>状態が終了するとリセットされる。"
+    ],
+    "extra_property": {},
+    "potential": [
+     118100,
+     118101,
+     118102,
+     118103,
+     118104,
+     118105
+    ]
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110505": 2
+   },
+   "3": {
+    "10": 28000,
+    "110505": 4
+   },
+   "4": {
+    "10": 60000,
+    "110002": 2,
+    "110505": 9
+   },
+   "5": {
+    "10": 100000,
+    "110002": 3,
+    "110505": 15
+   },
+   "6": {
+    "10": 200000,
+    "110002": 4,
+    "110505": 30
+   }
+  }
+ },
+ "skin": {
+  "3111810": {
+   "name": "グレース・「アイアン・ウィッチ」",
+   "desc": "無駄なく洗練された作業着。\n天才メカニックが何より気に入っているのは、外側に付けられた大小様々なポケット。\nあらゆるサイズのネジやギア、果てはレンチまで収納できる優れもの。",
+   "obtain_desc": "",
+   "image": "IconRole20"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1181001": {
+   "name": "通常攻撃：高圧ネイルガン",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1181002": {
+   "name": "特殊スキル：障害撤去",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1181003": {
+   "name": "強化特殊スキル：規格外障害撤去",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1181004": {
+   "name": "ダッシュ攻撃：抜き打ち検査",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 103,
+   "potential": []
+  },
+  "1181005": {
+   "name": "回避反撃：違反罰則",
+   "desc": "<IconMap:Icon_Evade>（極限回避成功） ; <IconMap:Icon_Normal>",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1181006": {
+   "name": "連携スキル：協同施工",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1181007": {
+   "name": "終結スキル：発破作業中立入禁止",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1181008": {
+   "name": "クイック支援：ヒヤリハット対策",
+   "desc": "<IconMap:Icon_Switch>（クイック支援の発動条件を満たした時）",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1181009": {
+   "name": "回避支援：快速リスク対応",
+   "desc": "<IconMap:Icon_Switch>（回避支援の発動条件を満たした時）",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1181010": {
+   "name": "支援突撃：反撃の電気針",
+   "desc": "<IconMap:Icon_Normal>（回避支援を発動した後に）",
+   "element_type": 203,
+   "hit_type": 103,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1181001,
+   "avatar_id": 1181,
+   "first_priority": [
+    5,
+    1,
+    0
+   ],
+   "second_priority": [
+    3
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 31300,
+  "slot2": 32400,
+  "slot_sub": 33000,
+  "part_sub_list": [
+   12102,
+   31203
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31300,
+     32400
+    ],
+    "part_sub_list": [
+     31203
+    ]
+   },
+   {
+    "suit_list": [
+     32400,
+     31300
+    ],
+    "part_sub_list": [
+     31803,
+     12102,
+     23103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31402
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 31203,
+   "name": "異常マスタリー",
+   "format": "{0:0}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconElementMystery.png"
+  },
+  "part5": {
+   "prop": 31803,
+   "name": "電気属性ダメージボーナス",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconThunder.png"
+  },
+  "part6": {
+   "prop": 12102,
+   "name": "攻撃力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  },
+  "part_sub": {
+   "prop": 23103,
+   "name": "貫通率",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconPenRatio.png"
+  }
+ },
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Thunder>電気属性、異常アタッカー",
+  "『終結スキル』後に「狂咲」を高頻度で発動可能",
+  "一定範囲内で集敵可能"
+ ],
+ "potential": [
+  118100,
+  118101,
+  118102,
+  118103,
+  118104,
+  118105
+ ],
+ "potential_detail": {
+  "118100": {
+   "id": 118100,
+   "name": "",
+   "desc": "",
+   "image": "Grace",
+   "level_show_name": "鋼鉄交響曲 I",
+   "level": 1,
+   "ability_list": [
+    11181401
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20118,
+     "number": 1
+    }
+   ]
+  },
+  "118101": {
+   "id": 118101,
+   "name": "ポテンシャル覚醒：オーバークロックエンジン",
+   "desc": "<color=#FFFFFF>「電力」</color>を消費した時、<color=#FFFFFF>「電力強化」</color>状態を獲得し、与える<color=#2EB6FF>電気属性ダメージ</color>+<color=#2BAD00>10%</color>。継続時間25秒。重複して発動すると継続時間が更新される。",
+   "image": "Grace",
+   "level_show_name": "鋼鉄交響曲 II",
+   "level": 2,
+   "ability_list": [
+    11181401,
+    11181501
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20118,
+     "number": 1
+    }
+   ]
+  },
+  "118102": {
+   "id": 118102,
+   "name": "ポテンシャル覚醒：オーバークロックエンジン",
+   "desc": "<color=#FFFFFF>「電力」</color>を消費した時、<color=#FFFFFF>「電力強化」</color>状態を獲得し、与える<color=#2EB6FF>電気属性ダメージ</color>+<color=#2BAD00>15%</color>。継続時間25秒。重複して発動すると継続時間が更新される。",
+   "image": "Grace",
+   "level_show_name": "鋼鉄交響曲 III",
+   "level": 3,
+   "ability_list": [
+    11181401,
+    11181502
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20118,
+     "number": 1
+    }
+   ]
+  },
+  "118103": {
+   "id": 118103,
+   "name": "ポテンシャル覚醒：オーバークロックエンジン",
+   "desc": "<color=#FFFFFF>「電力」</color>を消費した時、<color=#FFFFFF>「電力強化」</color>状態を獲得し、与える<color=#2EB6FF>電気属性ダメージ</color>+<color=#2BAD00>20%</color>。継続時間25秒。重複して発動すると継続時間が更新される。",
+   "image": "Grace",
+   "level_show_name": "鋼鉄交響曲 IV",
+   "level": 4,
+   "ability_list": [
+    11181401,
+    11181503
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20118,
+     "number": 1
+    }
+   ]
+  },
+  "118104": {
+   "id": 118104,
+   "name": "ポテンシャル覚醒：オーバークロックエンジン",
+   "desc": "<color=#FFFFFF>「電力」</color>を消費した時、<color=#FFFFFF>「電力強化」</color>状態を獲得し、与える<color=#2EB6FF>電気属性ダメージ</color>+<color=#2BAD00>25%</color>。継続時間25秒。重複して発動すると継続時間が更新される。",
+   "image": "Grace",
+   "level_show_name": "鋼鉄交響曲 V",
+   "level": 5,
+   "ability_list": [
+    11181401,
+    11181504
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20118,
+     "number": 1
+    }
+   ]
+  },
+  "118105": {
+   "id": 118105,
+   "name": "ポテンシャル覚醒：オーバークロックエンジン",
+   "desc": "<color=#FFFFFF>「電力」</color>を消費した時、<color=#FFFFFF>「電力強化」</color>状態を獲得し、与える<color=#2EB6FF>電気属性ダメージ</color>+<color=#2BAD00>30%</color>。継続時間25秒。重複して発動すると継続時間が更新される。",
+   "image": "Grace",
+   "level_show_name": "鋼鉄交響曲 VI",
+   "level": 6,
+   "ability_list": [
+    11181401,
+    11181505
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20118,
+     "number": 1
+    }
+   ]
+  }
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100213": 4
+   }
+  },
+  "2": {
+   "hp_max": 413,
+   "attack": 42,
+   "defence": 33,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100223": 12
+   }
+  },
+  "3": {
+   "hp_max": 826,
+   "attack": 85,
+   "defence": 66,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100223": 20
+   }
+  },
+  "4": {
+   "hp_max": 1239,
+   "attack": 127,
+   "defence": 99,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100233": 10
+   }
+  },
+  "5": {
+   "hp_max": 1651,
+   "attack": 170,
+   "defence": 133,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100233": 20
+   }
+  },
+  "6": {
+   "hp_max": 2064,
+   "attack": 212,
+   "defence": 166,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "異常掌握",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "異常掌握",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "異常掌握",
+     "format": "{0:0.#}",
+     "value": 24
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "異常掌握",
+     "format": "{0:0.#}",
+     "value": 24
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "異常掌握",
+     "format": "{0:0.#}",
+     "value": 36
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "31401": {
+     "prop": 31401,
+     "name": "異常掌握",
+     "format": "{0:0.#}",
+     "value": 36
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": ""
+}

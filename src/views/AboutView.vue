@@ -12,15 +12,24 @@
  */
 import { computed, onMounted, ref } from 'vue'
 import { CATALOG } from '@/domain/catalog'
+import { pickText, DEFAULT_LANG } from '@/domain/lang'
 import { listFor } from '@/data/resources'
 import { dataVersions } from '@/data/api'
 import { usePageMeta } from '@/composables/usePageMeta'
+import { useLocale } from '@/composables/useLocale'
+import { useUiText } from '@/composables/useUiText'
 import { ListPage, DetailSection } from '@/components'
 
+/* 标题与描述给**字面量中文**：本页正文是站内中文长文，不随语言切换，标签页标题也跟着中文，
+   与构建期生成的静态 HTML（`scripts/generate-route-html.mjs` 的 STATIC_META）逐字一致——
+   该脚本会回来做一致性自检，写成变量即构建失败。非中文读者由下方 .zh-only 说明。 */
 usePageMeta(
   '数据说明',
   '绳网档案的数据来源、覆盖范围、更新机制、校验门禁与版权声明——可核查的档案出处。',
 )
+
+const { lang } = useLocale()
+const { t } = useUiText()
 
 /** 各类目收录量：与名录页同源（api 层缓存，进入本页基本零网络） */
 const counts = ref<Record<string, number>>({})
@@ -29,7 +38,9 @@ const updatedAt = ref('')
 
 onMounted(() => {
   for (const c of CATALOG) {
-    void listFor<Record<string, unknown>>(c)
+    // 本页只用名录制**计数与号段/字段有无**，与语言无关（四语名录 id 集合一致，
+    // 由 verify:data 守卫），故固定取默认语言那份，避免切语言时白重拉一遍。
+    void listFor<Record<string, unknown>>(c, DEFAULT_LANG)
       .then((rows) => {
         counts.value = { ...counts.value, [c.path]: rows.length }
         rawRows.value = { ...rawRows.value, [c.path]: rows }
@@ -62,7 +73,7 @@ const ledger = computed(() =>
       .sort((a, b) => a - b)
     return {
       no: c.no,
-      label: c.label,
+      label: pickText(c.label, DEFAULT_LANG),
       en: c.en,
       count: counts.value[c.path],
       range: ids.length ? `${ids[0]}–${ids[ids.length - 1]}` : '···',
@@ -116,7 +127,7 @@ const coverage = computed(() =>
     const rows = rawRows.value[c.path] ?? []
     return {
       no: c.no,
-      label: c.label,
+      label: pickText(c.label, DEFAULT_LANG),
       total: rows.length,
       fields: (FIELD_SPEC[c.path] ?? []).map((f) => ({
         label: f.label,
@@ -142,6 +153,13 @@ const gapCount = computed(() =>
         运行时只读本站资源。以下说明收录范围、更新机制、校验门禁与版权归属。
       </p>
     </header>
+
+    <!-- 长文不翻译（决策记录 0011）：非中文读者进来先读到一句「这页只有中文」，
+         否则只会像「语言切换没生效」。中文读者不需要这条，故仅在 lang ≠ zh 时出现。 -->
+    <p v-if="lang !== 'zh'" v-reveal="40" class="zh-only" role="note">
+      <b class="mono">{{ t.longform.chineseOnly }}</b>
+      <span>{{ t.longform.chineseOnlyNote }}</span>
+    </p>
 
     <!-- 档案规格：版本 / 更新日 / 收录总量（数字全部动态取，避免与数据漂移） -->
     <aside v-reveal="80" class="spec" aria-label="档案规格">
@@ -301,6 +319,21 @@ const gapCount = computed(() =>
 </template>
 
 <style scoped>
+/* 「本页仅中文」提示条：一行注记，不抢 header 的层级（细线 + 弱墨） */
+.zh-only {
+  margin-top: 18px;
+  padding: 10px 12px;
+  border-left: 2px solid var(--amber);
+  background: var(--bg-1);
+  font-size: var(--fs-caption);
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+.zh-only b {
+  display: block;
+  color: var(--amber-hi);
+  letter-spacing: 0.08em;
+}
 /* ---------- 档案规格 ---------- */
 
 .spec {

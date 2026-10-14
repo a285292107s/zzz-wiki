@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { nextTick, watch } from 'vue'
+import { useUiText } from '@/composables/useUiText'
 import { RouterLink } from 'vue-router'
 import AsyncState from '@/components/state/AsyncState.vue'
 import BackToTop from '@/components/BackToTop.vue'
@@ -9,6 +10,8 @@ import { recordRecentVisit } from '@/composables/useQuickSearch'
 import type { AsyncStatus } from '@/composables/useAsyncResource'
 import type { DetailSectionItem } from '@/composables/useDetailSections'
 import type { CatalogEntry } from '@/domain/catalog'
+
+const { t } = useUiText()
 
 const props = defineProps<{
   /** 返回名录链接 */
@@ -62,7 +65,7 @@ watch(
          本行在 AsyncState **之外**，加载中/404 也会渲染——故任何依赖「档案已就绪」的动作
          都必须自带 status 门禁，不能无条件渲染。 -->
     <div class="page-actions" data-vt-block data-vt-fade>
-      <RouterLink :to="backTo" class="back mono">← {{ backLabel ?? '返回' }}</RouterLink>
+      <RouterLink :to="backTo" class="back mono">← {{ backLabel ?? t.detail.back }}</RouterLink>
     </div>
 
     <!-- 区块导航：宽屏左侧档案索引 / 窄屏吸顶横条（样式见 base.css .section-nav）。
@@ -71,7 +74,7 @@ watch(
     <nav
       v-if="nav?.length"
       class="section-nav"
-      aria-label="页面区块"
+      :aria-label="t.detail.sectionNav"
       data-vt-block
       data-vt-fade
     >
@@ -114,7 +117,7 @@ watch(
           </RouterLink>
         </template>
       </div>
-      <NavScrollButton label="向右浏览区块" @click="scrollRight" />
+      <NavScrollButton :label="t.detail.sectionNavHint" @click="scrollRight" />
     </nav>
 
     <AsyncState

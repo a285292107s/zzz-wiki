@@ -11,7 +11,7 @@ import {
   BANGBOO_LEVEL_MAX,
   BANGBOO_LEVEL_MIN,
   BANGBOO_SKILL_ORDER,
-  BANGBOO_SKILL_ZH,
+  BANGBOO_SKILL_LABELS,
   CHAR_LEVEL_DEFAULT,
   CHAR_LEVEL_MAX,
   CHAR_LEVEL_MIN,
@@ -24,7 +24,7 @@ import {
   SKILL_LEVEL_MAX,
   SKILL_LEVEL_MIN,
   SKILL_ORDER,
-  SKILL_ZH,
+  SKILL_LABELS,
   W_ENGINE_LEVEL_DEFAULT,
   W_ENGINE_LEVEL_MAX,
   W_ENGINE_LEVEL_MIN,
@@ -33,22 +33,29 @@ import {
 } from '../src/domain/sections'
 
 describe('sections 常量契约（哨兵）', () => {
-  it('SKILL_ORDER 固定七槽，中文徽章与键位字形逐槽齐全', () => {
+  it('SKILL_ORDER 固定七槽，槽位名四语齐全、键位字形逐槽齐全', () => {
     expect([...SKILL_ORDER]).toEqual([
       'basic', 'special', 'chain', 'ultimate', 'assist', 'dodge', 'core',
     ])
     for (const k of SKILL_ORDER) {
-      expect(SKILL_ZH[k], `SKILL_ZH.${k}`).toBeTruthy()
+      for (const l of ['zh', 'en', 'ja', 'ko'] as const) {
+        expect(SKILL_LABELS[k][l], `SKILL_LABELS.${k}.${l}`).toBeTruthy()
+      }
       expect(SKILL_KEYS[k]?.glyph, `SKILL_KEYS.${k}.glyph`).toBeTruthy()
       expect(SKILL_KEYS[k]?.en.length ?? 0, `SKILL_KEYS.${k}.en`).toBeGreaterThan(0)
     }
   })
 
-  it('BANGBOO_SKILL_ORDER 三槽与中文名一致', () => {
+  it('BANGBOO_SKILL_ORDER 三槽与槽位名一致（四语齐全）', () => {
     expect([...BANGBOO_SKILL_ORDER]).toEqual(['a', 'b', 'c'])
-    expect(BANGBOO_SKILL_ZH.a).toBe('主动技')
-    expect(BANGBOO_SKILL_ZH.b).toBe('额外能力')
-    expect(BANGBOO_SKILL_ZH.c).toBe('邦布连携技')
+    expect(BANGBOO_SKILL_LABELS.a.zh).toBe('主动技')
+    expect(BANGBOO_SKILL_LABELS.b.zh).toBe('额外能力')
+    expect(BANGBOO_SKILL_LABELS.c.zh).toBe('邦布连携技')
+    for (const k of BANGBOO_SKILL_ORDER) {
+      for (const l of ['zh', 'en', 'ja', 'ko'] as const) {
+        expect(BANGBOO_SKILL_LABELS[k][l], `BANGBOO_SKILL_LABELS.${k}.${l}`).toBeTruthy()
+      }
+    }
   })
 
   it('技能等级：基础上限 12、默认 12，影画加成把可达上限抬到 16', () => {

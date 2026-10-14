@@ -31,7 +31,7 @@ async (page) => {
   // 于是「渲染条数 == 数据文件条数」是精确等式。
   const live = await page.evaluate(async () => {
     const read = async (file) => {
-      const res = await fetch(`/data/live/${file}`)
+      const res = await fetch(`/data/live/zh/${file}`)
       if (!res.ok) throw new Error(`${file} HTTP ${res.status}`)
       return res.json()
     }
@@ -514,7 +514,7 @@ async (page) => {
     const swBlockedCtx = await page.context().browser().newContext({ serviceWorkers: 'block' })
     const p2 = await swBlockedCtx.newPage()
     const add2 = (name, ok, detail) => checks.push({ name, ok, detail })
-    await p2.route('**/data/live/weapon.json', (r) => r.abort())
+    await p2.route('**/data/live/zh/weapon.json', (r) => r.abort())
     await p2.goto('http://localhost:4175/w-engines', { waitUntil: 'networkidle' })
     await p2.waitForTimeout(1800)
     const err = await p2.evaluate(() => {

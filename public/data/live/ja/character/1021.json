@@ -1,0 +1,2427 @@
+{
+ "id": 1021,
+ "icon": "IconRole11",
+ "name": "猫又",
+ "code_name": "Nekomata",
+ "rarity": 4,
+ "weapon_type": {
+  "1": "Attack"
+ },
+ "element_type": {
+  "200": "Physical"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "1": "邪兎屋"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "7月30日",
+  "full_name": "猫宮又奈",
+  "gender": "女性",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle11.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0011.png",
+  "impression_f": "ネコちゃん！猫が嫌いな人なんていないよね！\nはぁ、猫又のしっぽをモフりたい…だって2本もあるんだよ！\n幸せも2倍なんだから！",
+  "impression_m": "落ち着いて。新エリー都のそこらにいるような、\n無邪気でかわいい猫たちとは違うんだから…\n彼女の相手をするとき最も重要なのは、自分の財布を死守することだ。",
+  "impressions": [
+   "猫又に対するイメージ：\n・猫の恩返し{M#にはいつも心打たれる}{F#って何度聞いても感動だよね}。\n「捕まえた鼠」を持ってくるところ以外は",
+   "・赤牙組を離れて久しいにもかかわらず、\n猫又は今でも昔の仲間たちに尊敬されている",
+   "・ノラ猫はついに帰る場所を得た。\nそれは往々にして「家」と呼ばれる"
+  ],
+  "profile_desc": "猫宮又奈、普段は自らを「猫又」と呼んでいます。\nネコのシリオンである彼女はネコ科動物の特性を持ち合わせており、\n狩猟態勢に入ると凄まじい俊敏さを発揮するほか、\n外の世界に対して過剰ともいえる好奇心を持ちます。\n大抵は、ちょっとした出来心で無害ないたずらをする程度ですが、\n彼女が「獲物」を狙うとき、\nネコ科動物生来の恐るべき行動力と集中力を目の当たりにするでしょう。\n今一番興味があるのは「他人の財布」とのことです。\nアドバイス：猫又と一緒にいる時は、財布から目を離さないことを。\n\n猫又はかつて新エリー都の古参ギャング「赤牙組」に属しており、幼い頃から\nそのボス「シルバーヘッド」ミゲルには、まるで娘同然に可愛がられていました。\nしかし後に赤牙組との間に理念の相違が生まれ、\n組織を離れた彼女は一人放浪することになりました。\nやがてニコたちと共にいくつかの事件を経た後、邪兎屋への加入を決意し、\n邪兎屋の従業員第三号となって今に至ります。",
+  "role_icon": "IconRole/UnPacker/IconRole11",
+  "stature": "148",
+  "unlock_condition": [
+   "エージェント招集",
+   "依頼「アンビーの当惑」を達成する",
+   "エージェント秘話「泥棒猫、ネズミを制す」をクリアする"
+  ],
+  "trust_lv": {
+   "1": "猫宮又奈、普段は自らを「猫又」と呼んでいます。\nネコのシリオンである彼女はネコ科動物の特性を持ち合わせており、\n狩猟態勢に入ると凄まじい俊敏さを発揮するほか、\n外の世界に対して過剰ともいえる好奇心を持ちます。\n大抵は、ちょっとした出来心で無害ないたずらをする程度ですが、\n彼女が「獲物」を狙うとき、\nネコ科動物生来の恐るべき行動力と集中力を目の当たりにするでしょう。\n今一番興味があるのは「他人の財布」とのことです。\nアドバイス：猫又と一緒にいる時は、財布から目を離さないことを。\n\n猫又はかつて新エリー都の古参ギャング「赤牙組」に属しており、幼い頃から\nそのボス「シルバーヘッド」ミゲルには、まるで娘同然に可愛がられていました。\nしかし後に赤牙組との間に理念の相違が生まれ、\n組織を離れた彼女は一人放浪することになりました。\nやがてニコたちと共にいくつかの事件を経た後、邪兎屋への加入を決意し、\n邪兎屋の従業員第三号となって今に至ります。",
+   "2": "",
+   "3": "追加情報：邪兎屋において、猫又はニコに大変な興味を持っており、\nそれが原因でアンビーは猫又への不満を募らせているようです。\n推測される理由：「私が先だったんだ…」",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 131,
+  "attack_growth": 79762,
+  "avatar_piece_id": 5021,
+  "break_stun": 92,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 47,
+  "defence_growth": 64166,
+  "element_abnormal_power": 97,
+  "element_mystery": 96,
+  "endurance": 0,
+  "hp_growth": 824778,
+  "hp_max": 608,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Tsubaki",
+   "Cut",
+   "Physics",
+   "Female",
+   "Camp1",
+   "Size1",
+   "AidTypeParry",
+   "Nekomata",
+   "EtherEyesSize1"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "通常攻撃：猫の引っ掻き",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方に最大5段の斬撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\n最後の1段では、33.33%の確率で斬撃を3回放つ。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "通常攻撃：猫の引っ掻き",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方に最大5段の斬撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\n最後の1段がブレイク状態の敵に命中した場合、斬撃を3回放つ。",
+     "potential": [
+      102100,
+      102101,
+      102102,
+      102103,
+      102104,
+      102105
+     ]
+    },
+    {
+     "name": "通常攻撃：赤き刃",
+     "desc": "<color=#FFFFFF>『通常攻撃』</color>最初の3段中に、 <IconMap:Icon_Normal> を長押しして発動：\n前方に斬撃を放つ。斬撃は前方の敵を貫通し、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動時、33.33%の確率で斬撃を3回放つ。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "通常攻撃：赤き刃",
+     "desc": "<color=#FFFFFF>『通常攻撃』</color>最初の3段中に、 <IconMap:Icon_Normal> を長押しして発動：\n前方に斬撃を放つ。斬撃は前方の敵を貫通し、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動時、ブレイク状態の敵に命中した場合、斬撃を3回放つ。",
+     "potential": [
+      102100,
+      102101,
+      102102,
+      102103,
+      102104,
+      102105
+     ]
+    },
+    {
+     "name": "通常攻撃：猫の引っ掻き",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1021001, Prop:1001}",
+       "param": {
+        "1021001": {
+         "main": 5520,
+         "growth": 510,
+         "format": "%",
+         "damage_percentage": 5520,
+         "damage_percentage_growth": 510,
+         "stun_ratio": 1800,
+         "stun_ratio_growth": 90,
+         "sp_recovery": 6160,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 47025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1708,
+         "sp_consume": 0,
+         "attack_data": [
+          5981
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1709
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1021002, Prop:1001}",
+       "param": {
+        "1021002": {
+         "main": 6260,
+         "growth": 570,
+         "format": "%",
+         "damage_percentage": 6260,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 3710,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 12690,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 97075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3524,
+         "sp_consume": 0,
+         "attack_data": [
+          6231
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3525
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1021003, Prop:1001}",
+       "param": {
+        "1021003": {
+         "main": 7270,
+         "growth": 670,
+         "format": "%",
+         "damage_percentage": 7270,
+         "damage_percentage_growth": 670,
+         "stun_ratio": 4670,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 15990,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 122375,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4440,
+         "sp_consume": 0,
+         "attack_data": [
+          6600
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4441
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率",
+       "desc": "{Skill:1021004, Prop:1001}",
+       "param": {
+        "1021004": {
+         "main": 17020,
+         "growth": 1550,
+         "format": "%",
+         "damage_percentage": 17020,
+         "damage_percentage_growth": 1550,
+         "stun_ratio": 10370,
+         "stun_ratio_growth": 480,
+         "sp_recovery": 35550,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 271700,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9873,
+         "sp_consume": 0,
+         "attack_data": [
+          15398
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9874
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5段ダメージ倍率",
+       "desc": "{Skill:1021005, Prop:1001}",
+       "param": {
+        "1021005": {
+         "main": 12360,
+         "growth": 1130,
+         "format": "%",
+         "damage_percentage": 12360,
+         "damage_percentage_growth": 1130,
+         "stun_ratio": 5890,
+         "stun_ratio_growth": 270,
+         "sp_recovery": 20170,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 154275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5602,
+         "sp_consume": 0,
+         "attack_data": [
+          10321
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5898
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1021001, Prop:1002}",
+       "param": {
+        "1021001": {
+         "main": 1800,
+         "growth": 90,
+         "format": "%",
+         "damage_percentage": 5520,
+         "damage_percentage_growth": 510,
+         "stun_ratio": 1800,
+         "stun_ratio_growth": 90,
+         "sp_recovery": 6160,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 47025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1708,
+         "sp_consume": 0,
+         "attack_data": [
+          5981
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1709
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1021002, Prop:1002}",
+       "param": {
+        "1021002": {
+         "main": 3710,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 6260,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 3710,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 12690,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 97075,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3524,
+         "sp_consume": 0,
+         "attack_data": [
+          6231
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3525
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1021003, Prop:1002}",
+       "param": {
+        "1021003": {
+         "main": 4670,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 7270,
+         "damage_percentage_growth": 670,
+         "stun_ratio": 4670,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 15990,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 122375,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4440,
+         "sp_consume": 0,
+         "attack_data": [
+          6600
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4441
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率",
+       "desc": "{Skill:1021004, Prop:1002}",
+       "param": {
+        "1021004": {
+         "main": 10370,
+         "growth": 480,
+         "format": "%",
+         "damage_percentage": 17020,
+         "damage_percentage_growth": 1550,
+         "stun_ratio": 10370,
+         "stun_ratio_growth": 480,
+         "sp_recovery": 35550,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 271700,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9873,
+         "sp_consume": 0,
+         "attack_data": [
+          15398
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9874
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "5段ブレイク倍率",
+       "desc": "{Skill:1021005, Prop:1002}",
+       "param": {
+        "1021005": {
+         "main": 5890,
+         "growth": 270,
+         "format": "%",
+         "damage_percentage": 12360,
+         "damage_percentage_growth": 1130,
+         "stun_ratio": 5890,
+         "stun_ratio_growth": 270,
+         "sp_recovery": 20170,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 154275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5602,
+         "sp_consume": 0,
+         "attack_data": [
+          10321
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5898
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：赤き刃",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1021006, Prop:1001}",
+       "param": {
+        "1021006": {
+         "main": 7180,
+         "growth": 660,
+         "format": "%",
+         "damage_percentage": 7180,
+         "damage_percentage_growth": 660,
+         "stun_ratio": 5890,
+         "stun_ratio_growth": 270,
+         "sp_recovery": 20170,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 154275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5602,
+         "sp_consume": 0,
+         "attack_data": [
+          10321
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5898
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1021006, Prop:1002}",
+       "param": {
+        "1021006": {
+         "main": 5890,
+         "growth": 270,
+         "format": "%",
+         "damage_percentage": 7180,
+         "damage_percentage_growth": 660,
+         "stun_ratio": 5890,
+         "stun_ratio_growth": 270,
+         "sp_recovery": 20170,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 154275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5602,
+         "sp_consume": 0,
+         "attack_data": [
+          10321
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5898
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "回避：当たんないにゃ～",
+     "desc": " <IconMap:Icon_Evade> を押して発動：\nダッシュで高速回避する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "回避：しっぽないないの術",
+     "desc": "猫又の<Term:1000024><color=#FFFFFF>「ゴロゴロパワー」</color></Term>が40Pt以上の時、<color=#FFFFFF>『極限回避』</color>発動後に <IconMap:Icon_Evade> を押すと、「ゴロゴロパワー」を30Pt消費して発動：\n猫又は「極限視界」に入り、素早く敵の背後へと移動する。\nスキル発動中、無敵効果を得る。\nこのスキルは『回避』の回数を消費しない。",
+     "potential": [
+      102100,
+      102101,
+      102102,
+      102103,
+      102104,
+      102105
+     ]
+    },
+    {
+     "name": "ダッシュ攻撃：どこを見てるの？",
+     "desc": "回避時に <IconMap:Icon_Normal> を押して発動：\n前方に斬撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "回避反撃：ファントムクロー",
+     "desc": "<color=#FFFFFF>『極限回避』</color>後に <IconMap:Icon_Normal> を押して発動：\n前方の敵に斬撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "回避反撃：フラッフィークロー",
+     "desc": "<color=#FFFFFF>『回避：しっぽないないの術』</color>発動後に <IconMap:Icon_Normal> を短押し、または猫又の<Term:1000024>「ゴロゴロパワー」</Term>が40Pt以上の時に <IconMap:Icon_Normal> を長押しして発動：\n前方の広範囲の敵に強力な斬撃を繰り出し、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。",
+     "potential": [
+      102100,
+      102101,
+      102102,
+      102103,
+      102104,
+      102105
+     ]
+    },
+    {
+     "name": "ダッシュ攻撃：どこを見てるの？",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1021009, Prop:1001}",
+       "param": {
+        "1021009": {
+         "main": 3510,
+         "growth": 320,
+         "format": "%",
+         "damage_percentage": 3510,
+         "damage_percentage_growth": 320,
+         "stun_ratio": 1760,
+         "stun_ratio_growth": 80,
+         "sp_recovery": 6010,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 160600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1668,
+         "sp_consume": 0,
+         "attack_data": [
+          2920
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1669
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1021009, Prop:1002}",
+       "param": {
+        "1021009": {
+         "main": 1760,
+         "growth": 80,
+         "format": "%",
+         "damage_percentage": 3510,
+         "damage_percentage_growth": 320,
+         "stun_ratio": 1760,
+         "stun_ratio_growth": 80,
+         "sp_recovery": 6010,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 160600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1668,
+         "sp_consume": 0,
+         "attack_data": [
+          2920
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1669
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "回避反撃：ファントムクロー",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1021010, Prop:1001}",
+       "param": {
+        "1021010": {
+         "main": 22790,
+         "growth": 2080,
+         "format": "%",
+         "damage_percentage": 22790,
+         "damage_percentage_growth": 2080,
+         "stun_ratio": 19950,
+         "stun_ratio_growth": 910,
+         "sp_recovery": 32390,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 247500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8996,
+         "sp_consume": 0,
+         "attack_data": [
+          15745
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1021010, Prop:1002}",
+       "param": {
+        "1021010": {
+         "main": 19950,
+         "growth": 910,
+         "format": "%",
+         "damage_percentage": 22790,
+         "damage_percentage_growth": 2080,
+         "stun_ratio": 19950,
+         "stun_ratio_growth": 910,
+         "sp_recovery": 32390,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 247500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8996,
+         "sp_consume": 0,
+         "attack_data": [
+          15745
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23997
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "回避反撃：フラッフィークロー",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1021019, Prop:1001}",
+       "param": {
+        "1021019": {
+         "main": 126390,
+         "growth": 11490,
+         "format": "%",
+         "damage_percentage": 126390,
+         "damage_percentage_growth": 11490,
+         "stun_ratio": 16460,
+         "stun_ratio_growth": 750,
+         "sp_recovery": 26410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 430925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15666,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15667
+        }
+       },
+       "potential": [
+        102100,
+        102101,
+        102102,
+        102103,
+        102104,
+        102105
+       ]
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1021019, Prop:1002}",
+       "param": {
+        "1021019": {
+         "main": 16460,
+         "growth": 750,
+         "format": "%",
+         "damage_percentage": 126390,
+         "damage_percentage_growth": 11490,
+         "stun_ratio": 16460,
+         "stun_ratio_growth": 750,
+         "sp_recovery": 26410,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 430925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15666,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15667
+        }
+       },
+       "potential": [
+        102100,
+        102101,
+        102102,
+        102103,
+        102104,
+        102105
+       ]
+      },
+      {
+       "name": "「ゴロゴロパワー」消費",
+       "desc": "40Pt",
+       "potential": [
+        102100,
+        102101,
+        102102,
+        102103,
+        102104,
+        102105
+       ]
+      }
+     ],
+     "potential": [
+      102100,
+      102101,
+      102102,
+      102103,
+      102104,
+      102105
+     ]
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "特殊スキル：奇襲",
+     "desc": " <IconMap:Icon_Special> を押して発動：\n前方に落下打撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動中、中断耐性レベルがアップする。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "特殊スキル：奇襲",
+     "desc": " <IconMap:Icon_Special> を押して発動：\n前方に落下打撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動中、中断耐性レベルがアップする。\nスキルの追撃効果が強化される。",
+     "potential": [
+      102100,
+      102101,
+      102102,
+      102103,
+      102104,
+      102105
+     ]
+    },
+    {
+     "name": "強化特殊スキル：めちゃコワ奇襲！",
+     "desc": "エネルギーが十分な時、 <IconMap:Icon_SpecialReady> を押して発動：\n前方に強力な落下斬撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。",
+     "potential": [
+      0
+     ]
+    },
+    {
+     "name": "強化特殊スキル：めちゃコワ奇襲！",
+     "desc": "エネルギーが十分な時、 <IconMap:Icon_SpecialReady> を押して発動：\n前方に強力な落下斬撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。\nスキルの追撃効果が強化される。",
+     "potential": [
+      102100,
+      102101,
+      102102,
+      102103,
+      102104,
+      102105
+     ]
+    },
+    {
+     "name": "特殊スキル：奇襲",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1021007, Prop:1001}",
+       "param": {
+        "1021007": {
+         "main": 4730,
+         "growth": 430,
+         "format": "%",
+         "damage_percentage": 4730,
+         "damage_percentage_growth": 430,
+         "stun_ratio": 4730,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 124025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4501,
+         "sp_consume": 0,
+         "attack_data": [
+          7878
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4502
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1021007, Prop:1002}",
+       "param": {
+        "1021007": {
+         "main": 4730,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 4730,
+         "damage_percentage_growth": 430,
+         "stun_ratio": 4730,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 124025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4501,
+         "sp_consume": 0,
+         "attack_data": [
+          7878
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4502
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：めちゃコワ奇襲！",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1021008, Prop:1001}",
+       "param": {
+        "1021008": {
+         "main": 53970,
+         "growth": 4910,
+         "format": "%",
+         "damage_percentage": 53970,
+         "damage_percentage_growth": 4910,
+         "stun_ratio": 45540,
+         "stun_ratio_growth": 2070,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1486100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 43073,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 17504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1021008, Prop:1002}",
+       "param": {
+        "1021008": {
+         "main": 45540,
+         "growth": 2070,
+         "format": "%",
+         "damage_percentage": 53970,
+         "damage_percentage_growth": 4910,
+         "stun_ratio": 45540,
+         "stun_ratio_growth": 2070,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1486100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 43073,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 17504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "エネルギー消費",
+       "desc": "40Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "連携スキル：クロースワイプ",
+     "desc": "<color=#FFFFFF>『連携スキル』</color>開始時に、対応するエージェントを選択して発動：\n前方広範囲の敵に強力な斬撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "終結スキル：クロースマッシュ",
+     "desc": "デシベルレートが<color=#FFFFFF>『Maximum』</color>に達した時に <IconMap:Icon_UltimateReady> を押して発動：\n前方広範囲の敵に強力な斬撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "連携スキル：クロースワイプ",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1021011, Prop:1001}",
+       "param": {
+        "1021011": {
+         "main": 53620,
+         "growth": 4880,
+         "format": "%",
+         "damage_percentage": 53620,
+         "damage_percentage_growth": 4880,
+         "stun_ratio": 15920,
+         "stun_ratio_growth": 730,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2291850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 36786,
+         "sp_consume": 0,
+         "attack_data": [
+          9465
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16837
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1021011, Prop:1002}",
+       "param": {
+        "1021011": {
+         "main": 15920,
+         "growth": 730,
+         "format": "%",
+         "damage_percentage": 53620,
+         "damage_percentage_growth": 4880,
+         "stun_ratio": 15920,
+         "stun_ratio_growth": 730,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2291850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 36786,
+         "sp_consume": 0,
+         "attack_data": [
+          9465
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16837
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "終結スキル：クロースマッシュ",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1021012, Prop:1001}",
+       "param": {
+        "1021012": {
+         "main": 157110,
+         "growth": 14290,
+         "format": "%",
+         "damage_percentage": 157110,
+         "damage_percentage_growth": 14290,
+         "stun_ratio": 11810,
+         "stun_ratio_growth": 540,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12496,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 62497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1021012, Prop:1002}",
+       "param": {
+        "1021012": {
+         "main": 11810,
+         "growth": 540,
+         "format": "%",
+         "damage_percentage": 157110,
+         "damage_percentage_growth": 14290,
+         "stun_ratio": 11810,
+         "stun_ratio_growth": 540,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12496,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 62497
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "クイック支援：猫の手貸すぞ☆",
+     "desc": "操作しているメンバーが吹き飛ばされた時に、 <IconMap:Icon_Switch> を押して発動：\n前方の敵に斬撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：抗ストレス反応",
+     "desc": "出場中のメンバーが攻撃されそうになった時に、 <IconMap:Icon_Switch> を押して発動：\n敵の攻撃をパリィし、ブレイク値を大量に蓄積させる。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援突撃：迅影",
+     "desc": "<color=#FFFFFF>『パリィ支援』</color>発動後、 <IconMap:Icon_Normal> を押して発動：\n前方の敵に突進斬撃を放ち、<color=#F0D12B>物理属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "クイック支援：猫の手貸すぞ☆",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1021013, Prop:1001}",
+       "param": {
+        "1021013": {
+         "main": 9450,
+         "growth": 860,
+         "format": "%",
+         "damage_percentage": 9450,
+         "damage_percentage_growth": 860,
+         "stun_ratio": 9450,
+         "stun_ratio_growth": 430,
+         "sp_recovery": 32390,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 247500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8996,
+         "sp_consume": 0,
+         "attack_data": [
+          7873
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4499
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1021013, Prop:1002}",
+       "param": {
+        "1021013": {
+         "main": 9450,
+         "growth": 430,
+         "format": "%",
+         "damage_percentage": 9450,
+         "damage_percentage_growth": 860,
+         "stun_ratio": 9450,
+         "stun_ratio_growth": 430,
+         "sp_recovery": 32390,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 247500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 8996,
+         "sp_consume": 0,
+         "attack_data": [
+          7873
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4499
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：抗ストレス反応",
+     "param": [
+      {
+       "name": "パリィ・軽 ブレイク倍率",
+       "desc": "{Skill:1021014, Prop:1002}",
+       "param": {
+        "1021014": {
+         "main": 25900,
+         "growth": 1180,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 25900,
+         "stun_ratio_growth": 1180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・重 ブレイク倍率",
+       "desc": "{Skill:1021015, Prop:1002}",
+       "param": {
+        "1021015": {
+         "main": 32730,
+         "growth": 1490,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 32730,
+         "stun_ratio_growth": 1490,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・連続 ブレイク倍率",
+       "desc": "{Skill:1021016, Prop:1002}",
+       "param": {
+        "1021016": {
+         "main": 15930,
+         "growth": 730,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 15930,
+         "stun_ratio_growth": 730,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：迅影",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1021017, Prop:1001}",
+       "param": {
+        "1021017": {
+         "main": 30040,
+         "growth": 2740,
+         "format": "%",
+         "damage_percentage": 30040,
+         "damage_percentage_growth": 2740,
+         "stun_ratio": 25810,
+         "stun_ratio_growth": 1180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 897600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 26592,
+         "sp_consume": 0,
+         "attack_data": [
+          21870
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12497
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1021017, Prop:1002}",
+       "param": {
+        "1021017": {
+         "main": 25810,
+         "growth": 1180,
+         "format": "%",
+         "damage_percentage": 30040,
+         "damage_percentage_growth": 2740,
+         "stun_ratio": 25810,
+         "stun_ratio_growth": 1180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 897600,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 26592,
+         "sp_consume": 0,
+         "attack_data": [
+          21870
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 12497
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100110": 2
+    },
+    "2": {
+     "10": 3000,
+     "100110": 3
+    },
+    "3": {
+     "10": 6000,
+     "100120": 2
+    },
+    "4": {
+     "10": 9000,
+     "100120": 3
+    },
+    "5": {
+     "10": 12000,
+     "100120": 4
+    },
+    "6": {
+     "10": 18000,
+     "100120": 6
+    },
+    "7": {
+     "10": 45000,
+     "100130": 5
+    },
+    "8": {
+     "10": 67500,
+     "100130": 8
+    },
+    "9": {
+     "10": 90000,
+     "100130": 10
+    },
+    "10": {
+     "10": 112500,
+     "100130": 12
+    },
+    "11": {
+     "10": 135000,
+     "100130": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "<ruby=ちょうぜつ>鳥絶</ruby>技巧",
+   "desc": "敵を背後から攻撃し、なおかつ命中した時、猫又がターゲットの<color=#F0D12B>物理属性ダメージ耐性</color>を16%無視する。敵がブレイク状態にある時、猫又がその敵に行うすべての攻撃が背後からの攻撃とみなされる。",
+   "desc2": "小柄な猫又に腕力はない。代わりに相手の弱点を見抜く目と、そこを精確に攻撃する敏捷性を持っている。"
+  },
+  "2": {
+   "level": 2,
+   "name": "ねことねずみ",
+   "desc": "フィールド上の敵が1体のみ、かつ自身が出場している場合、猫又のエネルギー獲得効率+25%。",
+   "desc2": "猫には獲物を弄ぶ習性がある。\nフィールド上の「ねずみ」が1匹だけになるとき、彼女の「遊び」が始まる。"
+  },
+  "3": {
+   "level": 3,
+   "name": "好奇心は左のしっぽ",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "旧文明の伝説によると、猫のしっぽは一本がそれぞれ一つの命を表しており、\n長きに渡る生存の知恵がそこに蓄えられているらしい。\n…それは嘘でも、猫又がストリートで培ってきたサバイバルの経験は本物だ。"
+  },
+  "4": {
+   "level": 4,
+   "name": "爪研ぎ",
+   "desc": "<color=#FFFFFF>『強化特殊スキル』</color>を発動した時、猫又の会心率+7%。最大2重まで重ね掛け可能、継続時間15秒、継続時間は1重ごとに独立してカウントされる。",
+   "desc2": "「もっともっと！ぜ～んぶたいらげてみせるぞ！」\n彼女は目を輝かせながら、鋭い爪をペロリと舐めた。"
+  },
+  "5": {
+   "level": 5,
+   "name": "幸運は右のしっぽ",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "旧文明の伝説によると、猫のしっぽは一本がそれぞれ一つの命を表しており、\n長きに渡る生存の知恵がそこに蓄えられているらしい。\n…時に、猫又も気になることがある\n——もし、幸運にも長生きすることができたら、新しいしっぽが生えてくるのだろうか？——"
+  },
+  "6": {
+   "level": 6,
+   "name": "捕食者の血",
+   "desc": "<color=#FFFFFF>『連携スキル』</color>または<color=#FFFFFF>『終結スキル』</color>を発動した時、猫又の会心ダメージ+18%、最大3重まで重ね掛け可能。接敵状態が解除されると効果が終了する。猫又が敵を倒した時、この効果が直接重数の上限まで重ね掛けされる。",
+   "desc2": "「ネコのシリオンにとって、\n攻撃行為から得られるポジティブなフィードバックは、\n彼らの種に潜在する破壊衝動を呼び覚ましてしまう可能性が極めて高い。\nしかし幸いにも、このような衝動は永続するものではない…」\n——古びた『ネコのシリオンについての不完全な研究ノート』より"
+  }
+ },
+ "passive": {
+  "level": {
+   "1021501": {
+    "level": 1,
+    "id": 1021501,
+    "name": [
+     "コアパッシブ：猫の忍び足",
+     "追加能力：キャットウォーク・ショー"
+    ],
+    "desc": [
+     "猫又の<color=#FFFFFF>『回避反撃』</color>または<color=#FFFFFF>『クイック支援』</color>が敵に命中すると、自身の与ダメージ+<color=#2BAD00>30%</color>、継続時間6秒。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n任意のメンバーが敵に<color=#F0D12B>「強撃」</color>効果を付与した後、猫又が次に<color=#FFFFFF>『強化特殊スキル』</color>を発動した時に、スキルの与ダメージ+35%、最大2重まで重ね掛け可能。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1021502": {
+    "level": 2,
+    "id": 1021502,
+    "name": [
+     "コアパッシブ：猫の忍び足",
+     "追加能力：キャットウォーク・ショー"
+    ],
+    "desc": [
+     "猫又の<color=#FFFFFF>『回避反撃』</color>または<color=#FFFFFF>『クイック支援』</color>が敵に命中すると、自身の与ダメージ+<color=#2BAD00>35%</color>、継続時間6秒。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n任意のメンバーが敵に<color=#F0D12B>「強撃」</color>効果を付与した後、猫又が次に<color=#FFFFFF>『強化特殊スキル』</color>を発動した時に、スキルの与ダメージ+35%、最大2重まで重ね掛け可能。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1021503": {
+    "level": 3,
+    "id": 1021503,
+    "name": [
+     "コアパッシブ：猫の忍び足",
+     "追加能力：キャットウォーク・ショー"
+    ],
+    "desc": [
+     "猫又の<color=#FFFFFF>『回避反撃』</color>または<color=#FFFFFF>『クイック支援』</color>が敵に命中すると、自身の与ダメージ+<color=#2BAD00>40%</color>、継続時間6秒。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n任意のメンバーが敵に<color=#F0D12B>「強撃」</color>効果を付与した後、猫又が次に<color=#FFFFFF>『強化特殊スキル』</color>を発動した時に、スキルの与ダメージ+35%、最大2重まで重ね掛け可能。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1021504": {
+    "level": 4,
+    "id": 1021504,
+    "name": [
+     "コアパッシブ：猫の忍び足",
+     "追加能力：キャットウォーク・ショー"
+    ],
+    "desc": [
+     "猫又の<color=#FFFFFF>『回避反撃』</color>または<color=#FFFFFF>『クイック支援』</color>が敵に命中すると、自身の与ダメージ+<color=#2BAD00>45%</color>、継続時間6秒。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n任意のメンバーが敵に<color=#F0D12B>「強撃」</color>効果を付与した後、猫又が次に<color=#FFFFFF>『強化特殊スキル』</color>を発動した時に、スキルの与ダメージ+35%、最大2重まで重ね掛け可能。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1021505": {
+    "level": 5,
+    "id": 1021505,
+    "name": [
+     "コアパッシブ：猫の忍び足",
+     "追加能力：キャットウォーク・ショー"
+    ],
+    "desc": [
+     "猫又の<color=#FFFFFF>『回避反撃』</color>または<color=#FFFFFF>『クイック支援』</color>が敵に命中すると、自身の与ダメージ+<color=#2BAD00>50%</color>、継続時間6秒。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n任意のメンバーが敵に<color=#F0D12B>「強撃」</color>効果を付与した後、猫又が次に<color=#FFFFFF>『強化特殊スキル』</color>を発動した時に、スキルの与ダメージ+35%、最大2重まで重ね掛け可能。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1021506": {
+    "level": 6,
+    "id": 1021506,
+    "name": [
+     "コアパッシブ：猫の忍び足",
+     "追加能力：キャットウォーク・ショー"
+    ],
+    "desc": [
+     "猫又の<color=#FFFFFF>『回避反撃』</color>または<color=#FFFFFF>『クイック支援』</color>が敵に命中すると、自身の与ダメージ+<color=#2BAD00>55%</color>、継続時間6秒。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n任意のメンバーが敵に<color=#F0D12B>「強撃」</color>効果を付与した後、猫又が次に<color=#FFFFFF>『強化特殊スキル』</color>を発動した時に、スキルの与ダメージ+35%、最大2重まで重ね掛け可能。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1021507": {
+    "level": 7,
+    "id": 1021507,
+    "name": [
+     "コアパッシブ：猫の忍び足",
+     "追加能力：キャットウォーク・ショー"
+    ],
+    "desc": [
+     "猫又の<color=#FFFFFF>『回避反撃』</color>または<color=#FFFFFF>『クイック支援』</color>が敵に命中すると、自身の与ダメージ+<color=#2BAD00>60%</color>、継続時間6秒。",
+     "チームに自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n任意のメンバーが敵に<color=#F0D12B>「強撃」</color>効果を付与した後、猫又が次に<color=#FFFFFF>『強化特殊スキル』</color>を発動した時に、スキルの与ダメージ+35%、最大2重まで重ね掛け可能。"
+    ],
+    "extra_property": {},
+    "potential": [
+     0
+    ]
+   },
+   "1021508": {
+    "level": 1,
+    "id": 1021508,
+    "name": [
+     "コアパッシブ：猫の忍び足",
+     "追加能力：キャットウォーク・ショー"
+    ],
+    "desc": [
+     "猫又の<color=#FFFFFF>『回避反撃』</color>または<color=#FFFFFF>『クイック支援』</color>が敵に命中した時、自身の与ダメージ+<color=#2BAD00>30%</color>、継続時間40秒、重複して発動すると継続時間が更新される。\nフィールド入場時、猫又は40Ptの<Term:1000024>「ゴロゴロパワー」</Term>を獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。\n接敵状態中、猫又は1秒ごとに1Ptの「ゴロゴロパワー」を獲得する。「ゴロゴロパワー」は最大60Ptまで蓄積できる。また、猫又の各種スキルを敵に命中させると、異なる量の「ゴロゴロパワー」を回復できる。\n猫又が40Pt以上の「ゴロゴロパワー」を所持している時、<color=#FFFFFF>『極限回避』</color>発動後に <IconMap:Icon_Evade> を押すと、30Ptの「ゴロゴロパワー」を消費して『回避：しっぽないないの術』を発動できる。その後に <IconMap:Icon_Normal> を押すと、「ゴロゴロパワー」を消費しない『回避反撃：フラッフィークロー』を1回発動できる。\n猫又が「ゴロゴロパワー」を40Pt所持している時、 <IconMap:Icon_Normal> を長押しすると、「ゴロゴロパワー」を40Pt消費して『回避反撃：フラッフィークロー』を発動できる。\n猫又が『回避反撃：フラッフィークロー』を発動すると、<Term:1000025>「肉球ラッシュ」</Term>状態に入る。この状態は40秒継続し、重複して発動すると継続時間が更新される。「肉球ラッシュ」状態中、猫又自身の攻撃が命中した際、すべて背後から命中したものとみなされる。\n「肉球ラッシュ」状態中、猫又自身の攻撃が命中した時、「めちゃワル引っ掻き」効果が発動し、猫又の攻撃力30%分の<color=#F0D12B>物理属性ダメージ</color>を1回与える。この効果は1秒に1回のみ発動可能。\n猫又が『終結スキル』を発動すると追加で20Pt、『連携スキル』を発動すると追加で10Pt、『強化特殊スキル』を発動すると追加で5Ptの「ゴロゴロパワー」を回復する。",
+     "チームに[支援]のメンバー、自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n猫又が<color=#FFFFFF>『回避：しっぽないないの術』</color>を発動、または任意のメンバーが敵に<color=#F0D12B>「強撃」</color>を付与した後、猫又の<color=#FFFFFF>『強化特殊スキル』</color>または<color=#FFFFFF>『回避反撃』</color>が命中した際の与ダメージ+35%。この効果は最大2重まで重ね掛け可能、継続時間は30秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {},
+    "potential": [
+     102100,
+     102101,
+     102102,
+     102103,
+     102104,
+     102105
+    ]
+   },
+   "1021509": {
+    "level": 2,
+    "id": 1021509,
+    "name": [
+     "コアパッシブ：猫の忍び足",
+     "追加能力：キャットウォーク・ショー"
+    ],
+    "desc": [
+     "猫又の<color=#FFFFFF>『回避反撃』</color>または<color=#FFFFFF>『クイック支援』</color>が敵に命中した時、自身の与ダメージ+<color=#2BAD00>35%</color>、継続時間40秒、重複して発動すると継続時間が更新される。\nフィールド入場時、猫又は40Ptの<Term:1000024>「ゴロゴロパワー」</Term>を獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。\n接敵状態中、猫又は1秒ごとに1Ptの「ゴロゴロパワー」を獲得する。「ゴロゴロパワー」は最大60Ptまで蓄積できる。また、猫又の各種スキルを敵に命中させると、異なる量の「ゴロゴロパワー」を回復できる。\n猫又が40Pt以上の「ゴロゴロパワー」を所持している時、<color=#FFFFFF>『極限回避』</color>発動後に <IconMap:Icon_Evade> を押すと、30Ptの「ゴロゴロパワー」を消費して『回避：しっぽないないの術』を発動できる。その後に <IconMap:Icon_Normal> を押すと、「ゴロゴロパワー」を消費しない『回避反撃：フラッフィークロー』を1回発動できる。\n猫又が「ゴロゴロパワー」を40Pt所持している時、 <IconMap:Icon_Normal> を長押しすると、「ゴロゴロパワー」を40Pt消費して『回避反撃：フラッフィークロー』を発動できる。\n猫又が『回避反撃：フラッフィークロー』を発動すると、<Term:1000025>「肉球ラッシュ」</Term>状態に入る。この状態は40秒継続し、重複して発動すると継続時間が更新される。「肉球ラッシュ」状態中、猫又自身の攻撃が命中した際、すべて背後から命中したものとみなされる。\n「肉球ラッシュ」状態中、猫又自身の攻撃が命中した時、「めちゃワル引っ掻き」効果が発動し、猫又の攻撃力30%分の<color=#F0D12B>物理属性ダメージ</color>を1回与える。この効果は1秒に1回のみ発動可能。\n猫又が『終結スキル』を発動すると追加で20Pt、『連携スキル』を発動すると追加で10Pt、『強化特殊スキル』を発動すると追加で5Ptの「ゴロゴロパワー」を回復する。",
+     "チームに[支援]のメンバー、自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n猫又が<color=#FFFFFF>『回避：しっぽないないの術』</color>を発動、または任意のメンバーが敵に<color=#F0D12B>「強撃」</color>を付与した後、猫又の<color=#FFFFFF>『強化特殊スキル』</color>または<color=#FFFFFF>『回避反撃』</color>が命中した際の与ダメージ+35%。この効果は最大2重まで重ね掛け可能、継続時間は30秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {},
+    "potential": [
+     102100,
+     102101,
+     102102,
+     102103,
+     102104,
+     102105
+    ]
+   },
+   "1021510": {
+    "level": 3,
+    "id": 1021510,
+    "name": [
+     "コアパッシブ：猫の忍び足",
+     "追加能力：キャットウォーク・ショー"
+    ],
+    "desc": [
+     "猫又の<color=#FFFFFF>『回避反撃』</color>または<color=#FFFFFF>『クイック支援』</color>が敵に命中した時、自身の与ダメージ+<color=#2BAD00>40%</color>、継続時間40秒、重複して発動すると継続時間が更新される。\nフィールド入場時、猫又は40Ptの<Term:1000024>「ゴロゴロパワー」</Term>を獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。\n接敵状態中、猫又は1秒ごとに1Ptの「ゴロゴロパワー」を獲得する。「ゴロゴロパワー」は最大60Ptまで蓄積できる。また、猫又の各種スキルを敵に命中させると、異なる量の「ゴロゴロパワー」を回復できる。\n猫又が40Pt以上の「ゴロゴロパワー」を所持している時、<color=#FFFFFF>『極限回避』</color>発動後に <IconMap:Icon_Evade> を押すと、30Ptの「ゴロゴロパワー」を消費して『回避：しっぽないないの術』を発動できる。その後に <IconMap:Icon_Normal> を押すと、「ゴロゴロパワー」を消費しない『回避反撃：フラッフィークロー』を1回発動できる。\n猫又が「ゴロゴロパワー」を40Pt所持している時、 <IconMap:Icon_Normal> を長押しすると、「ゴロゴロパワー」を40Pt消費して『回避反撃：フラッフィークロー』を発動できる。\n猫又が『回避反撃：フラッフィークロー』を発動すると、<Term:1000025>「肉球ラッシュ」</Term>状態に入る。この状態は40秒継続し、重複して発動すると継続時間が更新される。「肉球ラッシュ」状態中、猫又自身の攻撃が命中した際、すべて背後から命中したものとみなされる。\n「肉球ラッシュ」状態中、猫又自身の攻撃が命中した時、「めちゃワル引っ掻き」効果が発動し、猫又の攻撃力30%分の<color=#F0D12B>物理属性ダメージ</color>を1回与える。この効果は1秒に1回のみ発動可能。\n猫又が『終結スキル』を発動すると追加で20Pt、『連携スキル』を発動すると追加で10Pt、『強化特殊スキル』を発動すると追加で5Ptの「ゴロゴロパワー」を回復する。",
+     "チームに[支援]のメンバー、自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n猫又が<color=#FFFFFF>『回避：しっぽないないの術』</color>を発動、または任意のメンバーが敵に<color=#F0D12B>「強撃」</color>を付与した後、猫又の<color=#FFFFFF>『強化特殊スキル』</color>または<color=#FFFFFF>『回避反撃』</color>が命中した際の与ダメージ+35%。この効果は最大2重まで重ね掛け可能、継続時間は30秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {},
+    "potential": [
+     102100,
+     102101,
+     102102,
+     102103,
+     102104,
+     102105
+    ]
+   },
+   "1021511": {
+    "level": 4,
+    "id": 1021511,
+    "name": [
+     "コアパッシブ：猫の忍び足",
+     "追加能力：キャットウォーク・ショー"
+    ],
+    "desc": [
+     "猫又の<color=#FFFFFF>『回避反撃』</color>または<color=#FFFFFF>『クイック支援』</color>が敵に命中した時、自身の与ダメージ+<color=#2BAD00>45%</color>、継続時間40秒、重複して発動すると継続時間が更新される。\nフィールド入場時、猫又は40Ptの<Term:1000024>「ゴロゴロパワー」</Term>を獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。\n接敵状態中、猫又は1秒ごとに1Ptの「ゴロゴロパワー」を獲得する。「ゴロゴロパワー」は最大60Ptまで蓄積できる。また、猫又の各種スキルを敵に命中させると、異なる量の「ゴロゴロパワー」を回復できる。\n猫又が40Pt以上の「ゴロゴロパワー」を所持している時、<color=#FFFFFF>『極限回避』</color>発動後に <IconMap:Icon_Evade> を押すと、30Ptの「ゴロゴロパワー」を消費して『回避：しっぽないないの術』を発動できる。その後に <IconMap:Icon_Normal> を押すと、「ゴロゴロパワー」を消費しない『回避反撃：フラッフィークロー』を1回発動できる。\n猫又が「ゴロゴロパワー」を40Pt所持している時、 <IconMap:Icon_Normal> を長押しすると、「ゴロゴロパワー」を40Pt消費して『回避反撃：フラッフィークロー』を発動できる。\n猫又が『回避反撃：フラッフィークロー』を発動すると、<Term:1000025>「肉球ラッシュ」</Term>状態に入る。この状態は40秒継続し、重複して発動すると継続時間が更新される。「肉球ラッシュ」状態中、猫又自身の攻撃が命中した際、すべて背後から命中したものとみなされる。\n「肉球ラッシュ」状態中、猫又自身の攻撃が命中した時、「めちゃワル引っ掻き」効果が発動し、猫又の攻撃力30%分の<color=#F0D12B>物理属性ダメージ</color>を1回与える。この効果は1秒に1回のみ発動可能。\n猫又が『終結スキル』を発動すると追加で20Pt、『連携スキル』を発動すると追加で10Pt、『強化特殊スキル』を発動すると追加で5Ptの「ゴロゴロパワー」を回復する。",
+     "チームに[支援]のメンバー、自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n猫又が<color=#FFFFFF>『回避：しっぽないないの術』</color>を発動、または任意のメンバーが敵に<color=#F0D12B>「強撃」</color>を付与した後、猫又の<color=#FFFFFF>『強化特殊スキル』</color>または<color=#FFFFFF>『回避反撃』</color>が命中した際の与ダメージ+35%。この効果は最大2重まで重ね掛け可能、継続時間は30秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {},
+    "potential": [
+     102100,
+     102101,
+     102102,
+     102103,
+     102104,
+     102105
+    ]
+   },
+   "1021512": {
+    "level": 5,
+    "id": 1021512,
+    "name": [
+     "コアパッシブ：猫の忍び足",
+     "追加能力：キャットウォーク・ショー"
+    ],
+    "desc": [
+     "猫又の<color=#FFFFFF>『回避反撃』</color>または<color=#FFFFFF>『クイック支援』</color>が敵に命中した時、自身の与ダメージ+<color=#2BAD00>50%</color>、継続時間40秒、重複して発動すると継続時間が更新される。\nフィールド入場時、猫又は40Ptの<Term:1000024>「ゴロゴロパワー」</Term>を獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。\n接敵状態中、猫又は1秒ごとに1Ptの「ゴロゴロパワー」を獲得する。「ゴロゴロパワー」は最大60Ptまで蓄積できる。また、猫又の各種スキルを敵に命中させると、異なる量の「ゴロゴロパワー」を回復できる。\n猫又が40Pt以上の「ゴロゴロパワー」を所持している時、<color=#FFFFFF>『極限回避』</color>発動後に <IconMap:Icon_Evade> を押すと、30Ptの「ゴロゴロパワー」を消費して『回避：しっぽないないの術』を発動できる。その後に <IconMap:Icon_Normal> を押すと、「ゴロゴロパワー」を消費しない『回避反撃：フラッフィークロー』を1回発動できる。\n猫又が「ゴロゴロパワー」を40Pt所持している時、 <IconMap:Icon_Normal> を長押しすると、「ゴロゴロパワー」を40Pt消費して『回避反撃：フラッフィークロー』を発動できる。\n猫又が『回避反撃：フラッフィークロー』を発動すると、<Term:1000025>「肉球ラッシュ」</Term>状態に入る。この状態は40秒継続し、重複して発動すると継続時間が更新される。「肉球ラッシュ」状態中、猫又自身の攻撃が命中した際、すべて背後から命中したものとみなされる。\n「肉球ラッシュ」状態中、猫又自身の攻撃が命中した時、「めちゃワル引っ掻き」効果が発動し、猫又の攻撃力30%分の<color=#F0D12B>物理属性ダメージ</color>を1回与える。この効果は1秒に1回のみ発動可能。\n猫又が『終結スキル』を発動すると追加で20Pt、『連携スキル』を発動すると追加で10Pt、『強化特殊スキル』を発動すると追加で5Ptの「ゴロゴロパワー」を回復する。",
+     "チームに[支援]のメンバー、自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n猫又が<color=#FFFFFF>『回避：しっぽないないの術』</color>を発動、または任意のメンバーが敵に<color=#F0D12B>「強撃」</color>を付与した後、猫又の<color=#FFFFFF>『強化特殊スキル』</color>または<color=#FFFFFF>『回避反撃』</color>が命中した際の与ダメージ+35%。この効果は最大2重まで重ね掛け可能、継続時間は30秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {},
+    "potential": [
+     102100,
+     102101,
+     102102,
+     102103,
+     102104,
+     102105
+    ]
+   },
+   "1021513": {
+    "level": 6,
+    "id": 1021513,
+    "name": [
+     "コアパッシブ：猫の忍び足",
+     "追加能力：キャットウォーク・ショー"
+    ],
+    "desc": [
+     "猫又の<color=#FFFFFF>『回避反撃』</color>または<color=#FFFFFF>『クイック支援』</color>が敵に命中した時、自身の与ダメージ+<color=#2BAD00>55%</color>、継続時間40秒、重複して発動すると継続時間が更新される。\nフィールド入場時、猫又は40Ptの<Term:1000024>「ゴロゴロパワー」</Term>を獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。\n接敵状態中、猫又は1秒ごとに1Ptの「ゴロゴロパワー」を獲得する。「ゴロゴロパワー」は最大60Ptまで蓄積できる。また、猫又の各種スキルを敵に命中させると、異なる量の「ゴロゴロパワー」を回復できる。\n猫又が40Pt以上の「ゴロゴロパワー」を所持している時、<color=#FFFFFF>『極限回避』</color>発動後に <IconMap:Icon_Evade> を押すと、30Ptの「ゴロゴロパワー」を消費して『回避：しっぽないないの術』を発動できる。その後に <IconMap:Icon_Normal> を押すと、「ゴロゴロパワー」を消費しない『回避反撃：フラッフィークロー』を1回発動できる。\n猫又が「ゴロゴロパワー」を40Pt所持している時、 <IconMap:Icon_Normal> を長押しすると、「ゴロゴロパワー」を40Pt消費して『回避反撃：フラッフィークロー』を発動できる。\n猫又が『回避反撃：フラッフィークロー』を発動すると、<Term:1000025>「肉球ラッシュ」</Term>状態に入る。この状態は40秒継続し、重複して発動すると継続時間が更新される。「肉球ラッシュ」状態中、猫又自身の攻撃が命中した際、すべて背後から命中したものとみなされる。\n「肉球ラッシュ」状態中、猫又自身の攻撃が命中した時、「めちゃワル引っ掻き」効果が発動し、猫又の攻撃力30%分の<color=#F0D12B>物理属性ダメージ</color>を1回与える。この効果は1秒に1回のみ発動可能。\n猫又が『終結スキル』を発動すると追加で20Pt、『連携スキル』を発動すると追加で10Pt、『強化特殊スキル』を発動すると追加で5Ptの「ゴロゴロパワー」を回復する。",
+     "チームに[支援]のメンバー、自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n猫又が<color=#FFFFFF>『回避：しっぽないないの術』</color>を発動、または任意のメンバーが敵に<color=#F0D12B>「強撃」</color>を付与した後、猫又の<color=#FFFFFF>『強化特殊スキル』</color>または<color=#FFFFFF>『回避反撃』</color>が命中した際の与ダメージ+35%。この効果は最大2重まで重ね掛け可能、継続時間は30秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {},
+    "potential": [
+     102100,
+     102101,
+     102102,
+     102103,
+     102104,
+     102105
+    ]
+   },
+   "1021514": {
+    "level": 7,
+    "id": 1021514,
+    "name": [
+     "コアパッシブ：猫の忍び足",
+     "追加能力：キャットウォーク・ショー"
+    ],
+    "desc": [
+     "猫又の<color=#FFFFFF>『回避反撃』</color>または<color=#FFFFFF>『クイック支援』</color>が敵に命中した時、自身の与ダメージ+<color=#2BAD00>60%</color>、継続時間40秒、重複して発動すると継続時間が更新される。\nフィールド入場時、猫又は40Ptの<Term:1000024>「ゴロゴロパワー」</Term>を獲得する。探査モードにおいて、この効果は180秒に1回のみ発動可能。\n接敵状態中、猫又は1秒ごとに1Ptの「ゴロゴロパワー」を獲得する。「ゴロゴロパワー」は最大60Ptまで蓄積できる。また、猫又の各種スキルを敵に命中させると、異なる量の「ゴロゴロパワー」を回復できる。\n猫又が40Pt以上の「ゴロゴロパワー」を所持している時、<color=#FFFFFF>『極限回避』</color>発動後に <IconMap:Icon_Evade> を押すと、30Ptの「ゴロゴロパワー」を消費して『回避：しっぽないないの術』を発動できる。その後に <IconMap:Icon_Normal> を押すと、「ゴロゴロパワー」を消費しない『回避反撃：フラッフィークロー』を1回発動できる。\n猫又が「ゴロゴロパワー」を40Pt所持している時、 <IconMap:Icon_Normal> を長押しすると、「ゴロゴロパワー」を40Pt消費して『回避反撃：フラッフィークロー』を発動できる。\n猫又が『回避反撃：フラッフィークロー』を発動すると、<Term:1000025>「肉球ラッシュ」</Term>状態に入る。この状態は40秒継続し、重複して発動すると継続時間が更新される。「肉球ラッシュ」状態中、猫又自身の攻撃が命中した際、すべて背後から命中したものとみなされる。\n「肉球ラッシュ」状態中、猫又自身の攻撃が命中した時、「めちゃワル引っ掻き」効果が発動し、猫又の攻撃力30%分の<color=#F0D12B>物理属性ダメージ</color>を1回与える。この効果は1秒に1回のみ発動可能。\n猫又が『終結スキル』を発動すると追加で20Pt、『連携スキル』を発動すると追加で10Pt、『強化特殊スキル』を発動すると追加で5Ptの「ゴロゴロパワー」を回復する。",
+     "チームに[支援]のメンバー、自身と同じ属性または同じ陣営のメンバーがいる時に発動：\n猫又が<color=#FFFFFF>『回避：しっぽないないの術』</color>を発動、または任意のメンバーが敵に<color=#F0D12B>「強撃」</color>を付与した後、猫又の<color=#FFFFFF>『強化特殊スキル』</color>または<color=#FFFFFF>『回避反撃』</color>が命中した際の与ダメージ+35%。この効果は最大2重まで重ね掛け可能、継続時間は30秒、重複して発動すると継続時間が更新される。"
+    ],
+    "extra_property": {},
+    "potential": [
+     102100,
+     102101,
+     102102,
+     102103,
+     102104,
+     102105
+    ]
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110502": 2
+   },
+   "3": {
+    "10": 28000,
+    "110502": 4
+   },
+   "4": {
+    "10": 60000,
+    "110001": 2,
+    "110502": 9
+   },
+   "5": {
+    "10": 100000,
+    "110001": 3,
+    "110502": 15
+   },
+   "6": {
+    "10": 200000,
+    "110001": 4,
+    "110502": 30
+   }
+  }
+ },
+ "skin": {
+  "3110210": {
+   "name": "猫又・「猫は恩を忘れない」",
+   "desc": "迷子の猫に行くあてなんてないのに、ここにはいたくないと自ら去っていった。\n広い新エリー都をさまよい、その薄着では雨風を凌ぐことすらままならない——ある何でも屋に拾われる、その時まで。",
+   "obtain_desc": "",
+   "image": "IconRole11"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1021001": {
+   "name": "通常攻撃：猫の引っ掻き",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1021002": {
+   "name": "通常攻撃：赤き刃",
+   "desc": "<IconMap:Icon_Normal>（長押し）",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1021003": {
+   "name": "特殊スキル：奇襲",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1021004": {
+   "name": "強化特殊スキル：めちゃコワ奇襲！",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1021005": {
+   "name": "ダッシュ攻撃：どこを見てるの？",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1021006": {
+   "name": "回避反撃：ファントムクロー",
+   "desc": "<IconMap:Icon_Evade>（極限回避成功） ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1021007": {
+   "name": "連携スキル：クロースワイプ",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1021008": {
+   "name": "終結スキル：クロースマッシュ",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1021009": {
+   "name": "クイック支援：猫の手貸すぞ☆",
+   "desc": "<IconMap:Icon_Switch>（クイック支援の発動条件を満たした時）",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1021010": {
+   "name": "パリィ支援：抗ストレス反応",
+   "desc": "<IconMap:Icon_Switch>（パリィ支援の発動条件を満たした時）",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1021011": {
+   "name": "支援突撃：迅影",
+   "desc": "<IconMap:Icon_Normal>（パリィ支援を発動した後に）",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1021012": {
+   "name": "回避：しっぽないないの術",
+   "desc": "<IconMap:Icon_Evade>（極限回避成功） ; <IconMap:Icon_Evade>",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": [
+    102100,
+    102101,
+    102102,
+    102103,
+    102104,
+    102105
+   ]
+  },
+  "1021013": {
+   "name": "回避反撃：フラッフィークロー",
+   "desc": "<IconMap:Icon_Normal> （『回避：しっぽないないの術』発動後）または <IconMap:Icon_Normal> （「ゴロゴロパワー」が十分な時に長押し）",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": [
+    102100,
+    102101,
+    102102,
+    102103,
+    102104,
+    102105
+   ]
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1021001,
+   "avatar_id": 1021,
+   "first_priority": [
+    5,
+    1,
+    0
+   ],
+   "second_priority": [
+    3,
+    2
+   ],
+   "third_priority": [
+    6
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 31000,
+  "slot2": 32600,
+  "slot_sub": 31100,
+  "part_sub_list": [
+   20103,
+   21103,
+   12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     32600,
+     31000
+    ],
+    "part_sub_list": [
+     21103,
+     20103
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     31503,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "会心率",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 31503,
+   "name": "物理属性ダメージボーナス",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconPhysDmg.png"
+  },
+  "part6": {
+   "prop": 21103,
+   "name": "会心ダメージ",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "攻撃力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_PhysDmg>物理属性、表アタッカー",
+  "『回避反撃』発動で自身の火力アップ",
+  "素早く動ける高機動性"
+ ],
+ "potential": [
+  102100,
+  102101,
+  102102,
+  102103,
+  102104,
+  102105
+ ],
+ "potential_detail": {
+  "102100": {
+   "id": 102100,
+   "name": "",
+   "desc": "",
+   "image": "Nekomiya",
+   "level_show_name": "猫の恩返し I",
+   "level": 1,
+   "ability_list": [
+    11021401,
+    11021601,
+    11021701
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20102,
+     "number": 1
+    }
+   ]
+  },
+  "102101": {
+   "id": 102101,
+   "name": "ポテンシャル覚醒：夜行性",
+   "desc": "猫又が「肉球ラッシュ」状態にある時、会心ダメージ+<color=#2BAD00>20%</color>。",
+   "image": "Nekomiya",
+   "level_show_name": "猫の恩返し II",
+   "level": 2,
+   "ability_list": [
+    11021401,
+    11021501,
+    11021601,
+    11021701
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20102,
+     "number": 1
+    }
+   ]
+  },
+  "102102": {
+   "id": 102102,
+   "name": "ポテンシャル覚醒：夜行性",
+   "desc": "猫又が「肉球ラッシュ」状態にある時、会心ダメージ+<color=#2BAD00>30%</color>。",
+   "image": "Nekomiya",
+   "level_show_name": "猫の恩返し III",
+   "level": 3,
+   "ability_list": [
+    11021401,
+    11021502,
+    11021601,
+    11021701
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20102,
+     "number": 1
+    }
+   ]
+  },
+  "102103": {
+   "id": 102103,
+   "name": "ポテンシャル覚醒：夜行性",
+   "desc": "猫又が「肉球ラッシュ」状態にある時、会心ダメージ+<color=#2BAD00>40%</color>。",
+   "image": "Nekomiya",
+   "level_show_name": "猫の恩返し IV",
+   "level": 4,
+   "ability_list": [
+    11021401,
+    11021503,
+    11021601,
+    11021701
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20102,
+     "number": 1
+    }
+   ]
+  },
+  "102104": {
+   "id": 102104,
+   "name": "ポテンシャル覚醒：夜行性",
+   "desc": "猫又が「肉球ラッシュ」状態にある時、会心ダメージ+<color=#2BAD00>50%</color>。",
+   "image": "Nekomiya",
+   "level_show_name": "猫の恩返し V",
+   "level": 5,
+   "ability_list": [
+    11021401,
+    11021504,
+    11021601,
+    11021701
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20102,
+     "number": 1
+    }
+   ]
+  },
+  "102105": {
+   "id": 102105,
+   "name": "ポテンシャル覚醒：夜行性",
+   "desc": "猫又が「肉球ラッシュ」状態にある時、会心ダメージ+<color=#2BAD00>60%</color>。",
+   "image": "Nekomiya",
+   "level_show_name": "猫の恩返し VI",
+   "level": 6,
+   "ability_list": [
+    11021401,
+    11021505,
+    11021601,
+    11021701
+   ],
+   "potential_materials": [
+    {
+     "item_id": 20102,
+     "number": 1
+    }
+   ]
+  }
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100211": 4
+   }
+  },
+  "2": {
+   "hp_max": 417,
+   "attack": 47,
+   "defence": 32,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100221": 12
+   }
+  },
+  "3": {
+   "hp_max": 834,
+   "attack": 94,
+   "defence": 65,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100221": 20
+   }
+  },
+  "4": {
+   "hp_max": 1251,
+   "attack": 140,
+   "defence": 97,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100231": 10
+   }
+  },
+  "5": {
+   "hp_max": 1668,
+   "attack": 187,
+   "defence": 130,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100231": 20
+   }
+  },
+  "6": {
+   "hp_max": 2086,
+   "attack": 234,
+   "defence": 162,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 480
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "20101": {
+     "prop": 20101,
+     "name": "会心率",
+     "format": "{0:0.#%}",
+     "value": 1440
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": ""
+}

@@ -10,14 +10,20 @@
 import { computed, nextTick, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { CATALOG } from '@/domain/catalog'
+import { pickText } from '@/domain/lang'
+import { fmt } from '@/domain/uiText'
 import { highlightSegments } from '@/domain/search'
 import { useQuickSearch, useQuickSearchResults, useRecentItems } from '@/composables/useQuickSearch'
+import { useUiText } from '@/composables/useUiText'
+import { useLocale } from '@/composables/useLocale'
 import HollowImage from '@/components/HollowImage.vue'
 
 const router = useRouter()
 const { phase, query, close } = useQuickSearch()
 const { results, overflow } = useQuickSearchResults()
 const recent = useRecentItems()
+const { t } = useUiText()
+const { lang } = useLocale()
 
 const active = ref(0)
 const listEl = ref<HTMLElement | null>(null)
@@ -49,7 +55,7 @@ const groups = computed(() => {
   }
   return CATALOG.filter((c) => byCat.has(c.path)).map((c) => ({
     no: c.no,
-    label: c.label,
+    label: pickText(c.label, lang.value),
     en: c.en,
     items: byCat.get(c.path)!,
   }))
@@ -65,11 +71,11 @@ const groups = computed(() => {
  *    大小写 / 全角无关 ✓（ANBY、ＡＮＢＹ 同）
  *    ✗ 阵营名（狡兔屋 0 条）、职业名（强攻 0 条）、类目名（代理人 0 条）——
  *      `domain/search.ts` 头部注释曾称索引含阵营名，与实现不符（已就地订正），故此处不列。 */
-const scopeRows = [
-  { k: '名称', v: '档案名，含外文原名' },
-  { k: '编号', v: '如 1011、14162' },
-  { k: '多词', v: '空格分隔，需全部命中' },
-]
+const scopeRows = computed(() => [
+  { k: t.value.search.fieldName, v: t.value.search.fieldNameHint },
+  { k: t.value.search.fieldNo, v: t.value.search.fieldNoHint },
+  { k: t.value.search.fieldMulti, v: t.value.search.fieldMultiHint },
+])
 
 /** 「检索范围」是否显示：只在与「最近访问」二者必居其一时——面板空查询下总有一块内容，
  *  不再出现「只有一行提示语」的空面板。 */
@@ -206,7 +212,7 @@ function onKeydown(e: KeyboardEvent): void {
         class="qs-panel"
         role="dialog"
         aria-modal="true"
-        aria-label="快速检索"
+        :aria-label="t.search.quickSearch"
         aria-controls="quick-search-listbox"
       >
         <div class="qs-bar">
@@ -216,23 +222,23 @@ function onKeydown(e: KeyboardEvent): void {
             v-model="query"
             type="text"
             class="qs-input"
-            placeholder="检索代理人 / 音擎 / 邦布 / 驱动盘…"
-            aria-label="检索档案"
+            :placeholder="t.search.placeholder"
+            :aria-label="t.search.title"
             autocomplete="off"
             spellcheck="false"
             @keydown="onKeydown"
           />
           <button type="button" class="qs-esc mono" @click="close()">
-        ESC<span class="sr-only">，关闭检索</span>
+        ESC<span class="sr-only">{{ t.search.closeSr }}</span>
       </button>
         </div>
 
         <!-- 命中规模实时提示（aria-live 让辅助技术感知结果集变化） -->
         <p v-if="!loading && query.trim() && results.length" class="qs-count mono" aria-live="polite">
-          {{ results.length }} 条档案
+          {{ fmt(t.search.resultCount, { n: results.length }) }}
         </p>
 
-        <div v-if="loading" class="qs-state mono" role="status">索引构建中…</div>
+        <div v-if="loading" class="qs-state mono" role="status">{{ t.search.indexing }}</div>
 
         <!-- role=listbox 只在**确有 option 子项**时挂：空态下 listbox 没有合法子项，
              会触发 axe aria-required-children（critical）。空态文案改为 role=status 播报。 -->
@@ -242,7 +248,7 @@ function onKeydown(e: KeyboardEvent): void {
           ref="listEl"
           class="qs-list"
           :role="flat.length ? 'listbox' : undefined"
-          :aria-label="flat.length ? '检索结果' : undefined"
+          :aria-label="flat.length ? t.search.results : undefined"
         >
           <template v-if="flat.length">
             <div v-for="g in groups" :key="g.en" class="qs-group">
@@ -282,7 +288,7 @@ function onKeydown(e: KeyboardEvent): void {
             <div v-if="recent.length" class="qs-group">
               <p class="qs-group-head mono">
                 <span class="g-no">↺</span>
-                <span class="g-label">最近访问</span>
+                <span class="g-label">{{ t.search.recent }}</span>
                 <span class="g-en">RECENT</span>
               </p>
               <button
@@ -301,7 +307,7 @@ function onKeydown(e: KeyboardEvent): void {
               </button>
             </div>
             <p class="qs-state qs-state-quiet mono" :class="{ 'qs-state-left': scopeShown }">
-              输入关键词检索全部档案
+              {{ t.search.emptyHint }}
             </p>
             <!-- 无「最近访问」时（新访客 / 清过缓存的回访）补一份「检索范围」：
                  面板空查询下总有一块内容，不再出现只挂一行字的空面板。
@@ -311,7 +317,7 @@ function onKeydown(e: KeyboardEvent): void {
             <div v-if="scopeShown" class="qs-group">
               <p class="qs-group-head mono">
                 <span class="g-no">⌕</span>
-                <span class="g-label">检索范围</span>
+                <span class="g-label">{{ t.search.scope }}</span>
                 <span class="g-en">SCOPE</span>
               </p>
               <dl class="qs-scope">
@@ -322,24 +328,24 @@ function onKeydown(e: KeyboardEvent): void {
               </dl>
             </div>
           </template>
-          <p v-else-if="!query" class="qs-state mono">输入关键词检索全部档案</p>
-          <p v-else class="qs-state mono" role="status">无匹配档案 — 调整关键词再试</p>
+          <p v-else-if="!query" class="qs-state mono">{{ t.search.emptyHint }}</p>
+          <p v-else class="qs-state mono" role="status">{{ t.search.empty }}</p>
         </div>
 
         <p class="qs-foot mono" aria-hidden="true">
           <!-- 截断提示只在**结果态**出现：空查询时 overflow 按「全部条目」算出 171 条，
                但空态一行结果都没列，提示会变成「共 231 条命中，仅列前 60」而无处对照 -->
           <template v-if="query.trim() && overflow > 0">
-            <span class="foot-overflow">共 {{ overflow + results.length }} 条命中，仅列前 {{ results.length }} — 精确关键词</span>
+            <span class="foot-overflow">{{ fmt(t.search.overflow, { a: overflow + results.length, b: results.length }) }}</span>
             <span class="sep" aria-hidden="true">·</span>
           </template>
           <!-- 移动/直达提示只在**确有可移动项**时给：空态无最近访问时没有任何一行，
                承诺 ↑↓·ENTER 是空头支票（ESC 仍然有效，故它常驻） -->
           <template v-if="movable > 0">
-            <span>↑↓ 移动</span><span class="sep" aria-hidden="true">·</span>
-            <span>ENTER 直达</span><span class="sep" aria-hidden="true">·</span>
+            <span>{{ t.search.move }}</span><span class="sep" aria-hidden="true">·</span>
+            <span>{{ t.search.enter }}</span><span class="sep" aria-hidden="true">·</span>
           </template>
-          <span>ESC 关闭</span>
+          <span>{{ t.search.esc }}</span>
         </p>
       </div>
     </div>

@@ -1,0 +1,2141 @@
+{
+ "id": 1461,
+ "icon": "IconRole48",
+ "name": "「시드」",
+ "code_name": "Seed",
+ "rarity": 4,
+ "weapon_type": {
+  "1": "Attack"
+ },
+ "element_type": {
+  "203": "Electric"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "5": "뉴에리두 방위군"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "11/22",
+  "full_name": "「시드」",
+  "gender": "여성",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle48.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0048.png",
+  "impression_f": "「시드」는 게임을 잘하고, 좋아하는 음악 장르도 나랑 비슷하고, 운동도 별로 안 좋아하고, 조종석이 자기 방이나 다름없어서… 정말 「동족」 같은 느낌이 들어. 그리고 또 하나 같은 점은, 우리 둘 다 자신이 귀엽다는 걸 알고 있다는 거야~",
+  "impression_m": "대부분의 경우에는 「시드」의 엉뚱한 생각을 어떻게든 따라갈 수 있지만, 방심하면 안 되는 게… 지난번에는 킥보드가 고장 났다고 해서 내가 고쳐준다고 했더니, 하루 종일 나보고 대신 업고 다니라고 하더라고! 내가 「시드」보다 달리기가 빨라서 다행이었어…",
+  "impressions": [
+   "「시드」에 대한 인상:\n · 꽃을 사랑하고, 「Bangboo」와 친밀하며, 곤경을 해결하는 천사이자, 꽃을 먹고, 「Bangboo」를 가지고 놀며, 사고를 치는 악마다",
+   " · 조종석에 웅크린 작은 기계 천재이자, 전장에서 포효하는 거대한 메카의 계승자다",
+   " · 심장의 고동이 담긴 씨앗이자, 사랑으로 가득 찬 새로운 꽃이다"
+  ],
+  "profile_desc": "「시드」, 뉴에리두 방위군 흑요석 부대 오볼로스 소대의 포수로, 본명은 플로라이다. 「시드」라는 코드네임은, 현재는 「빅 시드」라 불리는 그녀의 보호자이자 방위군의 전투용 스마트 구조체 「시드」로부터 이어받았다.\n\n여러 증언에 따르면 「시드」는 「빅 시드」가 옛 도시 함락 당시 제로 공동에서 구출한 신원을 알 수 없는 고아로, 「빅 시드」는 그녀를 입양한 후 방위군 기숙사에서 홀로 키워냈다. \n\n수년 전, 「빅 시드」는 오볼로스 소대 편입을 신청해 소대에 합류했는데, 이후 얼마지 않아 로직 코어의 불가역적 손상으로 인해 사망했고, 그렇게 「시드」는 그를 대신해 오볼로스 소대의 구성원이 되었다. 현재 우리가 들을 수 있는 「빅 시드」의 목소리는 구조체에 사전 다운로드되어 내재된 시스템 음성이다.\n\n기계 개조와 연구 방면에서 「시드」는 일반인을 한참 뛰어넘는 재능을 보유하고 있으며, 일반인은 상상할 수 없는 발명품을 설계하고 제작할 수 있다. 또한, 「시드」는 매우 높은 에테르 적성을 보유하고 있고, 조종, 원거리 조작, 전투 모듈 추가 등의 방식으로 「빅 시드」의 전투력을 극한까지 끌어올릴 수 있다. \n\n이로 인해 체력 훈련에서의 심각한 기준 미달과 신원 불명이라는 리스크에도 불구하고 군은 「시드」가 정예 군인으로 복무할 수 있도록 묵인하고 있다.\n\n일상에서의 「시드」는 평범한 사람들과는 다른 행동 패턴을 보이는데, 그녀는 「빅 시드」의 조종석을 고정된 휴식 공간으로 삼고 있으며, 좁은 곳에 비집고 들어가는 것을 좋아하고, 동료가 아닌 사람과 소통하는 것을 극도로 꺼린다. 게다가 말과 행동이 보통의 사고 패턴을 훌쩍 뛰어넘는 경우가 많아 소통이 매우 어려운 편에 속한다.\n\n마스터, 이유는 모르겠지만 다행히도 「시드」는 마스터와 조수 2호에게 이상할 정도로 친근감을 느끼고 있어요. 그녀의 호감과 신뢰를 얻는 데 필요한 길고 지난한 여정이 단축되었으니, 그녀가 때때로 보여준 위험한 파괴력이 마스터에게 닿을까 걱정할 필요가 없어졌어요. 축하드려요.\n\n제안: 꽃, 로봇 등 해당 에이전트가 좋아하는 것을 대화 주제로 삼고, 평정심을 갖고 이해할 수 없는 논리와 함축적인 표현을 받아들인다면 그녀와 효율적으로 가까워질 수 있을 거예요.",
+  "role_icon": "IconRole/UnPacker/IconRole48",
+  "stature": "153/240(메카)",
+  "unlock_condition": [
+   "에이전트 획득",
+   "메인 스토리 의뢰 시즌 2 제3장 완료",
+   "「엔비의 고민」 의뢰 완료"
+  ],
+  "trust_lv": {
+   "1": "「시드」, 뉴에리두 방위군 흑요석 부대 오볼로스 소대의 포수로, 본명은 플로라이다. 「시드」라는 코드네임은, 현재는 「빅 시드」라 불리는 그녀의 보호자이자 방위군의 전투용 스마트 구조체 「시드」로부터 이어받았다.\n\n여러 증언에 따르면 「시드」는 「빅 시드」가 옛 도시 함락 당시 제로 공동에서 구출한 신원을 알 수 없는 고아로, 「빅 시드」는 그녀를 입양한 후 방위군 기숙사에서 홀로 키워냈다. \n\n수년 전, 「빅 시드」는 오볼로스 소대 편입을 신청해 소대에 합류했는데, 이후 얼마지 않아 로직 코어의 불가역적 손상으로 인해 사망했고, 그렇게 「시드」는 그를 대신해 오볼로스 소대의 구성원이 되었다. 현재 우리가 들을 수 있는 「빅 시드」의 목소리는 구조체에 사전 다운로드되어 내재된 시스템 음성이다.\n\n기계 개조와 연구 방면에서 「시드」는 일반인을 한참 뛰어넘는 재능을 보유하고 있으며, 일반인은 상상할 수 없는 발명품을 설계하고 제작할 수 있다. 또한, 「시드」는 매우 높은 에테르 적성을 보유하고 있고, 조종, 원거리 조작, 전투 모듈 추가 등의 방식으로 「빅 시드」의 전투력을 극한까지 끌어올릴 수 있다. \n\n이로 인해 체력 훈련에서의 심각한 기준 미달과 신원 불명이라는 리스크에도 불구하고 군은 「시드」가 정예 군인으로 복무할 수 있도록 묵인하고 있다.\n\n일상에서의 「시드」는 평범한 사람들과는 다른 행동 패턴을 보이는데, 그녀는 「빅 시드」의 조종석을 고정된 휴식 공간으로 삼고 있으며, 좁은 곳에 비집고 들어가는 것을 좋아하고, 동료가 아닌 사람과 소통하는 것을 극도로 꺼린다. 게다가 말과 행동이 보통의 사고 패턴을 훌쩍 뛰어넘는 경우가 많아 소통이 매우 어려운 편에 속한다.\n\n마스터, 이유는 모르겠지만 다행히도 「시드」는 마스터와 조수 2호에게 이상할 정도로 친근감을 느끼고 있어요. 그녀의 호감과 신뢰를 얻는 데 필요한 길고 지난한 여정이 단축되었으니, 그녀가 때때로 보여준 위험한 파괴력이 마스터에게 닿을까 걱정할 필요가 없어졌어요. 축하드려요.\n\n제안: 꽃, 로봇 등 해당 에이전트가 좋아하는 것을 대화 주제로 삼고, 평정심을 갖고 이해할 수 없는 논리와 함축적인 표현을 받아들인다면 그녀와 효율적으로 가까워질 수 있을 거예요.",
+   "2": "",
+   "3": "「시드」는 어린 시절부터 일정 범위 내의 기계 장치를 조종하거나 다운시키고, 심지어 폭발시킬 수 있는 등 기괴하고 위험한 이능력을 보유하고 있었다. 이 능력은 그녀가 심각한 감정 불안정 상태에 빠졌을 때만 발현되며, 외적으로는 양쪽 눈에서 붉은빛이 반짝이는 현상이 나타난다. \n\n바로 이 능력 때문에, 그녀를 처음 발견한 「빅 시드」의 자율 경계 시스템이 자동으로 그녀를 고위험 대상으로 인식했고, 이는 간접적으로 「빅 시드」의 로직 코어에 돌이킬 수 없는 손상을 초래했다.\n\n게다가 「시드」는 「빅 시드」가 제로 공동에서 데려왔을 때부터 이미 인격적 결함이 존재했으며, 알 수 없는 이유로 생명에 대한 이해와 지각, 공감 능력이 결여되어 있었다. \n\n입양된 후 몇 년 동안 「빅 시드」는 그녀의 완전한 인격 형성을 위해 노력했고, 그가 세상을 떠난 후에는 오볼로스 소대 구성원들이 그 뜻을 이어받아 현재 「시드」의 인격적 결함은 상당한 개선을 이루었다.\n\n마스터, 마스터와 「시드」가 전에 제로 공동에서 진행한 탐색 기록에 근거해, 「시드」의 진짜 신분은 마스터와 마찬가지로 헬리오스 기관의 학생이었음을 알 수 있습니다. \n\n그녀가 헬리오스 기관에 있을 당시 소속되어 있던 연구 프로젝트는 마스터와 달랐을 것으로 추정되며, 기계 연구와 관련된 프로젝트였을 확률이 높아 보입니다. 위에서 언급된 「시드」의 이능력과 인격적 결함은 모두 해당 프로젝트의 잔재로 보이나, 에이전트가 헬리오스 기관 및 옛 도시 함락과 관련된 기억을 잃어버렸기 때문에, 현재로서는 더 자세한 정보를 분석할 수 없습니다.\n\n또한, 마스터, 그녀가 가끔 미소를 지으며 저를 응시하는데, 호기심 충족을 위해 저를 분해하고 싶은 충동이 있을 확률이 매우 높아 매우 소름 돋습니다. 마스터의 사랑스러운 조수를 잃지 않도록 제 신변 안전에 대한 다중 보호 조치를 강력히 요청하는 바입니다.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 134,
+  "attack_growth": 81654,
+  "avatar_piece_id": 5461,
+  "break_stun": 93,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66882,
+  "element_abnormal_power": 94,
+  "element_mystery": 93,
+  "endurance": 0,
+  "hp_growth": 837238,
+  "hp_max": 617,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Seed",
+   "Cut",
+   "Punch",
+   "Electric",
+   "Female",
+   "Camp5",
+   "Size3",
+   "AidTypeParry",
+   "Seed",
+   "EtherEyesSize3"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "일반 공격: 국화꽃의 윤무",
+     "desc": "<IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 향해 최대 4단까지 공격을 펼친다. 1~2단은 <color=#F0D12B>물리 피해</color>를 주고, 3~4단은 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n세 번째 물러서기 동작부터 네 번째 공격 시전 전까지의 과정에서 공격을 받으면 자동으로 회피를 발동한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 낙화·도륙",
+     "desc": "<color=#FFFFFF>[일반 공격]</color> 네 번째, <color=#FFFFFF>[회피 반격]</color>, <color=#FFFFFF>[빠른 지원]</color>, <color=#FFFFFF>[지원 돌격]</color> 후 <IconMap:Icon_Normal>을 홀드 혹은 짧게 탭하여 시전:\n메카를 소환하고 차지 펀치를 시전해 대량의 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n<color=#FFFFFF>[강철 에너지]</color> 120pt 도달 시 빠르게 <color=#FFFFFF>[일반 공격: 낙화·도륙]</color>을 시전할 기회를 1회 획득하며 <IconMap:Icon_Normal>을 홀드하여 시전할 수 있다. <color=#FFFFFF>[강철 에너지]</color>가 120pt 미만이거나 상술한 방법으로 <color=#FFFFFF>[일반 공격: 낙화·도륙]</color> 1회 시전 후 해당 효과는 사라진다.\n적 명중 시 <color=#FFFFFF>[강철 에너지]</color>를 누적하지 않는다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 낙화·붕괴",
+     "desc": "「시드」는 <color=#FFFFFF>[강철 에너지]</color>를 보유하며, 자신의 공격이 적에게 명중하면 <color=#FFFFFF>[강철 에너지]</color>를 누적할 수 있다.\n<color=#FFFFFF>[강철 에너지]</color> 최대치는 150pt이며 초기에 <color=#FFFFFF>[강철 에너지]</color> 60pt를 보유하고, 120pt 도달 시 <color=#FFFFFF>[일반 공격: 낙화·도륙]</color> 혹은 <color=#FFFFFF>[궁극기: 기계식 꽃밭·만개!]</color> 시전 후 <IconMap:Icon_Normal>을 짧게 탭 혹은 홀드하여 <color=#FFFFFF>[강철 에너지]</color>를 60pt 소모해 <color=#FFFFFF>[일반 공격: 낙화·붕괴Ⅰ]</color>를 시전할 수 있다. 또한 자동으로 <color=#FFFFFF>[강철 에너지]</color>를 60pt 소모하여 <color=#FFFFFF>[일반 공격: 낙화·붕괴Ⅱ]</color>를 이어서 시전한다.\n메카를 조종해 난사 후 강력한 내려찍기로 대량의 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n적 명중 시 <color=#FFFFFF>[강철 에너지]</color>를 누적하지 않는다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 국화꽃의 윤무",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1461001, Prop:1001}",
+       "param": {
+        "1461001": {
+         "main": 4650,
+         "growth": 430,
+         "format": "%",
+         "damage_percentage": 4650,
+         "damage_percentage_growth": 430,
+         "stun_ratio": 2940,
+         "stun_ratio_growth": 140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          29334,
+          6670,
+          73425
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1461002, Prop:1001}",
+       "param": {
+        "1461002": {
+         "main": 12410,
+         "growth": 1130,
+         "format": "%",
+         "damage_percentage": 12410,
+         "damage_percentage_growth": 1130,
+         "stun_ratio": 8290,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          82867,
+          18840,
+          207350
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7534
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1461003, Prop:1001}",
+       "param": {
+        "1461003": {
+         "main": 7180,
+         "growth": 660,
+         "format": "%",
+         "damage_percentage": 7180,
+         "damage_percentage_growth": 660,
+         "stun_ratio": 4460,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 10140,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 111650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4053,
+         "sp_consume": 0,
+         "attack_data": [
+          44585
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4054
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 피해 배율",
+       "desc": "{Skill:1461004, Prop:1001}",
+       "param": {
+        "1461004": {
+         "main": 35860,
+         "growth": 3260,
+         "format": "%",
+         "damage_percentage": 35860,
+         "damage_percentage_growth": 3260,
+         "stun_ratio": 22650,
+         "stun_ratio_growth": 1030,
+         "sp_recovery": 51460,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 566225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20583,
+         "sp_consume": 0,
+         "attack_data": [
+          226419
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20584
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1461001, Prop:1002}",
+       "param": {
+        "1461001": {
+         "main": 2940,
+         "growth": 140,
+         "format": "%",
+         "damage_percentage": 4650,
+         "damage_percentage_growth": 430,
+         "stun_ratio": 2940,
+         "stun_ratio_growth": 140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          29334,
+          6670,
+          73425
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2667
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1461002, Prop:1002}",
+       "param": {
+        "1461002": {
+         "main": 8290,
+         "growth": 380,
+         "format": "%",
+         "damage_percentage": 12410,
+         "damage_percentage_growth": 1130,
+         "stun_ratio": 8290,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          82867,
+          18840,
+          207350
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7534
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1461003, Prop:1002}",
+       "param": {
+        "1461003": {
+         "main": 4460,
+         "growth": 210,
+         "format": "%",
+         "damage_percentage": 7180,
+         "damage_percentage_growth": 660,
+         "stun_ratio": 4460,
+         "stun_ratio_growth": 210,
+         "sp_recovery": 10140,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 111650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4053,
+         "sp_consume": 0,
+         "attack_data": [
+          44585
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4054
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 그로기 배율",
+       "desc": "{Skill:1461004, Prop:1002}",
+       "param": {
+        "1461004": {
+         "main": 22650,
+         "growth": 1030,
+         "format": "%",
+         "damage_percentage": 35860,
+         "damage_percentage_growth": 3260,
+         "stun_ratio": 22650,
+         "stun_ratio_growth": 1030,
+         "sp_recovery": 51460,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 566225,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 20583,
+         "sp_consume": 0,
+         "attack_data": [
+          226419
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20584
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 낙화·도륙",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1461006, Prop:1001}",
+       "param": {
+        "1461006": {
+         "main": 16660,
+         "growth": 1520,
+         "format": "%",
+         "damage_percentage": 16660,
+         "damage_percentage_growth": 1520,
+         "stun_ratio": 14480,
+         "stun_ratio_growth": 660,
+         "sp_recovery": 32910,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 362175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13163,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13164
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1461006, Prop:1002}",
+       "param": {
+        "1461006": {
+         "main": 14480,
+         "growth": 660,
+         "format": "%",
+         "damage_percentage": 16660,
+         "damage_percentage_growth": 1520,
+         "stun_ratio": 14480,
+         "stun_ratio_growth": 660,
+         "sp_recovery": 32910,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 362175,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13163,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13164
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 낙화·붕괴Ⅰ",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1461007, Prop:1001}",
+       "param": {
+        "1461007": {
+         "main": 52830,
+         "growth": 4810,
+         "format": "%",
+         "damage_percentage": 52830,
+         "damage_percentage_growth": 4810,
+         "stun_ratio": 6790,
+         "stun_ratio_growth": 310,
+         "sp_recovery": 15430,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 169675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6169,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6170
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1461007, Prop:1002}",
+       "param": {
+        "1461007": {
+         "main": 6790,
+         "growth": 310,
+         "format": "%",
+         "damage_percentage": 52830,
+         "damage_percentage_growth": 4810,
+         "stun_ratio": 6790,
+         "stun_ratio_growth": 310,
+         "sp_recovery": 15430,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 169675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6169,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6170
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 낙화·붕괴Ⅱ",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1461008, Prop:1001}",
+       "param": {
+        "1461008": {
+         "main": 98940,
+         "growth": 9000,
+         "format": "%",
+         "damage_percentage": 98940,
+         "damage_percentage_growth": 9000,
+         "stun_ratio": 16880,
+         "stun_ratio_growth": 770,
+         "sp_recovery": 38350,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 421850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15336,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15337
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1461008, Prop:1002}",
+       "param": {
+        "1461008": {
+         "main": 16880,
+         "growth": 770,
+         "format": "%",
+         "damage_percentage": 98940,
+         "damage_percentage_growth": 9000,
+         "stun_ratio": 16880,
+         "stun_ratio_growth": 770,
+         "sp_recovery": 38350,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 421850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15336,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15337
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "회피: 꽃잎 위를 노닐다",
+     "desc": "<IconMap:Icon_Evade>을 짧게 탭하여 시전:\n빠른 대시로 회피한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 전자의 윤무",
+     "desc": "회피 시 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 향해 강철 휠을 던져 <color=#F0D12B>물리 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 갈라진 꽃받침",
+     "desc": "<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적에게 연속 레이저를 쏴 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 전자의 윤무",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1461012, Prop:1001}",
+       "param": {
+        "1461012": {
+         "main": 6420,
+         "growth": 590,
+         "format": "%",
+         "damage_percentage": 6420,
+         "damage_percentage_growth": 590,
+         "stun_ratio": 3210,
+         "stun_ratio_growth": 150,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          32084,
+          7300,
+          80300
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2917
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1461012, Prop:1002}",
+       "param": {
+        "1461012": {
+         "main": 3210,
+         "growth": 150,
+         "format": "%",
+         "damage_percentage": 6420,
+         "damage_percentage_growth": 590,
+         "stun_ratio": 3210,
+         "stun_ratio_growth": 150,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          32084,
+          7300,
+          80300
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2917
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 갈라진 꽃받침",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1461013, Prop:1001}",
+       "param": {
+        "1461013": {
+         "main": 32010,
+         "growth": 2910,
+         "format": "%",
+         "damage_percentage": 32010,
+         "damage_percentage_growth": 2910,
+         "stun_ratio": 25490,
+         "stun_ratio_growth": 1160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13169,
+         "sp_consume": 0,
+         "attack_data": [
+          244870,
+          32930,
+          362175
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 28170
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1461013, Prop:1002}",
+       "param": {
+        "1461013": {
+         "main": 25490,
+         "growth": 1160,
+         "format": "%",
+         "damage_percentage": 32010,
+         "damage_percentage_growth": 2910,
+         "stun_ratio": 25490,
+         "stun_ratio_growth": 1160,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13169,
+         "sp_consume": 0,
+         "attack_data": [
+          244870,
+          32930,
+          362175
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 28170
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "특수 스킬: 푸른 서리의 영락",
+     "desc": "<IconMap:Icon_Special>을 짧게 탭하여 시전:\n곡선 궤적을 그리는 강철 휠을 던져 <color=#2EB6FF>전기 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 강철 꽃잎과 비의 장막",
+     "desc": "에너지가 충분한 상태에서 <IconMap:Icon_SpecialReady>을 짧게 탭하여 시전:\n비행 모드에 진입해 네 방향으로 이동할 수 있으며, 연속으로 탄막을 발사해 적에게 대량의 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n<IconMap:Icon_SpecialReady>을 홀드하면 탄막 발사 시간을 연장하고 지속적으로 에너지를 소모한다.\n비행하는 동안 <IconMap:Icon_SpecialReady>에서 손을 떼면 <color=#FFFFFF>[강화 특수 스킬: 강철 꽃잎과 비의 장막·이별]</color>을 시전할 수 있다.\n한 번의 비행에서 에너지를 60pt 사용 시, 자동으로 <color=#FFFFFF>[일반 공격: 낙화·도륙]</color>을 시전한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 강철 꽃잎과 비의 장막·이별",
+     "desc": "<color=#FFFFFF>[강화 특수 스킬: 강철 꽃잎과 비의 장막]</color>을 시전하는 동안 <IconMap:Icon_SpecialReady>에서 손을 떼 시전:\n빠르게 포격해 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n적 명중 시 <color=#FFFFFF>[강철 에너지]</color>를 누적하지 않는다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 푸른 서리의 영락",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1461005, Prop:1001}",
+       "param": {
+        "1461005": {
+         "main": 4770,
+         "growth": 440,
+         "format": "%",
+         "damage_percentage": 4770,
+         "damage_percentage_growth": 440,
+         "stun_ratio": 4770,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4334,
+         "sp_consume": 0,
+         "attack_data": [
+          47685,
+          0,
+          119350
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4335
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1461005, Prop:1002}",
+       "param": {
+        "1461005": {
+         "main": 4770,
+         "growth": 220,
+         "format": "%",
+         "damage_percentage": 4770,
+         "damage_percentage_growth": 440,
+         "stun_ratio": 4770,
+         "stun_ratio_growth": 220,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 4334,
+         "sp_consume": 0,
+         "attack_data": [
+          47685,
+          0,
+          119350
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 4335
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 강철 꽃잎과 비의 장막",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1461009, Prop:1001}",
+       "param": {
+        "1461009": {
+         "main": 68340,
+         "growth": 6220,
+         "format": "%",
+         "damage_percentage": 68340,
+         "damage_percentage_growth": 6220,
+         "stun_ratio": 58680,
+         "stun_ratio_growth": 2670,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1950025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 57735,
+         "sp_consume": 0,
+         "attack_data": [
+          296964
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1461009, Prop:1002}",
+       "param": {
+        "1461009": {
+         "main": 58680,
+         "growth": 2670,
+         "format": "%",
+         "damage_percentage": 68340,
+         "damage_percentage_growth": 6220,
+         "stun_ratio": 58680,
+         "stun_ratio_growth": 2670,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1950025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 57735,
+         "sp_consume": 0,
+         "attack_data": [
+          296964
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "초기 소모",
+       "desc": "10pt",
+       "potential": []
+      },
+      {
+       "name": "탄막 발사 소모",
+       "desc": "5pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 강철 꽃잎과 비의 장막·이별",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1461022, Prop:1001}",
+       "param": {
+        "1461022": {
+         "main": 1840,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 1840,
+         "damage_percentage_growth": 170,
+         "stun_ratio": 920,
+         "stun_ratio_growth": 50,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 23100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 833,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 834
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1461022, Prop:1002}",
+       "param": {
+        "1461022": {
+         "main": 920,
+         "growth": 50,
+         "format": "%",
+         "damage_percentage": 1840,
+         "damage_percentage_growth": 170,
+         "stun_ratio": 920,
+         "stun_ratio_growth": 50,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 23100,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 833,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 834
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "콤보 스킬: 서리 꽃잎의 폭풍",
+     "desc": "<color=#FFFFFF>[콤보 스킬]</color> 발동 시 해당 캐릭터를 선택해 시전:\n메카를 소환해 자신을 보호한 후, 전방을 포격하고 대량의 미사일을 발사해 대량의 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "궁극기: 기계식 꽃밭·만개",
+     "desc": "데시벨 레벨 <color=#FFFFFF>[Maximum]</color> 달성 시 <IconMap:Icon_UltimateReady>을 짧게 탭하여 시전:\n직접 메카를 조종해 대량의 미사일과 유성 같은 치명적인 섬광탄을 퍼붓고, 강력하게 내리찍어 대량의 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n스킬 시전 후 <color=#FFFFFF>[강철 에너지]</color>를 60pt 누적한다.\n적 명중 시 <color=#FFFFFF>[강철 에너지]</color>를 누적하지 않는다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 서리 꽃잎의 폭풍",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1461014, Prop:1001}",
+       "param": {
+        "1461014": {
+         "main": 73420,
+         "growth": 6680,
+         "format": "%",
+         "damage_percentage": 73420,
+         "damage_percentage_growth": 6680,
+         "stun_ratio": 29530,
+         "stun_ratio_growth": 1350,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2566850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 46786,
+         "sp_consume": 0,
+         "attack_data": [
+          295204
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26837
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1461014, Prop:1002}",
+       "param": {
+        "1461014": {
+         "main": 29530,
+         "growth": 1350,
+         "format": "%",
+         "damage_percentage": 73420,
+         "damage_percentage_growth": 6680,
+         "stun_ratio": 29530,
+         "stun_ratio_growth": 1350,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2566850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 46786,
+         "sp_consume": 0,
+         "attack_data": [
+          295204
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26837
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "궁극기: 기계식 꽃밭·만개",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1461015, Prop:1001}",
+       "param": {
+        "1461015": {
+         "main": 324970,
+         "growth": 29550,
+         "format": "%",
+         "damage_percentage": 324970,
+         "damage_percentage_growth": 29550,
+         "stun_ratio": 59590,
+         "stun_ratio_growth": 2710,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 54170,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 104171
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1461015, Prop:1002}",
+       "param": {
+        "1461015": {
+         "main": 59590,
+         "growth": 2710,
+         "format": "%",
+         "damage_percentage": 324970,
+         "damage_percentage_growth": 29550,
+         "stun_ratio": 59590,
+         "stun_ratio_growth": 2710,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 54170,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 104171
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "빠른 지원: 꽃비 집중 사격",
+     "desc": "현재 조작 중인 캐릭터가 넉업되면 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n전방의 적에게 연속 레이저를 쏴 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 어린 꽃의 배리어",
+     "desc": "출전 캐릭터 피격 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적의 공격을 패링하고 대량의 그로기 수치를 누적한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 붉은 코어의 폭렬",
+     "desc": "<color=#FFFFFF>[패링 지원]</color> 시전 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방의 적에게 연속 부유포 공격을 시전해 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 꽃비 집중 사격",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1461016, Prop:1001}",
+       "param": {
+        "1461016": {
+         "main": 15400,
+         "growth": 1400,
+         "format": "%",
+         "damage_percentage": 15400,
+         "damage_percentage_growth": 1400,
+         "stun_ratio": 7700,
+         "stun_ratio_growth": 350,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7000,
+         "sp_consume": 0,
+         "attack_data": [
+          77000,
+          17500,
+          192500
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7000
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1461016, Prop:1002}",
+       "param": {
+        "1461016": {
+         "main": 7700,
+         "growth": 350,
+         "format": "%",
+         "damage_percentage": 15400,
+         "damage_percentage_growth": 1400,
+         "stun_ratio": 7700,
+         "stun_ratio_growth": 350,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7000,
+         "sp_consume": 0,
+         "attack_data": [
+          77000,
+          17500,
+          192500
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7000
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 어린 꽃의 배리어",
+     "param": [
+      {
+       "name": "가벼운 패링 그로기 배율",
+       "desc": "{Skill:1461017, Prop:1002}",
+       "param": {
+        "1461017": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강한 패링 그로기 배율",
+       "desc": "{Skill:1461018, Prop:1002}",
+       "param": {
+        "1461018": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 패링 그로기 배율",
+       "desc": "{Skill:1461019, Prop:1002}",
+       "param": {
+        "1461019": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 붉은 코어의 폭렬",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1461020, Prop:1001}",
+       "param": {
+        "1461020": {
+         "main": 45600,
+         "growth": 4150,
+         "format": "%",
+         "damage_percentage": 45600,
+         "damage_percentage_growth": 4150,
+         "stun_ratio": 40160,
+         "stun_ratio_growth": 1830,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 38976,
+         "sp_consume": 0,
+         "attack_data": [
+          238371,
+          0,
+          1276000
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21671
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1461020, Prop:1002}",
+       "param": {
+        "1461020": {
+         "main": 40160,
+         "growth": 1830,
+         "format": "%",
+         "damage_percentage": 45600,
+         "damage_percentage_growth": 4150,
+         "stun_ratio": 40160,
+         "stun_ratio_growth": 1830,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 38976,
+         "sp_consume": 0,
+         "attack_data": [
+          238371,
+          0,
+          1276000
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 21671
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "「동면기」",
+   "desc": "「시드」의 <color=#FFFFFF>[강철 에너지]</color>가 100pt에 도달할 시 <color=#FFFFFF>[일반 공격: 낙화·붕괴]</color>를 시전할 수 있으며, 소모하는 <color=#FFFFFF>[강철 에너지]</color> 총합이 100pt까지 감소한다. 빠르게 <color=#FFFFFF>[일반 공격: 낙화·도륙]</color>을 시전할 기회 1회를 획득하는 데 필요한 <color=#FFFFFF>[강철 에너지]</color>가 100pt까지 감소한다. 전장 진입/<color=#FFFFFF>[궁극기]</color> 시전 시 추가로 <color=#FFFFFF>[강철 에너지]</color>를 40/20pt 누적한다. <color=#FFFFFF>[일반 공격: 낙화·붕괴]</color>로 주는 치명타 피해가 30% 증가한다.",
+   "desc2": "이곳은 외부와 단절된, 엄숙하고도 신비로운 건물이다.\n순백의 그녀는 이곳에 속해있다. 그녀는 움츠린 채, 조심스레 철조망 밖으로 고개를 내밀었다. 바깥세상은 어떤 모습일까?\n그녀의 호기심은 무균실을 넘어서고, 무너진 고층 빌딩을 지나, 하늘의 분홍빛 거대한 꽃을 피해갔다.\n멀리 더 멀리…\n「깨져버린 썩은 달걀 같네~」\n「하지만 좀 더 이곳에 있고 싶어…」"
+  },
+  "2": {
+   "level": 2,
+   "name": "「흡광법」",
+   "desc": "에이전트의 <color=#FFFFFF>[포위]</color> 상태 버프 효과 적용 시, 해당 에이전트가 주는 피해가 방어력의 20%를 무시한다. <color=#FFFFFF>[강화 특수 스킬: 강철 꽃잎과 비의 장막]</color> 시전 시, 60pt의 에너지를 누적 소모 후, 계속 에너지를 소모해 스킬을 지속할 수 있으며, 버튼에서 손을 떼거나 120pt의 에너지를 누적 소모할 때까지 지속된다. <color=#FFFFFF>[강화 특수 스킬: 강철 꽃잎과 비의 장막]</color>에서 소모한 에너지 5pt당 이어서 시전되는 <color=#FFFFFF>[일반 공격: 낙화·도륙]</color>으로 주는 피해가 5% 증가한다.",
+   "desc2": "이곳은 철근이 뒤엉킨 끝없는 폐허였다.\n형언할 수 없는 이상한 감정에 목이 메어 입으로는 소리를 낼 수 없었다…\n시야가 흐려지고, 이상한 액체가 뺨을 타고 흘러내렸다.\n눈가를 문지르고, 눈을 깜빡였다…\n눈부시게, 서툴게 다가오는 그것은, 도대체 무엇일까?\n「두려워하지 마… 내가… 구해줄게…」\n「너는… 이름이 있니? 내 코드네임은… 『시드』야」"
+  },
+  "3": {
+   "level": 3,
+   "name": "「발아설」",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "이곳은 군영의 평범한 휴게실이다.\n그들은 그녀에게 인사를 건네며, 그녀의 마음을 열어보려 했다.\n수줍어하는 빨간 머리 소녀, 시끄럽게 떠드는 이상한 총, 안대를 낀 금발의 강아지…\n큰 로봇이 그녀에게 말했다, 그녀들은 모두 네 친구라고.\n「친구가 뭐야?」\n「친구란… 뒤를 돌아봤을 때 볼 수 있는 사람이야」"
+  },
+  "4": {
+   "level": 4,
+   "name": "「방향조」",
+   "desc": "「시드」의 <color=#FFFFFF>[포위]</color> 상태 버프 효과 적용 시, 데시벨 획득 효율이 10% 증가하고, <color=#FFFFFF>[궁극기]</color>로 주는 피해가 20% 증가한다.",
+   "desc2": "웅장하고 인파로 북적이는 광장이었다.\n이곳에 모인 그 어떤 사람보다 높은 단상 위에서 누군가 웅얼거리며 무언가를 말하고 있었다.\n누군가 그녀의 이름을 불렀고, 많은 사람들이 몰려왔다. 멍한 꽃은 무대로 옮겨졌다.\n머리카락 끝의 화약 연기조차 씻어내지 못한 채였다.\n검은 상자는 별보다 더 밝은 빛을 뿜어냈고, 작은 금속이 마찬가지로 어쩔 줄 모르는 오랜 친구와 어린 친구의 몸에 달렸다.\n이 표창은 이 순간부터 그녀가 「시드」가 되었고, 줄곧 그녀와 함께한 로봇은 「빅 『시드』」가 되었음을 의미했다.\n「나 잘했어?」\n「물론이지, 넌 우리의 자랑이야… 이 코드네임이 바로 그 증거지, 『시드』」"
+  },
+  "5": {
+   "level": 5,
+   "name": "「개화기」",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "이곳은 아는 사람이 거의 없는, 좁은 안전 가옥이다.\n잡다하고 어지러운 물건들이 공간을 가득 메우고 있다. 상자, 소파, 액자, 화분마다 담긴 꽃들. 빨간 꽃, 노란 꽃, 분홍 꽃, 똑바로 선 꽃, 풍성한 꽃, 축 늘어진 꽃.\n눈을 감고, 입을 꼭 다물면, 분명 견딜 수 있을 거야—— 그녀는 확신했다.\n「조금만 더 시간을 주자」\n「이 아이들도 잘 자랄 거야… 너처럼」"
+  },
+  "6": {
+   "level": 6,
+   "name": "「유심론」",
+   "desc": "「시드」의 치명타 피해가 50% 증가한다.\n<color=#FFFFFF>[일반 공격: 낙화·도륙]</color> 시전 시 추가로 레이저를 3발 발사하며, 1발마다 공격력의 165%만큼 피해를 준다. 3초 동안 최대 1회 발동한다.",
+   "desc2": "이곳은 꽃들이 만발한, 찬란한 꽃바다이다.\n그녀는 이곳의 처음 모습을 떠올렸다. 앙상하고, 잡초 한 포기도 없었던 그때를.\n누가 이런 나쁜 짓을 한 걸까? 누가 황폐하고 암울했던 제로 공동을 이렇게 바꿔놓은 걸까? 누가 메마른 토양에 싱싱한 마음을 심어놓은 걸까?\n「넌 이렇게 큰 원을 걸었던 거구나…」\n「다음에 또 만나, 『빅 시드』」"
+  }
+ },
+ "passive": {
+  "level": {
+   "1461501": {
+    "level": 1,
+    "id": 1461501,
+    "name": [
+     "핵심 패시브: 꽃사슬의 협약",
+     "추가 능력: 급습 작전"
+    ],
+    "desc": [
+     "「시드」는 초기 공격력이 가장 높은 <color=#FFFFFF>[강공]</color> 파티원을 <color=#FFFFFF>[병기]</color>로 간주한다.\n<color=#FFFFFF>[병기]</color>가 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 「시드」가 <color=#FFFFFF>[강습]</color> 상태를 획득하며, 「시드」의 공격력 <color=#2BAD00>100pt</color> 및 치명타 피해 <color=#2BAD00>15%</color>가 증가한다. 「시드」가 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 <color=#FFFFFF>[병기]</color>가 <color=#FFFFFF>[정공]</color> 상태를 획득하며, <color=#FFFFFF>[병기]</color>의 공격력 <color=#2BAD00>100pt</color> 및 치명타 피해 <color=#2BAD00>15%</color>가 증가한다.\n<color=#FFFFFF>[정공]</color>과 <color=#FFFFFF>[강습]</color>이 동시에 존재 시 「시드」와 <color=#FFFFFF>[병기]</color>가 동시에 <color=#FFFFFF>[포위]</color> 상태를 획득하고 주는 피해가 <color=#2BAD00>12.5%</color> 증가한다.\n<color=#FFFFFF>[강습]</color>, <color=#FFFFFF>[정공]</color>, <color=#FFFFFF>[포위]</color>의 버프 효과는 캐릭터가 현재 조작 중인 캐릭터일 때 적용되며, 캐릭터 교체 시 해당 버프 효과는 캐릭터가 전장에서 퇴장하거나 버프 효과가 3초 유지된 후 사라진다. 캐릭터를 현재 조작 중인 캐릭터로 교체할 시 버프 효과가 다시 적용된다.\n전장 진입 시 <color=#FFFFFF>[병기]</color>가 존재하면, 「시드」는 즉시 <color=#FFFFFF>[강습]</color> 및 <color=#FFFFFF>[포위]</color> 상태를 획득하며, <color=#FFFFFF>[병기]</color>는 즉시 <color=#FFFFFF>[정공]</color> 및 <color=#FFFFFF>[포위]</color> 상태를 획득한다.\n<color=#FFFFFF>[정공]</color> 및 <color=#FFFFFF>[강습]</color> 상태 지속 시간: 40초, 중복 획득 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[병기]</color>가 조작 중인 캐릭터로서 에너지를 소모하거나 「시드」가 에너지를 소모할 시, 소모한 에너지 1pt마다 「시드」가 <color=#FFFFFF>[강철 에너지]</color>를 0.5pt 회복한다.",
+     "파티 내 다른 <color=#FFFFFF>[강공]</color> 캐릭터 존재 시 발동:\n「시드」가 조작 중인 캐릭터로서 피해를 줄 시 <color=#FFFFFF>[병기]</color>가 에너지를 2pt 회복한다. 1초 동안 최대 1회 발동한다.\n「시드」의 <color=#FFFFFF>[일반 공격: 낙화·도륙]</color>, <color=#FFFFFF>[일반 공격: 낙화·붕괴]</color> 및 <color=#FFFFFF>[궁극기: 기계식 꽃밭·만개]</color>로 주는 피해가 30% 증가하고, 적의 <color=#2EB6FF>전기 속성 피해 저항</color>을 25% 무시한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1461502": {
+    "level": 2,
+    "id": 1461502,
+    "name": [
+     "핵심 패시브: 꽃사슬의 협약",
+     "추가 능력: 급습 작전"
+    ],
+    "desc": [
+     "「시드」는 초기 공격력이 가장 높은 <color=#FFFFFF>[강공]</color> 파티원을 <color=#FFFFFF>[병기]</color>로 간주한다.\n<color=#FFFFFF>[병기]</color>가 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 「시드」가 <color=#FFFFFF>[강습]</color> 상태를 획득하며, 「시드」의 공격력 <color=#2BAD00>225pt</color> 및 치명타 피해 <color=#2BAD00>17.5%</color>가 증가한다. 「시드」가 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 <color=#FFFFFF>[병기]</color>가 <color=#FFFFFF>[정공]</color> 상태를 획득하며, <color=#FFFFFF>[병기]</color>의 공격력 <color=#2BAD00>225pt</color> 및 치명타 피해 <color=#2BAD00>17.5%</color>가 증가한다.\n<color=#FFFFFF>[정공]</color>과 <color=#FFFFFF>[강습]</color>이 동시에 존재 시 「시드」와 <color=#FFFFFF>[병기]</color>가 동시에 <color=#FFFFFF>[포위]</color> 상태를 획득하고 주는 피해가 <color=#2BAD00>14.5%</color> 증가한다.\n<color=#FFFFFF>[강습]</color>, <color=#FFFFFF>[정공]</color>, <color=#FFFFFF>[포위]</color>의 버프 효과는 캐릭터가 현재 조작 중인 캐릭터일 때 적용되며, 캐릭터 교체 시 해당 버프 효과는 캐릭터가 전장에서 퇴장하거나 버프 효과가 3초 유지된 후 사라진다. 캐릭터를 현재 조작 중인 캐릭터로 교체할 시 버프 효과가 다시 적용된다.\n전장 진입 시 <color=#FFFFFF>[병기]</color>가 존재하면, 「시드」는 즉시 <color=#FFFFFF>[강습]</color> 및 <color=#FFFFFF>[포위]</color> 상태를 획득하며, <color=#FFFFFF>[병기]</color>는 즉시 <color=#FFFFFF>[정공]</color> 및 <color=#FFFFFF>[포위]</color> 상태를 획득한다.\n<color=#FFFFFF>[정공]</color> 및 <color=#FFFFFF>[강습]</color> 상태 지속 시간: 40초, 중복 획득 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[병기]</color>가 조작 중인 캐릭터로서 에너지를 소모하거나 「시드」가 에너지를 소모할 시, 소모한 에너지 1pt마다 「시드」가 <color=#FFFFFF>[강철 에너지]</color>를 0.5pt 회복한다.",
+     "파티 내 다른 <color=#FFFFFF>[강공]</color> 캐릭터 존재 시 발동:\n「시드」가 조작 중인 캐릭터로서 피해를 줄 시 <color=#FFFFFF>[병기]</color>가 에너지를 2pt 회복한다. 1초 동안 최대 1회 발동한다.\n「시드」의 <color=#FFFFFF>[일반 공격: 낙화·도륙]</color>, <color=#FFFFFF>[일반 공격: 낙화·붕괴]</color> 및 <color=#FFFFFF>[궁극기: 기계식 꽃밭·만개]</color>로 주는 피해가 30% 증가하고, 적의 <color=#2EB6FF>전기 속성 피해 저항</color>을 25% 무시한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1461503": {
+    "level": 3,
+    "id": 1461503,
+    "name": [
+     "핵심 패시브: 꽃사슬의 협약",
+     "추가 능력: 급습 작전"
+    ],
+    "desc": [
+     "「시드」는 초기 공격력이 가장 높은 <color=#FFFFFF>[강공]</color> 파티원을 <color=#FFFFFF>[병기]</color>로 간주한다.\n<color=#FFFFFF>[병기]</color>가 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 「시드」가 <color=#FFFFFF>[강습]</color> 상태를 획득하며, 「시드」의 공격력 <color=#2BAD00>350pt</color> 및 치명타 피해 <color=#2BAD00>20%</color>가 증가한다. 「시드」가 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 <color=#FFFFFF>[병기]</color>가 <color=#FFFFFF>[정공]</color> 상태를 획득하며, <color=#FFFFFF>[병기]</color>의 공격력 <color=#2BAD00>350pt</color> 및 치명타 피해 <color=#2BAD00>20%</color>가 증가한다.\n<color=#FFFFFF>[정공]</color>과 <color=#FFFFFF>[강습]</color>이 동시에 존재 시 「시드」와 <color=#FFFFFF>[병기]</color>가 동시에 <color=#FFFFFF>[포위]</color> 상태를 획득하고 주는 피해가 <color=#2BAD00>16.5%</color> 증가한다.\n<color=#FFFFFF>[강습]</color>, <color=#FFFFFF>[정공]</color>, <color=#FFFFFF>[포위]</color>의 버프 효과는 캐릭터가 현재 조작 중인 캐릭터일 때 적용되며, 캐릭터 교체 시 해당 버프 효과는 캐릭터가 전장에서 퇴장하거나 버프 효과가 3초 유지된 후 사라진다. 캐릭터를 현재 조작 중인 캐릭터로 교체할 시 버프 효과가 다시 적용된다.\n전장 진입 시 <color=#FFFFFF>[병기]</color>가 존재하면, 「시드」는 즉시 <color=#FFFFFF>[강습]</color> 및 <color=#FFFFFF>[포위]</color> 상태를 획득하며, <color=#FFFFFF>[병기]</color>는 즉시 <color=#FFFFFF>[정공]</color> 및 <color=#FFFFFF>[포위]</color> 상태를 획득한다.\n<color=#FFFFFF>[정공]</color> 및 <color=#FFFFFF>[강습]</color> 상태 지속 시간: 40초, 중복 획득 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[병기]</color>가 조작 중인 캐릭터로서 에너지를 소모하거나 「시드」가 에너지를 소모할 시, 소모한 에너지 1pt마다 「시드」가 <color=#FFFFFF>[강철 에너지]</color>를 0.5pt 회복한다.",
+     "파티 내 다른 <color=#FFFFFF>[강공]</color> 캐릭터 존재 시 발동:\n「시드」가 조작 중인 캐릭터로서 피해를 줄 시 <color=#FFFFFF>[병기]</color>가 에너지를 2pt 회복한다. 1초 동안 최대 1회 발동한다.\n「시드」의 <color=#FFFFFF>[일반 공격: 낙화·도륙]</color>, <color=#FFFFFF>[일반 공격: 낙화·붕괴]</color> 및 <color=#FFFFFF>[궁극기: 기계식 꽃밭·만개]</color>로 주는 피해가 30% 증가하고, 적의 <color=#2EB6FF>전기 속성 피해 저항</color>을 25% 무시한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1461504": {
+    "level": 4,
+    "id": 1461504,
+    "name": [
+     "핵심 패시브: 꽃사슬의 협약",
+     "추가 능력: 급습 작전"
+    ],
+    "desc": [
+     "「시드」는 초기 공격력이 가장 높은 <color=#FFFFFF>[강공]</color> 파티원을 <color=#FFFFFF>[병기]</color>로 간주한다.\n<color=#FFFFFF>[병기]</color>가 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 「시드」가 <color=#FFFFFF>[강습]</color> 상태를 획득하며, 「시드」의 공격력 <color=#2BAD00>475pt</color> 및 치명타 피해 <color=#2BAD00>22.5%</color>가 증가한다. 「시드」가 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 <color=#FFFFFF>[병기]</color>가 <color=#FFFFFF>[정공]</color> 상태를 획득하며, <color=#FFFFFF>[병기]</color>의 공격력 <color=#2BAD00>475pt</color> 및 치명타 피해 <color=#2BAD00>22.5%</color>가 증가한다.\n<color=#FFFFFF>[정공]</color>과 <color=#FFFFFF>[강습]</color>이 동시에 존재 시 「시드」와 <color=#FFFFFF>[병기]</color>가 동시에 <color=#FFFFFF>[포위]</color> 상태를 획득하고 주는 피해가 <color=#2BAD00>18.5%</color> 증가한다.\n<color=#FFFFFF>[강습]</color>, <color=#FFFFFF>[정공]</color>, <color=#FFFFFF>[포위]</color>의 버프 효과는 캐릭터가 현재 조작 중인 캐릭터일 때 적용되며, 캐릭터 교체 시 해당 버프 효과는 캐릭터가 전장에서 퇴장하거나 버프 효과가 3초 유지된 후 사라진다. 캐릭터를 현재 조작 중인 캐릭터로 교체할 시 버프 효과가 다시 적용된다.\n전장 진입 시 <color=#FFFFFF>[병기]</color>가 존재하면, 「시드」는 즉시 <color=#FFFFFF>[강습]</color> 및 <color=#FFFFFF>[포위]</color> 상태를 획득하며, <color=#FFFFFF>[병기]</color>는 즉시 <color=#FFFFFF>[정공]</color> 및 <color=#FFFFFF>[포위]</color> 상태를 획득한다.\n<color=#FFFFFF>[정공]</color> 및 <color=#FFFFFF>[강습]</color> 상태 지속 시간: 40초, 중복 획득 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[병기]</color>가 조작 중인 캐릭터로서 에너지를 소모하거나 「시드」가 에너지를 소모할 시, 소모한 에너지 1pt마다 「시드」가 <color=#FFFFFF>[강철 에너지]</color>를 0.5pt 회복한다.",
+     "파티 내 다른 <color=#FFFFFF>[강공]</color> 캐릭터 존재 시 발동:\n「시드」가 조작 중인 캐릭터로서 피해를 줄 시 <color=#FFFFFF>[병기]</color>가 에너지를 2pt 회복한다. 1초 동안 최대 1회 발동한다.\n「시드」의 <color=#FFFFFF>[일반 공격: 낙화·도륙]</color>, <color=#FFFFFF>[일반 공격: 낙화·붕괴]</color> 및 <color=#FFFFFF>[궁극기: 기계식 꽃밭·만개]</color>로 주는 피해가 30% 증가하고, 적의 <color=#2EB6FF>전기 속성 피해 저항</color>을 25% 무시한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1461505": {
+    "level": 5,
+    "id": 1461505,
+    "name": [
+     "핵심 패시브: 꽃사슬의 협약",
+     "추가 능력: 급습 작전"
+    ],
+    "desc": [
+     "「시드」는 초기 공격력이 가장 높은 <color=#FFFFFF>[강공]</color> 파티원을 <color=#FFFFFF>[병기]</color>로 간주한다.\n<color=#FFFFFF>[병기]</color>가 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 「시드」가 <color=#FFFFFF>[강습]</color> 상태를 획득하며, 「시드」의 공격력 <color=#2BAD00>600pt</color> 및 치명타 피해 <color=#2BAD00>25%</color>가 증가한다. 「시드」가 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 <color=#FFFFFF>[병기]</color>가 <color=#FFFFFF>[정공]</color> 상태를 획득하며, <color=#FFFFFF>[병기]</color>의 공격력 <color=#2BAD00>600pt</color> 및 치명타 피해 <color=#2BAD00>25%</color>가 증가한다.\n<color=#FFFFFF>[정공]</color>과 <color=#FFFFFF>[강습]</color>이 동시에 존재 시 「시드」와 <color=#FFFFFF>[병기]</color>가 동시에 <color=#FFFFFF>[포위]</color> 상태를 획득하고 주는 피해가 <color=#2BAD00>20.5%</color> 증가한다.\n<color=#FFFFFF>[강습]</color>, <color=#FFFFFF>[정공]</color>, <color=#FFFFFF>[포위]</color>의 버프 효과는 캐릭터가 현재 조작 중인 캐릭터일 때 적용되며, 캐릭터 교체 시 해당 버프 효과는 캐릭터가 전장에서 퇴장하거나 버프 효과가 3초 유지된 후 사라진다. 캐릭터를 현재 조작 중인 캐릭터로 교체할 시 버프 효과가 다시 적용된다.\n전장 진입 시 <color=#FFFFFF>[병기]</color>가 존재하면, 「시드」는 즉시 <color=#FFFFFF>[강습]</color> 및 <color=#FFFFFF>[포위]</color> 상태를 획득하며, <color=#FFFFFF>[병기]</color>는 즉시 <color=#FFFFFF>[정공]</color> 및 <color=#FFFFFF>[포위]</color> 상태를 획득한다.\n<color=#FFFFFF>[정공]</color> 및 <color=#FFFFFF>[강습]</color> 상태 지속 시간: 40초, 중복 획득 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[병기]</color>가 조작 중인 캐릭터로서 에너지를 소모하거나 「시드」가 에너지를 소모할 시, 소모한 에너지 1pt마다 「시드」가 <color=#FFFFFF>[강철 에너지]</color>를 0.5pt 회복한다.",
+     "파티 내 다른 <color=#FFFFFF>[강공]</color> 캐릭터 존재 시 발동:\n「시드」가 조작 중인 캐릭터로서 피해를 줄 시 <color=#FFFFFF>[병기]</color>가 에너지를 2pt 회복한다. 1초 동안 최대 1회 발동한다.\n「시드」의 <color=#FFFFFF>[일반 공격: 낙화·도륙]</color>, <color=#FFFFFF>[일반 공격: 낙화·붕괴]</color> 및 <color=#FFFFFF>[궁극기: 기계식 꽃밭·만개]</color>로 주는 피해가 30% 증가하고, 적의 <color=#2EB6FF>전기 속성 피해 저항</color>을 25% 무시한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1461506": {
+    "level": 6,
+    "id": 1461506,
+    "name": [
+     "핵심 패시브: 꽃사슬의 협약",
+     "추가 능력: 급습 작전"
+    ],
+    "desc": [
+     "「시드」는 초기 공격력이 가장 높은 <color=#FFFFFF>[강공]</color> 파티원을 <color=#FFFFFF>[병기]</color>로 간주한다.\n<color=#FFFFFF>[병기]</color>가 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 「시드」가 <color=#FFFFFF>[강습]</color> 상태를 획득하며, 「시드」의 공격력 <color=#2BAD00>725pt</color> 및 치명타 피해 <color=#2BAD00>27.5%</color>가 증가한다. 「시드」가 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 <color=#FFFFFF>[병기]</color>가 <color=#FFFFFF>[정공]</color> 상태를 획득하며, <color=#FFFFFF>[병기]</color>의 공격력 <color=#2BAD00>725pt</color> 및 치명타 피해 <color=#2BAD00>27.5%</color>가 증가한다.\n<color=#FFFFFF>[정공]</color>과 <color=#FFFFFF>[강습]</color>이 동시에 존재 시 「시드」와 <color=#FFFFFF>[병기]</color>가 동시에 <color=#FFFFFF>[포위]</color> 상태를 획득하고 주는 피해가 <color=#2BAD00>22.5%</color> 증가한다.\n<color=#FFFFFF>[강습]</color>, <color=#FFFFFF>[정공]</color>, <color=#FFFFFF>[포위]</color>의 버프 효과는 캐릭터가 현재 조작 중인 캐릭터일 때 적용되며, 캐릭터 교체 시 해당 버프 효과는 캐릭터가 전장에서 퇴장하거나 버프 효과가 3초 유지된 후 사라진다. 캐릭터를 현재 조작 중인 캐릭터로 교체할 시 버프 효과가 다시 적용된다.\n전장 진입 시 <color=#FFFFFF>[병기]</color>가 존재하면, 「시드」는 즉시 <color=#FFFFFF>[강습]</color> 및 <color=#FFFFFF>[포위]</color> 상태를 획득하며, <color=#FFFFFF>[병기]</color>는 즉시 <color=#FFFFFF>[정공]</color> 및 <color=#FFFFFF>[포위]</color> 상태를 획득한다.\n<color=#FFFFFF>[정공]</color> 및 <color=#FFFFFF>[강습]</color> 상태 지속 시간: 40초, 중복 획득 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[병기]</color>가 조작 중인 캐릭터로서 에너지를 소모하거나 「시드」가 에너지를 소모할 시, 소모한 에너지 1pt마다 「시드」가 <color=#FFFFFF>[강철 에너지]</color>를 0.5pt 회복한다.",
+     "파티 내 다른 <color=#FFFFFF>[강공]</color> 캐릭터 존재 시 발동:\n「시드」가 조작 중인 캐릭터로서 피해를 줄 시 <color=#FFFFFF>[병기]</color>가 에너지를 2pt 회복한다. 1초 동안 최대 1회 발동한다.\n「시드」의 <color=#FFFFFF>[일반 공격: 낙화·도륙]</color>, <color=#FFFFFF>[일반 공격: 낙화·붕괴]</color> 및 <color=#FFFFFF>[궁극기: 기계식 꽃밭·만개]</color>로 주는 피해가 30% 증가하고, 적의 <color=#2EB6FF>전기 속성 피해 저항</color>을 25% 무시한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1461507": {
+    "level": 7,
+    "id": 1461507,
+    "name": [
+     "핵심 패시브: 꽃사슬의 협약",
+     "추가 능력: 급습 작전"
+    ],
+    "desc": [
+     "「시드」는 초기 공격력이 가장 높은 <color=#FFFFFF>[강공]</color> 파티원을 <color=#FFFFFF>[병기]</color>로 간주한다.\n<color=#FFFFFF>[병기]</color>가 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 「시드」가 <color=#FFFFFF>[강습]</color> 상태를 획득하며, 「시드」의 공격력 <color=#2BAD00>1000pt</color> 및 치명타 피해 <color=#2BAD00>30%</color>가 증가한다. 「시드」가 <color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 <color=#FFFFFF>[병기]</color>가 <color=#FFFFFF>[정공]</color> 상태를 획득하며, <color=#FFFFFF>[병기]</color>의 공격력 <color=#2BAD00>1000pt</color> 및 치명타 피해 <color=#2BAD00>30%</color>가 증가한다.\n<color=#FFFFFF>[정공]</color>과 <color=#FFFFFF>[강습]</color>이 동시에 존재 시 「시드」와 <color=#FFFFFF>[병기]</color>가 동시에 <color=#FFFFFF>[포위]</color> 상태를 획득하고 주는 피해가 <color=#2BAD00>25%</color> 증가한다.\n<color=#FFFFFF>[강습]</color>, <color=#FFFFFF>[정공]</color>, <color=#FFFFFF>[포위]</color>의 버프 효과는 캐릭터가 현재 조작 중인 캐릭터일 때 적용되며, 캐릭터 교체 시 해당 버프 효과는 캐릭터가 전장에서 퇴장하거나 버프 효과가 3초 유지된 후 사라진다. 캐릭터를 현재 조작 중인 캐릭터로 교체할 시 버프 효과가 다시 적용된다.\n전장 진입 시 <color=#FFFFFF>[병기]</color>가 존재하면, 「시드」는 즉시 <color=#FFFFFF>[강습]</color> 및 <color=#FFFFFF>[포위]</color> 상태를 획득하며, <color=#FFFFFF>[병기]</color>는 즉시 <color=#FFFFFF>[정공]</color> 및 <color=#FFFFFF>[포위]</color> 상태를 획득한다.\n<color=#FFFFFF>[정공]</color> 및 <color=#FFFFFF>[강습]</color> 상태 지속 시간: 40초, 중복 획득 시 지속 시간이 갱신된다.\n<color=#FFFFFF>[병기]</color>가 조작 중인 캐릭터로서 에너지를 소모하거나 「시드」가 에너지를 소모할 시, 소모한 에너지 1pt마다 「시드」가 <color=#FFFFFF>[강철 에너지]</color>를 0.5pt 회복한다.",
+     "파티 내 다른 <color=#FFFFFF>[강공]</color> 캐릭터 존재 시 발동:\n「시드」가 조작 중인 캐릭터로서 피해를 줄 시 <color=#FFFFFF>[병기]</color>가 에너지를 2pt 회복한다. 1초 동안 최대 1회 발동한다.\n「시드」의 <color=#FFFFFF>[일반 공격: 낙화·도륙]</color>, <color=#FFFFFF>[일반 공격: 낙화·붕괴]</color> 및 <color=#FFFFFF>[궁극기: 기계식 꽃밭·만개]</color>로 주는 피해가 30% 증가하고, 적의 <color=#2EB6FF>전기 속성 피해 저항</color>을 25% 무시한다."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110509": 2
+   },
+   "3": {
+    "10": 28000,
+    "110509": 4
+   },
+   "4": {
+    "10": 60000,
+    "110006": 2,
+    "110509": 9
+   },
+   "5": {
+    "10": 100000,
+    "110006": 3,
+    "110509": 15
+   },
+   "6": {
+    "10": 200000,
+    "110006": 4,
+    "110509": 30
+   }
+  }
+ },
+ "skin": {
+  "3114610": {
+   "name": "「시드」·만발한 꽃",
+   "desc": "찬란한 꽃바다 한 구석에서 짭조름한 눈물 한 방울과 함께, 생명의 원을 이루며 소녀와 구조체는 마음에 대한 증명을 완성했다. 뒤돌아보지 말자, 그녀는 이미 꽃을 만개했으니.",
+   "obtain_desc": "",
+   "image": "IconRole48"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1416001": {
+   "name": "일반 공격: 국화꽃의 윤무(1단, 2단)",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1416002": {
+   "name": "일반 공격: 국화꽃의 윤무(3단, 4단)",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1416003": {
+   "name": "일반 공격: 낙화·도륙",
+   "desc": "<IconMap:Icon_Normal>([일반 공격: 국화꽃의 윤무] 네 번째, [회피 반격: 갈라진 꽃받침], [빠른 지원: 꽃비 집중 사격], [지원 돌격: 붉은 코어의 폭렬] 시전 시)",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1416004": {
+   "name": "일반 공격: 낙화·붕괴",
+   "desc": "<IconMap:Icon_Normal>(강철 에너지 임계치 도달 및 [일반 공격: 낙화·도륙] 시전 후)",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1416005": {
+   "name": "특수 스킬: 푸른 서리의 영락",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1416006": {
+   "name": "강화 특수 스킬: 강철 꽃잎과 비의 장막",
+   "desc": "<IconMap:Icon_SpecialReady>(홀드 가능)",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1416007": {
+   "name": "강화 특수 스킬: 강철 꽃잎과 비의 장막·이별",
+   "desc": "<IconMap:Icon_SpecialReady>(에너지 60pt를 소진하기 전에 손을 떼 시전)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1416008": {
+   "name": "회피: 꽃잎 위를 노닐다",
+   "desc": "<IconMap:Icon_Evade>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1416009": {
+   "name": "대시 공격: 전자의 윤무",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1416010": {
+   "name": "회피 반격: 갈라진 꽃받침",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1416011": {
+   "name": "콤보 스킬: 서리 꽃잎의 폭풍",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1416012": {
+   "name": "궁극기: 기계식 꽃밭·만개",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1416013": {
+   "name": "빠른 지원: 꽃비 집중 사격",
+   "desc": "<IconMap:Icon_Switch>(빠른 지원 발동 시)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1416014": {
+   "name": "패링 지원: 어린 꽃의 배리어",
+   "desc": "<IconMap:Icon_Switch>(패링 지원 발동 시)",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1416015": {
+   "name": "지원 돌격: 붉은 코어의 폭렬",
+   "desc": "<IconMap:Icon_Normal>(패링 지원 시전 후)",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1461001,
+   "avatar_id": 1461,
+   "first_priority": [
+    5,
+    0
+   ],
+   "second_priority": [
+    1,
+    3
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33300,
+  "slot2": 31000,
+  "slot_sub": 31400,
+  "part_sub_list": [
+   20103,
+   21103,
+   12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33300,
+     31000
+    ],
+    "part_sub_list": [
+     20103,
+     21103
+    ]
+   },
+   {
+    "suit_list": [
+     33300,
+     32700
+    ],
+    "part_sub_list": [
+     31803,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12102
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "치명타 확률",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 21103,
+   "name": "치명타 피해",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCritDam.png"
+  },
+  "part6": {
+   "prop": 31803,
+   "name": "전기 속성 피해 보너스",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconThunder.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "공격력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Thunder>전기 속성, 필드 딜러",
+  "강공 파티원이 자신의 핵심 자원 회복을 도울 수 있음",
+  "강공 파티원 1명에게 다양한 버프 제공"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100211": 4
+   }
+  },
+  "2": {
+   "hp_max": 423,
+   "attack": 48,
+   "defence": 34,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100221": 12
+   }
+  },
+  "3": {
+   "hp_max": 847,
+   "attack": 95,
+   "defence": 68,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100221": 20
+   }
+  },
+  "4": {
+   "hp_max": 1270,
+   "attack": 143,
+   "defence": 101,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100231": 10
+   }
+  },
+  "5": {
+   "hp_max": 1694,
+   "attack": 191,
+   "defence": 135,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100231": 20
+   }
+  },
+  "6": {
+   "hp_max": 2117,
+   "attack": 239,
+   "defence": 169,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 960
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 1920
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 1920
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2880
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "치명타 피해",
+     "format": "{0:0.#%}",
+     "value": 2880
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpine_Seed"
+}

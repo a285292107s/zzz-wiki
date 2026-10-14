@@ -15,6 +15,11 @@
 
 import { computed, ref, toValue, watch, type MaybeRefOrGetter, type Ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { LANG_META } from '@/domain/lang'
+import { useLocale } from './useLocale'
+
+/** 语言码 → `Intl.Collator` 用的 BCP 47 标签（LANG_META.htmlLang 是同一份映射）。 */
+const collatorFor = (lang: keyof typeof LANG_META): string => LANG_META[lang].htmlLang
 
 export type SortDir = 'asc' | 'desc'
 
@@ -62,6 +67,8 @@ export function useCatalogSort<T>(
   const initial = fromQuery()
   const sortKey = ref<string | null>(initial.key)
   const sortDir = ref<SortDir>(initial.dir)
+  /** 当前展示语言：决定字符串列的排序语序（见 sorted 里的 Intl.Collator） */
+  const { lang } = useLocale()
 
   /** 是否处于默认排序（回到默认时 `?sort=&dir=` 被移除；见上方的 URL 同步） */
   const isDefault = computed(() => sortKey.value === defaultKey && sortDir.value === defaultDir)
@@ -112,13 +119,17 @@ export function useCatalogSort<T>(
     const col = cols.find((c) => c.key === key)
     if (!col) return list
     const dir = sortDir.value === 'asc' ? 1 : -1
+    // 名称列按**当前展示语言**的语序排：原先写死 'zh-Hans-CN'，英文/日文/韩文名字
+    // 也会被按中文规则排序（对非中文读者是「乱序」）。数字列不受影响。
+    // 取 lang.value 使排序在切换语言后自动重算（computed 依赖）。
+    const collator = new Intl.Collator(collatorFor(lang.value))
     return [...list].sort((a, b) => {
       const va = col.value(a)
       const vb = col.value(b)
       const na = typeof va === 'number' ? va : null
       const nb = typeof vb === 'number' ? vb : null
       if (na != null && nb != null) return (na - nb) * dir
-      return String(va ?? '').localeCompare(String(vb ?? ''), 'zh-Hans-CN') * dir
+      return collator.compare(String(va ?? ''), String(vb ?? '')) * dir
     })
   })
 

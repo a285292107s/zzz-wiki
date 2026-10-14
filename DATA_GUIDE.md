@@ -35,10 +35,10 @@
 |---|---|
 | 源 | `https://static.nanoka.cc`（zzz.nanoka.cc / hakush.in 底层静态 CDN） |
 | 版本清单 | `GET /manifest.json` → `zzz.live`（**当前值以 `public/data/manifest.json` 为准，本文不写死**）即数据版本（游戏正式服在线版本）；`zzz.latest`（3.2.4+…）为源站最新（含前瞻/测试服内容，**本项目不再消费**） |
-| 列表（无语言） | `/zzz/{ver}/character.json` `/weapon.json` `/bangboo.json` `/equipment.json` |
-| 详情（带语言） | `/zzz/{ver}/zh/character/{id}.json` `/weapon/{id}` `/bangboo/{id}` `/equipment/{id}` |
-| 名词表 | `/zzz/{ver}/zh/noun.json` — 术语词典（游戏名词 title/desc），构建期全量下沉为 `noun.json`（§3/§4），供前端 TermTip 浮层 |
-| 语言 | `zh`/`en`/`ja`/`ko`；本项目只取 `zh`（名录保留四语名） |
+| 列表（单份，无语言段） | `/zzz/{ver}/character.json` `/weapon.json` `/bangboo.json` `/equipment.json` — **名录只有单份**（`/{lang}/character.json` 全 404）：以英文为底本，条目内嵌 `zh`/`en`/`ja`/`ko` 名字字段（驱动盘是 `{name,desc2,desc4}` 子对象） |
+| 详情（带语言） | `/zzz/{ver}/{lang}/character/{id}.json` `/weapon/{id}` `/bangboo/{id}` `/equipment/{id}` |
+| 名词表 | `/zzz/{ver}/{lang}/noun.json` — 术语词典（游戏名词 title/desc），构建期按语言全量下沉为 `live/{lang}/noun.json`（§3/§4），供前端 TermTip 浮层 |
+| 语言 | `zh`/`en`/`ja`/`ko`，**四语全取**：数据面按语言各一套（§3）。界面短文案（导航/按钮/标题/标签/空错态/设置页）同样四语，但那是**站内自撰文案表**（`src/domain/uiText.*.json`），不是数据面的一部分；`/about`、`/formulas` 两篇中文长文不翻译——见 [决策记录 0010](./docs/decisions/0010-multilingual-game-content.md) 与 [0011](./docs/decisions/0011-multilingual-ui-copy.md) |
 | 数据性质 | 与 Dimbreath 解包数据**同源**（nanoka 亦从之加工），但字段名已可读、多语言内嵌、更新更快（新角色/音擎/职业已收录） |
 
 **单数据版本（合规约定 2026-08 起）**：站点只展示**正式服（live）**数据。
@@ -47,8 +47,14 @@
   **不再产出 latest**——`zzz.latest` 含前瞻/测试服内容，为合规绝不拉取/降级/补位。
 - live 不在源站 `available` 列表时构建**直接失败**（sync-data 判定失败则不提交，沿用仓库内既有正式服数据），拒绝用 latest 顶替。
 
-**注意**：`item.json` 只在带语言路径（`/zzz/{ver}/zh/item.json`）存在；`monster/boss/shiyu/simul/hard`
-等端点站方亦有（见 §8 扩展域），本项目当前未消费；`zh/noun.json` 名词表**已消费**（→ 各版本 `noun.json`）。
+**多语言（2026-10 起）**：`public/data/live/` 下**按语言各一套完整数据面**
+（`live/{lang}/` = 名录 + 详情 + 名词表；根下只留 `manifest.json`）。
+语言集单一事实源是 `src/domain/langs.json`（`scripts/build/langs.mjs` 与之共用同一份）。
+名录**按语言重建**（用该语言详情注入本地化展示字段），故前端名录消费点字段形状不变、只有取数路径变。
+切换入口在设置页，语言不进 URL——理由与取舍见 [决策记录 0010](./docs/decisions/0010-multilingual-game-content.md)。
+
+**注意**：`item.json` 只在带语言路径（`/zzz/{ver}/{lang}/item.json`）存在；`monster/boss/shiyu/simul/hard`
+等端点站方亦有（见 §8 扩展域），本项目当前未消费；`{lang}/noun.json` 名词表**已消费**（→ 各语言 `noun.json`）。
 
 ---
 
@@ -60,12 +66,13 @@
 - `basename()`：`icon` 若为完整资源路径（驱动盘/邦布）→ 取裸文件名（去目录/扩展名），与素材 CDN 命名规则一致；角色/音擎 icon 本身即裸名，原样保留。
 - 名录：列表条目 ID 是**对象 key**（条目内部无 id 字段）→ 注入 `Id` 大写键。
 - 详情：键长名与前端契约（`src/data/types.ts`）**几乎完全同构**，直接透传；仅以下值做规整：
-  - `weapon_type`/`element_type`/`hit_type` 的值统一为**英文**（`{202:"Ice"}`），与旧契约一致（前端只用 key 解码，值文本不参与显示；`camp` 值保留中文）。
+  - `weapon_type`/`element_type`/`hit_type` 的值统一为**英文**（`{202:"Ice"}`），与旧契约一致（前端只用 key 解码，值文本不参与显示；`camp` 值保留**该语言**文本——源站按语言给，构建期原样透传）。
   - 皮肤 `image` 应用 `SKIN_IMAGE_FALLBACK`（见 §5）。
 - 新增透传字段（v2 增值，前端 index signature 兼容）：`special_element_type`、`strategy`、`fairy_recommend`、`skill_list`、`skill_priority`、`passive`、`potential_detail`、`level`、`extra_level`、`level_exp`、`live2_d`。
-- **特殊属性展示**：详情 `special_element_type.name`（如 星见雅→「烈霜」）在构建期同步注入名录为 `special_element` 字段；前端 `Tags` 展示属性时优先显示特殊名，无则退回 `ELEMENTS[element].zh` 基础属性。
+- **特殊属性展示**：详情 `special_element_type.name`（如 星见雅→「烈霜」）在构建期同步注入**该语言**名录为 `special_element` 字段；前端 `Tags` 展示属性时优先显示特殊名，无则退回 `ELEMENTS[element].zh` 基础属性（基础属性标签是站内人工标签，不随语言变——见决策记录 0010 的遗留缺口）。
 - **阵营细分补充**：源数据 `camp` 为粗粒度阵营（如 16=罗斯凯利法），构建期按官方设定把已知角色细分到下属组织（live 3.2 共 15 角色 → 7 子阵营：防卫军·奥波勒斯小队/白银小队、治安局·刑侦特勤组/都市秩序部、罗斯凯利法·外务筹策局/空域巡戍局/弗林特工坊）。单一事实源 `src/data/camp-supplement.json`（码 18 起为细分新增码；细分只覆写名录 `camp/camp_name`，详情 `camp` 保持源数据），由 `domains.ts` 的 `applyCampSupplement()` 注入；上游若原生引入细分，删除对应条目即回归源数据。口径核对自 biligame 角色图鉴（2026-10-05）。
-- **名词表**：源站 `zh/noun.json` 全量下沉为 `live/noun.json`；术语名规整为带括号风格（如 `[虚曜]`）注入名录/详情，名词表自身 desc 经 `resolveTerms` 解析（`<Term:N>` 保留 ID 外壳，前端渲染为术语锚点）。
+  **只对中文生效**：这张表的展示名是中文策展，源站对细分阵营没有四语名；套到非中文名录会得到「英文条目里混中文阵营名」，只借数字码再配源站粗粒度名又会让多个细分码同名（筛选下拉重复）。故非中文走源站粗粒度阵营。
+- **名词表**：源站 `{lang}/noun.json` 全量下沉为 `live/{lang}/noun.json`；术语名规整为带括号风格（如 `[虚曜]`）注入**该语言**的名录/详情，名词表自身 desc 经 `resolveTerms` 解析（`<Term:N>` 保留 ID 外壳，前端渲染为术语锚点）。**逐语言解析**：中文术语名不能出现在英文正文里。
 - 详情并发抓取上限 8；磁盘缓存 `.cache/hakushin-raw/`（缓存路径含版本号，同版本重复构建秒级跳过、跨版本自动全量刷新；`--force` 强制忽略缓存重拉）。
 - **manifest.json 永不读缓存**：每次 `pnpm run data` 都实时拉取源站清单，保证版本探测不固着。
 
@@ -81,12 +88,17 @@ live 不在 available 时**直接抛错**（sync-data 判定失败则不提交�
 
 ```
 public/data/
-  manifest.json              版本/来源元信息 { zzz: { live, source } } + generated
-  live/                       正式服数据（游戏在线版本，如 3.1；目录名固定，不随版本号变）
-    character.json weapon.json bangboo.json equipment.json noun.json
-    zh/character/{id}.json …（契约见下）
+  manifest.json              版本/来源元信息 { zzz: { live, source } } + generated（与语言无关）
+  live/                       正式服数据（游戏在线版本，如 3.2；目录名固定，不随版本号变）
+    {lang}/                   四语各一套完整数据面：zh / en / ja / ko
+      character.json weapon.json bangboo.json equipment.json noun.json
+      character/{id}.json …（契约见 §4）
   img/                        图标本地化 + hero 头图（download:icons 产物）
 ```
+
+> **名录为什么按语言各一份**：源站名录只有单份，而构建期要往里注入本地化展示文本
+> （阵营名、特殊属性名、音擎效果名/正文与主副属性名），所以「该语言的名录」＝用该语言详情注入后的名录。
+> 好处是前端名录消费点**字段形状不变**（`camp_name` 仍是字符串，只是取值随语言），只有取数路径变。
 
 > `img/` 为 `pnpm run download:icons` 的本地化图标（独立管理）；`pnpm run data`
 > 的 resetOut **只清理根 manifest 与 live 目录**，不触碰 img/（曾有整体删除 OUT 目录连坐清空图标的教训）。
@@ -105,11 +117,14 @@ public/data/
 > 前瞻/测试服内容，按合规约定不产出、不展示。）
 
 ### 名录字段
+> 下列名录字段的**取值随语言**（因为名录按语言各落一份）：`camp_name`、`special_element`、
+> 音擎的 `base_property`/`rand_property`/`effect_name`/`effect_desc`。其余字段（id、码、icon、数值）
+> 四语一致。
 - **CharacterListItem**：`Id, code, rank, type(职业int), element(属性int), special_element(特殊属性展示名,可选), hit(攻击int), camp(阵营id,可经阵营细分补充覆写,见 §2), camp_name(阵营展示名,可选), icon(裸文件名), potential, skin, desc, en, zh, ja, ko`
-  - `special_element`：构建期由详情 `special_element_type.name` 注入（如 星见雅→`烈霜`、仪玄→`玄墨`、叶瞬光→`凛刃`）。前端展示属性时优先显示它，无则为 `element` 基础属性。
-  - `camp_name`：构建期由详情 `camp` 映射（如 `{"1":"狡兔屋"}`）注入阵营中文名；随后应用阵营细分补充（`camp-supplement.json`，如 1611→`罗斯凯利法·弗林特工坊`）。前端名录阵营列优先显示它，无则退回 `C##` 代码。
+  - `special_element`：构建期由**该语言**详情的 `special_element_type.name` 注入（如 星见雅→`烈霜`）。前端展示属性时优先显示它，无则为 `element` 基础属性。
+  - `camp_name`：构建期由**该语言**详情的 `camp` 映射（如 `{"1":"狡兔屋"}`）注入阵营名；中文另应用阵营细分补充（`camp-supplement.json`，如 1611→`罗斯凯利法·弗林特工坊`；细分只对中文生效，见 §2）。前端名录阵营列优先显示它，无则退回 `C##` 代码。
 - **WEngineListItem**：`Id, icon, rank, type, atk(满级基础攻击力), sub(副属性英文名), desc, en, zh, ja, ko`
-  - `base_property` / `rand_property`：构建期由详情同名对象注入的**展示子集**（`name`(中文名) + `value`(Lv.1 基础值) + `format`），供名录卡片复用 `domain/sections.wEnginePropsAtLevel` 呈现与详情页同口径的满级面板（主属性按 `atk` 插值到 Lv.60）。
+  - `base_property` / `rand_property`：构建期由**该语言**详情同名对象注入的**展示子集**（`name` + `value`(Lv.1 基础值) + `format`），供名录卡片复用 `domain/sections.wEnginePropsAtLevel` 呈现与详情页同口径的满级面板（主属性按 `atk` 插值到 Lv.60）。
   - `effect_name` / `effect_desc` / `effect_refine`：构建期由详情 `talents` 注入的音擎效果（效果名 + 正文 + 正文对应的精炼档，通常 1 阶），供名录卡片直接陈列。正文含 `<color=#…>` 富文本，展示层须经 `stripRichText`（与驱动盘 2/4 件套同一约定）。
   - 三者均可选：详情缺失时名录仍合法，卡片对应块不渲染。
 - **BangbooListItem**：`Id, icon, rank, codename, desc, en, zh, ja, ko`
@@ -135,18 +150,18 @@ public/data/
 | hakushin raw 端点 | 用于产出 |
 |---|---|
 | `/manifest.json` | 版本号（live = 正式服）、new 新内容 ID 清单（latest 仅作参考，不消费） |
-| `character.json` | 角色名录（code/rank/type/element/hit/camp/icon/四语名） |
-| `zh/character/{id}.json` | 角色详情（数值/技能/影画/档案/皮肤/特殊属性/策略/潜能…） |
-| `weapon.json` | 音擎名录（含 atk/sub/desc；主/副属性展示面与音擎效果由详情注入，见 §3 名录字段） |
-| `zh/weapon/{id}.json` | 音擎详情（主/副属性、等级成长、精炼 1-5、突破材料） |
-| `bangboo.json` | 邦布名录 |
-| `zh/bangboo/{id}.json` | 邦布详情（数值/晋升/技能 a/b/c） |
-| `equipment.json` | 驱动盘套装名录（四语套装名与 2/4 件套效果） |
-| `zh/equipment/{id}.json` | 驱动盘详情（背景故事 story、icon2） |
-| `zh/noun.json` | 名词表（术语 title/desc → `live/noun.json`，供详情页 TermTip 浮层） |
+| `{lang}/character.json` | 角色名录（code/rank/type/element/hit/camp/icon/四语名 + 该语言注入的 camp_name/special_element） |
+| `{lang}/character/{id}.json` | 角色详情（数值/技能/影画/档案/皮肤/特殊属性/策略/潜能…，正文取该语言） |
+| `{lang}/weapon.json` | 音擎名录（含 atk/sub/desc；主/副属性展示面与音擎效果由**该语言**详情注入，见 §3 名录字段） |
+| `{lang}/weapon/{id}.json` | 音擎详情（主/副属性、等级成长、精炼 1-5、突破材料） |
+| `{lang}/bangboo.json` | 邦布名录 |
+| `{lang}/bangboo/{id}.json` | 邦布详情（数值/晋升/技能 a/b/c） |
+| `{lang}/equipment.json` | 驱动盘套装名录（四语套装名与 2/4 件套效果子对象） |
+| `{lang}/equipment/{id}.json` | 驱动盘详情（背景故事 story、icon2） |
+| `{lang}/noun.json` | 名词表（术语 title/desc，供详情页 TermTip 浮层） |
 
 **注意**：名录的 `en`/`ja`/`ko` 字段对源站未完全本地化的极新角色可能是原始资源键，
-`zh` 名正常；前端名录主显示 `zh`，不受影响。
+`zh` 名正常；四语名录都带这四个名字字段，前端按当前语言取（缺该语言时回退到其他语言）。
 
 ---
 
@@ -224,7 +239,7 @@ public/data/
 | `src/data/icons.ts` | 图标候选链（本地 → nanoka CDN 两级兜底）+ 技能键位资产名映射 |
 | `src/components/HollowImage.vue` | 多候选图 + `position`/`ratio` 裁切 + 文字降级 |
 | `src/utils/rich.ts` | 富文本：`<IconMap:Icon_XXX>`→键位图（本地优先，`data-cdn` 属性供 main.ts 全局 error 降级）、`<color=#…>`→带色 span、`<Term:N>`→术语锚点（供 TermTip）、`{CAL:expr,scale,decimals}`→按技能等级代入求值（技能/核心技描述与数值条目，如「伤害提升18%」；需调用方传入等级，否则剥离；scale 语义按游戏实机核实：小数式 ×100 转百分比，如 月城柳 极性紊乱 满级 3200%）、LAYOUT 与 `{Skill:N,Prop:N}` 占位剥离，其余 HTML 转义防注入 |
-| `src/data/terms.ts` | 术语词典：读本地 `/data/live/noun.json`（固定路径，单版本正式服），词典缺失时浮层安静隐藏 |
+| `src/data/terms.ts` | 术语词典：读本地 `/data/live/{lang}/noun.json`（单版本正式服 + 当前语言），词典缺失时浮层安静隐藏 |
 | `src/components/detail/TermTip.vue` | 术语悬停浮层：全局委托监听 `.rich-term`，展示名词表 title/desc |
 | `src/utils/text.ts` | `stripRichText`（纯文本剥标记） |
 
@@ -242,7 +257,8 @@ public/data/
 
 ```bash
 pnpm install             # 依赖（首次或变更后）
-pnpm run data            # 拉取 hakushin raw（live = 正式服单版本）→ 规整 → 生成 public/data/live/ + manifest（需外网）
+pnpm run data            # 拉取 hakushin raw（live = 正式服单版本）→ 规整 → 生成 public/data/live/{zh,en,ja,ko}/ + manifest（需外网）
+                        #   四语详情共 928 份，首次全量抓取较慢；同版本重复构建走 .cache 秒级跳过
                         #   有代理时：set NODE_USE_ENV_PROXY=1
 pnpm run data -- --check # 仅版本探测：输出 UPDATE_AVAILABLE / UP_TO_DATE，不构建（CI/定时哨兵）
 pnpm run sync           # 数据+图标同步（正式提交入口）：探测 → 重建 JSON → 图标 --soft 补差（只补缺失、已有资源零重下）
@@ -284,6 +300,7 @@ pnpm run preview         # 预演产物
 
 ### 当前状态（2026-10，v2 实测）
 - 正式服（live 3.2）名录 60 角色／100 音擎 / 42 邦布 / 30 驱动盘（不含主角 2011/2021——与 hakushin 名录口径一致，前端零引用主角，无影响）。
+  **四个语言各一套完整数据面**（`live/{lang}/`，名录数量逐语一致，见 §3 与决策记录 0010），故 928 份详情文件。
 - **伊埃斯（55098）不入邦布名录展示**：它是绳匠专属的 H.D.D. 搭档，非可获取收藏型号（源站名录即空 icon / 占位 desc 的桩数据）；由 `BangboosView.vue` 的 `HIDDEN_BANGBOO_IDS` 前端策展，名录文件仍保留该条，详情页可经直接链接到达。
 - **源站 latest（3.3.4+…）含前瞻/测试服内容（如 菲欧妮 / 赛维里安，live 3.2 未收录），按合规约定不产出、不展示。**
 - **站方扩展域未消费**：`monster.json`(306) / `boss.json`(47) / `shiyu.json`(62) / `simul.json`(3) / `hard.json`(1) / `zh/item.json`(5771) 全部实测 200，做怪物图鉴/式舆/以骸卡牌页时可扩展（同源 schema 见各端点返回）。
@@ -292,7 +309,7 @@ pnpm run preview         # 预演产物
 1. **名录/详情数量为 0** → 版本号变更或端点改名：先看 `.cache/hakushin-raw/manifest.json` 的 `live` 是否仍可用（请求 `https://static.nanoka.cc/zzz/{live}/character.json` 必须 200）。
 2. **请求 404** → 站点 schema 变更（端点改名/移动），检查 `manifest.json` 的 `available` 列表与旧端点对比。
 3. **图标全文字** → `verify:icons` 先看本地 img 差集（运行时消费的是本地文件，缺失才会静默落 CDN）；nanoka `/assets/zzz/` 是主兜底，若它也挂则所有图降文字（`--local` 之外的审计会标出源站缺口）。
-4. **多语言名异常** → 名录 `en`/`ja`/`ko` 对极新角色可能是原始资源键（`zh` 不受影响）；若大面积如此说明站点本地化未完成。
+4. **多语言名异常** → 名录 `en`/`ja`/`ko` 对极新角色可能是原始资源键（`zh` 不受影响）；若大面积如此说明站点本地化未完成。四语名录都带这四个名字字段，前端按当前语言取、缺该语言时回退其余语言（`utils/names.pickName`），故单语缺名不会破版。另注意：**谚文没有自托管衬线字形**（Noto Serif SC 不含 한글），韩文正文按预期回退系统字体——这是设计取舍，不是缺字 bug。
 5. **构建失败：「live 不在可用列表」** → `pnpm run data` 抛错（为合规拒绝降级 latest）；源站下架/改名 live 版本时需人工确认。sync-data 判定失败则不提交、沿用仓库内既有正式服数据；部署只构建已提交快照，站点不挂。
 6. **图标带源站水印（如驱动盘 `SuitThornedRose` 的 DEMO 字样）** → 水印烙在 nanoka 源资产里，本地化时原样落地；且「零重下」幂等差集不会随上游替换自动更新。处置：人工从源站确认干净资产后覆盖对应 `public/data/img/disc/*.webp`（或删除本地文件后重跑 `pnpm run sync` 补差），勿整批重下。
 
@@ -353,6 +370,12 @@ CJK 衬线（Noto Serif SC **500 单档**）**按站点字符集裁剪后自托�
 > `CJK_TARGET_KB`（默认 5）细分。**字符集变化（新增数据/文案）后须重跑 `pnpm run fonts:cjk`**，
 > 否则新字回退系统字体。Google 现行分片是**静态实例（无 fvar 轴）——不要钉可变轴**
 > （harfbuzz 报 axis 不存在）。字体分片对首屏 LCP 的制约与测量口径见 [`QUALITY.md`](./QUALITY.md) §1。
+>
+> 🌐 **语料随数据面语言走（2026-10）**：字符集采集读的是 `public/data/**.json` **全量**，故数据面
+> 一变四语，语料立刻从 3851 涨到 5446 码点（多出的 728 个是日文汉字、另有假名与标点）。
+> 已按新语料重切：251 片 / 1218KB（源片 3093KB），`noto-serif-sc.css` gzip 12.3 → **14.7KB**（预算 40KB）。
+> **谚文（한글）不在 Noto Serif SC 的字形集里**，韩文正文按既有规则回退系统字体
+> （`verify:fonts:cjk` 的「字体本就不含」那一路，不是裁剪缺口）。
 >
 > ⚠ **分片内部名会误导诊断**：CSS 交付里的 family 内部名固定为 `Noto Serif SC ExtraLight…`，
 > CDP `CSS.getPlatformFontsForNode` 报的就是它——**不代表实际渲染字重**（现行片 OS/2

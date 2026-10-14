@@ -1,0 +1,1984 @@
+{
+ "id": 1521,
+ "icon": "IconRole60",
+ "name": "시시아",
+ "code_name": "Cissia",
+ "rarity": 4,
+ "weapon_type": {
+  "1": "Attack"
+ },
+ "element_type": {
+  "203": "Electric"
+ },
+ "hit_type": {
+  "101": "Slash"
+ },
+ "camp": {
+  "7": "뉴에리두 치안국"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "1/10",
+  "full_name": "시시아",
+  "gender": "여성",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle60.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0060.png",
+  "impression_f": "시시아의 눈과 코를 속일 수 있는 간식은 없어! 도대체 어떻게 포장지 너머로 감자칩 냄새를 맡은 거지?",
+  "impression_m": "시시아가 집에 온 이후로 못 찾던 낡은 비디오테이프 같은 건 다시는 잃어버리지 않게 됐어. 근데 냉장고에 남아 있던 치즈 케이크처럼… 다시는 보지 못하는 것들도 생겼지…",
+  "impressions": [
+   "시시아에 대한 인상:\n · 달걀을 주면 과자로 보답한다",
+   " · 경보가 울리지 않았다. 오늘도 착한 아이 같은 하루를 보냈구나",
+   " · 비디오 가게 소파에 대한 주권을 일방적으로 선언했다"
+  ],
+  "profile_desc": "시시아, 뉴에리두 치안국 관리 감찰관 휘하의 담당 조사관으로, 현재 「Random Play」 2층의 새로운 룸메이트 자리를 적극적으로 노리는 중이다.\n\n작전이나 임무 자체의 위험보다 상관의 전화를 더 두려워한다. 겉보기나 말투와 달리 작전 시에는 훨씬 더 전문적이며, 오감과 직감만으로도 정확한 판단을 내릴 수 있다.\n\n본능만 따르는 이기적이고 제멋대로인 「악당」이라 자칭하지만, 시시아의 선택에서는 이기심을 뛰어넘는 인간미가 종종 빛난다. 질서와 정의를 비웃으면서도, 흉악한 범죄자를 추적하는 가장 날카로운 단검이 될 수 있다.\n\n하지만 자신을 지키기 위한 거짓말이든, 배신을 위한 송곳니든, 그 「이익을 좇고 해악을 피하는」 야생의 철학이든, 시시아는 이 모든 걸 남아 있는 소중한 것을 지키기 위한 방패로 삼는다. 어떤 과거와 족쇄를 짊어지고 있든, 시시아는 이미 이곳에 발을 디디기로 결심했다.",
+  "role_icon": "IconRole/UnPacker/IconRole60",
+  "stature": "156",
+  "unlock_condition": [
+   "에이전트 획득",
+   "메인 스토리 의뢰 시즌 2·에필로그 뉴: 에리두의 일몰(상) 완료",
+   "「엔비의 고민」 의뢰 완료"
+  ],
+  "trust_lv": {
+   "1": "시시아, 뉴에리두 치안국 관리 감찰관 휘하의 담당 조사관으로, 현재 「Random Play」 2층의 새로운 룸메이트 자리를 적극적으로 노리는 중이다.\n\n작전이나 임무 자체의 위험보다 상관의 전화를 더 두려워한다. 겉보기나 말투와 달리 작전 시에는 훨씬 더 전문적이며, 오감과 직감만으로도 정확한 판단을 내릴 수 있다.\n\n본능만 따르는 이기적이고 제멋대로인 「악당」이라 자칭하지만, 시시아의 선택에서는 이기심을 뛰어넘는 인간미가 종종 빛난다. 질서와 정의를 비웃으면서도, 흉악한 범죄자를 추적하는 가장 날카로운 단검이 될 수 있다.\n\n하지만 자신을 지키기 위한 거짓말이든, 배신을 위한 송곳니든, 그 「이익을 좇고 해악을 피하는」 야생의 철학이든, 시시아는 이 모든 걸 남아 있는 소중한 것을 지키기 위한 방패로 삼는다. 어떤 과거와 족쇄를 짊어지고 있든, 시시아는 이미 이곳에 발을 디디기로 결심했다.",
+   "2": "",
+   "3": "「본능」은 시시아가 생존하기 위한 기반이지만, 동시에 그녀를 더 깊은 소용돌이 속으로 끌어당기는 힘이 되었다. 시시아는 냄새, 흔적, 근육의 떨림에서 읽어낸 정보를 지나치게 신뢰했지만, 서면 계약과 권력 구조 속 숨겨진 함정을 판별하는 법은 배우지 못했다.\n\n체포되기 전, 그녀가 마지막으로 수행한 「합법적」 고용 임무는 기밀 물자를 운송하는 것이었다. 의뢰인은 후한 보수와 간단한 경로를 제시했고, 외환선의 모든 뒷골목을 꿰뚫고 있던 시시아에게 이 일은 식은 죽 먹기였다. 그녀는 평소처럼 동물적 경계심으로 몇몇 미묘한 순찰 공백을 피해 갔지만, 자신의 모든 회피 동작이 「수상한 행적」과 「정찰 회피 능력」의 증거로 기록되고 있다는 사실은 알지 못했다. 모든 것을 집어삼킨 대폭발이 발생했을 때, 시시아는 열에너지 변화 이상을 감지하고 수 초 앞서 버려진 파이프 속으로 몸을 숨겼다. 이 선택은 그녀의 목숨을 구했지만, 동시에 「유일하게 생존한 의심스러운 행적의 방화범」이라는 신분을 완전히 확정 지었다.\n\n치안국의 문서 속에서, 시시아의 직감과 능력은 정교하게 계획된 범죄의 증거로 뒤바뀌었다. 심문은 진상을 밝히기 위함이 아닌, 냉혹한 절차의 한 부분이었다. 강한 빛으로 그녀의 빛 내성을 망가뜨리고, 연이은 심문으로 시간 개념을 무너뜨렸다. 시시아는 결국 몸과 정신이 붕괴 직전에 이르렀을 때 자백서를 내밀었다.\n\n층층이 겹친 불운 끝에 마침내 행운의 가호가 찾아왔다. 관리 감찰관 세베리안이 시시아의 허점투성이 심문 기록을 발견한 것이다. 탁월한 자질과 순수한 성정 덕에 세베리안의 특별 고용을 받아 「담당 조사관」이 되었을 때, 목걸이와 수갑은 더 이상 단순한 구속구가 아닌, 시시아와 그녀가 이해하지도 믿지도 않는 질서 사이에 놓인 위험한 경계선이자 도구가 되었다.",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 135,
+  "attack_growth": 82578,
+  "avatar_piece_id": 5521,
+  "break_stun": 93,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66203,
+  "element_abnormal_power": 94,
+  "element_mystery": 93,
+  "endurance": 0,
+  "hp_growth": 837238,
+  "hp_max": 617,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "Cissia",
+   "Cut",
+   "Electric",
+   "Female",
+   "Camp7",
+   "Size2",
+   "AidTypeParry",
+   "Cissia",
+   "EtherEyesSize0"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "일반 공격: 뱀의 혀",
+     "desc": "<IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 향해 최대 4단까지 공격을 펼쳐 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n네 번째 공격이 적 명중 후, <color=#FFFFFF>[독소]</color>를 2pt 획득하며, 그로기 상태의 적에게 명중 시 <color=#FFFFFF>[독소]</color>를 1pt 추가로 획득한다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 뱀의 입맞춤",
+     "desc": "<color=#FFFFFF>[뱀 그림자]</color> 보유 시 <IconMap:Icon_Normal>을 홀드하여 시전:\n시시아가 공중으로 뛰어올라 타깃을 고정한 후 착지하여 범위 내 적에게 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n고정 기간 동안 <IconMap:Icon_Normal>을 홀드하며 {LAYOUT_CONSOLECONTROLLER#스틱을}{LAYOUT_FALLBACK#방향키를} 움직이면 고정 시간을 연장하고 착지 위치를 자유롭게 제어할 수 있다.\n<color=#FFFFFF>[독소]</color>를 6pt 획득할 때마다 자신이 <color=#FFFFFF>[뱀 그림자]</color> 효과 1스택을 획득한다. 최대 3스택까지 획득할 수 있다.\n전장 진입 시 <color=#FFFFFF>[뱀 그림자]</color> 효과 1스택을 획득한다.\n스킬 시전 시 <color=#FFFFFF>[뱀 그림자]</color> 1스택을 소모한다.\n적 명중 후 모든 <color=#FFFFFF>[독소]</color>를 빠르게 소모하고 <color=#FFFFFF>[침투]</color>를 발동한다.\n스킬 시전 시 <color=#FFFFFF>[빠른 지원]</color>이 발동된다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "침투",
+     "desc": "주변 적에게 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n발동할 때마다 자신의 치명타 확률이 6% 증가한다. 지속 시간: 15초, 최대 중첩: 3스택, 중복 발동 시 지속 시간이 갱신된다.",
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 뱀의 혀",
+     "param": [
+      {
+       "name": "1단 피해 배율",
+       "desc": "{Skill:1521001, Prop:1001}",
+       "param": {
+        "1521001": {
+         "main": 7770,
+         "growth": 710,
+         "format": "%",
+         "damage_percentage": 7770,
+         "damage_percentage_growth": 710,
+         "stun_ratio": 6030,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 23520,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 179850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6530,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6531
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 피해 배율",
+       "desc": "{Skill:1521002, Prop:1001}",
+       "param": {
+        "1521002": {
+         "main": 13870,
+         "growth": 1270,
+         "format": "%",
+         "damage_percentage": 13870,
+         "damage_percentage_growth": 1270,
+         "stun_ratio": 9840,
+         "stun_ratio_growth": 450,
+         "sp_recovery": 37680,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 287925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10466,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10467
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 피해 배율",
+       "desc": "{Skill:1521003, Prop:1001}",
+       "param": {
+        "1521003": {
+         "main": 13510,
+         "growth": 1230,
+         "format": "%",
+         "damage_percentage": 13510,
+         "damage_percentage_growth": 1230,
+         "stun_ratio": 8740,
+         "stun_ratio_growth": 400,
+         "sp_recovery": 32750,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 250250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9096,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9097
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 피해 배율",
+       "desc": "{Skill:1521004, Prop:1001}",
+       "param": {
+        "1521004": {
+         "main": 25020,
+         "growth": 2280,
+         "format": "%",
+         "damage_percentage": 25020,
+         "damage_percentage_growth": 2280,
+         "stun_ratio": 15910,
+         "stun_ratio_growth": 730,
+         "sp_recovery": 67440,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 515350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18732,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18733
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1단 그로기 배율",
+       "desc": "{Skill:1521001, Prop:1002}",
+       "param": {
+        "1521001": {
+         "main": 6030,
+         "growth": 280,
+         "format": "%",
+         "damage_percentage": 7770,
+         "damage_percentage_growth": 710,
+         "stun_ratio": 6030,
+         "stun_ratio_growth": 280,
+         "sp_recovery": 23520,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 179850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6530,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6531
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2단 그로기 배율",
+       "desc": "{Skill:1521002, Prop:1002}",
+       "param": {
+        "1521002": {
+         "main": 9840,
+         "growth": 450,
+         "format": "%",
+         "damage_percentage": 13870,
+         "damage_percentage_growth": 1270,
+         "stun_ratio": 9840,
+         "stun_ratio_growth": 450,
+         "sp_recovery": 37680,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 287925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 10466,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 10467
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3단 그로기 배율",
+       "desc": "{Skill:1521003, Prop:1002}",
+       "param": {
+        "1521003": {
+         "main": 8740,
+         "growth": 400,
+         "format": "%",
+         "damage_percentage": 13510,
+         "damage_percentage_growth": 1230,
+         "stun_ratio": 8740,
+         "stun_ratio_growth": 400,
+         "sp_recovery": 32750,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 250250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 9096,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9097
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4단 그로기 배율",
+       "desc": "{Skill:1521004, Prop:1002}",
+       "param": {
+        "1521004": {
+         "main": 15910,
+         "growth": 730,
+         "format": "%",
+         "damage_percentage": 25020,
+         "damage_percentage_growth": 2280,
+         "stun_ratio": 15910,
+         "stun_ratio_growth": 730,
+         "sp_recovery": 67440,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 515350,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 18732,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18733
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "일반 공격: 뱀의 입맞춤",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1521006, Prop:1001}",
+       "param": {
+        "1521006": {
+         "main": 50420,
+         "growth": 4590,
+         "format": "%",
+         "damage_percentage": 50420,
+         "damage_percentage_growth": 4590,
+         "stun_ratio": 17970,
+         "stun_ratio_growth": 820,
+         "sp_recovery": 49970,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 359425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13063,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13064
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1521006, Prop:1002}",
+       "param": {
+        "1521006": {
+         "main": 17970,
+         "growth": 820,
+         "format": "%",
+         "damage_percentage": 50420,
+         "damage_percentage_growth": 4590,
+         "stun_ratio": 17970,
+         "stun_ratio_growth": 820,
+         "sp_recovery": 49970,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 359425,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 13063,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 13064
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "침투",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1521019, Prop:1001}",
+       "param": {
+        "1521019": {
+         "main": 12680,
+         "growth": 1160,
+         "format": "%",
+         "damage_percentage": 12680,
+         "damage_percentage_growth": 1160,
+         "stun_ratio": 15510,
+         "stun_ratio_growth": 710,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1521019, Prop:1002}",
+       "param": {
+        "1521019": {
+         "main": 15510,
+         "growth": 710,
+         "format": "%",
+         "damage_percentage": 12680,
+         "damage_percentage_growth": 1160,
+         "stun_ratio": 15510,
+         "stun_ratio_growth": 710,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 0
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "회피: 사행",
+     "desc": "<IconMap:Icon_Evade>을 짧게 탭하여 시전:\n빠른 대시로 회피한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 이빨 자국",
+     "desc": "회피 시 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방을 빠르게 베어 <color=#2EB6FF>전기 속성 피해</color>를 준다.",
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 되물어뜯기",
+     "desc": "<color=#FFFFFF>[극한 회피]</color> 발동 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n전방으로 뛰어오르며 착지 후 휩쓸기 공격으로 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "대시 공격: 이빨 자국",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1521010, Prop:1001}",
+       "param": {
+        "1521010": {
+         "main": 14730,
+         "growth": 1340,
+         "format": "%",
+         "damage_percentage": 14730,
+         "damage_percentage_growth": 1340,
+         "stun_ratio": 6240,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 20400,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 155925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5665,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5666
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1521010, Prop:1002}",
+       "param": {
+        "1521010": {
+         "main": 6240,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 14730,
+         "damage_percentage_growth": 1340,
+         "stun_ratio": 6240,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 20400,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 155925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5665,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5666
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "회피 반격: 되물어뜯기",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1521011, Prop:1001}",
+       "param": {
+        "1521011": {
+         "main": 32450,
+         "growth": 2950,
+         "format": "%",
+         "damage_percentage": 32450,
+         "damage_percentage_growth": 2950,
+         "stun_ratio": 23660,
+         "stun_ratio_growth": 1080,
+         "sp_recovery": 41420,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 316525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11503,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1521011, Prop:1002}",
+       "param": {
+        "1521011": {
+         "main": 23660,
+         "growth": 1080,
+         "format": "%",
+         "damage_percentage": 32450,
+         "damage_percentage_growth": 2950,
+         "stun_ratio": 23660,
+         "stun_ratio_growth": 1080,
+         "sp_recovery": 41420,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 316525,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11503,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 26504
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "특수 스킬: 드러낸 송곳니",
+     "desc": "<IconMap:Icon_Special>을 짧게 탭하여 시전:\n전방으로 원거리 물기 공격을 시전해 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n스킬을 시전하는 동안 경직 저항 레벨이 증가한다.",
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 독니",
+     "desc": "에너지가 충분한 상태에서 <IconMap:Icon_SpecialReady> 짧은 탭 혹은 홀드로 시전:\n전방으로 여러 단의 원거리 물기 공격을 시전해 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n스킬 시전 시, 에너지를 5pt 회복한다.\n홀드해서 시전 시, 에너지를 추가로 소모하며, 20pt마다 1회의 추가 타격으로 <color=#2EB6FF>전기 속성 피해</color>를 준다. 최대 60pt의 에너지를 추가로 소모할 수 있다.\n스킬 시전 후, 자신이 <color=#FFFFFF>[독소]</color>를 3pt 획득하며, 홀드 시 에너지를 추가로 20pt 소모할 때마다 <color=#FFFFFF>[독소]</color>를 1pt 획득한다.\n스킬 시전 후, 네 번째 <color=#FFFFFF>[일반 공격: 뱀의 혀]</color>를 바로 이어서 사용할 수 있다.\n스킬이 적 명중 시, <color=#FFFFFF>[빠른 지원]</color>이 발동된다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "특수 스킬: 드러낸 송곳니",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1521007, Prop:1001}",
+       "param": {
+        "1521007": {
+         "main": 5200,
+         "growth": 480,
+         "format": "%",
+         "damage_percentage": 5200,
+         "damage_percentage_growth": 480,
+         "stun_ratio": 4400,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 110000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3998,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3999
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1521007, Prop:1002}",
+       "param": {
+        "1521007": {
+         "main": 4400,
+         "growth": 200,
+         "format": "%",
+         "damage_percentage": 5200,
+         "damage_percentage_growth": 480,
+         "stun_ratio": 4400,
+         "stun_ratio_growth": 200,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 110000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 3998,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3999
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "강화 특수 스킬: 독니",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{{Skill:1521008, Prop:1001}*3+{Skill:1521009, Prop:1001}}",
+       "param": {
+        "1521008": {
+         "main": 20040,
+         "growth": 1830,
+         "format": "%",
+         "damage_percentage": 20040,
+         "damage_percentage_growth": 1830,
+         "stun_ratio": 10830,
+         "stun_ratio_growth": 500,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 577500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 16375,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5650
+        },
+        "1521009": {
+         "main": 6680,
+         "growth": 610,
+         "format": "%",
+         "damage_percentage": 6680,
+         "damage_percentage_growth": 610,
+         "stun_ratio": 3610,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 192500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5459,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1884
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{{Skill:1521008, Prop:1002}*3+{Skill:1521009, Prop:1002}}",
+       "param": {
+        "1521008": {
+         "main": 10830,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 20040,
+         "damage_percentage_growth": 1830,
+         "stun_ratio": 10830,
+         "stun_ratio_growth": 500,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 577500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 16375,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5650
+        },
+        "1521009": {
+         "main": 3610,
+         "growth": 170,
+         "format": "%",
+         "damage_percentage": 6680,
+         "damage_percentage_growth": 610,
+         "stun_ratio": 3610,
+         "stun_ratio_growth": 170,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 192500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5459,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1884
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "추가 타격 피해 배율",
+       "desc": "{Skill:1521008, Prop:1001}",
+       "param": {
+        "1521008": {
+         "main": 20040,
+         "growth": 1830,
+         "format": "%",
+         "damage_percentage": 20040,
+         "damage_percentage_growth": 1830,
+         "stun_ratio": 10830,
+         "stun_ratio_growth": 500,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 577500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 16375,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5650
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "추가 타격 그로기 배율",
+       "desc": "{Skill:1521008, Prop:1002}",
+       "param": {
+        "1521008": {
+         "main": 10830,
+         "growth": 500,
+         "format": "%",
+         "damage_percentage": 20040,
+         "damage_percentage_growth": 1830,
+         "stun_ratio": 10830,
+         "stun_ratio_growth": 500,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 577500,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 16375,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5650
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "에너지 소모",
+       "desc": "65pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "콤보 스킬: 단체 범행",
+     "desc": "<color=#FFFFFF>[콤보 스킬]</color> 발동 시 해당 캐릭터를 선택해 시전:\n전방을 향해 여러 차례 공격해 대량의 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n스킬 시전 후 <color=#FFFFFF>[독소]</color>를 3pt 획득한다.\n스킬이 적 명중 시 <color=#FFFFFF>[빠른 지원]</color>이 발동된다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "궁극기: 파충류 공포증",
+     "desc": "데시벨 레벨 <color=#FFFFFF>[Maximum]</color> 달성 시 <IconMap:Icon_UltimateReady>을 짧게 탭하여 시전:\n전방으로 낙뢰 공격을 시전하여 대량의 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n스킬 시전 후 <color=#FFFFFF>[독소]</color>를 3pt 획득한다.\n스킬 시전 후 <color=#FFFFFF>[에테르 장막: 냉혈]</color>을 발동한다. 지속 시간: 30초, 해당 기간 동안 파티 내 모든 캐릭터의 치명타 피해가 5% 증가한다.\n<color=#FFFFFF>[에테르 장막: 냉혈]</color>을 중복 발동하기 전에 기존의 <color=#FFFFFF>[에테르 장막: 냉혈]</color>은 종료된다.\n스킬로 적 명중 시 <color=#FFFFFF>[빠른 지원]</color>이 발동된다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "콤보 스킬: 단체 범행",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1521012, Prop:1001}",
+       "param": {
+        "1521012": {
+         "main": 73780,
+         "growth": 6710,
+         "format": "%",
+         "damage_percentage": 73780,
+         "damage_percentage_growth": 6710,
+         "stun_ratio": 25860,
+         "stun_ratio_growth": 1180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2475275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 43453,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1521012, Prop:1002}",
+       "param": {
+        "1521012": {
+         "main": 25860,
+         "growth": 1180,
+         "format": "%",
+         "damage_percentage": 73780,
+         "damage_percentage_growth": 6710,
+         "stun_ratio": 25860,
+         "stun_ratio_growth": 1180,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2475275,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 43453,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 23504
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "궁극기: 파충류 공포증",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1521013, Prop:1001}",
+       "param": {
+        "1521013": {
+         "main": 181100,
+         "growth": 16470,
+         "format": "%",
+         "damage_percentage": 181100,
+         "damage_percentage_growth": 16470,
+         "stun_ratio": 12110,
+         "stun_ratio_growth": 560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 61004
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1521013, Prop:1002}",
+       "param": {
+        "1521013": {
+         "main": 12110,
+         "growth": 560,
+         "format": "%",
+         "damage_percentage": 181100,
+         "damage_percentage_growth": 16470,
+         "stun_ratio": 12110,
+         "stun_ratio_growth": 560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 11003,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 61004
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "빠른 지원: 경보 장치",
+     "desc": "현재 조작 중인 캐릭터가 넉업될 때 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n전방으로 도약하고 착지 후 휩쓸기 공격으로 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n스킬 시전 중, 빠르게 <color=#FFFFFF>[특수 스킬: 드러낸 송곳니]</color>, <color=#FFFFFF>[강화 특수 스킬: 독니]</color> 및 <color=#FFFFFF>[일반 공격: 뱀의 입맞춤]</color>으로 연계할 수 있다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 감방 특식",
+     "desc": "출전 캐릭터 피격 직전에 <IconMap:Icon_Switch>을 짧게 탭하여 시전:\n적의 공격을 패링하고 대량의 그로기 수치를 누적한다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 공범의 의리",
+     "desc": "<color=#FFFFFF>[패링 지원]</color> 시전 후 <IconMap:Icon_Normal>을 짧게 탭하여 시전:\n타깃에게 연속 공격해 대량의 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n스킬을 시전하는 동안 무적 효과를 보유한다.",
+     "potential": []
+    },
+    {
+     "name": "빠른 지원: 경보 장치",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1521014, Prop:1001}",
+       "param": {
+        "1521014": {
+         "main": 7480,
+         "growth": 680,
+         "format": "%",
+         "damage_percentage": 7480,
+         "damage_percentage_growth": 680,
+         "stun_ratio": 6330,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 20710,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 158400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5751,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5752
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1521014, Prop:1002}",
+       "param": {
+        "1521014": {
+         "main": 6330,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 7480,
+         "damage_percentage_growth": 680,
+         "stun_ratio": 6330,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 20710,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 158400,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5751,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5752
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "패링 지원: 감방 특식",
+     "param": [
+      {
+       "name": "가벼운 패링 그로기 배율",
+       "desc": "{Skill:1521015, Prop:1002}",
+       "param": {
+        "1521015": {
+         "main": 27130,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 27130,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "강한 패링 그로기 배율",
+       "desc": "{Skill:1521016, Prop:1002}",
+       "param": {
+        "1521016": {
+         "main": 34280,
+         "growth": 1560,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 34280,
+         "stun_ratio_growth": 1560,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "연속 패링 그로기 배율",
+       "desc": "{Skill:1521017, Prop:1002}",
+       "param": {
+        "1521017": {
+         "main": 16680,
+         "growth": 760,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 16680,
+         "stun_ratio_growth": 760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "지원 돌격: 공범의 의리",
+     "param": [
+      {
+       "name": "피해 배율",
+       "desc": "{Skill:1521018, Prop:1001}",
+       "param": {
+        "1521018": {
+         "main": 52060,
+         "growth": 4740,
+         "format": "%",
+         "damage_percentage": 52060,
+         "damage_percentage_growth": 4740,
+         "stun_ratio": 38720,
+         "stun_ratio_growth": 1760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1234475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37617,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "그로기 배율",
+       "desc": "{Skill:1521018, Prop:1002}",
+       "param": {
+        "1521018": {
+         "main": 38720,
+         "growth": 1760,
+         "format": "%",
+         "damage_percentage": 52060,
+         "damage_percentage_growth": 4740,
+         "stun_ratio": 38720,
+         "stun_ratio_growth": 1760,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1234475,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 37617,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 20664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "여행자와 사냥감",
+   "desc": "전장 진입 시, 획득하는 <color=#FFFFFF>[독소]</color>가 6pt로 증가한다. <color=#FFFFFF>[핵심 패시브]</color>의 적 방어력 무시 효과가 기존의 140%로 증가하고, 파티 내 모든 캐릭터가 주는 피해가 타깃의 <color=#2EB6FF>전기 속성 피해 저항</color>을 5% 무시한다. <color=#FFFFFF>[침투]</color>로 주는 피해가 타깃의 <color=#2EB6FF>전기 속성 피해 저항</color>을 10% 무시한다.",
+   "desc2": "냄새, 발소리, 반짝이는 눈빛… 이런 「흔적」이 내가 사냥꾼과 먹잇감을 구분하는 지표야. 먹잇감이 되기 전에 도망치고, 사냥꾼이 되기 전에 고개를 숙이는 게 나의 생존 방식이고. 「집」? 그런 건 동화 속에나 나오는 거지. 광활한 황야, 그게 바로 나라는 사냥꾼의 오두막이야."
+  },
+  "2": {
+   "level": 2,
+   "name": "허기와 격언",
+   "desc": "<color=#FFFFFF>[콤보 스킬: 단체 범행]</color> 혹은 <color=#FFFFFF>[궁극기: 파충류 공포증]</color>으로 그로기 상태의 적 명중 후, <color=#FFFFFF>[독소]</color>를 추가로 3pt 획득한다. <color=#FFFFFF>[일반 공격: 뱀의 입맞춤]</color>으로 주는 피해가 35% 증가한다.",
+   "desc2": "배불리 먹을 수 있는 곳이 좋은 곳이고, 나한테 밥을 주는 사람이 좋은 사람이야. 세상에서 가장 단순하고 확실한 진리지. 그리고—— 오므라이스는 최고로 맛있어. 네 숟가락에 남은 밥도 마찬가지고."
+  },
+  "3": {
+   "level": 3,
+   "name": "사슬과 따뜻한 보금자리",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "정의? 질서? 그런 떳떳하고 정당한 것들은 내 다리에 힘이 쭉 빠지게 만들어. 나한테 익숙한 건 그림자 속 규칙이야. 배신, 거짓말, 그리고 살기 위해서라면 아주 그럴싸하게 무릎을 꿇는 것. 도구 취급당하는 건 상관없어, 배불리 먹을 한 끼와 따뜻한 구석만 보장된다면 말이야."
+  },
+  "4": {
+   "level": 4,
+   "name": "악당의 각오",
+   "desc": "<color=#FFFFFF>[강화 특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color> 혹은 <color=#FFFFFF>[궁극기]</color> 시전 시 <color=#FFFFFF>[각오]</color>를 1스택 획득한다. 최대 중첩: 3스택\n<color=#FFFFFF>[일반 공격: 뱀의 입맞춤]</color> 시전 시 모든 <color=#FFFFFF>[각오]</color>를 소모하며, 1스택 소모할 때마다 <color=#FFFFFF>[독소]</color>를 소모하지 않는 특수 <color=#FFFFFF>[침투]</color>를 추가로 1회 발동한다. 해당 <color=#FFFFFF>[침투]</color>는 그로기 수치를 누적시킬 수 없다.",
+   "desc2": "차가운 목줄과 무거운 수갑은 씻을 수 없는 죄를 상기시키지. 하지만 보이지 않는 규칙과 차가운 시선보다는, 이렇게 명확한 구속이 오히려 마음 편해… 적어도 대가가 뭔지는 알 수 있으니까. 게다가, 소파와 간식이 있는 아늑한 보금자리로 돌아가기만 한다면, 차가운 쇠붙이들도 온기를 띠게 돼."
+  },
+  "5": {
+   "level": 5,
+   "name": "위증과 송곳니",
+   "desc": "<color=#FFFFFF>[일반 공격]</color>, <color=#FFFFFF>[회피]</color>, <color=#FFFFFF>[지원 스킬]</color>, <color=#FFFFFF>[특수 스킬]</color>, <color=#FFFFFF>[콤보 스킬]</color>의 스킬 레벨+2",
+   "desc2": "강렬한 빛에 데인 기억, 선명히 적힌 죄명… 이런 「흔적」들이 예전의 나를 만들었어. 하지만 지금은 달라. 난 글을 읽을 줄 알게 됐고, 거짓말의 냄새를 구별할 줄도 알게 됐지. 익숙한 음모의 냄새가 다시 풍겨올 때, 난 더 이상 멍하니 우리 속으로 걸어 들어가지 않아. 이젠 내가 「흔적」을 남길 차례니까——이빨로, 사납게."
+  },
+  "6": {
+   "level": 6,
+   "name": "집과 6단지 거리",
+   "desc": "<color=#FFFFFF>[침투]</color>를 발동할 때마다 <color=#FFFFFF>[침투 각인]</color>을 1스택 획득한다. 파티 내 모든 캐릭터가 <color=#FFFFFF>[침투]</color> 외의 공격으로 적 명중 시 <color=#FFFFFF>[침투 각인]</color> 1스택을 소모하여 특수 <color=#FFFFFF>[침투]</color>를 1회 발동하며, 해당 <color=#FFFFFF>[침투]</color>는 그로기 수치를 누적시킬 수 없다. 3초 동안 최대 1스택의 <color=#FFFFFF>[침투 각인]</color>을 소모할 수 있다.",
+   "desc2": "「살아남는 것」보다 더 꼭 잡고 싶은 게 생기면, 사람은 정말로 바보가 되곤 해. 만약 언젠가 운명이 날 죽음으로 몰아넣는다면, 너의 그 크고 푹신한 소파는 절대 다른 사람한테 내주면 안 돼!\n\n「절 대 로 날 잊 지 마, 안 그 러 면 물 어 죽 일 거 야」"
+  }
+ },
+ "passive": {
+  "level": {
+   "1521049": {
+    "level": 1,
+    "id": 1521049,
+    "name": [
+     "핵심 패시브: 치명적인 밀주",
+     "추가 능력: 곪아가는 독"
+    ],
+    "desc": [
+     "전장 진입 시 <color=#FFFFFF>[독소]</color>를 3pt 획득한다. 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[독소]</color> 보유 시, 교전 상태에서 5초마다 <color=#FFFFFF>[독소]</color>를 1pt 소모하여 <color=#FFFFFF>[침투]</color>를 1회 발동하고 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n<color=#FFFFFF>[독소]</color> 보유 시, 파티 내 모든 캐릭터가 적에게 주는 <color=#2EB6FF>전기 속성 피해</color>가 적의 방어력을 <color=#2BAD00>3%</color> 무시하며, 초기 에너지 자동 회복이 1.4 초과 시, 초과분 0.12마다 추가로 적의 방어력을 <color=#2BAD00>0.52%</color> 무시한다. 최대 적의 방어력을 <color=#2BAD00>12.88%</color> 무시하며, <color=#FFFFFF>[독소]</color> 소진 후 30초까지 지속된다.\n<color=#FFFFFF>[침투]</color>가 자신 공격력의 <color=#2BAD00>227%</color>만큼 <color=#2EB6FF>전기 속성 피해</color>를 추가로 준다.\n파티 내 <color=#2EB6FF>전기 속성</color> 캐릭터가 1/2명 존재할 경우, <color=#FFFFFF>[침투]</color>로 주는 그로기 수치가 40%/60% 증가한다.\n<color=#FFFFFF>[독소]</color> 획득 시, <color=#FFFFFF>[독소]</color>가 1pt 초과할 때마다 <color=#FFFFFF>[침투]</color>를 1회 발동한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 혹은 자신과 속성이 같은 캐릭터 존재 시 발동:\n<color=#FFFFFF>[독소]</color> 보유 시, 파티 내 모든 캐릭터의 치명타 피해가 40% 증가하고, 자신은 추가로 10% 증가한다. <color=#FFFFFF>[독소]</color> 소진 후 30초까지 지속된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1521050": {
+    "level": 2,
+    "id": 1521050,
+    "name": [
+     "핵심 패시브: 치명적인 밀주",
+     "추가 능력: 곪아가는 독"
+    ],
+    "desc": [
+     "전장 진입 시 <color=#FFFFFF>[독소]</color>를 3pt 획득한다. 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[독소]</color> 보유 시, 교전 상태에서 5초마다 <color=#FFFFFF>[독소]</color>를 1pt 소모하여 <color=#FFFFFF>[침투]</color>를 1회 발동하고 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n<color=#FFFFFF>[독소]</color> 보유 시, 파티 내 모든 캐릭터가 적에게 주는 <color=#2EB6FF>전기 속성 피해</color>가 적의 방어력을 <color=#2BAD00>3.5%</color> 무시하며, 초기 에너지 자동 회복이 1.4 초과 시, 초과분 0.12마다 추가로 적의 방어력을 <color=#2BAD00>0.6%</color> 무시한다. 최대 적의 방어력을 <color=#2BAD00>14.9%</color> 무시하며, <color=#FFFFFF>[독소]</color> 소진 후 30초까지 지속된다.\n<color=#FFFFFF>[침투]</color>가 자신 공격력의 <color=#2BAD00>245%</color>만큼 <color=#2EB6FF>전기 속성 피해</color>를 추가로 준다.\n파티 내 <color=#2EB6FF>전기 속성</color> 캐릭터가 1/2명 존재할 경우, <color=#FFFFFF>[침투]</color>로 주는 그로기 수치가 40%/60% 증가한다.\n<color=#FFFFFF>[독소]</color> 획득 시, <color=#FFFFFF>[독소]</color>가 1pt 초과할 때마다 <color=#FFFFFF>[침투]</color>를 1회 발동한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 혹은 자신과 속성이 같은 캐릭터 존재 시 발동:\n<color=#FFFFFF>[독소]</color> 보유 시, 파티 내 모든 캐릭터의 치명타 피해가 40% 증가하고, 자신은 추가로 10% 증가한다. <color=#FFFFFF>[독소]</color> 소진 후 30초까지 지속된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1521051": {
+    "level": 3,
+    "id": 1521051,
+    "name": [
+     "핵심 패시브: 치명적인 밀주",
+     "추가 능력: 곪아가는 독"
+    ],
+    "desc": [
+     "전장 진입 시 <color=#FFFFFF>[독소]</color>를 3pt 획득한다. 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[독소]</color> 보유 시, 교전 상태에서 5초마다 <color=#FFFFFF>[독소]</color>를 1pt 소모하여 <color=#FFFFFF>[침투]</color>를 1회 발동하고 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n<color=#FFFFFF>[독소]</color> 보유 시, 파티 내 모든 캐릭터가 적에게 주는 <color=#2EB6FF>전기 속성 피해</color>가 적의 방어력을 <color=#2BAD00>4%</color> 무시하며, 초기 에너지 자동 회복이 1.4 초과 시, 초과분 0.12마다 추가로 적의 방어력을 <color=#2BAD00>0.68%</color> 무시한다. 최대 적의 방어력을 <color=#2BAD00>16.92%</color> 무시하며, <color=#FFFFFF>[독소]</color> 소진 후 30초까지 지속된다.\n<color=#FFFFFF>[침투]</color>가 자신 공격력의 <color=#2BAD00>263%</color>만큼 <color=#2EB6FF>전기 속성 피해</color>를 추가로 준다.\n파티 내 <color=#2EB6FF>전기 속성</color> 캐릭터가 1/2명 존재할 경우, <color=#FFFFFF>[침투]</color>로 주는 그로기 수치가 40%/60% 증가한다.\n<color=#FFFFFF>[독소]</color> 획득 시, <color=#FFFFFF>[독소]</color>가 1pt 초과할 때마다 <color=#FFFFFF>[침투]</color>를 1회 발동한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 혹은 자신과 속성이 같은 캐릭터 존재 시 발동:\n<color=#FFFFFF>[독소]</color> 보유 시, 파티 내 모든 캐릭터의 치명타 피해가 40% 증가하고, 자신은 추가로 10% 증가한다. <color=#FFFFFF>[독소]</color> 소진 후 30초까지 지속된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1521052": {
+    "level": 4,
+    "id": 1521052,
+    "name": [
+     "핵심 패시브: 치명적인 밀주",
+     "추가 능력: 곪아가는 독"
+    ],
+    "desc": [
+     "전장 진입 시 <color=#FFFFFF>[독소]</color>를 3pt 획득한다. 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[독소]</color> 보유 시, 교전 상태에서 5초마다 <color=#FFFFFF>[독소]</color>를 1pt 소모하여 <color=#FFFFFF>[침투]</color>를 1회 발동하고 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n<color=#FFFFFF>[독소]</color> 보유 시, 파티 내 모든 캐릭터가 적에게 주는 <color=#2EB6FF>전기 속성 피해</color>가 적의 방어력을 <color=#2BAD00>4.5%</color> 무시하며, 초기 에너지 자동 회복이 1.4 초과 시, 초과분 0.12마다 추가로 적의 방어력을 <color=#2BAD00>0.76%</color> 무시한다. 최대 적의 방어력을 <color=#2BAD00>18.94%</color> 무시하며, <color=#FFFFFF>[독소]</color> 소진 후 30초까지 지속된다.\n<color=#FFFFFF>[침투]</color>가 자신 공격력의 <color=#2BAD00>281%</color>만큼 <color=#2EB6FF>전기 속성 피해</color>를 추가로 준다.\n파티 내 <color=#2EB6FF>전기 속성</color> 캐릭터가 1/2명 존재할 경우, <color=#FFFFFF>[침투]</color>로 주는 그로기 수치가 40%/60% 증가한다.\n<color=#FFFFFF>[독소]</color> 획득 시, <color=#FFFFFF>[독소]</color>가 1pt 초과할 때마다 <color=#FFFFFF>[침투]</color>를 1회 발동한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 혹은 자신과 속성이 같은 캐릭터 존재 시 발동:\n<color=#FFFFFF>[독소]</color> 보유 시, 파티 내 모든 캐릭터의 치명타 피해가 40% 증가하고, 자신은 추가로 10% 증가한다. <color=#FFFFFF>[독소]</color> 소진 후 30초까지 지속된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1521053": {
+    "level": 5,
+    "id": 1521053,
+    "name": [
+     "핵심 패시브: 치명적인 밀주",
+     "추가 능력: 곪아가는 독"
+    ],
+    "desc": [
+     "전장 진입 시 <color=#FFFFFF>[독소]</color>를 3pt 획득한다. 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[독소]</color> 보유 시, 교전 상태에서 5초마다 <color=#FFFFFF>[독소]</color>를 1pt 소모하여 <color=#FFFFFF>[침투]</color>를 1회 발동하고 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n<color=#FFFFFF>[독소]</color> 보유 시, 파티 내 모든 캐릭터가 적에게 주는 <color=#2EB6FF>전기 속성 피해</color>가 적의 방어력을 <color=#2BAD00>5%</color> 무시하며, 초기 에너지 자동 회복이 1.4 초과 시, 초과분 0.12마다 추가로 적의 방어력을 <color=#2BAD00>0.84%</color> 무시한다. 최대 적의 방어력을 <color=#2BAD00>20.96%</color> 무시하며, <color=#FFFFFF>[독소]</color> 소진 후 30초까지 지속된다.\n<color=#FFFFFF>[침투]</color>가 자신 공격력의 <color=#2BAD00>299%</color>만큼 <color=#2EB6FF>전기 속성 피해</color>를 추가로 준다.\n파티 내 <color=#2EB6FF>전기 속성</color> 캐릭터가 1/2명 존재할 경우, <color=#FFFFFF>[침투]</color>로 주는 그로기 수치가 40%/60% 증가한다.\n<color=#FFFFFF>[독소]</color> 획득 시, <color=#FFFFFF>[독소]</color>가 1pt 초과할 때마다 <color=#FFFFFF>[침투]</color>를 1회 발동한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 혹은 자신과 속성이 같은 캐릭터 존재 시 발동:\n<color=#FFFFFF>[독소]</color> 보유 시, 파티 내 모든 캐릭터의 치명타 피해가 40% 증가하고, 자신은 추가로 10% 증가한다. <color=#FFFFFF>[독소]</color> 소진 후 30초까지 지속된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1521054": {
+    "level": 6,
+    "id": 1521054,
+    "name": [
+     "핵심 패시브: 치명적인 밀주",
+     "추가 능력: 곪아가는 독"
+    ],
+    "desc": [
+     "전장 진입 시 <color=#FFFFFF>[독소]</color>를 3pt 획득한다. 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[독소]</color> 보유 시, 교전 상태에서 5초마다 <color=#FFFFFF>[독소]</color>를 1pt 소모하여 <color=#FFFFFF>[침투]</color>를 1회 발동하고 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n<color=#FFFFFF>[독소]</color> 보유 시, 파티 내 모든 캐릭터가 적에게 주는 <color=#2EB6FF>전기 속성 피해</color>가 적의 방어력을 <color=#2BAD00>5.5%</color> 무시하며, 초기 에너지 자동 회복이 1.4 초과 시, 초과분 0.12마다 추가로 적의 방어력을 <color=#2BAD00>0.92%</color> 무시한다. 최대 적의 방어력을 <color=#2BAD00>22.98%</color> 무시하며, <color=#FFFFFF>[독소]</color> 소진 후 30초까지 지속된다.\n<color=#FFFFFF>[침투]</color>가 자신 공격력의 <color=#2BAD00>317%</color>만큼 <color=#2EB6FF>전기 속성 피해</color>를 추가로 준다.\n파티 내 <color=#2EB6FF>전기 속성</color> 캐릭터가 1/2명 존재할 경우, <color=#FFFFFF>[침투]</color>로 주는 그로기 수치가 40%/60% 증가한다.\n<color=#FFFFFF>[독소]</color> 획득 시, <color=#FFFFFF>[독소]</color>가 1pt 초과할 때마다 <color=#FFFFFF>[침투]</color>를 1회 발동한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 혹은 자신과 속성이 같은 캐릭터 존재 시 발동:\n<color=#FFFFFF>[독소]</color> 보유 시, 파티 내 모든 캐릭터의 치명타 피해가 40% 증가하고, 자신은 추가로 10% 증가한다. <color=#FFFFFF>[독소]</color> 소진 후 30초까지 지속된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1521055": {
+    "level": 7,
+    "id": 1521055,
+    "name": [
+     "핵심 패시브: 치명적인 밀주",
+     "추가 능력: 곪아가는 독"
+    ],
+    "desc": [
+     "전장 진입 시 <color=#FFFFFF>[독소]</color>를 3pt 획득한다. 해당 효과는 답사 모드에서 180초 동안 최대 1회 발동한다.\n<color=#FFFFFF>[독소]</color> 보유 시, 교전 상태에서 5초마다 <color=#FFFFFF>[독소]</color>를 1pt 소모하여 <color=#FFFFFF>[침투]</color>를 1회 발동하고 <color=#2EB6FF>전기 속성 피해</color>를 준다.\n<color=#FFFFFF>[독소]</color> 보유 시, 파티 내 모든 캐릭터가 적에게 주는 <color=#2EB6FF>전기 속성 피해</color>가 적의 방어력을 <color=#2BAD00>6%</color> 무시하며, 초기 에너지 자동 회복이 1.4 초과 시, 초과분 0.12마다 추가로 적의 방어력을 <color=#2BAD00>1%</color> 무시한다. 최대 적의 방어력을 <color=#2BAD00>25%</color> 무시하며, <color=#FFFFFF>[독소]</color> 소진 후 30초까지 지속된다.\n<color=#FFFFFF>[침투]</color>가 자신 공격력의 <color=#2BAD00>335%</color>만큼 <color=#2EB6FF>전기 속성 피해</color>를 추가로 준다.\n파티 내 <color=#2EB6FF>전기 속성</color> 캐릭터가 1/2명 존재할 경우, <color=#FFFFFF>[침투]</color>로 주는 그로기 수치가 40%/60% 증가한다.\n<color=#FFFFFF>[독소]</color> 획득 시, <color=#FFFFFF>[독소]</color>가 1pt 초과할 때마다 <color=#FFFFFF>[침투]</color>를 1회 발동한다.",
+     "파티에 <color=#FFFFFF>[격파]</color> 혹은 자신과 속성이 같은 캐릭터 존재 시 발동:\n<color=#FFFFFF>[독소]</color> 보유 시, 파티 내 모든 캐릭터의 치명타 피해가 40% 증가하고, 자신은 추가로 10% 증가한다. <color=#FFFFFF>[독소]</color> 소진 후 30초까지 지속된다."
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110514": 2
+   },
+   "3": {
+    "10": 28000,
+    "110514": 4
+   },
+   "4": {
+    "10": 60000,
+    "110006": 2,
+    "110514": 9
+   },
+   "5": {
+    "10": 100000,
+    "110006": 3,
+    "110514": 15
+   },
+   "6": {
+    "10": 200000,
+    "110006": 4,
+    "110514": 30
+   }
+  }
+ },
+ "skin": {
+  "3115210": {
+   "name": "시시아·뱀과 쥐의 게임",
+   "desc": "세상 사람들은 전부 독사 아니면 쥐야! 누가 뱀이고 누가 쥐냐면…\n시시아 님 왈: 나보다 강하면 뱀, 나보다 약하면 쥐!",
+   "obtain_desc": "",
+   "image": "IconRole60"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1521001": {
+   "name": "일반 공격: 뱀의 혀",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1521002": {
+   "name": "일반 공격: 뱀의 입맞춤",
+   "desc": "<IconMap:Icon_Normal>([뱀 그림자] 보유 시 홀드)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1521003": {
+   "name": "특수 스킬: 드러낸 송곳니",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1521004": {
+   "name": "강화 특수 스킬: 독니",
+   "desc": "<IconMap:Icon_SpecialReady>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1521005": {
+   "name": "강화 특수 스킬: 독니",
+   "desc": "<IconMap:Icon_SpecialReady>(홀드)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1521006": {
+   "name": "대시 공격: 이빨 자국",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1521007": {
+   "name": "회피 반격: 되물어뜯기",
+   "desc": "<IconMap:Icon_Evade>(극한) ; <IconMap:Icon_Normal>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1521008": {
+   "name": "콤보 스킬: 단체 범행",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1521009": {
+   "name": "궁극기: 파충류 공포증",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1521010": {
+   "name": "빠른 지원: 경보 장치",
+   "desc": "<IconMap:Icon_Switch>(빠른 지원 발동 시)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  },
+  "1521011": {
+   "name": "패링 지원: 감방 특식",
+   "desc": "<IconMap:Icon_Switch>(패링 지원 발동 시)",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1521012": {
+   "name": "지원 돌격: 공범의 의리",
+   "desc": "<IconMap:Icon_Normal>(패링 지원 시전 후)",
+   "element_type": 203,
+   "hit_type": 101,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1521001,
+   "avatar_id": 1521,
+   "first_priority": [
+    5,
+    0
+   ],
+   "second_priority": [
+    1,
+    3
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33300,
+  "slot2": 33400,
+  "slot_sub": 31600,
+  "part_sub_list": [
+   20103,
+   21103,
+   12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     33300,
+     33400
+    ],
+    "part_sub_list": [
+     20103
+    ]
+   },
+   {
+    "suit_list": [
+     33300,
+     31600
+    ],
+    "part_sub_list": [
+     31803,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     30502
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "치명타 확률",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 30502,
+   "name": "에너지 자동 회복",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconSpRecover.png"
+  },
+  "part6": {
+   "prop": 12102,
+   "name": "공격력",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  },
+  "part_sub": {
+   "prop": 31803,
+   "name": "전기 속성 피해 보너스",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconThunder.png"
+  }
+ },
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Thunder>전기 속성, 빠른 교체/필드 딜러",
+  "치명타 피해 증가 및 일정한 방어 무시 버프 제공",
+  "오프필드에서 지속 피해를 주고, 추가 그로기 수치 누적"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100211": 4
+   }
+  },
+  "2": {
+   "hp_max": 423,
+   "attack": 48,
+   "defence": 33,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100221": 12
+   }
+  },
+  "3": {
+   "hp_max": 847,
+   "attack": 96,
+   "defence": 67,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100221": 20
+   }
+  },
+  "4": {
+   "hp_max": 1270,
+   "attack": 145,
+   "defence": 100,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100231": 10
+   }
+  },
+  "5": {
+   "hp_max": 1694,
+   "attack": 193,
+   "defence": 134,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100231": 20
+   }
+  },
+  "6": {
+   "hp_max": 2117,
+   "attack": 241,
+   "defence": 167,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 12
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 12
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 24
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 24
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 36
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "기본 공격력",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "30501": {
+     "prop": 30501,
+     "name": "기본 에너지 자동 회복",
+     "format": "{0:0.##}",
+     "value": 36
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "Xixifu"
+}

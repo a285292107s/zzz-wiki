@@ -1,0 +1,448 @@
+{
+ "id": 54011,
+ "code_name": "Red Moccus",
+ "name": "Red Moccus",
+ "desc": "I'll be waiting for you on the off-road section of the Outer Ring!",
+ "rarity": 4,
+ "icon": "UI/Sprite/A1DynamicLoad/BangbooModGarage/UnPacker/BangbooRole/BangbooGarageRole26.png",
+ "stats": {
+  "endurance": 180,
+  "hp_max": 396,
+  "hpupgrade": 471237,
+  "attack": 72,
+  "attack_upgrade": 360408,
+  "break_stun": 103,
+  "element_abnormal_power": 110,
+  "defence": 28,
+  "def_upgrade": 78871,
+  "crit": 500,
+  "pen_ratio": 0,
+  "crit_dmg": 5000
+ },
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 15000,
+    "102010": 4
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 0
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "2": {
+   "hp_max": 207,
+   "attack": 67,
+   "defence": 35,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 35000,
+    "102020": 12
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 450
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "3": {
+   "hp_max": 414,
+   "attack": 333,
+   "defence": 69,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 75000,
+    "102020": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 0
+    }
+   }
+  },
+  "4": {
+   "hp_max": 621,
+   "attack": 1000,
+   "defence": 104,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 125000,
+    "102030": 10
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 2250
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "5": {
+   "hp_max": 828,
+   "attack": 2666,
+   "defence": 139,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 250000,
+    "102030": 20
+   },
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 2500
+    }
+   }
+  },
+  "6": {
+   "hp_max": 1034,
+   "attack": 6665,
+   "defence": 173,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {},
+   "extra": {
+    "20101": {
+     "prop": 20101,
+     "name": "CRIT Rate",
+     "format": "{0:0.#%}",
+     "value": 4500
+    },
+    "21101": {
+     "prop": 21101,
+     "name": "CRIT DMG",
+     "format": "{0:0.#%}",
+     "value": 5000
+    }
+   }
+  }
+ },
+ "skill": {
+  "a": {
+   "level": {
+    "1": {
+     "name": "Roaring Wheels",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nRides a motorcycle and pushes the farthest enemy towards the Agent, dealing <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5401101, Prop:1001}|{Skill:5401101, Prop:1002}|30s"
+    },
+    "2": {
+     "name": "Roaring Wheels",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nRides a motorcycle and pushes the farthest enemy towards the Agent, dealing <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5401101, Prop:1001}|{Skill:5401101, Prop:1002}|30s"
+    },
+    "3": {
+     "name": "Roaring Wheels",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nRides a motorcycle and pushes the farthest enemy towards the Agent, dealing <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5401101, Prop:1001}|{Skill:5401101, Prop:1002}|30s"
+    },
+    "4": {
+     "name": "Roaring Wheels",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nRides a motorcycle and pushes the farthest enemy towards the Agent, dealing <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5401101, Prop:1001}|{Skill:5401101, Prop:1002}|30s"
+    },
+    "5": {
+     "name": "Roaring Wheels",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nRides a motorcycle and pushes the farthest enemy towards the Agent, dealing <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5401101, Prop:1001}|{Skill:5401101, Prop:1002}|30s"
+    },
+    "6": {
+     "name": "Roaring Wheels",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nRides a motorcycle and pushes the farthest enemy towards the Agent, dealing <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5401101, Prop:1001}|{Skill:5401101, Prop:1002}|30s"
+    },
+    "7": {
+     "name": "Roaring Wheels",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nRides a motorcycle and pushes the farthest enemy towards the Agent, dealing <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5401101, Prop:1001}|{Skill:5401101, Prop:1002}|30s"
+    },
+    "8": {
+     "name": "Roaring Wheels",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nRides a motorcycle and pushes the farthest enemy towards the Agent, dealing <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5401101, Prop:1001}|{Skill:5401101, Prop:1002}|30s"
+    },
+    "9": {
+     "name": "Roaring Wheels",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nRides a motorcycle and pushes the farthest enemy towards the Agent, dealing <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5401101, Prop:1001}|{Skill:5401101, Prop:1002}|30s"
+    },
+    "10": {
+     "name": "Roaring Wheels",
+     "desc": "<color=#FFFFFF>Active Skill</color>\nRides a motorcycle and pushes the farthest enemy towards the Agent, dealing <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier",
+      "Cooldown"
+     ],
+     "param": "{Skill:5401101, Prop:1001}|{Skill:5401101, Prop:1002}|30s"
+    }
+   }
+  },
+  "b": {
+   "level": {
+    "1": {
+     "name": "Drifting Technique",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#FFFFFF>Sons of Calydon</color> characters in your squad: <color=#FFFFFF>Active Skill</color> DMG increases by 36%. After an <color=#FFFFFF>Active Skill</color> deals DMG to an enemy, when that enemy is defeated, the skill's cooldown is reduced by 4s.",
+     "property": [
+      "DMG Increase",
+      "Cooldown Reduction"
+     ],
+     "param": "36%|4s"
+    },
+    "2": {
+     "name": "Drifting Technique",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#FFFFFF>Sons of Calydon</color> characters in your squad: <color=#FFFFFF>Active Skill</color> DMG increases by 45%. After an <color=#FFFFFF>Active Skill</color> deals DMG to an enemy, when that enemy is defeated, the skill's cooldown is reduced by 5s.",
+     "property": [
+      "DMG Increase",
+      "Cooldown Reduction"
+     ],
+     "param": "45%|5s"
+    },
+    "3": {
+     "name": "Drifting Technique",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#FFFFFF>Sons of Calydon</color> characters in your squad: <color=#FFFFFF>Active Skill</color> DMG increases by 54%. After an <color=#FFFFFF>Active Skill</color> deals DMG to an enemy, when that enemy is defeated, the skill's cooldown is reduced by 6s.",
+     "property": [
+      "DMG Increase",
+      "Cooldown Reduction"
+     ],
+     "param": "54%|6s"
+    },
+    "4": {
+     "name": "Drifting Technique",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#FFFFFF>Sons of Calydon</color> characters in your squad: <color=#FFFFFF>Active Skill</color> DMG increases by 63%. After an <color=#FFFFFF>Active Skill</color> deals DMG to an enemy, when that enemy is defeated, the skill's cooldown is reduced by 7s.",
+     "property": [
+      "DMG Increase",
+      "Cooldown Reduction"
+     ],
+     "param": "63%|7s"
+    },
+    "5": {
+     "name": "Drifting Technique",
+     "desc": "<color=#FFFFFF>Additional Ability</color>\nWhen there's at least 2 <color=#FFFFFF>Sons of Calydon</color> characters in your squad: <color=#FFFFFF>Active Skill</color> DMG increases by 72%. After an <color=#FFFFFF>Active Skill</color> deals DMG to an enemy, when that enemy is defeated, the skill's cooldown is reduced by 8s.",
+     "property": [
+      "DMG Increase",
+      "Cooldown Reduction"
+     ],
+     "param": "72%|8s"
+    }
+   }
+  },
+  "c": {
+   "level": {
+    "1": {
+     "name": "Mad Charge",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nRun enemies over with a motorcycle and detonate an explosion, dealing massive <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401102, Prop:1001}|{Skill:5401102, Prop:1002}"
+    },
+    "2": {
+     "name": "Mad Charge",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nRun enemies over with a motorcycle and detonate an explosion, dealing massive <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401102, Prop:1001}|{Skill:5401102, Prop:1002}"
+    },
+    "3": {
+     "name": "Mad Charge",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nRun enemies over with a motorcycle and detonate an explosion, dealing massive <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401102, Prop:1001}|{Skill:5401102, Prop:1002}"
+    },
+    "4": {
+     "name": "Mad Charge",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nRun enemies over with a motorcycle and detonate an explosion, dealing massive <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401102, Prop:1001}|{Skill:5401102, Prop:1002}"
+    },
+    "5": {
+     "name": "Mad Charge",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nRun enemies over with a motorcycle and detonate an explosion, dealing massive <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401102, Prop:1001}|{Skill:5401102, Prop:1002}"
+    },
+    "6": {
+     "name": "Mad Charge",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nRun enemies over with a motorcycle and detonate an explosion, dealing massive <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401102, Prop:1001}|{Skill:5401102, Prop:1002}"
+    },
+    "7": {
+     "name": "Mad Charge",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nRun enemies over with a motorcycle and detonate an explosion, dealing massive <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401102, Prop:1001}|{Skill:5401102, Prop:1002}"
+    },
+    "8": {
+     "name": "Mad Charge",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nRun enemies over with a motorcycle and detonate an explosion, dealing massive <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401102, Prop:1001}|{Skill:5401102, Prop:1002}"
+    },
+    "9": {
+     "name": "Mad Charge",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nRun enemies over with a motorcycle and detonate an explosion, dealing massive <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401102, Prop:1001}|{Skill:5401102, Prop:1002}"
+    },
+    "10": {
+     "name": "Mad Charge",
+     "desc": "<color=#FFFFFF>Bangboo Chain Attack</color>\nRun enemies over with a motorcycle and detonate an explosion, dealing massive <color=#F0D12B>Physical DMG</color>.",
+     "property": [
+      "DMG Multiplier",
+      "Daze Multiplier"
+     ],
+     "param": "{Skill:5401102, Prop:1001}|{Skill:5401102, Prop:1002}"
+    }
+   }
+  }
+ },
+ "skill_prop": {
+  "5401101": {
+   "1001": {
+    "main": 96000,
+    "growth": 9600,
+    "format": "%"
+   },
+   "1002": {
+    "main": 35100,
+    "growth": 3510,
+    "format": "%"
+   },
+   "element_accumulation_value": 45000
+  },
+  "5401102": {
+   "1001": {
+    "main": 75300,
+    "growth": 7530,
+    "format": "%"
+   },
+   "1002": {
+    "main": 10800,
+    "growth": 1080,
+    "format": "%"
+   },
+   "element_accumulation_value": 32300
+  }
+ }
+}

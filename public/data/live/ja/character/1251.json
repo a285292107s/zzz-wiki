@@ -1,0 +1,2217 @@
+{
+ "id": 1251,
+ "icon": "IconRole29",
+ "name": "青衣",
+ "code_name": "QingYi",
+ "rarity": 4,
+ "weapon_type": {
+  "2": "Stun"
+ },
+ "element_type": {
+  "203": "Electric"
+ },
+ "hit_type": {
+  "102": "Strike"
+ },
+ "camp": {
+  "7": "新エリー都治安局"
+ },
+ "gender": 2,
+ "partner_info": {
+  "birthday": "1月1日",
+  "full_name": "青衣",
+  "gender": "女性",
+  "icon_path": "UI/Sprite/A1DynamicLoad/IconRoleCircle/UnPacker/IconRoleCircle29.png",
+  "inter_knot_icon": "UI/Sprite/A1DynamicLoad/InterKnot/UnPacker/IconInterknotAvatar/IconInterKnotRole0029.png",
+  "impression_f": "朱鳶さんのときはしつこく三回も「お忘れなく」って書いてたのに、\nなんで青衣のとこだと一回だけなの！？",
+  "impression_m": "あの青衣のことだ、もう気付いているかもしれないからね。\nその上で、彼女なら知らないふりをするだろう…",
+  "impressions": [
+   "青衣に対するイメージ：\n・高度な人工知能、色々な機能が揃って{M#い}て羨ましい…",
+   "・青衣はいくつなんだろう？どうせ聞いても、「秘密事項ゆえ」って誤魔化されるだろうけ{M#れ}ど…",
+   " ·もう何度もからかわれたけ{M#れ}ど…本気でそれに怒ったことはないな…やっぱり人生の先輩は「いい塩梅」をわきまえてる{M#ようだ}{F#みたい}…"
+  ],
+  "profile_desc": "特務捜査班の新米捜査官、青衣。\n生来の人間ではなく、旧文明の古典的文化に基づいた模造人格・意識を持っています。\nそのボディに生体素材を用いた知能構造体であり、これは俗に「玉偶」と呼ばれるものです。\nホワイトスター学会からの推薦で治安局に入り、\n新米捜査官として朱鳶の相棒に割り当てられました。\n\n常におおらかで泰然としており、年長者の風格を纏っています。\n自由気ままに行動する彼女がルールに縛られることはありません。\n現代社会に影響された人々に比べると、\n問題に対して思いもよらない解決策を提示してくる傾向にあります。\n\n青衣は常に魔法瓶を持ち歩き、時々取り出しては白湯を飲んでいます。\n「白湯を飲むは、養生なるべし」\n\n提言：朱鳶同様、青衣と接触する際も常に露見のリスクが発生します。\nご自身が「プロキシ」であることをお忘れなく。",
+  "role_icon": "IconRole/UnPacker/IconRole29",
+  "stature": "142",
+  "unlock_condition": [
+   "エージェント招集",
+   "依頼「アンビーの当惑」を達成する",
+   "メイン依頼第二章の間章をクリアする"
+  ],
+  "trust_lv": {
+   "1": "特務捜査班の新米捜査官、青衣。\n生来の人間ではなく、旧文明の古典的文化に基づいた模造人格・意識を持っています。\nそのボディに生体素材を用いた知能構造体であり、これは俗に「玉偶」と呼ばれるものです。\nホワイトスター学会からの推薦で治安局に入り、\n新米捜査官として朱鳶の相棒に割り当てられました。\n\n常におおらかで泰然としており、年長者の風格を纏っています。\n自由気ままに行動する彼女がルールに縛られることはありません。\n現代社会に影響された人々に比べると、\n問題に対して思いもよらない解決策を提示してくる傾向にあります。\n\n青衣は常に魔法瓶を持ち歩き、時々取り出しては白湯を飲んでいます。\n「白湯を飲むは、養生なるべし」\n\n提言：朱鳶同様、青衣と接触する際も常に露見のリスクが発生します。\nご自身が「プロキシ」であることをお忘れなく。",
+   "2": "",
+   "3": "青衣の登録名称は、「01 Neo-Genesis Ⅵ」 (第六新世代型素体01号)。\nこれは彼女のボディに初めから刻印されていたもので、\n彼女を発見したホワイトスター学会の研究者がその略号である\n「01NG Ⅵ」をもじって「QING YI」、すなわち「青衣」と名付けました。",
+   "4": ""
+  }
+ },
+ "stats": {
+  "armor": 0,
+  "armor_growth": 0,
+  "attack": 109,
+  "attack_growth": 64272,
+  "avatar_piece_id": 5251,
+  "break_stun": 118,
+  "crit": 500,
+  "crit_damage": 5000,
+  "crit_dmg_res": 0,
+  "crit_res": 0,
+  "defence": 49,
+  "defence_growth": 66882,
+  "element_abnormal_power": 94,
+  "element_mystery": 93,
+  "endurance": 0,
+  "hp_growth": 900269,
+  "hp_max": 663,
+  "pen_delta": 0,
+  "pen_rate": 0,
+  "rbl": 1,
+  "rbl_correction_factor": 10000,
+  "rbl_probability": 0,
+  "shield": 0,
+  "shield_growth": 0,
+  "sp_bar_point": 120,
+  "sp_recover": 120,
+  "stun": 0,
+  "tags": [
+   "QingYi",
+   "Punch",
+   "Electric",
+   "Female",
+   "Camp7",
+   "Size1",
+   "AidTypeParry",
+   "QingYi",
+   "EtherEyesSize1"
+  ],
+  "rp_max": 0,
+  "rp_recover": 0,
+  "ep_max": 0,
+  "ep_recover": 0,
+  "sharp_critical_damage": 0
+ },
+ "skill": {
+  "basic": {
+   "description": [
+    {
+     "name": "通常攻撃：一刹",
+     "desc": " <IconMap:Icon_Normal> を押して発動：\n前方に最大4段の打撃を放ち、<color=#F0D12B>物理属性ダメージ</color>と<color=#2EB6FF>電気属性ダメージ</color>を与える。\n3段目の最中に <IconMap:Icon_Normal> を連打するとコンボを継続でき、持続的に打撃を与えられる。その間に<color=#FFFFFF>『回避』</color>を挟んでも、<color=#FFFFFF>『通常攻撃』</color>のコンボは継続する。\n3段目の最中に <IconMap:Icon_Normal> を離すとコンボを中断でき、自動で4段目の攻撃に繋げることが可能。コンボが一定時間継続した場合、4段目の攻撃が強化される。\n3段目および4段目の攻撃中、中断耐性レベルがアップし、被ダメージ-40%。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：<ruby=すいかうん>酔花雲</ruby>",
+     "desc": " <IconMap:Icon_Normal> を長押しして発動：\n前方に突進攻撃を一回行い、<color=#2EB6FF>電気属性ダメージ</color>を与える。\nスキル発動中、中断耐性レベルがアップする。",
+     "potential": []
+    },
+    {
+     "name": "<ruby=せんらく>閃絡</ruby>",
+     "desc": "青衣がスキルを発動して<color=#2EB6FF>電気属性ダメージ</color>を与えると、<color=#FFFFFF>「閃絡電圧」</color>が溜まる。<color=#FFFFFF>「閃絡電圧」</color>が75%まで溜まると、<color=#FFFFFF>「閃絡」</color>状態に入る。<color=#FFFFFF>『通常攻撃：酔花月雲転』</color>を発動した時、<color=#FFFFFF>「閃絡」</color>状態が終わると共に全ての<color=#FFFFFF>「閃絡電圧」</color>を消費する、そのうち75%を超えた部分は1%につき、今回のスキルによる与ダメージ/ブレイク値が追加で+1%/0.5%。なお、<color=#FFFFFF>『通常攻撃：酔花月雲転』</color>では<color=#FFFFFF>「閃絡電圧」</color>が溜まらない。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：<ruby=すいかげつうんてん>酔花月雲転</ruby>",
+     "desc": "<color=#FFFFFF>「閃絡」</color>状態で <IconMap:Icon_Normal> を長押しして発動：\n前方に突進攻撃を連続で5回発動した後、とどめの一撃を放ち、<color=#2EB6FF>電気属性ダメージ</color>を大量に与える。スキル発動中に <IconMap:Icon_Normal> を離すと、とどめの一撃を早めに発動できる。\nエージェントが攻撃されそうになった瞬間にとどめの一撃を放つと<color=#FFFFFF>『極限回避』</color>を発動できる。\n突進攻撃発動中、中断耐性レベルがアップし、被ダメージ-40%。とどめの一撃発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：一刹",
+     "param": [
+      {
+       "name": "1段ダメージ倍率",
+       "desc": "{Skill:1251001, Prop:1001}",
+       "param": {
+        "1251001": {
+         "main": 4720,
+         "growth": 430,
+         "format": "%",
+         "damage_percentage": 4720,
+         "damage_percentage_growth": 430,
+         "stun_ratio": 2360,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 7710,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 59125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2142
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ダメージ倍率（派生）",
+       "desc": "{Skill:1251002, Prop:1001}",
+       "param": {
+        "1251002": {
+         "main": 11030,
+         "growth": 1010,
+         "format": "%",
+         "damage_percentage": 11030,
+         "damage_percentage_growth": 1010,
+         "stun_ratio": 5520,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 18050,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 138050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5014
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ダメージ倍率",
+       "desc": "{Skill:1251003, Prop:1001}",
+       "param": {
+        "1251003": {
+         "main": 12210,
+         "growth": 1110,
+         "format": "%",
+         "damage_percentage": 12210,
+         "damage_percentage_growth": 1110,
+         "stun_ratio": 8220,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 26890,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 239250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7469
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ダメージ倍率",
+       "desc": "{Skill:1251004, Prop:1001}",
+       "param": {
+        "1251004": {
+         "main": 1760,
+         "growth": 160,
+         "format": "%",
+         "damage_percentage": 1760,
+         "damage_percentage_growth": 160,
+         "stun_ratio": 1910,
+         "stun_ratio_growth": 90,
+         "sp_recovery": 4800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 36850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1333,
+         "sp_consume": 0,
+         "attack_data": [
+          33334
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率",
+       "desc": "{Skill:1251005, Prop:1001}",
+       "param": {
+        "1251005": {
+         "main": 10640,
+         "growth": 970,
+         "format": "%",
+         "damage_percentage": 10640,
+         "damage_percentage_growth": 970,
+         "stun_ratio": 10630,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 34770,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 265650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6454,
+         "sp_consume": 0,
+         "attack_data": [
+          32271
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9658
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ダメージ倍率（強化）",
+       "desc": "{Skill:1251006, Prop:1001}",
+       "param": {
+        "1251006": {
+         "main": 23440,
+         "growth": 2140,
+         "format": "%",
+         "damage_percentage": 23440,
+         "damage_percentage_growth": 2140,
+         "stun_ratio": 20470,
+         "stun_ratio_growth": 940,
+         "sp_recovery": 66980,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 511775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15399,
+         "sp_consume": 0,
+         "attack_data": [
+          76999
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18603
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率",
+       "desc": "{Skill:1251001, Prop:1002}",
+       "param": {
+        "1251001": {
+         "main": 2360,
+         "growth": 110,
+         "format": "%",
+         "damage_percentage": 4720,
+         "damage_percentage_growth": 430,
+         "stun_ratio": 2360,
+         "stun_ratio_growth": 110,
+         "sp_recovery": 7710,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 59125,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2142
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "1段ブレイク倍率（派生）",
+       "desc": "{Skill:1251002, Prop:1002}",
+       "param": {
+        "1251002": {
+         "main": 5520,
+         "growth": 260,
+         "format": "%",
+         "damage_percentage": 11030,
+         "damage_percentage_growth": 1010,
+         "stun_ratio": 5520,
+         "stun_ratio_growth": 260,
+         "sp_recovery": 18050,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 138050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5014
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "2段ブレイク倍率",
+       "desc": "{Skill:1251003, Prop:1002}",
+       "param": {
+        "1251003": {
+         "main": 8220,
+         "growth": 380,
+         "format": "%",
+         "damage_percentage": 12210,
+         "damage_percentage_growth": 1110,
+         "stun_ratio": 8220,
+         "stun_ratio_growth": 380,
+         "sp_recovery": 26890,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 239250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7469
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "3段ブレイク倍率",
+       "desc": "{Skill:1251004, Prop:1002}",
+       "param": {
+        "1251004": {
+         "main": 1910,
+         "growth": 90,
+         "format": "%",
+         "damage_percentage": 1760,
+         "damage_percentage_growth": 160,
+         "stun_ratio": 1910,
+         "stun_ratio_growth": 90,
+         "sp_recovery": 4800,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 36850,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 1333,
+         "sp_consume": 0,
+         "attack_data": [
+          33334
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 1334
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率",
+       "desc": "{Skill:1251005, Prop:1002}",
+       "param": {
+        "1251005": {
+         "main": 10630,
+         "growth": 490,
+         "format": "%",
+         "damage_percentage": 10640,
+         "damage_percentage_growth": 970,
+         "stun_ratio": 10630,
+         "stun_ratio_growth": 490,
+         "sp_recovery": 34770,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 265650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 6454,
+         "sp_consume": 0,
+         "attack_data": [
+          32271
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 9658
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "4段ブレイク倍率（強化）",
+       "desc": "{Skill:1251006, Prop:1002}",
+       "param": {
+        "1251006": {
+         "main": 20470,
+         "growth": 940,
+         "format": "%",
+         "damage_percentage": 23440,
+         "damage_percentage_growth": 2140,
+         "stun_ratio": 20470,
+         "stun_ratio_growth": 940,
+         "sp_recovery": 66980,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 511775,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15399,
+         "sp_consume": 0,
+         "attack_data": [
+          76999
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18603
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：<ruby=すいかうん>酔花雲</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1251007, Prop:1001}",
+       "param": {
+        "1251007": {
+         "main": 8560,
+         "growth": 780,
+         "format": "%",
+         "damage_percentage": 8560,
+         "damage_percentage_growth": 780,
+         "stun_ratio": 8560,
+         "stun_ratio_growth": 390,
+         "sp_recovery": 27990,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 213950,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7774,
+         "sp_consume": 0,
+         "attack_data": [
+          19436
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7775
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1251007, Prop:1002}",
+       "param": {
+        "1251007": {
+         "main": 8560,
+         "growth": 390,
+         "format": "%",
+         "damage_percentage": 8560,
+         "damage_percentage_growth": 780,
+         "stun_ratio": 8560,
+         "stun_ratio_growth": 390,
+         "sp_recovery": 27990,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 213950,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 7774,
+         "sp_consume": 0,
+         "attack_data": [
+          19436
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 7775
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "通常攻撃：<ruby=すいかげつうんてん>酔花月雲転</ruby>",
+     "param": [
+      {
+       "name": "突進攻撃ダメージ倍率",
+       "desc": "{Skill:1251008, Prop:1001}",
+       "param": {
+        "1251008": {
+         "main": 44870,
+         "growth": 4080,
+         "format": "%",
+         "damage_percentage": 44870,
+         "damage_percentage_growth": 4080,
+         "stun_ratio": 27190,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 68450,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 523050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19013,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19014
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "とどめの一撃ダメージ倍率",
+       "desc": "{Skill:1251009, Prop:1001}",
+       "param": {
+        "1251009": {
+         "main": 39440,
+         "growth": 3590,
+         "format": "%",
+         "damage_percentage": 39440,
+         "damage_percentage_growth": 3590,
+         "stun_ratio": 21760,
+         "stun_ratio_growth": 990,
+         "sp_recovery": 54780,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 418550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15214,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15215
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "突進攻撃ブレイク倍率",
+       "desc": "{Skill:1251008, Prop:1002}",
+       "param": {
+        "1251008": {
+         "main": 27190,
+         "growth": 1240,
+         "format": "%",
+         "damage_percentage": 44870,
+         "damage_percentage_growth": 4080,
+         "stun_ratio": 27190,
+         "stun_ratio_growth": 1240,
+         "sp_recovery": 68450,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 523050,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19013,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 19014
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "とどめの一撃ブレイク倍率",
+       "desc": "{Skill:1251009, Prop:1002}",
+       "param": {
+        "1251009": {
+         "main": 21760,
+         "growth": 990,
+         "format": "%",
+         "damage_percentage": 39440,
+         "damage_percentage_growth": 3590,
+         "stun_ratio": 21760,
+         "stun_ratio_growth": 990,
+         "sp_recovery": 54780,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 418550,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 15214,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 15215
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "dodge": {
+   "description": [
+    {
+     "name": "回避：雁の聲",
+     "desc": " <IconMap:Icon_Evade> を押して発動：\nダッシュで高速回避する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：<ruby=じゅは>入破</ruby>",
+     "desc": "回避時に <IconMap:Icon_Normal> を押して発動：\n前方に突進した後、打ち上げ攻撃を行い、<color=#F0D12B>物理属性ダメージ</color>を与える。",
+     "potential": []
+    },
+    {
+     "name": "回避反撃：意、不尽",
+     "desc": "<color=#FFFFFF>『極限回避』</color>後に <IconMap:Icon_Normal> を押して発動：\n飛び上がった後に落下攻撃を放ち、<color=#2EB6FF>電気属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "ダッシュ攻撃：<ruby=じゅは>入破</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1251012, Prop:1001}",
+       "param": {
+        "1251012": {
+         "main": 4950,
+         "growth": 450,
+         "format": "%",
+         "damage_percentage": 4950,
+         "damage_percentage_growth": 450,
+         "stun_ratio": 2480,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 8100,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 61875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2249
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1251012, Prop:1002}",
+       "param": {
+        "1251012": {
+         "main": 2480,
+         "growth": 120,
+         "format": "%",
+         "damage_percentage": 4950,
+         "damage_percentage_growth": 450,
+         "stun_ratio": 2480,
+         "stun_ratio_growth": 120,
+         "sp_recovery": 8100,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 61875,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 2249
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "回避反撃：意、不尽",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1251013, Prop:1001}",
+       "param": {
+        "1251013": {
+         "main": 28400,
+         "growth": 2590,
+         "format": "%",
+         "damage_percentage": 28400,
+         "damage_percentage_growth": 2590,
+         "stun_ratio": 19040,
+         "stun_ratio_growth": 870,
+         "sp_recovery": 43810,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 334675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12166,
+         "sp_consume": 0,
+         "attack_data": [
+          160834
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 27167
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1251013, Prop:1002}",
+       "param": {
+        "1251013": {
+         "main": 19040,
+         "growth": 870,
+         "format": "%",
+         "damage_percentage": 28400,
+         "damage_percentage_growth": 2590,
+         "stun_ratio": 19040,
+         "stun_ratio_growth": 870,
+         "sp_recovery": 43810,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 334675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12166,
+         "sp_consume": 0,
+         "attack_data": [
+          160834
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 27167
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "special": {
+   "description": [
+    {
+     "name": "特殊スキル：<ruby=ちゅうきんとう>昼錦堂</ruby>",
+     "desc": " <IconMap:Icon_Special> を押して発動：\n前方に素早く打ち上げ攻撃を行った後、振り下ろし攻撃を放ち、<color=#2EB6FF>電気属性ダメージ</color>を与える。\nスキル発動中、中断耐性レベルがアップする。",
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：<ruby=つきかみかいどう>月上海棠</ruby>",
+     "desc": "エネルギーが十分な時、 <IconMap:Icon_SpecialReady> を押して発動：\n前方に素早く打ち上げ攻撃を行った後に飛び上がり、身を翻して連続攻撃した後に強力な振り下ろし攻撃を放ち、<color=#2EB6FF>電気属性ダメージ</color>を大量に与える。\n <IconMap:Icon_SpecialReady> を長押しした時、エネルギーを追加で消費して、身を翻して連続攻撃できる回数を増やす。\nスキル発動中、無敵効果を得る。\nスキル発動後、そのまま<color=#FFFFFF>『通常攻撃』</color>3段目に繋げることが可能。",
+     "potential": []
+    },
+    {
+     "name": "特殊スキル：<ruby=ちゅうきんとう>昼錦堂</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1251010, Prop:1001}",
+       "param": {
+        "1251010": {
+         "main": 6240,
+         "growth": 570,
+         "format": "%",
+         "damage_percentage": 6240,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 6240,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 155925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5668,
+         "sp_consume": 0,
+         "attack_data": [
+          28342
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5669
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1251010, Prop:1002}",
+       "param": {
+        "1251010": {
+         "main": 6240,
+         "growth": 290,
+         "format": "%",
+         "damage_percentage": 6240,
+         "damage_percentage_growth": 570,
+         "stun_ratio": 6240,
+         "stun_ratio_growth": 290,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 155925,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 5668,
+         "sp_consume": 0,
+         "attack_data": [
+          28342
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5669
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "強化特殊スキル：<ruby=つきかみかいどう>月上海棠</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{{Skill:1251011, Prop:1001} + {Skill:1251021, Prop:1001} + {Skill:1251022, Prop:1001}}",
+       "param": {
+        "1251011": {
+         "main": 15070,
+         "growth": 1370,
+         "format": "%",
+         "damage_percentage": 15070,
+         "damage_percentage_growth": 1370,
+         "stun_ratio": 11110,
+         "stun_ratio_growth": 510,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 408650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12465,
+         "sp_consume": 0,
+         "attack_data": [
+          56162
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3833
+        },
+        "1251021": {
+         "main": 21100,
+         "growth": 1920,
+         "format": "%",
+         "damage_percentage": 21100,
+         "damage_percentage_growth": 1920,
+         "stun_ratio": 15550,
+         "stun_ratio_growth": 710,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 572000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17451,
+         "sp_consume": 0,
+         "attack_data": [
+          78626
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5366
+        },
+        "1251022": {
+         "main": 24110,
+         "growth": 2200,
+         "format": "%",
+         "damage_percentage": 24110,
+         "damage_percentage_growth": 2200,
+         "stun_ratio": 17770,
+         "stun_ratio_growth": 810,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 653675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19944,
+         "sp_consume": 0,
+         "attack_data": [
+          89858
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6132
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{{Skill:1251011, Prop:1002} + {Skill:1251021, Prop:1002} + {Skill:1251022, Prop:1002}}",
+       "param": {
+        "1251011": {
+         "main": 11110,
+         "growth": 510,
+         "format": "%",
+         "damage_percentage": 15070,
+         "damage_percentage_growth": 1370,
+         "stun_ratio": 11110,
+         "stun_ratio_growth": 510,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 408650,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12465,
+         "sp_consume": 0,
+         "attack_data": [
+          56162
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 3833
+        },
+        "1251021": {
+         "main": 15550,
+         "growth": 710,
+         "format": "%",
+         "damage_percentage": 21100,
+         "damage_percentage_growth": 1920,
+         "stun_ratio": 15550,
+         "stun_ratio_growth": 710,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 572000,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 17451,
+         "sp_consume": 0,
+         "attack_data": [
+          78626
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 5366
+        },
+        "1251022": {
+         "main": 17770,
+         "growth": 810,
+         "format": "%",
+         "damage_percentage": 24110,
+         "damage_percentage_growth": 2200,
+         "stun_ratio": 17770,
+         "stun_ratio_growth": 810,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 653675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 19944,
+         "sp_consume": 0,
+         "attack_data": [
+          89858
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6132
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "エネルギー消費",
+       "desc": "60Pt",
+       "potential": []
+      },
+      {
+       "name": "エネルギー追加消費",
+       "desc": "20Pt",
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "chain": {
+   "description": [
+    {
+     "name": "連携スキル：太平令",
+     "desc": "<color=#FFFFFF>『連携スキル』</color>開始時に、対応するエージェントを選択して発動：\n前方広範囲に強力な連続打撃を放ち、<color=#2EB6FF>電気属性ダメージ</color>を大量に与える。\n攻撃が命中した敵が<color=#FFFFFF>『コアパッシブ：千秋万歳』</color>による<color=#FFFFFF>「征服」</color>を1重所持するごとに、スキルがその敵に与えるダメージ+3%。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "終結スキル：<ruby=はっせいかんしゅう>八声甘州</ruby>",
+     "desc": "デシベルレートが<color=#FFFFFF>『Maximum』</color>に達した時に <IconMap:Icon_UltimateReady> を押して発動：\n前方広範囲に強力な連続打撃を行った後、とどめの一撃を放ち、<color=#2EB6FF>電気属性ダメージ</color>を大量に与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "連携スキル：太平令",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1251014, Prop:1001}",
+       "param": {
+        "1251014": {
+         "main": 64790,
+         "growth": 5890,
+         "format": "%",
+         "damage_percentage": 64790,
+         "damage_percentage_growth": 5890,
+         "stun_ratio": 20900,
+         "stun_ratio_growth": 950,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2351250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 38946,
+         "sp_consume": 0,
+         "attack_data": [
+          250000
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18997
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1251014, Prop:1002}",
+       "param": {
+        "1251014": {
+         "main": 20900,
+         "growth": 950,
+         "format": "%",
+         "damage_percentage": 64790,
+         "damage_percentage_growth": 5890,
+         "stun_ratio": 20900,
+         "stun_ratio_growth": 950,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 2351250,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 38946,
+         "sp_consume": 0,
+         "attack_data": [
+          250000
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 18997
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "終結スキル：<ruby=はっせいかんしゅう>八声甘州</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1251015, Prop:1001}",
+       "param": {
+        "1251015": {
+         "main": 167070,
+         "growth": 15190,
+         "format": "%",
+         "damage_percentage": 167070,
+         "damage_percentage_growth": 15190,
+         "stun_ratio": 109710,
+         "stun_ratio_growth": 4990,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 21503,
+         "sp_consume": 0,
+         "attack_data": [
+          800000
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 71504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1251015, Prop:1002}",
+       "param": {
+        "1251015": {
+         "main": 109710,
+         "growth": 4990,
+         "format": "%",
+         "damage_percentage": 167070,
+         "damage_percentage_growth": 15190,
+         "stun_ratio": 109710,
+         "stun_ratio_growth": 4990,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 21503,
+         "sp_consume": 0,
+         "attack_data": [
+          800000
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 71504
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  },
+  "assist": {
+   "description": [
+    {
+     "name": "クイック支援：<ruby=かぜいりまつ>風入松</ruby>",
+     "desc": "操作しているメンバーが吹き飛ばされた時に、 <IconMap:Icon_Switch> を押して発動：\n飛び上がった後に落下攻撃を放ち、<color=#2EB6FF>電気属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：錦上の花",
+     "desc": "出場中のメンバーが攻撃されそうになった時に、 <IconMap:Icon_Switch> を押して発動：\n敵の攻撃をパリィし、ブレイク値を大量に蓄積させる。\nパリィ性能はかなり高い。激しい攻撃を受けている際は、<color=#FFFFFF>「支援ポイント」</color>の消費量が減少する。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "支援突撃：<ruby=せいこういん>清江引</ruby>",
+     "desc": "<color=#FFFFFF>『パリィ支援』</color>発動後、 <IconMap:Icon_Normal> を押して発動：\n前方に素早く突進攻撃を放ち、地面に電流を流す。その後爆発を起こし、<color=#2EB6FF>電気属性ダメージ</color>を与える。\nスキル発動中、無敵効果を得る。",
+     "potential": []
+    },
+    {
+     "name": "クイック支援：<ruby=かぜいりまつ>風入松</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1251016, Prop:1001}",
+       "param": {
+        "1251016": {
+         "main": 13390,
+         "growth": 1220,
+         "format": "%",
+         "damage_percentage": 13390,
+         "damage_percentage_growth": 1220,
+         "stun_ratio": 13390,
+         "stun_ratio_growth": 610,
+         "sp_recovery": 43810,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 334675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12166,
+         "sp_consume": 0,
+         "attack_data": [
+          60834
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6084
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1251016, Prop:1002}",
+       "param": {
+        "1251016": {
+         "main": 13390,
+         "growth": 610,
+         "format": "%",
+         "damage_percentage": 13390,
+         "damage_percentage_growth": 1220,
+         "stun_ratio": 13390,
+         "stun_ratio_growth": 610,
+         "sp_recovery": 43810,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 334675,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 12166,
+         "sp_consume": 0,
+         "attack_data": [
+          60834
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 6084
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "パリィ支援：錦上の花",
+     "param": [
+      {
+       "name": "パリィ・軽 ブレイク倍率",
+       "desc": "{Skill:1251017, Prop:1002}",
+       "param": {
+        "1251017": {
+         "main": 24930,
+         "growth": 1140,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 24930,
+         "stun_ratio_growth": 1140,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 36664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・重 ブレイク倍率",
+       "desc": "{Skill:1251018, Prop:1002}",
+       "param": {
+        "1251018": {
+         "main": 30430,
+         "growth": 1390,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 30430,
+         "stun_ratio_growth": 1390,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 41664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "パリィ・連続 ブレイク倍率",
+       "desc": "{Skill:1251019, Prop:1002}",
+       "param": {
+        "1251019": {
+         "main": 12830,
+         "growth": 590,
+         "format": "%",
+         "damage_percentage": 0,
+         "damage_percentage_growth": 0,
+         "stun_ratio": 12830,
+         "stun_ratio_growth": 590,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 0,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 0,
+         "sp_consume": 0,
+         "attack_data": [
+          0
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 11664
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    },
+    {
+     "name": "支援突撃：<ruby=せいこういん>清江引</ruby>",
+     "param": [
+      {
+       "name": "ダメージ倍率",
+       "desc": "{Skill:1251020, Prop:1001}",
+       "param": {
+        "1251020": {
+         "main": 37640,
+         "growth": 3430,
+         "format": "%",
+         "damage_percentage": 37640,
+         "damage_percentage_growth": 3430,
+         "stun_ratio": 27900,
+         "stun_ratio_growth": 1270,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 454025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 32001,
+         "sp_consume": 0,
+         "attack_data": [
+          148939
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16504
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "ブレイク倍率",
+       "desc": "{Skill:1251020, Prop:1002}",
+       "param": {
+        "1251020": {
+         "main": 27900,
+         "growth": 1270,
+         "format": "%",
+         "damage_percentage": 37640,
+         "damage_percentage_growth": 3430,
+         "stun_ratio": 27900,
+         "stun_ratio_growth": 1270,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 454025,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 32001,
+         "sp_consume": 0,
+         "attack_data": [
+          148939
+         ],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 16504
+        }
+       },
+       "potential": []
+      }
+     ],
+     "potential": []
+    }
+   ],
+   "material": {
+    "1": {
+     "10": 2000,
+     "100113": 2
+    },
+    "2": {
+     "10": 3000,
+     "100113": 3
+    },
+    "3": {
+     "10": 6000,
+     "100123": 2
+    },
+    "4": {
+     "10": 9000,
+     "100123": 3
+    },
+    "5": {
+     "10": 12000,
+     "100123": 4
+    },
+    "6": {
+     "10": 18000,
+     "100123": 6
+    },
+    "7": {
+     "10": 45000,
+     "100133": 5
+    },
+    "8": {
+     "10": 67500,
+     "100133": 8
+    },
+    "9": {
+     "10": 90000,
+     "100133": 10
+    },
+    "10": {
+     "10": 112500,
+     "100133": 12
+    },
+    "11": {
+     "10": 135000,
+     "100133": 15,
+     "100941": 1
+    },
+    "12": {}
+   }
+  }
+ },
+ "talent": {
+  "1": {
+   "level": 1,
+   "name": "誘電破壊",
+   "desc": "青衣のフィールド入場時、即座に<color=#FFFFFF>「閃絡電圧」</color>が最大まで溜まり、その後の蓄積効率+30%。<color=#FFFFFF>『通常攻撃：酔花月雲転』</color>を発動した時、すでに<color=#FFFFFF>「閃絡電圧」</color>が最大まで溜まっている場合、今回のスキルが命中した敵の防御力-15%、さらに自身の該当ターゲットに対する会心率+20%、継続時間15秒。",
+   "desc2": "「命の危険はあらねど…努々、抵抗しようなどと考えぬことだ…」\n向き・強度ともに精密に計算された電流で、\n容疑者全員に安心安全な電気ショック体験をご提供。"
+  },
+  "2": {
+   "level": 2,
+   "name": "四両で千斤をはじく",
+   "desc": "<color=#FFFFFF>『コアパッシブ：千秋万歳』</color>によって付与した<color=#FFFFFF>「征服」</color>1重につき、ブレイク弱体倍率アップの効果が本来の135%になる。青衣の攻撃が敵に命中した時、敵の<color=#FFFFFF>「征服」</color>が重数の上限まで重ね掛けされている場合、自身が該当ターゲットに与えるブレイク値+15%。",
+   "desc2": "旧文明の書物に記載されている武術の技巧。それは当初棍術ではなく、拳法だったという。\n「末節に拘泥するでない。見方を変えれば、腕も三節の棍であろ」"
+  },
+  "3": {
+   "level": 3,
+   "name": "白湯は万病に効く",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "「若者よ、養生に努め、白湯をたんと飲むが良い」\n魔法瓶をあおる青衣がどれだけほんわかとして見えても、\n彼女から手渡された白湯には要注意だ——\n「先輩は、100度の熱湯でも眉一つ動かさずに飲みますからね…」\nかつて痛い目を見た治安官はこう語る。"
+  },
+  "4": {
+   "level": 4,
+   "name": "定常電弧の障壁",
+   "desc": "<color=#FFFFFF>「閃絡」</color>状態突入または終了時、青衣はHP上限10%分のシールドを生成する。シールド効果が更新された時、前回生成されたシールドがまだ存在している場合、青衣のエネルギーが5Pt回復する、エネルギー回復効果は10秒に1回のみ発動可能。",
+   "desc2": "ホワイトスター学会が、旧文明の玉偶をリバースエンジニアリングして\n開発した電弧障壁。防御、攻撃、電気エネルギー転換の集大成と言える技術。\n「『水は船を載せ、また覆す』とは古人のことば。\n一方『電流とは水の流れの如し』とは物理学のことば。\nつまり『電流とは攻守一体』…見事な融合といえよう」"
+  },
+  "5": {
+   "level": 5,
+   "name": "童心不滅",
+   "desc": "<color=#FFFFFF>『通常攻撃』</color>、<color=#FFFFFF>『回避』</color>、<color=#FFFFFF>『支援スキル』</color>、<color=#FFFFFF>『特殊スキル』</color>、<color=#FFFFFF>『連携スキル』</color>のスキルレベル+2",
+   "desc2": "「若人よ、新しきことには果敢に取り組むが吉。精進せい！」\n青衣の鼓舞は時に投げやりで、\n時にからかっているように感じられることもある。\nしかし実際に困難に直面した時、彼女ほど頼れる人物はいないだろう。\n伊達に何百、何千年と生きてはいないということだ。"
+  },
+  "6": {
+   "level": 6,
+   "name": "奇経八脈",
+   "desc": "<color=#FFFFFF>『通常攻撃：酔花月雲転』</color>の中断レベルが大幅にアップし、スキルの与える会心ダメージ+100%。青衣の<color=#FFFFFF>『通常攻撃：酔花月雲転』</color>が敵に命中すると、ターゲットの全属性ダメージ耐性-20%、継続時間15秒。",
+   "desc2": "旧文明の書物に記されている、人体の循環器形に関する学説。\nこれを完全に習得すれば、一瞬にして敵を行動不能にすることが可能だという。\n「次回は、こそばゆくなるツボを押してみるとしよう。\nして、誰で試したものか…店長どのか、それとも朱鳶か…」"
+  }
+ },
+ "passive": {
+  "level": {
+   "1251501": {
+    "level": 1,
+    "id": 1251501,
+    "name": [
+     "コアパッシブ：千秋万歳",
+     "追加能力：<ruby=ようかんさんじょう>陽関三畳</ruby>"
+    ],
+    "desc": [
+     "<color=#FFFFFF>『通常攻撃：酔花月雲転』</color>のとどめの一撃が敵に命中した時、敵に<color=#FFFFFF>「征服」</color>を5重付与する、最大20重まで。<color=#FFFFFF>「征服」</color>1重につき、ターゲットのブレイク弱体倍率+<color=#2BAD00>2%</color>。<color=#FFFFFF>『通常攻撃：酔花月雲転』</color>の突進攻撃を1回発動するたびに、とどめの一撃が追加で<color=#FFFFFF>「征服」</color>を1重付与する。とどめの一撃の際に<color=#FFFFFF>『極限回避』</color>が発動した場合、即座に<color=#FFFFFF>「征服」</color>を{CAL:5+5,1,2}重付与する。通常エネミーまたは精鋭エネミーに対しては、付与する「征服」の重数が2倍になる。ターゲットがブレイク状態から復帰した時、<color=#FFFFFF>「征服」</color>の重数がリセットされる。",
+     "チームに<color=#FFFFFF>[強攻]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n<color=#FFFFFF>『通常攻撃』</color>の与えるブレイク値+20%。また、青衣の衝撃力が120Ptを上回る場合、1Pt上回るごとに自身の攻撃力+6Pt、この効果によってアップできる攻撃力は最大600Ptまで。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1251502": {
+    "level": 2,
+    "id": 1251502,
+    "name": [
+     "コアパッシブ：千秋万歳",
+     "追加能力：<ruby=ようかんさんじょう>陽関三畳</ruby>"
+    ],
+    "desc": [
+     "<color=#FFFFFF>『通常攻撃：酔花月雲転』</color>のとどめの一撃が敵に命中した時、敵に<color=#FFFFFF>「征服」</color>を5重付与する、最大20重まで。<color=#FFFFFF>「征服」</color>1重につき、ターゲットのブレイク弱体倍率+<color=#2BAD00>2.4%</color>。<color=#FFFFFF>『通常攻撃：酔花月雲転』</color>の突進攻撃を1回発動するたびに、とどめの一撃が追加で<color=#FFFFFF>「征服」</color>を1重付与する。とどめの一撃の際に<color=#FFFFFF>『極限回避』</color>が発動した場合、即座に<color=#FFFFFF>「征服」</color>を{CAL:5+5,1,2}重付与する。通常エネミーまたは精鋭エネミーに対しては、付与する「征服」の重数が2倍になる。ターゲットがブレイク状態から復帰した時、<color=#FFFFFF>「征服」</color>の重数がリセットされる。",
+     "チームに<color=#FFFFFF>[強攻]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n<color=#FFFFFF>『通常攻撃』</color>の与えるブレイク値+20%。また、青衣の衝撃力が120Ptを上回る場合、1Pt上回るごとに自身の攻撃力+6Pt、この効果によってアップできる攻撃力は最大600Ptまで。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1251503": {
+    "level": 3,
+    "id": 1251503,
+    "name": [
+     "コアパッシブ：千秋万歳",
+     "追加能力：<ruby=ようかんさんじょう>陽関三畳</ruby>"
+    ],
+    "desc": [
+     "<color=#FFFFFF>『通常攻撃：酔花月雲転』</color>のとどめの一撃が敵に命中した時、敵に<color=#FFFFFF>「征服」</color>を5重付与する、最大20重まで。<color=#FFFFFF>「征服」</color>1重につき、ターゲットのブレイク弱体倍率+<color=#2BAD00>2.7%</color>。<color=#FFFFFF>『通常攻撃：酔花月雲転』</color>の突進攻撃を1回発動するたびに、とどめの一撃が追加で<color=#FFFFFF>「征服」</color>を1重付与する。とどめの一撃の際に<color=#FFFFFF>『極限回避』</color>が発動した場合、即座に<color=#FFFFFF>「征服」</color>を{CAL:5+5,1,2}重付与する。通常エネミーまたは精鋭エネミーに対しては、付与する「征服」の重数が2倍になる。ターゲットがブレイク状態から復帰した時、<color=#FFFFFF>「征服」</color>の重数がリセットされる。",
+     "チームに<color=#FFFFFF>[強攻]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n<color=#FFFFFF>『通常攻撃』</color>の与えるブレイク値+20%。また、青衣の衝撃力が120Ptを上回る場合、1Pt上回るごとに自身の攻撃力+6Pt、この効果によってアップできる攻撃力は最大600Ptまで。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1251504": {
+    "level": 4,
+    "id": 1251504,
+    "name": [
+     "コアパッシブ：千秋万歳",
+     "追加能力：<ruby=ようかんさんじょう>陽関三畳</ruby>"
+    ],
+    "desc": [
+     "<color=#FFFFFF>『通常攻撃：酔花月雲転』</color>のとどめの一撃が敵に命中した時、敵に<color=#FFFFFF>「征服」</color>を5重付与する、最大20重まで。<color=#FFFFFF>「征服」</color>1重につき、ターゲットのブレイク弱体倍率+<color=#2BAD00>3%</color>。<color=#FFFFFF>『通常攻撃：酔花月雲転』</color>の突進攻撃を1回発動するたびに、とどめの一撃が追加で<color=#FFFFFF>「征服」</color>を1重付与する。とどめの一撃の際に<color=#FFFFFF>『極限回避』</color>が発動した場合、即座に<color=#FFFFFF>「征服」</color>を{CAL:5+5,1,2}重付与する。通常エネミーまたは精鋭エネミーに対しては、付与する「征服」の重数が2倍になる。ターゲットがブレイク状態から復帰した時、<color=#FFFFFF>「征服」</color>の重数がリセットされる。",
+     "チームに<color=#FFFFFF>[強攻]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n<color=#FFFFFF>『通常攻撃』</color>の与えるブレイク値+20%。また、青衣の衝撃力が120Ptを上回る場合、1Pt上回るごとに自身の攻撃力+6Pt、この効果によってアップできる攻撃力は最大600Ptまで。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1251505": {
+    "level": 5,
+    "id": 1251505,
+    "name": [
+     "コアパッシブ：千秋万歳",
+     "追加能力：<ruby=ようかんさんじょう>陽関三畳</ruby>"
+    ],
+    "desc": [
+     "<color=#FFFFFF>『通常攻撃：酔花月雲転』</color>のとどめの一撃が敵に命中した時、敵に<color=#FFFFFF>「征服」</color>を5重付与する、最大20重まで。<color=#FFFFFF>「征服」</color>1重につき、ターゲットのブレイク弱体倍率+<color=#2BAD00>3.4%</color>。<color=#FFFFFF>『通常攻撃：酔花月雲転』</color>の突進攻撃を1回発動するたびに、とどめの一撃が追加で<color=#FFFFFF>「征服」</color>を1重付与する。とどめの一撃の際に<color=#FFFFFF>『極限回避』</color>が発動した場合、即座に<color=#FFFFFF>「征服」</color>を{CAL:5+5,1,2}重付与する。通常エネミーまたは精鋭エネミーに対しては、付与する「征服」の重数が2倍になる。ターゲットがブレイク状態から復帰した時、<color=#FFFFFF>「征服」</color>の重数がリセットされる。",
+     "チームに<color=#FFFFFF>[強攻]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n<color=#FFFFFF>『通常攻撃』</color>の与えるブレイク値+20%。また、青衣の衝撃力が120Ptを上回る場合、1Pt上回るごとに自身の攻撃力+6Pt、この効果によってアップできる攻撃力は最大600Ptまで。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1251506": {
+    "level": 6,
+    "id": 1251506,
+    "name": [
+     "コアパッシブ：千秋万歳",
+     "追加能力：<ruby=ようかんさんじょう>陽関三畳</ruby>"
+    ],
+    "desc": [
+     "<color=#FFFFFF>『通常攻撃：酔花月雲転』</color>のとどめの一撃が敵に命中した時、敵に<color=#FFFFFF>「征服」</color>を5重付与する、最大20重まで。<color=#FFFFFF>「征服」</color>1重につき、ターゲットのブレイク弱体倍率+<color=#2BAD00>3.7%</color>。<color=#FFFFFF>『通常攻撃：酔花月雲転』</color>の突進攻撃を1回発動するたびに、とどめの一撃が追加で<color=#FFFFFF>「征服」</color>を1重付与する。とどめの一撃の際に<color=#FFFFFF>『極限回避』</color>が発動した場合、即座に<color=#FFFFFF>「征服」</color>を{CAL:5+5,1,2}重付与する。通常エネミーまたは精鋭エネミーに対しては、付与する「征服」の重数が2倍になる。ターゲットがブレイク状態から復帰した時、<color=#FFFFFF>「征服」</color>の重数がリセットされる。",
+     "チームに<color=#FFFFFF>[強攻]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n<color=#FFFFFF>『通常攻撃』</color>の与えるブレイク値+20%。また、青衣の衝撃力が120Ptを上回る場合、1Pt上回るごとに自身の攻撃力+6Pt、この効果によってアップできる攻撃力は最大600Ptまで。"
+    ],
+    "extra_property": {},
+    "potential": []
+   },
+   "1251507": {
+    "level": 7,
+    "id": 1251507,
+    "name": [
+     "コアパッシブ：千秋万歳",
+     "追加能力：<ruby=ようかんさんじょう>陽関三畳</ruby>"
+    ],
+    "desc": [
+     "<color=#FFFFFF>『通常攻撃：酔花月雲転』</color>のとどめの一撃が敵に命中した時、敵に<color=#FFFFFF>「征服」</color>を5重付与する、最大20重まで。<color=#FFFFFF>「征服」</color>1重につき、ターゲットのブレイク弱体倍率+<color=#2BAD00>4%</color>。<color=#FFFFFF>『通常攻撃：酔花月雲転』</color>の突進攻撃を1回発動するたびに、とどめの一撃が追加で<color=#FFFFFF>「征服」</color>を1重付与する。とどめの一撃の際に<color=#FFFFFF>『極限回避』</color>が発動した場合、即座に<color=#FFFFFF>「征服」</color>を{CAL:5+5,1,2}重付与する。通常エネミーまたは精鋭エネミーに対しては、付与する「征服」の重数が2倍になる。ターゲットがブレイク状態から復帰した時、<color=#FFFFFF>「征服」</color>の重数がリセットされる。",
+     "チームに<color=#FFFFFF>[強攻]</color>のメンバーまたは自身と同じ陣営のメンバーがいる時に発動：\n<color=#FFFFFF>『通常攻撃』</color>の与えるブレイク値+20%。また、青衣の衝撃力が120Ptを上回る場合、1Pt上回るごとに自身の攻撃力+6Pt、この効果によってアップできる攻撃力は最大600Ptまで。"
+    ],
+    "extra_property": {},
+    "potential": []
+   }
+  },
+  "materials": {
+   "1": {
+    "10": 5000
+   },
+   "2": {
+    "10": 12000,
+    "110503": 2
+   },
+   "3": {
+    "10": 28000,
+    "110503": 4
+   },
+   "4": {
+    "10": 60000,
+    "110002": 2,
+    "110503": 9
+   },
+   "5": {
+    "10": 100000,
+    "110002": 3,
+    "110503": 15
+   },
+   "6": {
+    "10": 200000,
+    "110002": 4,
+    "110503": 30
+   }
+  }
+ },
+ "skin": {
+  "3112510": {
+   "name": "青衣・「清平楽」",
+   "desc": "水筒を持ち歩いて、白湯をたくさん飲むように——これこそが旧文明から代々伝わる人生の知恵である。\n知能構造体なのにどうして飲むのかって？…きっと健康に効くから…だよね？",
+   "obtain_desc": "",
+   "image": "IconRole29"
+  }
+ },
+ "special_element_type": {},
+ "skill_list": {
+  "1251001": {
+   "name": "通常攻撃：一刹",
+   "desc": "<IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1251002": {
+   "name": "通常攻撃：酔花雲",
+   "desc": "<IconMap:Icon_Normal>（長押し）",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1251003": {
+   "name": "通常攻撃：酔花月雲転",
+   "desc": "<IconMap:Icon_Normal>（閃絡状態）（長押し）",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1251004": {
+   "name": "特殊スキル：昼錦堂",
+   "desc": "<IconMap:Icon_Special>",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1251005": {
+   "name": "強化特殊スキル：月上海棠",
+   "desc": "<IconMap:Icon_SpecialReady>（溜め押し可）",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1251006": {
+   "name": "ダッシュ攻撃：入破",
+   "desc": "<IconMap:Icon_Evade> ; <IconMap:Icon_Normal>",
+   "element_type": 200,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1251007": {
+   "name": "回避反撃：意、不尽",
+   "desc": "<IconMap:Icon_Evade>（極限回避成功） ; <IconMap:Icon_Normal>",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1251008": {
+   "name": "連携スキル：太平令",
+   "desc": "<IconMap:Icon_QTE>",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1251009": {
+   "name": "終結スキル：八声甘州",
+   "desc": "<IconMap:Icon_UltimateReady>",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1251010": {
+   "name": "クイック支援：風入松",
+   "desc": "<IconMap:Icon_Switch>（クイック支援の発動条件を満たした時）",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  },
+  "1251011": {
+   "name": "パリィ支援：錦上の花",
+   "desc": "<IconMap:Icon_Switch>（パリィ支援の発動条件を満たした時）",
+   "element_type": 0,
+   "hit_type": 0,
+   "potential": []
+  },
+  "1251012": {
+   "name": "支援突撃：清江引",
+   "desc": "<IconMap:Icon_Normal>（パリィ支援を発動した後に）",
+   "element_type": 203,
+   "hit_type": 102,
+   "potential": []
+  }
+ },
+ "skill_priority": [
+  {
+   "id": 1251001,
+   "avatar_id": 1251,
+   "first_priority": [
+    5,
+    0
+   ],
+   "second_priority": [
+    1,
+    3
+   ],
+   "third_priority": [
+    6,
+    2
+   ],
+   "potential_levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  }
+ ],
+ "fairy_recommend": {
+  "slot4": 33200,
+  "slot2": 31200,
+  "slot_sub": 31000,
+  "part_sub_list": [
+   20103,
+   12102
+  ],
+  "alt_build": [
+   {
+    "suit_list": [
+     31200,
+     32400
+    ],
+    "part_sub_list": [
+     20103
+    ]
+   },
+   {
+    "suit_list": [
+     33200,
+     31200
+    ],
+    "part_sub_list": [
+     31803,
+     12102
+    ]
+   },
+   {
+    "suit_list": [],
+    "part_sub_list": [
+     12202
+    ]
+   }
+  ],
+  "part4": {
+   "prop": 20103,
+   "name": "会心率",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
+  },
+  "part5": {
+   "prop": 31803,
+   "name": "電気属性ダメージボーナス",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconThunder.png"
+  },
+  "part6": {
+   "prop": 12202,
+   "name": "衝撃力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconBreakStun.png"
+  },
+  "part_sub": {
+   "prop": 12102,
+   "name": "攻撃力",
+   "format": "{0:0.#%}",
+   "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
+  }
+ },
+ "strategy": [
+  "07",
+  "<IconMap:Icon_GeneralBuff_Thunder>電気属性、汎用ブレイカー",
+  "ブレイク弱体倍率アップ可能",
+  "衝撃力を攻撃力に変換"
+ ],
+ "potential": [],
+ "potential_detail": {},
+ "level": {
+  "1": {
+   "hp_max": 0,
+   "attack": 0,
+   "defence": 0,
+   "level_max": 10,
+   "level_min": 0,
+   "materials": {
+    "10": 24000,
+    "100212": 4
+   }
+  },
+  "2": {
+   "hp_max": 455,
+   "attack": 39,
+   "defence": 34,
+   "level_max": 20,
+   "level_min": 10,
+   "materials": {
+    "10": 56000,
+    "100222": 12
+   }
+  },
+  "3": {
+   "hp_max": 911,
+   "attack": 78,
+   "defence": 68,
+   "level_max": 30,
+   "level_min": 20,
+   "materials": {
+    "10": 120000,
+    "100222": 20
+   }
+  },
+  "4": {
+   "hp_max": 1366,
+   "attack": 117,
+   "defence": 101,
+   "level_max": 40,
+   "level_min": 30,
+   "materials": {
+    "10": 200000,
+    "100232": 10
+   }
+  },
+  "5": {
+   "hp_max": 1821,
+   "attack": 156,
+   "defence": 135,
+   "level_max": 50,
+   "level_min": 40,
+   "materials": {
+    "10": 400000,
+    "100232": 20
+   }
+  },
+  "6": {
+   "hp_max": 2276,
+   "attack": 195,
+   "defence": 169,
+   "level_max": 60,
+   "level_min": 50,
+   "materials": {}
+  }
+ },
+ "extra_level": {
+  "1": {
+   "max_level": 15,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 0
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 6
+    }
+   }
+  },
+  "2": {
+   "max_level": 25,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 6
+    }
+   }
+  },
+  "3": {
+   "max_level": 35,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 25
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "4": {
+   "max_level": 45,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 12
+    }
+   }
+  },
+  "5": {
+   "max_level": 55,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 50
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 18
+    }
+   }
+  },
+  "6": {
+   "max_level": 60,
+   "extra": {
+    "12101": {
+     "prop": 12101,
+     "name": "基礎攻撃力",
+     "format": "{0:0.#}",
+     "value": 75
+    },
+    "12201": {
+     "prop": 12201,
+     "name": "衝撃力",
+     "format": "{0:0.#}",
+     "value": 18
+    }
+   }
+  }
+ },
+ "level_exp": [
+  50,
+  150,
+  250,
+  400,
+  600,
+  800,
+  1000,
+  1250,
+  1500,
+  1800,
+  1935,
+  2065,
+  2200,
+  2335,
+  2465,
+  2600,
+  2735,
+  2865,
+  3000,
+  4680,
+  4975,
+  5265,
+  5560,
+  5855,
+  6145,
+  6440,
+  6735,
+  7025,
+  7320,
+  10800,
+  11400,
+  12000,
+  12600,
+  13200,
+  13800,
+  14400,
+  15000,
+  15600,
+  16200,
+  17100,
+  18300,
+  19500,
+  20700,
+  21900,
+  23100,
+  24300,
+  25500,
+  26700,
+  27900,
+  34200,
+  36600,
+  39000,
+  41400,
+  43800,
+  46200,
+  48600,
+  51000,
+  53400,
+  55800,
+  0
+ ],
+ "live2_d": "UISpine_Qingyi"
+}

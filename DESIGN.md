@@ -24,7 +24,7 @@
 | ADR-001 | 重构范围 | **全套 P0→P4** | 一步到位，避免半套架构再次漂移 |
 | ADR-002 | 契约校验方案 | **引入 zod** | 类型推导一流、生态成熟；尺寸代价可接受（构建/校验侧使用，不进入运行时热路径） |
 | ADR-003 | 测试基建 | **vitest + @vue/test-utils** | 纯逻辑 + 组件行为都值得保护 |
-| ADR-004 | 多语言 | **预留 lang 参数，默认 zh，本重构轮不做切换 UI** | 数据四语齐全，架构一次到位，入口以后加 |
+| ADR-004 | 多语言 | **预留 lang 参数，默认 zh，本重构轮不做切换 UI**（入口已由 [决策记录 0010](./docs/decisions/0010-multilingual-game-content.md) 补上：游戏内容四语；界面短文案于 [0011](./docs/decisions/0011-multilingual-ui-copy.md) 一并四语化，长文页保持中文并加注记） | 数据四语齐全，架构一次到位，入口以后加 |
 | ADR-005 | 状态管理 | **保持无状态库，composables 解决** | 当前规模组合式函数足够，不引入 pinia |
 | ADR-006 | 设计系统 | **维持 token 方案 + 新增设计系统文档页** | 视觉不动，组织方式文档化 |
 | ADR-007 | 交付物 | DESIGN.md 落地为唯一架构依据 | 本轮实施依据 |
@@ -105,8 +105,9 @@ utils（纯函数：text / rich / names / contrast / cameraRect —— 目标是
 - src/domain/schema.ts 用 zod 定义全部产出形状：CharacterListItem、CharacterDetail、WEngineListItem、WEngineDetail、Bangboo…、DiskDrive…、Manifest。
 - 前端类型：src/data/types.ts 改为 z.infer 导出，删掉手写防御类型与 [k: string]: unknown 兜底（删除后逐页过 vue-tsc，消灭全部 as 断言）。
 - 构建管线：scripts/build/ 直接 import 同一份 schema（zod 是运行时校验器，Node 天然可用；若工具链要求，build 侧经编译产物或 tsx 运行，保持单一 import 面）。
-- 校验门禁：scripts/verify-data.ts 对 public/data/ 全部文件跑 safeParse；**门禁口径**是「契约形状 + 名录非空 +
-  名录 id ↔ 详情文件一一对应 + extra_level 单调」——**未知键不会失败**（所有 schema 均追加 `.catchall(z.unknown())`，
+- 校验门禁：scripts/verify-data.ts 对 public/data/ 全部文件（四语 × 名录/详情）跑 safeParse；**门禁口径**是
+  「契约形状 + 名录非空 + 名录 id ↔ 详情文件一一对应 + 四语名录 id 集合一致 + extra_level 单调」——
+  **未知键不会失败**（所有 schema 均追加 `.catchall(z.unknown())`，
   见 `src/domain/schema.ts`；这是为向前兼容而做的取舍，不是遗漏）。
 
 ### 5.2 枚举同步
@@ -141,7 +142,18 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 - useFeaturedAgents → 首页「今日角色」精选池（读 featured-pool.json，**当天生日的角色优先**，按日期确定性取 4 张；生日表见 featured-birthdays.json）。
 - useHeroForm → 双形态角色（1551 佩洛伊斯）形态选择，模块级状态 + localStorage 持久化；
   **切换入口在设置页 `/settings`**，详情页/首页/名录卡片只读（**文件规则与 SSoT 见 `DATA_GUIDE.md` §5**；展示技法见 IMG_GUIDE）。
+- useLocale → **当前展示语言**（`zh`/`en`/`ja`/`ko`），模块级 ref + localStorage 持久化 + `<html lang>` 同步；
+  同一次切换覆盖两层：**游戏内容**（名称/技能/描述/术语释义，随四语数据面）与**界面短文案**
+  （导航/按钮/区块标题/筛选/空错态/检索面板/设置页/页面 meta，随四语文案表 `domain/uiText.*.json`
+  ＋ `useUiText`）；**站内中文长文**（`/about`、`/formulas`）与构建期静态产物不翻译，
+  长文页对非中文读者挂「本页仅中文」注记。列表与详情按语言取数：
+  `listFor`/`detailFor` 的 `lang` 是必填参数，`useAsyncResource` 的 watchEffect 读到它后自动重新取数。
+  语言集单一事实源 `domain/lang.ts`（+ `langs.json`）。**切换入口在设置页**，**不进 URL**；
+  范围与取舍见 [决策记录 0010](./docs/decisions/0010-multilingual-game-content.md)（数据面）与
+  [0011](./docs/decisions/0011-multilingual-ui-copy.md)（界面文案）。
 - anchorOffset → 锚点避让偏移计算（router scrollBehavior 与吸顶横条同源，读 CSS 变量 --anchor-offset）。
+- useUiText → **当前语言的界面文案树**（`const { t } = useUiText()`，模板读 `t.list.code`）。
+  文案表按语言整树替换，不做逐键合并；「与数据同处的标签」不进这张表（见 `domain/uiText.ts` 文件头的分工）。
 
 ### 6.2 组件
 
@@ -166,7 +178,7 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 | HollowImage | 多候选图 + 文字降级 | 全站图标统一入口 |
 | DetailPage | 详情页容器（页头/区块编排） | 4 个详情页共享结构 |
 | StatLevelPanel | 属性等级滑条面板（1–60、突破刻度） | 角色详情等级展示 |
-| TermTip | 术语悬停浮层（读本地 noun.json） | 富文本术语锚点交互 |
+| TermTip | 术语悬停浮层（读**当前语言**的本地 noun.json） | 富文本术语锚点交互 |
 | NameCell | 名录名单元格（四语名/阵营；行内与栅格卡名两种排印） | 各表格与栅格名录页的名列 + 详情预热 |
 | SignatureRef | 边缘注记式交叉引用（代理人 ↔ 专属音擎 互链），footnote 风格无卡盒；`thumb` 按素材原始高宽比定盒 | 代理人 hero / 音擎 head 的归属引用 |
 | FormulaEq | 战斗公式条目排版（/formulas 页） | 公式图文统一渲染 |
@@ -184,7 +196,7 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 - 新增 404 视图（/:pathMatch(.*)* 不再是 redirect 到 /，显示档案式 404）。
 - 新增设计系统文档路由（/style；见 §9）。
 - 新增战斗公式页（/formulas，FormulasView + FormulaEq 组件 + formulaGuide.ts 单一事实源）。
-- 新增设置页（/settings，SettingsView）：本机偏好——代理人名录版式与佩洛伊斯立绘形态。
+- 新增设置页（/settings，SettingsView）：本机偏好——代理人名录版式、佩洛伊斯立绘形态与**展示语言**。
   **入口在站头导航第 06 位与首页目录**（导航入口数受 ADR 0004 约束，故替换掉原先占位的档案图谱）；
   **不进 sitemap，也不参与按路由预载**（`generate-route-html.mjs` 的 `VIEW_OF`/`STATIC_META` 无此页）。
 - `/agents` 由 `AgentsRouteView` 外壳按偏好二选一渲染：卡片版 `AgentsCardsView` 或表格版 `AgentsView`
@@ -199,17 +211,21 @@ scripts/build-data.ts 拆为：
 
 ```
 scripts/build/
-  io.ts              # 下载缓存 + 写盘（fetchJson / dump / mapConcurrent / resetOut）
+  io.ts              # 下载缓存 + 写盘（fetchJson / dump / writeDetails / mapConcurrent / resetOut）
   normalize.ts       # 规整纯函数（normalizeCharacterDetail 等，可单测）
-  domains.ts        # 角色/音擎/邦布/驱动盘 名录+详情构建
+  domains.ts        # 角色/音擎/邦布/驱动盘 名录+详情构建（按 LANGS 逐语言各一套）
+  langs.mjs          # 语言集读取（纯 .mjs 工具链用；与 src/domain/lang.ts 共用 langs.json）
   live-target.ts     # 合规版本选择（resolveLiveTarget：live 缺失/不在 available 即抛错，纯函数可单测）
-  index.ts           # 编排（版本探测 → 抓取 → 写盘）
+  index.ts           # 编排（版本探测 → 抓取 → 写盘 live/{lang}/）
 ```
 
 - 规整函数全部改为纯函数（输入 raw detail → 输出规整 detail），纳入测试。
 - 借用 schema 做规整后校验（parse 收集错误列表，失败打印出错文件与字段）。
 - 新 pnpm scripts：pnpm run data（不变）、pnpm run verify:data（新增）、pnpm test（新增）。
 - 验证链：data → verify:data → test → build（CI 或本地手动按序执行）。
+- **多语言产出（2026-10）**：`live/` 下按 `LANGS` 各写一套完整数据面（名录 + 详情 + 名词表），
+  根下只留 `manifest.json`。语言集单一事实源是 `src/domain/langs.json`，TS 与 .mjs 两条工具链共用。
+  取舍见 [决策记录 0010](./docs/decisions/0010-multilingual-game-content.md)。
 
 ### 7.1 数据刷新与可靠性模型（2026-08）
 
@@ -226,8 +242,8 @@ pnpm run sync ──▶ .github/workflows/data-sync.yml（每日 cron）
 - **单一写入者**：`scripts/sync-data.ts`（`pnpm run sync`）是唯一自动化写入 `public/data/` 的入口；
   `ci-data.ts`（部署期重建）已删除。部署 `build:ci` 只构建已提交快照，不再构建期重建数据。
 - **尽力构建 + 完整门禁**：构建容忍单文件抖动（`fetchDetails` 详情失败重试后跳过），但 `verify:data`
-  是「可提交」的唯一裁决，并升级为「契约 + 完整性」：schema 合法 + 名录非空 + **名录 id ↔ 详情文件
-  一一对应** + `extra_level` 单调。任一不满足 → 不提交（保留 last-good，顺延下次）。
+  是「可提交」的唯一裁决，并升级为「契约 + 完整性 + 同源」：schema 合法 + 名录非空 + **名录 id ↔ 详情文件
+  一一对应** + **四语名录 id 集合一致** + `extra_level` 单调。任一不满足 → 不提交（保留 last-good，顺延下次）。
 - **JSON 严格 / 图标宽松**：内容必须完整（缺一阻断）；展示资产缺失则降级（CDN/文字占位）并自愈，不阻塞提交。
 - **图标自愈**：`download-icons.mjs --soft` 每次同步都跑（幂等的存在性差集，只补缺失），瞬态失败的图标下次自愈。
 - **失败 → 响应**：源站不可达 → 不动 last-good、图标仍可自愈、下轮重试；构建抛错 / 门禁不通过 → 不提交、下轮重试；

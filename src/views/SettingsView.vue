@@ -1,8 +1,14 @@
 <script setup lang="ts">
 /* 设置页：本机偏好的唯一改动入口。
  *
- * 这里的两项都是**本机偏好**——只写 localStorage，不进 URL、不随分享链接传播。
+ * 这里的每一项都是**本机偏好**——只写 localStorage，不进 URL、不随分享链接传播。
  * 故本页刻意不做「保存」按钮：点选即生效、当即落盘，读者不必猜改动有没有被记住。
+ *
+ * 展示语言也归这里（2026-10，决策记录 0010）：它同样是本机偏好；且站头工具的宽度账很紧
+ * （见 SiteHeader 的断点空间账，320 档只剩 18px 余量），摆过去要把那份账重算一遍。
+ * ⚠ 代价是「不懂中文的读者要在设置页找语言」——故选项标签用**各语言自称**
+ * （中文 / English / 日本語 / 한국어），不译成中文；本页其余文案（2026-10，决策记录 0011）
+ * 随展示语言切换：它已是全员都要读的界面文案，不再属于「界面外壳中文」的范围。
  *
  * 选型控件用**选项板**：一组选项并排成方角板，板上压一张迷你样张（版本组画陈列骨架——
  * 卡片版画 9:16 立绘格、表格版画发丝行；形态组用真立绘 + 详情页头图的文字骨架），
@@ -19,10 +25,15 @@
  * 该页使用价值低、已整页下线，位置让给设置；导航仍是 ADR 0004 的六项预算。
  * 页脚只保留「数据说明」一处出处链接，不再重复指路本页。 */
 
+import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { useAgentsViewVersion } from '@/composables/useAgentsViewVersion'
 import type { AgentsViewVersion } from '@/composables/useAgentsViewVersion'
+import { useLocale } from '@/composables/useLocale'
+import { useUiText } from '@/composables/useUiText'
+import { fmt } from '@/domain/uiText'
+import { LANGS, LANG_META } from '@/domain/lang'
 import { useHeroForm } from '@/composables/useHeroForm'
 import { heroFileForForm } from '@/data/heroGenderVariants'
 import type { HeroForm } from '@/data/heroGenderVariants'
@@ -34,6 +45,8 @@ usePageMeta()
 
 const { agentsViewVersion, setAgentsViewVersion } = useAgentsViewVersion()
 const { heroForm, setHeroForm } = useHeroForm()
+const { lang, setLang } = useLocale()
+const { t } = useUiText()
 
 /** 形态组样张的角色：佩洛伊斯（1551）——当前唯一登记了双形态立绘的角色
  *  （src/data/hero-gender-variants.json），只有它换形态真的换图。 */
@@ -51,25 +64,24 @@ type VersionOption = {
 }
 
 /** 选项表：值 + 玩家侧说法（标签与一句说明）+ 样张骨架 */
-const VERSIONS: VersionOption[] = [
+const VERSIONS = computed<VersionOption[]>(() => [
   {
     value: 'cards',
-    label: '卡片名录',
-    hint: '9:16 立绘格 + 图下签条，一屏看到更多立绘。',
+    label: t.value.settings.cards,
+    hint: t.value.settings.cardsHint,
     shot: 'grid',
   },
   {
     value: 'table',
-    label: '表格名录',
-    hint: '一行一位代理人：代号、属性、职业、阵营、稀有度。',
+    label: t.value.settings.table,
+    hint: t.value.settings.tableHint,
     shot: 'rows',
   },
-]
-
-const FORMS: { value: HeroForm; label: string; hint: string }[] = [
-  { value: 'female', label: '女形态', hint: '详情页头图、首页「今日角色」与卡片名录都取这一形态。' },
-  { value: 'male', label: '男形态', hint: '想随时换回另一种形态，回本页点选即可。' },
-]
+])
+const FORMS = computed<{ value: HeroForm; label: string; hint: string }[]>(() => [
+  { value: 'female', label: t.value.settings.formFemale, hint: t.value.settings.formFemaleHint },
+  { value: 'male', label: t.value.settings.formMale, hint: t.value.settings.formMaleHint },
+])
 
 /** 形态样张的候选链：取卡片档（card/ 800×392），按需再取原图，末位才是同源 CDN 兜底。
  *  样张只有 62 CSS px 宽，DPR 2 下也只需 124px，没必要拉 wide/ 档。 */
@@ -82,15 +94,15 @@ function formShotSources(form: HeroForm) {
   <ListPage>
     <header v-reveal class="page-head">
       <p class="eyebrow mono">Settings</p>
-      <h1 class="page-title">设置</h1>
+      <h1 class="page-title">{{ t.settings.title }}</h1>
       <p class="page-sub">
-        这里的偏好只保存在本机，点选即生效，也不写进分享出去的链接。
+        {{ t.settings.intro }}
       </p>
     </header>
 
     <section v-reveal="90" class="group">
-      <h2 class="group-title mono">代理人列表页版本</h2>
-      <p class="group-note">决定打开「代理人」时看到的陈列方式，二选一。</p>
+      <h2 class="group-title mono">{{ t.settings.agentsView }}</h2>
+      <p class="group-note">{{ t.settings.agentsViewNote }}</p>
       <div class="plates">
         <label
           v-for="opt in VERSIONS"
@@ -118,7 +130,7 @@ function formShotSources(form: HeroForm) {
               {{ agentsViewVersion === opt.value ? '◈' : '◇' }}
             </span>
             <span class="plate-label">{{ opt.label }}</span>
-            <span class="plate-flag" aria-hidden="true">已选</span>
+            <span class="plate-flag" aria-hidden="true">{{ t.common.selected }}</span>
           </span>
           <span :id="`hint-view-${opt.value}`" class="plate-hint">{{ opt.hint }}</span>
           <input
@@ -136,8 +148,8 @@ function formShotSources(form: HeroForm) {
     </section>
 
     <section v-reveal="140" class="group">
-      <h2 class="group-title mono">佩洛伊斯立绘形态</h2>
-      <p class="group-note">佩洛伊斯有两种立绘形态，选你想在站内看到的那一种。</p>
+      <h2 class="group-title mono">{{ t.settings.heroForm }}</h2>
+      <p class="group-note">{{ t.settings.heroFormNote }}</p>
       <div class="plates">
         <label
           v-for="opt in FORMS"
@@ -169,7 +181,7 @@ function formShotSources(form: HeroForm) {
           <span class="plate-head">
             <span class="plate-mark" aria-hidden="true">{{ heroForm === opt.value ? '◈' : '◇' }}</span>
             <span class="plate-label">{{ opt.label }}</span>
-            <span class="plate-flag" aria-hidden="true">已选</span>
+            <span class="plate-flag" aria-hidden="true">{{ t.common.selected }}</span>
           </span>
           <span :id="`hint-form-${opt.value}`" class="plate-hint">{{ opt.hint }}</span>
           <input
@@ -186,8 +198,44 @@ function formShotSources(form: HeroForm) {
       </div>
     </section>
 
-    <p v-reveal="180" class="foot-note">
-      <RouterLink class="foot-link" to="/agents">前往代理人名录 →</RouterLink>
+    <section v-reveal="180" class="group">
+      <h2 class="group-title mono">{{ t.settings.lang }}</h2>
+      <p id="lang-note" class="group-note">
+        {{ t.settings.langNote }}
+
+      </p>
+      <div class="plates">
+        <label
+          v-for="l in LANGS"
+          :key="l"
+          class="plate"
+          :class="{ on: lang === l }"
+        >
+          <span class="plate-head">
+            <span class="plate-mark" aria-hidden="true">{{ lang === l ? '◈' : '◇' }}</span>
+            <!-- 自称按各自语言标记（读屏会切到对应语音），而不是按界面语言 -->
+            <span class="plate-label" :lang="LANG_META[l].htmlLang">{{ LANG_META[l].endonym }}</span>
+            <span class="plate-flag" aria-hidden="true">{{ t.common.selected }}</span>
+          </span>
+          <input
+            class="plate-input"
+            type="radio"
+            name="display-lang"
+            :value="l"
+            :checked="lang === l"
+            :aria-label="LANG_META[l].endonym"
+            aria-describedby="lang-note"
+            @change="setLang(l)"
+          />
+        </label>
+      </div>
+      <p class="group-note lang-current">
+        {{ fmt(t.settings.currentLang, { name: LANG_META[lang].endonym, tag: LANG_META[lang].htmlLang }) }}
+      </p>
+    </section>
+
+    <p v-reveal="220" class="foot-note">
+      <RouterLink class="foot-link" to="/agents">{{ t.settings.toAgents }}</RouterLink>
     </p>
   </ListPage>
 </template>
@@ -214,6 +262,17 @@ function formShotSources(form: HeroForm) {
   margin-top: 6px;
   font-size: var(--fs-caption);
   color: var(--ink-2);
+}
+
+/* 当前语言回执：与选项板拉开一档，读到「已生效的是哪一个」不被板面吃掉 */
+.lang-current {
+  margin-top: 14px;
+  letter-spacing: 0.02em;
+}
+
+.lang-current b {
+  color: var(--ink-1);
+  font-weight: 400;
 }
 
 /* ---------- 选项板：整板即控件 ---------- */
