@@ -270,11 +270,6 @@ function formShotSources(form: HeroForm) {
   letter-spacing: 0.02em;
 }
 
-.lang-current b {
-  color: var(--ink-1);
-  font-weight: 400;
-}
-
 /* ---------- 选项板：整板即控件 ---------- */
 
 /* 两项以上才并排；不足一板宽（<260px）时塌成单列。

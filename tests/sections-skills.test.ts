@@ -116,6 +116,34 @@ describe('skill helpers', () => {
     expect(chain?.groups?.map((g) => g.name)).toEqual(['连携技：会·御'])
     expect(ultimate?.groups?.map((g) => g.name)).toEqual(['终结技：残心', '残心·散华'])
   })
+
+  // 「引用某个具名终结技」的**包裹符号各语言不同**：zh/ko 方括号、ja 直角引号『』、en 干脆无括号。
+  // 判据若只认 `[`，en/ja 的派生招就会留在连携技行里（0011 记的「按中文字面量处理已本地化数据」同族）。
+  // 文本取自四语详情数据的真实写法（浅羽悠真 1201 的派生招「残心·散华 / Scattered Blossoms」）。
+  it.each([
+    ['zh', '终结技：残心', '残心·散华', '[终结技：残心]发动后自动派生：穿透攻击。'],
+    ['en', 'Ultimate: Zanshin', 'Zanshin - Scattered Blossoms', 'Activates ALT automatically after Ultimate: Zanshin:'],
+    ['ja', '終結スキル：残心', '残心・飛花', '『終結スキル：残心』発動後、自動的に繋げて発動：'],
+    ['ko', '궁극기: 잔심', '잔심·산화', '[궁극기: 잔심] 시전 후 자동으로 파생:'],
+  ])('buildSkillRows 在 %s 下也把引用终结技的派生招并入终结技行', (lang, ultName, childName, childDesc) => {
+    // 必须调**真函数**并显式传 lang：本文件顶部的 buildSkillRows 是把语言固定成 'zh' 的兼容壳，
+    // 用它测四语会把四种语言都当中文跑（本用例第一版就踩了这个坑）。
+    const rows = buildSkillRowsLang(
+      {
+        chain: {
+          description: [
+            { name: ultName, desc: '本体。', potential: [] },
+            { name: childName, desc: childDesc, potential: [] },
+          ],
+        },
+      },
+      lang as Lang,
+    )
+    const ultimate = rows.find((r) => r.key === 'ultimate')
+    // 派生招必须与本体同处终结技行；若判据失配，它会掉进连携技行（chain）
+    expect(ultimate?.groups?.map((g) => g.name)).toEqual([ultName, childName])
+    expect(rows.find((r) => r.key === 'chain')).toBeUndefined()
+  })
 })
 
 describe('potential-gated skills（潜能影像门控招式）', () => {

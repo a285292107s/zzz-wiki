@@ -42,6 +42,21 @@ describe('stripRichText', () => {
     expect(stripRichText('文本<script>alert(1)</script>结尾')).toBe('文本alert(1)结尾')
   })
 
+  // 日文数据的**名字**字段带注音标记（`<ruby=よみ>漢字</ruby>`，实测 377 处，zh/en/ko 为 0）。
+  // 说明文字一直走富文本工具，但组名/被动名/影画名是**裸插值**渲染的，曾把 <ruby=…> 原样印到页面上
+  // （AGENTS §3 富文本铁律）。这些用例锁住「剥离后只剩可读文本」，防渲染层再退回裸插值。
+  it('keeps only the base text of <ruby=…> (ja furigana)', () => {
+    expect(stripRichText('回避：<ruby=むゆうほ>夢遊歩</ruby>')).toBe('回避：夢遊歩')
+  })
+
+  it('handles <ruby=…> embedded mid-name (ja mindscape)', () => {
+    expect(stripRichText('<ruby=ちょうぜつ>鳥絶</ruby>技巧')).toBe('鳥絶技巧')
+  })
+
+  it('handles several <ruby=…> in one name', () => {
+    expect(stripRichText('特殊スキル：寒風・<ruby=ついさい>追砕</ruby>')).toBe('特殊スキル：寒風・追砕')
+  })
+
   it('normalizes carriage returns and trailing whitespace', () => {
     expect(stripRichText('  a\r\nb\t\n  ')).toBe('a\nb')
   })

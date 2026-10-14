@@ -15,6 +15,7 @@ import {
 import HollowImage from '../HollowImage.vue'
 import LevelSlider from './LevelSlider.vue'
 import { fmt } from '@/domain/uiText'
+import { stripRichText } from '@/utils/text'
 import { useUiText } from '@/composables/useUiText'
 
 const props = defineProps<{
@@ -59,6 +60,15 @@ function groupDesc(grp: SkillGroup, lv: number): string | undefined {
   const raw =
     variant.value === 'pot' && grp.strongDesc ? grp.strongDesc : grp.desc
   return typeof raw === 'function' ? raw(lv) : raw
+}
+
+/** 组名的展示文本：招式名同样是**游戏标记文本**，日文数据里带注音
+ *  （如 `回避：<ruby=むゆうほ>夢遊歩</ruby>`）——裸插值会把 `<ruby=…>` 原样印在页面上
+ *  （AGENTS §3 富文本铁律：游戏标记一律经富文本工具，禁止裸插值）。
+ *  这里只需纯文本：剥离标记后即「回避：夢遊歩」。
+ *  分组/键值仍用原始 grp.name（见 :key），避免展示层改动影响数据侧同一性判断。 */
+function groupName(grp: SkillGroup): string {
+  return stripRichText(grp.name)
 }
 
 /** 补充行展示值：无 Skill 引用的静态文本（如「1点」充能计数）直接展示原文，其余按等级求值 */
@@ -142,7 +152,7 @@ function potTag(grp: SkillGroup): string | null {
         <span class="no mono">{{ String(gi + 1).padStart(2, '0') }}</span>
         <div class="body">
           <h4 class="title title-skill">
-            {{ grp.name }}
+            {{ groupName(grp) }}
             <span v-if="grp.derived" class="pot-badge derived-badge mono">{{ t.detail.derivedSkill }}</span>
             <span
               v-if="potTag(grp)"
@@ -155,7 +165,7 @@ function potTag(grp: SkillGroup): string | null {
           <template v-if="table">
             <table class="metric-table">
               <!-- caption：读屏用户表格语境（grp.name 为技能组名，如「特殊技：电磁引擎」） -->
-              <caption class="sr-only">{{ fmt(t.detail.metricTableCaption, { name: grp.name }) }}</caption>
+              <caption class="sr-only">{{ fmt(t.detail.metricTableCaption, { name: groupName(grp) }) }}</caption>
               <thead>
                 <tr>
                   <th class="metric-row-head" scope="col">{{ table.rowLabel || t.detail.segments }}</th>

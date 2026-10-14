@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { richDesc } from '@/utils/rich'
+import { stripRichText } from '@/utils/text'
 import { fmt } from '@/domain/uiText'
 import { useUiText } from '@/composables/useUiText'
 import {
@@ -117,7 +118,7 @@ const unlockCount = computed(() =>
         <span class="no mono">01</span>
         <div class="body">
           <h4 class="title title-skill">
-            {{ current.coreName }}<span v-if="currentBadge" class="pot-badge mono">{{ currentBadge }}</span>
+            {{ stripRichText(current.coreName) }}<span v-if="currentBadge" class="pot-badge mono">{{ currentBadge }}</span>
           </h4>
           <p v-if="current.desc[0]" class="desc" v-html="richDesc(current.desc[0], level)"></p>
         </div>
@@ -126,7 +127,7 @@ const unlockCount = computed(() =>
         <span class="no mono">02</span>
         <div class="body">
           <h4 class="title title-skill">
-            {{ current.extraName }}<span v-if="currentBadge" class="pot-badge mono">{{ currentBadge }}</span>
+            {{ stripRichText(current.extraName) }}<span v-if="currentBadge" class="pot-badge mono">{{ currentBadge }}</span>
           </h4>
           <p v-if="current.desc[1]" class="desc" v-html="richDesc(current.desc[1], level)"></p>
         </div>

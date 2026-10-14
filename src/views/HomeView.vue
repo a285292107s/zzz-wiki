@@ -18,6 +18,10 @@ usePageMeta()
 const { t } = useUiText()
 const { lang } = useLocale()
 
+/** hero 副标题行：固定那串拉丁文（装饰），但站名已是同一串时返回空串以跳过（见模板注释） */
+const LATIN_TITLE = 'Ropeweb Archive'
+const latinTitle = computed(() => (t.value.meta.siteName === LATIN_TITLE ? '' : LATIN_TITLE))
+
 // 数据版本元信息（正式服版本号，来自根 manifest.json；站点只展示正式服数据）
 const versions = ref<{ live: string; generated?: string } | null>(null)
 onMounted(() => {
@@ -100,7 +104,10 @@ const sections = computed(() => [
           <p v-reveal="0" class="eyebrow mono" data-vt-block>NEW Eridu · Data Terminal</p>
           <h1 v-reveal="60" class="page-title" data-vt-block>
             {{ t.meta.siteName }}
-            <span class="title-en">Ropeweb Archive</span>
+            <!-- 拉丁文副行是**装饰**（中文站名的对照写法）；当站名本身就是这串拉丁文时
+                 （en "Ropeweb Archive"）会与主标题重复成「Ropeweb Archive / ROPWEB ARCHIVE」，
+                 故按值相等跳过，不按语言硬编码。 -->
+            <span v-if="latinTitle" class="title-en">{{ latinTitle }}</span>
           </h1>
           <p v-reveal="120" class="page-sub" data-vt-block>
             {{ t.home.heroSub }}

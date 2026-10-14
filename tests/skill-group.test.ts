@@ -1,5 +1,7 @@
 // @vitest-environment jsdom
 import { describe, expect, it } from 'vitest'
+import { readFileSync } from 'node:fs'
+import path from 'node:path'
 import { mount } from '@vue/test-utils'
 import SkillGroup from '../src/components/detail/SkillGroup.vue'
 import { SKILL_LEVEL_CAP, SKILL_LEVEL_DEFAULT, type SkillRow } from '../src/domain/sections'
@@ -127,5 +129,44 @@ describe('SkillGroup {CAL:…} 内嵌公式（如 曙色颂·转辉 伤害提升
     const w = mount(SkillGroup, { props: { row: calRow, glyph: '△', srcs: [], level: 1 } })
     expect(w.find('.desc').text()).toContain('伤害提升1.5%')
     expect(w.findAll('.stat-val').map((n) => n.text())).toEqual(['164.7%', '1.5%'])
+  })
+})
+
+describe('SkillGroup 组名是游戏标记文本（日文注音不得裸插值）', () => {
+  // 日文数据的**招式名**带注音标记，且只有日文有（zh/en/ko 实测 0 处）；
+  // 说明文字一直走富文本工具，组名却是裸插值渲染的 → 曾把 `<ruby=…>` 原样印在行标题上。
+  // 用真实数据取值，避免手写样本与线上数据脱节。
+  const jaDetail = JSON.parse(
+    readFileSync(path.join('public', 'data', 'live', 'ja', 'character', '1051.json'), 'utf8'),
+  ) as { skill: Record<string, { description?: Array<{ name?: string }> }> }
+
+  it('数据里确实带注音（前提锚：若数据不再带标记，本组用例应连同删除）', () => {
+    const all = Object.values(jaDetail.skill).flatMap((s) => s.description ?? [])
+    expect(all.some((d) => (d.name ?? '').includes('<ruby='))).toBe(true)
+  })
+
+  it('行标题渲染为可读文本，不出现 <ruby=…> 或 </ruby>', () => {
+    const groups = Object.values(jaDetail.skill)
+      .flatMap((s) => s.description ?? [])
+      .filter((d) => (d.name ?? '').includes('<ruby='))
+      .slice(0, 6)
+      .map((d) => ({ name: d.name as string, desc: '说明。' }))
+    expect(groups.length).toBeGreaterThan(0)
+
+    const w = mount(SkillGroup, {
+      props: {
+        row: { key: 'basic', label: '通常攻撃', keyEn: 'BASIC', hasNumbers: false, groups },
+        glyph: '△',
+        srcs: [],
+      },
+    })
+    const titles = w.findAll('.title-skill').map((n) => n.text())
+    for (const txt of titles) {
+      expect(txt).not.toContain('<ruby')
+      expect(txt).not.toContain('</ruby>')
+      expect(txt).not.toContain('=')
+    }
+    // 正向锚：注音剥掉后，汉字本体还在（不是被整段剥没了）
+    expect(titles.join(' ')).toMatch(/[一-龯]/)
   })
 })

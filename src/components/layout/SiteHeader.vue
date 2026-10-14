@@ -15,7 +15,7 @@
         </span>
       </RouterLink>
 
-      <!-- 主排导航：只在能**单行放下**的宽度出现（见样式 979 断点的空间账）。
+      <!-- 主排导航：只在能**单行放下**的宽度出现（见样式 1000 断点的空间账）。
            放不下时整排收进 ☰ 菜单，菜单列同一份 NAV_ENTRIES，两处不会漂移。 -->
       <nav class="nav" :aria-label="t.header.mainNav">
         <RouterLink
@@ -100,7 +100,7 @@ import { useLocale } from '@/composables/useLocale'
 
 // 导航由 catalog.ts 派生（DESIGN.md §5.3 单一事实源）：数据类目 + 进主导航的图文板块
 // （nav:false 的板块——如数据说明——只在首页目录与页脚出现，站头保持内容聚焦）。
-// 窄屏（≤979）不列主排导航，☰ 菜单接管；两处共用这一份清单。检索面板不列导航。
+// 窄屏（≤999）不列主排导航，☰ 菜单接管；两处共用这一份清单。检索面板不列导航。
 const { t } = useUiText()
 const { lang } = useLocale()
 const route = useRoute()
@@ -111,17 +111,17 @@ const nav = computed(() =>
 const isActive = (to: string) =>
   route.path === to || (to !== '/' && route.path.startsWith(to))
 
-/* ---------- 窄屏导航面板（≤979） ---------- */
+/* ---------- 窄屏导航面板（≤999） ---------- */
 
 const menuOpen = ref(false)
 const menuToggleEl = ref<HTMLButtonElement | null>(null)
 const mastheadEl = ref<HTMLElement | null>(null)
 
-/** 菜单只在 ≤979 存在（同一断点，见样式）。手机转横屏 / 拖宽窗口越过断点后，
+/** 菜单只在 ≤999 存在（同一断点，见样式）。手机转横屏 / 拖宽窗口越过断点后，
  *  面板已随 CSS 隐藏，但展开态会留在 ref 里——转回手机就是「一进来菜单已经开着，
  *  且切换钮读作 expanded」。这里跟着断点收起，状态与可见性始终一致。
- *  （模块内不重复写断点数字：查询串与样式里的 979 是同一条，改则两处一起改。） */
-const menuBreakpoint = useMediaQuery('(max-width: 979px)')
+ *  （模块内不重复写断点数字：查询串与样式里的 999 是同一条，改则两处一起改。） */
+const menuBreakpoint = useMediaQuery('(max-width: 999px)')
 watch(menuBreakpoint, (narrow) => {
   if (!narrow) menuOpen.value = false
 })
@@ -240,6 +240,8 @@ onBeforeUnmount(() => {
   font-size: var(--fs-body);
   letter-spacing: 0.22em;
   color: var(--ink-0);
+  /* 站名同样不许断词（「新エリー都データターミ / ナル」实测）；见文末断点空间账 */
+  white-space: nowrap;
 }
 
 .brand-sub {
@@ -313,7 +315,7 @@ onBeforeUnmount(() => {
   outline-offset: 2px;
 }
 
-/* ---------- 菜单钮（≤979 才出现） ---------- */
+/* ---------- 菜单钮（≤999 才出现） ---------- */
 
 .menu-toggle {
   display: none;
@@ -396,6 +398,35 @@ onBeforeUnmount(() => {
 .nav-item .label {
   font-size: var(--fs-md);
   letter-spacing: 0.06em;
+  /* 标签是**不可断的单元**：换行会把「代理人」拆成「代理 / 人」、「Drive Discs」拆成
+     「Drive / Discs」，读起来像两行两个词（实测截图）。宽度不够时该整排收进 ☰ 菜单，
+     而不是就地折行——断点与空间账见文末。 */
+  white-space: nowrap;
+}
+
+/* 非中文的导航/站名**字距与内边距按拉丁文（韩文）排版还原**：
+   0.22em / 0.06em 的字距是给「新艾利都数据终端」这类 CJK 短标设计的（中文方块字天然
+   等宽，加字距才有档案标本的疏朗感）；但同一套字距压到拉丁文上是**纯浪费**——
+   en "Combat Formulas" / "W-Engines"、ko "드라이브 디스크" 每个字母之间都被撑开，
+   于是断点边界附近整排导航会折成两行、站名折成三行（实测）。这里只改字距与内边距，
+   不动字号，故视觉层级不变；中文档保持原样（`:not(:lang(zh))` 依赖 useLocale
+   写入的 `<html lang>`，单一事实源是 src/domain/langs.json）。 */
+html:not(:lang(zh)) .nav-item .label,
+html:not(:lang(zh)) .nav-item .no {
+  letter-spacing: 0;
+}
+
+html:not(:lang(zh)) .nav {
+  gap: 2px;
+}
+
+html:not(:lang(zh)) .nav-item {
+  gap: 6px;
+  padding: 8px 8px;
+}
+
+html:not(:lang(zh)) .brand-mark {
+  letter-spacing: 0.1em;
 }
 
 @media (hover: hover) {
@@ -475,24 +506,26 @@ onBeforeUnmount(() => {
 
 /* ---------- responsive ---------- */
 
-/* 980 是「主排导航收进 ☰」的断点。空间账（390 基准 · 360 安全下限，均为实测）：
+/* 1000 是「主排导航收进 ☰」的断点。空间账（390 基准 · 360 安全下限，均为实测）：
      品牌 219 + 行距 12 + 工具组（检索 30 + 组内距 6 + 菜单 34 = 70）= 301
      390 档内容宽 350 → 余 49；360 档内容宽 320 → 余 19
      320 档内容宽 280 → 差 21，故 ≤359 隐去品牌英文副标题（见文末）
 
-   980 这个数由主排导航自己算出来：一行放下需要
-     品牌 219 + 行距 24 + 导航 583 + 行距 24 + 检索 30 = 880
-   而内容宽 = 视口 × 0.92（--pad-page 是 4vw，封顶前）→ 视口 ≥ 957 才装得下。
-   取 980 留约 20px 余量（字体度量在别的机器上会漂）。
+   ⚠ 这个数**必须按最长的那门语言算**，不能只算中文：原先是按 zh 的
+     品牌 219 + 行距 24 + 导航 583 + 行距 24 + 检索 30 = 880（视口 ≥ 957 即够，取 980 留余量）。
+     但导航与站名都要按语言切换文案（见上方 `html:not(:lang(zh))` 那组字距还原），
+     四语实测的**一行放下所需最小视口**：zh 980、ko 980、ja 980、**en 1000**——
+     en 的「New Eridu Data Terminal / W-Engines / Combat Formulas」最长。
+     故断点取 1000（覆盖最长语言 + 留余量）；980–999 在 en 下会横向溢出（文档宽 994 > 视口）。
 
-   ⚠ 此前断点是 720，而 721–960 主排导航**根本放不下**：该区间「每个条目的标签文字」
+   ⚠ 更早的断点是 720，而 721–960 主排导航**根本放不下**：该区间「每个条目的标签文字」
    折成 2–4 行，导航容器高 62–108px（栏高只有 62），栏外可见溢出最多 23px
    （`.masthead` 是 `overflow: visible`，溢出文字压住页面内容）。逐档实测（标签文字行数
    / 容器高 / 栏外可见溢出）：720–740 → 4 行 / 108.4px / 23.2px；768–800 → 3 行 /
    85.3px / 11.6px；820–940 → 2 行 / 62.2px / 0.1px（贴边，视觉上仍算坏）；
    950 起 1 行 / 39.1px / 0。断点定得比导航实际需要的宽度低，现在与空间账对齐，
    这个区间改由 ☰ 接管。 */
-@media (max-width: 979px) {
+@media (max-width: 999px) {
   .masthead-inner {
     gap: var(--space-inline);
   }
@@ -521,16 +554,16 @@ onBeforeUnmount(() => {
   }
 }
 
-/* ≥980：主排导航接管，菜单与面板都不出现（display:none 同时移出可访问树，
+/* ≥1000：主排导航接管，菜单与面板都不出现（display:none 同时移出可访问树，
    不留不可见焦点位）。v-show 的展开态不设 inline display，故这条规则始终生效。 */
-@media (min-width: 980px) {
+@media (min-width: 1000px) {
   .site-menu {
     display: none;
   }
 }
 
 /* ≤1100：检索钮取图标形态（⌕ 单项）。两个档位都是横向真的放不下带字钮：
-   980–1100 主排导航占着空间；≤979 要让出菜单钮的位置（见上面的空间账）。
+   1000–1100 主排导航占着空间；≤999 要让出菜单钮的位置（见上面的空间账）。
    文字「检索」视觉隐藏而非 display:none——后者会把按钮文本从可访问树里摘掉，
    按钮将无可访问名（axe button-name critical）；视觉隐藏则名字保持「检索」。
    CTRL K 键帽同去：触屏按不到那个键，留着是给不存在的按键做广告。 */
