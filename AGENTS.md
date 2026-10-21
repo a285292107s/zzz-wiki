@@ -91,8 +91,9 @@
 - **工程质量审计工具箱**：`pnpm run audit`（清单与基线见 `scripts/audits/README.md`；含 axe-core 无障碍、
   视口溢出、触屏命中区、全站走查等，均以 playwright-cli 复跑）。
 - **数据+图标同步入口 `pnpm run sync`**（`scripts/sync-data.ts`）：唯一自动化写入 `public/data/` 的入口——
-  探测新版本 → 重建 JSON → 图标 `--soft` 补差（只补缺失、已有美术资源零重下）→ 校验（告警）→ 汇总变更集。
-  由 `.github/workflows/data-sync.yml` 定时触发并走【工作流内硬门禁】：`pnpm run verify:data` 通过 → 直接
+  探测新版本 → 重建 JSON → 图标 `--soft` 补差（只补缺失、已有美术资源零重下）→ 重建 CJK 字体子集 → 校验（告警）→ 汇总变更集。
+  由 `.github/workflows/data-sync.yml` 定时触发并走【工作流内硬门禁】：`pnpm run verify:data` 与
+  `node scripts/verify-icons.mjs --local`（图标本地完整性，缺项会让部署构建失败）通过 → 直接
   commit + push 到默认分支（master）→ 触发 Vercel 部署；不通过则 job 失败、不提交。无变更不提交。
   仓库为私有 + 免费套餐，分支保护不可用，故门禁在 workflow 内实现。`pnpm run data` 仅作数据-only 用途。
 - **换行符**：文本一律 **LF**，由根级 `.gitattributes` 钉死；改动它之前先读该文件头的规则顺序警示
