@@ -74,6 +74,15 @@ const SKILL_ASSET_ALIAS = {
   Icon_GeneralBuff_HonedEdge: 'IconHonedEdge',
   Icon_GeneralBuff_AuricInk: 'IconAuricInk',
   Icon_GeneralBuff_DungeonBuffEther: 'IconDungeonBuffEther',
+  Icon_GeneralBuff_Wind: 'IconWind',
+  Icon_GeneralBuff_Lumiflux: 'IconLumiflux',
+  Icon_AvatarClass_Attack: 'IconAttack',
+  Icon_AvatarClass_Stun: 'IconStun',
+  Icon_AvatarClass_Anomaly: 'IconAnomaly',
+  Icon_AvatarClass_Rupture: 'IconRupture',
+  Icon_AvatarClass_Support: 'IconSupport',
+  Icon_AvatarClass_Defense: 'IconDefense',
+  Icon_AvatarClass_Armorer: 'IconArmorer',
   // 1551 佩洛伊斯「支援突击：重睹天目」的源站标记 Icon_Pyroisl 为占位/拼写名（CDN 无此文件），
   // 语义上即通用招架键 Icon_Switch（同招式另两个槽位 快速支援/招架支援 亦用之）→ 按此映射兜底
   Icon_Pyroisl: 'Icon_Switch',
