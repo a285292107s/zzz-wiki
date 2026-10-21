@@ -4,17 +4,23 @@
 # 触发：每日 cron（默认 04:17 UTC）+ 手动 workflow_dispatch。
 # 职责：跑 pnpm run sync —— 探测源站新版本 → 有新版本才重建 JSON + 图标 --soft 补差
 #       → 重建 CJK 字体子集（新文本的新字形，否则部署构建会在字体校验处失败）
-#       → 汇总变更集；随后用 `pnpm run verify:data` + 图标本地校验做【硬门禁】，通过后
-#       直接 commit + push 到默认分支（master）→ 触发 Vercel 部署。
+#       → 汇总变更集；随后用 `pnpm run verify:data` + 图标本地校验 + 字体覆盖校验做【硬门禁】，
+#       通过后一次性 commit【数据 + 图标 + 字体子集】并 push 到默认分支（master）→ 触发 Vercel 部署。
 #       门禁不通过 → 本 job 失败，不提交（站点停留在上次提交的好数据）。
+# ⚠ 字体子集（public/fonts、scripts/build/cjk-fonts-manifest.json）是**派生产物**，
+#   必须与数据进同一次提交：只提交数据会让部署在 verify:fonts:cjk 处失败，而只重算不提交
+#   等于白算。提交面因此显式列举三类路径，别把 fonts 漏在 git add 之外。
 # 附注：新角色 hero 落地后，/calibrate 网格自动出现（角色号由 live 名录派生，
 #       见 src/domain/heroCatalog.ts）；featured-pool.json 的 pos 入池仍须人工目检，本 workflow 不写它。
 #
 # 设计取舍（单写者模型：本 workflow 是唯一自动化写入 public/data 的入口）：
 #   - 部署（build:ci）只构建已提交快照、不再重建数据；数据更新全部走这里。
-#   - 无变更时不提交（git diff 静默），避免每日空提交。
+#   - 无变更时不提交（按 porcelain 判定，含未跟踪的新文件），避免每日空提交。
 #   - 门禁内嵌 workflow：本仓库私有 + 免费套餐，GitHub 分支保护 / required checks
-#     不可用，故以本 job 内 verify:data + 图标本地校验作为真正的硬卡点。
+#     不可用，故以本 job 内的三道校验作为真正的硬卡点。
+#   - 字体重算放在这里而不是部署构建里：download:fonts:cjk 要拉 101 个源分片（外网 +
+#     秒级耗时），放进 Vercel 构建会依赖 Google Fonts 并拖长构建；代价是本 job 多一个
+#     外部依赖——拉取失败则本次同步不提交（宁可不更新，也不推一份会让部署失败的快照）。
 # ============================================================
 
 name: data-sync
@@ -63,17 +69,29 @@ jobs:
       - name: Gate — local icon completeness before any push
         run: node scripts/verify-icons.mjs --local
 
-      - name: Commit and push if public/data changed
+      # download-cjk-fonts 按设计「失败仅告警」（字体是持久资产），部分分片拉不到时
+      # 产物仍会生成但覆盖不全——这道门禁把住最终产物，让本 job 失败而不是把坏字体推上去。
+      - name: Gate — CJK font coverage after re-subset
+        run: node scripts/verify-cjk-fonts.mjs
+
+      # 第三份「随上游数据变化」的派生产物：首页生日表由详情数据派生并提交。
+      # 与字体同理——它只在部署构建里被校验，同步链路不校验就会推出让部署失败的快照。
+      - name: Gate — featured birthdays table still matches details
+        run: node scripts/generate-featured-birthdays.mjs --check
+
+      - name: Commit and push if data, icons or fonts changed
         run: |
-          if git diff --quiet HEAD -- public/data; then
-            echo "public/data unchanged — nothing to commit"
+          TRACKED="public/data public/fonts scripts/build/cjk-fonts-manifest.json"
+          # porcelain 含未跟踪文件：纯新增的数据文件（新角色/新音擎）也必须触发提交
+          if [ -z "$(git status --porcelain -- $TRACKED)" ]; then
+            echo "data/fonts unchanged — nothing to commit"
             exit 0
           fi
           git config user.name  "data-sync[bot]"
           git config user.email "data-sync[bot]@users.noreply.github.com"
-          git add public/data
-          git commit -m "chore: 同步 zzz live 数据与图标"
+          git add $TRACKED
+          git commit -m "chore: 同步 zzz live 数据与图标（含 CJK 字体子集）"
           # 竞态防护：本次运行期间 master 可能被推进，先 rebase 到最新再 push，避免 non-fast-forward
           git pull --rebase origin "$(git rev-parse --abbrev-ref HEAD)"
           git push
-          echo "Committed and pushed public/data update"
+          echo "Committed and pushed data/fonts update"

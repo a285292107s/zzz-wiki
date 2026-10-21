@@ -92,9 +92,12 @@
   视口溢出、触屏命中区、全站走查等，均以 playwright-cli 复跑）。
 - **数据+图标同步入口 `pnpm run sync`**（`scripts/sync-data.ts`）：唯一自动化写入 `public/data/` 的入口——
   探测新版本 → 重建 JSON → 图标 `--soft` 补差（只补缺失、已有美术资源零重下）→ 重建 CJK 字体子集 → 校验（告警）→ 汇总变更集。
-  由 `.github/workflows/data-sync.yml` 定时触发并走【工作流内硬门禁】：`pnpm run verify:data` 与
-  `node scripts/verify-icons.mjs --local`（图标本地完整性，缺项会让部署构建失败）通过 → 直接
-  commit + push 到默认分支（master）→ 触发 Vercel 部署；不通过则 job 失败、不提交。无变更不提交。
+  由 `.github/workflows/data-sync.yml` 定时触发，重算字体子集后过【四道硬门禁】：`verify:data`（数据契约）、
+  `verify-icons --local`（图标本地必须项）、`verify-cjk-fonts`（字体覆盖）、`generate-featured-birthdays --check`
+  （首页生日表与详情一致）；全过后把**数据 + 图标 + 字体子集**放进同一次提交推到 master → 触发 Vercel 部署，
+  任一门禁不过则 job 失败、不提交。四道门禁守的是同一类事故：字体子集与生日表都随上游文本派生、
+  却只由部署构建校验——重算后漏提交或漏校验，master 上就会出现「数据新、派生资产旧」的快照，
+  表现为部署构建失败。
   仓库为私有 + 免费套餐，分支保护不可用，故门禁在 workflow 内实现。`pnpm run data` 仅作数据-only 用途。
 - **换行符**：文本一律 **LF**，由根级 `.gitattributes` 钉死；改动它之前先读该文件头的规则顺序警示
   （后写规则覆盖先写，二进制声明必须排在文本通配之后）。判据：`git diff --check` 应完全干净。
