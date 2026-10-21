@@ -1778,7 +1778,12 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Ice>冰属性，<IconMap:Icon_AvatarClass_Attack>强攻站场输出",
+  "交替使用<Term:1000029><color=#FFFFFF>[出枪式]</color></Term>与<Term:3000017><color=#FFFFFF>[敛枪式]</color></Term>输出",
+  "可为自身提供暴击率与攻击加成"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

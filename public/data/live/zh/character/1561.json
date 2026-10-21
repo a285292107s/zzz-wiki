@@ -1859,7 +1859,12 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Wind>风属性，<IconMap:Icon_AvatarClass_Anomaly>异常后台输出",
+  "触发异常效果<Term:3000004><color=#FFFFFF>[乱流]</color></Term>",
+  "气旋<Term:3000009><color=#FFFFFF>聚怪</color></Term>并降低敌人抗性"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

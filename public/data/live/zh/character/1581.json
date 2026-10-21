@@ -1940,7 +1940,13 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "01",
+  "爆发输出并可提供高额增伤",
+  "<IconMap:Icon_GeneralBuff_Lumiflux>流明属性，<IconMap:Icon_AvatarClass_Anomaly>异常<Term:3000012><color=#FFFFFF>速切</color></Term>输出",
+  "流明属性<Term:1000031><color=#FFFFFF>[异化]</color></Term>提升队伍异常伤害",
+  "通过<Term:1000034><color=#FFFFFF>[耀变]</color></Term>造成爆发异常伤害"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

@@ -1996,7 +1996,12 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_DungeonBuffEther>以太属性，<IconMap:Icon_AvatarClass_Attack>强攻站场输出",
+  "拥有四种效果不同的[终结技]",
+  "连续发动[强化普攻]造成大量伤害"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

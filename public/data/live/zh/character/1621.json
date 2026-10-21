@@ -1337,32 +1337,6 @@
         }
        },
        "potential": []
-      },
-      {
-       "name": "失衡倍率",
-       "desc": "{Skill:1621017, Prop:1002}",
-       "param": {
-        "1621017": {
-         "main": 45870,
-         "growth": 2090,
-         "format": "%",
-         "damage_percentage": 61160,
-         "damage_percentage_growth": 5560,
-         "stun_ratio": 45870,
-         "stun_ratio_growth": 2090,
-         "sp_recovery": 0,
-         "sp_recovery_growth": 0,
-         "fever_recovery": 1440725,
-         "fever_recovery_growth": 0,
-         "attribute_infliction": 44367,
-         "sp_consume": 0,
-         "attack_data": [],
-         "rp_recovery": 0,
-         "rp_recovery_growth": 0,
-         "ether_purify": 25664
-        }
-       },
-       "potential": []
       }
      ],
      "potential": []
@@ -1519,6 +1493,32 @@
         "1621017": {
          "main": 61160,
          "growth": 5560,
+         "format": "%",
+         "damage_percentage": 61160,
+         "damage_percentage_growth": 5560,
+         "stun_ratio": 45870,
+         "stun_ratio_growth": 2090,
+         "sp_recovery": 0,
+         "sp_recovery_growth": 0,
+         "fever_recovery": 1440725,
+         "fever_recovery_growth": 0,
+         "attribute_infliction": 44367,
+         "sp_consume": 0,
+         "attack_data": [],
+         "rp_recovery": 0,
+         "rp_recovery_growth": 0,
+         "ether_purify": 25664
+        }
+       },
+       "potential": []
+      },
+      {
+       "name": "失衡倍率",
+       "desc": "{Skill:1621017, Prop:1002}",
+       "param": {
+        "1621017": {
+         "main": 45870,
+         "growth": 2090,
          "format": "%",
          "damage_percentage": 61160,
          "damage_percentage_growth": 5560,
@@ -1951,7 +1951,12 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconWind.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "07",
+  "<IconMap:Icon_GeneralBuff_Wind>风属性，<IconMap:Icon_AvatarClass_Stun>击破",
+  "提升全队造成的暴击伤害或<Term:3000015><color=#FFFFFF>锐暴伤害</color></Term>",
+  "可通过<Term:3000010><color=#FFFFFF>[浸染]</color></Term>额外提升全队造成的伤害"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

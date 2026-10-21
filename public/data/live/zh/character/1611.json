@@ -2307,7 +2307,12 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconDef.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Thunder>电属性，<IconMap:Icon_AvatarClass_Armorer>锋御站场输出",
+  "可进入<Term:1000036><color=#FFFFFF>[猩红铭刻]</color></Term>状态并派生多段招式",
+  "可造成大量<Term:3000015><color=#FFFFFF>锐暴伤害</color></Term>"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

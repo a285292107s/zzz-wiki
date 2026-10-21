@@ -2031,7 +2031,12 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "07",
+  "<IconMap:Icon_GeneralBuff_Fire>火属性，<IconMap:Icon_AvatarClass_Stun>后台击破",
+  "快速累积失衡值并提高失衡易伤倍率",
+  "可额外触发队友[连携技]"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {
