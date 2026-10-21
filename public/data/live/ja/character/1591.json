@@ -1778,7 +1778,12 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Ice>氷属性、 <IconMap:Icon_AvatarClass_Attack>表強攻アタッカー",
+  "<Term:1000029>『穿貫の型』</Term>と<Term:3000017>『円舞の型』</Term>の交互発動で火力を稼ぐ",
+  "自前で会心率・攻撃力アップ"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

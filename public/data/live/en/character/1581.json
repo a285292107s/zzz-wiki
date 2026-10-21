@@ -1940,7 +1940,13 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "01",
+  "Burst damage and major damage boost",
+  "<IconMap:Icon_GeneralBuff_Lumiflux>Lumiflux, <IconMap:Icon_AvatarClass_Anomaly>Anomaly <Term:3000012>quick-swap</Term> dealer",
+  "Lumiflux <Term:1000031>Refringe</Term> boosts team Anomaly DMG",
+  "Deals burst Anomaly DMG through <Term:1000034>Luminize</Term>"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

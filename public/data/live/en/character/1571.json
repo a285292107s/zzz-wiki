@@ -2031,7 +2031,12 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "07",
+  "<IconMap:Icon_GeneralBuff_Fire>Fire, <IconMap:Icon_AvatarClass_Stun>off-field Stun",
+  "Rapidly builds up Daze and increases Stun DMG Multiplier",
+  "Additionally triggers teammate's Chain Attack"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

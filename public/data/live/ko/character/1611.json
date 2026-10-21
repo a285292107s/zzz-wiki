@@ -2307,7 +2307,12 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconDef.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Thunder>전기 속성, <IconMap:Icon_AvatarClass_Armorer>단조 필드 딜러",
+  "<Term:1000036><color=#FFFFFF>[진홍 각인]</color></Term> 상태에 진입하여 다단 스킬 파생 가능",
+  "대량의 <Term:3000015><color=#FFFFFF>절상 피해</color></Term>를 줌"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

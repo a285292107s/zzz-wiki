@@ -1859,7 +1859,12 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Wind>風属性、 <IconMap:Icon_AvatarClass_Anomaly>裏異常アタッカー",
+  "状態異常<Term:3000004>「乱流」</Term>を発動可能",
+  "竜巻で<Term:3000009>集敵</Term>しつつ敵の耐性をダウン"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

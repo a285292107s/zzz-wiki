@@ -1778,7 +1778,12 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Ice>Ice, <IconMap:Icon_AvatarClass_Attack>on-field Attack dealer",
+  "Alternate between <Term:1000029>Unbridled Spear</Term> and <Term:3000017>Converging Spear</Term> to deal damage",
+  "Provides CRIT Rate and ATK bonus for herself"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

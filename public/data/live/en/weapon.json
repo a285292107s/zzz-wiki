@@ -961,6 +961,32 @@
   "effect_desc": "When the equipper's CRIT Rate exceeds <color=#2BAD00>100%</color>, each 1% of CRIT Rate above 100% increases DMG dealt by <color=#2BAD00>0.48%</color>, up to a maximum increase of <color=#2BAD00>24%</color>.",
   "effect_refine": 1
  },
+ "13022": {
+  "icon": "Weapon_A_Common_22",
+  "rank": 3,
+  "type": 7,
+  "en": "Candlelit Scheme",
+  "atk": 356,
+  "desc": "How could a pumpkin this cute possibly scare anyone?!",
+  "sub": "DEF",
+  "ko": "촛불 트릭",
+  "zh": "烛光诡计",
+  "ja": "キャンドル・トリック",
+  "Id": 13022,
+  "base_property": {
+   "name": "Base DEF",
+   "value": 24,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "DEF",
+   "value": 1600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "Moment of Fright",
+  "effect_desc": "When using an <color=#FFFFFF>EX Special Attack</color>, the equipper's CRIT Rate is increased by <color=#2BAD00>8%</color> for 40s. The equipper deals <color=#2BAD00>15%</color> more DMG to enemies whose current HP is below 50% of their Max HP.",
+  "effect_refine": 1
+ },
  "13101": {
   "icon": "Weapon_A_1011",
   "rank": 3,
@@ -2597,6 +2623,58 @@
   },
   "effect_name": "Sleepless Eternal Night",
   "effect_desc": "The equipper's CRIT Rate increases by <color=#2BAD00>24%</color>. DMG dealt ignores <color=#2BAD00>15%</color> of the target's <color=#A6C5FD>Wind RES</color>. When the equipper uses an <color=#FFFFFF>EX Special Attack</color> to deal <color=#A6C5FD>Wind DMG</color>, Daze dealt increases by <color=#2BAD00>16%</color>, and DMG dealt by all other squad members increases by <color=#2BAD00>20%</color>, for 50s. Repeated triggers reset the duration. Only one instance of the DMG increase effect can exist in the same squad.",
+  "effect_refine": 1
+ },
+ "14163": {
+  "icon": "Weapon_S_1631",
+  "rank": 4,
+  "type": 1,
+  "en": "Incarcerating Grip",
+  "atk": 713,
+  "desc": "Grasping evil in his grip, crushing decay beneath the fingertips.",
+  "sub": "CRIT Rate",
+  "ko": "금단의 감옥",
+  "zh": "禁罪囚笼",
+  "ja": "罪捕らえる牢獄",
+  "Id": 14163,
+  "base_property": {
+   "name": "Base ATK",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "CRIT Rate",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "Evil Caught Within",
+  "effect_desc": "The equipper's CRIT Rate increases by <color=#2BAD00>20%</color>. When the equipper's <color=#FFFFFF>Basic Attack</color> hits an enemy, their ATK increases by <color=#2BAD00>10%</color>, and their DMG ignores <color=#2BAD00>15%</color> of the target's <color=#A6C5FD>Wind RES</color> for 16s.",
+  "effect_refine": 1
+ },
+ "14164": {
+  "icon": "Weapon_S_1641",
+  "rank": 4,
+  "type": 3,
+  "en": "Plume of Rebirth",
+  "atk": 713,
+  "desc": "If life is as fleeting as morning dew, then hold nothing back.",
+  "sub": "Anomaly Mastery",
+  "ko": "열반의 첫 깃",
+  "zh": "涅槃初翎",
+  "ja": "転生の炎翼",
+  "Id": 14164,
+  "base_property": {
+   "name": "Base ATK",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "Anomaly Mastery",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "Hatching Day",
+  "effect_desc": "The equipper's Anomaly Proficiency increases by <color=#2BAD00>90</color>. When Anomaly DMG dealt by any squad member to an enemy triggers a critical hit, the equipper's <color=#FF5521>Fire DMG</color> increases by <color=#2BAD00>40%</color> for 20s. Repeated triggers reset the duration.",
   "effect_refine": 1
  }
 }

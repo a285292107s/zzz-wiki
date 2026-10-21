@@ -1778,7 +1778,12 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Ice>얼음 속성, <IconMap:Icon_AvatarClass_Attack>강공 필드 딜러",
+  "<Term:1000029><color=#FFFFFF>[겨눠진 창]</color></Term>과 <Term:3000017><color=#FFFFFF>[창술·회수]</color></Term>를 번갈아 사용하여 공격",
+  "자신에게 치명타 확률과 공격 보너스 제공"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

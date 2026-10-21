@@ -961,6 +961,32 @@
   "effect_desc": "착용자의 치명타 확률이 <color=#2BAD00>100%</color> 초과 시, 초과한 치명타 확률 1%당 착용자가 주는 피해가 <color=#2BAD00>0.48%</color> 증가한다. 최대 증가: <color=#2BAD00>24%</color>",
   "effect_refine": 1
  },
+ "13022": {
+  "icon": "Weapon_A_Common_22",
+  "rank": 3,
+  "type": 7,
+  "en": "Candlelit Scheme",
+  "atk": 356,
+  "desc": "How could a pumpkin this cute possibly scare anyone?!",
+  "sub": "DEF",
+  "ko": "촛불 트릭",
+  "zh": "烛光诡计",
+  "ja": "キャンドル・トリック",
+  "Id": 13022,
+  "base_property": {
+   "name": "기본 방어력",
+   "value": 24,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "방어력",
+   "value": 1600,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "공포의 순간",
+  "effect_desc": "<color=#FFFFFF>[강화 특수 스킬]</color> 시전 시 착용자의 치명타 확률이 <color=#2BAD00>8%</color> 증가한다. 지속 시간: 40초. 착용자가 현재 HP가 최대치의 50% 미만인 적에게 주는 피해가 <color=#2BAD00>15%</color> 증가한다.",
+  "effect_refine": 1
+ },
  "13101": {
   "icon": "Weapon_A_1011",
   "rank": 3,
@@ -2597,6 +2623,58 @@
   },
   "effect_name": "잠들지 못하는 밤",
   "effect_desc": "착용자의 치명타 확률이 <color=#2BAD00>24%</color> 증가한다. 주는 피해가 타깃의 <color=#A6C5FD>바람 속성 피해 저항</color>을 <color=#2BAD00>15%</color> 무시한다. 착용자가 <color=#FFFFFF>[강화 특수 스킬]</color>로 <color=#A6C5FD>바람 속성 피해</color>를 줄 시, 주는 그로기 수치가 <color=#2BAD00>16%</color> 증가하고, 파티 내 다른 모든 캐릭터로 주는 피해가 <color=#2BAD00>20%</color> 증가한다. 지속 시간: 50초, 중복 발동 시 지속 시간이 갱신되며, 피해 증가 효과는 전체 파티에서 하나만 유효하다.",
+  "effect_refine": 1
+ },
+ "14163": {
+  "icon": "Weapon_S_1631",
+  "rank": 4,
+  "type": 1,
+  "en": "Incarcerating Grip",
+  "atk": 713,
+  "desc": "Grasping evil in his grip, crushing decay beneath the fingertips.",
+  "sub": "CRIT Rate",
+  "ko": "금단의 감옥",
+  "zh": "禁罪囚笼",
+  "ja": "罪捕らえる牢獄",
+  "Id": 14163,
+  "base_property": {
+   "name": "기본 공격력",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "치명타 확률",
+   "value": 960,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "손에 잡힌 악",
+  "effect_desc": "착용자의 치명타 확률이 <color=#2BAD00>20%</color> 증가한다. 착용자의 <color=#FFFFFF>[일반 공격]</color>이 적 명중 시, 자신의 공격력이 <color=#2BAD00>10%</color> 증가하고, 주는 피해가 타깃의 <color=#A6C5FD>바람 속성 피해 저항</color>을 <color=#2BAD00>15%</color> 무시한다. 지속 시간: 16초",
+  "effect_refine": 1
+ },
+ "14164": {
+  "icon": "Weapon_S_1641",
+  "rank": 4,
+  "type": 3,
+  "en": "Plume of Rebirth",
+  "atk": 713,
+  "desc": "If life is as fleeting as morning dew, then hold nothing back.",
+  "sub": "Anomaly Mastery",
+  "ko": "열반의 첫 깃",
+  "zh": "涅槃初翎",
+  "ja": "転生の炎翼",
+  "Id": 14164,
+  "base_property": {
+   "name": "기본 공격력",
+   "value": 48,
+   "format": "{0:0.#}"
+  },
+  "rand_property": {
+   "name": "이상 장악력",
+   "value": 1200,
+   "format": "{0:0.#%}"
+  },
+  "effect_name": "부화하는 날",
+  "effect_desc": "착용자의 이상 마스터리가 <color=#2BAD00>90</color>pt 증가한다. 파티 내 임의의 캐릭터가 적에게 준 속성 이상 피해에 치명타가 발생하면, 착용자가 주는 <color=#FF5521>불 속성 피해</color>가 <color=#2BAD00>40%</color> 증가한다. 지속 시간: 20초, 중복 발동 시 지속 시간이 갱신된다.",
   "effect_refine": 1
  }
 }

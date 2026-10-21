@@ -1940,7 +1940,13 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "01",
+  "優れた瞬間火力と大幅なダメージアップ効果",
+  "<IconMap:Icon_GeneralBuff_Lumiflux>流明属性、<Term:3000012>交代運用</Term><IconMap:Icon_AvatarClass_Anomaly>異常アタッカー",
+  "流明属性の<Term:1000031>「昇華」</Term>でチーム異常ダメージアップ",
+  "<Term:1000034>「耀変」</Term>で高火力異常ダメージ"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

@@ -1859,7 +1859,12 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Wind>Wind, <IconMap:Icon_AvatarClass_Anomaly> Anomaly off-field dealer",
+  "Triggers Anomaly <Term:3000004>Vortex</Term>",
+  "Cyclone <Term:3000009>gathers enemies</Term> and reduces enemy RES"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

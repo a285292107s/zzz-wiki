@@ -1996,7 +1996,12 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_DungeonBuffEther>에테르 속성, <IconMap:Icon_AvatarClass_Attack>강공 필드 딜러",
+  "효과가 다른 네 가지 [궁극기] 보유",
+  "[강화 일반 공격]을 연속 시전하여 대량의 피해를 줌"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

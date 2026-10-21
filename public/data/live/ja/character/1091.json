@@ -1968,10 +1968,10 @@
  },
  "strategy": [
   "01",
-  "「落霜」を消費してチャージ抜刀斬りを発動可能",
-  "<IconMap:Icon_GeneralBuff_Frost>霜烈属性、表アタッカー",
-  "全属性の状態異常と「混沌」を発動可能",
-  "会心率を状態異常蓄積効率に変換可能"
+  "<Term:3000022>「落霜」</Term>消費で<Term:3000023>チャージ抜刀斬り</Term>を発動",
+  "<IconMap:Icon_GeneralBuff_Frost>霜烈属性、<IconMap:Icon_AvatarClass_Anomaly>表異常アタッカー",
+  "チーム全体で<Term:3000003>「混沌」</Term>発動時に<Term:3000022>「落霜」</Term>を回復",
+  "会心率を<Term:3000005>状態異常</Term>蓄積効率に変換可能"
  ],
  "potential": [],
  "potential_detail": {},

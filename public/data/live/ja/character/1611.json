@@ -2307,7 +2307,12 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconDef.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Thunder>電気属性、 <IconMap:Icon_AvatarClass_Armorer>表鋭御アタッカー",
+  "<Term:1000036>「ブラッドエンブレム」</Term>状態で多段コンボを繰り出す",
+  "<Term:3000015>暴傷ダメージ</Term>を大量に与えられる"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

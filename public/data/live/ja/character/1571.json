@@ -2031,7 +2031,12 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "07",
+  "<IconMap:Icon_GeneralBuff_Fire>炎属性、 <IconMap:Icon_AvatarClass_Stun>裏ブレイカー",
+  "ブレイク値を素早く蓄積しつつブレイク弱体倍率もアップ",
+  "仲間の『連携スキル』を追加で発動可能に"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

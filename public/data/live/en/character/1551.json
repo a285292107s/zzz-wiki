@@ -1996,7 +1996,12 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_DungeonBuffEther>Ether, <IconMap:Icon_AvatarClass_Attack>Attack on-field dealer",
+  "4 Ultimates, each with a different effect",
+  "Chains enhanced Basic Attacks consecutively to deal massive DMG"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

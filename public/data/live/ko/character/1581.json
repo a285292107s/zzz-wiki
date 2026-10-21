@@ -1940,7 +1940,13 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconCrit.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "01",
+  "폭발적인 딜링과 높은 피해 증가 제공",
+  "<IconMap:Icon_GeneralBuff_Lumiflux>루멘 속성, <IconMap:Icon_AvatarClass_Anomaly>이상 <Term:3000012><color=#FFFFFF>[빠른 교체]</color></Term> 딜러",
+  "루멘 속성 <Term:1000031><color=#FFFFFF>[변이]</color></Term>로 파티의 이상 피해 증가",
+  "<Term:1000034><color=#FFFFFF>[휘광]</color></Term>을 통한 폭발적인 이상 피해"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

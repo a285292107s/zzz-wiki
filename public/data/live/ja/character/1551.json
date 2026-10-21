@@ -1996,7 +1996,12 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_DungeonBuffEther>エーテル属性、 <IconMap:Icon_AvatarClass_Attack>表強攻アタッカー",
+  "4種類の異なる効果を持つ『終結スキル』",
+  "『強化通常攻撃』の連続攻撃で大ダメージ"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {

@@ -1859,7 +1859,12 @@
    "icon": "UI/Sprite/A1DynamicLoad/IconAttribute/UnPacker/Role/IconAttack.png"
   }
  },
- "strategy": {},
+ "strategy": [
+  "03",
+  "<IconMap:Icon_GeneralBuff_Wind>바람 속성, <IconMap:Icon_AvatarClass_Anomaly>이상 오프필드 딜러",
+  "이상 효과 <Term:3000004><color=#FFFFFF>[난류]</color></Term> 발동",
+  "사이클론 <Term:3000009><color=#FFFFFF>[몬스터 몰이]</color></Term> 및 적의 저항 감소"
+ ],
  "potential": [],
  "potential_detail": {},
  "level": {
