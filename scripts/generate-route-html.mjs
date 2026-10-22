@@ -325,6 +325,16 @@ async function main() {
       problems.push(`${p}: 详情 JSON 预载缺失（LCP 关键路径）`)
   }
 
+  let rootHtml = tpl.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${ORIGIN}/" />`)
+  if (!rootHtml.includes('property="og:url"'))
+    rootHtml = rootHtml.replace(
+      /(<meta property="og:image:height"[^>]*>)/,
+      `$1\n    <meta property="og:url" content="${ORIGIN}/" />`,
+    )
+  fs.writeFileSync(TEMPLATE, rootHtml)
+  if (!rootHtml.includes(`<link rel="canonical" href="${ORIGIN}/"`)) problems.push('/: canonical 未替换')
+  if (!rootHtml.includes(`<meta property="og:url" content="${ORIGIN}/"`)) problems.push('/: og:url 未写入')
+
   console.log(`== 逐路由 HTML == 生成 ${written} 个（origin ${ORIGIN}）`)
   // 静态页元信息一致性：STATIC_META 必须与运行时的 usePageMeta 文案逐字一致
   // （两处文案漂移是这类生成器最容易犯的错，且只在分享卡片上才看得出来）

@@ -51,6 +51,8 @@ pnpm test             # vitest 单元/组件测试
    换域三处一起改：本环境变量 / `index.html` 的 `og:image` 静态兜底 / `public/robots.txt` 的 `Sitemap` 行；Vercel 侧还要把**根域设为主域**（`Connect to an environment`），子域 `www` 用 `308 → 根域`——反了（根域 308 → www）时 sitemap 里每条 URL 都落在重定向链上，GSC 会报「不允许的网址」。DNS 侧另有 Google Search Console 的网域资源 TXT 记录 `google-site-verification=…`（主机记录 `@`），在 NamesLink 控制台维护、保存需邮箱 MFA，不在本仓库内。
 4. 部署后访问 `https://<你的项目>.vercel.app`。
 
+> **`myzzz.vercel.app` 永久保留，作为域名到期时的兜底入口**：Domains 里 `myzzz.wiki`（根域主域）与 `myzzz.vercel.app` 都是 `Connect to an environment → Production`（两者直接服务，`www` 才是 `308 → 根域`）。两个主机同内容不算重复内容——`canonical` / `og:url` 由 `VITE_SITE_ORIGIN` 写成**绝对**指向根域，根路由也在内（`scripts/generate-route-html.mjs` 会改写 `dist/index.html` 本体，否则无 JS 的爬虫会把 vercel.app 首页判成自指）。域名到期后要切兜底域：把 `VITE_SITE_ORIGIN` 改成 `https://myzzz.vercel.app`，同步改 `index.html` 的 `og:image` 与 `public/robots.txt` 的 `Sitemap`，重新部署即可。
+
 > **数据新鲜度依赖 `data-sync` 定时任务**：部署的 `build:ci` **只构建已提交快照**、不在构建期重建数据；数据更新由
 > `.github/workflows/data-sync.yml`（每日 cron 跑 `pnpm run sync`：探测 → 重建 JSON → 图标补差 → **`verify:data` 硬门禁** → 提交）
 > 承担，二者经提交锁步。门禁通过才 commit + push 到默认分支 `master` → 触发部署；不通过则 job 失败、不提交，站点沿用既有快照不挂。
