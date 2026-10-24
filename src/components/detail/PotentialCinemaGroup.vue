@@ -2,6 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { richDesc } from '@/utils/rich'
 import { skillIconSources } from '@/data/icons'
+import { AWAKEN_PANEL_TEXTURE, awakenLevelPlate } from '@/data/awakenImageSources'
 import { useUiText } from '@/composables/useUiText'
 import { SKILL_KEYS, type PotentialCinema, type PotentialGate, type SkillSlotKey } from '@/domain/sections'
 import HollowImage from '@/components/HollowImage.vue'
@@ -10,6 +11,7 @@ const props = defineProps<{
   cinema: PotentialCinema[]
   gates: Record<string, PotentialGate[]>
   art?: string
+  name?: string
   crop?: string
 }>()
 
@@ -54,8 +56,9 @@ const glyphOf = (slot: SkillSlotKey) => SKILL_KEYS[slot]?.glyph ?? '—'
 </script>
 
 <template>
-  <div class="awaken" :class="{ solo: !art }">
+  <div class="awaken" :class="{ solo: !art }" :style="{ '--panel-texture': `url(${AWAKEN_PANEL_TEXTURE})` }">
     <figure v-if="art" class="plate">
+      <HollowImage v-if="name" class="plate-name" unframed :srcs="[name]" alt="" loading="lazy" />
       <HollowImage
         class="plate-art"
         unframed
@@ -75,8 +78,8 @@ const glyphOf = (slot: SkillSlotKey) => SKILL_KEYS[slot]?.glyph ?? '—'
           :aria-label="`${pad(p.level)} ${p.label || p.base}`"
           @click="active = i"
         >
-          <span class="strip-no mono">{{ pad(p.level) }}</span>
-          <span class="strip-name serif">{{ p.base || p.label }}</span>
+          <img class="strip-no" :src="awakenLevelPlate(p.level)" alt="" loading="lazy" decoding="async" />
+          <span class="strip-name serif">{{ p.label || p.base }}</span>
           <span class="strip-kicker mono">Talent Info</span>
         </button>
         <div v-show="i === active" :id="panelId(p)" class="strip-body">
@@ -109,6 +112,7 @@ const glyphOf = (slot: SkillSlotKey) => SKILL_KEYS[slot]?.glyph ?? '—'
 }
 
 .plate {
+  position: relative;
   margin: 0;
   overflow: hidden;
   aspect-ratio: 4 / 5;
@@ -116,7 +120,21 @@ const glyphOf = (slot: SkillSlotKey) => SKILL_KEYS[slot]?.glyph ?? '—'
   background: var(--bg-2);
 }
 
+.plate-name {
+  position: absolute;
+  z-index: 2;
+  left: 14px;
+  bottom: 12px;
+  height: 6.6%;
+  width: auto;
+  max-width: none;
+  opacity: 0.66;
+  pointer-events: none;
+}
+
 .plate-art {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -141,7 +159,10 @@ const glyphOf = (slot: SkillSlotKey) => SKILL_KEYS[slot]?.glyph ?? '—'
 
 .strip.on {
   flex-grow: 6;
-  background: var(--bg-2);
+  background-color: var(--bg-2);
+  background-image: var(--panel-texture);
+  background-size: cover;
+  background-position: center;
 }
 
 .strip-head {
@@ -160,7 +181,7 @@ const glyphOf = (slot: SkillSlotKey) => SKILL_KEYS[slot]?.glyph ?? '—'
 .strip.on .strip-head {
   flex: none;
   flex-direction: row;
-  align-items: baseline;
+  align-items: center;
   gap: 12px;
   padding-inline: 16px;
   border-top-color: var(--amber);
@@ -168,15 +189,14 @@ const glyphOf = (slot: SkillSlotKey) => SKILL_KEYS[slot]?.glyph ?? '—'
 }
 
 .strip-no {
-  font-size: clamp(18px, 1.5vw, var(--fs-hero));
-  line-height: 1;
-  letter-spacing: 0.02em;
-  font-variant-numeric: tabular-nums;
-  color: var(--ink-1);
+  height: clamp(18px, 1.45vw, 26px);
+  width: auto;
+  display: block;
+  opacity: 0.8;
 }
 
 .strip.on .strip-no {
-  color: var(--amber);
+  opacity: 1;
 }
 
 .strip-name {
@@ -195,8 +215,10 @@ const glyphOf = (slot: SkillSlotKey) => SKILL_KEYS[slot]?.glyph ?? '—'
   margin-top: auto;
   writing-mode: vertical-rl;
   font-size: var(--fs-nano);
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
 }
 
 .strip.on .strip-kicker {
@@ -205,14 +227,6 @@ const glyphOf = (slot: SkillSlotKey) => SKILL_KEYS[slot]?.glyph ?? '—'
 
 .strip-body {
   padding: 0 16px 20px;
-}
-
-.strip-kicker {
-  font-size: var(--fs-nano);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--amber);
-  margin-bottom: 8px;
 }
 
 .strip-effect {
@@ -323,9 +337,9 @@ const glyphOf = (slot: SkillSlotKey) => SKILL_KEYS[slot]?.glyph ?? '—'
   .strip-head {
     flex: none;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
     gap: 12px;
-    padding: 14px 2px;
+    padding: 12px 2px;
   }
 
   .strip-name {

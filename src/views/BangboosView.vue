@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { RouterLink } from 'vue-router'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useCatalogList } from '@/composables/useCatalogList'
 import { useCatalogSort } from '@/composables/useCatalogSort'
+import { armPrefetchDetail, prefetchDetail } from '@/composables/useDetailPrefetch'
 import { listFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
+import { bangbooArtCardSources, BANGBOO_ART_RATIO } from '@/data/bangbooArt'
 import type { BangbooListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
 import { pickText } from '@/domain/lang'
@@ -12,7 +14,8 @@ import { useLocale } from '@/composables/useLocale'
 import { useUiText } from '@/composables/useUiText'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { catalogEntry, HIDDEN_ITEM_IDS } from '@/domain/catalog'
-import { AsyncState, CatalogTable, CatalogTableSkeleton, ListPage, NameCell, SearchField, type CatalogColumn } from '@/components'
+import { AsyncState, CardGrid, ListPage, SearchField } from '@/components'
+import HollowImage from '@/components/HollowImage.vue'
 import Rarity from '@/components/Rarity.vue'
 
 usePageMeta()
@@ -41,13 +44,7 @@ const { query, filtered, count, hasActiveFilter, reset } = useCatalogList<Bangbo
   keywords: (row) => [row.codename ?? ''],
 })
 
-const columns = computed<CatalogColumn[]>(() => [
-  { key: 'name', label: t.value.list.model, sortable: true },
-  { key: 'code', label: t.value.list.code },
-  { key: 'rarity', label: t.value.list.rarity, sortable: true },
-])
-
-const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
+const { sorted } = useCatalogSort(
   filtered,
   [
     { key: 'id', value: (r) => r.Id },
@@ -56,6 +53,22 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
   ],
   { defaultKey: 'id', defaultDir: 'desc', syncRoute: true },
 )
+
+function warmDwell(r: BangbooListItem): void {
+  armPrefetchDetail(cat, r.Id)
+}
+
+function warmNow(r: BangbooListItem): void {
+  prefetchDetail(cat, r.Id)
+}
+
+function artSources(r: BangbooListItem): string[] {
+  return bangbooArtCardSources(r.icon)
+}
+
+function fallbackIconSources(r: BangbooListItem): string[] {
+  return iconSources({ Id: r.Id, icon: r.icon }, 'bangboo')
+}
 </script>
 
 <template>
@@ -70,7 +83,7 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
       <SearchField v-model="query" :count="count" :placeholder="t.list.searchBangboo" />
     </div>
 
-    <!-- 空态分工：AsyncState 只管「数据级为空」；「筛掉全部结果」由 CatalogTable 空态行承担 -->
+    <!-- 空态分工：AsyncState 只管「数据级为空」；「筛掉全部结果」由 CardGrid 承担 -->
     <AsyncState
       :status="status"
       :error="error"
@@ -78,51 +91,191 @@ const { sorted, sortKey, sortDir, toggle } = useCatalogSort(
       :empty="status === 'success' && !data?.length"
     >
       <template #skeleton>
-        <CatalogTableSkeleton :cols="3" />
+        <CardGrid :items="[]" skeleton min-column="min(248px, 100%)">
+          <template #skeleton>
+            <span class="bar sk-art" />
+            <span class="bar sk-name" />
+            <span class="bar sk-meta" />
+          </template>
+        </CardGrid>
       </template>
-      <CatalogTable
+
+      <CardGrid
         v-reveal="160"
-        :columns="columns"
+        class="bangboo-grid"
         :items="sorted"
-        :sort="sortKey"
-        :sort-dir="sortDir"
-        :caption="t.list.bangboosSub"
-        :show-clear="hasActiveFilter"
+        :key-of="(r) => r.Id"
+        min-column="min(248px, 100%)"
         :empty-text="t.noMatch.bangboos"
+        :show-clear="hasActiveFilter"
         @clear="reset"
-        @update:sort="toggle"
       >
-        <template #cell-name="{ row }">
-          <NameCell
-            :to="`${base}/${row.Id}`"
-            :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'bangboo', 'thumb')"
-            :alt="pickName(row, lang)"
-            :fallback="pickName(row, lang)"
-            :name="pickName(row, lang)"
-          />
+        <template #default="{ item: r, index }">
+          <RouterLink
+            class="card-link"
+            :to="`${base}/${r.Id}`"
+            @pointerenter="warmDwell(r)"
+            @pointerdown="warmNow(r)"
+            @focus="warmNow(r)"
+          >
+            <span
+              class="card-art"
+              :class="{ 'icon-only': !artSources(r).length }"
+              :style="{ aspectRatio: BANGBOO_ART_RATIO }"
+            >
+              <HollowImage
+                v-if="artSources(r).length"
+                unframed
+                :srcs="artSources(r)"
+                alt=""
+                :loading="index < 4 ? 'eager' : 'lazy'"
+                :fetchpriority="index === 0 ? 'high' : undefined"
+              />
+              <HollowImage
+                v-else
+                unframed
+                :srcs="fallbackIconSources(r)"
+                alt=""
+                :loading="index < 4 ? 'eager' : 'lazy'"
+              />
+            </span>
+
+            <span class="card-title">
+              <span class="card-name">{{ pickName(r, lang) }}</span>
+              <span class="card-meta">
+                <Rarity :rank="r.rank" />
+                <span v-if="r.codename" class="code mono">{{ r.codename }}</span>
+              </span>
+            </span>
+          </RouterLink>
         </template>
-        <template #cell-code="{ row }">
-          <span class="code mono">{{ row.codename ?? '—' }}</span>
-        </template>
-        <template #cell-rarity="{ row }">
-          <Rarity :rank="row.rank" />
-        </template>
-      </CatalogTable>
+      </CardGrid>
     </AsyncState>
   </ListPage>
 </template>
 
 <style scoped>
 .toolbar {
-  /* 唯一控件（搜索框）时右对齐，与其他名录页搜索框位置一致 */
   display: flex;
   justify-content: flex-end;
   margin-bottom: 20px;
 }
 
+.bangboo-grid :deep(.card) {
+  position: relative;
+  padding: 12px;
+}
+
+.card-link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-inline);
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.card-link:active {
+  filter: none;
+}
+
+.card-link:active .card-art,
+.card-link:active .card-title {
+  filter: brightness(0.82);
+}
+
+.card-art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border: var(--rule);
+  border-radius: 2px;
+  background: var(--bg-1);
+  transition: border-color var(--t-fast) var(--ease);
+}
+
+.card-art :deep(img) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.card-art.icon-only :deep(img) {
+  width: auto;
+  height: auto;
+  max-width: 58%;
+  max-height: 82%;
+}
+
+.card-title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.card-name {
+  overflow: hidden;
+  font-family: var(--serif);
+  font-size: var(--fs-subhead);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--ink-0);
+  transition: color var(--t-fast) var(--ease);
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
 .code {
-  color: var(--ink-2);
+  overflow: hidden;
+  color: var(--ink-1);
   font-size: var(--fs-caption);
   letter-spacing: 0.08em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@media (hover: hover) {
+  .bangboo-grid :deep(.card:hover) .card-art {
+    border-color: var(--amber);
+  }
+
+  .bangboo-grid :deep(.card:hover) .card-name {
+    color: var(--amber-hi);
+  }
+}
+
+.sk-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5 / 4;
+}
+
+.sk-name {
+  width: 55%;
+  height: 16px;
+  margin-top: 8px;
+}
+
+.sk-meta {
+  width: 46%;
+  height: 24px;
 }
 </style>

@@ -1,39 +1,42 @@
 import { describe, expect, it } from 'vitest'
-import { getHeroCalibration } from '../src/data/heroCalibration'
+import { getCardFraming, getFraming, getHeroFraming } from '../src/data/heroCalibration'
 import poolJson from '../src/data/featured-pool.json'
 
 interface CalEntry {
-  pos: string
-  zoom: number
-  originY: number
+  inPool: boolean
+  modes: Record<string, { pos: string; posY: string; zoom: number; originY: number }>
 }
 
 const CALIBRATED = (poolJson as { calibrated: Record<string, CalEntry> }).calibrated
+const modes = (id: number) => CALIBRATED[String(id)]!.modes
 
-const cal = (id: number) => ({
-  pos: CALIBRATED[String(id)]!.pos,
-  zoom: CALIBRATED[String(id)]!.zoom,
-  originY: CALIBRATED[String(id)]!.originY,
-})
-
-describe('getHeroCalibration', () => {
-  it('已校准（在池）角色返回构图参数', () => {
-    expect(getHeroCalibration(1011)).toEqual(cal(1011))
+describe('heroCalibration：按画幅取校准', () => {
+  it('9:16 母版给卡片与移动端头图（getCardFraming）', () => {
+    expect(getCardFraming(1011)).toEqual(modes(1011)['9:16'])
+    expect(getCardFraming(1021)).toEqual(modes(1021)['9:16'])
+    expect(getCardFraming(1551)).toEqual(modes(1551)['9:16'])
   })
 
-  it('已校准但未入池角色同样返回（pool 只含轮换子集，calibrated 是全表）', () => {
-    expect(getHeroCalibration(1021)).toEqual(cal(1021))
+  it('hero 画幅给桌面 hero 横幅（getHeroFraming）', () => {
+    expect(getHeroFraming(1631)).toEqual(modes(1631)['hero'])
+    expect(getHeroFraming(1011)).toEqual(modes(1011)['hero'])
   })
 
-  it('已校准双形态角色（默认女性版）同样返回构图参数', () => {
-    expect(getHeroCalibration(1551)).toEqual(cal(1551))
+  it('任意画幅（getFraming）：五个常规模式都可取', () => {
+    for (const mode of ['1:1', '3:4', '4:3', '9:16', '16:9'] as const) {
+      expect(getFraming(1031, mode)).toEqual(modes(1031)[mode])
+    }
   })
 
   it('未校准角色返回 null（调用方回落居中取景）', () => {
-    expect(getHeroCalibration(9999)).toBeNull()
+    expect(getCardFraming(9999)).toBeNull()
+    expect(getHeroFraming(9999)).toBeNull()
+    expect(getFraming(9999, '16:9')).toBeNull()
   })
 
   it('id 缺失返回 null', () => {
-    expect(getHeroCalibration(undefined)).toBeNull()
+    expect(getCardFraming(undefined)).toBeNull()
+    expect(getHeroFraming(undefined)).toBeNull()
+    expect(getFraming(undefined, 'hero')).toBeNull()
   })
 })

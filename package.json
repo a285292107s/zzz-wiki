@@ -30,6 +30,7 @@
     "route-html": "node scripts/generate-route-html.mjs",
     "audit:all": "node scripts/audit-all.mjs",
     "check:diff": "node scripts/check-diff.mjs",
+    "verify:ui": "node scripts/verify-ui.mjs",
     "gen:featured-birthdays": "node scripts/generate-featured-birthdays.mjs"
   },
   "dependencies": {

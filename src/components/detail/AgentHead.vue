@@ -9,7 +9,8 @@ import { iconSources } from '@/data/icons'
 import { pickName } from '@/utils/names'
 import { heroFileForForm } from '@/data/heroGenderVariants'
 import { heroDetailSources } from '@/data/heroImageSources'
-import { getHeroCalibration, type HeroCalibration } from '@/data/heroCalibration'
+import { getCardFraming, getHeroFraming } from '@/data/heroCalibration'
+import type { Framing } from '@/domain/featuredPool'
 import { useHeroForm } from '@/composables/useHeroForm'
 import { useLocale } from '@/composables/useLocale'
 import { useMediaQuery } from '@/composables/useMediaQuery'
@@ -106,21 +107,36 @@ const heroSrcs = computed(() =>
   heroDetailSources(heroBase.value, { narrow: narrow.value, retina: retina.value }),
 )
 
-/** 复用「今日角色」校准构图（featured-pool.json calibrated 表）：水平脸对焦 + 放大消透明边。
- *  仅移动端应用；未校准（如无 hero 图角色）回落 null，保持居中取景。
+/** 取景校准（featured-pool.json calibrated 表，按画幅分开存）：
+ *  · 桌面满栏横幅 → hero 画幅（2.8:1）：源图画幅与版式画幅对不上，各家裁切位置不同，
+ *    只用 object-position 双轴平移把头部放进画面（hero 模式不缩放，见 IMG_GUIDE.md）。
+ *  · 移动端 4:5 / 高定画幅 → 9:16 母版（getCardFraming）：与名录卡片同一套相对构图，
+ *    水平脸对焦 + 放大消透明边；未校准回落居中。
  *  双形态角色（如 1551）按默认（女性）版校准，两形态共用同一套参数。 */
-const heroCal = computed<HeroCalibration | null>(() => getHeroCalibration(props.detail.id))
+const heroCal = computed<Framing | null>(() => getHeroFraming(props.detail.id))
+const cardCal = computed<Framing | null>(() => getCardFraming(props.detail.id))
 
-/** 把校准参数以 CSS 自定义属性透传给移动端构图（desktop 不消费，保持满栏横幅）。 */
-const heroCalStyle = computed<Record<string, string> | undefined>(() =>
+/** 桌面 hero：只消费 hero 模式的水平/垂直平移（放大与变换原点留给窄画幅那套）。 */
+const heroWideStyle = computed<Record<string, string> | undefined>(() =>
   heroCal.value
     ? {
-        '--hero-pos': heroCal.value.pos,
-        '--hero-zoom': String(heroCal.value.zoom),
-        '--hero-originY': `${heroCal.value.originY}%`,
+        '--hero-wide-pos': heroCal.value.pos,
+        '--hero-wide-posY': heroCal.value.posY,
       }
     : undefined,
 )
+
+/** 移动端头图：卡片模式的三件套（pos / zoom / originY）以 CSS 自定义属性透传。 */
+const heroCalStyle = computed<Record<string, string> | undefined>(() => {
+  const c = cardCal.value
+  const style = { ...(heroWideStyle.value ?? {}) }
+  if (c) {
+    style['--hero-pos'] = c.pos
+    style['--hero-zoom'] = String(c.zoom)
+    style['--hero-originY'] = `${c.originY}%`
+  }
+  return Object.keys(style).length ? style : undefined
+})
 </script>
 
 <template>
@@ -195,6 +211,17 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
   border-bottom: var(--rule);
 }
 
+/* ≥1200 视口：桌面横幅画幅定死 2.8:1 —— 与校准表 hero 模式的参考画幅、/calibrate 的成品预览
+   同一比例，因此「校准里看到什么，页面上就是什么」。盒高＝宽度/2.8，不再随视口高度漂移。
+   窄于 1200 时信息块会高出这个比例（文字不能被裁），保留旧的高度下限，此时盒比偏窄（≈2.2–2.8），
+   属于小窗口下的已知偏差。fit-content 只作兜底：内容更高时以内容为准，不裁文案。 */
+@media (min-width: 1200px) {
+  .ahead {
+    aspect-ratio: 2.8;
+    min-height: fit-content;
+  }
+}
+
 /* ---------- 取景框 ---------- */
 
 /* 桌面：取景框即整个 .ahead（inset:0），文字绝对浮于其上——右侧 76ch 之外是画，
@@ -227,8 +254,10 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() =>
   height: 100%;
   display: block;
   object-fit: cover;
-  /* 与主页一致：居中取景，场景横幅完整占据版面 */
-  object-position: center;
+  /* 桌面：hero 画幅（2.8:1）只做平移 —— 源图规格不一（1.58–2.99:1），
+     各家在横幅里该露哪一段不同，校准值是 object-position 双轴百分比（见 IMG_GUIDE.md）。
+     未校准回落居中。 */
+  object-position: var(--hero-wide-pos, 50%) var(--hero-wide-posY, 50%);
 }
 
 /* ---------- 存档面：与主页同一向纵向曝光｜顶部透出场景，底部深掩埋保障可读 ----------

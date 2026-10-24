@@ -63,6 +63,14 @@ withDefaults(
   background: var(--bg-0);
 }
 
+/* 与 AgentHead 的 ≥1200 规则同源：封面画幅定死 2.8:1，骨架与真卡等高，数据到达不跳版 */
+@media (min-width: 1200px) {
+  .skel-head {
+    aspect-ratio: 2.8;
+    min-height: 0;
+  }
+}
+
 .skel-head .head-line {
   width: 168px;
   height: 12px;

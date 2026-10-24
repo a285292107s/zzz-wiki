@@ -59,7 +59,7 @@ Class: feature
   设置仍**不进 `sitemap.xml`、不进按路由预载**（`generate-route-html.mjs` 的 `VIEW_OF`
   与 `STATIC_META` 都没有它）——偏好页对搜索引擎与首屏预热都没有价值。
 - 卡片版的取景与档位**复用既有资产，不新增派生图**：`AgentCardGrid.vue` 的 9:16 格沿用
-  `featured-pool.json` 的校准参数（`pos/zoom/originY`，与 `/calibrate` 网格同一套写法），
+  `featured-pool.json` 的 9:16 母版校准（`modes['9:16']`，多画幅见[决策记录 0013](./0013-multi-aspect-framing.md)），
   图源走 `heroImageSources.ts` 的 `heroGridSources`（DPR<1.5 取 `card/`、DPR≥1.5 取 `wide/`，
   其后原图与同源 CDN 依次兜底）。未校准回落居中取景，缺立绘由属性图标垫底。
 - 筛选/搜索的 URL 契约与旧版**逐字相同**（`useCatalogList` + `useCatalogSort`

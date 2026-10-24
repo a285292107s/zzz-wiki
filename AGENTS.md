@@ -67,30 +67,44 @@
   ⚠ pnpm 配置只读 `pnpm-workspace.yaml`（`package.json` 的 `pnpm` 字段已失效）；依赖的安装脚本须在该文件
   的 `allowBuilds` 里逐一审批，否则 `pnpm install` 会以 `ERR_PNPM_IGNORED_BUILDS` 非零退出（详见决策记录 0005）。
 - **日常命令**：开发 `pnpm run dev`（http://localhost:5173）；构建 `pnpm run build`（含 vue-tsc）；
-  单测 `pnpm test`（全量；本地改动默认用下面的 `pnpm run test:changed`）。
+  单测 `pnpm test`（全量；本地改动默认用下面的 `pnpm run test:changed`）；
+  页面改动看 `pnpm run verify:ui`（dev 快检，见下）。
 - **验证分层：先看改了什么，再决定跑什么**——唯一执行入口是 `pnpm run check:diff`：它读实际改动，
   打印本次的**最小验证集**与可直接复制的命令。不要凭感觉跑全箱，也不要为"稳妥"顺手跑 `pnpm run audit:all`。
-  - **默认档**：`npx vue-tsc -b`（类型）+ `pnpm run test:changed`（按 diff 选单测）。
+  - **默认档**：`npx vue-tsc -b`（类型）+ `pnpm run test:changed`（按 diff 选单测）；
+    改动进到页面时加 **`pnpm run verify:ui`**（dev 快检，见下）。
     **本地不必重复跑全量 `pnpm test`**——`build:ci` 在 Vercel 上每次必跑（见下），本地再来一遍是纯重复。
     实测：纯文档改动选中 0 个用例、**工作区干净时也是 0 个**（`--changed` 的基准写死为 HEAD，
     提交后再跑要给基准：`npx vitest run --changed HEAD~1`）；改动含 `package.json` / vitest 配置时
     会退化为全量单测——这是**安全的过选**，不是异常（条数随仓库增长，别在这写死数字）。
+  - **dev 快检 `pnpm run verify:ui`**（2026-10 起是页面/样式改动的日常层）：在 5173 上按 3 个断点
+    （1440/768/390）查渲染锚点、图片 alt、横向溢出、控制台错误与 axe violations（首末视口），
+    截图落 `temp/verify-ui/`；实测约 11 秒、**不需要构建**。路由缺省从改动推断（名录页），
+    详情页改动传 `-- --route /w-engines/14164`。判据与发版审计同源（溢出/landmark/axe），
+    只是范围缩到改动路由——**不要拿它替代发版前全箱**。
+  - **浏览器层是发版级，不是迭代级**：页面（`src/views/`）、共享组件（`src/components/`，影响面跨页面，
+    可用 `--route` 多给几条）与 `.vue` 样式改动只触发上面的快检；其余触发式审计（全局 CSS/数据/交互控件）
+    仍按 `check:diff` 命中的那几项跑。29 个审计脚本一项就要几十秒（`viewport-overflow` 实测 52.4s），
+    **合并/发版前**才 `pnpm run build:ci` + `pnpm run preview` + `pnpm run audit:all`
+    （约 5 分钟，含全站 axe 28 组合与 L3 冒烟）。
+  - **修 bug 的回合只在 dev 验证**（HMR，改一次看一次），**生产构建只做一次、放在发版前**；
+    不要每轮修复都 build + preview + 复跑审计。
   - **浏览器层的精度是「行级」的**：改 `.vue` 的模板/文案不会触发几何审计，只有改动行真落在
-    `<style>` 块内才触发（全仓 54 个 `.vue` 有 29 个含 `@media`，按文件判断会让改一句文案也跑 4 项）；
-    `--files` 干跑模式拿不到 diff，会退回整文件判断并在输出里标注出来。
-  - **浏览器层是触发式的，不是默认档**：29 个审计脚本一项就要几十秒（`viewport-overflow` 实测 52.4s），
-    只在 `check:diff` 命中对应改动面时才跑、且只跑命中的那几项；**单次改动默认 0 项**。
-    改动确实进到页面时，**合并/发版前**跑 L3 冒烟 5 项（`check:diff` 会列出来，约 5 分钟）。
+    `<style>` 块内才触发；内容探针（`@media print` / `prefers-reduced-motion` …）也只看改动行，
+    同一文件里未改的分支不会把重型审计拖回来；`--files` 干跑拿不到 diff 时才退回整文件判断并在输出里标注。
   - **不为小修复新增审计脚本**：先复跑已有脚本；确需新增，先逐条答准入判据（**五条答不全就不加**，
     全文见 `scripts/audits/README.md`）。最常漏的是判据质量——`计数 === 0` 型是**空真**判据
     （什么都没扫到也报绿），必须同时有正向锚与下限；新脚本还要能通过"把守护对象拿掉"的负向验证。
+  - **协作执行**（UI 迭代）：UI 小改（≤2 个文件、不涉及共享组件）不派独立 QA agent——主执行者跑
+    `verify:ui` + 人眼看 3 张截图即可，时间盒 10 分钟；只有快检/硬门禁失败或发版前才升级全套。
+    agent-minutes 也计入时间盒：多 agent 串行验证一轮的耗时 ≈ 1.7 倍 wall clock。
   - **时间盒**：简单需求的验证总耗时 ≤ 2 分钟；预计会超，先说明"为什么必须跑这么久"再跑，不要默默把时间花掉。
 - **部署构建入口 `pnpm run build:ci`**（Vercel 已指向；**完整链路以 `package.json` 的 `build:ci` 为唯一事实源**）：
   `pnpm test` → `verify:fonts` → `verify:icons --local` → `gen:featured-birthdays --check` → `verify:fonts:cjk`
   → `vite build` → `sitemap` → `route-html` → `verify:budget`（主包/CSS/sitemap 体积预算）→ `verify:vercel`（缓存与安全响应头）；
   **只构建已提交快照，不在构建期重建数据**（数据更新走 `pnpm run sync`，见下）。
-- **工程质量审计工具箱**：`pnpm run audit`（清单与基线见 `scripts/audits/README.md`；含 axe-core 无障碍、
-  视口溢出、触屏命中区、全站走查等，均以 playwright-cli 复跑）。
+- **工程质量审计工具箱**（发版前，不是日常）：`pnpm run audit`（清单与基线见 `scripts/audits/README.md`；
+  含 axe-core 无障碍、视口溢出、触屏命中区、全站走查等，均以 playwright-cli 复跑）。
 - **数据+图标同步入口 `pnpm run sync`**（`scripts/sync-data.ts`）：唯一自动化写入 `public/data/` 的入口——
   探测新版本 → 重建 JSON → 图标 `--soft` 补差（只补缺失、已有美术资源零重下）→ 重建 CJK 字体子集 → 校验（告警）→ 汇总变更集。
   由 `.github/workflows/data-sync.yml` 定时触发，重算字体子集后过【四道硬门禁】：`verify:data`（数据契约）、

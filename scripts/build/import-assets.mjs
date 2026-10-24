@@ -13,6 +13,8 @@ const RULES = {
   character: { quality: 90, maxLongEdge: 0 },
   skin: { quality: 82, maxLongEdge: 1600 },
   weapon: { quality: 90, maxLongEdge: 0 },
+  'weapon-art': { quality: 85, maxLongEdge: 0 },
+  'bangboo-art': { quality: 85, maxLongEdge: 0 },
   bangboo: { quality: 90, maxLongEdge: 0 },
   disc: { quality: 90, maxLongEdge: 0 },
   filter: { quality: 92, maxLongEdge: 0 },
@@ -52,15 +54,31 @@ const SOURCE_OVERRIDES = {
     IconAttack: 'ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/Role/IconClass/Packer/IconAttack.png',
     IconArmorer: 'ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/Role/IconClass/Packer/IconArmorer.png',
   },
+  weapon: {
+    Weapon_S_1581: 'ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/IconWeapon/UnPacker/Weapon_S_1581.png',
+    Weapon_S_1591: 'ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/IconWeapon/UnPacker/Weapon_S_1591.png',
+  },
 }
 
 const VERIFY_CATS = new Set(['filter', 'skill'])
+
+const TRIM_LEFT = { 'awaken/EF_BG': 0.0575 }
 
 const EXTRA = [{ cat: 'character', file: 'IconRoleCircle01', skin: false }]
 
 const DEFAULT_SKIP = []
 const DEFAULT_MAX_DIFF = 14
 const CONCURRENCY = 4
+
+function ruleSignature(rule, trimLeft) {
+  return `q${rule.quality}|e${rule.maxLongEdge}|t${trimLeft}`
+}
+
+export function isFresh(done, { srcRel, srcSize, sig }) {
+  if (!done) return false
+  if (done.src !== srcRel || done.bytes !== srcSize) return false
+  return done.rule === undefined || done.rule === sig
+}
 
 function walk(dir, depth, index) {
   if (depth > 7) return
@@ -191,12 +209,20 @@ export async function importAssets({
     }
     const dest = localPath(e)
     const srcSize = fs.statSync(src).size
-    const done = manifest[e.file]
-    if (!force && fs.existsSync(dest) && done && done.src === src && done.bytes === srcSize) {
+    const srcRel = path.relative(dump, src).split(path.sep).join('/')
+    const rule = ruleFor(cat)
+    const sig = ruleSignature(
+      {
+        quality: quality ?? rule.quality,
+        maxLongEdge: maxLongEdge ?? rule.maxLongEdge,
+      },
+      TRIM_LEFT[`${cat}/${e.file}`] ?? 0,
+    )
+    if (!force && fs.existsSync(dest) && isFresh(manifest[e.file], { srcRel, srcSize, sig })) {
       fresh++
       continue
     }
-    jobs.push({ entry: e, cat, src, dest, srcSize, trusted: Boolean(override) })
+    jobs.push({ entry: e, cat, src, dest, srcSize, srcRel, sig, trusted: Boolean(override) })
   }
 
   if (dry) {
@@ -226,13 +252,15 @@ export async function importAssets({
         const buffer = await toWebp(job.src, {
           quality: quality ?? rule.quality,
           maxLongEdge: maxLongEdge ?? rule.maxLongEdge,
+          trimLeft: TRIM_LEFT[`${job.cat}/${job.entry.file}`] ?? 0,
         })
         fs.mkdirSync(path.dirname(job.dest), { recursive: true })
         fs.writeFileSync(job.dest, buffer)
         manifest[job.entry.file] = {
           cat: job.cat,
-          src: path.relative(dump, job.src).split(path.sep).join('/'),
+          src: job.srcRel,
           bytes: job.srcSize,
+          rule: job.sig,
         }
         done++
         bytes += buffer.length

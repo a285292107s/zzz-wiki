@@ -17,7 +17,7 @@ const tier = computed(() =>
     v-if="tier"
     class="tier"
     :class="`t-${tier.toLowerCase()}`"
-    :aria-label="t.list.rarity"
+    :aria-label="`${t.list.rarity} ${tier}`"
   >{{ tier }}</span>
 </template>
 

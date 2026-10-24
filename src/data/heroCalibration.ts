@@ -1,34 +1,43 @@
 /* ============================================================
- * heroCalibration — 角色详情页（AgentHead）移动端 hero 头图构图参数访问器。
+ * heroCalibration — 图片取景校准的运行时访问器（单一事实源：featured-pool.json 的 calibrated 表）。
  *
- * 「今日角色」校准工具（/calibrate）为每张 Mindscape 全景图校准了 { pos, zoom, originY }
- * （9:16 卡片构图；含义见 IMG_GUIDE.md），存于 src/data/featured-pool.json 的 calibrated 表。
- * 详情页 AgentHead 移动端头图复用这份校准。这三者是源图相对构参数——pos 为水平脸焦点分数、
- * zoom 放大到内容高度、originY 为内容垂直中心——语义可跨宽高比套用；因移动端 hero 比 9:16 卡
- * 更宽，取景框横向上下文会更多，并非逐帧等价（技巧归属 IMG_GUIDE.md）。
- * 取不到（未校准，无 hero 图 / 双形态角色 / 数据缺失）返回 null，调用方回落到居中取景。
+ * 每个角色按画幅存一组 { pos, posY, zoom, originY }（画幅清单见 utils/cameraRect 的 FRAMING_MODES：
+ * 1:1 / 3:4 / 4:3 / 9:16 / 16:9 / hero）。页面只需说明自己是谁：
+ *   · 代理人名录卡片、详情页移动端头图 → getCardFraming（9:16 母版，卡片即按它定的）
+ *   · 详情页桌面 hero 横幅         → getHeroFraming（hero 画幅 2.8:1，版式定死、只平移不缩放）
+ *   · 其他画幅的新页面             → getFraming(id, mode)
+ * 缺项（新角色 / 未单独校准的画幅）返回 null，调用方回落到居中取景，页面不破。
+ * 语义与「为什么这么拍」见 IMG_GUIDE.md。
  * ============================================================ */
 
-import type { FeaturedPool } from '@/domain/featuredPool'
+import type { FeaturedPool, Framing } from '@/domain/featuredPool'
+import type { FramingMode } from '@/utils/cameraRect'
 import poolJson from '@/data/featured-pool.json'
 
-/** 单图移动端 hero 构图参数（pos 为 'NN%' 字符串，可直接作 object-position 值）。 */
-export interface HeroCalibration {
-  pos: string
-  zoom: number
-  originY: number
-}
-
 /** 校准表（防御性检查：非法/缺失则空表，调用方安全回落）。 */
-const CALIBRATED: Record<string, unknown> =
-  (poolJson as FeaturedPool)?.calibrated ?? {}
+const CALIBRATED: Record<string, unknown> = (poolJson as FeaturedPool)?.calibrated ?? {}
 
-/** 取某角色已校准的 hero 构图参数；未校准（或不存在该角色的校准条目）返回 null。 */
-export function getHeroCalibration(id: number | undefined): HeroCalibration | null {
+function pick(id: number | undefined, mode: FramingMode): Framing | null {
   if (id == null) return null
-  const e = CALIBRATED[String(id)] as Partial<HeroCalibration> | undefined
-  if (!e || typeof e.pos !== 'string' || typeof e.zoom !== 'number' || typeof e.originY !== 'number') {
+  const entry = CALIBRATED[String(id)] as { modes?: Record<string, Partial<Framing>> } | undefined
+  const e = entry?.modes?.[mode]
+  if (!e || typeof e.pos !== 'string' || typeof e.posY !== 'string' || typeof e.zoom !== 'number' || typeof e.originY !== 'number') {
     return null
   }
-  return { pos: e.pos, zoom: e.zoom, originY: e.originY }
+  return { pos: e.pos, posY: e.posY, zoom: e.zoom, originY: e.originY }
+}
+
+/** 任一画幅的显式校准；未校准（或不存在该角色）返回 null。 */
+export function getFraming(id: number | undefined, mode: FramingMode): Framing | null {
+  return pick(id, mode)
+}
+
+/** 9:16 母版取景：代理人名录卡片与详情页移动端头图共用（同一套窄画幅构图）。 */
+export function getCardFraming(id: number | undefined): Framing | null {
+  return pick(id, '9:16')
+}
+
+/** 详情页桌面 hero 横幅取景（hero 画幅，只平移不缩放）。 */
+export function getHeroFraming(id: number | undefined): Framing | null {
+  return pick(id, 'hero')
 }

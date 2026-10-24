@@ -53,6 +53,7 @@ import { heroForm } from '@/composables/useHeroForm'
 import { useMediaQuery } from '@/composables/useMediaQuery'
 import { deckFigureStyle } from '@/utils/deckFraming'
 import { heroFileForForm } from '@/data/heroGenderVariants'
+import { getHeroFraming } from '@/data/heroCalibration'
 import { awaitImageReady, heroDetailPrimarySrc, heroDetailViewport } from '@/data/heroImageSources'
 import { catalogByPath } from '@/domain/catalog'
 import { fmt } from '@/domain/uiText'
@@ -314,9 +315,14 @@ const morphing = ref(false)
  *  用 useMediaQuery：setup 期同步求值 + 跟随视口变化。 */
 const narrow = useMediaQuery('(max-width: 860px)')
 
-/** 图的取景样式（纯逻辑在 utils/deckFraming，可单测） */
+/** 图的取景样式（纯逻辑在 utils/deckFraming，可单测）：目的地＝该角色详情页 hero 的 hero 画幅校准 */
 function figureStyle(slot: number): Record<string, string> {
-  return deckFigureStyle(props.cards[slot], morphing.value, narrow.value)
+  return deckFigureStyle(
+    props.cards[slot],
+    getHeroFraming(props.cards[slot]?.id) ?? undefined,
+    morphing.value,
+    narrow.value,
+  )
 }
 
 /** 编排被撤销（用户改主意 / 导航失败）时把取景平滑回常态 ——

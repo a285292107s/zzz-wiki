@@ -42,7 +42,7 @@ src 根（入口）──▶ components(5) composables(3) utils(2) directives(1)
 | `src/utils/` | 纯函数：文本、富文本、命名、对比、取景、手势、标记词法 | `data`、`domain` | **Vue**、上层 | ⚠ `viewTransition/index.ts:31` 导入 Vue；`utils → composables` 1 处 |
 | `src/composables/` | 状态与交互逻辑（异步状态机、筛选、路由参数、页元信息） | `domain`、`data`、`utils`、`router` | — | ⚠ 反向依赖 `components` 1 处 |
 | `src/components/` | 展示；**不感知路由、不发起网络请求** | `domain`、`data`、`utils`、`composables` | `router`、`views` | ✅ 实测 `@/router`、`@/views` **零命中**；无 `fetch(` |
-| `src/views/` | 路由级薄拼装 | 全部下层 | — | ⚠ `CalibrateView.vue` 直连 `fetch('/__calibrate')`（dev-only）**待复核** |
+| `src/views/` | 路由级薄拼装 | 全部下层 | — | ⚠ `CalibrateView.vue` 直连 `fetch('/__calibrate')`——**已复核接受**：仅 dev-only 工具页 ↔ dev 中间件，生产构建随路由摇树移除 |
 | `src/router/` | 路由与懒加载映射 | `views`、`composables`、`domain` | — | — |
 
 ## 3. 真硬边界（违反即返工）
@@ -65,7 +65,7 @@ src 根（入口）──▶ components(5) composables(3) utils(2) directives(1)
 | 偏离 | 具体位置 | 为什么接受 |
 |---|---|---|
 | `domain → data`（3 处） | `filterIcons.ts:17`（运行时导入 `../data/filter-assets.json`）、`catalog.ts:11`、`signatureEngine.ts:14`（后两者**仅类型**） | 强行单向要么把图标分类搬进 `domain`（造成图标链规则双份，与 DATA_GUIDE §5 的 SSoT 冲突），要么删掉目录驱动表 |
-| `data → domain`（10 处） | `api.ts:45-46`、`resources.ts:10-11`、`heroCalibration.ts:12`、`terms.ts:12`、`types.ts:7-8,10,31`（多数**仅类型**） | 契约与枚举本就应由 domain 拥有——这是**正向**依赖，登记在此仅为说明 `domain ↔ data` 并非严格单向 |
+| `data → domain`（10 处） | `api.ts:45-46`、`resources.ts:10-11`、`heroCalibration.ts:13`、`terms.ts:12`、`types.ts:7-8,10,31`（多数**仅类型**） | 契约与枚举本就应由 domain 拥有——这是**正向**依赖，登记在此仅为说明 `domain ↔ data` 并非严格单向 |
 | `utils → data`（3 处） | `rich.ts:13`（`@/data/icons`）、`viewTransition/index.ts:33-34`（`heroGenderVariants` / `heroImageSources`） | 富文本渲染需要图标候选链；候选链的 SSoT 在 `data/icons.ts` |
 | `utils → Vue`（1 处） | `src/utils/viewTransition/index.ts:31` | `viewTransition/` 是**有状态编排层**（依赖 Vue、`data`、`composables`），放在 `utils/` 下名不副实。两条出路：把它迁出 `utils/`，或把边界规则改为「其余 utils 为纯函数，`viewTransition/` 为显式例外」——**尚未拍板** |
 | `composables → components`（1 处） | `useDetailPager.ts:11`（仅 `import type { DetailPagerItem }`） | 仅类型导入，无运行时回跳 |

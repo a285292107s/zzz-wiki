@@ -66,7 +66,7 @@ pnpm test             # vitest 单元/组件测试
 src/
   domain/        # 单一事实源：枚举 / 类目元信息 / zod 契约 / 详情区块类型 / dev 页面元数据 / 检索索引
   data/          # 请求层（api）+ 类别表驱动（resources）+ 类型派生（types）+ 图标候选（icons）
-                 # + 校准数据（精选池 / hero） + 战斗公式图文源（formulaGuide）
+                 # + 取景校准（多画幅：精选池 / hero） + 战斗公式图文源（formulaGuide）
   composables/   # 异步状态 / 列表 / 排序 / 路由参数 / 页元信息 / 详情导航 / 精选池 / hero 形态 / 滚动监听
                  # / 全局快速检索（useQuickSearch）/ 详情悬停预取（useDetailPrefetch）
   components/    # layout / list / state / detail 区块 + QuickSearch / Rarity / Tags / HollowImage / FormulaEq / TermTip

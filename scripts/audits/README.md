@@ -1,5 +1,10 @@
 # audits/README.md — 量化审计脚本工具箱（playwright-cli run-code --filename）
 
+**日常改页面不在本表里跑**：`src/views/` 或 `.vue` 样式改动先跑 `pnpm run verify:ui`（dev 5173 上的快检：
+渲染锚点 / 图片 alt / 横向溢出 / 控制台错误 / axe，3 个断点，实测约 11 秒，**不需要构建**）。
+本表的 29 个脚本是**发版前门槛**（`pnpm run audit:all`，前置 `pnpm run build:ci && pnpm run preview`）；
+判据与基线不变。
+
 每个脚本对应一项品质基线检查（基线数值见 QUALITY.md）。
 运行前提：`pnpm run build:ci` && `pnpm run preview`——**本仓库的 `preview` 已固定 `--port 4175`**，下面的 29 个脚本全部指向 `http://localhost:4175`，端口必须一致，否则全套跑不起来。
 

@@ -1,16 +1,12 @@
 <script setup lang="ts">
-/* 陈列形态决策（2026-10，对齐驱动盘名录）：音擎从三列表格改为卡片栅格——
- * 表格只有「名称/稀有度/职业」三列，宽屏下大片留白，而音擎真正被检索的信息
- * （满级面板 + 音擎效果正文）藏在详情里。卡片直接陈列这两块，与驱动盘卡片同构。
- * 卡壳/骨架/空态由 CardGrid + CardBlock 收起（两页共用），本页只声明「一张卡陈列什么」。
- *
- * 效果正文与副属性中文名由构建期注入名录（scripts/build/domains.ts，与详情同源同解析），
- * 故运行时仍只看一个本地名录文件，零额外请求。 */
+import { RouterLink } from 'vue-router'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useCatalogList } from '@/composables/useCatalogList'
 import { useCatalogSort } from '@/composables/useCatalogSort'
+import { armPrefetchDetail, prefetchDetail } from '@/composables/useDetailPrefetch'
 import { listFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
+import { weaponArtCardSources, WEAPON_ART_RATIO } from '@/data/weaponArt'
 import type { WEngineListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
 import { pickText } from '@/domain/lang'
@@ -21,17 +17,16 @@ import { stripRichText } from '@/utils/text'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { catalogEntry } from '@/domain/catalog'
 import { W_ENGINE_LEVEL_MAX, W_ENGINE_LEVEL_MIN, wEnginePropsAtLevel, type StatItem } from '@/domain/sections'
-import { AsyncState, CardBlock, CardGrid, FilterDropdown, ListPage, NameCell, SearchField } from '@/components'
+import { AsyncState, CardBlock, CardGrid, FilterDropdown, ListPage, SearchField } from '@/components'
+import HollowImage from '@/components/HollowImage.vue'
 import Tags from '@/components/Tags.vue'
 import Rarity from '@/components/Rarity.vue'
 
 usePageMeta()
 
-/** 详情路由前缀与名录取数均由 catalog 派生（单一事实源） */
 const cat = catalogEntry('/w-engines')
 const base = cat.path
 
-/** 当前展示语言：名录里的音擎效果文本与主/副属性名都是构建期按语言注入的，故语言一变要重新取数 */
 const { lang } = useLocale()
 const { t } = useUiText()
 
@@ -39,8 +34,6 @@ const { data, status, error, reload } = useAsyncResource(() =>
   listFor<WEngineListItem>(cat, lang.value),
 )
 
-/** 检索面：名称 + 音擎效果（效果名与正文）。正文走 stripRichText，
- *  否则查询会命中 <color=#…> 这类标记本身（如输入 "color" 全表皆中）。 */
 const { profFilter, query, filtered, count, hasActiveFilter, reset } = useCatalogList<WEngineListItem>({
   items: () => data.value ?? [],
   withProfs: true,
@@ -48,8 +41,6 @@ const { profFilter, query, filtered, count, hasActiveFilter, reset } = useCatalo
   keywords: (r) => [r.effect_name ?? '', stripRichText(r.effect_desc)],
 })
 
-/** 陈列顺序：默认编号倒序。**本页不提供排序控件**（2026-10 与代理人、驱动盘名录一同移除：
- *  排序钮与筛选钮挤在同一行工具栏）。排序能力仍在——历史 ?sort=&dir= 深链照读。 */
 const { sorted } = useCatalogSort(
   filtered,
   [
@@ -60,15 +51,26 @@ const { sorted } = useCatalogSort(
   { defaultKey: 'id', defaultDir: 'desc', syncRoute: true },
 )
 
-/** 卡片「基础属性」块：复用详情页同一取值函数（sections.wEnginePropsAtLevel），
- *  故卡片上的满级面板与详情页默认档逐字一致；名录缺满级值（atk）时该函数回退 Lv.1 静态值。 */
+function warmDwell(r: WEngineListItem): void {
+  armPrefetchDetail(cat, r.Id)
+}
+
+function warmNow(r: WEngineListItem): void {
+  prefetchDetail(cat, r.Id)
+}
+
+function artSources(r: WEngineListItem): string[] {
+  return weaponArtCardSources(r.icon)
+}
+
+function fallbackIconSources(r: WEngineListItem): string[] {
+  return iconSources({ Id: r.Id, icon: r.icon }, 'weapon')
+}
+
 function specsOf(r: WEngineListItem): StatItem[] {
   return wEnginePropsAtLevel(W_ENGINE_LEVEL_MAX, r.base_property, r.rand_property, r.atk, lang.value)
 }
 
-/** 卡片标注的档位：有名录满级值才敢说「满级」，否则如实说回退档（Lv.1 静态值）。
- *  文案取当前语言的 `detail.maxLevelNote`（「满级 Lv.{n}」/「Max Lv.{n}」…）——
- *  原先写死中文，非中文读者会在每张卡的属性块下看到中文。 */
 function specNoteOf(r: WEngineListItem): string {
   return r.atk != null
     ? fmt(t.value.detail.maxLevelNote, { n: W_ENGINE_LEVEL_MAX })
@@ -97,7 +99,6 @@ function specNoteOf(r: WEngineListItem): string {
       <SearchField v-model="query" :count="count" :placeholder="t.list.searchWEngine" />
     </section>
 
-    <!-- 空态分工：AsyncState 只管「数据级为空」；「筛掉全部结果」由 CardGrid 承担 -->
     <AsyncState
       :status="status"
       :error="error"
@@ -105,35 +106,70 @@ function specNoteOf(r: WEngineListItem): string {
       :empty="status === 'success' && !data?.length"
     >
       <template #skeleton>
-        <CardGrid :items="[]" skeleton />
+        <CardGrid :items="[]" skeleton class="wengine-grid" min-column="min(360px, 100%)">
+          <template #skeleton>
+            <span class="bar sk-art" />
+            <span class="bar sk-name" />
+            <span class="bar sk-meta" />
+            <span class="bar sk-line" />
+            <span class="bar sk-line" />
+            <span class="bar sk-line short" />
+            <span class="bar sk-line" />
+            <span class="bar sk-line" />
+            <span class="bar sk-line short" />
+          </template>
+        </CardGrid>
       </template>
 
       <CardGrid
         v-reveal="160"
+        class="wengine-grid"
         :items="sorted"
         :key-of="(r) => r.Id"
-        min-column="300px"
+        min-column="min(360px, 100%)"
         :empty-text="t.noMatch.wengines"
         :show-clear="hasActiveFilter"
         @clear="reset"
       >
-        <template #default="{ item: r }">
-          <NameCell
+        <template #default="{ item: r, index }">
+          <RouterLink
+            class="card-link"
             :to="`${base}/${r.Id}`"
-            :srcs="iconSources({ Id: r.Id, icon: r.icon }, 'weapon', 'thumb')"
-            alt=""
-            :fallback="pickName(r, lang)"
-            :name="pickName(r, lang)"
-            thumb="square"
-            name-style="card"
-          />
+            @pointerenter="warmDwell(r)"
+            @pointerdown="warmNow(r)"
+            @focus="warmNow(r)"
+          >
+            <span
+              class="card-art"
+              :class="{ 'icon-only': !artSources(r).length }"
+              :style="{ aspectRatio: WEAPON_ART_RATIO }"
+            >
+              <HollowImage
+                v-if="artSources(r).length"
+                unframed
+                :srcs="artSources(r)"
+                alt=""
+                :loading="index < 3 ? 'eager' : 'lazy'"
+                :fetchpriority="index === 0 ? 'high' : undefined"
+              />
+              <HollowImage
+                v-else
+                unframed
+                :srcs="fallbackIconSources(r)"
+                alt=""
+                :loading="index < 3 ? 'eager' : 'lazy'"
+              />
+            </span>
 
-          <div class="card-meta">
-            <Rarity :rank="r.rank" />
-            <Tags :specialty="r.type" />
-          </div>
+            <span class="card-title">
+              <span class="card-name">{{ pickName(r, lang) }}</span>
+              <span class="card-meta">
+                <Rarity :rank="r.rank" />
+                <Tags :specialty="r.type" />
+              </span>
+            </span>
+          </RouterLink>
 
-          <!-- 数值账目排印（点线规格表），与详情页基础属性同语言 -->
           <CardBlock v-if="r.base_property?.value != null" :label="t.detail.baseProps" variant="plain">
             <template #note>{{ specNoteOf(r) }}</template>
             <dl class="specs">
@@ -146,7 +182,6 @@ function specNoteOf(r: WEngineListItem): string {
           </CardBlock>
 
           <CardBlock v-if="r.effect_desc" :label="t.list.wengineEffect">
-            <!-- 精炼档位：复用详情页同一条文案键（原先内联中文，与 t.detail.refineRank 重复） -->
             <template #note>{{
               r.effect_refine ? fmt(t.detail.refineRank, { n: r.effect_refine }) : ''
             }}</template>
@@ -176,6 +211,78 @@ function specNoteOf(r: WEngineListItem): string {
   gap: 10px;
 }
 
+.wengine-grid :deep(.card) {
+  position: relative;
+}
+
+.card-link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-inline);
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.card-link:active {
+  filter: none;
+}
+
+.card-link:active .card-art,
+.card-link:active .card-title {
+  filter: brightness(0.82);
+}
+
+.card-art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border: var(--rule);
+  border-radius: 2px;
+  background: var(--bg-1);
+  transition: border-color var(--t-fast) var(--ease);
+}
+
+.card-art :deep(img) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.card-art.icon-only :deep(img) {
+  width: auto;
+  height: auto;
+  max-width: 62%;
+  max-height: 86%;
+}
+
+.card-title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.card-name {
+  overflow: hidden;
+  font-family: var(--serif);
+  font-size: var(--fs-subhead);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--ink-0);
+  transition: color var(--t-fast) var(--ease);
+}
+
 .card-meta {
   display: flex;
   flex-wrap: wrap;
@@ -183,7 +290,50 @@ function specNoteOf(r: WEngineListItem): string {
   gap: 8px;
 }
 
-/* ---------- 基础属性：点线规格表（KeyValueGrid ledger 的卡内紧凑版） ---------- */
+@media (hover: hover) {
+  .wengine-grid :deep(.card:hover) .card-art {
+    border-color: var(--amber);
+  }
+
+  .wengine-grid :deep(.card:hover) .card-name {
+    color: var(--amber-hi);
+  }
+}
+
+@media (min-width: 600px) and (max-width: 799px) {
+  .wengine-grid :deep(.card-grid) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.sk-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5 / 4;
+}
+
+.sk-name {
+  width: 55%;
+  height: 16px;
+  margin-top: 8px;
+}
+
+.sk-meta {
+  width: 46%;
+  height: 24px;
+}
+
+.sk-line {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.sk-line.short {
+  width: 62%;
+}
+
+/* ---------- 基础属性：点线规格表 ---------- */
 
 .specs {
   margin: 0;
@@ -198,7 +348,6 @@ function specNoteOf(r: WEngineListItem): string {
   padding-block: 3px;
 }
 
-/* 点线规格表：标签取 ink-1（卡片底色 --bg-2 上 ink-2 仅 4.40:1，12px 正文过不了 4.5:1） */
 .spec-k {
   flex: none;
   font-size: var(--fs-caption);
@@ -231,5 +380,9 @@ function specNoteOf(r: WEngineListItem): string {
 
 .effect-txt {
   margin-top: 4px;
+}
+
+.card-block :deep(.block-body) {
+  max-width: none;
 }
 </style>

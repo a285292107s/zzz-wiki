@@ -33,6 +33,21 @@ export const VERSIONS = ['live']
 /** 皮肤立绘是否本地化（默认是；SKIN_LOCAL=0 可关闭，关闭时缺失仅告警） */
 export const SKIN_LOCAL = process.env.SKIN_LOCAL !== '0'
 
+/** 潜能影像页不随角色变化的界面件：档位序号牌 ASA_01–06、展开面板底纹 EF_BG */
+const AWAKEN_CHROME = ['EF_BG', 'ASA_01', 'ASA_02', 'ASA_03', 'ASA_04', 'ASA_05', 'ASA_06']
+
+const WEAPON_ART = (() => {
+  const p = path.resolve('src/data/weapon-art.json')
+  if (!fs.existsSync(p)) return []
+  return JSON.parse(fs.readFileSync(p, 'utf8'))
+})()
+
+const BANGBOO_ART = (() => {
+  const p = path.resolve('src/data/bangboo-art.json')
+  if (!fs.existsSync(p)) return []
+  return JSON.parse(fs.readFileSync(p, 'utf8'))
+})()
+
 /**
  * 从**全部语言**的详情中动态收集富文本 <IconMap:Icon_XXX> 资产名（描述内键位图标）。
  * 逐语言而非只扫一种：四语正文由不同译文写成，引用的键位资产**不完全相同**
@@ -204,9 +219,15 @@ export function collectIcons() {
     for (const f of fs.readdirSync(detailDir)) {
       const d = JSON.parse(fs.readFileSync(path.join(detailDir, f), 'utf8'))
       const image = Object.values(d.potential_detail ?? {})[0]?.image
-      if (image) push('awaken', `AvatarSpecialAwakenBg_${image}`, `AvatarSpecialAwakenBg_${image}`, true, false, true)
+      if (image) {
+        push('awaken', `AvatarSpecialAwakenBg_${image}`, `AvatarSpecialAwakenBg_${image}`, true, false, true)
+        push('awaken', `AvatarSpecialAwakenBg_${image}Text`, `AvatarSpecialAwakenBg_${image}Text`, true, false, true)
+      }
     }
   }
+  for (const f of AWAKEN_CHROME) push('awaken', f, f, false, false, true)
+  for (const code of WEAPON_ART) push('weapon-art', `${code}_GachaEF`, `${code}_GachaEF`, false, false, true)
+  for (const icon of BANGBOO_ART) push('bangboo-art', `${icon}_GaChaEF`, `${icon}_GaChaEF`, false, false, true)
   return out
 }
 

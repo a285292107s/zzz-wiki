@@ -12,8 +12,13 @@ function clampQuality(value) {
   return Math.min(Math.max(Math.round(n), 1), 100)
 }
 
-export async function toWebp(input, { quality = DEFAULT_QUALITY, maxLongEdge = 0 } = {}) {
+export async function toWebp(input, { quality = DEFAULT_QUALITY, maxLongEdge = 0, trimLeft = 0 } = {}) {
   let img = sharp(input, { animated: true })
+  if (trimLeft > 0) {
+    const { width, height } = await img.metadata()
+    const cut = Math.min(Math.round(width * trimLeft), Math.max(width - 1, 0))
+    if (cut > 0) img = img.extract({ left: cut, top: 0, width: width - cut, height })
+  }
   if (maxLongEdge > 0) {
     img = img.resize({
       width: maxLongEdge,
@@ -33,12 +38,13 @@ export async function writeWebp(src, dest, opts = {}) {
 }
 
 export function parseArgs(argv = process.argv.slice(2)) {
-  const args = { files: [], out: '', quality: DEFAULT_QUALITY, maxLongEdge: 0 }
+  const args = { files: [], out: '', quality: DEFAULT_QUALITY, maxLongEdge: 0, trimLeft: 0 }
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i]
     if (a === '--out') args.out = argv[++i] ?? ''
     else if (a === '--quality') args.quality = clampQuality(argv[++i])
     else if (a === '--max-edge') args.maxLongEdge = Number(argv[++i]) || 0
+    else if (a === '--trim-left') args.trimLeft = Number(argv[++i]) || 0
     else if (!a.startsWith('--')) args.files.push(a)
   }
   return args

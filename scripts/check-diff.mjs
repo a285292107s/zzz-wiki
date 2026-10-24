@@ -14,6 +14,11 @@
  * 改动面（页面文件、字体样式表、首页 hero 的几何/形态模块）——P4 是当时的快照，**本文件才是随改动维护的活表**。
  * 新增审计脚本的准入判据见 scripts/audits/README.md。
  *
+ * 两层分界（2026-10，个人项目/UI 快速迭代）：**页面与 .vue 样式改动走 dev 快检
+ * `pnpm run verify:ui`（约 30 秒、无需构建）；重型审计（axe 28 组合、全站走查、冷缓存预算）
+ * 只在发版前 audit:all**。把发版级范围压到每次迭代，成本会先吃掉迭代速度。
+ * 快检没有入口时（组件/全局 CSS/数据）仍按下面的脚本表走。
+ *
  * 三条铁律（改规则前先读）：
  *   1. 宁可少报也不漏报是错的——漏报（该跑没让跑）比多报危险，方向不对等。但多报同样有害：
  *      工具一旦"狼来了"就会被无视，所以精度靠下面的行级判断，不靠"凡是 .vue 就全跑"。
@@ -72,11 +77,16 @@ export const SCRIPT_RULES = [
     scripts: ['content-sweep', 'axe-a11y', 'landmarks'],
   },
   {
-    why: '页面被改（可访问性与 landmark 结构是唯一能看见的风险面）',
-    // 不给 content-sweep：它查的是路由/sitemap 覆盖，"页面集合真变了"必然同时改路由表，
-    // 已由上面那条覆盖；在这里再挂一次，等于每次改一句文案都要多跑一项。
+    why: '页面被改：本地先跑快检（渲染锚点/横向溢出/landmark/axe），发版前再跑全套',
+    // 重型审计（axe-a11y 28 组合、landmarks 9 路由）留给发版前 audit:all：
+    // 每次改一屏就跑全站 28 组合属于"发版级买迭代级"，2026-10 起改走 dev 快检。
     re: /^src\/views\//,
-    scripts: ['axe-a11y', 'landmarks'],
+    commands: ['pnpm run verify:ui'],
+  },
+  {
+    why: '共享组件（影响面跨页面）：快检至少覆盖受影响页面，发版前再跑全套',
+    re: /^src\/components\//,
+    commands: ['pnpm run verify:ui'],
   },
   {
     why: '样式表（几何、间距、命中区都可能变）',
@@ -107,10 +117,15 @@ export const SCRIPT_RULES = [
     scripts: ['ax-tree', 'axe-a11y'],
   },
   {
-    why: '数据真值',
-    re: /^public\/data\//,
+    why: '数据真值（JSON/清单：页面内容与同源校验）',
+    re: /^public\/data\/(?!img\/)/,
     scripts: ['content-sweep'],
     commands: ['pnpm run verify:data'],
+  },
+  {
+    why: '图片资产（只影响资产存在性，不改变页面内容）',
+    re: /^public\/data\/img\//,
+    commands: ['pnpm run verify:icons -- --local'],
   },
   { why: '审计脚本自身被改（只复跑被改的那几项）', re: /^scripts\/audit/, selfAudit: true },
 ]
@@ -122,9 +137,9 @@ export const SCRIPT_RULES = [
  * 拿不到 diff 行号时（--files 干跑模式）退回整文件判断，并在输出里标注"按整文件判断"。 */
 export const HUNK_RULES = [
   {
-    why: '<style> 块被改（几何、间距、命中区、断点）',
+    why: '<style> 块被改（几何、间距、命中区、断点）：本地先跑快检，发版前再跑全套',
     test: (ctx) => ctx.inStyle && /\.(?:vue|html)$/.test(ctx.file),
-    scripts: LAYOUT_SCRIPTS,
+    commands: ['pnpm run verify:ui'],
   },
 ]
 
@@ -146,8 +161,7 @@ export const probeable = (f) =>
 /* ---------- 四、diff 行号 → 「改动行是否落在 <style> 块内」 ---------- */
 
 /** 从 `git diff -U0` 文本里取出每个文件的新侧改动行号区间；纯删除取锚点行 */
-export function parseHunks(diffText) {
-  const out = new Map()
+export function parseHunks(diffText) {  const out = new Map()
   let cur = null
   for (const line of diffText.split('\n')) {
     if (line.startsWith('+++ ')) {
@@ -161,6 +175,24 @@ export function parseHunks(diffText) {
     const start = Number(m[1])
     const len = m[2] === undefined ? 1 : Number(m[2])
     out.get(cur).push(len === 0 ? [start, start] : [start, start + len - 1])
+  }
+  return out
+}
+
+/** 从 `git diff -U0` 文本里取出每个文件的改动行内容（增删两侧都要：删掉分支同样是风险面） */
+export function parseChangedLines(diffText) {
+  const out = new Map()
+  let cur = null
+  for (const line of diffText.split('\n')) {
+    if (line.startsWith('+++ ')) {
+      const p = line.slice(4).trim()
+      cur = p === '/dev/null' ? null : norm(p.replace(/^b\//, ''))
+      if (cur && !out.has(cur)) out.set(cur, [])
+      continue
+    }
+    if (!cur) continue
+    if (line.startsWith('---') || line.startsWith('@@')) continue
+    if (line.startsWith('+') || line.startsWith('-')) out.get(cur).push(line.slice(1))
   }
   return out
 }
@@ -195,8 +227,15 @@ export function touchesStyle(file, ranges, readFile) {
  * @param {(f: string) => string} [readFile] 读文件内容（测试可注入）
  * @param {(f: string) => [number, number][] | null} [hunks] 取该文件的新侧改动行号区间；
  *   null 表示拿不到 diff（--files 干跑 / 未跟踪文件），行级规则退回整文件判断
+ * @param {(f: string) => string[] | null} [changedLines] 取该文件的改动行内容（增删两侧）；
+ *   null 同样表示拿不到 diff，内容探针退回整文件判断
  */
-export function classify(changed, readFile = (f) => fs.readFileSync(f, 'utf8'), hunks = () => null) {
+export function classify(
+  changed,
+  readFile = (f) => fs.readFileSync(f, 'utf8'),
+  hunks = () => null,
+  changedLines = () => null,
+) {
   const hits = []
   const extraCommands = new Set()
   const selfAuditFiles = []
@@ -226,14 +265,17 @@ export function classify(changed, readFile = (f) => fs.readFileSync(f, 'utf8'), 
           for (const rule of HUNK_RULES) {
             if (!rule.test({ file, inStyle: true, coarse: ranges === null })) continue
             why.push(rule.why)
-            for (const s of rule.scripts) scripts.add(s)
+            for (const s of rule.scripts ?? []) scripts.add(s)
+            for (const c of rule.commands ?? []) extraCommands.add(c)
           }
         }
       }
 
-      // 内容探针：只在 UI 类文件上生效，且只看实际存在的文件
+      // 内容探针：只在 UI 类文件上生效，且只看实际存在的文件；有 diff 时只看改动行——
+      // 同一文件里未被改动的 prefers-reduced-motion 分支不该把 motion-audit 拖回每次迭代。
       if (probeable(file) && exists) {
-        const src = readFile(file)
+        const diffText = changedLines(file)
+        const src = diffText === null ? readFile(file) : diffText.join('\n')
         for (const probe of PROBES) {
           if (!src.includes(probe.text)) continue
           why.push(probe.why)
@@ -277,23 +319,38 @@ function collect(argv) {
   }
   // --files 模式没有 diff 行号：hunks 返回 null，让行级规则退回整文件判断
   if (filesArg.length)
-    return { base: '(来自 --files)', changed: [...new Set(filesArg.map(norm).filter(Boolean))], hunks: () => null }
+    return {
+      base: '(来自 --files)',
+      changed: [...new Set(filesArg.map(norm).filter(Boolean))],
+      hunks: () => null,
+      changedLines: () => null,
+    }
 
   let base = argVal('--base') ?? (git('status', '--porcelain') !== '' ? 'HEAD' : 'HEAD~1')
   const readDiff = (ref) => git('diff', '--name-only', ref).split('\n').map(norm).filter(Boolean)
   let tracked
   let hunks
+  let lines
   try {
     tracked = readDiff(base)
-    hunks = parseHunks(git('diff', '-U0', base))
+    const diffText = git('diff', '-U0', base)
+    hunks = parseHunks(diffText)
+    lines = parseChangedLines(diffText)
   } catch {
     base = 'HEAD' // HEAD~1 不存在（首个提交）等情况
     tracked = readDiff(base)
-    hunks = parseHunks(git('diff', '-U0', base))
+    const diffText = git('diff', '-U0', base)
+    hunks = parseHunks(diffText)
+    lines = parseChangedLines(diffText)
   }
   const untracked = git('ls-files', '--others', '--exclude-standard').split('\n').map(norm).filter(Boolean)
-  // 未跟踪的新文件不在 diff 里 → hunks.get 为 undefined → null → 整文件判断（新文件本就该整体算改动）
-  return { base, changed: [...new Set([...tracked, ...untracked])], hunks: (f) => hunks.get(f) ?? null }
+  // 未跟踪的新文件不在 diff 里 → hunks/lines.get 为 undefined → null → 整文件判断
+  return {
+    base,
+    changed: [...new Set([...tracked, ...untracked])],
+    hunks: (f) => hunks.get(f) ?? null,
+    changedLines: (f) => lines.get(f) ?? null,
+  }
 }
 
 /** ---------- 七、输出 ----------
@@ -301,8 +358,9 @@ function collect(argv) {
  * @param {string} base
  * @param {string[]} changed
  * @param {(f: string) => [number, number][] | null} [hunks]
+ * @param {(f: string) => string[] | null} [changedLines]
  */
-export function render(base, changed, hunks = () => null) {
+export function render(base, changed, hunks = () => null, changedLines = () => null) {
   const L = []
   L.push('')
   L.push(`== 最小验证集 ==  基准：${base} · 改动 ${changed.length} 个文件`)
@@ -317,7 +375,8 @@ export function render(base, changed, hunks = () => null) {
   const { hits, extraCommands, selfAuditScripts, judgeFiles, coarseFiles, matchedScripts } = classify(
     changed,
     undefined,
-    hunks
+    hunks,
+    changedLines
   )
   const coarse = new Set(coarseFiles)
 
@@ -354,10 +413,17 @@ export function render(base, changed, hunks = () => null) {
       L.push('      → 判据本身变了：复跑单项证明不了判据仍成立，按 scripts/audits/README.md 逐项自检')
     }
     L.push('')
-    L.push('  前置：dist 必须是当前源码构建的产物（改了 src 就先 pnpm run build，再 pnpm run preview）')
-    L.push(
-      `  跑单项：npx playwright-cli open http://localhost:4175; npx playwright-cli run-code --filename=${AUDIT_DIR}/<脚本>`
-    )
+    if (matchedScripts.size || selfAuditScripts.length) {
+      L.push('  前置（审计读的是构建产物）：dist 必须是当前源码构建的产物（改了 src 就先 pnpm run build，再 pnpm run preview）')
+      L.push(
+        `  跑单项：npx playwright-cli open http://localhost:4175; npx playwright-cli run-code --filename=${AUDIT_DIR}/<脚本>`
+      )
+    }
+    if (extraCommands.has('pnpm run verify:ui')) {
+      L.push('  快检（dev 服务，无需构建，约 15 秒）：pnpm run verify:ui')
+      L.push('    · 路由缺省从改动文件推断（名录页）；详情页改动用 --route 指定一条实例，如 --route /w-engines/14164')
+      L.push('    · 查：渲染锚点、图片 alt、横向溢出、控制台错误、axe violations；截图落 temp/verify-ui/')
+    }
   }
   L.push('')
   const untouched = Math.max(0, AUDIT_SCRIPTS.length - matchedScripts.size - selfAuditScripts.length)
@@ -377,8 +443,8 @@ export function render(base, changed, hunks = () => null) {
 
 /* ---------- 八、CLI（只打印建议，退出码恒为 0：它是建议，不是门禁） ---------- */
 function main() {
-  const { base, changed, hunks } = collect(process.argv.slice(2))
-  process.stdout.write(render(base, changed, hunks))
+  const { base, changed, hunks, changedLines } = collect(process.argv.slice(2))
+  process.stdout.write(render(base, changed, hunks, changedLines))
 }
 
 // 被 import（测试）时不执行 CLI；直接运行时才跑

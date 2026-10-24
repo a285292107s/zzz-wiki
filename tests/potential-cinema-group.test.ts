@@ -21,7 +21,13 @@ const gates: Record<string, PotentialGate[]> = {
 
 function mountGroup() {
   return mount(PotentialCinemaGroup, {
-    props: { cinema, gates, art: '/data/img/awaken/AvatarSpecialAwakenBg_Nekomiya.webp', crop: '22% 50%' },
+    props: {
+      cinema,
+      gates,
+      art: '/data/img/awaken/AvatarSpecialAwakenBg_Nekomiya.webp',
+      name: '/data/img/awaken/AvatarSpecialAwakenBg_NekomiyaText.webp',
+      crop: '22% 50%',
+    },
   })
 }
 
@@ -31,6 +37,17 @@ describe('PotentialCinemaGroup 档位竖条', () => {
     const heads = w.findAll('.strip-head')
     expect(heads).toHaveLength(2)
     expect(heads.map((h) => h.attributes('aria-expanded'))).toEqual(['true', 'false'])
+  })
+
+  it('档位序号牌与立绘铭牌取解包美术', () => {
+    const w = mountGroup()
+    expect(w.findAll('.strip-no').map((n) => n.attributes('src'))).toEqual([
+      '/data/img/awaken/ASA_01.webp',
+      '/data/img/awaken/ASA_02.webp',
+    ])
+    expect(w.find('.plate-name').attributes('src')).toBe(
+      '/data/img/awaken/AvatarSpecialAwakenBg_NekomiyaText.webp',
+    )
   })
 
   it('点击竖条切换到该档（含按钮可访问名）', async () => {

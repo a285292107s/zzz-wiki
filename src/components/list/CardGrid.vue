@@ -50,13 +50,15 @@ const { t } = useUiText()
     >
       <template v-if="skeleton">
         <li v-for="i in skeletonCount" :key="i" class="card skel" aria-hidden="true">
-          <span class="skel-head">
-            <span class="bar skel-thumb" />
-            <span class="bar skel-name" />
-          </span>
-          <span class="bar skel-line" />
-          <span class="bar skel-line" />
-          <span class="bar skel-line short" />
+          <slot name="skeleton">
+            <span class="skel-head">
+              <span class="bar skel-thumb" />
+              <span class="bar skel-name" />
+            </span>
+            <span class="bar skel-line" />
+            <span class="bar skel-line" />
+            <span class="bar skel-line short" />
+          </slot>
         </li>
       </template>
 

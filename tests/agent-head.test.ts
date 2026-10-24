@@ -74,16 +74,31 @@ describe('AgentHead hero 底图（按屏宽 + DPR 选派生 / 本地优先 + CDN
     expect(heroImg(w).attributes('src')).toBe('/data/img/hero/mobile/Mindscape_1011_2.webp')
   })
 
-  it('已校准角色（1011）在 img 上注入移动端构图自定义属性（来源 featured-pool.json calibrated）', () => {
+  it('已校准角色（1011）在 img 上注入移动端构图自定义属性（来源 featured-pool.json 的 9:16 母版）', () => {
     mockMatchMedia({ narrow: true })
     const w = mount(AgentHead, { props: { detail }, ...mountOptions })
     const el = heroImg(w).element as HTMLElement
     const cal = (
-      poolJson as { calibrated: Record<string, { pos: string; zoom: number; originY: number }> }
-    ).calibrated['1011']!
+      poolJson as {
+        calibrated: Record<string, { modes: Record<string, { pos: string; posY: string; zoom: number; originY: number }> }>
+      }
+    ).calibrated['1011']!.modes['9:16']!
     expect(el.style.getPropertyValue('--hero-pos')).toBe(cal.pos)
     expect(el.style.getPropertyValue('--hero-zoom')).toBe(String(cal.zoom))
     expect(el.style.getPropertyValue('--hero-originY')).toBe(`${cal.originY}%`)
+  })
+
+  it('hero 画幅校准透传双轴平移（桌面横幅消费；不缩放）', () => {
+    mockMatchMedia({ narrow: false, retina: false })
+    const w = mount(AgentHead, { props: { detail }, ...mountOptions })
+    const el = heroImg(w).element as HTMLElement
+    const hero = (
+      poolJson as {
+        calibrated: Record<string, { modes: Record<string, { pos: string; posY: string }> }>
+      }
+    ).calibrated['1011']!.modes['hero']!
+    expect(el.style.getPropertyValue('--hero-wide-pos')).toBe(hero.pos)
+    expect(el.style.getPropertyValue('--hero-wide-posY')).toBe(hero.posY)
   })
 
   it('派生变体缺失时逐级回退：先原图，再 nanoka CDN', async () => {

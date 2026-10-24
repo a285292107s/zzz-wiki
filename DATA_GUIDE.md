@@ -104,12 +104,13 @@ public/data/
 > 的 resetOut **只清理根 manifest 与 live 目录**，不触碰 img/（曾有整体删除 OUT 目录连坐清空图标的教训）。
 > `img/hero/Mindscape_{id}_2.webp` 同时是角色详情页 AgentHead 头图与首页「今日角色」的图源，
 > 该图源带透明边（上下为 alpha 透明区）。选角与逐图取景参数存于 `src/data/featured-pool.json`
-> （每项 `{ id, pos, zoom, originY }`；名字/属性运行时从名录解析），由 `useFeaturedAgents` 按
+> （`calibrated`：每个角色按画幅存一组四件套、另记 `inPool`；`pool` 是 `inPool=true` 角色的
+> 9:16 取景派生值，首页读它；名字/属性运行时从名录解析），由 `useFeaturedAgents` 按
 > **当天日期**确定性取 4 张（同日恒定、跨日换批，**当天生日的角色排在最前**——生日来自详情
 > `partner_info.birthday`，由 `src/data/featured-birthdays.json` 在构建期派生入库；特殊形态缺生日时
 > 按 `src/data/birthday-supplement.json` 继承本体，如 星徽·比利 1531 → 比利 1081，见术语表「特殊形态」）；
-> 参数经 dev 校准工具
-> `/calibrate` 写入（网格角色号从 live 名录动态派生，落地新角色后自动可见，入池仍须目检 `pos`）。
+> 参数经 dev 校准工具 `/calibrate` 按画幅写入（六画幅切换；网格角色号从 live 名录动态派生，
+> 落地新角色后自动可见；入池开关只在 9:16 模式出现，入池仍须目检 `pos`）。
 > **怎么摆 / 怎么裁 / 怎么核验**属展示技法，唯一记录点见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)；
 > 双形态角色（当前 1551 佩洛伊斯）的头图文件名规则见 §5。
 > `img/banner/` 下的旧宣发海报当前已不再被引用（可留作素材，构建管线不会清除该目录）。
@@ -211,7 +212,9 @@ public/data/
 > **hero 头图同样取自解包**：`Mindscape_{id}_2`（含 1551 双形态 Female/Male）已按解包母版
 > 重转——母版**贴边**、CDN 旧版垫过 1080 高透明画布，故画布从「宽 1920–2580 / 高恒 1080」变为
 > 「宽 1326–2580 / 高 834–1080」，画幅比例与内容占比都变了。**9:16 取景校准随之失效**：
-> `featured-pool.json` 的 pos/zoom/originY 是按旧画布算的，换源后需在 `/calibrate` 重调。
+> 旧 pos/zoom/originY 是按旧画布算的，已按新画布重算并迁入多画幅校准表的 `modes['9:16']`
+> （母版；其余画幅由它派生，见 [`IMG_GUIDE.md`](./IMG_GUIDE.md) 的「取景校准：多画幅表」）。
+> 换图/换源后同样要在 `/calibrate` 重调。
 > 变化幅度分两簇：画幅比例变化 ≥0.5 的 8 张（1551 双形态、1071、1351、1361、1381、1541、1571）、
 > 内容占比变化 ≥0.25 的 12 张（1011、1031、1101、1111、1131、1211、1241、1251、1261、1271、1411、1471），
 > 其余只是去掉了透明边。派生态（card/wide/mobile）已用 `hero-cards.mjs`、`hero-mobile.mjs` 重算。
@@ -224,6 +227,65 @@ public/data/
 > `download:icons` 不进下载队列、远程审计也不探测（否则每张都会记成「源站缺口」噪音）；
 > 本地缺失按**可容忍缺口**告警（新角色先有数据、解包资料后到时不该阻断部署），补跑
 > `import-assets.mjs --only awaken` 即可。展示规则（逐图手工裁剪的 4:5 取景）见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)「当前使用」。
+>
+> 同一 `awaken` 条目还收两类**不随角色变化**的界面件（同样 `dumpOnly`）：
+> `AvatarSpecialAwakenBg_{image}Text`（角色拉丁名美术字，按 `image` 逐角色）与
+> `ASA_01–06` / `EF_BG`（档位序号牌、展开面板暗纹，常量清单 `AWAKEN_CHROME`）。
+> 它们是**必须项**（`optionalLocal: false`）：解包里有源，缺了就是导入没跑，不该静默放行。
+> `EF_BG` 在导入时按 `TRIM_LEFT` 裁掉左侧 5.75%（原图那段是为「贴立绘融边」画的透明渐隐，
+> 本站没有可融对象，整幅铺开会留一道暗竖条）；**这是转换期裁切，改比例要同步改那张表**，
+> 裁切值不写进清单、也不由前端猜。
+>
+> **音擎产品图（详情 + 名录共用）**：解包 `Weapon_S_{id}_GachaEF.png` 一族（产品图，整器含配件与场景道具；
+> 936–1028×726–816，纵横比 1.16–1.30）落 `public/data/img/weapon-art/{code_name}_GachaEF.webp`，
+> q85 ≈118KB/张（42 张共 4.9MB）。源文件分散在两处，靠 `import-assets.mjs` 的基名索引自动找到、
+> **不要按目录硬编码**：新版本在 `ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/GaCha/UnPacker/GaChaPhase01/`，
+> 1631/1641 两张当期在 `ui/Sprite/`。另有两张无下划线的历史别名（`Weapon_S_1401GachaEF`、
+> `1411GachaEF`，与带下划线版同图），导入时按带下划线的规范名取。
+> 这一类**只能从解包导入**（`dumpOnly`：nanoka CDN 对 `_GachaEF` 一族 404，实测 1631/1641/1021 均无）、
+> 且是**必须项**：清单是 `src/data/weapon-art.json` 里的一串 `code_name`，前端 `src/data/weaponArt.ts`
+> 与 `icon-inventory.mjs`（导入/校验）**共读这一份**。换新素材=解包导入一张 + 在该清单登记一行，
+> 两件事缺一：只有文件没登记则页面静默用回图标、只有登记没文件则 `verify:icons --local` 失败。
+> **覆盖是 42/52 个 S 级**（站点 103 个音擎里的 S 档含 4 把公共池），缺的 10 把都不是漏下：
+> 早期 `1021 / 1041 / 1101 / 1141 / 1181 / 1211`（解包只有图标与立绘，无 GachaEF）与公共池
+> `Weapon_S_Common_01–04`（本来就没有抽卡大图）。
+> 清单外的音擎回落名录图标、**不做 404 探测**。单独占一个 `weapon-art/` 目录而不是并进 `weapon/`：
+> 后者会被 `icon-thumbs.mjs` 全量派生名录行小图（38×38 用途），产品大图既用不上、还会留下死文件。
+>
+> **列表档派生**：`weapon-art/card/{同名}.webp`（≤800px / q72；42 张共 2.66MB、均值 63KB，原图 5.17MB
+> → 省 47%）。生成器 `scripts/build/product-art-cards.mjs`（音擎与邦布共用；各自输出 `card/` 子目录），
+> 由 `pnpm run sync` 在图标下载后调用
+> （**单一写入者**）；幂等补差、原图更新跟随、孤儿清理、软失败（派生缺失时前端自动回退原图）。
+> 规格按**名录卡的展示格**反推（图格宽随断点 243–517 CSS px）：≤800px 在 DPR≤1.55 全断点 ≈1:1，
+> DPR2 最坏 1.29×（只出现在宽图格带），常规桌面 ≤1.12×。**不按 DPR 分档**——试过 DPR≥1.5 直上原图，
+> retina 首访图片会从 ~580KB 涨到 1.06MB（超站内 1MB 图片预算）且跨阈值换显示器会换源重载。
+> **改栅格列宽/画幅/断点后必须重算这一档**，否则又会糊（同 hero card/wide 的教训）。
+> 前端候选链：`weaponArtCardSources` = `card → 原图`；详情页 `weaponArtSource` 仍取原图。
+> 名录行不带 `code_name`，音擎的 `icon` 基名即 `code_name`（源站命名约定见
+> `src/domain/signatureEngine.ts`），故列表直接用名录行的 `icon` 查清单，不额外注入字段。
+> 展示规则见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)「音擎名录卡」。
+>
+> **音擎图标母版（名录/详情共用）**：`IconWeapon/UnPacker/Weapon_{rarity}_{id}.png` —— 100 张、
+> 边长 350–400（中位 394），是存量图标族里最清晰的一份；`1631/1641` 与 `A_Common_22` 不在该目录，
+> 由 `ui/Sprite/` 补（313–363），合计覆盖站点 **103/103**。**`ItemIconWeapon/UnPacker` 是 128–156 的
+> 物品栏小图，不要当母版用**（同名字既有大图也有小图时，认目录而不是认文件名）。
+> ⚠ `import-assets.mjs` 的基名索引**先走 `ui/Sprite`**，所以 `1581/1591` 长期命中那里的 153/156 小版
+> （详情页 280px 框要放大 1.8×，名录卡也糊）；已在 `SOURCE_OVERRIDES.weapon` 指回 IconWeapon 母版
+> （316×400 / 393×400）。新版本再出现「小图同名占坑」照此加覆盖，**别改索引顺序**——那顺序是给
+> 「同一张图多档位」用的。
+> **素材族体检（2026-10，基准 103 个音擎）**：没有「又大又全」的族——`_GachaEF` 936–1028 但只有 42 个；
+> `_GaCha` 105–120（42 个）；`Big` 199–256；`Small` 68–78；唯一全覆盖的是上面的图标母版（350–400）。
+> 所以详情页策略固定为「有产品图用产品图（5:4 宽幅），没有用图标母版（1:1 / 280px 框、不放大）」，
+> 候选链是「产品图 → 图标」——产品图文件缺失时退到图标，不会留虚线空框。
+>
+> **邦布产品图（名录卡）**：解包 `BangbooGarageRole{NN}_GaChaEF.png`（与音擎同目录
+> `GaChaPhase01/`，940–960×843–860）落 `public/data/img/bangboo-art/{icon}_GaChaEF.webp`，
+> q85 ≈131KB/张（21 张共 2.75MB）。清单 `src/data/bangboo-art.json` 存的是名录 `icon` 基名
+> （如 `BangbooGarageRole07`），前端 `src/data/bangbooArt.ts` 与 `icon-inventory.mjs` 共读同一份；
+> 同样是 `dumpOnly` 必须项、同样只从解包导入。
+> **覆盖恰好是 S 级 21/21，A 级 21 把没有这一族素材**——不是漏导：GaChaEF 只画抽卡产出的 S 级邦布，
+> A 级历来只有图标，所以邦布名录卡必然两种态并存（有图画幅 5:4，无图回落到同一个盒子里的图标）。
+> 列表档派生与音擎共用 `scripts/build/product-art-cards.mjs`；前端候选链 `bangbooArtCardSources`。
 
 > **hero 头图（AgentHead）**：角色详情页 head 的 Mindscape_{id}_2.webp 在
 > `public/data/img/hero/`（**张数以目录实际文件为准，本文不写死**；下载脚本遇缺仅告警不置失败码）
@@ -249,8 +311,8 @@ public/data/
 > 的项，缺位回退 `defaultFile`）；`useHeroForm` 持形态状态 + `localStorage` 持久化（模块级 ref + 写盘，
 > 与代理人名录的版本偏好同一套写法）。**消费方只读、不各摆切换钮**：1551 详情页 `AgentHead.vue`、
 > 首页「今日角色」卡面、代理人名录卡片都按当前形态取图，切换入口统一在**设置页**（`/settings`）。
-> `CalibrateView.vue`（图库校准）与
-> `useFeaturedAgents`（今日角色池）经 `heroImageFile(id)` 取**默认展示（女性）版**来定档，故双形态角色
+> `CalibrateView.vue`（图库校准，六画幅）与
+> `useFeaturedAgents`（今日角色池）经 `heroImageFile(id)` 取**默认展示（女性）版**来取图，故双形态角色
 > （当前为 1551）也会出现在校准网格 / 可取图列表，无需手写 `Mindscape_…` 文件名字符串。后续新增双形态
 > 角色，`variants` 按「女性(默认)/男性」顺序填、`defaultFile` 填女性即可，**只改这份 JSON** 即自动生效，
 > 勿再四处手写。
@@ -314,9 +376,15 @@ node scripts/build/import-assets.mjs --dump <解包根>
                         #   --only=character,skin,weapon,bangboo,disc,filter,skill 选类目；--dry 只看差集；
                         #   --force 重转（默认按 dump-import-manifest.json 跳过未变更）；
                         #   --quality / --max-edge 覆盖档位；--max-diff 同名异物阈值（默认 14，仅 filter/skill 校验）
-                        #   导完记得 node scripts/build/icon-thumbs.mjs 重派生音擎/邦布小图
+                        #   导完记得 node scripts/build/icon-thumbs.mjs 重派生音擎/邦布小图；
+                        #   导了音擎/邦布产品图（weapon-art、bangboo-art）则再跑
+                        #   node scripts/build/product-art-cards.mjs 重派生列表档
+                        #   「未变更」= 源相对路径 + 源字节数 + 转换签名（q/e/t）全一致；清单里的 rule 字段
+                        #   缺省时按已同步放行——升级判据不该把整仓重编码一遍（已入库图标是老编码器产物，
+                        #   重转会改字节）。改 RULES / TRIM_LEFT 会给新条目换签名，只影响之后导入的那些。
 node scripts/build/to-webp.mjs <src...> --out <dir>
-                        # 单文件/多文件转 webp（PicList 同参数：q85、去 EXIF、保透明），--max-edge 可选
+                        # 单文件/多文件转 webp（PicList 同参数：q85、去 EXIF、保透明），--max-edge 可选；
+                        # --trim-left 0.0575 按宽度比例裁左侧（给「原图带透明渐隐、站内没有可融对象」的素材用）
 pnpm run download:fonts  # 西文字体本地化：Google Fonts css2 → public/fonts/*.woff2（自托管、运行时零外网）；幂等；网络失败仅告警
 pnpm run verify:fonts    # 字体存在性校验：download:fonts 声明的每个文件在 public/fonts/ 存在且非空（离线可用；build:ci 已挂）
 pnpm run download:fonts:cjk  # CJK 原始分片拉取：Noto Serif SC 500 → .cache/cjk-raw/ + faces.json（不入库；幂等；失败仅告警）
@@ -399,7 +467,7 @@ skills 描述富文本走 `richDesc`。字体族（CJK 衬线优先、sans 弃 `
   + 上下各一条发丝线收口。**边界**：不是「版心」（后者只管宽度、无面色无边线，站头/站尾也用）；
   也不是「主内容区」（`<main id="main">`，还含返回链接、区块索引、翻页）；更不是「标本板」——
   那个词**专指首页「今日角色」的 2.36:1 陈列框**（`FeaturedDeck`，共享元素飞行的起飞端）。
-- **版心**：`--wrap-max` 那条宽度约束（`clamp(1280px, 78vw, 1760px)`），只有宽度语义。
+- **版心**：`--wrap-max` 那条宽度约束（`clamp(1120px, 78vw, 1760px)`），只有宽度语义。
 - **主内容区**：`<main id="main">`，胶囊的**外层**。
 - **区块**：`DetailSection` 渲染的编号小节（01 档案详情、02 角色介绍…），是胶囊的**内件**。
 

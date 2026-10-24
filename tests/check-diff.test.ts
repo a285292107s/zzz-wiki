@@ -6,6 +6,7 @@ import {
   PROBES,
   SCRIPT_RULES,
   classify,
+  parseChangedLines,
   parseHunks,
   render,
   styleRanges,
@@ -34,6 +35,19 @@ describe('check-diff：改动 → 该跑什么', () => {
     expect(s.has('hero-flight')).toBe(false)
   })
 
+  it('页面与 .vue 样式改动走 dev 快检，不再日常跑全站 axe/landmarks', () => {
+    const view = classify(['src/views/AboutView.vue'])
+    expect([...view.extraCommands]).toContain('pnpm run verify:ui')
+    expect(scriptsOf(['src/views/AboutView.vue']).has('axe-a11y')).toBe(false)
+    expect(scriptsOf(['src/views/AboutView.vue']).has('landmarks')).toBe(false)
+
+    const ag = 'src/views/AgentsView.vue'
+    const regs = styleRanges(fs.readFileSync(ag, 'utf8'))
+    const styleHit = classify([ag], undefined, at([[regs[0][0], regs[0][0]]]))
+    expect([...styleHit.extraCommands]).toContain('pnpm run verify:ui')
+    expect(scriptsOf([ag], undefined, at([[regs[0][0], regs[0][0]]])).has('viewport-overflow')).toBe(false)
+  })
+
   it('首页与视图过渡改动触发 hero-flight', () => {
     expect(scriptsOf(['src/views/HomeView.vue']).has('hero-flight')).toBe(true)
     expect(scriptsOf(['src/utils/viewTransition/index.ts']).has('hero-flight')).toBe(true)
@@ -60,15 +74,17 @@ describe('check-diff：改动 → 该跑什么', () => {
     expect(scriptsOf(['src/utils/cameraRect.ts']).has('hero-flight')).toBe(false)
   })
 
-  it('路由表与页面改动触发全站走查一族', () => {
-    for (const f of ['src/router/index.ts', 'src/views/AgentsView.vue', 'src/views/AboutView.vue']) {
-      const s = scriptsOf([f], undefined, at([[1, 1]]))
-      expect(s.has('axe-a11y'), f).toBe(true)
-      expect(s.has('landmarks'), f).toBe(true)
-    }
-    // 路由表（页面集合）才要 content-sweep；只改页面内容不必再跑一遍 sitemap 走查
-    expect(scriptsOf(['src/router/index.ts']).has('content-sweep')).toBe(true)
+  it('路由表变更仍触发全站走查；单页改动改由 dev 快检接住', () => {
+    const router = scriptsOf(['src/router/index.ts'], undefined, at([[1, 1]]))
+    expect(router.has('axe-a11y')).toBe(true)
+    expect(router.has('landmarks')).toBe(true)
+    expect(router.has('content-sweep')).toBe(true)
+
+    const { extraCommands } = classify(['src/views/AboutView.vue'], undefined, at([[1, 1]]))
+    expect([...extraCommands]).toContain('pnpm run verify:ui')
+    // 只改页面内容不必再跑一遍 sitemap 走查，也不必日常跑全站 28 组合 axe
     expect(scriptsOf(['src/views/AboutView.vue'], undefined, at([[1, 1]])).has('content-sweep')).toBe(false)
+    expect(scriptsOf(['src/views/AboutView.vue'], undefined, at([[1, 1]])).has('axe-a11y')).toBe(false)
   })
 
   it('离线面含离线兜底页与响应头', () => {
@@ -137,6 +153,19 @@ describe('check-diff：改动 → 该跑什么', () => {
     expect([...extraCommands]).toContain('pnpm run verify:data')
   })
 
+  it('图片资产不再触发 243 页 content-sweep，只查本地图标清单', () => {
+    const { hits, extraCommands } = classify([
+      'public/data/img/weapon-art/card/Weapon_S_1641_GachaEF.webp',
+    ])
+    expect([...extraCommands]).toContain('pnpm run verify:icons -- --local')
+    expect(hits.flatMap((h) => [...h.scripts])).not.toContain('content-sweep')
+  })
+
+  it('共享组件改动要求快检（影响面跨页面）', () => {
+    const { extraCommands } = classify(['src/components/state/AsyncState.vue'])
+    expect([...extraCommands]).toContain('pnpm run verify:ui')
+  })
+
   it('多文件命中取并集', () => {
     const s = scriptsOf(['src/router/index.ts', 'public/sw.js'])
     expect(s.has('content-sweep')).toBe(true)
@@ -152,25 +181,25 @@ describe('check-diff：布局轴看 diff 行号，不看文件里有没有 <styl
     expect(regs.length).toBeGreaterThan(0)
   })
 
-  it('改动行落在 <style> 块内 → 触发版面几何四项', () => {
-    const s = scriptsOf([page], undefined, at([[regs[0][0], regs[0][0]]]))
-    expect(s.has('viewport-overflow')).toBe(true)
-    expect(s.has('reflow-spacing')).toBe(true)
+  it('改动行落在 <style> 块内 → 走 dev 快检（不再日常跑 4 项重型版面审计）', () => {
+    const ranges = at([[regs[0][0], regs[0][0]]])
+    expect([...classify([page], undefined, ranges).extraCommands]).toContain('pnpm run verify:ui')
+    expect(scriptsOf([page], undefined, ranges).has('viewport-overflow')).toBe(false)
+    expect(scriptsOf([page], undefined, ranges).has('reflow-spacing')).toBe(false)
   })
 
-  it('只改模板/文案（改动行不在 <style> 内）→ 不触发版面几何四项', () => {
+  it('只改模板/文案（改动行不在 <style> 内）→ 不触发版面几何四项，但仍走快检', () => {
     // 全仓 55 个 .vue 有 30 个含 @media；按文件判断会让改一个字的文案也跑 4 项浏览器审计，
     // 这正是「狼来了」。行级判断是为了既不漏跑、也不多跑。
     const s = scriptsOf([page], undefined, at([[1, 1]]))
     expect(s.has('viewport-overflow')).toBe(false)
     expect(s.has('composition-audit')).toBe(false)
-    // 页面本身仍应触发走查与可访问性
-    expect(s.has('axe-a11y')).toBe(true)
+    // 页面本身仍要过渲染锚点 / 可访问性：由 verify:ui 在 dev 上覆盖
+    expect([...classify([page], undefined, at([[1, 1]])).extraCommands]).toContain('pnpm run verify:ui')
   })
 
   it('拿不到 diff 行号时（--files 干跑）退回整文件判断，并标注出来', () => {
-    const s = scriptsOf([page], undefined, noHunks)
-    expect(s.has('viewport-overflow')).toBe(true)
+    expect([...classify([page], undefined, noHunks).extraCommands]).toContain('pnpm run verify:ui')
     const { coarseFiles } = classify([page], undefined, noHunks)
     expect(coarseFiles).toContain(page)
     expect(render('(来自 --files)', [page], noHunks)).toContain('按整文件判断')
@@ -229,10 +258,40 @@ describe('check-diff：内容探针的边界（守已修的「狼来了」假阳
   })
 
   it('不存在的 UI 文件不读盘、不触发探针', () => {
-    const { hits } = classify(['src/components/NotYetCreated.vue'], () => {
+    const { hits } = classify(['src/utils/NotYetCreated.vue'], () => {
       throw new Error('不应读盘')
     })
     expect(hits).toEqual([])
+  })
+
+  it('探针只看改动行：同一文件里未被改的 prefers-reduced-motion 不拖回 motion-audit', () => {
+    const file = 'src/components/list/CardGrid.vue'
+    const read = () => fs.readFileSync(file, 'utf8')
+    const untouched = classify([file], read, noHunks, () => ['<slot name="skeleton" />'])
+    expect(untouched.hits.flatMap((h) => [...h.scripts])).toEqual([])
+    expect(untouched.hits.flatMap((h) => h.why).join('/')).not.toContain('减动效')
+    const touched = classify([file], read, noHunks, () => ['@media (prefers-reduced-motion: reduce) {}'])
+    expect(touched.hits.flatMap((h) => [...h.scripts])).toContain('motion-audit')
+  })
+
+  it('parseChangedLines 收增删两侧内容、忽略文件头', () => {
+    const map = parseChangedLines(
+      [
+        'diff --git a/x.vue b/x.vue',
+        '--- a/x.vue',
+        '+++ b/x.vue',
+        '@@ -1,2 +1,2 @@',
+        '-old line',
+        '+new line',
+        'diff --git a/y.vue b/y.vue',
+        '--- a/y.vue',
+        '+++ /dev/null',
+        '@@ -1 +0,0 @@',
+        '-gone',
+      ].join('\n'),
+    )
+    expect(map.get('x.vue')).toEqual(['old line', 'new line'])
+    expect(map.has('y.vue')).toBe(false)
   })
 })
 
@@ -260,21 +319,36 @@ describe('check-diff：输出文案不能骗人', () => {
   it('无改动时直接说不用跑', () => {
     expect(render('HEAD', [])).toContain('无改动')
   })
+
+  it('单页改动打印 dev 快检命令，且不再要求先构建产物', () => {
+    const out = render('HEAD', ['src/views/AboutView.vue'])
+    expect(out).toContain('pnpm run verify:ui')
+    expect(out).toContain('快检（dev 服务，无需构建')
+    expect(out).not.toContain('前置（审计读的是构建产物）')
+  })
 })
 
 describe('check-diff：规则表卫生', () => {
   it('规则、行级规则与探针引用的每个脚本都真实存在（脚本改名会让这条失败，而不是静默少跑）', () => {
     const referenced = new Set<string>()
     for (const r of SCRIPT_RULES) for (const s of r.scripts ?? []) referenced.add(s)
-    for (const r of HUNK_RULES) for (const s of r.scripts) referenced.add(s)
+    for (const r of HUNK_RULES as { scripts?: string[] }[]) for (const s of r.scripts ?? []) referenced.add(s)
     for (const p of PROBES) for (const s of p.scripts) referenced.add(s)
     expect([...referenced].filter((s) => !AUDIT_SCRIPTS.includes(`${s}.js`))).toEqual([])
   })
 
-  it('每条路径规则都给了 why 与脚本（或显式声明 selfAudit）', () => {
+  it('每条路径规则都给了 why + 处置（审计脚本、命令或显式 selfAudit）', () => {
     for (const r of SCRIPT_RULES) {
       expect(r.why, String(r.re)).toBeTruthy()
-      expect((r.scripts?.length ?? 0) > 0 || r.selfAudit === true, String(r.re)).toBe(true)
+      const hasDisposal =
+        (r.scripts?.length ?? 0) > 0 || (r.commands?.length ?? 0) > 0 || r.selfAudit === true
+      expect(hasDisposal, String(r.re)).toBe(true)
+    }
+  })
+
+  it('行级规则也只给命令（不把重型审计拖回每次迭代）', () => {
+    for (const r of HUNK_RULES as { scripts?: string[]; commands?: string[] }[]) {
+      expect((r.scripts?.length ?? 0) > 0 || (r.commands?.length ?? 0) > 0).toBe(true)
     }
   })
 

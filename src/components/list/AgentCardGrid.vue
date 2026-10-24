@@ -30,7 +30,7 @@ import { campIconUrl } from '@/domain/filterIcons'
 import type { CharacterListItem } from '@/data/types'
 import { heroFileForForm } from '@/data/heroGenderVariants'
 import { heroGridSources } from '@/data/heroImageSources'
-import { getHeroCalibration } from '@/data/heroCalibration'
+import { getCardFraming } from '@/data/heroCalibration'
 import { pickName } from '@/utils/names'
 import { pickText } from '@/domain/lang'
 import { useHeroForm } from '@/composables/useHeroForm'
@@ -73,7 +73,7 @@ function heroSrcs(id: number) {
 
 /** 校准构图（水平脸对焦 + 放大消透明边）；未校准返回 undefined → 居中取景 */
 function calStyle(id: number): Record<string, string> | undefined {
-  const c = getHeroCalibration(id)
+  const c = getCardFraming(id)
   return c
     ? {
         objectPosition: c.pos,
