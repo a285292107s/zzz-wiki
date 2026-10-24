@@ -135,6 +135,11 @@ public/data/
 - **weapon/{id}.json**：`id, code_name, name, desc, desc2, desc3, rarity, icon, weapon_type, base_property{name,name2,format,value}, rand_property, level, stars, materials, talents{1..5:{name,desc}}, atk_max`（`atk_max` 为构建期注入名录 `atk`，即 Lv.60 满级主属性，供详情页等级滑条插值）
 - **bangboo/{id}.json**：`id, code_name, name, desc, rarity, icon, stats, level, skill{a,b,c}, skill_prop`
 - **equipment/{id}.json**：`id, name, desc2(2件套), desc4(4件套), story, icon, icon2`
+- **potential_detail**（潜能影像／觉醒，6 档）：`{id, level(1–6), level_show_name(如「炽焰行歌 II」), name(效果名), desc(富文本), image(觉醒立绘键，见 §5), ability_list, potential_materials}`
+  - 档位标记**随语种**：中/英/日的数据是 ASCII 罗马数字 `I–VI`，韩文是 CJK 兼容罗马数字 `Ⅰ–Ⅵ`（U+2160–217F）。
+    `buildPotentialCinema` 把 `no` 归一成 ASCII（展示仍用原文 `mark`）——否则韩文页的档 I 概述匹配不上
+    （`synthesizePotentialCinema` 按 `no` 查技能门控，档 I 的 `name`/`desc` 源数据为空）。
+  - 与核心技强化（`extra_level`）是两个系统，勿混用。
 
 ### 枚举映射（与 `src/data/types.ts` 一致）
 - 属性 `200物理 201火 202冰 203电 204风 205以太 300流明(Lumiflux)` — 300 为蕾米埃尔(1581)等新角色属性，ZenlessData `DamageElementConfigTemplateTb` 中 `300 = ElementType_Lumen`（PFN 标志 0，标准元素；烈霜/FireFrost 为 202 变体、PFN=1，属特殊属性）
@@ -172,7 +177,7 @@ public/data/
 
 | 优先级 | 来源 | URL 模板 | 覆盖/实测 |
 |---|---|---|---|
-| ① | **本地化图标** | `{BASE}/data/img/{category}/{basename}.webp`（`pnpm run download:icons` 落地） | 角色/音擎/邦布/驱动盘/技能键位/hero 头图全量（须在 `pnpm run data` / `pnpm run sync` 之后才落地） |
+| ① | **本地化图标** | `{BASE}/data/img/{category}/{basename}.webp`（`pnpm run download:icons` 落地） | 角色/音擎/邦布/驱动盘/技能键位/hero 头图/皮肤立绘全量（须在 `pnpm run data` / `pnpm run sync` 之后才落地） |
 | ② | nanoka 素材 CDN | `https://static.nanoka.cc/assets/zzz/{basename}.webp` | **全品类图标 100%（除空缺 icon）** |
 
 **nanoka 命名规则**：取游戏资源路径的**裸文件名**（去目录、去扩展名）+ `.webp`。
@@ -181,11 +186,47 @@ public/data/
 
 > **本地化（Q4b）**：`pnpm run download:icons` 把运行时图标从 nanoka 下载到
 > `public/data/img/{category}/`，使站点**运行时零外部请求**。本地文件缺失时自动落到
-> ② 的 CDN 兜底，不破图。皮肤多为此类**大图**（28MB+），默认**不本地化**（`SKIN_LOCAL=1` 可开），
-> 皮肤缩略图仍走 CDN→文字兜底。
+> ② 的 CDN 兜底，不破图。
+>
+> **皮肤立绘**：落 `public/data/img/character/{IconRole*}.webp`——**与名录头像同目录**，
+> 因为详情页皮肤区按 `character` 类目取图，`img/skin/` 无人读取。原生尺寸（不封顶，宽 756–2128、
+> 高 1324–2776）转 webp q88，单张均 ≈259KB；`SKIN_LOCAL=0` 表示不本地化（缺失仅告警）。
+>
+> **光栅资产统一来源（解包导入）**：`node scripts/build/import-assets.mjs --dump <解包根>` 把
+> 角色头像/皮肤立绘/音擎/邦布/驱动盘/筛选/键位图标/hero 头图全部按**同名基名**从解包 PNG 重转，
+> 编码见 `scripts/build/to-webp.mjs`（沿用 PicList 图片处理参数：质量档、去 EXIF、保透明）。
+> 档位按用途定：小图标 q95（368px 级，与 CDN 版同体积、同保真度，但**取原图贴边裁切**，
+> 无 CDN 版的透明垫边）、皮肤 q88。已导入清单落在 `scripts/build/dump-import-manifest.json`
+> （文件 → 解包源路径 + 源字节数），重跑据此跳过未变更项；解包换了新版本就重跑，只补差异。
+> **筛选图标（属性/职业/阵营）的来源映射**：这三类的解包文件名与站点资产名**不总是同名同图**
+> （`IconAttack` 在解包里有 4 处不同美术、`IconPhysical` 根本没有同名文件），故在
+> `import-assets.mjs` 的 `SOURCE_OVERRIDES.filter` 里逐条写死，不靠裸名猜。例：
+> `IconPhysical ← IconBuff_Chaos`、`IconIce ← IconRamenType/IconIce`、`IconLumen ← IconBuff_Lumiflux`、
+> 职业 7 枚 ← `Role/IconClass/Packer/`。当前覆盖：**属性 7/7、职业 7/7、阵营 15/22**
+> （17/19–24 等 7 个新阵营解包版本未收录，仍用本地 biligame 徽标；缺失时前端 SVG 占位）。
+> 换源后 `IconAttack` 由白描改为解包的灰底母版，与其余 6 个职业图标同色。
+>> `skill`/`filter` 两类按**基名会撞不同美术**（实测 `IconAttack` 与解包同名文件像素差 119/255），
+> 故导入时做相似度校验（`--max-diff` 默认 14），不合的跳过并打印，不盲替。
+>
+> **hero 头图同样取自解包**：`Mindscape_{id}_2`（含 1551 双形态 Female/Male）已按解包母版
+> 重转——母版**贴边**、CDN 旧版垫过 1080 高透明画布，故画布从「宽 1920–2580 / 高恒 1080」变为
+> 「宽 1326–2580 / 高 834–1080」，画幅比例与内容占比都变了。**9:16 取景校准随之失效**：
+> `featured-pool.json` 的 pos/zoom/originY 是按旧画布算的，换源后需在 `/calibrate` 重调。
+> 变化幅度分两簇：画幅比例变化 ≥0.5 的 8 张（1551 双形态、1071、1351、1361、1381、1541、1571）、
+> 内容占比变化 ≥0.25 的 12 张（1011、1031、1101、1111、1131、1211、1241、1251、1261、1271、1411、1471），
+> 其余只是去掉了透明边。派生态（card/wide/mobile）已用 `hero-cards.mjs`、`hero-mobile.mjs` 重算。
+> 换源后原图 63 张共 13.6MB（旧 21.6MB）。**重下提醒**：hero 丢文件后要用 `import-assets.mjs --only hero` 从解包补，不要用 `pnpm run download:icons`（那会重新落 CDN 的垫边版，校准又得重来）。
+>
+> **潜能影像（觉醒）立绘**：`AvatarSpecialAwakenBg_{image}`（1596–2112×1080）落 `public/data/img/awaken/`，
+> q88、最长边 ≤1600（当前 11 张共 1.18MB）。文件名后缀**取自数据**——角色详情 `potential_detail[*].image`
+> （如 `Nekomiya`），与解包同名，不手写映射；故只有持有 `potential_detail` 的角色才有这张图。
+> 这一类**只能从解包导入**（nanoka 源站没有这个家族）：清单条目带 `dumpOnly`，
+> `download:icons` 不进下载队列、远程审计也不探测（否则每张都会记成「源站缺口」噪音）；
+> 本地缺失按**可容忍缺口**告警（新角色先有数据、解包资料后到时不该阻断部署），补跑
+> `import-assets.mjs --only awaken` 即可。展示规则（逐图手工裁剪的 4:5 取景）见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)「当前使用」。
 
-> **hero 头图（AgentHead）**：角色详情页 head 的 Mindscape_{id}_2.webp 已全量本地化到
-> `public/data/img/hero/`（**张数以目录实际文件为准，本文不写死**：当前含 1551 双形态男性版共 61 张；下载脚本遇缺仅告警不置失败码）
+> **hero 头图（AgentHead）**：角色详情页 head 的 Mindscape_{id}_2.webp 在
+> `public/data/img/hero/`（**张数以目录实际文件为准，本文不写死**；下载脚本遇缺仅告警不置失败码）
 > ——前端 `AgentHead.vue` 本地优先 + nanoka CDN 兜底，两级均缺时降为 --bg-0 底色，不破版。
 
 > **已知两端皆缺的按键图标（单一事实源）**：游戏文本 `<IconMap:…>` 里有个别资产**源站从未提供**。
@@ -268,6 +309,14 @@ pnpm run build:ci        # Vercel 部署构建入口（**完整链路以 package
                         #   只构建已提交快照、不在构建期重建数据（数据更新走 pnpm run sync）；站点因数据源故障而挂的情形由 sync 不提交规避
 pnpm run verify:icons    # 图标校准：本地 img 差集（核心）+ nanoka 远程审计；缺失非零退出
                         #   --local 仅查本地（离线可用）；网络异常按"无法确认"以码 2 退出
+node scripts/build/import-assets.mjs --dump <解包根>
+                        # 光栅资产从解包重转（头像/皮肤/音擎/邦布/驱动盘/筛选/键位图标）：
+                        #   --only=character,skin,weapon,bangboo,disc,filter,skill 选类目；--dry 只看差集；
+                        #   --force 重转（默认按 dump-import-manifest.json 跳过未变更）；
+                        #   --quality / --max-edge 覆盖档位；--max-diff 同名异物阈值（默认 14，仅 filter/skill 校验）
+                        #   导完记得 node scripts/build/icon-thumbs.mjs 重派生音擎/邦布小图
+node scripts/build/to-webp.mjs <src...> --out <dir>
+                        # 单文件/多文件转 webp（PicList 同参数：q85、去 EXIF、保透明），--max-edge 可选
 pnpm run download:fonts  # 西文字体本地化：Google Fonts css2 → public/fonts/*.woff2（自托管、运行时零外网）；幂等；网络失败仅告警
 pnpm run verify:fonts    # 字体存在性校验：download:fonts 声明的每个文件在 public/fonts/ 存在且非空（离线可用；build:ci 已挂）
 pnpm run download:fonts:cjk  # CJK 原始分片拉取：Noto Serif SC 500 → .cache/cjk-raw/ + faces.json（不入库；幂等；失败仅告警）

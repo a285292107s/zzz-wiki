@@ -8,8 +8,8 @@
 
 这类素材（典型：`public/data/img/hero/Mindscape_{id}_2.webp`）：
 
-- **超宽全景**，约 2.36:1（如 2552×1080）。
-- **带透明通道（RGBA）**：上下多为 **alpha=0 的透明边**，不是不透明黑条——在深色页底透出底色。
+- **超宽全景**，约 1.6–3.0:1（解包母版贴边，如 1786×834；宽度 1326–2580）。
+- **带透明通道（RGBA）**：画布外轮廓与 alpha=0 的边不算多，但仍是 RGBA——在深色页底透出底色。
 - 单个角色，**宽姿态**，头部常偏向画面一角。
 
 > 展示前先摸清素材（尺寸、是否有 alpha），再定方案；透明底就别叠暗色 scrim，会发糊。
@@ -113,6 +113,9 @@
 
 `transform: scale(<zoom>)`，其中 `zoom ≈ 源高 / 内容纵向高度`。
 
+`zoom` 有下限 1：取景框的宽和高都不得超出原图（`cameraRect.ts` 的 `minZoomForSource`，原图比 9:16 更窄时下限更高）。
+框比原图大时框外没有像素，卡片里会直接露出底色；`/calibrate` 的拖框与「大小」滑杆都按这条钳住。
+
 只放大还不够：内容常**不垂直居中**，居中缩放会在偏上/偏下的那一侧内容里留暗带。
 
 ### 2. 变换原点对准内容中心（消掉残带）
@@ -180,11 +183,21 @@
   470×588 / 645×806 的巨幅、把名字推出屏幕。此前移动端沿用桌面的「文字浮于底图上」写法，353px 宽时文字块占盒宽 89%、
   盒高 61%，名字正压在人脸上——**作品不被遮挡**优先于满栏底图，故手机不再叠字。
   桌面（>860）仍是满栏底图 + 文字浮于左半，未改动。
-- 代理人名录卡片（`AgentCardGrid.vue`，`/agents` 的卡片版名录）：**9:16 竖格**，格宽
+- 代理人名录卡片（`AgentCardGrid.vue`，`/agents` 卡片版的陈列格）：**9:16 竖格**，格宽
   `minmax(156px, 1fr)`（≤480 视口降到 130px），整格 `object-fit: cover` + **原样复用同一份校准**
   （`heroCalibration.ts` 的 `{ pos, zoom, originY }` 经 CSS 自定义属性透传，与 `/calibrate` 网格同一套写法）。
-  未校准（当前恰 1 位无校准数据）回落居中取景；缺 hero 图则由属性图标垫底（见 `AgentCardGrid` 的层叠写法）。
+  未校准（当前恰 1 位无校准数据）回落居中取景。**立绘缺失时留 `--bg-0` 空底，不拿名录图标垫底**：
+  立绘与图标都在本地，不存在「图标在、立绘缺」的组合；真缺一张时，在 9:16 格里垫一枚 179×64 的
+  横幅图标比空底更违和（判据见 [决策记录 0012](./docs/decisions/0012-agents-view-switch-on-page.md)）。
   档位走 `heroGridSources`（`card/` DPR<1.5 / `wide/` DPR≥1.5，原图与 CDN 依次兜底）。
+- 代理人详情页「潜能影像」区块的**觉醒立绘**（`img/awaken/AvatarSpecialAwakenBg_{image}.webp`，11 张 / 1.18MB）：
+  **逐图手工裁剪**（`src/data/awaken-crops.json` 的 `pos`，渲染在 `PotentialCinemaGroup.vue`）。
+  素材是「暗调角色压亮底」的游戏页贴图（1596–2112×1080，纵横比 1.01–1.96），全是横构图，故框取
+  **4:5 竖框**只靠 `object-fit: cover` + `object-position: {pos}% 50%`：横构图下 cover 只裁左右，
+  `pos` 是唯一变量，**不需要第二套 pos/zoom 校准公式**。每张的 `pos` 按「人脸落在框内偏中」逐张目检
+  定值（0–100，缺省 50 兜底）；换图或改框比例后要在 `/agents/{id}` 目检重调。
+  框高 `clamp(430px, 30vw, 600px)`（宽由 4:5 反推），与右侧档位竖条同高；≤1023px 单列、图上文下、
+  框宽封顶 380px。
 - 素材：`img/hero/Mindscape_{id}_2.webp`（本地化；nanoka CDN 兜底见 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §5）。
 - 页面地面壁纸：`public/page-bg.webp`（绳网情报站 wiki 官方背景同款 `pc-page-bg.png`，1920×1231，
   深炭底 + 斜向 ZZZ 水印纹理、向下渐隐近黑，与 `--bg-0` 同域色）。经 `tokens.css` 的 `--page-bg-image`
@@ -227,9 +240,9 @@
 
 ### 头图派生档位（card + wide，2026-10 落地 / 2026-10-07 改为两档 + srcset）
 
-权衡结论：**不压缩原图、按用途另派生小图**。原图保持全分辨率（详情页 AgentHead 满栏底图
-在桌面 DPR2 下正需要它：hero 盒 1168×497 → 需 ~2336px，原图 2552px 合适），为更小的展示格
-另派生等比变体：
+权衡结论：**不压缩原图、按用途另派生小图**。原图保持解包母版全分辨率（宽 1326–2580，
+均 ~221KB/张）：桌面 DPR2 下 hero 盒 1168×497 需 ~2336px，故 retina 桌面上多数角色会被
+放大 ~1.3×——这是游戏母版分辨率的硬上限，不为字节再牺牲。为更小的展示格另派生等比变体：
 
 - 生成器 `scripts/build/hero-cards.mjs`（sharp）：`public/data/img/hero/{card,wide}/{同名}.webp`。
   **档位规格由展示格的物理像素需求反推**（规格是展示格的函数，改布局必须重算）：
@@ -268,7 +281,7 @@
   白拉一张 + console 警告；挂载即执行的预热是确定性机制，先于卡片区渲染。）
 - **hero 窄屏派生**（`scripts/build/hero-mobile.mjs`）：`public/data/img/hero/mobile/{同名}.webp`，
   ≤1400px / q62。详情页 hero 在手机上可见窗仅 ~350 CSS px（cover 缩放后源图等效需求 ~1300px），
-  2552px 原图超采约 2 倍。前端按视口选路（`AgentHead.vue` + `useMediaQuery('(max-width: 860px)')`，
+  原图（宽 1326–2580）对 ~700 设备像素的需求超采 2–4 倍。前端按视口选路（`AgentHead.vue` + `useMediaQuery('(max-width: 860px)')`，
   在 setup 期同步求值以免「先请求原图再切分支」的双下载），候选链
   `hero/mobile → hero 原图 → CDN`，派生缺失自动回退不破图。
   实测：详情页图片载荷 370KB → 105KB，LCP 9.2s → 7.6s。
