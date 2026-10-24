@@ -49,11 +49,14 @@ const errorHint = computed(() => {
 </script>
 
 <template>
-  <p v-if="status === 'loading' || status === 'idle'" class="state loading mono" role="status">
+  <div v-if="status === 'loading' || status === 'idle'" class="state-slot" role="status">
+    <span v-if="$slots.skeleton" class="sr-only">{{ loadingText ?? 'LOADING…' }}</span>
     <slot name="skeleton">
-      {{ loadingText ?? 'LOADING…' }}
+      <p class="state loading mono">
+        {{ loadingText ?? 'LOADING…' }}
+      </p>
     </slot>
-  </p>
+  </div>
   <!-- div 而非 p：错误态含标题/说明/重试按钮多个块级子项（p 内不允许按钮等，
        否则是非法 DOM）。role=alert 保留，读屏会在错误出现时立刻播报。 -->
   <div v-else-if="status === 'error'" class="state err" role="alert">

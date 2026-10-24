@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { detailFor, listFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
+import { weaponArtSource, WEAPON_ART_RATIO } from '@/data/weaponArt'
 import { ownerAgentForEngine } from '@/domain/signatureEngine'
 import { richDesc } from '@/utils/rich'
 import { stripRichText } from '@/utils/text'
@@ -24,10 +25,9 @@ import {
   type DetailRow,
   type StatItem,
 } from '@/domain/sections'
-import { PROFESSIONS, type SpecCode } from '@/data/types'
+import type { SpecCode } from '@/data/types'
 import type { CharacterListItem, WEngineDetail } from '@/data/types'
 import { pickName } from '@/utils/names'
-import { pickText } from '@/domain/lang'
 import { useLocale } from '@/composables/useLocale'
 import { useUiText } from '@/composables/useUiText'
 import { fmt } from '@/domain/uiText'
@@ -72,11 +72,6 @@ const specCode = computed<SpecCode | null>(() => {
   const wd = detail.value?.weapon_type
   const key = wd ? Object.keys(wd)[0] : null
   return key ? (Number(key) as SpecCode) : null
-})
-
-const specName = computed(() => {
-  const meta = specCode.value != null ? PROFESSIONS[specCode.value] : undefined
-  return meta ? pickText(meta.label, lang.value) : null
 })
 
 /** 基础属性：等级滑条（默认满级；切换音擎时重置）与突破刻度 */
@@ -127,9 +122,16 @@ const bodyText = computed<string>(() => {
   return stripRichText(d.desc)
 })
 
-const portraitSrcs = computed(() =>
-  iconSources({ Id: detail.value?.id, icon: detail.value?.icon }, 'weapon'),
-)
+const artSrc = computed(() => weaponArtSource(detail.value?.code_name))
+/** 解包大图只覆盖部分音擎：有则整幅展示产品图，无则回落到名录图标 */
+const hasArt = computed(() => !!artSrc.value)
+
+const portraitSrcs = computed(() => {
+  const icon = iconSources({ Id: detail.value?.id, icon: detail.value?.icon }, 'weapon')
+  return artSrc.value ? [artSrc.value, ...icon] : icon
+})
+const portraitRatio = computed(() => (hasArt.value ? WEAPON_ART_RATIO : '1 / 1'))
+const portraitFit = computed<'cover' | 'contain'>(() => (hasArt.value ? 'contain' : 'cover'))
 
 /* ---------- 归属代理人（反向交叉引用） ---------- */
 
@@ -186,14 +188,15 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
         :eyebrow="`W-Engine · ${String(id).padStart(4, '0')}`"
         :title="detail.name ?? '—'"
         :portrait-srcs="portraitSrcs"
-        :alt="detail.name ?? ''"
+        alt=""
         :fallback="detail.name ?? '—'"
-        ratio="1 / 1"
+        :ratio="portraitRatio"
+        :fit="portraitFit"
+        :wide="hasArt"
       >
         <template #meta>
           <Rarity :rank="detail.rarity" />
           <Tags :specialty="specCode" />
-          <span v-if="specName" class="tag serif">{{ specName }}</span>
         </template>
         <template #sub>
           <p v-if="detail?.desc3" class="tagline">{{ detail.desc3 }}</p>

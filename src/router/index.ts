@@ -39,7 +39,6 @@ function catalogRoutes(): RouteRecordRaw[] {
         path: `${c.path}/:id`,
         name: `${name}-detail`,
         component: pair[1],
-        props: true,
         meta: { title: joinLoc(c.label, uiLoc('meta.detailSuffix')) },
       },
     ] as unknown as RouteRecordRaw[]

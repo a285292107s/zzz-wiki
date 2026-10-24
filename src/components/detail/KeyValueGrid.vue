@@ -17,15 +17,16 @@ withDefaults(
     <template v-if="variant === 'ledger'">
       <div v-for="it in items" :key="it.label" class="ledger-row">
         <dt class="k">{{ it.label }}</dt>
-        <span class="leader" aria-hidden="true" />
         <dd class="v mono">{{ it.value }}</dd>
       </div>
     </template>
     <template v-else>
       <div v-for="it in items" :key="it.label" class="stat">
         <dt class="k">{{ it.label }}</dt>
-        <dd class="v mono">{{ it.value }}</dd>
-        <span v-if="it.tag" class="tag-lbl">{{ it.tag }}</span>
+        <dd class="v mono">
+          {{ it.value }}
+          <span v-if="it.tag" class="tag-lbl">{{ it.tag }}</span>
+        </dd>
       </div>
     </template>
   </dl>
@@ -52,6 +53,9 @@ withDefaults(
 
 .stat dd {
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .tag-lbl {
@@ -77,7 +81,17 @@ withDefaults(
   padding-block: 11px;
 }
 
-.leader {
+/* 点线引导画在 dt 自己身上：dl 的子级只认 dt/dd/div，引导线不能自成一项 */
+.v-ledger .k {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-inline);
+}
+
+.v-ledger .k::after {
+  content: '';
   flex: 1;
   min-width: 24px;
   border-bottom: 1px dotted color-mix(in srgb, var(--ink-2) 72%, transparent);
@@ -95,10 +109,6 @@ withDefaults(
 .v {
   font-size: var(--fs-subhead);
   color: var(--ink-0);
-}
-
-.v-ledger .k {
-  flex: none;
 }
 
 .v-ledger .v {

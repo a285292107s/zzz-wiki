@@ -71,9 +71,9 @@ function formShotSources(form: HeroForm) {
     </header>
 
     <section v-reveal="90" class="group">
-      <h2 class="group-title mono">{{ t.settings.heroForm }}</h2>
-      <p class="group-note">{{ t.settings.heroFormNote }}</p>
-      <div class="plates">
+      <h2 id="h-hero-form" class="group-title mono">{{ t.settings.heroForm }}</h2>
+      <p id="hero-form-note" class="group-note">{{ t.settings.heroFormNote }}</p>
+      <div class="plates" role="radiogroup" aria-labelledby="h-hero-form" aria-describedby="hero-form-note">
         <label
           v-for="opt in FORMS"
           :key="opt.value"
@@ -122,12 +122,12 @@ function formShotSources(form: HeroForm) {
     </section>
 
     <section v-reveal="140" class="group">
-      <h2 class="group-title mono">{{ t.settings.lang }}</h2>
+      <h2 id="h-display-lang" class="group-title mono">{{ t.settings.lang }}</h2>
       <p id="lang-note" class="group-note">
         {{ t.settings.langNote }}
 
       </p>
-      <div class="plates">
+      <div class="plates" role="radiogroup" aria-labelledby="h-display-lang" aria-describedby="lang-note">
         <label
           v-for="l in LANGS"
           :key="l"

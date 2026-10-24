@@ -84,7 +84,7 @@ watch(
             <RouterLink
               class="sn-item mono"
               :class="{ active: active === n.id || n.children.some((c) => c.id === active) }"
-              :aria-current="active === n.id || n.children.some((c) => c.id === active) ? 'true' : undefined"
+              :aria-current="active === n.id || n.children.some((c) => c.id === active) ? 'location' : undefined"
               :to="{ hash: '#' + n.id }"
               :title="n.label"
             >
@@ -96,7 +96,7 @@ watch(
                 <RouterLink
                   class="sn-child mono"
                   :class="{ active: active === c.id }"
-                  :aria-current="active === c.id ? 'true' : undefined"
+                  :aria-current="active === c.id ? 'location' : undefined"
                   :to="{ hash: '#' + c.id }"
                 >
                   <span>{{ c.label }}</span>
@@ -108,7 +108,7 @@ watch(
             v-else
             class="sn-item mono"
             :class="{ active: active === n.id }"
-            :aria-current="active === n.id ? 'true' : undefined"
+            :aria-current="active === n.id ? 'location' : undefined"
             :to="{ hash: '#' + n.id }"
             :title="n.label"
           >

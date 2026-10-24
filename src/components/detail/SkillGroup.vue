@@ -113,9 +113,9 @@ function potTag(grp: SkillGroup): string | null {
       <span class="key-glyph">
         <!-- 图标位：默认 HollowImage 候选链；邦布等可经 #glyph 插槽替换（如字母占位框） -->
         <slot name="glyph">
-          <HollowImage :srcs="props.srcs" :alt="row.label" :fallback="props.glyph" />
+          <HollowImage :srcs="props.srcs" :fallback="props.glyph" />
         </slot>
-        <em v-if="row.keyEn" class="mono">{{ row.keyEn }}</em>
+        <span v-if="row.keyEn" class="mono">{{ row.keyEn }}</span>
       </span>
       <h3 class="skill-kind serif">{{ row.label }}</h3>
       <!-- 大类含受潜能影像影响的技能时，显示「潜能激发」切换开关（默认打开） -->
@@ -139,17 +139,21 @@ function potTag(grp: SkillGroup): string | null {
           :max="levelCount ?? SKILL_LEVEL_MAX"
           :label="fmt(t.detail.skillLevelOf, { name: row.label })"
         />
-        <span class="level-val mono">Lv.{{ level }}</span>
+        <span class="level-val mono" aria-hidden="true">Lv.{{ level }}</span>
       </div>
     </div>
 
-    <ul class="action-list">
+    <ol class="action-list">
       <li
         v-for="({ grp, table }, gi) in displayGroups"
         :key="grp.name || 'g' + gi"
         class="row"
       >
-        <span class="no mono">{{ String(gi + 1).padStart(2, '0') }}</span>
+        <span
+          v-if="displayGroups.length > 1"
+          class="no mono"
+          aria-hidden="true"
+        >{{ String(gi + 1).padStart(2, '0') }}</span>
         <div class="body">
           <h4 class="title title-skill">
             {{ groupName(grp) }}
@@ -208,7 +212,7 @@ function potTag(grp: SkillGroup): string | null {
           </ul>
         </div>
       </li>
-    </ul>
+    </ol>
   </div>
 </template>
 
@@ -248,7 +252,7 @@ function potTag(grp: SkillGroup): string | null {
   height: var(--label-col);
   border-radius: 2px;
 }
-.key-glyph em {
+.key-glyph > .mono {
   font-style: normal;
   font-size: var(--fs-badge);
   letter-spacing: 0.14em;
@@ -289,6 +293,29 @@ function potTag(grp: SkillGroup): string | null {
 }
 .body {
   min-width: 0;
+  /* 单条成组时（邦布每类只有一个招式）不渲染编号列，正文仍占第二轨，
+     与组标题同一竖直轴——否则它会被自动排进第一轨、整体左移 50px */
+  grid-column: 2;
+}
+/* 宽屏分栏：招式说明在左（守住 76ch 阅读行长），数值账本贴版心右缘。
+   数值是「账」——跨行右缘对齐才读得出同档对照；单栏时它悬在说明下方，右侧空出半栏。
+   space-between 是刻意的两端对齐（与 KeyValueGrid 的 ledger 变体同一语法）。 */
+@media (min-width: 1200px) {
+  .body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+    justify-content: space-between;
+    column-gap: clamp(28px, 4vw, 72px);
+    align-items: start;
+  }
+  .body > .title {
+    grid-column: 1 / -1;
+  }
+  .body > .metric-table,
+  .body > .metric-extras,
+  .body > .stat-list {
+    grid-column: 2;
+  }
 }
 .title {
   font-weight: 500;

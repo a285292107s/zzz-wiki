@@ -84,9 +84,9 @@ const unlockCount = computed(() =>
     <div class="skill-kind-row">
       <span class="key-glyph">
         <span class="core-glyph" aria-hidden="true">◒</span>
-        <em class="mono">CORE</em>
+        <span class="mono">CORE</span>
       </span>
-      <h3 class="skill-kind serif">{{ t.detail.coreSkill }}</h3>
+      <h3 class="skill-kind serif">{{ t.detail.corePassiveGroup }}</h3>
       <!-- 两轮核心或存在潜能影像强化时，显示「潜能激发」切换开关（默认打开） -->
       <button
         v-if="canVary"
@@ -113,9 +113,9 @@ const unlockCount = computed(() =>
       </div>
     </div>
 
-    <ul class="action-list">
+    <ol class="action-list">
       <li class="row">
-        <span class="no mono">01</span>
+        <span class="no mono" aria-hidden="true">01</span>
         <div class="body">
           <h4 class="title title-skill">
             {{ stripRichText(current.coreName) }}<span v-if="currentBadge" class="pot-badge mono">{{ currentBadge }}</span>
@@ -124,9 +124,9 @@ const unlockCount = computed(() =>
         </div>
       </li>
       <li class="row">
-        <span class="no mono">02</span>
+        <span class="no mono" aria-hidden="true">02</span>
         <div class="body">
-          <h4 class="title title-skill">
+          <h4 v-if="current.extraName" class="title title-skill">
             {{ stripRichText(current.extraName) }}<span v-if="currentBadge" class="pot-badge mono">{{ currentBadge }}</span>
           </h4>
           <p v-if="current.desc[1]" class="desc" v-html="richDesc(current.desc[1], level)"></p>
@@ -134,19 +134,19 @@ const unlockCount = computed(() =>
       </li>
       <!-- 潜能模式：追加「潜能觉醒：极冰带」等潜能影像强化效果行 -->
       <li v-if="variant === 'pot' && potBoost" class="row">
-        <span class="no mono">03</span>
+        <span class="no mono" aria-hidden="true">03</span>
         <div class="body">
           <h4 class="title title-skill">{{ potBoost.name || t.detail.potentialUnlock }}</h4>
           <p class="desc" v-html="richDesc(potBoost.desc, level)"></p>
         </div>
       </li>
-    </ul>
+    </ol>
 
     <!-- 核心技强化：extra_level 档位（A-F），本档新增属性加成（累计值已换算为每档增量） -->
-    <section v-if="enhance?.length" class="enhance" :aria-label="t.detail.coreSkillEnhance">
+    <section v-if="enhance?.length" class="enhance" aria-labelledby="h-core-enhance">
       <!-- 标题行：eyebrow + 已解锁进度计数（随角色等级实时联动） -->
       <div class="enhance-head">
-        <h4 class="enhance-title mono">{{ t.detail.coreSkillEnhance }}</h4>
+        <h4 id="h-core-enhance" class="enhance-title mono">{{ t.detail.coreSkillEnhance }}</h4>
         <span
           class="enhance-count mono"
           :class="{ 'is-full': unlockCount === enhance.length }"
@@ -235,7 +235,7 @@ const unlockCount = computed(() =>
   background: var(--bg-1);
 }
 
-.key-glyph em {
+.key-glyph > .mono {
   font-style: normal;
   font-size: var(--fs-badge);
   letter-spacing: 0.14em;

@@ -24,7 +24,7 @@
           :to="item.to"
           class="nav-item"
           :class="{ active: isActive(item.to) }"
-          :aria-current="isActive(item.to) ? 'true' : undefined"
+          :aria-current="isActive(item.to) ? 'page' : undefined"
         >
           <span class="no mono">{{ item.no }}</span>
           <span class="label">{{ item.label }}</span>
@@ -79,7 +79,7 @@
         :to="item.to"
         class="menu-item"
         :class="{ active: isActive(item.to) }"
-        :aria-current="isActive(item.to) ? 'true' : undefined"
+        :aria-current="isActive(item.to) ? 'page' : undefined"
       >
         <span class="no mono">{{ item.no }}</span>
         <span class="label">{{ item.label }}</span>

@@ -20,7 +20,7 @@ const titleClass = computed(() => 'title title-' + (props.variant ?? 'default'))
 
 <template>
   <li class="row">
-    <span class="no mono">{{ no }}</span>
+    <span class="no mono" aria-hidden="true">{{ no }}</span>
     <div class="body">
       <!-- h3：DescRow 用于影画/精炼/潜能影像等区块（h2 下直接子级），
            用 h3 保证大纲连续（避免 h2→h4 跳级）；区块内更深层级由调用方处理 -->

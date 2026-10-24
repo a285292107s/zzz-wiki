@@ -8,9 +8,9 @@ usePageMeta()
 
 <template>
   <div class="wrap page">
-    <section class="err">
+    <section class="err" aria-labelledby="h-404">
       <p class="eyebrow mono">Error 404</p>
-      <h1 class="page-title">{{ t.notFound.title }}</h1>
+      <h1 id="h-404" class="page-title">{{ t.notFound.title }}</h1>
       <p class="page-sub">
         {{ t.notFound.body }}
       </p>

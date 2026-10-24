@@ -98,11 +98,11 @@ const sections = computed(() => [
     <div class="home-backdrop" aria-hidden="true" />
 
     <!-- hero：文字陈列浮于壁纸之上；旧 Mindscape 头图已移除，双形态切换钮在设置页（/settings） -->
-    <section class="hero">
+    <section class="hero" aria-labelledby="h-hero">
       <div class="wrap hero-inner">
         <div class="hero-text">
           <p v-reveal="0" class="eyebrow mono" data-vt-block>NEW Eridu · Data Terminal</p>
-          <h1 v-reveal="60" class="page-title" data-vt-block>
+          <h1 id="h-hero" v-reveal="60" class="page-title" data-vt-block>
             {{ t.meta.siteName }}
             <!-- 拉丁文副行是**装饰**（中文站名的对照写法）；当站名本身就是这串拉丁文时
                  （en "Ropeweb Archive"）会与主标题重复成「Ropeweb Archive / ROPWEB ARCHIVE」，
@@ -115,14 +115,14 @@ const sections = computed(() => [
 
           <div v-reveal="220" class="hero-meta mono" data-vt-block>
             <span>{{ t.home.clientData }}</span>
-            <span class="dot">·</span>
+            <span class="dot" aria-hidden="true">·</span>
             <span>{{ t.home.alwaysUpdated }}</span>
-            <span class="dot">·</span>
+            <span class="dot" aria-hidden="true">·</span>
             <span>{{ t.home.unofficial }}</span>
             <!-- 版本位常驻（清单到达前占位「VER ···」）：若改用 v-if 等清单到达再插入，
                  窄屏这一行会从 1 行折成 2 行（+34px）并把下方整块推下去——实测即首页
                  CLS 0.023 的全部来源。占位与真值同为「VER + 版本号」量级宽度，折行数不变。 -->
-            <span class="dot">·</span>
+            <span class="dot" aria-hidden="true">·</span>
             <span class="hero-ver">{{ currentVersionLabel || 'VER ···' }}</span>
           </div>
         </div>
@@ -163,9 +163,9 @@ const sections = computed(() => [
            ←/→/Home/End 与刻度切换；整卡点击跳 /agents/{id}。
            区块挂载即渲染（图 src 只依赖 id，与清单请求并行）；名字/元素未就绪时标本签留条形占位。
            逐图构图参数 pos/zoom/originY 与详情页 AgentHead 同一套校准（IMG_GUIDE.md）。池为空不渲染。 -->
-      <section v-if="picks.length" class="banners">
+      <section v-if="picks.length" class="banners" aria-labelledby="h-today">
         <div v-reveal class="section-head" data-vt-block>
-          <h2>{{ t.home.today }}</h2>
+          <h2 id="h-today">{{ t.home.today }}</h2>
           <span class="rule" />
           <!-- 右端英文标签是延伸线的收尾锚点（缺了它，延伸线就与上方基线成为两条平行线，
                见 base.css 的 .section-head .en）。词取 Featured：与 FeaturedDeck /
@@ -177,10 +177,9 @@ const sections = computed(() => [
         <FeaturedDeck :cards="featured" />
       </section>
 
-      <section class="index">
+      <section class="index" aria-labelledby="h-contents">
       <div v-reveal class="section-head" data-vt-block>
-        <span class="no mono" aria-hidden="true">00</span>
-        <h2>{{ t.home.contents }}</h2>
+        <h2 id="h-contents">{{ t.home.contents }}</h2>
         <span class="rule" />
         <!-- 右端英文标签（同「今日角色」）。词取 Contents：这一栏就是站点的目录，
              与页脚「数据说明」的 Colophon 同一层语义，不复用类目页的 AGENTS 等「内容类目名」。 -->
@@ -503,7 +502,7 @@ const sections = computed(() => [
    ⓑ `column-gap: 0`：发丝线画在每格 `.index-row` 的下边框上，栏间距为 0 时两格的线
       在栏间接成一条；留出 gap 会把每行的线断成两截，读起来像画坏了。
    ⓒ 栏间留白由**奇格右内边距 + 偶格左内边距各出一半**给出（合计 ~84px），左右两端仍与
-      区块头同为 8px —— 若改成整列 `padding-inline`，首格图标会相对「00 目录」右移一档。
+      区块头同为 8px —— 若改成整列 `padding-inline`，首格图标会相对「目录」右移一档。
       留白必须够宽：只有 ~50px 时，左格箭头离自己的描述 87px、离右栏图标 50px，
       看起来像右栏的箭头（Gestalt 归属错乱）；各出一半后变成 45px / 103px。 */
 @media (min-width: 1180px) {

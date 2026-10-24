@@ -149,7 +149,7 @@ const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
         :eyebrow="`Bangboo · ${String(id).padStart(5, '0')}`"
         :title="detail.name ?? '—'"
         :portrait-srcs="portraitSrcs"
-        :alt="detail.name ?? ''"
+        alt=""
         :fallback="detail.name ?? '—'"
         position="top"
         ratio="1 / 1"
@@ -192,7 +192,7 @@ const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
         >
           <!-- 邦布无技能图标素材：以等宽字母占位（角色页走默认 HollowImage 候选链） -->
           <template #glyph>
-            <i class="glyph mono">{{ sk.key.toUpperCase() }}</i>
+            <i class="glyph mono" aria-hidden="true">{{ sk.key.toUpperCase() }}</i>
           </template>
         </SkillGroup>
       </DetailSection>

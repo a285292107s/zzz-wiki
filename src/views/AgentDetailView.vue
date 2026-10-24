@@ -50,7 +50,7 @@ interface SkillDisplay extends SkillRow {
   level: Ref<number>
 }
 import type { CharacterDetail, WEngineListItem } from '@/data/types'
-import { awakenArtSource, awakenCropPosition } from '@/data/awakenImageSources'
+import { awakenArtSource, awakenCropPosition, awakenNameSource } from '@/data/awakenImageSources'
 import { AgentHead, CoreSkillGroup, DetailPager, DescRow, DetailPage, DetailSection, DetailSkeleton, KeyValueGrid, LevelSlider, PotentialCinemaGroup, SkillGroup, StatLevelPanel } from '@/components'
 import HollowImage from '@/components/HollowImage.vue'
 
@@ -170,6 +170,7 @@ const potentialCinema = computed<PotentialCinema[]>(() =>
 )
 
 const awakenArt = computed(() => awakenArtSource(potentialCinema.value[0]?.image))
+const awakenName = computed(() => awakenNameSource(potentialCinema.value[0]?.image))
 const awakenCrop = computed(() => awakenCropPosition(potentialCinema.value[0]?.image))
 const potentialGates = computed(() =>
   buildPotentialGates(skills.value, coreSkill.value, lang.value),
@@ -305,7 +306,7 @@ watch(detail, (d) => {
         <p class="profile-desc">{{ profile }}</p>
       </DetailSection>
 
-      <DetailSection id="stats" :no="noOf('stats')" :title="t.detail.baseProps" en="Vitals">
+      <DetailSection v-reveal id="stats" :no="noOf('stats')" :title="t.detail.baseProps" en="Vitals">
         <StatLevelPanel
           :lv-label="`Lv.${charLevel}`"
           :meta="
@@ -366,7 +367,7 @@ watch(detail, (d) => {
       </DetailSection>
 
       <DetailSection v-if="talents.length" v-reveal id="talents" :no="noOf('talents')" :title="t.detail.mindscape" en="Mindscape">
-        <ul class="talents-list">
+        <ol class="talents-list">
           <!-- 循环变量改名 row：本组件模板里的 `t` 是界面文案树（useUiText） -->
           <DescRow
             v-for="row in talents"
@@ -377,7 +378,7 @@ watch(detail, (d) => {
             :text2="stripRichText(row.desc2)"
             variant="talent"
           />
-        </ul>
+        </ol>
       </DetailSection>
 
       <DetailSection
@@ -388,7 +389,13 @@ watch(detail, (d) => {
         :title="t.detail.potentialFootage"
         en="Potential"
       >
-        <PotentialCinemaGroup :cinema="potentialCinema" :gates="potentialGates" :art="awakenArt" :crop="awakenCrop" />
+        <PotentialCinemaGroup
+          :cinema="potentialCinema"
+          :gates="potentialGates"
+          :art="awakenArt"
+          :name="awakenName"
+          :crop="awakenCrop"
+        />
       </DetailSection>
 
       <DetailSection v-if="skinList.length" v-reveal id="skins" :no="noOf('skins')" :title="t.detail.skins" en="Outfits">
@@ -421,12 +428,12 @@ watch(detail, (d) => {
         :title="t.detail.impressions"
         en="Inter-Knot"
       >
-        <ul class="im-list">
+        <ol class="im-list">
           <li v-for="(line, i) in impressions" :key="i" class="im-row">
-            <span class="no mono">{{ String(i + 1).padStart(2, '0') }}</span>
+            <span class="no mono" aria-hidden="true">{{ String(i + 1).padStart(2, '0') }}</span>
             <p class="im-text">{{ line }}</p>
           </li>
-        </ul>
+        </ol>
         <div v-if="voices.length" class="voices">
           <figure v-for="(v, i) in voices" :key="i" class="voice">
             <blockquote class="serif">「{{ v }}」</blockquote>

@@ -182,8 +182,8 @@ const gapCount = computed(() =>
           <span class="no mono">{{ l.no }}</span>
           <span class="label">{{ l.label }}</span>
           <span class="en mono">{{ l.en }}</span>
-          <span class="range mono">{{ l.range }}</span>
-          <span class="count mono">{{ fmt(l.count) }}</span>
+          <span class="range mono"><span class="sr-only">号段</span>{{ l.range }}</span>
+          <span class="count mono"><span class="sr-only">收录量</span>{{ fmt(l.count) }}</span>
         </li>
       </ul>
       <p class="spec-note">
@@ -212,19 +212,19 @@ const gapCount = computed(() =>
     <DetailSection v-reveal id="update" no="02" title="更新机制" en="Pipeline">
       <ol class="steps">
         <li>
-          <span class="step-no mono">01</span>
+          <span class="step-no mono" aria-hidden="true">01</span>
           <span class="step-txt">定时任务探测源站版本；无新版本则直接结束，不产生提交。</span>
         </li>
         <li>
-          <span class="step-no mono">02</span>
+          <span class="step-no mono" aria-hidden="true">02</span>
           <span class="step-txt">有新版本时重建名录与详情 JSON，并增量补齐缺失的图标与头图派生图（已有美术资源不重复下载）。</span>
         </li>
         <li>
-          <span class="step-no mono">03</span>
+          <span class="step-no mono" aria-hidden="true">03</span>
           <span class="step-txt">跑数据契约校验（名录与详情必须一一对应）；校验不通过则整批不提交，站点停留在上一次的好数据上。</span>
         </li>
         <li>
-          <span class="step-no mono">04</span>
+          <span class="step-no mono" aria-hidden="true">04</span>
           <span class="step-txt">校验通过后一次性提交，触发部署；部署只构建已提交的快照，不在构建期访问数据源。</span>
         </li>
       </ol>
@@ -435,9 +435,23 @@ const gapCount = computed(() =>
 }
 
 .spec-cat .label {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-inline);
+  min-width: 0;
   font-family: var(--serif);
   font-size: var(--fs-md);
   color: var(--ink-0);
+}
+
+/* 名称列吃满剩余宽度（1fr），文字却只有两三个字：余量交给账册的点线引导，
+   不留一段无主空白（与 KeyValueGrid 的 ledger、名录移动端同一语法） */
+.spec-cat .label::after {
+  content: '';
+  flex: 1;
+  min-width: 16px;
+  border-bottom: 1px dotted color-mix(in srgb, var(--ink-2) 72%, transparent);
+  transform: translateY(-4px);
 }
 
 .spec-cat .en {

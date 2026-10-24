@@ -72,7 +72,15 @@ onBeforeUnmount(() => {
 
 <template>
   <ListPage>
-    <!-- 段导航：宽屏左侧索引 / 窄屏吸顶横条（ref 挂真正滚动的 .sn-list，见 base.css） -->
+    <header v-reveal class="page-head">
+      <p class="eyebrow mono">Combat Formulas</p>
+      <h1 class="page-title">{{ title }}</h1>
+      <p class="page-sub">{{ FORMULA_GUIDE.sub }}</p>
+    </header>
+
+    <!-- 段导航：宽屏左侧索引 / 窄屏吸顶横条（ref 挂真正滚动的 .sn-list，见 base.css）。
+         放在页头**之后**：它是本页的目录，不该挡在标题与正文之间的 Tab 序最前面
+         （宽屏是 fixed、视觉位置与此无关；窄屏吸顶条只是首个视图里起点低了一格）。 -->
     <nav v-if="nav.length" class="section-nav" aria-label="战斗公式段落">
       <div ref="navEl" class="sn-list">
         <RouterLink
@@ -80,7 +88,7 @@ onBeforeUnmount(() => {
           :key="n.id"
           class="sn-item mono"
           :class="{ active: active === n.id }"
-          :aria-current="active === n.id ? 'true' : undefined"
+          :aria-current="active === n.id ? 'location' : undefined"
           :to="{ hash: '#' + n.id }"
         >
           <span class="no" aria-hidden="true">{{ n.no }}</span>
@@ -89,12 +97,6 @@ onBeforeUnmount(() => {
       </div>
       <NavScrollButton label="向右浏览段落" @click="scrollRight" />
     </nav>
-
-    <header v-reveal class="page-head">
-      <p class="eyebrow mono">Combat Formulas</p>
-      <h1 class="page-title">{{ title }}</h1>
-      <p class="page-sub">{{ FORMULA_GUIDE.sub }}</p>
-    </header>
 
     <!-- 长文不翻译（决策记录 0011）：非中文读者先读到「这页只有中文」，中文读者不需要 -->
     <p v-if="lang !== 'zh'" v-reveal="40" class="zh-only" role="note">

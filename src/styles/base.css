@@ -649,7 +649,7 @@ a.rich-term:hover {
    淡出与按钮都只在「那一边确实还有内容」时存在：.at-start / .at-end 一到边就收掉，
    不留「还能滑」的误导。这三条位置类由 useNavScrollable 维护（挂在 .sn-list 上，
    与 ref 同一个元素——挂外层会让宽屏/窄屏两套样式各认一个祖先）。 */
-@media (max-width: 1520px) {
+@media (max-width: 1360px) {
   .section-nav {
     position: sticky;
     top: 61px; /* 站头 62px - 1px 边线重叠 */
@@ -869,14 +869,14 @@ a.rich-term:hover {
 }
 
 /* ---------- 锚点滚动避让：响应式（站头 + 吸顶横条） ----------
-   --anchor-offset 是单一来源：CSS 侧栏断点（1520）与 router scrollBehavior 共用 */
+   --anchor-offset 是单一来源：CSS 侧栏断点（1360）与 router scrollBehavior 共用 */
 
 :root {
-  /* 宽屏侧栏模式（>1520）：只避让站头 62px + 14px 间隙 */
+  /* 宽屏侧栏模式（>1360）：只避让站头 62px + 14px 间隙 */
   --anchor-offset: 76px;
 }
 
-@media (max-width: 1520px) {
+@media (max-width: 1360px) {
   :root {
     /* 窄屏吸顶横条模式：站头 62 + 横条 56 + 14 间隙 = 132 */
     --anchor-offset: 132px;

@@ -17,7 +17,7 @@ defineProps<{
 <template>
   <div class="stat-level">
     <div v-if="$slots.control" class="stat-level-head">
-      <span class="stat-level-lv mono">{{ lvLabel }}</span>
+      <span class="stat-level-lv mono" aria-hidden="true">{{ lvLabel }}</span>
       <slot name="control" />
     </div>
     <!-- 元信息行：突破说明。只在真有内容时渲染，不留空行。 -->

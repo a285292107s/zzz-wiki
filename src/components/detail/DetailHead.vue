@@ -13,6 +13,10 @@ defineProps<{
   ratio?: string | number
   /** 画像裁切对齐；竖长图用 top */
   position?: 'center' | 'top' | 'bottom'
+  /** 图片适应方式：默认 cover 裁切填满；产品大图整幅展示用 contain */
+  fit?: 'cover' | 'contain'
+  /** 宽幅画像（音擎详情页产品大图）：右栏放宽一档 */
+  wide?: boolean
 }>()
 </script>
 
@@ -33,13 +37,14 @@ defineProps<{
       </div>
     </div>
 
-    <div class="portrait">
+    <div class="portrait" :class="{ wide }">
       <HollowImage
         :srcs="portraitSrcs"
         :alt="alt"
         :fallback="fallback"
         :position="position ?? 'center'"
         :ratio="ratio ?? '3 / 4'"
+        :fit="fit ?? 'cover'"
       />
     </div>
   </header>
@@ -52,6 +57,17 @@ defineProps<{
   justify-content: space-between;
   gap: 40px;
   margin-bottom: calc(var(--pad-section) * 0.8);
+}
+/* 文字列要**吃掉**画像之外的全部宽度：此前是 fit-content（收缩到 h1 的自然宽），
+   三页的说明与注记因此被挤在 ~230px 里换行，右侧留下 349（1440）–724（1920）px 的空白。
+   行长不靠列宽控制，交给下面 .sub/.footnote 的 60ch。 */
+.id-block {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.sub,
+.footnote {
+  max-width: 60ch;
 }
 .meta {
   display: flex;
@@ -71,6 +87,9 @@ defineProps<{
   flex: none;
   width: min(280px, 34vw);
 }
+.portrait.wide {
+  width: min(430px, 38vw);
+}
 .portrait :deep(.frame) {
   border: var(--rule);
   background: var(--bg-1);
@@ -81,6 +100,9 @@ defineProps<{
   }
   .portrait {
     width: 56vw;
+  }
+  .portrait.wide {
+    width: min(430px, 84vw);
   }
 }
 </style>

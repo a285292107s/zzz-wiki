@@ -80,7 +80,7 @@ const backTo = computed(() => (detail.value ? undefined : '/disks'))
         :eyebrow="`Disk Drive · ${String(id).padStart(5, '0')}`"
         :title="detail.name ?? '—'"
         :portrait-srcs="portraitSrcs"
-        :alt="detail.name ?? ''"
+        alt=""
         :fallback="detail.name ?? '—'"
         position="top"
         ratio="1 / 1"
