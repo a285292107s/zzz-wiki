@@ -330,7 +330,7 @@ transform: scale({zoom})
     （只出现在 1174/599 这类宽图格带），常规桌面（1440 图格 356）≤1.12×，肉眼不可辨。
   - **不按 DPR 分档**（试过 DPR≥1.5 直接上原图）：retina 首访图片会从 ~580KB 涨到 1.06MB
     （超站内 1MB 图片预算），且跨 1.5 阈值换显示器会换源重载闪一下——为这点锐度不值得。
-  - 派生器 `scripts/build/weapon-art-cards.mjs` 由 `pnpm run sync` 调用（幂等补差/孤儿清理/软失败）。
+  - 派生器 `scripts/build/product-art-cards.mjs`（音擎与邦布共用）由 `pnpm run sync` 调用（幂等补差/孤儿清理/软失败）。
     **规格是展示格的函数**：改栅格列宽、画幅或断点后必须重算这一档。
 - **加载**：图 `loading="lazy"`、前三张 `eager`（首屏 LCP），第一张 `fetchpriority="high"`。
   实测首访（未滚动）图片 8 张派生档 + 1 张名录图标 ≈ 580KB、LCP＝首卡派生图 ~65KB（与 DPR 无关）。
