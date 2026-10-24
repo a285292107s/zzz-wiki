@@ -10,9 +10,8 @@
  * （中文 / English / 日本語 / 한국어），不译成中文；本页其余文案（2026-10，决策记录 0011）
  * 随展示语言切换：它已是全员都要读的界面文案，不再属于「界面外壳中文」的范围。
  *
- * 选型控件用**选项板**：一组选项并排成方角板，板上压一张迷你样张（版本组画陈列骨架——
- * 卡片版画 9:16 立绘格、表格版画发丝行；形态组用真立绘 + 详情页头图的文字骨架），
- * 选中态由三处同时表态——整板琥珀描边 + 板头实心 ◈ + 「已选」角标，
+ * 选型控件用**选项板**：一组选项并排成方角板，板上压一张迷你样张（形态组用真立绘 +
+ * 详情页头图的文字骨架），选中态由三处同时表态——整板琥珀描边 + 板头实心 ◈ + 「已选」角标，
  * 未选只有 ◇ 与发丝线。原生 radio 铺满整板当命中区（不用 .sr-only：1×1 的隐藏控件在
  * 320px 重排与触屏命中区审计里都是过小目标）。样张与标记皆 aria-hidden，可访问名走
  * input 的 aria-label，一句说明挂 aria-describedby。
@@ -28,8 +27,6 @@
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { useAgentsViewVersion } from '@/composables/useAgentsViewVersion'
-import type { AgentsViewVersion } from '@/composables/useAgentsViewVersion'
 import { useLocale } from '@/composables/useLocale'
 import { useUiText } from '@/composables/useUiText'
 import { fmt } from '@/domain/uiText'
@@ -43,7 +40,6 @@ import HollowImage from '@/components/HollowImage.vue'
 
 usePageMeta()
 
-const { agentsViewVersion, setAgentsViewVersion } = useAgentsViewVersion()
 const { heroForm, setHeroForm } = useHeroForm()
 const { lang, setLang } = useLocale()
 const { t } = useUiText()
@@ -52,32 +48,6 @@ const { t } = useUiText()
  *  （src/data/hero-gender-variants.json），只有它换形态真的换图。 */
 const SPECIMEN_ID = 1551
 
-/** 版本组样张的陈列骨架：卡片名录画 9:16 立绘格 + 图下签条，表格名录画发丝行三段。 */
-const GRID_TILES = 8
-const TABLE_ROWS = 5
-
-type VersionOption = {
-  value: AgentsViewVersion
-  label: string
-  hint: string
-  shot: 'grid' | 'rows'
-}
-
-/** 选项表：值 + 玩家侧说法（标签与一句说明）+ 样张骨架 */
-const VERSIONS = computed<VersionOption[]>(() => [
-  {
-    value: 'cards',
-    label: t.value.settings.cards,
-    hint: t.value.settings.cardsHint,
-    shot: 'grid',
-  },
-  {
-    value: 'table',
-    label: t.value.settings.table,
-    hint: t.value.settings.tableHint,
-    shot: 'rows',
-  },
-])
 const FORMS = computed<{ value: HeroForm; label: string; hint: string }[]>(() => [
   { value: 'female', label: t.value.settings.formFemale, hint: t.value.settings.formFemaleHint },
   { value: 'male', label: t.value.settings.formMale, hint: t.value.settings.formMaleHint },
@@ -101,53 +71,6 @@ function formShotSources(form: HeroForm) {
     </header>
 
     <section v-reveal="90" class="group">
-      <h2 class="group-title mono">{{ t.settings.agentsView }}</h2>
-      <p class="group-note">{{ t.settings.agentsViewNote }}</p>
-      <div class="plates">
-        <label
-          v-for="opt in VERSIONS"
-          :key="opt.value"
-          class="plate"
-          :class="{ on: agentsViewVersion === opt.value }"
-        >
-          <span class="plate-shot" aria-hidden="true">
-            <span v-if="opt.shot === 'grid'" class="shot-grid">
-              <span v-for="n in GRID_TILES" :key="n" class="shot-cell">
-                <span class="shot-tile"></span>
-                <span class="shot-sign"></span>
-              </span>
-            </span>
-            <span v-else class="shot-rows">
-              <span v-for="n in TABLE_ROWS" :key="n" class="shot-row">
-                <span class="shot-no"></span>
-                <span class="shot-name"></span>
-                <span class="shot-tag"></span>
-              </span>
-            </span>
-          </span>
-          <span class="plate-head">
-            <span class="plate-mark" aria-hidden="true">
-              {{ agentsViewVersion === opt.value ? '◈' : '◇' }}
-            </span>
-            <span class="plate-label">{{ opt.label }}</span>
-            <span class="plate-flag" aria-hidden="true">{{ t.common.selected }}</span>
-          </span>
-          <span :id="`hint-view-${opt.value}`" class="plate-hint">{{ opt.hint }}</span>
-          <input
-            class="plate-input"
-            type="radio"
-            name="agents-view"
-            :value="opt.value"
-            :checked="agentsViewVersion === opt.value"
-            :aria-label="opt.label"
-            :aria-describedby="`hint-view-${opt.value}`"
-            @change="setAgentsViewVersion(opt.value)"
-          />
-        </label>
-      </div>
-    </section>
-
-    <section v-reveal="140" class="group">
       <h2 class="group-title mono">{{ t.settings.heroForm }}</h2>
       <p class="group-note">{{ t.settings.heroFormNote }}</p>
       <div class="plates">
@@ -198,7 +121,7 @@ function formShotSources(form: HeroForm) {
       </div>
     </section>
 
-    <section v-reveal="180" class="group">
+    <section v-reveal="140" class="group">
       <h2 class="group-title mono">{{ t.settings.lang }}</h2>
       <p id="lang-note" class="group-note">
         {{ t.settings.langNote }}
@@ -234,7 +157,7 @@ function formShotSources(form: HeroForm) {
       </p>
     </section>
 
-    <p v-reveal="220" class="foot-note">
+    <p v-reveal="180" class="foot-note">
       <RouterLink class="foot-link" to="/agents">{{ t.settings.toAgents }}</RouterLink>
     </p>
   </ListPage>
@@ -306,7 +229,7 @@ function formShotSources(form: HeroForm) {
 }
 
 /* 样张窗：比板面低一档的取景框（--bg-0 是页面地面色，暗档下即凹陷感）。
-   高度定死、内容居中——四块板的样张窗因此逐一对齐，不会因骨架行高不同而参差 */
+   高度定死、内容居中——同一组的样张窗因此逐一对齐 */
 .plate-shot {
   display: flex;
   align-items: center;
@@ -315,79 +238,6 @@ function formShotSources(form: HeroForm) {
   padding: 12px;
   border: 1px solid var(--line-0);
   background-color: var(--bg-0);
-}
-
-/* 卡片名录样张：一行 9:16 立绘格 + 图下签条（骨架只表陈列形态，不放真立绘）。
-   格宽取等分余宽、整行封顶 460px：宽屏上样张不会拉成一排巨型色块，窄屏上也不会溢出 */
-.shot-grid {
-  width: 100%;
-  max-width: 460px;
-  display: flex;
-  gap: 6px;
-}
-
-.shot-cell {
-  flex: 1 1 0;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.shot-tile {
-  aspect-ratio: 9 / 16;
-  border: 1px solid var(--line-2);
-  background-color: var(--bg-2);
-}
-
-.shot-sign {
-  height: 3px;
-  background-color: var(--line-2);
-}
-
-/* 表格名录样张：发丝行 + 编号／代号／签条三段（与卡片样张同宽同封顶，两块的取景框等大） */
-.shot-rows {
-  width: 100%;
-  max-width: 460px;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-
-.shot-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid var(--line-1);
-}
-
-.shot-row:last-child {
-  padding-bottom: 0;
-  border-bottom: none;
-}
-
-.shot-no {
-  flex: none;
-  width: 12px;
-  height: 6px;
-  background-color: var(--line-2);
-}
-
-/* 代号格吃掉余宽：桌面宽板下这一行才不会左右两截断开 */
-.shot-name {
-  flex: 1;
-  min-width: 0;
-  height: 6px;
-  background-color: var(--line-2);
-}
-
-.shot-tag {
-  flex: none;
-  width: 24px;
-  height: 9px;
-  border: 1px solid var(--line-2);
-  border-radius: 2px;
 }
 
 /* 形态样张：真立绘取 9:16 竖格（与名录卡片同构图参数，未校准角色即居中取景），

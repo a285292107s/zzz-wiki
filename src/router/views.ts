@@ -10,11 +10,7 @@
 /** 类目视图懒加载映射：catalog 条目路径 → [名录页, 详情页]。
  *  路径/名称/标题由 CATALOG 派生（单一事实源），此处只登记组件文件。 */
 export const catalogViews: Record<string, [() => Promise<unknown>, () => Promise<unknown>]> = {
-  // 名录页是版本外壳：两版同名录（表格 / 卡片）由它按读者的本机偏好在运行时择一渲染
-  '/agents': [
-    () => import('@/views/AgentsRouteView.vue'),
-    () => import('@/views/AgentDetailView.vue'),
-  ],
+  '/agents': [() => import('@/views/AgentsView.vue'), () => import('@/views/AgentDetailView.vue')],
   '/w-engines': [() => import('@/views/WEnginesView.vue'), () => import('@/views/WEngineDetailView.vue')],
   '/bangboos': [() => import('@/views/BangboosView.vue'), () => import('@/views/BangbooDetailView.vue')],
   '/disks': [() => import('@/views/DisksView.vue'), () => import('@/views/DiskDetailView.vue')],

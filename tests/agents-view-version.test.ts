@@ -1,8 +1,17 @@
 // @vitest-environment jsdom
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { mount } from '@vue/test-utils'
+import { flushPromises, mount } from '@vue/test-utils'
+import { createMemoryHistory, createRouter } from 'vue-router'
 
 const AGENTS_VIEW_KEY = 'zzz-wiki:agents-view'
+
+/** 名录取数在组件挂载时才触发：用一份最小条目替掉数据层，避免测试打网络 */
+vi.mock('../src/data/resources', () => ({
+  listFor: () =>
+    Promise.resolve([
+      { Id: 1011, icon: 'IconRole01', camp: 1, camp_name: '狡兔屋', element: 203, type: 1, rank: 3 },
+    ]),
+}))
 
 /** 版本偏好是模块级响应式状态（localStorage 持久化）：每个用例重置模块实例，避免跨用例污染 */
 async function fresh() {
@@ -10,9 +19,32 @@ async function fresh() {
   return await import('../src/composables/useAgentsViewVersion')
 }
 
-async function freshRoute() {
+/** 超时放宽：/agents 视图静态依赖两版名录（表格 + 卡片栅格），resetModules 后要重走整条导入链 */
+const HEAVY_IMPORT_TIMEOUT = 20000
+
+async function mountAgents() {
   vi.resetModules()
-  return (await import('../src/views/AgentsRouteView.vue')).default
+  const AgentsView = (await import('../src/views/AgentsView.vue')).default
+  const router = createRouter({
+    history: createMemoryHistory(),
+    routes: [{ path: '/agents', component: { template: '<div />' } }],
+  })
+  await router.push('/agents')
+  await router.isReady()
+  const w = mount(AgentsView, {
+    global: {
+      plugins: [router],
+      directives: { reveal: () => {} },
+      stubs: {
+        AgentCardList: true,
+        AgentTableList: true,
+        FilterDropdown: true,
+        SearchField: true,
+      },
+    },
+  })
+  await flushPromises()
+  return { w, router }
 }
 
 describe('useAgentsViewVersion（代理人名录版本偏好）', () => {
@@ -20,7 +52,7 @@ describe('useAgentsViewVersion（代理人名录版本偏好）', () => {
     localStorage.clear()
   })
 
-  it('无存储时默认新版卡片名录', async () => {
+  it('无存储时默认卡片名录', async () => {
     const { agentsViewVersion } = await fresh()
     expect(agentsViewVersion.value).toBe('cards')
   })
@@ -48,32 +80,44 @@ describe('useAgentsViewVersion（代理人名录版本偏好）', () => {
   })
 })
 
-describe('AgentsRouteView（/agents 的版本外壳）', () => {
+describe('AgentsView（名录页的陈列版本）', () => {
   beforeEach(() => {
     localStorage.clear()
   })
 
-  /** 两版名录都是它的静态依赖：此处 stub 掉，只验「按偏好择一渲染」 */
-  const stubs = { AgentsCardsView: true, AgentsView: true }
-
-  // 超时放宽：`AgentsRouteView` 静态依赖两版名录（模板 + 表格 + 卡片栅格），
-  // `freshRoute` 又要 `resetModules` 后重新走一遍整条导入链，实测单跑即需 4.6s，
-  // 贴着 vitest 默认 5s 上限——与其它文件并行时会偶发超时（失败信息只有
-  // 「Test timed out in 5000ms」，看起来像被测代码坏了）。这里给足余量。
-  const HEAVY_IMPORT_TIMEOUT = 20000
-
-  it('默认渲染卡片名录', async () => {
-    const AgentsRouteView = await freshRoute()
-    const w = mount(AgentsRouteView, { global: { stubs } })
-    expect(w.find('agents-cards-view-stub').exists()).toBe(true)
-    expect(w.find('agents-view-stub').exists()).toBe(false)
+  it('默认渲染卡片名录，切换钮两级都带选中态', async () => {
+    const { w } = await mountAgents()
+    expect(w.find('agent-card-list-stub').exists()).toBe(true)
+    expect(w.find('agent-table-list-stub').exists()).toBe(false)
+    const [cardsBtn, tableBtn] = w.findAll('.view-switch button')
+    expect(cardsBtn!.attributes('aria-pressed')).toBe('true')
+    expect(tableBtn!.attributes('aria-pressed')).toBe('false')
+    w.unmount()
   }, HEAVY_IMPORT_TIMEOUT)
 
   it('偏好为表格时渲染表格名录', async () => {
     localStorage.setItem(AGENTS_VIEW_KEY, 'table')
-    const AgentsRouteView = await freshRoute()
-    const w = mount(AgentsRouteView, { global: { stubs } })
-    expect(w.find('agents-view-stub').exists()).toBe(true)
-    expect(w.find('agents-cards-view-stub').exists()).toBe(false)
+    const { w } = await mountAgents()
+    expect(w.find('agent-table-list-stub').exists()).toBe(true)
+    expect(w.find('agent-card-list-stub').exists()).toBe(false)
+    w.unmount()
+  }, HEAVY_IMPORT_TIMEOUT)
+
+  it('点切换钮即换陈列、落盘，且地址栏保持干净（版本不进 URL）', async () => {
+    const { w, router } = await mountAgents()
+    const [, tableBtn] = w.findAll('.view-switch button')
+
+    await tableBtn!.trigger('click')
+    expect(localStorage.getItem(AGENTS_VIEW_KEY)).toBe('table')
+    expect(w.find('agent-table-list-stub').exists()).toBe(true)
+    expect(w.find('agent-card-list-stub').exists()).toBe(false)
+    expect(router.currentRoute.value.fullPath).toBe('/agents')
+
+    const [cardsBtn] = w.findAll('.view-switch button')
+    await cardsBtn!.trigger('click')
+    expect(localStorage.getItem(AGENTS_VIEW_KEY)).toBe('cards')
+    expect(w.find('agent-card-list-stub').exists()).toBe(true)
+    expect(router.currentRoute.value.fullPath).toBe('/agents')
+    w.unmount()
   }, HEAVY_IMPORT_TIMEOUT)
 })

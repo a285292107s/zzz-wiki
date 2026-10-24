@@ -4,7 +4,6 @@ import { mount } from '@vue/test-utils'
 import type { CharacterDetail } from '../src/data/types'
 
 const HERO_FORM_KEY = 'zzz-wiki:hero-form'
-const AGENTS_VIEW_KEY = 'zzz-wiki:agents-view'
 const LANG_KEY = 'zzz-wiki:lang'
 
 // usePageMeta 依赖 useRoute，测试环境无路由实例 → 提供最小 mock（同 styleguide-colors）
@@ -88,45 +87,33 @@ describe('设置页偏好选项板', () => {
     localStorage.clear()
   })
 
-  it('默认选中卡片名录与女形态，且尚未写盘（未改动的偏好不产生存储）', async () => {
+  it('默认选中女形态，且尚未写盘（未改动的偏好不产生存储）', async () => {
     const SettingsView = await freshSettings()
     const w = mount(SettingsView, mountOptions)
 
-    // 第三块板是展示语言：默认「中文」（界面外壳中文，游戏内容取官方中文文本）
+    // 第二块板是展示语言：默认「中文」（界面外壳中文，游戏内容取官方中文文本）
     const on = w.findAll('.plate.on .plate-label').map((el) => el.text())
-    expect(on).toEqual(['卡片名录', '女形态', '中文'])
-    expect(localStorage.getItem(AGENTS_VIEW_KEY)).toBe(null)
+    expect(on).toEqual(['女形态', '中文'])
     expect(localStorage.getItem(HERO_FORM_KEY)).toBe(null)
     expect(localStorage.getItem(LANG_KEY)).toBe(null)
   })
 
-  it('点选表格名录与男形态后各自写盘，选中态随之迁移', async () => {
+  it('点选男形态后写盘，选中态随之迁移', async () => {
     const SettingsView = await freshSettings()
     const w = mount(SettingsView, mountOptions)
 
-    await w.findAll('input[name="agents-view"]')[1].setValue()
     await w.findAll('input[name="hero-form"]')[1].setValue()
 
-    expect(localStorage.getItem(AGENTS_VIEW_KEY)).toBe('table')
     expect(localStorage.getItem(HERO_FORM_KEY)).toBe('male')
-    expect(w.findAll('.plate.on .plate-label').map((el) => el.text())).toEqual([
-      '表格名录',
-      '男形态',
-      '中文',
-    ])
+    expect(w.findAll('.plate.on .plate-label').map((el) => el.text())).toEqual(['男形态', '中文'])
   })
 
   it('已存储的偏好决定进页时的选中行', async () => {
-    localStorage.setItem(AGENTS_VIEW_KEY, 'table')
     localStorage.setItem(HERO_FORM_KEY, 'male')
     const SettingsView = await freshSettings()
     const w = mount(SettingsView, mountOptions)
 
-    expect(w.findAll('.plate.on .plate-label').map((el) => el.text())).toEqual([
-      '表格名录',
-      '男形态',
-      '中文',
-    ])
+    expect(w.findAll('.plate.on .plate-label').map((el) => el.text())).toEqual(['男形态', '中文'])
   })
 
   it('展示语言：点选即写盘，且已存语言决定进页时的选中行与 <html lang>', async () => {
@@ -134,9 +121,8 @@ describe('设置页偏好选项板', () => {
     const SettingsView = await freshSettings()
     const w = mount(SettingsView, mountOptions)
 
-    // 界面文案（含本页自己）随展示语言切换：语言存的是 ja，故两个偏好组的选中标签是日文
+    // 界面文案（含本页自己）随展示语言切换：语言存的是 ja，故选项组的选中标签是日文
     expect(w.findAll('.plate.on .plate-label').map((el) => el.text())).toEqual([
-      'カード名鑑',
       '女性形態',
       '日本語',
     ])

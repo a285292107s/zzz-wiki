@@ -210,21 +210,24 @@ async (page) => {
   }
 
   // 名录页有**两套陈列版本**（卡片 / 表格），偏好只存本机、不进 URL（决策记录 0008）。
-  // 下面的行数、空态、列头深链断言都是**表格版**的语法，故先走设置页把偏好钉到表格版；
-  // 卡片版在本段末尾单独走一遍（同样走设置页的真入口），并切回表格版供后续断言使用。
+  // 切换入口在名录页工具栏（2026-10：从设置页移回，偏好仍在 localStorage）。
+  // 下面的行数、空态、列头深链断言都是**表格版**的语法，故先切到表格版；
+  // 卡片版在本段末尾单独走一遍（同样走页内真入口），并切回表格版供后续断言使用。
   const AGENTS_VIEW_KEY = 'zzz-wiki:agents-view'
   const chooseAgentsView = async (label) => {
-    await page.goto('http://localhost:4175/settings', { waitUntil: 'networkidle' })
-    await page.waitForTimeout(700)
+    await page.goto('http://localhost:4175/agents', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(1200)
     await page.evaluate((name) => {
-      const plate = [...document.querySelectorAll('.plates .plate')].find((p) => p.textContent.includes(name))
-      plate?.querySelector('input')?.click()
+      const btn = [...document.querySelectorAll('.view-switch button')].find(
+        (b) => b.textContent.trim() === name,
+      )
+      btn?.click()
     }, label)
-    await page.waitForTimeout(200)
+    await page.waitForTimeout(500)
   }
 
   // ---- 名录页 + 检索 + 筛选 ----
-  await chooseAgentsView('表格名录')
+  await chooseAgentsView('表格')
   await page.goto('http://localhost:4175/agents', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1500)
   {
@@ -309,9 +312,9 @@ async (page) => {
     }
   }
 
-  // ---- 名录页第二套陈列：卡片版（设置页切换 → 偏好不进 URL → 刷新仍生效）----
+  // ---- 名录页第二套陈列：卡片版（页内切换 → 偏好不进 URL → 刷新仍生效）----
   {
-    await chooseAgentsView('卡片名录')
+    await chooseAgentsView('卡片')
     await page.goto('http://localhost:4175/agents', { waitUntil: 'networkidle' })
     await page.waitForTimeout(1200)
     const cards = await page.evaluate(() => ({
@@ -320,8 +323,17 @@ async (page) => {
       sortBtns: document.querySelectorAll('.toolbar .sort-btn').length,
       url: location.pathname + location.search,
       key: localStorage.getItem('zzz-wiki:agents-view'),
+      // 陈列切换在页内：两颗钮，卡片版应是按下态（设置页入口已于 2026-10 移除）
+      viewSwitch: document.querySelectorAll('.view-switch button').length,
+      cardsPressed: [...document.querySelectorAll('.view-switch button')].some(
+        (b) => b.textContent.trim() === '卡片' && b.getAttribute('aria-pressed') === 'true',
+      ),
     }))
-    add('cards-version-switch', cards.cards > 0 && cards.rows === 0, `卡片=${cards.cards} 表格行=${cards.rows}`)
+    add(
+      'cards-version-switch',
+      cards.cards > 0 && cards.rows === 0 && cards.viewSwitch === 2 && cards.cardsPressed,
+      `卡片=${cards.cards} 表格行=${cards.rows} 切换钮=${cards.viewSwitch} 按下=${cards.cardsPressed}`,
+    )
     // 版本是**本机偏好**：切完地址栏仍是干净的名录路径，复制出去的链接不带它
     add('cards-version-out-of-url', cards.url === '/agents', cards.url)
     // 卡片版不摆排序控件（排序钮与标本签陈列挤同一行；要排序时表格版本来更顺手）
@@ -342,7 +354,7 @@ async (page) => {
       `卡片=${persisted.cards} key=${persisted.key}`,
     )
     // 换回表格版：后续的深链排序等断言按表格语法继续
-    await chooseAgentsView('表格名录')
+    await chooseAgentsView('表格')
     await page.goto('http://localhost:4175/agents', { waitUntil: 'networkidle' })
     await page.waitForTimeout(1000)
     const back = await page.evaluate(() => ({

@@ -3,8 +3,8 @@ import { computed } from 'vue'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useCatalogList } from '@/composables/useCatalogList'
 import { useCatalogSort } from '@/composables/useCatalogSort'
+import { useAgentsViewVersion } from '@/composables/useAgentsViewVersion'
 import { listFor } from '@/data/resources'
-import { iconSources } from '@/data/icons'
 import type { CharacterListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
 import { pickText } from '@/domain/lang'
@@ -12,9 +12,16 @@ import { useLocale } from '@/composables/useLocale'
 import { useUiText } from '@/composables/useUiText'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { catalogEntry } from '@/domain/catalog'
-import { AsyncState, CatalogTable, CatalogTableSkeleton, FilterDropdown, ListPage, NameCell, SearchField, type CatalogColumn } from '@/components'
-import Tags from '@/components/Tags.vue'
-import Rarity from '@/components/Rarity.vue'
+import {
+  AgentCardGrid,
+  AgentCardList,
+  AgentTableList,
+  AsyncState,
+  CatalogTableSkeleton,
+  FilterDropdown,
+  ListPage,
+  SearchField,
+} from '@/components'
 
 usePageMeta()
 
@@ -22,9 +29,13 @@ usePageMeta()
 const cat = catalogEntry('/agents')
 const base = cat.path
 
-/** 当前展示语言：名录与详情都按语言落盘，语言一变下面的取数会重新拉（见 useAsyncResource） */
+/** 当前展示语言：名录按语言落盘，语言一变这里的取数会重新拉（见 useAsyncResource） */
 const { lang } = useLocale()
 const { t } = useUiText()
+
+/** 陈列版本：本机偏好（卡片 / 表格），切换入口就在工具栏——读者不必离开名录页 */
+const { agentsViewVersion, setAgentsViewVersion } = useAgentsViewVersion()
+const isCards = computed(() => agentsViewVersion.value === 'cards')
 
 const { data, status, error, reload } = useAsyncResource(() =>
   listFor<CharacterListItem>(cat, lang.value),
@@ -51,19 +62,7 @@ const camps = computed(() => {
     .map(([code, name]) => ({ code, name }))
 })
 
-/** 列配置：**不声明 sortable**——表格版与本页卡片版一致，不提供排序控件
- *  （点表头排序需要读者先知道「表头能点」，且与卡片版的陈列语言不统一）。
- *  陈列顺序见下方 useCatalogSort 的默认值。 */
-const columns = computed<CatalogColumn[]>(() => [
-  { key: 'name', label: t.value.list.code },
-  { key: 'attr', label: t.value.list.element },
-  { key: 'prof', label: t.value.list.profession },
-  { key: 'camp', label: t.value.list.camp, cls: 'camp mono' },
-  { key: 'rarity', label: t.value.list.rarity, align: 'right' },
-])
-
-/** 陈列顺序：默认编号倒序（读一次，无控件可改）。键仍是 id/name/rarity，
- *  故旧链接里的 ?sort=&dir= 依旧照读——分享出去的排序视图不会因为这次改动变成另一份视图。 */
+/** 陈列顺序两版共用：默认编号倒序（键 id/name/rarity 照读历史 ?sort=&dir= 深链） */
 const { sorted } = useCatalogSort(
   filtered,
   [
@@ -97,11 +96,31 @@ const { sorted } = useCatalogSort(
           @update:camp="campFilter = $event"
         />
       </div>
-      <SearchField v-model="query" :count="count" :placeholder="t.list.searchName" />
+      <div class="toolbar-right">
+        <div class="view-switch" role="group" :aria-label="t.list.viewMode">
+          <button
+            type="button"
+            class="view-btn"
+            :class="{ on: agentsViewVersion === 'cards' }"
+            :aria-pressed="agentsViewVersion === 'cards'"
+            @click="setAgentsViewVersion('cards')"
+          >
+            {{ t.list.viewCards }}
+          </button>
+          <button
+            type="button"
+            class="view-btn"
+            :class="{ on: agentsViewVersion === 'table' }"
+            :aria-pressed="agentsViewVersion === 'table'"
+            @click="setAgentsViewVersion('table')"
+          >
+            {{ t.list.viewTable }}
+          </button>
+        </div>
+        <SearchField v-model="query" :count="count" :placeholder="t.list.searchName" />
+      </div>
     </div>
 
-    <!-- 空态分工：AsyncState 只管「数据级为空」（接口没给数据）；
-         「筛掉全部结果」由 CatalogTable 的空态行承担（带清除出路的动作） -->
     <AsyncState
       :status="status"
       :error="error"
@@ -109,42 +128,28 @@ const { sorted } = useCatalogSort(
       :empty="status === 'success' && !data?.length"
     >
       <template #skeleton>
-        <CatalogTableSkeleton :cols="5" />
+        <AgentCardGrid v-if="isCards" skeleton :items="[]" :base="base" />
+        <CatalogTableSkeleton v-else :cols="5" />
       </template>
-      <CatalogTable
-        v-reveal="160"
-        :columns="columns"
-        :items="sorted"
-        :caption="t.list.agentsSub"
-        :show-clear="hasActiveFilter"
-        :empty-text="t.noMatch.agents"
-        @clear="reset"
-      >
-        <template #cell-name="{ row }">
-          <NameCell
-            :to="`${base}/${row.Id}`"
-            :srcs="iconSources({ Id: row.Id, icon: row.icon }, 'character')"
-            :alt="pickName(row, lang)"
-            :fallback="pickName(row, lang)"
-            :name="pickName(row, lang)"
-            thumb="banner"
-          />
-        </template>
-        <template #cell-attr="{ row }">
-          <Tags :element="row.element" :element-label="row.special_element" />
-        </template>
-        <template #cell-prof="{ row }">
-          <Tags :specialty="row.type" />
-        </template>
-        <template #cell-camp="{ row }">
-          <span class="camp">
-            {{ row.camp_name ?? `C${String(row.camp ?? '—').padStart(2, '0')}` }}
-          </span>
-        </template>
-        <template #cell-rarity="{ row }">
-          <Rarity :rank="row.rank" />
-        </template>
-      </CatalogTable>
+
+      <div v-reveal="160" class="list-body">
+        <AgentCardList
+          v-if="isCards"
+          :items="sorted"
+          :base="base"
+          :show-clear="hasActiveFilter"
+          :empty-text="t.noMatch.agents"
+          @clear="reset"
+        />
+        <AgentTableList
+          v-else
+          :items="sorted"
+          :base="base"
+          :show-clear="hasActiveFilter"
+          :empty-text="t.noMatch.agents"
+          @clear="reset"
+        />
+      </div>
     </AsyncState>
   </ListPage>
 </template>
@@ -159,7 +164,6 @@ const { sorted } = useCatalogSort(
   margin-bottom: 20px;
 }
 
-/* 左组：筛选下拉（属性/职业/阵营） */
 .toolbar-left {
   display: flex;
   flex-wrap: wrap;
@@ -167,16 +171,65 @@ const { sorted } = useCatalogSort(
   gap: 10px;
 }
 
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  /* 窄于一行放不下时（约 721–790 区间）这一组单独折到第二行，靠右贴齐版心右缘 */
+  margin-left: auto;
+}
+
 .toolbar :deep(.search) {
   width: auto;
   min-width: 280px;
 }
 
-/* ---------- 手机断点：工具栏两行，右缘与版心对齐 ----------
-   实测 390 宽下筛选行宽 316.4、检索框 280，两条右缘各比版心短 34 / 70px；
-   等宽铺满（flex:1）+ 检索通栏后，两条都与版心同宽，也与下方名录共用同一条右缘。
-   窄到 320（版心 280）时三颗放不下会折行：折行后的行同样被撑满，
-   右缘仍齐 —— 参差比「最后一颗独占一行」更显眼，故选后者。 */
+/* 陈列版本切换：两格方角按钮，选中格琥珀底 + 琥珀字（与筛选触发钮同一套发丝线语言） */
+.view-switch {
+  display: inline-flex;
+  flex: none;
+  border: 1px solid var(--line-1);
+  border-radius: 2px;
+}
+
+.view-btn {
+  padding: 7px 12px;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  color: var(--ink-1);
+  font-size: var(--fs-small);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color var(--t-fast) var(--ease), background-color var(--t-fast) var(--ease);
+}
+
+.view-btn + .view-btn {
+  border-left: 1px solid var(--line-1);
+}
+
+.view-btn.on {
+  color: var(--amber-hi);
+  background: var(--amber-dim);
+}
+
+@media (hover: hover) {
+  .view-btn:not(.on):hover {
+    color: var(--ink-0);
+    background: var(--bg-2);
+  }
+}
+
+.view-btn:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 1px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* ---------- 手机断点：工具栏两行（筛选 / 切换 + 检索），右缘与版心对齐 ---------- */
 @media (max-width: 720px) {
   .toolbar {
     flex-direction: column;
@@ -198,29 +251,28 @@ const { sorted } = useCatalogSort(
     width: 100%;
   }
 
-  /* 触发钮变成通栏控件：标签贴左、插入符推到右缘（与下拉框的阅读方向一致） */
   .toolbar-left :deep(.filter-dropdown .caret) {
     margin-left: auto;
   }
 
-  /* 选中值可能比列名长（如「罗斯凯利法·外务筹策局」）：省略号收尾，
-     完整值仍可在展开后的选项里看到 */
   .toolbar-left :deep(.filter-dropdown .trigger-label) {
     min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  .toolbar :deep(.search) {
+  .toolbar-right {
     width: 100%;
+  }
+
+  .view-btn {
+    padding: 7px 10px;
+  }
+
+  .toolbar :deep(.search) {
+    flex: 1 1 auto;
+    width: auto;
     min-width: 0;
   }
-}
-
-/* 由 CatalogTable 列 cls 应用（子组件作用域，用 :deep 穿透） */
-:deep(.camp) {
-  color: var(--ink-2);
-  font-size: var(--fs-caption);
-  letter-spacing: 0.12em;
 }
 </style>

@@ -96,7 +96,7 @@ export const router = createRouter({
       component: () => import('@/views/AboutView.vue'),
       meta: { title: guideLabel('/about') },
     },
-    /* 设置：本机偏好（代理人名录版本、佩洛伊斯立绘形态）的落点。
+    /* 设置：本机偏好（佩洛伊斯立绘形态、展示语言）的落点。
        是真路由（≠ dev 页）：读者可以从站头导航或首页目录直达，Vercel 的 rewrites 覆盖它；
        但它**不进** sitemap 与逐路由 prerender——内容跟着读者的本机状态变，
        不是可被搜索引擎收录的档案页（故 generate-sitemap / generate-route-html 里也没有它）。 */

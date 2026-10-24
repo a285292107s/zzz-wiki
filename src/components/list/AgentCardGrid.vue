@@ -11,10 +11,7 @@
  * 一条 1px 细线的取景框（与 /calibrate 的选型格一致）。骨架与空态的处置沿用 CardGrid
  * 的既有判据：骨架与真卡同几何、栅格为空时不渲染栅格线。
  *
- * 兜底两级（HollowImage 的候选链耗尽后**不渲染 img、也不上报事件**，父层拿不到
- * 「立绘没了」的信号，只能把图标铺在同一格的下一层：立绘在则被完全盖住）：
- *   · 本地立绘缺失 → 该格显示角色图标（thumb 档）
- *   · 图标也缺失 → 格子留 --bg-0 空底，不改版式、不塌高
+ * 立绘候选链耗尽时格子留 --bg-0 空底，不改版式、不塌高。
  *
  * 签条为什么让阵营只留图标：阵营全名最长 11 字（罗斯凯利法·弗林特工坊），与属性·职业
  * 挤在 ~159px 的 nowrap 单行里必然被省略号吃掉半截（1440 下实测 18 张卡有 7 张截断）。
@@ -34,7 +31,6 @@ import type { CharacterListItem } from '@/data/types'
 import { heroFileForForm } from '@/data/heroGenderVariants'
 import { heroGridSources } from '@/data/heroImageSources'
 import { getHeroCalibration } from '@/data/heroCalibration'
-import { iconSources } from '@/data/icons'
 import { pickName } from '@/utils/names'
 import { pickText } from '@/domain/lang'
 import { useHeroForm } from '@/composables/useHeroForm'
@@ -85,10 +81,6 @@ function calStyle(id: number): Record<string, string> | undefined {
         transform: `scale(${c.zoom})`,
       }
     : undefined
-}
-
-function iconSrcs(row: CharacterListItem) {
-  return iconSources({ Id: row.Id, icon: row.icon }, 'character', 'thumb')
 }
 
 /** 属性：有特殊属性（如 星见雅→烈霜）时用它的名字，颜色仍随主属性 */
@@ -143,19 +135,9 @@ function campIcon(row: CharacterListItem): string | null {
       <template v-else>
         <li v-for="row in props.items" :key="row.Id">
           <RouterLink class="card" :to="`${props.base}/${row.Id}`">
-            <!-- 9:16 取景格：图标在下层兜底，立绘在上层覆盖 -->
             <span class="card-art">
-              <span class="card-icon">
-                <HollowImage
-                  unframed
-                  :srcs="iconSrcs(row)"
-                  :img-style="{ width: '56%', height: 'auto', aspectRatio: '1', objectFit: 'contain' }"
-                />
-              </span>
-              <span class="card-hero">
-                <!-- alt 留空：名字就在同一链接的签条上，读屏不必念第二遍 -->
-                <HollowImage unframed :srcs="heroSrcs(row.Id)" :img-style="calStyle(row.Id)" />
-              </span>
+              <!-- alt 留空：名字就在同一链接的签条上，读屏不必念第二遍 -->
+              <HollowImage unframed :srcs="heroSrcs(row.Id)" :img-style="calStyle(row.Id)" />
             </span>
 
             <span class="plate">
@@ -244,21 +226,8 @@ function campIcon(row: CharacterListItem): string | null {
   transition: border-color var(--t-fast) var(--ease);
 }
 
-.card-icon {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card-hero {
-  position: absolute;
-  inset: 0;
-}
-
 /* 立绘铺满取景格；校准参数经 imgStyle 内联覆盖（inline 优先于本规则） */
-.card-hero :deep(img) {
+.card-art :deep(img) {
   display: block;
   width: 100%;
   height: 100%;

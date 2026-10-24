@@ -80,9 +80,9 @@ async function imageMeta(rel) {
    仅用于把该路由的懒加载 chunk 写进 modulepreload；下面的 buildManifest 会校验
    每个映射都在构建清单里，映射漂移会在构建期直接失败而不是静默退化。 */
 const VIEW_OF = {
-  // 名录页是版本外壳（表格 / 卡片两版按读者本机偏好择一），两版都是它的静态依赖，
-  // 故 modulepreload 会随外壳的 imports 一并带上
-  '/agents': 'src/views/AgentsRouteView.vue',
+  // 名录页两种陈列（卡片 / 表格）同在一个视图里，版本是页内切换的本机偏好，
+  // 故两版代码都是它的静态依赖，modulepreload 会随该视图的 imports 一并带上
+  '/agents': 'src/views/AgentsView.vue',
   '/w-engines': 'src/views/WEnginesView.vue',
   '/bangboos': 'src/views/BangboosView.vue',
   '/disks': 'src/views/DisksView.vue',

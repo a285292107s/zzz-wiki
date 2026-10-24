@@ -11,6 +11,8 @@ export { default as CatalogTable, type CatalogColumn } from './list/CatalogTable
 export { default as NameCell } from './list/NameCell.vue'
 export { default as CardGrid } from './list/CardGrid.vue'
 export { default as AgentCardGrid } from './list/AgentCardGrid.vue'
+export { default as AgentCardList } from './list/AgentCardList.vue'
+export { default as AgentTableList } from './list/AgentTableList.vue'
 export { default as CardBlock } from './list/CardBlock.vue'
 export { default as NoMatchState } from './list/NoMatchState.vue'
 export { default as DetailHead } from './detail/DetailHead.vue'

@@ -170,6 +170,8 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 | CatalogTable | 列配置驱动表格 | 4 张手写表格；列配置声明渲染/格式化/插槽 |
 | CardGrid | 档案栅格（栅格几何 + 卡壳 + 骨架 + 空态；卡内内容经插槽） | 驱动盘 / 音擎两个栅格名录页的栅格与骨架外壳 |
 | AgentCardGrid | 代理人 9:16 立绘名录格（校准取景 + 图下标本签 + 骨架 + 空态） | 代理人名录卡片版空态复用 `NoMatchState`；卡壳是留白分栏 + 取景框，与 `CardGrid` 的卡片盒几何不同源 |
+| AgentCardList | 代理人卡片陈列体（渐进加载：首屏 18 条 + 滚动续载；无观察器时退化为按钮） | 卡片版的续载逻辑从视图里拆出，与页面壳解耦 |
+| AgentTableList | 代理人表格陈列体（列配置 + 四语名/标签/稀有度单元格） | 表格版名录的行模板从视图里拆出 |
 | CardBlock | 卡内「块」（上细线 + 等宽小字标签 + 注记 + 内容） | 卡片的 2/4 件套、基础属性、音擎效果等分块 |
 | NoMatchState | 「检索/筛选无匹配」空态（标题 + 出路 + 一键清除） | 表格空态行与栅格空态的重复文案 |
 | DetailSection | 编号 section-head 容器 | 详情页 01/02/03 头部 |
@@ -197,11 +199,12 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 - 新增 404 视图（/:pathMatch(.*)* 不再是 redirect 到 /，显示档案式 404）。
 - 新增设计系统文档路由（/style；见 §9）。
 - 新增战斗公式页（/formulas，FormulasView + FormulaEq 组件 + formulaGuide.ts 单一事实源）。
-- 新增设置页（/settings，SettingsView）：本机偏好——代理人名录版式、佩洛伊斯立绘形态与**展示语言**。
+- 新增设置页（/settings，SettingsView）：本机偏好——佩洛伊斯立绘形态与**展示语言**。
   **入口在站头导航第 06 位与首页目录**（导航入口数受 ADR 0004 约束，故替换掉原先占位的档案图谱）；
   **不进 sitemap，也不参与按路由预载**（`generate-route-html.mjs` 的 `VIEW_OF`/`STATIC_META` 无此页）。
-- `/agents` 由 `AgentsRouteView` 外壳按偏好二选一渲染：卡片版 `AgentsCardsView` 或表格版 `AgentsView`
-  （两版**静态导入**，故首屏不闪、两版都在预载清单里；版本是本地偏好，**不写 URL**）。
+- `/agents` 是一个页面（`AgentsView`）内按本机偏好择一渲染两个陈列体：卡片版 `AgentCardList`
+  或表格版 `AgentTableList`（都是它的静态导入，故首屏不闪、两版都在预载清单里）；切换钮在
+  页面工具栏，版本是本地偏好、**不写 URL**（见 [决策记录 0012](./docs/decisions/0012-agents-view-switch-on-page.md)）。
 - dev-only 页面机制（2026-08 集中）：route 的 DEV 分支按 `domain/devRoutes.ts` 登记注册（/style、/calibrate），
   生产构建 `import.meta.env.DEV=false` 整块摇树移除——dev 页在 prod 不可达、零打包。
   router scrollBehavior 统一处理 hash 锚点避让（读 --anchor-offset，见 composables/anchorOffset）。
