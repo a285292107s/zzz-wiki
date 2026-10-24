@@ -1,10 +1,10 @@
 /* ============================================================
  * hero-mobile.mjs — 详情页 hero 的窄屏派生（mobile 变体）
  *
- * Mindscape 原图（2552×1080，均值 351KB）在详情页满栏铺底（object-cover）：
+ * Mindscape 原图（解包母版贴边，宽 1326–2580、均 221KB）在详情页满栏铺底（object-cover）：
  *   - 桌面：hero 盒 1168×497 CSS px，DPR2 需 ~2336px → 原图正合适
  *   - 手机：hero 盒 350×388，可见窗 350 CSS px；cover 缩放后源图等效需 ~1300px
- *     → 2552px 原图在手机上超采约 2 倍（314KB 换 ~130KB 的观感）
+ *     → 原图宽度对手机 ~700 设备像素需求超采 2–4 倍（~220KB 换 ~78KB 的观感）
  * 故为手机派生 1400w 变体：public/data/img/hero/mobile/{同名}.webp
  *
  * 构图安全：等比缩放不改构图坐标系，AgentHead 的 pos/zoom/originY 校准参数

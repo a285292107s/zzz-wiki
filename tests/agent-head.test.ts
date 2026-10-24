@@ -2,6 +2,7 @@
 import { afterEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import AgentHead from '../src/components/detail/AgentHead.vue'
+import poolJson from '../src/data/featured-pool.json'
 import type { CharacterDetail } from '../src/data/types'
 
 /** 最小角色样本：只需 hero 逻辑涉及的字段（id 驱动 Mindscape 场景图命名） */
@@ -77,9 +78,12 @@ describe('AgentHead hero 底图（按屏宽 + DPR 选派生 / 本地优先 + CDN
     mockMatchMedia({ narrow: true })
     const w = mount(AgentHead, { props: { detail }, ...mountOptions })
     const el = heroImg(w).element as HTMLElement
-    expect(el.style.getPropertyValue('--hero-pos')).toBe('44%')
-    expect(el.style.getPropertyValue('--hero-zoom')).toBe('1.32')
-    expect(el.style.getPropertyValue('--hero-originY')).toBe('47.5%')
+    const cal = (
+      poolJson as { calibrated: Record<string, { pos: string; zoom: number; originY: number }> }
+    ).calibrated['1011']!
+    expect(el.style.getPropertyValue('--hero-pos')).toBe(cal.pos)
+    expect(el.style.getPropertyValue('--hero-zoom')).toBe(String(cal.zoom))
+    expect(el.style.getPropertyValue('--hero-originY')).toBe(`${cal.originY}%`)
   })
 
   it('派生变体缺失时逐级回退：先原图，再 nanoka CDN', async () => {

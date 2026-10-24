@@ -20,6 +20,11 @@ export const ZOOM_MAX = 3
 
 const clamp = (v: number, lo: number, hi: number) => Math.min(Math.max(v, lo), hi)
 
+export function minZoomForSource(W: number, H: number): number {
+  if (!(W > 0 && H > 0)) return 1
+  return Math.max(1, (ASPECT * H) / W)
+}
+
 /** 由构图参数（数值百分比）计算源图上的 9:16 相机矩形（中心 + 尺寸，源图像素坐标）。
  *  pos 允许略超 0–100（因 transform 中心缩放使边缘需越界才能贴到图缘），故将矩形钳制在图内。 */
 export function rectFromParams(pos: number, zoom: number, originY: number, W: number, H: number): CameraRect {

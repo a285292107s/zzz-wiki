@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
-import { rectFromParams, paramsFromRect, formatPos, ZOOM_MIN, ZOOM_MAX, type CameraRect } from '@/utils/cameraRect'
+import { rectFromParams, paramsFromRect, formatPos, minZoomForSource, ZOOM_MAX, type CameraRect } from '@/utils/cameraRect'
 import type { CalibratedEntry, FeaturedPool, PoolItem } from '@/domain/featuredPool'
 import { heroIdsFromList } from '@/domain/heroCatalog'
 import { heroImageFile } from '@/data/heroGenderVariants'
@@ -33,16 +33,21 @@ const dragStart = ref({ x: 0, y: 0, cx: 0, cy: 0, w: 0, h: 0 })
 
 const currentSrc = computed(() => imgSrc.value)
 const heroSrc = (id: number) => `${LOCAL_HERO}/${heroImageFile(id)}.webp`
+const ASPECT = 9 / 16
+
+const zoomMin = computed(() => minZoomForSource(imgNat.value.W, imgNat.value.H))
 
 const rect = computed<CameraRect | null>(() =>
   imgNat.value.W ? rectFromParams(params.value.pos, params.value.zoom, params.value.originY, imgNat.value.W, imgNat.value.H) : null,
 )
 
+const verticalLocked = computed(() => !!rect.value && rect.value.h >= imgNat.value.H - 1)
+
 /** 水平滑杆可达范围（随缩放变化）：min/max = 左/右缘可达的 pos，拉到顶即贴到图片边缘。 */
 const posBounds = computed(() => {
   const { W, H } = imgNat.value
   if (!W || !H) return { min: 0, max: 100 }
-  const z = Math.max(params.value.zoom, ZOOM_MIN)
+  const z = Math.max(params.value.zoom, zoomMin.value)
   const w = (9 / 16) * (H / z)
   const denom = W - (9 / 16) * H
   const c = (9 / 16) * 0.5 * H
@@ -123,7 +128,7 @@ async function selectId(id: number) {
   imgNat.value = size // 先更新容器比例，避免切图瞬间按旧比例跳动
   const entry = pool.value.calibrated[String(id)]
   if (entry) {
-    params.value = { pos: parseFloat(entry.pos) || 50, zoom: entry.zoom, originY: entry.originY }
+    params.value = { pos: parseFloat(entry.pos) || 50, zoom: Math.max(entry.zoom, minZoomForSource(size.W, size.H)), originY: entry.originY }
     inPool.value = entry.inPool
   } else {
     params.value = await autoInit(id, size.W, size.H)
@@ -142,13 +147,22 @@ function toSourceDelta(px: number): number {
 
 function clampRect(target: CameraRect): CameraRect {
   const { W, H } = imgNat.value
-  const w = Math.min(Math.max(target.w, (9 / 16) * H * (1 / ZOOM_MAX)), (9 / 16) * H * (1 / ZOOM_MIN))
-  const h = w / (9 / 16)
-  const halfW = w / 2
-  const halfH = h / 2
-  const cx = Math.min(Math.max(target.cx, halfW), W - halfW)
-  const cy = Math.min(Math.max(target.cy, halfH), H - halfH)
+  const w = Math.min(Math.max(target.w, (ASPECT * H) / ZOOM_MAX), (ASPECT * H) / zoomMin.value)
+  const h = w / ASPECT
+  const cx = Math.min(Math.max(target.cx, w / 2), W - w / 2)
+  const cy = Math.min(Math.max(target.cy, h / 2), H - h / 2)
   return { cx, cy, w, h }
+}
+
+function resizeFromCorner(dx: number, dy: number): CameraRect {
+  const { W, H } = imgNat.value
+  const left = dragStart.value.cx - dragStart.value.w / 2
+  const top = dragStart.value.cy - dragStart.value.h / 2
+  const grow = Math.abs(dx) >= Math.abs(dy * ASPECT) ? dx : dy * ASPECT
+  const wMax = Math.min((ASPECT * H) / zoomMin.value, W - left, ASPECT * (H - top))
+  const w = Math.min(Math.max(dragStart.value.w + grow, (ASPECT * H) / ZOOM_MAX), wMax)
+  const h = w / ASPECT
+  return { cx: left + w / 2, cy: top + h / 2, w, h }
 }
 
 function onPointerDown(e: PointerEvent, mode: 'move' | 'resize') {
@@ -163,15 +177,11 @@ function onPointerMove(e: PointerEvent) {
   if (!dragMode.value) return
   const dx = toSourceDelta(e.clientX - dragStart.value.x)
   const dy = toSourceDelta(e.clientY - dragStart.value.y)
-  let target: CameraRect
-  if (dragMode.value === 'move') {
-    target = { cx: dragStart.value.cx + dx, cy: dragStart.value.cy + dy, w: dragStart.value.w, h: dragStart.value.h }
-  } else {
-    target = { cx: dragStart.value.cx, cy: dragStart.value.cy, w: dragStart.value.w + dx, h: dragStart.value.h }
-  }
-  const c = clampRect(target)
-  const next = paramsFromRect(c, imgNat.value.W, imgNat.value.H)
-  params.value = next
+  const target =
+    dragMode.value === 'move'
+      ? clampRect({ cx: dragStart.value.cx + dx, cy: dragStart.value.cy + dy, w: dragStart.value.w, h: dragStart.value.h })
+      : resizeFromCorner(dx, dy)
+  params.value = paramsFromRect(target, imgNat.value.W, imgNat.value.H)
   scheduleAutosave()
 }
 
@@ -306,10 +316,32 @@ function thumbStyle(id: number): Record<string, string> | undefined {
     <div class="wrap">
       <header class="calib-head">
         <h1>图库校准 · 今日角色</h1>
+        <p class="calib-hint">拖动取景框移动 · 拖右下角手柄缩放</p>
       </header>
 
       <div class="calib-main">
-        <!-- 示意取景框 + 滑动条（左列） -->
+        <section class="picker" aria-label="角色列表">
+          <p class="panel-head mono"><span>角色</span><span>{{ heroIds.length }}</span></p>
+          <ol class="grid">
+            <li v-for="id in heroIds" :key="id" class="grid-item" :class="{ 'is-current': id === currentId }">
+              <button class="grid-cell" @click="selectId(id)">
+                <img :src="heroSrc(id)" :alt="`角色 ${id}`" loading="lazy" :style="thumbStyle(id)" />
+                <span class="gid mono">{{ id }}</span>
+              </button>
+              <button
+                class="cell-toggle"
+                :class="{ on: entryFor(id)?.inPool }"
+                role="switch"
+                :aria-checked="entryFor(id)?.inPool"
+                @click.stop="togglePool(id)"
+              >
+                <span class="track"><span class="thumb" /></span>
+                <span class="switch-label">入池</span>
+              </button>
+            </li>
+          </ol>
+        </section>
+
         <div class="pan-col">
           <div
             ref="panorEl"
@@ -336,90 +368,58 @@ function thumbStyle(id: number): Record<string, string> | undefined {
             </div>
           </div>
 
-          <!-- 滑动条：置于全景图下方，填满该列剩余高度 -->
           <div class="controls">
             <label>
               <span class="ctl-label">水平</span>
               <input v-model.number="params.pos" type="range" :min="posBounds.min" :max="posBounds.max" step="0.5" @change="scheduleAutosave" />
               <span class="ctl-val mono">{{ params.pos }}</span>
             </label>
-            <label>
+            <label :class="{ 'is-locked': verticalLocked }" :title="verticalLocked ? '取景框已占满原图高度，垂直位置不再生效' : undefined">
               <span class="ctl-label">垂直</span>
-              <input v-model.number="params.originY" type="range" min="0" max="100" step="0.5" @change="scheduleAutosave" />
+              <input v-model.number="params.originY" type="range" min="0" max="100" step="0.5" :disabled="verticalLocked" @change="scheduleAutosave" />
               <span class="ctl-val mono">{{ params.originY }}</span>
             </label>
             <label>
               <span class="ctl-label">大小</span>
-              <input v-model.number="params.zoom" type="range" :min="ZOOM_MIN" :max="ZOOM_MAX" step="0.01" @change="scheduleAutosave" />
+              <input v-model.number="params.zoom" type="range" :min="zoomMin" :max="ZOOM_MAX" step="0.01" @change="scheduleAutosave" />
               <span class="ctl-val mono">{{ params.zoom.toFixed(2) }}</span>
             </label>
           </div>
         </div>
 
-        <!-- 成品预览（右列） -->
-        <div class="preview-figure">
-          <img
-            v-if="currentSrc"
-            :src="currentSrc"
-            alt=""
-            :style="{ objectPosition: `${params.pos}%`, transformOrigin: `50% ${params.originY}%`, transform: `scale(${params.zoom})` }"
-          />
+        <div class="preview-col">
+          <p class="panel-head mono"><span>成品预览</span><span>{{ currentId ?? '—' }} · 9:16</span></p>
+          <div class="preview-figure">
+            <img
+              v-if="currentSrc"
+              :src="currentSrc"
+              alt=""
+              :style="{ objectPosition: `${params.pos}%`, transformOrigin: `50% ${params.originY}%`, transform: `scale(${params.zoom})` }"
+            />
+          </div>
         </div>
       </div>
-
-      <!-- 网格 -->
-      <ol class="grid">
-        <li v-for="id in heroIds" :key="id" class="grid-item" :class="{ 'is-current': id === currentId }">
-          <button class="grid-cell" @click="selectId(id)">
-            <img :src="heroSrc(id)" :alt="`${id}`" loading="lazy" :style="thumbStyle(id)" />
-            <span class="gid mono">{{ id }}</span>
-          </button>
-          <button
-            class="cell-toggle"
-            :class="{ on: entryFor(id)?.inPool }"
-            role="switch"
-            :aria-checked="entryFor(id)?.inPool"
-            @click.stop="togglePool(id)"
-          >
-            <span class="track"><span class="thumb" /></span>
-            <span class="switch-label">入池</span>
-          </button>
-        </li>
-      </ol>
     </div>
   </div>
 </template>
 
 <style scoped>
 .calib { padding-bottom: var(--space-section); }
-.calib-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-head); padding: 22px 0 18px; }
-.calib-head h1 { font-family: var(--serif); font-size: var(--fs-display); margin: 0; }
-.calib-main { display: grid; grid-template-columns: 1fr minmax(230px, 330px); gap: var(--space-inline); }
+.calib-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-head); padding: 14px 0 12px; }
+.calib-head h1 { font-family: var(--serif); font-size: var(--fs-title); letter-spacing: .04em; margin: 0; }
+.calib-hint { margin: 0; font-size: var(--fs-caption); letter-spacing: .06em; color: var(--ink-2); }
 
-.pan-col { display: flex; flex-direction: column; gap: var(--space-inline); min-width: 0; }
+.calib-main { display: grid; grid-template-columns: minmax(240px, 320px) minmax(0, 1fr) minmax(150px, 200px); gap: var(--space-col); align-items: start; }
 
-.panorama { position: relative; overflow: hidden; border: 1px solid var(--line-1); border-radius: 2px; background: var(--bg-0); touch-action: none; }
-.panorama > img { width: 100%; height: 100%; object-fit: contain; display: block; user-select: none; }
-.cam-rect { position: absolute; border: 1px solid var(--amber); box-shadow: 0 0 0 1px rgba(0,0,0,.35); cursor: move; }
-.cam-handle { position: absolute; right: -6px; bottom: -6px; width: 12px; height: 12px; background: var(--amber); border: 1px solid var(--bg-0); cursor: nwse-resize; }
+.panel-head { display: flex; justify-content: space-between; gap: 8px; margin: 0 0 10px; font-size: var(--fs-nano); letter-spacing: .12em; color: var(--ink-2); }
 
-.preview-figure { width: 100%; align-self: start; aspect-ratio: 9 / 16; overflow: hidden; border: 1px solid var(--line-1); border-radius: 2px; background: var(--bg-0); }
-.preview-figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-.controls { flex: 1; display: flex; flex-direction: column; gap: 10px; border: 1px solid var(--line-1); border-radius: 2px; padding: 14px; }
-.controls label { display: grid; grid-template-columns: 60px 1fr 50px; align-items: center; gap: 10px; font-size: var(--fs-caption); }
-.ctl-label { color: var(--ink-2); letter-spacing: .1em; }
-.ctl-val { color: var(--ink-1); text-align: right; }
-.controls input[type='range'] { width: 100%; }
-.save-note { position: absolute; top: 8px; left: 10px; z-index: 2; margin: 0; font-size: var(--fs-nano); letter-spacing: .04em; color: var(--ink-0); background: rgba(0,0,0,.45); padding: 2px 6px; border-radius: 2px; pointer-events: none; }
-
-.grid { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: var(--space-inline) 10px; margin-top: 20px; padding: 0; }
+.picker { position: sticky; top: 74px; display: flex; flex-direction: column; max-height: calc(100dvh - 124px); min-height: 0; }
+.grid { list-style: none; flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); align-content: start; gap: 10px 8px; margin: 0; padding: 0 6px 0 0; overflow-y: auto; overscroll-behavior: contain; }
 .grid-item { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .grid-cell { position: relative; width: 100%; aspect-ratio: 9 / 16; overflow: hidden; border: 1px solid var(--line-1); border-radius: 2px; background: var(--bg-0); cursor: pointer; padding: 0; }
 .grid-item.is-current .grid-cell { outline: 1px solid var(--amber); }
 .grid-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .gid { position: absolute; left: 4px; bottom: 2px; font-size: var(--fs-nano); color: var(--ink-2); }
-/* 每格下方的小号"入池"开关 */
 .cell-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 6px; width: 100%; background: none; border: 0; padding: 0; cursor: pointer; font-family: var(--sans); font-size: var(--fs-nano); color: var(--ink-2); }
 .cell-toggle:hover { color: var(--ink-0); }
 .cell-toggle .track { position: relative; width: 28px; height: 15px; border: 1px solid var(--line-1); border-radius: 2px; background: var(--bg-1); transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease); }
@@ -428,7 +428,31 @@ function thumbStyle(id: number): Record<string, string> | undefined {
 .cell-toggle.on .thumb { left: 14px; background: var(--amber); }
 .cell-toggle.on .switch-label { color: var(--amber-hi); }
 
-@media (max-width: 860px) {
+.pan-col { display: flex; flex-direction: column; gap: var(--space-inline); min-width: 0; }
+
+.panorama { position: relative; overflow: hidden; border: 1px solid var(--line-1); border-radius: 2px; background: var(--bg-0); touch-action: none; }
+.panorama > img { width: 100%; height: 100%; object-fit: contain; display: block; user-select: none; }
+.cam-rect { position: absolute; border: 1px solid var(--amber); box-shadow: 0 0 0 1px rgba(0,0,0,.35); cursor: move; }
+.cam-handle { position: absolute; right: -6px; bottom: -6px; width: 12px; height: 12px; background: var(--amber); border: 1px solid var(--bg-0); cursor: nwse-resize; }
+
+.controls { display: flex; flex-direction: column; gap: 10px; border: 1px solid var(--line-1); border-radius: 2px; padding: 14px; }
+.controls label { display: grid; grid-template-columns: 60px 1fr 50px; align-items: center; gap: 10px; font-size: var(--fs-caption); }
+.controls label.is-locked { opacity: .5; }
+.ctl-label { color: var(--ink-2); letter-spacing: .1em; }
+.ctl-val { color: var(--ink-1); text-align: right; }
+.controls input[type='range'] { width: 100%; }
+.save-note { position: absolute; top: 8px; left: 10px; z-index: 2; margin: 0; font-size: var(--fs-nano); letter-spacing: .04em; color: var(--ink-0); background: rgba(0,0,0,.45); padding: 2px 6px; border-radius: 2px; pointer-events: none; }
+
+.preview-col { position: sticky; top: 74px; }
+.preview-figure { width: 100%; aspect-ratio: 9 / 16; overflow: hidden; border: 1px solid var(--line-1); border-radius: 2px; background: var(--bg-0); }
+.preview-figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+@media (max-width: 900px) {
   .calib-main { grid-template-columns: 1fr; }
+  .picker { position: static; order: 2; max-height: 52vh; }
+  .pan-col { order: 1; }
+  .preview-col { display: none; }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); }
+  .calib-head { flex-direction: column; align-items: flex-start; gap: 6px; }
 }
 </style>
