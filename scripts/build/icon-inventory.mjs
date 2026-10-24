@@ -3,7 +3,7 @@
  *
  * download-icons.mjs（下载）与 verify-icons.mjs（校验）共用同一份
  * 资产清单推导：名录 icon / 技能键位 / 筛选图标 / hero 头图 /
- * 皮肤缩略图。两脚本各自的收集逻辑曾各写一份并已发生漂移风险，
+ * 皮肤缩略图 / 潜能影像觉醒立绘。两脚本各自的收集逻辑曾各写一份并已发生漂移风险，
  * 现统一由本模块产出「待处理资产条目」，下载与校验只消费清单。
  *
  * 条目字段：
@@ -11,8 +11,13 @@
  *   file    本地落地文件名（不含扩展名），与前端引用一致
  *   remote  nanoka CDN 真实文件名（部分技能资产需别名映射）
  *   optionalLocal  本地缺失是否可容忍：
- *                  - skin 默认不本地化（SKIN_LOCAL=1 才下载）
+ *                  - skin 未本地化时（SKIN_LOCAL=0）可容忍
  *                  - hero 头图源站缺口属已知（底色兜底不破图）
+ *                  - awaken 潜能影像立绘（新角色先有数据、后有解包资料时缺）
+ *   skin    该条目是皮肤立绘：与名录头像同落 img/character/（前端皮肤区就按 character
+ *           类目取图，落 img/skin/ 会下载到没人读的目录）；下载/导入按此开关取舍
+ *   dumpOnly      只能从解包导入（nanoka 源站没有这一类资产）：
+ *                 下载器跳过、远程审计不探测（否则每张都会记成「源站缺口」噪音）
  */
 
 import fs from 'node:fs'
@@ -25,8 +30,8 @@ export const IMG = path.join(DATA, 'img')
 /** 数据版本目录（仅 live = 正式服；名录/详情收集从此目录，图标落地 img/） */
 export const VERSIONS = ['live']
 
-/** 皮肤缩略图是否本地化（默认否：多为大图，避免仓库膨胀） */
-export const SKIN_LOCAL = process.env.SKIN_LOCAL === '1'
+/** 皮肤立绘是否本地化（默认是；SKIN_LOCAL=0 可关闭，关闭时缺失仅告警） */
+export const SKIN_LOCAL = process.env.SKIN_LOCAL !== '0'
 
 /**
  * 从**全部语言**的详情中动态收集富文本 <IconMap:Icon_XXX> 资产名（描述内键位图标）。
@@ -154,14 +159,14 @@ function stripExt(name) {
  * 下载按它补缺，校验按它比对本地与远端。
  */
 export function collectIcons() {
-  /** @type {{cat:string,file:string,remote:string,optionalLocal:boolean}[]} */
+  /** @type {{cat:string,file:string,remote:string,optionalLocal:boolean,skin:boolean,dumpOnly:boolean}[]} */
   const out = []
   const seen = new Set()
-  const push = (cat, file, remote = file, optionalLocal = false) => {
+  const push = (cat, file, remote = file, optionalLocal = false, skin = false, dumpOnly = false) => {
     const key = `${cat}/${file}`
     if (!file || seen.has(key)) return
     seen.add(key)
-    out.push({ cat, file, remote, optionalLocal })
+    out.push({ cat, file, remote, optionalLocal, skin, dumpOnly })
   }
 
   const charDict = readDict('character.json')
@@ -170,7 +175,7 @@ export function collectIcons() {
   for (const [file, cat] of [['weapon.json', 'weapon'], ['bangboo.json', 'bangboo'], ['equipment.json', 'disc']]) {
     for (const v of Object.values(readDict(file))) if (v?.icon) push(cat, stripExt(v.icon))
   }
-  // 皮肤缩略图（默认不本地化，但远程可达性仍在审计范围）——扫全部语言取并集
+  // 皮肤立绘（前端皮肤区按 character 类目取图，故与名录头像同目录）
   for (const ver of VERSIONS) {
     for (const lang of LANGS) {
       const base = path.join(DATA, ver, lang, 'character')
@@ -178,7 +183,7 @@ export function collectIcons() {
       for (const f of fs.readdirSync(base)) {
         const d = JSON.parse(fs.readFileSync(path.join(base, f), 'utf8'))
         for (const s of Object.values(d.skin || {})) {
-          if (s?.image) push('skin', stripExt(s.image), stripExt(s.image), !SKIN_LOCAL)
+          if (s?.image) push('character', stripExt(s.image), stripExt(s.image), !SKIN_LOCAL, true)
         }
       }
     }
@@ -191,6 +196,16 @@ export function collectIcons() {
   for (const id of Object.keys(charDict)) {
     const files = HERO_GENDER_VARIANTS[id] ?? [`Mindscape_${id}_2`]
     for (const f of files) push('hero', f, f, true)
+  }
+  // 潜能影像（觉醒）立绘：解包独有（源站无此类资产），按持有 potential_detail 的角色收集；
+  // 名字后缀取潜力数据的 image 字段（如 Nekomiya），与解包 AvatarSpecialAwakenBg_{image}.png 同名
+  const detailDir = path.join(DATA, VERSIONS[0], DEFAULT_LANG, 'character')
+  if (fs.existsSync(detailDir)) {
+    for (const f of fs.readdirSync(detailDir)) {
+      const d = JSON.parse(fs.readFileSync(path.join(detailDir, f), 'utf8'))
+      const image = Object.values(d.potential_detail ?? {})[0]?.image
+      if (image) push('awaken', `AvatarSpecialAwakenBg_${image}`, `AvatarSpecialAwakenBg_${image}`, true, false, true)
+    }
   }
   return out
 }

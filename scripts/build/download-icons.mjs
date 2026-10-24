@@ -11,8 +11,9 @@
  *   - filter 筛选图标（属性/职业/阵营）
  *   - hero 头图（Mindscape_{id}_2.webp 及双形态角色性别变体；
  *     源站缺口仅告警——前端底色兜底不破图）
- *   - 角色皮肤缩略图（skin）——默认关闭（多为大图，会显著增大仓库，
- *     仅当 SKIN_LOCAL 环境变量为 1 时开启）
+ *   - 角色皮肤立绘（skin）——与名录头像同落 img/character/；默认本地化（skins 已在库时跳过），
+ *     SKIN_LOCAL=0 可关闭
+ *   - 潜能影像觉醒立绘（awaken）——解包独有（源站无此资产），不在下载队列，见 import-assets.mjs
  *
  * 幂等：已存在的本地文件跳过；可重复运行增补缺失项。
  *
@@ -54,13 +55,14 @@ async function worker(queue, onOk, onFail) {
 }
 
 /**
- * 执行图标同步（幂等补差）。皮肤默认不下载（SKIN_LOCAL=1 才开）。
+ * 执行图标同步（幂等补差）。皮肤默认也补（SKIN_LOCAL=0 才跳过）。
  * @param {{soft?:boolean, dry?:boolean}} [opts]
  *   soft 缺口仅告警不阻断（CI / 部署用）；dry 只计算差集打印、不下载不写盘。
  * @returns {Promise<{added:number, failed:number, heroMissing:number, dry:boolean}>}
  */
 export async function runDownloadIcons({ soft = false, dry = false } = {}) {
-  const entries = collectIcons().filter((e) => e.cat !== 'skin' || SKIN_LOCAL)
+  // dumpOnly（潜能影像觉醒立绘）源站没有，只能从解包导入，故不进下载队列
+  const entries = collectIcons().filter((e) => !e.dumpOnly && (!e.skin || SKIN_LOCAL))
 
   // 差集：已存在的本地文件跳过（幂等），只补缺失
   const queue = []

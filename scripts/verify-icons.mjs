@@ -7,7 +7,7 @@
  *      逐一比对 public/data/img/{cat}/{file}.webp 是否存在。
  *      名录/技能/筛选图标本地缺失 → 失败退出（这类缺失不会报错，
  *      只会让前端静默落到 CDN 兜底、违反「运行时零外部请求」铁律）；
- *      hero / 皮肤(默认不本地化)属可容忍缺口 → 仅告警。
+ *      hero / 皮肤(默认不本地化) / awaken(解包独有，源站无此资产) 属可容忍缺口 → 仅告警。
  *
  *   2) 远程审计（默认开启）：逐个 HEAD 探测 nanoka 素材 CDN，
  *      输出统计与失败清单。--local 可跳过（离线/纯本地校验）；
@@ -38,6 +38,7 @@ const KNOWN_MISSING = JSON.parse(
 )
 
 const entries = collectIcons()
+const remoteEntries = entries.filter((e) => !e.dumpOnly)
 const localMissing = [] // 必须本地存在却缺失（破坏零外部请求）
 const localTolerated = [] // 可容忍缺口（hero 源站未上传 / 皮肤默认不落地）
 const knownGaps = [] // 已知两端皆缺（前端以文字键位降级，不发请求）
@@ -76,7 +77,7 @@ if (!LOCAL_ONLY) {
 
   // 同一 CDN 地址只探测一次（别名映射可能使不同条目指向同一文件）；
   // 与 download-icons 同规格 8 并发，串行探测数百地址会超时
-  const urls = [...new Set(entries.map(cdnUrl))]
+  const urls = [...new Set(remoteEntries.map(cdnUrl))]
   const statusCache = new Map()
   let next = 0
   async function headWorker() {
@@ -92,7 +93,7 @@ if (!LOCAL_ONLY) {
   //   本地缺失且**未记录** → 已计入 localMissing，是真正的硬失败
   //   本地缺失但**已记录**（known-missing-assets.json）→ 前端以文字键位降级、不发请求，
   //   故不计入失败；仍单独列出，避免「记了就不再被看见」。
-  remoteMiss = entries.filter((e) => {
+  remoteMiss = remoteEntries.filter((e) => {
     const s = statusCache.get(cdnUrl(e))
     return s !== -1 && s !== 200
   })
@@ -101,7 +102,7 @@ if (!LOCAL_ONLY) {
   const missLocalAlive = remoteMiss.filter((e) => fs.existsSync(localPath(e)))
   remoteDead = remoteMiss.filter((e) => !fs.existsSync(localPath(e)) && !isKnownGap(e))
   const missKnown = remoteMiss.filter((e) => !fs.existsSync(localPath(e)) && isKnownGap(e))
-  remoteUnreachable = entries.some((e) => statusCache.get(cdnUrl(e)) === -1)
+  remoteUnreachable = remoteEntries.some((e) => statusCache.get(cdnUrl(e)) === -1)
 
   console.log(`\n== nanoka.cc /assets/zzz 远程审计：${urls.length} 个地址，源站缺口 ${remoteMiss.length}（本地已兜住 ${missLocalAlive.length} / 已记录缺口 ${missKnown.length} / 两端皆缺 ${remoteDead.length}）${remoteUnreachable ? '，另有个别地址网络不可达' : ''} ==`)
   for (const m of missLocalAlive) console.log(`  ⚠ [${m.cat}] ${m.remote} → 源站已缺失（本地现存可兜底；重建时将无法补下）`)

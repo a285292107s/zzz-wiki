@@ -6,12 +6,12 @@
  * 资产清单单一事实源：src/data/filter-assets.json（构建期 icon-inventory.mjs
  * 读同一份下载到 /data/img/filter/；运行时零外部请求）。
  * 无专用图的（实测 404 / 未收录）不进清单，返回 null，前端用 SVG 占位：
- *   300 流明 → 已补图（IconLumen，纯本地资产，源站无此文件）
- *   7   锋御 → 已补图（IconArmorer，纯本地资产，源站无此文件）
- *   15  法厄同 → 已补图（IconCampPhaethon，纯本地资产，源站无此文件）
- *   17  达识结社 → 已补图（IconCampCovenantOfDayar，纯本地资产，源站无此文件）
+ *   300 流明 → 已补图（IconLumen，解包 IconBuff_Lumiflux）
+ *   7   锋御 → 已补图（IconArmorer，解包 Role/IconClass）
+ *   15  法厄同 → 已补图（IconCampPhaethon，解包同名）
+ *   17  达识结社 → 已补图（IconCampCovenantOfDayar，本地徽标；解包版本未收录）
  *   16  罗斯凯利法 → 父级暂无图（名录已细分至 22-24，码保留作未来新角色兜底）
- *   18-24 阵营细分 → 18 复用 IconCampObols；19-24 为纯本地资产（biligame 图鉴徽标，源站无此文件）
+ *   18-24 阵营细分 → 18 复用 IconCampObols；19-24 为本地徽标（解包版本未收录，源站也无此文件）
  * ============================================================ */
 
 import raw from '../data/filter-assets.json'
