@@ -25,7 +25,6 @@
  * 页脚只保留「数据说明」一处出处链接，不再重复指路本页。 */
 
 import { computed } from 'vue'
-import { RouterLink } from 'vue-router'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { useLocale } from '@/composables/useLocale'
 import { useUiText } from '@/composables/useUiText'
@@ -156,10 +155,6 @@ function formShotSources(form: HeroForm) {
         {{ fmt(t.settings.currentLang, { name: LANG_META[lang].endonym, tag: LANG_META[lang].htmlLang }) }}
       </p>
     </section>
-
-    <p v-reveal="180" class="foot-note">
-      <RouterLink class="foot-link" to="/agents">{{ t.settings.toAgents }}</RouterLink>
-    </p>
   </ListPage>
 </template>
 
@@ -400,27 +395,4 @@ function formShotSources(form: HeroForm) {
   }
 }
 
-.foot-note {
-  margin-top: 30px;
-}
-
-.foot-link {
-  display: inline-block;
-  padding: 3px 0;
-  font-size: var(--fs-caption);
-  letter-spacing: 0.08em;
-  color: var(--ink-1);
-  text-decoration: none;
-  border-bottom: 1px solid var(--line-1);
-  transition:
-    color var(--t-fast) var(--ease),
-    border-color var(--t-fast) var(--ease);
-}
-
-@media (hover: hover) {
-  .foot-link:hover {
-    color: var(--amber-hi);
-    border-bottom-color: var(--amber);
-  }
-}
 </style>

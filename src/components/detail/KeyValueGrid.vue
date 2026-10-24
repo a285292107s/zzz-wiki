@@ -4,16 +4,15 @@ import type { StatItem } from '@/domain/sections'
 withDefaults(
   defineProps<{
     items: StatItem[]
-    /** grid=细线网格（默认）；ledger=点线规格表（打印档案质感） */
     variant?: 'grid' | 'ledger'
+    framed?: boolean
   }>(),
-  { variant: 'grid' },
+  { variant: 'grid', framed: true },
 )
 </script>
 
 <template>
-  <!-- 键值规格数据用 dl（dt=键 / dd=值）表达语义，非 div 网格 -->
-  <dl v-if="items.length" :class="['stat-grid', `v-${variant}`]">
+  <dl v-if="items.length" :class="['stat-grid', `v-${variant}`, { 'is-unframed': !framed }]">
     <template v-if="variant === 'ledger'">
       <div v-for="it in items" :key="it.label" class="ledger-row">
         <dt class="k">{{ it.label }}</dt>
@@ -33,8 +32,6 @@ withDefaults(
 </template>
 
 <style scoped>
-/* ---------- grid：细线网格 ---------- */
-
 .stat-grid.v-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -64,14 +61,22 @@ withDefaults(
   color: var(--ink-2);
 }
 
-/* ---------- ledger：点线规格表 ---------- */
-
 .stat-grid.v-ledger {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
   column-gap: clamp(32px, 4vw, 64px);
   border: var(--rule);
   padding: 6px clamp(16px, 2vw, 28px);
+}
+
+.stat-grid.v-grid.is-unframed {
+  border: 0;
+}
+
+.stat-grid.v-ledger.is-unframed {
+  border: 0;
+  border-top: var(--rule);
+  padding: 6px 0;
 }
 
 .ledger-row {
@@ -81,7 +86,6 @@ withDefaults(
   padding-block: 11px;
 }
 
-/* 点线引导画在 dt 自己身上：dl 的子级只认 dt/dd/div，引导线不能自成一项 */
 .v-ledger .k {
   flex: 1 1 auto;
   min-width: 0;
@@ -97,8 +101,6 @@ withDefaults(
   border-bottom: 1px dotted color-mix(in srgb, var(--ink-2) 72%, transparent);
   transform: translateY(-4px);
 }
-
-/* ---------- shared ---------- */
 
 .k {
   font-size: var(--fs-caption);

@@ -14,10 +14,10 @@ import { computed, onMounted, ref } from 'vue'
 import { CATALOG } from '@/domain/catalog'
 import { pickText, DEFAULT_LANG } from '@/domain/lang'
 import { listFor } from '@/data/resources'
-import { dataVersions } from '@/data/api'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { useLocale } from '@/composables/useLocale'
 import { useUiText } from '@/composables/useUiText'
+import { useDataVersion } from '@/composables/useDataVersion'
 import { ListPage, DetailSection } from '@/components'
 
 /* 标题与描述给**字面量中文**：本页正文是站内中文长文，不随语言切换，标签页标题也跟着中文，
@@ -30,11 +30,10 @@ usePageMeta(
 
 const { lang } = useLocale()
 const { t } = useUiText()
+const { updatedAt, versionLabel } = useDataVersion()
 
 /** 各类目收录量：与名录页同源（api 层缓存，进入本页基本零网络） */
 const counts = ref<Record<string, number>>({})
-const version = ref('')
-const updatedAt = ref('')
 
 onMounted(() => {
   for (const c of CATALOG) {
@@ -49,19 +48,6 @@ onMounted(() => {
         /* 计数失败不阻断页面（显示占位 ···） */
       })
   }
-  void dataVersions()
-    .then((v) => {
-      version.value = v.live
-      const t = v.generated ? new Date(v.generated) : null
-      if (t && !Number.isNaN(t.getTime())) {
-        updatedAt.value = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(
-          t.getDate(),
-        ).padStart(2, '0')}`
-      }
-    })
-    .catch(() => {
-      /* manifest 缺失时版本行不显示数值 */
-    })
 })
 
 /** 档案规格账目：类目 / 收录量（动态）+ 源站 ID 号段（由数据实测，随更新自动跟随） */
@@ -166,7 +152,7 @@ const gapCount = computed(() =>
       <dl class="spec-list">
         <div class="spec-item">
           <dt>数据版本</dt>
-          <dd class="mono">{{ version ? `LIVE ${version}` : '···' }}</dd>
+          <dd class="mono">{{ versionLabel('LIVE') || '···' }}</dd>
         </div>
         <div class="spec-item">
           <dt>最近更新</dt>
@@ -186,7 +172,7 @@ const gapCount = computed(() =>
           <span class="count mono"><span class="sr-only">收录量</span>{{ fmt(l.count) }}</span>
         </li>
       </ul>
-      <p class="spec-note">
+      <p class="spec-note measure wide-cols">
         编号有两套，用途不同：<strong>源站 ID</strong>（详情页头的
         <code class="mono">NO.1011</code>、快速检索结果、深链地址与图片文件名）与
         <strong>展示位次</strong>（详情页翻页处的三位序号，如
@@ -197,16 +183,18 @@ const gapCount = computed(() =>
     </aside>
 
     <DetailSection v-reveal id="source" no="01" title="数据来源与范围" en="Source">
-      <p class="prose">
-        条目数据取自公开数据源 <strong> hakushin raw </strong>（由
-        <a href="https://zzz.nanoka.cc" target="_blank" rel="noopener" class="ext">zzz.nanoka.cc</a>
-        及其同源 CDN 提供），在构建期一次性拉取并规整为静态 JSON，随仓库一起入库。
-        前端运行时只读本地 <code class="mono">/data</code>，不请求任何数据接口。
-      </p>
-      <p class="prose">
-        <strong>只收录正式服（live）数据</strong>：源站的前瞻与测试服内容不拉取、不降级、不补位——
-        避免未上线内容提前流出。数据版本号从归档清单动态读取，不在代码中写死。
-      </p>
+      <div class="wide-cols">
+        <p class="prose measure">
+          条目数据取自公开数据源 <strong> hakushin raw </strong>（由
+          <a href="https://zzz.nanoka.cc" target="_blank" rel="noopener" class="ext">zzz.nanoka.cc</a>
+          及其同源 CDN 提供），在构建期一次性拉取并规整为静态 JSON，随仓库一起入库。
+          前端运行时只读本地 <code class="mono">/data</code>，不请求任何数据接口。
+        </p>
+        <p class="prose measure">
+          <strong>只收录正式服（live）数据</strong>：源站的前瞻与测试服内容不拉取、不降级、不补位——
+          避免未上线内容提前流出。数据版本号从归档清单动态读取，不在代码中写死。
+        </p>
+      </div>
     </DetailSection>
 
     <DetailSection v-reveal id="update" no="02" title="更新机制" en="Pipeline">
@@ -231,15 +219,17 @@ const gapCount = computed(() =>
     </DetailSection>
 
     <DetailSection v-reveal id="assets" no="03" title="资产与校验" en="Assets">
-      <p class="prose">
-        图标、西文字体与中文衬线（按字形分片、用到才加载）、首页头图派生小图，全部本地化入库；
-        <strong>本站资源齐备时页面零跨域请求</strong>。离线能力由 Service Worker 提供：
-        <strong>首次访问之后，已浏览过的页面在断网时仍可打开阅读</strong>（导航网络优先、
-        静态资源缓存优先、数据 JSON 陈旧优先并后台更新；缓存世代跟随数据版本，换版即整批清理）。
-        唯一的跨域例外是候选链兜底：个别源站缺口（如某条邦布无图标）会回源同源 CDN（nanoka）
-        取一次图——这是「不破图、也不把占位当有图」的取舍，触发条数与缺口同量级，
-        见下方「字段覆盖」。
-      </p>
+      <div class="wide-cols">
+        <p class="prose measure">
+          图标、西文字体与中文衬线（按字形分片、用到才加载）、首页头图派生小图，全部本地化入库；
+          <strong>本站资源齐备时页面零跨域请求</strong>。离线能力由 Service Worker 提供：
+          <strong>首次访问之后，已浏览过的页面在断网时仍可打开阅读</strong>（导航网络优先、
+          静态资源缓存优先、数据 JSON 陈旧优先并后台更新；缓存世代跟随数据版本，换版即整批清理）。
+          唯一的跨域例外是候选链兜底：个别源站缺口（如某条邦布无图标）会回源同源 CDN（nanoka）
+          取一次图——这是「不破图、也不把占位当有图」的取舍，触发条数与缺口同量级，
+          见下方「字段覆盖」。
+        </p>
+      </div>
       <ul class="checks">
         <li><span class="ck mono">契约</span>名录↔详情一一对应、字段 schema 校验</li>
         <li><span class="ck mono">图标</span>清单内零缺失（源站个别缺口如实标注、不破图）</li>
@@ -249,10 +239,16 @@ const gapCount = computed(() =>
     </DetailSection>
 
     <DetailSection v-reveal id="shortcuts" no="04" title="快捷操作" en="Controls">
-      <p class="prose">
-        本站的检索、翻页、等级与筛选都做了键盘支持；<strong>链接本身就是视图</strong>——
-        筛选、排序、等级会写进地址栏，复制出去即是同一份视图。
-      </p>
+      <div class="wide-cols">
+        <p class="prose measure">
+          本站的检索、翻页、等级与筛选都做了键盘支持；<strong>链接本身就是视图</strong>——
+          筛选、排序、等级会写进地址栏，复制出去即是同一份视图。
+        </p>
+        <p class="prose measure">
+          要把它交给别人，直接复制地址栏（移动端用浏览器自带的分享或拷贝）；打开链接的人看到的
+          就是你眼前这一份视图——等级与精炼档位也在里面。数据说明页本身也在页脚常驻入口。
+        </p>
+      </div>
       <dl class="keys">
         <div class="key-row">
           <dt><kbd class="kbd mono">⌘K</kbd><span class="kbd-alt mono">/ Ctrl+K</span></dt>
@@ -271,14 +267,10 @@ const gapCount = computed(() =>
           <dd>打印时自动切换为纸墨样式：白纸黑字、隐藏交互外壳、表格不跨页断开</dd>
         </div>
       </dl>
-      <p class="prose">
-        要把它交给别人，直接复制地址栏（移动端用浏览器自带的分享或拷贝）；打开链接的人看到的
-        就是你眼前这一份视图——等级与精炼档位也在里面。数据说明页本身也在页脚常驻入口。
-      </p>
     </DetailSection>
 
     <DetailSection v-reveal id="coverage" no="05" title="字段覆盖" en="Coverage">
-      <p class="prose">
+      <p class="prose measure">
         数据取自公开数据源，源站本身的缺口我们<strong>如实标注、不补造</strong>。下表按类目列出
         关键字段的有值条数——<span class="mono">分母是收录量，分子是有值条数</span>；
         不足全量的条目以琥珀标注，说明该字段在源站尚缺。
@@ -302,18 +294,20 @@ const gapCount = computed(() =>
         </div>
       </div>
       <p v-else class="prose mono cov-loading">···</p>
-      <p class="prose">
+      <p class="prose measure">
         当前共 <span class="mono">{{ gapCount }}</span> 项字段未满量。缺口集中在源站尚未提供
         的角色潜能（影画）与个别图标；缺失处一律以占位呈现，不伪造数据、不留破图。
       </p>
     </DetailSection>
 
     <DetailSection v-reveal id="rights" no="06" title="版权与免责" en="Rights">
-      <p class="prose">
-        本站为社区爱好者制作的<strong>非官方</strong>资料站，与米哈游 / HoYoverse 无隶属或合作关系。
-        游戏数据与美术资源的版权、商标归米哈游 / HoYoverse 所有；本站仅作结构化陈列与检索，
-        不含商业用途。数据或素材权利人如认为本站展示不当，可联系撤下。
-      </p>
+      <div class="wide-cols">
+        <p class="prose measure">
+          本站为社区爱好者制作的<strong>非官方</strong>资料站，与米哈游 / HoYoverse 无隶属或合作关系。
+          游戏数据与美术资源的版权、商标归米哈游 / HoYoverse 所有；本站仅作结构化陈列与检索，
+          不含商业用途。数据或素材权利人如认为本站展示不当，可联系撤下。
+        </p>
+      </div>
     </DetailSection>
   </ListPage>
 </template>
@@ -472,7 +466,6 @@ const gapCount = computed(() =>
   color: var(--ink-1);
   font-size: var(--fs-md);
   line-height: 1.95;
-  max-width: 68ch;
 }
 
 .prose + .prose {
@@ -685,6 +678,27 @@ const gapCount = computed(() =>
   .key-row {
     grid-template-columns: 1fr;
     gap: 6px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .steps {
+    max-width: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 3em;
+  }
+
+  .steps li:nth-last-child(-n + 2) {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .checks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 3em;
+    row-gap: 10px;
   }
 }
 </style>

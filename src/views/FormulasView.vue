@@ -6,8 +6,8 @@ import { useLocale } from '@/composables/useLocale'
 import { useUiText } from '@/composables/useUiText'
 import { resolveAnchorOffset } from '@/composables/anchorOffset'
 import { useNavScrollable } from '@/composables/useNavScrollable'
+import { useDataVersion } from '@/composables/useDataVersion'
 import { FORMULA_GUIDE } from '@/data/formulaGuide'
-import { dataVersions } from '@/data/api'
 import { ListPage, DetailSection } from '@/components'
 import NavScrollButton from '@/components/NavScrollButton.vue'
 import FormulaEq from '@/components/FormulaEq.vue'
@@ -31,21 +31,8 @@ const { navEl, scrollRight, ensureActiveVisible } = useNavScrollable()
 const active = ref<string | null>(null)
 const NAV_SLOP = 80
 
-/** 站内数据版本（manifest 已由 api 层缓存，零额外请求）：与机制整理版本并列展示 */
-const version = ref('')
-const updatedAt = ref('')
-onMounted(() => {
-  void dataVersions()
-    .then((v) => {
-      version.value = v.live
-      const t = v.generated ? new Date(v.generated) : null
-      if (t && !Number.isNaN(t.getTime()))
-        updatedAt.value = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`
-    })
-    .catch(() => {
-      /* 取不到版本时该段显示 ···，不留空 */
-    })
-})
+const { version, updatedAt, versionLabel } = useDataVersion()
+
 function onScroll() {
   const offset = resolveAnchorOffset()
   let cur: string | null = parts.value[0]?.id ?? null
@@ -105,7 +92,7 @@ onBeforeUnmount(() => {
     </p>
 
     <!-- 出处与提示：纯细线盒，无卡片堆叠 -->
-    <aside v-reveal="90" class="notice" aria-label="阅读提示">
+    <aside v-reveal="90" class="notice measure" aria-label="阅读提示">
       <p class="notice-source">
         <span class="notice-tag mono">SOURCE</span>
         <a :href="FORMULA_GUIDE.sourceUrl" target="_blank" rel="noopener" class="source-link">
@@ -118,7 +105,7 @@ onBeforeUnmount(() => {
         <span class="notice-tag mono">VERSION</span>
         <span>机制整理 <span class="ver-key">2.0 版</span></span>
         <span class="ver-sep" aria-hidden="true">·</span>
-        <span v-if="version">站内档案数据 <span class="ver-key">LIVE {{ version }}</span></span>
+        <span v-if="version">站内档案数据 <span class="ver-key">{{ versionLabel('LIVE') }}</span></span>
         <span v-else>站内档案数据 ···</span>
         <span v-if="updatedAt" class="ver-snap">（快照 {{ updatedAt }}）</span>
       </p>
@@ -141,7 +128,7 @@ onBeforeUnmount(() => {
       :title="part.title"
       :en="part.en"
     >
-      <p v-if="part.lead" class="part-lead">{{ part.lead }}</p>
+      <p v-if="part.lead" class="part-lead measure">{{ part.lead }}</p>
 
       <div v-if="part.formulas?.length" class="eq-list">
         <FormulaEq v-for="(f, i) in part.formulas" :key="i" :formula="f" />
@@ -149,7 +136,7 @@ onBeforeUnmount(() => {
 
       <div v-for="(g, gi) in part.groups" :key="gi" class="group">
         <h3 v-if="g.title" class="group-title mono">{{ g.title }}</h3>
-        <p v-if="g.note" class="group-note">{{ g.note }}</p>
+        <p v-if="g.note" class="group-note measure">{{ g.note }}</p>
 
         <div class="items">
           <article v-for="item in g.items" :key="item.no" class="item">
@@ -158,7 +145,7 @@ onBeforeUnmount(() => {
               <!-- 标题层级随分组标题是否存在浮动：无组标题时条目名升为 h3，
                    避免 h2 → h4 跳级（axe heading-order，读屏大纲断链） -->
               <component :is="g.title ? 'h4' : 'h3'" class="it-title">{{ item.title }}</component>
-              <p v-if="item.desc" class="it-desc">{{ item.desc }}</p>
+              <p v-if="item.desc" class="it-desc measure">{{ item.desc }}</p>
               <FormulaEq v-if="item.formula" :formula="item.formula" />
             </div>
           </article>
@@ -278,7 +265,6 @@ onBeforeUnmount(() => {
 .part-lead {
   color: var(--ink-1);
   font-size: var(--fs-body);
-  max-width: 66ch;
   line-height: 1.85;
   margin-bottom: 30px;
 }
@@ -322,7 +308,6 @@ onBeforeUnmount(() => {
   color: var(--ink-1);
   line-height: 1.85;
   margin: -6px 0 20px;
-  max-width: 66ch;
 }
 
 /* 条目台账：等宽索引列 + 内容列，发丝横线分条；索引列保持单一左缘对齐 */
@@ -359,7 +344,6 @@ onBeforeUnmount(() => {
   font-size: var(--fs-md);
   color: var(--ink-1);
   line-height: 1.85;
-  max-width: 68ch;
 }
 
 .it-body {
@@ -377,6 +361,23 @@ onBeforeUnmount(() => {
   }
   .eq-list {
     padding-left: 18px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 3em;
+  }
+
+  .items > .item:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  .item {
+    grid-template-columns: 64px 1fr;
+    gap: 20px;
   }
 }
 </style>

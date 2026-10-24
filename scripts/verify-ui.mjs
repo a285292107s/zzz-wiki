@@ -4,7 +4,7 @@ import path from 'node:path'
 
 const DEFAULT_WIDTHS = [1440, 768, 390]
 const OUT_DIR = 'temp/verify-ui'
-const SESSION = 'verify-ui'
+const DEFAULT_SESSION = 'verify-ui'
 const AXE_PATH = path.resolve('node_modules/axe-core/axe.min.js')
 
 function splitList(v) {
@@ -15,7 +15,7 @@ function splitList(v) {
 }
 
 function parseArgs(argv) {
-  const opts = { routes: [], widths: DEFAULT_WIDTHS, base: 'http://localhost:5173', shots: true, axe: true }
+  const opts = { routes: [], widths: DEFAULT_WIDTHS, base: 'http://localhost:5173', shots: true, axe: true, session: DEFAULT_SESSION }
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i]
     const take = (flag) => (arg.startsWith(`${flag}=`) ? arg.slice(flag.length + 1) : argv[++i])
@@ -25,6 +25,7 @@ function parseArgs(argv) {
     else if (arg === '--route' || arg.startsWith('--route=')) opts.routes.push(...splitList(take('--route')))
     else if (arg === '--widths' || arg.startsWith('--widths=')) opts.widths = splitList(take('--widths')).map(Number).filter((n) => n > 0)
     else if (arg === '--base' || arg.startsWith('--base=')) opts.base = take('--base').replace(/\/+$/, '')
+    else if (arg === '--session' || arg.startsWith('--session=')) opts.session = take('--session')
     else throw new Error(`未知参数：${arg}`)
   }
   return opts
@@ -128,12 +129,12 @@ function buildRunner(config) {
 }
 
 function evaluate(config) {
-  fs.mkdirSync(OUT_DIR, { recursive: true })
-  const runnerFile = path.join(OUT_DIR, 'runner.js')
+  fs.mkdirSync(config.outDir, { recursive: true })
+  const runnerFile = path.join(config.outDir, 'runner.js')
   fs.writeFileSync(runnerFile, buildRunner(config), 'utf8')
-  execFileSync('playwright-cli', [`-s=${SESSION}`, 'open', `${config.base}/`], { shell: true, stdio: 'ignore' })
+  execFileSync('playwright-cli', [`-s=${config.session}`, 'open', `${config.base}/`], { shell: true, stdio: 'ignore' })
   try {
-    const raw = execFileSync('playwright-cli', [`-s=${SESSION}`, 'run-code', `--filename=${runnerFile}`, '--raw'], {
+    const raw = execFileSync('playwright-cli', [`-s=${config.session}`, 'run-code', `--filename=${runnerFile}`, '--raw'], {
       shell: true,
       encoding: 'utf8',
       timeout: 180000,
@@ -142,7 +143,7 @@ function evaluate(config) {
     return typeof once === 'string' ? JSON.parse(once) : once
   } finally {
     try {
-      execFileSync('playwright-cli', [`-s=${SESSION}`, 'close'], { shell: true, stdio: 'ignore' })
+      execFileSync('playwright-cli', [`-s=${config.session}`, 'close'], { shell: true, stdio: 'ignore' })
     } catch {}
   }
 }
@@ -181,9 +182,10 @@ async function main() {
   --base <origin>    目标服务（默认 http://localhost:5173，需先 pnpm run dev）
   --no-shots         不落截图
   --no-axe           不跑 axe
+  --session <名称>   浏览器会话名（默认 verify-ui；同一个名字不可并行跑）
 
 检查项：渲染锚点（h1/main/footer/正文长度）、图片 alt、横向溢出、控制台错误、axe violations（首末两个视口）。
-截图与结果落在 ${OUT_DIR}/。`)
+截图与结果落在 ${OUT_DIR}/（非默认 --session 落在 ${OUT_DIR}/<session>/）。`)
     return 0
   }
   if (!opts.routes.length) {
@@ -211,6 +213,7 @@ async function main() {
     return 2
   }
 
+  const outDir = opts.session === DEFAULT_SESSION ? OUT_DIR : path.join(OUT_DIR, opts.session).replace(/\\/g, '/')
   const config = {
     base: opts.base,
     routes: opts.routes,
@@ -218,21 +221,22 @@ async function main() {
     shots: opts.shots,
     axe: opts.axe,
     axePath: AXE_PATH,
-    outDir: OUT_DIR,
+    session: opts.session,
+    outDir,
   }
   console.log(`快检 ${opts.routes.length} 个路由 × ${opts.widths.length} 个视口（${opts.base}）`)
   const result = evaluate(config)
   const { failures, lines } = judge(result)
-  fs.writeFileSync(path.join(OUT_DIR, 'result.json'), JSON.stringify({ config, ...result, failures }, null, 2), 'utf8')
+  fs.writeFileSync(path.join(outDir, 'result.json'), JSON.stringify({ config, ...result, failures }, null, 2), 'utf8')
   for (const line of lines) console.log(`  ${line}`)
-  if (opts.shots) console.log(`  截图：${OUT_DIR}/`)
+  if (opts.shots) console.log(`  截图：${outDir}/`)
   if (failures.length === 0) {
     console.log(`\n== 快检通过（${result.routes.length} 路由）==`)
     return 0
   }
   console.log(`\n== 快检失败：${failures.length} 项 ==`)
   for (const f of failures) console.log(`  ✖ ${f.route}${f.width ? ` @${f.width}` : ''} → ${f.problems.join('；')}`)
-  console.log(`  明细：${OUT_DIR}/result.json`)
+  console.log(`  明细：${outDir}/result.json`)
   return 1
 }
 

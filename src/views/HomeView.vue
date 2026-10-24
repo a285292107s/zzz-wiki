@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed } from 'vue'
 import { iconSources } from '@/data/icons'
 import { CATALOG, GUIDE_ENTRIES } from '@/domain/catalog'
 import { pickText } from '@/domain/lang'
 import { useUiText } from '@/composables/useUiText'
 import { useLocale } from '@/composables/useLocale'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { dataVersions } from '@/data/api'
+import { useDataVersion } from '@/composables/useDataVersion'
 import { useFeaturedAgents } from '@/composables/useFeaturedAgents'
 import { prefetchList } from '@/composables/useDetailPrefetch'
 import { catalogByPath } from '@/domain/catalog'
@@ -22,30 +22,8 @@ const { lang } = useLocale()
 const LATIN_TITLE = 'Ropeweb Archive'
 const latinTitle = computed(() => (t.value.meta.siteName === LATIN_TITLE ? '' : LATIN_TITLE))
 
-// 数据版本元信息（正式服版本号，来自根 manifest.json；站点只展示正式服数据）
-const versions = ref<{ live: string; generated?: string } | null>(null)
-onMounted(() => {
-  dataVersions()
-    .then((v) => {
-      versions.value = v
-    })
-    .catch(() => {
-      // manifest 缺失时版本信息静默隐藏，不阻断页面
-    })
-})
-
-const currentVersionLabel = computed(() => {
-  if (!versions.value) return ''
-  return `VER ${versions.value.live}`
-})
-
-/** 快照日期（hero 规格板用）：与数据说明页同一格式化口径 */
-const currentUpdatedLabel = computed(() => {
-  const g = versions.value?.generated
-  const t = g ? new Date(g) : null
-  if (!t || Number.isNaN(t.getTime())) return ''
-  return `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`
-})
+const { updatedAt: currentUpdatedLabel, versionLabel } = useDataVersion()
+const currentVersionLabel = computed(() => versionLabel('VER'))
 
 // 目录由 catalog.ts 派生（DESIGN.md §5.3 单一事实源）
 // 代理人类目图标：圆形头像已本地化（public/data/img/character/），其余沿用候选链兜底
@@ -199,7 +177,7 @@ const sections = computed(() => [
               <!-- 图文板块：无游戏图标，用该板块的标本符号（战斗公式 × / 数据说明 §） -->
               <span v-else class="specimen-guide" aria-hidden="true">{{ s.glyph }}</span>
             </span>
-            <span class="idx mono" aria-hidden="true">{{ String(i + 1).padStart(2, '0') }}</span>
+            <span class="idx mono" aria-hidden="true">{{ s.no }}</span>
             <span class="name">
               <span class="zh">{{ s.label }}</span>
               <span class="en mono">{{ s.en }}</span>

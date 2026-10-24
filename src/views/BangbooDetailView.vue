@@ -24,7 +24,7 @@ import {
   type StatItem,
 } from '@/domain/sections'
 import type { BangbooDetail } from '@/data/types'
-import { DetailHead, DetailPager, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel } from '@/components'
+import { DetailHead, DetailPage, DetailPager, DetailSection, DetailSkeleton, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel } from '@/components'
 import Rarity from '@/components/Rarity.vue'
 
 const id = useRouteParam('id')
@@ -144,6 +144,10 @@ const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
     :fallback-to="backTo"
     :recent="{ entry: catBangboos, id: () => String(id), label: () => detail?.name ?? '' }"
   >
+    <template #skeleton>
+      <DetailSkeleton variant="compact" />
+    </template>
+
     <template v-if="detail">
       <DetailHead
         :eyebrow="`Bangboo · ${String(id).padStart(5, '0')}`"
@@ -177,8 +181,8 @@ const backTo = computed(() => (detail.value ? undefined : '/bangboos'))
               :marks="levelMarks"
             />
           </template>
+          <KeyValueGrid :items="stats" variant="ledger" :framed="false" />
         </StatLevelPanel>
-        <KeyValueGrid :items="stats" variant="ledger" />
       </DetailSection>
 
       <DetailSection v-if="skillRows.length" v-reveal id="skills" :no="noOf('skills')" :title="t.detail.bangbooSkills" en="Skills">

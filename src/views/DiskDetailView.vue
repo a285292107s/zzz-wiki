@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { detailFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
 import { richDesc } from '@/utils/rich'
-import { stripRichText } from '@/utils/text'
+import { stripRichText, textEmWidth, WIDE_COLS_MIN_EM } from '@/utils/text'
 import { pickLocaleInfo } from '@/utils/names'
 import { useLocale } from '@/composables/useLocale'
 import { useUiText } from '@/composables/useUiText'
@@ -14,7 +14,7 @@ import { usePageMeta } from '@/composables/usePageMeta'
 import { useDetailPager } from '@/composables/useDetailPager'
 import { catalogEntry } from '@/domain/catalog'
 import type { DiskDriveDetail, LocaleInfo } from '@/data/types'
-import { DetailHead, DetailPager, DetailPage, DetailSection } from '@/components'
+import { DetailHead, DetailPage, DetailPager, DetailSection, DetailSkeleton } from '@/components'
 
 const id = useRouteParam('id')
 /** 当前展示语言：详情正文按语言落盘，语言一变由 watchEffect 重新取数 */
@@ -42,11 +42,21 @@ const portraitSrcs = computed(() =>
   iconSources({ Id: id.value, icon: detail.value?.icon }, 'disc'),
 )
 
+const set2Wide = computed(() => textEmWidth(stripRichText(detail.value?.desc2)) >= WIDE_COLS_MIN_EM)
+const set4Wide = computed(() => textEmWidth(stripRichText(detail.value?.desc4)) >= WIDE_COLS_MIN_EM)
+
 /* ---------- 区块导航 + scrollspy + reveal ---------- */
 
 const navItems = computed<DetailSectionItem[]>(() => [
-  { id: 'set2', no: '01', label: t.value.detail.set2 },
-  { id: 'set4', no: '02', label: t.value.detail.set4 },
+  {
+    id: 'sets',
+    no: '01',
+    label: t.value.detail.setBonus,
+    children: [
+      { id: 'set2', label: t.value.detail.set2 },
+      { id: 'set4', label: t.value.detail.set4 },
+    ],
+  },
 ])
 
 const { activeSection, revealDir: vReveal, noOf } = useDetailSections(navItems, status)
@@ -75,6 +85,10 @@ const backTo = computed(() => (detail.value ? undefined : '/disks'))
     :fallback-to="backTo"
     :recent="{ entry: catDisks, id: () => String(id), label: () => detail?.name ?? '' }"
   >
+    <template #skeleton>
+      <DetailSkeleton variant="compact" />
+    </template>
+
     <template v-if="detail">
       <DetailHead
         :eyebrow="`Disk Drive · ${String(id).padStart(5, '0')}`"
@@ -86,16 +100,21 @@ const backTo = computed(() => (detail.value ? undefined : '/disks'))
         ratio="1 / 1"
       >
         <template #sub>
-          <p v-if="detail.story" class="story">{{ stripRichText(detail.story) }}</p>
+          <p v-if="detail.story" class="story measure">{{ stripRichText(detail.story) }}</p>
         </template>
       </DetailHead>
 
-      <DetailSection id="set2" :no="noOf('set2')" :title="t.detail.set2" en="Set II">
-        <p class="effect" v-html="richDesc(detail.desc2)" />
-      </DetailSection>
-
-      <DetailSection v-reveal id="set4" :no="noOf('set4')" :title="t.detail.set4" en="Set IV">
-        <p class="effect" v-html="richDesc(detail.desc4)" />
+      <DetailSection v-reveal id="sets" :no="noOf('sets')" :title="t.detail.setBonus" en="Bonus">
+        <dl class="set-list">
+          <div id="set2" class="set-row" tabindex="-1">
+            <dt class="set-tier mono">{{ t.detail.set2 }}</dt>
+            <dd class="effect measure" :class="{ 'wide-cols': set2Wide }" v-html="richDesc(detail.desc2)" />
+          </div>
+          <div id="set4" class="set-row" tabindex="-1">
+            <dt class="set-tier mono">{{ t.detail.set4 }}</dt>
+            <dd class="effect measure" :class="{ 'wide-cols': set4Wide }" v-html="richDesc(detail.desc4)" />
+          </div>
+        </dl>
       </DetailSection>
     </template>
 
@@ -108,14 +127,38 @@ const backTo = computed(() => (detail.value ? undefined : '/disks'))
   color: var(--ink-1);
   font-size: var(--fs-md);
   line-height: 1.8;
-  max-width: 60ch;
+}
+
+.set-list {
+  margin: 0;
+}
+
+.set-row {
+  padding-block: 18px;
+  scroll-margin-top: var(--anchor-offset);
+}
+
+.set-row:first-child {
+  padding-top: 0;
+}
+
+.set-row + .set-row {
+  border-top: var(--rule);
+}
+
+.set-tier {
+  margin-bottom: 8px;
+  font-size: var(--fs-micro);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-2);
 }
 
 .effect {
+  margin: 0;
   color: var(--ink-1);
   font-size: var(--fs-md);
   line-height: 1.9;
-  max-width: 76ch;
 }
 
 .effect :deep(.rich-key) {

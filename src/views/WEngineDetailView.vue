@@ -5,7 +5,7 @@ import { iconSources } from '@/data/icons'
 import { weaponArtSource, WEAPON_ART_RATIO } from '@/data/weaponArt'
 import { ownerAgentForEngine } from '@/domain/signatureEngine'
 import { richDesc } from '@/utils/rich'
-import { stripRichText } from '@/utils/text'
+import { stripRichText, textEmWidth, WIDE_COLS_MIN_EM } from '@/utils/text'
 import { useRouteParam } from '@/composables/useRouteParam'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useDetailSections, type DetailSectionItem } from '@/composables/useDetailSections'
@@ -31,7 +31,7 @@ import { pickName } from '@/utils/names'
 import { useLocale } from '@/composables/useLocale'
 import { useUiText } from '@/composables/useUiText'
 import { fmt } from '@/domain/uiText'
-import { DetailHead, DetailPager, DetailPage, DetailSection, KeyValueGrid, LevelSlider, SignatureRef, StatLevelPanel } from '@/components'
+import { DetailHead, DetailPage, DetailPager, DetailSection, DetailSkeleton, KeyValueGrid, LevelSlider, SignatureRef, StatLevelPanel } from '@/components'
 import Rarity from '@/components/Rarity.vue'
 import Tags from '@/components/Tags.vue'
 
@@ -122,6 +122,9 @@ const bodyText = computed<string>(() => {
   return stripRichText(d.desc)
 })
 
+const overviewWide = computed(() => textEmWidth(bodyText.value) >= WIDE_COLS_MIN_EM)
+const refineWide = computed(() => textEmWidth(stripRichText(refineTalent.value?.desc)) >= WIDE_COLS_MIN_EM)
+
 const artSrc = computed(() => weaponArtSource(detail.value?.code_name))
 /** 解包大图只覆盖部分音擎：有则整幅展示产品图，无则回落到名录图标 */
 const hasArt = computed(() => !!artSrc.value)
@@ -183,6 +186,10 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
     :fallback-to="backTo"
     :recent="{ entry: catWEngines, id: () => String(id), label: () => detail?.name ?? '' }"
   >
+    <template #skeleton>
+      <DetailSkeleton variant="compact" :ratio="WEAPON_ART_RATIO" wide />
+    </template>
+
     <template v-if="detail">
       <DetailHead
         :eyebrow="`W-Engine · ${String(id).padStart(4, '0')}`"
@@ -217,7 +224,7 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
       </DetailHead>
 
       <DetailSection v-if="hasBody" id="overview" :no="noOf('overview')" :title="t.detail.overview" en="Lore">
-        <p class="story">{{ bodyText }}</p>
+        <p class="story measure" :class="{ 'wide-cols': overviewWide }">{{ bodyText }}</p>
       </DetailSection>
 
       <DetailSection v-reveal id="props" :no="noOf('props')" :title="t.detail.baseProps" en="Specs">
@@ -235,8 +242,8 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
               :marks="levelMarks"
             />
           </template>
+          <KeyValueGrid :items="propItems" variant="ledger" :framed="false" />
         </StatLevelPanel>
-        <KeyValueGrid :items="propItems" variant="ledger" />
       </DetailSection>
 
       <DetailSection v-reveal id="talents" :no="noOf('talents')" :title="t.detail.refineEffect" en="Refine">
@@ -253,7 +260,7 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
             />
           </template>
           <h3 class="refine-name serif">{{ refineTalent.name ?? t.common.unnamed }}</h3>
-          <p class="refine-desc" v-html="richDesc(refineTalent.desc)" />
+          <p class="refine-desc measure" :class="{ 'wide-cols': refineWide }" v-html="richDesc(refineTalent.desc)" />
         </StatLevelPanel>
         <p v-else class="empty mono">—</p>
       </DetailSection>
@@ -286,7 +293,6 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
   color: var(--ink-1);
   font-size: var(--fs-md);
   line-height: 1.9;
-  max-width: 72ch;
   white-space: pre-line;
 }
 
@@ -305,7 +311,6 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
   color: var(--ink-1);
   font-size: var(--fs-small);
   line-height: 1.8;
-  max-width: 76ch;
   white-space: pre-line;
 }
 

@@ -1,27 +1,63 @@
 <script setup lang="ts">
-/** DetailSkeleton — 详情页加载骨架（档案标本语言：细线框 + 灰底占位条 + 静默脉冲）。
- *
- *  为什么要有：加载态此前只有一行 `LOADING…`，页面 ~720px 高；数据到达后长到 8000+px，
- *  首屏从「一行字」直接换成「整面封面 + 区块」—— 观感上就是「闪了一下」。
- *  骨架把**首屏的形状先摆出来**（封面带 + 区块标题 + 档案行），内容到达时是「填进去」，
- *  而不是「换一页」。占位条与真值同高（沿用 .skel/.bar 的既有语言），故不产生位移。
- *
- *  仅覆盖首屏：视口外的区块不摆（摆了也看不见，白涨 DOM）。 */
 withDefaults(
   defineProps<{
-    /** 档案行数（与 .dossier 的 dt/dd 网格同形） */
+    variant?: 'agent' | 'compact'
     rows?: number
+    ratio?: string
+    wide?: boolean
   }>(),
-  { rows: 4 },
+  { variant: 'agent', rows: 4, ratio: '1 / 1', wide: false },
 )
 </script>
 
 <template>
-  <!-- `skel` 必须带上：占位条（.bar）的底色与静默脉冲定义在 base.css 的 `.skel .bar` 下，
-       本组件只负责骨架的**形状**（与 CatalogTableSkeleton 同一约定） -->
-  <div class="detail-skel skel" aria-hidden="true">
-    <!-- 封面带：与 AgentHead 的 .ahead 同高（clamp(360px,46vh,560px)），
-         故数据到达时整页构图不变，只是这张带子被真正的封面替换 -->
+  <div v-if="variant === 'compact'" class="detail-skel skel" aria-hidden="true">
+    <div class="skel-compact-head">
+      <div class="skel-id">
+        <span class="bar c-eyebrow" />
+        <span class="bar c-title" />
+        <span class="bar c-meta" />
+        <span class="bar c-sub" />
+        <span class="bar c-sub c-sub-short" />
+        <span class="bar c-foot" />
+      </div>
+      <div class="skel-portrait" :class="{ wide }">
+        <span class="skel-frame" :style="{ aspectRatio: ratio }">
+          <span class="bar skel-fill" />
+        </span>
+      </div>
+    </div>
+
+    <div class="skel-compact-section">
+      <div class="skel-head-row">
+        <span class="bar no-bar" />
+        <span class="bar title-bar" />
+        <span class="rule-bar" />
+      </div>
+      <ul class="skel-lines">
+        <li v-for="r in rows" :key="r" class="skel-line">
+          <span class="bar line-k" />
+          <span class="bar line-v" />
+        </li>
+      </ul>
+    </div>
+
+    <div class="skel-compact-section">
+      <div class="skel-head-row">
+        <span class="bar no-bar" />
+        <span class="bar title-bar" />
+        <span class="rule-bar" />
+      </div>
+      <ul class="skel-lines">
+        <li v-for="r in 2" :key="r" class="skel-line">
+          <span class="bar line-k" />
+          <span class="bar line-v" />
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div v-else class="detail-skel skel" aria-hidden="true">
     <div class="skel-head">
       <span class="bar head-line" />
       <span class="bar head-title" />
@@ -46,7 +82,6 @@ withDefaults(
 
 <style scoped>
 .detail-skel {
-  /* 与详情页内容同栏宽：骨架与真值对齐，替换时不产生横向跳动 */
   padding-bottom: var(--pad-section);
 }
 
@@ -58,12 +93,10 @@ withDefaults(
   gap: 14px;
   min-height: clamp(360px, 46vh, 560px);
   padding: 0 var(--pad-page);
-  /* 与 .ahead 同一条下刻线：构图分界在骨架期就成立 */
   border-bottom: var(--rule);
   background: var(--bg-0);
 }
 
-/* 与 AgentHead 的 ≥1200 规则同源：封面画幅定死 2.8:1，骨架与真卡等高，数据到达不跳版 */
 @media (min-width: 1200px) {
   .skel-head {
     aspect-ratio: 2.8;
@@ -115,7 +148,6 @@ withDefaults(
   background: var(--line-0);
 }
 
-/* 档案行：与 .dossier 的两列网格同形（dt 标签 + dd 值） */
 .skel-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -142,6 +174,106 @@ withDefaults(
   height: 16px;
 }
 
+.skel-compact-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: calc(var(--pad-section) * 0.8);
+}
+
+.skel-id {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.skel-id .c-eyebrow {
+  width: 168px;
+  height: 12px;
+}
+
+.skel-id .c-title {
+  width: min(46%, 300px);
+  height: 52px;
+  margin-top: 18px;
+}
+
+.skel-id .c-meta {
+  width: 140px;
+  height: 20px;
+  margin-top: 18px;
+}
+
+.skel-id .c-sub {
+  width: min(70%, 380px);
+  height: 16px;
+  margin-top: 14px;
+}
+
+.skel-id .c-sub-short {
+  width: min(52%, 300px);
+  margin-top: 8px;
+}
+
+.skel-id .c-foot {
+  width: 200px;
+  height: 12px;
+  margin-top: 16px;
+}
+
+.skel-portrait {
+  flex: none;
+  width: min(280px, 34vw);
+}
+
+.skel-portrait.wide {
+  width: min(430px, 38vw);
+}
+
+.skel-frame {
+  display: inline-flex;
+  width: 100%;
+  border: 1px solid var(--line-0);
+  background: var(--bg-1);
+  overflow: hidden;
+}
+
+.skel-frame .skel-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.skel-compact-section {
+  margin-bottom: calc(var(--pad-section) * 0.55);
+}
+
+.skel-lines {
+  list-style: none;
+  border-top: var(--rule);
+}
+
+.skel-line {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: var(--rule);
+}
+
+.skel-line .line-k {
+  width: 72px;
+  height: 12px;
+  flex: none;
+}
+
+.skel-line .line-v {
+  width: 132px;
+  height: 16px;
+}
+
 @media (max-width: 860px) {
   .skel-head {
     min-height: clamp(340px, 46vh, 520px);
@@ -149,6 +281,22 @@ withDefaults(
 
   .skel-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .skel-compact-head {
+    flex-direction: column-reverse;
+  }
+
+  .skel-id {
+    align-self: stretch;
+  }
+
+  .skel-portrait {
+    width: 56vw;
+  }
+
+  .skel-portrait.wide {
+    width: min(430px, 84vw);
   }
 }
 </style>

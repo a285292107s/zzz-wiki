@@ -50,8 +50,9 @@ src 根（入口）──▶ components(5) composables(3) utils(2) directives(1)
 1. **`components/` 不得 import `router` 或 `views`**——组件不知道自己被哪个路由渲染。实测当前为零，
    保持住。
 2. **`components/` 不得发起网络请求**——数据一律经 `composables` / `data` 层的 hook 注入。
-   （`dataVersions` 这类读版本元信息的工具函数不算请求；5 处 view/component 直接 import `@/data/api`
-   取的都是 `dataVersions`，实测非 fetch 调用。）
+   版本元信息（版本号 + 快照日期 + `YYYY-MM-DD`）只经 `composables/useDataVersion.ts` 取与格式化
+   （它内部复用 `data/api` 的 `dataVersions`，manifest 由 api 层 Promise 缓存）；页面不再各自取数、
+   也不各自拼标签或日期——四个消费方曾各写一份并已出现漂移。
 3. **数据面零外部请求**——前端只读本地 `/data`；图片面唯一例外是候选链兜底，见
    [`AGENTS.md`](../AGENTS.md) §3 与 [`DATA_GUIDE.md`](../DATA_GUIDE.md) §5。
 4. **枚举只定义在 `src/domain/enums.ts`**——`src/data/types.ts` **只做再导出**以保留既有 import 面。

@@ -447,6 +447,22 @@ a.rich-term:hover {
   padding-inline: var(--pad-page);
 }
 
+.measure {
+  max-width: 68ch;
+}
+
+@media (min-width: 1200px) {
+  .wide-cols {
+    font-size: var(--fs-md);
+    column-count: 2;
+    column-gap: 3em;
+    column-rule: 1px solid var(--line-1);
+    max-width: calc(68ch * 2 + 3em);
+    orphans: 2;
+    widows: 2;
+  }
+}
+
 /* ---------- shared list / table moods ---------- */
 
 .hairline-table {

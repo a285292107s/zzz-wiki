@@ -282,9 +282,6 @@ watch(detail, (d) => {
     :fallback-to="backTo"
     :recent="{ entry: catAgents, id: () => String(id), label: () => detail?.name ?? '' }"
   >
-    <!-- 加载骨架：把首屏形状（封面带 + 区块标题 + 档案行）先摆出来，
-         数据到达是「填进去」而不是「换一页」——旧版只有一行 LOADING…，
-         页面从 ~720px 长到 8000+px，观感就是「闪了一下」（见 DetailSkeleton 注释） -->
     <template #skeleton>
       <DetailSkeleton />
     </template>
@@ -326,8 +323,8 @@ watch(detail, (d) => {
               :marks="levelMarks"
             />
           </template>
+          <KeyValueGrid :items="stats" variant="ledger" :framed="false" />
         </StatLevelPanel>
-        <KeyValueGrid :items="stats" variant="ledger" />
       </DetailSection>
 
       <DetailSection v-if="skills.length" v-reveal id="skills" :no="noOf('skills')" :title="t.detail.skills" en="Skills">

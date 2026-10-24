@@ -12,6 +12,13 @@
 
 import { tokenizeGameText } from './gameMarkup'
 
+export const WIDE_COLS_MIN_EM = 160
+
+export function textEmWidth(text: string): number {
+  const wide = (text.match(/[\u2e80-\u9fff\uac00-\ud7af\uff00-\uff60]/g) ?? []).length
+  return wide + (text.length - wide) / 2
+}
+
 export function stripRichText(input: string | undefined | null): string {
   if (!input) return ''
   const lexemes = tokenizeGameText(input)
