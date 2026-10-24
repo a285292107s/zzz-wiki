@@ -20,6 +20,7 @@ import {
   buildCoreEnhance,
   buildCoreSkill,
   buildPotentialCinema,
+  buildPotentialGates,
   buildSkillRows,
   buildSkinRows,
   CHAR_LEVEL_MAX,
@@ -49,7 +50,8 @@ interface SkillDisplay extends SkillRow {
   level: Ref<number>
 }
 import type { CharacterDetail, WEngineListItem } from '@/data/types'
-import { AgentHead, CoreSkillGroup, DetailPager, DescRow, DetailPage, DetailSection, DetailSkeleton, KeyValueGrid, LevelSlider, SkillGroup, StatLevelPanel } from '@/components'
+import { awakenArtSource, awakenCropPosition } from '@/data/awakenImageSources'
+import { AgentHead, CoreSkillGroup, DetailPager, DescRow, DetailPage, DetailSection, DetailSkeleton, KeyValueGrid, LevelSlider, PotentialCinemaGroup, SkillGroup, StatLevelPanel } from '@/components'
 import HollowImage from '@/components/HollowImage.vue'
 
 const id = useRouteParam('id')
@@ -165,6 +167,12 @@ const potentialCinema = computed<PotentialCinema[]>(() =>
     coreSkill.value,
     lang.value,
   ),
+)
+
+const awakenArt = computed(() => awakenArtSource(potentialCinema.value[0]?.image))
+const awakenCrop = computed(() => awakenCropPosition(potentialCinema.value[0]?.image))
+const potentialGates = computed(() =>
+  buildPotentialGates(skills.value, coreSkill.value, lang.value),
 )
 
 /* ---------- 绳网印象（partner_info 网络引语） ---------- */
@@ -380,16 +388,7 @@ watch(detail, (d) => {
         :title="t.detail.potentialFootage"
         en="Potential"
       >
-        <ul class="talents-list">
-          <DescRow
-            v-for="p in potentialCinema"
-            :key="p.no"
-            :no="p.no"
-            :title="p.label"
-            :text="p.desc ? stripRichText(p.desc) : undefined"
-            variant="talent"
-          />
-        </ul>
+        <PotentialCinemaGroup :cinema="potentialCinema" :gates="potentialGates" :art="awakenArt" :crop="awakenCrop" />
       </DetailSection>
 
       <DetailSection v-if="skinList.length" v-reveal id="skins" :no="noOf('skins')" :title="t.detail.skins" en="Outfits">

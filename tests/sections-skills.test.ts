@@ -530,8 +530,8 @@ describe('potential-gated skills（潜能影像门控招式）', () => {
       },
     })
     const cinema = synthesizePotentialCinema(rows, [
-      { no: 'I', label: '鲨气汹汹 I', name: '', desc: '' },
-      { no: 'II', label: '鲨气汹汹 II', name: '潜能觉醒：极冰带', desc: '已有描述，保持不变。' },
+      { no: 'I', level: 1, label: '鲨气汹汹 I', base: '鲨气汹汹', mark: 'I', name: '', desc: '', image: '' },
+      { no: 'II', level: 2, label: '鲨气汹汹 II', base: '鲨气汹汹', mark: 'II', name: '潜能觉醒：极冰带', desc: '已有描述，保持不变。', image: '' },
     ])
     expect(cinema[0].desc).toContain('新增：普通攻击：冰刃浪、普通攻击：霜锋')
     expect(cinema[0].desc).toContain('强化：冲刺攻击：潜袭')
@@ -552,7 +552,7 @@ describe('potential-gated skills（潜能影像门控招式）', () => {
       },
     })
     const cinema = synthesizePotentialCinema(rows, [
-      { no: 'I', label: 'xxx I', name: '', desc: '' },
+      { no: 'I', level: 1, label: 'xxx I', base: 'xxx', mark: 'I', name: '', desc: '', image: '' },
     ])
     expect(cinema[0].desc).toContain('新增：涡流集束手雷')
     expect(cinema[0].desc).not.toContain('基础倍率')
@@ -582,7 +582,7 @@ describe('potential-gated skills（潜能影像门控招式）', () => {
     )
     const cinema = synthesizePotentialCinemaLang(
       rows,
-      [{ no: 'I', label: 'xxx I', name: '', desc: '' }],
+      [{ no: 'I', level: 1, label: 'xxx I', base: 'xxx', mark: 'I', name: '', desc: '', image: '' }],
       undefined,
       'en',
     )
@@ -602,7 +602,7 @@ describe('potential-gated skills（潜能影像门控招式）', () => {
       },
     })
     const cinema = synthesizePotentialCinema(rows, [
-      { no: 'I', label: '鲨气汹汹 I', name: '', desc: '' },
+      { no: 'I', level: 1, label: '鲨气汹汹 I', base: '鲨气汹汹', mark: 'I', name: '', desc: '', image: '' },
     ], core)
     expect(cinema[0].desc).toContain('新增：普通攻击：冰刃浪')
     expect(cinema[0].desc).toContain('扩展：核心被动、额外能力')

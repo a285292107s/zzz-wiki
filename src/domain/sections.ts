@@ -1050,43 +1050,83 @@ export function coreEnhanceTotal(
   return [...acc.values()]
 }
 
-/* ============================================================
- * 潜能影像（potential_detail，V2.5「激发潜能」）：老角色加强系统。
- * 6 档（level_show_name 如「炽焰行歌 I」），档 I 为机制补强（无文字），
- * 档 II-VI 为数值补强（name 效果名 + desc 富文本）。
- * 与核心技强化（extra_level）是不同系统。
- * ============================================================ */
-
-/** 潜能影像单档 */
 export interface PotentialCinema {
-  /** 档位号（I-VI，从 level_show_name 提取；无则用 id） */
   no: string
-  /** 档位全名（如「炽焰行歌 I」） */
+  level: number
   label: string
-  /** 效果名（如「潜能觉醒：绝焰」；档 I 通常为空） */
+  base: string
+  mark: string
   name: string
-  /** 效果描述（富文本；档 I 通常为空） */
   desc: string
+  image: string
 }
 
-const ROMAN_RE = /[IVXLCDM]+$/
+export interface PotentialGate {
+  slot: SkillSlotKey
+  kind: 'new' | 'enhance' | 'extend'
+  name: string
+  /** 纯数值派生子块（「涡流集束手雷基础倍率」类）：文字->机制名，面板按招式归组时不再单列 */
+  derived: boolean
+}
 
-/** 从 potential_detail 字典构建潜能影像档位列表（按档序）；无数据时返回 [] */
+export function buildPotentialGates(
+  skills: readonly SkillRow[],
+  core: CoreSkill | null | undefined,
+  lang: Lang,
+): Record<string, PotentialGate[]> {
+  const out: Record<string, PotentialGate[]> = {}
+  const add = (slot: SkillSlotKey, kind: PotentialGate['kind'], name: string, lv: string, derived = false) => {
+    const list = (out[lv] ??= [])
+    list.push({ slot, kind, name, derived })
+  }
+  for (const row of skills) {
+    for (const g of row.groups ?? []) {
+      const lv = potentialStartLevel(g.potential)
+      if (!lv) continue
+      const kind = g.potentialType === 'new' ? 'new' : 'enhance'
+      add(
+        row.key as SkillSlotKey,
+        kind,
+        g.derived && kind === 'new' ? mechanismName(g.name, lang) : g.name,
+        lv,
+        Boolean(g.derived),
+      )
+    }
+  }
+  const coreStart = core?.hasEnhance
+    ? core.levels[core.levelCount]?.potentialTag
+    : undefined
+  if (coreStart) {
+    add('core', 'extend', pickText(CORE_PASSIVE_NAME, lang), coreStart)
+    add('core', 'extend', pickText(EXTRA_ABILITY_NAME, lang), coreStart)
+  }
+  return out
+}
+
+const MARK_RE = /([IVXLCDM]+|[\u2160-\u217F])\s*$/
+const ASCII_ROMAN_RE = /^[IVXLCDM]+$/
+
 export function buildPotentialCinema(
   detail: Record<string, unknown> | undefined | null,
 ): PotentialCinema[] {
   if (!detail) return []
   return Object.entries(detail)
     .sort((a, b) => Number(a[0]) - Number(b[0]))
-    .map(([k, v]) => {
+    .map(([, v], i) => {
       const o = (v ?? {}) as Record<string, unknown>
       const label = String(o.level_show_name ?? '')
-      const m = label.match(ROMAN_RE)
+      const level = Number(o.level) > 0 ? Number(o.level) : i + 1
+      const roman = POTENTIAL_ROMAN[level - 1] ?? String(level)
+      const mark = label.match(MARK_RE)?.[1] ?? ''
       return {
-        no: m?.[0] ?? String(k),
+        no: ASCII_ROMAN_RE.test(mark) ? mark : roman,
+        level,
         label,
+        base: mark ? label.slice(0, label.length - mark.length).trim() : label.trim(),
+        mark: mark || roman,
         name: String(o.name ?? ''),
         desc: String(o.desc ?? ''),
+        image: String(o.image ?? ''),
       }
     })
     .filter((p) => p.label || p.name || p.desc)
@@ -1104,40 +1144,20 @@ export function synthesizePotentialCinema(
   lang: Lang,
 ): PotentialCinema[] {
   if (!cinema.length) return [...cinema]
-  const added = new Map<string, string[]>()
-  const enhanced = new Map<string, string[]>()
-  for (const row of skills) {
-    for (const g of row.groups ?? []) {
-      const lv = potentialStartLevel(g.potential)
-      if (!lv) continue
-      const map = g.potentialType === 'new' ? added : enhanced
-      const list = map.get(lv) ?? []
-      // 纯数值门控子块（派生技能）以机制名入概述，不暴露「…基础倍率」类伪名
-      list.push(g.derived && g.potentialType === 'new' ? mechanismName(g.name, lang) : g.name)
-      map.set(lv, list)
-    }
-  }
-  // 核心技的潜能「强化」版起档（如两轮结构第二轮自档 I），用于「核心被动/额外能力扩展」概述
-  const coreStart = core?.hasEnhance
-    ? core.levels[core.levelCount]?.potentialTag
-    : undefined
+  const gates = buildPotentialGates(skills, core, lang)
   return cinema.map((p) => {
     if (p.desc) return p
+    const list = gates[p.no] ?? []
     const parts: string[] = []
     const sep = pickText(LIST_SEP, lang)
-    const a = added.get(p.no)
-    if (a?.length) parts.push(fmt(pickText(POT_ADDED, lang), { list: a.join(sep) }))
-    const e = enhanced.get(p.no)
-    if (e?.length) parts.push(fmt(pickText(POT_ENHANCED, lang), { list: e.join(sep) }))
-    if (coreStart === p.no) {
-      parts.push(
-        fmt(pickText(POT_EXTENDED, lang), {
-          list: [pickText(CORE_PASSIVE_NAME, lang), pickText(EXTRA_ABILITY_NAME, lang)].join(sep),
-        }),
-      )
-    }
-    // 概述是**当前语言的句子**，句间分隔符也得随语言（写死中文「；」会让英文页出现
-    // 「New: …；Enhanced: …」这种全角中文标点；与 listSep 同属标点，一并进文案表）
+    const names = (kind: PotentialGate['kind']) =>
+      list.filter((g) => g.kind === kind).map((g) => g.name)
+    const a = names('new')
+    if (a.length) parts.push(fmt(pickText(POT_ADDED, lang), { list: a.join(sep) }))
+    const e = names('enhance')
+    if (e.length) parts.push(fmt(pickText(POT_ENHANCED, lang), { list: e.join(sep) }))
+    const x = names('extend')
+    if (x.length) parts.push(fmt(pickText(POT_EXTENDED, lang), { list: x.join(sep) }))
     return parts.length ? { ...p, desc: parts.join(pickText(SENTENCE_SEP, lang)) } : p
   })
 }
