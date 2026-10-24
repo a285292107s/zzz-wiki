@@ -107,6 +107,7 @@ const unlockCount = computed(() =>
           :min="1"
           :max="maxLevel"
           :label="fmt(t.detail.skillLevelOf, { name: t.detail.coreSkill })"
+          segmented
         />
         <!-- 等级标签：显示数据 level（1-7） -->
         <span class="level-val mono">Lv.{{ current.level }}</span>

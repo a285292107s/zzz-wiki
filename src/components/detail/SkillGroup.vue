@@ -30,6 +30,7 @@ const props = defineProps<{
   defaultLevel?: number
   /** 角色技能组启用「段×指标」转置表：多段招式压缩为一行一段（邦布保持纵向列表） */
   transpose?: boolean
+  segmented?: boolean
 }>()
 
 /** 技能等级：支持外部 v-model:level（连携技/终结技共享同一槽位等级时由父级注入）；
@@ -138,6 +139,7 @@ function potTag(grp: SkillGroup): string | null {
           :min="SKILL_LEVEL_MIN"
           :max="levelCount ?? SKILL_LEVEL_MAX"
           :label="fmt(t.detail.skillLevelOf, { name: row.label })"
+          :segmented="segmented"
         />
         <span class="level-val mono" aria-hidden="true">Lv.{{ level }}</span>
       </div>

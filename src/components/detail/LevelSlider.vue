@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { fmt } from '@/domain/uiText'
 import { useUiText } from '@/composables/useUiText'
 /** 等级滑条：发丝线轨道 + 方形钮（与"档案标本"细线框语言一致），
@@ -13,7 +14,7 @@ export interface LevelMark {
   break?: boolean
 }
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     modelValue: number
     min?: number
@@ -24,13 +25,18 @@ withDefaults(
      *  非等级轴（音擎精炼阶数）传自己的说法（如「精炼 3 阶」），避免读成「等级 3」 */
     valueText?: string
     marks?: LevelMark[]
+    segmented?: boolean
   }>(),
-  { min: 1, max: 60, marks: undefined, valueText: undefined },
+  { min: 1, max: 60, marks: undefined, valueText: undefined, segmented: false },
 )
 
 const { t } = useUiText()
 
 const emit = defineEmits<{ 'update:modelValue': [number] }>()
+
+const segments = computed(() =>
+  Array.from({ length: Math.max(1, props.max - props.min + 1) }, (_, i) => props.min + i),
+)
 
 function onChange(e: Event) {
   emit('update:modelValue', Number((e.target as HTMLInputElement).value))
@@ -38,7 +44,17 @@ function onChange(e: Event) {
 </script>
 
 <template>
-  <div class="level-slider">
+  <div class="level-slider" :class="{ 'is-segmented': segmented }">
+    <div v-if="segmented" class="seg-track" aria-hidden="true">
+      <span
+        v-for="s in segments"
+        :key="s"
+        class="seg"
+        :class="{ 'is-on': s <= modelValue, 'is-current': s === modelValue }"
+      >
+        <span v-if="s === modelValue" class="seg-thumb" />
+      </span>
+    </div>
     <input
       class="level-range"
       type="range"
@@ -151,6 +167,122 @@ function onChange(e: Event) {
   outline: 1px solid var(--amber);
   outline-offset: 4px;
   border-radius: 2px;
+}
+
+/* ---------- 分段刻度尺（技能等级等少级数轴） ---------- */
+
+.is-segmented {
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  height: 24px;
+}
+
+.is-segmented .seg-track {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  width: 100%;
+}
+
+.is-segmented .seg {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 3px;
+  border-radius: 1px;
+  background: var(--line-1);
+  transition: background var(--t-fast) var(--ease);
+}
+
+.is-segmented .seg.is-on {
+  background: var(--line-2);
+}
+
+.is-segmented .seg.is-current {
+  background: var(--amber);
+}
+
+.is-segmented .seg.is-current .seg-thumb {
+  background: var(--amber-hi);
+}
+
+.is-segmented .seg-thumb {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 11px;
+  height: 11px;
+  transform: translate(-50%, -50%);
+  background: var(--amber);
+  border: 1px solid var(--bg-0);
+  border-radius: 2px;
+  transition: background var(--t-fast) var(--ease);
+}
+
+.is-segmented .level-range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+.is-segmented .level-range::-webkit-slider-runnable-track {
+  background: transparent;
+}
+
+.is-segmented .level-range::-moz-range-track {
+  background: transparent;
+}
+
+.is-segmented .level-range::-webkit-slider-thumb {
+  opacity: 0;
+}
+
+.is-segmented .level-range::-moz-range-thumb {
+  opacity: 0;
+}
+
+.is-segmented .level-range:focus-visible {
+  outline: 1px solid var(--amber);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+@media (hover: hover) {
+  .is-segmented:hover .seg.is-current {
+    background: var(--amber-hi);
+  }
+  .is-segmented:hover .seg.is-current .seg-thumb {
+    background: var(--amber);
+  }
+}
+
+@media (pointer: coarse) {
+  .is-segmented .seg-thumb {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 560px) {
+  .is-segmented .seg-track {
+    gap: 2px;
+  }
+}
+
+@media (forced-colors: active) {
+  .is-segmented .seg {
+    background: GrayText !important;
+  }
+  .is-segmented .seg.is-on {
+    background: Highlight !important;
+  }
+  .is-segmented .seg-thumb {
+    background: CanvasText !important;
+    border-color: Canvas !important;
+  }
 }
 
 /* ---------- 突破刻度 ---------- */

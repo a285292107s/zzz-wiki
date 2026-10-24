@@ -341,6 +341,7 @@ watch(detail, (d) => {
           :level-count="SKILL_LEVEL_CAP"
           :default-level="SKILL_LEVEL_DEFAULT"
           transpose
+          segmented
           @update:level="sk.level.value = $event ?? sk.level.value"
         />
       </DetailSection>
