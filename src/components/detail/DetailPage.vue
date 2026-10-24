@@ -143,6 +143,7 @@ watch(
 
 <style scoped>
 .page {
+  --wrap-max: 1120px;
   padding-top: calc(var(--pad-section) * 0.9);
 }
 

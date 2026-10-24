@@ -299,13 +299,10 @@ function potTag(grp: SkillGroup): string | null {
      与组标题同一竖直轴——否则它会被自动排进第一轨、整体左移 50px */
   grid-column: 2;
 }
-/* 宽屏分栏：招式说明在左（守住 76ch 阅读行长），数值账本贴版心右缘。
-   数值是「账」——跨行右缘对齐才读得出同档对照；单栏时它悬在说明下方，右侧空出半栏。
-   space-between 是刻意的两端对齐（与 KeyValueGrid 的 ledger 变体同一语法）。 */
 @media (min-width: 1200px) {
   .body {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+    grid-template-columns: minmax(0, 480px) 300px;
     justify-content: space-between;
     column-gap: clamp(28px, 4vw, 72px);
     align-items: start;
