@@ -1,5 +1,5 @@
 // 音擎详情「精炼效果」：5 阶是同一段效果的不同数值，逐阶并列 5 行 = 同一段话抄 5 遍。
-// 这里固化改后的契约：**只渲染当前阶那一份** + 滑条选阶 + `?rf=` 深链 + 缺档如实标注。
+// 这里固化改后的契约：**只渲染当前阶那一份** + 滑条选阶（默认 1 阶）+ `?rf=` 深链 + 缺档如实标注。
 // @vitest-environment jsdom
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
@@ -93,51 +93,51 @@ describe('refineRowAt', () => {
 })
 
 describe('音擎详情 精炼效果（一阶一段）', () => {
-  it('默认满精炼：只渲染一份效果名与正文，不再逐阶重复 5 行', async () => {
+  it('默认 1 阶：只渲染一份效果名与正文，不再逐阶重复 5 行', async () => {
     const { w } = await mountView()
     expect(w.findAll('#talents .refine-name')).toHaveLength(1)
     expect(w.findAll('#talents .refine-desc')).toHaveLength(1)
     expect(w.find('#talents .refine-name').text()).toBe('永夜辗眠')
-    // 5 阶数值 = 20 + 5*2 = 30%，且不含其它阶的数值
-    expect(refineText(w)).toContain('30%')
-    expect(refineText(w)).not.toContain('24%')
+    // 1 阶数值 = 20 + 1*2 = 22%，且不含其它阶的数值
+    expect(refineText(w)).toContain('22%')
+    expect(refineText(w)).not.toContain('30%')
     // 区块内不承载动作位（决策记录 0006：页面级动作归 DetailPage 的 .page-actions，不回到数据区块）
     expect(w.find('#talents .refine-actions').exists()).toBe(false)
-    expect(w.find('#talents').text()).toContain('精炼 5 阶')
+    expect(w.find('#talents').text()).toContain('精炼 1 阶')
   })
 
   it('拖滑条换阶：正文换成该阶数值、URL 带 ?rf=', async () => {
     const { w, router } = await mountView()
     const slider = w.find('#talents input.level-range')
-    expect(slider.attributes('aria-valuetext')).toBe('精炼 5 阶')
+    expect(slider.attributes('aria-valuetext')).toBe('精炼 1 阶')
 
     await slider.setValue('3')
     await flushPromises()
 
     expect(refineText(w)).toContain('26%') // 3 阶 = 20 + 3*2
-    expect(refineText(w)).not.toContain('30%')
+    expect(refineText(w)).not.toContain('22%')
     expect(w.find('#talents').text()).toContain('精炼 3 阶')
     expect(slider.attributes('aria-valuetext')).toBe('精炼 3 阶')
     expect(router.currentRoute.value.query.rf).toBe('3')
 
-    // 回到默认档：参数被移除
-    await slider.setValue(String(W_ENGINE_REFINE_MAX))
+    // 回到默认档（1 阶）：参数被移除
+    await slider.setValue(String(W_ENGINE_REFINE_MIN))
     await flushPromises()
     expect(router.currentRoute.value.query.rf).toBeUndefined()
   })
 
   it('?rf= 深链：直接落在该阶，默认档不写参数', async () => {
-    const { w } = await mountView('?rf=1')
-    expect(w.find('#talents input.level-range').attributes('aria-valuetext')).toBe('精炼 1 阶')
-    expect(refineText(w)).toContain('22%') // 1 阶 = 20 + 1*2
-    expect(w.find('#talents').text()).toContain('精炼 1 阶')
+    const { w } = await mountView(`?rf=${W_ENGINE_REFINE_MAX}`)
+    expect(w.find('#talents input.level-range').attributes('aria-valuetext')).toBe('精炼 5 阶')
+    expect(refineText(w)).toContain('30%') // 5 阶 = 20 + 5*2
+    expect(w.find('#talents').text()).toContain('精炼 5 阶')
   })
 
-  it('数据未收录满 5 阶时如实标注实际档数，不留空白', async () => {
-    const { w } = await mountView('', [1, 2, 3])
+  it('数据缺默认档时如实标注实际档数，不留空白', async () => {
+    const { w } = await mountView('', [2, 3, 4, 5])
     expect(w.find('#talents .refine-desc').exists()).toBe(true)
-    expect(w.find('#talents').text()).toContain('精炼 3 阶')
-    expect(refineText(w)).toContain('26%')
+    expect(w.find('#talents').text()).toContain('精炼 2 阶')
+    expect(refineText(w)).toContain('24%')
   })
 
   it('完全没有精炼数据时走空态（—），滑条不渲染', async () => {

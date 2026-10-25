@@ -101,11 +101,12 @@ const breakCount = computed(() => wEngineBreakCount(wLevel.value))
 
 const talents = computed<DetailRow[]>(() => dictToRows(detail.value?.talents))
 
-/** 精炼阶数（1-5 阶，默认满精炼）：与基础属性同源「等级滑条」样板，深链参数 ?rf=N。
+/** 精炼阶数（1-5 阶，默认 1 阶）：与基础属性同源「等级滑条」样板，深链参数 ?rf=N。
  *  刻度不传 marks——该样板给的是 10 级突破点（1-60 口径），5 阶用不上 */
 const { level: refineLevel } = useEntityLevel({
   min: W_ENGINE_REFINE_MIN,
   max: W_ENGINE_REFINE_MAX,
+  default: W_ENGINE_REFINE_MIN,
   queryKey: 'rf',
 })
 
