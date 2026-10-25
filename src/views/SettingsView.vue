@@ -72,7 +72,7 @@ function formShotSources(form: HeroForm) {
     <section v-reveal="90" class="group">
       <h2 id="h-hero-form" class="group-title mono">{{ t.settings.heroForm }}</h2>
       <p id="hero-form-note" class="group-note">{{ t.settings.heroFormNote }}</p>
-      <div class="plates" role="radiogroup" aria-labelledby="h-hero-form" aria-describedby="hero-form-note">
+      <div class="plates plates--form" role="radiogroup" aria-labelledby="h-hero-form" aria-describedby="hero-form-note">
         <label
           v-for="opt in FORMS"
           :key="opt.value"
@@ -126,7 +126,7 @@ function formShotSources(form: HeroForm) {
         {{ t.settings.langNote }}
 
       </p>
-      <div class="plates" role="radiogroup" aria-labelledby="h-display-lang" aria-describedby="lang-note">
+      <div class="plates plates--lang" role="radiogroup" aria-labelledby="h-display-lang" aria-describedby="lang-note">
         <label
           v-for="l in LANGS"
           :key="l"
@@ -190,13 +190,31 @@ function formShotSources(form: HeroForm) {
 
 /* ---------- 选项板：整板即控件 ---------- */
 
-/* 两项以上才并排；不足一板宽（<260px）时塌成单列。
-   用 auto-fit 而非写死两列：选项数变化时列数自己跟着变，不会留空格 */
 .plates {
   margin-top: 16px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 12px;
+}
+
+.plates--lang {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 560px) {
+  .plates--lang {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .plates--form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .plates--lang {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 .plate {

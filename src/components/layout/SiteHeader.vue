@@ -171,6 +171,28 @@ function onDocPointerDown(e: PointerEvent): void {
   menuOpen.value = false
 }
 
+let menuOpenScrollY = 0
+let menuScrollReady = false
+
+function syncMenuScrollBaseline(): void {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      menuOpenScrollY = window.scrollY
+      menuScrollReady = true
+    })
+  })
+}
+
+function onDocScroll(): void {
+  if (!menuOpen.value || !menuScrollReady) return
+  if (Math.abs(window.scrollY - menuOpenScrollY) > 8) menuOpen.value = false
+}
+
+watch(menuOpen, (open) => {
+  menuScrollReady = false
+  if (open) syncMenuScrollBaseline()
+})
+
 /** Esc 关闭（不拦在输入法组合中：那时 Esc 是「取消候选」，不该顺手关掉菜单） */
 function onDocKeydown(e: KeyboardEvent): void {
   if (e.key !== 'Escape' || !menuOpen.value || e.isComposing) return
@@ -181,10 +203,12 @@ function onDocKeydown(e: KeyboardEvent): void {
 onMounted(() => {
   document.addEventListener('keydown', onDocKeydown)
   document.addEventListener('pointerdown', onDocPointerDown)
+  window.addEventListener('scroll', onDocScroll, { passive: true })
 })
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', onDocKeydown)
   document.removeEventListener('pointerdown', onDocPointerDown)
+  window.removeEventListener('scroll', onDocScroll)
 })
 </script>
 
@@ -536,6 +560,13 @@ html:not(:lang(zh)) .brand-mark {
 
   .menu-toggle {
     display: inline-flex;
+  }
+
+  .site-menu {
+    max-height: calc(100vh - var(--masthead-h, 63px));
+    max-height: calc(100dvh - var(--masthead-h, 63px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
   /* 菜单钮取「☰」图标形态：文字「菜单」视觉隐藏（而非 display:none——那会把按钮文本

@@ -306,6 +306,36 @@ function specNoteOf(r: WEngineListItem): string {
   }
 }
 
+@media (max-width: 480px) {
+  .wengine-grid :deep(.card-grid) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .wengine-grid :deep(.card) {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .wengine-grid :deep(.card-block),
+  .wengine-grid :deep(.sk-line) {
+    display: none;
+  }
+
+  .wengine-grid :deep(.skel) {
+    gap: 8px;
+  }
+
+  .card-link {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 340px) {
+  .wengine-grid :deep(.card-grid) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .sk-art {
   display: block;
   width: 100%;

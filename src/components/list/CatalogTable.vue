@@ -14,6 +14,7 @@ export interface CatalogColumn {
   align?: 'left' | 'right'
   /** 可排序：值即排序键（与 useCatalogSort 的 key 对齐）；缺省不可排序 */
   sortable?: boolean
+  width?: string
 }
 
 const props = defineProps<{
@@ -42,6 +43,7 @@ const { t } = useUiText()
 const bodyColumns = computed(() => props.columns.filter((c) => c.key !== 'idx'))
 /** 空态标题：未显式传入时用当前语言的通用文案 */
 const emptyText = computed(() => props.emptyText ?? t.value.noMatch.archives)
+const hasColumnWidths = computed(() => bodyColumns.value.some((c) => c.width))
 
 /* ---------- 移动端堆叠行（<721px）：主体列 + 尾列(右对齐列优先) + 其余列 meta 行 ---------- */
 
@@ -65,8 +67,11 @@ function onHeadClick(c: CatalogColumn) {
 </script>
 
 <template>
-  <table class="hairline-table">
+  <table class="hairline-table" :class="{ 'cols-fixed': hasColumnWidths }">
     <caption v-if="caption" class="sr-only">{{ caption }}</caption>
+    <colgroup v-if="hasColumnWidths">
+      <col v-for="c in bodyColumns" :key="c.key" :style="c.width ? { width: c.width } : undefined" />
+    </colgroup>
     <thead>
       <tr>
         <th
@@ -171,6 +176,20 @@ function onHeadClick(c: CatalogColumn) {
 </template>
 
 <style scoped>
+.cols-fixed {
+  table-layout: fixed;
+  max-width: 1180px;
+}
+
+@media (min-width: 721px) {
+  thead th {
+    position: sticky;
+    top: var(--masthead-h, 63px);
+    z-index: 2;
+    background-color: var(--bg-1);
+  }
+}
+
 .r {
   text-align: right;
 }

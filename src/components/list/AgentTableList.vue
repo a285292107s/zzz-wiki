@@ -23,11 +23,11 @@ const { t } = useUiText()
 const { lang } = useLocale()
 
 const columns = computed<CatalogColumn[]>(() => [
-  { key: 'name', label: t.value.list.code },
-  { key: 'attr', label: t.value.list.element },
-  { key: 'prof', label: t.value.list.profession },
-  { key: 'camp', label: t.value.list.camp, cls: 'camp mono' },
-  { key: 'rarity', label: t.value.list.rarity, align: 'right' },
+  { key: 'name', label: t.value.list.code, width: '38%' },
+  { key: 'attr', label: t.value.list.element, width: '13%' },
+  { key: 'prof', label: t.value.list.profession, width: '11%' },
+  { key: 'camp', label: t.value.list.camp, cls: 'camp mono', width: '27%' },
+  { key: 'rarity', label: t.value.list.rarity, align: 'right', width: '11%' },
 ])
 </script>
 

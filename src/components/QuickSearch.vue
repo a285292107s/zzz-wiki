@@ -374,6 +374,7 @@ function onKeydown(e: KeyboardEvent): void {
   display: flex;
   flex-direction: column;
   max-height: min(560px, calc(100vh - 140px));
+  max-height: min(560px, calc(100dvh - 140px));
   overflow: hidden;
 }
 
@@ -634,6 +635,7 @@ mark.qs-hit {
 
   .qs-panel {
     max-height: calc(100vh - 120px);
+    max-height: calc(100dvh - 120px);
   }
 }
 </style>
