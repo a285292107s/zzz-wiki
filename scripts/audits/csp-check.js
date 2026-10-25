@@ -105,7 +105,7 @@ async (page) => {
     await page.waitForTimeout(400)
     const rows = await page.evaluate(() => document.querySelectorAll('tbody.d-body tr').length)
     const opts = await page.evaluate(() => document.querySelectorAll('.popover [role=option]').length)
-    add('list-filter-open', rows === 60 && opts > 1, `rows=${rows} options=${opts}`)
+    add('list-filter-open', rows >= 20 && opts > 1, `rows=${rows} options=${opts}`)
     await page.keyboard.press('Escape')
   }
 

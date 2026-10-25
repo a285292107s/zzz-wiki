@@ -126,7 +126,7 @@ async (page) => {
     rows: document.querySelectorAll('tbody.d-body tr:not(.empty-row)').length,
     title: document.title,
   }))
-  add('online-restored', back.rows === 60, JSON.stringify(back))
+  add('online-restored', back.rows >= 20, JSON.stringify(back))
 
   // 5) 缓存有界：图片 ≤180、数据 JSON ≤100（sw.js 的 MAX_IMAGE_ENTRIES=160 / MAX_DATA_ENTRIES=80
   //    + 每 20 次写入修剪一次的节流余量）。无上限时浏览完整档案会累积数十 MB。

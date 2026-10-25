@@ -82,8 +82,10 @@ function serverUp() {
   }
 }
 
+const SESSION = `audit-${process.pid}`
+
 function runCode(file) {
-  const out = execFileSync('playwright-cli', ['run-code', `--filename=${DIR}/${file}`, '--raw'], {
+  const out = execFileSync('playwright-cli', [`-s=${SESSION}`, 'run-code', `--filename=${DIR}/${file}`, '--raw'], {
     // Windows 上 playwright-cli 是 .cmd shim，Node 直接 spawn 找不到 → 走 shell 解析
     shell: true,
     encoding: 'utf8',
@@ -92,6 +94,12 @@ function runCode(file) {
   // playwright-cli --raw 输出的是**JSON 字符串**（双重编码）：先解一层拿字符串，再解一层拿对象
   const once = JSON.parse(out)
   return typeof once === 'string' ? JSON.parse(once) : once
+}
+
+function browser(args) {
+  try {
+    execFileSync('playwright-cli', [`-s=${SESSION}`, ...args], { shell: true, stdio: 'ignore' })
+  } catch {}
 }
 
 const coreOnly = process.argv.includes('--core')
@@ -105,44 +113,39 @@ if (!serverUp()) {
   process.exit(2)
 }
 
-execFileSync('playwright-cli', ['open', `${ORIGIN}/`], {
-  // Windows 上 playwright-cli 是 .cmd shim，Node 直接 spawn 找不到 → 走 shell 解析
-  shell: true,
-  stdio: 'ignore',
-})
+browser(['close'])
+browser(['open', `${ORIGIN}/`])
 
 const rows = []
-for (const f of files) {
-  const rule = Object.prototype.hasOwnProperty.call(RULES, f) ? RULES[f] : undefined
-  process.stdout.write(`  ${f.padEnd(26)} `)
-  let status = '？'
-  let detail = ''
-  try {
-    const result = runCode(f)
-    if (rule === null) {
-      status = '？'
-      detail = '仅测量，需人工判读'
-    } else if (typeof rule === 'function') {
-      const ok = rule(result)
-      status = ok ? '✓' : '✗'
-      detail = ok ? '' : JSON.stringify(result).slice(0, 160)
-    } else {
-      status = '？'
-      detail = '未声明判据（请在 audit-all.mjs 的 RULES 里补上）'
+try {
+  for (const f of files) {
+    const rule = Object.prototype.hasOwnProperty.call(RULES, f) ? RULES[f] : undefined
+    process.stdout.write(`  ${f.padEnd(26)} `)
+    let status = '？'
+    let detail = ''
+    try {
+      const result = runCode(f)
+      if (rule === null) {
+        status = '？'
+        detail = '仅测量，需人工判读'
+      } else if (typeof rule === 'function') {
+        const ok = rule(result)
+        status = ok ? '✓' : '✗'
+        detail = ok ? '' : JSON.stringify(result).slice(0, 160)
+      } else {
+        status = '？'
+        detail = '未声明判据（请在 audit-all.mjs 的 RULES 里补上）'
+      }
+      rows.push({ f, status, detail })
+    } catch (e) {
+      rows.push({ f, status: '✗', detail: `执行失败：${String(e.message).slice(0, 120)}` })
     }
-    rows.push({ f, status, detail })
-  } catch (e) {
-    rows.push({ f, status: '✗', detail: `执行失败：${String(e.message).slice(0, 120)}` })
+    const last = rows[rows.length - 1]
+    console.log(`${last.status} ${last.detail}`)
   }
-  const last = rows[rows.length - 1]
-  console.log(`${last.status} ${last.detail}`)
+} finally {
+  browser(['close'])
 }
-
-execFileSync('playwright-cli', ['close'], {
-  // Windows 上 playwright-cli 是 .cmd shim，Node 直接 spawn 找不到 → 走 shell 解析
-  shell: true,
-  stdio: 'ignore',
-})
 
 const failed = rows.filter((r) => r.status === '✗')
 const manual = rows.filter((r) => r.status === '？')
