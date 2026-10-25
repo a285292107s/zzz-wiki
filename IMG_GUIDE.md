@@ -288,10 +288,13 @@ transform: scale({zoom})
   - 透明底产品图**不叠 scrim**（深色页底本身就是它的展台）；`--bg-1` 板底 + hairline 与其余画像同一套装裱。
   - 资产类别、清单、「换素材要登记」的耦合与素材缺口清单见 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §5 的「音擎产品图（详情 + 名录共用）」。
 - 素材：`img/hero/Mindscape_{id}_2.webp`（本地化；nanoka CDN 兜底见 [`DATA_GUIDE.md`](./DATA_GUIDE.md) §5）。
-- 页面地面壁纸：`public/page-bg.webp`（绳网情报站 wiki 官方背景同款 `pc-page-bg.png`，1920×1231，
+- 页面地面壁纸：`public/page-bg.webp`（绳网情报站 wiki 官方背景同款 `pc-page-bg.png`，1920×1231，q90 / 97KB，
   深炭底 + 斜向 ZZZ 水印纹理、向下渐隐近黑，与 `--bg-0` 同域色）。经 `tokens.css` 的 `--page-bg-image`
   单一事实源取用，`base.css` 的 `body::before` 固定视口层（fixed + cover）铺装在页面地面之上、内容之下，
   长页无接缝；**不用** `background-attachment: fixed`——iOS Safari 降级为滚动铺装时 cover 会放大到整文档高，纹理糊掉。
+  质量按「糊不糊」定，不按「超采就随便压」：它是深色低对比的模糊墙面（亮度 1–39、std 12.8），
+  q72 只剩 18KB、高频细节掉到原图 21%，DPR2 桌面上再放大 1.49× 就成了肉眼可见的糊斑；重转 q90 后回到 92%
+  （判据与档位表见 [`scripts/build/optimize-bg.mjs`](./scripts/build/optimize-bg.mjs) 文件头）。
   ⚠ 该层的 `z-index` 必须是 **0**（不可写 `-1`）：负层级排在被 `<body>` 底色覆盖的位置，整张壁纸会被盖死、
   只在内页内容胶囊两侧露出纯黑面板。判据与实测见 [`src/styles/base.css`](./src/styles/base.css) 的注释。
 - 首页 hero 壁纸：`public/home-bg.webp`（绳网情报站 wiki 首页 banner 同款全幅背景，2400×1080 / 213KB，

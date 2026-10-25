@@ -84,9 +84,11 @@
   --scrim-3: color-mix(in srgb, var(--bg-0) 72%, transparent);
   --scrim-4: color-mix(in srgb, var(--bg-0) 90%, transparent);
 
-  /* 页面地面壁纸：绳网情报站 wiki 官方背景同款（深炭底 + 斜向 ZZZ 水印纹理，向下渐隐近黑，
+  /* 页面地面壁纸：绳网情报站 wiki 官方背景同款（深炭底 + 斜向 ZZZ 水印纹理、向下渐隐近黑，
      与 --bg-0 页面地面同域色）。取自 baike.mihoyo.com/zzz/wiki 的 pc-page-bg.png，
-     本地化并转 webp 至 /page-bg.webp（1920w 95→18KB；运行时零外部请求）。
+     本地化并转 webp 至 /page-bg.webp（1920w q90，95→97KB；运行时零外部请求）。
+     质量不能按「反正 cover 会超采」压：q72 时只剩 18KB、高频细节掉到原图的 21%，
+     retina 桌面上是肉眼可见的糊斑（2026-10 实测后重转，判据见 scripts/build/optimize-bg.mjs 文件头）。
      单一事实源：页面地面铺装一律经此变量取用。 */
   --page-bg-image: url("/page-bg.webp");
 
@@ -192,8 +194,9 @@
 }
 
 /* 窄屏壁纸换小图：两张背景都是 cover 铺满视口，而手机视口（390×844 竖屏）
-   只用得到原图中心一条——1920/2400px 原图超采 2.5 倍以上（96+213KB → 18+30KB）。
-   图片尺寸按「视口宽 × DPR2 + 余量」定：纸纹 900w、首页壁纸 1100w。 */
+   只用得到原图中心一条——1920/2400px 原图超采 2.5 倍以上（97+213KB → 24+30KB）。
+   图片尺寸按「视口宽 × DPR + 余量」定：纸纹 1400w（覆盖 700 CSS@DPR2、466 CSS@DPR3）、
+   首页壁纸 1100w。 */
 @media (max-width: 860px) {
   :root {
     --page-bg-image: url("/page-bg-mobile.webp");
