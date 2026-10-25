@@ -242,12 +242,15 @@ async function main() {
       box.title = `${name} · ${cat.label}详情 · 绳网档案`
       box.description = descFor(cat, name, detail)
       const icon = String(row?.icon ?? detail?.icon ?? '').split('/').pop()?.replace(/\.\w+$/, '') ?? ''
+      const discPoster = `/data/img/disc-gif/poster/${seg[1]}.webp`
       const rel =
         cat.kind === 'agent'
           ? `/data/img/hero/card/Mindscape_${seg[1]}_2.webp`
-          : icon
-            ? `/data/img/${cat.dir}/thumb/${icon}.webp`
-            : SITE_FALLBACK_IMAGE
+          : cat.kind === 'disk' && fs.existsSync(path.join(DIST, discPoster.replace(/^\//, '')))
+            ? discPoster
+            : icon
+              ? `/data/img/${cat.dir}/thumb/${icon}.webp`
+              : SITE_FALLBACK_IMAGE
       const meta = await imageMeta(rel)
       box.image = meta.url
       box.imageW = meta.w

@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { detailFor, listFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
 import { weaponArtSource, WEAPON_ART_RATIO } from '@/data/weaponArt'
+import { hasWEngineGif, wEngineGifPosterSources, wEngineGifSources } from '@/data/wengineGif'
 import { ownerAgentForEngine } from '@/domain/signatureEngine'
 import { richDesc } from '@/utils/rich'
 import { stripRichText, textEmWidth, WIDE_COLS_MIN_EM } from '@/utils/text'
@@ -10,6 +11,7 @@ import { useRouteParam } from '@/composables/useRouteParam'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useDetailSections, type DetailSectionItem } from '@/composables/useDetailSections'
 import { usePageMeta } from '@/composables/usePageMeta'
+import { useMediaQuery } from '@/composables/useMediaQuery'
 import { useEntityLevel } from '@/composables/useEntityLevel'
 import { useDetailPager } from '@/composables/useDetailPager'
 import { catalogEntry } from '@/domain/catalog'
@@ -32,6 +34,8 @@ import { useLocale } from '@/composables/useLocale'
 import { useUiText } from '@/composables/useUiText'
 import { fmt } from '@/domain/uiText'
 import { DetailHead, DetailPage, DetailPager, DetailSection, DetailSkeleton, KeyValueGrid, LevelSlider, SignatureRef, StatLevelPanel } from '@/components'
+import MotionFigure from '@/components/detail/MotionFigure.vue'
+import HollowImage from '@/components/HollowImage.vue'
 import Rarity from '@/components/Rarity.vue'
 import Tags from '@/components/Tags.vue'
 
@@ -129,12 +133,30 @@ const artSrc = computed(() => weaponArtSource(detail.value?.code_name))
 /** 解包大图只覆盖部分音擎：有则整幅展示产品图，无则回落到名录图标 */
 const hasArt = computed(() => !!artSrc.value)
 
+const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
+const motionAvailable = computed(() => hasWEngineGif(id.value))
+const playing = ref(false)
+
+watch(
+  [prefersReducedMotion, () => detail.value?.icon],
+  () => {
+    playing.value = !prefersReducedMotion.value && motionAvailable.value
+  },
+  { immediate: true },
+)
+
+const artPortrait = computed(() => !motionAvailable.value && hasArt.value)
+
 const portraitSrcs = computed(() => {
   const icon = iconSources({ Id: detail.value?.id, icon: detail.value?.icon }, 'weapon')
+  if (motionAvailable.value) {
+    const motion = playing.value ? wEngineGifSources(id.value) : wEngineGifPosterSources(id.value)
+    return [...motion, ...icon]
+  }
   return artSrc.value ? [artSrc.value, ...icon] : icon
 })
-const portraitRatio = computed(() => (hasArt.value ? WEAPON_ART_RATIO : '1 / 1'))
-const portraitFit = computed<'cover' | 'contain'>(() => (hasArt.value ? 'contain' : 'cover'))
+const portraitRatio = computed(() => (artPortrait.value ? WEAPON_ART_RATIO : '1 / 1'))
+const portraitFit = computed<'cover' | 'contain'>(() => (artPortrait.value ? 'contain' : 'cover'))
 
 /* ---------- 归属代理人（反向交叉引用） ---------- */
 
@@ -162,7 +184,11 @@ const navItems = computed(() => {
   return items
 })
 
-const { activeSection, revealDir: vReveal, noOf } = useDetailSections(navItems, status)
+const { activeSection, revealDir: vReveal, noOf, refresh } = useDetailSections(navItems, status)
+
+watch(ownerAgent, () => {
+  if (status.value === 'success') refresh()
+})
 
 /** 相邻条目翻页：名录 Id 序，名录走 api 缓存 */
 const catWEngines = catalogEntry('/w-engines')
@@ -199,8 +225,27 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
         :fallback="detail.name ?? '—'"
         :ratio="portraitRatio"
         :fit="portraitFit"
-        :wide="hasArt"
+        :wide="artPortrait"
       >
+        <template #portrait>
+          <MotionFigure
+            v-if="motionAvailable"
+            v-model:playing="playing"
+            :srcs="portraitSrcs"
+            :fallback="detail.name ?? '—'"
+            toggle
+            :play-label="t.detail.playAnim"
+            :pause-label="t.detail.pauseAnim"
+          />
+          <HollowImage
+            v-else
+            :srcs="portraitSrcs"
+            alt=""
+            :fallback="detail.name ?? '—'"
+            :ratio="portraitRatio"
+            :fit="portraitFit"
+          />
+        </template>
         <template #meta>
           <Rarity :rank="detail.rarity" />
           <Tags :specialty="specCode" />

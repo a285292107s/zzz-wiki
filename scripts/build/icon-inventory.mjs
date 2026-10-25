@@ -3,7 +3,7 @@
  *
  * download-icons.mjs（下载）与 verify-icons.mjs（校验）共用同一份
  * 资产清单推导：名录 icon / 技能键位 / 筛选图标 / hero 头图 /
- * 皮肤缩略图 / 潜能影像觉醒立绘。两脚本各自的收集逻辑曾各写一份并已发生漂移风险，
+ * 皮肤缩略图 / 潜能影像觉醒立绘 / 音擎与邦布产品图 / 驱动盘动画。两脚本各自的收集逻辑曾各写一份并已发生漂移风险，
  * 现统一由本模块产出「待处理资产条目」，下载与校验只消费清单。
  *
  * 条目字段：
@@ -45,6 +45,18 @@ const WEAPON_ART = (() => {
 const BANGBOO_ART = (() => {
   const p = path.resolve('src/data/bangboo-art.json')
   if (!fs.existsSync(p)) return []
+  return JSON.parse(fs.readFileSync(p, 'utf8'))
+})()
+
+const DISC_GIFS = (() => {
+  const p = path.resolve('src/data/disc-gifs.json')
+  if (!fs.existsSync(p)) return {}
+  return JSON.parse(fs.readFileSync(p, 'utf8'))
+})()
+
+const WENGINE_GIFS = (() => {
+  const p = path.resolve('src/data/wengine-gifs.json')
+  if (!fs.existsSync(p)) return {}
   return JSON.parse(fs.readFileSync(p, 'utf8'))
 })()
 
@@ -228,6 +240,14 @@ export function collectIcons() {
   for (const f of AWAKEN_CHROME) push('awaken', f, f, false, false, true)
   for (const code of WEAPON_ART) push('weapon-art', `${code}_GachaEF`, `${code}_GachaEF`, false, false, true)
   for (const icon of BANGBOO_ART) push('bangboo-art', `${icon}_GaChaEF`, `${icon}_GaChaEF`, false, false, true)
+  for (const id of Object.keys(DISC_GIFS)) {
+    push('disc-gif', id, id, false, false, true)
+    push('disc-gif', `poster/${id}`, `poster/${id}`, false, false, true)
+  }
+  for (const id of Object.keys(WENGINE_GIFS)) {
+    push('wengine-gif', id, id, false, false, true)
+    push('wengine-gif', `poster/${id}`, `poster/${id}`, false, false, true)
+  }
   return out
 }
 

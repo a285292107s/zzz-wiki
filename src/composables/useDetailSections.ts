@@ -46,5 +46,7 @@ export function useDetailSections(
    *  仅当误漏登记时兜底空串，避免错号/重号（此前硬编码的 ?? '0X' 随条件区块变化必然失真）。 */
   const noOf = (id: string) => toValue(navItems).find((n) => n.id === id)?.no ?? ''
 
-  return { activeSection, revealDir, noOf }
+  const refresh = () => nextTick(() => activate(sectionIds(toValue(navItems))))
+
+  return { activeSection, revealDir, noOf, refresh }
 }

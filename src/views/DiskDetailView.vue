@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { detailFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
+import { discGifPosterSources, discGifSources, hasDiscGif } from '@/data/discGif'
 import { richDesc } from '@/utils/rich'
 import { stripRichText, textEmWidth, WIDE_COLS_MIN_EM } from '@/utils/text'
 import { pickLocaleInfo } from '@/utils/names'
@@ -10,10 +11,12 @@ import { useUiText } from '@/composables/useUiText'
 import { useRouteParam } from '@/composables/useRouteParam'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useDetailSections, type DetailSectionItem } from '@/composables/useDetailSections'
+import { useMediaQuery } from '@/composables/useMediaQuery'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { useDetailPager } from '@/composables/useDetailPager'
 import { catalogEntry } from '@/domain/catalog'
 import type { DiskDriveDetail, LocaleInfo } from '@/data/types'
+import MotionFigure from '@/components/detail/MotionFigure.vue'
 import { DetailHead, DetailPage, DetailPager, DetailSection, DetailSkeleton } from '@/components'
 
 const id = useRouteParam('id')
@@ -38,9 +41,23 @@ usePageMeta(
   },
 )
 
-const portraitSrcs = computed(() =>
-  iconSources({ Id: id.value, icon: detail.value?.icon }, 'disc'),
+const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
+const motionAvailable = computed(() => hasDiscGif(id.value))
+const playing = ref(false)
+
+watch(
+  [prefersReducedMotion, () => detail.value?.icon],
+  () => {
+    playing.value = !prefersReducedMotion.value && motionAvailable.value
+  },
+  { immediate: true },
 )
+
+const portraitSrcs = computed(() => {
+  const fallback = iconSources({ Id: id.value, icon: detail.value?.icon }, 'disc')
+  const motion = playing.value ? discGifSources(id.value) : discGifPosterSources(id.value)
+  return [...motion, ...fallback]
+})
 
 const set2Wide = computed(() => textEmWidth(stripRichText(detail.value?.desc2)) >= WIDE_COLS_MIN_EM)
 const set4Wide = computed(() => textEmWidth(stripRichText(detail.value?.desc4)) >= WIDE_COLS_MIN_EM)
@@ -99,6 +116,17 @@ const backTo = computed(() => (detail.value ? undefined : '/disks'))
         position="top"
         ratio="1 / 1"
       >
+        <template #portrait>
+          <MotionFigure
+            v-model:playing="playing"
+            :srcs="portraitSrcs"
+            :fallback="detail.name ?? '—'"
+            :toggle="motionAvailable"
+            :play-label="t.detail.playAnim"
+            :pause-label="t.detail.pauseAnim"
+          />
+        </template>
+
         <template #sub>
           <p v-if="detail.story" class="story measure">{{ stripRichText(detail.story) }}</p>
         </template>

@@ -38,14 +38,16 @@ defineProps<{
     </div>
 
     <div class="portrait" :class="{ wide }">
-      <HollowImage
-        :srcs="portraitSrcs"
-        :alt="alt"
-        :fallback="fallback"
-        :position="position ?? 'center'"
-        :ratio="ratio ?? '3 / 4'"
-        :fit="fit ?? 'cover'"
-      />
+      <slot name="portrait">
+        <HollowImage
+          :srcs="portraitSrcs"
+          :alt="alt"
+          :fallback="fallback"
+          :position="position ?? 'center'"
+          :ratio="ratio ?? '3 / 4'"
+          :fit="fit ?? 'cover'"
+        />
+      </slot>
     </div>
   </header>
 </template>

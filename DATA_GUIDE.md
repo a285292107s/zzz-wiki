@@ -287,6 +287,58 @@ public/data/
 > A 级历来只有图标，所以邦布名录卡必然两种态并存（有图画幅 5:4，无图回落到同一个盒子里的图标）。
 > 列表档派生与音擎共用 `scripts/build/product-art-cards.mjs`；前端候选链 `bangbooArtCardSources`。
 
+> **驱动盘套装动画（详情页头图）**：来源是米游社绳网情报站（`baike.mihoyo.com/zzz/wiki/content/{contentId}/detail`）
+> 「基本信息」模块里的动画链接（实测响应体是 **animated WebP**，300–480²、5–20MB、约 20fps、整盘旋转一轮约 15–30s）。
+> **源链接单一事实源**是 `src/data/disc-gifs.json`：键＝驱动盘 `Id`，值 `{ contentId, url }`（只记来源，不抄名称）；
+> 前端 `src/data/discGif.ts` 与 `icon-inventory.mjs` 共读同一份；逐条直链另有一份留档表
+> [`docs/disc-gif-sources.md`](./docs/disc-gif-sources.md)。
+> **不直连**：单条 7.7MB（30 套原始合计 239MB），且运行时零外部请求是硬约束；`pnpm run download:disc-gifs`
+> （`scripts/build/disc-gifs.mjs`）把原片缓存到 `.cache/disc-gifs/`，重编码为
+> `public/data/img/disc-gif/{Id}.webp`（**先保帧率、再让质量让路**：目标 20fps / q58，超 1600KB 就按
+> 20fps q50 → 15 → 12 → 10 → 8fps 逐档降，最长边 420）与 `poster/{Id}.webp`（取画面梯度最高的帧、q80；
+> 个别套装改用 `POSTER_FRAME_OVERRIDES` 指定帧，供减动效与分享卡片）。当前 30 套共约 35MB，单张 0.9–1.6MB，
+> 24 套 20fps、6 套 14–18fps（原 10fps 主导、3 套降到 6.7fps）。
+> **动画必须逐帧关键帧，不能交给 libwebp 做帧间预测**：`sharp().webp()` 封装的动画只有首帧是关键帧，
+> 300–480² 的慢速旋转攒到 200 帧后，平坦区（如 `34200 荆棘玫瑰` 的白色内页）会漂移成大片 8×8 马赛克；
+> 这**不是**质量档位不够——把 q 提到 90 也照样复现（2026-10 实测）。故 `scripts/build/animated-webp.mjs`
+> 逐帧编 still、自封装 RIFF/ANMF 拼成动画；**体积与帧间版几乎相同**（34200 1180→1195KB），而帧间没有换来文件
+> 变小，索性全部走关键帧。
+> 该模块同时提供 `sampleFrames`（按目标 fps 在源时间轴上均匀取帧、写入每帧时长，**不是整除数跳帧**）与
+> `downscale`（逐帧 lanczos 缩放），两个导入脚本共用；调档参数在各自脚本顶部的 `ATTEMPTS` / `TARGET_BYTES`。
+> 该命令是**一次性本地导入**，不挂 `build` / `build:ci` / `sync`；产物直接进 `public/`，`pnpm dev` 立刻可见。
+> 详情页 `HollowImage` 候选链为「动画 → 静帧 → 名录图标」；头图右下角「暂停/播放」在动画与静帧之间切换，
+> `prefers-reduced-motion` 下默认静帧（动画与静帧都由 `src/components/detail/MotionFigure.vue` 渲染，**不带框**，
+> 见下方音擎同款组件的说明）。逐路由 HTML 的 `og:image` 改用静帧（此前驱动盘会落到站点头图）。
+> **新增驱动盘**：在 `src/data/disc-gifs.json` 加一条（Id + contentId + url）→ 跑 `pnpm run download:disc-gifs` →
+> 提交 `public/data/img/disc-gif/**` 与 `scripts/build/disc-gifs-import.json`。未登记的 Id 静默回落到图标，不报错。
+> `verify-icons --local` 把动画与静帧都记为必须项。
+
+> **音擎装备动画（音擎详情页头图）**：同样是绳网情报站，但取的是音擎词条里「音擎展示 / 装备动画 / 专属特效」轮播的
+> **第二档「装备动画」**（圆形转动的产品演示，480×471 上下、100–411 帧、1.4–17.5MB、帧延时 10–90ms 不等、
+> **背景透明**——这点与驱动盘不同，驱动盘原片是不透明近黑底）。
+> **源链接单一事实源**是 `src/data/wengine-gifs.json`：键＝音擎 `Id`，值 `{ contentId, url }`；前端
+> `src/data/wengineGif.ts` 与 `icon-inventory.mjs` 共读同一份；逐条直链留档
+> [`docs/wengine-gif-sources.md`](./wengine-gif-sources.md)。
+> `pnpm run download:wengine-gifs`（`scripts/build/wengine-gifs.mjs`，`--jobs=N` 开并发）把原片缓存进
+> `.cache/wengine-gifs/`，重编码为 `public/data/img/wengine-gif/{Id}.webp`（**先保帧率**：目标 = 源帧率，
+> 超 1900KB 就按 30 → 20 → 15 → 12 → 10 → 8 → 6fps 逐档降、q55（末两档 q50），最长边 **440**
+> （原片 240–725px：440 在 280 CSS px 的头图盒上仍是 DPR2 的 0.79×，不糊））与 `poster/{Id}.webp`
+> （取画面梯度最高的帧、q80）。当前 102 台：动画约 152MB（均 1.5MB、最大 2.2MB），静帧 3.1MB；
+> fps 分布 38 台 ≥18fps、19 台 14–18、11 台 11–14、14 台 9–11、20 台 <9（最慢 6fps）。
+> 本地音擎数据 103 台，`14163 禁罪囚笼` wiki 尚无词条、未登记。
+> 编码器与驱动盘共用 [`scripts/build/animated-webp.mjs`](./scripts/build/animated-webp.mjs)（**逐帧关键帧**）：
+> 音擎原是 `sharp().webp()` 的帧间编码 + q42–50，实测 `14164 涅槃初翎` 在 3.3fps 档能看到 8×8 块；
+> 换编码器 + 帧率优先后同一台从 3.3fps 回到 10fps（101 帧 / 1.9MB），102 台总数 77 → 117 → 152MB。
+> 该命令同样是**一次性本地导入**，不挂 `build` / `build:ci` / `sync`；产物直接进 `public/`，`pnpm dev` 立刻可见。
+> 头图优先级 **动画 > 解包产品大图 > 图标**：动画与图标是 1:1，产品大图是 5:4，所以「有动画」时右栏不再放宽；
+> 播放/暂停、`prefers-reduced-motion` 默认静帧、候选链「动画 → 静帧 → 图标」与驱动盘共用
+> `src/components/detail/MotionFigure.vue`——该组件**不带框**（`border: 0` + 透明底）：原片背景透明或近黑，
+> 套 `HollowImage` 默认的边框底色会凭空多出一个方框。
+> 分享卡片（逐路由 `og:image`）**没有**改用这套静帧：透明底的 WebP 在多数平台的白底上会露白边，仍用名录图标。
+> **新增音擎**：在 `src/data/wengine-gifs.json` 加一条（Id + contentId + url）→ 跑 `pnpm run download:wengine-gifs` →
+> 提交 `public/data/img/wengine-gif/**` 与 `scripts/build/wengine-gifs-import.json`。未登记的 Id 静默回落到
+> 产品大图 / 图标，不报错。`verify-icons --local` 把动画与静帧都记为必须项。
+
 > **hero 头图（AgentHead）**：角色详情页 head 的 Mindscape_{id}_2.webp 在
 > `public/data/img/hero/`（**张数以目录实际文件为准，本文不写死**；下载脚本遇缺仅告警不置失败码）
 > ——前端 `AgentHead.vue` 本地优先 + nanoka CDN 兜底，两级均缺时降为 --bg-0 底色，不破版。

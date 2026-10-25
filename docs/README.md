@@ -47,6 +47,8 @@
 
 ## 目录
 
+- [`disc-gif-sources.md`](./disc-gif-sources.md) — 驱动盘动画原始直链登记（留档；运行时读本地 WebP）
+- [`wengine-gif-sources.md`](./wengine-gif-sources.md) — 音擎装备动画原始直链登记（留档；运行时读本地 WebP）
 - [`architecture.md`](./architecture.md) — 模块职责与调用边界表（可校验的越权拦截规则）
 - [`conventions/`](./conventions/) — 数据契约、命名、术语表
 - [`decisions/`](./decisions/) — 决策记录（Problem / Decision / Alternatives considered / Consequences）
