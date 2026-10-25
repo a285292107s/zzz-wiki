@@ -62,13 +62,11 @@
 
 ## 4. 环境与命令
 
-- **依赖**：包管理器为 pnpm（版本由 `package.json` 的 `packageManager` 钉住），锁文件只维护 `pnpm-lock.yaml`
-  （勿再引入 `package-lock.json` 或 yarn 锁文件）；新增依赖用 `pnpm add <pkg>`。
-  ⚠ pnpm 配置只读 `pnpm-workspace.yaml`（`package.json` 的 `pnpm` 字段已失效）；依赖的安装脚本须在该文件
-  的 `allowBuilds` 里逐一审批，否则 `pnpm install` 会以 `ERR_PNPM_IGNORED_BUILDS` 非零退出（详见决策记录 0005）。
-- **日常命令**：开发 `pnpm run dev`（http://localhost:5173）；构建 `pnpm run build`（含 vue-tsc）；
-  单测 `pnpm test`（**全量，不用选择器**：整套约 11 秒，选择器要读要维护，比它省下的时间贵）；
-  一个命令看全部验证：`pnpm run check`（= `check:diff --run`）。
+- **依赖**：pnpm（版本由 `package.json` 的 `packageManager` 钉住；锁文件只维护 `pnpm-lock.yaml`）；新增依赖用
+  `pnpm add <pkg>`。⚠ pnpm 配置只读 `pnpm-workspace.yaml`（`package.json` 的 `pnpm` 字段已失效），依赖的安装脚本
+  须在其 `allowBuilds` 里审批，否则 `pnpm install` 以 `ERR_PNPM_IGNORED_BUILDS` 非零退出（决策记录 0005）。
+- **日常**：`pnpm run dev`（:5173）· `pnpm run build`（含 vue-tsc）· `pnpm test`（全量约 10 秒，不用选择器）
+  · `pnpm run check`（按改动跑验证，见下）· `pnpm run check:diff`（只看清单不执行）。
 - **验证只有一个入口：`pnpm run check`**（干跑只用 `pnpm run check:diff`）。规则只三条：
   1. 非文档改动一律跑 `npx vue-tsc -b` + `pnpm test` + `node scripts/verify-cjk-fonts.mjs`（合计约 25 秒）。
   2. 改到渲染面（`src/views|components|styles|composables|utils|data/`、`App.vue`、`main.ts`、`index.html`）
@@ -76,53 +74,25 @@
      改到 `public/data/img/` 时自动再跑 `node scripts/verify-icons.mjs --local`（0.9 秒，本地必须项差集）。
   3. 其余（数据真值、部署配置、审计脚本、构建依赖）只打印「手动看一眼」，不自动跑。
   纯域逻辑（`src/domain/`）不触发浏览器层：数值口径由单测守，页面文案由发版前的 content-sweep 兜。
-- **`pnpm run verify:ui`**：3 断点（1440/768/390）查渲染锚点、图片 alt、横向溢出、页面异常、资源加载失败
-  （`requestfailed` 或 HTTP≥400，带 URL）与 axe（首末视口）。截图落 `temp/verify-ui/`，
-  实测 **6–7 秒/路由**；改共享组件时默认 9 条路由 ≈ 100 秒。
-  **HMR / websocket 噪声不算失败**（dev 服务重连会刷 `WebSocket … ERR_CONNECTION_CLOSED`，
-  曾把整轮打成红）——只认真实页面错误与资源缺失。
-  路由默认**按改动推断**：改视图只查它自己的路由；改共享组件/样式则查**首页 + 全部名录页**
-  （宁可多查一页，也不要只查一页就报绿）。详情页要指定实例时 `-- --route /w-engines/14164`。
-  会话名带进程号，天生不撞车；若仍报「playwright-cli 会话打不开」，先 `playwright-cli list` 看残留。
-- **浏览器层是发版级，不是迭代级**：`verify:ui` 只守「这一页还在、没溢出、没 a11y 违规」；
-  几何、构图、键盘旅程、字体墨色、离线与缓存策略**只在发版前**跑（读的是构建产物，必须先 build + preview）：
-  合并前 `pnpm run audit:core`（核心 7 项，实测 ≈7 分钟），发版/月度 `pnpm run audit:all`
-  （23 项，实测 **763 秒 ≈13 分钟**；大头是 content-sweep 140s / keyboard-journey 77s / axe-a11y 73s）。
-  每项耗时由 `audit:all` 自己打印（末尾给合计与最慢 5 项）——上面的数字是 2026-10 的一次快照，
-  真实耗时**以工具输出为准**，别按这里推算。
-  审计箱**没有 CI 归属**，只在合并前/月度人工触发；一次审计换掉的是「线上才发现 320px 点不到 / 窄屏文字叠线」这类错。
-- **修 bug 的回合只在 dev 验证**（HMR，改一次看一次）；生产构建只在发版前做一次。
-- **不为小修复新增审计脚本**：先复跑已有脚本；确需新增，先逐条答准入判据（**五条答不全就不加**，
-  全文见 `scripts/audits/README.md`）。最常漏的是判据质量——`计数 === 0` 型是**空真**判据
-  （什么都没扫到也报绿），必须同时有正向锚与下限。现存 23 项里仍有 18 项属这一类（清单在 README），
-  改动触及时优先补锚；写死数据量的断言（如 `rows === 60`）同样是假红来源，用带下界的正向锚。
-- **部署构建入口 `pnpm run build:ci`**（Vercel 已指向；**完整链路以 `package.json` 为唯一事实源**）：
-  `build:ci` = `verify:assets` → `verify:data` → `vue-tsc -b` → `build:deploy`；
-  `verify:assets` = `verify:fonts` → `verify:icons --local` → `gen:featured-birthdays --check` → `verify:fonts:cjk`；
-  `build:deploy` = `vite build` → `sitemap` → `route-html` → `verify:budget` → `verify:vercel`。
-  **部署链路里没有单测**：单测归 `.github/workflows/checks.yml`（push/PR，约 30 秒）——发布门槛是
-  「类型过 + 能不能构建 + 派生产物一致」，不是「测试全绿」；测试该在人推之前就红。
-  整条链本地约 30 秒（资产+数据门禁 8 秒 + 类型增量 + 构建 9 秒），收工前跑一次即可（`pnpm run check` 会提示）。
-  **只构建已提交快照，不在构建期重建数据**（数据更新走 `pnpm run sync`，见下）。
-- **数据+图标同步入口 `pnpm run sync`**（`scripts/sync-data.ts`）：唯一自动化写入 `public/data/` 的入口——
-  探测新版本 → 重建 JSON → 图标 `--soft` 补差（只补缺失、已有美术资源零重下）→ 重建 CJK 字体子集 → 校验（告警）→ 汇总变更集。
-  由 `.github/workflows/data-sync.yml` 定时触发，重算字体子集后过【四道硬门禁】：`verify:data`（数据契约）、
-  `verify-icons --local`（图标本地必须项）、`verify-cjk-fonts`（字体覆盖）、`generate-featured-birthdays --check`
-  （首页生日表与详情一致）；全过后把**数据 + 图标 + 字体子集**放进同一次提交推到 master → 触发 Vercel 部署，
-  任一门禁不过则 job 失败、不提交。四道门禁守的是同一类事故：字体子集与生日表都随上游文本派生、
-  却只由部署构建校验——重算后漏提交或漏校验，master 上就会出现「数据新、派生资产旧」的快照，
-  表现为部署构建失败。
-  门禁前先跑类型与单测（坏了别花十几分钟同步再红）；末尾**对账线上 `/data/manifest.json` 的版本与已提交快照**，
-  抓「提交了但部署失败」。
-  **探测失败也算失败**：`probeOutdated` 与 `buildAll` 任何异常都非零退出并打印「站点仍停留在 X」，
-  workflow 侧写 step summary 并自动开/评论一条「data-sync 失败」issue——曾经的写法是异常直接 `return`（exit 0），
-  job 天天绿、站点静默停在旧版，没人知道。确要沿用旧快照时手动加 `--allow-probe-failure`。
-  仓库为私有 + 免费套餐，分支保护不可用，故门禁在 workflow 内实现。`pnpm run data` 仅作数据-only 用途。
-- **换行符**：文本一律 **LF**，由根级 `.gitattributes` 钉死；改动它之前先读该文件头的规则顺序警示
-  （后写规则覆盖先写，二进制声明必须排在文本通配之后）。判据：`git diff --check` 应完全干净。
-  详见决策记录 0007。
-- **排障顺序**：改动数据管线按 DATA_GUIDE §7 顺序执行；名录/详情数量为 0 或 404 时先查 DATA_GUIDE §8
-  失效信号，别急着改前端。
+- **`pnpm run verify:ui`**（迭代层的浏览器检查）：3 断点查渲染锚点、图片 alt、横向溢出、页面异常、
+  资源缺失（`requestfailed` / HTTP≥400，带 URL）与 axe；自起自关 dev 服务，**6–7 秒/路由**。
+  路由按改动推断（改视图查它自己；改共享组件/样式查首页 + 全部名录页——宁可多查一页，也不要只查一页就报绿）。
+  参数与判据看 `pnpm run verify:ui -- --help`。HMR 噪声（websocket 重连）不计为失败。
+- **浏览器审计箱是发版级**：`audit:core`（7 项，约 7 分钟）/ `audit:all`（23 项，约 13 分钟），
+  读构建产物（先 `build:ci` + `preview`），**只在合并前/月度人工跑，没有 CI 归属**。每项耗时由工具自己打印，
+  这里的数字只是一次快照，以输出为准。判据与新增准入（五条答不全就不加）见 [`scripts/audits/README.md`](./scripts/audits/README.md)：
+  其中 `计数 === 0` 型是**空真**判据（没扫到也报绿），写死数据量的断言（如 `rows === 60`）则一涨就假红——
+  两者都要换成带下界的正向锚。
+- **修 bug 只在 dev 验证**（HMR），生产构建只做一次、放在发版前。
+- **部署入口 `pnpm run build:ci`**（Vercel 已指向；链路以 `package.json` 为唯一事实源）：
+  资产门禁五道 → `verify:data` → 类型 → 构建 → sitemap/逐路由 HTML/预算/缓存头断言。**不含单测**
+  （归 `.github/workflows/checks.yml`，push/PR 约 30 秒）；**只构建已提交快照**，不重建数据。本地约 30 秒。
+- **数据入口 `pnpm run sync`**（唯一自动化写 `public/data/` 的路径）：探测 → 重建 JSON → 图标补差 →
+  字体子集 → 四道门禁（数据契约 / 图标本地 / 字体覆盖 / 生日表一致）→ 一次提交 → 对账线上版本。
+  由 `data-sync.yml` 每日触发；**探测或重建失败即失败**（非零退出 + 开 issue，站点留在旧快照），
+  确要沿用旧快照才加 `--allow-probe-failure`。参数与运维步骤见 DATA_GUIDE §7。
+- **换行符 LF**（根级 `.gitattributes` 钉死；改它前先读文件头的规则顺序警示，见决策记录 0007）。
+- **排障**：数据管线按 DATA_GUIDE §7；名录/详情为 0 或 404 先查 DATA_GUIDE §8 失效信号。
 
 ## 5. 沟通与输出约定（AI 回复）
 
