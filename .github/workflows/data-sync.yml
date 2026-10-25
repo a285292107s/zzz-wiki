@@ -2,11 +2,14 @@
 # data-sync.yml — 定时「数据 + 图标」同步（唯一写者），直接提交默认分支
 #
 # 触发：每日 cron（默认 04:17 UTC）+ 手动 workflow_dispatch。
-# 职责：跑 pnpm run sync —— 探测源站新版本 → 有新版本才重建 JSON + 图标 --soft 补差
-#       → 重建 CJK 字体子集（新文本的新字形，否则部署构建会在字体校验处失败）
-#       → 汇总变更集；随后用 `pnpm run verify:data` + 图标本地校验 + 字体覆盖校验做【硬门禁】，
-#       通过后一次性 commit【数据 + 图标 + 字体子集】并 push 到默认分支（master）→ 触发 Vercel 部署。
-#       门禁不通过 → 本 job 失败，不提交（站点停留在上次提交的好数据）。
+# 职责：类型 + 单测（先便宜后贵：坏了就别花十几分钟同步）→ 跑 pnpm run sync —— 探测源站新版本
+#       → 有新版本才重建 JSON + 图标 --soft 补差 → 重建 CJK 字体子集（新文本的新字形，否则部署
+#       构建会在字体校验处失败）→ 汇总变更集；随后过【四道门禁】：`pnpm run verify:data`（数据契约）、
+#       `verify-icons --local`（图标本地必须项）、`verify-cjk-fonts`（字体覆盖）、
+#       `generate-featured-birthdays --check`（首页生日表与详情一致）；全过后把【数据 + 图标 + 字体子集】
+#       放进同一次提交推到 master → 触发 Vercel 部署 → 最后对账线上版本。
+#       任一步失败 → job 失败，不提交（站点停留在上次提交的好数据），并写下 step summary +
+#       开（或评论）一条固定标题的 issue：静默失败比失败本身更贵。
 # ⚠ 字体子集（public/fonts、scripts/build/cjk-fonts-manifest.json）是**派生产物**，
 #   必须与数据进同一次提交：只提交数据会让部署在 verify:fonts:cjk 处失败，而只重算不提交
 #   等于白算。提交面因此显式列举三类路径，别把 fonts 漏在 git add 之外。
@@ -14,13 +17,18 @@
 #       见 src/domain/heroCatalog.ts）；featured-pool.json 的 pos 入池仍须人工目检，本 workflow 不写它。
 #
 # 设计取舍（单写者模型：本 workflow 是唯一自动化写入 public/data 的入口）：
-#   - 部署（build:ci）只构建已提交快照、不再重建数据；数据更新全部走这里。
+#   - 部署（build:ci）只构建已提交快照、不再重建数据；数据更新全部走这里。单测的 CI 归属在
+#     checks.yml（bot 的 push 也会触发它）；这里再跑一遍同一对命令，只为在昂贵的同步与部署之前就红。
+#   - 版本探测失败不软过：sync-data.ts 默认非零退出（「上游确实无新版本」与「探测本身失败」必须分得开）。
+#     本 workflow **不传** --allow-probe-failure —— 探测不了上游就说明这次同步没意义，宁可红。
 #   - 无变更时不提交（按 porcelain 判定，含未跟踪的新文件），避免每日空提交。
 #   - 门禁内嵌 workflow：本仓库私有 + 免费套餐，GitHub 分支保护 / required checks
-#     不可用，故以本 job 内的三道校验作为真正的硬卡点。
+#     不可用，故以本 job 内的四道校验作为真正的硬卡点。
 #   - 字体重算放在这里而不是部署构建里：download:fonts:cjk 要拉 101 个源分片（外网 +
 #     秒级耗时），放进 Vercel 构建会依赖 Google Fonts 并拖长构建；代价是本 job 多一个
 #     外部依赖——拉取失败则本次同步不提交（宁可不更新，也不推一份会让部署失败的快照）。
+#   - 末尾对账（线上 manifest 版本 vs 已提交快照）抓的是「提交了但没部署成功」：push 到 Vercel
+#     上线有分钟级延迟，故轮询而非一次性比对。
 # ============================================================
 
 name: data-sync
@@ -32,6 +40,7 @@ on:
 
 permissions:
   contents: write # 提交 / 推送默认分支
+  issues: write # 失败时开 / 评论告警 issue
 
 jobs:
   sync:
@@ -57,29 +66,55 @@ jobs:
       - name: Install deps
         run: pnpm install --frozen-lockfile
 
+      - name: Record committed data version
+        id: snapshot
+        run: |
+          live=$(git show HEAD:public/data/manifest.json \
+            | node -p "JSON.parse(require('node:fs').readFileSync(0,'utf8')).zzz.live" 2>/dev/null \
+            || echo '未知')
+          echo "live=$live" >> "$GITHUB_OUTPUT"
+          echo "已提交的数据版本：$live"
+
+      - name: Type check
+        id: types
+        run: npx vue-tsc -b
+
+      - name: Unit tests
+        id: tests
+        run: pnpm test
+
       - name: Sync data + icons
-        run: pnpm run sync
+        id: sync
+        run: |
+          set -o pipefail
+          pnpm run sync 2>&1 | tee "$RUNNER_TEMP/sync.log"
 
       - name: Rebuild CJK font subset for updated text
+        id: fonts
         run: pnpm run fonts:cjk
 
       - name: Gate — strict data-contract check before any push
+        id: gate-data
         run: pnpm run verify:data
 
       - name: Gate — local icon completeness before any push
+        id: gate-icons
         run: node scripts/verify-icons.mjs --local
 
       # download-cjk-fonts 按设计「失败仅告警」（字体是持久资产），部分分片拉不到时
       # 产物仍会生成但覆盖不全——这道门禁把住最终产物，让本 job 失败而不是把坏字体推上去。
       - name: Gate — CJK font coverage after re-subset
+        id: gate-fonts
         run: node scripts/verify-cjk-fonts.mjs
 
       # 第三份「随上游数据变化」的派生产物：首页生日表由详情数据派生并提交。
       # 与字体同理——它只在部署构建里被校验，同步链路不校验就会推出让部署失败的快照。
       - name: Gate — featured birthdays table still matches details
+        id: gate-birthdays
         run: node scripts/generate-featured-birthdays.mjs --check
 
       - name: Commit and push if data, icons or fonts changed
+        id: commit
         run: |
           TRACKED="public/data public/fonts scripts/build/cjk-fonts-manifest.json"
           # porcelain 含未跟踪文件：纯新增的数据文件（新角色/新音擎）也必须触发提交
@@ -95,3 +130,113 @@ jobs:
           git pull --rebase origin "$(git rev-parse --abbrev-ref HEAD)"
           git push
           echo "Committed and pushed data/fonts update"
+
+      # 对账：线上 manifest 的 zzz.live 必须等于本仓已提交快照的 zzz.live。
+      # 抓的是「提交了但部署失败 / 没触发 / 回滚」——不再靠人肉发现站点停在旧版。
+      - name: Reconcile — deployed data version matches committed snapshot
+        id: reconcile
+        run: |
+          set -euo pipefail
+          url="https://myzzz.wiki/data/manifest.json"
+          expected=$(node -p "JSON.parse(require('node:fs').readFileSync('public/data/manifest.json','utf8')).zzz.live")
+          online=""
+          for attempt in $(seq 1 30); do
+            online=$(curl -fsS --max-time 15 "$url" \
+              | node -p "JSON.parse(require('node:fs').readFileSync(0,'utf8')).zzz.live" 2>/dev/null \
+              || true)
+            if [ "$online" = "$expected" ]; then
+              echo "线上版本 $online == 已提交快照 $expected（第 $attempt 次探测）"
+              exit 0
+            fi
+            echo "第 $attempt 次探测：线上=${online:-<拉取失败>}，期望=$expected；20s 后重试"
+            sleep 20
+          done
+          {
+            echo "## 对账失败：线上数据版本与已提交快照不一致"
+            echo ""
+            echo "- 期望（本仓 public/data/manifest.json 的 zzz.live）：\`$expected\`"
+            echo "- 实际（$url）：\`${online:-<拉取失败>}\`"
+            echo "- 含义：提交可能已到 master，但 Vercel 部署失败 / 未触发 / 被回滚；玩家仍看到旧数据。"
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit 1
+
+      # 失败时的可见性：step summary 说明「哪一步失败、站点停在哪个版本、同步日志末尾」，
+      # 同时落盘成文件供下一步开 issue 用。
+      - name: Failure summary
+        if: failure()
+        env:
+          COMMITTED_LIVE: ${{ steps.snapshot.outputs.live }}
+          O_TYPES: ${{ steps.types.outcome }}
+          O_TESTS: ${{ steps.tests.outcome }}
+          O_SYNC: ${{ steps.sync.outcome }}
+          O_FONTS: ${{ steps.fonts.outcome }}
+          O_GATE_DATA: ${{ steps.gate-data.outcome }}
+          O_GATE_ICONS: ${{ steps.gate-icons.outcome }}
+          O_GATE_FONTS: ${{ steps.gate-fonts.outcome }}
+          O_GATE_BIRTHDAYS: ${{ steps.gate-birthdays.outcome }}
+          O_COMMIT: ${{ steps.commit.outcome }}
+          O_RECONCILE: ${{ steps.reconcile.outcome }}
+        run: |
+          body="$RUNNER_TEMP/failure.md"
+          {
+            echo "## data-sync 失败（$(date -u '+%Y-%m-%d %H:%M UTC')）"
+            echo ""
+            echo "- 运行：[${{ github.run_number }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})（${{ github.event_name }}）"
+            echo "- 站点仍停留在已提交版本：**${COMMITTED_LIVE:-未知}**"
+            echo ""
+            echo "| 步骤 | 结果 |"
+            echo "| --- | --- |"
+            for pair in \
+              "类型检查|$O_TYPES" \
+              "单元测试|$O_TESTS" \
+              "数据同步（含版本探测）|$O_SYNC" \
+              "CJK 字体子集|$O_FONTS" \
+              "门禁·数据契约|$O_GATE_DATA" \
+              "门禁·图标本地|$O_GATE_ICONS" \
+              "门禁·字体覆盖|$O_GATE_FONTS" \
+              "门禁·生日表|$O_GATE_BIRTHDAYS" \
+              "提交推送|$O_COMMIT" \
+              "线上对账|$O_RECONCILE"; do
+              step_name="${pair%%|*}"
+              outcome="${pair##*|}"
+              case "$outcome" in
+                success) mark="✅" ;;
+                failure) mark="❌ 失败" ;;
+                skipped) mark="⏭ 跳过" ;;
+                cancelled) mark="⛔ 取消" ;;
+                '') mark="—" ;;
+                *) mark="$outcome" ;;
+              esac
+              echo "| $step_name | $mark |"
+            done
+            if [ -f "$RUNNER_TEMP/sync.log" ]; then
+              echo ""
+              echo "<details><summary>pnpm run sync 日志末尾（40 行）</summary>"
+              echo ""
+              echo '```'
+              tail -n 40 "$RUNNER_TEMP/sync.log"
+              echo '```'
+              echo ""
+              echo "</details>"
+            fi
+          } > "$body"
+          cat "$body" >> "$GITHUB_STEP_SUMMARY"
+
+      # 每天都能红、但没人看得到等于没修：固定标题的 issue 列表里一眼就能看出「还挂着」。
+      # 已有同名 open issue 就追加一条评论（保留复发时间线），否则新建。
+      - name: Open or update failure issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          body="$RUNNER_TEMP/failure.md"
+          [ -f "$body" ] || printf 'data-sync 失败，详见 run 页面。\n' > "$body"
+          title="data-sync 失败"
+          number=$(gh issue list --state open --limit 200 --json number,title \
+            --jq ".[] | select(.title == \"$title\") | .number" | head -n 1)
+          if [ -n "$number" ]; then
+            gh issue comment "$number" --body-file "$body"
+            echo "已在 issue #$number 记录本次失败"
+          else
+            gh issue create --title "$title" --body-file "$body"
+          fi

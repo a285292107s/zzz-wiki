@@ -8,8 +8,10 @@
  *   - 源站/图标缺口软失败，绝不阻断；JSON 与图标由同一份新 live 数据驱动。
  *
  * 行为（职责：产生「新 JSON + 新图标」的干净增量，供上层原子提交）：
- *   1. 探测源站版本（needUpdate）：源站不可达 → 跳过 JSON 重建（沿用既有快照），但
- *      仍执行图标补差（版本探测失败不连带放弃对上次瞬态失败图标的自愈）
+ *   1. 探测源站版本（needUpdate）：探测失败默认**以非零退出码失败**——stderr 写明失败的是哪一步、
+ *      错误类别（网络 / HTTP 状态 / 结构变化）与站点当前已提交版本，避免「job 绿 + 站点静默停旧版」。
+ *      仅当显式传 --allow-probe-failure 时退回旧行为：跳过 JSON 重建（沿用既有快照），
+ *      但图标补差照常执行（探测失败不连带放弃对上次瞬态失败图标的自愈）
  *   2. 有新版本 → 备份 public/data → 重建 JSON（失败回退既有产物）
  *   3. 无论是否新版本、是否成功探测，都跑图标 --soft 补差（按「本地存在性」幂等差集、
  *      只补缺失）——上次瞬态失败的图标会在下次运行自愈，无需等新版本
@@ -20,6 +22,7 @@
  * git diff 决定，保持「同步」与「提交」解耦。
  *
  * 用法：pnpm run sync        （需外网；代理设 NODE_USE_ENV_PROXY=1）
+ *       pnpm run sync -- --allow-probe-failure   探测失败时沿用旧快照（排障用，默认不用）
  * ============================================================ */
 
 import fs from 'node:fs'
@@ -38,14 +41,58 @@ import { collectIcons, localPath } from './build/icon-inventory.mjs'
 /** 同步前目录备份（临时），JSON 构建失败回退时沿用既有快照 */
 const BACKUP = path.join(os.tmpdir(), `zzz-wiki-sync-${process.pid}`)
 
-/** 探测：源站不可达视为「无法确认」，沿用仓库既有快照不提交 */
-async function probeOutdated(): Promise<boolean | null> {
+type Probe = 'outdated' | 'up-to-date' | 'unconfirmed' | 'abort'
+
+const ALLOW_PROBE_FAILURE = process.argv.includes('--allow-probe-failure')
+
+function readLocalLiveVersion(): string {
   try {
-    return await needUpdate()
+    const local = JSON.parse(
+      fs.readFileSync(path.join(OUT, 'manifest.json'), 'utf8'),
+    ) as { zzz?: { live?: string } }
+    return local.zzz?.live ?? '未知（manifest.json 缺 zzz.live）'
+  } catch {
+    return '未知（public/data/manifest.json 不可读）'
+  }
+}
+
+function describeProbeFailure(e: unknown): string[] {
+  const err = e instanceof Error ? e : new Error(String(e))
+  const cause = err.cause as { code?: unknown; message?: unknown } | undefined
+  const netCode = typeof cause?.code === 'string' ? cause.code : (err as NodeJS.ErrnoException).code
+  const status = /^HTTP (\d{3})\b/.exec(err.message)?.[1]
+  const kind = status
+    ? `源站响应 HTTP ${status}（鉴权 / 限流 / 端点变更）`
+    : err instanceof SyntaxError
+      ? '响应不是合法 JSON（源站结构变化，或本地 public/data/manifest.json 损坏）'
+      : netCode
+        ? `网络不可达（${netCode}）`
+        : '未知错误'
+  const lines = [`  类别：${kind}`, `  原始信息：${err.message}`]
+  if (typeof cause?.message === 'string' && cause.message !== err.message) {
+    lines.push(`  底层原因：${cause.message}`)
+  }
+  return lines
+}
+
+async function probeOutdated(): Promise<Probe> {
+  try {
+    return (await needUpdate()) ? 'outdated' : 'up-to-date'
   } catch (e) {
-    console.error('[sync] 版本探测失败（源站不可达？），沿用仓库内既有快照，不产生变更')
-    console.error('  ', e instanceof Error ? e.message : e)
-    return null
+    console.error('[sync] ✖ 第 1 步「版本探测」失败：无法确认源站是否有新版本')
+    console.error(
+      '  探测对象：https://static.nanoka.cc/manifest.json（与本仓 public/data/manifest.json 的 zzz.live 比对）',
+    )
+    for (const line of describeProbeFailure(e)) console.error(line)
+    console.error(`  站点当前已提交版本：${readLocalLiveVersion()}（本次不重建、不提交）`)
+    if (ALLOW_PROBE_FAILURE) {
+      console.error('[sync] ⚠ --allow-probe-failure 显式放行：沿用既有快照，继续补齐缺失图标')
+      return 'unconfirmed'
+    }
+    console.error('[sync] ✖ 以非零退出码失败——「job 绿、站点静默停旧版」不可接受')
+    console.error('[sync]   确认是源站临时故障、本次确要沿用旧快照时，加 --allow-probe-failure 显式放行')
+    process.exitCode = 1
+    return 'abort'
   }
 }
 
@@ -70,35 +117,34 @@ function checkLocalRequiredIcons(): Array<{ cat: string; file: string }> {
 }
 
 async function main(): Promise<void> {
-  const outdated = await probeOutdated()
+  const probe = await probeOutdated()
+  if (probe === 'abort') return
   let changed = false
-  if (outdated === true) {
+  if (probe === 'outdated') {
     console.log('[sync] 检测到数据新版本，开始同步 JSON…')
     backupOut()
     try {
       await buildAll()
       changed = true
     } catch (e) {
-      console.error('[sync] 数据构建失败，回退到既有产物：')
+      console.error('[sync] ✖ 第 2 步「重建 JSON」失败：')
       console.error('  ', e instanceof Error ? e.message : e)
       try {
         restoreOut()
-        console.warn('[sync] 已回退，仓库快照保持不变（本次不产生变更）')
+        console.error(`[sync] 已回退到既有产物；本次未提交，站点仍停留在 ${readLocalLiveVersion()}`)
       } catch (restoreErr) {
         // 回退也失败是灾难性场景：显式失败，避免提交半残数据
-        console.error('[sync] 回退失败（public/data 可能不完整）：', restoreErr)
+        console.error('[sync] ✖ 回退失败（public/data 可能不完整）：', restoreErr)
         process.exit(1)
       }
+      process.exitCode = 1
       return
     }
     fs.rmSync(BACKUP, { recursive: true, force: true })
-  } else if (outdated === false) {
+  } else if (probe === 'up-to-date') {
     console.log('[sync] 数据已是最新（UP_TO_DATE），仍补齐缺失图标（幂等，自愈上次瞬态失败）')
   } else {
-    // 源站不可达：无法确认版本 → 跳过 JSON 重建（沿用既有快照）。但图标补差仍执行（独立、幂等、软失败），
-    // 以免「版探测失败」连带放弃对上次瞬态失败图标的自愈——若源站只是对 manifest 端点瞬时抖动、图标资产可达，
-    // 仍能补下，且不会提交（无文件写入时 changed=false）。
-    console.log('[sync] 版本探测失败（源站不可达？）——跳过 JSON 重建，仍尝试补齐缺失图标')
+    console.log('[sync] 版本探测失败（已显式放行）——跳过 JSON 重建，仍尝试补齐缺失图标')
   }
 
   // 图标补差（幂等、缺口软失败）——无论版本是否变化、无论是否成功探测源站都跑：

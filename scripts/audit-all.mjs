@@ -1,7 +1,7 @@
 /* ============================================================
  * audit-all.mjs — pnpm run audit:all：**一条命令跑完整个审计箱**
  *
- * 为什么需要：`pnpm run audit` 只**列出**脚本，27 个审计此前全靠人工逐个跑
+ * 为什么需要：`pnpm run audit` 只**列出**脚本，审计箱此前全靠人工逐个跑
  * （漏跑一个就等于没有那项保障——第 111 轮发现 `verify:icons` 从未接入任何链路，
  * 正是这类问题的另一面）。本脚本把它们串起来，并**显式声明每个脚本的通过判据**。
  *
@@ -9,7 +9,8 @@
  * 猜错会得到假绿。没有判据的脚本一律标「？需人工判读」，绝不默认通过。
  *
  * 前置：preview 在 :4175 运行（pnpm run build:ci && pnpm run preview）。
- * 用法：pnpm run audit:all
+ * 用法：pnpm run audit:all         全箱（发版/月度）
+ *       pnpm run audit:core       核心 7 项（合并前快速兜底）
  * 退出码：0 全部通过 · 1 有失败 · 2 前置不满足（服务未起）
  * ============================================================ */
 
@@ -20,24 +21,28 @@ import path from 'node:path'
 const DIR = 'scripts/audits'
 const ORIGIN = 'http://localhost:4175'
 
+const CORE_FILES = new Set([
+  'content-sweep.js',
+  'viewport-overflow.js',
+  'axe-a11y.js',
+  'keyboard-journey.js',
+  'transfer-profile.js',
+  'csp-check.js',
+  'reflow-spacing.js',
+])
+
 /** 每个审计的通过判据（与 README 基线一一对应；新增脚本必须在此声明判据） */
 const RULES = {
-  'landmarks.js': (r) =>
-    Object.values(r).every((p) => p.h1 === 1 && p.main === 1 && p.footer === 1 && p.imgsNoAlt === 0),
   'transfer-profile.js': (r) => r.failed === 0, // 首访传输预算（冷缓存总重/字体/图片）
   'slider-keyboard.js': (r) => Array.isArray(r) && r.length > 0 && r.every((x) => x.delta !== 0),
   'quick-search.js': (r) => r.failed === 0,
   'spacing-audit.js': (r) => r.layout?.offScale === 0,
   'viewport-overflow.js': (r) => r.total === 0,
-  // 行内文本链接按 WCAG 2.5.8 的 Inline 例外豁免：它的命中区高度由所在句子的行高决定，
-  // 放大就得把行距一起撑开（脚本已按此判据算出 isTextLink，此处据它过滤）
-  'touch-targets.js': (r) => (r.problems ?? []).filter((p) => !p.isTextLink).length === 0,
   'ax-tree.js': (r) =>
     r.totalUnnamed === 0 &&
     (r.badH1 ?? []).length === 0 &&
     (r.skippedHeadings ?? []).length === 0 &&
     r.redundantImageNames === 0,
-  'font-loading.js': (r) => r.serif === 'Noto Serif SC' && r.cssLink === true,
   'font-weight-calibration.js': (r) => /^OK/.test(r.verdict ?? ''),
   'reflow-spacing.js': (r) =>
     r.reflowOverflow === 0 && r.smallTargetsAt320 === 0 && r.spacingClipped === 0 && r.spacingOverlaps === 0,
@@ -45,7 +50,6 @@ const RULES = {
   'content-sweep.js': (r) =>
     !r.error && r.pagesChecked > 0 && r.pagesWithAnomalies === 0 && r.thinPages === 0 && r.placeholderOnlySections === 0,
   'motion-audit.js': (r) => r.reducedLeftovers === 0 && r.veryLongNormal === 0,
-  'interaction-states.js': (r) => r.totalNoHover === 0 && r.totalNoActive === 0 && r.noFeedbackAtAll === 0,
   'color-audit.js': (r) => r.totalOffPalette === 0 && r.totalLowControl === 0,
   'typography-audit.js': (r) => r.totalSizeViolations === 0 && r.totalFamilyViolations === 0,
   'keyboard-journey.js': (r) => r.failed === 0,
@@ -55,8 +59,6 @@ const RULES = {
   'offline-check.js': (r) => r.failed === 0,
   'axe-a11y.js': (r) => r.groups === 0 && r.serious === 0,
   'axe-states.js': (r) => r.serious === 0,
-  'inp-interaction.js': (r) => typeof r.worst?.dur === 'number' && r.worst.dur < 200,
-  'regression-walk.js': (r) => r.failed === 0,
   // 共享元素飞行：逐帧几何证明「真的在飞」（曾经静默空转 —— 只看动画类/动画对象验不出来）；
   // 33 项含「起飞端滚出屏后不飞」正反两向、「窄屏不做取景变形」（K）、
   // 「装裱壳不给透明层凭空涂色」正反两向（L/M，背景闪烁的根因）
@@ -92,9 +94,10 @@ function runCode(file) {
   return typeof once === 'string' ? JSON.parse(once) : once
 }
 
+const coreOnly = process.argv.includes('--core')
 const files = fs
   .readdirSync(DIR)
-  .filter((f) => f.endsWith('.js'))
+  .filter((f) => f.endsWith('.js') && (!coreOnly || CORE_FILES.has(f)))
   .sort()
 
 if (!serverUp()) {
@@ -144,7 +147,7 @@ execFileSync('playwright-cli', ['close'], {
 const failed = rows.filter((r) => r.status === '✗')
 const manual = rows.filter((r) => r.status === '？')
 console.log(
-  `\n== 审计箱全量：${rows.length} 个脚本 · 通过 ${rows.filter((r) => r.status === '✓').length} · 失败 ${failed.length} · 需人工判读 ${manual.length} ==`,
+  `\n== 审计箱${coreOnly ? '核心' : '全量'}：${rows.length} 个脚本 · 通过 ${rows.filter((r) => r.status === '✓').length} · 失败 ${failed.length} · 需人工判读 ${manual.length} ==`,
 )
 if (manual.length) console.log(`  （人工判读：${manual.map((m) => m.f).join('、')}）`)
 for (const f of failed) console.log(`  ✖ ${f.f} → ${f.detail}`)

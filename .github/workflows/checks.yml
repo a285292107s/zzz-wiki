@@ -1,0 +1,49 @@
+# ============================================================
+# checks.yml — 类型与单测的 CI 归属（部署链路不再跑单测）
+#
+# 触发：push 到默认分支 + 所有 pull_request。
+# 内容：install → 类型（vue-tsc -b）→ 全量单测。约半分钟。
+# 不跑 build / audit / preview：可构建性归 Vercel 的 build:ci，浏览器层审计是发版级（AGENTS §4），
+# 让每次 push 都付这笔钱只会让人开始无视红灯。
+# 与 data-sync.yml 的关系：那边在昂贵的同步与部署之前跑同一对命令，只为早红；门禁不重复。
+# ============================================================
+
+name: checks
+
+on:
+  push:
+    branches: [master]
+  pull_request: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # pnpm 必须在 setup-node 之前就位（cache: pnpm 需要 pnpm 可执行文件）。
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Type check
+        run: npx vue-tsc -b
+
+      - name: Unit tests
+        run: pnpm test

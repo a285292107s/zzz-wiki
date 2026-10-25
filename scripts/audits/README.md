@@ -2,27 +2,24 @@
 
 **日常改页面不在本表里跑**：`src/views/` 或 `.vue` 样式改动先跑 `pnpm run verify:ui`（dev 5173 上的快检：
 渲染锚点 / 图片 alt / 横向溢出 / 控制台错误 / axe，3 个断点，实测约 11 秒，**不需要构建**）。
-本表的 29 个脚本是**发版前门槛**（`pnpm run audit:all`，前置 `pnpm run build:ci && pnpm run preview`）；
+本表的 23 个脚本是**发版/月度门槛**（`pnpm run audit:all`，前置 `pnpm run build:ci && pnpm run preview`）；
+合并前快速兜底只跑核心 7 项：`pnpm run audit:core`（内容/溢出/axe/键盘旅程/传输预算/CSP/重排）。
 判据与基线不变。
 
 每个脚本对应一项品质基线检查（基线数值见 QUALITY.md）。
-运行前提：`pnpm run build:ci` && `pnpm run preview`——**本仓库的 `preview` 已固定 `--port 4175`**，下面的 29 个脚本全部指向 `http://localhost:4175`，端口必须一致，否则全套跑不起来。
+运行前提：`pnpm run build:ci` && `pnpm run preview`——**本仓库的 `preview` 已固定 `--port 4175`**，下面的 23 个脚本全部指向 `http://localhost:4175`，端口必须一致，否则全套跑不起来。
 
 **一条命令跑全套**：`pnpm run audit:all`（scripts/audit-all.mjs）——按下面的表格逐个执行、
-汇总通过/失败/需人工判读，失败即非零退出。每个脚本的**通过判据显式声明**在该文件的
-RULES 表里（不靠猜返回结构）；**新增审计脚本必须同时补判据**，否则会被标「？需人工判读」
-而不会默认通过。`pnpm run audit` 仍只列清单（含各脚本一句话说明）。
+汇总通过/失败/需人工判读，失败即非零退出。`pnpm run audit:core` 同一条链路，只跑核心 7 项。
+每个脚本的**通过判据显式声明**在该文件的 RULES 表里（不靠猜返回结构）；**新增审计脚本必须
+同时补判据**，否则会被标「？需人工判读」而不会默认通过。`pnpm run audit` 仍只列清单。
 
 | 脚本 | 检查项 | 基线 |
 |---|---|---|
 | viewport-overflow.js  | 8 视口 × 9 路由横向溢出 | 0 |
-| touch-targets.js      | 交互目标 ≥24×24（WCAG 2.5.8） | 0 问题（**行内文本链接**按该条的 Inline 例外豁免：命中区高度由所在句子的行高决定，放大即撑开行距；判据 `isTextLink` 随每条问题一起返回） |
-| regression-walk.js    | 全站功能走查（**93 项**，覆盖七类目/边界态/URL 状态/离线联动）。名录页的**两套陈列版本**各有一组断言：表格版沿用行数/空态那组，排序另有两项——`sort-ui-removed-in-table`（表头不再可点、无 `aria-sort`）与 `sort-deeplink-still-read`（历史 `?sort=&dir=` 仍照读：参数在、行序确实变了），卡片版另测**名录页工具栏切换**（两颗钮、卡片钮为按下态）→ 渲染卡片且表格行为 0 → 地址栏不带版本 → 刷新仍在 → 切回表格版（偏好只存本机，决策记录 0008），并有 `cards-no-sort-ui` 守「卡片版工具栏不出现排序钮」；音擎与驱动盘两个栅格名录页同理，`sort-ui-removed-in-grids` 守「两页工具栏不出现排序钮」（这几处仍走 `useCatalogSort` 取默认编号倒序，故深链照读）。名录的**条数不写死**：比对运行时数据文件真值（`live-data-readable` 先取真值，再断言「渲染条数 == 数据条数」），故 `pnpm run sync` 新增角色不会误报。站头导航两条守**展示位次**：`nav-numbering-contiguous`（编号必须 `01,02,03,04,05,06` 连续、不许空号）与 `nav-last-is-settings`（末位是设置且指向 `/settings`）——档案图谱整页下线后位置让给设置，入口数保持 6（决策记录 0008）。技能等级另有两条：上限 16（含影画加成）与默认 12 不得混同、以及拖到 16 级确实按该级出数值。出处一条（`provenance-single-source`）：版本号可见且数据版本/快照日期/数据源各只出现一次——详情页内容末原有独立出处行，与站尾重复同一批事实，已合并到站尾。复制链接入口已整体下线（决策记录 0009），走查里不再有 copy/share 断言 | 93/93 |
 | transfer-profile.js   | 首访传输预算（冷缓存总重 + 分类明细；总重 <3MB 竞奖档 / 字体 ≤1.2MB / 图片 ≤1MB） | 53 请求 / 751KB（js 61 + css 25 + 字体 189 + 图片 436 + json 40；**2026-10 实测，运行取当前值**） |
 | quick-search.js       | ⌘K 检索链路端到端（中文高亮/罗马字命中/结果态预激活/空态键盘路径） | 4/4 |
-| font-loading.js       | CJK 衬线生效 + 分片按需 | serif=Noto Serif SC |
 | slider-keyboard.js    | 滑条键盘操作（8 实例） | 全部响应 |
-| landmarks.js          | landmark/h1/alt 唯一性 | 每页 h1/main/footer 各 1；无缺 alt 图（详情页含 2 个 `<header>`：页头 + 条目头，合法） |
 | font-weight-calibration.js | CJK 衬线实际渲染字重标定 | 生产 = wght 500 实例 |
 | axe-a11y.js          | axe-core 全量规则（**14 路由 × 桌面/移动 = 28 组合**，含详情 404 态） | 0 violations |
 | axe-states.js        | 交互面板**展开态**的 axe（窄屏 ☰ 导航菜单/下拉/检索/浮层/空态） | 6 状态 0 violations |
@@ -32,13 +29,11 @@ RULES 表里（不靠猜返回结构）；**新增审计脚本必须同时补判
 | content-sweep.js     | 全站逐页内容完整性（**页数取自 `dist/sitemap.xml`，不写死**） | 0 异常 |
 | focus-visible.js     | 焦点可见性（逐 Tab 位，WCAG 2.4.7） | 130 停靠点 0 缺失（6 路由） |
 | typography-audit.js  | 排印合规（字号是否全在 --fs-* 尺度内、字体族、行宽） | 0 越轨 |
-| interaction-states.js| 交互态完整性（逐元素强制 :hover/:active 比较视觉指纹） | 122 元素 0 缺失（6 路由） |
 | motion-audit.js      | 动效克制性（reduced-motion 覆盖、过长过渡、transition: all） | reduced 0 残留 |
 | color-audit.js       | 色彩系统（调色板合规 / 文本 AA / 非文本 3:1） | 0 越轨，最差文本 4.65:1 |
 | reflow-spacing.js    | WCAG 1.4.10 重排(320px) + 1.4.12 文本间距 + 320px 命中区 + 触屏档 | 0 溢出/0 裁切/0 过小目标 |
-| keyboard-journey.js  | 键盘完整旅程（**18 条任务**，含焦点不被抢 / 详情页返回可达 / 窄屏 ☰ 导航菜单 / 点当前页条目也收起 / 检索面板不重复指路 / Esc 任意焦点位置都能关检索面板 / Ctrl+K 先收菜单 / 纯空格查询空态判据一致 / 空态「检索范围」只在无最近访问时出现）。条数以脚本内 `add()` 调用为准 | 18/18 |
+| keyboard-journey.js  | 键盘完整旅程（**19 条任务**，含焦点不被抢 / 详情页返回入口分档（1440 归站头当前类目、768 页头链接可聚焦，见决策记录 0014）/ 窄屏 ☰ 导航菜单 / 点当前页条目也收起 / 检索面板不重复指路 / Esc 任意焦点位置都能关检索面板 / Ctrl+K 先收菜单 / 纯空格查询空态判据一致 / 空态「检索范围」只在无最近访问时出现）。条数以脚本内 `add()` 调用为准 | 19/19 |
 | ax-tree.js           | 无障碍树（可访问名/标题层级/控件状态/图片名冗余，含详情 404 态） | 0 未命名，0 冗余 |
-| inp-interaction.js   | 交互响应 INP 代理（4× CPU 节流，含长任务/TBT） | 最差 48–88ms（<100 竞奖档） |
 | offline-check.js     | 离线阅读（SW 接管 → 断网重载 → 兜底页 → 缓存有界 → 回访零网络） | 7/7 |
 | spacing-audit.js     | 版式节奏合规（严格门禁=版式级；容器级仅报告） | 版式级 0 越轨 |
 | hero-flight.js       | 起飞前编排 + 共享元素飞行（逐帧读 ::view-transition-group 几何 / 退场错峰 / 取景变形是否落定 / 中途改主意）。「取景变形落定」一项会先切到四卡里 zoom 偏离 1 最大的一张——首卡 zoom≈1 时变形量与「没变形」不可区分（详见脚本第 6 节）。另含「起飞端滚出屏则不飞」（I/J）、「窄屏不做取景变形」（K）、「装裱壳不给透明层凭空涂色」正反两向（L/M）、「落地那一刻的入场还看得见」正反两向（N/O，拿「幕布还在不在」当参照系读入场进度） | 35/35 |
@@ -89,7 +84,7 @@ RULES 表里（不靠猜返回结构）；**新增审计脚本必须同时补判
 ⚠ **Service Worker 会遮蔽「失败模拟」**（2026-10 引入离线能力后）：SW 自己发起的 fetch
   不经过 `page.route`，SW 脚本的注册请求也不经过——`route('**/sw.js', abort)` 无效。
   需要在「无 SW」前提下测失败/断网的检查，应另开 `serviceWorker: 'block'` 的上下文
-  （见 `regression-walk.js` 的错误态检查段）。
+  （做法见 `composition-audit.js` 自持的那个上下文）。
 
 ⚠ **测离线必须用 `context.setOffline`**，不能用 CDP 的
   `Network.emulateNetworkConditions({offline:true})`：后者只作用于页面 target，
@@ -108,9 +103,18 @@ RULES 表里（不靠猜返回结构）；**新增审计脚本必须同时补判
 **准入判据（五条，答不全就不加）**——新增一项 ≈ 每次几十秒的执行成本 + 长期的判据维护成本；
 先复跑已有脚本，再考虑新增：
 
-> **这五条管新增，不追溯既往**：现有 29 项里多数还没完全达标（判据为空真、固定等待、基线写死等
+> **这五条管新增，不追溯既往**：现有 23 项里多数还没完全达标（判据为空真、固定等待、基线写死等
 > 存量问题，已逐项记录在 [`docs/audit/2026-10-e2e-first-principles.md`](../../docs/audit/2026-10-e2e-first-principles.md) §3）。
 > 别把下面的话读成"全仓已经这样了"——它是给下一个脚本的门槛。
+>
+> **`计数 === 0` 型空真判据（仍在的 18 项）**：`ax-tree` `axe-a11y` `axe-states` `color-audit`
+> `csp-check` `focus-visible` `forced-colors` `keyboard-journey` `motion-audit` `offline-check`
+> `print-mode` `quick-search` `reflow-spacing` `section-nav` `spacing-audit` `transfer-profile`
+> `typography-audit` `viewport-overflow`——RULES 只要求"越轨计数 = 0"，扫描范围塌缩成空集
+> （路由清单读不到、上下文没起来）同样报绿。带正向锚的 5 项：`composition-audit`（`total > 0`）、
+> `content-sweep`（`pagesChecked > 0`，且取不到 sitemap 时显式 `failed: true`）、
+> `font-weight-calibration`（`verdict` 要求墨量 > 0）、`hero-flight`（`total >= 33`）、
+> `slider-keyboard`（`length > 0`）。补锚不在本轮收敛范围内。
 
 - **C1 唯一可观测性**：它看见的东西，类型检查 / 单测（vitest）/ 构建期校验确实看不见吗？
   更低层能抓的，去补那一层的测试，别加浏览器脚本。
@@ -123,7 +127,7 @@ RULES 表里（不靠猜返回结构）；**新增审计脚本必须同时补判
 - **C4 断言不变式而非快照**：测"不该变的性质"（数量、几何、命名规则），不测某个具体数值或 DOM 快照。
   下限可以写死（`r.total >= 33` 这类），但**别把它当成"实际条数"来读**：真值要跑出来再说，
   写死值只用来在关键项漏扫时报警。
-- **C5 不与既有层重复**：已有 29 项覆盖到的，并入已有脚本或删掉旧项，不要两层各测一遍。
+- **C5 不与既有层重复**：已有 23 项覆盖到的，并入已有脚本或删掉旧项，不要两层各测一遍。
   ⚠ **"待合并"不等于"可以跳过"**：在真的并入/删除之前，被点名的脚本仍是必跑项——
   `pnpm run check:diff` 照旧把它们列出来，是对的，别把"报告说该合并"理解成"以后不用跑"。
   合并脚本要改代码与触发表，属于另一件事，两件事不要互相拖。
@@ -138,13 +142,13 @@ RULES 表里（不靠猜返回结构）；**新增审计脚本必须同时补判
 `content-sweep` 立刻报错）。**跑不出失败的检查等于不存在。**
 
 新增页面/路由时，**同时把路径加进各审计的 `routes` 清单**（axe/ax-tree/排印/色彩/
-节奏/构图/reflow/打印/交互态/焦点/动效/视口溢出/landmark/touch-targets）——否则新页面
+节奏/构图/reflow/打印/焦点/动效/视口溢出）——否则新页面
 等于没有任何门禁覆盖。`content-sweep` 读 sitemap，会自动覆盖。
 ⚠ **不进 sitemap 的路由**（如 `/settings`：它只从站头导航与首页目录进，刻意为本机偏好页）
-不受 `content-sweep` 覆盖，只能靠上面这 13 份清单——加路由时别只看 sitemap。
+不受 `content-sweep` 覆盖，只能靠上面这 11 份清单——加路由时别只看 sitemap。
 
 ⚠ **`git checkout -- <目录>` 会连未提交的改动一起回退**：为恢复一个被正则改坏的审计
-  脚本而 `git checkout -- scripts/audits/`，把同目录下**尚未提交**的走查护栏一起退掉了
-  （全量审计报 `home-index-rows` 期望值不符才发现）。**只恢复出问题的那个文件，
+  脚本而 `git checkout -- scripts/audits/`，把同目录下**尚未提交**的其它审计改动一起退掉了
+  （全量审计报期望值不符才发现）。**只恢复出问题的那个文件，
   并先 `git status` 看清哪些改动还没提交。**
 
