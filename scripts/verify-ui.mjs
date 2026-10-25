@@ -6,6 +6,7 @@ const DEFAULT_WIDTHS = [1440, 768, 390]
 const OUT_DIR = 'temp/verify-ui'
 const DEV_ORIGIN = 'http://localhost:5173'
 const AXE_PATH = path.resolve('node_modules/axe-core/axe.min.js')
+const ROUTE_MIN_MAIN_TEXT = { '/404': 40 }
 
 const read = (f) => (fs.existsSync(f) ? fs.readFileSync(f, 'utf8') : '')
 
@@ -74,6 +75,7 @@ function viewRoutes() {
   )
   for (const m of devRoutes.matchAll(/name: '([a-z-]+)'[\s\S]{0,120}?path: '(\/[^']*)'/g)) add(devViewByName.get(m[1]), m[2])
   for (const m of devRoutes.matchAll(/path: '(\/[^']*)'[\s\S]{0,120}?name: '([a-z-]+)'/g)) add(devViewByName.get(m[2]), m[1])
+  add('NotFoundView', '/404')
 
   return { map, listFile, listRoutes: [...new Set([...views.matchAll(/'(\/[^']+)': \[/g)].map((m) => m[1]))] }
 }
@@ -127,7 +129,7 @@ function inferRoutes() {
 function buildRunner(config) {
   return `async (page) => {
   const config = ${JSON.stringify(config)}
-  const out = { base: config.base, axe: config.axe, routes: [], consoleErrors: [], failedRequests: [] }
+  const out = { base: config.base, axe: config.axe, routeMinMainText: config.routeMinMainText, routes: [], consoleErrors: [], failedRequests: [] }
   const hmr = /WebSocket|\\[vite\\]|hot-update|@vite|@react-refresh/i
   page.on('pageerror', (e) => out.consoleErrors.push(String(e && e.message ? e.message : e)))
   page.on('console', (m) => {
@@ -273,7 +275,7 @@ function judge(result) {
       if (w.main !== 1) problems.push(`main=${w.main}`)
       if (w.footer !== 1) problems.push(`footer=${w.footer}`)
       if (w.missingAlt !== 0) problems.push(`缺 alt 图片=${w.missingAlt}`)
-      if (w.mainText < 120) problems.push(`正文过短=${w.mainText}（页面可能没渲染）`)
+      if (w.mainText < (result.routeMinMainText?.[route.route] ?? 120)) problems.push(`正文过短=${w.mainText}（页面可能没渲染）`)
       if (w.overflow > 1) problems.push(`横向溢出=${w.overflow}px`)
       if (w.axe && w.axe.length > 0) problems.push(`axe=${w.axe.map((v) => `${v.id}(${v.impact}×${v.nodes})`).join(', ')}`)
       if (problems.length) failures.push({ route: route.route, width: w.width, problems })
@@ -352,6 +354,7 @@ async function main() {
       axePath: AXE_PATH,
       session: opts.session,
       outDir,
+      routeMinMainText: ROUTE_MIN_MAIN_TEXT,
     }
     console.log(`快检 ${opts.routes.length} 个路由 × ${opts.widths.length} 个视口（${opts.base}）`)
     const result = run(config)

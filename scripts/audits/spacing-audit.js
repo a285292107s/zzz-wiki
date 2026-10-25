@@ -65,8 +65,9 @@ async (page) => {
   const ALLOWED_RANGES = [
     [20, 56], // --pad-page: clamp(20px, 4vw, 56px)
     [40, 96], // --pad-section: clamp(40px, 6vw, 96px)
-    [26, 42], // --space-group: clamp(26px, 3vw, 42px)
-    [28, 70], // --space-section: calc(--pad-section * 0.72) → clamp 的 0.72 倍区间
+    [18, 38], // --space-group: clamp(18px, 2.6vw, 38px)
+    [14, 28], // --space-head-body: clamp(14px, 2vw, 28px)
+    [35, 85], // --space-section: calc(--pad-section * 0.88) → clamp 的 0.88 倍区间
   ]
   const inAllowed = (v) =>
     ALLOWED_POINTS.some((p) => Math.abs(v - p) <= 1) ||
