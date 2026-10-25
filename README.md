@@ -45,7 +45,7 @@ pnpm test             # vitest 单元/组件测试
 ## 部署（Vercel）
 
 1. 推送仓库到 GitHub。
-2. 在 [vercel.com/new](https://vercel.com/new) 导入——`vercel.json` 已声明框架、构建命令（`pnpm run build:ci`：测试 + 西文/CJK 字体校验 + 构建 + sitemap 生成）、产物目录、headers/rewrites，无需额外配置。
+2. 在 [vercel.com/new](https://vercel.com/new) 导入——`vercel.json` 已声明框架、构建命令（`pnpm run build:ci`：资产门禁 + 数据契约 + 类型 + 构建 + sitemap/逐路由 HTML + 预算与响应头校验；单测不在这条链上，归 `.github/workflows/checks.yml`）、产物目录、headers/rewrites，无需额外配置。
 3. **必须在 Vercel 项目里再设一条环境变量 `VITE_SITE_ORIGIN`**，值为站点生产域（当前生产域 `https://myzzz.wiki`）。它是 sitemap / canonical / og:url 的 origin 来源，**缺了构建期的门禁会直接失败**（`scripts/generate-sitemap.mjs`）。加在 **Settings → Environment Variables**，或 `vercel env add VITE_SITE_ORIGIN production`（Preview / Development 同理）。
    **不要写进 `vercel.json`**：那里的 `env` / `build.env` 是 Vercel 已废弃的旧属性，构建期读不到——2026-10 实测因此连续部署失败（配了等于没配）；`scripts/verify-vercel-config.mjs` 已加断言挡住回退。
    换域三处一起改：本环境变量 / `index.html` 的 `og:image` 静态兜底 / `public/robots.txt` 的 `Sitemap` 行；Vercel 侧还要把**根域设为主域**（`Connect to an environment`），子域 `www` 用 `308 → 根域`——反了（根域 308 → www）时 sitemap 里每条 URL 都落在重定向链上，GSC 会报「不允许的网址」。DNS 侧另有 Google Search Console 的网域资源 TXT 记录 `google-site-verification=…`（主机记录 `@`），在 NamesLink 控制台维护、保存需邮箱 MFA，不在本仓库内。
