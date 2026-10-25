@@ -58,7 +58,7 @@ defineProps<{
   align-items: flex-start;
   justify-content: space-between;
   gap: 40px;
-  margin-bottom: calc(var(--pad-section) * 0.8);
+  margin-bottom: var(--space-section);
 }
 /* 文字列要**吃掉**画像之外的全部宽度：此前是 fit-content（收缩到 h1 的自然宽），
    三页的说明与注记因此被挤在 ~230px 里换行，右侧留下 349（1440）–724（1920）px 的空白。

@@ -127,8 +127,6 @@ withDefaults(
   display: flex;
   align-items: baseline;
   gap: var(--space-head);
-  border-top: var(--rule);
-  padding-top: 14px;
   margin-bottom: 24px;
 }
 
@@ -145,7 +143,7 @@ withDefaults(
 .skel-head-row .rule-bar {
   flex: 1;
   height: 1px;
-  background: var(--line-0);
+  border-bottom: 1px dotted var(--line-1);
 }
 
 .skel-grid {

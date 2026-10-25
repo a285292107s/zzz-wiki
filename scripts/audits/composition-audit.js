@@ -10,9 +10,10 @@
  * 这四类都是「单看任一元素都合规」的缺陷，故必须按**关系**测，且两个断点各测一遍
  * （同一份内容在 390 与 1440 下的表现完全不同——这正是本审计存在的理由）。
  *
- * 四类判据（均为 0 才算通过）：
+ * 五类判据（均为 0 才算通过）：
  *   1. stranded  行内空洞：flex/grid 行里相邻两项之间空出 ≥240px，且该行**不是**
- *                space-between 布局（那是刻意的两端对齐，不是空洞）
+ *                space-between 布局、末项也没有 `margin-left:auto`（两者都是刻意的两端对齐，
+ *                不是空洞；区块头标题与右端英文注记就是后者）
  *   2. cramped   窄列挤压：nowrap 的 **flex** 行已被塞满（子项宽之和 ≥95% 行宽），
  *                且其中有 **两个以上** 子项在内部折成 ≥2 行 —— 一行内容被挤到没有余量。
  *                （单个文本块占满剩余宽度后折行是正常排版，不算；grid 行不计，
@@ -25,10 +26,13 @@
  *                两栏账册里左右两格同 y 的线其实接成了一条连续的线。
  *                ⚠ 只认**元素**上的线（上下边框 + 背景充当的细线）；伪元素（如吸顶横条
  *                当前项那条刻意的下刻线）不在扫描范围 —— 那条本来就该压在横条下缘线上。
- *                同一判据还带一条**结构性**检查：区块标题行的延伸线（.rule）若失去右端英文
- *                标签（.en），它就和本元素的 border-top 成为两条几乎等长的平行线 ——
- *                那是两条线做同一件事（首页原本如此）。泛化到全站会命中引导点线/夹持线/
- *                控件自身边框，噪声不可判读，故只认 section-head 这一族语法。
+ *   5. headRule  章节刻线：区块头不得再画边界线（那会与上一区块的收尾线成对，也会压在
+ *                标题上）；区块之间的分隔改由 `.section-mark` 的 SVG 花饰在空隙中线居中绘制
+ *                （雕刻线 + 卷草，见 `docs/decisions/0020`）；标题右侧的修饰线
+ *                必须是点线引导（`docs/decisions/0019`：实线读作结构线，虚线在站内是
+ *                「缺失/占位」语义）。判据：头部 `border-top = 0`；花饰存在、是窄带（8–40px 高）、
+ *                宽度在 120px 与头部宽度 80% 之间、水平居中、`aria-hidden`；有 `.en` 的头部
+ *                `.leader` 下边线为 dotted。一个 `.section-head` 都扫不到时同样判失败，禁止空转。
  *
  * 两个实现选择（都为了确定性）：
  *   · 自持一个 `serviceWorkers: 'block'` 的新上下文 —— 审计箱跑在同一个浏览器会话上，
@@ -73,7 +77,15 @@ async (page) => {
 
   const probe = (opts) => {
     const { rules, strandedPx, crampedFill, orphanEm, balanceCap, stackPx } = opts
-    const out = { stranded: [], cramped: [], orphan: [], orphanOverCap: [], stacked: [] }
+    const out = {
+      stranded: [],
+      cramped: [],
+      orphan: [],
+      orphanOverCap: [],
+      stacked: [],
+      headRule: [],
+      sectionHeads: 0,
+    }
     const visible = (el) => {
       const cs = getComputedStyle(el)
       if (cs.display === 'none' || cs.visibility === 'hidden') return false
@@ -116,6 +128,16 @@ async (page) => {
       const jc = getComputedStyle(el).justifyContent
       return jc === 'space-between' || jc === 'space-around' || jc === 'space-evenly'
     }
+    /** 末项 margin-left:auto（或首项 margin-right:auto）= 与 space-between 同义的刻意两端对齐
+     *  （区块头的标题与右端英文注记就靠它收尾），不算空洞 */
+    const autoPushed = (el) => {
+      const kids = [...el.children].filter((k) => getComputedStyle(k).position === 'static')
+      if (kids.length < 2) return false
+      return (
+        (parseFloat(getComputedStyle(kids[kids.length - 1]).marginLeft) || 0) > 0 ||
+        (parseFloat(getComputedStyle(kids[0]).marginRight) || 0) > 0
+      )
+    }
 
     // ---------- 1. 行内空洞 ----------
     if (rules.includes('stranded')) {
@@ -123,7 +145,7 @@ async (page) => {
       for (const row of document.querySelectorAll('*')) {
         // 先按子元素个数粗筛（每行 2–8 项），避免对整棵树做布局测量
         if (row.childElementCount < 2 || row.childElementCount > 8) continue
-        if (seen.has(row) || !visible(row) || !isRow(row) || spaceBetween(row)) continue
+        if (seen.has(row) || !visible(row) || !isRow(row) || spaceBetween(row) || autoPushed(row)) continue
         const kids = [...row.children].filter(
           (k) => visible(k) && getComputedStyle(k).position === 'static',
         )
@@ -226,7 +248,7 @@ async (page) => {
         const bh = parseFloat(cs.borderBottomWidth) || 0
         if (bw > 0 && cs.borderTopStyle !== 'none') h.push({ y: r.top, x0: r.left, x1: r.right, el: label(el), side: 'top' })
         if (bh > 0 && cs.borderBottomStyle !== 'none') h.push({ y: r.bottom - bh, x0: r.left, x1: r.right, el: label(el), side: 'bottom' })
-        // 背景充当的细线（如 .section-head .rule）同样计入
+        // 背景充当的细线（如 .dossier 的网格线）同样计入
         if (r.height <= 2.5 && cs.backgroundColor !== 'rgba(0, 0, 0, 0)') {
           h.push({ y: r.top, x0: r.left, x1: r.right, el: label(el), side: 'bg' })
         }
@@ -254,32 +276,53 @@ async (page) => {
       }
     }
 
-    // ---------- 5. 平行重复线：延伸线失去右端锚点 ----------
-    // 与 stacked 的分工：stacked 管「同一条边界画两次」（≤3px 相叠）；这里管「两条平行线做
-    // 同一件事」（8–64px 相距）。判据**只认 section-head 这一族语法**，不做全站泛化 ——
-    // 实测全站泛化会命中 .leader 引导点线、区块夹持线、控件自身的上下框（那些是结构边框，
-    // 不是装饰性重复），噪声多到不可判读。这里的规则是结构性的：
-    // 延伸线（.rule）的职责是把标题与**右端英文标签**连起来；缺了标签，它就和本元素的
-    // border-top 变成两条几乎等长、同为 --line-1 的平行线（首页「今日角色 / 目录」原本
-    // 就是全站 54 处里唯一没有标签的两处）。
+    // ---------- 5. 章节刻线：边界不画在区块头上，分隔交给空隙中线上的雕刻花饰 ----------
+    // stacked 管「同一条边界画两次」；这里管区块边界这条线的**形态**：区块头不得再有
+    // border-top（全宽线会与上一区块的收尾线成对，见 docs/decisions/0017/0018），改由
+    // `.section-mark`（SVG 花饰）在空隙中线居中绘制（见 docs/decisions/0020）；标题右侧的
+    // 修饰线必须是**点线引导**（dotted，见 docs/decisions/0019：实线读作结构线、虚线在站内是
+    // 「缺失/占位」语义）。判据四组一起看：
+    //   · 头部 border-top = 0（线不再压在标题上）；
+    //   · .section-mark 存在、是窄带（8–40px 高）、宽 120px–头部 80%（既不是消失的细线，
+    //     也不是又变成一条全宽边框线）；
+    //   · 横向居中（中心差 < 1.5px）、aria-hidden（纯装饰、不进无障碍树）；
+    //   · 有右端英文注记的头部必须有 .leader，且其下边线为 dotted。
+    // 没有花饰也判失败 —— 判据不能靠「找不到就通过」空转。
     if (rules.includes('stacked')) {
       for (const head of document.querySelectorAll('.section-head')) {
-        const cs = getComputedStyle(head)
-        if ((parseFloat(cs.borderTopWidth) || 0) <= 0) continue
-        // 有右端标签 → 延伸线有收尾锚点，正常
-        if (head.querySelector('.en')) continue
-        const rule = head.querySelector('.rule')
-        if (!rule) continue
         const hr = head.getBoundingClientRect()
-        const rr = rule.getBoundingClientRect()
         if (hr.width <= 0) continue
-        out.stacked.push({
-          a: 'section-head(border-top)',
-          b: 'section-head .rule',
-          reason: '延伸线无右端锚点（该行缺 .en 标签）→ 与基线成为两条平行线',
-          gapPx: Math.round(rr.top - hr.top),
-          ruleToHeadWidthRatio: Math.round((rr.width / hr.width) * 100) / 100,
+        out.sectionHeads++
+        const border = parseFloat(getComputedStyle(head).borderTopWidth) || 0
+        const mark = head.querySelector('.section-mark')
+        const mr = mark ? mark.getBoundingClientRect() : null
+        const markW = mr ? mr.width : 0
+        const markH = mr ? mr.height : 0
+        const centered = !!mr && Math.abs(mr.left + mr.width / 2 - (hr.left + hr.width / 2)) < 1.5
+        const decorative = mark ? mark.getAttribute('aria-hidden') === 'true' : false
+        const hasEn = !!head.querySelector('.en')
+        const leader = head.querySelector('.leader')
+        const leaderStyle = leader ? getComputedStyle(leader).borderBottomStyle : 'missing'
+        const badLeader = hasEn && leaderStyle !== 'dotted'
+        const bad =
+          border > 0 ||
+          !mark ||
+          markW < 120 ||
+          markW > hr.width * 0.8 ||
+          markH < 8 ||
+          markH > 40 ||
+          !centered ||
+          !decorative ||
+          badLeader
+        if (!bad) continue
+        out.headRule.push({
           title: (head.querySelector('h2')?.textContent || '').trim().slice(0, 12),
+          headBorderTop: border,
+          markW: Math.round(markW * 10) / 10,
+          markH: Math.round(markH * 10) / 10,
+          centered,
+          decorative,
+          leader: leaderStyle,
         })
       }
     }
@@ -289,6 +332,7 @@ async (page) => {
   const failedItems = []
   const informational = []
   const summary = []
+  let headsTotal = 0
 
   const ctx = await page.context().browser().newContext({ serviceWorkers: 'block' })
   const p = await ctx.newPage()
@@ -319,18 +363,30 @@ async (page) => {
           cramped: r.cramped.length,
           orphan: r.orphan.length,
           stacked: r.stacked.length,
+          headRule: r.headRule.length,
+          sectionHeads: r.sectionHeads,
           orphanOverCap: r.orphanOverCap.length,
         })
+        headsTotal += r.sectionHeads
         for (const item of r.stranded) failedItems.push({ where, kind: 'stranded', ...item })
         for (const item of r.cramped) failedItems.push({ where, kind: 'cramped', ...item })
         for (const item of r.orphan) failedItems.push({ where, kind: 'orphan', ...item })
         for (const item of r.stacked) failedItems.push({ where, kind: 'stacked', ...item })
+        for (const item of r.headRule) failedItems.push({ where, kind: 'head-rule', ...item })
         for (const item of r.orphanOverCap)
           informational.push({ where, kind: 'orphan-over-balance-cap', ...item })
       }
     }
   } finally {
     await ctx.close()
+  }
+
+  if (headsTotal === 0) {
+    failedItems.push({
+      where: '(all)',
+      kind: 'head-rule',
+      reason: '页面里一个 .section-head 都没扫到，章节刻线判据空转',
+    })
   }
 
   const byKind = (kind) => failedItems.filter((f) => f.kind === kind).length
@@ -342,6 +398,8 @@ async (page) => {
       cramped: byKind('cramped'),
       orphan: byKind('orphan'),
       stacked: byKind('stacked'),
+      headRule: byKind('head-rule'),
+      sectionHeads: headsTotal,
       orphanOverCap: informational.length,
       failedItems: failedItems.slice(0, 40),
       informational: informational.slice(0, 20),

@@ -161,7 +161,7 @@
   --space-1: 8px;
   --space-2: 14px;
   --space-group: clamp(18px, 2.6vw, 38px);        /* 同一区块内子组之间的间距（如技能组） */
-  --space-section: calc(var(--pad-section) * 0.88); /* 详情页区块与区块之间的间距 */
+  --space-section: calc(var(--pad-section) * 1.3); /* 区块与区块之间的间距（macro；约 52–125px） */
 
   /* 横向节奏：由 spacing-audit 实测驱动——全站 `gap: 16px` 共 9 处、两种语义，
      是**模式而非个例**，故从硬编码升为语义令牌（避免下次有人改成 15/17px 而无人察觉）。

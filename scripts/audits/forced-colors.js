@@ -9,13 +9,13 @@
  *
  * 判据（详情页 + 名录页）：
  *   1) 画布为白、正文为黑（系统映射生效）
- *   2) 档案网格线 / 区块细线 / 滑条刻度 ≠ 画布色（结构可见）
+ *   2) 档案网格线 / 章节刻线 / 滑条刻度 ≠ 画布色（结构可见）
  *   3) 网格单元 = 画布色（否则糊成实心块）
  *   4) 下拉选中项 / 检索当前行有实线描边（outline-style: solid）
  *
  * 用法：playwright-cli open http://localhost:4175 && \
  *       playwright-cli run-code --filename=scripts/audits/forced-colors.js
- * 基线：7/7 通过
+ * 基线：8/8 通过
  * ============================================================ */
 
 async (page) => {
@@ -36,7 +36,21 @@ async (page) => {
         canvas: bg('body'),
         dossier: bg('.dossier'),
         dItem: bg('.d-item'),
-        rule: bg('.section-head .rule'),
+        headRule: (() => {
+          const head = document.querySelector('.section-head')
+          if (!head) return { w: 'missing', h: 'missing', stroke: 'missing', accentStroke: 'missing' }
+          const mark = head.querySelector('.section-mark')
+          if (!mark) return { w: 0, h: 0, stroke: 'missing', accentStroke: 'missing' }
+          const r = mark.getBoundingClientRect()
+          const ink = mark.querySelector('path:not(.mark-accent)')
+          const accent = mark.querySelector('path.mark-accent')
+          return {
+            w: Math.round(r.width),
+            h: Math.round(r.height),
+            stroke: ink ? getComputedStyle(ink).stroke : 'missing',
+            accentStroke: accent ? getComputedStyle(accent).stroke : 'missing',
+          }
+        })(),
         tick: bg('.mark .tick'),
         breakTick: bg('.mark.is-break .tick'),
       }
@@ -44,7 +58,15 @@ async (page) => {
     add('canvas-white', r.canvas === 'rgb(255, 255, 255)', r.canvas)
     add('dossier-line-visible', r.dossier !== r.canvas && r.dossier !== 'missing', r.dossier)
     add('dossier-cell-canvas', r.dItem === 'rgb(255, 255, 255)', r.dItem)
-    add('section-rule-visible', r.rule !== r.canvas && r.rule !== 'missing', r.rule)
+    add(
+      'section-mark-visible',
+      r.headRule.w > 0 &&
+        r.headRule.h > 0 &&
+        r.headRule.stroke !== r.canvas &&
+        r.headRule.stroke !== 'missing' &&
+        r.headRule.accentStroke === r.headRule.stroke,
+      JSON.stringify(r.headRule),
+    )
     add('slider-tick-visible', r.tick !== r.canvas && r.tick !== 'missing', r.tick)
     add('slider-break-tick-highlight', r.breakTick !== r.canvas && r.breakTick !== 'missing', r.breakTick)
   }

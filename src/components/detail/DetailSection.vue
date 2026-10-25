@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import SectionMark from '@/components/SectionMark.vue'
+
 defineProps<{
   no: string
   title: string
@@ -25,8 +27,9 @@ defineProps<{
       <!-- no 为空时（区块被渲染但未登记进 navItems 的异常态）不渲染编号，避免留 16px 空档 -->
       <span v-if="no" class="no mono" aria-hidden="true">{{ no }}</span>
       <h2 :id="id ? 'h-' + id : undefined">{{ title }}</h2>
-      <span class="rule" />
+      <span class="leader" aria-hidden="true" />
       <span v-if="en" class="en mono">{{ en }}</span>
+      <SectionMark />
     </div>
     <slot />
   </section>
@@ -37,7 +40,7 @@ defineProps<{
   margin-bottom: var(--space-section);
 }
 
-/* 区块标题行（.section-head / .no / h2 / .rule / .en）的样式**单一来源在 base.css**
+/* 区块标题行（.section-head / .no / h2 / .en）的样式**单一来源在 base.css**
    —— 首页「今日角色 / 目录」用的是同一套语法。此前这里整份复制了一遍，
    与 base.css 逐条重复（`.en` 就是因首页也要用才暴露出来）；两份各自漂移的隐患大于
    这点局部性收益，故收口到 base.css。本文件只留 `.block` 自己的间距。 */

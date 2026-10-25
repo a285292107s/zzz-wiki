@@ -437,12 +437,39 @@ a.rich-term:hover {
 
 /* numbered section header — e.g. "01 · 目录" */
 .section-head {
+  position: relative;
   display: flex;
   align-items: baseline;
   gap: var(--space-head);
-  border-top: var(--rule);
-  padding-top: var(--space-2);
   margin-bottom: var(--space-head-body);
+}
+
+.section-head .section-mark {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--space-section) / -2);
+  width: clamp(200px, 32vw, 440px);
+  color: color-mix(in srgb, var(--ink-2) 65%, transparent);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.section-head .section-mark svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.section-head .section-mark path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.section-head .section-mark .mark-accent {
+  stroke: color-mix(in srgb, var(--amber) 72%, transparent);
 }
 
 .section-head .no {
@@ -460,12 +487,8 @@ a.rich-term:hover {
   letter-spacing: 0.02em;
   text-wrap: balance;
 }
-/* 右端英文标签：延伸线的**收尾锚点**，不是可选装饰。
-   延伸线（.rule）的职责是把标题与这个标签连起来；缺了标签，它就与上方那条基线
-   （本元素的 border-top）变成两条几乎等长、同为 --line-1 的平行线 ——
-   首页「今日角色 / 目录」原先就是这样（全站 54 处 section-head 里唯一两处没有标签的）。
-   词表与既有 20 个标签同调：单词、Title Case（Dossier / Vitals / Outfits / Matrix…）。 */
 .section-head .en {
+  margin-left: auto;
   font-family: var(--mono);
   font-size: var(--fs-nano);
   letter-spacing: 0.22em;
@@ -473,10 +496,10 @@ a.rich-term:hover {
   color: var(--ink-2);
 }
 
-.section-head .rule {
+.section-head .leader {
   flex: 1;
   height: 1px;
-  background: var(--line-1);
+  border-bottom: 1px dotted color-mix(in srgb, var(--ink-2) 72%, transparent);
 }
 
 /* ---------- layout ---------- */
@@ -1278,11 +1301,18 @@ html.vt-restore .vt-chrome-case {
   /* 1) 底色充当发丝线的网格/细线：换 CanvasText（正文色）作实体线。
         ⚠ 卡片栅格（音擎/驱动盘）不在列：它的分格线已是格子的实体边框（HCM 下由系统
         自动改色），若在此补一层底色，反而会把末排空位涂成实心块。 */
-  .section-head .rule,
   .dossier,
   .stat-grid.v-grid,
   .note-rule {
     background: CanvasText !important;
+  }
+
+  .section-head .section-mark {
+    color: CanvasText !important;
+  }
+
+  .section-head .section-mark path {
+    stroke: CanvasText !important;
   }
 
   /* 网格单元必须回到画布色，否则整片糊成实心块 */
@@ -1456,6 +1486,14 @@ html.vt-restore .vt-chrome-case {
   .wrap.page {
     background: none !important;
     border-bottom: none;
+  }
+
+  .section-head .section-mark {
+    color: var(--ink-2);
+  }
+
+  .section-head .section-mark .mark-accent {
+    stroke: var(--amber);
   }
 
   /* 分页控制：小单元不跨页断开；标题不孤悬页底 */
