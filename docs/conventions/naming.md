@@ -16,8 +16,8 @@
 | `src/router/**`、`src/directives/**` | camelCase `.ts` | `router/index.ts`、`router/views.ts`；`directives/reveal.ts` |
 | `scripts/**` 入口与校验 | **kebab-case** `.ts`/`.mjs`，`<动词>-<对象>` | `build-data.ts`、`sync-data.ts`、`verify-data.ts`、`generate-sitemap.mjs`、`download-icons.mjs` |
 | `scripts/build/**` 模块 | camelCase `.ts`（模块）/ kebab-case `.mjs`（生成器） | `io.ts`、`normalize.ts`、`domains.ts`、`index.ts`；`hero-cards.mjs`、`icon-thumbs.mjs` |
-| `scripts/audits/**` | **kebab-case** `.js`（playwright-cli 按文件名加载） | `axe-a11y.js`、`regression-walk.js`、`viewport-overflow.js` |
-| `tests/**` | **kebab-case** `.test.ts` | `rich.test.ts`、`scrollspy.test.ts`、`styleguide-colors.test.ts` |
+| `scripts/audits/**` | **kebab-case** `.js`（playwright-cli 按文件名加载） | `axe-a11y.js`、`content-sweep.js`、`viewport-overflow.js` |
+| `tests/**` | **kebab-case** `.test.ts` | `rich.test.ts`、`scrollspy.test.ts`、`sections-core.test.ts` |
 | CSS | kebab-case 类名；token 用 `--kebab-case` | `.card-grid`、`.skel`；`--fs-*`、`--pad-*`、`--ink-2` |
 | 文档 | 根目录**大写** `.md`；`docs/` 内 kebab-case 或小写 | `AGENTS.md`、`DATA_GUIDE.md`；`docs/architecture.md`、`docs/decisions/0001-….md` |
 

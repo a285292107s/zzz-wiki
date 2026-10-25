@@ -54,9 +54,12 @@ pnpm test             # vitest 单元/组件测试
 > **`myzzz.vercel.app` 永久保留，作为域名到期时的兜底入口**：Domains 里 `myzzz.wiki`（根域主域）与 `myzzz.vercel.app` 都是 `Connect to an environment → Production`（两者直接服务，`www` 才是 `308 → 根域`）。两个主机同内容不算重复内容——`canonical` / `og:url` 由 `VITE_SITE_ORIGIN` 写成**绝对**指向根域，根路由也在内（`scripts/generate-route-html.mjs` 会改写 `dist/index.html` 本体，否则无 JS 的爬虫会把 vercel.app 首页判成自指）。域名到期后要切兜底域：把 `VITE_SITE_ORIGIN` 改成 `https://myzzz.vercel.app`，同步改 `index.html` 的 `og:image` 与 `public/robots.txt` 的 `Sitemap`，重新部署即可。
 
 > **数据新鲜度依赖 `data-sync` 定时任务**：部署的 `build:ci` **只构建已提交快照**、不在构建期重建数据；数据更新由
-> `.github/workflows/data-sync.yml`（每日 cron 跑 `pnpm run sync`：探测 → 重建 JSON → 图标补差 → **`verify:data` 硬门禁** → 提交）
-> 承担，二者经提交锁步。门禁通过才 commit + push 到默认分支 `master` → 触发部署；不通过则 job 失败、不提交，站点沿用既有快照不挂。
-> 若生产数据滞旧：先确认该 workflow 最近是否成功 / Actions 配额，再手动 `pnpm run sync` 后提交。**生产分支须为 `master`（仓库默认分支）。**
+> `.github/workflows/data-sync.yml` 承担（每日 cron）：先跑类型与单测早红 → `pnpm run sync`（探测 → 重建 JSON → 图标补差）
+> → 重建 CJK 字体子集 → 四道硬门禁（`verify:data` / `verify:icons --local` / `verify:cjk-fonts` / 生日表一致）
+> → 通过才 commit + push 到默认分支 `master` 触发部署；末尾再**对账线上 `/data/manifest.json` 的版本与已提交快照**。
+> 任一步失败：不提交、站点沿用既有快照，并自动开/评论一条「data-sync 失败」issue + 写 step summary——
+> **探测失败本身也算失败**（默认非零退出；确要沿用旧快照时手动加 `--allow-probe-failure`），避免「job 绿、站点静默停旧版」。
+> 若生产数据滞旧：先看那条 issue / Actions 配额，再手动 `pnpm run sync` 后提交。**生产分支须为 `master`（仓库默认分支）。**
 
 ## 目录结构
 

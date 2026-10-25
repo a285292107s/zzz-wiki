@@ -365,10 +365,14 @@ pnpm run data            # 拉取 hakushin raw（live = 正式服单版本）→
                         #   有代理时：set NODE_USE_ENV_PROXY=1
 pnpm run data -- --check # 仅版本探测：输出 UPDATE_AVAILABLE / UP_TO_DATE，不构建（CI/定时哨兵）
 pnpm run sync           # 数据+图标同步（正式提交入口）：探测 → 重建 JSON → 图标 --soft 补差（只补缺失、已有资源零重下）
-                        #   → verify:data + 本地必须项图标齐整（告警）→ 汇总变更集；无变更不提交；由 data-sync workflow
-                        #   定时触发 → 工作流内 verify:data（契约 + 完整性：名录↔详情一一对应）硬门禁通过 → 直接 commit + push 到默认分支（master）（需外网）
+                        #   → 本地必须项图标齐整 → 汇总变更集；无变更不提交；由 data-sync workflow 定时触发
+                        #   → 工作流内类型+单测、四道门禁、线上版本对账，全过才 commit + push 到默认分支（master）（需外网）
+                        #   探测失败或重建失败一律**非零退出且不提交**（站点沿用旧快照，失败会开 issue）
+pnpm run sync -- --allow-probe-failure
+                        #   仅排障用：确认源站临时故障、本次确要沿用旧快照时显式放行（否则探测异常即失败）
 pnpm run build:ci        # Vercel 部署构建入口（**完整链路以 package.json 的 build:ci 为唯一事实源**）：
-                        #   只构建已提交快照、不在构建期重建数据（数据更新走 pnpm run sync）；站点因数据源故障而挂的情形由 sync 不提交规避
+                        #   资产门禁 → 数据契约 → 类型 → vite build → sitemap/route-html/预算/缓存策略断言；
+                        #   只构建已提交快照、不在构建期重建数据（数据更新走 pnpm run sync）；**不含单测**（归 checks.yml）
 pnpm run verify:icons    # 图标校准：本地 img 差集（核心）+ nanoka 远程审计；缺失非零退出
                         #   --local 仅查本地（离线可用）；网络异常按"无法确认"以码 2 退出
 node scripts/build/import-assets.mjs --dump <解包根>
