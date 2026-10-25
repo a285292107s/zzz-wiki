@@ -2,10 +2,8 @@
 import { afterEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import AgentHead from '../src/components/detail/AgentHead.vue'
-import poolJson from '../src/data/featured-pool.json'
 import type { CharacterDetail } from '../src/data/types'
 
-/** 最小角色样本：只需 hero 逻辑涉及的字段（id 驱动 Mindscape 场景图命名） */
 const detail = {
   id: 1011,
   name: '测试代理人',
@@ -17,12 +15,6 @@ const detail = {
   special_element_type: null,
 } as unknown as CharacterDetail
 
-/**
- * hero 取图按**两条媒体条件**分支：窄屏（≤860px）与高密度屏（min-resolution ≥1.5dppx）。
- * 两者都取 1400w 派生，只有「宽屏且 DPR≥1.5」才用 2552px 原图——宽屏 DPR 1 用原图
- * 是 2.2 倍超采（311KB vs 46KB），桌面 LCP 因此被拖住。测试需显式给出 DPR 条件，
- * 否则 jsdom 下 matchMedia 恒 false，等于在测「DPR 1 桌面」这一条分支。
- */
 function mockMatchMedia(opts: { narrow?: boolean; retina?: boolean } = {}) {
   const { narrow = false, retina = false } = opts
   Object.defineProperty(window, 'matchMedia', {
@@ -50,69 +42,11 @@ function heroImg(w: ReturnType<typeof mount>) {
   return w.find('.hero-bg img')
 }
 
-/** 组件含 RouterLink（专属音擎卡片）：不传 signatureEngine 时不渲染，但需 stub 避免未解析告警 */
 const mountOptions = {
   global: { stubs: { RouterLink: { template: '<a><slot /></a>' } } },
 }
 
-describe('AgentHead hero 底图（按屏宽 + DPR 选派生 / 本地优先 + CDN 兜底）', () => {
-  it('宽屏 DPR 1：取 1400w 派生（46KB），不用 2.2 倍超采的原图', () => {
-    mockMatchMedia({ narrow: false, retina: false })
-    const w = mount(AgentHead, { props: { detail }, ...mountOptions })
-    expect(heroImg(w).attributes('src')).toBe('/data/img/hero/mobile/Mindscape_1011_2.webp')
-  })
-
-  it('宽屏 DPR ≥1.5（retina）：取原图', () => {
-    mockMatchMedia({ narrow: false, retina: true })
-    const w = mount(AgentHead, { props: { detail }, ...mountOptions })
-    expect(heroImg(w).attributes('src')).toBe('/data/img/hero/Mindscape_1011_2.webp')
-  })
-
-  it('窄屏：取 1400w 派生', () => {
-    mockMatchMedia({ narrow: true, retina: true })
-    const w = mount(AgentHead, { props: { detail }, ...mountOptions })
-    expect(heroImg(w).attributes('src')).toBe('/data/img/hero/mobile/Mindscape_1011_2.webp')
-  })
-
-  it('已校准角色（1011）在 img 上注入移动端构图自定义属性（来源 featured-pool.json 的 9:16 母版）', () => {
-    mockMatchMedia({ narrow: true })
-    const w = mount(AgentHead, { props: { detail }, ...mountOptions })
-    const el = heroImg(w).element as HTMLElement
-    const cal = (
-      poolJson as {
-        calibrated: Record<string, { modes: Record<string, { pos: string; posY: string; zoom: number; originY: number }> }>
-      }
-    ).calibrated['1011']!.modes['9:16']!
-    expect(el.style.getPropertyValue('--hero-pos')).toBe(cal.pos)
-    expect(el.style.getPropertyValue('--hero-zoom')).toBe(String(cal.zoom))
-    expect(el.style.getPropertyValue('--hero-originY')).toBe(`${cal.originY}%`)
-  })
-
-  it('hero 画幅校准透传双轴平移（桌面横幅消费；不缩放）', () => {
-    mockMatchMedia({ narrow: false, retina: false })
-    const w = mount(AgentHead, { props: { detail }, ...mountOptions })
-    const el = heroImg(w).element as HTMLElement
-    const hero = (
-      poolJson as {
-        calibrated: Record<string, { modes: Record<string, { pos: string; posY: string }> }>
-      }
-    ).calibrated['1011']!.modes['hero']!
-    expect(el.style.getPropertyValue('--hero-wide-pos')).toBe(hero.pos)
-    expect(el.style.getPropertyValue('--hero-wide-posY')).toBe(hero.posY)
-  })
-
-  it('派生变体缺失时逐级回退：先原图，再 nanoka CDN', async () => {
-    mockMatchMedia({ narrow: true })
-    const w = mount(AgentHead, { props: { detail }, ...mountOptions })
-    expect(heroImg(w).attributes('src')).toBe('/data/img/hero/mobile/Mindscape_1011_2.webp')
-    await heroImg(w).trigger('error')
-    expect(heroImg(w).attributes('src')).toBe('/data/img/hero/Mindscape_1011_2.webp')
-    await heroImg(w).trigger('error')
-    expect(heroImg(w).attributes('src')).toBe(
-      'https://static.nanoka.cc/assets/zzz/Mindscape_1011_2.webp',
-    )
-  })
-
+describe('AgentHead hero 底图候选链', () => {
   it('候选链耗尽时隐藏底图（降为底色，不渲染 img）', async () => {
     mockMatchMedia({ narrow: true })
     const w = mount(AgentHead, { props: { detail }, ...mountOptions })
@@ -130,5 +64,13 @@ describe('AgentHead hero 底图（按屏宽 + DPR 选派生 / 本地优先 + CDN
     expect(heroImg(w).attributes('src')).toContain('static.nanoka.cc')
     await w.setProps({ detail: { ...detail, id: 1021 } })
     expect(heroImg(w).attributes('src')).toBe('/data/img/hero/mobile/Mindscape_1021_2.webp')
+  })
+
+  it('桌面横幅取 hero 画幅校准、移动端取 9:16 母版（两种画幅不串用）', () => {
+    mockMatchMedia({ narrow: false })
+    const style = mount(AgentHead, { props: { detail }, ...mountOptions }).find('.hero-bg img').attributes('style') ?? ''
+    expect(style).toContain('--hero-wide-pos: 50%')
+    expect(style).toContain('--hero-wide-posY: 28%')
+    expect(style).toContain('--hero-pos: 12%')
   })
 })

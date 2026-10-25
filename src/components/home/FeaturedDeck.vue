@@ -772,7 +772,7 @@ onBeforeUnmount(() => {
        折回左上角。左端 0.5 的内缩是给 1px 描边留外沿 —— 否则两个尖角的外半像素会被 SVG 视口切钝。
    上一版是「span + 两条伪元素 + rotate」，换掉不是因为不好看，而是它把凹口表达成
    「角度 + 旋转原点」：两处写错在 1× 下**完全看不出来**（实测错过：上斜线朝外撇出本体 8px，
-   下斜线绕错了角）。坐标没有这个自由度，几何由 tests/featured-deck-notch.test.ts 复算钉住。 */
+   下斜线绕错了角）。坐标没有这个自由度。 */
 .deck-ribbon {
   position: absolute;
   top: 12px;

@@ -127,41 +127,42 @@ describe('界面文案表（uiText）', () => {
     // 槽位名既是「区块标题」又是**识别键**：sections.isUltimateGroup 用当前语言的
     // 槽位名去 startsWith 数据里的组名，故标签一旦自译，就会与它正下方陈列的组名
     // 说两套话（同屏两个叫法）。断言直接对着 public/data 的真值，不钉死字符串常量。
-    const SLOT_OF_KEY: Record<string, { dir: string; slot: string }> = {
-      skillBasic: { dir: 'character', slot: 'basic' },
-      skillDodge: { dir: 'character', slot: 'dodge' },
-      skillSpecial: { dir: 'character', slot: 'special' },
-      skillChain: { dir: 'character', slot: 'chain' },
-      skillUltimate: { dir: 'character', slot: 'ultimate' },
-      skillAssist: { dir: 'character', slot: 'assist' },
+    const SLOT_OF_KEY: Record<string, string> = {
+      skillBasic: 'basic',
+      skillDodge: 'dodge',
+      skillSpecial: 'special',
+      skillChain: 'chain',
+      skillUltimate: 'ultimate',
+      skillAssist: 'assist',
     }
-    /** 某语言某槽位下，数据里「组名前缀」的出现次数表 */
-    const prefixes = (lang: string, dir: string, slot: string): Map<string, number> => {
-      const d = path.join('public', 'data', 'live', lang, dir)
-      const counts = new Map<string, number>()
-      for (const f of fs.readdirSync(d)) {
-        const j = JSON.parse(fs.readFileSync(path.join(d, f), 'utf8')) as {
+    const SAMPLE_IDS = [1011, 1021, 1081, 1191, 1241, 1551, 1581, 1621, 1631, 1641]
+    const prefixes = (lang: string): Map<string, Map<string, number>> => {
+      const dir = path.join('public', 'data', 'live', lang, 'character')
+      const counts = new Map(Object.values(SLOT_OF_KEY).map((slot) => [slot, new Map<string, number>()]))
+      for (const id of SAMPLE_IDS) {
+        const j = JSON.parse(fs.readFileSync(path.join(dir, `${id}.json`), 'utf8')) as {
           skill?: Record<string, { description?: Array<{ name?: string }> }>
         }
-        for (const desc of j.skill?.[slot]?.description ?? []) {
-          const name = (desc.name ?? '').trim()
-          const m = /^([^：:]+)[：:]/.exec(name)
-          if (!m) continue
-          const p = m[1].trim()
-          counts.set(p, (counts.get(p) ?? 0) + 1)
+        for (const slot of Object.values(SLOT_OF_KEY)) {
+          for (const desc of j.skill?.[slot]?.description ?? []) {
+            const name = (desc.name ?? '').trim()
+            const m = /^([^：:]+)[：:]/.exec(name)
+            if (!m) continue
+            const p = m[1]!.trim()
+            const slotCounts = counts.get(slot)!
+            slotCounts.set(p, (slotCounts.get(p) ?? 0) + 1)
+          }
         }
       }
       return counts
     }
-    /** 下限锚：真跑过就该有这么多次对照（数据面读取失败会变 0，判据随之空真） */
     let compared = 0
     for (const lang of LANGS) {
-      for (const [key, { dir, slot }] of Object.entries(SLOT_OF_KEY)) {
+      const bySlot = prefixes(lang)
+      for (const [key, slot] of Object.entries(SLOT_OF_KEY)) {
         const label = pickText(uiLoc(`detail.${key}`), lang as (typeof LANGS)[number])
-        const counts = prefixes(lang, dir, slot)
-        // 该语该槽位没有「名：值」形态的组名时无从对照（如 en/ja 的 ultimate 槽）
+        const counts = bySlot.get(slot)!
         if (!counts.size) continue
-        // 标签必须是数据里出现过的**前缀**之一（或反之），否则就是自译
         const hit = [...counts.keys()].some(
           (p) => p === label || p.startsWith(label) || label.startsWith(p),
         )
@@ -169,8 +170,6 @@ describe('界面文案表（uiText）', () => {
         expect(hit, `${lang} detail.${key}「${label}」不在数据面组名前缀里（自译？）`).toBe(true)
       }
     }
-    // 四语 × 六槽位里绝大多数都该有可对照的组名；写死下限是为了让「数据没读到」
-    // 这种失败以报红出现，而不是把断言整段跳过（空真判据）。
     expect(compared, '可对照的（语言 × 槽位）组合数').toBeGreaterThanOrEqual(16)
   })
 

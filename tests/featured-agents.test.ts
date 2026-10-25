@@ -365,7 +365,7 @@ describe('buildFeaturedCards · 生日标记（isBirthday）', () => {
 
   it('形态与本体同一天生日时两张都挂（11-25 比利 + 星徽·比利）', () => {
     const forms = Object.entries(birthdaySupplement.inheritFrom)
-    if (!forms.length) return
+    expect(forms.length).toBeGreaterThan(0)
     const [formId, baseId] = forms[0]!
     const formBd = birthdayOf(Number(formId))
     if (formBd === null) return // 该形态当前不在池内 → 产物里没有它，跳过
