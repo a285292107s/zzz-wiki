@@ -1,584 +1,525 @@
-# 绳网档案 · 数据交接文档（面向后续 AI / 协作者）
+# 绳网档案 · 数据指南
 
-> 本文档的目标：让你在**不超过 10 分钟**内了解本项目的全部数据来源、结构与处理管线，
-> 无需从头探测。所有结论均为工程内**实测**（数据生成、URL 探测、对比 nanoka 名录），
-> 非转述。读完即可上手改数据管线或前端渲染。
+> 数据面的单一事实源：来源、解析、产出契约、图标与媒体资产、运维命令、失效信号、视觉语言。
+> 读者是改数据管线 / 图标资产 / 前端渲染的协作者（含 AI）。
+> 相关文档：架构 [DESIGN.md](./DESIGN.md)、调用边界 [docs/architecture.md](./docs/architecture.md)、
+> 图片展示技法 [IMG_GUIDE.md](./IMG_GUIDE.md)、品质门禁 [QUALITY.md](./QUALITY.md)、
+> 数据契约 [docs/conventions/contracts.md](./docs/conventions/contracts.md)。
+>
+> 这是活文档：发现与代码、数据或源站不符（字段、路径、锚点、URL、命令失效），就地修正对应小节。
 
-> **⚠️ 自迭代维护协议（重要）**：本文件是**活文档**。若你在后续工作中发现本文档与实际代码/
-> 数据结构/外部服务状态不一致（例如字段名、表路径、锚点、图标 URL、版本号、枚举、命令失效），
-> **你有义务就地修正本文档**，使其始终准确反映现状，而不是让它腐烂成过时记录。修正时：
-> - 直接编辑本文件对应章节，保持结构与文风；
-> - 若修正涉及「失效信号」或「不做的事」，一并在对应小节更新；
-> - 让后续接手的 AI 永远能信任本文档。你更新的内容即成为交接给下一位的基线。
+## 0. 概览
 
----
+| 面 | 事实 |
+|---|---|
+| 构建期 | 从 hakushin raw 拉正式服列表与详情 → 规整 → 生成 `public/data/` 静态 JSON 并入库 |
+| 运行时 | 前端只读本地 `/data`，数据面零外部请求、零 CORS |
+| 图标 | 本地 `/data/img/` → nanoka CDN → 文字占位，缺图不破版 |
+| 语言 | `zh` / `en` / `ja` / `ko` 四语各一套数据面（§1）；界面短文案另有站内文案表 |
+| 合规 | 只展示正式服（live）；源站 latest 含前瞻/测试服内容，不拉取、不降级、不补位 |
 
-## 0. 一句话概览
+历史：v1 主源是 Dimbreath ZenlessData（键名混淆、更新滞后），2026-08 起换为 hakushin raw 并重写解析层，
+前端契约未变。旧源只留参考价值，见 §9。
 
-本项目是一个**构建期静态化**的绝区零数据 wiki：
-
-- **主数据**：构建期从 **hakushin raw**（`static.nanoka.cc`，zzz.nanoka.cc / hakush.in 站底层 CDN）
-  拉取**正式服（live）**列表 + 详情 → 解析层规整 → 生成**本地静态 JSON**（`public/data/`）提交入仓。
-  （合规约定 2026-08：站点只展示游戏正式服数据，不产出源站 latest——后者含前瞻/测试服内容。）
-- **运行时**：前端只读本地 `/data`，**零外部接口、零 CORS**。
-- **图标**：两级 CDN 兜底（本地 `/data/img/` → nanoka `/assets/zzz/` → 文字占位），永不破图。
-
-> 历史：v1 主源为 Dimbreath ZenlessData（git.mero.moe），自研键名反混淆管线；
-> v2（2026-08）切换至 hakushin raw 并重写解析层（直取 + 规整），前端契约零改动。
-> 原 Dimbreath 细节移到 [§9](#9-历史数据源dimbreath-zendlessdata参考) 作参考。
-
----
-
-## 1. 数据主源（唯一）
+## 1. 数据主源
 
 | 项 | 值 |
 |---|---|
-| 源 | `https://static.nanoka.cc`（zzz.nanoka.cc / hakush.in 底层静态 CDN） |
-| 版本清单 | `GET /manifest.json` → `zzz.live`（**当前值以 `public/data/manifest.json` 为准，本文不写死**）即数据版本（游戏正式服在线版本）；`zzz.latest`（3.2.4+…）为源站最新（含前瞻/测试服内容，**本项目不再消费**） |
-| 列表（单份，无语言段） | `/zzz/{ver}/character.json` `/weapon.json` `/bangboo.json` `/equipment.json` — **名录只有单份**（`/{lang}/character.json` 全 404）：以英文为底本，条目内嵌 `zh`/`en`/`ja`/`ko` 名字字段（驱动盘是 `{name,desc2,desc4}` 子对象） |
-| 详情（带语言） | `/zzz/{ver}/{lang}/character/{id}.json` `/weapon/{id}` `/bangboo/{id}` `/equipment/{id}` |
-| 名词表 | `/zzz/{ver}/{lang}/noun.json` — 术语词典（游戏名词 title/desc），构建期按语言全量下沉为 `live/{lang}/noun.json`（§3/§4），供前端 TermTip 浮层 |
-| 语言 | `zh`/`en`/`ja`/`ko`，**四语全取**：数据面按语言各一套（§3）。界面短文案（导航/按钮/标题/标签/空错态/设置页）同样四语，但那是**站内自撰文案表**（`src/domain/uiText.*.json`），不是数据面的一部分；`/about`、`/formulas` 两篇中文长文不翻译——见 [决策记录 0010](./docs/decisions/0010-multilingual-game-content.md) 与 [0011](./docs/decisions/0011-multilingual-ui-copy.md) |
-| 数据性质 | 与 Dimbreath 解包数据**同源**（nanoka 亦从之加工），但字段名已可读、多语言内嵌、更新更快（新角色/音擎/职业已收录） |
+| 源 | `https://static.nanoka.cc`（zzz.nanoka.cc / hakushin.in 的底层静态 CDN） |
+| 版本清单 | `GET /manifest.json` → `zzz.live` 即正式服数据版本；**具体值以 `public/data/manifest.json` 为准，本文不写死**（源站另有 `zzz.latest`，含前瞻/测试服内容，本项目不消费） |
+| 列表（单份，无语言段） | `/zzz/{ver}/character.json`、`weapon.json`、`bangboo.json`、`equipment.json`——名录只有单份（`/{lang}/character.json` 全 404）；以英文为底本，条目内嵌 `zh`/`en`/`ja`/`ko` 名字字段（驱动盘是 `{name,desc2,desc4}` 子对象） |
+| 详情（带语言） | `/zzz/{ver}/{lang}/character/{id}.json`、`/weapon/{id}`、`/bangboo/{id}`、`/equipment/{id}` |
+| 名词表 | `/zzz/{ver}/{lang}/noun.json`——术语词典（title/desc），构建期按语言全量下沉为 `live/{lang}/noun.json` |
+| 语言 | 四语全取（见下「四语数据面」）；界面文案与两篇中文长文不进数据面 |
+| 数据性质 | 与 Dimbreath 解包数据同源加工，但字段名可读、多语言内嵌、更新更快 |
 
-**单数据版本（合规约定 2026-08 起）**：站点只展示**正式服（live）**数据。
-- `live` = 游戏在线版本数据（**具体版本与名录数量以 `public/data/manifest.json` 与名录文件为准，本文不写死**），与玩家正式服内容对齐。
-- 构建期只落地 `public/data/live/`（目录名固定，不随版本号变）；
-  **不再产出 latest**——`zzz.latest` 含前瞻/测试服内容，为合规绝不拉取/降级/补位。
-- live 不在源站 `available` 列表时构建**直接失败**（sync-data 判定失败则不提交，沿用仓库内既有正式服数据），拒绝用 latest 顶替。
+**只取正式服（live）**
 
-**多语言（2026-10 起）**：`public/data/live/` 下**按语言各一套完整数据面**
-（`live/{lang}/` = 名录 + 详情 + 名词表；根下只留 `manifest.json`）。
-语言集单一事实源是 `src/domain/langs.json`（`scripts/build/langs.mjs` 与之共用同一份）。
-名录**按语言重建**（用该语言详情注入本地化展示字段），故前端名录消费点字段形状不变、只有取数路径变。
-切换入口在设置页，语言不进 URL——理由与取舍见 [决策记录 0010](./docs/decisions/0010-multilingual-game-content.md)。
+- `live` = 游戏在线版本。版本号与名录数量一律从 `manifest.json` 与名录文件读，本文不写死。
+- 构建只落地 `public/data/live/`（目录名固定，不随版本号变）；**不产出 latest**。
+- `live` 不在源站 `available` 列表时构建抛错；`sync` 失败则不提交，站点留在旧快照，拒绝用 latest 顶替。
 
-**注意**：`item.json` 只在带语言路径（`/zzz/{ver}/{lang}/item.json`）存在；`monster/boss/shiyu/simul/hard`
-等端点站方亦有（见 §8 扩展域），本项目当前未消费；`{lang}/noun.json` 名词表**已消费**（→ 各语言 `noun.json`）。
+**四语数据面**
 
----
+- `live/{lang}/` = 名录 + 详情 + 名词表；根下只留 `manifest.json`。语言集单一事实源 `src/domain/langs.json`
+  （`scripts/build/langs.mjs` 与它共用一份）。
+- 名录按语言重建（用该语言详情注入本地化展示字段），故前端名录消费点字段形状不变、只有取数路径变。
+- 界面短文案（导航/按钮/标题/标签/空错态/设置页）是站内自撰文案表 `src/domain/uiText.*.json`，不属于数据面；
+  `/about`、`/formulas` 两篇中文长文不翻译。见 [决策记录 0010](./docs/decisions/0010-multilingual-game-content.md)
+  与 [0011](./docs/decisions/0011-multilingual-ui-copy.md)。
+- 语言切换入口在设置页，语言不进 URL（决策 0010）。
 
-## 2. 解析层要点（scripts/build/，`main()` 主编排；构建入口 build-data.ts，正式更新入口见 §7 `pnpm run sync`）
+**端点现状**：`{lang}/item.json` 只在带语言路径存在；`monster`/`boss`/`shiyu`/`simul`/`hard` 站方亦有，
+本项目未消费；`{lang}/noun.json` 已消费（→ `live/{lang}/noun.json`）。
 
-`scripts/build/index.ts` 的 `main()` 被 `pnpm run data`（本地、仅数据）与 `pnpm run sync`（正式更新入口，见 §7）共用（`sync-data.ts` 内以 `buildAll` 为本地别名），
-解析/规整/合规逻辑同一份。数据源字段名已是可读英文，**无键名反混淆**，解析层只做规整：
+## 2. 解析层
 
-- `basename()`：`icon` 若为完整资源路径（驱动盘/邦布）→ 取裸文件名（去目录/扩展名），与素材 CDN 命名规则一致；角色/音擎 icon 本身即裸名，原样保留。
-- 名录：列表条目 ID 是**对象 key**（条目内部无 id 字段）→ 注入 `Id` 大写键。
-- 详情：键长名与前端契约（`src/data/types.ts`）**几乎完全同构**，直接透传；仅以下值做规整：
-  - `weapon_type`/`element_type`/`hit_type` 的值统一为**英文**（`{202:"Ice"}`），与旧契约一致（前端只用 key 解码，值文本不参与显示；`camp` 值保留**该语言**文本——源站按语言给，构建期原样透传）。
-  - 皮肤 `image` 应用 `SKIN_IMAGE_FALLBACK`（见 §5）。
-- 新增透传字段（v2 增值，前端 index signature 兼容）：`special_element_type`、`strategy`、`fairy_recommend`、`skill_list`、`skill_priority`、`passive`、`potential_detail`、`level`、`extra_level`、`level_exp`、`live2_d`。
-- **特殊属性展示**：详情 `special_element_type.name`（如 星见雅→「烈霜」）在构建期同步注入**该语言**名录为 `special_element` 字段；前端 `Tags` 展示属性时优先显示特殊名，无则退回**当前语言**的基础属性标签（`pickText(ELEMENTS[element].label, lang)`，四语取自源站官方译名——见决策记录 0011 的锚点表；站内只对中文保留「火/冰/电/风」短式）。
-- **阵营细分补充**：源数据 `camp` 为粗粒度阵营（如 16=罗斯凯利法），构建期按官方设定把已知角色细分到下属组织（live 3.2 共 15 角色 → 7 子阵营：防卫军·奥波勒斯小队/白银小队、治安局·刑侦特勤组/都市秩序部、罗斯凯利法·外务筹策局/空域巡戍局/弗林特工坊）。单一事实源 `src/data/camp-supplement.json`（码 18 起为细分新增码；细分只覆写名录 `camp/camp_name`，详情 `camp` 保持源数据），由 `domains.ts` 的 `applyCampSupplement()` 注入；上游若原生引入细分，删除对应条目即回归源数据。口径核对自 biligame 角色图鉴（2026-10-05）。
-  **只对中文生效**：这张表的展示名是中文策展，源站对细分阵营没有四语名；套到非中文名录会得到「英文条目里混中文阵营名」，只借数字码再配源站粗粒度名又会让多个细分码同名（筛选下拉重复）。故非中文走源站粗粒度阵营。
-- **名词表**：源站 `{lang}/noun.json` 全量下沉为 `live/{lang}/noun.json`；术语名规整为带括号风格（如 `[虚曜]`）注入**该语言**的名录/详情，名词表自身 desc 经 `resolveTerms` 解析（`<Term:N>` 保留 ID 外壳，前端渲染为术语锚点）。**逐语言解析**：中文术语名不能出现在英文正文里。
-- 详情并发抓取上限 8；磁盘缓存 `.cache/hakushin-raw/`（缓存路径含版本号，同版本重复构建秒级跳过、跨版本自动全量刷新；`--force` 强制忽略缓存重拉）。
-- **manifest.json 永不读缓存**：每次 `pnpm run data` 都实时拉取源站清单，保证版本探测不固着。
+入口是 `scripts/build/index.ts` 的 `main()`，被 `pnpm run data`（本地）与 `pnpm run sync`（正式更新）共用
+（`sync-data.ts` 内以 `buildAll` 为本地别名）。源站字段已是可读英文，**无键名反混淆**，解析层只做规整：
 
-**当前版本号易变**：`manifest.zzz.available` 含历史版本；构建只取 `live`（正式服，见 §1 单版本说明）。
-合规判定集中在 `scripts/build/live-target.ts` 的 `resolveLiveTarget()`（纯函数，有单测）：live 缺失 / available 缺失 /
-live 不在 available 时**直接抛错**（sync-data 判定失败则不提交、沿用仓库内既有正式服数据），`pnpm run data` 重建即可。
+- **图标基名**（`basename()`）：`icon` 为完整资源路径（驱动盘/邦布）时取裸文件名（去目录与扩展名），与素材 CDN
+  命名规则一致；角色/音擎 icon 本就是裸名。
+- **名录 ID**：列表条目 ID 是对象 key（条目内无 id 字段）→ 注入大写 `Id`。
+- **详情透传**：键名与 `src/data/types.ts` 几乎同构，只规整三处——`weapon_type`/`element_type`/`hit_type` 的值
+  统一为英文（`{202:"Ice"}`，前端只解码 key、值文本不参与显示）；`camp` 保留该语言的源站文本；皮肤 `image`
+  过 `SKIN_IMAGE_FALLBACK`（§5.10）。其余新字段原样透传（前端 index signature 兼容）。
+- **特殊属性**：详情 `special_element_type.name`（如 星见雅→「烈霜」）同步注入该语言名录的 `special_element`；
+  前端 `Tags` 展示属性时优先特殊名，无则退回当前语言的基础属性标签（四语取源站官方译名，站内只对中文保留
+  「火/冰/电/风」短式）。
+- **阵营细分**：源 `camp` 是粗粒度阵营，构建期按 `src/data/camp-supplement.json` 把已知角色细分到下属组织
+  （15 角色 → 7 子阵营，码 18 起），由 `domains.ts` 的 `applyCampSupplement()` 注入。只覆写名录 `camp`/`camp_name`，
+  详情 `camp` 保持源数据；上游原生提供细分后删对应条目即回归。**只对中文生效**：该表是中文策展，源站对细分阵营
+  没有四语名——套到非中文会得到「英文条目混中文阵营名」，只借数字码再配粗粒度名又会让多个细分码同名（筛选下拉
+  重复），故非中文走源站粗粒度阵营。
+- **名词表**：`{lang}/noun.json` 全量下沉为 `live/{lang}/noun.json`；术语名规整为带括号风格（如 `[虚曜]`）注入
+  该语言名录/详情；desc 经 `resolveTerms` 解析（`<Term:N>` 保留 ID 外壳，前端渲染为术语锚点）。**逐语言解析**：
+  中文术语名不得出现在英文正文里。
+- **抓取**：详情并发上限 8；磁盘缓存 `.cache/hakushin-raw/`（路径含版本号，同版本重复构建秒级跳过、跨版本自动
+  全量刷新；`--force` 忽略缓存）。`manifest.json` 永不读缓存，每次实时拉取，保证版本探测不固着。
+- **合规判定**：`scripts/build/live-target.ts` 的 `resolveLiveTarget()`（纯函数，有单测）；live 缺失 / `available`
+  缺失 / live 不在 `available` 时直接抛错。
 
----
-
-## 3. 产出契约（public/data/）
-
-与旧 Dimbreath 契约一致（前端 `src/data/api.ts` / `types.ts` **零改动**）：
+## 3. 产出契约
 
 ```
 public/data/
-  manifest.json              版本/来源元信息 { zzz: { live, source } } + generated（与语言无关）
-  live/                       正式服数据（游戏在线版本，如 3.2；目录名固定，不随版本号变）
-    {lang}/                   四语各一套完整数据面：zh / en / ja / ko
-      character.json weapon.json bangboo.json equipment.json noun.json
-      character/{id}.json …（契约见 §4）
-  img/                        图标本地化 + hero 头图（download:icons 产物）
+  manifest.json          { zzz: { live, source }, generated }（与语言无关）
+  live/{lang}/           zh / en / ja / ko 各一套完整数据面
+    character.json weapon.json bangboo.json equipment.json noun.json
+    character/{id}.json weapon/{id}.json bangboo/{id}.json equipment/{id}.json
+  img/                   图标、hero、产品图、动画、壁纸（§5）
 ```
 
-> **名录为什么按语言各一份**：源站名录只有单份，而构建期要往里注入本地化展示文本
-> （阵营名、特殊属性名、音擎效果名/正文与主副属性名），所以「该语言的名录」＝用该语言详情注入后的名录。
-> 好处是前端名录消费点**字段形状不变**（`camp_name` 仍是字符串，只是取值随语言），只有取数路径变。
-
-> `img/` 为 `pnpm run download:icons` 的本地化图标（独立管理）；`pnpm run data`
-> 的 resetOut **只清理根 manifest 与 live 目录**，不触碰 img/（曾有整体删除 OUT 目录连坐清空图标的教训）。
-> `img/hero/Mindscape_{id}_2.webp` 同时是角色详情页 AgentHead 头图与首页「今日角色」的图源，
-> 该图源带透明边（上下为 alpha 透明区）。选角与逐图取景参数存于 `src/data/featured-pool.json`
-> （`calibrated`：每个角色按画幅存一组四件套、另记 `inPool`；`pool` 是 `inPool=true` 角色的
-> 9:16 取景派生值，首页读它；名字/属性运行时从名录解析），由 `useFeaturedAgents` 按
-> **当天日期**确定性取 4 张（同日恒定、跨日换批，**当天生日的角色排在最前**——生日来自详情
-> `partner_info.birthday`，由 `src/data/featured-birthdays.json` 在构建期派生入库；特殊形态缺生日时
-> 按 `src/data/birthday-supplement.json` 继承本体，如 星徽·比利 1531 → 比利 1081，见术语表「特殊形态」）；
-> 参数经 dev 校准工具 `/calibrate` 按画幅写入（六画幅切换；网格角色号从 live 名录动态派生，
-> 落地新角色后自动可见；入池开关只在 9:16 模式出现，入池仍须目检 `pos`）。
-> **怎么摆 / 怎么裁 / 怎么核验**属展示技法，唯一记录点见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)；
-> 双形态角色（当前 1551 佩洛伊斯）的头图文件名规则见 §5。
-> `img/banner/` 下的旧宣发海报当前已不再被引用（可留作素材，构建管线不会清除该目录）。
-> 名录/详情数据量：live（3.2）角色 60/音擎 100/邦布 42/驱动盘 30。（源站 latest 3.3.4+… 含
-> 前瞻/测试服内容，按合规约定不产出、不展示。）
+- 形状定义在 `src/domain/schema.ts`，前端只经 `src/data/api.ts` 读取。本文件只记读代码看不出的产出规则。
+- `pnpm run data` 的 `resetOut` **只清理根 manifest 与 `live/`**，不触碰 `img/`——曾有整体删除 OUT 目录
+  连坐清空图标的教训。
+- `img/` 由 `download:icons` / `sync` 落地；`img/banner/` 的旧宣发海报已无引用，管线不会清除该目录。
+- 首页「今日角色」：选角与取景参数在 `src/data/featured-pool.json`（`inPool` + 按画幅的取景参数，含可选 `flipH`），
+  `useFeaturedAgents` 按**当天日期**确定性取 4 张（同日恒定、跨日换批，当天生日者排最前）。生日由详情
+  `partner_info.birthday` 在构建期派生到 `src/data/featured-birthdays.json`；特殊形态缺生日按
+  `src/data/birthday-supplement.json` 继承本体（如 星徽·比利 → 比利）。取景、画幅与档位见 IMG_GUIDE。
+- 名录/详情数量随版本增长，**核对时直接数文件**；2026-10 实测值见 §8。
 
 ### 名录字段
-> 下列名录字段的**取值随语言**（因为名录按语言各落一份）：`camp_name`、`special_element`、
-> 音擎的 `base_property`/`rand_property`/`effect_name`/`effect_desc`。其余字段（id、码、icon、数值）
-> 四语一致。
-- **CharacterListItem**：`Id, code, rank, type(职业int), element(属性int), special_element(特殊属性展示名,可选), hit(攻击int), camp(阵营id,可经阵营细分补充覆写,见 §2), camp_name(阵营展示名,可选), icon(裸文件名), potential, skin, desc, en, zh, ja, ko`
-  - `special_element`：构建期由**该语言**详情的 `special_element_type.name` 注入（如 星见雅→`烈霜`）。前端展示属性时优先显示它，无则为 `element` 基础属性。
-  - `camp_name`：构建期由**该语言**详情的 `camp` 映射（如 `{"1":"狡兔屋"}`）注入阵营名；中文另应用阵营细分补充（`camp-supplement.json`，如 1611→`罗斯凯利法·弗林特工坊`；细分只对中文生效，见 §2）。前端名录阵营列优先显示它，无则退回 `C##` 代码。
-- **WEngineListItem**：`Id, icon, rank, type, atk(满级基础攻击力), sub(副属性英文名), desc, en, zh, ja, ko`
-  - `base_property` / `rand_property`：构建期由**该语言**详情同名对象注入的**展示子集**（`name` + `value`(Lv.1 基础值) + `format`），供名录卡片复用 `domain/sections.wEnginePropsAtLevel` 呈现与详情页同口径的满级面板（主属性按 `atk` 插值到 Lv.60）。
-  - `effect_name` / `effect_desc` / `effect_refine`：构建期由详情 `talents` 注入的音擎效果（效果名 + 正文 + 正文对应的精炼档，通常 1 阶），供名录卡片直接陈列。正文含 `<color=#…>` 富文本，展示层须经 `stripRichText`（与驱动盘 2/4 件套同一约定）。
-  - 三者均可选：详情缺失时名录仍合法，卡片对应块不渲染。
+
+> 随语言变化的只有：`camp_name`、`special_element`、音擎的 `base_property`/`rand_property`/`effect_name`/`effect_desc`。
+> 其余字段（id、码、icon、数值）四语一致。前端名录阵营列优先显示 `camp_name`，无则退回 `C##` 代码。
+> 构建期注入规则见 [contracts.md](./docs/conventions/contracts.md) §3，本节不重复。
+
+- **CharacterListItem**：`Id, code, rank, type(职业int), element(属性int), special_element?(特殊属性名), hit(攻击int), camp, camp_name?, icon(裸文件名), potential, skin, desc, en, zh, ja, ko`
+- **WEngineListItem**：`Id, icon, rank, type, atk(满级基础攻击力), sub(副属性英文名), desc, en, zh, ja, ko`；
+  另有可选的 `base_property`/`rand_property`（展示子集：`name` + `value`(Lv.1) + `format`）与
+  `effect_name`/`effect_desc`/`effect_refine`（音擎效果，通常 1 阶）。三者缺失时名录仍合法，卡片对应块不渲染；
+  效果正文含 `<color=#…>` 富文本，展示层须经 `stripRichText`。
 - **BangbooListItem**：`Id, icon, rank, codename, desc, en, zh, ja, ko`
 - **DiskDriveListItem**：`Id, icon, en{name,desc2,desc4}, ko{…}, zh{…}, ja{…}`
 
 ### 详情字段
-- **character/{id}.json**：`id, icon, name, code_name, rarity, weapon_type{int:英文}, element_type, hit_type, camp{id:中文}, gender, partner_info{full_name,gender,profile_desc,impression_f,impression_m,birthday,impressions,…}, stats, skill{basic,dodge,special,chain,assist:{description:[{name,desc,potential}]}}, talent{1..6:{level,name,desc,desc2}}, passive, skin{sid:{name,desc,obtain_desc,image}}, special_element_type{name,title,desc,icon}, skill_list, skill_priority, fairy_recommend, strategy, potential, potential_detail, level, extra_level, level_exp, live2_d`
-- **weapon/{id}.json**：`id, code_name, name, desc, desc2, desc3, rarity, icon, weapon_type, base_property{name,name2,format,value}, rand_property, level, stars, materials, talents{1..5:{name,desc}}, atk_max`（`atk_max` 为构建期注入名录 `atk`，即 Lv.60 满级主属性，供详情页等级滑条插值）
-- **bangboo/{id}.json**：`id, code_name, name, desc, rarity, icon, stats, level, skill{a,b,c}, skill_prop`
-- **equipment/{id}.json**：`id, name, desc2(2件套), desc4(4件套), story, icon, icon2`
-- **potential_detail**（潜能影像／觉醒，6 档）：`{id, level(1–6), level_show_name(如「炽焰行歌 II」), name(效果名), desc(富文本), image(觉醒立绘键，见 §5), ability_list, potential_materials}`
-  - 档位标记**随语种**：中/英/日的数据是 ASCII 罗马数字 `I–VI`，韩文是 CJK 兼容罗马数字 `Ⅰ–Ⅵ`（U+2160–217F）。
-    `buildPotentialCinema` 把 `no` 归一成 ASCII（展示仍用原文 `mark`）——否则韩文页的档 I 概述匹配不上
-    （`synthesizePotentialCinema` 按 `no` 查技能门控，档 I 的 `name`/`desc` 源数据为空）。
-  - 与核心技强化（`extra_level`）是两个系统，勿混用。
 
-### 枚举映射（与 `src/data/types.ts` 一致）
-- 属性 `200物理 201火 202冰 203电 204风 205以太 300流明(Lumiflux)` — 300 为蕾米埃尔(1581)等新角色属性，ZenlessData `DamageElementConfigTemplateTb` 中 `300 = ElementType_Lumen`（PFN 标志 0，标准元素；烈霜/FireFrost 为 202 变体、PFN=1，属特殊属性）
-- 职业 `1强攻 2击破 3异常 4支援 5防护 6命破 7锋御(Armorer)` — **7 为 v2 新增**（1611 克拉蕾，live 3.2 已收录；ZenlessData 职业表暂未收录）
-- 阵营 `1狡兔屋 2维多利亚家政 3白祇重工 4卡吕冬之子 5新艾利都防卫军 6对空洞特别行动部第六课 7新艾利都治安局 8天琴座 9反舌鸟 10云岿山 11怪啖屋 12坎卜斯黑枝 13妄想天使 14未使用 15法厄同 16罗斯凯利法 17达识结社` — 防卫军/治安局/罗斯凯利法在名录中已细分为码 18-24（见 §2 阵营细分补充），父级码保留作未来新角色兜底
-- 稀有度 `角色/邦布: 3=A 4=S，音擎: 2=B 3=A 4=S`
-- 攻击类型 `101斩 102击 103刺`
+结构以 `schema.ts` 为准。构建期只做三件代码看不出来的事：
 
----
+- 音擎详情注入 `atk_max`（Lv.60 满级主属性），名录 `atk` 取它，名录卡片按它插值出与详情同口径的满级面板。
+- `potential_detail`（潜能影像／觉醒，6 档）的档位标记随语种：中/英/日是 ASCII `I–VI`，韩文是 CJK 兼容罗马数字
+  `Ⅰ–Ⅵ`（U+2160–217F）。`buildPotentialCinema` 把 `no` 归一为 ASCII（展示仍用原文 `mark`），否则韩文页的档 I
+  概述匹配不上技能门控（档 I 的 `name`/`desc` 源数据为空）。
+- `potential_detail` 与核心技强化（`extra_level`）是两个系统，勿混用。
 
-## 4. 端点 → 产出映射
+### 枚举映射
 
-| hakushin raw 端点 | 用于产出 |
+- **属性**：`200物理 201火 202冰 203电 204风 205以太 300流明`。300 为蕾米埃尔等新角色属性
+  （ZenlessData `DamageElementConfigTemplateTb` 中 `300 = ElementType_Lumen`，标准元素）；烈霜等是 202 的变体
+  （PFN=1），走 `special_element_type`。
+- **职业**：`1强攻 2击破 3异常 4支援 5防护 6命破 7锋御（Armorer）`
+- **阵营**：`1狡兔屋 2维多利亚家政 3白祇重工 4卡吕冬之子 5新艾利都防卫军 6对空洞特别行动部第六课 7新艾利都治安局
+  8天琴座 9反舌鸟 10云岿山 11怪啖屋 12坎卜斯黑枝 13妄想天使 14未使用 15法厄同 16罗斯凯利法 17达识结社`；
+  防卫军/治安局/罗斯凯利法在名录中细分为 18–24（§2），父级码保留作未来新角色兜底。
+- **稀有度**：角色/邦布 `3=A 4=S`；音擎 `2=B 3=A 4=S`。
+- **攻击类型**：`101斩 102击 103刺`
+
+## 4. 端点 → 产出
+
+| 端点 | 产出 |
 |---|---|
-| `/manifest.json` | 版本号（live = 正式服）、new 新内容 ID 清单（latest 仅作参考，不消费） |
-| `{lang}/character.json` | 角色名录（code/rank/type/element/hit/camp/icon/四语名 + 该语言注入的 camp_name/special_element） |
-| `{lang}/character/{id}.json` | 角色详情（数值/技能/影画/档案/皮肤/特殊属性/策略/潜能…，正文取该语言） |
-| `{lang}/weapon.json` | 音擎名录（含 atk/sub/desc；主/副属性展示面与音擎效果由**该语言**详情注入，见 §3 名录字段） |
-| `{lang}/weapon/{id}.json` | 音擎详情（主/副属性、等级成长、精炼 1-5、突破材料） |
-| `{lang}/bangboo.json` | 邦布名录 |
-| `{lang}/bangboo/{id}.json` | 邦布详情（数值/晋升/技能 a/b/c） |
-| `{lang}/equipment.json` | 驱动盘套装名录（四语套装名与 2/4 件套效果子对象） |
-| `{lang}/equipment/{id}.json` | 驱动盘详情（背景故事 story、icon2） |
-| `{lang}/noun.json` | 名词表（术语 title/desc，供详情页 TermTip 浮层） |
+| `/manifest.json` | 版本号、new 清单（latest 仅参考，不消费） |
+| `/zzz/{ver}/character.json` / `/zzz/{ver}/{lang}/character/{id}.json` | 角色名录（四语名 + 该语言注入的 camp_name/special_element）/ 详情 |
+| `/zzz/{ver}/weapon.json` / `/zzz/{ver}/{lang}/weapon/{id}.json` | 音擎名录（atk/sub/desc）/ 详情（主副属性、等级成长、精炼、突破材料） |
+| `/zzz/{ver}/bangboo.json` / `/zzz/{ver}/{lang}/bangboo/{id}.json` | 邦布名录 / 详情（数值、晋升、技能 a/b/c） |
+| `/zzz/{ver}/equipment.json` / `/zzz/{ver}/{lang}/equipment/{id}.json` | 驱动盘名录（四语套装名 + 2/4 件套）/ 详情（story、icon2） |
+| `/zzz/{ver}/{lang}/noun.json` | 名词表（供详情页 TermTip 浮层） |
 
-**注意**：名录的 `en`/`ja`/`ko` 字段对源站未完全本地化的极新角色可能是原始资源键，
-`zh` 名正常；四语名录都带这四个名字字段，前端按当前语言取（缺该语言时回退到其他语言）。
+名录用单份（无语言段，见 §1）；详情才带语言。极新角色的 `en`/`ja`/`ko` 名可能是原始资源键，`zh` 正常。名录条目都带
+这四个名字字段，前端按当前语言取，缺该语言回退其余语言（`utils/names.pickName`）。
 
----
+## 5. 图标与媒体资产
 
-## 5. 图标来源与本地优先
+### 5.1 候选链
 
-前端 `src/data/icons.ts` 提供 `iconSources(item, category?, variant?)`（第二参＝类目；第三参传 `'thumb'` 走名录小图），返回**按优先级排列的候选 URL**：
-`<HollowImage>` 依序尝试，全部失败→文字占位。
+`src/data/icons.ts` 的 `iconSources(item, category?, variant?)`（第二参＝类目；`'thumb'` 走名录小图）返回按优先级
+排列的候选 URL，`<HollowImage>` 依次尝试，全部失败降为文字占位。
 
-| 优先级 | 来源 | URL 模板 | 覆盖/实测 |
-|---|---|---|---|
-| ① | **本地化图标** | `{BASE}/data/img/{category}/{basename}.webp`（`pnpm run download:icons` 落地） | 角色/音擎/邦布/驱动盘/技能键位/hero 头图/皮肤立绘全量（须在 `pnpm run data` / `pnpm run sync` 之后才落地） |
-| ② | nanoka 素材 CDN | `https://static.nanoka.cc/assets/zzz/{basename}.webp` | **全品类图标 100%（除空缺 icon）** |
+| 优先级 | 来源 | URL |
+|---|---|---|
+| ① | 本地图标 | `{BASE}/data/img/{category}/{basename}.webp` |
+| ② | nanoka 素材 CDN | `https://static.nanoka.cc/assets/zzz/{basename}.webp` |
 
-**nanoka 命名规则**：取游戏资源路径的**裸文件名**（去目录、去扩展名）+ `.webp`。
-例：`UI/Sprite/A1DynamicLoad/IconSuit/UnPacker/SuitWoodpeckerElectro.png` → `SuitWoodpeckerElectro.webp`。
-角色头像 `IconRole01` 等即直接用；角色列表头像在现行名录里形如 `IconRoleGeneral01`（**实测：60 条名录 icon 零 `RoleSelect` 命中**——`Role`→`RoleSelect` 属早期命名，已不适用）。
+nanoka 命名 = 游戏资源路径的**裸文件名** + `.webp`：
+`…/Packer/SuitWoodpeckerElectro.png` → `SuitWoodpeckerElectro.webp`。名录 `icon` 即裸名（如 `IconRoleGeneral01`）。
 
-> **本地化（Q4b）**：`pnpm run download:icons` 把运行时图标从 nanoka 下载到
-> `public/data/img/{category}/`，使站点**运行时零外部请求**。本地文件缺失时自动落到
-> ② 的 CDN 兜底，不破图。
->
-> **皮肤立绘**：落 `public/data/img/character/{IconRole*}.webp`——**与名录头像同目录**，
-> 因为详情页皮肤区按 `character` 类目取图，`img/skin/` 无人读取。原生尺寸（不封顶，宽 756–2128、
-> 高 1324–2776）转 webp q88，单张均 ≈259KB；`SKIN_LOCAL=0` 表示不本地化（缺失仅告警）。
->
-> **光栅资产统一来源（解包导入）**：`node scripts/build/import-assets.mjs --dump <解包根>` 把
-> 角色头像/皮肤立绘/音擎/邦布/驱动盘/筛选/键位图标/hero 头图全部按**同名基名**从解包 PNG 重转，
-> 编码见 `scripts/build/to-webp.mjs`（沿用 PicList 图片处理参数：质量档、去 EXIF、保透明）。
-> 档位按用途定：小图标 q95（368px 级，与 CDN 版同体积、同保真度，但**取原图贴边裁切**，
-> 无 CDN 版的透明垫边）、皮肤 q88。已导入清单落在 `scripts/build/dump-import-manifest.json`
-> （文件 → 解包源路径 + 源字节数），重跑据此跳过未变更项；解包换了新版本就重跑，只补差异。
-> **筛选图标（属性/职业/阵营）的来源映射**：这三类的解包文件名与站点资产名**不总是同名同图**
-> （`IconAttack` 在解包里有 4 处不同美术、`IconPhysical` 根本没有同名文件），故在
-> `import-assets.mjs` 的 `SOURCE_OVERRIDES.filter` 里逐条写死，不靠裸名猜。例：
-> `IconPhysical ← IconBuff_Chaos`、`IconIce ← IconRamenType/IconIce`、`IconLumen ← IconBuff_Lumiflux`、
-> 职业 7 枚 ← `Role/IconClass/Packer/`。当前覆盖：**属性 7/7、职业 7/7、阵营 15/22**
-> （17/19–24 等 7 个新阵营解包版本未收录，仍用本地 biligame 徽标；缺失时前端 SVG 占位）。
-> 换源后 `IconAttack` 由白描改为解包的灰底母版，与其余 6 个职业图标同色。
->> `skill`/`filter` 两类按**基名会撞不同美术**（实测 `IconAttack` 与解包同名文件像素差 119/255），
-> 故导入时做相似度校验（`--max-diff` 默认 14），不合的跳过并打印，不盲替。
->
-> **hero 头图同样取自解包**：`Mindscape_{id}_2`（含 1551 双形态 Female/Male）已按解包母版
-> 重转——母版**贴边**、CDN 旧版垫过 1080 高透明画布，故画布从「宽 1920–2580 / 高恒 1080」变为
-> 「宽 1326–2580 / 高 834–1080」，画幅比例与内容占比都变了。**9:16 取景校准随之失效**：
-> 旧 pos/zoom/originY 是按旧画布算的，已按新画布重算并迁入多画幅校准表的 `modes['9:16']`
-> （母版；其余画幅由它派生，见 [`IMG_GUIDE.md`](./IMG_GUIDE.md) 的「取景校准：多画幅表」）。
-> 换图/换源后同样要在 `/calibrate` 重调。
-> 变化幅度分两簇：画幅比例变化 ≥0.5 的 8 张（1551 双形态、1071、1351、1361、1381、1541、1571）、
-> 内容占比变化 ≥0.25 的 12 张（1011、1031、1101、1111、1131、1211、1241、1251、1261、1271、1411、1471），
-> 其余只是去掉了透明边。派生态（card/wide/mobile）已用 `hero-cards.mjs`、`hero-mobile.mjs` 重算。
-> 换源后原图 63 张共 13.6MB（旧 21.6MB）。**重下提醒**：hero 丢文件后要用 `import-assets.mjs --only hero` 从解包补，不要用 `pnpm run download:icons`（那会重新落 CDN 的垫边版，校准又得重来）。
->
-> **潜能影像（觉醒）立绘**：`AvatarSpecialAwakenBg_{image}`（1596–2112×1080）落 `public/data/img/awaken/`，
-> q88、最长边 ≤1600（当前 11 张共 1.18MB）。文件名后缀**取自数据**——角色详情 `potential_detail[*].image`
-> （如 `Nekomiya`），与解包同名，不手写映射；故只有持有 `potential_detail` 的角色才有这张图。
-> 这一类**只能从解包导入**（nanoka 源站没有这个家族）：清单条目带 `dumpOnly`，
-> `download:icons` 不进下载队列、远程审计也不探测（否则每张都会记成「源站缺口」噪音）；
-> 本地缺失按**可容忍缺口**告警（新角色先有数据、解包资料后到时不该阻断部署），补跑
-> `import-assets.mjs --only awaken` 即可。展示规则（逐图手工裁剪的 4:5 取景）见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)「当前使用」。
->
-> 同一 `awaken` 条目还收两类**不随角色变化**的界面件（同样 `dumpOnly`）：
-> `AvatarSpecialAwakenBg_{image}Text`（角色拉丁名美术字，按 `image` 逐角色）与
-> `ASA_01–06` / `EF_BG`（档位序号牌、展开面板暗纹，常量清单 `AWAKEN_CHROME`）。
-> 它们是**必须项**（`optionalLocal: false`）：解包里有源，缺了就是导入没跑，不该静默放行。
-> `EF_BG` 在导入时按 `TRIM_LEFT` 裁掉左侧 5.75%（原图那段是为「贴立绘融边」画的透明渐隐，
-> 本站没有可融对象，整幅铺开会留一道暗竖条）；**这是转换期裁切，改比例要同步改那张表**，
-> 裁切值不写进清单、也不由前端猜。
->
-> **音擎产品图（详情 + 名录共用）**：解包 `Weapon_S_{id}_GachaEF.png` 一族（产品图，整器含配件与场景道具；
-> 936–1028×726–816，纵横比 1.16–1.30）落 `public/data/img/weapon-art/{code_name}_GachaEF.webp`，
-> q85 ≈118KB/张（42 张共 4.9MB）。源文件分散在两处，靠 `import-assets.mjs` 的基名索引自动找到、
-> **不要按目录硬编码**：新版本在 `ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/GaCha/UnPacker/GaChaPhase01/`，
-> 1631/1641 两张当期在 `ui/Sprite/`。另有两张无下划线的历史别名（`Weapon_S_1401GachaEF`、
-> `1411GachaEF`，与带下划线版同图），导入时按带下划线的规范名取。
-> 这一类**只能从解包导入**（`dumpOnly`：nanoka CDN 对 `_GachaEF` 一族 404，实测 1631/1641/1021 均无）、
-> 且是**必须项**：清单是 `src/data/weapon-art.json` 里的一串 `code_name`，前端 `src/data/weaponArt.ts`
-> 与 `icon-inventory.mjs`（导入/校验）**共读这一份**。换新素材=解包导入一张 + 在该清单登记一行，
-> 两件事缺一：只有文件没登记则页面静默用回图标、只有登记没文件则 `verify:icons --local` 失败。
-> **覆盖是 42/52 个 S 级**（站点 103 个音擎里的 S 档含 4 把公共池），缺的 10 把都不是漏下：
-> 早期 `1021 / 1041 / 1101 / 1141 / 1181 / 1211`（解包只有图标与立绘，无 GachaEF）与公共池
-> `Weapon_S_Common_01–04`（本来就没有抽卡大图）。
-> 清单外的音擎回落名录图标、**不做 404 探测**。单独占一个 `weapon-art/` 目录而不是并进 `weapon/`：
-> 后者会被 `icon-thumbs.mjs` 全量派生名录行小图（38×38 用途），产品大图既用不上、还会留下死文件。
->
-> **列表档派生**：`weapon-art/card/{同名}.webp`（≤800px / q72；42 张共 2.66MB、均值 63KB，原图 5.17MB
-> → 省 47%）。生成器 `scripts/build/product-art-cards.mjs`（音擎与邦布共用；各自输出 `card/` 子目录），
-> 由 `pnpm run sync` 在图标下载后调用
-> （**单一写入者**）；幂等补差、原图更新跟随、孤儿清理、软失败（派生缺失时前端自动回退原图）。
-> 规格按**名录卡的展示格**反推（图格宽随断点 243–517 CSS px）：≤800px 在 DPR≤1.55 全断点 ≈1:1，
-> DPR2 最坏 1.29×（只出现在宽图格带），常规桌面 ≤1.12×。**不按 DPR 分档**——试过 DPR≥1.5 直上原图，
-> retina 首访图片会从 ~580KB 涨到 1.06MB（超站内 1MB 图片预算）且跨阈值换显示器会换源重载。
-> **改栅格列宽/画幅/断点后必须重算这一档**，否则又会糊（同 hero card/wide 的教训）。
-> 前端候选链：`weaponArtCardSources` = `card → 原图`；详情页 `weaponArtSource` 仍取原图。
-> 名录行不带 `code_name`，音擎的 `icon` 基名即 `code_name`（源站命名约定见
-> `src/domain/signatureEngine.ts`），故列表直接用名录行的 `icon` 查清单，不额外注入字段。
-> 展示规则见 [`IMG_GUIDE.md`](./IMG_GUIDE.md)「音擎名录卡」。
->
-> **音擎图标母版（名录/详情共用）**：`IconWeapon/UnPacker/Weapon_{rarity}_{id}.png` —— 100 张、
-> 边长 350–400（中位 394），是存量图标族里最清晰的一份；`1631/1641` 与 `A_Common_22` 不在该目录，
-> 由 `ui/Sprite/` 补（313–363），合计覆盖站点 **103/103**。**`ItemIconWeapon/UnPacker` 是 128–156 的
-> 物品栏小图，不要当母版用**（同名字既有大图也有小图时，认目录而不是认文件名）。
-> ⚠ `import-assets.mjs` 的基名索引**先走 `ui/Sprite`**，所以 `1581/1591` 长期命中那里的 153/156 小版
-> （详情页 280px 框要放大 1.8×，名录卡也糊）；已在 `SOURCE_OVERRIDES.weapon` 指回 IconWeapon 母版
-> （316×400 / 393×400）。新版本再出现「小图同名占坑」照此加覆盖，**别改索引顺序**——那顺序是给
-> 「同一张图多档位」用的。
-> **素材族体检（2026-10，基准 103 个音擎）**：没有「又大又全」的族——`_GachaEF` 936–1028 但只有 42 个；
-> `_GaCha` 105–120（42 个）；`Big` 199–256；`Small` 68–78；唯一全覆盖的是上面的图标母版（350–400）。
-> 所以详情页策略固定为「有产品图用产品图（5:4 宽幅），没有用图标母版（1:1 / 280px 框、不放大）」，
-> 候选链是「产品图 → 图标」——产品图文件缺失时退到图标，不会留虚线空框。
->
-> **邦布产品图（名录卡）**：解包 `BangbooGarageRole{NN}_GaChaEF.png`（与音擎同目录
-> `GaChaPhase01/`，940–960×843–860）落 `public/data/img/bangboo-art/{icon}_GaChaEF.webp`，
-> q85 ≈131KB/张（21 张共 2.75MB）。清单 `src/data/bangboo-art.json` 存的是名录 `icon` 基名
-> （如 `BangbooGarageRole07`），前端 `src/data/bangbooArt.ts` 与 `icon-inventory.mjs` 共读同一份；
-> 同样是 `dumpOnly` 必须项、同样只从解包导入。
-> **覆盖恰好是 S 级 21/21，A 级 21 把没有这一族素材**——不是漏导：GaChaEF 只画抽卡产出的 S 级邦布，
-> A 级历来只有图标，所以邦布名录卡必然两种态并存（有图画幅 5:4，无图回落到同一个盒子里的图标）。
-> 列表档派生与音擎共用 `scripts/build/product-art-cards.mjs`；前端候选链 `bangbooArtCardSources`。
+本地缺失才回源 CDN；**不得新增直连外部图源，也不得把兜底当主源**。例外：属性/职业/阵营/稀有度/特殊属性这类
+**本地界面小图标**由 `src/domain/filterIcons.ts` 映射，消费方（`FilterDropdown` 的三组筛选项、`AgentHead` 封面的
+身份图标）直接渲染本地 `iconUrl`，不经候选链、不发外部请求。
 
-> **驱动盘套装动画（详情页头图）**：来源是米游社绳网情报站（`baike.mihoyo.com/zzz/wiki/content/{contentId}/detail`）
-> 「基本信息」模块里的动画链接（实测响应体是 **animated WebP**，300–480²、5–20MB、约 20fps、整盘旋转一轮约 15–30s）。
-> **源链接单一事实源**是 `src/data/disc-gifs.json`：键＝驱动盘 `Id`，值 `{ contentId, url }`（只记来源，不抄名称）；
-> 前端 `src/data/discGif.ts` 与 `icon-inventory.mjs` 共读同一份；逐条直链另有一份留档表
-> [`docs/disc-gif-sources.md`](./docs/disc-gif-sources.md)。
-> **不直连**：单条 7.7MB（30 套原始合计 239MB），且运行时零外部请求是硬约束；`pnpm run download:disc-gifs`
-> （`scripts/build/disc-gifs.mjs`）把原片缓存到 `.cache/disc-gifs/`，重编码为
-> `public/data/img/disc-gif/{Id}.webp`（**先保帧率、再让质量让路**：目标 20fps / q58，超 1600KB 就按
-> 20fps q50 → 15 → 12 → 10 → 8fps 逐档降，最长边 420）与 `poster/{Id}.webp`（取画面梯度最高的帧、q80；
-> 个别套装改用 `POSTER_FRAME_OVERRIDES` 指定帧，供减动效与分享卡片）。当前 30 套共约 35MB，单张 0.9–1.6MB，
-> 24 套 20fps、6 套 14–18fps（原 10fps 主导、3 套降到 6.7fps）。
-> **动画必须逐帧关键帧，不能交给 libwebp 做帧间预测**：`sharp().webp()` 封装的动画只有首帧是关键帧，
-> 300–480² 的慢速旋转攒到 200 帧后，平坦区（如 `34200 荆棘玫瑰` 的白色内页）会漂移成大片 8×8 马赛克；
-> 这**不是**质量档位不够——把 q 提到 90 也照样复现（2026-10 实测）。故 `scripts/build/animated-webp.mjs`
-> 逐帧编 still、自封装 RIFF/ANMF 拼成动画；**体积与帧间版几乎相同**（34200 1180→1195KB），而帧间没有换来文件
-> 变小，索性全部走关键帧。
-> 该模块同时提供 `sampleFrames`（按目标 fps 在源时间轴上均匀取帧、写入每帧时长，**不是整除数跳帧**）与
-> `downscale`（逐帧 lanczos 缩放），两个导入脚本共用；调档参数在各自脚本顶部的 `ATTEMPTS` / `TARGET_BYTES`。
-> 该命令是**一次性本地导入**，不挂 `build` / `build:ci` / `sync`；产物直接进 `public/`，`pnpm dev` 立刻可见。
-> 详情页 `HollowImage` 候选链为「动画 → 静帧 → 名录图标」；头图右下角「暂停/播放」在动画与静帧之间切换，
-> `prefers-reduced-motion` 下默认静帧（动画与静帧都由 `src/components/detail/MotionFigure.vue` 渲染，**不带框**，
-> 见下方音擎同款组件的说明）。逐路由 HTML 的 `og:image` 改用静帧（此前驱动盘会落到站点头图）。
-> **新增驱动盘**：在 `src/data/disc-gifs.json` 加一条（Id + contentId + url）→ 跑 `pnpm run download:disc-gifs` →
-> 提交 `public/data/img/disc-gif/**` 与 `scripts/build/disc-gifs-import.json`。未登记的 Id 静默回落到图标，不报错。
-> `verify-icons --local` 把动画与静帧都记为必须项。
+### 5.2 本地化与解包导入
 
-> **音擎装备动画（音擎详情页头图）**：同样是绳网情报站，但取的是音擎词条里「音擎展示 / 装备动画 / 专属特效」轮播的
-> **第二档「装备动画」**（圆形转动的产品演示，480×471 上下、100–411 帧、1.4–17.5MB、帧延时 10–90ms 不等、
-> **背景透明**——这点与驱动盘不同，驱动盘原片是不透明近黑底）。
-> **源链接单一事实源**是 `src/data/wengine-gifs.json`：键＝音擎 `Id`，值 `{ contentId, url }`；前端
-> `src/data/wengineGif.ts` 与 `icon-inventory.mjs` 共读同一份；逐条直链留档
-> [`docs/wengine-gif-sources.md`](./wengine-gif-sources.md)。
-> `pnpm run download:wengine-gifs`（`scripts/build/wengine-gifs.mjs`，`--jobs=N` 开并发）把原片缓存进
-> `.cache/wengine-gifs/`，重编码为 `public/data/img/wengine-gif/{Id}.webp`（**先保帧率**：目标 = 源帧率，
-> 超 1900KB 就按 30 → 20 → 15 → 12 → 10 → 8 → 6fps 逐档降、q55（末两档 q50），最长边 **440**
-> （原片 240–725px：440 在 280 CSS px 的头图盒上仍是 DPR2 的 0.79×，不糊））与 `poster/{Id}.webp`
-> （取画面梯度最高的帧、q80）。当前 102 台：动画约 152MB（均 1.5MB、最大 2.2MB），静帧 3.1MB；
-> fps 分布 38 台 ≥18fps、19 台 14–18、11 台 11–14、14 台 9–11、20 台 <9（最慢 6fps）。
-> 本地音擎数据 103 台，`14163 禁罪囚笼` wiki 尚无词条、未登记。
-> 编码器与驱动盘共用 [`scripts/build/animated-webp.mjs`](./scripts/build/animated-webp.mjs)（**逐帧关键帧**）：
-> 音擎原是 `sharp().webp()` 的帧间编码 + q42–50，实测 `14164 涅槃初翎` 在 3.3fps 档能看到 8×8 块；
-> 换编码器 + 帧率优先后同一台从 3.3fps 回到 10fps（101 帧 / 1.9MB），102 台总数 77 → 117 → 152MB。
-> 该命令同样是**一次性本地导入**，不挂 `build` / `build:ci` / `sync`；产物直接进 `public/`，`pnpm dev` 立刻可见。
-> 头图优先级 **动画 > 解包产品大图 > 图标**：动画与图标是 1:1，产品大图是 5:4，所以「有动画」时右栏不再放宽；
-> 播放/暂停、`prefers-reduced-motion` 默认静帧、候选链「动画 → 静帧 → 图标」与驱动盘共用
-> `src/components/detail/MotionFigure.vue`——该组件**不带框**（`border: 0` + 透明底）：原片背景透明或近黑，
-> 套 `HollowImage` 默认的边框底色会凭空多出一个方框。
-> 分享卡片（逐路由 `og:image`）**没有**改用这套静帧：透明底的 WebP 在多数平台的白底上会露白边，仍用名录图标。
-> **新增音擎**：在 `src/data/wengine-gifs.json` 加一条（Id + contentId + url）→ 跑 `pnpm run download:wengine-gifs` →
-> 提交 `public/data/img/wengine-gif/**` 与 `scripts/build/wengine-gifs-import.json`。未登记的 Id 静默回落到
-> 产品大图 / 图标，不报错。`verify-icons --local` 把动画与静帧都记为必须项。
+- `pnpm run download:icons`：把运行时图标从 nanoka 下载到 `public/data/img/{category}/`；幂等，已存在跳过；
+  `--soft` 缺口仅告警、`--dry` 只看差集。下载清单由**本地名录**推导，须在 `pnpm run data` / `pnpm run sync`
+  之后跑，否则会静默少取。
+- `node scripts/build/import-assets.mjs --dump <解包根>`：从解包重转全部光栅资产（头像/皮肤/音擎/邦布/驱动盘/界面
+  小图标/键位图标/hero 头图/产品图/觉醒图）。参数：`--only=` 选类目、`--dry` 看差集、`--force` 重转、
+  `--quality`/`--max-edge` 覆盖档位、`--max-diff` 同名异物阈值（默认 14，仅 filter/skill 校验）。
+- 编码参数见 `scripts/build/to-webp.mjs`（沿用 PicList 参数：质量档、去 EXIF、保透明；`--trim-left` 按宽度比例裁
+  左侧）。档位按用途：小图标 q95、皮肤 q88、产品图 q85。
+- 已导入清单 `scripts/build/dump-import-manifest.json` 记「文件 → 解包源路径 + 源字节数 + 转换签名」；重跑跳过未
+  变更项。解包换版本后重跑，只补差异；改 `RULES`/`TRIM_LEFT` 会给新条目换签名，只影响之后导入的条目。清单里的
+  `rule` 字段缺省时按「已同步」放行——升级判据不该把整仓重编码一遍（已入库图标是老编码器产物，重转会改字节）。
+- 导完补派生：`node scripts/build/icon-thumbs.mjs`（音擎/邦布小图）；导了产品图再跑
+  `node scripts/build/product-art-cards.mjs`（列表档）。
 
-> **hero 头图（AgentHead）**：角色详情页 head 的 Mindscape_{id}_2.webp 在
-> `public/data/img/hero/`（**张数以目录实际文件为准，本文不写死**；下载脚本遇缺仅告警不置失败码）
-> ——前端 `AgentHead.vue` 本地优先 + nanoka CDN 兜底，两级均缺时降为 --bg-0 底色，不破版。
+### 5.3 界面小图标（属性 / 职业 / 阵营 / 稀有度 / 特殊属性）
 
-> **已知两端皆缺的按键图标（单一事实源）**：游戏文本 `<IconMap:…>` 里有个别资产**源站从未提供**。
-> 清单在 `src/data/known-missing-assets.json`，前端（`src/data/icons.ts`）与门禁
-> （`scripts/verify-icons.mjs`）读同一份：
-> - 前端对这类资产**直接渲染文字键位**（`.rich-keylabel`，如「EP」），不发请求、不留虚线空洞；
-> - 门禁把它记为「已记录缺口」而非失败，仍逐条打印（避免记了就不再被看见）。
->
-> 当前 1 条：`Icon_SpecialReady_Ep`（2026-10 实测 CDN 404 且本地无文件；影响 1611 克拉蕾技能描述 3 处）。
-> **新增条目必须写明依据**（实测时间、探测过的 URL 与状态码、本地是否存在）——
-> 这里是记录事实，不是「缺失就忽略」的抽屉；新增图标缺失仍应优先补资产。
->
-> `pnpm run verify:icons --local` 已接入 `build:ci`（本地差集，离线可用）；带远程审计的
-> `pnpm run verify:icons`（默认）需联网，用于核查「源站是否已补上」。
-> **双形态角色例外**：1551 佩洛伊斯（Pyrois）源站无裸名 `Mindscape_1551_2.webp`，而是按性别后缀
-> 区分（`Mindscape_1551_Female_2.webp` / `Mindscape_1551_Male_2.webp`），两形态均已本地化到
-> `img/hero/`。**单一事实源**：`src/data/hero-gender-variants.json` 以 `{ id: { variants, defaultFile } }`
-> 列出全部双形态——`download-icons.mjs` 按 `variants` 逐个下载；`src/data/heroGenderVariants.ts` 的
-> `heroVariantFile(id, form)` 取当前形态（**女性**= `defaultFile`，**男性**= `variants` 中非 `defaultFile`
-> 的项，缺位回退 `defaultFile`）；`useHeroForm` 持形态状态 + `localStorage` 持久化（模块级 ref + 写盘，
-> 与代理人名录的版本偏好同一套写法）。**消费方只读、不各摆切换钮**：1551 详情页 `AgentHead.vue`、
-> 首页「今日角色」卡面、代理人名录卡片都按当前形态取图，切换入口统一在**设置页**（`/settings`）。
-> `CalibrateView.vue`（图库校准，六画幅）与
-> `useFeaturedAgents`（今日角色池）经 `heroImageFile(id)` 取**默认展示（女性）版**来取图，故双形态角色
-> （当前为 1551）也会出现在校准网格 / 可取图列表，无需手写 `Mindscape_…` 文件名字符串。后续新增双形态
-> 角色，`variants` 按「女性(默认)/男性」顺序填、`defaultFile` 填女性即可，**只改这份 JSON** 即自动生效，
-> 勿再四处手写。
+- 解包文件名与站点资产名**不总是同名同图**（`IconAttack` 在解包里有 4 处不同美术、`IconPhysical` 没有同名文件），
+  故在 `import-assets.mjs` 的 `SOURCE_OVERRIDES.filter` 里逐条写死，不靠裸名猜。
+- 例：`IconPhysical ← IconBuff_Chaos`、`IconIce ← IconRamenType/IconIce`、`IconLumen ← IconBuff_Lumiflux`、
+  职业 7 枚 ← `Role/IconClass/Packer/`、稀有度 3 枚 ← `IconRoleRarity/Packer/IconRole{S|A|B}Small`、
+  特殊属性 3 枚 ← `IconGeneralBuff/Packer/Icon{Frost|AuricInk|HonedEdge}`（仅角色带 `special_element_type` 时启用，
+  现覆盖 烈霜/玄墨/凛刃）。
+- 资产清单单一事实源 `src/data/filter-assets.json`（构建期 `icon-inventory.mjs` 读同一份下载/导入）。当前属性 7/7、
+  职业 7/7、稀有度 3/3、特殊属性 3/3、阵营 22 个码有图；16 号（罗斯凯利法父级）无图，名录已细分到 22–24。
+  无专用图的码返回 `null`，前端用文字/SVG 占位。
+- 其中一部分是**纯本地资产**（源站无此文件，`download:icons` 补不到、远程审计按「本地已兜住」降级告警）：
+  `IconLumen`、`IconArmorer`、`IconRole{S|A|B}Small`、`Icon{Frost|AuricInk|HonedEdge}` 与 8 个阵营徽标
+  （法厄同/达识结社/白银小队/刑侦特勤组/都市秩序部/外务筹策局/空域巡戍局/弗林特工坊）。清空 `img/` 或换机器后
+  须从解包导入或从备份恢复（8 个阵营徽标不在解包里）。
+- `skill`/`filter` 两类按基名可能撞不同美术（实测 `IconAttack` 与解包同名文件像素差 119/255），导入时做相似度
+  校验，不合的跳过并打印，不盲替。
 
-> **图标兜底**：候选链末级为文字占位（`<HollowImage>` 内置），任何缺图场景都不破图；
-> 实测 live 名录 icon 无空缺（角色/音擎/驱动盘全量，邦布 1 例空串走兜底）。
-> honeyhunterworld 站点已从候选链移除（曾整体 521，仅角色图可用），当前唯一 CDN 兜底为 nanoka；
-> 无论 nanoka 是否恢复，前端第三级（文字）兜底始终生效。
+### 5.4 hero 头图
 
-### 技能键位图标（经 rich.ts，本地 img/skill → nanoka CDN 两级兜底）
-描述文本的 `<IconMap:Icon_XXX>` 标记对应游戏键位图标，由 `src/utils/rich.ts` 的
-`richDesc()` 渲染为 `<img>`（经 `src/data/icons.ts` 的 `skillAssetSources()` 生成候选 URL，
-`<HollowImage>` 风格的两级兜底：本地 → nanoka CDN → 文字占位）。
-非键位名（如 `Icon_JoyStick`）同样进 `skillAssetSources` 候选链（本地 → nanoka CDN）。
+- `public/data/img/hero/Mindscape_{id}_2.webp`（2026-10 实测 63 张：62 角色 + 1551 双形态多一张；宽 1326–2580、
+  高 834–1080）。同时供详情页 `AgentHead` 与首页「今日角色」。
+- 前端本地优先 → nanoka CDN → `--bg-0` 底色；下载脚本遇缺仅告警，两级皆缺也不破版。
+- **双形态**：1551 佩洛伊斯源站无裸名，按性别后缀分 `Mindscape_1551_Female_2` / `_Male_2`。单一事实源
+  `src/data/hero-gender-variants.json`（`{ id: { variants, defaultFile } }`）：`heroVariantFile(id, form)` 取当前形态，
+  `useHeroForm` 持状态并持久化到 localStorage。切换入口**只在设置页**，详情头图/首页卡面/名录卡片都跟随，不各摆
+  切换钮；新增双形态只改这份 JSON（`variants` 按女/男顺序填，`defaultFile` 填女性）。
+- 校准工具与 `useFeaturedAgents` 经 `heroImageFile(id)` 取默认（女性）版，故双形态角色也会出现在校准网格。
+- **换图**：hero 母版从解包重转（贴边，无 CDN 的透明垫边），画布尺寸随之变化，9:16 取景必须在 `/calibrate` 重算
+  到 `modes['9:16']`，其余画幅由它派生（见 IMG_GUIDE）。hero 丢文件用 `import-assets.mjs --only hero` 补，
+  **不要**用 `download:icons`——那会落回 CDN 垫边版，校准又得重来。
 
-**皮肤图回退**：`scripts/build/normalize.ts` 的 `SKIN_IMAGE_FALLBACK` 将 nanoka 未上传的
-主角第 3 套皮肤立绘（`IconRole34_03`/`IconRole33_03`）回退到默认立绘，杜绝死链字段。
+### 5.5 潜能影像（觉醒）立绘
 
----
+- `AvatarSpecialAwakenBg_{image}` → `public/data/img/awaken/`，q88、最长边 ≤1600；当前 11 张共 1.18MB
+  （1596–2112×1080）。文件名后缀取自详情 `potential_detail[*].image`（如 `Nekomiya`），与解包同名，不手写映射；
+  只有持有 `potential_detail` 的角色才有这张图。
+- 该类**只能从解包导入**（nanoka 没有这个资产族）：清单条目带 `dumpOnly`，下载器不进队、远程审计不探测
+  （否则每张都会记成「源站缺口」噪音）。本地缺失按**可容忍缺口**告警（新角色先有数据、解包资料后到时不该阻断
+  部署），补跑 `import-assets.mjs --only awaken` 即可。
+- 同目录还收三类界面件（同为 `dumpOnly`）：`AvatarSpecialAwakenBg_{image}Text`（角色拉丁名美术字，按 `image`
+  逐角色）、`ASA_01–06`（档位序号牌）、`EF_BG`（展开面板暗纹），常量清单 `AWAKEN_CHROME`。它们是**必须项**
+  （`optionalLocal: false`）：解包里有源，缺了就是导入没跑。
+- `EF_BG` 导入时按 `TRIM_LEFT` 裁掉左侧 5.75%：原图那段是给游戏内「贴立绘融边」的透明渐隐，本站没有可融对象，
+  整幅铺开会留一道暗竖条。这是转换期裁切，改比例要同步改那张表；裁切值不写进清单、也不由前端猜。
+- 展示规则（4:5 逐图裁剪、铭牌/序号牌的用法）见 [IMG_GUIDE.md](./IMG_GUIDE.md) §6。
+
+### 5.6 音擎与邦布产品图
+
+**音擎产品图（详情 + 名录共用）**
+
+- 解包 `Weapon_S_{id}_GachaEF.png` → `public/data/img/weapon-art/{code_name}_GachaEF.webp`，q85。源文件分散两处，
+  靠 `import-assets.mjs` 的基名索引自动找到（新版本多在 `GaCha/UnPacker/GaChaPhase01/`，个别在 `ui/Sprite/`），
+  **不要按目录硬编码**；历史别名（`Weapon_S_1401GachaEF` 等）按带下划线的规范名取。
+- **只能从解包导入**（nanoka 对 `_GachaEF` 一族 404），且是必须项：清单 `src/data/weapon-art.json` 是一串
+  `code_name`，前端 `src/data/weaponArt.ts` 与 `icon-inventory.mjs` 共读。换素材 = 导一张 + 登记一行，缺一不可
+  （只有文件没登记 → 页面静默用回图标；只有登记没文件 → `verify:icons --local` 失败）。
+- 覆盖 S 级 **42/49**。缺的 7 把不是漏导：`1021/1041/1101/1141/1181/1211` 解包只有图标与立绘，公共池
+  `Weapon_S_Common_04` 本来就没有抽卡大图。清单外回落名录图标，**不做 404 探测**。
+- 单独占 `weapon-art/` 而不并进 `weapon/`：后者会被 `icon-thumbs.mjs` 全量派生 38×38 小图，产品大图用不上、
+  还会留下死文件。
+- 列表档 `weapon-art/card/{同名}.webp`（≤800px / q72）由 `product-art-cards.mjs` 生成，`sync` 调用（单一写入者）：
+  幂等补差、跟随原图、清孤儿、软失败。**规格是展示格的函数**——改栅格列宽/画幅/断点必须重算，否则又会糊。
+  前端候选链 `weaponArtCardSources` = `card → 原图`；详情页仍取原图。名录行 `icon` 基名即 `code_name`
+  （源站命名约定见 `src/domain/signatureEngine.ts`），不额外注入字段。
+
+**音擎图标母版**
+
+- `IconWeapon/UnPacker/Weapon_{rarity}_{id}.png`（350–400px）是存量图标族里最清晰的一份；`1631/1641` 与
+  `A_Common_22` 在 `ui/Sprite/` 补，合计覆盖站点 **103/103**。**`ItemIconWeapon/UnPacker` 是 128–156 的物品栏小图，不要当母版**
+  （同名字既有大图也有小图时，认目录而不是认文件名）。
+- ⚠ `import-assets.mjs` 的基名索引**先走 `ui/Sprite`**，同名小版会抢先命中（`1581/1591` 已在
+  `SOURCE_OVERRIDES.weapon` 指回母版）。再出现「小图同名占坑」照此加覆盖，**别改索引顺序**——那顺序是给
+  「同一张图多档位」用的。
+- 详情页策略固定：有产品图用产品图（5:4 宽幅），没有用图标母版（1:1 / 280px 框、不放大），候选链「产品图 → 图标」。
+
+**邦布产品图（名录卡）**
+
+- 解包 `BangbooGarageRole{NN}_GaChaEF.png` → `public/data/img/bangboo-art/{icon}_GaChaEF.webp`，q85。清单
+  `src/data/bangboo-art.json` 存名录 `icon` 基名，前端 `src/data/bangbooArt.ts` 与 `icon-inventory.mjs` 共读，
+  同样是 `dumpOnly` 必须项、只从解包导入。
+- 覆盖恰好 S 级 **21/21**；A 级 21 把没有这一族素材（GaChaEF 只画抽卡产出的 S 级邦布），故名录卡必然两种态并存
+  （有图 5:4，无图回落到同一个盒子里的图标）。列表档与音擎共用生成器，前端候选链 `bangbooArtCardSources`。
+
+### 5.7 驱动盘套装动画
+
+- 来源：米游社绳网情报站词条「基本信息」里的动画（animated WebP，300–480²、5–20MB、约 20fps、整盘转一轮
+  15–30s）。源链接单一事实源 `src/data/disc-gifs.json`（键=`Id`，值 `{ contentId, url }`），前端 `discGif.ts` 与
+  `icon-inventory.mjs` 共读；逐条直链留档 [docs/disc-gif-sources.md](./docs/disc-gif-sources.md)。
+- **不直连**（单条可达 7.7MB，且运行时零外部请求）：`pnpm run download:disc-gifs`（`scripts/build/disc-gifs.mjs`）
+  把原片缓存到 `.cache/disc-gifs/`，重编码为 `public/data/img/disc-gif/{Id}.webp`（**先保帧率**：目标 20fps / q58，
+  超 1600KB 按 20fps/q50 → 15 → 12 → 10 → 8fps 逐档降，最长边 420）与 `poster/{Id}.webp`（取梯度最高帧、q80；
+  个别套用 `POSTER_FRAME_OVERRIDES`）。当前 30 套动画约 34.6MB。
+- **动画必须逐帧关键帧**，不能交给 libwebp 做帧间预测：慢速旋转攒到 200 帧后，平坦区（如白色内页）会漂成 8×8
+  马赛克；这不是质量档不够（q90 照样复现）。故 `animated-webp.mjs` 逐帧编 still、自封装 RIFF/ANMF，体积与帧间版
+  几乎相同。该模块另提供 `sampleFrames`（按目标 fps 在源时间轴均匀取帧，不是整除数跳帧）与 `downscale`，
+  两个动画导入脚本共用。
+- 详情页候选链「动画 → 静帧 → 名录图标」；由 `MotionFigure.vue` 渲染（**不带框**），右下角暂停/播放，
+  `prefers-reduced-motion` 默认静帧；逐路由 `og:image` 改用静帧。
+- 一次性本地导入，不挂 `build`/`build:ci`/`sync`；产物直接进 `public/`，dev 立刻可见。新增驱动盘 = 在
+  `disc-gifs.json` 加一条 → 跑命令 → 提交 `public/data/img/disc-gif/**` 与 `scripts/build/disc-gifs-import.json`。
+  未登记 Id 静默回落图标，不报错。调档参数在脚本顶部的 `ATTEMPTS` / `TARGET_BYTES`；`verify-icons --local` 把动画
+  与静帧都记为必须项。
+
+### 5.8 音擎装备动画
+
+- 同样是绳网情报站，取音擎词条轮播的第二档「装备动画」（圆形转动的产品演示，480×471 上下、1.4–17.5MB、
+  帧延时 10–90ms 不等、**背景透明**）。源链接 `src/data/wengine-gifs.json`（键=`Id`），前端 `wengineGif.ts` 与
+  `icon-inventory.mjs` 共读；逐条直链留档 [docs/wengine-gif-sources.md](./docs/wengine-gif-sources.md)。
+- `pnpm run download:wengine-gifs`（`scripts/build/wengine-gifs.mjs`，`--jobs=N` 并发）缓存到 `.cache/wengine-gifs/`，重编码为
+  `public/data/img/wengine-gif/{Id}.webp`（目标 = 源帧率，超 1900KB 按 30 → 20 → 15 → 12 → 10 → 8 → 6fps 逐档降、
+  q55，末两档 q50；最长边 **440**，在 280 CSS px 头图盒上仍是 DPR2 的 0.79×）与 `poster/{Id}.webp`。
+  当前 102 台动画约 151.5MB。本地 103 台音擎里 `14163 禁罪囚笼` 在绳网情报站尚无词条、未登记。
+- 编码器与驱动盘共用 `animated-webp.mjs`（逐帧关键帧）。一次性本地导入，不挂构建链；新增音擎 = 加一条 JSON →
+  跑命令 → 提交产物与 `scripts/build/wengine-gifs-import.json`；未登记静默回落产品图/图标。
+- 头图优先级 **动画 > 解包产品图 > 图标**；动画与图标是 1:1、产品图 5:4，有动画时右栏不再放宽。播放/暂停与
+  减动效规则同驱动盘，共用 `MotionFigure`（**不带框**：透明底套 `HollowImage` 边框会凭空多出一个方框）。
+- 分享卡片**不**用这套静帧：透明底 WebP 在多数平台的白底上会露白边，仍用名录图标。
+
+### 5.9 技能键位图标与已知缺口
+
+- 描述里的 `<IconMap:Icon_XXX>` 由 `src/utils/rich.ts` 的 `richDesc()` 渲染为 `<img>`，候选 URL 由
+  `src/data/icons.ts` 的 `skillAssetSources()` 生成：本地 → nanoka CDN → 文字占位。
+- 两端皆缺的资产清单在 `src/data/known-missing-assets.json`（当前 1 条：`Icon_SpecialReady_Ep`，影响克拉蕾技能描述
+  3 处），前端与 `verify-icons.mjs` 共读：前端直接渲染文字键位（`.rich-keylabel`，如「EP」），不发请求、不留虚线
+  空洞；门禁记为「已记录缺口」而非失败，仍逐条打印。
+  新增条目必须写明依据（实测时间、探测过的 URL 与状态码、本地是否存在）——这是记录事实，不是「缺失就忽略」的抽屉。
+
+### 5.10 皮肤立绘
+
+- 落 `public/data/img/character/{IconRole*}.webp`——与名录头像同目录，因为详情页皮肤区按 `character` 类目取图
+  （`img/skin/` 无人读取）。原生尺寸转 webp q88；`SKIN_LOCAL=0` 表示不本地化（缺失仅告警）。
+- `scripts/build/normalize.ts` 的 `SKIN_IMAGE_FALLBACK` 把源站未上传的主角第 3 套皮肤（`IconRole34_03`/`IconRole33_03`）
+  回退到默认立绘，杜绝死链字段。
+
+### 5.11 兜底与禁令
+
+- 候选链末级是文字占位（`<HollowImage>` 内置），任何缺图都不破版；live 名录 icon 基本无空缺（个别新角色可能为空串，
+  前端必须走兜底）。
+- honeyhunterworld 已从候选链移除（曾整体 521、仅角色图可用）；当前唯一 CDN 兜底是 nanoka，它挂了就全部降文字。
+- 不要依赖 `static.nanoka.cc/zzz/UI/`（旧路径，404 残留）——素材在 `/assets/zzz/`。
 
 ## 6. 前端渲染关键文件
 
 | 文件 | 职责 |
 |---|---|
-| `src/data/api.ts` | 读本地 `/data`，内存缓存；本地化名统一由 `utils/names.ts` 的 `pickName()` 提供 |
-| `src/data/types.ts` | **类型别名**（由 `src/domain/schema.ts` 的 `z.infer` 派生）+ 对外 import 面；**枚举常量不在这里**——只在 `src/domain/enums.ts` |
-| `src/data/icons.ts` | 图标候选链（本地 → nanoka CDN 两级兜底）+ 技能键位资产名映射 |
+| `src/data/api.ts` | 读本地 `/data`、内存缓存；本地化名经 `utils/names.pickName()` |
+| `src/data/types.ts` | 类型别名（由 `schema.ts` 的 `z.infer` 派生）+ 对外 import 面；枚举常量在 `src/domain/enums.ts` |
+| `src/data/icons.ts` | 图标候选链 + 技能键位资产名映射 |
 | `src/components/HollowImage.vue` | 多候选图 + `position`/`ratio` 裁切 + 文字降级 |
-| `src/utils/rich.ts` | 富文本：`<IconMap:Icon_XXX>`→键位图（本地优先，`data-cdn` 属性供 main.ts 全局 error 降级）、`<color=#…>`→带色 span、`<Term:N>`→术语锚点（供 TermTip）、`{CAL:expr,scale,decimals}`→按技能等级代入求值（技能/核心技描述与数值条目，如「伤害提升18%」；需调用方传入等级，否则剥离；scale 语义按游戏实机核实：小数式 ×100 转百分比，如 月城柳 极性紊乱 满级 3200%）、LAYOUT 与 `{Skill:N,Prop:N}` 占位剥离，其余 HTML 转义防注入 |
-| `src/data/terms.ts` | 术语词典：读本地 `/data/live/{lang}/noun.json`（单版本正式服 + 当前语言），词典缺失时浮层安静隐藏 |
-| `src/components/detail/TermTip.vue` | 术语悬停浮层：全局委托监听 `.rich-term`，展示名词表 title/desc |
+| `src/utils/rich.ts` | 富文本渲染（见下） |
+| `src/data/terms.ts` | 术语词典：读 `live/{lang}/noun.json`；缺失时浮层安静隐藏 |
+| `src/components/detail/TermTip.vue` | 术语悬停浮层：委托监听 `.rich-term`，展示 title/desc |
 | `src/utils/text.ts` | `stripRichText`（纯文本剥标记） |
 
----
+`rich.ts` 处理的标记：
+
+- `<IconMap:Icon_XXX>` → 键位图标（本地优先；`data-cdn` 供 `main.ts` 全局 error 降级）
+- `<color=#…>` → 带色 span
+- `<Term:N>` → 术语锚点（供 TermTip）
+- `{CAL:expr,scale,decimals}` → 按技能等级代入求值（调用方须传等级，否则剥离）。scale 语义按实机核实：小数式
+  ×100 转百分比（如 月城柳 极性紊乱 满级 3200%）。
+- `LAYOUT`、`{Skill:N,Prop:N}` 占位剥离；其余 HTML 转义防注入。
 
 ## 7. 运维命令
 
-改动数据管线的建议顺序：正式更新入口用 `pnpm run sync`（探测 → 重建 JSON → 图标补差 → 校验 → 汇总，
-由 GitHub Actions 定时触发，工作流内 `pnpm run verify:data` 硬门禁通过 → 直接 commit + push 到默认分支
-（master），JSON 与图标同次提交锁步；门禁不通过则 job 失败、不提交）；
-仅本地改数据时 `pnpm run data` → `pnpm run verify:data` →（可选）`pnpm run download:icons`
-→ `pnpm test` → `pnpm run build`（→ 可选 `pnpm run verify:icons`）。改动视觉层字体时另见
-`pnpm run download:fonts` / `pnpm run verify:fonts`（西文）与 `pnpm run download:fonts:cjk` /
-`pnpm run subset:fonts:cjk` / `pnpm run verify:fonts:cjk`（CJK 衬线分片，§10 字体组）。各命令如下：
+正式更新只走 `pnpm run sync`（GitHub Actions 每日触发；工作流随后重跑 `fonts:cjk`、`verify:data`、图标本地门禁、
+字体覆盖门禁与生日表对账，全过才 commit + push 到默认分支 `master`，JSON 与图标同次提交锁步）。本地改数据按
+`data` → `verify:data` →（可选）图标 → `pnpm test` → `pnpm run build`。
 
 ```bash
-pnpm install             # 依赖（首次或变更后）
-pnpm run data            # 拉取 hakushin raw（live = 正式服单版本）→ 规整 → 生成 public/data/live/{zh,en,ja,ko}/ + manifest（需外网）
-                        #   四语详情共 928 份，首次全量抓取较慢；同版本重复构建走 .cache 秒级跳过
-                        #   有代理时：set NODE_USE_ENV_PROXY=1
-pnpm run data -- --check # 仅版本探测：输出 UPDATE_AVAILABLE / UP_TO_DATE，不构建（CI/定时哨兵）
-pnpm run sync           # 数据+图标同步（正式提交入口）：探测 → 重建 JSON → 图标 --soft 补差（只补缺失、已有资源零重下）
-                        #   → 本地必须项图标齐整 → 汇总变更集；无变更不提交；由 data-sync workflow 定时触发
-                        #   → 工作流内类型+单测、四道门禁、线上版本对账，全过才 commit + push 到默认分支（master）（需外网）
-                        #   探测失败或重建失败一律**非零退出且不提交**（站点沿用旧快照，失败会开 issue）
-pnpm run sync -- --allow-probe-failure
-                        #   仅排障用：确认源站临时故障、本次确要沿用旧快照时显式放行（否则探测异常即失败）
-pnpm run build:ci        # Vercel 部署构建入口（**完整链路以 package.json 的 build:ci 为唯一事实源**）：
-                        #   资产门禁 → 数据契约 → 类型 → vite build → sitemap/route-html/预算/缓存策略断言；
-                        #   只构建已提交快照、不在构建期重建数据（数据更新走 pnpm run sync）；**不含单测**（归 checks.yml）
-pnpm run verify:icons    # 图标校准：本地 img 差集（核心）+ nanoka 远程审计；缺失非零退出
-                        #   --local 仅查本地（离线可用）；网络异常按"无法确认"以码 2 退出
-node scripts/build/import-assets.mjs --dump <解包根>
-                        # 光栅资产从解包重转（头像/皮肤/音擎/邦布/驱动盘/筛选/键位图标）：
-                        #   --only=character,skin,weapon,bangboo,disc,filter,skill 选类目；--dry 只看差集；
-                        #   --force 重转（默认按 dump-import-manifest.json 跳过未变更）；
-                        #   --quality / --max-edge 覆盖档位；--max-diff 同名异物阈值（默认 14，仅 filter/skill 校验）
-                        #   导完记得 node scripts/build/icon-thumbs.mjs 重派生音擎/邦布小图；
-                        #   导了音擎/邦布产品图（weapon-art、bangboo-art）则再跑
-                        #   node scripts/build/product-art-cards.mjs 重派生列表档
-                        #   「未变更」= 源相对路径 + 源字节数 + 转换签名（q/e/t）全一致；清单里的 rule 字段
-                        #   缺省时按已同步放行——升级判据不该把整仓重编码一遍（已入库图标是老编码器产物，
-                        #   重转会改字节）。改 RULES / TRIM_LEFT 会给新条目换签名，只影响之后导入的那些。
-node scripts/build/to-webp.mjs <src...> --out <dir>
-                        # 单文件/多文件转 webp（PicList 同参数：q85、去 EXIF、保透明），--max-edge 可选；
-                        # --trim-left 0.0575 按宽度比例裁左侧（给「原图带透明渐隐、站内没有可融对象」的素材用）
-pnpm run download:fonts  # 西文字体本地化：Google Fonts css2 → public/fonts/*.woff2（自托管、运行时零外网）；幂等；网络失败仅告警
-pnpm run verify:fonts    # 字体存在性校验：download:fonts 声明的每个文件在 public/fonts/ 存在且非空（离线可用；build:ci 已挂）
-pnpm run download:fonts:cjk  # CJK 原始分片拉取：Noto Serif SC 500 → .cache/cjk-raw/ + faces.json（不入库；幂等；失败仅告警）
-pnpm run subset:fonts:cjk    # CJK 分片裁剪：按站内字符集裁剪源片并按 10KB 目标细分 → public/fonts/noto-serif-sc/ + CSS + 清单（内容寻址命名，自动清理孤儿）
-pnpm run fonts:cjk           # 上两步串联（字符集变化后跑这个）
-pnpm run verify:fonts:cjk    # CJK 分片完整性 + 字符集覆盖校验：清单/css/文件三方对账，且字体能提供的字符必须全部已声明（离线可用；build:ci 已挂）
-pnpm run sitemap         # 生成 dist/sitemap.xml（build:ci 中 vite build 之后执行；域名取 VITE_SITE_ORIGIN，与 canonical/og:url 同源；
-                        #   部署环境（VERCEL/CI）缺该变量则直接失败——防止把 localhost 域名的 sitemap 发上线）；
-                        #   verify:budget 另做「sitemap origin 与 VITE_SITE_ORIGIN 一致」门禁
-pnpm run route-html      # 逐路由静态 HTML（build:ci 紧随 sitemap 执行）：以 dist/index.html 为模板，
-                        #   为 sitemap 中每个路由生成 dist/<route>/index.html，只替换 head 的
-                        #   title/description/canonical/og:*（og:image 按类目选：角色=hero/card 派生图、
-                        #   音擎/邦布=thumb 图标、名录/静态页=站点头图），宽高由 sharp 读实际文件；
-                        #   Vercel 静态文件优先于 rewrites，故社交爬虫与搜索引擎拿到的是逐页元信息。
-                        #   生成器内置自校验（任一页字段未替换即失败）
-pnpm run verify:budget    # 体积预算 + sitemap origin 一致性 + 逐路由 HTML 数量门禁（build:ci 已挂）
-pnpm run verify:vercel    # 生产缓存策略 + 安全响应头不变量门禁（build:ci 已挂）：
-                         #   内容寻址资源才可 immutable、非寻址资源禁止 immutable、manifest/字体 CSS 必须每次重验证、
-                         #   CSP 必需指令齐备且脚本**不得**放开 unsafe-inline/eval、安全头齐备、SPA rewrite 存在、
-                         #   规则互不重叠（详见脚本头：这类配置本地测不到，只能在构建期断言）
-                         #   候选 CSP 另经 scripts/audits/csp-check.js 本地实测（注入响应头走关键路径，基线 0 违规）
-pnpm run dev             # 开发 http://localhost:5173（占用自动换端口）
-pnpm run build           # vue-tsc 类型检查 + vite 构建
-pnpm run preview         # 预演产物
+pnpm install
+pnpm run data                 # 拉 live（四语详情较慢；同版本走 .cache 秒级跳过；代理设 NODE_USE_ENV_PROXY=1）
+pnpm run data -- --check      # 仅版本探测：UPDATE_AVAILABLE / UP_TO_DATE
+pnpm run data -- --force      # 忽略缓存全量重拉
+pnpm run sync                 # 正式入口：探测 → 重建 JSON → 图标/派生图补差 → 门禁 → 汇总；失败非零退出且不提交
+pnpm run sync -- --allow-probe-failure   # 仅排障：确认源站临时故障、本次沿用旧快照
+pnpm run verify:data          # 数据契约：四语名录非空、名录 id ↔ 详情一一对应、extra_level 单调
+pnpm run verify:icons         # 本地差集 + nanoka 远程审计；--local 仅本地（离线，build:ci 已挂）；网络异常以码 2 退出
+pnpm run download:icons       # 图标本地化；--soft 缺口仅告警、--dry 只看差集
+pnpm run download:disc-gifs   # 驱动盘动画 → img/disc-gif（一次性本地导入，不挂构建链）
+pnpm run download:wengine-gifs # 音擎动画 → img/wengine-gif（同上，--jobs=N 并发）
+node scripts/build/import-assets.mjs --dump <解包根>   # 解包重转；--only/--dry/--force/--quality/--max-diff
+node scripts/build/icon-thumbs.mjs                     # 名录小图派生（导入图标后）
+node scripts/build/product-art-cards.mjs               # 产品图列表档派生（导入产品图后）
+node scripts/build/to-webp.mjs <src...> --out <dir>    # 单文件转 webp（--max-edge / --trim-left）
+pnpm run download:fonts && pnpm run verify:fonts       # 西文自托管 + 存在性门禁
+pnpm run download:fonts:cjk   # CJK 原始分片 → .cache/cjk-raw/（不入库；失败仅告警）
+pnpm run subset:fonts:cjk     # 按站内字符集裁剪 → public/fonts/noto-serif-sc/ + CSS + 清单
+pnpm run fonts:cjk            # 上两步串联（字符集变化后跑这个）
+pnpm run verify:fonts:cjk     # CJK 分片完整性 + 字符集覆盖
+pnpm run build:ci             # 部署入口（完整链路以 package.json 为准）：资产门禁 → 数据 → 类型 → 构建 → sitemap/路由 HTML/预算/缓存头
+pnpm run sitemap              # 生成 dist/sitemap.xml；域名取 VITE_SITE_ORIGIN，部署环境缺该变量直接失败
+pnpm run route-html           # 逐路由静态 HTML（build:ci 内紧随 sitemap）
+pnpm run verify:budget        # 体积预算 + sitemap origin 一致性 + 路由 HTML 数量
+pnpm run verify:vercel        # 缓存策略与安全响应头不变量
+pnpm run dev                  # http://localhost:5173
+pnpm run build                # 类型检查 + 构建
+pnpm run preview              # 预演产物
 ```
 
----
+`route-html` 的产出契约：`og:image` 按类目选（角色=hero/card 派生图、音擎/邦布=thumb 图标、名录/静态页=站点头图），
+宽高由 sharp 读实际文件；Vercel 静态文件优先于 rewrites，故社交爬虫与搜索引擎拿到的是逐页元信息；生成器内置
+自校验（任一页字段未替换即失败）。
 
-## 8. 已知缺口与失效信号（务必注意）
+## 8. 已知缺口与失效信号
 
-### 当前状态（2026-10，v2 实测）
-- 正式服（live 3.2）名录 60 角色／100 音擎 / 42 邦布 / 30 驱动盘（不含主角 2011/2021——与 hakushin 名录口径一致，前端零引用主角，无影响）。
-  **四个语言各一套完整数据面**（`live/{lang}/`，名录数量逐语一致，见 §3 与决策记录 0010），故 928 份详情文件。
-- **伊埃斯（55098）不入邦布名录展示**：它是绳匠专属的 H.D.D. 搭档，非可获取收藏型号（源站名录即空 icon / 占位 desc 的桩数据）；由 `BangboosView.vue` 的 `HIDDEN_BANGBOO_IDS` 前端策展，名录文件仍保留该条，详情页可经直接链接到达。
-- **源站 latest（3.3.4+…）含前瞻/测试服内容（如 菲欧妮 / 赛维里安，live 3.2 未收录），按合规约定不产出、不展示。**
-- **站方扩展域未消费**：`{lang}/monster.json`(306) / `boss.json`(47) / `shiyu.json`(62) / `simul.json`(3) / `hard.json`(1) / `{lang}/item.json`(5771，**也按语言**，实测 `en/item.json` 200 且 name 为英文) 全部实测 200，做怪物图鉴/式舆/以骸卡牌页时可扩展（同源 schema 见各端点返回）。
+### 现状（2026-10 实测）
+
+| 项 | 值 |
+|---|---|
+| live 版本 | 读 `public/data/manifest.json` 的 `zzz.live`（不写死） |
+| 名录 | 每语 62 角色 / 103 音擎 / 42 邦布 / 30 驱动盘；四语详情共 948 份 |
+| 产品图 | 音擎 42/49 个 S 级；邦布 21/21 个 S 级 |
+| 动画 | 驱动盘 30 套；音擎 102 台 |
+| 头图 | hero 63 张（含 1551 双形态） |
+
+- **名录不含主角 2011/2021**（与 hakushin 名录口径一致，前端零引用，不影响页面）。
+- **伊埃斯（55098）不入邦布名录展示**：它是绳匠专属的 H.D.D. 搭档，非可获取收藏型号（源站名录即空 icon/占位 desc
+  的桩数据）。由 `BangboosView` 的 `HIDDEN_BANGBOO_IDS` 前端策展，名录文件仍保留该条，详情页可经直接链接到达。
+- **源站 latest 含前瞻/测试服内容**（如 live 未收录的新角色），按合规约定不产出、不展示。
+- **站方扩展域未消费**：`{lang}/monster.json`、`boss.json`、`shiyu.json`、`simul.json`、`hard.json`、
+  `{lang}/item.json` 均实测可用，做怪物图鉴/式舆/以骸卡牌页时再扩展（schema 同源）。
 
 ### 失效信号
-1. **名录/详情数量为 0** → 版本号变更或端点改名：先看 `.cache/hakushin-raw/manifest.json` 的 `live` 是否仍可用（请求 `https://static.nanoka.cc/zzz/{live}/character.json` 必须 200）。
-2. **请求 404** → 站点 schema 变更（端点改名/移动），检查 `manifest.json` 的 `available` 列表与旧端点对比。
-3. **图标全文字** → `verify:icons` 先看本地 img 差集（运行时消费的是本地文件，缺失才会静默落 CDN）；nanoka `/assets/zzz/` 是主兜底，若它也挂则所有图降文字（`--local` 之外的审计会标出源站缺口）。
-4. **多语言名异常** → 名录 `en`/`ja`/`ko` 对极新角色可能是原始资源键（`zh` 不受影响）；若大面积如此说明站点本地化未完成。四语名录都带这四个名字字段，前端按当前语言取、缺该语言时回退其余语言（`utils/names.pickName`），故单语缺名不会破版。另注意：**谚文没有自托管衬线字形**（Noto Serif SC 不含 한글），韩文正文按预期回退系统字体——这是设计取舍，不是缺字 bug。
-5. **构建失败：「live 不在可用列表」** → `pnpm run data` 抛错（为合规拒绝降级 latest）；源站下架/改名 live 版本时需人工确认。sync-data 判定失败则不提交、沿用仓库内既有正式服数据；部署只构建已提交快照，站点不挂。
-6. **图标带源站水印（如驱动盘 `SuitThornedRose` 的 DEMO 字样）** → 水印烙在 nanoka 源资产里，本地化时原样落地；且「零重下」幂等差集不会随上游替换自动更新。处置：人工从源站确认干净资产后覆盖对应 `public/data/img/disc/*.webp`（或删除本地文件后重跑 `pnpm run sync` 补差），勿整批重下。
+
+1. **名录/详情数量为 0** → 版本号变更或端点改名：先看 `.cache/hakushin-raw/manifest.json` 的 `live`，再直接请求
+   `https://static.nanoka.cc/zzz/{live}/character.json` 是否 200。
+2. **请求 404** → schema 变更（端点改名/移动）：核对 `manifest.json` 的 `available` 列表与旧端点。
+3. **图标全文字** → 先跑 `verify:icons --local` 看本地差集（运行时读本地，缺失才落 CDN）；nanoka 挂则全部降文字。
+4. **多语言名异常** → 极新角色的 `en`/`ja`/`ko` 可能是原始资源键，`zh` 正常；前端按语言取、缺则回退，单语缺名
+   不破版。另注意：**谚文没有自托管衬线字形**（Noto Serif SC 不含 한글），韩文正文按预期回退系统字体，不是缺字 bug。
+5. **构建失败「live 不在可用列表」** → 合规拒绝降级 latest；源站下架/改名 live 时需人工确认。sync 失败不提交，
+   部署只构建已提交快照，站点不挂。
+6. **图标带源站水印**（如驱动盘 `SuitThornedRose` 的 DEMO 字样）→ 水印烙在 nanoka 源资产里，「零重下」幂等差集
+   不会随上游替换自动更新。人工确认干净资产后覆盖对应本地文件（或删本地文件后重跑 `sync` 补差），勿整批重下。
 
 ### 不要做的事
-- 不要把 hakushin raw 提为**运行时**数据源（§0 铁律：运行时零外部请求）；仅构建期拉取。
-- 不要硬编码版本号（live 当前为 `3.2`，随时会变）——每次构建从 manifest 动态取 `zzz.live`。
-- **不要把 latest（源站最新/含前瞻·测试服内容）引入构建或展示**——合规红线：不拉取、不降级、不补位。
-- 不要依赖 `static.nanoka.cc/zzz/UI/`（旧路径）——那是 404 残留，素材在 `/assets/zzz/`。
-- 不要重新引入 honeyhunterworld 作为 CDN 来源（曾整体 521，仅角色图可用，已从候选链移除）。
-- 不要假设名录 `icon` 永远非空（源站个别新角色可能为空串，前端必须走兜底）。
 
----
+- 不把 hakushin raw 提为**运行时**数据源（运行时零外部请求）；只在构建期拉取。
+- 不硬编码版本号（从 manifest 的 `zzz.live` 取）。
+- 不引入 latest（含前瞻/测试服内容）——合规红线：不拉取、不降级、不补位。
+- 不依赖 `static.nanoka.cc/zzz/UI/`（404 残留），素材在 `/assets/zzz/`。
+- 不重新引入 honeyhunterworld 作为 CDN 来源。
+- 不假设名录 `icon` 永远非空。
 
-## 9. 历史数据源：Dimbreath ZenlessData（参考）
+## 9. 历史数据源：Dimbreath ZenlessData
 
-v1 主源，v2 已弃用（数据更新滞后：缺 1611/1621、职业 7；键名混淆需反混淆）。保留备查：
+v1 主源，v2 起弃用（更新滞后：曾缺 1611/1621 与职业 7；字段名随机混淆，需按锚点反混淆）。
+保留两点参考价值：
 
-- 仓库：`git.mero.moe/dimbreath/ZenlessData`（master 分支）
-- 形态：`FileCfg/*TemplateTb.json` 表 + `TextMap/` 文本表；**字段名随机混淆**（随版本变化），
-  旧管线按锚点（角色 ID=1011、名称 `Avatar_Female_Size02_Anbi` 等）反混淆；失效时名录产出 0 条。
-- 参考价值：**源头数据**、无第三方依赖、可做长期自托管备份；`DamageElementConfigTemplateTb` 的
-  `PFNMFGJPMDP` 标志（1=烈霜、2=AuricEther、4=ZhenZhenAssault、0=标准）可佐证特殊属性归属。
-- 若重新启用：`git clone --depth 1 https://git.mero.moe/dimbreath/ZenlessData`（约 18k 文件，浅克隆即可）。
+- 仓库 `git.mero.moe/dimbreath/ZenlessData`（`FileCfg/*TemplateTb.json` + `TextMap/`）。
+- `DamageElementConfigTemplateTb` 的 PFN 标志（1=烈霜、2=AuricEther、4=ZhenZhenAssault、0=标准）可佐证特殊属性
+  归属——这是 §3 里 300/202 口径的来源。
 
----
+## 10. 视觉语言
 
-## 10. 视觉语言速记（改 UI 时遵循）
+### 核心
 
-"档案标本"质感：1px 细线框、2px 圆角、等宽编号、纸墨配色。列表/首页图标用 34–40px 细线框小图；
-**禁止圆角卡片堆叠、渐变霓虹、投影**（浮层阴影除外，见 `--shadow-pop`）。图标统一走 `HollowImage`（含兜底），
-skills 描述富文本走 `richDesc`。字体族（CJK 衬线优先、sans 弃 `Inter`）与浮层阴影染 `--bg-0` 属 **token 级精修**，
-**token 级精修的记录点是 `tokens.css` 注释与 `/style`（DESIGN.md §9）**；本条指核心语言不变。
+「档案标本」：1px 细线框、2px 圆角、等宽编号、纸墨配色。列表/首页图标用 34–40px 细线框小图；
+**禁止圆角卡片堆叠、渐变霓虹、投影**（浮层阴影 `--shadow-pop` 除外）。图标走 `HollowImage`，技能描述富文本走
+`richDesc`。token 级精修（字体族、浮层阴影）的记录点是 `tokens.css` 与 `/style`（DESIGN §9），不在禁令之列。
 
-**布局容器术语**（描述页面结构时只用这四个词，别再起新叫法）：
+### 布局容器术语
 
-- **内容胶囊**：内容页（名录 / 详情 / 404）中间那块承载全部正文的容器，`<div class="wrap page">`
-  （`base.css` 的 `.wrap.page`）。特征：版心宽度 + 纸纹（`--paper-noise`）+ 抬升底色（`--bg-1`）
-  + 上下各一条发丝线收口。**边界**：不是「版心」（后者只管宽度、无面色无边线，站头/站尾也用）；
-  也不是「主内容区」（`<main id="main">`，还含返回链接、区块索引、翻页）；更不是「标本板」——
-  那个词**专指首页「今日角色」的 2.36:1 陈列框**（`FeaturedDeck`，共享元素飞行的起飞端）。
-- **版心**：`--wrap-max` 那条宽度约束（`clamp(1120px, 78vw, 1760px)`），只有宽度语义。
+描述页面结构只用这四个词：
+
+- **内容胶囊**：内容页（名录/详情/404）中间承载全部正文的容器 `<div class="wrap page">`（`.wrap.page`）。
+  特征：版心宽 + 纸纹 `--paper-noise` + 抬升底色 `--bg-1` + 上下各一条发丝线收口。**边界**：不是「版心」
+  （只管宽度、无面色无边线，站头/站尾也用），不是「主内容区」（`<main id="main">`，还含返回链接、区块索引、
+  翻页），也不是「标本板」——那个词专指首页「今日角色」的 2.36:1 陈列框（`FeaturedDeck`，共享元素飞行的起飞端）。
+- **版心**：`--wrap-max` 的宽度约束（`clamp(1120px, 78vw, 1760px)`），只有宽度语义。
 - **主内容区**：`<main id="main">`，胶囊的**外层**。
 - **区块**：`DetailSection` 渲染的编号小节（01 档案详情、02 角色介绍…），是胶囊的**内件**。
 
-**详情页阅读宽度（2026-10）**：详情页的内容胶囊在 `DetailPage` 内把 `--wrap-max` 覆写为 1120px
-（名录页仍用 1760px 的满版心；封顶前 1920 / 2560 的技能跨度是 886 / 1148px），左侧区块导航读
-同一变量、随胶囊一起收。技能区块的两栏固定为 480px 说明 + 弹性间隔 + 300px 账本贴胶囊右缘：
-间隔吃掉剩余宽度（实测 ~170px），账本右缘与分割线右端对齐（差 4px 行内边距），行内
-「段次 → 末列」300px，说明文字末端 → 末列数值 508–524px。账本**不要**放宽回 420px（中间
-留白被挤掉、行内跨度回到 420px），也**不要**改成左排紧凑（实测 374px 观感过于紧凑）——
-两种都试过、均已否。
+### 区块分隔
 
-**墨色分层是契约，不是建议**（`tokens.css` 已写明）：`--ink-2` 及更亮承载信息（对 bg-0/bg-1 ≥4.5:1，AA）；
-`--ink-3` 是**装饰层**（不承载信息、不要求 AA）——只能用于纯序号、分隔符、占位字形，且应 `aria-hidden`。
-`pnpm run audit` 里的 `color-audit` 会按元素实测并报出违规用法（2026-10 曾抓到未解锁档内容、
-翻页方向、检索框 placeholder、以及我们自己的「无匹配」空态文案都落在装饰层 → 已全部提到 AA）。
-西文（JetBrains Mono / Public Sans）**自托管**至 `public/fonts/`，经 `@font-face` 引用、运行时零外网；
-刷新用 `pnpm run download:fonts`，缺文件由 `verify:fonts` 门禁（含 build:ci）。
-CJK 衬线（Noto Serif SC **500 单档**）**按站点字符集裁剪后自托管**至 `public/fonts/noto-serif-sc/`：
-`download:fonts:cjk` 把 Google 官方分片拉到 `.cache/cjk-raw/`（不入库），`subset:fonts:cjk`
-用 `scripts/build/charset.mjs` 采集的站内字符集逐片裁剪，产物才进 `public/`（内容寻址命名）。
-生成物 `noto-serif-sc.css` 勿手改；`verify:fonts:cjk` 门禁把守完整性 + **字符集覆盖**
-（字体能提供的字符必须全部已声明，缺一即字形混排）。
+- 区块头自身不画线：`.section-head` 没有上边线与标题延伸线；右侧英文标签是标题行的右端注记
+  （`margin-left: auto`），与标题之间用一条**点线**引导（`.leader`：`1px dotted`、`--ink-2` 72%、落在文字基线上）。
+  它是标题行内部的引导件，不是边界线。
+- 分隔由 `SectionMark`（inline SVG、`aria-hidden`、不占流）画在**上一区块与区块头之间空隙的中线**：一条 1px 雕刻
+  基线（中饰处断开、由珠点接住）+ 中轴菱形花芯 + 两侧对称 C 形单卷 + 卷草外各一枚小菱形珠 + 两端涡卷收头。
+  宽度 `clamp(200px, 32vw, 440px)`（短于版心、两侧留白，不回到全宽边框线），`vector-effect: non-scaling-stroke`
+  保证缩放不改发丝粗细。
+- **双色**：笔画取 `--ink-2` 65%（对纸底约 3:1，比表格发丝线亮一档、低于正文），只有中轴菱形与两枚珠点保留
+  `--amber` 72%——金色是站内**信号色**（区块编号 / 当前项 / 关键数字），整条线用金会把装饰抬到信号的重量。
+- 偏移取空隙的一半：详情页空隙是 `--space-section`（`--pad-section × 1.3`），首页「今日角色」之上用 hero 的
+  `--pad-section`。高对比度模式下整条花饰换实体 `CanvasText`；打印态用实色深琥珀（半透明落纸会淡到丢失）。
+- 引导线**只用点线**：连续实线在站内是内容结构（表格/盒/行/胶囊边），虚线已被「缺失/占位」语义占用
+  （图标缺失框、HollowImage 兜底）。理由与被否方案见 [0017](./docs/decisions/0017-block-header-single-rule.md)、
+  [0018](./docs/decisions/0018-section-divider-mark.md)、[0019](./docs/decisions/0019-title-leader-dotted.md)、
+  [0020](./docs/decisions/0020-section-mark-ornament.md)。
 
-> 📉 **分片裁剪（运维规则）**：官方分片按编码区切（单片 20-80KB，页面只用几十字），故裁剪后按
-> `CJK_TARGET_KB`（默认 5）细分。**字符集变化（新增数据/文案）后须重跑 `pnpm run fonts:cjk`**，
-> 否则新字回退系统字体。Google 现行分片是**静态实例（无 fvar 轴）——不要钉可变轴**
-> （harfbuzz 报 axis 不存在）。字体分片对首屏 LCP 的制约与测量口径见 [`QUALITY.md`](./QUALITY.md) §1。
->
-> 🌐 **语料随数据面语言走（2026-10）**：字符集采集面是**四项**——`public/data/**.json`、
-> `index.html`（剔注释）、`src/**.{ts,vue}`（剔注释）、`src/**.json`（界面文案表）；
-> 单一事实源与逐项计数见 `scripts/build/charset.mjs` 的 `collectCharset()`（`verbose: true` 会打印分段计数）。
-> 数据面一变四语，采集面里**数据那一段**从 3803 涨到 5401 码点（+1598：汉字 744、谚文 807、
-> 假名 32、其余标点/拉丁 15）——注意**新增的大头是谚文而非汉字**，而谚文不在 Noto Serif SC 字形集内。
-> 当前清单（`scripts/build/cjk-fonts-manifest.json`）`charsetSize = 5454`（含 HTML 与源码段），
-> 已按此重切：251 片 / 1218KB（源片 3093KB），`noto-serif-sc.css` gzip 12.3 → **14.7KB**（预算 40KB）。
-> **改采集面或数据面语言后必须重跑 `pnpm run fonts:cjk` 并提交新清单**——只加语言不重切，
-> 新字会静默回退系统字体（`verify:fonts:cjk` 会报覆盖缺口）。
-> **谚文（한글）不在 Noto Serif SC 的字形集里**，韩文正文按既有规则回退系统字体
-> （`verify:fonts:cjk` 的「字体本就不含」那一路，不是裁剪缺口）。
->
-> ⚠ **分片内部名会误导诊断**：CSS 交付里的 family 内部名固定为 `Noto Serif SC ExtraLight…`，
-> CDP `CSS.getPlatformFontsForNode` 报的就是它——**不代表实际渲染字重**（现行片 OS/2
-> usWeightClass=500）。判据与复跑脚本：`scripts/audits/font-weight-calibration.js`（基线 403=403）。
+### 详情页阅读宽度
 
-> 📱 **触屏交互细节**（2026-10，全站 base.css 一处收口）：
-> - **按压反馈**：`:active` 用 `filter: brightness(0.82)`（**不用 opacity**——`.reveal` 的显现
->   动画占用 opacity，叠加会互相打断）；不做 `@media (hover: none)` 分支，桌面点按同样应答，
->   交互语义统一且可自动化验证（`CSS.forcePseudoState` 强制 :active 后读 computed filter）。
-> - **默认点按高亮**关闭（`-webkit-tap-highlight-color: transparent`）——浏览器蓝色闪光与
->   「档案」视觉违和；前提是上一条自绘反馈已就位，否则触屏会失去全部点按反馈。
-> - `text-size-adjust: 100%`：关掉 iOS 横屏的文字自动放大（会打破既定排版比例）。
-> - 横向滚动容器（`.sn-list` 区块索引横条、以及任何横滑容器）加
->   `overscroll-behavior-x: contain`：滑到两端不再触发浏览器「后退」手势。
-> - **「还能横滑」如何表达**（窄屏吸顶横条）：轨道与出口分两层——`.sn-list` 才是滚动容器
->   （两端 `mask-image` 淡出），`.sn-scroll-btn` 是它的**兄弟**、绝对定位压在右端尾窗上。
->   按钮留在轨道外是必要的：留在轨道内就得靠 sticky + 让位，会挤走可用宽度并压住条目文字。
->   蒙版分「斜坡 + 全透明尾窗」两段，尾窗宽度须 ≥ 按钮宽度，否则文字会压在雪佛龙上
->   （`section-nav.js` 审计这一条）。两侧都只在确实还有内容时出现（`.at-start` / `.at-end`）。
+详情页内容胶囊在 `DetailPage` 内把 `--wrap-max` 覆写为 1120px（名录页仍用 1760px 满版心）；左侧区块导航读同一
+变量、随胶囊一起收。技能区块两栏固定为 480px 说明 + 弹性间隔 + 300px 账本贴胶囊右缘（间隔实测约 170px，
+账本右缘与分割线右端差 4px 行内边距）。账本**不要**放宽回 420px（中间留白被挤掉、行内跨度回到 420px），
+也**不要**改成左排紧凑（实测 374px 观感过挤）——两种都试过、均已否。
+
+### 墨色分层（契约）
+
+`--ink-2` 及更亮承载信息（对 bg-0/bg-1 ≥4.5:1，AA）；`--ink-3` 是**装饰层**（不承载信息、不要求 AA），只能用于
+纯序号、分隔符、占位字形，且应 `aria-hidden`。`pnpm run audit` 里的 `color-audit` 会按元素实测并报出违规用法。
+
+### 字体
+
+- 西文（JetBrains Mono / Public Sans）自托管到 `public/fonts/`，经 `@font-face` 引用、运行时零外网；刷新用
+  `download:fonts`，`verify:fonts` 门禁（build:ci 已挂）。
+- CJK 衬线 Noto Serif SC **500 单档**，按站点字符集裁剪后自托管到 `public/fonts/noto-serif-sc/`：
+  `download:fonts:cjk` 把 Google 官方分片拉到 `.cache/cjk-raw/`（不入库），`subset:fonts:cjk` 用
+  `scripts/build/charset.mjs` 采集的字符集逐片裁剪，产物才进 `public/`（内容寻址命名）。生成物
+  `noto-serif-sc.css` 勿手改；`verify:fonts:cjk` 守完整性 + **字符集覆盖**（字体能提供的字符必须全部已声明，
+  缺一即字形混排）。官方分片按编码区切、单片 20–80KB，故产物按 `CJK_TARGET_KB`（默认 5）细分；Google 现行分片是
+  **静态实例（无 fvar 轴）——不要钉可变轴**（harfbuzz 会报 axis 不存在）。字体对首屏 LCP 的制约见
+  [QUALITY.md](./QUALITY.md) §1。
+- 字符集采集面四项：`public/data/**.json`、`index.html`（剔注释）、`src/**.{ts,vue}`（剔注释）、
+  `src/**.json`（界面文案表）；单一事实源是 `charset.mjs` 的 `collectCharset()`。**语言或文案一变就必须重跑
+  `pnpm run fonts:cjk` 并提交新清单**，否则新字静默回退系统字体。当前字符集规模以
+  `scripts/build/cjk-fonts-manifest.json` 的 `charsetSize` 为准，本文不抄数值。
+- 韩文（한글）不在 Noto Serif SC 字形集内，按既有规则回退系统字体（`verify:fonts:cjk` 的「字体本就不含」那一路，
+  不是裁剪缺口）。
+- ⚠ 分片内部名会误导诊断：CSS 交付的 family 内部名固定为 `Noto Serif SC ExtraLight…`，CDP
+  `CSS.getPlatformFontsForNode` 报的就是它，**不代表实际字重**（现行片 OS/2 usWeightClass=500）。判据与复跑
+  脚本 `scripts/audits/font-weight-calibration.js`。
+
+### 触屏交互
+
+- **按压反馈**：`:active { filter: brightness(0.82) }`——**不用 opacity**（`.reveal` 的显现动画占用 opacity，
+  叠加会互相打断）；不做 `@media (hover: none)` 分支，桌面点按同样应答，交互语义统一且可自动化验证。
+- **关闭默认点按高亮**（`-webkit-tap-highlight-color: transparent`）——前提是上一条自绘反馈已就位，否则触屏失去
+  全部点按反馈。
+- `text-size-adjust: 100%`：关掉 iOS 横屏的文字自动放大（会打破既定排版比例）。
+- 横向滚动容器（`.sn-list` 等）加 `overscroll-behavior-x: contain`：滑到两端不触发浏览器「后退」手势。
+- **「还能横滑」如何表达**：`.sn-list` 才是滚动容器（两端 `mask-image` 淡出），`.sn-scroll-btn` 是它的兄弟、
+  绝对定位压在右端尾窗上。按钮留在轨道外是必要的：留在轨道内就得 sticky + 让位，会挤走可用宽度并压住条目文字。
+  蒙版分「斜坡 + 全透明尾窗」两段，尾窗宽度须 ≥ 按钮宽度，否则文字压在雪佛龙上（`section-nav.js` 审这一条）。
+  两侧都只在确实还有内容时出现（`.at-start` / `.at-end`）。

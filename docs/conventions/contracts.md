@@ -45,7 +45,8 @@ src/data/types.ts      ← 类型别名 + 对外 import 面（**只再导出，�
 | `base_property` / `rand_property` | 详情同名对象 → 名录的**展示子集**（`name` 中文名 + `value` Lv.1 值 + `format`） |
 | `effect_name` / `effect_desc` / `effect_refine` | 详情 `talents` → 音擎效果（通常取 1 阶） |
 
-其余字段**原样透传**，语义见 `schema.ts`；字段清单与表结构见 [`DATA_GUIDE.md`](../../DATA_GUIDE.md) §3。
+其余字段**原样透传**，语义见 `schema.ts`；名录字段与产出目录见 [`DATA_GUIDE.md`](../../DATA_GUIDE.md) §3，
+详情结构以 `schema.ts` 为准。
 
 ## 4. 契约变更 checklist
 
@@ -56,9 +57,9 @@ src/data/types.ts      ← 类型别名 + 对外 import 面（**只再导出，�
 - [ ] 富文本字段（含 `<color=#…>` / `<IconMap:…>`）在**展示层**经 `rich.ts`/`stripRichText`，
       契约层不做清洗。
 
-## 5. 渲染不变量（改首页两个组件前必读）
+## 5. 渲染不变量（改首页牌堆 / 详情 hero 前必读）
 
-这两条**读代码看不出来**，违反时不会报错，只会悄悄劣化观感或稳定性：
+这几条**读代码看不出来**，违反时不会报错，只会悄悄劣化观感或稳定性：
 
 - **hero 的版本位必须常驻渲染**（`HomeView` 的 `VER …` 槽位）：版本号未就绪时渲染占位
   `VER ···`，就绪后替换文本，**不得改成 `v-if` 条件渲染**。占位是首页 CLS 0.023 的唯一来源——
@@ -66,3 +67,20 @@ src/data/types.ts      ← 类型别名 + 对外 import 面（**只再导出，�
 - **装匣入场动的是 `.deck-figure`，不是 `<img>`**（`FeaturedDeck`）：`<img>` 自带逐图校准的
   内联 `transform`/`object-position`，动它会把取景一起翻掉（画面跳一格）；入场编排只允许改
   外层容器的 `transform`/`opacity`/`border-color`。
+- **详情页桌面 hero 的垂直预算就是「栏宽 / 2.8」的盒高**（`AgentHead`）：≥1200 视口下横幅画幅
+  定死（与取景校准同一比例），信息块（代号 + 名 + 稀有度/属性/职业图标 + 底部专属音擎注记）
+  必须一起收进盒内；`min-height: fit-content` 实测挡不住裁切。封面不再放档案编号行——纯编号
+  对识别没有增量，只占一行垂直预算；攻击类型归 `AgentDetailView` 的档案详情区块（01 档案详情）。
+  往 hero 里加内容或加行距前先量总高，超出时下缘会静默裁掉最后一行（专属音擎注记会最先贴底被裁）。
+- **翻转是成品镜像、取景参数不动**（`featured-pool.json` 的 `flipH`）：取景 transform 一律经
+  `cameraRect.framingTransform()` 生成，`scale` 与 `scaleX` 两个函数必须同时在场——牌堆起飞前变形在
+  `transform` 上过渡，手写单函数 transform 会退化成矩阵插值（旋转/压扁）；反过来 `/calibrate` 在翻转时
+  必须镜像全景与取景框，否则「校准所见即页面所见」不成立。
+- **等级滑条的滑钮尺寸只许写在 `.level-slider` 上**（`LevelSlider` 的 `--thumb-size`）：`.mark`
+  刻度位置用同一变量算行程（刻度中心 = 滑钮中心），一旦把变量改写在 `input.level-range` 上，
+  刻度仍按外层旧值定中心，触屏两端刻度会各偏半个差值（18px 时代实测偏 3.5px）。
+  触屏与桌面的差别只有两处：这枚变量与 input 的**透明内边距**——命中带 ≥24px 靠 padding 撑，
+  不靠把钮做大，所以缩钮不会缩小可拖区域（判据由 `reflow-spacing.js` 守）。
+- **钮的形状按轴的性质分**：连续轴（属性等级 / 精炼 / 邦布等级）用方钮，分段档（技能招式与核心技的
+  等级尺）用菱形，菱形是同一尺寸方钮的内接形（边长 × 0.7071，外接框仍等于 `--thumb-size`）——
+  **边长不得写成整钮尺寸**，旋转 45° 后外接框会涨到 1.41 倍，短轨道上直接变成一块压过发丝线的色块。
