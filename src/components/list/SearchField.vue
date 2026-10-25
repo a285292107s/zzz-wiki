@@ -74,6 +74,13 @@ const emit = defineEmits<{
     font-size: 16px;
   }
 }
+
+@media (max-width: 720px) {
+  .search {
+    min-height: 44px;
+  }
+}
+
 .count {
   font-size: var(--fs-caption);
   color: var(--ink-2);

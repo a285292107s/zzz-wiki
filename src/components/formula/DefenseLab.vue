@@ -328,6 +328,7 @@ function useScenario(s: (typeof SCENARIOS)[number]) {
   font-size: var(--fs-small);
   line-height: 1.8;
   color: var(--ink-1);
+  text-wrap: balance;
 }
 
 .verdict b {

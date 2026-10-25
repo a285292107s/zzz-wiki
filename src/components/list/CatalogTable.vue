@@ -178,7 +178,6 @@ function onHeadClick(c: CatalogColumn) {
 <style scoped>
 .cols-fixed {
   table-layout: fixed;
-  max-width: 1180px;
 }
 
 @media (min-width: 721px) {
@@ -254,6 +253,14 @@ th.sortable {
 
   .m-body {
     display: block;
+  }
+
+  .cols-fixed {
+    table-layout: auto;
+  }
+
+  .cols-fixed colgroup {
+    display: none;
   }
 
   /* 条目：一行两格（主体 | 稀有度），元信息格通栏跨两格 */

@@ -157,7 +157,9 @@ function fallbackIconSources(r: BangbooListItem): string[] {
 <style scoped>
 .toolbar {
   display: flex;
-  justify-content: flex-end;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-inline);
   margin-bottom: 20px;
 }
 

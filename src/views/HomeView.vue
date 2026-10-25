@@ -71,46 +71,35 @@ const sections = computed(() => [
 
 <template>
   <div class="home">
-    <!-- 首页 hero 壁纸：绳网情报站 wiki 首页 banner 同款全幅拼贴（tokens.css --home-bg-image）。
-         仅首页铺装，固定视口层不随页滚动（手法同 body::before）；内页仍为 --page-bg-image。 -->
     <div class="home-backdrop" aria-hidden="true" />
 
-    <!-- hero：文字陈列浮于壁纸之上；旧 Mindscape 头图已移除，双形态切换钮在设置页（/settings） -->
     <section class="hero" aria-labelledby="h-hero">
       <div class="wrap hero-inner">
         <div class="hero-text">
-          <p v-reveal="0" class="eyebrow mono" data-vt-block>NEW Eridu · Data Terminal</p>
-          <h1 id="h-hero" v-reveal="60" class="page-title" data-vt-block>
+          <h1 id="h-hero" v-reveal="0" class="page-title" data-vt-block>
             {{ t.meta.siteName }}
-            <!-- 拉丁文副行是**装饰**（中文站名的对照写法）；当站名本身就是这串拉丁文时
-                 （en "Ropeweb Archive"）会与主标题重复成「Ropeweb Archive / ROPWEB ARCHIVE」，
-                 故按值相等跳过，不按语言硬编码。 -->
             <span v-if="latinTitle" class="title-en">{{ latinTitle }}</span>
           </h1>
-          <p v-reveal="120" class="page-sub" data-vt-block>
+          <p v-reveal="60" class="page-sub" data-vt-block>
             {{ t.home.heroSub }}
           </p>
 
-          <div v-reveal="220" class="hero-meta mono" data-vt-block>
-            <span>{{ t.home.clientData }}</span>
-            <span class="dot" aria-hidden="true">·</span>
-            <span>{{ t.home.alwaysUpdated }}</span>
-            <span class="dot" aria-hidden="true">·</span>
-            <span>{{ t.home.unofficial }}</span>
-            <!-- 版本位常驻（清单到达前占位「VER ···」）：若改用 v-if 等清单到达再插入，
-                 窄屏这一行会从 1 行折成 2 行（+34px）并把下方整块推下去——实测即首页
-                 CLS 0.023 的全部来源。占位与真值同为「VER + 版本号」量级宽度，折行数不变。 -->
-            <span class="dot" aria-hidden="true">·</span>
-            <span class="hero-ver">{{ currentVersionLabel || 'VER ···' }}</span>
+          <div v-reveal="120" class="hero-meta mono" data-vt-block>
+            <span class="meta-pair">
+              <span>{{ t.home.clientData }}</span>
+              <span class="dot" aria-hidden="true">·</span>
+              <span>{{ t.home.alwaysUpdated }}</span>
+            </span>
+            <span class="dot meta-sep" aria-hidden="true">·</span>
+            <span class="meta-pair">
+              <span>{{ t.home.unofficial }}</span>
+              <span class="dot" aria-hidden="true">·</span>
+              <span class="hero-ver">{{ currentVersionLabel || 'VER ···' }}</span>
+            </span>
           </div>
         </div>
 
-        <!-- 档案规格板：宽屏时补上 hero 右侧的大片空白（实测 1920 下版心 1280、
-             hero 文字仅占左侧 ~450px，右侧 ~800px 是空的）。
-             内容是「档案该有的规格信息」而不是装饰——与数据说明页的「档案规格」同一语言，
-             角标沿用详情页 hero 的 ⌐ 框，形成跨页面的家族感。
-             **窄屏隐藏**：移动端首屏本就紧凑干净，不需要它，也避免拉长首屏。 -->
-        <aside v-reveal="280" class="hero-spec" :aria-label="t.home.spec" data-vt-block>
+        <aside v-reveal="180" class="hero-spec" :aria-label="t.home.spec" data-vt-block>
           <p class="hs-title mono">{{ t.home.spec }}</p>
           <dl class="hs-list">
             <div class="hs-row">
@@ -227,10 +216,6 @@ const sections = computed(() => [
   padding-bottom: var(--pad-section);
 }
 
-/* 宽屏两栏：文字陈列 + 档案规格板。
-   实测 1920 下版心 1280、hero 文字仅占左侧 ~450px，右侧 ~800px 是空白——
-   规格板把这块空白换成「档案该有的规格信息」。窄屏（<1080）保持单栏、规格板隐藏，
-   移动端首屏维持原样（紧凑、干净）。 */
 .hero-inner {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -245,16 +230,10 @@ const sections = computed(() => [
   }
 }
 
-/* 规格板：与数据说明页「档案规格」同一语言（细线行 + 等宽数字），
-   四角用详情页 hero 的 ⌐ 框，形成跨页面的家族感 */
 .hero-spec {
   display: none;
-  position: relative;
-  padding: 20px 22px 18px;
-  border: 1px solid var(--line-1);
-  border-radius: 2px;
-  /* 底色与数据说明页的「档案规格」盒同值（--bg-1）：hero 背后是全幅水印壁纸，
-     不填底色会让水印透进板面、行文读起来发噪 */
+  padding: var(--space-2) var(--space-col) var(--space-2) var(--space-col);
+  border-left: 1px solid var(--line-1);
   background: var(--bg-1);
 }
 
@@ -264,38 +243,14 @@ const sections = computed(() => [
   }
 }
 
-/* 角标：1px 短线，不抢内容（与 DetailHead 的 .plate 同语言） */
-.hero-spec::before,
-.hero-spec::after {
-  content: '';
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border-color: var(--line-2);
-  border-style: solid;
-}
-
-.hero-spec::before {
-  top: -1px;
-  left: -1px;
-  border-width: 1px 0 0 1px;
-}
-
-.hero-spec::after {
-  right: -1px;
-  bottom: -1px;
-  border-width: 0 1px 1px 0;
-}
-
 .hs-title {
-  font-size: var(--fs-nano);
-  letter-spacing: 0.22em;
-  color: var(--ink-2);
-  text-transform: uppercase;
+  font-size: var(--fs-micro);
+  letter-spacing: 0.16em;
+  color: var(--ink-1);
 }
 
 .hs-list {
-  margin: 12px 0 0;
+  margin: var(--space-2) 0 0;
 }
 
 .hs-row {
@@ -303,7 +258,7 @@ const sections = computed(() => [
   align-items: baseline;
   justify-content: space-between;
   gap: var(--space-inline);
-  padding: 8px 0;
+  padding: var(--space-1) 0;
   border-bottom: 1px solid var(--line-0);
 }
 
@@ -313,15 +268,18 @@ const sections = computed(() => [
 }
 
 .hs-row dt {
-  font-size: var(--fs-small);
-  color: var(--ink-1);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.12em;
+  color: var(--ink-2);
 }
 
 .hs-row dd {
   margin: 0;
-  font-size: var(--fs-small);
+  font-size: var(--fs-lead);
+  font-weight: 500;
   color: var(--ink-0);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
 }
 
 /* ---------- 今日角色（横向牌堆，见 components/home/FeaturedDeck.vue） ---------- */
@@ -329,6 +287,10 @@ const sections = computed(() => [
 .banners {
   /* 底部节奏复用 --space-section 标尺 */
   padding-bottom: var(--space-section);
+}
+
+.hero .page-title {
+  font-size: var(--fs-name);
 }
 
 .title-en {
@@ -339,19 +301,48 @@ const sections = computed(() => [
   letter-spacing: 0.34em;
   text-transform: uppercase;
   color: var(--ink-2);
-  margin-top: 18px;
+  margin-top: var(--space-head);
 }
 
 .hero-meta {
   margin-top: 32px;
   display: flex;
   align-items: center;
-  flex-wrap: wrap; /* 手机宽度不足时换行，避免挤出视口 */
-  row-gap: 10px;
-  gap: 14px;
+  flex-wrap: wrap;
+  column-gap: var(--space-inline);
+  row-gap: var(--space-1);
   font-size: var(--fs-caption);
   letter-spacing: 0.1em;
   color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.meta-pair {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-inline);
+  white-space: nowrap;
+}
+
+@media (max-width: 430px) {
+  .hero-meta {
+    display: grid;
+    row-gap: var(--space-1);
+  }
+
+  .meta-sep {
+    display: none;
+  }
+
+  html:not(:lang(zh)) .hero-meta .dot {
+    display: none;
+  }
+
+  html:not(:lang(zh)) .meta-pair {
+    flex-wrap: wrap;
+    white-space: normal;
+    row-gap: 2px;
+  }
 }
 
 .hero-meta .dot {
@@ -415,11 +406,12 @@ const sections = computed(() => [
 
 .idx {
   font-size: var(--fs-body);
-  color: var(--ink-3);
+  color: var(--ink-2);
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
   transition: color var(--t-fast) var(--ease);
 }
 
-/* hover 时编号点亮：档案检索的「抽中一档」暗号，与箭头位移同层回应 */
 .index-row:hover .idx {
   color: var(--amber);
 }

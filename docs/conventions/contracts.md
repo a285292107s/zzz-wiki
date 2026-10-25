@@ -55,3 +55,14 @@ src/data/types.ts      ← 类型别名 + 对外 import 面（**只再导出，�
 - [ ] `pnpm run verify:data` 通过；若改了产出，`pnpm run data` 后产出的 JSON 一并入库。
 - [ ] 富文本字段（含 `<color=#…>` / `<IconMap:…>`）在**展示层**经 `rich.ts`/`stripRichText`，
       契约层不做清洗。
+
+## 5. 渲染不变量（改首页两个组件前必读）
+
+这两条**读代码看不出来**，违反时不会报错，只会悄悄劣化观感或稳定性：
+
+- **hero 的版本位必须常驻渲染**（`HomeView` 的 `VER …` 槽位）：版本号未就绪时渲染占位
+  `VER ···`，就绪后替换文本，**不得改成 `v-if` 条件渲染**。占位是首页 CLS 0.023 的唯一来源——
+  条件渲染会让整行在数据到达时折行推版，把 CLS 从「几乎为零」推回可测量区间。
+- **装匣入场动的是 `.deck-figure`，不是 `<img>`**（`FeaturedDeck`）：`<img>` 自带逐图校准的
+  内联 `transform`/`object-position`，动它会把取景一起翻掉（画面跳一格）；入场编排只允许改
+  外层容器的 `transform`/`opacity`/`border-color`。

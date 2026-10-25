@@ -73,7 +73,7 @@ withDefaults(defineProps<{ tokens: Expr[]; size?: 'sm' | 'md' | 'lg' }>(), { siz
 
 .when {
   font-family: var(--sans);
-  color: var(--ink-2);
+  color: var(--ink-1);
   letter-spacing: 0.02em;
 }
 
@@ -86,7 +86,7 @@ withDefaults(defineProps<{ tokens: Expr[]; size?: 'sm' | 'md' | 'lg' }>(), { siz
 
 .paren {
   font-family: var(--mono);
-  color: var(--ink-2);
+  color: var(--ink-1);
 }
 
 .frac {

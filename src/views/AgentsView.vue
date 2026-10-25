@@ -229,6 +229,18 @@ const { sorted } = useCatalogSort(
   outline-offset: 2px;
 }
 
+@media (max-width: 860px) {
+  .toolbar-right {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .toolbar :deep(.search) {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+}
+
 /* ---------- 手机断点：工具栏两行（筛选 / 切换 + 检索），右缘与版心对齐 ---------- */
 @media (max-width: 720px) {
   .toolbar {
@@ -266,7 +278,8 @@ const { sorted } = useCatalogSort(
   }
 
   .view-btn {
-    padding: 7px 10px;
+    min-height: 44px;
+    padding: 7px 12px;
   }
 
   .toolbar :deep(.search) {

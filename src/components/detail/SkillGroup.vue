@@ -519,4 +519,14 @@ function potTag(grp: SkillGroup): string | null {
     padding-bottom: 10px;
   }
 }
+
+@media (max-width: 400px) {
+  .metric-table thead th {
+    overflow-wrap: anywhere;
+  }
+
+  html:not(:lang(zh)) .metric-table thead th {
+    font-size: var(--fs-nano);
+  }
+}
 </style>

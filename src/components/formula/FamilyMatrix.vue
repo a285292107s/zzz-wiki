@@ -136,6 +136,7 @@ const pivotNote = '贯穿伤害以「贯穿增伤区」取代「防御区」，�
   font-size: var(--fs-small);
   letter-spacing: 0.02em;
   color: var(--ink-1);
+  padding-block: 2px;
   border-bottom: 1px dotted var(--line-2);
   transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
 }

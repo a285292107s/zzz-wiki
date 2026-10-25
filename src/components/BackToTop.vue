@@ -87,11 +87,17 @@ onUnmounted(() => {
 }
 
 @media (max-width: 720px) {
+  .back-top .arrow {
+    font-size: var(--fs-lead);
+  }
+}
+
+@media (max-width: 720px) {
   .back-top {
-    right: 0;
+    right: 12px;
     bottom: 12px;
-    width: 24px;
-    height: 24px;
+    width: 44px;
+    height: 44px;
     padding: 0;
     justify-content: center;
   }

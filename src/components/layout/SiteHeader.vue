@@ -261,8 +261,8 @@ onBeforeUnmount(() => {
 }
 
 .brand-mark {
-  font-size: var(--fs-body);
-  letter-spacing: 0.22em;
+  font-size: var(--fs-lead);
+  letter-spacing: 0.2em;
   color: var(--ink-0);
   /* 站名同样不许断词（「新エリー都データターミ / ナル」实测）；见文末断点空间账 */
   white-space: nowrap;
@@ -420,7 +420,7 @@ onBeforeUnmount(() => {
 }
 
 .nav-item .label {
-  font-size: var(--fs-md);
+  font-size: var(--fs-small);
   letter-spacing: 0.06em;
   /* 标签是**不可断的单元**：换行会把「代理人」拆成「代理 / 人」、「Drive Discs」拆成
      「Drive / Discs」，读起来像两行两个词（实测截图）。宽度不够时该整排收进 ☰ 菜单，
@@ -451,6 +451,16 @@ html:not(:lang(zh)) .nav-item {
 
 html:not(:lang(zh)) .brand-mark {
   letter-spacing: 0.1em;
+}
+
+@media (max-width: 1499px) {
+  html:not(:lang(zh)) .nav {
+    gap: 0;
+  }
+
+  html:not(:lang(zh)) .nav-item {
+    padding: 8px 4px;
+  }
 }
 
 @media (hover: hover) {
@@ -620,11 +630,19 @@ html:not(:lang(zh)) .brand-mark {
   }
 }
 
-/* ≤359：上面那笔账在 320 档差 21（内容宽 280 装不下 301），唯一的出路是把品牌变窄。
-   英文副标题是纯装饰（中文站名已把话说尽），去掉后品牌 219→180，
-   加上菜单钮仍余 18px，品牌不再折行。 */
+@media (max-width: 389px) {
+  html:not(:lang(zh)) .brand-mark {
+    font-size: var(--fs-md);
+    letter-spacing: 0;
+  }
+}
+
 @media (max-width: 359px) {
   .brand-sub {
+    display: none;
+  }
+
+  html:not(:lang(zh)) .brand-logo {
     display: none;
   }
 }

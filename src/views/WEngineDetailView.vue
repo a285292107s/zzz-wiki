@@ -339,6 +339,7 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
   font-size: var(--fs-md);
   line-height: 1.9;
   white-space: pre-line;
+  text-wrap: balance;
 }
 
 /* 精炼效果名/正文：与 DescRow 的 talent 行同源排版（serif 名 + 13px/1.8 正文），
@@ -357,6 +358,7 @@ const backTo = computed(() => (detail.value ? undefined : '/w-engines'))
   font-size: var(--fs-small);
   line-height: 1.8;
   white-space: pre-line;
+  text-wrap: balance;
 }
 
 .empty {

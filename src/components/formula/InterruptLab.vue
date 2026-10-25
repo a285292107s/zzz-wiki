@@ -243,6 +243,7 @@ const breaks = computed(() => attackItem.value.level >= targetItem.value.level)
   font-size: var(--fs-small);
   line-height: 1.8;
   color: var(--ink-1);
+  text-wrap: balance;
 }
 
 .verdict b {

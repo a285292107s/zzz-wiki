@@ -231,6 +231,28 @@ const { version, updatedAt, versionLabel } = useDataVersion()
   margin-bottom: var(--pad-section);
 }
 
+@media (min-width: 900px) {
+  aside.notice {
+    max-width: none;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-content: start;
+    gap: var(--space-inline) clamp(28px, 4vw, 56px);
+    padding: 20px clamp(20px, 2.4vw, 28px) 22px;
+  }
+
+  aside.notice > p {
+    grid-column: 1;
+  }
+
+  aside.notice > .notice-list {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    padding-left: clamp(18px, 2.2vw, 26px);
+    border-left: 1px solid var(--line-0);
+  }
+}
+
 .notice-source {
   display: flex;
   flex-wrap: wrap;
@@ -250,6 +272,7 @@ const { version, updatedAt, versionLabel } = useDataVersion()
 
 .source-link {
   color: var(--ink-0);
+  padding-block: 2px;
   border-bottom: 1px solid var(--line-1);
   transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
 }
@@ -262,6 +285,7 @@ const { version, updatedAt, versionLabel } = useDataVersion()
 .source-note {
   color: var(--ink-2);
   font-size: var(--fs-caption);
+  text-wrap: balance;
 }
 
 .notice-ver {

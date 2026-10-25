@@ -299,7 +299,7 @@ function campIcon(row: CharacterListItem): string | null {
 
 .plate-meta > span + span::before {
   content: '·  ';
-  color: var(--line-2);
+  color: var(--ink-3);
 }
 
 @media (hover: hover) {
@@ -314,6 +314,15 @@ function campIcon(row: CharacterListItem): string | null {
   .card:hover .plate-camp {
     color: var(--amber-hi);
   }
+}
+
+.card:focus-visible .card-art {
+  border-color: var(--amber);
+}
+
+.card:focus-visible .plate-name,
+.card:focus-visible .plate-camp {
+  color: var(--amber-hi);
 }
 
 /* ---------- 骨架（加载态） ---------- */

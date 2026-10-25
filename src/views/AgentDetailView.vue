@@ -70,7 +70,7 @@ usePageMeta(
   // 加载中仍走路由 meta 的默认标题（不能提前显示「缺失」）
   () => detail.value?.name ?? (status.value === 'error' ? (isNotFound.value ? t.value.detail.missing : t.value.detail.loadFailed) : undefined),
   () => {
-    // profile computed 定义在本调用之后（TDZ），此处直接从 detail 取介绍摘要
+    // profileParas computed 定义在本调用之后（TDZ），此处直接从 detail 取介绍摘要
     const raw = detail.value?.partner_info?.profile_desc
     const p = raw ? stripRichText(raw) : ''
     // 站名取文案表（与三个同级详情页同一写法；原先此处写死「绳网档案」，
@@ -198,9 +198,13 @@ const hasImpressions = computed(
 
 /* ---------- 角色介绍（profile_desc 摘要；过长故独立成块） ---------- */
 
-const profile = computed(() => {
+const profileParas = computed<string[]>(() => {
   const t = detail.value?.partner_info?.profile_desc
-  return t ? stripRichText(t) : ''
+  if (!t) return []
+  return stripRichText(t)
+    .split(/\n+/)
+    .map((s) => s.trim())
+    .filter(Boolean)
 })
 
 /* ---------- 档案详情（护照式身份字段：全名/性别/生日/身高/阵营） ---------- */
@@ -239,7 +243,7 @@ const navItems = computed(() => {
   const add = (id: string, label: string, children?: DetailSectionChild[]) =>
     items.push({ id, no: String(++n).padStart(2, '0'), label, children })
   if (dossier.value.length) add('dossier', t.value.detail.profile)
-  if (profile.value) add('profile', t.value.detail.intro)
+  if (profileParas.value.length) add('profile', t.value.detail.intro)
   add('stats', t.value.detail.baseProps)
   if (skills.value.length) add('skills', t.value.detail.skills, skillChildren.value)
   if (coreSkill.value) add('core', t.value.detail.coreSkill)
@@ -299,8 +303,10 @@ watch(detail, (d) => {
         </dl>
       </DetailSection>
 
-      <DetailSection v-if="profile" v-reveal id="profile" :no="noOf('profile')" :title="t.detail.intro" en="Profile">
-        <p class="profile-desc">{{ profile }}</p>
+      <DetailSection v-if="profileParas.length" v-reveal id="profile" :no="noOf('profile')" :title="t.detail.intro" en="Profile">
+        <div class="profile-body">
+          <p v-for="(para, pi) in profileParas" :key="pi" class="profile-desc">{{ para }}</p>
+        </div>
       </DetailSection>
 
       <DetailSection v-reveal id="stats" :no="noOf('stats')" :title="t.detail.baseProps" en="Vitals">
@@ -485,7 +491,7 @@ watch(detail, (d) => {
    - 整篇持续双栏，不再切分为 lede/body，双栏结构不丢失
    - 不支持 initial-letter 的旧浏览器退化为 inline-block 放大（不 float） ---------- */
 
-.profile-desc {
+.profile-body {
   font-family: var(--serif);
   color: var(--ink-0);
   font-size: var(--fs-body);
@@ -495,17 +501,24 @@ watch(detail, (d) => {
   column-gap: 3em;
   column-rule: 1px solid var(--line-1);
   max-width: none;
-  white-space: pre-line;
   text-wrap: pretty;
-  orphans: 3;
-  widows: 3;
   /* 顶栏：琥珀发丝线接 DetailSection 标题，作编辑札记栏注 */
   padding-top: 22px;
   border-top: 1px solid var(--amber-dim);
 }
 
+.profile-desc {
+  text-indent: 2em;
+  orphans: 3;
+  widows: 3;
+}
+
+.profile-body > .profile-desc:first-child {
+  text-indent: 0;
+}
+
 /* 标准首字下沉：放大 2.2 倍视觉尺寸，向下沉 2 行，琥珀色 */
-.profile-desc::first-letter {
+.profile-body > .profile-desc:first-child::first-letter {
   font-family: inherit;
   color: var(--amber);
   font-weight: 500;
@@ -524,14 +537,14 @@ watch(detail, (d) => {
 
 /* 窄屏回落：双栏并单栏，字号略调，首字下沉缩小 */
 @media (max-width: 820px) {
-  .profile-desc {
+  .profile-body {
     column-count: 1;
     column-gap: 0;
     column-rule: none;
     font-size: var(--fs-md);
     line-height: 2;
   }
-  .profile-desc::first-letter {
+  .profile-body > .profile-desc:first-child::first-letter {
     initial-letter: 2.5 2;
     -webkit-initial-letter: 2.5 2;
   }

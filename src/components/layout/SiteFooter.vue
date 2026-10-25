@@ -1,17 +1,14 @@
 <template>
-  <!-- data-vt-hold：站尾与站头同属「终端外壳」（跨路由不重建），永不参与退场/入场编排 ——
-       见 utils/viewTransition/chrome.ts 的三条硬规则。 -->
   <footer class="foot" data-vt-hold>
     <div class="wrap foot-inner">
-      <div class="foot-side foot-info">
-        <p class="meta">
-          {{ t.footer.source }} <a href="https://zzz.nanoka.cc" target="_blank" rel="noopener">zzz.nanoka.cc</a>
-        </p>
-        <span class="sep" aria-hidden="true">/</span>
-        <p class="ver mono">{{ t.footer.dataVersion }} <span class="ver-key">{{ versionLabel('LIVE') || 'LIVE ···' }}</span></p>
-        <span class="sep" aria-hidden="true">/</span>
-        <p class="updated mono">{{ t.footer.updated }} · {{ updatedAt || '···' }}</p>
-        <span class="sep" aria-hidden="true">/</span>
+      <div class="foot-col">
+        <div class="foot-line">
+          <p class="meta">
+            {{ t.footer.source }} <a href="https://zzz.nanoka.cc" target="_blank" rel="noopener">zzz.nanoka.cc</a>
+          </p>
+          <p class="ver mono">{{ t.footer.dataVersion }} <span class="ver-key">{{ versionLabel('LIVE') || 'LIVE ···' }}</span></p>
+          <p class="updated mono">{{ t.footer.updated }} · {{ updatedAt || '···' }}</p>
+        </div>
         <p class="disclaimer">{{ t.footer.copyright }}</p>
       </div>
       <div class="foot-side foot-links">
@@ -37,16 +34,12 @@ import { useDataVersion } from '@/composables/useDataVersion'
 
 const { t } = useUiText()
 
-// 开发环境专属入口：仅 DEV 显示，且由 DEV_ROUTES 单一事实源派生（新增页自动出现）
 const isDev = IS_DEV
 
 const { updatedAt, versionLabel } = useDataVersion()
 </script>
 
 <style scoped>
-/* 线上方的留白与**自身内边距**（26px）取同一量级，发丝线才落在「页脚的开头」而不是
-   飘在远处；留白偏大时会与页脚底色连成一片，读起来像页脚头上顶着一块空地。
-   0.3 倍在桌面 ≈26px，窄屏 --pad-section 收到 40px 时只有 12px，故兜底 24px。 */
 .foot {
   border-top: var(--rule);
   margin-top: max(24px, calc(var(--pad-section) * 0.3));
@@ -54,12 +47,33 @@ const { updatedAt, versionLabel } = useDataVersion()
 
 .foot-inner {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  gap: var(--space-head);
-  padding-block: 26px;
+  gap: var(--space-group);
+  padding-block: var(--space-group);
   font-size: var(--fs-caption);
   color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.foot-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.foot-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: var(--space-group);
+  row-gap: var(--space-1);
+}
+
+.foot-line p {
+  margin: 0;
+  white-space: nowrap;
 }
 
 .foot a {
@@ -72,31 +86,24 @@ const { updatedAt, versionLabel } = useDataVersion()
 .foot-side {
   display: flex;
   align-items: center;
-  gap: 14px;
-}
-
-.sep {
-  color: var(--line-2);
-  font-size: var(--fs-micro);
-}
-
-.foot-info .meta,
-.updated,
-.ver,
-.disclaimer {
-  margin: 0;
+  gap: var(--space-head);
 }
 
 .updated,
 .disclaimer,
 .meta,
 .ver {
+  margin: 0;
   font-size: var(--fs-caption);
   letter-spacing: 0.04em;
   color: var(--ink-2);
 }
 
-/* 数据版本给一处极轻的强调：读者一眼能定位「这批数据是哪一版」 */
+.disclaimer {
+  max-width: 62ch;
+  text-wrap: balance;
+}
+
 .ver-key {
   color: var(--amber);
 }
@@ -113,20 +120,16 @@ const { updatedAt, versionLabel } = useDataVersion()
 .foot-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-1);
 }
 
-/* 站内常规入口：数据说明（出处）。
-   它不进站头导航——站头预算见 ADR 0004，页脚是它的落点。 */
 .foot-link {
   font-size: var(--fs-micro);
   letter-spacing: 0.16em;
   color: var(--ink-1);
   border-bottom: 1px solid var(--line-1);
-  /* 命中区补到 ≥24px（WCAG 2.5.8）：页脚导航链接不在句子里，不适用行内豁免。
-     加的是垂直内边距，下划线仍在文字下方，视觉几乎不变。 */
   display: inline-block;
-  padding: 3px 0;
+  padding: var(--space-1) 0;
 }
 
 .style-link:hover {
@@ -139,23 +142,17 @@ const { updatedAt, versionLabel } = useDataVersion()
   border-color: var(--amber);
 }
 
-@media (max-width: 720px) {
+@media (max-width: 899px) {
   .foot-inner {
     flex-direction: column;
     align-items: flex-start;
+    gap: var(--space-2);
   }
 
-  /* 出处三件横排会挤成「标签 / 值」两行：390px 下三列各只有 83/83/121px，
-     「数据更新 · 2026-10-07」与版权行都被折断，斜杠分隔符正好落在断行的夹缝里。
-     窄屏改为逐条成行 —— 三行各自单行放得下，分隔符（原本只为横排省空间）随之撤掉。 */
-  .foot-info {
+  .foot-line {
     flex-direction: column;
     align-items: flex-start;
-    gap: 6px;
-  }
-
-  .foot-info .sep {
-    display: none;
+    gap: var(--space-1);
   }
 }
 </style>

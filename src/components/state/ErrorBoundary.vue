@@ -67,10 +67,10 @@ onErrorCaptured((err, _instance, info) => {
   width: 100%;
   border: var(--rule);
   background: var(--bg-1);
-  padding: 32px 28px;
+  padding: var(--space-group);
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: var(--space-2);
 }
 
 .eb-eyebrow {
@@ -94,8 +94,8 @@ onErrorCaptured((err, _instance, info) => {
 
 .eb-actions {
   display: flex;
-  gap: 8px;
-  margin-top: 6px;
+  gap: var(--space-1);
+  margin-top: var(--space-1);
 }
 
 .eb-btn {
@@ -114,7 +114,7 @@ onErrorCaptured((err, _instance, info) => {
 }
 
 .eb-btn:hover {
-  opacity: 0.88;
+  filter: brightness(0.92);
 }
 
 .eb-btn-ghost {

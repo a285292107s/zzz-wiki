@@ -556,38 +556,24 @@ onBeforeUnmount(() => {
 /* ---------- 装裱 ---------- */
 
 .featured-deck {
-  /* 高度上限的单一来源：装裱宽度由它反推（× 2.36），取景框高度上限也用它。
-     改这里还要同步 useFeaturedAgents 的 DECK_MAX_WIDTH / deckSizes 与 hero-cards.mjs 的档宽。
-
-     44vh / 500px 是**为共享元素过渡定的**：陈列框若铺满版心（48vh 时 1680 宽下正好
-     1187 ≈ 栏宽 1198），详情页头图也是整栏宽 —— 两端几何几乎相同，飞行退化成一次纯交叉
-     溶解（实测 1680 下宽度倍率只有 1.009）。留一档「标本比封面小」的差距后，
-     各断点倍率稳定在 1.10～1.42，且纵向本就要飞行 250～350px。 */
   --deck-max-h: clamp(240px, 44vh, 500px);
+  --deck-portrait-h: clamp(360px, 68vh, 620px);
 }
 
-/* ---------- 入场「标本装匣」 ----------
-   一次编排、三拍：装裱线先亮 → 画落位（1.035 倍收回 + 下缘裁切收拢）→ 标本签与刻度逐条写就。
-   类只在首次入画后挂 1.5s，序列结束即摘（**终态=常态**，摘掉无缝接回；
-   故换卡时那套轻淡入不会被它抢走）。全部只动 transform/opacity/border-color：不触发布局、零 CLS。 */
 .featured-deck.is-mounting .deck-frame {
-  animation: deck-frame-in 560ms var(--ease) both;
+  animation: deck-frame-in 460ms var(--ease) both;
 }
 
 .featured-deck.is-mounting .deck-figure {
-  /* 动的是 .deck-figure 而非 <img>：img 身上有逐图校准的内联 transform，不能碰。
-     只走 transform/opacity（合成器可承担）；不用 clip-path —— 它每帧都要重绘
-     1168×500 那一层，是这套编排里唯一会拖帧的属性。 */
-  animation: deck-plate-in 760ms var(--ease) 60ms both;
+  animation: deck-plate-in 480ms var(--ease) 60ms both;
 }
 
 .featured-deck.is-mounting .deck-meta {
-  animation: deck-meta-in 460ms var(--ease) 240ms both;
+  animation: deck-meta-in 420ms var(--ease) 240ms both;
 }
 
-/* 标本签四件与刻度错峰：读起来像「一条条写上去」，而不是整块浮现 */
 .featured-deck.is-mounting .deck-label > * {
-  animation: deck-piece-in 420ms var(--ease) both;
+  animation: deck-piece-in 400ms var(--ease) both;
 }
 
 .featured-deck.is-mounting .deck-label > :nth-child(1) {
@@ -607,7 +593,7 @@ onBeforeUnmount(() => {
 }
 
 .featured-deck.is-mounting .deck-count {
-  animation: deck-piece-in 420ms var(--ease) 380ms both;
+  animation: deck-piece-in 400ms var(--ease) 380ms both;
 }
 
 .featured-deck.is-mounting .deck-tick::before {
@@ -631,8 +617,6 @@ onBeforeUnmount(() => {
   animation-delay: 590ms;
 }
 
-/* 生日飘带最后落笔：带子 500 → 920ms；字再晚 120ms（620 + 300 = 920ms，与带子同拍收尾）——
-   读起来是「带子先挂上去、字随后写就」，两者都赶在摘类（1200ms）之前 */
 .featured-deck.is-mounting .deck-ribbon {
   animation: deck-ribbon-in 420ms var(--ease) 500ms both;
 }
@@ -703,14 +687,19 @@ onBeforeUnmount(() => {
 }
 
 .deck-frame {
-  /* 宽度 = min(栏宽, 高度上限 × 2.36)：大屏居中陈列（不留单侧空档），
-     2.36 构图始终成立（铺满栏宽会把它压成 2.7:1 → 上下被裁） */
   width: min(100%, calc(var(--deck-max-h) * 2.36));
   margin: 0 auto;
   border: 1px solid var(--line-1);
   border-radius: 2px;
   background: var(--bg-0);
-  overflow: hidden; /* 标本签与立绘共用圆角 */
+  overflow: hidden;
+  transition: border-color var(--t-fast) var(--ease);
+}
+
+@media (hover: hover) {
+  .featured-deck:has(.deck-item:hover) .deck-frame {
+    border-color: var(--line-2);
+  }
 }
 
 /* ---------- 共享元素（首页卡 → 代理人详情页头图） ----------
@@ -870,6 +859,12 @@ onBeforeUnmount(() => {
   height: 100%;
   overflow: hidden;
   background: var(--bg-1);
+  cursor: pointer;
+}
+
+.deck-item:active,
+.deck-viewport.is-dragging .deck-item {
+  cursor: grabbing;
 }
 
 .deck-figure {
@@ -1066,19 +1061,14 @@ onBeforeUnmount(() => {
 }
 
 @media (hover: hover) {
-  /* 悬停：细线转亮琥珀（当前刻度本就是琥珀底，故用更亮的 amber-hi，悬停仍有可见反馈） */
   .deck-tick:hover::before {
     border-color: var(--amber-hi);
   }
 }
 
-/* ---------- 手机（≤860） ---------- */
-
 @media (max-width: 860px) {
-  /* 竖幅：横框只露一条横带，底部信息条还会压掉近一半画面。同一套 pos/zoom/originY
-     （本就是为竖框校准的）在 4:5 竖框里收进更多角色本体，纵向取景与桌面一致。 */
   .deck-frame {
-    width: 100%;
+    width: min(100%, calc(var(--deck-portrait-h) * 0.8));
   }
 
   .deck-viewport {
@@ -1086,7 +1076,6 @@ onBeforeUnmount(() => {
     max-height: none;
   }
 
-  /* 信息条转两行：名字独占一行，座次与刻度一行（两者分开到两端，拇指够得着） */
   .deck-meta {
     flex-wrap: wrap;
     gap: 4px;
@@ -1098,9 +1087,6 @@ onBeforeUnmount(() => {
     flex-basis: 100%;
   }
 
-  /* 标本签内部同样分行：编号 + 属性留在首行，中英名各占一行。
-     四项挤在 nowrap 的一行里时，324px 中 24px 的中文名只分到 159px ——
-     「奥菲丝&「鬼火」」被断成「奥菲丝&「鬼」/「火」」，英文名也断成两行。 */
   .deck-label {
     flex-wrap: wrap;
     row-gap: 2px;

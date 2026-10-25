@@ -106,17 +106,17 @@ function specNoteOf(r: WEngineListItem): string {
       :empty="status === 'success' && !data?.length"
     >
       <template #skeleton>
-        <CardGrid :items="[]" skeleton class="wengine-grid" min-column="min(360px, 100%)">
+        <CardGrid :items="[]" skeleton class="wengine-grid" min-column="min(300px, 100%)">
           <template #skeleton>
             <span class="bar sk-art" />
             <span class="bar sk-name" />
             <span class="bar sk-meta" />
-            <span class="bar sk-line" />
-            <span class="bar sk-line" />
-            <span class="bar sk-line short" />
-            <span class="bar sk-line" />
-            <span class="bar sk-line" />
-            <span class="bar sk-line short" />
+            <span class="bar sk-line sk-prop" />
+            <span class="bar sk-line sk-prop" />
+            <span class="bar sk-line sk-fx" />
+            <span class="bar sk-line sk-fx" />
+            <span class="bar sk-line sk-fx" />
+            <span class="bar sk-line sk-fx short" />
           </template>
         </CardGrid>
       </template>
@@ -126,7 +126,7 @@ function specNoteOf(r: WEngineListItem): string {
         class="wengine-grid"
         :items="sorted"
         :key-of="(r) => r.Id"
-        min-column="min(360px, 100%)"
+        min-column="min(300px, 100%)"
         :empty-text="t.noMatch.wengines"
         :show-clear="hasActiveFilter"
         @clear="reset"
@@ -181,7 +181,7 @@ function specNoteOf(r: WEngineListItem): string {
             </dl>
           </CardBlock>
 
-          <CardBlock v-if="r.effect_desc" :label="t.list.wengineEffect">
+          <CardBlock v-if="r.effect_desc" class="effect-block" :label="t.list.wengineEffect">
             <template #note>{{
               r.effect_refine ? fmt(t.detail.refineRank, { n: r.effect_refine }) : ''
             }}</template>
@@ -316,9 +316,17 @@ function specNoteOf(r: WEngineListItem): string {
     gap: 8px;
   }
 
-  .wengine-grid :deep(.card-block),
-  .wengine-grid :deep(.sk-line) {
+  .wengine-grid :deep(.effect-block),
+  .wengine-grid :deep(.sk-fx) {
     display: none;
+  }
+
+  .wengine-grid :deep(.card-block) {
+    padding-top: 8px;
+  }
+
+  .wengine-grid :deep(.block-body) {
+    margin-top: 4px;
   }
 
   .wengine-grid :deep(.skel) {
@@ -327,6 +335,22 @@ function specNoteOf(r: WEngineListItem): string {
 
   .card-link {
     gap: 8px;
+  }
+
+  .wengine-grid :deep(.spec) {
+    gap: var(--space-1);
+  }
+
+  .wengine-grid :deep(.spec-k) {
+    font-size: var(--fs-micro);
+  }
+
+  .wengine-grid :deep(.spec-v) {
+    font-size: var(--fs-caption);
+  }
+
+  .wengine-grid :deep(.leader) {
+    min-width: 0;
   }
 }
 

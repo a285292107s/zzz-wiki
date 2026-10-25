@@ -83,6 +83,7 @@ const { sorted } = useCatalogSort(
 
       <CardGrid
         v-reveal="160"
+        class="disk-grid"
         :items="sorted"
         :key-of="(d) => d.Id"
         :empty-text="t.noMatch.disks"
@@ -121,5 +122,15 @@ const { sorted } = useCatalogSort(
   align-items: center;
   gap: var(--space-inline);
   margin-bottom: 20px;
+}
+
+.disk-grid :deep(.card) {
+  position: relative;
+}
+
+.disk-grid :deep(.name-cell)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
 }
 </style>

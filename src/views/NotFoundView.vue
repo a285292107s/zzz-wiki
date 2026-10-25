@@ -23,9 +23,17 @@ usePageMeta()
 
 <style scoped>
 .page {
-  padding-top: calc(var(--pad-section) * 1.4);
+  min-height: 60dvh;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  padding-block: calc(var(--pad-section) * 1.1);
+}
+@media (min-width: 861px) {
+  .page {
+    min-height: 72dvh;
+  }
 }
 .err {
   text-align: center;

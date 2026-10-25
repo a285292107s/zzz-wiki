@@ -226,6 +226,10 @@ const glyphOf = (slot: SkillSlotKey) => SKILL_KEYS[slot]?.glyph ?? '—'
 }
 
 .strip-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 0 16px 20px;
 }
 

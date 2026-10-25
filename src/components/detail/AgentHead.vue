@@ -171,12 +171,15 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() => {
     </span>
 
     <div class="file-row" data-vt-block>
-      <p class="eyebrow">AGENT FILE · NO.{{ String(detail.id ?? '').padStart(4, '0') }}</p>
+      <p class="eyebrow">
+        <span>Agent File</span>
+        <span class="file-no mono">No.{{ String(detail.id ?? '').padStart(4, '0') }}</span>
+      </p>
     </div>
 
     <div class="main" data-vt-block>
       <div class="id-block">
-        <p v-if="codeName" class="ghost mono">{{ codeName }}</p>
+        <p v-if="codeName" class="ghost mono" aria-hidden="true">{{ codeName }}</p>
         <h1 class="page-title">{{ detail.name ?? '—' }}</h1>
         <div class="meta">
           <!-- 稀有度置于标签组首位：与属性/职业并列，避免档案行右侧孤悬 -->
@@ -309,7 +312,21 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() => {
   display: flex;
   align-items: center;
   /* 与下方详情区版心同对齐；顶留一份呼吸空间，配合四角定位标内框 */
-  padding: 18px var(--pad-page) 15px;
+  padding: 26px var(--pad-page) 15px;
+}
+
+.file-row .eyebrow {
+  gap: 9px;
+  padding: 5px 11px 5px 9px;
+  border: 1px solid color-mix(in srgb, var(--line-2) 84%, transparent);
+  border-radius: 2px;
+  background: var(--scrim-4);
+  color: var(--ink-1);
+}
+
+.file-no {
+  color: var(--amber);
+  letter-spacing: 0.18em;
 }
 
 /* ---------- 主体：沉底单栏，置于暗面保障可读 ---------- */
@@ -429,6 +446,14 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() => {
   .file-row {
     order: -1;
     padding: 14px 0 10px;
+  }
+
+  .file-row .eyebrow {
+    gap: 8px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--ink-2);
   }
 
   /* 信息块：正常文档流，落在图下；不再 margin:auto 居中、不再吃 max-width:76ch */

@@ -102,6 +102,13 @@ const { t } = useUiText()
   flex-direction: column;
   gap: var(--space-inline);
   min-width: 0;
+  transition: background-color var(--t-fast) var(--ease);
+}
+
+@media (hover: hover) {
+  .card:hover {
+    background: var(--bg-3);
+  }
 }
 
 /* ---------- 骨架（加载态） ---------- */

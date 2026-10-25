@@ -27,7 +27,8 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-feature-settings: 'kern' 1, 'liga' 1;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'tnum' 1;
+  font-variant-numeric: tabular-nums;
 }
 
 /* ---------- 移动端细节（触屏反馈 / 文字放大 / 滚动边界） ---------- */
@@ -48,6 +49,7 @@ a:active,
 button:active,
 [role='button']:active {
   filter: brightness(0.82);
+  translate: 0 1px;
 }
 
 a,
@@ -108,22 +110,19 @@ body::before {
 }
 
 /* 胶囊末端收口**只画一次**。
-   上面那条是胶囊自己的收边线；而名录表末行、卡片栅格底边也各画一条，两条相邻相叠 ——
+   上面那条是胶囊自己的收边线；而名录表末行也画一条，两条相邻相叠 ——
    实测叠成 2px，而胶囊顶缘（站头 border-bottom）只有 1px：同一个容器上下缘就差了一倍的重量。
-   故末端恰好是这两类内容时，撤掉它们自己的那条（收边归胶囊）。
-   `:last-child` 两级是为了容下「栅格外还套一层 .card-grid-wrap」的情形；
-   只对**正好落在胶囊底**的内容生效 —— 表格/栅格后面还有东西时，它仍需要自己的收口线。 */
+   故末端恰好是表格时，撤掉它自己的那条（收边归胶囊）。
+   `:last-child` 两级是为了容下「外面还套一层容器」的情形；
+   只对**正好落在胶囊底**的内容生效 —— 表格后面还有东西时，它仍需要自己的收口线。 */
 .wrap.page > .hairline-table:last-child > tbody > tr:last-child > :is(td, th),
 .wrap.page > :last-child > .hairline-table:last-child > tbody > tr:last-child > :is(td, th) {
   border-bottom: none;
 }
 
-/* 卡片栅格（音擎/驱动盘）的框线画在**格子**上（见 CardGrid.vue），它的下边线因此不再是
-   栅格自己的边，撤不掉 —— 与胶囊收边线相邻会叠成 2px。故把栅格上提 1px，让格子的下边线
-   与胶囊的收边线落在**同一像素行**（同样只画一次；空位区下沿只剩胶囊那条，仍是 1px）。 */
-.wrap.page > .card-grid:last-child,
-.wrap.page > :last-child > .card-grid:last-child {
-  margin-bottom: -1px;
+.wrap.page > .card-grid-wrap:last-child,
+.wrap.page > :last-child > .card-grid-wrap:last-child {
+  padding-bottom: calc(var(--pad-section) * 0.4);
 }
 
 /* 移动端堆叠条目（CatalogTable）的收口线画在**条目**（tr）上而不是格（td）上——
@@ -360,13 +359,23 @@ a.rich-term:hover {
   line-height: 1.12;
   letter-spacing: 0.01em;
   color: var(--ink-0);
+  text-wrap: balance;
 }
 
 .page-sub {
   color: var(--ink-1);
-  font-size: var(--fs-md);
-  max-width: 60ch;
-  margin-top: 14px;
+  font-size: var(--fs-subhead);
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  max-width: 38em;
+  margin-top: var(--space-2);
+}
+
+@media (max-width: 720px) {
+  .page-sub {
+    font-size: var(--fs-md);
+    line-height: 1.7;
+  }
 }
 
 /* ---------- 正文断行均衡（CJK 行尾孤字治理） ----------
@@ -412,6 +421,7 @@ a.rich-term:hover {
 .card-lines li,
 .fact dd,
 .lab-lead,
+.verdict,
 .verdict p,
 .verdict-note,
 .foot-note,
@@ -431,8 +441,8 @@ a.rich-term:hover {
   align-items: baseline;
   gap: var(--space-head);
   border-top: var(--rule);
-  padding-top: 14px;
-  margin-bottom: 28px;
+  padding-top: var(--space-2);
+  margin-bottom: var(--space-head-body);
 }
 
 .section-head .no {
@@ -445,10 +455,11 @@ a.rich-term:hover {
 .section-head h2 {
   font-family: var(--serif);
   font-weight: 500;
-  font-size: var(--fs-title);
+  font-size: var(--fs-hero);
+  line-height: 1.15;
   letter-spacing: 0.02em;
+  text-wrap: balance;
 }
-
 /* 右端英文标签：延伸线的**收尾锚点**，不是可选装饰。
    延伸线（.rule）的职责是把标题与这个标签连起来；缺了标签，它就与上方那条基线
    （本元素的 border-top）变成两条几乎等长、同为 --line-1 的平行线 ——
@@ -456,8 +467,8 @@ a.rich-term:hover {
    词表与既有 20 个标签同调：单词、Title Case（Dossier / Vitals / Outfits / Matrix…）。 */
 .section-head .en {
   font-family: var(--mono);
-  font-size: var(--fs-micro);
-  letter-spacing: 0.2em;
+  font-size: var(--fs-nano);
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--ink-2);
 }

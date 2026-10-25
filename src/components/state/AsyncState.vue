@@ -91,7 +91,7 @@ const errorHint = computed(() => {
 .state {
   font-size: var(--fs-caption);
   letter-spacing: 0.2em;
-  padding: 40px 0;
+  padding-block: var(--space-group);
 }
 .loading,
 .empty {
