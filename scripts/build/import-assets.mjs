@@ -53,6 +53,12 @@ const SOURCE_OVERRIDES = {
     IconRupture: 'ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/Role/IconClass/Packer/IconRupture.png',
     IconAttack: 'ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/Role/IconClass/Packer/IconAttack.png',
     IconArmorer: 'ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/Role/IconClass/Packer/IconArmorer.png',
+    IconRoleSSmall: 'ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/IconRoleRarity/Packer/IconRoleSSmall.png',
+    IconRoleASmall: 'ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/IconRoleRarity/Packer/IconRoleASmall.png',
+    IconRoleBSmall: 'ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/IconRoleRarity/Packer/IconRoleBSmall.png',
+    IconFrost: 'ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconFrost.png',
+    IconAuricInk: 'ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconAuricInk.png',
+    IconHonedEdge: 'ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconHonedEdge.png',
   },
   weapon: {
     Weapon_S_1581: 'ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/IconWeapon/UnPacker/Weapon_S_1581.png',

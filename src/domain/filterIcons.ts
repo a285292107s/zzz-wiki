@@ -1,11 +1,13 @@
 /* ============================================================
- * 筛选图标映射 — 元素/职业/阵营 code → 本地素材（DESIGN.md 扩展）。
+ * filterIcons — 界面小图标映射：属性/职业/阵营/稀有度/特殊属性 code → 本地素材。
  * 命名规则：属性 Icon{English}（IconPhysical/Fire/Ice/Electric/Wind/Ether）
  *          职业 Icon{English}（IconAttack/Stun/Anomaly/Support/Defense/Rupture/Armorer）
  *          阵营 IconCamp{English}（参考 zzz.nanoka.cc 阵营筛选，命名一致）
+ *          稀有度 IconRole{Tier}Small（Tier = S/A/B）
+ *          特殊属性 Icon{English}（仅带 special_element_type 的角色启用，如 烈霜→IconFrost）
  * 资产清单单一事实源：src/data/filter-assets.json（构建期 icon-inventory.mjs
- * 读同一份下载到 /data/img/filter/；运行时零外部请求）。
- * 无专用图的（实测 404 / 未收录）不进清单，返回 null，前端用 SVG 占位：
+ * 读同一份下载/导入到 /data/img/filter/；运行时零外部请求）。
+ * 无专用图的（实测 404 / 未收录）不进清单，返回 null，前端用文字或 SVG 占位：
  *   300 流明 → 已补图（IconLumen，解包 IconBuff_Lumiflux）
  *   7   锋御 → 已补图（IconArmorer，解包 Role/IconClass）
  *   15  法厄同 → 已补图（IconCampPhaethon，解包同名）
@@ -17,25 +19,31 @@
 import raw from '../data/filter-assets.json'
 import type { AttrCode, SpecCode } from './enums'
 
-/** 本地筛选图标根（构建期 icon-inventory.mjs 落地） */
+/** 本地小图标根（构建期 icon-inventory.mjs 落地） */
 const LOCAL_IMG = `${import.meta.env.BASE_URL ?? '/'}data/img/filter`
 
-/** 有真实素材图的属性（键为数字码字符串）；其余返回 null → SVG 占位 */
+/** 有真实素材图的属性（键为数字码字符串）；其余返回 null → 文字占位 */
 export const ELEMENT_ICONS = raw.elements as Partial<Record<AttrCode, string>>
 
-/** 有真实素材图的职业（1-7 全量）；新增职业若无素材返回 null → SVG 占位 */
+/** 有真实素材图的职业（1-7 全量）；新增职业若无素材返回 null → 文字占位 */
 export const PROFESSION_ICONS = raw.professions as Partial<Record<SpecCode, string>>
 
 /** 有真实素材图的阵营；新阵营 16 暂无 → SVG 占位 */
 export const CAMP_ICONS = raw.camps as Partial<Record<number, string>>
 
-/** 元素 code → 本地图标 URL；无真实图返回 null（调用方显示 SVG 占位）。 */
+/** 有真实素材图的稀有度档（B/A/S）；无则返回 null → 文字占位 */
+export const RARITY_ICONS = raw.rarities as Partial<Record<number, string>>
+
+/** 有真实素材图的特殊属性（键为基础属性码，仅在角色带 special_element_type 时启用） */
+export const SPECIAL_ELEMENT_ICONS = raw.specialElements as Partial<Record<AttrCode, string>>
+
+/** 元素 code → 本地图标 URL；无真实图返回 null（调用方显示文字/SVG 占位）。 */
 export function elementIconUrl(code: AttrCode): string | null {
   const asset = ELEMENT_ICONS[code]
   return asset ? `${LOCAL_IMG}/${asset}.webp` : null
 }
 
-/** 职业 code → 本地图标 URL；无真实图返回 null（调用方显示 SVG 占位）。 */
+/** 职业 code → 本地图标 URL；无真实图返回 null（调用方显示文字/SVG 占位）。 */
 export function professionIconUrl(code: SpecCode): string | null {
   const asset = PROFESSION_ICONS[code]
   return asset ? `${LOCAL_IMG}/${asset}.webp` : null
@@ -44,5 +52,17 @@ export function professionIconUrl(code: SpecCode): string | null {
 /** 阵营 code → 本地图标 URL；无真实图返回 null（调用方显示 SVG 占位）。 */
 export function campIconUrl(code: number): string | null {
   const asset = CAMP_ICONS[code]
+  return asset ? `${LOCAL_IMG}/${asset}.webp` : null
+}
+
+/** 稀有度 rank → 本地图标 URL；无真实图返回 null（调用方显示档位文字）。 */
+export function rarityIconUrl(rank: number): string | null {
+  const asset = RARITY_ICONS[rank]
+  return asset ? `${LOCAL_IMG}/${asset}.webp` : null
+}
+
+/** 基础属性 code → 该属性专属特殊属性图标（如 202→烈霜）；无则返回 null。 */
+export function specialElementIconUrl(code: AttrCode): string | null {
+  const asset = SPECIAL_ELEMENT_ICONS[code]
   return asset ? `${LOCAL_IMG}/${asset}.webp` : null
 }

@@ -1,5 +1,5 @@
 {
-  "_comment": "筛选图标（属性/职业/阵营）code → 资产名单一事实源。前端 src/domain/filterIcons.ts 由此派生映射；构建期 scripts/build/icon-inventory.mjs 读取 values 作为下载清单（落地 /data/img/filter/）。新增图标只改本文件。",
+  "_comment": "界面小图标（属性/职业/阵营/稀有度/特殊属性）code → 资产名单一事实源。前端 src/domain/filterIcons.ts 由此派生映射；构建期 scripts/build/icon-inventory.mjs 读取 values 作为下载清单（落地 /data/img/filter/）。新增图标只改本文件。rarities 的键是稀有度 rank（4=S / 3=A / 2=B）；specialElements 的键是**基础属性码**，只在角色带 special_element_type 时启用（202 冰→烈霜、205 以太→玄墨、200 物理→凛刃）。",
   "elements": {
     "200": "IconPhysical",
     "201": "IconFire",
@@ -17,6 +17,16 @@
     "5": "IconDefense",
     "6": "IconRupture",
     "7": "IconArmorer"
+  },
+  "rarities": {
+    "2": "IconRoleBSmall",
+    "3": "IconRoleASmall",
+    "4": "IconRoleSSmall"
+  },
+  "specialElements": {
+    "200": "IconHonedEdge",
+    "202": "IconFrost",
+    "205": "IconAuricInk"
   },
   "camps": {
     "1": "IconCampGentleHouse",

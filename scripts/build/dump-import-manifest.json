@@ -548,6 +548,12 @@
   "src": "ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/Role/IconClass/Packer/IconAttack.png",
   "bytes": 5608
  },
+ "IconAuricInk": {
+  "cat": "filter",
+  "src": "ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconAuricInk.png",
+  "bytes": 3199,
+  "rule": "q92|e0|t0"
+ },
  "IconCampAngelsOfDelusion": {
   "cat": "filter",
   "src": "ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/IconRoleCamp/UnPacker/IconCampAngelsOfDelusion.png",
@@ -637,6 +643,18 @@
   "cat": "filter",
   "src": "ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconFire.png",
   "bytes": 2337
+ },
+ "IconFrost": {
+  "cat": "filter",
+  "src": "ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconFrost.png",
+  "bytes": 2886,
+  "rule": "q92|e0|t0"
+ },
+ "IconHonedEdge": {
+  "cat": "filter",
+  "src": "ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/IconGeneralBuff/Packer/IconHonedEdge.png",
+  "bytes": 3427,
+  "rule": "q92|e0|t0"
  },
  "IconIce": {
   "cat": "filter",
@@ -1098,6 +1116,18 @@
   "src": "ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/IconRole/UnPacker/IconRole68.png",
   "bytes": 1494447
  },
+ "IconRoleASmall": {
+  "cat": "filter",
+  "src": "ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/IconRoleRarity/Packer/IconRoleASmall.png",
+  "bytes": 2370,
+  "rule": "q92|e0|t0"
+ },
+ "IconRoleBSmall": {
+  "cat": "filter",
+  "src": "ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/IconRoleRarity/Packer/IconRoleBSmall.png",
+  "bytes": 2412,
+  "rule": "q92|e0|t0"
+ },
  "IconRoleCircle01": {
   "cat": "character",
   "src": "ui/Assets/NapResources/UI/Menus/Dialog/General/IconRoleCircle01.png",
@@ -1412,6 +1442,12 @@
   "cat": "character",
   "src": "ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/IconRoleGeneral/UnPacker/IconRoleGeneral68.png",
   "bytes": 15864
+ },
+ "IconRoleSSmall": {
+  "cat": "filter",
+  "src": "ui/Assets/NapResources/UI/Sprite/A1DynamicLoad/IconRoleRarity/Packer/IconRoleSSmall.png",
+  "bytes": 2596,
+  "rule": "q92|e0|t0"
  },
  "IconRupture": {
   "cat": "filter",
