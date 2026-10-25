@@ -113,10 +113,11 @@ function onChange(e: Event) {
   min-width: 0;
 }
 
-/* 粗指针（触屏）：拇指放大到 18px——桌面保持 11px 的细巧，触屏给足可抓面积 */
 @media (pointer: coarse) {
+  .level-slider {
+    --thumb-size: 13px;
+  }
   .level-range {
-    --thumb-size: 18px;
     padding: 14px 0;
   }
 }
@@ -215,12 +216,11 @@ function onChange(e: Event) {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 11px;
-  height: 11px;
-  transform: translate(-50%, -50%);
+  width: calc(var(--thumb-size) * 0.7071);
+  height: calc(var(--thumb-size) * 0.7071);
+  transform: translate(-50%, -50%) rotate(45deg);
   background: var(--amber);
   border: 1px solid var(--bg-0);
-  border-radius: 2px;
   transition: background var(--t-fast) var(--ease);
 }
 
@@ -260,13 +260,6 @@ function onChange(e: Event) {
   }
   .is-segmented:hover .seg.is-current .seg-thumb {
     background: var(--amber);
-  }
-}
-
-@media (pointer: coarse) {
-  .is-segmented .seg-thumb {
-    width: 18px;
-    height: 18px;
   }
 }
 

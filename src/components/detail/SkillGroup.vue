@@ -498,7 +498,6 @@ function potTag(grp: SkillGroup): string | null {
   flex: 1 1 150px;
   min-width: 140px;
 }
-/* 滑条本体样式见 LevelSlider.vue（发丝线轨道 + 方形钮），两处共用 */
 .level-val {
   font-size: var(--fs-caption);
   color: var(--amber);
