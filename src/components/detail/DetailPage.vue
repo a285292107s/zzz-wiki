@@ -178,4 +178,14 @@ watch(
 .back:hover {
   color: var(--amber-hi);
 }
+
+@media (min-width: 1000px) {
+  .page {
+    padding-top: var(--space-group);
+  }
+
+  .page-actions {
+    display: none;
+  }
+}
 </style>

@@ -352,10 +352,27 @@ async (page) => {
     JSON.stringify(scopeState),
   )
 
-  /* ---------- 8) 详情页页头：返回链接可达且可聚焦 ---------- */
+  /* ---------- 8) 详情页返回入口：宽屏归站头，窄屏留在页头 ---------- */
   await page.setViewportSize({ width: 1440, height: 900 })
   await page.goto('http://localhost:4175/agents/1011', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1500)
+  const wideBack = await page.evaluate(() => {
+    const row = document.querySelector('.page-actions')
+    const active = document.querySelector('.masthead .nav-item.active')
+    return {
+      rowHidden: !row || getComputedStyle(row).display === 'none',
+      navText: active?.textContent?.replace(/\s+/g, '') ?? '',
+      navTo: active?.getAttribute('href') ?? '',
+    }
+  })
+  add(
+    'kb-detail-back-wide-via-masthead',
+    wideBack.rowHidden && wideBack.navTo.startsWith('/agents'),
+    JSON.stringify(wideBack),
+  )
+
+  await page.setViewportSize({ width: 768, height: 900 })
+  await page.waitForTimeout(600)
   await page.evaluate(() => document.querySelector('.page-actions .back')?.focus())
   const backFocused = await page.evaluate(() => ({
     tag: document.activeElement?.tagName ?? '',
