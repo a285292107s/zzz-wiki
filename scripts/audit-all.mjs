@@ -123,6 +123,7 @@ try {
     process.stdout.write(`  ${f.padEnd(26)} `)
     let status = '？'
     let detail = ''
+    const startedAt = Date.now()
     try {
       const result = runCode(f)
       if (rule === null) {
@@ -141,7 +142,8 @@ try {
       rows.push({ f, status: '✗', detail: `执行失败：${String(e.message).slice(0, 120)}` })
     }
     const last = rows[rows.length - 1]
-    console.log(`${last.status} ${last.detail}`)
+    last.ms = Date.now() - startedAt
+    console.log(`${last.status} ${last.detail}  ${(last.ms / 1000).toFixed(1)}s`)
   }
 } finally {
   browser(['close'])
@@ -149,11 +151,14 @@ try {
 
 const failed = rows.filter((r) => r.status === '✗')
 const manual = rows.filter((r) => r.status === '？')
+const totalMs = rows.reduce((sum, r) => sum + (r.ms ?? 0), 0)
 console.log(
-  `\n== 审计箱${coreOnly ? '核心' : '全量'}：${rows.length} 个脚本 · 通过 ${rows.filter((r) => r.status === '✓').length} · 失败 ${failed.length} · 需人工判读 ${manual.length} ==`,
+  `\n== 审计箱${coreOnly ? '核心' : '全量'}：${rows.length} 个脚本 · 通过 ${rows.filter((r) => r.status === '✓').length} · 失败 ${failed.length} · 需人工判读 ${manual.length} · 脚本合计 ${(totalMs / 1000).toFixed(0)}s ==`,
 )
 if (manual.length) console.log(`  （人工判读：${manual.map((m) => m.f).join('、')}）`)
 for (const f of failed) console.log(`  ✖ ${f.f} → ${f.detail}`)
+const slowest = [...rows].sort((a, b) => (b.ms ?? 0) - (a.ms ?? 0)).slice(0, 5)
+console.log(`  最慢：${slowest.map((r) => `${r.f} ${((r.ms ?? 0) / 1000).toFixed(1)}s`).join(' · ')}`)
 process.exit(failed.length ? 1 : 0)
 
 
