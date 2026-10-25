@@ -78,6 +78,7 @@ Class: feature
 
 ## 关联
 
-- 展示口径与核验流程：[`IMG_GUIDE.md`](../../IMG_GUIDE.md)「取景校准：多画幅表」。
+- 展示口径与核验流程：[`IMG_GUIDE.md`](../../IMG_GUIDE.md)「取景校准」。
+- 可选的第五项 `flipH`（成品左右翻转、按画幅存）：[决策记录 0016](./0016-flip-as-framing-parameter.md)。
 - 数据形状：`src/domain/featuredPool.ts`；画幅清单：`src/utils/cameraRect.ts` 的 `FRAMING_MODES`。
 - 名录卡片仍是 9:16 母版，卡片版式本身见[决策记录 0012](./0012-agents-view-switch-on-page.md)。

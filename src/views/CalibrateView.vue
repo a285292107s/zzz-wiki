@@ -7,6 +7,7 @@ import {
   deriveFraming,
   deriveHeroFraming,
   framingFromRect,
+  framingTransform,
   modeAspect,
   rectFromFraming,
   type CameraRect,
@@ -74,12 +75,43 @@ const rect = computed<CameraRect | null>(() =>
   dims.value.W ? rectFromFraming(params.value, dims.value.W, dims.value.H, mode.value) : null,
 )
 
+const isFlipped = computed(() => params.value.flipH === true)
+
+function normalizeFraming(f: Framing): Framing {
+  return {
+    pos: f.pos,
+    posY: f.posY,
+    zoom: f.zoom,
+    originY: f.originY,
+    ...(f.flipH === true ? { flipH: true } : {}),
+  }
+}
+
+function inheritFlipH(f: Framing, master: Framing): Framing {
+  return normalizeFraming({ ...f, flipH: master.flipH === true })
+}
+
+const displayRect = computed<CameraRect | null>(() => {
+  const r = rect.value
+  if (!r) return null
+  return isFlipped.value ? { ...r, cx: dims.value.W - r.cx } : r
+})
+
+const previewStyle = computed<Record<string, string>>(() => ({
+  objectPosition: `${params.value.pos} ${params.value.posY}`,
+  transformOrigin: `50% ${params.value.originY}%`,
+  transform: framingTransform(params.value),
+}))
+
+const panoramaImageStyle = computed<Record<string, string> | undefined>(() =>
+  isFlipped.value ? { transform: 'scaleX(-1)' } : undefined,
+)
+
 /* ---------- 取景框拖动 / 缩放 ---------- */
 
 const dragMode = ref<'move' | 'resize' | null>(null)
 const dragStart = ref({ x: 0, y: 0, rect: { cx: 0, cy: 0, w: 0, h: 0 } })
 
-/** 拖框移动：把显示像素增量换算成源图像素，钳进源图后反推参数。 */
 function onPointerDown(e: PointerEvent, kind: 'move' | 'resize') {
   const r = rect.value
   if (!r) return
@@ -98,13 +130,16 @@ function onPointerMove(e: PointerEvent) {
   if (!dragMode.value || !rect.value) return
   const { W, H } = dims.value
   const start = dragStart.value.rect
+  const flipped = isFlipped.value
   const dx = toSourceDelta(e.clientX - dragStart.value.x)
   const dy = toSourceDelta(e.clientY - dragStart.value.y)
   let target: CameraRect
   if (dragMode.value === 'move') {
+    const startCx = flipped ? W - start.cx : start.cx
+    const cx = Math.min(Math.max(startCx + dx, start.w / 2), W - start.w / 2)
     target = {
       ...start,
-      cx: Math.min(Math.max(start.cx + dx, start.w / 2), W - start.w / 2),
+      cx: flipped ? W - cx : cx,
       cy: Math.min(Math.max(start.cy + dy, start.h / 2), H - start.h / 2),
     }
   } else {
@@ -119,7 +154,7 @@ function onPointerMove(e: PointerEvent) {
       h,
     }
   }
-  params.value = framingFromRect(target, W, H, mode.value)
+  params.value = normalizeFraming({ ...framingFromRect(target, W, H, mode.value), flipH: params.value.flipH })
   scheduleAutosave()
 }
 
@@ -213,7 +248,7 @@ async function framingFor(id: number, m: FramingMode): Promise<{ framing: Framin
   const mrect = rectFromFraming(master, size.W, size.H, '9:16')
   const framing =
     m === 'hero' ? deriveHeroFraming(mrect, size.W, size.H) : deriveFraming(mrect, size.W, size.H, m)
-  return { framing, derived: true }
+  return { framing: inheritFlipH(framing, master), derived: true }
 }
 
 async function selectId(id: number) {
@@ -250,6 +285,12 @@ function setInPool(v: boolean) {
   scheduleAutosave()
 }
 
+function toggleFlipH() {
+  if (currentId.value == null) return
+  params.value = normalizeFraming({ ...params.value, flipH: !isFlipped.value })
+  scheduleAutosave()
+}
+
 /** 网格里逐图切换「入池」（仅 9:16 模式下出现）：未校准角色先选中再校准。 */
 function togglePool(id: number) {
   if (id === currentId.value) {
@@ -268,7 +309,13 @@ function derivePool(cal: Record<string, CalibratedEntry>): PoolItem[] {
     .filter(([, e]) => e.inPool && e.modes['9:16'])
     .map(([k, e]) => {
       const f = e.modes['9:16']!
-      return { id: Number(k), pos: f.pos, zoom: f.zoom, originY: f.originY }
+      return {
+        id: Number(k),
+        pos: f.pos,
+        zoom: f.zoom,
+        originY: f.originY,
+        ...(f.flipH === true ? { flipH: true } : {}),
+      }
     })
     .sort((a, b) => a.id - b.id)
 }
@@ -312,7 +359,7 @@ function save() {
   if (id == null) return
   const key = String(id)
   const prev = pool.value.calibrated[key]
-  const modes = { ...(prev?.modes ?? {}), [mode.value]: { ...params.value } }
+  const modes = { ...(prev?.modes ?? {}), [mode.value]: normalizeFraming(params.value) }
   queueWrite((cal) => ({ ...cal, [key]: { inPool: inPool.value, modes } }))
   derivedNow.value = false
 }
@@ -334,8 +381,8 @@ async function rederive() {
   const mrect = rectFromFraming(master, size.W, size.H, '9:16')
   params.value =
     mode.value === 'hero'
-      ? deriveHeroFraming(mrect, size.W, size.H)
-      : deriveFraming(mrect, size.W, size.H, mode.value)
+      ? inheritFlipH(deriveHeroFraming(mrect, size.W, size.H), master)
+      : inheritFlipH(deriveFraming(mrect, size.W, size.H, mode.value), master)
   save()
 }
 
@@ -349,9 +396,12 @@ function thumbFraming(id: number): Framing | null {
   const size = dimsMap.value[id]
   if (!master || !size) return null
   const mrect = rectFromFraming(master, size.W, size.H, '9:16')
-  return mode.value === 'hero'
-    ? deriveHeroFraming(mrect, size.W, size.H)
-    : deriveFraming(mrect, size.W, size.H, mode.value)
+  return inheritFlipH(
+    mode.value === 'hero'
+      ? deriveHeroFraming(mrect, size.W, size.H)
+      : deriveFraming(mrect, size.W, size.H, mode.value),
+    master,
+  )
 }
 
 function thumbStyle(id: number): Record<string, string> | undefined {
@@ -360,7 +410,7 @@ function thumbStyle(id: number): Record<string, string> | undefined {
   return {
     objectPosition: `${f.pos} ${f.posY}`,
     transformOrigin: `50% ${f.originY}%`,
-    transform: `scale(${f.zoom})`,
+    transform: framingTransform(f),
   }
 }
 
@@ -377,17 +427,11 @@ function modeExplicit(m: FramingMode): boolean {
 
 const hint = computed(() =>
   isHero.value
-    ? '六个画幅各存一组取景 · 拖动取景框平移（hero 画幅由版式定死，只平移不缩放）'
-    : '六个画幅各存一组取景 · 拖动取景框移动，拖右下角手柄缩放',
+    ? '六个画幅各存一组取景 · 拖动取景框平移（hero 画幅由版式定死，只平移不缩放）· 成品可左右翻转'
+    : '六个画幅各存一组取景 · 拖动取景框移动，拖右下角手柄缩放 · 成品可左右翻转',
 )
 
-const paramJson = computed(() =>
-  JSON.stringify(
-    { pos: params.value.pos, posY: params.value.posY, zoom: params.value.zoom, originY: params.value.originY },
-    null,
-    2,
-  ),
-)
+const paramJson = computed(() => JSON.stringify(normalizeFraming(params.value), null, 2))
 
 const currentNodeName = computed(() =>
   currentId.value == null ? '' : (names.value[currentId.value] ?? String(currentId.value)),
@@ -478,16 +522,23 @@ onUnmounted(() => {
             @pointerup="onPointerUp"
             @pointercancel="onPointerUp"
           >
-            <img v-if="currentSrc" :src="currentSrc" alt="" draggable="false" @dragstart.prevent />
+            <img
+              v-if="currentSrc"
+              :src="currentSrc"
+              alt=""
+              draggable="false"
+              :style="panoramaImageStyle"
+              @dragstart.prevent
+            />
             <p class="save-note mono">{{ saving ? '保存中…' : msg }}</p>
             <div
-              v-if="rect && dims.W"
+              v-if="displayRect && dims.W"
               class="cam-rect"
               :style="{
-                left: `${((rect.cx - rect.w / 2) / dims.W) * 100}%`,
-                top: `${((rect.cy - rect.h / 2) / dims.H) * 100}%`,
-                width: `${(rect.w / dims.W) * 100}%`,
-                height: `${(rect.h / dims.H) * 100}%`,
+                left: `${((displayRect.cx - displayRect.w / 2) / dims.W) * 100}%`,
+                top: `${((displayRect.cy - displayRect.h / 2) / dims.H) * 100}%`,
+                width: `${(displayRect.w / dims.W) * 100}%`,
+                height: `${(displayRect.h / dims.H) * 100}%`,
               }"
               @pointerdown="onPointerDown($event, 'move')"
             >
@@ -501,19 +552,9 @@ onUnmounted(() => {
               class="preview-band"
               :style="{ aspectRatio: String(aspect), maxWidth: `${Math.round(PREVIEW_MAX_HEIGHT * aspect)}px` }"
             >
-              <img
-                v-if="currentSrc"
-                :src="currentSrc"
-                alt=""
-                :style="{
-                  objectPosition: `${params.pos} ${params.posY}`,
-                  transformOrigin: `50% ${params.originY}%`,
-                  transform: `scale(${params.zoom})`,
-                }"
-              />
+              <img v-if="currentSrc" :src="currentSrc" alt="" :style="previewStyle" />
               <span v-if="isHero" class="preview-scrim" aria-hidden="true" />
               <span v-if="isHero" class="preview-copy" aria-hidden="true">
-                <span class="mono">AGENT FILE · NO.{{ String(currentId ?? '').padStart(4, '0') }}</span>
                 <strong>{{ currentNodeName }}</strong>
               </span>
             </div>
@@ -526,6 +567,7 @@ onUnmounted(() => {
               <span v-if="currentSrc">{{ dims.W }}×{{ dims.H }}</span>
             </p>
             <div class="tool-actions">
+              <button class="tool-btn" :class="{ on: isFlipped }" :aria-pressed="isFlipped" @click="toggleFlipH">左右翻转</button>
               <button v-if="mode !== '9:16'" class="tool-btn" @click="rederive">按 9:16 母版重派生</button>
               <button v-if="derivedNow" class="tool-btn" @click="save">写入当前画幅</button>
             </div>
@@ -540,16 +582,7 @@ onUnmounted(() => {
         <div v-if="!isWide" class="preview-col">
           <p class="panel-head mono"><span>成品预览</span><span>{{ currentId ?? '—' }} · {{ MODE_RATIOS[mode] }}</span></p>
           <div class="preview-figure" :style="{ aspectRatio: String(aspect) }">
-            <img
-              v-if="currentSrc"
-              :src="currentSrc"
-              alt=""
-              :style="{
-                objectPosition: `${params.pos} ${params.posY}`,
-                transformOrigin: `50% ${params.originY}%`,
-                transform: `scale(${params.zoom})`,
-              }"
-            />
+            <img v-if="currentSrc" :src="currentSrc" alt="" :style="previewStyle" />
           </div>
         </div>
       </div>
@@ -622,6 +655,7 @@ onUnmounted(() => {
 .tool-actions { display: flex; gap: 8px; }
 .tool-btn { padding: 4px 10px; background: var(--bg-1); border: 1px solid var(--line-1); border-radius: 2px; color: var(--ink-1); font-size: var(--fs-nano); letter-spacing: .04em; cursor: pointer; }
 .tool-btn:hover { border-color: var(--amber); color: var(--amber-hi); }
+.tool-btn.on { border-color: var(--amber); color: var(--amber-hi); }
 .param-json { margin: 0; padding: 12px 14px; background: var(--bg-1); border: 1px solid var(--line-1); border-radius: 2px; font-size: var(--fs-nano); color: var(--ink-1); overflow-x: auto; }
 .call-hint { margin: 0; font-size: var(--fs-nano); color: var(--ink-2); }
 

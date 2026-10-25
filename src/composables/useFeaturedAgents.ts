@@ -41,6 +41,7 @@ export interface FeaturedCard {
   pos: string
   zoom: number
   originY: number
+  flipH?: boolean
   to: string
   /** 今天是不是这位的生日：卡片据此在画面右上角挂「生日」飘带，读屏名也随之带上（见 FeaturedDeck） */
   isBirthday: boolean
@@ -229,6 +230,7 @@ export function buildFeaturedCards(
       pos: n.pos,
       zoom: n.zoom,
       originY: n.originY,
+      ...(n.flipH === true ? { flipH: true } : {}),
       to: `/agents/${n.id}`,
       // 生日标记与选片同源（同一张生日表 + 同一个「今天」）：不依赖名录，
       // 故名录未就绪、名字还在占位时标记就已经是对的

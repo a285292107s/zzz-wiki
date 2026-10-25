@@ -71,7 +71,7 @@ function viewRoutes() {
   add('HomeView', '/')
 
   const devViewByName = new Map(
-    [...router.matchAll(/'([a-z-]+)': \(\) => import\('@\/views\/([A-Za-z0-9]+)\.vue'\)/g)].map((m) => [m[1], m[2]]),
+    [...router.matchAll(/'?([a-z-]+)'?: \(\) => import\('@\/views\/([A-Za-z0-9]+)\.vue'\)/g)].map((m) => [m[1], m[2]]),
   )
   for (const m of devRoutes.matchAll(/name: '([a-z-]+)'[\s\S]{0,120}?path: '(\/[^']*)'/g)) add(devViewByName.get(m[1]), m[2])
   for (const m of devRoutes.matchAll(/path: '(\/[^']*)'[\s\S]{0,120}?name: '([a-z-]+)'/g)) add(devViewByName.get(m[2]), m[1])

@@ -7,8 +7,9 @@ import FeaturedDeck from '@/components/home/FeaturedDeck.vue'
 import type { FeaturedCard } from '@/composables/useFeaturedAgents'
 
 /** 造 N 张卡（结构同 buildFeaturedCards 的输出，只留测试关心的字段）
- *  `birthdayIdx` 指定哪几张是「今天生日」（默认都不是），用于生日飘带用例 */
-function cards(n: number, birthdayIdx: number[] = []): FeaturedCard[] {
+ *  `birthdayIdx` 指定哪几张是「今天生日」（默认都不是），用于生日飘带用例；
+ *  `flipH` 打开整批卡的左右翻转（9:16 母版标记者） */
+function cards(n: number, birthdayIdx: number[] = [], flipH = false): FeaturedCard[] {
   return Array.from({ length: n }, (_, i) => ({
     id: 1000 + i,
     no: String(i + 1).padStart(2, '0'),
@@ -20,6 +21,7 @@ function cards(n: number, birthdayIdx: number[] = []): FeaturedCard[] {
     pos: '50%',
     zoom: 1.2,
     originY: 50,
+    flipH,
     to: `/agents/${1000 + i}`,
     isBirthday: birthdayIdx.includes(i),
   }))
@@ -68,9 +70,9 @@ function stubLayout(): void {
   })
 }
 
-async function mountDeck(n = 4, birthdayIdx: number[] = []) {
+async function mountDeck(n = 4, birthdayIdx: number[] = [], flipH = false) {
   stubLayout()
-  const wrapper = mount(FeaturedDeck, { props: { cards: cards(n, birthdayIdx) }, global })
+  const wrapper = mount(FeaturedDeck, { props: { cards: cards(n, birthdayIdx, flipH) }, global })
   // 取景框宽是 onMounted 里量出来的：首渲染还没有它，等一拍让轨道摆正
   await wrapper.vm.$nextTick()
   return wrapper
@@ -390,15 +392,24 @@ describe('FeaturedDeck 起飞前取景变形（窄屏不做）', () => {
     const wrapper = await mountDeck(4)
     const st = figureStyleOf(wrapper)
     expect(st.objectPosition).toBe('50%') // cards() 里 pos 统一给 '50%'
-    expect(st.transform).toBe('scale(1.2)') // zoom
+    expect(st.transform).toBe('scale(1.2) scaleX(1)') // zoom + 未翻转
     expect(st.transformOrigin).toBe('50% 50%') // originY
+  })
+
+  it('翻转卡：卡面带 scaleX(-1)（成品左右翻转，取景参数不变）', async () => {
+    mockMatchMedia(false)
+    const wrapper = await mountDeck(4, [], true)
+    const st = figureStyleOf(wrapper)
+    expect(st.objectPosition).toBe('50%')
+    expect(st.transform).toBe('scale(1.2) scaleX(-1)')
+    expect(st.transformOrigin).toBe('50% 50%')
   })
 
   it('窄屏判定读的是与 CSS 同一条媒体查询（max-width: 860px），且不影响常态取景', async () => {
     mockMatchMedia(true) // ≤860
     const wrapper = await mountDeck(4)
     // 窄屏仍按校准取景上屏（校准参数与断点无关，是源图相对构图）
-    expect(figureStyleOf(wrapper).transform).toBe('scale(1.2)')
+    expect(figureStyleOf(wrapper).transform).toBe('scale(1.2) scaleX(1)')
     expect(window.matchMedia('(max-width: 860px)').matches).toBe(true)
   })
 
@@ -413,7 +424,7 @@ describe('FeaturedDeck 起飞前取景变形（窄屏不做）', () => {
     )
     await wrapper.vm.$nextTick()
     for (let i = 0; i < 4; i++) {
-      expect(figureStyleOf(wrapper, i).transform).toBe('scale(1.2)')
+      expect(figureStyleOf(wrapper, i).transform).toBe('scale(1.2) scaleX(1)')
     }
   })
 })

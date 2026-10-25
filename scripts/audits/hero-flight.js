@@ -208,7 +208,7 @@ async page => {
     const scaleOf = (img) => {
       const t = img ? getComputedStyle(img).transform : ''
       const m = /matrix\(([^)]+)\)/.exec(t)
-      return m ? parseFloat(m[1].split(',')[0]) : 1
+      return m ? Math.abs(parseFloat(m[1].split(',')[0])) : 1
     }
     const slides = Array.from(document.querySelectorAll('.deck-slide'))
     const scales = slides.map((s) => scaleOf(s.querySelector('img')))
@@ -265,11 +265,11 @@ async page => {
   await page.waitForTimeout(2600)
   const startScale = (() => {
     const m = /matrix\(([^)]+)\)/.exec(pre0.transform0)
-    return m ? parseFloat(m[1].split(',')[0]) : 1
+    return m ? Math.abs(parseFloat(m[1].split(',')[0])) : 1
   })()
   const endScale = (() => {
     const m = /matrix\(([^)]+)\)/.exec(lastDeckMorph)
-    return m ? parseFloat(m[1].split(',')[0]) : lastDeckMorph === 'none' ? 1 : 0
+    return m ? Math.abs(parseFloat(m[1].split(',')[0])) : lastDeckMorph === 'none' ? 1 : 0
   })()
   check('起飞前：整页退场启动', exitSeen && pre0.blocks >= 5, `blocks=${pre0.blocks} exitSeen=${exitSeen}`)
   check('起飞前：退场是错峰级联（不是同时消失）', cascade > 0.2, `opacity 极差峰值=${cascade.toFixed(2)}`)
@@ -508,7 +508,7 @@ async page => {
     const scaleOf = (img) => {
       const t = img ? getComputedStyle(img).transform : ''
       const m = /matrix\(([^)]+)\)/.exec(t)
-      return m ? parseFloat(m[1].split(',')[0]) : 1
+      return m ? Math.abs(parseFloat(m[1].split(',')[0])) : 1
     }
     const slides = Array.from(document.querySelectorAll('.deck-slide'))
     const scales = slides.map((s) => scaleOf(s.querySelector('img')))
@@ -550,7 +550,7 @@ async page => {
 
   const scaleOfMatrix = (t) => {
     const m = /matrix\(([^)]+)\)/.exec(t ?? '')
-    return m ? parseFloat(m[1].split(',')[0]) : t === 'none' ? 1 : null
+    return m ? Math.abs(parseFloat(m[1].split(',')[0])) : t === 'none' ? 1 : null
   }
   const nScale0 = scaleOfMatrix(narrowBefore)
   // 起飞端最后一次可见的 scale（进快照那一刻）

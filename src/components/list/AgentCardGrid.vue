@@ -31,6 +31,7 @@ import type { CharacterListItem } from '@/data/types'
 import { heroFileForForm } from '@/data/heroGenderVariants'
 import { heroGridSources } from '@/data/heroImageSources'
 import { getCardFraming } from '@/data/heroCalibration'
+import { framingTransform } from '@/utils/cameraRect'
 import { pickName } from '@/utils/names'
 import { pickText } from '@/domain/lang'
 import { useHeroForm } from '@/composables/useHeroForm'
@@ -78,7 +79,7 @@ function calStyle(id: number): Record<string, string> | undefined {
     ? {
         objectPosition: c.pos,
         transformOrigin: `50% ${c.originY}%`,
-        transform: `scale(${c.zoom})`,
+        transform: framingTransform(c),
       }
     : undefined
 }

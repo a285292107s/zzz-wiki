@@ -1,16 +1,3 @@
-/* ============================================================
- * cameraRect — 校准工具：源图上的「相机窗口」与 (pos, posY, zoom, originY) 的双向映射。
- *
- * 窗口＝页面真正显示的源图局部，与 IMG_GUIDE.md 的取景公式一致：
- *   object-fit: cover + object-position: {pos} {posY}
- *   + transform-origin: 50% {originY}% + transform: scale(zoom)
- * 两个分支按「源图宽高比 S 与画幅比 A」分：
- *   S ≥ A（源图比画幅宽）：横向可平移（pos），纵向由 originY+zoom 决定；posY 无效。
- *   S <  A（源图比画幅窄）：横向铺满、不可平移；纵向由 posY 平移（originY=50 时）。
- * 画幅比由调用方按模式传入（见 FRAMING_MODES）——同一套公式服务 1:1 / 3:4 / 4:3 / 9:16 / 16:9
- * 与详情页 hero（2.8:1）。zoom 下限恒为 1：窗口不可能大于源图，否则框外没有像素。
- * ============================================================ */
-
 export interface CameraRect {
   cx: number
   cy: number
@@ -23,6 +10,7 @@ export interface Framing {
   posY: string
   zoom: number
   originY: number
+  flipH?: boolean
 }
 
 /** 常规校准模式（画幅比升序）。hero＝详情页桌面横幅的版式画幅（非标准比例，见 IMG_GUIDE.md）。 */
@@ -41,6 +29,10 @@ export const DEFAULT_FRAMING: Framing = { pos: '50%', posY: '50%', zoom: 1, orig
 
 export const ZOOM_MIN = 1
 export const ZOOM_MAX = 3
+
+export function framingTransform(f: Pick<Framing, 'zoom' | 'flipH'>): string {
+  return `scale(${f.zoom}) scaleX(${f.flipH ? -1 : 1})`
+}
 
 const clamp = (v: number, lo: number, hi: number) => Math.min(Math.max(v, lo), hi)
 const round4 = (v: number) => Math.round(v * 1e4) / 1e4

@@ -23,17 +23,20 @@
  * 因此本模块不重复声明断点数字。
  * ============================================================ */
 
+import { framingTransform } from './cameraRect'
+
 /** 逐图 9:16 校准参数（featured-pool.json 的 modes['9:16']），结构类型以便本模块不依赖上层 */
 export interface DeckCalibration {
   pos: string
   zoom: number
   originY: number
+  flipH?: boolean
 }
 
-/** 目的地取景：桌面详情页 hero 的 hero 画幅校准（只用双轴平移；无校准＝居中） */
 export interface DeckDestination {
   pos: string
   posY: string
+  flipH?: boolean
 }
 
 const DEFAULT_CALIBRATION: DeckCalibration = { pos: '50%', zoom: 1, originY: 50 }
@@ -45,7 +48,7 @@ function destinationStyle(destination: DeckDestination | undefined): Record<stri
   return {
     objectPosition: `${d.pos} ${d.posY}`,
     transformOrigin: '50% 50%',
-    transform: 'scale(1)',
+    transform: framingTransform({ zoom: 1, flipH: d.flipH }),
   }
 }
 
@@ -69,6 +72,6 @@ export function deckFigureStyle(
   return {
     objectPosition: c.pos,
     transformOrigin: `50% ${c.originY}%`,
-    transform: `scale(${c.zoom})`,
+    transform: framingTransform(c),
   }
 }

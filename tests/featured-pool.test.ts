@@ -5,6 +5,7 @@ import {
   deriveFraming,
   deriveHeroFraming,
   framingFromRect,
+  framingTransform,
   modeAspect,
   rectFromFraming,
 } from '@/utils/cameraRect'
@@ -34,6 +35,8 @@ describe('featured-pool.json 契约', () => {
         expect(typeof f.posY).toBe('string')
         expect(typeof f.zoom).toBe('number')
         expect(typeof f.originY).toBe('number')
+        expect(f.flipH === undefined || typeof f.flipH === 'boolean', `${id}/${mode} flipH 类型`).toBe(true)
+        expect(f.flipH, `${id}/${mode} flipH 只有 true 才落盘`).not.toBe(false)
         expect(f.zoom, `${id}/${mode} zoom 低于下限`).toBeGreaterThanOrEqual(1)
       }
     }
@@ -41,13 +44,14 @@ describe('featured-pool.json 契约', () => {
 
   it('pool 与 calibrated 的 9:16 母版一致（入池子集由同一份取景派生，不许两处漂移）', () => {
     const cal = (poolJson as FeaturedPool).calibrated
-    for (const item of poolJson.pool) {
+    for (const item of (poolJson as FeaturedPool).pool) {
       const master = cal[String(item.id)]?.modes['9:16']
       expect(master, `${item.id} 入池但无 9:16 校准`).toBeTruthy()
-      expect({ pos: item.pos, zoom: item.zoom, originY: item.originY }).toEqual({
+      expect({ pos: item.pos, zoom: item.zoom, originY: item.originY, flipH: item.flipH }).toEqual({
         pos: master!.pos,
         zoom: master!.zoom,
         originY: master!.originY,
+        flipH: master!.flipH,
       })
     }
   })
@@ -101,6 +105,17 @@ describe('cameraRect：取景参数 ↔ 相机窗口', () => {
     const r = rectFromFraming(framing({ zoom: 0.5 }), WIDE.W, WIDE.H, '9:16')
     expect(r.h).toBeCloseTo(WIDE.H, 6)
     expect(framingFromRect(r, WIDE.W, WIDE.H, '9:16').zoom).toBe(1)
+  })
+})
+
+describe('cameraRect：取景 transform', () => {
+  it('默认只有 scale 与 scaleX(1)', () => {
+    expect(framingTransform({ zoom: 1 })).toBe('scale(1) scaleX(1)')
+    expect(framingTransform({ zoom: 1.25, flipH: false })).toBe('scale(1.25) scaleX(1)')
+  })
+
+  it('翻转时 scale 之后追加 scaleX(-1)', () => {
+    expect(framingTransform({ zoom: 1.25, flipH: true })).toBe('scale(1.25) scaleX(-1)')
   })
 })
 

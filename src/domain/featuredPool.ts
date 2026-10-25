@@ -15,10 +15,17 @@ export const FramingSchema = z.object({
   posY: z.string(),
   zoom: z.number(),
   originY: z.number(),
+  flipH: z.boolean().optional(),
 })
 
 /** 入池条目：构图参数 + 角色号（id 居首，便于阅读/输出稳定） */
-export const PoolItemSchema = z.object({ id: z.number(), pos: z.string(), zoom: z.number(), originY: z.number() })
+export const PoolItemSchema = z.object({
+  id: z.number(),
+  pos: z.string(),
+  zoom: z.number(),
+  originY: z.number(),
+  flipH: z.boolean().optional(),
+})
 
 const MODE_KEYS: readonly string[] = FRAMING_MODES.map((m) => m.key)
 
