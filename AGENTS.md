@@ -73,31 +73,37 @@
   1. 非文档改动一律跑 `npx vue-tsc -b` + `pnpm test` + `node scripts/verify-cjk-fonts.mjs`（合计约 25 秒）。
   2. 改到渲染面（`src/views|components|styles|composables|utils|data/`、`App.vue`、`main.ts`、`index.html`）
      再加 `pnpm run verify:ui`——**它会自己起 dev 服务、用完自己关**，不需要先开 5173。
+     改到 `public/data/img/` 时自动再跑 `node scripts/verify-icons.mjs --local`（0.9 秒，本地必须项差集）。
   3. 其余（数据真值、部署配置、审计脚本、构建依赖）只打印「手动看一眼」，不自动跑。
   纯域逻辑（`src/domain/`）不触发浏览器层：数值口径由单测守，页面文案由发版前的 content-sweep 兜。
-- **`pnpm run verify:ui`**：3 断点（1440/768/390）查渲染锚点、图片 alt、横向溢出、控制台错误与 axe（首末视口），
-  截图落 `temp/verify-ui/`，实测约 8 秒/路由。路由默认**按改动推断**：改视图只查它自己的路由；
-  改共享组件/样式则查**首页 + 全部名录页**（宁可多查一页，也不要只查一页就报绿）。
-  详情页要指定实例时 `-- --route /w-engines/14164`。会话名带进程号，天生不撞车；
-  若仍报「playwright-cli 会话打不开」，先 `playwright-cli list` 看残留、`playwright-cli close` 收掉。
-- **浏览器层是发版级，不是迭代级**：`verify:ui` 只守「这一页还在、没溢出、没 axe 违规」；
-  几何、构图、键盘旅程、字体墨色、离线与缓存策略**只在发版前**跑：
-  合并前 `pnpm run build:ci` + `pnpm run preview` + `pnpm run audit:core`（核心 7 项），
-  发版/月度 `pnpm run audit:all`（23 项，约 4 分钟）。审计一项就要几十秒，别拿它当每次编辑的成本。
+- **`pnpm run verify:ui`**：3 断点（1440/768/390）查渲染锚点、图片 alt、横向溢出、页面异常、资源加载失败
+  （`requestfailed` 或 HTTP≥400，带 URL）与 axe（首末视口）。截图落 `temp/verify-ui/`，
+  实测 **6–7 秒/路由**；改共享组件时默认 9 条路由 ≈ 100 秒。
+  **HMR / websocket 噪声不算失败**（dev 服务重连会刷 `WebSocket … ERR_CONNECTION_CLOSED`，
+  曾把整轮打成红）——只认真实页面错误与资源缺失。
+  路由默认**按改动推断**：改视图只查它自己的路由；改共享组件/样式则查**首页 + 全部名录页**
+  （宁可多查一页，也不要只查一页就报绿）。详情页要指定实例时 `-- --route /w-engines/14164`。
+  会话名带进程号，天生不撞车；若仍报「playwright-cli 会话打不开」，先 `playwright-cli list` 看残留。
+- **浏览器层是发版级，不是迭代级**：`verify:ui` 只守「这一页还在、没溢出、没 a11y 违规」；
+  几何、构图、键盘旅程、字体墨色、离线与缓存策略**只在发版前**跑（读的是构建产物，必须先 build + preview）：
+  合并前 `pnpm run audit:core`（核心 7 项，实测 ≈7 分钟），发版/月度 `pnpm run audit:all`
+  （23 项，实测 **763 秒 ≈13 分钟**；大头是 content-sweep 140s / keyboard-journey 77s / axe-a11y 73s）。
+  每项耗时由 `audit:all` 自己打印（末尾给合计与最慢 5 项）——上面的数字是 2026-10 的一次快照，
+  真实耗时**以工具输出为准**，别按这里推算。
+  审计箱**没有 CI 归属**，只在合并前/月度人工触发；一次审计换掉的是「线上才发现 320px 点不到 / 窄屏文字叠线」这类错。
 - **修 bug 的回合只在 dev 验证**（HMR，改一次看一次）；生产构建只在发版前做一次。
 - **不为小修复新增审计脚本**：先复跑已有脚本；确需新增，先逐条答准入判据（**五条答不全就不加**，
   全文见 `scripts/audits/README.md`）。最常漏的是判据质量——`计数 === 0` 型是**空真**判据
-  （什么都没扫到也报绿），必须同时有正向锚与下限。
+  （什么都没扫到也报绿），必须同时有正向锚与下限。现存 23 项里仍有 18 项属这一类（清单在 README），
+  改动触及时优先补锚；写死数据量的断言（如 `rows === 60`）同样是假红来源，用带下界的正向锚。
 - **部署构建入口 `pnpm run build:ci`**（Vercel 已指向；**完整链路以 `package.json` 为唯一事实源**）：
   `build:ci` = `verify:assets` → `verify:data` → `vue-tsc -b` → `build:deploy`；
   `verify:assets` = `verify:fonts` → `verify:icons --local` → `gen:featured-birthdays --check` → `verify:fonts:cjk`；
   `build:deploy` = `vite build` → `sitemap` → `route-html` → `verify:budget` → `verify:vercel`。
   **部署链路里没有单测**：单测归 `.github/workflows/checks.yml`（push/PR，约 30 秒）——发布门槛是
   「类型过 + 能不能构建 + 派生产物一致」，不是「测试全绿」；测试该在人推之前就红。
-  整条链本地约 25 秒，收工前跑一次即可（`pnpm run check` 会提示）。
+  整条链本地约 30 秒（资产+数据门禁 8 秒 + 类型增量 + 构建 9 秒），收工前跑一次即可（`pnpm run check` 会提示）。
   **只构建已提交快照，不在构建期重建数据**（数据更新走 `pnpm run sync`，见下）。
-- **工程质量审计工具箱**（发版/月度，不是日常）：合并前 `pnpm run audit:core`（核心 7 项），
-  发版/月度 `pnpm run audit:all`（全箱；清单与基线见 `scripts/audits/README.md`）。
 - **数据+图标同步入口 `pnpm run sync`**（`scripts/sync-data.ts`）：唯一自动化写入 `public/data/` 的入口——
   探测新版本 → 重建 JSON → 图标 `--soft` 补差（只补缺失、已有美术资源零重下）→ 重建 CJK 字体子集 → 校验（告警）→ 汇总变更集。
   由 `.github/workflows/data-sync.yml` 定时触发，重算字体子集后过【四道硬门禁】：`verify:data`（数据契约）、
