@@ -3,6 +3,7 @@ import { inject } from '@vercel/analytics'
 import App from './App.vue'
 import { router } from './router'
 import { reveal } from './directives/reveal'
+import { scrollRegion } from './directives/scrollRegion'
 import { installViewTransition } from './utils/viewTransition'
 import { bootstrapLocale } from './composables/useLocale'
 import './styles/base.css'
@@ -56,7 +57,7 @@ installViewTransition(router)
  * 开发环境不发生产请求（mode 为 auto，按 NODE_ENV 判定）。 */
 inject()
 
-createApp(App).use(router).directive('reveal', reveal).mount('#app')
+createApp(App).use(router).directive('reveal', reveal).directive('scroll-region', scrollRegion).mount('#app')
 
 /* ============================================================
  * Service Worker 注册（仅生产）：让「离线打开已缓存页面仍可阅读」成为事实

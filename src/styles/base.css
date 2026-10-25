@@ -391,7 +391,31 @@ a.rich-term:hover {
 .effect,
 .effect-txt,
 .desc,
-.note {
+.note,
+.rule-text,
+.chain-note,
+.z-summary,
+.z-fact dd,
+.z-fact dt,
+.fact dt,
+.z-axis-note,
+.z-traps li,
+.ledger-axis,
+.block-note,
+.notice-list li,
+.card-lines li,
+.fact dd,
+.lab-lead,
+.verdict p,
+.verdict-note,
+.foot-note,
+.miasma-note,
+.out-foot,
+.out-hint,
+.gates-legend,
+.bars-legend,
+.matrix-legend,
+.s-note {
   text-wrap: balance;
 }
 

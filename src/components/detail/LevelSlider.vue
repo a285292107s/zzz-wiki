@@ -19,6 +19,9 @@ const props = withDefaults(
     modelValue: number
     min?: number
     max?: number
+    step?: number
+    /** 供外部 <label for> 关联；缺省时不渲染 id */
+    id?: string
     /** 无障碍标签（如「角色等级」） */
     label: string
     /** 读屏朗读的当前值文本；缺省按等级播报「等级 N」，
@@ -27,7 +30,7 @@ const props = withDefaults(
     marks?: LevelMark[]
     segmented?: boolean
   }>(),
-  { min: 1, max: 60, marks: undefined, valueText: undefined, segmented: false },
+  { min: 1, max: 60, step: 1, marks: undefined, valueText: undefined, segmented: false, id: undefined },
 )
 
 const { t } = useUiText()
@@ -56,9 +59,10 @@ function onChange(e: Event) {
       </span>
     </div>
     <input
+      :id="id"
       class="level-range"
       type="range"
-      step="1"
+      :step="step"
       :min="min"
       :max="max"
       :value="modelValue"

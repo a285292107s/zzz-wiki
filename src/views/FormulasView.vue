@@ -1,81 +1,58 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, onMounted, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import { usePageMeta } from '@/composables/usePageMeta'
 import { useLocale } from '@/composables/useLocale'
 import { useUiText } from '@/composables/useUiText'
-import { resolveAnchorOffset } from '@/composables/anchorOffset'
 import { useNavScrollable } from '@/composables/useNavScrollable'
 import { useDataVersion } from '@/composables/useDataVersion'
+import { useDetailNavigation } from '@/composables/useDetailNavigation'
 import { FORMULA_GUIDE } from '@/data/formulaGuide'
 import { ListPage, DetailSection } from '@/components'
 import NavScrollButton from '@/components/NavScrollButton.vue'
-import FormulaEq from '@/components/FormulaEq.vue'
+import FormulaMath from '@/components/formula/FormulaMath.vue'
+import FamilyMatrix from '@/components/formula/FamilyMatrix.vue'
+import ZoneLedger from '@/components/formula/ZoneLedger.vue'
+import SettlementBench from '@/components/formula/SettlementBench.vue'
+import DefenseLab from '@/components/formula/DefenseLab.vue'
+import DazeLab from '@/components/formula/DazeLab.vue'
+import ShieldLab from '@/components/formula/ShieldLab.vue'
+import InterruptLab from '@/components/formula/InterruptLab.vue'
 
 const { lang } = useLocale()
 const { t } = useUiText()
 
-const title = FORMULA_GUIDE.title
-usePageMeta(title, FORMULA_GUIDE.sub)
+usePageMeta(FORMULA_GUIDE.title, FORMULA_GUIDE.sub)
 
-// 段锚点导航（复用 base.css .section-nav：宽屏左侧索引 / 窄屏吸顶横条）
-const parts = computed(() => FORMULA_GUIDE.parts)
-const nav = computed(() =>
-  parts.value.map((p) => ({ id: p.id, no: p.no, label: p.title })),
-)
+const parts = FORMULA_GUIDE.parts
+const nav = computed(() => parts.map((p) => ({ id: p.id, no: p.no, label: p.title })))
 
-// 窄屏吸顶横条的「可横滑」提示与交互（nav 静态，onMounted 内首次量测即可）
+const { activeSection, activate } = useDetailNavigation()
 const { navEl, scrollRight, ensureActiveVisible } = useNavScrollable()
 
-// 轻量滚动高亮：依据吸顶横条实际高度（anchorOffset，与 router scrollBehavior 同源）判定当前段
-const active = ref<string | null>(null)
-const NAV_SLOP = 80
+watch(activeSection, () => ensureActiveVisible())
+onMounted(() => activate(parts.map((p) => p.id)))
 
 const { version, updatedAt, versionLabel } = useDataVersion()
-
-function onScroll() {
-  const offset = resolveAnchorOffset()
-  let cur: string | null = parts.value[0]?.id ?? null
-  for (const p of parts.value) {
-    const el = document.getElementById(p.id)
-    if (!el) continue
-    if (el.getBoundingClientRect().top <= offset + NAV_SLOP) cur = p.id
-  }
-  if (cur === active.value) return
-  active.value = cur
-  /* 横条里的当前段要跟着滚进来：本页的锚点滚动只发生在横条内部时
-     （点条目跳转），浏览器已把它带进视野；但**滚页面**换段时不会。
-     取 nearest，已可见则原地不动。 */
-  ensureActiveVisible()
-}
-onMounted(() => {
-  onScroll()
-  document.addEventListener('scroll', onScroll)
-})
-onBeforeUnmount(() => {
-  document.removeEventListener('scroll', onScroll)
-})
 </script>
 
 <template>
   <ListPage>
     <header v-reveal class="page-head">
       <p class="eyebrow mono">Combat Formulas</p>
-      <h1 class="page-title">{{ title }}</h1>
+      <h1 class="page-title">{{ FORMULA_GUIDE.title }}</h1>
+      <p class="hero">{{ FORMULA_GUIDE.hero }}</p>
       <p class="page-sub">{{ FORMULA_GUIDE.sub }}</p>
     </header>
 
-    <!-- 段导航：宽屏左侧索引 / 窄屏吸顶横条（ref 挂真正滚动的 .sn-list，见 base.css）。
-         放在页头**之后**：它是本页的目录，不该挡在标题与正文之间的 Tab 序最前面
-         （宽屏是 fixed、视觉位置与此无关；窄屏吸顶条只是首个视图里起点低了一格）。 -->
     <nav v-if="nav.length" class="section-nav" aria-label="战斗公式段落">
       <div ref="navEl" class="sn-list">
         <RouterLink
           v-for="n in nav"
           :key="n.id"
           class="sn-item mono"
-          :class="{ active: active === n.id }"
-          :aria-current="active === n.id ? 'location' : undefined"
+          :class="{ active: activeSection === n.id }"
+          :aria-current="activeSection === n.id ? 'location' : undefined"
           :to="{ hash: '#' + n.id }"
         >
           <span class="no" aria-hidden="true">{{ n.no }}</span>
@@ -85,22 +62,17 @@ onBeforeUnmount(() => {
       <NavScrollButton label="向右浏览段落" @click="scrollRight" />
     </nav>
 
-    <!-- 长文不翻译（决策记录 0011）：非中文读者先读到「这页只有中文」，中文读者不需要 -->
     <p v-if="lang !== 'zh'" v-reveal="40" class="zh-only" role="note">
       <b class="mono">{{ t.longform.chineseOnly }}</b>
       <span>{{ t.longform.chineseOnlyNote }}</span>
     </p>
 
-    <!-- 出处与提示：纯细线盒，无卡片堆叠 -->
     <aside v-reveal="90" class="notice measure" aria-label="阅读提示">
-      <p class="notice-source">
+      <p v-for="s in FORMULA_GUIDE.sources" :key="s.url" class="notice-source">
         <span class="notice-tag mono">SOURCE</span>
-        <a :href="FORMULA_GUIDE.sourceUrl" target="_blank" rel="noopener" class="source-link">
-          {{ FORMULA_GUIDE.sourceTitle }}
-        </a>
+        <a :href="s.url" target="_blank" rel="noopener" class="source-link">{{ s.label }}</a>
+        <span class="source-note">{{ s.note }}</span>
       </p>
-      <!-- 版本锚定：机制整理版本 vs 站内数据版本必须同时给出——两者不一致时读者
-           才知道该以哪一边为准（此前只写了「可能随版本调整」，没有可对照的版本号）。 -->
       <p class="notice-ver mono">
         <span class="notice-tag mono">VERSION</span>
         <span>机制整理 <span class="ver-key">2.0 版</span></span>
@@ -128,35 +100,111 @@ onBeforeUnmount(() => {
       :title="part.title"
       :en="part.en"
     >
-      <p v-if="part.lead" class="part-lead measure">{{ part.lead }}</p>
+      <p class="part-lead measure">{{ part.lead }}</p>
 
-      <div v-if="part.formulas?.length" class="eq-list">
-        <FormulaEq v-for="(f, i) in part.formulas" :key="i" :formula="f" />
-      </div>
+      <template v-for="(block, bi) in part.blocks" :key="bi">
+        <p v-if="block.k === 'prose'" class="prose measure">{{ block.text }}</p>
 
-      <div v-for="(g, gi) in part.groups" :key="gi" class="group">
-        <h3 v-if="g.title" class="group-title mono">{{ g.title }}</h3>
-        <p v-if="g.note" class="group-note measure">{{ g.note }}</p>
+        <ol v-else-if="block.k === 'rules'" class="rules">
+          <li v-for="(rule, ri) in block.items" :key="rule.title" class="rule">
+            <span class="rule-no mono" aria-hidden="true">{{ String(ri + 1).padStart(2, '0') }}</span>
+            <h3 class="rule-title">{{ rule.title }}</h3>
+            <p class="rule-text">{{ rule.text }}</p>
+          </li>
+        </ol>
 
-        <div class="items">
-          <article v-for="item in g.items" :key="item.no" class="item">
-            <span class="it-no" aria-hidden="true">{{ item.no }}</span>
-            <div class="it-body">
-              <!-- 标题层级随分组标题是否存在浮动：无组标题时条目名升为 h3，
-                   避免 h2 → h4 跳级（axe heading-order，读屏大纲断链） -->
-              <component :is="g.title ? 'h4' : 'h3'" class="it-title">{{ item.title }}</component>
-              <p v-if="item.desc" class="it-desc measure">{{ item.desc }}</p>
-              <FormulaEq v-if="item.formula" :formula="item.formula" />
-            </div>
-          </article>
+        <FamilyMatrix v-else-if="block.k === 'families'" />
+
+        <SettlementBench v-else-if="block.k === 'bench'" />
+
+        <ZoneLedger v-else-if="block.k === 'zones'" :ids="block.ids" />
+
+        <div v-else-if="block.k === 'formula'" class="formula-block">
+          <p class="block-label mono">{{ block.label }}</p>
+          <div class="formula-body">
+            <FormulaMath :tokens="block.formula" size="lg" />
+          </div>
+          <p v-if="block.note" class="block-note">{{ block.note }}</p>
         </div>
-      </div>
+
+        <div v-else-if="block.k === 'table'" class="table-block">
+          <h3 v-if="block.title" class="block-title">{{ block.title }}</h3>
+          <div
+            v-scroll-region="block.title ? `${block.title}（表格，可横向滚动）` : '数据表（可横向滚动）'"
+            class="table-wrap"
+          >
+            <table class="hairline-table" :style="{ minWidth: block.width === 'wide' ? '760px' : '440px' }">
+              <thead>
+                <tr>
+                  <th v-for="col in block.columns" :key="col" scope="col">{{ col }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(row, ri) in block.rows" :key="ri">
+                  <th v-for="(cell, ci) in row" :key="ci" :scope="ci === 0 ? 'row' : undefined">
+                    {{ cell }}
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p v-if="block.note" class="block-note">{{ block.note }}</p>
+        </div>
+
+        <div v-else-if="block.k === 'cards'" class="cards">
+          <h3 v-if="block.title" class="block-title">{{ block.title }}</h3>
+          <p v-if="block.note" class="block-note">{{ block.note }}</p>
+          <div class="card-grid">
+            <article v-for="item in block.items" :key="item.name" class="card-item">
+              <h4 class="card-name">
+                {{ item.name }}
+                <span v-if="item.en" class="card-en mono">{{ item.en }}</span>
+              </h4>
+              <ul class="card-lines">
+                <li v-for="(line, li) in item.lines" :key="li">{{ line }}</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <div v-else-if="block.k === 'facts'" class="facts">
+          <h3 v-if="block.title" class="block-title">{{ block.title }}</h3>
+          <dl class="fact-list">
+            <div v-for="f in block.items" :key="f.k" class="fact">
+              <dt>{{ f.k }}</dt>
+              <dd>{{ f.v }}</dd>
+            </div>
+          </dl>
+        </div>
+
+        <DefenseLab v-else-if="block.k === 'defense-lab'" />
+        <DazeLab v-else-if="block.k === 'daze-lab'" />
+        <ShieldLab v-else-if="block.k === 'shield-lab'" />
+        <InterruptLab v-else-if="block.k === 'interrupt-lab'" />
+      </template>
     </DetailSection>
+
+    <p class="colophon">
+      本页全部算式都可以自己复算：把游戏里读到的数值代进式子，得到的系数就是结算时真正生效的那个。
+      遇到算不平的地方，多半是某个乘区被跳过了，或者被有效范围截断了。
+    </p>
   </ListPage>
 </template>
 
 <style scoped>
-/* 「本页仅中文」提示条：一行注记，不抢 header 的层级（细线 + 弱墨） */
+.hero {
+  margin-top: 14px;
+  font-family: var(--serif);
+  font-size: var(--fs-title);
+  line-height: 1.6;
+  color: var(--ink-0);
+  max-width: 30ch;
+}
+
+.page-head .page-sub {
+  margin-top: 12px;
+}
+
 .zh-only {
   margin-top: 18px;
   padding: 10px 12px;
@@ -166,6 +214,7 @@ onBeforeUnmount(() => {
   line-height: 1.7;
   color: var(--ink-2);
 }
+
 .zh-only b {
   display: block;
   color: var(--amber-hi);
@@ -184,47 +233,12 @@ onBeforeUnmount(() => {
 
 .notice-source {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
-  gap: var(--space-inline);
+  gap: 4px 10px;
   font-size: var(--fs-small);
   color: var(--ink-1);
   line-height: 1.6;
-}
-
-/* 版本锚定行：机制版本与数据版本并列，读者才知道该以哪一边为准 */
-.notice-ver {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 8px;
-  font-size: var(--fs-nano);
-  letter-spacing: 0.1em;
-  color: var(--ink-2);
-}
-
-.ver-key {
-  color: var(--ink-0);
-}
-
-.ver-sep {
-  color: var(--line-2);
-}
-
-.ver-snap {
-  color: var(--ink-2);
-}
-
-.notice-link {
-  color: var(--ink-0);
-  border-bottom: 1px solid var(--line-2);
-  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
-}
-
-@media (hover: hover) {
-  .notice-link:hover {
-    color: var(--amber-hi);
-    border-color: var(--amber);
-  }
 }
 
 .notice-tag {
@@ -243,6 +257,42 @@ onBeforeUnmount(() => {
 .source-link:hover {
   color: var(--amber-hi);
   border-color: var(--amber);
+}
+
+.source-note {
+  color: var(--ink-2);
+  font-size: var(--fs-caption);
+}
+
+.notice-ver {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: var(--fs-nano);
+  letter-spacing: 0.1em;
+  color: var(--ink-2);
+}
+
+.ver-key {
+  color: var(--ink-0);
+}
+
+.ver-sep {
+  color: var(--line-2);
+}
+
+.notice-link {
+  color: var(--ink-0);
+  border-bottom: 1px solid var(--line-2);
+  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+}
+
+@media (hover: hover) {
+  .notice-link:hover {
+    color: var(--amber-hi);
+    border-color: var(--amber);
+  }
 }
 
 .notice-list {
@@ -266,118 +316,211 @@ onBeforeUnmount(() => {
   color: var(--ink-1);
   font-size: var(--fs-body);
   line-height: 1.85;
-  margin-bottom: 30px;
+  margin-bottom: 22px;
 }
 
-/* 公式合集：左侧琥珀书脊聚合，避免每则成盒的叠卡感 */
-.eq-list {
+.prose {
+  font-size: var(--fs-md);
+  line-height: 1.9;
+  color: var(--ink-1);
+  margin-bottom: 20px;
+}
+
+.rules {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
   margin-bottom: var(--space-group);
-  border-left: 1px solid var(--line-1);
-  padding-left: 26px;
-}
-
-.group {
-  margin-bottom: var(--space-group);
-}
-
-.group-title {
-  display: flex;
-  align-items: center;
-  gap: var(--space-inline);
-  font-size: var(--fs-micro);
-  font-weight: 400;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--ink-1);
-  margin-bottom: 16px;
-}
-
-.group-title::before {
-  content: '';
-  width: 16px;
-  height: 1px;
-  background: var(--amber);
-  flex: none;
-}
-
-.group-note {
-  font-size: var(--fs-md);
-  color: var(--ink-1);
-  line-height: 1.85;
-  margin: -6px 0 20px;
-}
-
-/* 条目台账：等宽索引列 + 内容列，发丝横线分条；索引列保持单一左缘对齐 */
-.items {
   border-top: var(--rule);
+  padding-top: 16px;
 }
 
-.item {
+.rule {
   display: grid;
-  grid-template-columns: 92px 1fr;
-  gap: 26px;
-  padding: 26px 0;
-  border-bottom: var(--rule);
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 2px 12px;
 }
 
-.it-no {
-  font-family: var(--mono);
+.rule-no {
   font-size: var(--fs-micro);
   letter-spacing: 0.1em;
-  color: var(--ink-3);
+  color: var(--amber);
   padding-top: 4px;
 }
 
-.it-title {
+.rule-title {
   font-family: var(--serif);
   font-weight: 500;
-  font-size: var(--fs-subhead);
-  letter-spacing: 0.01em;
+  font-size: var(--fs-lead);
   color: var(--ink-0);
 }
 
-.it-desc {
-  margin-top: 9px;
+.rule-text {
+  grid-column: 2;
+  max-width: 66ch;
   font-size: var(--fs-md);
-  color: var(--ink-1);
   line-height: 1.85;
+  color: var(--ink-1);
 }
 
-.it-body {
-  min-width: 0;
+.formula-block {
+  margin-bottom: var(--space-group);
 }
 
-@media (max-width: 600px) {
-  .item {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    padding: 22px 0;
-  }
-  .it-no {
-    padding: 0;
-  }
-  .eq-list {
-    padding-left: 18px;
+.block-label {
+  font-size: var(--fs-nano);
+  letter-spacing: 0.2em;
+  color: var(--ink-2);
+}
+
+.formula-body {
+  margin-top: 10px;
+  padding: 14px 16px;
+  border-left: 2px solid var(--amber);
+  background: var(--bg-2);
+}
+
+.block-note {
+  margin-top: 10px;
+  max-width: 68ch;
+  font-size: var(--fs-caption);
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+
+.block-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: var(--fs-lead);
+  color: var(--ink-0);
+  margin-bottom: 12px;
+}
+
+.table-block,
+.cards,
+.facts {
+  margin-bottom: var(--space-group);
+}
+
+.table-wrap {
+  position: relative;
+  overflow-x: auto;
+}
+
+.table-wrap table {
+  font-size: var(--fs-caption);
+}
+
+.table-wrap th[scope='row'] {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: var(--fs-caption);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink-0);
+  white-space: nowrap;
+}
+
+.table-wrap td {
+  font-size: var(--fs-caption);
+  line-height: 1.75;
+  color: var(--ink-1);
+}
+
+.cards .card-grid {
+  display: grid;
+  gap: 20px var(--space-group);
+}
+
+.card-item {
+  padding-left: 16px;
+  border-left: 1px solid var(--line-1);
+}
+
+.card-name {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: var(--fs-md);
+  color: var(--ink-0);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+}
+
+.card-en {
+  font-size: var(--fs-nano);
+  letter-spacing: 0.16em;
+  color: var(--ink-2);
+}
+
+.card-lines {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-lines li {
+  font-size: var(--fs-caption);
+  line-height: 1.8;
+  color: var(--ink-1);
+}
+
+.fact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: var(--rule);
+  padding-top: 16px;
+}
+
+.fact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2px 16px;
+}
+
+.fact dt {
+  font-size: var(--fs-caption);
+  letter-spacing: 0.06em;
+  color: var(--ink-2);
+}
+
+.fact dd {
+  max-width: 68ch;
+  font-size: var(--fs-small);
+  line-height: 1.85;
+  color: var(--ink-1);
+}
+
+.colophon {
+  margin-top: var(--space-group);
+  padding-top: 18px;
+  border-top: var(--rule);
+  max-width: 68ch;
+  font-size: var(--fs-small);
+  line-height: 1.85;
+  color: var(--ink-2);
+}
+
+@media (min-width: 720px) {
+  .fact {
+    grid-template-columns: 128px minmax(0, 1fr);
+    align-items: baseline;
   }
 }
 
-@media (min-width: 1200px) {
-  .items {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 3em;
+@media (min-width: 900px) {
+  .cards .card-grid {
+    display: block;
+    column-count: 2;
+    column-gap: clamp(28px, 4vw, 56px);
   }
 
-  .items > .item:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-  }
-
-  .item {
-    grid-template-columns: 64px 1fr;
-    gap: 20px;
+  .card-item {
+    break-inside: avoid;
+    margin-bottom: 20px;
   }
 }
 </style>

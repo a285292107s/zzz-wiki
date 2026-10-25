@@ -97,7 +97,7 @@ const VIEW_OF = {
 const STATIC_META = {
   '/formulas': {
     label: '战斗公式',
-    desc: '伤害、失衡、属性异常与各类机制的乘区构成。承接社区数据机制导论的结构与主公式，面向配装与读数的档案式整理。',
+    desc: '把一次命中拆成一条乘法链：每个乘区从哪来、能到多少、什么时候会失效。承接社区数据机制导论（2.0 版）的结构与主公式，面向配装与读数。',
     kind: 'guide',
     src: 'src/data/formulaGuide.ts',
   },
