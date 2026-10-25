@@ -1,8 +1,9 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
+import { createMemoryHistory, createRouter } from 'vue-router'
 import AgentHead from '../src/components/detail/AgentHead.vue'
-import type { CharacterDetail } from '../src/data/types'
+import type { CharacterDetail, WEngineListItem } from '../src/data/types'
 
 const detail = {
   id: 1011,
@@ -14,6 +15,22 @@ const detail = {
   hit_type: { 101: 'Slash' },
   special_element_type: null,
 } as unknown as CharacterDetail
+
+const signatureEngine = {
+  Id: 14109,
+  icon: 'Weapon_S_1091',
+  zh: '霰落星殿',
+} as unknown as WEngineListItem
+
+function makeRouter() {
+  return createRouter({
+    history: createMemoryHistory(),
+    routes: [
+      { path: '/w-engines/:id', component: { template: '<div/>' } },
+      { path: '/:pathMatch(.*)*', component: { template: '<div/>' } },
+    ],
+  })
+}
 
 function mockMatchMedia(opts: { narrow?: boolean; retina?: boolean } = {}) {
   const { narrow = false, retina = false } = opts
@@ -72,5 +89,57 @@ describe('AgentHead hero 底图候选链', () => {
     expect(style).toContain('--hero-wide-pos: 50%')
     expect(style).toContain('--hero-wide-posY: 28%')
     expect(style).toContain('--hero-pos: 12%')
+  })
+})
+
+describe('AgentHead hero 身份图标', () => {
+  it('稀有度/属性/职业各一枚本地图标，alt 保留文字语义', () => {
+    mockMatchMedia({ narrow: false })
+    const icons = mount(AgentHead, { props: { detail }, ...mountOptions }).findAll('.meta img')
+    expect(icons.map((i) => i.attributes('src'))).toEqual([
+      '/data/img/filter/IconRoleSSmall.webp',
+      '/data/img/filter/IconFire.webp',
+      '/data/img/filter/IconAttack.webp',
+    ])
+    expect(icons.map((i) => i.attributes('alt'))).toEqual(['稀有度 S', '火', '强攻'])
+  })
+
+  it('特殊属性角色改用专属属性图标（烈霜 → IconFrost），alt 用特殊属性名', () => {
+    mockMatchMedia({ narrow: false })
+    const w = mount(AgentHead, {
+      props: {
+        detail: {
+          ...detail,
+          element_type: { 202: 'Ice' },
+          special_element_type: { name: '烈霜' },
+        },
+      },
+      ...mountOptions,
+    })
+    const icons = w.findAll('.meta img')
+    expect(icons[1].attributes('src')).toBe('/data/img/filter/IconFrost.webp')
+    expect(icons[1].attributes('alt')).toBe('烈霜')
+  })
+})
+
+describe('AgentHead hero 专属音擎注记', () => {
+  it('传入 signatureEngine 时在封面内渲染注记，链接指向 /w-engines/{Id}', () => {
+    mockMatchMedia({ narrow: false })
+    const w = mount(AgentHead, {
+      props: { detail, signatureEngine },
+      global: { plugins: [makeRouter()] },
+    })
+    const sig = w.find('.ahead .signature')
+    expect(sig.exists()).toBe(true)
+    expect(sig.attributes('href')).toBe('/w-engines/14109')
+    expect(sig.find('.sig-label').text()).toBe('专属音擎')
+    expect(sig.find('.sig-name').text()).toBe('霰落星殿')
+    expect(sig.find('img').attributes('src')).toBe('/data/img/weapon/Weapon_S_1091.webp')
+  })
+
+  it('未传入 signatureEngine（名录未加载/未覆盖）时不渲染注记', () => {
+    mockMatchMedia({ narrow: false })
+    const w = mount(AgentHead, { props: { detail }, global: { plugins: [makeRouter()] } })
+    expect(w.find('.signature').exists()).toBe(false)
   })
 })

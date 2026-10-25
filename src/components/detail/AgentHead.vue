@@ -1,34 +1,32 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { HIT_TYPES } from '@/domain/enums'
-import type { AttrCode, HitCode, SpecCode } from '@/domain/enums'
+import { ELEMENTS, PROFESSIONS, RANK_TO_TIER } from '@/domain/enums'
+import type { AttrCode, SpecCode } from '@/domain/enums'
 import { pickText } from '@/domain/lang'
 import { catalogEntry } from '@/domain/catalog'
-import type { CharacterDetail, WEngineListItem } from '@/data/types'
+import { elementIconUrl, professionIconUrl, rarityIconUrl, specialElementIconUrl } from '@/domain/filterIcons'
 import { iconSources } from '@/data/icons'
 import { pickName } from '@/utils/names'
+import type { CharacterDetail, WEngineListItem } from '@/data/types'
 import { heroFileForForm } from '@/data/heroGenderVariants'
 import { heroDetailSources } from '@/data/heroImageSources'
 import { getCardFraming, getHeroFraming } from '@/data/heroCalibration'
 import type { Framing } from '@/domain/featuredPool'
 import { useHeroForm } from '@/composables/useHeroForm'
-import { useLocale } from '@/composables/useLocale'
 import { useMediaQuery } from '@/composables/useMediaQuery'
-import HollowImage from '@/components/HollowImage.vue'
-import Tags from '@/components/Tags.vue'
-import Rarity from '@/components/Rarity.vue'
-import SignatureRef from '@/components/detail/SignatureRef.vue'
-import { fmt } from '@/domain/uiText'
+import { useLocale } from '@/composables/useLocale'
 import { useUiText } from '@/composables/useUiText'
-
-const { t } = useUiText()
+import { fmt } from '@/domain/uiText'
+import HollowImage from '@/components/HollowImage.vue'
+import SignatureRef from '@/components/detail/SignatureRef.vue'
 
 const props = defineProps<{
   detail: CharacterDetail
-  /** 专属音擎（签名 W-Engine）：由上级（AgentDetailView）经武器名录解析后传入。
-   *  缺失时 hero 不展示专属音擎卡片（可能非法条目 / 名录未覆盖）。 */
   signatureEngine?: WEngineListItem | null
 }>()
+
+const { lang } = useLocale()
+const { t } = useUiText()
 
 const attrCode = computed<AttrCode | null>(() => {
   const el = props.detail.element_type
@@ -48,30 +46,59 @@ const specCode = computed<SpecCode | null>(() => {
   return key ? (Number(key) as SpecCode) : null
 })
 
-const hitText = computed<string | null>(() => {
-  const h = props.detail.hit_type
-  const key = h ? Object.keys(h)[0] : null
-  const meta = key ? HIT_TYPES[Number(key) as HitCode] : undefined
-  return meta ? pickText(meta.label, lang.value) : null
-})
-
 const codeName = computed(() => props.detail.code_name?.toUpperCase() ?? '')
 
-/** 专属音擎：名录条目（含 Id / icon / 四语名）。命名约定 + 覆盖表见 domain/signatureEngine.ts */
 const signature = computed(() => props.signatureEngine ?? null)
-/** 专属音擎详情页路由：`/w-engines/{Id}`（路径由 catalog 派生，单一事实源） */
 const signatureTo = computed(() =>
   signature.value ? `${catalogEntry('/w-engines').path}/${signature.value.Id}` : '',
 )
-/** 专属音擎图标候选链（本地化 + nanoka CDN 两级兜底） */
 const signatureIconSrcs = computed(() =>
   signature.value ? iconSources(signature.value, 'weapon') : [],
 )
-/** 专属音擎展示名（当前语言 → 其余语言 → 代号 回退） */
-const { lang } = useLocale()
 const signatureName = computed(() =>
   signature.value ? pickName(signature.value, lang.value) : '',
 )
+
+const rankTier = computed(() =>
+  props.detail.rarity != null ? (RANK_TO_TIER[props.detail.rarity] ?? null) : null,
+)
+
+const elementLabel = computed(() => {
+  if (specialElementName.value) return specialElementName.value
+  const meta = attrCode.value != null ? ELEMENTS[attrCode.value] : undefined
+  return meta ? pickText(meta.label, lang.value) : null
+})
+
+const metaTags = computed(() => {
+  const items: Array<{ key: string; label: string; icon: string | null }> = []
+  const rank = props.detail.rarity
+  const tier = rankTier.value
+  if (rank != null && tier) {
+    items.push({
+      key: 'rank',
+      label: `${t.value.list.rarity} ${tier}`,
+      icon: rarityIconUrl(rank),
+    })
+  }
+  if (elementLabel.value) {
+    const code = attrCode.value
+    const special = specialElementName.value && code != null ? specialElementIconUrl(code) : null
+    items.push({
+      key: 'element',
+      label: elementLabel.value,
+      icon: special ?? (code != null ? elementIconUrl(code) : null),
+    })
+  }
+  const spec = specCode.value
+  if (spec != null && PROFESSIONS[spec]) {
+    items.push({
+      key: 'profession',
+      label: pickText(PROFESSIONS[spec].label, lang.value),
+      icon: professionIconUrl(spec),
+    })
+  }
+  return items
+})
 
 /**
  * 双形态角色 hero 头图：源站未提供裸名 Mindscape_{id}_2.webp，而是按性别后缀区分
@@ -116,17 +143,16 @@ const heroSrcs = computed(() =>
 const heroCal = computed<Framing | null>(() => getHeroFraming(props.detail.id))
 const cardCal = computed<Framing | null>(() => getCardFraming(props.detail.id))
 
-/** 桌面 hero：只消费 hero 模式的水平/垂直平移（放大与变换原点留给窄画幅那套）。 */
 const heroWideStyle = computed<Record<string, string> | undefined>(() =>
   heroCal.value
     ? {
         '--hero-wide-pos': heroCal.value.pos,
         '--hero-wide-posY': heroCal.value.posY,
+        '--hero-wide-flip': heroCal.value.flipH ? '-1' : '1',
       }
     : undefined,
 )
 
-/** 移动端头图：卡片模式的三件套（pos / zoom / originY）以 CSS 自定义属性透传。 */
 const heroCalStyle = computed<Record<string, string> | undefined>(() => {
   const c = cardCal.value
   const style = { ...(heroWideStyle.value ?? {}) }
@@ -134,6 +160,7 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() => {
     style['--hero-pos'] = c.pos
     style['--hero-zoom'] = String(c.zoom)
     style['--hero-originY'] = `${c.originY}%`
+    style['--hero-flip'] = c.flipH ? '-1' : '1'
   }
   return Object.keys(style).length ? style : undefined
 })
@@ -170,26 +197,16 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() => {
       <span class="marks" aria-hidden="true" data-vt-block><i /><i /><i /><i /></span>
     </span>
 
-    <div class="file-row" data-vt-block>
-      <p class="eyebrow">
-        <span>Agent File</span>
-        <span class="file-no mono">No.{{ String(detail.id ?? '').padStart(4, '0') }}</span>
-      </p>
-    </div>
-
     <div class="main" data-vt-block>
       <div class="id-block">
         <p v-if="codeName" class="ghost mono" aria-hidden="true">{{ codeName }}</p>
         <h1 class="page-title">{{ detail.name ?? '—' }}</h1>
         <div class="meta">
-          <!-- 稀有度置于标签组首位：与属性/职业并列，避免档案行右侧孤悬 -->
-          <Rarity :rank="detail.rarity" />
-          <Tags :element="attrCode" :element-label="specialElementName" :specialty="specCode" />
-          <span v-if="hitText" class="tag mono">{{ hitText }}</span>
+          <template v-for="m in metaTags" :key="m.key">
+            <img v-if="m.icon" class="meta-icon" :src="m.icon" :alt="m.label" :title="m.label" />
+            <span v-else class="tag">{{ m.label }}</span>
+          </template>
         </div>
-
-        <!-- 专属音擎（签名 W-Engine）· 边缘注记式交叉引用：点击跳转对应音擎详情页。
-             复用共享组件 SignatureRef 的 marginalia 语言（与 W-Engine head 反向引用同一套）。 -->
         <SignatureRef
           v-if="signature"
           :to="signatureTo"
@@ -210,14 +227,15 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() => {
   /* 与主页 hero 同一横幅图式：不堆超高柱，文字块在曝光区内纵向居中 */
   min-height: clamp(360px, 46vh, 560px);
   background: var(--bg-0); /* 图片缺失/加载前也保有存档底色 */
-  margin-bottom: calc(var(--pad-section) * 0.8);
+  margin-bottom: var(--space-section);
   border-bottom: var(--rule);
 }
 
 /* ≥1200 视口：桌面横幅画幅定死 2.8:1 —— 与校准表 hero 模式的参考画幅、/calibrate 的成品预览
    同一比例，因此「校准里看到什么，页面上就是什么」。盒高＝宽度/2.8，不再随视口高度漂移。
    窄于 1200 时信息块会高出这个比例（文字不能被裁），保留旧的高度下限，此时盒比偏窄（≈2.2–2.8），
-   属于小窗口下的已知偏差。fit-content 只作兜底：内容更高时以内容为准，不裁文案。 */
+   属于小窗口下的已知偏差。fit-content 只作兜底，但实测挡不住裁切：内容更高时盒高仍按 2.8 算，
+   所以 ≥1200 的垂直预算必须自己收紧，见文件末同断点规则。 */
 @media (min-width: 1200px) {
   .ahead {
     aspect-ratio: 2.8;
@@ -261,6 +279,7 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() => {
      各家在横幅里该露哪一段不同，校准值是 object-position 双轴百分比（见 IMG_GUIDE.md）。
      未校准回落居中。 */
   object-position: var(--hero-wide-pos, 50%) var(--hero-wide-posY, 50%);
+  transform: scaleX(var(--hero-wide-flip, 1));
 }
 
 /* ---------- 存档面：与主页同一向纵向曝光｜顶部透出场景，底部深掩埋保障可读 ----------
@@ -302,32 +321,6 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() => {
 .marks i:nth-child(2) { top: 0; right: 0; border-top-width: 1px; border-right-width: 1px; }
 .marks i:nth-child(3) { bottom: 0; left: 0; border-bottom-width: 1px; border-left-width: 1px; }
 .marks i:nth-child(4) { bottom: 0; right: 0; border-bottom-width: 1px; border-right-width: 1px; }
-
-/* ---------- 档案编号行 ---------- */
-
-/* 本行现只余档案编号：双形态切换钮已挪到设置页（/settings），故不再是两端对齐的一行 */
-.file-row {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  /* 与下方详情区版心同对齐；顶留一份呼吸空间，配合四角定位标内框 */
-  padding: 26px var(--pad-page) 15px;
-}
-
-.file-row .eyebrow {
-  gap: 9px;
-  padding: 5px 11px 5px 9px;
-  border: 1px solid color-mix(in srgb, var(--line-2) 84%, transparent);
-  border-radius: 2px;
-  background: var(--scrim-4);
-  color: var(--ink-1);
-}
-
-.file-no {
-  color: var(--amber);
-  letter-spacing: 0.18em;
-}
 
 /* ---------- 主体：沉底单栏，置于暗面保障可读 ---------- */
 
@@ -387,6 +380,13 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() => {
   margin-top: 22px;
 }
 
+.meta-icon {
+  display: block;
+  flex: none;
+  width: auto;
+  height: 30px;
+}
+
 /* ---------- 移动端：图与文分离（作品不被遮挡） ----------
    桌面是「满栏底图 + 文字浮于左半」，靠的是 1168px 宽、76ch 上限让右侧留白给画；
    手机 353px 宽时同一套窄不下（76ch 等于没约束），实测文字块占盒宽 89%、盒高 61%，
@@ -426,7 +426,7 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() => {
   .hero-bg img {
     object-position: var(--hero-pos, center);
     transform-origin: 50% var(--hero-originY, 50%);
-    transform: scale(var(--hero-zoom, 1));
+    transform: scale(var(--hero-zoom, 1)) scaleX(var(--hero-flip, 1));
   }
 
   /* 压暗层退化为「只为收口」的轻渐隐：画上已经没有文字，不再需要为可读性压暗整幅。
@@ -439,21 +439,6 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() => {
       transparent 78%,
       var(--scrim-3) 100%
     );
-  }
-
-  /* 编号行移到取景框**上方**：黑底承载，不压画；与首页标本签的「编号在图上」相反，
-     这行要独占一条安静的横带（放图上会与取景框抢注意力）。 */
-  .file-row {
-    order: -1;
-    padding: 14px 0 10px;
-  }
-
-  .file-row .eyebrow {
-    gap: 8px;
-    padding: 0;
-    border: 0;
-    background: none;
-    color: var(--ink-2);
   }
 
   /* 信息块：正常文档流，落在图下；不再 margin:auto 居中、不再吃 max-width:76ch */
@@ -486,6 +471,20 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() => {
   .hero-frame {
     aspect-ratio: auto;
     height: clamp(260px, 42vh, 420px);
+  }
+}
+
+/* ---------- 桌面横幅的垂直预算 ---------- */
+@media (min-width: 861px) {
+  .ahead {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main {
+    padding: 20px var(--pad-page) 30px;
   }
 }
 </style>

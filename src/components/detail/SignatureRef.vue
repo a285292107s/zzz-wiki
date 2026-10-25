@@ -43,7 +43,7 @@ defineProps<{
 </template>
 
 <style scoped>
-/* ---------- 边缘注记式交叉引用（与 AgentHead hero / W-Engine head 共用同一套 marginalia 语言） ----------
+/* ---------- 边缘注记式交叉引用（与代理人档案详情 / W-Engine head 共用同一套 marginalia 语言） ----------
    不是卡片、不是按钮。一行档案脚注：上方 hairline 分隔，marginalia 式排版 =
    mono 眉标（label）· 衬线名称 · 尾部印记徽章（emblem）。
    反AI味：不画通用箭头、不堆层级；hover 只在名称下方扫过一道琥珀发丝线。 */

@@ -2,6 +2,8 @@
 import { computed, nextTick, ref, watch, type Ref } from 'vue'
 import { detailFor, listFor } from '@/data/resources'
 import { iconSources, skillIconSources, type SkillSlot } from '@/data/icons'
+import { HIT_TYPES, type HitCode } from '@/domain/enums'
+import { pickText } from '@/domain/lang'
 import { signatureEngineFor } from '@/domain/signatureEngine'
 import { stripRichText } from '@/utils/text'
 import { pickName } from '@/utils/names'
@@ -85,10 +87,16 @@ const { data: weapons } = useAsyncResource(() =>
   listFor<WEngineListItem>(catalogEntry('/w-engines'), lang.value),
 )
 
-/** 专属音擎（签名 W-Engine）名录条目；名录未加载/未覆盖时为空（hero 静默不展示） */
 const signatureEngine = computed(() =>
   signatureEngineFor(detail.value?.id, weapons.value ?? []),
 )
+
+const hitText = computed<string | null>(() => {
+  const h = detail.value?.hit_type
+  const key = h ? Object.keys(h)[0] : null
+  const meta = key ? HIT_TYPES[Number(key) as HitCode] : undefined
+  return meta ? pickText(meta.label, lang.value) : null
+})
 
 /* ---------- 基础属性：等级滑条 ---------- */
 
@@ -207,7 +215,7 @@ const profileParas = computed<string[]>(() => {
     .filter(Boolean)
 })
 
-/* ---------- 档案详情（护照式身份字段：全名/性别/生日/身高/阵营） ---------- */
+/* ---------- 档案详情 ---------- */
 
 const dossier = computed(() => {
   const d = detail.value
@@ -223,6 +231,7 @@ const dossier = computed(() => {
   if (i?.birthday) items.push({ k: t.value.detail.birthday, v: i.birthday })
   if (i?.stature) items.push({ k: t.value.detail.height, v: `${i.stature}cm` })
   if (camp) items.push({ k: t.value.detail.camp, v: camp })
+  if (hitText.value) items.push({ k: t.value.detail.attackType, v: hitText.value })
   return items
 })
 
