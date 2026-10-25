@@ -137,6 +137,13 @@ function preloadModulesFor(manifest, source) {
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 
+function withCharacterPreload(html) {
+  return html.replace(
+    /(<link rel="preload" href="\/data\/manifest\.json"[^>]*>)/,
+    `    <link rel="preload" href="/data/live/${DEFAULT_LANG}/character.json" as="fetch" crossorigin />\n$1`,
+  )
+}
+
 function buildHtml(tpl, meta) {
   let out = tpl
   out = out.replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(meta.title)}</title>`)
@@ -164,6 +171,7 @@ function buildHtml(tpl, meta) {
       `    <link rel="preload" as="fetch" href="${esc(meta.preloadJson)}" crossorigin />\n$1`,
     )
   }
+  if (meta.preloadCharacterJson) out = withCharacterPreload(out)
   // 路由 chunk 的 modulepreload：该路由的视图是动态 import，入口 JS 跑完才发现它
   // （实测：入口 231→1600ms，chunk 1649ms 才出发——白等一段串行 RTT）。
   // 逐路由 HTML 知道自己在哪条路由，故可提前到解析期并行取。
@@ -307,6 +315,8 @@ async function main() {
       box.imageH = meta.h
     }
 
+    if (seg[0] === 'agents') box.preloadCharacterJson = true
+
     const dir = path.join(DIST, p.replace(/^\//, ''))
     fs.mkdirSync(dir, { recursive: true })
     const html = buildHtml(tpl, box)
@@ -328,7 +338,7 @@ async function main() {
       problems.push(`${p}: 详情 JSON 预载缺失（LCP 关键路径）`)
   }
 
-  let rootHtml = tpl.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${ORIGIN}/" />`)
+  let rootHtml = withCharacterPreload(tpl).replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${ORIGIN}/" />`)
   if (!rootHtml.includes('property="og:url"'))
     rootHtml = rootHtml.replace(
       /(<meta property="og:image:height"[^>]*>)/,

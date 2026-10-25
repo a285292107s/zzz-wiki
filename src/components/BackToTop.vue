@@ -12,7 +12,9 @@ function scrollToTop() {
 
 onMounted(() => {
   onScroll = () => {
-    visible.value = window.scrollY > 320
+    const nearBottom =
+      window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 240
+    visible.value = window.scrollY > 320 && !nearBottom
   }
   window.addEventListener('scroll', onScroll, { passive: true })
   onScroll()
@@ -54,7 +56,7 @@ onUnmounted(() => {
   font-size: var(--fs-micro);
   letter-spacing: 0.18em;
   color: var(--ink-2);
-  background: color-mix(in srgb, var(--bg-1) 90%, transparent);
+  background: var(--bg-1);
   border: 1px solid var(--line-1);
   border-radius: 2px;
   opacity: 0;
@@ -82,6 +84,29 @@ onUnmounted(() => {
 .back-top .arrow {
   font-size: var(--fs-md);
   line-height: 1;
+}
+
+@media (max-width: 720px) {
+  .back-top {
+    right: 0;
+    bottom: 12px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .back-top .word {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

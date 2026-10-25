@@ -218,7 +218,7 @@ A/B 实测（同一构建，B 组注入旧关键帧复现）：
 
 ```
 点击 <RouterLink> → vue-router 导航
-   beforeEach            回程判定（服务 App.vue 的页面过渡让位）
+   beforeEach            回程判定
    beforeResolve         「首页 ↔ 代理人详情」才起跳，其余一律走普通导航
      ├ 登记起飞卡         rememberDeckCard(params.id) —— 回程落回同一张
      ├ 预热降落端头图      详情档地址（与首页卡片不同档、不同缓存）
@@ -248,8 +248,8 @@ A/B 实测（同一构建，B 组注入旧关键帧复现）：
    `mobile/` 派生 —— **地址不同、缓存不共享**。不预热/不等待，浏览器采样到的是空画布：
    实测帧序列里 320ms 全黑、随后硬切到详情页（「看不出动画」的真身）。
    预热地址与渲染地址共用 `data/heroImageSources.ts` 一份规则，算错档位等于白下一张。
-5. **`mode="out-in"` 与共享元素互斥**：新视图的 DOM 更新会被压后 260ms，采样要么拿到旧
-   画面、要么拿到全透明新页。根类 `vt-active` 期间停用页面过渡（App.vue）。
+5. **页面过渡与共享元素互斥**：`mode="out-in"` 会把新视图的 DOM 更新压后 260ms，采样要么
+   拿到旧画面、要么拿到全透明新页。主内容区已移除页面过渡，`vt-active` 只标记飞行进行中。
 6. **root 组的整页交叉溶解必须等长线性互补**（old 1→0 与 new 0→1 同步、透明度和恒为 1）：
    只给 0s 时长不给 fill-mode 时，旧页快照以 `opacity: 1` 盖到飞行结束，结尾「啪」地硬切；
    两段时长不等时 `plus-lighter` 和≠1，中段会提亮。
@@ -283,7 +283,7 @@ A/B 实测（同一构建，B 组注入旧关键帧复现）：
 |---|---|---|
 | 共享元素名（浏览器读） | 首页活动卡 `.deck-item`、详情 `.hero-bg` | 常驻（仅活动卡）；四张都挂会重复名，浏览器跳过整次过渡 |
 | 端点标记 `data-vt-shared`（运行时读） | 同上 | 常驻；回调用它找到**新状态那端的画**并等它可绘制 |
-| `vt-active` | `html` | 起飞前 → finished（页面过渡让位） |
+| `vt-active` | `html` | 起飞前 → finished（飞行状态标记） |
 | `vt-landing` | `html` | 采样前挂、finished 撤（把文字层挡在新快照之外） |
 | `vt-landed` | `html` | 采样后挂、`enterSettleMs(块数)` 后自撤（落地编排的开关；取文字/纸面两条线里更晚的那条） |
 
@@ -339,7 +339,7 @@ A/B 实测（同一构建，B 组注入旧关键帧复现）：
 |---|---|
 | ✅ 只摘起飞端 | 不再生成 `::view-transition-group(deck-frame)`，没有几何插值；`::view-transition-new` 仍在，落点那张画照旧按 260ms/120ms 淡入；根交叉溶解、站头不动、落地逐条入场全部保留 |
 | 两端都摘 | 连落点那次淡入也没了，落地会「啪」地出现 |
-| 不调 `startViewTransition` | 丢掉两端等长互补的整页溶解与「终端不动」，退化成 Vue 的 `out-in` 页面过渡 |
+| 不调 `startViewTransition` | 丢掉两端等长互补的整页溶解与「终端不动」，退化成瞬时切换 |
 
 标记必须在 **`startViewTransition` 之前**挂上：浏览器在调用后的下一个渲染时机拍旧状态，
 挂晚了赶不上那次采样（名字会照样进快照，等于白摘）。CSS 侧必须带 `!important` ——
@@ -368,9 +368,9 @@ A/B 实测（同一构建，B 组注入旧关键帧复现）：
 ## 文件
 
 - `config.ts` — 路由判据、名字/标记常量、起飞登记、`waitUntil` / `awaitSharedEndImage`、起飞端可见性判据（`FLIGHT_MIN_VISIBLE_RATIO` / `flightSourceVisible`；纯逻辑，可单测）
-- `index.ts` — vue-router 守卫、双向闸门、飞行生命周期、`useViewTransition`（页面过渡让位）
+- `index.ts` — vue-router 守卫、双向闸门、飞行生命周期
 - `src/styles/base.css` — `::view-transition-*` 的节奏与 `vt-landed` 编排
 - `src/data/heroImageSources.ts` — 详情 hero 候选链（渲染与预热共用的单一事实源）
 - `src/components/home/FeaturedDeck.vue` — 起飞端 / 降落端、预热触发、装匣入场编排
 - `src/components/detail/AgentHead.vue` — 降落端 / 起飞端
-- `src/App.vue` — `vt-active` 期间停用页面过渡
+- `src/App.vue` — 主内容区（无页面过渡）

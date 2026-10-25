@@ -3,7 +3,6 @@ import { nextTick, watch } from 'vue'
 import { useUiText } from '@/composables/useUiText'
 import { RouterLink } from 'vue-router'
 import AsyncState from '@/components/state/AsyncState.vue'
-import BackToTop from '@/components/BackToTop.vue'
 import NavScrollButton from '@/components/NavScrollButton.vue'
 import { useNavScrollable } from '@/composables/useNavScrollable'
 import { recordRecentVisit } from '@/composables/useQuickSearch'
@@ -61,90 +60,97 @@ watch(
 
 <template>
   <div class="wrap page">
-    <!-- 页面动作行：返回导航。
-         本行在 AsyncState **之外**，加载中/404 也会渲染——故任何依赖「档案已就绪」的动作
-         都必须自带 status 门禁，不能无条件渲染。 -->
-    <div class="page-actions" data-vt-block data-vt-fade>
-      <RouterLink :to="backTo" class="back mono">← {{ backLabel ?? t.detail.back }}</RouterLink>
-    </div>
+    <div class="page-inner">
+      <!-- 页面动作行：返回导航。
+           本行在 AsyncState **之外**，加载中/404 也会渲染——故任何依赖「档案已就绪」的动作
+           都必须自带 status 门禁，不能无条件渲染。 -->
+      <div class="page-actions" data-vt-block data-vt-fade>
+        <RouterLink :to="backTo" class="back mono">← {{ backLabel ?? t.detail.back }}</RouterLink>
+      </div>
 
-    <!-- 区块导航：宽屏左侧档案索引 / 窄屏吸顶横条（样式见 base.css .section-nav）。
-         ref 挂在 .sn-list（窄屏**真正滚动的那个元素**）上，不是外层 nav：
-         宽屏下 nav 是 fixed 侧栏、不滚动，量它会得到「永远装得下」的假结论。 -->
-    <nav
-      v-if="nav?.length"
-      class="section-nav"
-      :aria-label="t.detail.sectionNav"
-      data-vt-block
-      data-vt-fade
-    >
-      <div ref="navEl" class="sn-list">
-        <template v-for="n in nav" :key="n.id">
-          <div v-if="n.children?.length" class="sn-group">
+      <!-- 区块导航：宽屏左侧档案索引 / 窄屏吸顶横条（样式见 base.css .section-nav）。
+          ref 挂在 .sn-list（窄屏**真正滚动的那个元素**）上，不是外层 nav：
+          宽屏下 nav 是 fixed 侧栏、不滚动，量它会得到「永远装得下」的假结论。 -->
+      <nav
+        v-if="nav?.length"
+        class="section-nav"
+        :aria-label="t.detail.sectionNav"
+        data-vt-block
+        data-vt-fade
+      >
+        <div ref="navEl" class="sn-list">
+          <template v-for="n in nav" :key="n.id">
+            <div v-if="n.children?.length" class="sn-group">
+              <RouterLink
+                class="sn-item mono"
+                :class="{ active: active === n.id || n.children.some((c) => c.id === active) }"
+                :aria-current="active === n.id || n.children.some((c) => c.id === active) ? 'location' : undefined"
+                :to="{ hash: '#' + n.id }"
+                :title="n.label"
+              >
+                <span class="no" aria-hidden="true">{{ n.no }}</span>
+                <span>{{ n.label }}</span>
+              </RouterLink>
+              <ul class="sn-child-list">
+                <li v-for="c in n.children" :key="c.id">
+                  <RouterLink
+                    class="sn-child mono"
+                    :class="{ active: active === c.id }"
+                    :aria-current="active === c.id ? 'location' : undefined"
+                    :to="{ hash: '#' + c.id }"
+                  >
+                    <span>{{ c.label }}</span>
+                  </RouterLink>
+                </li>
+              </ul>
+            </div>
             <RouterLink
+              v-else
               class="sn-item mono"
-              :class="{ active: active === n.id || n.children.some((c) => c.id === active) }"
-              :aria-current="active === n.id || n.children.some((c) => c.id === active) ? 'location' : undefined"
+              :class="{ active: active === n.id }"
+              :aria-current="active === n.id ? 'location' : undefined"
               :to="{ hash: '#' + n.id }"
               :title="n.label"
             >
               <span class="no" aria-hidden="true">{{ n.no }}</span>
               <span>{{ n.label }}</span>
             </RouterLink>
-            <ul class="sn-child-list">
-              <li v-for="c in n.children" :key="c.id">
-                <RouterLink
-                  class="sn-child mono"
-                  :class="{ active: active === c.id }"
-                  :aria-current="active === c.id ? 'location' : undefined"
-                  :to="{ hash: '#' + c.id }"
-                >
-                  <span>{{ c.label }}</span>
-                </RouterLink>
-              </li>
-            </ul>
-          </div>
-          <RouterLink
-            v-else
-            class="sn-item mono"
-            :class="{ active: active === n.id }"
-            :aria-current="active === n.id ? 'location' : undefined"
-            :to="{ hash: '#' + n.id }"
-            :title="n.label"
-          >
-            <span class="no" aria-hidden="true">{{ n.no }}</span>
-            <span>{{ n.label }}</span>
-          </RouterLink>
+          </template>
+        </div>
+        <NavScrollButton :label="t.detail.sectionNavHint" @click="scrollRight" />
+      </nav>
+
+      <AsyncState
+        :status="status"
+        :error="error"
+        :retry="retry"
+        :back-to="fallbackTo"
+        :back-text="fallbackText"
+        :state-as-heading="true"
+      >
+        <!-- 加载骨架：视图自己给（详情页封面形态各不同），没给就退回 AsyncState 的一行 LOADING…
+             条件挂载是必要的：无条件传空插槽会让 AsyncState 认为"父级提供了骨架"，
+             于是连那行文字也不渲染（其他详情页会变成全空加载态）。 -->
+        <template v-if="$slots.skeleton" #skeleton>
+          <slot name="skeleton" />
         </template>
-      </div>
-      <NavScrollButton :label="t.detail.sectionNavHint" @click="scrollRight" />
-    </nav>
-
-    <AsyncState
-      :status="status"
-      :error="error"
-      :retry="retry"
-      :back-to="fallbackTo"
-      :back-text="fallbackText"
-      :state-as-heading="true"
-    >
-      <!-- 加载骨架：视图自己给（详情页封面形态各不同），没给就退回 AsyncState 的一行 LOADING…
-           条件挂载是必要的：无条件传空插槽会让 AsyncState 认为"父级提供了骨架"，
-           于是连那行文字也不渲染（其他详情页会变成全空加载态）。 -->
-      <template v-if="$slots.skeleton" #skeleton>
-        <slot name="skeleton" />
-      </template>
-      <slot />
-    </AsyncState>
-
-    <BackToTop />
+        <slot />
+      </AsyncState>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .page {
-  --wrap-max: 1120px;
+  --page-content-max: 1120px;
   padding-top: calc(var(--pad-section) * 0.9);
+  padding-inline: 0;
+}
+
+.page-inner {
+  max-width: var(--page-content-max);
+  margin-inline: auto;
+  padding-inline: var(--pad-page);
 }
 
 /* 动作行只剩「返回」一项（分享入口已于决策记录 0009 下线）：不再需要两端对齐，

@@ -5,6 +5,7 @@ import { joinLoc, type Loc } from '@/domain/lang'
 import { uiLoc } from '@/domain/uiText'
 import { DEV_ROUTES } from '@/domain/devRoutes'
 import { resolveAnchorOffset } from '@/composables/anchorOffset'
+import { restoreScrollTo } from '@/composables/useScrollRestore'
 // 首页是着陆页：静态编入主包（其余路由保持懒加载）。懒 chunk 到位前 main 只有站头+页脚，
 // 内容到达时整页弹入、页脚下坠（实测 CLS 0.031 的来源）；着陆页 +2.5KB gzip 换首帧稳定。
 import HomeView from '@/views/HomeView.vue'
@@ -52,7 +53,10 @@ export const router = createRouter({
      scroll-margin-top 不会生效；必须在此手动算避让偏移（站头/吸顶横条），
      偏移值读取 CSS 变量 --anchor-offset（base.css 单一来源，含断点）。 */
   scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) return savedPosition
+    if (savedPosition) {
+      if ('top' in savedPosition) restoreScrollTo(savedPosition.top ?? 0)
+      return savedPosition
+    }
     if (to.hash) {
       const id = to.hash.slice(1)
       const el = document.getElementById(id)

@@ -28,7 +28,7 @@
  * 1178×395），挂框只会让整块面板向上挪一下——这是最初「看不出 hero 效果」的原因。
  * ============================================================ */
 
-import { computed, nextTick, ref, type Ref } from 'vue'
+import { nextTick, ref, type Ref } from 'vue'
 import type { Router } from 'vue-router'
 import { heroFileForForm } from '@/data/heroGenderVariants'
 import { awaitImageReady, heroDetailPrimarySrc, heroDetailViewport } from '@/data/heroImageSources'
@@ -88,25 +88,6 @@ const armed = ref(false)
 let armedTarget: string | null = null
 /** 飞行中的过渡：重叠导航并到同一次上，而不是再开一次 */
 let inFlight: Promise<void> | null = null
-/** 去程起飞端（首页牌堆）：本次导航是首页 → 代理人详情时为 true */
-const deckIsSource = ref(false)
-/** 回程降落端（首页牌堆）：本次导航是代理人详情 → 首页时为 true。
- *  只服务 App.vue 的页面过渡让位（过渡期间两种方向都要让位）。 */
-const deckIsSink = ref(false)
-
-/**
- * 过渡进行中：App.vue 据此停用 Vue 的页面过渡（`.page-*` 的 out-in 会把新视图的
- * DOM 更新压后，浏览器就拍不到新画面）。
- *
- * 注意**不是**用来控制共享元素名的：那个名字只在 `startViewTransition` 采样期间起作用，
- * 两端都可以常驻声明（两端的元素各在自己的页面上，不会并存）。
- * 曾按「本次谁起飞」条件挂名，结果降落端没名、配不成组，反向根本不飞。
- */
-export function useViewTransition(): { active: Ref<boolean> } {
-  const active = computed(() => deckIsSource.value || deckIsSink.value)
-  return { active }
-}
-
 /**
  * 起飞前把**降落端的头图**烘进缓存：详情页 hero 与首页卡片不同档位，缓存不共享。
  * 只等 LANDING_PREWARM_MS（触屏路径没有 hover 预热，否则要白等一整张原图）；
@@ -350,8 +331,6 @@ function beginFlight(
       inFlight = null
       armed.value = false
       armedTarget = null
-      deckIsSource.value = false
-      deckIsSink.value = false
       const root = document.documentElement
       root.classList.remove(VT_ROOT_CLASS)
       root.classList.remove(VT_LANDING_CLASS)
@@ -390,10 +369,7 @@ export function installViewTransition(router: Router): void {
   // 免得"界面动画 300ms、JS 只等 200ms"这种两边各写一份的漂移
   applyTimingVars()
 
-  // 回程要提前置位：deckIsSink 的唯一职责是 App.vue 的页面过渡让位
-  // （共享元素名不靠它——两端均常驻声明）
-  router.beforeEach((to, from) => {
-    deckIsSink.value = isAgentDetailToDeck(to, from)
+  router.beforeEach((to) => {
     // 起飞前编排在途时，**别的**导航一旦开始就整段撤销：用户改主意优先。
     // 不撤的话，编排落定后的那一跳会盖掉用户后来点的那一次（实测会飞到旧目的地），
     // 而且退场标记会留在页面上（站头保持隐身）。
@@ -413,7 +389,6 @@ export function installViewTransition(router: Router): void {
       landingReady = prewarmLandingHero(targetId)
     }
 
-    deckIsSource.value = true // 服务 App.vue 的页面过渡让位；名字不靠它
     // 起飞端 = 降落端的另一端。**起飞端不在屏上就别飞**（判据与原因见 config.flightSourceVisible）：
     // 详情页滚到底部时头图在视口上方近万像素，飞行几乎全程发生在屏幕外。
     const sourceEnd: VtEnd = outbound ? 'deck' : 'hero'

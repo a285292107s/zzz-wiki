@@ -13,6 +13,8 @@ import type { Directive } from 'vue'
 export const reveal: Directive<HTMLElement, number | undefined> = {
   mounted(el, binding) {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const rect = el.getBoundingClientRect()
+    if (rect.top < window.innerHeight && rect.bottom > 0) return
     el.classList.add('reveal')
     const delay = typeof binding.value === 'number' && binding.value > 0 ? binding.value : 0
     if (delay) el.style.setProperty('--reveal-delay', `${delay}ms`)

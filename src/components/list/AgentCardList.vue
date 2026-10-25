@@ -1,5 +1,10 @@
+<script lang="ts">
+const shownByPath = new Map<string, number>()
+</script>
+
 <script setup lang="ts">
 import { computed, onBeforeUnmount, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import type { CharacterListItem } from '@/data/types'
 import { useUiText } from '@/composables/useUiText'
 import AgentCardGrid from './AgentCardGrid.vue'
@@ -16,15 +21,22 @@ const emit = defineEmits<{ (e: 'clear'): void }>()
 const { t } = useUiText()
 
 const PAGE_SIZE = 18
-const shown = ref(PAGE_SIZE)
+const route = useRoute()
+let pathKey = route.fullPath
+const shown = ref(shownByPath.get(pathKey) ?? PAGE_SIZE)
 const visibleItems = computed(() => props.items.slice(0, shown.value))
 const hasMore = computed(() => shown.value < props.items.length)
 
+watch(shown, () => shownByPath.set(pathKey, shown.value), { flush: 'sync' })
+
 watch(
-  () => props.items,
-  () => {
-    shown.value = PAGE_SIZE
+  () => route.fullPath,
+  (fullPath) => {
+    if (route.path !== props.base) return
+    pathKey = fullPath
+    shown.value = shownByPath.get(fullPath) ?? PAGE_SIZE
   },
+  { flush: 'sync' },
 )
 
 function loadMore(): void {

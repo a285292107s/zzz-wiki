@@ -1,6 +1,6 @@
 /* ============================================================
  * anchorOffset — 详情页锚点停靠偏移的动态解析（单一函数）。
- * 组成：站头 62px + 吸顶横条（.section-nav）实际高度 + 14px 间隙；
+ * 组成：站头实际高度 + 吸顶横条（.section-nav）实际高度 + 14px 间隙；
  * 宽屏时横条是脱离文档流的 fixed 侧栏，直接返回 76。
  * 消费方：router scrollBehavior / useDetailNavigation / FormulasView。
  * 宽屏判定用「横条 layout 语义」（position: fixed）而非媒体查询数值——
@@ -22,7 +22,9 @@ function measure(): number {
   }
   // 宽屏：横条是 fixed 侧栏（不占文档流），量测会误取整栏高度，不参与页头避让
   if (getComputedStyle(nav).position === 'fixed') return 76
-  return 62 + nav.getBoundingClientRect().height + 14
+  const masthead = document.querySelector<HTMLElement>('.masthead')
+  const mastheadH = masthead?.getBoundingClientRect().height ?? 63
+  return mastheadH + nav.getBoundingClientRect().height + 14
 }
 
 export function resolveAnchorOffset(): number {

@@ -13,6 +13,12 @@ html {
   scrollbar-color: var(--line-2) var(--bg-0);
 }
 
+@media (min-width: 1000px) {
+  html {
+    scrollbar-gutter: stable;
+  }
+}
+
 body {
   background: var(--bg-0);
   color: var(--ink-0);
@@ -531,7 +537,7 @@ a.rich-term:hover {
   z-index: 90;
   top: 50%;
   transform: translateY(-50%);
-  left: max(14px, calc((100vw - var(--wrap-max)) / 2 - 126px));
+  left: max(14px, calc((100% - var(--page-content-max, var(--wrap-max))) / 2 - 126px));
   display: flex;
   flex-direction: column;
   width: 96px;
@@ -681,7 +687,7 @@ a.rich-term:hover {
 
 /* 窄屏：左侧留白不足，恢复为站头下的吸顶横条（激活以同一条下刻线表达）。
    统一为单行横向滚动：条目过多时横滑（触屏惯性、隐藏滚动条），不换行——
-   换行会顶掉大半个首屏且锚点偏移失效。高度恒定，--anchor-offset 的 132px 估算保持成立。
+   换行会顶掉大半个首屏且锚点偏移失效。高度恒定，--anchor-offset 由站头与横条实测高度派生。
 
    横向可滚动性由**两端淡出**表达（`mask-image`，宽度读 --sn-fade-l / --sn-ramp-r /
    --sn-tail-r），出口按钮（.sn-scroll-btn）绝对定位在右端、压在淡出带上——它不参与 flex
@@ -689,10 +695,10 @@ a.rich-term:hover {
    淡出与按钮都只在「那一边确实还有内容」时存在：.at-start / .at-end 一到边就收掉，
    不留「还能滑」的误导。这三条位置类由 useNavScrollable 维护（挂在 .sn-list 上，
    与 ref 同一个元素——挂外层会让宽屏/窄屏两套样式各认一个祖先）。 */
-@media (max-width: 1360px) {
+@media (max-width: 1400px) {
   .section-nav {
     position: sticky;
-    top: 61px; /* 站头 62px - 1px 边线重叠 */
+    top: calc(var(--masthead-h, 63px) - 2px);
     transform: none;
     left: auto;
     flex-direction: row;
@@ -909,17 +915,18 @@ a.rich-term:hover {
 }
 
 /* ---------- 锚点滚动避让：响应式（站头 + 吸顶横条） ----------
-   --anchor-offset 是单一来源：CSS 侧栏断点（1360）与 router scrollBehavior 共用 */
+   --anchor-offset 是单一来源：CSS 侧栏断点（1400）与 router scrollBehavior 共用 */
 
 :root {
-  /* 宽屏侧栏模式（>1360）：只避让站头 62px + 14px 间隙 */
-  --anchor-offset: 76px;
+  --masthead-h: 63px;
+  --sn-h: 49.5px;
+  --anchor-gap: 14px;
+  --anchor-offset: calc(var(--masthead-h) + 13px);
 }
 
-@media (max-width: 1360px) {
+@media (max-width: 1400px) {
   :root {
-    /* 窄屏吸顶横条模式：站头 62 + 横条 56 + 14 间隙 = 132 */
-    --anchor-offset: 132px;
+    --anchor-offset: calc(var(--masthead-h) + var(--sn-h) + var(--anchor-gap));
   }
 }
 
@@ -1355,7 +1362,7 @@ html.vt-restore .vt-chrome-case {
    用 :has 直接在样式层判定「页面正在加载」，无需在 JS 里透传加载态：
    内容就绪后站尾在文档末尾出现，位于首屏之外，不再产生位移。
    无异步骨架的页面（/about、/formulas、404）不受影响，站尾照常立即出现。 */
-.shell:has(.state.loading) .foot {
+.shell:has(.state-slot) .foot {
   display: none;
 }
 
