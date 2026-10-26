@@ -143,6 +143,7 @@ watch(
 <style scoped>
 .page {
   --page-content-max: 1120px;
+  max-width: var(--page-content-max);
   padding-top: calc(var(--pad-section) * 0.9);
   padding-inline: 0;
 }
