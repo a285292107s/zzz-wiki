@@ -64,11 +64,10 @@ function urls() {
 
 function main() {
   const list = urls()
-  const today = new Date().toISOString().slice(0, 10)
   const xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    ...list.map((u) => `  <url><loc>${ORIGIN}${u}</loc><lastmod>${today}</lastmod></url>`),
+    ...list.map((u) => `  <url><loc>${ORIGIN}${u}</loc></url>`),
     '</urlset>',
     '',
   ].join('\n')

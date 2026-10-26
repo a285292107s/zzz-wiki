@@ -70,7 +70,18 @@
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
+    },
+    {
+      "source": "/settings",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex" }
+      ]
     }
+  ],
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/(.*)/index.html", "destination": "/$1", "permanent": true },
+    { "source": "/(.*)/", "destination": "/$1", "permanent": true }
   ],
   "rewrites": [
     {

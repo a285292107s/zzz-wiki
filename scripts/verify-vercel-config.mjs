@@ -85,6 +85,23 @@ const rewrites = cfg.rewrites ?? []
 if (rewrites.some((r) => r.destination === '/index.html')) ok('SPA rewrite → /index.html 存在')
 else fail('缺少 SPA rewrite（深链会 404）')
 
+const redirects = cfg.redirects ?? []
+for (const [src, dest] of [
+  ['/index.html', '/'],
+  ['/(.*)/index.html', '/$1'],
+  ['/(.*)/', '/$1'],
+]) {
+  const r = redirects.find((x) => x.source === src)
+  if (r && r.destination === dest && r.permanent === true) ok(`规范地址归一 ${src} → ${dest}（308）`)
+  else fail(`缺少 308 归一：${src} → ${dest}`)
+}
+const settingsHeaders = rules
+  .filter((r) => r.source === '/settings')
+  .flatMap((r) => r.headers ?? [])
+if (settingsHeaders.some((h) => h.key.toLowerCase() === 'x-robots-tag' && /noindex/.test(h.value)))
+  ok('/settings: noindex（本机偏好页不进索引）')
+else fail('/settings 缺少 X-Robots-Tag: noindex')
+
 /* 5) 唯一允许的重叠：/data/manifest.json 落在 /data/(.*\.json) 之内，
       必须排在其后（同 key 后匹配者生效），否则清单会被通配的 1 天缓存覆盖 */
 const iJson = indexOf('/data/(.*\\.json)')
