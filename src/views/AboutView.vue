@@ -136,7 +136,7 @@ const gapCount = computed(() =>
       <h1 class="page-title">数据说明</h1>
       <p class="page-sub">
         本站以档案编号为纲，只做客观陈列：数据取自公开数据源，构建期落地为静态档案，
-        运行时只读本站资源。以下说明收录范围、更新机制、校验门禁与版权归属。
+        运行时只读本站资源。以下说明收录范围、更新机制、校验门禁、本机偏好与版权归属。
       </p>
     </header>
 
@@ -177,8 +177,8 @@ const gapCount = computed(() =>
         <code class="mono">NO.1011</code>、快速检索结果、深链地址与图片文件名）与
         <strong>展示位次</strong>（详情页翻页处的三位序号，如
         <code class="mono">002</code>，按源站 ID 升序在<em>该类目内</em>排定）。
-        名录表格本身不显示编号——它按名称、属性等列陈列。号段为各类目实测范围，
-        随数据更新自动跟随。
+        名录页本身不印这两个编号——卡片版与表格版都只按名称、属性等列陈列。
+        号段为各类目实测范围，随数据更新自动跟随。
       </p>
     </aside>
 
@@ -201,19 +201,19 @@ const gapCount = computed(() =>
       <ol class="steps">
         <li>
           <span class="step-no mono" aria-hidden="true">01</span>
-          <span class="step-txt">定时任务探测源站版本；无新版本则直接结束，不产生提交。</span>
+          <span class="step-txt">定时任务先探测源站版本；没有新版本就跳过 JSON 重建（缺失图标的补差仍会跑），文件没有变化就不产生提交。</span>
         </li>
         <li>
           <span class="step-no mono" aria-hidden="true">02</span>
-          <span class="step-txt">有新版本时重建名录与详情 JSON，并增量补齐缺失的图标与头图派生图（已有美术资源不重复下载）。</span>
+          <span class="step-txt">有新版本时重建名录与详情 JSON，并按本地差集增量补齐缺失的图标、立绘与产品图派生小图（已有的美术资源不重复下载）。</span>
         </li>
         <li>
           <span class="step-no mono" aria-hidden="true">03</span>
-          <span class="step-txt">跑数据契约校验（名录与详情必须一一对应）；校验不通过则整批不提交，站点停留在上一次的好数据上。</span>
+          <span class="step-txt">重算中文字体子集，再跑四道门禁：数据契约（名录与详情一一对应）、本地图标齐整、字体覆盖、生日表与详情一致。任一道不过则整批不提交，站点停留在上一次的好数据上。</span>
         </li>
         <li>
           <span class="step-no mono" aria-hidden="true">04</span>
-          <span class="step-txt">校验通过后一次性提交，触发部署；部署只构建已提交的快照，不在构建期访问数据源。</span>
+          <span class="step-txt">全过后一次性提交（数据、图标、字体子集同一笔），触发部署；部署只构建已提交的快照、不在构建期访问数据源，上线后再核对线上数据版本与已提交快照一致。</span>
         </li>
       </ol>
     </DetailSection>
@@ -221,11 +221,12 @@ const gapCount = computed(() =>
     <DetailSection v-reveal id="assets" no="03" title="资产与校验" en="Assets">
       <div class="wide-cols">
         <p class="prose measure">
-          图标、西文字体与中文衬线（按字形分片、用到才加载）、首页头图派生小图，全部本地化入库；
+          图标、立绘与产品图的派生小图（按画幅预生成）、西文字体与中文衬线（按字形分片、用到才加载），
+          全部本地化入库；
           <strong>本站资源齐备时页面零跨域请求</strong>。离线能力由 Service Worker 提供：
           <strong>首次访问之后，已浏览过的页面在断网时仍可打开阅读</strong>（导航网络优先、
           静态资源缓存优先、数据 JSON 陈旧优先并后台更新；缓存世代跟随数据版本，换版即整批清理）。
-          唯一的跨域例外是候选链兜底：个别源站缺口（如某条邦布无图标）会回源同源 CDN（nanoka）
+          唯一的跨域例外是候选链兜底：个别源站缺口（如某条邦布无图标）会回源同一数据源的 CDN（nanoka）
           取一次图——这是「不破图、也不把占位当有图」的取舍，触发条数与缺口同量级，
           见下方「字段覆盖」。
         </p>
@@ -234,7 +235,8 @@ const gapCount = computed(() =>
         <li><span class="ck mono">契约</span>名录↔详情一一对应、字段 schema 校验</li>
         <li><span class="ck mono">图标</span>清单内零缺失（源站个别缺口如实标注、不破图）</li>
         <li><span class="ck mono">字体</span>西文与中文分片完整性（分片缺失会让个别字回退字形，故单独设防）</li>
-        <li><span class="ck mono">体积</span>主包与样式体积预算、站点地图条数下限</li>
+        <li><span class="ck mono">生日表</span>首页生日角标所依据的小表须与详情数据逐条一致</li>
+        <li><span class="ck mono">体积</span>主包与样式体积预算、站点地图条数下限（部署前另设）</li>
       </ul>
     </DetailSection>
 
@@ -242,7 +244,8 @@ const gapCount = computed(() =>
       <div class="wide-cols">
         <p class="prose measure">
           本站的检索、翻页、等级与筛选都做了键盘支持；<strong>链接本身就是视图</strong>——
-          筛选、排序、等级会写进地址栏，复制出去即是同一份视图。
+          筛选、检索与等级会写进地址栏，排序也认 <code class="mono">?sort=&amp;dir=</code>，
+          复制出去即是同一份视图。
         </p>
         <p class="prose measure">
           要把它交给别人，直接复制地址栏（移动端用浏览器自带的分享或拷贝）；打开链接的人看到的
@@ -296,11 +299,26 @@ const gapCount = computed(() =>
       <p v-else class="prose mono cov-loading">···</p>
       <p class="prose measure">
         当前共 <span class="mono">{{ gapCount }}</span> 项字段未满量。缺口集中在源站尚未提供
-        的角色潜能（影画）与个别图标；缺失处一律以占位呈现，不伪造数据、不留破图。
+        的角色潜能（影画）与简介，以及个别邦布图标；缺失处一律以占位呈现，不伪造数据、不留破图。
       </p>
     </DetailSection>
 
-    <DetailSection v-reveal id="rights" no="06" title="版权与免责" en="Rights">
+    <DetailSection v-reveal id="local" no="06" title="语言与本机偏好" en="Local">
+      <div class="wide-cols">
+        <p class="prose measure">
+          游戏内容与界面文案都备了中文、English、日本語、한국어 四语，在
+          <RouterLink to="/settings" class="ext">设置</RouterLink>页选一种即刻生效。站内两篇人工撰写的
+          长文（本页与战斗公式）只有中文，进入时会先读到一条「本页仅中文」的说明。
+        </p>
+        <p class="prose measure">
+          展示语言、佩洛伊斯立绘形态与代理人名录的陈列方式（卡片 / 表格）都是<strong>本机偏好</strong>：
+          前两项在设置页点选，陈列方式在名录页工具栏切换，都只存你自己的浏览器、不进分享链接。
+          贴出去的名录地址只带筛选条件——语言与陈列方式各看各的。
+        </p>
+      </div>
+    </DetailSection>
+
+    <DetailSection v-reveal id="rights" no="07" title="版权与免责" en="Rights">
       <div class="wide-cols">
         <p class="prose measure">
           本站为社区爱好者制作的<strong>非官方</strong>资料站，与米哈游 / HoYoverse 无隶属或合作关系。
