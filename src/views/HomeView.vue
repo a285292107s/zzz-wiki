@@ -104,10 +104,6 @@ const sections = computed(() => [
           <p class="hs-title mono">{{ t.home.spec }}</p>
           <dl class="hs-list">
             <div class="hs-row">
-              <dt>{{ t.home.category }}</dt>
-              <dd class="mono">{{ String(CATALOG.length).padStart(2, '0') }}</dd>
-            </div>
-            <div class="hs-row">
               <dt>{{ t.home.dataVersion }}</dt>
               <dd class="mono">{{ currentVersionLabel || '···' }}</dd>
             </div>
