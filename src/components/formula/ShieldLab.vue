@@ -28,9 +28,9 @@ const shieldRatio = computed(() => rows.value[3].value / rows.value[1].value)
 <template>
   <LabFrame
     anchor="shield-lab"
-    title="秽盾把账翻了过去"
+    title="秽盾下的两条链"
     en="THE SHIELD"
-    lead="秽浊流界同时做两件事：把敌人防御乘以 1.8，并给敌人挂上 25% 减伤。对常规伤害来说，这两笔一起作用；对贯穿伤害来说，第一笔完全落空——这就是命破在面对秽盾首领时的结构性优势。"
+    lead="秽浊流界同时抬高防御（×1.8）与减伤（25%）：常规伤害两笔都吃，贯穿伤害只吃减伤，命破占优。下方四条读数以 60 级首领为准。"
   >
     <ul class="bars">
       <li v-for="r in rows" :key="r.id" class="bar-row">
@@ -43,24 +43,23 @@ const shieldRatio = computed(() => rows.value[3].value / rows.value[1].value)
         <span class="bar-note">{{ r.note }}</span>
       </li>
     </ul>
-    <p class="bars-legend">虚竖线是「常规伤害 · 无盾」＝ 100% 的位置，四条都按它取相对值。</p>
+    <p class="bars-legend">虚竖线＝「常规伤害 · 无盾」的 100% 基准，四条同比例。</p>
 
     <div class="verdict">
       <p>
-        以 60 级首领、同一份基础伤害为基准：持盾时常规伤害只剩
-        <b class="mono">{{ formatPercent(rows[1].ratio) }}</b>，而贯穿伤害仍保有
-        <b class="mono">{{ formatPercent(rows[3].ratio) }}</b>——两者相差
+        同一份基础伤害：持盾时常规伤害剩
+        <b class="mono">{{ formatPercent(rows[1].ratio) }}</b>，贯穿伤害为
+        <b class="mono">{{ formatPercent(rows[3].ratio) }}</b>，相差
         <b class="mono">{{ formatFactor(shieldRatio) }}</b>。
       </p>
       <p class="verdict-sub">
-        无盾时这个差距是 <span class="mono">{{ formatFactor(1 / rows[0].value) }}</span>。
-        防御越高、减伤越厚，跳过防御区的价值就越大；反之，若目标本来就被减防与穿透压到很低，
-        贯穿的优势会迅速收窄。
+        无盾时差距为 <span class="mono">{{ formatFactor(1 / rows[0].value) }}</span>。
+        防御与减伤越高，跳过防御区的收益越大；若目标已被减防与穿透压低，则该优势收窄。
       </p>
     </div>
 
     <div class="miasma">
-      <p class="ctl-group-label mono">另一条线：秽息浸染</p>
+      <p class="ctl-group-label mono">秽息浸染</p>
       <div class="meter" role="img" aria-label="秽息浸染上限 400，默认每秒衰减 1.5%，满值触发全队当前生命 15% 的伤害">
         <span class="meter-track" />
         <span class="meter-cap" />
@@ -68,8 +67,8 @@ const shieldRatio = computed(() => rows.value[3].value / rows.value[1].value)
         <span class="meter-label end mono">400 · 触发</span>
       </div>
       <p class="miasma-note">
-        队伍属性：初始 0、上限 400、默认每秒衰减 1.5%。达到上限时对全队造成各自当前生命 15% 的伤害，
-        无视护盾并击飞。极限闪避、招架支援、回避支援可以消除部分浸染值。
+        队伍属性：初始 0、上限 400、默认每秒衰减 1.5%；满值时对全队造成各自当前生命 15% 的伤害，
+        无视护盾并击飞。极限闪避、招架支援、回避支援可消除部分浸染值。
       </p>
     </div>
   </LabFrame>

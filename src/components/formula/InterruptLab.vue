@@ -31,13 +31,13 @@ const breaks = computed(() => attackItem.value.level >= targetItem.value.level)
 <template>
   <LabFrame
     anchor="interrupt-lab"
-    title="一次比较，不是一条韧性条"
+    title="打断等级比较"
     en="THE INTERRUPT CHECK"
-    lead="打断只看两个数：攻击的打断等级，目标的抗打断等级。前者 ≥ 后者就打断，落在目标身上是一段硬直。等级相等即可——不需要「削掉」什么。两边都是变量：同一个攻击打不同目标、同一个目标面对不同攻击，结论都可能不同。"
+    lead="打断是一次等级比较：攻击的打断等级 ≥ 目标的抗打断等级即成立，相等亦可。选取攻击与目标即可读数。"
   >
-    <div v-scroll-region="'打断判定表（可横向滚动）'" class="grid-wrap">
+    <div v-scroll-region="'判定表（可横向滚动）'" class="grid-wrap">
       <table class="grid">
-        <caption class="sr-only">打断等级与抗打断等级的判定表：攻击等级大于等于目标等级时才能打断</caption>
+        <caption class="sr-only">打断判定：打断等级 ≥ 抗打断等级即可打断</caption>
         <thead>
           <tr>
             <th scope="col" class="corner">攻击等级 ／ 目标等级</th>
@@ -94,9 +94,9 @@ const breaks = computed(() => attackItem.value.level >= targetItem.value.level)
 
     <p class="verdict" role="status">
       {{ attackItem.label }}（Lv{{ attackItem.level }}）打 {{ targetItem.label }}（Lv{{ targetItem.level }}）：
-      <b>{{ breaks ? '可以打断' : '打不断' }}</b>。
+      <b>{{ breaks ? '可以打断' : '不可打断' }}</b>。
       <span class="verdict-note">
-        打断的是敌人的攻击时触发「破招」，回复 10 点喧响值。
+        打断敌人攻击触发「破招」，回复 10 点喧响值。
       </span>
     </p>
     <p v-if="attackItem.note || targetItem.note" class="foot-note">

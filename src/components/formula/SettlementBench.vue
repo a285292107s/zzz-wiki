@@ -72,7 +72,7 @@ const signedPercent = (v: number) => `${v > 0 ? '+' : ''}${v}%`
 const GROUPS: Group[] = [
   {
     id: 'base',
-    label: '基础 · 攻击力 × 技能倍率',
+    label: '基础',
     rows: [
       { key: 'atk', label: '攻击力', min: 500, max: 4000, step: 50, fmt: (v) => formatInt(v) },
       { key: 'ratio', label: '技能倍率', min: 50, max: 2000, step: 10, fmt: (v) => `${v}%` },
@@ -80,7 +80,7 @@ const GROUPS: Group[] = [
   },
   {
     id: 'attacker',
-    label: '攻方加成',
+    label: '攻方',
     rows: [
       { key: 'bonus', label: '增伤区', min: 0, max: 600, step: 5, fmt: (v) => formatFactor(bonusZone(v / 100)) },
       { key: 'critRate', label: '暴击率', min: 0, max: 100, step: 1, fmt: (v) => `${v}%` },
@@ -89,7 +89,7 @@ const GROUPS: Group[] = [
   },
   {
     id: 'defender',
-    label: '受方 · 防御与抗性',
+    label: '受方',
     rows: [
       { key: 'pen', label: '穿透率', min: 0, max: 100, step: 1, fmt: (v) => `${v}%` },
       { key: 'defDown', label: '减防', min: 0, max: 100, step: 1, fmt: (v) => `${v}%` },
@@ -181,10 +181,10 @@ const critDamage = computed(() => base.value * (total.value / critExpect.value) 
 
 const trimmed = computed(() => {
   const notes: string[] = []
-  if (state.bonus / 100 > 5) notes.push('增伤区已顶到上限 ×6')
-  if (state.vuln / 100 < -0.8) notes.push('减易伤区已压到下限 ×0.2')
-  if (state.res / 100 > 1) notes.push('抗性区已压到下限 ×0')
-  if (stunned.value && state.stunRate / 100 > 4) notes.push('失衡易伤区已顶到上限 ×5')
+  if (state.bonus / 100 > 5) notes.push('增伤区达上限 ×6')
+  if (state.vuln / 100 < -0.8) notes.push('减易伤区达下限 ×0.2')
+  if (state.res / 100 > 1) notes.push('抗性区达下限 ×0')
+  if (stunned.value && state.stunRate / 100 > 4) notes.push('失衡易伤区达上限 ×5')
   return notes
 })
 
@@ -217,7 +217,7 @@ function applyPreset(id: 'clean' | 'pen' | 'stun' | 'shield') {
         <span class="bench-en mono">SETTLEMENT BENCH</span>
       </div>
       <p class="bench-intro">
-        同一份基础伤害，依次走过七道闸。拖动任一读数，看最终伤害怎么变，以及每道闸在总倍率里占的分量。
+        同一份基础伤害依次经过七道闸。拖动读数，看最终伤害与各闸占比。
       </p>
       <div class="bench-modes" role="group" aria-label="伤害类型">
         <button
@@ -239,7 +239,7 @@ function applyPreset(id: 'clean' | 'pen' | 'stun' | 'shield') {
 
     <div class="bench-body">
       <div class="bench-controls">
-        <div class="presets" role="group" aria-label="预设情境">
+        <div class="presets" role="group" aria-label="预设">
           <button type="button" class="seg mono" @click="applyPreset('clean')">裸装配</button>
           <button type="button" class="seg mono" @click="applyPreset('pen')">24% 穿透</button>
           <button type="button" class="seg mono" @click="applyPreset('stun')">失衡窗口</button>
@@ -276,7 +276,7 @@ function applyPreset(id: 'clean' | 'pen' | 'stun' | 'shield') {
               >{{ stunned ? '失衡中' : '未失衡' }}</button>
             </div>
             <p class="ctl-hint">
-              {{ stunned ? '失衡时按敌人的失衡易伤倍率结算。' : '未失衡时按「未失衡时失衡易伤」结算，默认 0，本区为 ×1。' }}
+              {{ stunned ? '按失衡易伤倍率结算。' : '按「未失衡时失衡易伤」计，默认 0，本区 ×1。' }}
             </p>
           </div>
 
@@ -320,18 +320,18 @@ function applyPreset(id: 'clean' | 'pen' | 'stun' | 'shield') {
           </li>
         </ol>
         <p class="gates-legend">
-          每道闸的横条从中心的 ×1 起算：向右是放大，向左是衰减。长度按对数取，所以 ×2 与 ×0.5 一样长。
+          横条自中心 ×1 起算：向右放大，向左衰减；长度取对数，×2 与 ×0.5 等长。
         </p>
 
         <p v-if="trimmed.length" class="out-warn" role="status">
-          有效范围已生效：{{ trimmed.join('；') }}。超出部分不计入结算。
+          有效范围已截断：{{ trimmed.join('；') }}。
         </p>
         <p class="out-foot">
-          期望值把暴击区压成（1 + 暴击率 × 暴击伤害）。距离衰减按站桩（×1）计入——特殊乘区一栏因此恒为 ×1，
-          只有远程代理人拉开距离时才会低于 1。
+          期望值以（1 + 暴击率 × 暴击伤害）折算暴击区。距离衰减按站桩（×1）计入，特殊乘区恒为 ×1；
+          远程代理人拉开距离时低于 1。
         </p>
         <p class="out-hint">
-          把某一区推过有效范围再继续加，读数不再变化：那部分加成在结算里等于零。
+          读数越过有效范围后不再变化，超出的加成不计入结算。
         </p>
       </div>
     </div>

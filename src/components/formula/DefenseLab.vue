@@ -17,9 +17,9 @@ const CANDIDATE_PEN = 0.24
 const input = reactive({ pen: 0, defDown: 0, enemy: 'boss' as EnemyPresetId })
 
 const SCENARIOS: { label: string; pen: number; defDown: number; note: string }[] = [
-  { label: '无其他穿透', pen: 0, defDown: 0, note: '裸装配，只有候选的 24% 穿透' },
-  { label: '妮可 40% 减防', pen: 0, defDown: 0.4, note: '减防与穿透率乘算，穿透收益被摊薄' },
-  { label: '丽娜 30% 穿透', pen: 0.3, defDown: 0, note: '穿透率之间加算，24% 变成 54% 的一部分' },
+  { label: '无其他穿透', pen: 0, defDown: 0, note: '裸装：仅候选 24% 穿透率' },
+  { label: '妮可 40% 减防', pen: 0, defDown: 0.4, note: '减防与穿透率乘算，收益摊薄' },
+  { label: '丽娜 30% 穿透', pen: 0.3, defDown: 0, note: '穿透率加算，24% 并入 54%' },
 ]
 
 const rows = computed(() =>
@@ -60,13 +60,13 @@ function useScenario(s: (typeof SCENARIOS)[number]) {
 <template>
   <LabFrame
     anchor="defense-lab"
-    title="防御区的账"
+    title="穿透率与防御区"
     en="THE DEFENSE LEDGER"
-    lead="防御区只与两个数有关：攻方的等级基数（60 级为 794）和受方的有效防御。所以同一个 24% 穿透率，在敌人档次不同、队友减防不同的情况下，收益可以差出一倍——这正是驱动盘 V 位「24% 穿透率还是 30% 属性增伤」的答案所在。"
+    lead="防御区只取决于攻方等级基数（60 级为 794）与受方有效防御，24% 穿透率的收益随之浮动。驱动盘 V 位「24% 穿透率」与「30% 属性增伤」的取舍即由此计算；下方可调穿透率与减防。"
   >
-    <div v-scroll-region="'各档次敌人的防御与防御区（可横向滚动）'" class="def-table-wrap">
+    <div v-scroll-region="'防御数据表（可横向滚动）'" class="def-table-wrap">
       <table class="hairline-table def-table">
-        <caption class="sr-only">各档次敌人在 60 级的防御、默认防御区与贯穿伤害倍数</caption>
+        <caption class="sr-only">60 级各目标的防御、默认防御区与贯穿伤害倍数</caption>
         <thead>
           <tr>
             <th scope="col">目标</th>
@@ -90,8 +90,8 @@ function useScenario(s: (typeof SCENARIOS)[number]) {
       </table>
     </div>
     <p class="lab-note">
-      在同等基础伤害下，贯穿伤害直接把防御区让成 ×1，因此对{{ picked.name }}是常规伤害的
-      <span class="mono">{{ formatFactor(picked.pierce) }}</span>。点表格里的目标可以换算式里的对象。
+      同等基础伤害下，贯穿伤害视防御区为 ×1，对{{ picked.name }}是常规伤害的
+      <span class="mono">{{ formatFactor(picked.pierce) }}</span>。点选目标即可切换。
     </p>
 
     <div class="tradeoff">
@@ -108,7 +108,7 @@ function useScenario(s: (typeof SCENARIOS)[number]) {
             :min="0"
             :max="80"
             :step="1"
-            label="已有穿透率（百分比）"
+            label="已有穿透率"
             :value-text="`${Math.round(input.pen * 100)}%`"
             @update:model-value="input.pen = $event / 100"
           />
@@ -124,7 +124,7 @@ function useScenario(s: (typeof SCENARIOS)[number]) {
             :min="0"
             :max="80"
             :step="1"
-            label="已有减防（百分比）"
+            label="已有减防"
             :value-text="`${Math.round(input.defDown * 100)}%`"
             @update:model-value="input.defDown = $event / 100"
           />
@@ -144,25 +144,23 @@ function useScenario(s: (typeof SCENARIOS)[number]) {
         <p class="out-mode mono">候选：+{{ CANDIDATE_BONUS * 100 }}% 增伤 ／ +{{ CANDIDATE_PEN * 100 }}% 穿透率</p>
         <p class="out-big mono">{{ formatFactor(1 + gain) }}</p>
         <p class="out-sub">
-          24% 穿透率对这一刀的提升是 <span class="mono">{{ formatPercent(gain) }}</span>
-          （含进总倍率后即 <span class="mono">{{ formatPercent(1 + gain) }}</span>）
+          24% 穿透率的提升为 <span class="mono">{{ formatPercent(gain) }}</span>
         </p>
         <p class="verdict">
           <template v-if="Number.isFinite(threshold)">
-            只要你的原增伤区高于
-            <b class="mono">{{ formatPercent(threshold) }}</b>，这 24% 穿透就比 +30% 增伤更值。
+            原增伤区高于
+            <b class="mono">{{ formatPercent(threshold) }}</b> 时，24% 穿透率优于 +30% 增伤。
           </template>
-          <template v-else>当前条件下穿透没有收益：防御已被压到下限。</template>
+          <template v-else>防御已至下限，穿透无收益。</template>
         </p>
         <p class="out-foot">
-          换个说法：30% 增伤的相对收益是 30 ÷ 原增伤区，而穿透的收益只取决于防御被削掉多少。
-          增伤越堆越高，穿透就越显便宜——这也是唯一一条「越堆越值钱」的线。
+          30% 增伤的相对收益是 30 ÷ 原增伤区，穿透则只看防御被削减的比例。
         </p>
       </div>
     </div>
 
     <div class="scenarios">
-      <p class="ctl-group-label mono">原文三个算例（目标：{{ picked.name }}）</p>
+      <p class="ctl-group-label mono">原文算例（目标：{{ picked.name }}）</p>
       <ul class="scenario-list">
         <li v-for="s in scenarioRows" :key="s.label" class="scenario">
           <span class="s-name">{{ s.label }}</span>

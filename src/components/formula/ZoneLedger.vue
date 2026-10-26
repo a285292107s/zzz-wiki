@@ -11,7 +11,7 @@ const zones = computed(() =>
 )
 
 const AXIS: Record<string, { min: number; max: number; note?: string }> = {
-  def: { min: 0, max: 1.2, note: '本行单独用 0–1.2 的轴：防御区只减不增' },
+  def: { min: 0, max: 1.2, note: '本行单独取 0–1.2 轴：防御区只减不增' },
 }
 
 function axisOf(id: string) {
@@ -26,8 +26,8 @@ function rangeText(zone: Zone): string {
 <template>
   <div class="ledger">
     <p class="ledger-axis mono">
-      标尺＝各乘区的系数刻度（统一画在 0–10 的轴上），竖线是 ×1 的「不增不减」位置；色带是该乘区的有效范围，
-      越过色带的加成不计入结算。
+      标尺为各乘区系数刻度（0–10 轴）；竖线为 ×1 不增不减位；色带为有效范围，
+      越界不计入结算。
     </p>
 
     <article v-for="zone in zones" :id="`z-${zone.id}`" :key="zone.id" class="zone">

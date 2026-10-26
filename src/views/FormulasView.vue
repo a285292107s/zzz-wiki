@@ -67,12 +67,26 @@ const { version, updatedAt, versionLabel } = useDataVersion()
       <span>{{ t.longform.chineseOnlyNote }}</span>
     </p>
 
-    <aside v-reveal="90" class="notice measure" aria-label="阅读提示">
-      <p v-for="s in FORMULA_GUIDE.sources" :key="s.url" class="notice-source">
+    <aside v-reveal="90" class="notice measure" aria-label="出处与口径">
+      <div class="notice-source-group">
         <span class="notice-tag mono">SOURCE</span>
-        <a :href="s.url" target="_blank" rel="noopener" class="source-link">{{ s.label }}</a>
-        <span class="source-note">{{ s.note }}</span>
-      </p>
+        <div class="source-body">
+          <p class="source-title">{{ FORMULA_GUIDE.source.title }}</p>
+          <p class="source-byline">
+            {{ FORMULA_GUIDE.source.byline }}
+            <span class="source-dates">
+              <span class="byline-sep" aria-hidden="true">·</span>
+              {{ FORMULA_GUIDE.source.dates }}
+            </span>
+          </p>
+          <ul class="source-outlets">
+            <li v-for="o in FORMULA_GUIDE.source.outlets" :key="o.url" class="source-outlet">
+              <a :href="o.url" target="_blank" rel="noopener" class="source-link">{{ o.label }}</a>
+              <span class="source-note">{{ o.note }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
       <p class="notice-ver mono">
         <span class="notice-tag mono">VERSION</span>
         <span>机制整理 <span class="ver-key">2.0 版</span></span>
@@ -81,14 +95,17 @@ const { version, updatedAt, versionLabel } = useDataVersion()
         <span v-else>站内档案数据 ···</span>
         <span v-if="updatedAt" class="ver-snap">（快照 {{ updatedAt }}）</span>
       </p>
-      <ul class="notice-list">
-        <li v-for="(n, i) in FORMULA_GUIDE.notice" :key="i">{{ n }}</li>
-        <li>
-          公式在档案里的落点：基础属性与技能数值随等级变化，可在
-          <RouterLink to="/agents" class="notice-link">代理人名录</RouterLink>
-          任一条目的「基础属性」区拖动等级滑条对照读数。
-        </li>
-      </ul>
+      <div class="notice-scope">
+        <p class="notice-tag mono">SCOPE</p>
+        <ul class="notice-list">
+          <li v-for="(n, i) in FORMULA_GUIDE.notice" :key="i">{{ n }}</li>
+          <li>
+            公式对应的站内页面：基础属性与技能数值随等级变化，可在
+            <RouterLink to="/agents" class="notice-link">代理人名录</RouterLink>
+            任一条目的「基础属性」区拖动等级滑条对照读数。
+          </li>
+        </ul>
+      </div>
     </aside>
 
     <DetailSection
@@ -103,7 +120,11 @@ const { version, updatedAt, versionLabel } = useDataVersion()
       <p class="part-lead measure">{{ part.lead }}</p>
 
       <template v-for="(block, bi) in part.blocks" :key="bi">
-        <p v-if="block.k === 'prose'" class="prose measure">{{ block.text }}</p>
+        <p
+          v-if="block.k === 'prose'"
+          class="prose measure"
+          :class="{ 'prose-coda': bi === part.blocks.length - 1 }"
+        >{{ block.text }}</p>
 
         <ol v-else-if="block.k === 'rules'" class="rules">
           <li v-for="(rule, ri) in block.items" :key="rule.title" class="rule">
@@ -185,8 +206,8 @@ const { version, updatedAt, versionLabel } = useDataVersion()
     </DetailSection>
 
     <p class="colophon">
-      本页全部算式都可以自己复算：把游戏里读到的数值代进式子，得到的系数就是结算时真正生效的那个。
-      遇到算不平的地方，多半是某个乘区被跳过了，或者被有效范围截断了。
+      本页算式均可复算：代入游戏内读数，所得系数即结算实际生效的系数。
+      读数不符时，先查是否有乘区被跳过，或被有效范围截断。
     </p>
   </ListPage>
 </template>
@@ -241,11 +262,12 @@ const { version, updatedAt, versionLabel } = useDataVersion()
     padding: 20px clamp(20px, 2.4vw, 28px) 22px;
   }
 
-  aside.notice > p {
+  aside.notice > p,
+  aside.notice > .notice-source-group {
     grid-column: 1;
   }
 
-  aside.notice > .notice-list {
+  aside.notice > .notice-scope {
     grid-column: 2;
     grid-row: 1 / span 3;
     padding-left: clamp(18px, 2.2vw, 26px);
@@ -253,11 +275,68 @@ const { version, updatedAt, versionLabel } = useDataVersion()
   }
 }
 
-.notice-source {
+.notice-scope {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.notice-source-group {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 3px 8px;
+  min-width: 0;
+}
+
+.source-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.source-title {
+  font-family: var(--serif);
+  font-size: var(--fs-md);
+  line-height: 1.55;
+  color: var(--ink-0);
+}
+
+.source-byline {
+  font-size: var(--fs-caption);
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+
+.source-dates {
+  white-space: nowrap;
+}
+
+@media (max-width: 559px) {
+  .byline-sep {
+    display: none;
+  }
+}
+
+.byline-sep {
+  margin-inline: 3px;
+  color: var(--line-2);
+}
+
+.source-outlets {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  margin-top: 2px;
+}
+
+.source-outlet {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 4px 10px;
+  gap: 2px 8px;
   font-size: var(--fs-small);
   color: var(--ink-1);
   line-height: 1.6;
@@ -350,38 +429,60 @@ const { version, updatedAt, versionLabel } = useDataVersion()
   margin-bottom: 20px;
 }
 
+.prose-coda {
+  margin-top: var(--space-group);
+  margin-bottom: 0;
+  padding-top: 16px;
+  border-top: var(--rule);
+  font-size: var(--fs-small);
+  line-height: 1.85;
+  color: var(--ink-2);
+}
+
 .rules {
   display: flex;
   flex-direction: column;
-  gap: 16px;
   margin-bottom: var(--space-group);
   border-top: var(--rule);
-  padding-top: 16px;
+  border-bottom: var(--rule);
 }
 
 .rule {
   display: grid;
-  grid-template-columns: 34px minmax(0, 1fr);
-  gap: 2px 12px;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 3px 14px;
+  padding-block: 15px;
+  border-bottom: 1px solid var(--line-0);
+}
+
+.rule:first-child {
+  padding-top: 16px;
+}
+
+.rule:last-child {
+  padding-bottom: 16px;
+  border-bottom: 0;
 }
 
 .rule-no {
-  font-size: var(--fs-micro);
-  letter-spacing: 0.1em;
+  font-size: var(--fs-nano);
+  letter-spacing: 0.16em;
+  font-variant-numeric: tabular-nums;
   color: var(--amber);
-  padding-top: 4px;
+  padding-top: 5px;
 }
 
 .rule-title {
   font-family: var(--serif);
   font-weight: 500;
   font-size: var(--fs-lead);
+  line-height: 1.5;
   color: var(--ink-0);
 }
 
 .rule-text {
   grid-column: 2;
-  max-width: 66ch;
+  max-width: 62ch;
   font-size: var(--fs-md);
   line-height: 1.85;
   color: var(--ink-1);

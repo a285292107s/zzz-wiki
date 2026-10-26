@@ -14,7 +14,9 @@ function nameOf(id: string): string {
   return zoneById(id)?.name ?? id
 }
 
-const pivotNote = '贯穿伤害以「贯穿增伤区」取代「防御区」，其余乘区与常规伤害一致。'
+const pivotNote = '贯穿伤害以「贯穿增伤区」取代「防御区」，其余同常规伤害。'
+
+const PIVOT = new Set(['def', 'pierce'])
 </script>
 
 <template>
@@ -27,14 +29,14 @@ const pivotNote = '贯穿伤害以「贯穿增伤区」取代「防御区」，�
         <span class="chain-badge mono">{{ f.badge }}</span>
       </p>
       <p class="chain-terms">
-        <template v-for="(id, i) in f.chain" :key="id">
+        <span v-for="(id, i) in f.chain" :key="id" class="unit">
           <span v-if="i > 0" class="op" aria-hidden="true">×</span>
           <RouterLink
             :to="{ hash: `#z-${id}` }"
             class="term"
-            :class="{ pivot: id === 'def' || id === 'pierce' }"
+            :class="{ pivot: PIVOT.has(id) }"
           >{{ nameOf(id) }}</RouterLink>
-        </template>
+        </span>
       </p>
       <p class="chain-note">{{ f.note }}</p>
     </div>
@@ -43,7 +45,7 @@ const pivotNote = '贯穿伤害以「贯穿增伤区」取代「防御区」，�
   <div v-scroll-region="'乘区参与对照表（可横向滚动）'" class="matrix-wrap">
     <table class="matrix">
       <caption class="sr-only">
-        各伤害类型参与的乘区对照表：● 表示参与，— 表示不参与
+        各伤害类型参与的乘区对照表（● 参与，— 不参与）
       </caption>
       <thead>
         <tr>
@@ -52,7 +54,7 @@ const pivotNote = '贯穿伤害以「贯穿增伤区」取代「防御区」，�
         </tr>
       </thead>
       <tbody>
-        <tr v-for="z in damageZones" :key="z.id">
+        <tr v-for="z in damageZones" :key="z.id" :class="{ pivot: PIVOT.has(z.id) }">
           <th scope="row" class="c-zone">
             <a :href="`#z-${z.id}`" class="zone-link">{{ z.name }}</a>
           </th>
@@ -67,9 +69,9 @@ const pivotNote = '贯穿伤害以「贯穿增伤区」取代「防御区」，�
   </div>
 
   <p class="matrix-legend">
-    <span class="lg yes" aria-hidden="true">●</span> 计入这一链
+    <span class="lg yes" aria-hidden="true">●</span> 参与
     <span class="sep" aria-hidden="true">·</span>
-    <span class="lg no" aria-hidden="true">—</span> 不计入
+    <span class="lg no" aria-hidden="true">—</span> 不参与
     <span class="sep" aria-hidden="true">·</span>
     {{ pivotNote }}
   </p>
@@ -117,23 +119,32 @@ const pivotNote = '贯穿伤害以「贯穿增伤区」取代「防御区」，�
 }
 
 .chain-terms {
-  margin-top: 8px;
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 3px 8px;
+  gap: 6px 8px;
   font-size: var(--fs-md);
+}
+
+.unit {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  white-space: nowrap;
 }
 
 .op {
   font-family: var(--mono);
   font-size: var(--fs-small);
+  line-height: 1.4;
   color: var(--amber);
 }
 
 .term {
   font-family: var(--mono);
   font-size: var(--fs-small);
+  line-height: 1.6;
   letter-spacing: 0.02em;
   color: var(--ink-1);
   padding-block: 2px;
@@ -147,7 +158,7 @@ const pivotNote = '贯穿伤害以「贯穿增伤区」取代「防御区」，�
 }
 
 .chain-note {
-  margin-top: 8px;
+  margin-top: 10px;
   max-width: 62ch;
   font-size: var(--fs-small);
   line-height: 1.75;
@@ -198,6 +209,16 @@ const pivotNote = '贯穿伤害以「贯穿增伤区」取代「防御区」，�
   border-bottom: 0;
 }
 
+.matrix tr.pivot .zone-link {
+  color: var(--amber-hi);
+  border-bottom-color: var(--amber);
+}
+
+.matrix tr.pivot .zone-link:hover,
+.matrix tr.pivot .zone-link:focus-visible {
+  color: var(--ink-0);
+}
+
 .zone-link {
   color: inherit;
   border-bottom: 1px dotted transparent;
@@ -216,7 +237,7 @@ const pivotNote = '贯穿伤害以「贯穿增伤区」取代「防御区」，�
 }
 
 .no {
-  color: var(--ink-3);
+  color: var(--ink-2);
   font-family: var(--mono);
 }
 
@@ -225,7 +246,7 @@ const pivotNote = '贯穿伤害以「贯穿增伤区」取代「防御区」，�
   flex-wrap: wrap;
   align-items: baseline;
   gap: 6px 8px;
-  padding-top: 12px;
+  padding-block: 14px 6px;
   max-width: 72ch;
   font-size: var(--fs-caption);
   line-height: 1.75;

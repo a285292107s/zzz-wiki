@@ -62,14 +62,14 @@ const selectedSpeed = computed(() => SPEEDS.find((s) => s.id === input.speed) ??
 <template>
   <LabFrame
     anchor="daze-lab"
-    title="时间是算出来的"
+    title="失衡窗口构成"
     en="THE STUN WINDOW"
-    lead="失衡是一场限时的账：先瘫痪 1 秒（临界时间），再按敌人的失衡恢复速度回到常态。所谓「失衡持续时间提升 50%」，实际改的都是速度——所以同一条增益，作用在不同敌人身上换来的秒数并不相同。"
+    lead="失衡窗口由瘫痪 1 秒（临界时间）与按失衡恢复速度计算的恢复期构成；「失衡持续时间提升 50%」实际改的是速度，秒数因敌人而异。下方可选择初始速度与调整量。"
   >
     <div class="daze-grid">
       <div class="daze-controls">
-        <p class="ctl-group-label mono">敌方初始失衡恢复速度</p>
-        <div class="speed-btns" role="group" aria-label="敌方初始失衡恢复速度">
+        <p class="ctl-group-label mono">初始失衡恢复速度</p>
+        <div class="speed-btns" role="group" aria-label="初始失衡恢复速度">
           <button
             v-for="s in SPEEDS"
             :key="s.id"
@@ -93,7 +93,7 @@ const selectedSpeed = computed(() => SPEEDS.find((s) => s.id === input.speed) ??
             :min="-40"
             :max="160"
             :step="1"
-            label="失衡恢复速度调整（百分比）"
+            label="失衡恢复速度调整"
             :value-text="`${input.adjust > 0 ? '+' : ''}${input.adjust}%`"
           />
         </div>
@@ -148,8 +148,8 @@ const selectedSpeed = computed(() => SPEEDS.find((s) => s.id === input.speed) ??
         </ul>
 
         <p class="out-foot">
-          百分比调整失衡恢复时间的效果，实际都是改速度：几笔加减先合并，再乘到初始速度上。
-          固定「延长失衡恢复时间 n 秒」的效果则是让恢复延迟开始，与速度无关，故两者可以叠。
+          百分比调整改的是速度：加减先合并，再乘到初始速度；固定「延长失衡恢复时间 n 秒」
+          只推迟恢复起点，可叠加。
         </p>
       </div>
     </div>
