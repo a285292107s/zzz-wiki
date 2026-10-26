@@ -29,6 +29,7 @@ import { usePageMeta } from '@/composables/usePageMeta'
 import { useLocale } from '@/composables/useLocale'
 import { useUiText } from '@/composables/useUiText'
 import { fmt } from '@/domain/uiText'
+import { latinDecor } from '@/utils/latinDecor'
 import { LANGS, LANG_META } from '@/domain/lang'
 import { useHeroForm } from '@/composables/useHeroForm'
 import { heroFileForForm } from '@/data/heroGenderVariants'
@@ -42,6 +43,7 @@ usePageMeta()
 const { heroForm, setHeroForm } = useHeroForm()
 const { lang, setLang } = useLocale()
 const { t } = useUiText()
+const eyebrow = computed(() => latinDecor('Settings', t.value.settings.title))
 
 /** 形态组样张的角色：佩洛伊斯（1551）——当前唯一登记了双形态立绘的角色
  *  （src/data/hero-gender-variants.json），只有它换形态真的换图。 */
@@ -62,7 +64,7 @@ function formShotSources(form: HeroForm) {
 <template>
   <ListPage>
     <header v-reveal class="page-head">
-      <p class="eyebrow mono">Settings</p>
+      <p v-if="eyebrow" class="eyebrow mono">{{ eyebrow }}</p>
       <h1 class="page-title">{{ t.settings.title }}</h1>
       <p class="page-sub">
         {{ t.settings.intro }}

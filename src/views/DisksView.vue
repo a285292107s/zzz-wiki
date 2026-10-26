@@ -4,6 +4,7 @@
  * 与音擎名录同构：卡壳/骨架/空态由 CardGrid + CardBlock 收起（两页共用），
  * 本页只声明「一张卡片陈列什么」；筛选/取数与陈列顺序经 useCatalogList/useCatalogSort/resources 收敛
  * （**本页不提供排序控件**，陈列顺序取 useCatalogSort 的默认编号倒序）。 */
+import { computed } from 'vue'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useCatalogList } from '@/composables/useCatalogList'
 import { useCatalogSort } from '@/composables/useCatalogSort'
@@ -11,6 +12,7 @@ import { listFor } from '@/data/resources'
 import { iconSources } from '@/data/icons'
 import { stripRichText } from '@/utils/text'
 import { pickLocaleInfo } from '@/utils/names'
+import { latinDecor } from '@/utils/latinDecor'
 import { pickText } from '@/domain/lang'
 import { useLocale } from '@/composables/useLocale'
 import { useUiText } from '@/composables/useUiText'
@@ -28,6 +30,7 @@ const base = cat.path
 /** 当前展示语言（名录按语言落盘，语言一变下面的取数会重新拉） */
 const { lang } = useLocale()
 const { t } = useUiText()
+const eyebrow = computed(() => latinDecor('Drive Discs', pickText(cat.label, lang.value)))
 
 /** 驱动盘名录的 zh/en/ja/ko 是 `{ name, desc2, desc4 }` 子对象（不是名字字符串），
  *  故按当前语言取子对象、再取字段；缺该语言时由 pickLocaleInfo 回退到其他语言。 */
@@ -59,7 +62,7 @@ const { sorted } = useCatalogSort(
 <template>
   <ListPage>
     <header v-reveal class="page-head">
-      <p class="eyebrow mono">Disk Drives</p>
+      <p v-if="eyebrow" class="eyebrow mono">{{ eyebrow }}</p>
       <h1 class="page-title">{{ pickText(cat.label, lang) }}</h1>
       <p class="page-sub">
         {{ t.list.disksIntro }}

@@ -40,7 +40,7 @@ Class: feature
   不是界面壳。对非中文读者，页内挂一条「本页仅中文」注记（仅在 `lang !== 'zh'` 时出现，
   中文读者不需要这条）；`src/data/formulaGuide.ts` 与 `AboutView.vue` 的正文因此保持中文。
 - **不做**：开发专属页面（`StyleGuideView` / `CalibrateView` / `devRoutes` 的页脚入口）——生产构建里被摇树移除。
-- 语言无关的排版元素继续保留原样：`.en` 拉丁副标（AGENTS / W-ENGINES / DISK DRIVES / BANGBOO）、
+- 语言无关的排版元素继续保留原样：`.en` 拉丁副标（AGENTS / W-ENGINES / DRIVE DISCS / BANGBOO）、
   语言自称（中文 / English / 日本語 / 한국어）、`LOADING…` / `NO RECORDS` 这类等宽英文语气件。
 
 ### 机制：一条 `Loc` + 一张文案表
@@ -241,6 +241,26 @@ en/ja/ko 的界面文案是 **AI 起草**，未经母语者复核；`QUALITY.md`
 - **清掉两个没人用的文案键与一段死 CSS**：`common.backToTop` / `search.close`
   （组件实际用的是 `backToTopSr` / `closeSr`，全仓 0 引用）与 `SettingsView.vue` 里
   给不存在的 `<b>` 写的 `.lang-current b`。文案表四语同步删，仍为 217 键。
+
+**第三轮：装饰性拉丁行（2026-10）**——上面那条「hero 按值相等跳过」当时只修了一处，同一形态的
+双行铭牌全站还有一批：
+
+- **站头副标把品牌名印了两遍**：`brand-sub` 是模板里写死的拉丁串，en 下与 `header.brandName`
+  恰好同串（读屏还会把链接名念成两遍同一句话）。修法两步：副标进文案表 `header.brandSub`
+  （四语各写自己的：zh/ja/ko 仍是那串拉丁镜像，en 改写成 `NEW ERIDU · FIELD ARCHIVE`，
+  给主标没说的信息），并统一走 `utils/latinDecor`——**装饰串与本地化文案同串、或只是它的缩写
+  （忽略大小写与词间标点）时返回空串，调用方不渲染**。副标同时 `aria-hidden`：它是可见文本的重复，
+  不该并进链接名。
+- 同一轮按这条口径清掉的：详情页区块铭牌（en「Skills / SKILLS」「Outfits / OUTFITS」，以及
+  「Mindscape Cinema / MINDSCAPE」「Core Skill / CORE」这类缩写）、首页目录行的类目铭牌、
+  首页「Contents / CONTENTS」段头、快速检索的分组头、名录页眉标（Agents / W-Engines / Bangboos / Settings）。
+- **教训**：拉丁铭牌是给**另一种书写系统**做对照的；同一语言下它一个字的信息量都没有。
+  新增任何「本地化名 + 全大写拉丁行」的双行铭牌，都要过 `latinDecor`，别写成裸字面量。
+- **驱动盘的拉丁名统一为 `Drive Discs`**（2026-10 定稿）：此前眉标写 `Disk Drives`、`catalog.ts` 的
+  `en` 写 `DISK DRIVES`、详情页眉标写 `Disk Drive`，与类目名 `Drive Discs` 是两套叫法
+  （同一概念的两种写法既不互为缩写、也不互为同串，**守卫救不了这种漂移**，只能靠人看出）。
+  三处已改齐；首页目录行、检索分组头与页眉标在 en 下随之自动隐去，zh/ja/ko 仍显示 `DRIVE DISCS`。
+  邦布的 `BANGBOO / Bangboos` 属缩写差，由守卫覆盖，无需改文案。
 
 ## 四语名对照（界面复核面）
 

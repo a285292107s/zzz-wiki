@@ -7,6 +7,7 @@ import { useAgentsViewVersion } from '@/composables/useAgentsViewVersion'
 import { listFor } from '@/data/resources'
 import type { CharacterListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
+import { latinDecor } from '@/utils/latinDecor'
 import { pickText } from '@/domain/lang'
 import { useLocale } from '@/composables/useLocale'
 import { useUiText } from '@/composables/useUiText'
@@ -32,6 +33,7 @@ const base = cat.path
 /** 当前展示语言：名录按语言落盘，语言一变这里的取数会重新拉（见 useAsyncResource） */
 const { lang } = useLocale()
 const { t } = useUiText()
+const eyebrow = computed(() => latinDecor('Agents', pickText(cat.label, lang.value)))
 
 /** 陈列版本：本机偏好（卡片 / 表格），切换入口就在工具栏——读者不必离开名录页 */
 const { agentsViewVersion, setAgentsViewVersion } = useAgentsViewVersion()
@@ -77,7 +79,7 @@ const { sorted } = useCatalogSort(
 <template>
   <ListPage>
     <header v-reveal class="page-head">
-      <p class="eyebrow mono">Agents</p>
+      <p v-if="eyebrow" class="eyebrow mono">{{ eyebrow }}</p>
       <h1 class="page-title">{{ pickText(cat.label, lang) }}</h1>
       <p class="page-sub">
         {{ t.list.agentsIntro }}

@@ -108,7 +108,7 @@ const backTo = computed(() => (detail.value ? undefined : '/disks'))
 
     <template v-if="detail">
       <DetailHead
-        :eyebrow="`Disk Drive · ${String(id).padStart(5, '0')}`"
+        :eyebrow="`Drive Disc · ${String(id).padStart(5, '0')}`"
         :title="detail.name ?? '—'"
         :portrait-srcs="portraitSrcs"
         alt=""

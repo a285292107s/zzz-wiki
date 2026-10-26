@@ -11,7 +11,7 @@
         <img class="brand-logo" src="/logo.png" alt="" width="24" height="26" aria-hidden="true" />
         <span class="brand-text">
           <span class="brand-mark">{{ t.header.brandName }}</span>
-          <span class="brand-sub mono">NEW ERIDU · DATA TERMINAL</span>
+          <span v-if="brandSub" class="brand-sub mono" aria-hidden="true">{{ brandSub }}</span>
         </span>
       </RouterLink>
 
@@ -97,6 +97,7 @@ import { useQuickSearch } from '@/composables/useQuickSearch'
 import { useMediaQuery } from '@/composables/useMediaQuery'
 import { useUiText } from '@/composables/useUiText'
 import { useLocale } from '@/composables/useLocale'
+import { latinDecor } from '@/utils/latinDecor'
 
 // 导航由 catalog.ts 派生（DESIGN.md §5.3 单一事实源）：数据类目 + 进主导航的图文板块
 // （nav:false 的板块——如数据说明——只在首页目录与页脚出现，站头保持内容聚焦）。
@@ -107,6 +108,8 @@ const route = useRoute()
 const nav = computed(() =>
   NAV_ENTRIES.map((e) => ({ no: e.no, to: e.to, label: pickText(e.label, lang.value) })),
 )
+
+const brandSub = computed(() => latinDecor(t.value.header.brandSub, t.value.header.brandName))
 
 const isActive = (to: string) =>
   route.path === to || (to !== '/' && route.path.startsWith(to))

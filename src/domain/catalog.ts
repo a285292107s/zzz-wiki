@@ -68,7 +68,7 @@ export const CATALOG: readonly CatalogEntry[] = [
   {
     no: '03',
     label: { zh: '驱动盘', en: 'Drive Discs', ja: 'ドライブディスク', ko: '드라이브 디스크' },
-    en: 'DISK DRIVES',
+    en: 'DRIVE DISCS',
     path: '/disks',
     desc: {
       zh: '驱动盘的套装效果与词条一览。',

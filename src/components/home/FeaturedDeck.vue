@@ -52,6 +52,7 @@ import { heroForm } from '@/composables/useHeroForm'
 
 import { useMediaQuery } from '@/composables/useMediaQuery'
 import { deckFigureStyle } from '@/utils/deckFraming'
+import { latinDecor } from '@/utils/latinDecor'
 import { heroFileForForm } from '@/data/heroGenderVariants'
 import { getHeroFraming } from '@/data/heroCalibration'
 import { awaitImageReady, heroDetailPrimarySrc, heroDetailViewport } from '@/data/heroImageSources'
@@ -144,6 +145,7 @@ function restoreSlot(): number {
 }
 /** 标本签只渲染当前这一张：换卡时 :key 重挂 → 轻淡入（不给 4 张卡各留一份标签） */
 const current = computed(() => props.cards[active.value])
+const decorEn = computed(() => latinDecor(current.value?.en, current.value?.name ?? ''))
 
 /** 拖动中：跟手位移必须无过渡 */
 const dragging = ref(false)
@@ -519,7 +521,7 @@ onBeforeUnmount(() => {
           <template v-if="current?.name">
             <span class="name">{{ current!.name }}</span>
             <!-- 第二行是英文档案名（标本签的拉丁副题）。主名本身就是英文时不再重复印一遍。 -->
-            <span v-if="current!.en && current!.en !== current!.name" class="en mono">{{ current!.en }}</span>
+            <span v-if="decorEn" class="en mono">{{ decorEn }}</span>
           </template>
           <template v-else>
             <span class="bar name-bar" />

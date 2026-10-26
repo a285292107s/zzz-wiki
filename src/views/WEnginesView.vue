@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useCatalogList } from '@/composables/useCatalogList'
@@ -9,6 +10,7 @@ import { iconSources } from '@/data/icons'
 import { weaponArtCardSources, WEAPON_ART_RATIO } from '@/data/weaponArt'
 import type { WEngineListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
+import { latinDecor } from '@/utils/latinDecor'
 import { pickText } from '@/domain/lang'
 import { fmt } from '@/domain/uiText'
 import { useLocale } from '@/composables/useLocale'
@@ -29,6 +31,7 @@ const base = cat.path
 
 const { lang } = useLocale()
 const { t } = useUiText()
+const eyebrow = computed(() => latinDecor('W-Engines', pickText(cat.label, lang.value)))
 
 const { data, status, error, reload } = useAsyncResource(() =>
   listFor<WEngineListItem>(cat, lang.value),
@@ -81,7 +84,7 @@ function specNoteOf(r: WEngineListItem): string {
 <template>
   <ListPage>
     <header v-reveal class="page-head">
-      <p class="eyebrow mono">W-Engines</p>
+      <p v-if="eyebrow" class="eyebrow mono">{{ eyebrow }}</p>
       <h1 class="page-title">{{ pickText(cat.label, lang) }}</h1>
       <p class="page-sub">
         {{ t.list.wenginesIntro }}

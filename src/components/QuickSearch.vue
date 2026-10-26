@@ -16,6 +16,7 @@ import { highlightSegments } from '@/domain/search'
 import { useQuickSearch, useQuickSearchResults, useRecentItems } from '@/composables/useQuickSearch'
 import { useUiText } from '@/composables/useUiText'
 import { useLocale } from '@/composables/useLocale'
+import { latinDecor } from '@/utils/latinDecor'
 import HollowImage from '@/components/HollowImage.vue'
 
 const router = useRouter()
@@ -53,12 +54,15 @@ const groups = computed(() => {
     if (arr) arr.push(r)
     else byCat.set(r.catPath, [r])
   }
-  return CATALOG.filter((c) => byCat.has(c.path)).map((c) => ({
-    no: c.no,
-    label: pickText(c.label, lang.value),
-    en: c.en,
-    items: byCat.get(c.path)!,
-  }))
+  return CATALOG.filter((c) => byCat.has(c.path)).map((c) => {
+    const label = pickText(c.label, lang.value)
+    return {
+      no: c.no,
+      label,
+      en: latinDecor(c.en, label),
+      items: byCat.get(c.path)!,
+    }
+  })
 })
 
 /** 空态「检索范围」说明：只在**无「最近访问」**时出现——那正是面板只剩一行字的时候
@@ -255,7 +259,7 @@ function onKeydown(e: KeyboardEvent): void {
               <p class="qs-group-head mono">
                 <span class="g-no">{{ g.no }}</span>
                 <span class="g-label">{{ g.label }}</span>
-                <span class="g-en">{{ g.en }}</span>
+                <span v-if="g.en" class="g-en">{{ g.en }}</span>
               </p>
               <button
                 v-for="r in g.items"

@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import SectionMark from '@/components/SectionMark.vue'
+import { latinDecor } from '@/utils/latinDecor'
 
-defineProps<{
+const props = defineProps<{
   no: string
   title: string
   /** 锚点 id；详情页用于区块直达/深链 */
@@ -9,6 +11,8 @@ defineProps<{
   /** 英文副标（编辑排版用，如 'VITALS'）；显示于标题行右端 */
   en?: string
 }>()
+
+const decor = computed(() => latinDecor(props.en, props.title))
 </script>
 
 <template>
@@ -28,7 +32,7 @@ defineProps<{
       <span v-if="no" class="no mono" aria-hidden="true">{{ no }}</span>
       <h2 :id="id ? 'h-' + id : undefined">{{ title }}</h2>
       <span class="leader" aria-hidden="true" />
-      <span v-if="en" class="en mono">{{ en }}</span>
+      <span v-if="decor" class="en mono">{{ decor }}</span>
       <SectionMark />
     </div>
     <slot />

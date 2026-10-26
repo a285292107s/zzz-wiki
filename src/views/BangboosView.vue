@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useAsyncResource } from '@/composables/useAsyncResource'
 import { useCatalogList } from '@/composables/useCatalogList'
@@ -9,6 +10,7 @@ import { iconSources } from '@/data/icons'
 import { bangbooArtCardSources, BANGBOO_ART_RATIO } from '@/data/bangbooArt'
 import type { BangbooListItem } from '@/data/types'
 import { pickName } from '@/utils/names'
+import { latinDecor } from '@/utils/latinDecor'
 import { pickText } from '@/domain/lang'
 import { useLocale } from '@/composables/useLocale'
 import { useUiText } from '@/composables/useUiText'
@@ -33,6 +35,7 @@ const base = cat.path
 /** 当前展示语言（名录按语言落盘，语言一变下面的取数会重新拉） */
 const { lang } = useLocale()
 const { t } = useUiText()
+const eyebrow = computed(() => latinDecor('Bangboo', pickText(cat.label, lang.value)))
 
 const { data, status, error, reload } = useAsyncResource(() =>
   listFor<BangbooListItem>(cat, lang.value),
@@ -74,7 +77,7 @@ function fallbackIconSources(r: BangbooListItem): string[] {
 <template>
   <ListPage>
     <header v-reveal class="page-head">
-      <p class="eyebrow mono">Bangboo</p>
+      <p v-if="eyebrow" class="eyebrow mono">{{ eyebrow }}</p>
       <h1 class="page-title">{{ pickText(cat.label, lang) }}</h1>
       <p class="page-sub">{{ t.list.bangboosIntro }}</p>
     </header>

@@ -10,6 +10,7 @@ import { useDataVersion } from '@/composables/useDataVersion'
 import { useFeaturedAgents } from '@/composables/useFeaturedAgents'
 import { prefetchList } from '@/composables/useDetailPrefetch'
 import { catalogByPath } from '@/domain/catalog'
+import { latinDecor } from '@/utils/latinDecor'
 import HollowImage from '@/components/HollowImage.vue'
 import FeaturedDeck from '@/components/home/FeaturedDeck.vue'
 import SectionMark from '@/components/SectionMark.vue'
@@ -21,7 +22,8 @@ const { lang } = useLocale()
 
 /** hero 副标题行：固定那串拉丁文（装饰），但站名已是同一串时返回空串以跳过（见模板注释） */
 const LATIN_TITLE = 'Ropeweb Archive'
-const latinTitle = computed(() => (t.value.meta.siteName === LATIN_TITLE ? '' : LATIN_TITLE))
+const latinTitle = computed(() => latinDecor(LATIN_TITLE, t.value.meta.siteName))
+const contentsDecor = computed(() => latinDecor('Contents', t.value.home.contents))
 
 const { updatedAt: currentUpdatedLabel, versionLabel } = useDataVersion()
 const currentVersionLabel = computed(() => versionLabel('VER'))
@@ -42,31 +44,39 @@ function warmList(path: string): void {
 }
 
 const sections = computed(() => [
-  ...CATALOG.map((c) => ({
-    no: c.no,
-    label: pickText(c.label, lang.value),
-    en: c.en,
-    to: c.path,
-    desc: pickText(c.desc, lang.value),
-    iconSrcs:
-      c.no === '01'
-        ? [AGENT_CIRCLE_ICON, ...iconSources(c.icon, c.iconCategory)]
-        : iconSources(c.icon, c.iconCategory),
-    guide: false as boolean,
-    glyph: '' as string,
-  })),
+  ...CATALOG.map((c) => {
+    const label = pickText(c.label, lang.value)
+    return {
+      no: c.no,
+      label,
+      en: c.en,
+      decor: latinDecor(c.en, label),
+      to: c.path,
+      desc: pickText(c.desc, lang.value),
+      iconSrcs:
+        c.no === '01'
+          ? [AGENT_CIRCLE_ICON, ...iconSources(c.icon, c.iconCategory)]
+          : iconSources(c.icon, c.iconCategory),
+      guide: false as boolean,
+      glyph: '' as string,
+    }
+  }),
   // 图文板块（战斗公式 / 数据说明）：无游戏图标，用各自的标本符号作占位。
   // 首页目录是站点索引，常设页面全部列入（站头导航只用 nav:true 的子集）。
-  ...GUIDE_ENTRIES.map((g) => ({
-    no: g.no,
-    label: pickText(g.label, lang.value),
-    en: g.en,
-    to: g.path,
-    desc: pickText(g.desc, lang.value),
-    iconSrcs: [] as string[],
-    guide: true as boolean,
-    glyph: g.glyph,
-  })),
+  ...GUIDE_ENTRIES.map((g) => {
+    const label = pickText(g.label, lang.value)
+    return {
+      no: g.no,
+      label,
+      en: g.en,
+      decor: latinDecor(g.en, label),
+      to: g.path,
+      desc: pickText(g.desc, lang.value),
+      iconSrcs: [] as string[],
+      guide: true as boolean,
+      glyph: g.glyph,
+    }
+  }),
 ])
 </script>
 
@@ -146,7 +156,7 @@ const sections = computed(() => [
         <span class="leader" aria-hidden="true" />
         <!-- 右端英文标签（同「今日角色」）。词取 Contents：这一栏就是站点的目录，
              与页脚「数据说明」的 Colophon 同一层语义，不复用类目页的 AGENTS 等「内容类目名」。 -->
-        <span class="en mono">Contents</span>
+        <span v-if="contentsDecor" class="en mono">Contents</span>
         <SectionMark />
       </div>
 
@@ -166,7 +176,7 @@ const sections = computed(() => [
             <span class="idx mono" aria-hidden="true">{{ s.no }}</span>
             <span class="name">
               <span class="zh">{{ s.label }}</span>
-              <span class="en mono">{{ s.en }}</span>
+              <span v-if="s.decor" class="en mono">{{ s.decor }}</span>
             </span>
             <span class="desc">{{ s.desc }}</span>
             <span class="go mono" aria-hidden="true">→</span>
