@@ -221,7 +221,7 @@ nanoka 命名 = 游戏资源路径的**裸文件名** + `.webp`：
 
 - `AvatarSpecialAwakenBg_{image}` → `public/data/img/awaken/`，q88、最长边 ≤1600；当前 11 张共 1.18MB
   （1596–2112×1080）。文件名后缀取自详情 `potential_detail[*].image`（如 `Nekomiya`），与解包同名，不手写映射；
-  只有持有 `potential_detail` 的角色才有这张图。
+  只有持有 `potential_detail` 的角色才有这张图——潜能影像是给老角色补强的系统，多数角色尚未实装。
 - 该类**只能从解包导入**（nanoka 没有这个资产族）：清单条目带 `dumpOnly`，下载器不进队、远程审计不探测
   （否则每张都会记成「源站缺口」噪音）。本地缺失按**可容忍缺口**告警（新角色先有数据、解包资料后到时不该阻断
   部署），补跑 `import-assets.mjs --only awaken` 即可。

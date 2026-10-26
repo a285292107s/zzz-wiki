@@ -74,17 +74,19 @@ const total = computed(() => {
 
 const fmt = (n: number | null | undefined) => (typeof n === 'number' ? String(n) : '···')
 
-/* ---------- 字段覆盖：把「哪些字段是满的、哪些有源站缺口」摊开说 ----------
+/* ---------- 字段覆盖：把「哪些字段是满的、哪些有源站缺口、哪些只覆盖部分条目」摊开说 ----------
    用名录页同源数据（listFor 已缓存，零额外请求）。缺口不补造、不隐藏——
    这是本站「客观陈列」的底线，也是数据说明页该承担的透明度。 */
 const rawRows = ref<Record<string, Record<string, unknown>[]>>({})
 
-/** 字段规格：每类目挑 2–3 个能反映数据完整度的字段（键名来自源站 JSON） */
-const FIELD_SPEC: Record<string, { label: string; keys: string[] }[]> = {
+/** 字段规格：每类目挑 2–3 个能反映数据完整度的字段（键名来自源站 JSON）。
+ *  `partial` 标记「系统本身只覆盖部分条目」的字段（潜能影像是给早期角色补强的系统），
+ *  它的条数不足是设计如此，不计入源站缺口。 */
+const FIELD_SPEC: Record<string, { label: string; keys: string[]; partial?: boolean }[]> = {
   '/agents': [
     { label: '属性 / 职业 / 阵营', keys: ['element', 'type', 'camp'] },
     { label: '简介', keys: ['desc'] },
-    { label: '潜能（影画）', keys: ['potential'] },
+    { label: '潜能影像', keys: ['potential'], partial: true },
   ],
   '/w-engines': [
     { label: '稀有度 / 类型 / 攻击', keys: ['rank', 'type', 'atk'] },
@@ -117,15 +119,19 @@ const coverage = computed(() =>
       total: rows.length,
       fields: (FIELD_SPEC[c.path] ?? []).map((f) => ({
         label: f.label,
+        partial: Boolean(f.partial),
         filled: rows.filter((r) => f.keys.every((k) => hasValue(r[k]))).length,
       })),
     }
   }).filter((c) => c.total > 0),
 )
 
-/** 缺口总数：仅用于「有缺口」的措辞，不隐藏也不夸大 */
+/** 缺口总数：只数「源站缺口」，系统本身只覆盖部分条目的字段（`partial`）不计入 */
 const gapCount = computed(() =>
-  coverage.value.reduce((n, c) => n + c.fields.filter((f) => f.filled < c.total).length, 0),
+  coverage.value.reduce(
+    (n, c) => n + c.fields.filter((f) => !f.partial && f.filled < c.total).length,
+    0,
+  ),
 )
 </script>
 
@@ -276,7 +282,8 @@ const gapCount = computed(() =>
       <p class="prose measure">
         数据取自公开数据源，源站本身的缺口我们<strong>如实标注、不补造</strong>。下表按类目列出
         关键字段的有值条数——<span class="mono">分母是收录量，分子是有值条数</span>；
-        不足全量的条目以琥珀标注，说明该字段在源站尚缺。
+        不足全量的以琥珀标注，说明该字段在源站尚缺；<strong>潜能影像</strong>是给老角色补强的系统，
+        目前只有部分角色实装，那条按原色陈列、不计作缺口。
       </p>
       <div v-if="coverage.length" class="cov">
         <div v-for="c in coverage" :key="c.no" class="cov-cat">
@@ -287,10 +294,14 @@ const gapCount = computed(() =>
           </p>
           <dl class="cov-list">
             <div v-for="f in c.fields" :key="f.label" class="cov-row">
-              <dt>{{ f.label }}</dt>
-              <dd class="mono" :class="{ gap: f.filled < c.total }">
+              <dt>
+                {{ f.label }}
+                <span v-if="f.partial" class="cov-partial mono">部分角色</span>
+              </dt>
+              <dd class="mono" :class="{ gap: !f.partial && f.filled < c.total }">
                 {{ f.filled }} / {{ c.total }}
-                <span v-if="f.filled < c.total" class="sr-only">（源站缺口）</span>
+                <span v-if="!f.partial && f.filled < c.total" class="sr-only">（源站缺口）</span>
+                <span v-else-if="f.partial && f.filled < c.total" class="sr-only">（仅部分角色实装）</span>
               </dd>
             </div>
           </dl>
@@ -299,7 +310,7 @@ const gapCount = computed(() =>
       <p v-else class="prose mono cov-loading">···</p>
       <p class="prose measure">
         当前共 <span class="mono">{{ gapCount }}</span> 项字段未满量。缺口集中在源站尚未提供
-        的角色潜能（影画）与简介，以及个别邦布图标；缺失处一律以占位呈现，不伪造数据、不留破图。
+        的角色简介与个别邦布图标；缺失处一律以占位呈现，不伪造数据、不留破图。
       </p>
     </DetailSection>
 
@@ -630,6 +641,17 @@ const gapCount = computed(() =>
 .cov-row dt {
   font-size: var(--fs-small);
   color: var(--ink-1);
+}
+
+/* 「部分角色」小标：说明这条字段的不足来自系统覆盖范围，而非源站缺口 */
+.cov-partial {
+  margin-left: 6px;
+  padding: 1px 4px;
+  border: 1px solid var(--line-1);
+  border-radius: 2px;
+  font-size: var(--fs-nano);
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
 }
 
 .cov-row dd {
