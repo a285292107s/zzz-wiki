@@ -891,6 +891,14 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
+  src: url('/fonts/noto-serif-sc/500-77a50551ca.woff2') format('woff2');
+  unicode-range: U+52AA,U+52B1,U+52B3,U+5348,U+5353,U+5360,U+5371,U+5377,U+539A,U+541B,U+547C,U+54E6,U+5510,U+5531,U+5609,U+56F0,U+56FA,U+574F,U+5851,U+5854,U+5899,U+58C1;
+}
+@font-face {
+  font-family: 'Noto Serif SC';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
   src: url('/fonts/noto-serif-sc/500-78ced1f057.woff2') format('woff2');
   unicode-range: U+5C55,U+5DF2,U+5E03,U+5E38,U+5E76,U+5E94,U+5EFA,U+5F71,U+5F97,U+5FEB,U+6001,U+603B,U+60F3,U+611F,U+6216,U+624D,U+6253,U+6295,U+6301,U+6392,U+641C,U+652F,U+653E;
 }
@@ -1179,14 +1187,6 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/noto-serif-sc/500-9e8231863c.woff2') format('woff2');
-  unicode-range: U+52AA,U+52B1,U+52B3,U+5348,U+5353,U+5360,U+5371,U+5377,U+539A,U+541B,U+547C,U+54E6,U+5510,U+5531,U+5609,U+56F0,U+56FA,U+574F,U+5851,U+5854,U+5899,U+58C1,U+592E;
-}
-@font-face {
-  font-family: 'Noto Serif SC';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
   src: url('/fonts/noto-serif-sc/500-9e99beed44.woff2') format('woff2');
   unicode-range: U+85B0,U+8749,U+8996,U+89C5,U+8BDB,U+8BF5,U+8C5A,U+8FED,U+9005,U+9019,U+9082,U+94A7,U+9580,U+96E2,U+96FB,U+9704,U+9B41,U+9CA8,U+9CDE,U+FF3B,U+FF3D;
 }
@@ -1293,6 +1293,14 @@
   font-display: swap;
   src: url('/fonts/noto-serif-sc/500-adf9c65ac5.woff2') format('woff2');
   unicode-range: U+5496,U+54ED,U+5565,U+5766,U+58EE,U+593A,U+594B,U+594F,U+5954,U+5996,U+59C6,U+59FF,U+5B64,U+5BFF,U+5C18,U+5C1D,U+5C97,U+5CA9,U+5CB8,U+5E9F,U+5EC9;
+}
+@font-face {
+  font-family: 'Noto Serif SC';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/noto-serif-sc/500-aea6cf001c.woff2') format('woff2');
+  unicode-range: U+592E,U+5939,U+5976,U+5986,U+59BB,U+5A18,U+5A74,U+5B87,U+5B97,U+5BA0,U+5BAB,U+5BBD-5BBE,U+5BF8,U+5C0A,U+5C3A,U+5C4A,U+5E1D,U+5E2D,U+5E8A,U+6015,U+602A,U+6050;
 }
 @font-face {
   font-family: 'Noto Serif SC';
@@ -1693,14 +1701,6 @@
   font-display: swap;
   src: url('/fonts/noto-serif-sc/500-d98eb44f02.woff2') format('woff2');
   unicode-range: U+5B66,U+5B89,U+5B9A,U+5B9E,U+5BA2,U+5BB6,U+5BF9,U+5C0F,U+5DE5,U+5E02,U+5E73-5E74,U+5E7F,U+5EA6,U+5F00,U+5F0F,U+5F53,U+5F55,U+5FAE,U+5FC3,U+6027,U+606F,U+60A8;
-}
-@font-face {
-  font-family: 'Noto Serif SC';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('/fonts/noto-serif-sc/500-db71816ebc.woff2') format('woff2');
-  unicode-range: U+5939,U+5976,U+5986,U+59BB,U+5A18,U+5A74,U+5B87,U+5B97,U+5BA0,U+5BAB,U+5BBD-5BBE,U+5BF8,U+5C0A,U+5C3A,U+5C4A,U+5E16,U+5E1D,U+5E2D,U+5E8A,U+6015,U+602A,U+6050;
 }
 @font-face {
   font-family: 'Noto Serif SC';
