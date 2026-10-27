@@ -246,7 +246,7 @@ const gapCount = computed(() =>
       </ul>
     </DetailSection>
 
-    <DetailSection v-reveal id="shortcuts" no="04" title="快捷操作" en="Controls">
+    <DetailSection v-reveal seam id="shortcuts" no="04" title="快捷操作" en="Controls">
       <div class="wide-cols">
         <p class="prose measure">
           本站的检索、翻页、等级与筛选都做了键盘支持；<strong>链接本身就是视图</strong>——
@@ -329,7 +329,7 @@ const gapCount = computed(() =>
       </div>
     </DetailSection>
 
-    <DetailSection v-reveal id="rights" no="07" title="版权与免责" en="Rights">
+    <DetailSection v-reveal seam id="rights" no="07" title="版权与免责" en="Rights">
       <div class="wide-cols">
         <p class="prose measure">
           本站为社区爱好者制作的<strong>非官方</strong>资料站，与米哈游 / HoYoverse 无隶属或合作关系。

@@ -10,6 +10,8 @@ const props = defineProps<{
   id?: string
   /** 英文副标（编辑排版用，如 'VITALS'）；显示于标题行右端 */
   en?: string
+  /** 断层边界：上方留白放宽一档并画雕刻花饰（同一页 1–2 处，判据见 DATA_GUIDE §10） */
+  seam?: boolean
 }>()
 
 const decor = computed(() => latinDecor(props.en, props.title))
@@ -21,6 +23,7 @@ const decor = computed(() => latinDecor(props.en, props.title))
        键盘用户 Tab 不会停在这里（-1 不进 Tab 序）。 -->
   <section
     class="block"
+    :class="{ seam }"
     :id="id"
     :tabindex="id ? -1 : undefined"
     :aria-labelledby="id ? 'h-' + id : undefined"
@@ -33,7 +36,7 @@ const decor = computed(() => latinDecor(props.en, props.title))
       <h2 :id="id ? 'h-' + id : undefined">{{ title }}</h2>
       <span class="leader" aria-hidden="true" />
       <span v-if="decor" class="en mono">{{ decor }}</span>
-      <SectionMark />
+      <SectionMark v-if="seam" />
     </div>
     <slot />
   </section>
@@ -41,7 +44,21 @@ const decor = computed(() => latinDecor(props.en, props.title))
 
 <style scoped>
 .block {
+  --section-gap: var(--space-section);
   margin-bottom: var(--space-section);
+}
+
+/* 断层边界：与上一块的下边距折叠取较大者，故 margin-top 写的是最终间距本身。
+   花饰读同一份 --section-gap，仍落在空隙中线。 */
+.block.seam {
+  --section-gap: var(--space-section-loose);
+  margin-top: var(--space-section-loose);
+}
+
+/* 首块永远收紧一档（页头自己的下边距也是这一档）：即使它恰好是断层，也不再放宽 */
+.block:first-of-type {
+  --section-gap: var(--space-section-tight);
+  margin-top: 0;
 }
 
 /* 区块标题行（.section-head / .no / h2 / .en）的样式**单一来源在 base.css**

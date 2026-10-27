@@ -364,7 +364,6 @@ const { version, updatedAt, versionLabel } = useDataVersion()
 .source-note {
   color: var(--ink-2);
   font-size: var(--fs-caption);
-  text-wrap: balance;
 }
 
 .notice-ver {

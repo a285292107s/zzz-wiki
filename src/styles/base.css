@@ -378,63 +378,6 @@ a.rich-term:hover {
   }
 }
 
-/* ---------- 正文断行均衡（CJK 行尾孤字治理） ----------
-   CJK 每个字都是断点，长句折行后末行常只剩 1–2 个字：实测 /about 的校验清单出现过
-   末行单字「限」、/formulas 的乘区说明出现过末行单字「。」、/w-engines 的音擎效果在
-   手机上出现过末行单字。
-
-   ⚠ 用 `balance` 而**不是** `pretty`：Chrome 的 pretty 只避免拉丁文的单字孤行，对 CJK
-   无效 —— 实测加 pretty 前后逐行宽完全一致（[574,42] → [574,42]，末行仍是 42px）。
-   balance 把同段各行拉平（[574,42] → [308,308]），且**不增加行数**：6 个页面 60 行
-   实测行数前后一致，故不会长高、不产生 CLS。
-
-   Chrome 对 balance 有 6 行上限，更长的正文自动退回普通断行 —— 于是这条可以按「短块」
-   语义安全地加：下面列的都是说明性短块（页副标 / 步骤 / 校验清单 / 乘区说明 / 音擎与
-   驱动盘效果 / 详情描述行），不含表格数值与长正文。 */
-.page-sub,
-.prose,
-.spec-note,
-.step-txt,
-.checks li,
-.it-desc,
-.part-lead,
-.group-note,
-.block-body.v-prose p,
-.im-text,
-.eq-note,
-.key-row dd,
-.effect,
-.effect-txt,
-.desc,
-.note,
-.rule-text,
-.chain-note,
-.z-summary,
-.z-fact dd,
-.z-fact dt,
-.fact dt,
-.z-axis-note,
-.z-traps li,
-.ledger-axis,
-.block-note,
-.notice-list li,
-.card-lines li,
-.fact dd,
-.lab-lead,
-.verdict,
-.verdict p,
-.verdict-note,
-.foot-note,
-.miasma-note,
-.out-foot,
-.out-hint,
-.gates-legend,
-.bars-legend,
-.matrix-legend,
-.s-note {
-  text-wrap: balance;
-}
-
 /* numbered section header — e.g. "01 · 目录" */
 .section-head {
   position: relative;
@@ -447,7 +390,7 @@ a.rich-term:hover {
 .section-head .section-mark {
   position: absolute;
   left: 50%;
-  top: calc(var(--space-section) / -2);
+  top: calc(var(--section-gap, var(--space-section)) / -2);
   width: clamp(200px, 32vw, 440px);
   color: color-mix(in srgb, var(--ink-2) 65%, transparent);
   transform: translate(-50%, -50%);

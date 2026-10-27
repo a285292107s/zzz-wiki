@@ -292,12 +292,9 @@ const sections = computed(() => [
 /* ---------- 今日角色（横向牌堆，见 components/home/FeaturedDeck.vue） ---------- */
 
 .banners {
+  --section-gap: var(--pad-section);
   /* 底部节奏复用 --space-section 标尺 */
   padding-bottom: var(--space-section);
-}
-
-.banners .section-head .section-mark {
-  top: calc(var(--pad-section) / -2);
 }
 
 .hero .page-title {
@@ -449,9 +446,6 @@ const sections = computed(() => [
   color: var(--ink-1);
   font-size: var(--fs-md);
   max-width: 52ch;
-  /* 断行均衡：两栏账册里最长的一条描述（28 字）会在 584px 格内折成两行，
-     不均衡时末行只剩「成。」三个字。balance 把两行拉平，末行不再孤字。 */
-  text-wrap: balance;
 }
 
 .go {

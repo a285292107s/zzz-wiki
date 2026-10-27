@@ -37,10 +37,8 @@ async (page) => {
         dossier: bg('.dossier'),
         dItem: bg('.d-item'),
         headRule: (() => {
-          const head = document.querySelector('.section-head')
-          if (!head) return { w: 'missing', h: 'missing', stroke: 'missing', accentStroke: 'missing' }
-          const mark = head.querySelector('.section-mark')
-          if (!mark) return { w: 0, h: 0, stroke: 'missing', accentStroke: 'missing' }
+          const mark = document.querySelector('.section-head .section-mark')
+          if (!mark) return { w: 'missing', h: 'missing', stroke: 'missing', accentStroke: 'missing' }
           const r = mark.getBoundingClientRect()
           const ink = mark.querySelector('path:not(.mark-accent)')
           const accent = mark.querySelector('path.mark-accent')

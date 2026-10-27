@@ -11,8 +11,8 @@ import HollowImage from '@/components/HollowImage.vue'
 defineProps<{
   /** 跳转目标（详情路由） */
   to: string
-  /** 说明文字眉标（如「专属音擎」/「归属代理人」） */
-  label: string
+  /** 说明文字眉标（可选；音擎详情页传「归属代理人」），省略则不渲染 */
+  label?: string
   /** 显示名（如 型号名 / 代理人名） */
   name: string
   /** 印记徽章图标候选链（unframed 无框图） */
@@ -33,7 +33,7 @@ defineProps<{
 
 <template>
   <RouterLink :to="to" class="signature">
-    <span class="sig-label">{{ label }}</span>
+    <span v-if="label" class="sig-label">{{ label }}</span>
     <span class="sig-name serif">{{ name }}</span>
     <span :class="['sig-icon', { banner: thumb === 'banner' }]">
       <!-- 名称就在同链接的 .sig-name 里，图片再报同一名字会重复播报（AX 树审计） -->

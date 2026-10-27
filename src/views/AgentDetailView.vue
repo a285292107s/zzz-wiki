@@ -318,7 +318,7 @@ watch(detail, (d) => {
         </div>
       </DetailSection>
 
-      <DetailSection v-reveal id="stats" :no="noOf('stats')" :title="t.detail.baseProps" en="Vitals">
+      <DetailSection v-reveal seam id="stats" :no="noOf('stats')" :title="t.detail.baseProps" en="Vitals">
         <StatLevelPanel
           :lv-label="`Lv.${charLevel}`"
           :meta="
@@ -411,7 +411,7 @@ watch(detail, (d) => {
         />
       </DetailSection>
 
-      <DetailSection v-if="skinList.length" v-reveal id="skins" :no="noOf('skins')" :title="t.detail.skins" en="Outfits">
+      <DetailSection v-if="skinList.length" v-reveal seam id="skins" :no="noOf('skins')" :title="t.detail.skins" en="Outfits">
         <ul class="skin-list">
           <li v-for="(s, i) in skinList" :key="s.id" class="skin">
             <!-- figcaption 必须是 figure 的子元素（HTML 规范）；两栏栅格设在 figure 上 -->

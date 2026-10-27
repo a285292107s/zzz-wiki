@@ -68,6 +68,8 @@ async (page) => {
     [18, 38], // --space-group: clamp(18px, 2.6vw, 38px)
     [14, 28], // --space-head-body: clamp(14px, 2vw, 28px)
     [52, 125], // --space-section: calc(--pad-section * 1.3) → clamp 的 1.3 倍区间
+    [41, 100], // --space-section-tight: calc(--space-section * 0.8)，页头之后的首块
+    [72, 176], // --space-section-loose: calc(--space-section * 1.4)，断层边界
   ]
   const inAllowed = (v) =>
     ALLOWED_POINTS.some((p) => Math.abs(v - p) <= 1) ||

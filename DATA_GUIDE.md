@@ -463,21 +463,40 @@ v1 主源，v2 起弃用（更新滞后：曾缺 1611/1621 与职业 7；字段�
 
 ### 区块分隔
 
+**多数区块之间没有线**：边界只靠留白 + 编号 + 标题。纵向节奏分三档（`tokens.css`）：
+
+| 档 | 令牌 | 用在哪 |
+|---|---|---|
+| 收紧 | `--space-section-tight`（`--space-section × 0.8`） | 详情页页头（`AgentHead` / `DetailHead`）的下边距，即页头之后的首块 |
+| 常规 | `--space-section`（`--pad-section × 1.3`） | 相邻区块的默认边界 |
+| 放宽 | `--space-section-loose`（`--space-section × 1.4`） | 断层边界（`.block.seam`） |
+
+- 相邻块的间距由**上一块的 `margin-bottom`** 给出；断层块另加 `margin-top`，两者折叠取**较大者**，
+  故 `.block.seam` 的 `margin-top` 写的是**最终间距本身**——写差值会被折叠吃掉，间距退回常规档。
+  首块（`.block:first-of-type`）的上边距固定为 0、且不再取放宽档（即使它恰好是断层），间距由页头自己的下边距决定。
+- 花饰只画在**断层**（换册处），不是每个区块都有：详情页「文字档案 → 数据」（`stats`）与「玩法 → 藏品」
+  （`skins`），音擎「背景故事 → 参数」（`props`），关于页「管线 → 交互」（`shortcuts`）与「站点 → 法务」
+  （`rights`）。**单页 ≤2 处，且只用于 ≥3 个区块的页面**（短页不需要分段）。降频理由与被否方案见
+  [0024](./docs/decisions/0024-section-seam-frequency.md)。
 - 区块头自身不画线：`.section-head` 没有上边线与标题延伸线；右侧英文标签是标题行的右端注记
   （`margin-left: auto`），与标题之间用一条**点线**引导（`.leader`：`1px dotted`、`--ink-2` 72%、落在文字基线上）。
   它是标题行内部的引导件，不是边界线。
-- 分隔由 `SectionMark`（inline SVG、`aria-hidden`、不占流）画在**上一区块与区块头之间空隙的中线**：一条 1px 雕刻
+- 断层花饰由 `SectionMark`（inline SVG、`aria-hidden`、不占流）画在**上一区块与区块头之间空隙的中线**：一条 1px 雕刻
   基线（中饰处断开、由珠点接住）+ 中轴菱形花芯 + 两侧对称 C 形单卷 + 卷草外各一枚小菱形珠 + 两端涡卷收头。
   宽度 `clamp(200px, 32vw, 440px)`（短于版心、两侧留白，不回到全宽边框线），`vector-effect: non-scaling-stroke`
   保证缩放不改发丝粗细。
+- 偏移读区块自己的 `--section-gap`（`base.css`：`top: calc(var(--section-gap, var(--space-section)) / -2)`），
+  故三档间距下花饰都仍在空隙中线。首页「今日角色」之上的空隙来自 hero 的 `padding-bottom`（不是
+  `--space-section`），由 `HomeView` 把 `.banners` 的 `--section-gap` 覆写为 `--pad-section`。
 - **双色**：笔画取 `--ink-2` 65%（对纸底约 3:1，比表格发丝线亮一档、低于正文），只有中轴菱形与两枚珠点保留
   `--amber` 72%——金色是站内**信号色**（区块编号 / 当前项 / 关键数字），整条线用金会把装饰抬到信号的重量。
-- 偏移取空隙的一半：详情页空隙是 `--space-section`（`--pad-section × 1.3`），首页「今日角色」之上用 hero 的
-  `--pad-section`。高对比度模式下整条花饰换实体 `CanvasText`；打印态用实色深琥珀（半透明落纸会淡到丢失）。
+- 高对比度模式下整条花饰换实体 `CanvasText`；打印态用实色深琥珀（半透明落纸会淡到丢失）。
 - 引导线**只用点线**：连续实线在站内是内容结构（表格/盒/行/胶囊边），虚线已被「缺失/占位」语义占用
   （图标缺失框、HollowImage 兜底）。理由与被否方案见 [0017](./docs/decisions/0017-block-header-single-rule.md)、
   [0018](./docs/decisions/0018-section-divider-mark.md)、[0019](./docs/decisions/0019-title-leader-dotted.md)、
   [0020](./docs/decisions/0020-section-mark-ornament.md)。
+- 审计：`composition-audit` 的 `headRule` 判「`.seam` 区块必须带花饰、花饰形态合规（窄带 / 宽度 / 居中 /
+  `aria-hidden`）、单页 ≤2」，且**整轮一个花饰都没扫到也判失败**——降频不等于可以空转。
 
 ### 详情页阅读宽度
 

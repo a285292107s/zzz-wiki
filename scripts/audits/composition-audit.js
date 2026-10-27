@@ -10,7 +10,7 @@
  * 这四类都是「单看任一元素都合规」的缺陷，故必须按**关系**测，且两个断点各测一遍
  * （同一份内容在 390 与 1440 下的表现完全不同——这正是本审计存在的理由）。
  *
- * 五类判据（均为 0 才算通过）：
+ * 五类判据（除 orphan 外均为 0 才算通过；orphan 只报告）：
  *   1. stranded  行内空洞：flex/grid 行里相邻两项之间空出 ≥240px，且该行**不是**
  *                space-between 布局、末项也没有 `margin-left:auto`（两者都是刻意的两端对齐，
  *                不是空洞；区块头标题与右端英文注记就是后者）
@@ -18,21 +18,22 @@
  *                且其中有 **两个以上** 子项在内部折成 ≥2 行 —— 一行内容被挤到没有余量。
  *                （单个文本块占满剩余宽度后折行是正常排版，不算；grid 行不计，
  *                  因为跨轨子项的宽度会重叠，「填满度」无从计算）
- *   3. orphan    末行孤字：折成 2–6 行的文本块，末行宽度 ≤2 个字。
- *                >6 行的只**报告不判失败**：`text-wrap: balance` 在 Chrome 有 6 行上限
- *                （见 base.css「正文断行均衡」），超限时退回普通断行，属已知技术上限。
+ *   3. orphan    末行孤字：折成 ≥2 行的文本块，末行宽度 ≤2 个字。**只报告、不判失败**：
+ *                正文已改回浏览器默认断行（决策记录 0023），CJK 末行 1–3 字是断行的正常
+ *                结果，靠改文案处理或接受；本项留作逐轮基线，防止孤字泛滥而无人察觉。
  *   4. stacked   叠线：两条水平发丝线 y 相差 ≤3px 且横向重叠 —— 同一条边界被画了两次，
  *                叠成 2px（而板的顶缘只有 1px，上下缘就差一倍重量）。横向不重叠的不算：
  *                两栏账册里左右两格同 y 的线其实接成了一条连续的线。
  *                ⚠ 只认**元素**上的线（上下边框 + 背景充当的细线）；伪元素（如吸顶横条
  *                当前项那条刻意的下刻线）不在扫描范围 —— 那条本来就该压在横条下缘线上。
  *   5. headRule  章节刻线：区块头不得再画边界线（那会与上一区块的收尾线成对，也会压在
- *                标题上）；区块之间的分隔改由 `.section-mark` 的 SVG 花饰在空隙中线居中绘制
- *                （雕刻线 + 卷草，见 `docs/decisions/0020`）；标题右侧的修饰线
- *                必须是点线引导（`docs/decisions/0019`：实线读作结构线，虚线在站内是
- *                「缺失/占位」语义）。判据：头部 `border-top = 0`；花饰存在、是窄带（8–40px 高）、
- *                宽度在 120px 与头部宽度 80% 之间、水平居中、`aria-hidden`；有 `.en` 的头部
- *                `.leader` 下边线为 dotted。一个 `.section-head` 都扫不到时同样判失败，禁止空转。
+ *                标题上）；区块之间的分隔交给留白 + 编号 + 标题，只有断层（`.seam`）才画
+ *                `.section-mark` 的 SVG 花饰，画在空隙中线上（见 `docs/decisions/0024`）。
+ *                判据：头部 `border-top = 0`；`.seam` 区块必须带花饰；花饰若存在则是窄带
+ *                （8–40px 高）、宽度在 120px 与头部宽度 80% 之间、水平居中、`aria-hidden`；
+ *                单页花饰 ≤ 2（再密就等于退回「每块一条」）；有 `.en` 的头部 `.leader`
+ *                下边线为 dotted（`docs/decisions/0019`）。一个 `.section-head` 或一个花饰
+ *                都扫不到时同样判失败，禁止空转。
  *
  * 两个实现选择（都为了确定性）：
  *   · 自持一个 `serviceWorkers: 'block'` 的新上下文 —— 审计箱跑在同一个浏览器会话上，
@@ -71,20 +72,20 @@ async (page) => {
   const CRAMPED_FILL = 0.95
   // 末行 ≤2 个字即判孤字（1.2 个字太松：两字尾巴在 500px 行宽下同样扎眼）
   const ORPHAN_EM = 2
-  const BALANCE_LINE_CAP = 6
   // 两条水平发丝线 y 相差 ≤3px 且横向有重叠 → 同一条边界画了两条（叠成 2px）
   const STACK_PX = 3
 
   const probe = (opts) => {
-    const { rules, strandedPx, crampedFill, orphanEm, balanceCap, stackPx } = opts
+    const { rules, strandedPx, crampedFill, orphanEm, stackPx } = opts
     const out = {
       stranded: [],
       cramped: [],
       orphan: [],
-      orphanOverCap: [],
       stacked: [],
       headRule: [],
       sectionHeads: 0,
+      seamBlocks: 0,
+      marks: 0,
     }
     const visible = (el) => {
       const cs = getComputedStyle(el)
@@ -222,16 +223,14 @@ async (page) => {
         const widest = Math.max(...w)
         const last = w[w.length - 1]
         if (last > orphanEm * fs) continue
-        const rec = {
+        out.orphan.push({
           el: label(el),
           text: brief(el),
           lines: w.length,
           lastLinePx: Math.round(last),
           widestLinePx: Math.round(widest),
           fontSizePx: Math.round(fs),
-        }
-        if (w.length > balanceCap) out.orphanOverCap.push(rec)
-        else out.orphan.push(rec)
+        })
       }
     }
 
@@ -276,19 +275,18 @@ async (page) => {
       }
     }
 
-    // ---------- 5. 章节刻线：边界不画在区块头上，分隔交给空隙中线上的雕刻花饰 ----------
-    // stacked 管「同一条边界画两次」；这里管区块边界这条线的**形态**：区块头不得再有
-    // border-top（全宽线会与上一区块的收尾线成对，见 docs/decisions/0017/0018），改由
-    // `.section-mark`（SVG 花饰）在空隙中线居中绘制（见 docs/decisions/0020）；标题右侧的
-    // 修饰线必须是**点线引导**（dotted，见 docs/decisions/0019：实线读作结构线、虚线在站内是
-    // 「缺失/占位」语义）。判据四组一起看：
-    //   · 头部 border-top = 0（线不再压在标题上）；
-    //   · .section-mark 存在、是窄带（8–40px 高）、宽 120px–头部 80%（既不是消失的细线，
-    //     也不是又变成一条全宽边框线）；
-    //   · 横向居中（中心差 < 1.5px）、aria-hidden（纯装饰、不进无障碍树）；
-    //   · 有右端英文注记的头部必须有 .leader，且其下边线为 dotted。
-    // 没有花饰也判失败 —— 判据不能靠「找不到就通过」空转。
+    // ---------- 5. 章节刻线：边界不画在区块头上，只有断层才画雕刻花饰 ----------
+    // 花饰降频到「每页 ≤2」（见 docs/decisions/0024）：多数区块之间的边界只靠留白 + 编号 +
+    // 标题，花饰只标注换册处的断层。判据：
+    //   · 头部 border-top = 0（全宽线会与上一区块的收尾线成对，见 0017/0018）；
+    //   · 带 .seam 的区块必须画花饰；**没有花饰的区块头不判失败**（降频是设计），
+    //     但只要有花饰，形态仍要合规：窄带 8–40px 高、宽 120px–头部 80%、水平居中、aria-hidden；
+    //   · 单页花饰 > 2 判失败（否则等于退回「每块一条」）；
+    //   · 有右端英文注记的头部必须有 .leader，且其下边线为 dotted（0019）。
+    // 整轮一个花饰都没扫到同样判失败 —— 判据不能靠「找不到就通过」空转。
     if (rules.includes('stacked')) {
+      out.seamBlocks = document.querySelectorAll('.block.seam').length
+      out.marks = document.querySelectorAll('.section-head .section-mark').length
       for (const head of document.querySelectorAll('.section-head')) {
         const hr = head.getBoundingClientRect()
         if (hr.width <= 0) continue
@@ -304,26 +302,26 @@ async (page) => {
         const leader = head.querySelector('.leader')
         const leaderStyle = leader ? getComputedStyle(leader).borderBottomStyle : 'missing'
         const badLeader = hasEn && leaderStyle !== 'dotted'
-        const bad =
-          border > 0 ||
-          !mark ||
-          markW < 120 ||
-          markW > hr.width * 0.8 ||
-          markH < 8 ||
-          markH > 40 ||
-          !centered ||
-          !decorative ||
-          badLeader
+        const seam = !!head.closest('.block')?.classList.contains('seam')
+        const badMark =
+          !!mark &&
+          (markW < 120 || markW > hr.width * 0.8 || markH < 8 || markH > 40 || !centered || !decorative)
+        const bad = border > 0 || badMark || (seam && !mark) || badLeader
         if (!bad) continue
         out.headRule.push({
           title: (head.querySelector('h2')?.textContent || '').trim().slice(0, 12),
+          seam,
           headBorderTop: border,
+          mark: !!mark,
           markW: Math.round(markW * 10) / 10,
           markH: Math.round(markH * 10) / 10,
           centered,
           decorative,
           leader: leaderStyle,
         })
+      }
+      if (out.marks > 2) {
+        out.headRule.push({ reason: 'mark-over-cap（每页花饰上限 2）', marks: out.marks })
       }
     }
     return out
@@ -333,6 +331,7 @@ async (page) => {
   const informational = []
   const summary = []
   let headsTotal = 0
+  let marksTotal = 0
 
   const ctx = await page.context().browser().newContext({ serviceWorkers: 'block' })
   const p = await ctx.newPage()
@@ -353,7 +352,6 @@ async (page) => {
           strandedPx: STRANDED_PX,
           crampedFill: CRAMPED_FILL,
           orphanEm: ORPHAN_EM,
-          balanceCap: BALANCE_LINE_CAP,
           stackPx: STACK_PX,
         })
         const where = `${vp.name} ${route}`
@@ -365,16 +363,16 @@ async (page) => {
           stacked: r.stacked.length,
           headRule: r.headRule.length,
           sectionHeads: r.sectionHeads,
-          orphanOverCap: r.orphanOverCap.length,
+          seamBlocks: r.seamBlocks,
+          marks: r.marks,
         })
         headsTotal += r.sectionHeads
+        marksTotal += r.marks
         for (const item of r.stranded) failedItems.push({ where, kind: 'stranded', ...item })
         for (const item of r.cramped) failedItems.push({ where, kind: 'cramped', ...item })
-        for (const item of r.orphan) failedItems.push({ where, kind: 'orphan', ...item })
+        for (const item of r.orphan) informational.push({ where, kind: 'orphan', ...item })
         for (const item of r.stacked) failedItems.push({ where, kind: 'stacked', ...item })
         for (const item of r.headRule) failedItems.push({ where, kind: 'head-rule', ...item })
-        for (const item of r.orphanOverCap)
-          informational.push({ where, kind: 'orphan-over-balance-cap', ...item })
       }
     }
   } finally {
@@ -389,18 +387,28 @@ async (page) => {
     })
   }
 
+  if (marksTotal === 0) {
+    failedItems.push({
+      where: '(all)',
+      kind: 'head-rule',
+      reason: '整轮没扫到一个 .section-mark，断层花饰判据空转',
+    })
+  }
+
   const byKind = (kind) => failedItems.filter((f) => f.kind === kind).length
+  const infoByKind = (kind) => informational.filter((f) => f.kind === kind).length
   return JSON.stringify(
     {
       total: summary.length,
       failed: failedItems.length,
       stranded: byKind('stranded'),
       cramped: byKind('cramped'),
-      orphan: byKind('orphan'),
+      orphan: infoByKind('orphan'),
       stacked: byKind('stacked'),
       headRule: byKind('head-rule'),
       sectionHeads: headsTotal,
-      orphanOverCap: informational.length,
+      marks: marksTotal,
+      informationalTotal: informational.length,
       failedItems: failedItems.slice(0, 40),
       informational: informational.slice(0, 20),
       summary,

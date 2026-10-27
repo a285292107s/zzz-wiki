@@ -210,7 +210,6 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() => {
         <SignatureRef
           v-if="signature"
           :to="signatureTo"
-          :label="t.detail.signature"
           :name="signatureName"
           :icon-srcs="signatureIconSrcs"
           :aria-label="fmt(t.detail.signatureHint, { name: signatureName })"
@@ -227,7 +226,7 @@ const heroCalStyle = computed<Record<string, string> | undefined>(() => {
   /* 与主页 hero 同一横幅图式：不堆超高柱，文字块在曝光区内纵向居中 */
   min-height: clamp(360px, 46vh, 560px);
   background: var(--bg-0); /* 图片缺失/加载前也保有存档底色 */
-  margin-bottom: var(--space-section);
+  margin-bottom: var(--space-section-tight);
   border-bottom: var(--rule);
 }
 
