@@ -13,7 +13,7 @@
  * 图片选择（og:image 必须绝对 URL，多数爬虫不解析相对路径）：
  *   - 角色详情：hero/card/{Mindscape_x_2}.webp（800px 宽的 16:9 派生图，天然适合卡片）
  *   - 音擎/邦布详情：{cat}/thumb/{icon}.webp（方形图标，卡片会加边）
- *   - 名录 / 静态页：站点头图 home-bg.webp
+ *   - 名录 / 静态页：站点社交卡片 og-card.png
  *   宽高由 sharp 读实际文件，避免声明与实际不符。
  *
  * 依赖 dist/sitemap.xml 作为**唯一路由清单**（build:ci 中紧随 generate-sitemap 执行）。
@@ -29,7 +29,7 @@ const DIST = 'dist'
 const TEMPLATE = path.join(DIST, 'index.html')
 const SITEMAP = path.join(DIST, 'sitemap.xml')
 const ORIGIN = (process.env.VITE_SITE_ORIGIN || process.env.SITE_ORIGIN || 'https://localhost:4175').replace(/\/$/, '')
-const SITE_FALLBACK_IMAGE = '/home-bg.webp'
+const SITE_FALLBACK_IMAGE = '/og-card.png'
 
 /* ---------- 数据装载（名录名 / 详情描述片段） ---------- */
 
@@ -67,7 +67,7 @@ function descFor(cat, name, detail) {
 /** og:image 相对路径 → 绝对 URL + 实际宽高 */
 async function imageMeta(rel) {
   const p = path.join(DIST, rel.replace(/^\//, ''))
-  if (!fs.existsSync(p)) return { url: `${ORIGIN}${SITE_FALLBACK_IMAGE}`, w: 2400, h: 1080 }
+  if (!fs.existsSync(p)) return { url: `${ORIGIN}${SITE_FALLBACK_IMAGE}`, w: 1200, h: 630 }
   try {
     const m = await sharp(p).metadata()
     return { url: `${ORIGIN}${rel}`, w: m.width, h: m.height }
@@ -265,8 +265,8 @@ async function main() {
       box.imageH = meta.h
       if (!fs.existsSync(path.join(DIST, rel.replace(/^\//, '')))) {
         box.image = `${ORIGIN}${SITE_FALLBACK_IMAGE}`
-        box.imageW = 2400
-        box.imageH = 1080
+        box.imageW = 1200
+        box.imageH = 630
       }
       // 角色详情页另有整栏 hero 底图（LCP 元素）：按断点预载对应变体
       if (cat.kind === 'agent') {
