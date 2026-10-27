@@ -379,6 +379,7 @@ pnpm run verify:fonts:cjk     # CJK 分片完整性 + 字符集覆盖
 pnpm run build:ci             # 部署入口（完整链路以 package.json 为准）：资产门禁 → 数据 → 类型 → 构建 → sitemap/路由 HTML/预算/缓存头
 pnpm run sitemap              # 生成 dist/sitemap.xml；域名取 VITE_SITE_ORIGIN，部署环境缺该变量直接失败
 pnpm run route-html           # 逐路由静态 HTML（build:ci 内紧随 sitemap）
+pnpm run og:cards             # 62 张代理人社交卡 → public/og/agents/（需全局 playwright-cli，产物入库）
 pnpm run verify:budget        # 体积预算 + sitemap origin 一致性 + 路由 HTML 数量
 pnpm run verify:vercel        # 缓存策略与安全响应头不变量
 pnpm run dev                  # http://localhost:5173
@@ -386,7 +387,7 @@ pnpm run build                # 类型检查 + 构建
 pnpm run preview              # 预演产物
 ```
 
-`route-html` 的产出契约：`og:image` 按类目选（角色=hero/card 派生图、音擎/邦布=thumb 图标、名录/静态页=站点社交卡片 `og-card.png`），
+`route-html` 的产出契约：`og:image` 按类目选（角色=构建期生成的社交卡 `og/agents/{id}.webp`，缺图回落 `hero/card` 派生图；音擎/邦布=thumb 图标、名录/静态页=站点社交卡片 `og-card.png`），
 宽高由 sharp 读实际文件；Vercel 静态文件优先于 rewrites，故社交爬虫与搜索引擎拿到的是逐页元信息；生成器内置
 自校验（任一页字段未替换即失败）。
 

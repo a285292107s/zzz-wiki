@@ -11,7 +11,7 @@
  *   - 运行时仍是同一个 SPA（客户端 usePageMeta 继续按路由覆写，值与此处一致）
  *
  * 图片选择（og:image 必须绝对 URL，多数爬虫不解析相对路径）：
- *   - 角色详情：hero/card/{Mindscape_x_2}.webp（800px 宽的 16:9 派生图，天然适合卡片）
+ *   - 角色详情：构建期生成的社交卡 og/agents/{id}.webp（缺图回落 hero/card/{Mindscape_x_2}.webp）
  *   - 音擎/邦布详情：{cat}/thumb/{icon}.webp（方形图标，卡片会加边）
  *   - 名录 / 静态页：站点社交卡片 og-card.png
  *   宽高由 sharp 读实际文件，避免声明与实际不符。
@@ -251,9 +251,12 @@ async function main() {
       box.description = descFor(cat, name, detail)
       const icon = String(row?.icon ?? detail?.icon ?? '').split('/').pop()?.replace(/\.\w+$/, '') ?? ''
       const discPoster = `/data/img/disc-gif/poster/${seg[1]}.webp`
+      const socialCard = `/og/agents/${seg[1]}.webp`
       const rel =
         cat.kind === 'agent'
-          ? `/data/img/hero/card/Mindscape_${seg[1]}_2.webp`
+          ? fs.existsSync(path.join(DIST, socialCard.replace(/^\//, '')))
+            ? socialCard
+            : `/data/img/hero/card/Mindscape_${seg[1]}_2.webp`
           : cat.kind === 'disk' && fs.existsSync(path.join(DIST, discPoster.replace(/^\//, '')))
             ? discPoster
             : icon

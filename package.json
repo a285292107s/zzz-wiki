@@ -35,6 +35,7 @@
     "fonts:cjk": "pnpm run download:fonts:cjk && pnpm run subset:fonts:cjk",
     "verify:vercel": "node scripts/verify-vercel-config.mjs",
     "route-html": "node scripts/generate-route-html.mjs",
+    "og:cards": "node scripts/build/og-cards.mjs",
     "audit:all": "node scripts/audit-all.mjs",
     "check:diff": "node scripts/check-diff.mjs",
     "check": "node scripts/check-diff.mjs --run",

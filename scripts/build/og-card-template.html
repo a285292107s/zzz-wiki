@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/fonts/noto-serif-sc.css" />
+    <style>
+      @font-face {
+        font-family: 'JetBrains Mono';
+        src: url('/fonts/JetBrainsMono-400.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: block;
+      }
+      @font-face {
+        font-family: 'Public Sans';
+        src: url('/fonts/PublicSans-400.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: block;
+      }
+
+      :root {
+        --bg-0: #0d0f11;
+        --line-1: #2a3137;
+        --ink-0: #e8e4da;
+        --ink-2: #8e8a80;
+        --amber: #d8a35c;
+        --serif: 'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', Georgia, serif;
+        --sans: 'Public Sans', 'Microsoft YaHei', 'Noto Sans SC', system-ui, sans-serif;
+        --mono: 'JetBrains Mono', 'Consolas', monospace;
+        --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='148' height='148'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.10'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg-0);
+      }
+
+      body {
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+      }
+
+      .card {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+        background: var(--bg-0);
+        color: var(--ink-0);
+        font-family: var(--sans);
+        overflow: hidden;
+      }
+
+      .art {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+
+      .art img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 10%;
+      }
+
+      .card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: var(--noise);
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      .top {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 84px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 64px;
+        background: var(--bg-0);
+        border-bottom: 1px solid var(--line-1);
+        z-index: 3;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand img {
+        width: 24px;
+        height: 26px;
+        filter: invert(1) opacity(0.92);
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .brand-name {
+        font-size: 18px;
+        letter-spacing: 0.2em;
+        color: var(--ink-0);
+      }
+
+      .brand-sub {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        color: var(--ink-2);
+      }
+
+      .no {
+        font-family: var(--mono);
+        font-size: 18px;
+        letter-spacing: 0.24em;
+        color: var(--amber);
+      }
+
+      .plate {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 176px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 48px;
+        padding: 0 64px;
+        background: var(--bg-0);
+        border-top: 1px solid var(--line-1);
+        z-index: 3;
+      }
+
+      .who {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        flex: none;
+      }
+
+      .crest {
+        display: block;
+        width: auto;
+        height: 74px;
+      }
+
+      .names {
+        display: flex;
+        flex-direction: column;
+        flex: none;
+      }
+
+      .name {
+        margin: 0;
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 56px;
+        line-height: 1.05;
+        letter-spacing: 0.08em;
+        color: var(--ink-0);
+        white-space: nowrap;
+      }
+
+      .name-en {
+        margin-top: 7px;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.46em;
+        color: var(--ink-2);
+        text-transform: uppercase;
+      }
+
+      .badges {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        flex: none;
+      }
+
+      .badges img {
+        display: block;
+        width: 64px;
+        height: 64px;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="art"><img id="art" alt="" /></div>
+
+      <header class="top">
+        <div class="brand">
+          <img src="/logo.png" alt="" />
+          <span class="brand-text">
+            <span class="brand-name">新艾利都数据终端</span>
+            <span class="brand-sub">NEW ERIDU · DATA TERMINAL</span>
+          </span>
+        </div>
+        <span class="no" id="no"></span>
+      </header>
+
+      <section class="plate">
+        <div class="who">
+          <img class="crest" id="crest" alt="" />
+          <div class="names">
+            <h1 class="name" id="name"></h1>
+            <div class="name-en" id="name-en"></div>
+          </div>
+        </div>
+
+        <div class="badges" id="badges">
+          <img alt="" />
+          <img alt="" />
+          <img alt="" />
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
