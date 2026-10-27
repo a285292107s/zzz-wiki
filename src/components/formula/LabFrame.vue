@@ -3,7 +3,7 @@ defineProps<{ anchor: string; title: string; en: string; lead: string }>()
 </script>
 
 <template>
-  <section class="lab" :aria-labelledby="`${anchor}-title`">
+  <section :id="anchor" class="lab" :aria-labelledby="`${anchor}-title`">
     <div class="lab-head">
       <h3 :id="`${anchor}-title`" class="lab-title">{{ title }}</h3>
       <span class="lab-en mono">{{ en }}</span>

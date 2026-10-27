@@ -19,6 +19,7 @@ import {
   formatSignedPercent,
   freezeSeconds,
   pierceBonusZone,
+  pierceTradeoff,
   relativeGain,
   shieldDefenseZone,
   stunVulnerabilityZone,
@@ -60,6 +61,17 @@ describe('防御区 · 与 2.0 版导论的算例对齐', () => {
     const both = defenseZone(BOSS_DEF, { defIgnore: 0.2, defDown: 0.2, penRate: 0.5 })
     const same = defenseZone(BOSS_DEF, { defDown: 0.4, penRate: 0.5 })
     expect(both).toBeCloseTo(same, 10)
+  })
+
+  it('24% 穿透率对 30% 增伤的取舍：结算台与小账共用同一组数', () => {
+    const bare = pierceTradeoff(BOSS_DEF)
+    expect(bare.zoneBefore).toBeCloseTo(0.4545, 3)
+    expect(bare.zoneAfter).toBeCloseTo(0.523, 3)
+    expect(bare.gain).toBeCloseTo(0.1506, 4)
+    expect(bare.breakEvenBonusZone).toBeCloseTo(1.9917, 3)
+
+    expect(pierceTradeoff(BOSS_DEF, { defDown: 0.4 }).gain).toBeCloseTo(0.1117, 4)
+    expect(pierceTradeoff(BOSS_DEF, { penBefore: 0.3 }).gain).toBeCloseTo(0.1856, 4)
   })
 
   it('防御区不越过 1（穿透吃满即视为无防）', () => {

@@ -1,18 +1,19 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
 import {
+  BONUS_CANDIDATE as CANDIDATE_BONUS,
+  DEFENSE_FORMULA,
+  PEN_CANDIDATE as CANDIDATE_PEN,
   defenseZone,
   enemyDefense,
   formatFactor,
   formatPercent,
   formatStat,
+  pierceTradeoff,
 } from '@/domain/combatMath'
 import { ENEMY_PRESETS, type EnemyPresetId } from '@/data/formulaGuide'
 import LevelSlider from '@/components/detail/LevelSlider.vue'
 import LabFrame from './LabFrame.vue'
-
-const CANDIDATE_BONUS = 0.3
-const CANDIDATE_PEN = 0.24
 
 const input = reactive({ pen: 0, defDown: 0, enemy: 'boss' as EnemyPresetId })
 
@@ -24,7 +25,7 @@ const SCENARIOS: { label: string; pen: number; defDown: number; note: string }[]
 
 const rows = computed(() =>
   ENEMY_PRESETS.map((e) => {
-    const def = enemyDefense(e.base1) * (e.shield ? 1.8 : 1)
+    const def = enemyDefense(e.base1) * (e.shield ? DEFENSE_FORMULA.shieldDefenseMultiplier : 1)
     const zone = defenseZone(def)
     return { id: e.id, name: e.name, def, zone, pierce: 1 / zone }
   }),
@@ -32,22 +33,16 @@ const rows = computed(() =>
 
 const picked = computed(() => rows.value.find((r) => r.id === input.enemy) ?? rows.value[2])
 
-const gain = computed(() => {
-  const def = picked.value.def
-  const before = defenseZone(def, { penRate: input.pen, defDown: input.defDown })
-  const after = defenseZone(def, { penRate: input.pen + CANDIDATE_PEN, defDown: input.defDown })
-  return after / before - 1
-})
-
-const threshold = computed(() => (gain.value > 0 ? CANDIDATE_BONUS / gain.value : Number.POSITIVE_INFINITY))
+const tradeoff = computed(() =>
+  pierceTradeoff(picked.value.def, { penBefore: input.pen, defDown: input.defDown }),
+)
+const gain = computed(() => tradeoff.value.gain)
+const threshold = computed(() => tradeoff.value.breakEvenBonusZone)
 
 const scenarioRows = computed(() =>
   SCENARIOS.map((s) => {
-    const def = picked.value.def
-    const before = defenseZone(def, { penRate: s.pen, defDown: s.defDown })
-    const after = defenseZone(def, { penRate: s.pen + CANDIDATE_PEN, defDown: s.defDown })
-    const g = after / before - 1
-    return { ...s, gain: g, threshold: CANDIDATE_BONUS / g }
+    const t = pierceTradeoff(picked.value.def, { penBefore: s.pen, defDown: s.defDown })
+    return { ...s, gain: t.gain, threshold: t.breakEvenBonusZone }
   }),
 )
 
@@ -82,16 +77,16 @@ function useScenario(s: (typeof SCENARIOS)[number]) {
                 {{ r.name }}
               </button>
             </th>
-            <td class="mono">{{ formatStat(r.def) }}</td>
-            <td class="mono">{{ formatFactor(r.zone) }}</td>
-            <td class="mono">{{ formatFactor(r.pierce) }}</td>
+            <td class="mono">{{ formatStat(r.def, 2) }}</td>
+            <td class="mono">{{ formatFactor(r.zone, 4) }}</td>
+            <td class="mono">{{ formatFactor(r.pierce, 4) }}</td>
           </tr>
         </tbody>
       </table>
     </div>
     <p class="lab-note">
       同等基础伤害下，贯穿伤害视防御区为 ×1，对{{ picked.name }}是常规伤害的
-      <span class="mono">{{ formatFactor(picked.pierce) }}</span>。点选目标即可切换。
+      <span class="mono">{{ formatFactor(picked.pierce, 4) }}</span>。点选目标即可切换。
     </p>
 
     <div class="tradeoff">
@@ -142,7 +137,7 @@ function useScenario(s: (typeof SCENARIOS)[number]) {
 
       <div class="tradeoff-out">
         <p class="out-mode mono">候选：+{{ CANDIDATE_BONUS * 100 }}% 增伤 ／ +{{ CANDIDATE_PEN * 100 }}% 穿透率</p>
-        <p class="out-big mono">{{ formatFactor(1 + gain) }}</p>
+        <p class="out-big mono">{{ formatFactor(1 + gain, 4) }}</p>
         <p class="out-sub">
           24% 穿透率的提升为 <span class="mono">{{ formatPercent(gain) }}</span>
         </p>

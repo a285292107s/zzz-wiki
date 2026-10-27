@@ -50,10 +50,10 @@ const shieldRatio = computed(() => rows.value[3].value / rows.value[1].value)
         同一份基础伤害：持盾时常规伤害剩
         <b class="mono">{{ formatPercent(rows[1].ratio) }}</b>，贯穿伤害为
         <b class="mono">{{ formatPercent(rows[3].ratio) }}</b>，相差
-        <b class="mono">{{ formatFactor(shieldRatio) }}</b>。
+        <b class="mono">{{ formatFactor(shieldRatio, 4) }}</b>。
       </p>
       <p class="verdict-sub">
-        无盾时差距为 <span class="mono">{{ formatFactor(1 / rows[0].value) }}</span>。
+        无盾时差距为 <span class="mono">{{ formatFactor(1 / rows[0].value, 4) }}</span>。
         防御与减伤越高，跳过防御区的收益越大；若目标已被减防与穿透压低，则该优势收窄。
       </p>
     </div>

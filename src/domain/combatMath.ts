@@ -38,6 +38,35 @@ export function critZone(critDamage: number): number {
   return 1 + critDamage
 }
 
+export const PEN_CANDIDATE = 0.24
+export const BONUS_CANDIDATE = 0.3
+
+export interface PierceTradeoff {
+  zoneBefore: number
+  zoneAfter: number
+  gain: number
+  breakEvenBonusZone: number
+}
+
+export function pierceTradeoff(
+  enemyDef: number,
+  inputs: { penBefore?: number; defDown?: number; penAdded?: number; rivalBonus?: number } = {},
+): PierceTradeoff {
+  const penBefore = inputs.penBefore ?? 0
+  const defDown = inputs.defDown ?? 0
+  const penAdded = inputs.penAdded ?? PEN_CANDIDATE
+  const rivalBonus = inputs.rivalBonus ?? BONUS_CANDIDATE
+  const zoneBefore = defenseZone(enemyDef, { penRate: penBefore, defDown })
+  const zoneAfter = defenseZone(enemyDef, { penRate: penBefore + penAdded, defDown })
+  const gain = relativeGain(zoneBefore, zoneAfter)
+  return {
+    zoneBefore,
+    zoneAfter,
+    gain,
+    breakEvenBonusZone: gain > 0 ? rivalBonus / gain : Number.POSITIVE_INFINITY,
+  }
+}
+
 export function critExpectation(critRate: number, critDamage: number): number {
   return 1 + unit(critRate) * critDamage
 }

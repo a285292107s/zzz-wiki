@@ -1,15 +1,20 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
+import { RouterLink } from 'vue-router'
 import {
   bonusZone,
   chainProduct,
   critExpectation,
   critZone,
+  DEFENSE_FORMULA,
   defenseZone,
   enemyDefense,
   formatFactor,
   formatInt,
+  formatPercent,
   formatStat,
+  pierceBonusZone,
+  pierceTradeoff,
   resistZone,
   stunVulnerabilityZone,
   vulnerabilityZone,
@@ -69,6 +74,9 @@ const stunned = ref(false)
 
 const signedPercent = (v: number) => `${v > 0 ? '+' : ''}${v}%`
 
+const FACTOR_DIGITS = 4
+const fmtFactor = (value: number) => formatFactor(value, FACTOR_DIGITS)
+
 const GROUPS: Group[] = [
   {
     id: 'base',
@@ -82,7 +90,7 @@ const GROUPS: Group[] = [
     id: 'attacker',
     label: '攻方',
     rows: [
-      { key: 'bonus', label: '增伤区', min: 0, max: 600, step: 5, fmt: (v) => formatFactor(bonusZone(v / 100)) },
+      { key: 'bonus', label: '增伤区', min: 0, max: 600, step: 5, fmt: (v) => fmtFactor(bonusZone(v / 100)) },
       { key: 'critRate', label: '暴击率', min: 0, max: 100, step: 1, fmt: (v) => `${v}%` },
       { key: 'critDmg', label: '暴击伤害', min: 50, max: 500, step: 5, fmt: (v) => `${v}%` },
     ],
@@ -100,7 +108,7 @@ const GROUPS: Group[] = [
     id: 'window',
     label: '窗口',
     rows: [
-      { key: 'vuln', label: '减易伤', min: -60, max: 100, step: 5, fmt: signedPercent },
+      { key: 'vuln', label: '减易伤', min: -100, max: 100, step: 5, fmt: signedPercent },
     ],
   },
 ]
@@ -111,7 +119,7 @@ const PIERCE_ROW: Row = {
   min: 0,
   max: 900,
   step: 5,
-  fmt: (v) => formatFactor(1 + v / 100),
+  fmt: (v) => fmtFactor(pierceBonusZone(v / 100)),
 }
 
 const STUN_ROW: Row = {
@@ -141,9 +149,12 @@ const visibleGroups = computed<Group[]>(() =>
 const enemy = computed(() => ENEMIES.find((e) => e.id === enemyId.value) ?? ENEMIES[2])
 const enemyDef = computed(() => {
   const base = enemyDefense(enemy.value.base1)
-  return enemy.value.shield ? base * 1.8 : base
+  return enemy.value.shield ? base * DEFENSE_FORMULA.shieldDefenseMultiplier : base
 })
-const enemyDefText = computed(() => formatStat(enemyDef.value))
+const enemyDefText = computed(() => formatStat(enemyDef.value, 2))
+const shieldTakenDown = computed(() =>
+  enemy.value.shield ? DEFENSE_FORMULA.shieldDamageTakenDown : 0,
+)
 
 const base = computed(() => state.atk * (state.ratio / 100))
 const bonusFactor = computed(() => bonusZone(state.bonus / 100))
@@ -153,9 +164,9 @@ const defenseFactor = computed(() =>
   defenseZone(enemyDef.value, { penRate: state.pen / 100, defDown: state.defDown / 100 }),
 )
 const resistFactor = computed(() => resistZone(state.res / 100))
-const vulnFactor = computed(() => vulnerabilityZone(state.vuln / 100))
+const vulnFactor = computed(() => vulnerabilityZone(state.vuln / 100, shieldTakenDown.value))
 const stunFactor = computed(() => stunVulnerabilityZone(stunned.value, stunned.value ? state.stunRate / 100 : 0))
-const pierceFactor = computed(() => 1 + state.pierceBonus / 100)
+const pierceFactor = computed(() => pierceBonusZone(state.pierceBonus / 100))
 
 interface Gate {
   id: string
@@ -182,9 +193,8 @@ const critDamage = computed(() => base.value * (total.value / critExpect.value) 
 const trimmed = computed(() => {
   const notes: string[] = []
   if (state.bonus / 100 > 5) notes.push('增伤区达上限 ×6')
-  if (state.vuln / 100 < -0.8) notes.push('减易伤区达下限 ×0.2')
-  if (state.res / 100 > 1) notes.push('抗性区达下限 ×0')
-  if (stunned.value && state.stunRate / 100 > 4) notes.push('失衡易伤区达上限 ×5')
+  if (pierceMode.value && state.pierceBonus / 100 > 8) notes.push('贯穿增伤区达上限 ×9')
+  if (state.vuln / 100 - shieldTakenDown.value < -0.8) notes.push('减易伤区达下限 ×0.2')
   return notes
 })
 
@@ -195,18 +205,64 @@ function barStyle(factor: number) {
     : { right: '50%', width: `${-width}%` }
 }
 
-function applyPreset(id: 'clean' | 'pen' | 'stun' | 'shield') {
-  Object.assign(state, INITIAL)
-  pierceMode.value = false
-  enemyId.value = 'boss'
-  stunned.value = false
-  if (id === 'pen') state.pen = 24
-  if (id === 'stun') stunned.value = true
-  if (id === 'shield') {
-    enemyId.value = 'shield'
-    state.vuln = -25
-  }
+type PresetId = 'reset' | 'pen' | 'stun' | 'shield'
+
+const PRESET_PEN = 24
+
+const PRESETS: { id: PresetId; label: string }[] = [
+  { id: 'reset', label: '重置' },
+  { id: 'pen', label: '24% 穿透率' },
+  { id: 'stun', label: '失衡窗口' },
+  { id: 'shield', label: '持秽盾首领' },
+]
+
+function isPresetOn(id: PresetId): boolean {
+  if (id === 'pen') return state.pen === PRESET_PEN
+  if (id === 'stun') return stunned.value
+  if (id === 'shield') return enemyId.value === 'shield'
+  return false
 }
+
+function applyPreset(id: PresetId) {
+  if (id === 'reset') {
+    Object.assign(state, INITIAL)
+    pierceMode.value = false
+    enemyId.value = 'boss'
+    stunned.value = false
+    return
+  }
+  if (id === 'pen') state.pen = PRESET_PEN
+  if (id === 'stun') stunned.value = true
+  if (id === 'shield') enemyId.value = 'shield'
+}
+
+const penTradeoff = computed(() =>
+  pierceTradeoff(enemyDef.value, { defDown: state.defDown / 100 }),
+)
+
+const presetNotes = computed<{ id: string; text: string }[]>(() => {
+  const notes: { id: string; text: string }[] = []
+  if (isPresetOn('pen')) {
+    const t = penTradeoff.value
+    notes.push({
+      id: 'pen',
+      text: `24% 穿透率即驱动盘 V 位主词条：防御区 ${fmtFactor(t.zoneBefore)} → ${fmtFactor(t.zoneAfter)}，这一刀多打 ${formatPercent(t.gain)}。`,
+    })
+  }
+  if (isPresetOn('stun')) {
+    notes.push({
+      id: 'stun',
+      text: `失衡窗口：敌人处于失衡，失衡易伤区 ${fmtFactor(stunFactor.value)}。`,
+    })
+  }
+  if (isPresetOn('shield')) {
+    notes.push({
+      id: 'shield',
+      text: `持秽盾首领：防御 ×1.8、另有 ${Math.round(shieldTakenDown.value * 100)}% 减伤，防御区 ${fmtFactor(defenseFactor.value)}、减易伤区 ${fmtFactor(vulnFactor.value)}。`,
+    })
+  }
+  return notes
+})
 </script>
 
 <template>
@@ -239,12 +295,32 @@ function applyPreset(id: 'clean' | 'pen' | 'stun' | 'shield') {
 
     <div class="bench-body">
       <div class="bench-controls">
-        <div class="presets" role="group" aria-label="预设">
-          <button type="button" class="seg mono" @click="applyPreset('clean')">裸装配</button>
-          <button type="button" class="seg mono" @click="applyPreset('pen')">24% 穿透</button>
-          <button type="button" class="seg mono" @click="applyPreset('stun')">失衡窗口</button>
-          <button type="button" class="seg mono" @click="applyPreset('shield')">持秽盾首领</button>
+        <div class="presets" role="group" aria-label="预设情境">
+          <button
+            v-for="p in PRESETS"
+            :key="p.id"
+            type="button"
+            class="seg mono"
+            :class="{ on: isPresetOn(p.id) }"
+            :aria-pressed="p.id === 'reset' ? undefined : isPresetOn(p.id)"
+            @click="applyPreset(p.id)"
+          >{{ p.label }}</button>
         </div>
+        <p class="preset-note">
+          <span v-for="n in presetNotes" :key="n.id">
+            {{ n.text }}
+            <RouterLink
+              v-if="n.id === 'pen'"
+              :to="{ hash: '#defense-lab' }"
+              class="preset-link"
+            >看「穿透率与防御区」</RouterLink>
+          </span>
+          <span v-if="!presetNotes.length">
+            预设用于一键切到典型情境，彼此独立，点「重置」才清空全部读数：24% 穿透率是驱动盘 V 位主词条（
+            <RouterLink :to="{ hash: '#defense-lab' }" class="preset-link">完整取舍</RouterLink>
+            ），失衡窗口让敌人进入失衡，持秽盾首领自带防御 ×1.8 与 25% 减伤。
+          </span>
+        </p>
 
         <div v-for="group in visibleGroups" :key="group.id" class="ctl-group">
           <p class="ctl-group-label mono">{{ group.label }}</p>
@@ -295,6 +371,10 @@ function applyPreset(id: 'clean' | 'pen' | 'stun' | 'shield') {
               :value-text="row.fmt(state[row.key])"
             />
           </div>
+
+          <p v-if="group.id === 'window' && shieldTakenDown" class="ctl-hint">
+            秽盾目标另有 {{ Math.round(shieldTakenDown * 100) }}% 减伤，已计入本区。
+          </p>
         </div>
       </div>
 
@@ -306,13 +386,13 @@ function applyPreset(id: 'clean' | 'pen' | 'stun' | 'shield') {
           <span class="sep" aria-hidden="true">·</span>
           基础伤害 <span class="mono">{{ formatInt(base) }}</span>
           <span class="sep" aria-hidden="true">·</span>
-          总倍率 <span class="mono">{{ formatFactor(total) }}</span>
+          总倍率 <span class="mono">{{ fmtFactor(total) }}</span>
         </p>
 
         <ol class="gates">
           <li v-for="g in gates" :key="g.id" class="gate">
             <span class="g-name">{{ g.name }}</span>
-            <span class="g-factor mono">{{ formatFactor(g.factor) }}</span>
+            <span class="g-factor mono">{{ fmtFactor(g.factor) }}</span>
             <span class="g-bar" aria-hidden="true">
               <i class="g-datum" />
               <i class="g-fill" :class="{ loss: g.factor < 1 }" :style="barStyle(g.factor)" />
@@ -487,6 +567,29 @@ function applyPreset(id: 'clean' | 'pen' | 'stun' | 'shield') {
   flex-wrap: wrap;
   gap: 6px;
   padding-top: 4px;
+}
+
+.preset-note {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 8px;
+  max-width: 62ch;
+  font-size: var(--fs-caption);
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+
+.preset-link {
+  color: var(--ink-0);
+  border-bottom: 1px dotted var(--line-2);
+  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+}
+
+.preset-link:hover,
+.preset-link:focus-visible {
+  color: var(--amber-hi);
+  border-color: var(--amber);
 }
 
 .bench-output {
