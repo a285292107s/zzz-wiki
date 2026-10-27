@@ -387,7 +387,7 @@ pnpm run build                # 类型检查 + 构建
 pnpm run preview              # 预演产物
 ```
 
-`route-html` 的产出契约：`og:image` 按类目选（角色=构建期生成的社交卡 `og/agents/{id}.webp`，缺图回落 `hero/card` 派生图；音擎/邦布=thumb 图标、名录/静态页=站点社交卡片 `og-card.png`），
+`route-html` 的产出契约：`og:image` 按类目选（角色=按 `featured-pool.json` 的 hero 校准（2.8:1）生成的社交卡 `og/agents/{id}.webp`，缺图回落 `hero/card` 派生图；音擎/邦布=thumb 图标、名录/静态页=站点社交卡片 `og-card.png`），
 宽高由 sharp 读实际文件；Vercel 静态文件优先于 rewrites，故社交爬虫与搜索引擎拿到的是逐页元信息；生成器内置
 自校验（任一页字段未替换即失败）。
 

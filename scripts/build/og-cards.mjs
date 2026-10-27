@@ -14,6 +14,7 @@ const TEMPLATE = path.join(ROOT, 'scripts', 'build', 'og-card-template.html')
 const LIST_FILE = path.join(PUBLIC, 'data', 'live', 'zh', 'character.json')
 const ASSETS_FILE = path.join(ROOT, 'src', 'data', 'filter-assets.json')
 const VARIANTS_FILE = path.join(ROOT, 'src', 'data', 'hero-gender-variants.json')
+const POOL_FILE = path.join(ROOT, 'src', 'data', 'featured-pool.json')
 const OUT_DIR = path.join(PUBLIC, 'og', 'agents')
 const TMP_DIR = path.join(ROOT, 'temp', 'og-cards')
 const RAW_DIR = path.join(TMP_DIR, 'raw')
@@ -40,10 +41,12 @@ function buildJobs() {
   const list = readJson(LIST_FILE)
   const assets = readJson(ASSETS_FILE)
   const variants = readJson(VARIANTS_FILE)
+  const pool = readJson(POOL_FILE)
 
   return Object.keys(list).map((id) => {
     const row = list[id]
     const hero = variants[id]?.defaultFile ?? `Mindscape_${id}_2`
+    const heroFraming = pool.calibrated?.[id]?.modes?.hero ?? {}
     const element = row.special_element
       ? assets.specialElements[row.element]
       : assets.elements[row.element]
@@ -53,6 +56,9 @@ function buildJobs() {
       en: row.en || row.code || id,
       no: `NO. ${id}`,
       art: `/data/img/hero/${hero}.webp`,
+      pos: heroFraming.pos ?? '50%',
+      posY: heroFraming.posY ?? '50%',
+      flipH: heroFraming.flipH === true,
       crest: `/data/img/filter/${assets.camps[row.camp]}.webp`,
       rank: `/data/img/filter/${assets.rarities[row.rank]}.webp`,
       element: `/data/img/filter/${element}.webp`,
@@ -104,7 +110,10 @@ function buildRunner(jobs, url) {
   const done = []
   for (const job of jobs) {
     await page.evaluate(async (item) => {
-      document.getElementById('art').src = item.art
+      const art = document.getElementById('art')
+      art.src = item.art
+      art.style.objectPosition = item.pos + ' ' + item.posY
+      art.style.transform = item.flipH ? 'scaleX(-1)' : 'none'
       document.getElementById('crest').src = item.crest
       document.getElementById('name').textContent = item.name
       document.getElementById('name-en').textContent = item.en
