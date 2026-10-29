@@ -31,6 +31,10 @@ src 根（入口）──▶ components(5) composables(3) utils(2) directives(1)
 > 本表在 2026-10 的四语化改动后整体重测过一次——那次改动把 `useUiText` 接进 35 个
 > `.vue`，`views → composables` 与 `components → composables` 各自翻了约一倍
 > （51→84、20→47）。**新增跨层 import 时请顺手更新本表**，否则它就不再是「实测」。
+>
+> `/architecture` 那张地图是**这张表的手绘版**：`src/domain/atlas.ts` 的层序、模块分组与连线
+> 都从本表来，只是把二十多个顶层目录再按组切细。加目录 / 改主要依赖时，本表与 `atlas.ts`
+> 要一起改——地图不会自己去扫代码，漏改它就会安静地说谎。
 
 ## 2. 职责与边界表
 

@@ -2,7 +2,7 @@
  * generate-sitemap.mjs — sitemap.xml 生成（构建期，build:ci 自动跑）
  *
  * SPA + Vercel rewrite 的站点，路由清单在构建期是**完全可知**的：
- *   - 静态路由：/（首页）、/formulas
+ *   - 静态路由：/（首页）、/formulas、/about、/architecture
  *   - 类目名录：/agents /w-engines /bangboos /disks（catalog.ts 派生）
  *   - 详情页：读 public/data/live/{lang}/{character,weapon,bangboo,equipment}.json
  *     的名录 Id（与站点运行时同源，策展隐藏条目按 HIDDEN_ITEM_IDS 过滤——
@@ -45,7 +45,7 @@ const CATALOG = [
 ]
 
 function urls() {
-  const list = ['/', '/formulas', '/about']
+  const list = ['/', '/formulas', '/about', '/architecture']
   for (const c of CATALOG) {
     list.push(c.path)
     const p = `public/data/live/${DEFAULT_LANG}/${c.file}`

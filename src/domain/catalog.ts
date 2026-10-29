@@ -151,6 +151,20 @@ export const GUIDE_ENTRIES: readonly GuideEntry[] = [
   },
   {
     no: '07',
+    label: { zh: '项目架构', en: 'Architecture', ja: 'サイト構成', ko: '사이트 구조' },
+    en: 'ARCHITECTURE',
+    path: '/architecture',
+    desc: {
+      zh: '一张可缩放的等距地图：六层台子、三十四座楼、五十五根连线。',
+      en: 'A zoomable isometric map: six terraces, thirty-four buildings, fifty-five links.',
+      ja: 'ズームできる等角投影マップ：六つの台座、三十四の建物、五十五本の線。',
+      ko: '확대할 수 있는 등각 투영 지도: 여섯 대좌, 서른네 건물, 쉰다섯 연결선.',
+    },
+    glyph: '▤',
+    nav: false,
+  },
+  {
+    no: '08',
     label: { zh: '数据说明', en: 'About the data', ja: 'データについて', ko: '데이터 안내' },
     en: 'COLOPHON',
     path: '/about',

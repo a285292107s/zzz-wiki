@@ -88,6 +88,7 @@ const VIEW_OF = {
   '/disks': 'src/views/DisksView.vue',
   '/formulas': 'src/views/FormulasView.vue',
   '/about': 'src/views/AboutView.vue',
+  '/architecture': 'src/views/ArchitectureView.vue',
 }
 
 /** 静态页元信息（title 主语 + description）。**必须与运行时的 usePageMeta 一致**——
@@ -104,6 +105,11 @@ const STATIC_META = {
   '/about': {
     label: '数据说明',
     desc: '绳网档案的数据来源、覆盖范围、更新机制、校验门禁与版权声明——可核查的档案出处。',
+    kind: 'literal',
+  },
+  '/architecture': {
+    label: '项目架构',
+    desc: '站外只有源站接口、素材图库与代码仓库三块，构建期同步成本地产物，运行时页面只读本地。整站按这条链分成六层、三十四个模块、五十五条连线的一张等距地图，点开任一格看它的路径与上下游。',
     kind: 'literal',
   },
 }
