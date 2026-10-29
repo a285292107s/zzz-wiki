@@ -26,14 +26,13 @@
  *                两栏账册里左右两格同 y 的线其实接成了一条连续的线。
  *                ⚠ 只认**元素**上的线（上下边框 + 背景充当的细线）；伪元素（如吸顶横条
  *                当前项那条刻意的下刻线）不在扫描范围 —— 那条本来就该压在横条下缘线上。
- *   5. headRule  章节刻线：区块头不得再画边界线（那会与上一区块的收尾线成对，也会压在
- *                标题上）；区块之间的分隔交给留白 + 编号 + 标题，只有断层（`.seam`）才画
- *                `.section-mark` 的 SVG 花饰，画在空隙中线上（见 `docs/decisions/0024`）。
- *                判据：头部 `border-top = 0`；`.seam` 区块必须带花饰；花饰若存在则是窄带
- *                （8–40px 高）、宽度在 120px 与头部宽度 80% 之间、水平居中、`aria-hidden`；
- *                单页花饰 ≤ 2（再密就等于退回「每块一条」）；有 `.en` 的头部 `.leader`
- *                下边线为 dotted（`docs/decisions/0019`）。一个 `.section-head` 或一个花饰
- *                都扫不到时同样判失败，禁止空转。
+ *   5. headRule  区块边界：常态只靠留白 + 编号 + 标题层级（无边界线、无装饰件）；
+ *                只有换册处（`.block.seam`）在区块头自己的上缘画一条齐版心 1px 细线
+ *                （`docs/decisions/0025`）。判据：非 seam 头部 `border-top = 0`；seam 头部
+ *                必须有 1px solid 上边线；`.section-head` 里不得再有 `.leader` /
+ *                `.section-mark`（装饰件已退场）；h2 字号 ≥25px（标题自己承担边界，
+ *                退回 24px 的旧尺寸就失去层级）。单页 seam > 2 判失败；整轮一个
+ *                `.section-head` 或一个 `.seam` 都扫不到时同样判失败，禁止空转。
  *
  * 两个实现选择（都为了确定性）：
  *   · 自持一个 `serviceWorkers: 'block'` 的新上下文 —— 审计箱跑在同一个浏览器会话上，
@@ -275,53 +274,39 @@ async (page) => {
       }
     }
 
-    // ---------- 5. 章节刻线：边界不画在区块头上，只有断层才画雕刻花饰 ----------
-    // 花饰降频到「每页 ≤2」（见 docs/decisions/0024）：多数区块之间的边界只靠留白 + 编号 +
-    // 标题，花饰只标注换册处的断层。判据：
-    //   · 头部 border-top = 0（全宽线会与上一区块的收尾线成对，见 0017/0018）；
-    //   · 带 .seam 的区块必须画花饰；**没有花饰的区块头不判失败**（降频是设计），
-    //     但只要有花饰，形态仍要合规：窄带 8–40px 高、宽 120px–头部 80%、水平居中、aria-hidden；
-    //   · 单页花饰 > 2 判失败（否则等于退回「每块一条」）；
-    //   · 有右端英文注记的头部必须有 .leader，且其下边线为 dotted（0019）。
-    // 整轮一个花饰都没扫到同样判失败 —— 判据不能靠「找不到就通过」空转。
+    // ---------- 5. headRule：换册细线 + 区块头只由类型层级承担边界 ----------
+    // 判据见文件头；`.seam` 的细线画在区块头自己的上缘，而不是空隙中线上的装饰件。
     if (rules.includes('stacked')) {
       out.seamBlocks = document.querySelectorAll('.block.seam').length
-      out.marks = document.querySelectorAll('.section-head .section-mark').length
       for (const head of document.querySelectorAll('.section-head')) {
         const hr = head.getBoundingClientRect()
         if (hr.width <= 0) continue
         out.sectionHeads++
-        const border = parseFloat(getComputedStyle(head).borderTopWidth) || 0
-        const mark = head.querySelector('.section-mark')
-        const mr = mark ? mark.getBoundingClientRect() : null
-        const markW = mr ? mr.width : 0
-        const markH = mr ? mr.height : 0
-        const centered = !!mr && Math.abs(mr.left + mr.width / 2 - (hr.left + hr.width / 2)) < 1.5
-        const decorative = mark ? mark.getAttribute('aria-hidden') === 'true' : false
-        const hasEn = !!head.querySelector('.en')
-        const leader = head.querySelector('.leader')
-        const leaderStyle = leader ? getComputedStyle(leader).borderBottomStyle : 'missing'
-        const badLeader = hasEn && leaderStyle !== 'dotted'
+        const cs = getComputedStyle(head)
+        const border = parseFloat(cs.borderTopWidth) || 0
         const seam = !!head.closest('.block')?.classList.contains('seam')
-        const badMark =
-          !!mark &&
-          (markW < 120 || markW > hr.width * 0.8 || markH < 8 || markH > 40 || !centered || !decorative)
-        const bad = border > 0 || badMark || (seam && !mark) || badLeader
+        const h2 = head.querySelector('h2')
+        const titleFs = h2 ? parseFloat(getComputedStyle(h2).fontSize) || 0 : 0
+        const leader = !!head.querySelector('.leader')
+        const mark = !!head.querySelector('.section-mark')
+        const bad =
+          border > (seam ? 1.5 : 0) ||
+          (seam && (border < 0.5 || cs.borderTopStyle !== 'solid')) ||
+          titleFs < 25 ||
+          leader ||
+          mark
         if (!bad) continue
         out.headRule.push({
-          title: (head.querySelector('h2')?.textContent || '').trim().slice(0, 12),
+          title: (h2?.textContent || '').trim().slice(0, 12),
           seam,
           headBorderTop: border,
-          mark: !!mark,
-          markW: Math.round(markW * 10) / 10,
-          markH: Math.round(markH * 10) / 10,
-          centered,
-          decorative,
-          leader: leaderStyle,
+          titleFs: Math.round(titleFs * 10) / 10,
+          leader,
+          mark,
         })
       }
-      if (out.marks > 2) {
-        out.headRule.push({ reason: 'mark-over-cap（每页花饰上限 2）', marks: out.marks })
+      if (out.seamBlocks > 2) {
+        out.headRule.push({ reason: 'seam-over-cap（每页换册细线上限 2）', seams: out.seamBlocks })
       }
     }
     return out
@@ -331,7 +316,7 @@ async (page) => {
   const informational = []
   const summary = []
   let headsTotal = 0
-  let marksTotal = 0
+  let seamsTotal = 0
 
   const ctx = await page.context().browser().newContext({ serviceWorkers: 'block' })
   const p = await ctx.newPage()
@@ -364,10 +349,9 @@ async (page) => {
           headRule: r.headRule.length,
           sectionHeads: r.sectionHeads,
           seamBlocks: r.seamBlocks,
-          marks: r.marks,
         })
         headsTotal += r.sectionHeads
-        marksTotal += r.marks
+        seamsTotal += r.seamBlocks
         for (const item of r.stranded) failedItems.push({ where, kind: 'stranded', ...item })
         for (const item of r.cramped) failedItems.push({ where, kind: 'cramped', ...item })
         for (const item of r.orphan) informational.push({ where, kind: 'orphan', ...item })
@@ -387,11 +371,11 @@ async (page) => {
     })
   }
 
-  if (marksTotal === 0) {
+  if (seamsTotal === 0) {
     failedItems.push({
       where: '(all)',
       kind: 'head-rule',
-      reason: '整轮没扫到一个 .section-mark，断层花饰判据空转',
+      reason: '整轮没扫到一个 .block.seam，换册细线判据空转',
     })
   }
 
@@ -407,7 +391,7 @@ async (page) => {
       stacked: byKind('stacked'),
       headRule: byKind('head-rule'),
       sectionHeads: headsTotal,
-      marks: marksTotal,
+      seams: seamsTotal,
       informationalTotal: informational.length,
       failedItems: failedItems.slice(0, 40),
       informational: informational.slice(0, 20),

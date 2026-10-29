@@ -133,8 +133,9 @@
   --fs-body: 15px;                     /* 正文基准（body 默认） */
   --fs-lead: 16px;                     /* 强调值 / 技能·核心技名 / 行内标题 */
   --fs-subhead: 18px;                  /* 小节标题 / 大数值 / 卡片名 */
-  --fs-title: 22px;                    /* 区块标题（section-head） */
+  --fs-title: 22px;                    /* 小节 / 面板标题 */
   --fs-hero: 24px;                     /* 大数字 / 首页人名 */
+  --fs-section: clamp(26px, 2.6vw, 36px); /* 区块标题（section-head 的 h2；桌面上限 36） */
   --fs-display: clamp(30px, 5vw, 52px);/* 页面标题 */
   --fs-name: clamp(34px, 5.6vw, 64px); /* 页面级大字标题：详情页人名 / 首页站名。
                                           上限 64px 是校准值——76ch 行宽下内容区
@@ -171,7 +172,7 @@
      是**模式而非个例**，故从硬编码升为语义令牌（避免下次有人改成 15/17px 而无人察觉）。
      两者数值相同但语义不同：一个管「区块头里并列元素」，一个管「栅格列」。 */
   --space-head: 16px;  /* 区块头 / 行内并列元素之间的间距 */
-  --space-head-body: clamp(14px, 2vw, 28px);
+  --space-head-body: clamp(16px, 2.2vw, 32px);
   --space-col: 16px;   /* 栅格列间距 */
   --space-inline: 12px; /* 行内并列元素（工具栏、表格单元、按钮组）——全站实际标准，
                            实测 27 处；升为令牌后改一处即全局一致 */

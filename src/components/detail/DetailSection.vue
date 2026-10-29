@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import SectionMark from '@/components/SectionMark.vue'
 import { latinDecor } from '@/utils/latinDecor'
 
 const props = defineProps<{
@@ -10,7 +9,7 @@ const props = defineProps<{
   id?: string
   /** 英文副标（编辑排版用，如 'VITALS'）；显示于标题行右端 */
   en?: string
-  /** 断层边界：上方留白放宽一档并画雕刻花饰（同一页 1–2 处，判据见 DATA_GUIDE §10） */
+  /** 换册处：上方留白放宽一档，并在区块头自己的上缘画一条齐版心的细线（同一页 1–2 处，判据见 DATA_GUIDE §10） */
   seam?: boolean
 }>()
 
@@ -31,12 +30,10 @@ const decor = computed(() => latinDecor(props.en, props.title))
     <!-- 区块标题行参与「整页退场 / 逐条入场」编排（见 utils/viewTransition/chrome）；
          区块正文由各自的内容组件出声，这里只管标题行。 -->
     <div class="section-head" data-vt-block>
-      <!-- no 为空时（区块被渲染但未登记进 navItems 的异常态）不渲染编号，避免留 16px 空档 -->
+      <!-- no 为空时（区块被渲染但未登记进 navItems 的异常态）不渲染编号，避免留空档 -->
       <span v-if="no" class="no mono" aria-hidden="true">{{ no }}</span>
       <h2 :id="id ? 'h-' + id : undefined">{{ title }}</h2>
-      <span class="leader" aria-hidden="true" />
       <span v-if="decor" class="en mono">{{ decor }}</span>
-      <SectionMark v-if="seam" />
     </div>
     <slot />
   </section>
@@ -44,25 +41,27 @@ const decor = computed(() => latinDecor(props.en, props.title))
 
 <style scoped>
 .block {
-  --section-gap: var(--space-section);
   margin-bottom: var(--space-section);
 }
 
-/* 断层边界：与上一块的下边距折叠取较大者，故 margin-top 写的是最终间距本身。
-   花饰读同一份 --section-gap，仍落在空隙中线。 */
 .block.seam {
-  --section-gap: var(--space-section-loose);
   margin-top: var(--space-section-loose);
 }
 
-/* 首块永远收紧一档（页头自己的下边距也是这一档）：即使它恰好是断层，也不再放宽 */
 .block:first-of-type {
-  --section-gap: var(--space-section-tight);
   margin-top: 0;
 }
 
+.block.seam .section-head {
+  border-top: var(--rule);
+  padding-top: clamp(20px, 2vw, 28px);
+}
+
+.block:first-of-type.seam .section-head {
+  border-top: none;
+  padding-top: 0;
+}
+
 /* 区块标题行（.section-head / .no / h2 / .en）的样式**单一来源在 base.css**
-   —— 首页「今日角色 / 目录」用的是同一套语法。此前这里整份复制了一遍，
-   与 base.css 逐条重复（`.en` 就是因首页也要用才暴露出来）；两份各自漂移的隐患大于
-   这点局部性收益，故收口到 base.css。本文件只留 `.block` 自己的间距。 */
+   —— 首页「今日角色 / 目录」用的是同一套语法。 */
 </style>

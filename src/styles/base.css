@@ -380,44 +380,16 @@ a.rich-term:hover {
 
 /* numbered section header — e.g. "01 · 目录" */
 .section-head {
-  position: relative;
   display: flex;
   align-items: baseline;
   gap: var(--space-head);
   margin-bottom: var(--space-head-body);
 }
 
-.section-head .section-mark {
-  position: absolute;
-  left: 50%;
-  top: calc(var(--section-gap, var(--space-section)) / -2);
-  width: clamp(200px, 32vw, 440px);
-  color: color-mix(in srgb, var(--ink-2) 65%, transparent);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-
-.section-head .section-mark svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  overflow: visible;
-}
-
-.section-head .section-mark path {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1;
-  vector-effect: non-scaling-stroke;
-}
-
-.section-head .section-mark .mark-accent {
-  stroke: color-mix(in srgb, var(--amber) 72%, transparent);
-}
-
 .section-head .no {
+  align-self: center;
   font-family: var(--mono);
-  font-size: var(--fs-caption);
+  font-size: var(--fs-small);
   color: var(--amber);
   letter-spacing: 0.08em;
 }
@@ -425,13 +397,15 @@ a.rich-term:hover {
 .section-head h2 {
   font-family: var(--serif);
   font-weight: 500;
-  font-size: var(--fs-hero);
-  line-height: 1.15;
-  letter-spacing: 0.02em;
+  font-size: var(--fs-section);
+  line-height: 1.12;
+  letter-spacing: 0.015em;
   text-wrap: balance;
 }
+
 .section-head .en {
   margin-left: auto;
+  align-self: center;
   font-family: var(--mono);
   font-size: var(--fs-nano);
   letter-spacing: 0.22em;
@@ -439,10 +413,13 @@ a.rich-term:hover {
   color: var(--ink-2);
 }
 
-.section-head .leader {
-  flex: 1;
-  height: 1px;
-  border-bottom: 1px dotted color-mix(in srgb, var(--ink-2) 72%, transparent);
+/* 320 档最长的日文标题（「キャラクター紹介」8 字）会把英文注记挤出容器：
+   放不下时让注记整件换到第二行、仍贴右，标题不缩字号、不裁字。 */
+@media (max-width: 400px) {
+  .section-head {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
 }
 
 /* ---------- layout ---------- */
@@ -1260,14 +1237,6 @@ html.vt-restore .vt-chrome-case {
     background: CanvasText !important;
   }
 
-  .section-head .section-mark {
-    color: CanvasText !important;
-  }
-
-  .section-head .section-mark path {
-    stroke: CanvasText !important;
-  }
-
   /* 网格单元必须回到画布色，否则整片糊成实心块 */
   .d-item,
   .stat-grid.v-grid .stat,
@@ -1441,12 +1410,8 @@ html.vt-restore .vt-chrome-case {
     border-bottom: none;
   }
 
-  .section-head .section-mark {
-    color: var(--ink-2);
-  }
-
-  .section-head .section-mark .mark-accent {
-    stroke: var(--amber);
+  .block.seam .section-head {
+    border-top-color: var(--line-2);
   }
 
   /* 分页控制：小单元不跨页断开；标题不孤悬页底 */

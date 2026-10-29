@@ -511,9 +511,6 @@ watch(detail, (d) => {
   column-rule: 1px solid var(--line-1);
   max-width: none;
   text-wrap: pretty;
-  /* 顶栏：琥珀发丝线接 DetailSection 标题，作编辑札记栏注 */
-  padding-top: 22px;
-  border-top: 1px solid var(--amber-dim);
 }
 
 .profile-desc {
