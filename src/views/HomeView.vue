@@ -160,7 +160,7 @@ const sections = computed(() => [
         <SectionMark />
       </div>
 
-      <ol class="index-list">
+      <ol class="index-list" :class="{ 'is-even': sections.length % 2 === 0 }">
         <li v-for="(s, i) in sections" :key="s.to" v-reveal="i * 55" data-vt-block>
           <RouterLink :to="s.to" class="index-row" @pointerenter="warmList(s.to)" @focus="warmList(s.to)">
             <span class="specimen">
@@ -485,13 +485,19 @@ const sections = computed(() => [
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 0;
-    /* 收口线画在容器上：7 条排两栏后末行只剩左格，若沿用每格下边框，
-       收口线就只有半条；容器自己的下边框横贯整个版心，账册收得干净。 */
     border-bottom: var(--rule);
+  }
+
+  .index-list.is-even {
+    border-bottom: none;
   }
 
   .index-list > li:last-child .index-row {
     border-bottom: none;
+  }
+
+  .index-list.is-even > li:nth-last-child(-n + 2) .index-row {
+    border-bottom: var(--rule);
   }
 
   .index-list > li:nth-child(odd) .index-row {

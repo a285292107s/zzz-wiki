@@ -110,6 +110,12 @@ export const router = createRouter({
       meta: { title: guideLabel('/settings') },
     },
     {
+      path: '/architecture',
+      name: 'architecture',
+      component: () => import('@/views/ArchitectureView.vue'),
+      meta: { title: guideLabel('/architecture') },
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
       component: () => import('@/views/NotFoundView.vue'),
