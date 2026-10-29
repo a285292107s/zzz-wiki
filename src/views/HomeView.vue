@@ -13,7 +13,6 @@ import { catalogByPath } from '@/domain/catalog'
 import { latinDecor } from '@/utils/latinDecor'
 import HollowImage from '@/components/HollowImage.vue'
 import FeaturedDeck from '@/components/home/FeaturedDeck.vue'
-import SectionMark from '@/components/SectionMark.vue'
 
 usePageMeta()
 
@@ -140,10 +139,8 @@ const sections = computed(() => [
       <section v-if="picks.length" class="banners" aria-labelledby="h-today">
         <div v-reveal class="section-head" data-vt-block>
           <h2 id="h-today">{{ t.home.today }}</h2>
-          <span class="leader" aria-hidden="true" />
           <!-- 词取 Featured：与 FeaturedDeck / useFeaturedAgents / featured-pool.json 同名，不另造叫法。 -->
           <span class="en mono">Featured</span>
-          <SectionMark />
         </div>
         <!-- 入场不动用 v-reveal：牌堆自带「标本装匣」编排（首次入画时演一次，见 FeaturedDeck），
              整块上浮会与那三拍抢同一段时间。区块标题仍走 v-reveal。 -->
@@ -153,11 +150,9 @@ const sections = computed(() => [
       <section class="index" aria-labelledby="h-contents">
       <div v-reveal class="section-head" data-vt-block>
         <h2 id="h-contents">{{ t.home.contents }}</h2>
-        <span class="leader" aria-hidden="true" />
         <!-- 右端英文标签（同「今日角色」）。词取 Contents：这一栏就是站点的目录，
              与页脚「数据说明」的 Colophon 同一层语义，不复用类目页的 AGENTS 等「内容类目名」。 -->
         <span v-if="contentsDecor" class="en mono">Contents</span>
-        <SectionMark />
       </div>
 
       <ol class="index-list">
@@ -292,8 +287,6 @@ const sections = computed(() => [
 /* ---------- 今日角色（横向牌堆，见 components/home/FeaturedDeck.vue） ---------- */
 
 .banners {
-  --section-gap: var(--pad-section);
-  /* 底部节奏复用 --space-section 标尺 */
   padding-bottom: var(--space-section);
 }
 

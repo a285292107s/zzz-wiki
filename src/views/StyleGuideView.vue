@@ -117,8 +117,9 @@ const typeScale = readTokens([
   ['--fs-body', '正文基准'],
   ['--fs-lead', '强调值 / 行内标题'],
   ['--fs-subhead', '小节标题 / 卡片名'],
-  ['--fs-title', '区块标题'],
+  ['--fs-title', '小节 / 面板标题'],
   ['--fs-hero', '大数字'],
+  ['--fs-section', '区块标题'],
   ['--fs-display', '页面标题'],
 ])
 

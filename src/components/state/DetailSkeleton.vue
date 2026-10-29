@@ -32,7 +32,6 @@ withDefaults(
       <div class="skel-head-row">
         <span class="bar no-bar" />
         <span class="bar title-bar" />
-        <span class="rule-bar" />
       </div>
       <ul class="skel-lines">
         <li v-for="r in rows" :key="r" class="skel-line">
@@ -46,7 +45,6 @@ withDefaults(
       <div class="skel-head-row">
         <span class="bar no-bar" />
         <span class="bar title-bar" />
-        <span class="rule-bar" />
       </div>
       <ul class="skel-lines">
         <li v-for="r in 2" :key="r" class="skel-line">
@@ -68,7 +66,6 @@ withDefaults(
       <div class="skel-head-row">
         <span class="bar no-bar" />
         <span class="bar title-bar" />
-        <span class="rule-bar" />
       </div>
       <dl class="skel-grid">
         <div v-for="r in rows" :key="r" class="skel-cell">
@@ -125,25 +122,19 @@ withDefaults(
 
 .skel-head-row {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: var(--space-head);
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .skel-head-row .no-bar {
   width: 18px;
-  height: 12px;
+  height: 13px;
 }
 
 .skel-head-row .title-bar {
-  width: 96px;
-  height: 22px;
-}
-
-.skel-head-row .rule-bar {
-  flex: 1;
-  height: 1px;
-  border-bottom: 1px dotted var(--line-1);
+  width: 128px;
+  height: 30px;
 }
 
 .skel-grid {
