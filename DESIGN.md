@@ -185,6 +185,7 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 | NameCell | 名录名单元格（四语名/阵营；行内与栅格卡名两种排印） | 各表格与栅格名录页的名列 + 详情预热 |
 | SignatureRef | 边缘注记式交叉引用（代理人 ↔ 专属音擎 互链），footnote 风格无卡盒；`thumb` 按素材原始高宽比定盒 | 代理人封面 / 音擎 head 的归属引用 |
 | FormulaEq | 战斗公式条目排版（/formulas 页） | 公式图文统一渲染 |
+| AtlasMap / AtlasDetail | 项目架构页的可缩放分层地图（六块台子、三十四栋等距楼房、四类连线；平移 / 缩放 / 筛选 / 选中）与详情面板（地图侧栏与窄屏行内两处复用）；台长与房子占地按体量、楼层数按连线数，几何由 `utils/isoAtlas.ts` 按固定世界坐标算出，文字是 HTML 覆盖层 | — |
 
 ### 6.3 视图瘦身目标（验收指标）
 
@@ -202,6 +203,17 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 - 新增设置页（/settings，SettingsView）：本机偏好——佩洛伊斯立绘形态与**展示语言**。
   **入口在站头导航第 06 位与首页目录**（导航入口数受 ADR 0004 约束，故替换掉原先占位的档案图谱）；
   **不进 sitemap，也不参与按路由预载**（`generate-route-html.mjs` 的 `VIEW_OF`/`STATIC_META` 无此页）。
+- 新增项目架构页（/architecture，ArchitectureView + `AtlasMap` / `AtlasDetail`）：一张**可缩放的等距分层地图**——
+  六块台子（外部与构建期 / 入口与壳 / 页面 / 展示 / 状态 / 核心）上立着三十四栋等距楼房，台子长度与房子占地按代码体量分档、
+  楼层数 = 接入的连线数，楼上有屋顶女儿墙与楼层窗带、占地够宽的叠一层塔冠（**只靠明暗分档，不画投影**）；
+  四类连线（装配调用 / 读取本地 / 站外取源 / 构建产出）用颜色与粗细区分；核心那层是三列并排的栏架；
+  可平移、缩放、按类筛线、按层过滤、按名检索，点一格在面板里看路径与上下游。窄屏（<1024）不画地图，
+  改成六层模块清单并在行内展开详情。**入口只有首页目录第 07 项**（站头导航不加，ADR 0004；页脚是台账，不放目录）；
+  模块与连线的事实单一事实源是 `domain/atlas.ts`，几何在 `utils/isoAtlas.ts`，图上的读数全部动态取。
+  为什么是一张交互地图而不是静物图 / 3D 库 / 构建期扫描，见
+  [决策记录 0027](./docs/decisions/0027-architecture-page-as-zoomable-atlas.md)（取代了
+  [0025](./docs/decisions/0025-pipeline-page-as-isometric-stair.md) 与
+  [0026](./docs/decisions/0026-architecture-page-as-isometric-section.md)）。
 - `/agents` 是一个页面（`AgentsView`）内按本机偏好择一渲染两个陈列体：卡片版 `AgentCardList`
   或表格版 `AgentTableList`（都是它的静态导入，故首屏不闪、两版都在预载清单里）；切换钮在
   页面工具栏，版本是本地偏好、**不写 URL**（见 [决策记录 0012](./docs/decisions/0012-agents-view-switch-on-page.md)）。
