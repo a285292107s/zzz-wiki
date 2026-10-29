@@ -11,9 +11,6 @@
         </div>
         <p class="disclaimer">{{ t.footer.copyright }}</p>
       </div>
-      <div class="foot-side foot-links">
-        <RouterLink to="/about" class="foot-link mono">{{ t.footer.colophon }}</RouterLink>
-      </div>
       <div v-if="isDev" class="foot-actions">
         <RouterLink
           v-for="r in DEV_FOOTER_ROUTES"
@@ -83,12 +80,6 @@ const { updatedAt, versionLabel } = useDataVersion()
     border-color var(--t-fast) var(--ease);
 }
 
-.foot-side {
-  display: flex;
-  align-items: center;
-  gap: var(--space-head);
-}
-
 .updated,
 .disclaimer,
 .meta,
@@ -121,15 +112,6 @@ const { updatedAt, versionLabel } = useDataVersion()
   display: flex;
   align-items: center;
   gap: var(--space-1);
-}
-
-.foot-link {
-  font-size: var(--fs-micro);
-  letter-spacing: 0.16em;
-  color: var(--ink-1);
-  border-bottom: 1px solid var(--line-1);
-  display: inline-block;
-  padding: var(--space-1) 0;
 }
 
 .style-link:hover {
