@@ -1,7 +1,7 @@
 /* ============================================================
  * Noto Serif SC 自托管（scripts/build/subset-cjk-fonts.mjs 生成，勿手改）
  * Noto Serif SC 500 · 按站点字符集裁剪的 unicode-range 分片
- * 252 片 / 1229KB（同批源片 3093KB，缩减 60%）
+ * 252 片 / 1228KB（同批源片 3093KB，缩减 60%）
  * 浏览器按页面实际字形按需加载；运行时零外部请求。字符集全覆盖由
  * scripts/verify-cjk-fonts.mjs 门禁把守。
  * ============================================================ */
@@ -293,6 +293,22 @@
   font-display: swap;
   src: url('/fonts/noto-serif-sc/500-27888c382d.woff2') format('woff2');
   unicode-range: U+8594,U+8599,U+85A6,U+85AC,U+85CD,U+8607,U+8653,U+865C,U+86C0,U+86CA;
+}
+@font-face {
+  font-family: 'Noto Serif SC';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/noto-serif-sc/500-2963c0fcbd.woff2') format('woff2');
+  unicode-range: U+003C-0057;
+}
+@font-face {
+  font-family: 'Noto Serif SC';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/noto-serif-sc/500-2a3729f397.woff2') format('woff2');
+  unicode-range: U+0075-007E,U+00A0,U+00B0,U+00B7,U+00D7,U+00F7,U+2010,U+2013-2015,U+2018-2019,U+201C-201D,U+2026,U+203B,U+2191,U+2193,U+2212;
 }
 @font-face {
   font-family: 'Noto Serif SC';
@@ -939,14 +955,6 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/noto-serif-sc/500-7f7226ac1b.woff2') format('woff2');
-  unicode-range: U+00A7,U+00F7;
-}
-@font-face {
-  font-family: 'Noto Serif SC';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
   src: url('/fonts/noto-serif-sc/500-7ff8aa4e55.woff2') format('woff2');
   unicode-range: U+5F04,U+5F7B,U+5FA1,U+5FCD,U+6012,U+60A6,U+60AC,U+60B2,U+60EF,U+626E,U+6270,U+6276,U+62D6,U+62DC,U+6316,U+632F,U+633A,U+6355,U+63AA,U+6447,U+649E;
 }
@@ -1003,6 +1011,14 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
+  src: url('/fonts/noto-serif-sc/500-89d7717e30.woff2') format('woff2');
+  unicode-range: U+00F7;
+}
+@font-face {
+  font-family: 'Noto Serif SC';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
   src: url('/fonts/noto-serif-sc/500-8c38a2fe04.woff2') format('woff2');
   unicode-range: U+52B4,U+52B9,U+52C1,U+52D9,U+52DD,U+52E2,U+52E7,U+52F2,U+5302,U+530D,U+5310,U+5315,U+5323,U+532E,U+5354,U+5358,U+53AD,U+53B3,U+53C1,U+53CE;
 }
@@ -1013,14 +1029,6 @@
   font-display: swap;
   src: url('/fonts/noto-serif-sc/500-8c81e05373.woff2') format('woff2');
   unicode-range: U+8A6B,U+8A70,U+8A72-8A73,U+8A87,U+8A8C-8A8D,U+8A95,U+8A98,U+8AA0,U+8AA4,U+8AAC;
-}
-@font-face {
-  font-family: 'Noto Serif SC';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('/fonts/noto-serif-sc/500-8cc75a8e19.woff2') format('woff2');
-  unicode-range: U+003C-0058;
 }
 @font-face {
   font-family: 'Noto Serif SC';
@@ -1363,14 +1371,6 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/noto-serif-sc/500-b6b6056a1a.woff2') format('woff2');
-  unicode-range: U+0059-0075;
-}
-@font-face {
-  font-family: 'Noto Serif SC';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
   src: url('/fonts/noto-serif-sc/500-b6db82b582.woff2') format('woff2');
   unicode-range: U+5507,U+5524,U+558A,U+55B5,U+561B,U+56CA,U+5782,U+57C3,U+5893,U+5915,U+5949,U+5962,U+59AE,U+5BD3,U+5C38,U+5CB3,U+5D07,U+5D29,U+5DE1,U+5DFE;
 }
@@ -1675,8 +1675,8 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/noto-serif-sc/500-d6fd98b052.woff2') format('woff2');
-  unicode-range: U+0076-007E,U+00A0,U+00A7,U+00B0,U+00B7,U+00D7,U+00F7,U+2010,U+2013-2015,U+2018-2019,U+201C-201D,U+2026,U+203B,U+2191,U+2193,U+2212;
+  src: url('/fonts/noto-serif-sc/500-d7991c4f81.woff2') format('woff2');
+  unicode-range: U+0058-0074;
 }
 @font-face {
   font-family: 'Noto Serif SC';
