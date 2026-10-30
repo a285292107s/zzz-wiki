@@ -1,6 +1,6 @@
 /* ============================================================
  * 本地静态数据客户端 — 数据由 scripts/build 管线生成：
- *   - 来源：static.nanoka.cc（hakushin raw / zzz.nanoka.cc）
+ *   - 来源：static.nanoka.cc（hakushin raw）
  *   - 输出：public/data/（契约见 DATA_GUIDE.md §3）
  * 运行时零外部依赖、零 CORS 问题。
  *

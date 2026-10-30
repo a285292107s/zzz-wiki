@@ -193,10 +193,8 @@ const gapCount = computed(() =>
     <DetailSection v-reveal id="source" no="01" title="数据来源与范围" en="Source">
       <div class="wide-cols">
         <p class="prose measure">
-          条目数据取自公开数据源 <strong> hakushin raw </strong>（由
-          <a href="https://zzz.nanoka.cc" target="_blank" rel="noopener" class="ext">zzz.nanoka.cc</a>
-          及其同源 CDN 提供），在构建期一次性拉取并规整为静态 JSON，随仓库一起入库。
-          前端运行时只读本地 <code class="mono">/data</code>，不请求任何数据接口。
+          条目数据取自公开数据源 <strong>hakushin raw</strong>，在构建期一次性拉取并规整为静态 JSON，
+          随仓库一起入库。前端运行时只读本地 <code class="mono">/data</code>，不请求任何数据接口。
         </p>
         <p class="prose measure">
           <strong>只收录正式服（live）数据</strong>：源站的前瞻与测试服内容不拉取、不降级、不补位——
@@ -234,9 +232,8 @@ const gapCount = computed(() =>
           <strong>本站资源齐备时页面零跨域请求</strong>。离线能力由 Service Worker 提供：
           <strong>首次访问之后，已浏览过的页面在断网时仍可打开阅读</strong>（导航网络优先、
           静态资源缓存优先、数据 JSON 陈旧优先并后台更新；缓存世代跟随数据版本，换版即整批清理）。
-          唯一的跨域例外是候选链兜底：个别源站缺口（如某条邦布无图标）会回源同一数据源的 CDN（nanoka）
-          取一次图——这是「不破图、也不把占位当有图」的取舍，触发条数与缺口同量级，
-          见下方「字段覆盖」。
+          唯一的跨域例外是候选链兜底：个别源站缺口（如某条邦布无图标）会回源同一数据源的素材 CDN 取一次图——
+          这是「不破图、也不把占位当有图」的取舍，触发条数与缺口同量级，见下方「字段覆盖」。
         </p>
       </div>
       <ul class="checks">

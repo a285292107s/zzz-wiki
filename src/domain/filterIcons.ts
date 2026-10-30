@@ -2,7 +2,7 @@
  * filterIcons — 界面小图标映射：属性/职业/阵营/稀有度/特殊属性 code → 本地素材。
  * 命名规则：属性 Icon{English}（IconPhysical/Fire/Ice/Electric/Wind/Ether）
  *          职业 Icon{English}（IconAttack/Stun/Anomaly/Support/Defense/Rupture/Armorer）
- *          阵营 IconCamp{English}（参考 zzz.nanoka.cc 阵营筛选，命名一致）
+ *          阵营 IconCamp{English}（参考源站阵营筛选，命名一致）
  *          稀有度 IconRole{Tier}Small（Tier = S/A/B）
  *          特殊属性 Icon{English}（仅带 special_element_type 的角色启用，如 烈霜→IconFrost）
  * 资产清单单一事实源：src/data/filter-assets.json（构建期 icon-inventory.mjs

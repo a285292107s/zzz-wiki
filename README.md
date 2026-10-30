@@ -36,7 +36,7 @@ pnpm test             # vitest 单元/组件测试
 
 ## 数据源
 
-构建期从 **hakushin raw**（`static.nanoka.cc`，zzz.nanoka.cc / hakush.in 站底层 CDN）拉取**正式服（live）**名录与详情，
+构建期从 **hakushin raw**（`static.nanoka.cc`，hakush.in 站底层 CDN）拉取**正式服（live）**名录与详情，
 规整为静态 JSON 提交入仓；运行时前端只读本地 `/data`（零外部请求、零 CORS）。
 站点**只展示 live**（不产出源站 latest——含前瞻/测试服内容，合规约定 2026-08 起），版本号从 `manifest.json` 的 `zzz.live` 动态取，**禁止硬编码**。
 

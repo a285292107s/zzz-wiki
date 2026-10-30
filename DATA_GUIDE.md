@@ -16,7 +16,7 @@
 | 运行时 | 前端只读本地 `/data`，数据面零外部请求、零 CORS |
 | 图标 | 本地 `/data/img/` → nanoka CDN → 文字占位，缺图不破版 |
 | 语言 | `zh` / `en` / `ja` / `ko` 四语各一套数据面（§1）；界面短文案另有站内文案表 |
-| 合规 | 只展示正式服（live）；源站 latest 含前瞻/测试服内容，不拉取、不降级、不补位 |
+| 合规 | 只展示正式服（live）；源站 latest 含前瞻/测试服内容，不拉取、不降级、不补位；对外页面不点名、不链接 zzz.nanoka.cc（该网页站发布测试服爆料，不合规），出处只写数据源名 `hakushin raw` |
 
 历史：v1 主源是 Dimbreath ZenlessData（键名混淆、更新滞后），2026-08 起换为 hakushin raw 并重写解析层，
 前端契约未变。旧源只留参考价值，见 §9。
@@ -25,7 +25,7 @@
 
 | 项 | 值 |
 |---|---|
-| 源 | `https://static.nanoka.cc`（zzz.nanoka.cc / hakushin.in 的底层静态 CDN） |
+| 源 | `https://static.nanoka.cc`（hakushin.in 的底层静态 CDN） |
 | 版本清单 | `GET /manifest.json` → `zzz.live` 即正式服数据版本；**具体值以 `public/data/manifest.json` 为准，本文不写死**（源站另有 `zzz.latest`，含前瞻/测试服内容，本项目不消费） |
 | 列表（单份，无语言段） | `/zzz/{ver}/character.json`、`weapon.json`、`bangboo.json`、`equipment.json`——名录只有单份（`/{lang}/character.json` 全 404）；以英文为底本，条目内嵌 `zh`/`en`/`ja`/`ko` 名字字段（驱动盘是 `{name,desc2,desc4}` 子对象） |
 | 详情（带语言） | `/zzz/{ver}/{lang}/character/{id}.json`、`/weapon/{id}`、`/bangboo/{id}`、`/equipment/{id}` |

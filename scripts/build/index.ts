@@ -88,7 +88,7 @@ export async function main(): Promise<void> {
       {
         zzz: {
           live: ver,
-          source: 'static.nanoka.cc (hakushin raw / zzz.nanoka.cc)',
+          source: 'static.nanoka.cc (hakushin raw)',
         },
         generated: new Date().toISOString(),
       },

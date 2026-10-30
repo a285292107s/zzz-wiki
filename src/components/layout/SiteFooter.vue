@@ -4,7 +4,7 @@
       <div class="foot-col">
         <div class="foot-line">
           <p class="meta">
-            {{ t.footer.source }} <a href="https://zzz.nanoka.cc" target="_blank" rel="noopener">zzz.nanoka.cc</a>
+            {{ t.footer.source }} <span class="mono">hakushin raw</span>
           </p>
           <p class="ver mono">{{ t.footer.dataVersion }} <span class="ver-key">{{ versionLabel('LIVE') || 'LIVE ···' }}</span></p>
           <p class="updated mono">{{ t.footer.updated }} · {{ updatedAt || '···' }}</p>
