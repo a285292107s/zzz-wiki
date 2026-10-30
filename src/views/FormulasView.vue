@@ -2,7 +2,7 @@
 import { computed, onMounted, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { useLocale } from '@/composables/useLocale'
+import { useLocale, useChinesePageLang } from '@/composables/useLocale'
 import { useUiText } from '@/composables/useUiText'
 import { useNavScrollable } from '@/composables/useNavScrollable'
 import { useDataVersion } from '@/composables/useDataVersion'
@@ -22,6 +22,7 @@ import InterruptLab from '@/components/formula/InterruptLab.vue'
 const { lang } = useLocale()
 const { t } = useUiText()
 
+useChinesePageLang()
 usePageMeta(FORMULA_GUIDE.title, FORMULA_GUIDE.sub)
 
 const parts = FORMULA_GUIDE.parts

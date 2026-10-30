@@ -15,7 +15,7 @@ import { CATALOG } from '@/domain/catalog'
 import { pickText, DEFAULT_LANG } from '@/domain/lang'
 import { listFor } from '@/data/resources'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { useLocale } from '@/composables/useLocale'
+import { useLocale, useChinesePageLang } from '@/composables/useLocale'
 import { useUiText } from '@/composables/useUiText'
 import { useDataVersion } from '@/composables/useDataVersion'
 import { ListPage, DetailSection } from '@/components'
@@ -31,6 +31,8 @@ usePageMeta(
 const { lang } = useLocale()
 const { t } = useUiText()
 const { updatedAt, versionLabel } = useDataVersion()
+
+useChinesePageLang()
 
 /** 各类目收录量：与名录页同源（api 层缓存，进入本页基本零网络） */
 const counts = ref<Record<string, number>>({})

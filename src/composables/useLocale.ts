@@ -17,7 +17,7 @@
  * （切换入口只有设置页一处，站头没有语言控件——站的宽度空间账不允许，见 0010。）
  * ============================================================ */
 
-import { readonly, ref, type Ref } from 'vue'
+import { onUnmounted, readonly, ref, type Ref } from 'vue'
 import { DEFAULT_LANG, LANG_META, isLang, type Lang } from '@/domain/lang'
 
 const STORAGE_KEY = 'zzz-wiki:lang'
@@ -69,4 +69,15 @@ export function setLang(next: Lang): void {
 /** 组件内取用：`const { lang, setLang } = useLocale()`（模板里 `lang` 自动解包） */
 export function useLocale(): { lang: Readonly<Ref<Lang>>; setLang: (next: Lang) => void } {
   return { lang, setLang }
+}
+
+/**
+ * 中文单语长文页的根语言覆盖（决策记录 0028）。
+ * 正文只有中文而 `<html lang>` 跟着展示语言走时，读屏按错误音系朗读、浏览器认定
+ * 「这页已是该语言」而不提示翻译（WCAG 3.1.2）；离开该页时还原为展示语言。
+ */
+export function useChinesePageLang(): void {
+  const { lang } = useLocale()
+  applyHtmlLang('zh')
+  onUnmounted(() => applyHtmlLang(lang.value))
 }

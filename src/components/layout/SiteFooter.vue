@@ -11,27 +11,47 @@
         </div>
         <p class="disclaimer">{{ t.footer.copyright }}</p>
       </div>
-      <div v-if="isDev" class="foot-actions">
+      <div class="foot-actions">
         <RouterLink
-          v-for="r in DEV_FOOTER_ROUTES"
-          :key="r.path"
-          :to="r.path"
-          class="style-link mono"
-        >{{ r.footerLabel }}</RouterLink>
+          v-for="e in infoLinks"
+          :key="e.path"
+          :to="e.path"
+          class="foot-btn mono"
+        >{{ e.label }}</RouterLink>
+        <template v-if="isDev">
+          <RouterLink
+            v-for="r in DEV_FOOTER_ROUTES"
+            :key="r.path"
+            :to="r.path"
+            class="foot-btn mono"
+          >{{ r.footerLabel }}</RouterLink>
+        </template>
       </div>
     </div>
   </footer>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { IS_DEV, DEV_FOOTER_ROUTES } from '@/domain/devRoutes'
+import { SITE_INFO_ENTRIES } from '@/domain/catalog'
+import { pickText } from '@/domain/lang'
 import { useUiText } from '@/composables/useUiText'
+import { useLocale } from '@/composables/useLocale'
 import { useDataVersion } from '@/composables/useDataVersion'
 
 const { t } = useUiText()
+const { lang } = useLocale()
 
 const isDev = IS_DEV
+
+const infoLinks = computed(() =>
+  SITE_INFO_ENTRIES.map((e) => ({
+    path: e.path,
+    label: pickText(e.label, lang.value),
+  })),
+)
 
 const { updatedAt, versionLabel } = useDataVersion()
 </script>
@@ -99,7 +119,15 @@ const { updatedAt, versionLabel } = useDataVersion()
   color: var(--amber);
 }
 
-.style-link {
+.foot-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-1);
+}
+
+.foot-btn {
   font-size: var(--fs-micro);
   letter-spacing: 0.18em;
   color: var(--ink-2) !important;
@@ -108,13 +136,7 @@ const { updatedAt, versionLabel } = useDataVersion()
   border-radius: 2px;
 }
 
-.foot-actions {
-  display: flex;
-  align-items: center;
-  gap: var(--space-1);
-}
-
-.style-link:hover {
+.foot-btn:hover {
   color: var(--amber-hi) !important;
   border-color: var(--amber) !important;
 }
@@ -129,6 +151,10 @@ const { updatedAt, versionLabel } = useDataVersion()
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-2);
+  }
+
+  .foot-actions {
+    justify-content: flex-start;
   }
 
   .foot-line {

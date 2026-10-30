@@ -60,8 +60,8 @@ const sections = computed(() => [
       glyph: '' as string,
     }
   }),
-  // 图文板块（战斗公式 / 数据说明）：无游戏图标，用各自的标本符号作占位。
-  // 首页目录是站点索引，常设页面全部列入（站头导航只用 nav:true 的子集）。
+  // 图文板块（战斗公式 / 设置）：无游戏图标，用各自的标本符号作占位。
+  // 首页目录只列游戏内容与本机偏好，站点自身说明（项目架构 / 数据说明）只从页脚进入。
   ...GUIDE_ENTRIES.map((g) => {
     const label = pickText(g.label, lang.value)
     return {

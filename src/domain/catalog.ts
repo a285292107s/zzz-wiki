@@ -100,11 +100,10 @@ export const CATALOG: readonly CatalogEntry[] = [
 ]
 
 /**
- * 图文板块入口（非数据类目的常设页面）。
- * 独立于 CATALOG：它们没有 listFile/detailDir/icon 契约，故不进 CATALOG 数组，
- * 专供站头导航与首页目录展示。字段：
- *   - nav：是否进站头主导航（战斗公式与设置进；出处类的「数据说明」只在首页目录与页脚出现）
- *   - glyph：无游戏图标时的标本符号（首页目录的占位符，与设计语言的「×」同族）
+ * 图文板块入口（非数据类目的常设页面）。独立于 CATALOG：它们没有 listFile/detailDir/icon 契约。
+ * 字段：
+ *   - nav：是否进站头主导航（战斗公式与设置进）
+ *   - glyph：无游戏图标时的标本符号（首页目录的占位符）
  *
  * 编号是**展示位次**（站头导航与首页目录都会印出来），故必须连续：
  * 目录顺序 = 编号升序 = 站头导航顺序（导航取其中 nav:true 的，编号不留空号）。
@@ -149,35 +148,32 @@ export const GUIDE_ENTRIES: readonly GuideEntry[] = [
     glyph: '⋮',
     nav: true,
   },
+] as const
+
+/**
+ * 站点自身说明（与游戏内容无关的页面）：只从页脚进入，不进首页目录与站头导航，
+ * 故没有展示位次与图标。页脚链接由本清单派生，不手写第二份文案（决策记录 0028）。
+ */
+export interface SiteInfoEntry {
+  label: Loc
+  path: string
+}
+
+export const SITE_INFO_ENTRIES: readonly SiteInfoEntry[] = [
   {
-    no: '07',
     label: { zh: '项目架构', en: 'Architecture', ja: 'サイト構成', ko: '사이트 구조' },
-    en: 'ARCHITECTURE',
     path: '/architecture',
-    desc: {
-      zh: '一张可缩放的等距地图：六层台子、三十四座楼、五十五根连线。',
-      en: 'A zoomable isometric map: six terraces, thirty-four buildings, fifty-five links.',
-      ja: 'ズームできる等角投影マップ：六つの台座、三十四の建物、五十五本の線。',
-      ko: '확대할 수 있는 등각 투영 지도: 여섯 대좌, 서른네 건물, 쉰다섯 연결선.',
-    },
-    glyph: '▤',
-    nav: false,
   },
   {
-    no: '08',
     label: { zh: '数据说明', en: 'About the data', ja: 'データについて', ko: '데이터 안내' },
-    en: 'COLOPHON',
     path: '/about',
-    desc: {
-      zh: '数据来源与覆盖范围、更新机制、校验门禁与版权声明。',
-      en: 'Data sources and coverage, the update pipeline, validation gates and copyright.',
-      ja: 'データの出典と範囲、更新の仕組み、検証ゲート、著作権表示。',
-      ko: '데이터 출처와 범위, 업데이트 구조, 검증 게이트, 저작권 고지.',
-    },
-    glyph: '§',
-    nav: false,
   },
 ] as const
+
+/** 按路由路径取板块名（首页目录板块 + 页脚说明页），缺失返回 undefined。 */
+export function guideForPath(path: string): { label: Loc } | undefined {
+  return [...GUIDE_ENTRIES, ...SITE_INFO_ENTRIES].find((e) => e.path === path)
+}
 
 /**
  * 站头导航一览 = 4 个数据类目 + 进主导航的图文板块（GUIDE_ENTRIES 里 nav:true 的）。

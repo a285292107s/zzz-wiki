@@ -19,7 +19,7 @@ export interface DevRoute {
   path: string
   /** 页面标题（页头/document title 用） */
   title: string
-  /** 页脚入口文案（可选；不填则该页不进页脚） */
+  /** 页脚入口文案（可选；不填则该页不进页脚）。dev 工具页只有中文，故用中文短名。 */
   footerLabel?: string
 }
 
@@ -29,13 +29,13 @@ export const DEV_ROUTES: readonly DevRoute[] = [
     name: 'style-guide',
     path: '/style',
     title: '设计系统',
-    footerLabel: 'DESIGN SYSTEM',
+    footerLabel: '设计系统',
   },
   {
     name: 'calibrate',
     path: '/calibrate',
     title: '图库校准',
-    footerLabel: 'CALIBRATE',
+    footerLabel: '图库校准',
   },
 ]
 

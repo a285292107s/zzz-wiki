@@ -1,6 +1,6 @@
 import { nextTick } from 'vue'
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
-import { CATALOG, GUIDE_ENTRIES } from '@/domain/catalog'
+import { CATALOG, guideForPath } from '@/domain/catalog'
 import { joinLoc, type Loc } from '@/domain/lang'
 import { uiLoc } from '@/domain/uiText'
 import { DEV_ROUTES } from '@/domain/devRoutes'
@@ -17,7 +17,7 @@ type TitleLoc = Loc
 
 /** 板块页标题：catalog 与 GUIDE_ENTRIES 的单一事实源里取（缺失即抛错）。 */
 function guideLabel(path: string): TitleLoc {
-  const g = GUIDE_ENTRIES.find((x) => x.path === path)
+  const g = guideForPath(path)
   if (!g) throw new Error(`[router] 未登记的板块路径：${path}`)
   return g.label
 }

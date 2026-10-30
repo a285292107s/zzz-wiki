@@ -232,7 +232,7 @@ import {
   type AtlasModule,
 } from '@/domain/atlas'
 import { usePageMeta } from '@/composables/usePageMeta'
-import { useLocale } from '@/composables/useLocale'
+import { useLocale, useChinesePageLang } from '@/composables/useLocale'
 import { useUiText } from '@/composables/useUiText'
 import { useDataVersion } from '@/composables/useDataVersion'
 import { useMediaQuery } from '@/composables/useMediaQuery'
@@ -256,6 +256,8 @@ const { lang } = useLocale()
 const { t } = useUiText()
 const { versionLabel } = useDataVersion()
 const wide = useMediaQuery('(min-width: 1024px)')
+
+useChinesePageLang()
 
 const selected = ref('')
 const query = ref('')
