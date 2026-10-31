@@ -1,9 +1,15 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { useBottomBar } from '@/composables/useBottomBar'
 import { useUiText } from '@/composables/useUiText'
 
 const { t } = useUiText()
+const { barHidden, moreOpen } = useBottomBar()
 const visible = ref(false)
+const focused = ref(false)
+const shown = computed(
+  () => visible.value && !moreOpen.value && (!barHidden.value || focused.value),
+)
 let onScroll: (() => void) | null = null
 
 function scrollToTop() {
@@ -30,9 +36,11 @@ onUnmounted(() => {
     type="button"
     class="back-top mono"
     data-vt-block
-    :class="{ show: visible }"
-    :aria-hidden="visible ? undefined : 'true'"
-    :tabindex="visible ? 0 : -1"
+    :class="{ show: shown, 'below-bar': barHidden }"
+    :aria-hidden="shown ? undefined : 'true'"
+    :tabindex="shown ? 0 : -1"
+    @focus="focused = true"
+    @blur="focused = false"
     @click="scrollToTop"
   >
     <!-- 可访问名从内容派生（「TOP」）＋ sr-only 操作说明：aria-label 若与可见文本不一致，
@@ -47,7 +55,7 @@ onUnmounted(() => {
 .back-top {
   position: fixed;
   right: 22px;
-  bottom: 24px;
+  bottom: calc(24px + var(--tabbar-offset));
   z-index: var(--z-overlay);
   display: inline-flex;
   align-items: center;
@@ -62,7 +70,8 @@ onUnmounted(() => {
   opacity: 0;
   transform: translateY(8px);
   pointer-events: none;
-  transition: opacity var(--t-med) var(--ease),
+  transition: bottom var(--t-med) var(--ease),
+    opacity var(--t-med) var(--ease),
     transform var(--t-med) var(--ease),
     color var(--t-fast) var(--ease),
     border-color var(--t-fast) var(--ease);
@@ -86,6 +95,17 @@ onUnmounted(() => {
   line-height: 1;
 }
 
+@media (max-width: 999px) {
+  .back-top {
+    right: 12px;
+    bottom: calc(12px + var(--tabbar-offset));
+  }
+
+  .back-top.below-bar {
+    bottom: 12px;
+  }
+}
+
 @media (max-width: 720px) {
   .back-top .arrow {
     font-size: var(--fs-lead);
@@ -94,8 +114,6 @@ onUnmounted(() => {
 
 @media (max-width: 720px) {
   .back-top {
-    right: 12px;
-    bottom: 12px;
     width: 44px;
     height: 44px;
     padding: 0;

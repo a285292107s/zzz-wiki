@@ -3,6 +3,7 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterView, useRouter } from 'vue-router'
 import SiteHeader from '@/components/layout/SiteHeader.vue'
 import SiteFooter from '@/components/layout/SiteFooter.vue'
+import BottomBar from '@/components/layout/BottomBar.vue'
 import BackToTop from '@/components/BackToTop.vue'
 import TermTip from '@/components/detail/TermTip.vue'
 import QuickSearch from '@/components/QuickSearch.vue'
@@ -55,8 +56,10 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onGlobalKeydown))
     <!-- 键盘跳转链接：首个 Tab 即达正文，免于逐个穿过站头导航；获焦前视觉隐藏 -->
     <a class="skip-link mono" href="#main">{{ t.app.skipToContent }}</a>
 
-    <!-- 站头：品牌 + 主排导航（窄屏收进 ☰ 菜单）+ 检索（SiteHeader） -->
+    <!-- 站头：品牌 + 主排导航（窄屏由底部栏接管）+ 检索（SiteHeader） -->
     <SiteHeader />
+
+    <BottomBar />
 
     <!-- 主内容区：ErrorBoundary 包裹视图，渲染异常时捕获并显示友好回退，避免白屏。
          key 用 path 而非 fullPath：query 同步的筛选/搜索不重挂载视图，切换页面时错误态重置 -->
@@ -87,6 +90,7 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onGlobalKeydown))
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
+  padding-bottom: var(--tabbar-offset);
 }
 
 .main {

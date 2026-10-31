@@ -16,6 +16,7 @@ export interface CatalogEntry {
   no: string
   /** 类目名（四语） */
   label: Loc
+  tabLabel: Loc
   /** 英文标识（导航/首页排版用，语言无关） */
   en: string
   /** 路由路径 */
@@ -36,6 +37,7 @@ export const CATALOG: readonly CatalogEntry[] = [
   {
     no: '01',
     label: { zh: '代理人', en: 'Agents', ja: '代理人', ko: '에이전트' },
+    tabLabel: { zh: '代理人', en: 'Agents', ja: '代理人', ko: '에이전트' },
     en: 'AGENTS',
     path: '/agents',
     desc: {
@@ -52,6 +54,7 @@ export const CATALOG: readonly CatalogEntry[] = [
   {
     no: '02',
     label: { zh: '音擎', en: 'W-Engines', ja: '音動機', ko: 'W-엔진' },
+    tabLabel: { zh: '音擎', en: 'Engines', ja: '音動機', ko: 'W-엔진' },
     en: 'W-ENGINES',
     path: '/w-engines',
     desc: {
@@ -68,6 +71,7 @@ export const CATALOG: readonly CatalogEntry[] = [
   {
     no: '03',
     label: { zh: '驱动盘', en: 'Drive Discs', ja: 'ドライブディスク', ko: '드라이브 디스크' },
+    tabLabel: { zh: '驱动盘', en: 'Discs', ja: 'ディスク', ko: '디스크' },
     en: 'DRIVE DISCS',
     path: '/disks',
     desc: {
@@ -84,6 +88,7 @@ export const CATALOG: readonly CatalogEntry[] = [
   {
     no: '04',
     label: { zh: '邦布', en: 'Bangboos', ja: 'ボンプ', ko: '뱅부' },
+    tabLabel: { zh: '邦布', en: 'Bangboo', ja: 'ボンプ', ko: '뱅부' },
     en: 'BANGBOO',
     path: '/bangboos',
     desc: {
@@ -177,9 +182,9 @@ export function guideForPath(path: string): { label: Loc } | undefined {
 
 /**
  * 站头导航一览 = 4 个数据类目 + 进主导航的图文板块（GUIDE_ENTRIES 里 nav:true 的）。
- * SiteHeader 的主排导航（≥980）与它的窄屏 ☰ 菜单（≤979）共用这一份派生结果：
+ * SiteHeader 的主排导航（≥1000）与底部栏（≤999）共用这一份派生结果：
  * 两处必须是同一份清单，改这里即两处同步。检索面板**不**列这一份——
- * 导航入口归站头一处，面板只做检索（见 QuickSearch 头部注释）。
+ * 导航入口全站只留一处，面板只做检索（见 QuickSearch 头部注释）。
  */
 export const NAV_ENTRIES: readonly { no: string; label: Loc; en: string; to: string }[] = [
   ...CATALOG.map((c) => ({ no: c.no, label: c.label, en: c.en, to: c.path })),

@@ -5,7 +5,7 @@
  * 动态结构只在展开后存在——它们的 ARIA 组合、焦点可见性、对比度从未被覆盖。
  * 本脚本逐个打开交互面并在该状态下跑全量 axe。
  *
- * 覆盖：窄屏 ☰ 导航菜单、筛选下拉（listbox）、检索面板（dialog）、术语浮层、设置页偏好选项板。
+ * 覆盖：窄屏底部栏更多面板、筛选下拉（listbox）、检索面板（dialog）、术语浮层、设置页偏好选项板。
  * 用法：playwright-cli open http://localhost:4175 && \
  *       playwright-cli run-code --filename=scripts/audits/axe-states.js
  * 基线：各状态 0 violations
@@ -35,17 +35,17 @@ async (page) => {
     if (closeFn) await closeFn(page)
   }
 
-  // 1) 窄屏 ☰ 菜单展开态——导航在 ≤979 收进这里（见 SiteHeader 的 979 断点），
+  // 1) 窄屏底部栏「更多」展开态——导航在 ≤999 由底部栏接管（见 BottomBar 的断点），
   //    展开后的清单与静态站头不同构，其对比度 / 可访问名 / aria-expanded 必须单独过审
-  await audit('site-menu-mobile-open', {
+  await audit('bottom-bar-more-mobile-open', {
     route: '/',
     viewport: { width: 412, height: 823 },
     openFn: async (p) => {
-      await p.click('.menu-toggle')
+      await p.click('.tab-more')
       await p.waitForTimeout(400)
       return true
     },
-    expect: '#site-menu',
+    expect: '#tabbar-more',
     closeFn: async (p) => {
       await p.keyboard.press('Escape')
       await p.waitForTimeout(300)

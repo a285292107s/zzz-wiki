@@ -6,10 +6,11 @@
  *
  * 覆盖：跳转链接 / 全局检索（开→输入→方向键→回车→Esc 归还焦点）/ 筛选下拉
  * （开→方向键→回车→**焦点归还触发钮**）/ 名录检索输入 / 详情翻页 / 等级滑条
- * （连按两步必须都生效）/ 回到顶部 / 术语浮层 / 窄屏 ☰ 导航菜单
- * （开→条目与站头导航同数→Esc 关闭→焦点归还）/ 点当前页条目也收起 / 检索面板不兼任
- * 导航（窄屏与桌面一致）/ Esc 在任意焦点位置都能关检索面板 / 菜单开着时 Ctrl+K 先收菜单 /
- * 纯空格查询的空态判据与模板一致 / 空态「检索范围」只在无最近访问时出现。
+ * （连按两步必须都生效）/ 回到顶部 / 术语浮层 / 窄屏底部栏
+ * （更多面板开→条目与站头导航同数→Esc 关闭→焦点归还）/ 点当前页条目也收起 /
+ * 下滑隐藏与上滑出现 / 检索面板不兼任导航（窄屏与桌面一致）/ Esc 在任意焦点位置都能关
+ * 检索面板 / 更多面板开着时 Ctrl+K 先收面板 / 纯空格查询的空态判据与模板一致 /
+ * 空态「检索范围」只在无最近访问时出现。
  *
  * 用法：playwright-cli open http://localhost:4175 && \
  *       playwright-cli run-code --filename=scripts/audits/keyboard-journey.js
@@ -117,62 +118,68 @@ async (page) => {
   await page.waitForTimeout(400)
   add('kb-term-tip', tipOpened, String(tipOpened))
 
-  /* ---------- 7) 窄屏 ☰ 菜单：开 → 与站头导航同数 → Esc 关闭 → 焦点归还 ---------- */
+  /* ---------- 7) 窄屏底部栏：更多面板开 → 与站头导航同数 → Esc 关闭 → 焦点归还 ---------- */
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1600)
-  // 站头主排导航在 ≤979 隐去，☰ 菜单接管（检索面板不兼任导航，两个断点都不列，见 7b）
-  await page.evaluate(() => document.querySelector('.menu-toggle')?.focus())
+  // 站头主排导航在 ≤999 隐去，底部栏接管（检索面板不兼任导航，两个断点都不列，见 7b）
+  await page.evaluate(() => document.querySelector('.tab-more')?.focus())
   await page.keyboard.press('Enter')
   await page.waitForTimeout(500)
   const menuMobile = await page.evaluate(() => {
-    const panel = document.querySelector('#site-menu')
+    const panel = document.querySelector('#tabbar-more')
+    const bar = document.querySelector('.bottom-bar')
     return {
       open: !!panel && getComputedStyle(panel).display !== 'none',
-      expanded: document.querySelector('.menu-toggle')?.getAttribute('aria-expanded'),
-      items: document.querySelectorAll('#site-menu .menu-item').length,
+      expanded: document.querySelector('.tab-more')?.getAttribute('aria-expanded'),
+      moreItems: document.querySelectorAll('#tabbar-more .more-item').length,
+      primaryItems: document.querySelectorAll('.bottom-nav .tab[href]').length,
       // 与主排导航同源：即便主排导航在窄屏不可见，DOM 里的条目数仍应一致
       navItems: document.querySelectorAll('.nav .nav-item').length,
+      barVisible: !!bar && getComputedStyle(bar).visibility !== 'hidden',
     }
   })
   await page.keyboard.press('Escape')
   await page.waitForTimeout(500)
-  const afterMenuEsc = await active()
-  // 菜单条目必须与站头导航同一份清单（不是「至少 4 项」）：数值漂移即说明两处清单脱钩
+  const focusReturned = await page.evaluate(
+    () => document.activeElement?.classList.contains('tab-more') ?? false,
+  )
+  // 底部栏四类目 + 更多面板两条，必须与站头导航同一份清单（不是「至少 4 项」）
   add(
-    'kb-mobile-nav-menu',
-    menuMobile.open &&
+    'kb-mobile-tabbar-more',
+    menuMobile.barVisible &&
+      menuMobile.open &&
       menuMobile.expanded === 'true' &&
-      menuMobile.items > 0 &&
-      menuMobile.items === menuMobile.navItems &&
-      afterMenuEsc.includes('menu-toggle'),
-    JSON.stringify({ ...menuMobile, focus: afterMenuEsc }),
+      menuMobile.moreItems > 0 &&
+      menuMobile.primaryItems + menuMobile.moreItems === menuMobile.navItems &&
+      focusReturned,
+    JSON.stringify({ ...menuMobile, focusReturned }),
   )
 
-  /* ---------- 7aa) 菜单里点「当前页自己」也必须收起（回归护栏） ----------
-     只靠 watch(route.fullPath) 时这一条会失败：路径没变 → watch 不触发 → 菜单赖着
-     不收、切换钮仍读作 expanded（发布前独立审查实测到的真缺陷）。修法是面板上加
-     一层 click 委托，与 watch 互补（正常跳转两者都命中，同页跳转只有委托能命中）。 */
-  await page.goto('http://localhost:4175/agents', { waitUntil: 'networkidle' })
+  /* ---------- 7aa) 更多面板里点「当前页自己」也必须收起（回归护栏） ----------
+     只靠 watch(route.fullPath) 时这一条会失败：路径没变 → watch 不触发 → 面板赖着
+     不收、按钮仍读作 expanded（发布前独立审查实测到的真缺陷）。收起由路由监听 +
+     面板上的 click 委托共同覆盖（正常跳转两者都命中，同页跳转只有委托能命中）。 */
+  await page.goto('http://localhost:4175/formulas', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1400)
-  await page.click('.menu-toggle')
+  await page.click('.tab-more')
   await page.waitForTimeout(350)
-  // 第一项就是 /agents（01 代理人），点它 = 点当前页
-  await page.click('#site-menu .menu-item:nth-child(1)')
+  // 第一项就是 /formulas（05 战斗公式），点它 = 点当前页
+  await page.click('#tabbar-more .more-item:nth-child(1)')
   await page.waitForTimeout(700)
   const afterSelfNav = await page.evaluate(() => ({
     path: location.pathname,
-    open: getComputedStyle(document.querySelector('#site-menu')).display !== 'none',
-    expanded: document.querySelector('.menu-toggle').getAttribute('aria-expanded'),
+    open: getComputedStyle(document.querySelector('#tabbar-more')).display !== 'none',
+    expanded: document.querySelector('.tab-more').getAttribute('aria-expanded'),
   }))
   add(
-    'kb-mobile-menu-self-nav-closes',
-    afterSelfNav.path === '/agents' && !afterSelfNav.open && afterSelfNav.expanded === 'false',
+    'kb-mobile-more-self-nav-closes',
+    afterSelfNav.path === '/formulas' && !afterSelfNav.open && afterSelfNav.expanded === 'false',
     JSON.stringify(afterSelfNav),
   )
 
   /* ---------- 7b) 检索面板不兼任导航：窄屏与桌面**都不**列类目入口 → Esc 归还焦点 ----------
-     导航入口归站头（≥980 主排导航 / ≤979 ☰ 菜单）；面板若再列一遍同一批目的地，
+     导航入口归站头（≥1000 主排导航 / ≤999 底部栏）；面板若再列一遍同一批目的地，
      就是两个入口指同一处。这一条守住「面板只做检索」在两个断点上都成立。 */
   const probePanel = async (w) => {
     await page.setViewportSize({ width: w, height: 844 })
@@ -240,19 +247,19 @@ async (page) => {
     JSON.stringify(escPositions),
   )
 
-  /* ---------- 7d) 菜单开着时 Ctrl+K：菜单必须先收起（回归护栏） ----------
-     面板铺满全屏且 aria-modal="true"；菜单若留着，会留在可访问树里（读屏可读到）、
-     指针却点不到，且 Esc 会被站头的文档级监听抢走、把焦点拽出对话框。 */
+  /* ---------- 7d) 更多面板开着时 Ctrl+K：面板必须先收起（回归护栏） ----------
+     检索面板铺满全屏且 aria-modal="true"；更多面板若留着，会留在可访问树里（读屏可读到）、
+     指针却点不到，且 Esc 会被底部栏的文档级监听抢走、把焦点拽出对话框。 */
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
   await page.waitForTimeout(1200)
-  await page.click('.menu-toggle')
+  await page.click('.tab-more')
   await page.waitForTimeout(350)
   await page.keyboard.press('Control+k')
   await page.waitForTimeout(1700)
   const menuVsPanel = await page.evaluate(() => ({
-    menuOpen: getComputedStyle(document.querySelector('#site-menu')).display !== 'none',
-    expanded: document.querySelector('.menu-toggle').getAttribute('aria-expanded'),
+    moreOpen: getComputedStyle(document.querySelector('#tabbar-more')).display !== 'none',
+    expanded: document.querySelector('.tab-more').getAttribute('aria-expanded'),
     panelOpen: !!document.querySelector('.qs-panel'),
     active: document.activeElement ? String(document.activeElement.className).split(' ')[0] : 'none',
   }))
@@ -260,13 +267,51 @@ async (page) => {
   await page.waitForTimeout(500)
   const escAfter = await page.evaluate(() => ({
     panelOpen: !!document.querySelector('.qs-panel'),
-    menuOpen: getComputedStyle(document.querySelector('#site-menu')).display !== 'none',
+    moreOpen: getComputedStyle(document.querySelector('#tabbar-more')).display !== 'none',
   }))
   add(
-    'kb-ctrlk-closes-menu',
-    menuVsPanel.panelOpen && !menuVsPanel.menuOpen && menuVsPanel.expanded === 'false' &&
-      menuVsPanel.active.includes('qs-input') && !escAfter.panelOpen && !escAfter.menuOpen,
+    'kb-ctrlk-closes-more',
+    menuVsPanel.panelOpen && !menuVsPanel.moreOpen && menuVsPanel.expanded === 'false' &&
+      menuVsPanel.active.includes('qs-input') && !escAfter.panelOpen && !escAfter.moreOpen,
     JSON.stringify({ atOpen: menuVsPanel, afterEsc: escAfter }),
+  )
+
+  /* ---------- 7f) 底部栏下滑隐藏 / 上滑出现 ---------- */
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('http://localhost:4175/', { waitUntil: 'networkidle' })
+  await page.waitForTimeout(1600)
+  const barVisible = () =>
+    page.evaluate(() => {
+      const el = document.querySelector('.bottom-bar')
+      return !!el && getComputedStyle(el).visibility !== 'hidden'
+    })
+  const backTopState = () =>
+    page.evaluate(() => {
+      const el = document.querySelector('.back-top')
+      return {
+        show: !!el && el.classList.contains('show'),
+        below: !!el && el.classList.contains('below-bar'),
+      }
+    })
+  // 600 同时满足：离页底 >240px（回顶自身可见）且未触发底栏 atBottom，
+  // 这样「回顶不显示」才归因于底栏联动，而不是「接近页底」
+  await page.evaluate(() => window.scrollTo(0, 600))
+  await page.waitForTimeout(700)
+  const hiddenOnDown = !(await barVisible())
+  const topOnDown = await backTopState()
+  await page.evaluate(() => window.scrollTo(0, 400))
+  await page.waitForTimeout(700)
+  const shownOnUp = await barVisible()
+  const topOnUp = await backTopState()
+  add(
+    'kb-tabbar-scroll',
+    hiddenOnDown &&
+      shownOnUp &&
+      !topOnDown.show &&
+      topOnDown.below &&
+      topOnUp.show &&
+      !topOnUp.below,
+    JSON.stringify({ hiddenOnDown, shownOnUp, topOnDown, topOnUp }),
   )
 
   /* ---------- 7e) 纯空格查询：空态判据必须与模板一致（回归护栏） ----------

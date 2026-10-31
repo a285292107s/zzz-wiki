@@ -22,6 +22,14 @@ describe('catalog 入口契约', () => {
     ])
   })
 
+  it('底部栏短标签四语齐全', () => {
+    for (const lang of LANGS) {
+      for (const c of CATALOG) {
+        expect(pickText(c.tabLabel, lang).trim(), `${lang} ${c.path}`).not.toBe('')
+      }
+    }
+  })
+
   it('站点说明页不进首页目录、不进站头导航', () => {
     const listed = new Set(HOME_ENTRIES.map((e) => e.path))
     for (const e of SITE_INFO_ENTRIES) {

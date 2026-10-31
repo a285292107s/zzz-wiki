@@ -161,6 +161,7 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 | 组件 | 职责 | 吸收的重复 |
 |---|---|---|
 | SiteHeader / SiteFooter | 布局 | App.vue 的结构+样式 |
+| BottomBar | 窄屏（≤999）固定底栏：4 类目 + 更多面板 | 取代站头 ☰ 与推开面板（决策 0029） |
 | ListPage | 列表页容器（.page / .page-head 样式） | 4 个列表页的重复定义 |
 | AsyncState | loading/error/empty 呈现 | 各列表页三件套 |
 | CatalogTableSkeleton | 表格骨架屏 | 各列表页加载态 |
@@ -201,7 +202,8 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
 - 新增设计系统文档路由（/style；见 §9）。
 - 新增战斗公式页（/formulas，FormulasView + FormulaEq 组件 + formulaGuide.ts 单一事实源）。
 - 新增设置页（/settings，SettingsView）：本机偏好——佩洛伊斯立绘形态与**展示语言**。
-  **入口在站头导航第 06 位与首页目录**（导航入口数受 ADR 0004 约束，故替换掉原先占位的档案图谱）；
+  **入口在导航第 06 位（桌面主排 / 窄屏「更多」面板）与首页目录**
+  （导航入口数受 ADR 0004 约束，故替换掉原先占位的档案图谱）；
   **不进 sitemap，也不参与按路由预载**（`generate-route-html.mjs` 的 `VIEW_OF`/`STATIC_META` 无此页）。
 - 新增项目架构页（/architecture，ArchitectureView + `AtlasMap` / `AtlasDetail`）：一张**可缩放的等距分层地图**——
   六块台子（外部与构建期 / 入口与壳 / 页面 / 展示 / 状态 / 核心）上立着三十四栋等距楼房，台子长度与房子占地按代码体量分档、
@@ -209,7 +211,7 @@ src/domain/catalog.ts 定义 4 类目（代理人/音擎/邦布/驱动盘）唯�
   四类连线（装配调用 / 读取本地 / 站外取源 / 构建产出）用颜色与粗细区分；核心那层是三列并排的栏架；
   可平移、缩放、按类筛线、按层过滤、按名检索，点一格在面板里看路径与上下游。窄屏（<1024）不画地图，
   改成六层模块清单并在行内展开详情。**入口只有页脚**（首页目录只列游戏内容与本机偏好，
-  站头导航不加，ADR 0004；见[决策记录 0028](./docs/decisions/0028-chinese-only-pages-and-footer-entries.md)）；
+  导航不加，ADR 0004；见[决策记录 0028](./docs/decisions/0028-chinese-only-pages-and-footer-entries.md)）；
   模块与连线的事实单一事实源是 `domain/atlas.ts`，几何在 `utils/isoAtlas.ts`，图上的读数全部动态取。
   为什么是一张交互地图而不是静物图 / 3D 库 / 构建期扫描，见
   [决策记录 0027](./docs/decisions/0027-architecture-page-as-zoomable-atlas.md)（取代了
